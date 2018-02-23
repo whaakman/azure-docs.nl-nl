@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: edde9d8c6fe070e5323cf63d222c7cd6a8983e8a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Stapsgewijs gegevens uit een Azure SQL-database laden in Azure Blob Storage
 In deze zelfstudie maakt u een Azure-gegevensfactory met een pijplijn waarmee deltagegevens uit een tabel in een Azure SQL-database worden geladen naar Azure Blob Storage. 
@@ -154,6 +154,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
+1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
 1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
@@ -192,7 +193,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
 3. Voer op de pagina **Algemeen** in het venster **Eigenschappen** voor de pijplijn de naam **IncrementalCopyPipeline** in. 
 
    ![Naam pijplijn](./media/tutorial-incremental-copy-portal/pipeline-name.png)
-4. We gaan de eerste opzoekactiviteit gebruiken om de oudste grenswaarde op te halen. Vouw in de **Activiteiten**-werkset de optie **SQL-database** uit. Gebruik vervolgens slepen-en-neerzetten om de **opzoekactiviteit** te verplaatsen naar het ontwerpoppervlak voor pijplijnen. Wijzig de naam van de activiteit in **LookupOldWaterMarkActivity**.
+4. We gaan de eerste opzoekactiviteit gebruiken om de oudste grenswaarde op te halen. Vouw in de **Activiteiten**-werkset de optie **Algemeen** uit. Gebruik vervolgens slepen-en-neerzetten om de **opzoekactiviteit** te verplaatsen naar het ontwerpoppervlak voor pijplijnen. Wijzig de naam van de activiteit in **LookupOldWaterMarkActivity**.
 
    ![Eerst opzoekactiviteit - naam](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. Ga naar het tabblad **Instellingen** en klik op **+ Nieuw** voor **Brongegevensset**. In deze stap maakt u een gegevensset die de gegevens in de **grenswaardetabel** vertegenwoordigt. Deze tabel bevat de oude grenswaarde die is gebruikt in de vorige kopieerbewerking. 
@@ -224,7 +225,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
 11. Ga naar de pijplijneditor door op het pijplijntabblad bovenaan te klikken of door in de structuurweergave aan de linkerkant op de naam van de pijplijn te klikken. Bevestig in het venster Eigenschappen voor de **opzoekactiviteit** dat **WatermarkDataset** is geselecteerd in het veld **Brongegevensset**. 
 
     ![Pijplijn - oude grenswaardegegevensset](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. Vouw in de **Activiteiten**-werkset de optie **SQL-database** uit. Gebruik vervolgens slepen-en-neerzetten om nog een **opzoekactiviteit** te verplaatsen naar het ontwerpoppervlak voor pijplijnen. Stel de naam op het tabblad **Algemeen** in het venster Eigenschappen in op **LookupNewWaterMarkActivity** Met deze opzoekactiviteit wordt de nieuwe grenswaarde opgehaald uit de tabel met de brongegevens die moeten worden gekopieerd naar de bestemming. 
+12. Vouw in de **Activiteiten**-werkset de optie **Algemeen** uit. Gebruik vervolgens slepen-en-neerzetten om nog een **opzoekactiviteit** te verplaatsen naar het ontwerpoppervlak voor pijplijnen. Stel de naam op het tabblad **Algemeen** in het venster Eigenschappen in op **LookupNewWaterMarkActivity**. Met deze opzoekactiviteit wordt de nieuwe grenswaarde opgehaald uit de tabel met de brongegevens die moeten worden gekopieerd naar de bestemming. 
 
     ![Tweede opzoekactiviteit - naam](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
 13. Ga in het venster Eigenschappen voor de tweede **opzoekactiviteit** naar het tabblad **Instellingen** en klik op **Nieuw**. U maakt een gegevensset om te verwijzen naar de brontabel met de nieuwe grenswaarde (maximumwaarde van LastModifyTime). 
@@ -295,7 +296,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
 
         ![Sink-gegevensset - verbindingsinstellingen](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. Ga naar de **pijplijneditor** door op het pijplijntabblad bovenaan te klikken of door in de structuurweergave aan de linkerkant op de naam van de pijplijn te klikken. 
-29. Vouw in de **Activiteiten**-werkset de optie **SQL-database** uit. Gebruik vervolgens slepen-en-neerzetten om de **opgeslagen-procedureactiviteit** uit de **Activiteiten**-werkset te verplaatsen naar het ontwerpoppervlak voor pijplijnen. **Verbind** de groene uitvoer (geslaagd) van de **kopieeractiviteit** met de **opgeslagen-procedureactiviteit**. 
+29. Vouw in de **Activiteiten**-werkset de optie **Algemeen** uit. Gebruik vervolgens slepen-en-neerzetten om de **opgeslagen-procedureactiviteit** uit de **Activiteiten**-werkset te verplaatsen naar het ontwerpoppervlak voor pijplijnen. **Verbind** de groene uitvoer (geslaagd) van de **kopieeractiviteit** met de **opgeslagen-procedureactiviteit**. 
     
     ![Kopieeractiviteit - bron](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
 24. Selecteer de **opgeslagen-procedureactiviteit** in de pijplijnontwerper en wijzig de naam ervan in **StoredProceduretoWriteWatermarkActivity**. 
@@ -306,26 +307,27 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
     ![Opgeslagen-procedureactiviteit - SQL-account](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Ga naar het tabblad **Opgeslagen procedure** en voer de volgende stappen uit: 
 
-    1. Voer **sp_write_watermark** in als **naam van de opgeslagen procedure**. 
-    2. Als u waarden wilt opgeven voor de opgeslagen-procedureparameters, klikt u op **+ Nieuw** in de sectie **Opgeslagen-procedureparameters** en voert u de volgende waarden in: 
+    1. Selecteer **sp_write_watermark** als naam van de **opgeslagen procedure**. 
+    2. Als u waarden wilt opgeven voor de opgeslagen-procedureparameters, klikt u op **Importparameter** en voert u de volgende waarden voor de parameters in: 
 
         | Name | Type | Waarde | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | datum/tijd | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Tekenreeks | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Opgeslagen-procedureactiviteit - instellingen voor de opgeslagen procedure](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Klik in de werkbalk op **Valideren** om de instellingen voor de pijplijn te valideren. Controleer of er geen validatiefouten zijn. Klik om >> om het venster **Pijplijnvalidatierapport** te sluiten.   
 
     ![Pijplijn valideren](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
-28. Publiceer entiteiten (gekoppelde services, gegevenssets en pijplijnen) naar de Azure Data Factory-service door op de knop **Publiceren** te klikken. Wacht tot u een bericht ziet waarin staat dat het publiceren is voltooid. 
+28. Publiceer entiteiten (gekoppelde services, gegevenssets en pijplijnen) naar de Azure Data Factory-service door op de knop **Alles publiceren** te klikken. Wacht tot u een bericht ziet waarin staat dat het publiceren is voltooid. 
 
     ![De knop Publiceren](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Een pijplijnuitvoering activeren
-Klik in de werkbalk op **Activeren** en klik op **Nu activeren**. 
+1. Klik in de werkbalk op **Activeren** en klik op **Nu activeren**. 
 
-![Knop Nu activeren](./media/tutorial-incremental-copy-portal/trigger-now.png)
+    ![Knop Nu activeren](./media/tutorial-incremental-copy-portal/trigger-now.png)
+2. Selecteer in het venster **Pijplijnuitvoering** de optie **Voltooien**. 
 
 ## <a name="monitor-the-pipeline-run"></a>De pijplijnuitvoering controleren.
 

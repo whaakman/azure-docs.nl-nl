@@ -15,11 +15,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: 1ee30aadc1bd07e7ac9a1894e4be832436ab5910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Ruby on Rails-webtoepassing op een Azure VM
 Deze zelfstudie laat zien hoe voor het hosten van een Ruby op Rails website op Azure met behulp van een virtuele Linux-machine.  
@@ -38,7 +38,7 @@ U kunt de Azure portal of de Azure-opdrachtregelinterface (CLI) gebruiken voor h
 
 ### <a name="azure-portal"></a>Azure Portal
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com)
-2. Klik op **nieuw**, typt u 'Ubuntu Server 14.04' in het zoekvak. Klik op het item dat is geretourneerd door de zoekopdracht. Selecteer het implementatiemodel **klassieke**, klik op 'Maken'.
+2. Klik op **maken van een resource**, typt u 'Ubuntu Server 14.04' in het zoekvak. Klik op het item dat is geretourneerd door de zoekopdracht. Selecteer het implementatiemodel **klassieke**, klik op 'Maken'.
 3. Geef waarden voor de vereiste velden in de blade grondbeginselen: naam (voor de virtuele machine), gebruikersnaam, authenticatietype en de bijbehorende aanmeldingsreferenties Azure-abonnement, resourcegroep en locatie.
 
    ![Maak een nieuwe Ubuntu-afbeelding](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)

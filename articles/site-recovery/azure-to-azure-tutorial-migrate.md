@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual machines migreren tussen Azure-regio's met Azure Site Recovery | Microsoft Docs
-description: Azure Site Recovery gebruiken voor het migreren van Azure IaaS VM's van een Azure-regio naar een andere.
+description: Azure Site Recovery gebruiken voor het migreren van virtuele Azure IaaS-machines van de ene Azure-regio naar een andere.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,129 +8,129 @@ ms.topic: tutorial
 ms.date: 01/07/2018
 ms.author: raynew
 ms.openlocfilehash: e7b925d2daed11ee4e070cda6bcbd4a3511d9c17
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-ms.translationtype: MT
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Virtuele Azure-machines migreren naar een andere regio
 
-Naast het gebruik van de [Azure Site Recovery](site-recovery-overview.md) service te beheren en te organiseren herstel na noodgevallen van on-premises machines en virtuele Azure-machines voor de doeleinden van zakelijke continuïteit en herstel na noodgevallen (BCDR) kunt u de Site ook gebruiken Herstel voor het beheren van de migratie van virtuele Azure-machines met een secundaire regio. Replicatie inschakelen voor deze om te migreren virtuele Azure-machines, en ze via failover van de primaire regio naar de secundaire regio van uw keuze.
+Behalve dat u de service [Azure Site Recovery](site-recovery-overview.md) kunt gebruiken om herstel na noodgevallen van on-premises machines en virtuele Azure-machines te beheren en te organiseren met als doel de bedrijfscontinuïteit te waarborgen, en deze service kunt gebruiken voor herstel na een noodgeval (BCDR), kunt u Site Recovery ook gebruiken om virtuele Azure-machines naar een secundaire regio te migreren. Als u virtuele Azure-machines wilt migreren, moet u replicatie voor deze machines inschakelen en er een failover voor uitvoeren naar de secundaire regio van uw keuze.
 
-Deze zelfstudie laat zien hoe u virtuele Azure-machines migreren naar een andere regio. In deze zelfstudie leert u het volgende:
+Deze zelfstudie laat zien hoe u virtuele Azure-machines naar een andere regio kunt migreren. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een Recovery services-kluis maken
-> * Replicatie inschakelen voor een virtuele machine
-> * Voer een failover voor het migreren van de virtuele machine
+> * Een Recovery Services-kluis maken
+> * Replicatie inschakelen voor een VM
+> * Een failover uitvoeren om de virtuele machine te migreren
 
-Deze zelfstudie wordt ervan uitgegaan er al een Azure-abonnement. Als u dit niet doet, maakt een [gratis account](https://azure.microsoft.com/pricing/free-trial/) voordat u begint.
+Voor deze zelfstudie wordt ervan uitgegaan dat u al een Azure-abonnement hebt. Als dat niet het geval is, moet u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) maken voordat u begint.
 
 >[!NOTE]
 >
-> Replicatie van site Recovery voor Azure VM's is momenteel in preview.
+> Replicatie van Site Recovery voor virtuele Azure-machines is momenteel in preview.
 
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie hebt voltooid, moet u virtuele Azure-machines in een Azure-regio van waaruit u wilt migreren. Bovendien zijn er een aantal instellingen die u controleren moet voordat u begint.
+Voor deze zelfstudie hebt u virtuele Azure-machines nodig in een Azure-regio van waaruit u wilt migreren. Bovendien zijn er een aantal instellingen die u moet controleren voordat u begint.
 
 
-### <a name="verify-target-resources"></a>Controleer of de doelresources
+### <a name="verify-target-resources"></a>Doelbronnen controleren
 
-1. Controleer of uw Azure-abonnement kunt u virtuele machines in de doelregio die wordt gebruikt voor herstel na noodgevallen maken. Neem contact op met ondersteuning voor het inschakelen van de quota voor vereist.
+1. Controleer of u een Azure-abonnement hebt waarmee u in staat bent om virtuele machines te maken in de doelregio die wordt gebruikt voor herstel na noodgevallen. Neem contact op met ondersteuning voor het inschakelen van het vereiste quotum.
 
-2. Zorg ervoor dat uw abonnement heeft onvoldoende bronnen ter ondersteuning van virtuele machines met grootten die overeenkomen met uw virtuele bronmachines. Site Recovery kiest even groot of de dichtstbijzijnde grootte voor het VM-doel.
+2. Zorg ervoor dat uw abonnement voldoende resources heeft die ondersteuning kunnen bieden voor VM’s met grootten die overeenkomen met uw bron-VM’s. Site Recovery kiest voor de doel-VM dezelfde of de dichtstbijzijnde grootte.
 
 
-### <a name="verify-account-permissions"></a>Controleer de accountmachtigingen
+### <a name="verify-account-permissions"></a>Accountmachtigingen controleren
 
-Als u hebt zojuist hebt gemaakt met uw gratis Azure-account bent u de beheerder van uw abonnement. Als u niet de abonnementsbeheerder bent, samen met de beheerder u moet machtigingen toewijzen. Om replicatie inschakelen voor een nieuwe virtuele machine, moet u het volgende hebben:
+Als u net pas uw gratis Azure-account hebt gemaakt, bent u de beheerder van uw abonnement. Als u niet de abonnementsbeheerder bent, neemt u contact op met de beheerder om de machtigingen te krijgen die u nodig hebt. Om replicatie in te kunnen schakelen voor een nieuwe virtuele machine, moet u het volgende hebben:
 
-1. Machtigingen voor het maken van een virtuele machine in Azure-resources. De ingebouwde rol 'Virtual Machine Contributor' beschikt over deze machtigingen, waaronder:
+1. Machtigingen voor het maken van een virtuele machine in Azure-resources. De ingebouwde rol 'Inzender voor virtuele machines' beschikt over deze machtigingen, waaronder:
     - Machtiging voor het maken van een virtuele machine in de geselecteerde resourcegroep
-    - Machtiging voor het maken van een virtuele machine in de geselecteerde virtuele netwerk
-    - Machtigingen voor schrijven naar het geselecteerde opslagaccount
+    - Machtiging voor het maken van een virtuele machine in het geselecteerde virtuele netwerk
+    - Machtigingen om naar het geselecteerde opslagaccount te schrijven
 
-2. U moet ook de machtiging voor het beheren van Azure Site Recovery-bewerkingen. De rol 'Inzender Site Recovery' heeft alle machtigingen nodig voor het beheren van Site Recovery-bewerkingen in een Recovery Services-kluis.
+2. U moet ook zijn gemachtigd om Azure Site Recovery-bewerkingen te kunnen beheren. De rol 'Site Recovery-inzender' bevat alle machtigingen die nodig zijn om Site Recovery-bewerkingen in een Recovery Services-kluis te kunnen beheren.
 
 
-### <a name="verify-vm-outbound-access"></a>De VM uitgaande toegang controleren
+### <a name="verify-vm-outbound-access"></a>Uitgaande toegang van de virtuele machine controleren
 
-1. Zorg ervoor dat u een verificatieproxy niet gebruikt om verbinding met het netwerk voor virtuele machines die u wilt migreren te regelen. 
-2. Voor deze zelfstudie gaan we ervan uit dat de virtuele machines die u wilt migreren toegang heeft tot internet en geen gebruik maakt van een een firewallproxy om uitgaande toegang te beheren. Als u bent, controleert u de vereisten [hier](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+1. Zorg ervoor dat u geen verificatieproxy gebruikt om de verbinding met het netwerk te beheren voor virtuele machines die u wilt migreren. 
+2. Voor deze zelfstudie gaan we ervan uit dat de virtuele machines die u wilt migreren toegang hebben tot internet en geen gebruik maken van een firewallproxy om de uitgaande toegang te beheren. Als dat wel het geval is, moet u de vereisten [hier](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity) controleren.
 
-### <a name="verify-vm-certificates"></a>Controleer of de VM-certificaten
+### <a name="verify-vm-certificates"></a>VM-certificaten controleren
 
-Controleer of de meest recente basiscertificaten aanwezig zijn op de Azure VM's die u wilt migreren. Als de meest recente basiscertificaten niet, kan niet de virtuele machine vanwege veiligheidsbeperkingen Site Recovery worden geregistreerd.
+Controleer of de meest recente basiscertificaten aanwezig zijn op de virtuele Azure-machines die u wilt migreren. Als de meest recente basiscertificaten niet aanwezig zijn, kan de virtuele machine vanwege veiligheidsbeperkingen niet bij Site Recovery worden geregistreerd.
 
-- Installeren de meest recente Windows updates voor Windows-VM's op de virtuele machine, zodat de vertrouwde basiscertificaten op de machine zijn. Volg de standaard Windows Update en de processen die certificaat updates voor uw organisatie in een omgeving zonder verbinding.
-- Volg de richtlijnen bij uw Linux-leverancier om op te halen van de meest recente vertrouwde basiscertificaten en de certificaatintrekkingslijst op de virtuele machine voor Linux VM's.
+- Voor Windows-VM’s moet u de meest recente Windows-updates op de VM installeren, zodat alle vertrouwde basiscertificaten op de machine aanwezig zijn. In een niet-verbonden omgeving moet u de standaardprocedures van Windows Update en de standaardprocedures voor het bijwerken van de certificaten van uw organisatie volgen.
+- Voor Linux-VM’s volgt u de richtlijnen van de Linux-distributeur voor het verkrijgen van de meest recente basiscertificaten en de certificaatintrekkingslijst op de VM.
 
 
 
 ## <a name="create-a-vault"></a>Een kluis maken
 
-Maak de kluis in elke regio, met uitzondering van de bron-regio.
+Maak de kluis in elke gewenste regio, met uitzondering van de bronregio.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com) > **Recovery Services**.
 2. Klik op **Nieuw** > **Bewaking en beheer** > **Backup en Site Recovery**.
-3. In **naam**, geef de beschrijvende naam **ContosoVMVault**. Als u meer dan één abonnement hebt, selecteert u het juiste bestand.
-4. Een resourcegroep maken **ContosoRG**.
+3. Bij **Naam** geeft u de beschrijvende naam **ContosoVMVault** op. Als u meer dan één abonnement hebt, selecteert u het gewenste abonnement.
+4. Maak een resourcegroep met de naam **ContosoRG**.
 5. Geef een Azure-regio op. Zie Geografische beschikbaarheid in [Prijsinformatie voor Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) om na te gaan welke regio's er worden ondersteund.
-6. Voor snelle toegang tot de kluis vanuit het dashboard, klikt u op **vastmaken aan dashboard** en klik vervolgens op **maken**.
+6. Als u de kluis snel wilt kunnen openen via het dashboard, klikt u op **Vastmaken aan dashboard** en vervolgens op **Maken**.
 
    ![Nieuwe kluis](./media/tutorial-migrate-azure-to-azure/azure-to-azure-vault.png)
 
-De nieuwe kluis wordt toegevoegd aan de **Dashboard** onder **alle resources**, en klik op de hoofdblade **Recovery Services-kluizen** pagina.
+De nieuwe kluis wordt toegevoegd op het **Dashboard** onder **Alle resources** en op de hoofdpagina van **Recovery Services-kluizen**.
 
 
 
 
 
 
-## <a name="select-the-source"></a>Selecteer de gegevensbron
+## <a name="select-the-source"></a>De bron selecteren
 
-1. Klik in de Recovery Services-kluizen op **ConsotoVMVault** > **+ repliceren**.
-2. In **bron**, selecteer **Azure - PREVIEW**.
-3. In **bronlocatie**, selecteer de bron van Azure-regio waarin uw virtuele machines worden uitgevoerd.
-4. Selecteer het Resource Manager-implementatiemodel. Selecteer vervolgens de **resourcegroep**.
+1. Klik in Recovery Services-kluizen op **ConsotoVMVault** > **+Repliceren**.
+2. Bij **Bron** selecteert u **Azure - PREVIEW**.
+3. Bij **Bronlocatie** selecteert u de Azure-bronregio waar uw VM’s momenteel worden uitgevoerd.
+4. Selecteer het Resource Manager-implementatiemodel. Selecteer vervolgens de **resourcegroep van de bron**.
 5. Klik op **OK** om de instellingen op te slaan.
 
 
-## <a name="enable-replication-for-azure-vms"></a>Replicatie inschakelen voor Azure Virtual machines
+## <a name="enable-replication-for-azure-vms"></a>Replicatie voor virtuele Azure-machines inschakelen
 
-Site Recovery haalt een lijst van de virtuele machines die zijn gekoppeld aan het abonnement en resourcegroep.
+In Site Recovery wordt een lijst opgehaald van de virtuele machines die zijn gekoppeld aan het abonnement en de resourcegroep.
 
 
-1. Klik in de Azure-portal op **virtuele machines**.
+1. Klik in Azure Portal op **Virtuele machines**.
 2. Selecteer de virtuele machine die u wilt migreren. Klik vervolgens op **OK**.
-3. In **instellingen**, klikt u op **herstel na noodgevallen (preview)**.
-4. In **configureren van herstel na noodgevallen** > **doelregio** Selecteer het de doelregio waarnaar u zult repliceren.
-5. Accepteer de standaardinstellingen voor deze zelfstudie.
-6. Klik op **replicatie inschakelen**. Een taak voor het inschakelen van replicatie voor de virtuele machine wordt gestart.
+3. Klik in **Instellingen** op **Herstel na noodgeval (preview)**.
+4. Selecteer in **Noodherstel configureren** > **Doelregio** de doelregio waarnaar u wilt repliceren.
+5. Accepteer voor deze zelfstudie de overige standaardinstellingen.
+6. Klik op **Replicatie inschakelen**. Hierdoor wordt een taak gestart voor het inschakelen van replicatie voor de VM.
 
-    ![Replicatie inschakelen](media/tutorial-migrate-azure-to-azure/settings.png)
+    ![replicatie inschakelen](media/tutorial-migrate-azure-to-azure/settings.png)
 
 >[!NOTE]
   >
-  > Replicatie van Azure VM's met beheerde schijven wordt momenteel niet ondersteund. 
+  > Momenteel wordt het repliceren van virtuele Azure-machines met beheerde schijven niet ondersteund. 
 
 ## <a name="run-a-failover"></a>Een failover uitvoeren
 
-1. In **instellingen** > **gerepliceerde items**, klik op de machine en klik vervolgens op **Failover**.
-2. In **Failover**, selecteer **nieuwste**. De instelling voor de versleuteling van sleutel is niet relevant zijn voor dit scenario.
-3. Selecteer **machine afsluiten voordat u begint met failover**. Site Recovery probeert de bron-VM afsluiten voordat de failover. Failover wordt voortgezet zelfs als afsluiten is mislukt. U kunt de voortgang van de failover volgen op de **taken** pagina.
-4. Controleer de Azure VM in Azure wordt weergegeven zoals verwacht.
-5. In **gerepliceerde items**, met de rechtermuisknop op de virtuele machine > **volledige migratie**. Dit het migratieproces is voltooid en de replicatie voor de virtuele machine stopt.
+1. Klik in **Instellingen** > **Gerepliceerde items** op de machine en klik vervolgens op **Failover**.
+2. Bij **Failover** selecteert u **Meest recente**. De instelling voor de coderingssleutel is niet relevant in dit scenario.
+3. Selecteer **Sluit de computer af voordat de failover wordt gestart**. Site Recovery sluit de virtuele bronmachine af voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. U kunt de voortgang van de failover volgen op de pagina **Taken**.
+4. Controleer of de virtuele Azure-machine in Azure wordt weergegeven zoals verwacht.
+5. Klik in **Gerepliceerde items** met de rechtermuisknop op de virtuele machine > **Migratie voltooien**. Hiermee wordt het migratieproces voltooid en de replicatie voor de virtuele machine beëindigd.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie kunt u een Azure-virtuele machine gemigreerd naar een ander Azure-regio. U kunt nu herstel na noodgevallen configureren voor de gemigreerde virtuele machine.
+In deze zelfstudie hebt u een virtuele Azure-machine naar een andere Azure-regio gemigreerd. U kunt nu herstel na noodgevallen configureren voor de gemigreerde virtuele machine.
 
 > [!div class="nextstepaction"]
-> [Herstel na noodgevallen instellen na migratie](azure-to-azure-quickstart.md)
+> [Herstel na noodgeval instellen na een migratie](azure-to-azure-quickstart.md)
 

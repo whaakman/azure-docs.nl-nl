@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7ec63810fe78b38c574ec39369d5926f80e595e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-an-integration-account"></a>Wat is een integratie-account?
 
 Een account integratie kunt enterprise integratie-apps voor het beheren van artefacten, met inbegrip van schema's, kaarten, certificaten, partners en -overeenkomsten. Integratie van apps die hebt u gebruikmaakt van een integratie-account voor toegang tot deze schema's, kaarten, certificaten, enzovoort.
 
-## <a name="create-an-integration-account"></a>Een integratie-account maken
+## <a name="create-an-integration-account"></a>Een integratieaccount maken
 
-1.  Meld u aan bij [Azure Portal](http://portal.azure.com "Azure Portal"). Selecteer in het menu links **meer services**.
+1.  Meld u aan bij [Azure Portal](http://portal.azure.com "Azure Portal"). Selecteer in het menu links **alle services**.
 
-    !['Meer services' selecteren](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    !['Alle services' selecteren](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. Typ in het zoekvak '-integratie"voor uw filter. Selecteer in de lijst met resultaten **Integratieaccounts**.
 
@@ -85,9 +85,9 @@ Nu uw integratie-account is gekoppeld aan uw logische app, kunt u de B2B-connect
 
 ## <a name="delete-your-integration-account"></a>Uw account integratie verwijderen
 
-1. Selecteer **meer services**.
+1. Selecteer **alle services**.
 
-    !['Meer services' selecteren](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    !['Alle services' selecteren](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. Typ in het zoekvak '-integratie"voor uw filter. Selecteer in de lijst met resultaten **Integratieaccounts**.
 
@@ -110,9 +110,9 @@ Volg deze stappen om een account integratie naar een andere Azure-abonnement of 
 > [!IMPORTANT]
 > Alle scripts voor het gebruik van de nieuwe resource-id nadat u een account integratie verplaatst, moet u bijwerken.
 
-1. Selecteer **meer services**.
+1. Selecteer **alle services**.
 
-    !['Meer services' selecteren](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    !['Alle services' selecteren](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. Typ in het zoekvak '-integratie"voor uw filter. Selecteer in de lijst met resultaten **Integratieaccounts**.
 

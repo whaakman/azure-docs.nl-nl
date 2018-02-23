@@ -1,6 +1,6 @@
 ---
-title: De oplossing Serviceoverzicht gebruiken in Operations Management Suite | Microsoft Docs
-description: Serviceoverzicht is een Operations Management Suite-oplossing die automatisch de onderdelen van toepassing op Windows- en Linux-systemen worden gedetecteerd en de communicatie tussen services wordt toegewezen. Dit artikel bevat informatie voor het Serviceoverzicht implementeren in uw omgeving en gebruiken in verschillende scenario's.
+title: Het gebruik van een Serviceoverzicht oplossing in Azure | Microsoft Docs
+description: Serviceoverzicht is een oplossing in Azure die automatisch toepassingsonderdelen op Windows- en Linux-systemen detecteert en de communicatie tussen services toewijst. Dit artikel bevat informatie voor het Serviceoverzicht implementeren in uw omgeving en gebruiken in verschillende scenario's.
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 84a43a4f04d7cd89d0d968acb436d196353eb81d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-the-service-map-solution-in-operations-management-suite"></a>De oplossing Serviceoverzicht gebruiken in Operations Management Suite
+# <a name="using-service-map-solution-in-azure"></a>Het gebruik van een Serviceoverzicht oplossing in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met het Serviceoverzicht, kunt u uw servers weergeven in de manier waarop u denkt ze dat: als onderling verbonden systemen die essentiële services leveren. Serviceoverzicht ziet u de verbindingen tussen servers, processen en poorten voor elke architectuur TCP-verbinding waarvoor geen configuratie nodig andere dan de installatie van een agent.
 
-Dit artikel worden de details van het gebruik van Serviceoverzicht. Zie voor meer informatie over het configureren van Serviceoverzicht en voorbereiding agents [oplossing Serviceoverzicht configureren in de Operations Management Suite](operations-management-suite-service-map-configure.md).
+Dit artikel worden de details van het gebruik van Serviceoverzicht. Zie voor meer informatie over het configureren van Serviceoverzicht en voorbereiding agents [oplossing Serviceoverzicht configureren in Azure](operations-management-suite-service-map-configure.md).
 
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Gebruiksvoorbeelden: maken van uw IT-processen op de hoogte van afhankelijkheid
@@ -32,7 +32,7 @@ Dit artikel worden de details van het gebruik van Serviceoverzicht. Zie voor mee
 Een algemene referentie-kaart van afhankelijkheden maakt Serviceoverzicht automatisch in uw servers, processen en services van derden. Het detecteert en alle TCP-afhankelijkheden, identificeren verrassing verbindingen, externe van derden systemen die u afhankelijk en afhankelijkheden van traditionele donkere gebieden van uw netwerk, zoals Active Directory wordt toegewezen. Serviceoverzicht detecteert mislukte netwerkverbindingen die uw beheerde systemen probeert te maken, zodat u kunt identificeren mogelijke onjuiste configuratie van server, onderbreking van deze service en netwerkproblemen.
 
 ### <a name="incident-management"></a>Incidentbeheer
-Serviceoverzicht helpt groot deel van het probleem isolatie elimineren door die laat zien hoe systemen zijn verbonden en elkaar beïnvloeden. Naast het identificeren van mislukte verbindingen, helpt het identificeren van onjuist geconfigureerde load balancers, verrassend of overmatige belasting van essentiële services en clients, zoals ontwikkelaars machines praten met productiesystemen rogue. Met behulp van geïntegreerde werkstromen met Operations Management Suite wijzigen bijhouden, kunt u ook zien of de wijzigingsgebeurtenis voor een op een back-end-machine of service de hoofdoorzaak van een incident wordt uitgelegd.
+Serviceoverzicht helpt groot deel van het probleem isolatie elimineren door die laat zien hoe systemen zijn verbonden en elkaar beïnvloeden. Naast het identificeren van mislukte verbindingen, helpt het identificeren van onjuist geconfigureerde load balancers, verrassend of overmatige belasting van essentiële services en clients, zoals ontwikkelaars machines praten met productiesystemen rogue. Met behulp van geïntegreerde werkstromen met het bijhouden van wijzigen, kunt u ook zien of de wijzigingsgebeurtenis voor een op een back-end-machine of service de hoofdoorzaak van een incident wordt uitgelegd.
 
 ### <a name="migration-assurance"></a>Migratie zekerheid
 Met behulp van Serviceoverzicht, kunt u effectief plannen, versnellen en Azure migraties valideren die zorgt ervoor dat er niets is achtergelaten en geen onverwachte storingen optreden. U kunt alle onderling afhankelijk systemen die samen worden gemigreerd, beoordelen systeemconfiguratie en de capaciteit en bepalen of een actieve gebruikers nog steeds bedient of geschikt is voor het buiten gebruik stellen in plaats van de migratie moeten detecteren. Nadat de verplaatsing voltooid is, kunt u controleren of u over clientbelasting en identiteit om te controleren of de testsystemen en klanten verbinden. Als uw subnetdefinities plannen en firewall problemen hebt, wijst mislukte verbindingen Serviceoverzicht Maps u de systemen die moeten zijn verbonden.
@@ -41,7 +41,7 @@ Met behulp van Serviceoverzicht, kunt u effectief plannen, versnellen en Azure m
 Als u van Azure Site Recovery gebruikmaakt en moet de herstel-reeks voor uw toepassingsomgeving, serviceoverzicht definiëren help automatisch wordt weergegeven hoe systemen zijn afhankelijk van elkaar om ervoor te zorgen dat uw herstelplan betrouwbaar. Door een kritieke server of een groep te kiezen en de clients weergeven, kunt u bepalen welke front-end systemen herstellen nadat de server teruggezet en beschikbaar is. Als u daarentegen door te kijken essentiële servers back-end afhankelijkheden, kunt u welke systemen te herstellen voordat u uw systemen focus zijn hersteld identificeren.
 
 ### <a name="patch-management"></a>Patch management
-Uw gebruik van de Operations Management Suite System Update-evaluatie verbetert Serviceoverzicht door te tonen die andere teams en -servers hangen af van uw service, zodat u deze vooraf waarschuwen kunt voordat u uw systeem voor patch-doeleinden. Patchbeheer van de in Operations Management Suite verbetert Serviceoverzicht ook door u of uw services beschikbaar en goed verbonden nadat zijn ze worden hersteld en opnieuw opgestart.
+Uw gebruik van de Update-evaluatie System verbetert Serviceoverzicht door te tonen die andere teams en -servers hangen af van uw service, zodat u deze vooraf waarschuwen kunt voordat u uw systeem voor patch-doeleinden. Serviceoverzicht verbetert ook patch management door u of uw services beschikbaar en goed verbonden nadat zijn ze worden hersteld en opnieuw opgestart.
 
 
 ## <a name="mapping-overview"></a>Overzicht van de toewijzing
@@ -54,7 +54,7 @@ Machines kunnen worden uitgebreid in de kaart om weer te geven van de actieve gr
 Standaard weergeven Serviceoverzicht maps de laatste 30 minuten van afhankelijkheidsinformatie. Met behulp van de besturingselementen voor tijd in de linkerbovenhoek, kunt u een query-toewijzingen voor historische bereiken van maximaal één uur om weer te geven hoe afhankelijkheden in het verleden hebt bekeken (bijvoorbeeld, tijdens een incident, of voordat er een wijziging is opgetreden). Serviceoverzicht gegevens worden opgeslagen voor 30 dagen in betaalde werkruimten en 7 dagen in gratis werkruimten.
 
 ## <a name="status-badges-and-border-coloring"></a>Status badges en de kleur van rand
-Aan de onderkant van elke server in de kaart kan worden een lijst met status badges overbrengen statusinformatie over de server. De badges erop duiden dat er een relevante informatie voor de server uit een van de integratie van Operations Management Suite-oplossing. Een badge te klikken gaat u rechtstreeks naar de details van de status in het rechterdeelvenster. De status van de momenteel beschikbare badges bevatten waarschuwingen, servicedesk, beveiliging, wijzigingen en Updates.
+Aan de onderkant van elke server in de kaart kan worden een lijst met status badges overbrengen statusinformatie over de server. De badges erop duiden dat er enkele relevante informatie voor de server uit een van de oplossing voor integratie. Een badge te klikken gaat u rechtstreeks naar de details van de status in het rechterdeelvenster. De status van de momenteel beschikbare badges bevatten waarschuwingen, servicedesk, beveiliging, wijzigingen en Updates.
 
 Afhankelijk van de ernst van de status badges machine knooppunt randen worden gekleurde rood (Kritiek), geel (waarschuwing) of blauw (informatief). De kleur vertegenwoordigt de ernstigste status van elk van de status badges. Een grijze rand geeft aan dat een knooppunt dat geen statusindicatoren is.
 
@@ -128,7 +128,7 @@ Bepaalde processen dienen bepaalde functies op computers: web-servers, toepassin
 |:--|:--|
 | ![Webserver](media/oms-service-map/role-web-server.png) | Webserver |
 | ![Appserver](media/oms-service-map/role-application-server.png) | Toepassingsserver |
-| ![Database-server](media/oms-service-map/role-database.png) | Database-server |
+| ![Databaseserver](media/oms-service-map/role-database.png) | Databaseserver |
 | ![LDAP-server](media/oms-service-map/role-ldap.png) | LDAP-server |
 | ![SMB-server](media/oms-service-map/role-smb.png) | SMB-server |
 
@@ -168,12 +168,12 @@ Te klikken op **Load Server kaart** gaat u naar een nieuw overzicht met de gesel
 Te klikken op **Self-Links weergeven** opnieuw getekend het serverknooppunt, inclusief alle Self link-elementen, die TCP-verbindingen die beginnen en eindigen op processen binnen de server. Als self link-elementen worden weergegeven, de wijzigingen van de opdracht menu in **Self-Links verbergen**, zodat u kunt deze uitschakelen.
 
 ## <a name="computer-summary"></a>Samenvatting van computer
-De **Machine samenvatting** deelvenster bevat een overzicht van een server-besturingssysteem, afhankelijkheid tellingen en gegevens van andere Operations Management Suite-oplossingen. Dergelijke gegevens omvatten maatstaven voor prestaties, helpdesk servicetickets, bijhouden, beveiliging en updates.
+De **Machine samenvatting** deelvenster bevat een overzicht van een server-besturingssysteem, afhankelijkheid tellingen en gegevens van andere oplossingen. Dergelijke gegevens omvatten maatstaven voor prestaties, helpdesk servicetickets, bijhouden, beveiliging en updates.
 
 ![Samenvattingsvenster machine](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Eigenschappen van de computer en het proces
-Als u een kaart Serviceoverzicht navigeert, selecteert u machines en processen te krijgen van aanvullende context over de eigenschappen. Machines bieden informatie over DNS-naam, IPv4-adressen, CPU en geheugen capaciteit, VM-type, besturingssysteem en versie, laatste opnieuw opstarten tijd en de id's van de Operations Management Suite en Serviceoverzicht agents.
+Als u een kaart Serviceoverzicht navigeert, selecteert u machines en processen te krijgen van aanvullende context over de eigenschappen. Machines bieden informatie over DNS-naam, IPv4-adressen, CPU en geheugen capaciteit, VM-type, besturingssysteem en versie, laatste opnieuw opstarten tijd en de id's van hun OMS en Serviceoverzicht agents.
 
 ![Deelvenster machine-eigenschappen](media/oms-service-map/machine-properties.png)
 
@@ -185,8 +185,8 @@ De **overzicht** deelvenster biedt aanvullende informatie over het proces connec
 
 ![Deelvenster Overzicht van het proces](media/oms-service-map/process-summary.png)
 
-## <a name="operations-management-suite-alerts-integration"></a>Integratie van operations Management Suite-waarschuwingen
-Serviceoverzicht integreert met Operations Management Suite waarschuwingen gestarte u waarschuwingen wilt weergeven voor de geselecteerde server in de geselecteerde periode. De server wordt een pictogram weergegeven als er huidige waarschuwingen en de **Machine waarschuwingen** deelvenster geeft een lijst van de waarschuwingen.
+## <a name="alerts-integration"></a>Waarschuwingen-integratie
+Serviceoverzicht kan worden geïntegreerd met waarschuwingen in logboekanalyse gestarte u waarschuwingen wilt weergeven voor de geselecteerde server in de geselecteerde periode. De server wordt een pictogram weergegeven als er huidige waarschuwingen en de **Machine waarschuwingen** deelvenster geeft een lijst van de waarschuwingen.
 
 ![Deelvenster waarschuwingen van de computer](media/oms-service-map/machine-alerts.png)
 
@@ -197,13 +197,13 @@ Schakel Serviceoverzicht relevante waarschuwingen worden weergegeven door een wa
 ![Configuratie van waarschuwingen](media/oms-service-map/alert-configuration.png)
 
 
-## <a name="operations-management-suite-log-events-integration"></a>Integratie van operations Management Suite logboek gebeurtenissen
+## <a name="log-events-integration"></a>Integratie van logboek-gebeurtenissen
 Serviceoverzicht integreert met logboek zoeken om een telling van alle beschikbare logboekgebeurtenissen voor de geselecteerde server tijdens de geselecteerde periode weer te geven. U kunt klikken op elke rij in de lijst van gebeurtenis tellingen springen naar logboek Search en de afzonderlijke gebeurtenissen bekijken.
 
 ![Machine logboekgebeurtenissen deelvenster](media/oms-service-map/log-events.png)
 
-## <a name="operations-management-suite-service-desk-integration"></a>Integratie van operations Management Suite-servicedesk
-Serviceoverzicht integratie met de IT-Service Management-Connector is automatische wanneer beide oplossingen zijn ingeschakeld en geconfigureerd in de Operations Management Suite-werkruimte. De integratie in Service-kaart wordt aangeduid als "Servicedesk." Zie voor meer informatie [centraal beheren van werkitems ITSM IT Service Management-Connector met](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+## <a name="service-desk-integration"></a>Servicedesk-integratie
+Serviceoverzicht integratie met de IT-Service Management-Connector is automatische wanneer beide oplossingen zijn ingeschakeld en geconfigureerd in de werkruimte voor logboekanalyse. De integratie in Service-kaart wordt aangeduid als "Servicedesk." Zie voor meer informatie [centraal beheren van werkitems ITSM IT Service Management-Connector met](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 De **Machine servicedesk** deelvenster toont alle gebeurtenissen voor IT-servicebeheer voor de geselecteerde server in de geselecteerde periode. De server, wordt er een pictogram weergegeven als er huidige items en in het deelvenster Machine servicedesk ze worden.
 
@@ -214,8 +214,8 @@ Het item in de verbonden ITSM-oplossing, klikt u op **weergave werkitem**.
 Klik op om de details van het item in logboek zoekopdracht **weergeven in het logboek zoeken**.
 
 
-## <a name="operations-management-suite-change-tracking-integration"></a>Integratie van operations Management Suite-bijhouden
-Serviceoverzicht integratie met wijzigingen bijhouden is automatische wanneer beide oplossingen zijn ingeschakeld en geconfigureerd in de Operations Management Suite-werkruimte.
+## <a name="change-tracking-integration"></a>Tracering-integratie wijzigen
+Serviceoverzicht integratie met wijzigingen bijhouden is automatische wanneer beide oplossingen zijn ingeschakeld en geconfigureerd in de werkruimte voor logboekanalyse.
 
 De **Machine bijhouden** deelvenster geeft een lijst van alle wijzigingen, met de meest recente eerste, samen met een koppeling naar details weergeven van logboek-zoeken naar aanvullende informatie.
 
@@ -226,7 +226,7 @@ De volgende afbeelding bevat een gedetailleerde weergave van een configuratiewij
 ![Configuratiewijziging gebeurtenis](media/oms-service-map/configuration-change-event.png)
 
 
-## <a name="operations-management-suite-performance-integration"></a>Integratie van operations Management Suite-prestaties
+## <a name="performance-integration"></a>Integratie van prestaties
 De **Machine prestaties** paneel geeft standaard prestatiemetrieken voor de geselecteerde server weer. De metrische gegevens omvatten CPU-gebruik, geheugengebruik verzonden en ontvangen netwerkbytes en een lijst van de belangrijkste processen door het verzonden en ontvangen netwerkbytes.
 
 ![Machine prestaties deelvenster](media/oms-service-map/machine-performance.png)
@@ -245,20 +245,20 @@ Linux:
 - Netwerk Adapter(*)\\verzonden Bytes per seconde
 - Netwerk Adapter(*)\\ontvangen Bytes per seconde
 
-Als u de prestatiegegevens van het netwerk, moet u ook zijn ingeschakeld de kabel gegevens 2.0-oplossing in de Operations Management Suite.
+Als u de prestatiegegevens van het netwerk, moet u ook zijn ingeschakeld de kabel gegevens 2.0-oplossing in uw werkruimte.
  
-## <a name="operations-management-suite-security-integration"></a>Integratie van operations Management Suite-beveiliging
-Serviceoverzicht integratie met beveiligings- en Audit is automatische wanneer beide oplossingen zijn ingeschakeld en geconfigureerd in de Operations Management Suite-werkruimte.
+## <a name="security-integration"></a>Beveiligingsintegratie
+Serviceoverzicht integratie met beveiligings- en Audit is automatische wanneer beide oplossingen zijn ingeschakeld en geconfigureerd in de werkruimte voor logboekanalyse.
 
-De **Machine beveiliging** deelvenster geeft gegevens uit de beveiliging van Operations Management Suite en Audit-oplossing voor de geselecteerde server. Het deelvenster geeft een samenvatting weer van alle uitstaande beveiligingsproblemen voor de server tijdens de geselecteerde periode. Het selecteren van de problemen met beveiliging zoomt omlaag in een zoekopdracht logboek voor meer informatie over deze.
+De **Machine beveiliging** deelvenster bevat gegevens van de beveiligings- en Audit-oplossing voor de geselecteerde server. Het deelvenster geeft een samenvatting weer van alle uitstaande beveiligingsproblemen voor de server tijdens de geselecteerde periode. Het selecteren van de problemen met beveiliging zoomt omlaag in een zoekopdracht logboek voor meer informatie over deze.
 
 ![Machine beveiliging deelvenster](media/oms-service-map/machine-security.png)
 
 
-## <a name="operations-management-suite-updates-integration"></a>Integratie van operations Management Suite-Updates
-Serviceoverzicht integratie met beheer van updates is automatisch wanneer beide oplossingen zijn ingeschakeld en geconfigureerd in de Operations Management Suite-werkruimte.
+## <a name="updates-integration"></a>Integratie van updates
+Serviceoverzicht integratie met beheer van updates is automatisch als beide oplossingen zijn ingeschakeld en geconfigureerd in uw werkruimte logboek Anlaytics.
 
-De **Machine Updates** deelvenster ziet u gegevens uit het beheersysteem van Operations Management Suite Update voor de geselecteerde server. Het deelvenster geeft een samenvatting weer van eventuele ontbrekende updates voor de server tijdens de geselecteerde periode.
+De **Machine Updates** deelvenster ziet u gegevens uit het beheersysteem voor Update voor de geselecteerde server. Het deelvenster geeft een samenvatting weer van eventuele ontbrekende updates voor de server tijdens de geselecteerde periode.
 
 ![Machine bijhouden deelvenster](media/oms-service-map/machine-updates.png)
 
@@ -272,8 +272,8 @@ Een record wordt per uur voor elke unieke computernaam en het proces, naast de r
 
 Er zijn intern gegenereerde eigenschappen die u gebruiken kunt om unieke processen en computers te identificeren:
 
-- Computer: Gebruik ResourceId of ResourceName_s als unieke identificatie van een computer binnen een Operations Management Suite-werkruimte.
-- Proces: Gebruik ResourceId om een proces in een werkruimte van Operations Management Suite uniek te identificeren. ResourceName_s is uniek binnen de context van de computer waarop het proces (MachineResourceName_s) wordt uitgevoerd 
+- Computer: Gebruik ResourceId of ResourceName_s om een computer in een werkruimte voor logboekanalyse uniek te identificeren.
+- Proces: Gebruik ResourceId om een proces binnen een werkruimte voor logboekanalyse uniek te identificeren. ResourceName_s is uniek binnen de context van de computer waarop het proces (MachineResourceName_s) wordt uitgevoerd 
 
 Omdat er meerdere records kunnen zijn voor een bepaald proces en de computer in een opgegeven tijdperiode, kunnen query's meer dan een record voor dezelfde computer of hetzelfde proces worden geretourneerd. Voeg zodanig dat alleen de meest recente record, ' | Ontdubbeling ResourceId' aan de query.
 
@@ -296,7 +296,7 @@ Records van het type *ServiceMapComputer_CL* inventarisgegevens voor servers met
 | PhysicalMemory_d | Het fysieke geheugen in MB |
 | Cpus_d | Het aantal CPU 's |
 | CpuSpeed_d | De CPU-snelheid in MHz|
-| VirtualizationState_s | *Onbekende*, *fysieke*, *virtuele*, *hypervisor* |
+| VirtualizationState_s | *unknown*, *physical*, *virtual*, *hypervisor* |
 | VirtualMachineType_s | *Hyper-v*, *vmware*, enzovoort |
 | VirtualMachineNativeMachineId_g | De ID van de VM die is toegewezen door de hypervisor |
 | VirtualMachineName_s | De naam van de virtuele machine |
@@ -324,7 +324,7 @@ Records van het type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 | ProductVersion_s | De versie van het product |
 | FileVersion_s | De bestandsversie |
 | CommandLine_s | De opdrachtregel |
-| ExecutablePath _K | Het pad naar het uitvoerbare bestand |
+| ExecutablePath _s | Het pad naar het uitvoerbare bestand |
 | WorkingDirectory_s | De werkmap |
 | Gebruikersnaam | Het account waaronder het proces wordt uitgevoerd |
 | UserDomain | Het domein waaronder het proces wordt uitgevoerd |
@@ -360,7 +360,7 @@ ServiceMapComputer_CL | waar ResourceName_s in ((zoeken in (ServiceMapProcess_CL
 ServiceMapProcess_CL | waar ExecutableName_s == "curl" | afzonderlijke ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Maak een computergroep van alle computers met CentOS
-ServiceMapComputer_CL | waar OperatingSystemFullName_s contains_cs 'CentOS' | afzonderlijke ComputerName_s
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 
 ## <a name="rest-api"></a>REST-API

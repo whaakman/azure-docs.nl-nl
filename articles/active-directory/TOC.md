@@ -88,6 +88,7 @@
 #### [Azure PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 #### [Naslaginformatie voor producten en serviceabonnementen in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Vervaldatum instellen voor Office 365-groepen](active-directory-groups-lifecycle-azure-portal.md)
+### [Een naamgevingsbeleid voor groepen afdwingen](groups-naming-policy.md)
 ### [Alle groepen weergeven](active-directory-groups-view-azure-portal.md)
 ### [Groepstoegang tot SaaS-apps toevoegen](active-directory-accessmanagement-group-saasapps.md)
 ### [Herstellen van een verwijderde Office 365-groep](active-directory-groups-restore-azure-portal.md)
@@ -217,7 +218,9 @@
 ##### [Extern bureaublad](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
 #### [Problemen oplossen](active-directory-application-proxy-troubleshoot.md)
+
 
 ### Enterprise-apps beheren
 #### [Gebruikers toewijzen](active-directory-coreapps-assign-user-azure-portal.md)

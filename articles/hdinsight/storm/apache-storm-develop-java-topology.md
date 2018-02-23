@@ -14,21 +14,18 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: ca566aed706d4598c6067d42bdbec08d16dc3841
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Maken van een Apache Storm-topologie in Java
 
 Informatie over het maken van een op Java gebaseerde topologie voor Apache Storm. U maakt een Storm-topologie die een word-count-toepassing implementeert. U Maven gebruiken om te bouwen en het project van het pakket. Vervolgens leert u hoe de topologie met behulp van het framework lichtstroom definiëren.
-
-> [!NOTE]
-> Het framework lichtstroom is beschikbaar in Storm 0.10.0 of hoger. Storm 0.10.0 is beschikbaar met HDInsight 3.3 en 3.4.
 
 Na het voltooien van de stappen in dit document, kunt u de topologie implementeren voor Apache Storm op HDInsight.
 
@@ -47,7 +44,7 @@ Na het voltooien van de stappen in dit document, kunt u de topologie implementer
 
 De volgende omgevingsvariabelen kunnen worden ingesteld wanneer u Java en de JDK installeert. Echter, moet u controleren of ze bestaan en dat ze de juiste waarden voor uw systeem bevatten.
 
-* **JAVA_HOME** -moet verwijzen naar de map waar Java runtime environment (JRE) is geïnstalleerd. Bijvoorbeeld in een Unix- of Linux-distributie, heeft een waarde gelijkaardig aan `/usr/lib/jvm/java-8-oracle`. In Windows, zou er een waarde gelijkaardig aan`c:\Program Files (x86)\Java\jre1.8`
+* **JAVA_HOME** -moet verwijzen naar de map waar Java runtime environment (JRE) is geïnstalleerd. Bijvoorbeeld in een Unix- of Linux-distributie, heeft een waarde gelijkaardig aan `/usr/lib/jvm/java-8-oracle`. In Windows, zou er een waarde gelijkaardig aan `c:\Program Files (x86)\Java\jre1.8`
 
 * **PAD** -mag de volgende paden:
 
@@ -80,8 +77,8 @@ Deze opdracht maakt u een map met de naam `WordCount` op de huidige locatie, die
 
 De gegenereerde test en bestanden voor de toepassing verwijderen:
 
-* **src\test\java\com\microsoft\example\AppTest.Java**
-* **src\main\java\com\microsoft\example\App.Java**
+* **src\test\java\com\microsoft\example\AppTest.java**
+* **src\main\java\com\microsoft\example\App.java**
 
 ## <a name="add-maven-repositories"></a>Maven-opslagplaatsen toevoegen
 

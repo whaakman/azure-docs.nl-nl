@@ -2,24 +2,18 @@
 title: Azure Quick Start - Objecten overdragen naar/van Azure Blob-opslag met Node.js | Microsoft Docs
 description: Snel leren om objecten over te dragen naar/van Azure Blob-opslag met Node.js
 services: storage
-documentationcenter: storage
-author: georgewallace
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2017
-ms.author: gwallace
-ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.date: 02/06/2018
+ms.author: tamram
+ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Objecten overdragen naar/van Azure Blob-opslag met Node.js
 
@@ -27,7 +21,7 @@ In deze zelfstudie leert u hoe u Node.js kunt gebruiken om blok-bobs te uploaden
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze quickstart:
+Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 * [Node.js](https://nodejs.org/en/) installeren
 
@@ -105,13 +99,13 @@ Nadat u de bestanden hebt gecontroleerd, drukt u op een willekeurige toets om de
 
 ## <a name="understand-the-sample-code"></a>De voorbeeldcode begrijpen
 
-Nu lopen we door de voorbeeldcode zodat u begrijpt hoe deze werkt.
+We gaan nu de voorbeeldcode bespreken, zodat u begrijpt hoe deze werkt.
 
 ### <a name="get-references-to-the-storage-objects"></a>Verwijzingen naar de opslagobjecten ophalen
 
-Als eerste moet de verwijzing worden gemaakt naar de `BlobService` die wordt gebruikt voor het verkrijgen van toegang tot de Blob-opslag en voor het beheren ervan. Deze objecten worden boven op elkaar gebouwd en elk ervan wordt door de volgende in de lijst gebruikt.
+Als eerste moet de verwijzing worden gemaakt naar het **BlobService**-object dat wordt gebruikt voor de toegang tot en het beheer van de Blob-opslag. Deze objecten zijn afhankelijk van elkaar en elk object vormt de basis voor het volgende object in de lijst.
 
-* Maak een exemplaar van het object **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)** dat naar de Blob-service in uw opslagaccount verwijst.
+* Maak een exemplaar van het object [BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor) dat naar de Blob service in uw opslagaccount verwijst.
 
 * Maak een nieuwe container en stel vervolgens machtigingen voor de container in, zodat de blobs openbaar zijn en via slechts een URL kunnen worden geopend. De container begint met **quickstartcontainer -**.
 
@@ -166,7 +160,7 @@ blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
 
 Download blobs naar uw lokale schijf met [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile).
 
-Met de volgende code wordt de blob gedownload die in een eerdere sectie is geüpload, waarbij de suffix '_DOWNLOADED' wordt toegevoegd aan de blobnaam, zodat u beide bestanden op de lokale schijf kunt zien. 
+Met de volgende code wordt de blob gedownload die in een eerdere sectie is geüpload, waarbij het achtervoegsel '_DOWNLOADED' wordt toegevoegd aan de blobnaam, zodat u beide bestanden op de lokale schijf kunt zien. 
 
 ```javascript
 console.log('5. Downloading blob\n');
@@ -199,4 +193,4 @@ In deze Quick Start hebt u geleerd hoe u bestanden overbrengt tussen een lokale 
 > [!div class="nextstepaction"]
 > [Instructies voor bewerkingen in Blob-opslag](storage-nodejs-how-to-use-blob-storage.md)
 
-Zie [Azure Blob-opslagresources beheren met Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie over de Storage Explorer en blobs.
+Bekijk [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest) voor de Node.js-verwijzing voor Azure Storage.

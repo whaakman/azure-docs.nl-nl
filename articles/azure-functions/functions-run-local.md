@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: c1a9310d0a09d714f1d58f29e5683097c9dc6b90
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Code en Azure Functions lokaal testen
 
@@ -128,7 +128,7 @@ Het bestand local.settings.json slaat app-instellingen, verbindingsreeksen en in
 ```
 | Instelling      | Beschrijving                            |
 | ------------ | -------------------------------------- |
-| **IsEncrypted** | Als de waarde **true**, alle waarden zijn versleuteld met een sleutel van de lokale computer. Gebruikt met `func settings` opdrachten. Standaardwaarde is **false**. |
+| **isEncrypted** | Als de waarde **true**, alle waarden zijn versleuteld met een sleutel van de lokale computer. Gebruikt met `func settings` opdrachten. Standaardwaarde is **false**. |
 | **Waarden** | Verzameling toepassingsinstellingen gebruikt bij lokale uitvoering. **AzureWebJobsStorage** en **AzureWebJobsDashboard** zijn voorbeelden; Zie voor een volledige lijst [app naslaginformatie](functions-app-settings.md).  |
 | **Host** | Instellingen in deze sectie aanpassen het hostproces van de functies bij lokale uitvoering. | 
 | **LocalHttpPort** | Hiermee stelt u de standaardpoort gebruikt bij het uitvoeren van de lokale host van de functies (`func host start` en `func run`). De `--port` opdrachtregeloptie heeft voorrang op deze waarde. |
@@ -169,7 +169,7 @@ Voer de volgende opdracht voor het maken van een functie:
 ```
 func new
 ``` 
-`func new`ondersteunt de volgende optionele argumenten:
+`func new` ondersteunt de volgende optionele argumenten:
 
 | Argument     | Beschrijving                            |
 | ------------ | -------------------------------------- |
@@ -197,7 +197,7 @@ Uit de functies host een project functies uit te voeren. De host wordt ingeschak
 func host start
 ```
 
-`func host start`ondersteunt de volgende opties:
+`func host start` ondersteunt de volgende opties:
 
 | Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |
@@ -231,6 +231,9 @@ Voor het starten van de host en JavaScript foutopsporing ingesteld, worden uitge
 ```
 func host start --debug vscode
 ```
+
+> [!IMPORTANT]
+> Voor foutopsporing, alleen Node.js 8.x wordt ondersteund. Node.js 9.x wordt niet ondersteund. 
 
 Klik in Visual Studio Code in de **Debug** weergave, selecteer **koppelen aan Azure Functions**. U kunt onderbrekingspunten koppelen, variabelen inspecteren en analyseer code.
 
@@ -293,7 +296,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 U kunt ook een functie aanroepen via `func run <FunctionName>` en invoergegevens bieden voor de functie. Deze opdracht is vergelijkbaar met die voor een functie met de **Test** tabblad in de Azure-portal. 
 
-`func run`ondersteunt de volgende opties:
+`func run` ondersteunt de volgende opties:
 
 | Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |

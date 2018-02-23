@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: e1bc0f27b14beef91b4deb68dc625d75195445fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Bevoegde toegang beveiligen in Azure AD
 Bevoegde toegang beveiligen is een belangrijke eerste stap ter bescherming van zakelijke activa in een moderne organisatie. Bevoegde accounts zijn accounts dat beheren en het beheer van IT-systemen. Cyberbeveiliging aanvallers gericht zijn op deze accounts toegang krijgen tot gegevens en systemen van een organisatie. Als u wilt beveiligen bevoorrechte toegang, moet u de accounts en systemen van het risico worden blootgesteld aan een kwaadwillende gebruiker isoleren.
@@ -50,7 +50,7 @@ Zie voor meer informatie [MFA voor Office 365 en MFA voor Azure](https://blogs.t
 ## <a name="time-bound-privileges"></a>Tijdsgebonden bevoegdheden
 Sommige organisaties kunnen het gebeuren dat ze te veel gebruikers in maximaal bevoorrechte rollen hebben. Een gebruiker kan zijn toegevoegd aan de rol voor een bepaalde activiteit, zoals aanmelden voor een service, maar deze rechten niet vaak later gebruiken.
 
-Om te verlagen van de blootstellingstijd van bevoegdheden en vergroot de zichtbaarheid van het gebruik ervan, gebruikers beperken tot alleen nemen over hun bevoegdheden 'just in time' (Just in time), of deze rollen toewijzen voor een kortere duur met vertrouwen, de machtigingen automatisch worden ingetrokken. Voor Azure Active Directory, Azure-Resources (Preview) en Microsoft Online Services, kunt u [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM).
+Om te verlagen van de blootstellingstijd van bevoegdheden en vergroot de zichtbaarheid van het gebruik ervan, gebruikers beperken tot alleen nemen over hun bevoegdheden 'just in time' (Just in time), of deze rollen toewijzen voor een kortere duur met vertrouwen, de machtigingen automatisch worden ingetrokken. Voor Azure Active Directory, Azure-Resources (Preview) en Microsoft Online Services, kunt u [Azure AD Privileged Identity Management (PIM)](https://aka.ms/AzurePIM).
 
 ![PIM-dashboard][2]
 
@@ -68,7 +68,7 @@ Met voorwaardelijk toegangsbeheer controleert de Azure Active Directory de speci
 * Schakel [Azure AD Identity Protection](../active-directory-identityprotection.md)
 * Schakel [voorwaardelijk toegangsbeheer](../active-directory-conditional-access-azure-portal.md)
 
-Voor meer informatie over het bouwen van een volledige beveiliging roadmap, Zie de sectie 'verantwoordelijkheden van de klant en roadmap' van de [Microsoft Cloud Security voor Enterprise-architecten](http://aka.ms/securecustomer) document. Voor meer informatie over Microsoft-services om te helpen bij deze onderwerpen bezighouden, neem contact op met uw Microsoft-vertegenwoordiger of gaat u naar onze [Cybersecurity oplossingen pagina](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Voor meer informatie over het bouwen van een volledige beveiliging roadmap, Zie de sectie 'verantwoordelijkheden van de klant en roadmap' van de [Microsoft Cloud Security voor Enterprise-architecten](https://aka.ms/securecustomer) document. Voor meer informatie over Microsoft-services om te helpen bij deze onderwerpen bezighouden, neem contact op met uw Microsoft-vertegenwoordiger of gaat u naar onze [Cybersecurity oplossingen pagina](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png

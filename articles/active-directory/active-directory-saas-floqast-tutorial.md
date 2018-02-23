@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 63fdd5a5dabdd9083afa23e5400684b3b144b911
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8973c3289c5b17c03166c09db821e299d50f2f9c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Zelfstudie: Azure Active Directory-integratie met FloQast
 
@@ -106,22 +106,17 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en FloQast domein eenmalige aanmelding informatie](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.floqast.com/`
-
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.floqast.com/api/sso/saml/azure`
+     In de **id** textbox, typ een URL: `https://go.floqast.com/`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![URL's en FloQast domein eenmalige aanmelding informatie](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.floqast.com/login/sso`
+     In de **aanmeldings-URL** textbox, typ een URL: `https://go.floqast.com/login/sso`
      
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. Neem contact op met [FloQast Client ondersteuningsteam](mailto:support@floqast.com) ophalen van deze waarden.
-
 5. De SAML-asserties verwacht FloQast toepassing in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken van beheren de **gebruikerskenmerken** sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
     
-    ![Single Sign-On attb configureren](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
+    ![Single Sign-On kenmerk configureren](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
     
 6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en de volgende stappen uitvoeren:
     
@@ -241,8 +236,6 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d46b869815fef44a8137bb5121133a1c0140ca30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="working-with-management-solutions-in-azure-preview"></a>Werken met oplossingen voor beheer in Azure (Preview)
 > [!NOTE]
@@ -36,7 +36,7 @@ Er zijn meerdere methoden voor het vinden en te installeren van oplossingen voor
 Oplossingen voor het beheer door Microsoft geleverd en vertrouwde partners kunnen worden geïnstalleerd vanuit Azure Marketplace in de Azure portal.
 
 1. Meld u aan bij Azure Portal.
-2. Selecteer in het linkerdeelvenster **meer services**.
+2. Selecteer in het linkerdeelvenster **alle services**.
 3. Een Schuif omlaag naar **oplossingen** of type *oplossingen* in de **Filter** dialoogvenster.
 4. Klik op de **+ toevoegen** knop.
 5. Zoeken naar oplossingen die u geïnteresseerd in een door te bladeren bent, te klikken op de **Filter** uit-knop of typen in de **Search Everthing** vak.
@@ -92,7 +92,7 @@ U kunt controleren of de koppeling tussen een werkruimte voor logboekanalyse en 
 Gebruikt de volgende procedure om de beheeroplossingen weergeven in de werkruimten die is gekoppeld aan uw Azure-abonnement.
 
 1. Meld u aan bij Azure Portal.
-2. Selecteer in het linkerdeelvenster **meer services**.
+2. Selecteer in het linkerdeelvenster **alle services**.
 3. Een Schuif omlaag naar **oplossingen** of type *oplossingen* in de **Filter** dialoogvenster.
 4. Oplossingen die zijn geïnstalleerd in al uw werkruimten wordt weergegeven.
 

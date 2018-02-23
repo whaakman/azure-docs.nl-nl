@@ -1,6 +1,6 @@
 ---
 title: Een Java-toepassing maken in Azure Service Fabric | Microsoft Docs
-description: Maak een Java-toepassing voor Azure met behulp van het quickstart-voorbeeld voor Service Fabric.
+description: Maak een Java-toepassing voor Azure met behulp van het snelstartvoorbeeld voor Service Fabric.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,20 +15,20 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 8f4d121ba76d63b70fa6976125457942a0e98aa9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-java-application"></a>Een Java-toepassing maken
 Azure Service Fabric is een platform voor gedistribueerde systemen voor het implementeren en distribueren van microservices en containers. 
 
-Deze quickstart laat zien hoe u uw eerste Java-toepassing in Service Fabric implementeert met behulp van de Eclipse IDE op een Linux-machine voor ontwikkelaars. Wanneer u klaar bent, hebt u een stemtoepassing met een web-front-end in Java die stemresultaten opslaat in een stateful back-endservice in het cluster.
+Deze snelstartgids laat zien hoe u uw eerste Java-toepassing in Service Fabric implementeert met behulp van de Eclipse IDE op een Linux-machine voor ontwikkelaars. Wanneer u klaar bent, hebt u een stemtoepassing met een web-front-end in Java die stemresultaten opslaat in een stateful back-endservice in het cluster.
 
 ![Schermafbeelding van de toepassing](./media/service-fabric-quickstart-java/votingapp.png)
 
-In deze quickstart leert u de volgende zaken:
+In deze snelstartgids leert u de volgende zaken:
 
 > [!div class="checklist"]
 > * Eclipse gebruiken als hulpmiddel voor uw Java-toepassingen in Service Fabric
@@ -37,11 +37,11 @@ In deze quickstart leert u de volgende zaken:
 > * De toepassing uitschalen over meerdere knooppunten
 
 ## <a name="prerequisites"></a>Vereisten
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
-1. [Service Fabric-SDK en Service Fabric CLI (opdrachtregelinterface) installeren](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+Dit zijn de vereisten voor het voltooien van deze snelstartgids:
+1. [Service Fabric-SDK en Service Fabric CLI (opdrachtregelinterface) installeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Git installeren](https://git-scm.com/)
 3. [Eclipse installeren](https://www.eclipse.org/downloads/)
-4. [Java-omgeving instellen](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), inclusief de optionele stappen voor het installeren van de Eclipse-invoegtoepassing 
+4. [Java-omgeving instellen](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), inclusief de optionele stappen voor het installeren van de Eclipse-invoegtoepassing 
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 Voer in een opdrachtvenster de volgende opdracht uit om de voorbeeld-app-opslagplaats te klonen op de lokale computer.
@@ -79,16 +79,42 @@ U kunt nu een reeks stemmingsopties toevoegen en beginnen met het verzamelen van
 ## <a name="deploy-the-application-to-azure"></a>De toepassing implementeren in Azure
 
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>Het Azure Service Fabric-cluster instellen
-Maak uw eigen cluster of gebruik een cluster van derden om de toepassing te implementeren in een cluster in Azure.
+Maak uw eigen cluster om de toepassing te implementeren in een cluster in Azure.
 
 Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Ze worden beheerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en informatie krijgen over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
+
+Als u beheerbewerkingen wilt uitvoeren op het beveiligde Party-cluster, kunt u gebruikmaken van Service Fabric Explorer, CLI of Powershell. Als u Service Fabric Explorer wilt gebruiken, moet u het PFX-bestand downloaden van de Party Cluster-website en het certificaat importeren in uw certificaatarchief (Windows of Mac) of in de browser zelf (Ubuntu). Er is geen wachtwoord voor de zelfondertekende certificaten van het Party-cluster. 
+
+Als u beheerbewerkingen wilt uitvoeren met Powershell of CLI, hebt u de PFX (Powershell) of PEM (CLI) nodig. Voer de volgende opdracht uit om de PFX te converteren naar een PEM-bestand:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Zie [Een Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) voor meer informatie over het maken van uw eigen cluster.
 
 > [!Note]
-> De web-front-endservice is geconfigureerd om naar binnenkomend verkeer te luisteren op poort 8080. Zorg ervoor dat de poort is geopend in het cluster. Als u een cluster van derden gebruikt, is deze poort geopend.
+> De Spring Boot-service is geconfigureerd om naar binnenkomend verkeer te luisteren op poort 8080. Zorg ervoor dat de poort is geopend in het cluster. Als u een cluster van derden gebruikt, is deze poort geopend.
 >
 
+### <a name="add-certificate-information-to-your-application"></a>Certificaatgegevens toevoegen aan uw toepassing
+
+Vingerafdruk van certificaat moet aan uw toepassing worden toegevoegd omdat het certificaat gebruikmaakt van Service Fabric-programmeermodellen. 
+
+1. U hebt de vingerafdruk van het certificaat nodig in het bestand ```Voting/VotingApplication/ApplicationManiest.xml``` wanneer dit wordt uitgevoerd op een beveiligde cluster. Voer de volgende opdracht uit om de vingerafdruk van het certificaat te extraheren.
+
+    ```bash
+    openssl x509 -in [CERTIFICATE_FILE] -fingerprint -noout
+    ```
+
+2. Voeg in het ```Voting/VotingApplication/ApplicationManiest.xml``` het volgende fragment uit onder het label **ApplicationManifest**. **X509FindValue** moet de vingerafdruk zijn uit de vorige stap (geen puntkomma's). 
+
+    ```xml
+    <Certificates>
+        <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="0A00AA0AAAA0AAA00A000000A0AA00A0AAAA00" />
+    </Certificates>   
+    ```
+    
 ### <a name="deploy-the-application-using-eclipse"></a>De toepassing implementeren met behulp van Eclipse
 Nu de toepassing en het cluster gereed zijn, kunt u deze rechtstreeks vanuit Eclipse implementeren in het cluster.
 
@@ -100,8 +126,8 @@ Nu de toepassing en het cluster gereed zijn, kunt u deze rechtstreeks vanuit Ecl
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
             "ConnectionPort": "19080",
-            "ClientKey": "",
-            "ClientCert": ""
+            "ClientKey": "[path_to_your_pem_file_on_local_machine]",
+            "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
     }
     ```
@@ -121,7 +147,7 @@ Service Fabric Explorer kan worden uitgevoerd in alle Service Fabric-clusters en
 
 Voer de volgende stappen uit om de web-front-endservice te schalen:
 
-1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 2. Klik op het beletselteken (drie punten) naast het knooppunt **fabric:/Voting/VotingWeb** in de structuurweergave en kies **Service schalen**.
 
     ![De Service Fabric Explorer-service schalen](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
@@ -138,7 +164,7 @@ Voer de volgende stappen uit om de web-front-endservice te schalen:
 Met deze eenvoudige beheertaak is het aantal beschikbare resources voor het verwerken van gebruikersbelasting voor onze front-endservice verdubbeld. Het is belangrijk te weten dat u niet meerdere exemplaren van een service nodig hebt om ervoor te zorgen dat deze op betrouwbare wijze wordt uitgevoerd. Als de service mislukt, wordt in Service Fabric een nieuw exemplaar van de service uitgevoerd in het cluster.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze quickstart hebt u de volgende zaken geleerd:
+In deze snelstartgids hebt u de volgende zaken geleerd:
 
 > [!div class="checklist"]
 > * Eclipse gebruiken als hulpmiddel voor uw Java-toepassingen in Service Fabric

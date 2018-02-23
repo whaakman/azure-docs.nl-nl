@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/26/2017
+ms.date: 02/15/2018
 ms.author: danis
-ms.openlocfilehash: 8aa29dfb46a1aafb9e7b713456e1006af423a2b2
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: fea3e992c70d286695691d837c746522f6a5ebb3
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extensie van de virtuele machine OMS voor Linux
 
 ## <a name="overview"></a>Overzicht
 
-Operations Management Suite (OMS) biedt mogelijkheden voor bewaking, waarschuwingen en waarschuwing herstel tussen cloud en on-premises activa. De extensie van de virtuele machine OMS-Agent voor Linux is gepubliceerd en ondersteund door Microsoft. De extensie wordt de OMS-agent geïnstalleerd op virtuele machines in Azure, en virtuele machines in een bestaande OMS-werkruimte schrijft. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de extensie van de OMS-virtuele machine voor Linux.
+Log Analytics biedt mogelijkheden voor bewaking, waarschuwingen en waarschuwing herstel tussen cloud en on-premises activa. De extensie van de virtuele machine OMS-Agent voor Linux is gepubliceerd en ondersteund door Microsoft. De extensie wordt de OMS-agent geïnstalleerd op virtuele machines in Azure, en virtuele machines in een bestaande werkruimte voor logboekanalyse schrijft. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de extensie van de OMS-virtuele machine voor Linux.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -39,12 +39,22 @@ De extensie OMS-Agent kan worden uitgevoerd op basis van deze Linux-distributies
 | Oracle Linux | 5, 6 en 7 |
 | Red Hat Enterprise Linux Server | 5, 6 en 7 |
 | Debian GNU/Linux | 6, 7 en 8 |
-| Ubuntu | 12.04 TNS, 14.04 TNS, 15.04, 15.10, 16.04 TNS |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 en 12 |
+
+De volgende tabel bevat een toewijzing van de versie van de VM OMS-uitbreiding en de bundel OMS-Agent voor elke versie. Een koppeling naar de release-opmerkingen voor de bundel-versie van OMS-agent is opgenomen.  
+
+| Versie van de virtuele Linux-machine OMS-uitbreiding | Versie van de bundel OMS-Agent | 
+|--------------------------------|--------------------------|
+| 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
+| 1.4.58.7 | [14.2-125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
+| 1.4.56.5 | [1.4.2-124](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-124)|
+| 1.4.55.4 | [1.4.1-123](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-123)|
+| 1.4.45.3 | [1.4.1-45](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-45)|
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center wordt automatisch voorziet in de OMS-agent en is verbonden met de standaard log analytics-werkruimte van de Azure-abonnement. Als u van Azure Security Center gebruikmaakt, niet uitgevoerd door de stappen in dit document. In dat geval worden de geconfigureerde werkruimte en einde van de verbinding met Azure Security Center overschreven.
+Azure Security Center wordt automatisch voorziet in de OMS-agent en is verbonden met een standaard Log Analytics-werkruimte gemaakt door ASC in uw Azure-abonnement. Als u van Azure Security Center gebruikmaakt, niet uitgevoerd door de stappen in dit document. In dat geval worden de geconfigureerde werkruimte overschreven en Hiermee verbreekt u de verbinding met Azure Security Center.
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 
@@ -52,7 +62,7 @@ De extensie OMS-Agent voor Linux vereist dat de virtuele doelmachine is verbonde
 
 ## <a name="extension-schema"></a>Uitbreidingsschema
 
-De volgende JSON ziet u het schema voor de uitbreiding OMS-Agent. De extensie moet u de werkruimte-ID en werkruimtesleutel uit de doel-OMS-werkruimte; u vindt deze waarden in de OMS-portal. Omdat de werkruimtesleutel moet worden behandeld als gevoelige gegevens, moet deze worden opgeslagen in de configuratie van een beveiligde instelling. Azure VM-extensie beveiligde instellingsgegevens is versleuteld en alleen op de virtuele doelmachine worden ontsleuteld. Houd er rekening mee dat **workspaceId** en **workspaceKey** zijn hoofdlettergevoelig.
+De volgende JSON ziet u het schema voor de uitbreiding OMS-Agent. De extensie moet u de werkruimte-ID en werkruimtesleutel uit de doel-Log Analytics-werkruimte; Deze waarden kunnen worden [gevonden in de werkruimte voor logboekanalyse](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) in de Azure portal. Omdat de werkruimtesleutel moet worden behandeld als gevoelige gegevens, moet deze worden opgeslagen in de configuratie van een beveiligde instelling. Azure VM-extensie beveiligde instellingsgegevens is versleuteld en alleen op de virtuele doelmachine worden ontsleuteld. Houd er rekening mee dat **workspaceId** en **workspaceKey** zijn hoofdlettergevoelig.
 
 ```json
 {
@@ -82,20 +92,20 @@ De volgende JSON ziet u het schema voor de uitbreiding OMS-Agent. De extensie mo
 | Naam | Waarde / voorbeeld |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Uitgever | Microsoft.EnterpriseCloud.Monitoring |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
 | typeHandlerVersion | 1.4 |
 | workspaceId (bijvoorbeeld) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
-| workspaceKey (bijvoorbeeld) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ == |
+| workspaceKey (bijvoorbeeld) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
-Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. Sjablonen zijn ideaal bij het implementeren van een of meer virtuele machines waarvoor de implementatieconfiguratie post zoals voorbereiding voor OMS. Een voorbeeld Resource Manager-sjabloon met de OMS-Agent VM-extensie vindt u op de [galerie van Azure Quick Start](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. Sjablonen zijn ideaal bij het implementeren van een of meer virtuele machines waarvoor de implementatieconfiguratie post zoals voorbereiding voor logboekanalyse. Een voorbeeld Resource Manager-sjabloon met de OMS-Agent VM-extensie vindt u op de [galerie van Azure Quick Start](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 De JSON-configuratie voor de extensie van een virtuele machine worden genest in de bron van de virtuele machine, of aan de basis- of bovenste niveau van een Resource Manager JSON-sjabloon geplaatst. De plaatsing van de JSON-configuratie is van invloed op de waarde van de resourcenaam en het type. Zie voor meer informatie [naam en type voor de onderliggende resources instellen](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
-Het volgende voorbeeld wordt ervan uitgegaan dat de OMS-extensie is genest binnen de bron van de virtuele machine. Wanneer het nesten van de extensie-resource, de JSON wordt geplaatst in de `"resources": []` object van de virtuele machine.
+Het volgende voorbeeld wordt ervan uitgegaan dat de VM-extensie is genest binnen de bron van de virtuele machine. Wanneer het nesten van de extensie-resource, de JSON wordt geplaatst in de `"resources": []` object van de virtuele machine.
 
 ```json
 {
@@ -147,7 +157,7 @@ Bij het plaatsen van de JSON-extensie in de hoofdmap van de sjabloon, de naam va
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-implementatie
 
-De Azure CLI kan worden gebruikt voor het implementeren van de OMS-Agent VM-extensie op een bestaande virtuele machine. Vervangen door de OMS-sleutel en de OMS-ID die uit de OMS-werkruimte. 
+De Azure CLI kan worden gebruikt voor het implementeren van de OMS-Agent VM-extensie op een bestaande virtuele machine. Vervang de *workspaceId* en *workspaceKey* met die van de werkruimte voor logboekanalyse. 
 
 ```azurecli
 az vm extension set \
@@ -179,14 +189,14 @@ De uitvoer van de extensie-uitvoering wordt vastgelegd in het volgende bestand:
 
 | Foutcode | Betekenis | Mogelijke actie |
 | :---: | --- | --- |
-| 10 | Virtuele machine is al verbonden met een OMS-werkruimte | Voor de virtuele machine verbinding met de werkruimte die is opgegeven in het Uitbreidingsschema, stopOnMultipleConnections ingesteld op false in instellingen voor openbare of verwijdert u deze eigenschap. Deze virtuele machine opgehaald in rekening gebracht zodra voor elke werkruimte is verbonden met. |
+| 10 | Virtuele machine is al verbonden met een werkruimte voor logboekanalyse | Voor de virtuele machine verbinding met de werkruimte die is opgegeven in het Uitbreidingsschema, stopOnMultipleConnections ingesteld op false in instellingen voor openbare of verwijdert u deze eigenschap. Deze virtuele machine opgehaald in rekening gebracht zodra voor elke werkruimte is verbonden met. |
 | 11 | Ongeldige configuratie opgegeven voor de extensie | Volg de voorgaande voorbeelden voor het instellen van alle eigenschapswaarden nodig is voor implementatie. |
 | 12 | De Pakketbeheer dpkg is vergrendeld | Zorg ervoor dat alle dpkg update-bewerkingen op de computer hebt opgegeven en probeer het opnieuw. |
 | 20 | Voortijdig aangeroepen inschakelen | [Bijwerken van de Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) naar de meest recente versie. |
 | 51 | Deze extensie wordt niet ondersteund op de VM-besturingssysteem | |
 | 55 | Kan geen verbinding maken met de Microsoft Operations Management Suite-service | Controleer of het systeem toegang heeft toegang tot Internet of een geldige HTTP-proxy is opgegeven. Controleer daarnaast de juistheid van de werkruimte-ID. |
 
-Extra informatie over probleemoplossing vindt u op de [OMS-Agent voor Linux Troubleshooting Guide](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#).
+Extra informatie over probleemoplossing vindt u op de [OMS-Agent voor Linux Troubleshooting Guide](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 
 ### <a name="support"></a>Ondersteuning
 

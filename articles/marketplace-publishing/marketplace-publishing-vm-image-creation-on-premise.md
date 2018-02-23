@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Een installatiekopie van een lokale virtuele machine ontwikkelen voor Azure Marketplace
 Wij raden u aan Azure virtuele harde schijven (VHD's) rechtstreeks in de cloud te ontwikkelen met behulp van Remote Desktop Protocol. Als u moet is het echter mogelijk te downloaden van een VHD en het ontwikkelen met behulp van on-premises infrastructuur.  
@@ -75,7 +75,7 @@ Naast de Azure-portal gebruikt, kunt u de [opslaan AzureVhd](http://msdn.microso
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-Bijvoorbeeld opslaan-AzureVhd-bron "https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd" - LocalFilePath 'C:\Users\Administrator\Desktop\baseimagevm.vhd' - StorageKey<String>
+Bijvoorbeeld opslaan-AzureVhd-bron "https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd" - LocalFilePath 'C:\Users\Administrator\Desktop\baseimagevm.vhd' - StorageKey <String>
 
 > [!NOTE]
 > **Opslaan AzureVhd** heeft ook een **NumberOfThreads** -optie die kan worden gebruikt voor het verhogen van parallelle uitvoering om optimaal gebruik van de beschikbare bandbreedte voor het downloaden.
@@ -92,7 +92,7 @@ Als u wilt een opslagaccount maakt, kunt u de [Microsoft Azure-portal](https://p
 
 **Een opslagaccount maken vanuit de Microsoft Azure-portal**
 
-1. Klik op **Nieuw**.
+1. Klik op **maken van een resource**.
 2. Selecteer **opslag**.
 3. Vul de opslagaccountnaam en selecteer vervolgens een locatie.
    
@@ -143,7 +143,7 @@ Gebruik de [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdle
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Een VHD uploaden met behulp van het opdrachtregelprogramma voor Mac en Linux
-Met de [Linux opdrachtregelprogramma](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), gebruikt u de volgende: azure vm-installatiekopie maken <image name> --locatie <Location of the data center> --OS Linux<LocationOfLocalVHD>
+Met de [Linux opdrachtregelprogramma](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), gebruikt u de volgende: azure vm-installatiekopie maken <image name> --locatie <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
 ## <a name="see-also"></a>Zie ook
 * [De installatiekopie van een virtuele machine maken voor de Marketplace](marketplace-publishing-vm-image-creation.md)

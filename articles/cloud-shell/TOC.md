@@ -1,23 +1,22 @@
 # [Overzicht](overview.md)
 
 # Snelstartgids
-## [Snelstartgids voor Bash](quickstart.md)
-## [Snelstartgids voor PowerShell](quickstart-powershell.md)
+## [Bash - Snelstartgids](quickstart.md)
+## [PowerShell - Snelstartgids](quickstart-powershell.md)
 
 # Concepten
-## [Functies en hulpprogramma's in Bash](features.md)
-## [Functies en hulpprogramma's in PowerShell](features-powershell.md)
+## [Bash - Functies en hulpprogramma's](features.md)
+## [Powershell - Functies en hulpprogramma's](features-powershell.md)
 ## [Beperkingen](limitations.md)
 
 # Uitleg
-## [Permanente opslag in Bash](persisting-shell-storage.md)
-## [Permanente opslag in PowerShell](persisting-shell-storage-powershell.md)
+## [Bash - Permanente opslag](persisting-shell-storage.md)
+## [Powershell - Permanente opslag](persisting-shell-storage-powershell.md)
 ## [Het venster gebruiken](using-the-shell-window.md)
 
 # Voorbeelden
-## [Azure-resources met Terraform in Bash implementeren](example-terraform-bash.md)
-
-## [Ansible uitvoeren in Bash](../ansible/ansible-run-playbook-in-cloudshell.md)
+## [Bash - Resources maken met Terraform](example-terraform-bash.md)
+## [Bash - Ansible-playbooks uitvoeren](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [Cloud Shell insluiten](embed-cloud-shell.md)
 

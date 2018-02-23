@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1e9f6d44965e8a6cd9529ef860f0fb57fd8e572d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Waarschuwingen voor back-ups van een virtuele Azure-machine controleren
 Waarschuwingen zijn reacties van de service een drempelwaarde bereikt of overschreden. Weten wanneer start problemen kan essentieel zijn voor de bedrijven kosten worden beperkt. Waarschuwingen doorgaans niet plaats op een planning en dus is het handig om te weten zo snel mogelijk na het optreden van waarschuwingen. Bijvoorbeeld, als een back-up of herstel de taak is mislukt, een waarschuwing wordt gegenereerd binnen vijf minuten van de fout. Op het kluisdashboard bevat de tegel waarschuwingen voor back-up kritiek en waarschuwingsniveau gebeurtenissen. U kunt alle gebeurtenissen weergeven in de instellingen voor waarschuwingen voor back-up. Maar wat moet u doen als een waarschuwing treedt op wanneer u aan een afzonderlijke probleem werkt? Als u niet weet wanneer de waarschuwing gebeurt, kan dat een kleine ongemak zijn of deze gegevens in gevaar kan brengen. Om te zorgen dat de juiste personen zich bewust bent van een waarschuwing - wanneer deze zich voordoet, de service voor het verzenden van meldingen van waarschuwingen via e-mail te configureren. Zie voor meer informatie over het instellen van e-mailmeldingen [meldingen configureren](backup-azure-monitor-vms.md#configure-notifications).
@@ -43,7 +43,7 @@ De blade back-up waarschuwingen openen vanuit de blade waarschuwingen en gebeurt
     ![Tegel back-waarschuwingen](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
 4. U kunt gedetailleerde informatie over een bepaalde waarschuwing, in de lijst van gebeurtenissen, klikt u op de waarschuwing te openen de **Details** blade.
 
-    ![Gebeurtenisdetails](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
+    ![Gebeurtenisdetail](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
     Zie voor het aanpassen van de kenmerken die wordt weergegeven in de lijst [aanvullende gebeurtenis kenmerken weergeven](backup-azure-monitor-vms.md#view-additional-event-attributes)
 
@@ -70,9 +70,9 @@ E-mailmeldingen voor waarschuwingen instellen
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Welke typen waarschuwingen zijn beschikbaar voor back-up van Azure IaaS VM?
    | Waarschuwingsniveau | Waarschuwingen verzonden |
    | --- | --- |
-   | Kritiek |Back-upfouten, herstelfout |
-   | Waarschuwing |Geen |
-   | Informatief |None |
+   | Kritiek | voor back-up mislukt, herstelfout |
+   | Waarschuwing | voor back-uptaken is geslaagd met waarschuwingen (bijvoorbeeld: Sommige schrijvers is mislukt tijdens het maken van een momentopname) |
+   | Informatief | Er is geen informatieve waarschuwingen zijn momenteel beschikbaar voor virtuele machine van Azure back-up |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Zijn er situaties waarin het e-mailbericht zelfs niet is verzonden nadat er meldingen zijn geconfigureerd?
 Zijn er situaties waarin een waarschuwing niet is verzonden, zelfs als de meldingen juist is geconfigureerd. In de volgende situaties e-mail worden geen meldingen verzonden om te voorkomen dat de waarschuwing ruis:
@@ -99,7 +99,7 @@ De **controlelogboeken** instelling wordt geleverd met een vooraf gedefinieerde 
     ![Details van bewerking](./media/backup-azure-monitor-vms/audit-logs-details-window.png)
 3. U kunt gedetailleerde informatie over een bepaalde gebeurtenis, in de lijst van gebeurtenissen, klikt u op de gebeurtenis te openen de **Details** blade.
 
-    ![Gebeurtenisdetails](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
+    ![Gebeurtenisdetail](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
 
     Niveau van gebeurtenissen bevat gedetailleerde informatie opgehaald. Als u liever dat veel informatie over elke gebeurtenis te zien en wilt dit veel details die moeten worden toevoegen de **gebeurtenissen** blade, Zie de sectie [uitbreiden gebeurtenisgegevens](backup-azure-monitor-vms.md#view-additional-event-attributes).
 

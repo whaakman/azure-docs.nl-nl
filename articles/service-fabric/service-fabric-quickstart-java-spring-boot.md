@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 544f189e79733c6476bf71e9ce39ab5f35e3d032
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 8e57ed29560baeea6279a45e8769f4005c123b56
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-a-spring-boot-application"></a>Een Spring Boot-toepassing implementeren
 Azure Service Fabric is een platform voor gedistribueerde systemen voor het implementeren en distribueren van microservices en containers. 
 
-In deze quickstart wordt gedemonstreerd hoe u een Spring Boot-toepassing implementeert in Service Fabric. Deze quickstart gebruikt het [Aan de slag](https://spring.io/guides/gs/spring-boot/)-voorbeeld van de Spring-website. Met gebruik van vertrouwde opdrachtregelprogramma’s wordt u in deze quickstart stapsgewijs begeleid bij het implementeren van het Spring Boot-voorbeeld als een Service Fabric-toepassing. Als u klaar bent, werkt het Spring Boot Aan de slag-voorbeeld in Service Fabric. 
+In deze snelstartgids wordt gedemonstreerd hoe u een Spring Boot-toepassing implementeert in Service Fabric. Deze snelstartgids gebruikt het [Aan de slag](https://spring.io/guides/gs/spring-boot/)-voorbeeld van de Spring-website. Met gebruik van vertrouwde opdrachtregelprogramma’s wordt u in deze snelstartgids stapsgewijs begeleid bij het implementeren van het Spring Boot-voorbeeld als een Service Fabric-toepassing. Als u klaar bent, werkt het Spring Boot Aan de slag-voorbeeld in Service Fabric. 
 
 ![Schermafbeelding van de toepassing](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -38,7 +38,7 @@ In deze snelstartgids leert u de volgende zaken:
 > * Failover van de service uitvoeren met geen beschikbaarheid
 
 ## <a name="prerequisites"></a>Vereisten
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+Dit zijn de vereisten voor het voltooien van deze snelstartgids:
 1. [Service Fabric-SDK en Service Fabric CLI (opdrachtregelinterface) installeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Git installeren](https://git-scm.com/)
 3. [Yeoman installeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
@@ -102,6 +102,14 @@ U hebt nu toegang tot de Spring Boot-toepassing die werd geïmplementeerd in een
 Maak uw eigen cluster om de toepassing te implementeren in een cluster in Azure.
 
 Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Ze worden beheerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en informatie krijgen over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
+
+Als u beheerbewerkingen wilt uitvoeren op het beveiligde Party-cluster, kunt u gebruikmaken van Service Fabric Explorer, CLI of Powershell. Als u Service Fabric Explorer wilt gebruiken, moet u het PFX-bestand downloaden van de Party Cluster-website en het certificaat importeren in uw certificaatarchief (Windows of Mac) of in de browser zelf (Ubuntu). Er is geen wachtwoord voor de zelfondertekende certificaten van het Party-cluster. 
+
+Als u beheerbewerkingen wilt uitvoeren met Powershell of CLI, hebt u de PFX (Powershell) of PEM (CLI) nodig. Voer de volgende opdracht uit om de PFX te converteren naar een PEM-bestand:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Zie [Een Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) voor meer informatie over het maken van uw eigen cluster.
 

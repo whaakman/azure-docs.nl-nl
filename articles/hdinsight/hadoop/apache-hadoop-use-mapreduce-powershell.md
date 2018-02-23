@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/27/2017
+ms.date: 02/16/2018
 ms.author: larryfr
-ms.openlocfilehash: cfed3617f20074f361629c65f14ce38c1012c702
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ba4a2dfc6a69e9ab18948bc9e33597a56bdd3bd9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>MapReduce-taken uitvoeren met Hadoop in HDInsight met behulp van PowerShell
 
@@ -30,14 +30,14 @@ Dit document bevat een voorbeeld van een MapReduce-taak uitgevoerd in een Hadoop
 
 ## <a id="prereq"></a>Vereisten
 
-* **Een Azure HDInsight (Hadoop in HDInsight)-cluster**
+* Een Azure HDInsight (Hadoop in HDInsight)-cluster
 
   > [!IMPORTANT]
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * **Een werkstation met Azure PowerShell**.
 
-## <a id="powershell"></a>Voer een MapReduce-taak met Azure PowerShell
+## <a id="powershell"></a>Voer een MapReduce-taak
 
 Azure PowerShell biedt *cmdlets* waarmee u kunt op afstand MapReduce-taken uitvoeren op HDInsight. Intern PowerShell opgeroepen REST [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (voorheen Templeton) uitgevoerd op het HDInsight-cluster.
 

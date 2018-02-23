@@ -4,7 +4,7 @@ description: Informatie over het verbinding maken met SQL Server wordt uitgevoer
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 6d90904315e5d0a99ead193d1f95b504e796d587
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Verbinding maken met een virtuele Machine van SQL Server op Azure
 
@@ -40,9 +40,9 @@ Uw opties voor connectiviteit zijn onder andere:
 
 | Optie | Beschrijving |
 |---|---|
-| **Openbare** | Via internet verbinding maken met SQL Server |
-| **Persoonlijke** | Verbinding maken met SQL Server in hetzelfde virtuele netwerk |
-| **Lokale** | Verbinding maken met SQL Server lokaal op dezelfde virtuele machine | 
+| **Public** | Via internet verbinding maken met SQL Server |
+| **Private** | Verbinding maken met SQL Server in hetzelfde virtuele netwerk |
+| **Local** | Verbinding maken met SQL Server lokaal op dezelfde virtuele machine | 
 
 De volgende secties worden de **openbare** en **persoonlijke** opties in meer detail.
 
@@ -80,7 +80,7 @@ Wanneer u de optie **persoonlijke** voor de **SQL-connectiviteit** type in de Az
 > [!IMPORTANT]
 > Installatiekopieën van virtuele machines voor de SQL Server-ontwikkelaars en Express-edities het TCP/IP-protocol niet automatisch ingeschakeld. Voor ontwikkelaars en Express-edities, moet u SQL Server Configuration Manager te gebruiken [handmatig het TCP/IP-protocol inschakelen](#manualtcp) na het maken van de virtuele machine.
 
-Particuliere connectiviteit wordt vaak gebruikt in combinatie met [virtueel netwerk](../../../virtual-network/virtual-networks-overview.md), waardoor verschillende scenario's. Zelfs als deze virtuele machines bestaan in verschillende resourcegroepen, kunt u virtuele machines in hetzelfde virtuele netwerk. En met een [site-naar-site VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), kunt u een hybride-architectuur die virtuele machines met on-premises netwerken en machines verbindt.
+Particuliere connectiviteit wordt vaak gebruikt in combinatie met [virtueel netwerk](../../../virtual-network/virtual-networks-overview.md), waardoor verschillende scenario's. Zelfs als deze virtuele machines bestaan in verschillende resourcegroepen, kunt u virtuele machines in hetzelfde virtuele netwerk. En met een [site-naar-site VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), kunt u een hybride-architectuur die virtuele machines met on-premises netwerken en machines verbindt.
 
 Virtuele netwerken kunnen u uw Azure VM's toevoegen aan een domein. Dit is de enige manier om Windows-verificatie met SQL Server gebruiken. De andere scenario's vereisen SQL-verificatie met gebruikersnamen en wachtwoorden.
 
@@ -90,7 +90,7 @@ Ervan uitgaande dat u DNS in het virtuele netwerk hebt geconfigureerd, kunt u ve
 Server=mysqlvm;Integrated Security=true
 ```
 
-## <a id="change"></a>SQL-connectiviteitsinstellingen wijzigen
+## <a id="change"></a> SQL-connectiviteitsinstellingen wijzigen
 
 U kunt de connectiviteitsinstellingen wijzigen voor uw virtuele machine van SQL Server in de Azure portal.
 
@@ -108,7 +108,7 @@ U kunt de connectiviteitsinstellingen wijzigen voor uw virtuele machine van SQL 
 
    ![Updatebericht SQL VM](./media/virtual-machines-windows-sql-connect/sql-vm-updating-notification.png)
 
-## <a id="manualtcp"></a>TCP/IP inschakelen voor ontwikkelaars en Express-edities
+## <a id="manualtcp"></a> TCP/IP inschakelen voor ontwikkelaars en Express-edities
 
 Bij het wijzigen van SQL Server-verbindingsinstellingen wordt Azure niet automatisch ingeschakeld het TCP/IP-protocol voor SQL Server-ontwikkelaars en Express-edities. In de onderstaande stappen wordt uitgelegd hoe u TCP/IP handmatig kunt inschakelen, zodat u op afstand via een IP-adres verbinding kunt maken.
 
@@ -126,7 +126,7 @@ De volgende stappen laten zien hoe een optionele DNS-Label maken voor uw virtuel
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## <a id="manual"></a>Handmatige configuratie en probleemoplossing
+## <a id="manual"></a> Handmatige configuratie en probleemoplossing
 
 Hoewel de portal opties biedt voor het automatisch configureren connectiviteit, is het handig om te weten hoe u handmatig configureert connectiviteit. De vereisten kan ook helpen bij het oplossen van problemen.
 

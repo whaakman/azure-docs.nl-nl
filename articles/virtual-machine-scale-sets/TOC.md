@@ -30,6 +30,9 @@
 #### [Geavanceerd automatisch schalen](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Toepassingen op schaalsets](virtual-machine-scale-sets-deploy-app.md)
 ### [Gegevensschijven met schaalsets gebruiken](virtual-machine-scale-sets-attached-disks.md)
+### Schijven in schaalsets versleutelen
+#### [PowerShell gebruiken](virtual-machine-scale-sets-encrypt-disks-ps.md)
+#### [Azure CLI 2.0 gebruiken](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Werken met grote schaalsets](virtual-machine-scale-sets-placement-groups.md)
 ### [Een sjabloon voor schaalsets converteren voor gebruik van beheerde schijven](virtual-machine-scale-sets-convert-template-to-md.md)
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/08/2018
+ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8bd5bebb04303b83a21bc1434e713ce26de54ae9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0ca77fb49bfdd0a47c7efe746d58a93dd4eafc1
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -210,7 +210,7 @@ Voor verbinding met Ambari en andere webpagina's via het virtuele netwerk, gebru
 
 2. Zie het vaststellen van het knooppunt en de poort die een service beschikbaar is op de [poorten die worden gebruikt door de services van Hadoop op HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 
-## <a id="networktraffic"></a>Beheren van netwerkverkeer
+## <a id="networktraffic"></a> Beheren van netwerkverkeer
 
 Netwerkverkeer in een virtuele Azure-netwerken kan worden beheerd met behulp van de volgende methoden:
 
@@ -227,7 +227,7 @@ Als een beheerde service vereist HDInsight onbeperkte toegang tot Azure-status e
 
 HDInsight beschrijft de services op verschillende poorten. Wanneer u een virtueel apparaat firewall gebruikt, moet u verkeer op de poorten die voor deze services toestaan. Zie de sectie [vereiste poorten] voor meer informatie.
 
-### <a id="hdinsight-ip"></a>HDInsight met netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes
+### <a id="hdinsight-ip"></a> HDInsight met netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes
 
 Als u gebruiken wilt **netwerkbeveiligingsgroepen** of **gebruiker gedefinieerde routes** netwerkverkeer wordt beheerd, voert u de volgende acties voor de installatie van HDInsight:
 
@@ -250,7 +250,7 @@ Zie de volgende documentatie voor meer informatie over netwerkbeveiligingsgroepe
 
 Geforceerde tunneling is een gebruiker gedefinieerde routering configuratie waarbij alle verkeer van een subnet wordt geforceerd voor een specifieke netwerk- of locatie, zoals uw on-premises netwerk. HDInsight biedt __niet__ ondersteuning geforceerde tunneling.
 
-## <a id="hdinsight-ip"></a>Vereiste IP-adressen
+## <a id="hdinsight-ip"></a> Vereiste IP-adressen
 
 > [!IMPORTANT]
 > De Azure management van de status en -services moet communiceren met HDInsight. Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruikt, kunt u verkeer van de IP-adressen voor deze services te bereiken van HDInsight.
@@ -299,6 +299,7 @@ Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruikt, 
     | &nbsp; | VS - oost | 13.82.225.233</br>40.71.175.99 | 443 | Inkomend |
     | &nbsp; | Noord-centraal VS | 157.56.8.38</br>157.55.213.99 | 443 | Inkomend |
     | &nbsp; | West-centraal VS | 52.161.23.15</br>52.161.10.167 | 443 | Inkomend |
+    | &nbsp; | VS - west | 13.64.254.98</br>23.101.196.19 | 443 | Inkomend |
     | &nbsp; | VS - west 2 | 52.175.211.210</br>52.175.222.222 | 443 | Inkomend |
 
     Zie voor informatie over de IP-adressen voor Azure Government, de [Azure Government Intelligence en analyse](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
@@ -307,7 +308,7 @@ Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruikt, 
 
 Zie voor meer informatie de [netwerkverkeer beheren](#networktraffic) sectie.
 
-## <a id="hdinsight-ports"></a>Vereiste poorten
+## <a id="hdinsight-ports"></a> Vereiste poorten
 
 Als u van plan bent met een netwerk **virtueel apparaat firewall** wilt beveiligen van het virtuele netwerk, moet u uitgaand verkeer op de volgende poorten toestaan:
 
@@ -499,7 +500,7 @@ Gebruik de volgende stappen voor het maken van een virtueel netwerk dat binnenko
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 > ```
 
-## <a id="example-dns"></a>Voorbeeld: DNS-configuratie
+## <a id="example-dns"></a> Voorbeeld: DNS-configuratie
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Naamomzetting tussen een virtueel netwerk en een netwerk verbonden on-premises
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitor abonnement activiteit met de Azure Activity Log
 De **Azure Activity Log** is een abonnementlogboek die biedt inzicht in het abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit omvat een bereik van gegevens van operationele gegevens van de Azure Resource Manager-updates op Service Health-gebeurtenissen. Het activiteitenlogboek heette vroeger 'Controlelogboeken' of 'Operationele Logs' sinds de beheercategorie rapporten besturingselement vlak gebeurtenissen voor uw abonnementen. Met het activiteitenlogboek, kunt u bepalen de ' wat, wie, en wanneer ' voor een (PUT, POST, verwijderen schrijfbewerkingen) die zijn gemaakt op de resources in uw abonnement. U kunt ook de status van de bewerking en andere relevante eigenschappen begrijpen. Het activiteitenlogboek bevat geen leesbewerkingen (GET) en bewerkingen voor resources die gebruikmaken van het klassieke / 'RDFE' model.
@@ -73,9 +73,9 @@ Hier volgen enkele dingen die u met het activiteitenlogboek doen kunt:
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Query het activiteitenlogboek in de Azure portal
 U kunt uw activiteitenlogboek bekijken op verschillende plaatsen binnen de Azure-portal:
-* De **activiteitenlogboek blade**, die u kunt openen door te zoeken naar het activiteitenlogboek onder 'Meer Services' in het navigatiedeelvenster links.
-* De **Monitor blade**, die standaard in het navigatiedeelvenster links wordt weergegeven. Het activiteitenlogboek is een onderdeel van deze blade Azure Monitor.
-* Een resource **resourceblade**, bijvoorbeeld de configuratie-blade voor een virtuele Machine. Het activiteitenlogboek is een van de secties op de meeste van deze resourceblades en de gebeurtenissen die betrekking hebben op specifieke hulpbron die automatisch erop te klikken filtert.
+* De **activiteitenlogboek** die u kunt openen door te zoeken naar het activiteitenlogboek onder **alle services** in het navigatiedeelvenster links.
+* **Monitor** wordt standaard in het navigatiedeelvenster links weergegeven. Het activiteitenlogboek is een gedeelte van de Azure-Monitor.
+* Een resource **resource**, bijvoorbeeld de configuratie-blade voor een virtuele Machine. Het activiteitenlogboek is een van de secties op de meeste van deze resourceblades en de gebeurtenissen die betrekking hebben op specifieke hulpbron die automatisch erop te klikken filtert.
 
 U kunt uw activiteitenlogboek door deze velden filteren in de Azure-portal:
 * TimeSpan - de begin- en -tijd voor gebeurtenissen.
@@ -113,7 +113,7 @@ Deze instellingen kunnen worden geconfigureerd via de optie "Export" in de blade
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Logboek profielen met de Azure portal configureren
 U kunt het activiteitenlogboek naar een Event Hub stream of opslaan in een Opslagaccount met de optie "Export" in de Azure-portal.
 
-1. Navigeer naar de **activiteitenlogboek** blade via het menu aan de linkerkant van de portal.
+1. Navigeer naar **activiteitenlogboek** via het menu aan de linkerkant van de portal.
 
     ![Navigeer naar activiteitenlogboek in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Klik op de **exporteren** knop aan de bovenkant van de blade.

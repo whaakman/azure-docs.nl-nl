@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 183e11bed0d2399ffa714bc544f88eb359647b9a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e5d477aa74d3d0588e33363888d84e860d4b2f8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Foutcodes voor aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -38,9 +38,7 @@ Uw startpunt voor alle aanmeldingsactiviteitgegevens is **[Aanmeldingen](https:/
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins-errors/61.png "Aanmeldingsactiviteit")
 
-
 In het aanmeldingenrapport kunt u alle mislukte aanmeldingen weergeven door **Mislukt** te selecteren als **Aanmeldstatus**.
-
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins-errors/06.png "Aanmeldingsactiviteit")
 
@@ -56,51 +54,52 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 
 ## <a name="error-codes"></a>Foutcodes
 
-| Fout| Beschrijving |
-| --- | --- |
-| 50001| De service-principal X is niet gevonden in de tenant Y. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant. Of de resource-principal is niet gevonden in de map of is ongeldig.|
-| 50008| SAML-verklaring ontbreekt of is niet juist geconfigureerd in het token.|
-| 50011| Het antwoordadres ontbreekt, is onjuist geconfigureerd of komt niet overeen met de antwoordadressen die voor de toepassing zijn geconfigureerd.|
-| 50012| Gebruiker heeft fraude gemeld tijdens de meervoudige verificatie.|
-| 50053| Uw account is vergrendeld omdat u zich te vaak hebt aangemeld met een onjuiste gebruikers-id of een onjuist wachtwoord.|
-| 50054| Er is een oud wachtwoord gebruikt voor verificatie.|
-| 50055| Het opgegeven wachtwoord is ongeldig of verlopen.|
-| 50057| Het gebruikersaccount is uitgeschakeld.|
-| 50058| Er is in de opgegeven referenties geen informatie over de identiteit van de gebruiker gevonden, de gebruiker kan niet worden gevonden in de tenant of er is een aanmeldverzoek op de achtergrond verzonden, maar er is geen gebruiker aangemeld of de service kan de gebruiker niet verifiëren.|
-| 50074| Gebruiker heeft de MFA-controle niet doorstaan.|
-| 50079| Gebruiker moet zich registreren voor verificatie met een tweede factor.|
-| 50126| Gebruikersnaam of wachtwoord is ongeldig of on-premises gebruikersnaam of wachtwoord is ongeldig.|
-| 50131| Wordt gebruikt voor verschillende fouten voor voorwaardelijke toegang. Bijvoorbeeld bij slechte Windows-apparaatstatus, geblokkeerde aanvraag vanwege verdachte activiteit, beslissingen voor toegangsbeleid en beveiligingsbeleid.|
-| 50133| Sessie is ongeldig omdat het wachtwoord is verlopen of recent is gewijzigd.|
-| 50144| Het Active Directory-wachtwoord van de gebruiker is verlopen.|
-| 65001| Toepassing X heeft geen toegangsmachtiging voor toepassing Y of de machtiging is ingetrokken. Of de gebruiker of beheerder heeft niet toegestaan dat de toepassing wordt gebruikt met id X. Stuur een interactieve autorisatieaanvraag voor deze gebruiker en resource. Of de gebruiker of beheerder heeft niet toegestaan dat de toepassing wordt gebruikt met id X. Stuur een autorisatieaanvraag naar uw tenant-beheerder uit naam van toepassing Y voor resource Z.|
-| 65005| De voor de toepassing vereiste resourcetoegangslijst bevat geen toepassingen die kunnen worden gedetecteerd door de resource, de clienttoepassing heeft toegang aangevraagd tot een resource die niet is opgegeven in de vereiste resourcetoegangslijst, de Graph-service heeft een onjuiste aanvraag geretourneerd of de resource is niet gevonden.|
-| 70001| De toepassing X is niet gevonden in de tenant Y. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant of er geen toestemming voor is verleend door een gebruiker in de tenant. Mogelijk hebt u de verificatieaanvraag naar de verkeerde tenant verzonden.|
-| 80001| Verificatieagent kan geen verbinding maken met Active Directory.|
-| 80002| Er is een time-out opgetreden bij de wachtwoordvalidatie voor de verificatieagent.|
-| 80003| Ongeldig antwoord ontvangen door de verificatieagent.|
-| 80004| Onjuiste UPN (user principal name) gebruikt voor aanmeldingsaanvraag.|
-| 80005| Verificatieagent: er is een fout opgetreden.|
-| 80007| Verificatieagent kan wachtwoord van gebruiker niet verifiëren.|
-| 80010| Verificatieagent kan wachtwoord niet ontsleutelen.|
-| 80011| Verificatieagent kan ontsleutelingssleutel hier ophalen.|
-| 81001| Kerberos-ticket van de gebruiker is te groot.|
-| 81002| Kan Kerberos-ticket van de gebruiker niet valideren.|
-| 81003| Kan Kerberos-ticket van de gebruiker niet valideren.|
-| 81004| Poging tot Kerberos-verificatie is mislukt.|
-| 81008| Kan Kerberos-ticket van de gebruiker niet valideren.|
-| 81009| Kan Kerberos-ticket van de gebruiker niet valideren.|
-| 81010| Naadloze eenmalige aanmelding is mislukt omdat het Kerberos-ticket van de gebruiker is verlopen of ongeldig is.|
-| 81011| Kan gebruikersobject niet vinden op basis van de informatie in het Kerberos-ticket van de gebruiker.|
-| 81012| De gebruiker die zich probeert aan te melden bij Azure AD, komt niet overeen met de gebruiker die is aangemeld bij het apparaat.|
-| 81013| Kan gebruikersobject niet vinden op basis van de informatie in het Kerberos-ticket van de gebruiker.|
-| 90014| Wordt gebruikt in verschillende gevallen waarbij een verwacht veld niet aanwezig is in de referentie.|
-| 90093| De grafiek is geretourneerd met een niet-toegestane foutcode voor de aanvraag.|
-
+|Fout|Beschrijving|
+|---|---|
+|50001|De service-principal X is niet gevonden in de tenant Y. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant. Of de resource-principal is niet gevonden in de map of is ongeldig.|
+|50008|SAML-verklaring ontbreekt of is niet juist geconfigureerd in het token.|
+|50011|Het antwoordadres ontbreekt, is onjuist geconfigureerd of komt niet overeen met de antwoordadressen die voor de toepassing zijn geconfigureerd.|
+|50012|Gebruiker heeft fraude gemeld tijdens de meervoudige verificatie.|
+|50053|Uw account is vergrendeld omdat u zich te vaak hebt aangemeld met een onjuiste gebruikers-id of een onjuist wachtwoord.|
+|50054|Er is een oud wachtwoord gebruikt voor verificatie.|
+|50055|Het opgegeven wachtwoord is ongeldig of verlopen.|
+|50057|Het gebruikersaccount is uitgeschakeld.|
+|50058|Er is in de opgegeven referenties geen informatie over de identiteit van de gebruiker gevonden, de gebruiker kan niet worden gevonden in de tenant of er is een aanmeldverzoek op de achtergrond verzonden, maar er is geen gebruiker aangemeld of de service kan de gebruiker niet verifiëren.|
+|50074|Gebruiker heeft de MFA-controle niet doorstaan.|
+|50079|Gebruiker moet zich registreren voor verificatie met een tweede factor.|
+|50089|Validatie van stroomtoken is mislukt omdat stroomtoken is verlopen.|
+|50097|Apparaat is niet geverifieerd.|
+|50105|De aangemelde gebruiker is niet toegewezen aan een rol voor deze toepassing.|
+|50126|Gebruikersnaam of wachtwoord is ongeldig of on-premises gebruikersnaam of wachtwoord is ongeldig.|
+|50131|Wordt gebruikt voor verschillende fouten voor voorwaardelijke toegang. Bijvoorbeeld bij slechte Windows-apparaatstatus, geblokkeerde aanvraag vanwege verdachte activiteit, beslissingen voor toegangsbeleid en beveiligingsbeleid.|
+|50133|Sessie is ongeldig omdat het wachtwoord is verlopen of recent is gewijzigd.|
+|50144|Het Active Directory-wachtwoord van de gebruiker is verlopen.|
+|65001|Toepassing X heeft geen toegangsmachtiging voor toepassing Y of de machtiging is ingetrokken. Of de gebruiker of beheerder heeft niet toegestaan dat de toepassing wordt gebruikt met id X. Stuur een interactieve autorisatieaanvraag voor deze gebruiker en resource. Of de gebruiker of beheerder heeft niet toegestaan dat de toepassing wordt gebruikt met id X. Stuur een autorisatieaanvraag naar uw tenant-beheerder uit naam van toepassing Y voor resource Z.|
+|65005|De voor de toepassing vereiste resourcetoegangslijst bevat geen toepassingen die kunnen worden gedetecteerd door de resource, de clienttoepassing heeft toegang aangevraagd tot een resource die niet is opgegeven in de vereiste resourcetoegangslijst, de Graph-service heeft een onjuiste aanvraag geretourneerd of de resource is niet gevonden.|
+|70001|De toepassing X is niet gevonden in de tenant Y. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant of er geen toestemming voor is verleend door een gebruiker in de tenant. Mogelijk hebt u de verificatieaanvraag naar de verkeerde tenant verzonden.|
+|80001|Verificatieagent kan geen verbinding maken met Active Directory.|
+|80002|Er is een time-out opgetreden bij de wachtwoordvalidatie voor de verificatieagent.|
+|80003|Ongeldig antwoord ontvangen door de verificatieagent.|
+|80004|Onjuiste UPN (user principal name) gebruikt voor aanmeldingsaanvraag.|
+|80005|Verificatieagent: er is een fout opgetreden.|
+|80007|Verificatieagent kan wachtwoord van gebruiker niet verifiëren.|
+|80010|Verificatieagent kan wachtwoord niet ontsleutelen.|
+|80011|Verificatieagent kan ontsleutelingssleutel hier ophalen.|
+|81001|Kerberos-ticket van de gebruiker is te groot.|
+|81002|Kan Kerberos-ticket van de gebruiker niet valideren.|
+|81003|Kan Kerberos-ticket van de gebruiker niet valideren.|
+|81004|Poging tot Kerberos-verificatie is mislukt.|
+|81008|Kan Kerberos-ticket van de gebruiker niet valideren.|
+|81009|Kan Kerberos-ticket van de gebruiker niet valideren.|
+|81010|Naadloze eenmalige aanmelding is mislukt omdat het Kerberos-ticket van de gebruiker is verlopen of ongeldig is.|
+|81011|Kan gebruikersobject niet vinden op basis van de informatie in het Kerberos-ticket van de gebruiker.|
+|81012|De gebruiker die zich probeert aan te melden bij Azure AD, komt niet overeen met de gebruiker die is aangemeld bij het apparaat.|
+|81013|Kan gebruikersobject niet vinden op basis van de informatie in het Kerberos-ticket van de gebruiker.|
+|90014|Wordt gebruikt in verschillende gevallen waarbij een verwacht veld niet aanwezig is in de referentie.|
+|90093|De grafiek is geretourneerd met een niet-toegestane foutcode voor de aanvraag.|
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Raadpleeg [Aanmeldactiviteitenrapporten in Azure Active Directory Portal](active-directory-reporting-activity-sign-ins.md) voor meer informatie.
-

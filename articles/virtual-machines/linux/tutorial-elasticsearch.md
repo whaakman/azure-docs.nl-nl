@@ -1,6 +1,6 @@
 ---
-title: ElasticSearch implementeren op een andere virtuele machine in Azure
-description: Zelfstudie - installatie van de elastische Stack op een ontwikkel Linux VM in Azure
+title: ElasticSearch implementeren op een virtuele ontwikkelmachine in Azure
+description: 'Zelfstudie: De Elastic Stack installeren op een virtuele ontwikkelmachine met Linux in Azure'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rloutlaw
@@ -13,34 +13,34 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 5b0b51504478cc0d501a89760ccd60808a69ccbd
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: MT
+ms.openlocfilehash: 7941e557dfbb71df7c2d55608c4a14c026535db8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="install-the-elastic-stack-on-an-azure-vm"></a>De elastische Stack installeren op een virtuele machine in Azure
+# <a name="install-the-elastic-stack-on-an-azure-vm"></a>De Elastic Stack installeren op een virtuele machine in Azure
 
-Dit artikel begeleidt u bij het implementeren van [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash), en [Kibana](https://www.elastic.co/products/kibana), op een Ubuntu VM in Azure. Overzicht van de elastische Stack in actie kunt u eventueel verbinding maken met Kibana en werkt met sommige gegevens in een logboek voorbeeld. 
+Dit artikel begeleidt u bij het implementeren van [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash) en [Kibana](https://www.elastic.co/products/kibana) op een Ubuntu-VM in Azure. Als u Elastic Stack in actie wilt zien, kunt u verbinding maken met Kibana en de voorbeeldlogboekgegevens gebruiken. 
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Maak een VM Ubuntu in een Azure-resourcegroep
+> * Een Ubuntu-VM maken in een Azure-resourcegroep
 > * Elasticsearch, Logstash en Kibana installeren op de virtuele machine
-> * Voorbeeldgegevens naar Elasticsearch met Logstash verzenden 
-> * Openen van poorten en werken met gegevens in de console Kibana
+> * Voorbeeldgegevens met Logstash verzenden naar Elasticsearch 
+> * Poorten openen en met gegevens werken in de Kibana-console
 
 
- Deze implementatie is geschikt voor basic ontwikkeling met de elastische Stack. Zie voor meer informatie over de elastische Stack, aanbevelingen voor een productie-omgeving, inclusief de [elastische documentatie](https://www.elastic.co/guide/index.html) en de [Azure architectuur Center](/azure/architecture/elasticsearch/).
+ Deze implementatie is geschikt voor basisontwikkeling met de Elastic Stack. Zie de [Documentatie bij Elastic](https://www.elastic.co/guide/index.html) en het [Azure Architecture Center](/azure/architecture/elasticsearch/) voor meer informatie over de Elastic Stack, inclusief aanbevelingen voor een productie-omgeving.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
-Maak een VM met de opdracht [az vm create](/cli/azure/vm#create). 
+Maak een VM met de opdracht [az vm create](/cli/azure/vm#az_vm_create). 
 
 In het volgende voorbeeld wordt een VM gemaakt met de naam *myVM* en worden er SSH-sleutels gemaakt, als deze nog niet bestaan op een standaardsleutellocatie. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
 
@@ -80,58 +80,58 @@ Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie die lijkt 
 
 ## <a name="ssh-into-your-vm"></a>SSH in uw virtuele machine
 
-Als u al het openbare IP-adres van uw virtuele machine niet weet, voert u de [az netwerk openbare ip-lijst](/cli/azure/network/public-ip#list) opdracht:
+Als u het openbare IP-adres van uw VM niet weet, voert u de opdracht [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_list) uit:
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-Gebruik de volgende opdracht om een SSH-sessie te starten voor de virtuele machine. Vervangen door de juiste openbare IP-adres van uw virtuele machine. In dit voorbeeld wordt het IP-adres is *40.68.254.142*.
+Gebruik de volgende opdracht om een SSH-sessie te starten voor de virtuele machine. Gebruik hierbij het juiste openbare IP-adres van uw virtuele machine. In dit voorbeeld is het IP-adres *40.68.254.142*.
 
 ```bash
 ssh azureuser@40.68.254.142
 ```
 
-## <a name="install-the-elastic-stack"></a>De elastische Stack installeren
+## <a name="install-the-elastic-stack"></a>De Elastic Stack installeren
 
-De handtekeningsleutel Elasticsearch importeren en bijwerken van de opslagplaats elastische pakket opnemen in de lijst APT bronnen:
+Importeer de handtekeningsleutel van Elasticsearch en werk uw lijst met APT-bronnen bij zodat ook de opslagplaats voor Elastic-pakketten wordt opgenomen:
 
 ```bash
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
 ```
 
-Op de virtuele machine van de virtuele Java installeren en configureren van de variabele deze JAVA_HOME is nodig voor de elastische Stack-onderdelen worden uitgevoerd.
+Installeer de Java Virtual Machine op de virtuele machine en configureer de variabele JAVA_HOME. Dit is nodig voor de uitvoering van de Elastic Stack-onderdelen.
 
 ```bash
 sudo apt update && sudo apt install openjdk-8-jre-headless
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
 
-Voer de volgende opdrachten om te werken Ubuntu pakket bronnen en Elasticsearch, Kibana en Logstash installeren.
+Voer de volgende opdrachten uit om bronnen van Ubuntu-pakketten bij te werken en Elasticsearch, Kibana en Logstash te installeren.
 
 ```bash
 sudo apt update && sudo apt install elasticsearch kibana logstash   
 ```
 
 > [!NOTE]
-> Gedetailleerde installatie-instructies, met inbegrip van directory-indelingen en de initiële configuratie worden bijgehouden in [elastische van documentatie](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html)
+> Gedetailleerde installatie-instructies, waaronder directory-indelingen en een eerste configuratie, worden bijgehouden in de [documentatie van Elastic](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html)
 
 ## <a name="start-elasticsearch"></a>Elasticsearch starten 
 
-Elasticsearch starten op de virtuele machine met de volgende opdracht:
+Voer de volgende opdracht uit als u Elasticsearch op uw virtuele machine wilt starten:
 
 ```bash
 sudo systemctl start elasticsearch.service
 ```
 
-Met deze opdracht produceert geen uitvoer, dus controleren of Elasticsearch wordt uitgevoerd op de virtuele machine met deze `curl` opdracht:
+Deze opdracht produceert geen uitvoer. Controleer daarom met deze `curl`-opdracht of Elasticsearch op de virtuele machine wordt uitgevoerd:
 
 ```bash
 curl -XGET 'localhost:9200/'
 ```
 
-Als Elasticsearch wordt uitgevoerd, ziet u de volgende uitvoer:
+Als Elasticsearch wordt uitgevoerd, ziet u ongeveer de volgende uitvoer:
 
 ```json
 {
@@ -149,21 +149,21 @@ Als Elasticsearch wordt uitgevoerd, ziet u de volgende uitvoer:
 }
 ```
 
-## <a name="start-logstash-and-add-data-to-elasticsearch"></a>Start Logstash en gegevens toevoegen aan Elasticsearch
+## <a name="start-logstash-and-add-data-to-elasticsearch"></a>Logstash starten en gegevens toevoegen aan Elasticsearch
 
-Logstash starten met de volgende opdracht:
+Start Logstash met de volgende opdracht:
 
 ```bash 
 sudo systemctl start logstash.service
 ```
 
-Test Logstash in interactieve modus om te controleren of dat deze correct werkt:
+Test Logstash in de interactieve modus om te controleren of het correct werkt:
 
 ```bash
 sudo /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
 ```
 
-Dit is een eenvoudige logstash [pijplijn](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) die een echo standaardinvoer naar de standaarduitvoer. 
+Dit is een eenvoudige logstash-[pijplijn](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) die standaardinvoer herhaalt naar de standaarduitvoer. 
 
 ```output
 The stdin plugin is now waiting for input:
@@ -171,7 +171,7 @@ hello azure
 2017-10-11T20:01:08.904Z myVM hello azure
 ```
 
-Logstash instellen voor het doorsturen van de kernel-berichten van deze virtuele machine naar Elasticsearch. Maak een nieuw bestand in een lege map met de naam `vm-syslog-logstash.conf` en plak in de volgende Logstash-configuratie:
+Stel Logstash in om de kernelberichten van deze virtuele machine door te sturen naar Elasticsearch. Maak een nieuw bestand in een lege map met de naam `vm-syslog-logstash.conf` en plak daarin de volgende Logstash-configuratie:
 
 ```Logstash
 input {
@@ -197,48 +197,48 @@ output {
 }
 ```
 
-Deze configuratie te testen en de syslog-gegevens verzenden naar Elasticsearch:
+Test deze configuratie en stuur de syslog-gegevens naar Elasticsearch:
 
 ```bash
 sudo /usr/share/logstash/bin/logstash -f vm-syslog-logstash.conf
 ```
 
-U ziet de syslog-vermeldingen in uw terminal als ze worden verzonden naar Elasticsearch teruggestuurd. Gebruik `CTRL+C` om af te sluiten buiten Logstash als u bepaalde gegevens hebt verzonden.
+De syslog-vermeldingen worden in uw terminal herhaald wanneer ze zijn verzonden naar Elasticsearch. Gebruik `CTRL+C` om Logstash af te sluiten nadat u wat gegevens hebt verzonden.
 
-## <a name="start-kibana-and-visualize-the-data-in-elasticsearch"></a>Kibana starten en de gegevens in Elasticsearch visualiseren
+## <a name="start-kibana-and-visualize-the-data-in-elasticsearch"></a>Kibana starten en de gegevens visualiseren in Elasticsearch
 
-Bewerken `/etc/kibana/kibana.yml` en wijzig het IP-adres Kibana luistert op zodat u deze vanuit de webbrowser openen kunt.
+Bewerk `/etc/kibana/kibana.yml` en wijzig het IP-adres dat Kibana controleert, zodat u het vanuit de webbrowser kunt openen.
 
 ```bash
 server.host:"0.0.0.0"
 ```
 
-Kibana starten met de volgende opdracht:
+Start Kibana met de volgende opdracht:
 
 ```bash
 sudo systemctl start kibana.service
 ```
 
-Open poort 5601 met Azure CLI voor externe toegang naar de console Kibana:
+Open poort 5601 vanuit de Azure CLI om externe toegang tot de Kibana-console toe te staan:
 
 ```azurecli-interactive
 az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 ```
 
-Open de console Kibana en selecteer **maken** voor het genereren van een standaardindex op basis van de syslog-gegevens die u eerder naar Elasticsearch verzonden. 
+Open de Kibana-console en selecteer **Create** om een standaardindex te genereren op basis van de syslog-gegevens die u eerder naar Elasticsearch hebt verzonden. 
 
-![Syslog-gebeurtenissen in Kibana bladeren](media/elasticsearch-install/kibana-index.png)
+![Door syslog-gebeurtenissen in Kibana bladeren](media/elasticsearch-install/kibana-index.png)
 
-Selecteer **Discover** bladeren op de Kibana-console om te zoeken en filteren via de syslog-gebeurtenissen.
+Selecteer **Discover** op de Kibana-console om syslog-gebeurtenissen te zoeken, te filteren of erdoorheen te bladeren.
 
-![Syslog-gebeurtenissen in Kibana bladeren](media/elasticsearch-install/kibana-search-filter.png)
+![Door syslog-gebeurtenissen in Kibana bladeren](media/elasticsearch-install/kibana-search-filter.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie kunt u de elastische Stack geïmplementeerd in een virtuele machine in Azure-ontwikkeling. U hebt geleerd hoe u:
+In deze zelfstudie hebt u de Elastic Stack geïmplementeerd op een virtuele ontwikkelmachine in Azure. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Maak een VM Ubuntu in een Azure-resourcegroep
+> * Een Ubuntu-VM maken in een Azure-resourcegroep
 > * Elasticsearch, Logstash en Kibana installeren op de virtuele machine
-> * Voorbeeldgegevens Elasticsearch verzenden van Logstash 
-> * Openen van poorten en werken met gegevens in de console Kibana
+> * Voorbeeldgegevens vanuit Logstash verzenden naar Elasticsearch 
+> * Poorten openen en met gegevens werken in de Kibana-console

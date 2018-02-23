@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 397afc28b5f4c4f7f84afde13b6d031d83aaced4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Maken van een virtuele-machineschaalset die gebruikmaakt van beschikbaarheid Zones (Preview)
 Om te voorkomen dat uw virtuele-machineschaalsets fouten datacenter-niveau, kunt u een schaal instellen voor beschikbaarheid Zones maken. Azure-regio's die ondersteuning bieden voor beschikbaarheid Zones hebben een minimum van drie afzonderlijke zones, elk met hun eigen onafhankelijke energie-bron-, netwerk- en koeling. Zie voor meer informatie [overzicht van de Zones van de beschikbaarheid](../availability-zones/az-overview.md).
@@ -30,13 +30,7 @@ Om te voorkomen dat uw virtuele-machineschaalsets fouten datacenter-niveau, kunt
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Single-zone en zone-redundante schaalsets
 Wanneer u een virtuele-machineschaalset implementeert, kunt u een enkele Zone beschikbaarheid in een regio of meerdere zones te gebruiken.
 
-Als u een schaal instellen in een enkele zone, u de controle over welke zone worden uitgevoerd in alle exemplaren van deze virtuele machine en de schaalaanpassingsset wordt beheerd en autoscales alleen in deze zone maakt. Het volgende diagram toont een voorbeeld van hoe u meerdere één zone schaal kunt maken met een zone-redundante load balancer die verkeer wordt ingesteld:
-
-![Implementatie met zone-redundante load balancer-schaalset één zone](media/virtual-machine-scale-sets-use-availability-zones/zonal-vmss.png)
-
-Een zone-redundante schaalset kunt u een set met één scale die meerdere zones omvat maken. Als de VM-exemplaren zijn gemaakt, standaard zijn ze gelijkmatig verdeeld zijn over zones. Moet een onderbreking optreedt op een van de zones, een schaalset wordt niet automatisch worden uitgebreid om capaciteit te vergroten. Een aanbevolen procedure kan worden regels voor automatisch schalen op basis van gebruik van CPU of geheugen configureren. De regels voor automatisch schalen, zou de schaal ingesteld om te reageren op een verlies van de VM-instanties die een zone door het uitbreiden van nieuwe exemplaren in de resterende operationele zones toestaan. Het volgende diagram toont een voorbeeld van een set één scale die is geïmplementeerd in meerdere zones:
-
-![Zonal redundante schaal implementatie instellen en de load balancer](media/virtual-machine-scale-sets-use-availability-zones/zone-redundant-vmss.png)
+Als u een schaal instellen in een enkele zone, u de controle over welke zone worden uitgevoerd in alle exemplaren van deze virtuele machine en de schaalaanpassingsset wordt beheerd en autoscales alleen in deze zone maakt. Een zone-redundante schaalset kunt u een set met één scale die meerdere zones omvat maken. Als de VM-exemplaren zijn gemaakt, standaard zijn ze gelijkmatig verdeeld zijn over zones. Moet een onderbreking optreedt op een van de zones, een schaalset wordt niet automatisch worden uitgebreid om capaciteit te vergroten. Een aanbevolen procedure kan worden regels voor automatisch schalen op basis van gebruik van CPU of geheugen configureren. De regels voor automatisch schalen, zou de schaal ingesteld om te reageren op een verlies van de VM-instanties die een zone door het uitbreiden van nieuwe exemplaren in de resterende operationele zones toestaan.
 
 Beschikbaarheid om Zones te gebruiken, moet uw schaalset worden gemaakt in een [ondersteunde Azure-regio](../availability-zones/az-overview.md#regions-that-support-availability-zones). U moet ook [registreren voor een voorbeeld bekijken van de beschikbaarheid van Zones](http://aka.ms/azenroll). U kunt een schaalset die gebruikmaakt van beschikbaarheid Zones met een van de volgende manieren maken:
 

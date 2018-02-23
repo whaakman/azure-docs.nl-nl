@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/27/2018
 ms.author: subramar
-ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7a7bda1b2bab05459e4266f7bac0d32ea4093c8b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Uw eerste Azure Service Fabric-toepassing maken
 > [!div class="op_single_selector"]
@@ -40,10 +40,18 @@ Service Fabric biedt hulpprogramma's waarmee u vanuit een terminal Service Fabri
 
 1. nodejs en NPM installeren op uw computer
 
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+   Ubuntu
+   ```bash
+   sudo apt-get install npm
+   sudo apt install nodejs-legacy
+   ```
+
+   Red Hat Enterprise Linux 7.4 (ondersteuning voor Service Fabric-preview)
+   ```bash
+   sudo yum install nodejs
+   sudo yum install npm
+   ```
+
 2. [Yeoman](http://yeoman.io/)-sjabloongenerator installeren op uw computer vanuit NPM
 
   ```bash
@@ -118,11 +126,6 @@ Actorprojecten doen niets uit zichzelf. Ze hebben een andere service of client n
 Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepassing die al is gemaakt met `yo`:
 1. Stel de directory in op de hoofdmap van de bestaande toepassing.  Bijvoorbeeld `cd ~/YeomanSamples/MyApplication` als `MyApplication` de toepassing is die is gemaakt door Yeoman.
 2. Voer `yo azuresfcsharp:AddService` uit.
-
-## <a name="migrating-from-projectjson-to-csproj"></a>Migreren van project.json naar .csproj
-1. Als u dotnet migrate uitvoert in de hoofdmap van het project, worden alle project.json gemigreerd naar de indeling csproj.
-2. Werk de projectverwijzingen in de projectbestanden op basis hiervan bij naar csproj-bestanden.
-3. Werk de projectbestandsnamen bij naar csproj-bestanden in build.sh.
 
 ## <a name="next-steps"></a>Volgende stappen
 

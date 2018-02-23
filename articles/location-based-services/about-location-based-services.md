@@ -5,18 +5,18 @@ services: location-based-services
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 11/28/2017
+ms.date: 02/05/2017
 ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6871f174eb9bae57d9b4767520d0fb2d8d9631d3
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Een inleiding tot Azure Location Based Services (preview)
 Azure Location Based Services is een portfolio met georuimtelijke services die onder andere service-API's omvat voor kaarten, zoeken, routes, verkeer en tijdzones. Met behulp van de portfolio met Azure OneAPI-compatibele services kunt u gebruikmaken van vertrouwde hulpprogramma’s om snel oplossingen te ontwikkelen en schalen waarmee locatiegegevens worden geïntegreerd in Azure-oplossingen. Azure Location Based Services biedt ontwikkelaars uit alle branches krachtige georuimtelijke mogelijkheden, vol nieuwe kaartgegevens die onmisbaar zijn wanneer u webtoepassingen en mobiele toepassingen wilt voorzien van geografische context. Azure Location Based Services bestaat uit een Azure One API-compatibele set REST API's en een JavaScript-besturingselement op basis van het web, waarmee ontwikkelen voor meerdere mediums heel gemakkelijk, flexibel en mobiel wordt. 
@@ -65,11 +65,12 @@ Azure Location Based Services is gebouwd voor mobiliteit en kan toepassingen hos
 
 Azure Location Based Services maakt gebruik van een verificatieschema op basis van sleutels. Voor toegang tot de services gaat u naar [Azure Portal](http://portal.azure.com) en maakt u een Azure Location Based Services-account. Uw account wordt geleverd met twee sleutels die vooraf voor u zijn gegenereerd. U kunt deze locatiemogelijkheden direct integreren in uw toepassingen met behulp van een van de sleutels in de aanvragen voor de Azure Location Based Services-service.
 
-**Relatie met Bing Kaarten** - houd er rekening mee dat Azure Location Based Services, zoals beschreven in dit document, verschilt van de services van Bing Kaarten.  Hoewel veel van de functies overeenkomen, zijn beide services verschillend en niet aan elkaar gerelateerd.  Dit heeft geen invloed op productaanbiedingen of implementatieschema’s van Bing Kaarten met de beschikbaarheid van deze nieuwe service binnen Azure. Dit wordt allemaal afzonderlijk beheerd.
+## <a name="relationship-with-bing-maps"></a>Relatie met Bing Kaarten
+De Azure Location Based Services, zoals beschreven in dit document, verschilt van de services van Bing Kaarten.  Hoewel veel van de functies overeenkomen, zijn beide services verschillend en niet aan elkaar gerelateerd.  Dit heeft geen invloed op productaanbiedingen of implementatieschema’s van Bing Kaarten met de beschikbaarheid van deze nieuwe service binnen Azure. Dit wordt allemaal afzonderlijk beheerd.
 
 Het doel van Microsoft is om de ontwikkelaarscommunity keuze te bieden op het gebied van locatieserviceaanbiedingen.  Hieronder vindt u snelle hulp voor ontwikkelaars over welke service het beste kan worden gebruikt bij verschillende gebruikscases en klantproblemen.  Let op: deze handleiding is momenteel van toepassing op Azure LBS in de openbare previewfase, en wordt bijgewerkt zodra algemene beschikbaarheid wordt bereikt, later in 2018.
 
-| Klantcriteria | Azure Location Based Services gebruiken wanneer... | Bing Kaarten gebruiken wanneer... |
+| Klantcriteria | Gebruik Azure Location Based Services wanneer... | Gebruik Bing Kaarten wanneer... |
 | ------------- | ------------- | ------------- |
 | Ontwikkelomgeving | Andere Azure-services inbouwen of gebruiken | Een cloud van derden of andere ontwikkelomgeving gebruiken |
 | Ontwikkelingsfase  | Omdat Azure LBS momenteel in de openbare preview is, is deze versie geoptimaliseerd voor vroege testdoeleinden en Testen-van-concept-ontwikkeling | Voor een productieomgeving is een SLA op zakelijk niveau vereist |
@@ -79,7 +80,7 @@ Het doel van Microsoft is om de ontwikkelaarscommunity keuze te bieden op het ge
 | Inhoud toewijzen | Standaardkaarten van Surface zijn toereikend | Satelliet- en straatbeelden zijn vereist |
 | Onderliggende kaartbron | TomTom-kaartgegevens hebben de voorkeur | HERE-kaartgegevens hebben de voorkeur |
 
-Registreer u vandaag nog voor een [Azure Location Based Services-account!](http://aka.ms/azurelbsportal)
+Registreer u vandaag nog voor een [Azure Location Based Services-account](http://aka.ms/azurelbsportal).
 
 ## <a name="next-steps"></a>Volgende stappen
 

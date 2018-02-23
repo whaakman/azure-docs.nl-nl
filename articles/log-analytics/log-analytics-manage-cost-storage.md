@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 35064c792b72222d59b1d3f0913a92a4a2b34612
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5143abdde715424a41a53bb661db342acf817e0c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-cost-of-data-retention-with-your-log-analytics-workspace"></a>Kosten voor het bewaren van gegevens met de werkruimte voor logboekanalyse beheren
 Wanneer u zich aanmeldt voor logboekanalyse, afhankelijk van het plan dat u selecteert, is er een limiet aan hoe lang de gegevens die worden gegenereerd door uw verbonden bronnen in uw werkruimte is opgeslagen.  In dit artikel worden de overwegingen die van invloed kunnen hebben op de kosten voor het bewaren van deze gegevens voor verschillende periodes en het configureren van deze limiet gemarkeerd.   
@@ -44,7 +44,7 @@ Tijdens het gebruik van de *vrije* plan, als u vindt u consistent meer bedragen 
 ## <a name="change-the-data-retention-period"></a>De bewaartermijn voor gegevens wijzigen 
 
 1. Meld u aan bij de [Azure Portal](http://portal.azure.com). 
-2. Klik op **meer services** gevonden in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Meld Analytics**.
+2. Klik op **alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 3. Selecteer in het deelvenster abonnementen van logboekanalyse uw werkruimte te wijzigen in de lijst.
 4. Klik op de pagina voor werkruimte **bewaren** vanuit het linkerdeelvenster.
 5. Verplaats de schuifregelaar vergroten of verkleinen het aantal dagen en klik vervolgens op op het deelvenster met bewaren **opslaan**.  Als u op de *gratis* laag, u zich niet wijzigen van de bewaartermijn voor gegevens en u wilt upgraden naar de laag betaald om te bepalen van deze instelling.<br><br> ![Werkruimte bewaren instelling wijzigen](media/log-analytics-manage-cost/manage-cost-change-retention.png)

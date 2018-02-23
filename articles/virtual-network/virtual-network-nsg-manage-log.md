@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6beb9ae1b64e27df0a4eefefd592c7850efc7d2d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Logboekanalyses voor netwerkbeveiligingsgroepen (NSG's)
 
@@ -46,7 +46,7 @@ Diagnostische logboekregistratie moet zijn ingeschakeld voor *elke* NSG die u we
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Gebruik de portal voor het inschakelen van logboekregistratie, meld u aan bij de [portal](https://portal.azure.com). Klik op **meer services**, typ *netwerkbeveiligingsgroepen*. Selecteer het NSG u logboekregistratie wilt inschakelen voor. Volg de instructies voor niet-rekenresources in de [Schakel diagnostische logboeken in de portal](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artikel. Selecteer **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, of beide categorieën van Logboeken.
+Gebruik de portal voor het inschakelen van logboekregistratie, meld u aan bij de [portal](https://portal.azure.com). Klik op **alle services**, typ *netwerkbeveiligingsgroepen*. Selecteer het NSG u logboekregistratie wilt inschakelen voor. Volg de instructies voor niet-rekenresources in de [Schakel diagnostische logboeken in de portal](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artikel. Selecteer **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, of beide categorieën van Logboeken.
 
 ### <a name="powershell"></a>PowerShell
 

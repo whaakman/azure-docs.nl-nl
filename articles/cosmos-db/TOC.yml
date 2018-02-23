@@ -131,6 +131,8 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+    - name: Azure Resource Manager-sjablonen
+      href: 'https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1'
 - name: Concepten
   items:
     - name: Database zonder servers
@@ -342,6 +344,8 @@
           href: logging.md
         - name: Sleutels en consistentie beheren
           href: manage-account.md
+        - name: Toegangsbeheer
+          href: access-control.md
         - name: Azure Opslagverkenner
           href: storage-explorer.md
         - name: Beveiliging

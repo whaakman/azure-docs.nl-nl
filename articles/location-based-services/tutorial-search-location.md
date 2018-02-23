@@ -12,25 +12,25 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 791992028d11633fc20f55ae1a34e7fcd442bf3a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Zoek naar een nuttige plaats in de buurt op basis van Azure Location Based Services
+# <a name="search-nearby-points-of-interest-using-azure-location-based-services"></a>Zoek naar nuttige plaatsen in de buurt op basis van Azure Location Based Services
 
 Deze zelfstudie laat zien hoe u een account instellen met Azure Location Based Services en vervolgens de opgegeven API's gebruikt om te zoeken naar een nuttige plaats. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een account van Azure Location Based Services maken
 > * De primaire sleutel voor uw Azure Location Based Services-account opzoeken
-> * Nieuwe webpagina met Map Control API maken
-> * Search Service gebruiken om nuttige plaatsen in de buurt te vinden
+> * Een nieuwe webpagina maken met de Map Control API
+> * Search Service gebruiken om een nuttige plaats in de buurt te vinden
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
-# <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 <a id="createaccount"></a>

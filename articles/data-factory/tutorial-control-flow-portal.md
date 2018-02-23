@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activiteiten vertakken en koppelen in een Data Factory-pijplijn
 In deze zelfstudie maakt u een Data Factory-pijplijn die enkele van de stroombeheerfuncties demonstreert. Deze pijplijn voert een eenvoudige kopieerbewerking uit van een container in Azure Blob Storage naar een andere container in hetzelfde opslagaccount. Als de kopieerbewerking is geslaagd, worden de details over de geslaagde kopieerbewerking (zoals de hoeveelheid geschreven gegevens) via de pijplijn verzonden in een e-mail met een succesbericht. Als de kopieerbewerking is mislukt, worden de details over de mislukte kopieerbewerking (zoals de foutmelding) via de pijplijn verzonden in een e-mail met de foutmelding. In de zelfstudie ziet u hoe u parameters kunt doorgeven.
@@ -129,6 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
+1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
 1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -241,8 +242,7 @@ In deze stap maakt u een pijplijn met één kopieeractiviteit en twee webactivit
         - Naam data factory: geeft de waarde van `@{pipeline().DataFactory}` door. Dit is een systeemvariabele, zodat u toegang hebt tot de bijbehorende data factory-naam. Zie voor een lijst van systeemvariabelen het artikel [System Variables](control-flow-system-variables.md) (Systeemvariabelen).
         - Naam pijplijn: geeft de waarde van `@{pipeline().Pipeline}` door. Dit is ook een systeemvariabele, zodat u toegang hebt tot de bijbehorende pijplijnnaam. 
         - Ontvanger: geeft de waarde van "@pipeline().parameters.receiver") door. Toegang tot de pijplijnparameters.
-    6. De **Instellingen** moeten er uitzien zoals in de volgende afbeelding: 
-
+    
         ![Instellingen voor de eerste webactiviteit](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Verbind de **kopieeractiviteit** met de **webactiviteit** door de groene knop naast de kopieeractiviteit te slepen en neer te zetten op de webactiviteit. 
 
@@ -266,8 +266,7 @@ In deze stap maakt u een pijplijn met één kopieeractiviteit en twee webactivit
             "receiver": "@pipeline().parameters.receiver"
         }
         ```
-    6. De **Instellingen** moeten er uitzien zoals in de volgende afbeelding: 
-    
+
         ![Instellingen voor de tweede webactiviteit](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Selecteer **kopieeractiviteit** in de pijplijnontwerper en klik op de knop **+->**. Selecteer vervolgens **Fout**.  
 
@@ -278,7 +277,7 @@ In deze stap maakt u een pijplijn met één kopieeractiviteit en twee webactivit
 24. Klik in de werkbalk op de knop **Valideren** om de pijplijn te valideren. Sluit het venster met de **uitvoergegevens van de pijplijnvalidatie** door op de knop **>>** te klikken.
 
     ![Pijplijn valideren](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. Als u entiteiten (gegevenssets, pijplijnen, enzovoort) wilt publiceren in de Data Factory-service, klikt u op **Publiceren**. Wacht tot u het bericht **Gepubliceerd** ziet.
+24. Als u entiteiten (gegevenssets, pijplijnen enzovoort) wilt publiceren in de Data Factory-service, selecteert u **Alles publiceren**. Wacht tot u het bericht **Gepubliceerd** ziet.
 
     ![Publiceren](./media/tutorial-control-flow-portal/publish-button.png)
  

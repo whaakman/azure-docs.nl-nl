@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 1508faf7a05461de65b7a4c2f68e2ef9bbd7e19d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5549c175c280961b09f5996e3387a50dae31222f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter-notebook installeren op uw computer en maak verbinding met Apache Spark in HDInsight
 
@@ -55,9 +55,9 @@ Voordat u de Jupyter-notebooks kunt installeren, moet u Python installeren. Zowe
 
 Voor instructies over het installeren van de Spark-magic, de kernels PySpark en Spark installatie-instructies in de [sparkmagic documentatie](https://github.com/jupyter-incubator/sparkmagic#installation) op GitHub. De eerste stap in de documentatie van de Spark-magic vraagt u Spark verwerkt Magic-pakket installeren. Deze eerste stap in de koppeling met de volgende opdrachten, afhankelijk van de versie van het HDInsight-cluster dat maakt u verbinding met vervangen. Volg daarna de overige stappen in de documentatie van Spark-magic. Als u installeren van de verschillende kernels wilt, voert u stap 3 in de sectie Spark magische installatie-instructies.
 
-* Voor clusters v3.4, installeert u sparkmagic 0.2.3 door te voeren`pip install sparkmagic==0.2.3`
+* Voor clusters v3.4, installeert u sparkmagic 0.2.3 door te voeren `pip install sparkmagic==0.2.3`
 
-* Installeren voor clusters v3.5 en v3.6 sparkmagic 0.11.2 door`pip install sparkmagic==0.11.2`
+* Installeren voor clusters v3.5 en v3.6 sparkmagic 0.11.2 door `pip install sparkmagic==0.11.2`
 
 ## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Spark-magic verbinding maken met HDInsight Spark-cluster configureren
 
@@ -150,7 +150,6 @@ Er is een aantal redenen waarom u wilt mogelijk Jupyter op uw computer installer
 * [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](apache-spark-use-bi-tools.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark-streaming: Spark in HDInsight gebruiken voor het bouwen van realtime streamingtoepassingen](apache-spark-eventhub-streaming.md)
 * [Websitelogboekanalyse met Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren

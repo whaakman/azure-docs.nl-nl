@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c79bce401b0f1d67d7955f4c97a5dfac5008be0d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 11dedc8866fcc0239fd4a34b7ed73af34c6d5a4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
 In deze zelfstudie maakt u een Azure Data Factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
@@ -135,7 +135,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Nog een tabel in de SQL-database maken om de bovengrenswaarde op te slaan
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Nog een tabel in Azure SQL Database maken om de bovengrenswaarde op te slaan
 1. Voer de volgende SQL-opdracht uit op de SQL-database om een tabel met de naam `watermarktable` te maken om de grenswaarde op te slaan: 
     
     ```sql
@@ -157,7 +157,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Een opgeslagen procedure maken in de SQL-database 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Een opgeslagen procedure maken in de Azure SQL-database 
 
 Voer de volgende opdracht uit om een opgeslagen procedure te maken in de SQL-database. Deze opgeslagen procedure werkt de bovengrenswaarde bij elke pijplijnuitvoering bij. 
 
@@ -175,7 +175,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Gegevenstypen en aanvullende opgeslagen procedures maken
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Gegevenstypen en aanvullende opgeslagen procedures maken in de Azure SQL-database
 Voer de volgende query uit om twee opgeslagen procedures en twee gegevenstypen te maken in de SQL-database. Deze worden gebruikt voor het samenvoegen van de gegevens uit de brontabellen in doeltabellen.
 
 ```sql
@@ -228,6 +228,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
+1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
 1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
@@ -422,7 +423,7 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
     3. Selecteer **Object** voor de parameter **Type**.
 
     ![Pijplijnparameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. Sleep de **ForEach**-activiteit vanuit de werkset **Activiteiten** naar het ontwerpoppervlak voor pijplijnen. Voer in het tabblad **Algemeen** van het venster **Eigenschappen** **IterateSQLTables** in. 
+4. Vouw in de werkset **Activiteiten** de optie **Iteratie en voorwaarden** uit en sleep de **ForEach**-activiteit naar het ontwerpoppervlak voor pijplijnen. Voer in het tabblad **Algemeen** van het venster **Eigenschappen** **IterateSQLTables** in. 
 
     ![ForEach-activiteitnaam](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. Ga naar het tabblad **Instellingen** in het venster **Eigenschappen** en voer `@pipeline().parameters.tableList` in voor **Items**. De ForEach-activiteit doorloopt de lijst met tabellen en voert de volgende incrementele kopiebewerkingen uit. 
@@ -431,7 +432,7 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
 6. Selecteer de activiteit **ForEach** in de pijplijn als dat nog niet is gebeurd. Klik op de knop **Bewerken (potloodpictogram)**.
 
     ![ForEach-activiteit - bewerken](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. Sleep de activiteit **Opzoeken** uit de **Activiteiten**-werkset en voer **LookupOldWaterMarkActivity** in als **Naam**.
+7. Vouw in de **Activiteiten**-werkset de optie **Algemeen** uit. Gebruik vervolgens slepen-en-neerzetten om de **opzoekactiviteit** te verplaatsen naar het ontwerpoppervlak voor pijplijnen. en voer **LookupOldWaterMarkActivity** in bij **Naam**.
 
     ![Eerste opzoekactiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 8. Ga naar het tabblad **Instellingen** in het venster **Eigenschappen** en voer de volgende stappen uit: 
@@ -497,12 +498,13 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
     ![Opgeslagen-procedureactiviteit - SQL-account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 19. Ga naar het tabblad **Opgeslagen procedure** en voer de volgende stappen uit:
 
-    1. Voer `sp_write_watermark` in als **Opgeslagen procedurenaam**. 
-    2. Gebruik de knop **Nieuw** voor het toevoegen van de volgende parameters: 
+    1. Selecteer `sp_write_watermark` als **Opgeslagen procedurenaam**. 
+    2. Selecteer **Importparameter**. 
+    3. Geef de volgende waarden op voor de parameters: 
 
         | Name | Type | Waarde | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | datum/tijd | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | Tekenreeks | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Opgeslagen-procedureactiviteit - instellingen voor de opgeslagen procedure](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)

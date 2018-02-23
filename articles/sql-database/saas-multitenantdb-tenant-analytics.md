@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c6c83f4ac93dd105b2f311250061b8880f5d2a5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Cross-tenant analytics met gegevens opgehaald
 
@@ -76,7 +76,7 @@ Voor het voltooien van deze zelfstudie moet u ervoor zorgen dat aan de volgende 
 - De Wingtip SaaS-scripts en de toepassing [broncode](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) worden gedownload van GitHub. Zorg ervoor dat *blokkering van het zip-bestand* voordat het uitpakken van de inhoud ervan. Bekijk de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de scripts Wingtip Tickets SaaS deblokkeren.
 - Power BI Desktop is geïnstalleerd. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - De batch van extra tentants is ingericht, raadpleegt u de [ **inrichten tenants zelfstudie**](saas-multitenantdb-provision-and-catalog.md).
-- Een taak account en accountdatabase taak hebt gemaakt. Zie de juiste stappen in de [ **Schema management zelfstudie**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Een taak agent en de taak agent database hebt gemaakt. Zie de juiste stappen in de [ **Schema management zelfstudie**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Gegevens voor de demo maken
 
@@ -184,7 +184,7 @@ Verbinding maken met Power BI, en voor het importeren van de weergaven die u eer
 
 6. In de **Navigator** deelvenster onder de analytics-database, selecteer de tabellen ster-schema: fact_Tickets, dim_Events, dim_Venues, dim_Customers en dim_Dates. Selecteer vervolgens **Load**. 
 
-Gefeliciteerd. U hebt de gegevens in Power BI geladen. U kunt nu starten verkennen interessante visualisaties zodat u inzicht in uw tenants. Naast helpt u bij hoe analytics kunt u gegevensgestuurde aanbevelingen voor het managementteam Wingtip Tickets. De aanbevelingen kunnen u het model en de klant ervaring te optimaliseren.
+Gefeliciteerd! U hebt de gegevens in Power BI geladen. U kunt nu starten verkennen interessante visualisaties zodat u inzicht in uw tenants. Naast helpt u bij hoe analytics kunt u gegevensgestuurde aanbevelingen voor het managementteam Wingtip Tickets. De aanbevelingen kunnen u het model en de klant ervaring te optimaliseren.
 
 Begint u met de analyse van ticket verkoopgegevens om te zien van de variatie in gebruik over de plaatsen. De volgende opties selecteren in Power BI om te tekenen van een staafdiagram van het totale aantal tickets verkocht door elke locatie vast. Als gevolg van willekeurige variaties in de generator ticket kunnen uw resultaten afwijken.
  
@@ -239,9 +239,9 @@ In deze zelfstudie heeft u het volgende geleerd:
 > - Query analytics-database 
 > - Power BI voor gegevensvisualisatie gebruiken om te zien van trends in gegevens van de tenant 
 
-Gefeliciteerd.
+Gefeliciteerd!
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). -->
 - [Elastische taken](sql-database-elastic-jobs-overview.md).

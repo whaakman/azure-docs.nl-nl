@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Een Linux-containertoepassing voor Azure Service Fabric implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -34,50 +34,47 @@ In deze snelstartgids leert u de volgende zaken:
 > * Containers schalen en er failovers voor uitvoeren in Service Fabric
 
 ## <a name="prerequisite"></a>Vereiste
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+1. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
-Als u ervoor kiest om de opdrachtregelinterface (CLI)lokaal te installeren en te gebruiken, zorgt u ervoor dat versie Azure CLI 2.0.4 of later wordt uitgevoerd. Voer az --version uit om de versie te zoeken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
+2. Als u ervoor kiest om de opdrachtregelinterface (CLI)lokaal te installeren en te gebruiken, zorgt u ervoor dat versie Azure CLI 2.0.4 of later wordt uitgevoerd. Voer az --version uit om de versie te zoeken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="get-application-package"></a>Een toepassingspakket ophalen
 Als u containers wilt implementeren op Service Fabric, hebt u een set manifestbestanden nodig (de toepassingsdefinitie), waarin de afzonderlijke containers en de toepassing worden beschreven.
 
 Gebruik git in Cloud Shell om een kopie van de toepassingsdefinitie te maken.
 
-```azurecli-interactive
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
 cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
+## <a name="deploy-the-application-to-azure"></a>De toepassing implementeren in Azure
 
-## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>De containers implementeren in een Service Fabric-cluster in Azure
-Gebruik uw eigen cluster of een cluster van derden om de toepassing te implementeren in een cluster in Azure.
+### <a name="set-up-your-azure-service-fabric-cluster"></a>Het Azure Service Fabric-cluster instellen
+Maak uw eigen cluster om de toepassing te implementeren in een cluster in Azure.
 
-> [!Note]
-> De toepassing moet worden geïmplementeerd in een cluster in Azure en niet in een Service Fabric-cluster op de lokale ontwikkelcomputer. 
->
+Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Ze worden beheerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en informatie krijgen over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
 
-Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Ze worden onderhouden door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en informatie krijgen over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
+Als u beheerbewerkingen wilt uitvoeren op het beveiligde Party-cluster, kunt u gebruikmaken van Service Fabric Explorer, CLI of Powershell. Als u Service Fabric Explorer wilt gebruiken, moet u het PFX-bestand downloaden van de Party Cluster-website en het certificaat importeren in uw certificaatarchief (Windows of Mac) of in de browser zelf (Ubuntu). Er is geen wachtwoord voor de zelfondertekende certificaten van het Party-cluster. 
+
+Als u beheerbewerkingen wilt uitvoeren met Powershell of CLI, hebt u de PFX (Powershell) of PEM (CLI) nodig. Voer de volgende opdracht uit om de PFX te converteren naar een PEM-bestand:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Zie [Een Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) voor meer informatie over het maken van uw eigen cluster.
 
 > [!Note]
-> De web-front-endservice is geconfigureerd om te luisteren op poort 80 naar binnenkomend verkeer. Zorg ervoor dat de poort is geopend in het cluster. Als u een cluster van derden gebruikt, is deze poort geopend.
+> De web-front-endservice is geconfigureerd om naar binnenkomend verkeer te luisteren op poort 80. Zorg ervoor dat de poort is geopend in het cluster. Als u een cluster van derden gebruikt, is deze poort geopend.
 >
 
 ### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Service Fabric-opdrachtregelinterface installeren en verbinden met uw cluster
-De [SFCTL (Service Fabric-CLI)](service-fabric-cli.md) installeren in de CLI-omgeving
 
-```azurecli-interactive
-pip3 install --user sfctl 
-export PATH=$PATH:~/.local/bin
-```
+Maak verbinding met het Service Fabric-cluster in Azure met behulp van Azure CLI. Het eindpunt is het beheereindpunt van het cluster - bijvoorbeeld: `https://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-Maak verbinding met het Service Fabric-cluster in Azure met behulp van Azure CLI. Het eindpunt is het beheereindpunt van het cluster - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
-
-```azurecli-interactive
-sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
+```bash
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 ### <a name="deploy-the-service-fabric-application"></a>De Service Fabric-toepassing implementeren 
@@ -86,13 +83,13 @@ Service Fabric-containertoepassingen kunnen worden geïmplementeerd met behulp v
 #### <a name="deploy-using-service-fabric-application-package"></a>Implementeren met behulp van het Service Fabric-toepassingspakket
 Gebruik het opgegeven installatiescript om de stemtoepassingsdefinitie te kopiëren naar het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
 
-```azurecli-interactive
+```bash
 ./install.sh
 ```
 
 #### <a name="deploy-the-application-using-docker-compose"></a>De toepassing implementeren met behulp van Docker Compose
 Implementeer en installeer de toepassing op het Service Fabric-cluster via Docker Compose met behulp van de volgende opdracht.
-```azurecli-interactive
+```bash
 sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 

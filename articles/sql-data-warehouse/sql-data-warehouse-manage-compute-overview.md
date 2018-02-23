@@ -1,6 +1,6 @@
 ---
-title: Beheren van de rekencapaciteit in Azure SQL Data Warehouse (overzicht) | Microsoft Docs
-description: Prestaties scale-out mogelijkheden in Azure SQL Data Warehouse. Uitbreiden door dwu's aan te passen of onderbreken en hervatten van rekenresources kosten besparen.
+title: Beheren van rekenresources in Azure SQL Data Warehouse | Microsoft Docs
+description: Meer informatie over prestaties scale-out mogelijkheden in Azure SQL Data Warehouse. Uitschalen door aan te passen dwu's of kosten te verlagen door het datawarehouse te onderbreken.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -13,36 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 3/23/2017
+ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: d795abe5254d47a72a468b0989e46829a5c5142a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>De rekencapaciteit in Azure SQL Data Warehouse (overzicht) beheren
-> [!div class="op_single_selector"]
-> * [Overzicht](sql-data-warehouse-manage-compute-overview.md)
-> * [Portal](sql-data-warehouse-manage-compute-portal.md)
-> * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-> * [REST](sql-data-warehouse-manage-compute-rest-api.md)
-> * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
->
->
+# <a name="manage-compute-in-azure-sql-data-warehouse"></a>Compute in Azure SQL Data Warehouse beheren
+Meer informatie over het beheren van rekenresources in Azure SQL Data Warehouse. Lagere kosten door het datawarehouse onderbreken of schalen van het datawarehouse om te voldoen aan de prestatie-eisen. 
 
-De architectuur van SQL Data Warehouse scheidt opslag en berekeningen, zodat deze afzonderlijk kunnen worden geschaald. Als gevolg hiervan kan rekencapaciteit worden geschaald om te voldoen aan de prestatie-eisen onafhankelijk van de hoeveelheid gegevens. Een natuurlijke gevolg van deze architectuur is dat [facturering] [ billed] voor berekeningen en opslag is gescheiden. 
+## <a name="what-is-compute-management"></a>Wat is compute management?
+De architectuur van SQL Data Warehouse scheidt opslag en berekeningen, zodat deze afzonderlijk kunnen worden geschaald. Als gevolg hiervan kunt u berekenen om te voldoen aan de prestatie-eisen onafhankelijk van de opslag van gegevens schalen. U kunt ook onderbreken en hervatten van de compute-bronnen. Een natuurlijke gevolg van deze architectuur is dat [facturering](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) voor berekeningen en opslag is gescheiden. Als u uw datawarehouse gebruiken voor een tijdje niet wilt, kunt u de compute-kosten besparen door onderbreken compute. 
 
-Dit overzicht beschrijft uitbreiden hoe werkt met SQL Data Warehouse en hoe u kunt gebruikmaken van de onderbreken, hervatten en schalen van de mogelijkheden van SQL Data Warehouse. 
+## <a name="scaling-compute"></a>Compute schalen
+U kunt uitbreiden of back compute schalen door het aanpassen van de [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md) instellen voor uw datawarehouse. Bij het laden en queryprestaties kunt lineair verhogen als u meer datawarehouse units toevoegen. SQL Data Warehouse biedt [serviceniveaus](performance-tiers.md#service-levels) voor gegevens datawarehouse eenheden die zorgen voor een merkbare veranderingen in de prestaties wanneer u schalen out- of back. 
 
-## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>Hoe compute beheerbewerkingen werken in SQL Data Warehouse
-De architectuur voor SQL Data Warehouse bestaat uit een beheerknooppunt, rekenknooppunten en de opslaglaag verspreid over 60 distributies. 
+Zie voor stappen voor scale-out de [Azure-portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), of [T-SQL](quickstart-scale-compute-tsql.md) snelstartgidsen. U kunt ook scale-out bewerkingen uitvoeren met een [REST-API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
-Tijdens een normale actieve sessie in SQL Data Warehouse het hoofdknooppunt van het systeem beheert de metagegevens en de gedistribueerde queryoptimalisatie bevat. Onder deze node head zijn uw rekenknooppunten en uw storage-laag. Voor een 400 DWU heeft uw systeem één hoofdknooppunt, vier rekenknooppunten en de storage-laag, die bestaan uit 60 distributies. 
+Als u een schaalaanpassing, SQL Data Warehouse eerst is funest alle binnenkomende query's en vervolgens teruggedraaid transacties om te controleren of een consistente status. Schalen vindt alleen plaats wanneer het terugdraaien van de transactie voltooid is. Voegt de rekenknooppunten en vervolgens reattaches de storage-laag aan de Compute-laag voor het uitvoeren van een scale het systeem wordt losgekoppeld van de storage-laag van de rekenknooppunten. Elk datawarehouse wordt opgeslagen als 60 distributies die gelijkmatig verdeeld zijn in de rekenknooppunten. Meer computerknooppunten toe te voegen, voegt dat meer rekenkracht. Als het aantal rekenknooppunten toeneemt, afneemt het aantal distributies per rekenknooppunt, bieden meer rekencapaciteit voor uw query's. Evenzo vermindert verlagen datawarehouse units het aantal rekenknooppunten, waardoor de rekenresources voor query's.
 
-Wanneer u een schaal ondergaan of onderbreken van de bewerking, wordt het systeem eerst is funest alle binnenkomende query's en vervolgens wordt teruggezet transacties om te controleren of een consistente status. Voor scale-bewerkingen vindt schalen alleen plaats wanneer deze transactionele terugdraaien is voltooid. Het systeem voorziet de extra gewenst aantal rekenknooppunten en begint vervolgens met de koppeling van de rekenknooppunten aan de storage-laag voor het uitvoeren van een scale-up. De overbodige knooppunten worden vrijgegeven voor een bewerking omlaag schalen en de resterende compute nodes koppelt zelf opnieuw aan het juiste aantal distributies. Voor een bewerking onderbreken compute alle knooppunten worden vrijgegeven en uw systeem ietwat tal van bewerkingen voor metagegevens uw laatste systeem in een stabiele status laten staan.
+De volgende tabel ziet hoe het aantal distributies per Compute knooppunt verandert als de datawarehouse eenheden wijzigen.  DWU6000 biedt 60 rekenknooppunten en veel hogere queryprestaties dan DWU100 bereikt. 
 
-| DWU  | \#van rekenknooppunten | \#van distributies per knooppunt |
+| Datawarehouse-eenheden  | \# van rekenknooppunten | \# van distributies per knooppunt |
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |
@@ -57,163 +51,72 @@ Wanneer u een schaal ondergaan of onderbreken van de bewerking, wordt het systee
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |
 
-De drie primaire functies voor het beheren van compute zijn:
 
-1. Onderbreken
-2. Hervatten
-3. Schalen
+## <a name="finding-the-right-size-of-data-warehouse-units"></a>Zoeken naar de juiste grootte datawarehouse Units
 
-Elk van deze bewerkingen kan enkele minuten duren. Als u schalen/onderbreken/hervatten automatisch, u mogelijk wilt implementeren logica om ervoor te zorgen dat bepaalde bewerkingen zijn voltooid voordat u doorgaat met een andere actie. 
+Als u wilt zien van de prestatievoordelen van uitbreiden, met name voor grotere datawarehouse-eenheden die u wilt gebruiken van ten minste een gegevensset 1 TB. Het aanbevolen aantal datawarehouse Units voor uw datawarehouse vindt probeer omhoog en omlaag schalen. Enkele query's uitvoeren met verschillende aantallen datawarehouse Units na het laden van uw gegevens. Omdat schalen snel is, kunt u verschillende prestatieniveaus proberen in een uur of minder. 
 
-Controleren of de status van de database via verschillende eindpunten kunt u voor het implementeren van correct automatisering van dergelijke bewerkingen. De portal biedt de huidige status melding na voltooiing van een bewerking en de databases, maar is niet toegestaan voor de programmatische controle van status. 
+Aanbevelingen voor het vinden van het aanbevolen aantal data warehouse units:
 
->  [!NOTE]
->
->  COMPUTE beheerfunctionaliteit bestaat niet in alle eindpunten.
->
->  
+- Beginnen met het selecteren van een kleiner getal datawarehouse Units voor een datawarehouse in ontwikkeling.  Een goed uitgangspunt is DW400 of DW200.
+- De toepassingsprestaties van uw, het nummer datawarehouse Units geselecteerd vergeleken met de prestaties die u merkt observeren bewaken.
+- Stel een lineaire schaal en bepaalt hoeveel u wilt vergroten of verkleinen van de datawarehouse-eenheden. 
+- Blijven correcties totdat u een optimaal prestatieniveau voor uw zakelijke vereisten.
 
-|              | Onderbreken/hervatten | Schalen | Controleer de databasestatus van de |
-| ------------ | ------------ | ----- | -------------------- |
-| Azure Portal | Ja          | Ja   | **Nee**               |
-| PowerShell   | Ja          | Ja   | Ja                  |
-| REST-API     | Ja          | Ja   | Ja                  |
-| T-SQL        | **Nee**       | Ja   | Ja                  |
+## <a name="when-to-scale-out"></a>Wanneer moet worden uitgebreid
+Deze aspecten van de prestaties van invloed is op datawarehouse units uitbreiden:
 
+- Lineair verbetert de prestaties van het systeem voor scans, aggregaties en CTAS-instructies.
+- Verhoogt het aantal lezers en writers om gegevens te laden.
+- Maximum aantal gelijktijdige query's en gelijktijdigheid sleuven.
 
+Aanbevelingen voor het uitbreiden van data warehouse units:
 
-<a name="scale-compute-bk"></a>
+- Voordat u een zware laad- of transformatiebewerking bewerking uitvoert, kunt u uitschalen naar de gegevens sneller beschikbaar te stellen.
+- Tijdens de kantooruren piek, uitbreiden om grotere aantallen gelijktijdige query's mogelijk te maken. 
 
-## <a name="scale-compute"></a>Scale compute
+## <a name="what-if-scaling-out-does-not-improve-performance"></a>Wat gebeurt er als uitbreiden heeft niet de prestaties verbeteren?
 
-Prestaties in SQL Data Warehouse wordt gemeten in [datawarehouse units (dwu's)] [-datawarehouse units (dwu's)] Dit is een abstracte meting van de compute-bronnen zoals CPU, geheugen en i/o-bandbreedte. Een gebruiker die u wenst te schalen van de prestaties van hun systeem kunt doen met behulp van verschillende middelen, zoals via de portal, T-SQL en REST-API's. 
+Datawarehouse eenheden verhogen van de parallelle uitvoering wordt toegevoegd. Als het werk gelijkmatig verdeeld is over de rekenknooppunten, verbetert de aanvullende parallelle uitvoering de prestaties van query's. Als horizontaal te schalen, is de prestaties van uw niet worden gewijzigd, zijn er enkele redenen waarom dit kan gebeuren. Uw gegevens kunnen worden vervormd via de distributies of query's kunnen worden introductie van een grote hoeveelheid gegevens verplaatsen. Zie voor het onderzoeken van prestatieproblemen query [prestaties probleemoplossing](sql-data-warehouse-troubleshoot.md#performance). 
 
-### <a name="how-do-i-scale-compute"></a>Hoe ik compute schalen?
-COMPUTE power voor u SQL Data Warehouse wordt beheerd door de DWU-instelling te wijzigen. Prestaties neemt lineair toe naarmate u meer DWU voor bepaalde bewerkingen toevoegen.  We bieden DWU-aanbiedingen die ervoor zorgen dat de prestaties van uw merkbaar wordt veranderen wanneer u uw systeem omhoog of omlaag schalen. 
+## <a name="pausing-and-resuming-compute"></a>Rekenuren voor het onderbreken en hervatten
+Onderbreken compute zorgt ervoor dat de opslaglaag loskoppelen van de rekenknooppunten. De rekenresources worden vrijgegeven uit uw account. U worden niet in rekening gebracht voor compute terwijl compute is onderbroken. Hervatten van compute reattaches opslag in de rekenknooppunten en kosten voor Compute hervat. Wanneer u een datawarehouse onderbreekt:
 
-U kunt een van deze afzonderlijke methoden gebruiken om aan te passen dwu's.
+* Reken-en geheugenbronnen worden geretourneerd aan de groep met beschikbare resources in het datacenter
+* Datawarehouse unit kosten zijn voor de duur van de pauze nul.
+* Opslag van gegevens wordt niet beïnvloed en uw gegevens intact blijven. 
+* SQL Data Warehouse annuleert alle bewerkingen voor actieve of in de wachtrij.
 
-* [Schaal rekenkracht met Azure portal][Scale compute power with Azure portal]
-* [Schaal rekenkracht met PowerShell][Scale compute power with PowerShell]
-* [De rekencapaciteit schaal met REST-API 's][Scale compute power with REST APIs]
-* [Schaal rekenkracht met TSQL][Scale compute power with TSQL]
+Wanneer u een datawarehouse hervatten:
 
-### <a name="how-many-dwus-should-i-use"></a>Het aantal dwu's moet ik gebruiken?
+* SQL Data Warehouse verkrijgt berekenings-en geheugenbronnen voor uw datawarehouse eenheden instellen.
+* COMPUTE-kosten voor uw datawarehouse units hervatten.
+* Uw gegevens beschikbaar.
+* Nadat het datawarehouse online is, moet u opnieuw opstarten van uw werkbelasting query's.
 
-Om te bepalen wat voor u de ideale DWU-waarde is, kunt u omhoog en omlaag schalen en na het laden van uw gegevens enkele query's uitvoeren. Omdat schalen snel is, kunt u verschillende prestatieniveaus proberen in een uur of minder. 
+Als u altijd uw datawarehouse toegankelijk is wilt, kunt schalen omlaag naar de kleinste grootte, in plaats van onderbreken. 
 
-> [!Note] 
-> SQL Data Warehouse is ontworpen voor grote hoeveelheden gegevens verwerken. Als u wilt zien van de werkelijke capaciteit voor het schalen, met name bij een groter aantal dwu's, die u wilt gebruiken een grote gegevensset die nadert of hoger is dan 1 TB.
+Voor onderbreken en hervatten van de stappen, ziet de [Azure-portal](pause-and-resume-compute-portal.md), of [PowerShell](pause-and-resume-compute-powershell.md) snelstartgidsen. U kunt ook de [onderbreken REST-API](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) of de [hervatten REST-API](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
 
-Aanbevelingen voor het vinden van de beste DWU voor uw workload:
+## <a name="drain-transactions-before-pausing-or-scaling"></a>Transacties stoppen voor onderbreken of schalen
+U wordt aangeraden zodat bestaande transacties te voltooien voordat u een pauze of scale-bewerking starten.
 
-1. Beginnen met het selecteren van een kleinere DWU-prestatieniveau voor een datawarehouse in ontwikkeling.  Een goed uitgangspunt is DW400 of DW200.
-2. Controleren van de toepassingsprestaties van uw, het aantal dwu's geselecteerd observeren vergeleken met de prestaties die u zien.
-3. Bepalen hoeveel prestatievermogen sneller of langzamer moet u het niveau van de optimale prestaties voor uw vereisten bereiken door ervan uitgaande dat lineaire schaal.
-4. Vergroten of verkleinen het aantal dwu's in verhouding tot hoe veel sneller of trager u wilt dat uw werkbelasting uit te voeren. 
-5. Blijven correcties totdat u een optimaal prestatieniveau voor uw zakelijke vereisten.
+Wanneer u uw SQL Data Warehouse onderbreekt of schaalt, worden uw query’s achter de schermen geannuleerd zodra u het onderbreek- of schaalverzoek start.  Een eenvoudige SELECT-query annuleren is een snelle bewerking en heeft zo goed als geen invloed op de duur van het onderbreken of schalen van uw instantie.  Maar transactiequery’s, die uw gegevens of de structuur van uw gegevens wijzigen, kunnen mogelijk niet snel worden stopgezet.  **Transactiequery’s moeten per definitie volledig worden voltooid of hun wijzigingen volledig terugdraaien.**  Het kan even lang of langer duren om het werk dat door een transactiequery is voltooid, terug te draaien, als het uitvoeren van de oorspronkelijke opdracht van de query.  Als u bijvoorbeeld een query annuleert voor het verwijderen van rijen die al een uur wordt uitgevoerd, kan het systeem er een uur over doen om de verwijderde rijen terug te plaatsen.  Als u onderbreken of schalen uitvoert terwijl er transacties bezig zijn, kan het schalen of onderbreken lang lijken te duren omdat het schalen of onderbreken moet wachten op het terugdraaien van de transacties voordat het kan worden voortgezet.
 
-> [!NOTE]
->
-> Prestaties van query's worden alleen met meer garandeert verhoogd als het werk kan worden gesplitst tussen rekenknooppunten. Als u merkt dat schalen niet van de prestaties van uw wijzigen is, check onze artikelen om te controleren of uw gegevens ongelijkmatig verdeeld is of als u een grote hoeveelheid gegevensverplaatsing introduceren afstemmen van de prestaties. 
+Zie ook [wat zijn transacties](sql-data-warehouse-develop-transactions.md), en [optimaliseren transacties][optimaliseren transacties](sql-data-warehouse-develop-best-practices-transactions.md).
 
-### <a name="when-should-i-scale-dwus"></a>Wanneer moet ik dwu's schalen?
-Dwu's schalen, wijzigt de volgende belangrijke scenario's:
+## <a name="automating-compute-management"></a>Automatiseren compute-beheer
+Zie voor het automatiseren van de compute-beheerbewerkingen [compute beheren met Azure functions](manage-compute-with-azure-functions.md).
 
-1. Prestaties van het systeem voor scans, aggregaties en CTAS instructies wijzigen lineair
-2. Het aantal en schrijfprogramma verhogen bij het laden met PolyBase
-3. Maximum aantal gelijktijdige query's en gelijktijdigheid sleuven
+Elk van de scale-out, onderbreken en hervattingsbewerkingen kan enkele minuten duren. Als u schalen, onderbreken, of automatisch hervat, wordt aangeraden implementeren logica om ervoor te zorgen dat voltooid bepaalde bewerkingen voordat u doorgaat met een andere actie. Controleren of de status van datawarehouse via verschillende eindpunten, kunt u de automatisering van dergelijke bewerkingen correct te implementeren. 
 
-Aanbevelingen voor het schalen van dwu's:
+U kunt de status van datawarehouse controleren de [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) of [T-SQL](quickstart-scale-compute-tsql.md#check-database-state) Quick Start. U kunt ook controleren met de status van datawarehouse met een [REST-API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
-1. Voordat u een zware laad- of transformatiebewerking bewerking uitvoert, opschalen dwu's zodat uw gegevens sneller beschikbaar is.
-2. Schalen tijdens kantooruren piek, zodat een groot aantal gelijktijdige query's. 
-
-<a name="pause-compute-bk"></a>
-
-## <a name="pause-compute"></a>De rekencapaciteit onderbreken
-[!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
-
-Onderbreken van een database, een van deze afzonderlijke methoden te gebruiken.
-
-* [Compute onderbreken met de Azure-portal][Pause compute with Azure portal]
-* [De rekencapaciteit onderbreken met PowerShell][Pause compute with PowerShell]
-* [De rekencapaciteit onderbreken met REST-API 's][Pause compute with REST APIs]
-
-<a name="resume-compute-bk"></a>
-
-## <a name="resume-compute"></a>Compute hervatten
-[!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
-
-Voor het hervatten van een database, een van deze afzonderlijke methoden te gebruiken.
-
-* [De berekeningen hervatten met Azure portal][Resume compute with Azure portal]
-* [De berekeningen hervatten met PowerShell][Resume compute with PowerShell]
-* [De berekeningen hervatten met REST-API 's][Resume compute with REST APIs]
-
-<a name="check-compute-bk"></a>
-
-## <a name="check-database-state"></a>Controleer de databasestatus van de 
-
-Voor het hervatten van een database, een van deze afzonderlijke methoden te gebruiken.
-
-- [Controleer de databasestatus van de met T-SQL][Check database state with T-SQL]
-- [Controleer de databasestatus van de met PowerShell][Check database state with PowerShell]
-- [Controleer de databasestatus van de met de REST-API 's][Check database state with REST APIs]
 
 ## <a name="permissions"></a>Machtigingen
 
-De machtigingen beschreven in de database schalen vereist [ALTER DATABASE][ALTER DATABASE].  Onderbreken en hervatten, vereisen de [SQL DB Contributor] [ SQL DB Contributor] machtiging specifiek Microsoft.Sql/servers/databases/action.
+De machtigingen beschreven in het datawarehouse schalen vereist [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Onderbreken en hervatten, vereisen de [SQL DB Contributor](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor) machtiging specifiek Microsoft.Sql/servers/databases/action.
 
-<a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg de volgende artikelen om te begrijpen enkele concepten die aanvullende prestatie:
-
-* [Werkbelasting en gelijktijdigheid management][Workload and concurrency management]
-* [Overzicht van de tabel-ontwerp][Table design overview]
-* [Tabeldistributie][Table distribution]
-* [Tabel indexeren][Table indexing]
-* [Partitioneren van tabel][Table partitioning]
-* [Tabelstatistieken][Table statistics]
-* [Aanbevolen procedures][Best practices]
-
-<!--Image reference-->
-
-<!--Article references-->
-[billed]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
-[Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
-[Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
-[Scale compute power with TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
-
-[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
-
-[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
-[Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
-[Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
-
-[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
-[Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
-[Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
-
-[Check database state with T-SQL]: ./sql-data-warehouse-manage-compute-tsql.md#check-database-state-and-operation-progress
-[Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
-[Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
-
-[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
-[Table design overview]: ./sql-data-warehouse-tables-overview.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexing]: ./sql-data-warehouse-tables-index.md
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
-
-<!--MSDN references-->
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-
-<!--Other Web references-->
-[Azure portal]: http://portal.azure.com/
+Een ander aspect van het beheren van rekenresources is toewijzen van verschillende rekenresources voor afzonderlijke query's. Zie voor meer informatie [Resource klassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md).

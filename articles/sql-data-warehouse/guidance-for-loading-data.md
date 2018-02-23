@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Aanbevolen procedures voor het laden van gegevens in Azure SQL Data Warehouse
 Aanbevelingen en prestatieoptimalisatie voor het laden van gegevens in Azure SQL Data Warehouse. 
@@ -120,15 +120,19 @@ Het is verstandig uit veiligheidsoverwegingen de toegangssleutel in de blob-opsl
 
 Sleutels van het Microsoft Azure Storage-account draaien:
 
-1. Maak een tweede database-scoped referentie op basis van de secundaire toegangssleutel.
-2. Maak een tweede externe gegevensbron gebaseerd op deze nieuwe referentie.
-3. Verwijder en maak de externe tabel(len) zodat deze naar de nieuwe externe gegevensbronnen wijzen. 
+Voor elk opslagaccount waarvan de sleutel is gewijzigd, moet u [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md) uitvoeren.
 
-Voer na het migreren van uw externe tabellen naar de nieuwe gegevensbron de volgende opschoningstaken uit:
+Voorbeeld:
 
-1. Verwijder de eerste externe gegevensbron.
-2. Verwijder de eerste database-scoped referentie op basis van de primaire toegangssleutel.
-3. Meld u aan bij Azure en genereer de primaire toegangssleutel opnieuw zodat deze klaar is voor uw volgende draaiing.
+De oorspronkelijke sleutel wordt gemaakt
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+
+Rotate key from key 1 to key 2
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+
+Er hoeven geen andere wijzigingen te worden aangebracht aan onderliggende externe gegevensbronnen.
 
 
 ## <a name="next-steps"></a>Volgende stappen

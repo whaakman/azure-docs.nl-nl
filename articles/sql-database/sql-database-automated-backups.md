@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 25fa8d03a206452c17e5d4ad38211203aeb5dd65
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 57132367faaa4c4869f2415f32897562c8056fb1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Meer informatie over automatische back-ups van SQL-Database
 
@@ -41,9 +41,6 @@ U kunt deze back-ups te gebruiken:
 > [!NOTE]
 > In Azure-opslag, de term *replicatie* verwijst naar het kopiëren van bestanden van de ene locatie naar een andere. De SQL *databasereplicatie* verwijst naar en meerdere secundaire databases worden gesynchroniseerd met een primaire database behouden blijft. 
 > 
-
-## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Hoeveel back-upopslag is opgenomen kosteloos?
-SQL-Database biedt tot 200% van de maximale ingerichte databaseopslag als back-upopslag zonder extra kosten. Bijvoorbeeld, als er een Standard database-exemplaar met een ingerichte DB-grootte van 250 GB, hebt u 500 GB aan back-upopslag zonder extra kosten. 
 
 ## <a name="how-often-do-backups-happen"></a>Hoe vaak gebeuren back-ups?
 Volledige databaseback-ups gebeuren wekelijks, differentiële back-ups in het algemeen gebeuren elk paar uur en transactielogboek back-ups in het algemeen gebeuren elke 5-10 minuten. De eerste volledige back-up is gepland onmiddellijk nadat een database wordt gemaakt. Meestal is voltooid binnen 30 minuten, maar het kan langer duren wanneer de database van een aanzienlijke grootte. De eerste back-up kan onder andere op een herstelde database of een databasekopie langer duren. Na de eerste volledige back-up, worden alle verdere back-ups automatisch gepland en achtergrond beheerd op de achtergrond. De precieze timing van alle databaseback-ups wordt bepaald door de service SQL Database als het een compromis tussen de werkbelasting van het algehele systeem. 

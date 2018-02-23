@@ -3,7 +3,7 @@ title: StorSimple ondersteuningsvoorwaarden | Microsoft Docs
 description: Beschrijft de ondersteuningsopties voor StorSimple 8000 series enterprise-klanten voor opslag.
 services: storsimple
 documentationcenter: NA
-author: alkohli
+author: GabiSocoteanu
 manager: jeconnoc
 editor: 
 ms.assetid: 
@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/06/2018
+ms.date: 02/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 8126b671d310d880b34967e8c19c250f8af0724d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6753b52b02373d03a9ed5fec775c899a806aff3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="storsimple-solution-support"></a>**Ondersteuning voor StorSimple-oplossing**
+# <a name="storsimple-solution-support"></a>Ondersteuning voor StorSimple-oplossing
 
-## <a name="storsimple-support"></a>**StorSimple-ondersteuning**
+## <a name="storsimple-support"></a>Ondersteuning voor StorSimple
 
 Microsoft biedt flexibele ondersteuningsopties voor StorSimple enterprise-opslagklanten. We zijn zeer belangrijk voor het leveren van een hoge kwaliteit ondersteuningservaring waarmee u de impact van uw investering in de StorSimple-oplossing en de Microsoft Azure maximaliseren. Als een StorSimple-klant foutbericht:
 
@@ -33,7 +33,7 @@ Microsoft biedt flexibele ondersteuningsopties voor StorSimple enterprise-opslag
 * Toegang tot die betrekking hebben op de primaire, secundaire, software-updates en onderhoud corrigeert.
 * Ondersteuning voor StorSimple 8000 Series opslagmatrices en virtuele StorSimple-matrices in één pakket.
 
-## <a name="storsimple-support-plans"></a>**StorSimple-ondersteuningsplannen**
+## <a name="storsimple-support-plans"></a>StorSimple-ondersteuningsplannen
 
 |                                                                                                                                                     | **STANDAARD** <sup>1                                                 |  **PREMIUM** <sup>1                                                                         |
 |---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
@@ -52,11 +52,10 @@ Microsoft biedt flexibele ondersteuningsopties voor StorSimple enterprise-opslag
 
 | HARDWARE EN SOFTWARE GARANTIE                                        |
 |-----------------------------------------------------------------------|
-| garantie op de hardware van 90 dagen na aankoop (alleen StorSimple 8000-serie) |
-| Hardware-onderdelen (alleen StorSimple 8000-serie) vervanging <sup>6            |
+| Hardware-onderdelen (alleen StorSimple 8000-serie) vervanging <sup>6       |
 | Gratis software-updates                                                 |
 
-<sup>1</sup> ondersteuning wordt geboden aan de klant tot volgende EA verjaardag. Klanten moeten ondersteuning op EA verjaardag in aanmerking komt voor ondersteuning van StorSimple vernieuwen. Neem contact op met Microsoft voor geografische dekking. Premium-dekking kan verschillen per plaats. Neem contact op met Microsoft-account/sales-team voor geografische dekking voordat het aanschaffen van een Premium-ondersteuning voor StorSimple.
+<sup>1</sup> ondersteuning wordt geboden aan de klant tot volgende EA verjaardag. Klanten moeten ondersteuning op EA verjaardag in aanmerking komt voor ondersteuning van StorSimple vernieuwen. Neem contact op met Microsoft voor geografische dekking. Premium-dekking kan verschillen per plaats. Contact opnemen met Microsoft-account/sales-team voor geografische dekking voordat het aanschaffen van een Premium-ondersteuning voor StorSimple.
 
 <sup>2</sup> ernst als volgt gedefinieerd: 
 
@@ -76,35 +75,37 @@ Microsoft biedt flexibele ondersteuningsopties voor StorSimple enterprise-opslag
 
 <sup>5</sup> klanten die gebruikmaken van alleen virtuele StorSimple matrices StorSimple Standard of Premium ondersteuningsplannen moeten aanschaffen. Neem contact op met uw Microsoft-account/sales-team om aan te schaffen StorSimple-ondersteuning.
 
-<sup>6</sup> sneller hardware garantieclaims, vervangende onderdelen worden geleverd aan de klant voordat defecte onderdelen wordt ontvangen. De klant is verantwoordelijk voor tijdige verzending van defecte onderdelen.
+<sup>6</sup> sneller hardware garantieclaims, vervangende onderdelen worden verzonden naar de klant voordat defecte onderdelen wordt ontvangen. De klant is verantwoordelijk voor tijdige verzending van defecte onderdelen. 
 
-## <a name="local-language-support"></a>**Lokale taalondersteuning**
+Als uw support-contract is verlopen, worden op de hoogte, afhankelijk van hoe lang het ondersteuningscontract is verlopen, duurt maximaal drie weken na de verwerking van de vernieuwing is voltooid voordat een onderdeel wordt geleverd, omdat de opslaglocatie van de lokale voor het contract geen voorraad met reserveonderdelen voor het apparaat pas nadat het contract is verwerkt.
+
+## <a name="local-language-support"></a>Lokale taalondersteuning
 Naast Engels, lokale taal wordt ondersteund in de volgende talen tijdens kantooruren: Japans, Koreaans, Taiwanees en traditioneel Chinees.
 
-## <a name="support-scope"></a>**Ondersteuning voor bereik** 
-Ondersteuning voor facturering en hulp bij problemen met het abonnementsbeheer is beschikbaar op alle ondersteuningsniveaus. Ondersteuning wilt ontvangen StorSimple, moet de klant actief worden ingeschreven voor StorSimple Standard of Premium ondersteuningsplannen. StorSimple-ondersteuningsteam is verantwoordelijk voor het oplossen van alle problemen die van invloed zijn de StorSimple-oplossing. De klant moet om ontvangt ondersteuning voor Azure-gerelateerde problemen die niet direct gerelateerd zijn aan StorSimple, om te worden ingeschreven in een juiste ondersteuning van Azure-abonnement. Raadpleeg [hier](https://azure.microsoft.com/en-us/support/plans/) voor meer informatie. Het ondersteuningsteam verwijst naar het team van Azure voor opvolging op basis van de klant rechten voor de ondersteuning van Azure niet StorSimple ondersteuningsaanvragen. 
+## <a name="support-scope"></a>Reikwijdte van ondersteuning 
+Ondersteuning voor facturering en hulp bij problemen met het abonnementsbeheer is beschikbaar op alle ondersteuningsniveaus. Ondersteuning wilt ontvangen StorSimple, moet de klant actief worden ingeschreven voor StorSimple Standard of Premium ondersteuningsplannen. StorSimple-ondersteuningsteam is verantwoordelijk voor het oplossen van alle problemen die van invloed zijn de StorSimple-oplossing. Om ontvangt ondersteuning voor Azure-gerelateerde problemen die niet direct gerelateerd zijn aan StorSimple, moet de klant om te worden ingeschreven in een juiste Azure-ondersteuningsplan. Raadpleeg [hier](https://azure.microsoft.com/en-us/support/plans/) voor meer informatie. Het ondersteuningsteam verwijst niet StorSimple ondersteuningsaanvragen naar het team van Azure voor opvolging op basis van de klant rechten voor de ondersteuning van Azure. 
 
 
 | **SEVERITY** |**SITUATIE VAN DE KLANT**                                                                                                                                | VERWACHTE REACTIE VAN MICROSOFT <sup>2                                                                                       | VERWACHTE KLANT ANTWOORD                                                                                                                                                       |
 |----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| A        | Ernstige impact op bedrijf: <ul> <br> <li> Zakelijke klanten is aanzienlijk verlies of aanzienlijke vermindering van services. <sup>1</sup> <br> <li> Onmiddellijke aandacht.                          | Eerste reactie:<sup>1</sup> <ul><br> <li>1 uur of minder voor Premium. <br> <li> 2 uur of minder voor standaard. <br> <li> Continue inspanning alle elke dag. | <ul><li> Toewijzing van juiste bronnen om voortdurende inspanning de gehele dag en elke dag te kunnen ondersteunen. <br> <li> Nauwkeurige contactgegevens voor de eigenaar van de aanvraag.                                                |
+| A        | Ernstige impact op bedrijf: <ul> <br> <li> Zakelijke klanten is aanzienlijk verlies of aanzienlijke vermindering van services. <sup>1</sup> <br> <li> Onmiddellijke aandacht.                          | Eerste reactie: <sup>1</sup> <ul><br> <li>1 uur of minder voor Premium. <br> <li> 2 uur of minder voor standaard. <br> <li> Continue inspanning alle elke dag. | <ul><li> Toewijzing van juiste bronnen om voortdurende inspanning de gehele dag en elke dag te kunnen ondersteunen. <br> <li> Nauwkeurige contactgegevens voor de eigenaar van de aanvraag.                                                |
 | B        | Matige impact op bedrijf: <ul><br> <li> Bedrijven van de klant heeft matig verlies of matige vermindering van services, maar werk redelijkerwijs gehinderd wijze kan worden voortgezet. | Eerste reactie: <sup>1</sup><ul><br> <li> 2 uur of minder voor Premium. <br> <li> 4 uur of minder voor standaard.                                      | <ul><li> Toewijzing van de juiste resources om aan te kunnen voortdurende inspanningen tijdens kantooruren tenzij klant vraagt 24 x 7 afmelden. <br> <li> Nauwkeurige contactgegevens voor de eigenaar van de aanvraag. |
-| C        | Minimale impact op bedrijf: <ul><br> <li> Van de klant business werkt aanzienlijk met secundaire of geen belemmeringen tot services.                                 | Eerste reactie:<sup>1</sup><ul> <br> <li> 4 uur of minder voor Premium. <br> <li> de 8 uur of minder voor standaard.                                      | <ul><li>Nauwkeurige contactgegevens voor de eigenaar van de aanvraag                                                                                                                                    |
+| C        | Minimale impact op bedrijf: <ul><br> <li> Van de klant business werkt aanzienlijk met secundaire of geen belemmeringen tot services.                                 | Eerste reactie: <sup>1</sup><ul> <br> <li> 4 uur of minder voor Premium. <br> <li> de 8 uur of minder voor standaard.                                      | <ul><li>Nauwkeurige contactgegevens voor de eigenaar van de aanvraag                                                                                                                                    |
  
 <sup>1 </sup> Microsoft kan de ernst van een aanvraag ernst A downgraden Als de klant niet kan voor een voldoende bronnen of reacties naar Microsoft wilt u doorgaan met het probleem resolutie inspanningen inschakelen.
 
 <sup>2</sup> reactietijden van de verwachte zijn gebaseerd op 24 x 7 ondersteuning in het Engels voor ernst A en kantooruren voor ernst B en C en lokale kantooruren ondersteuning in de resterende lokale talen: Japans, Taiwanees, traditioneel Chinees en Koreaans.
 
-## <a name="cancellation-policy"></a>**Annuleringsbeleid**
-Ondersteuning wilt ontvangen StorSimple, moet de klant ondersteuningsplannen Standard of Premium aanschaffen voor de duur van de abonnementsperiode. Annulering resulteert niet in een naar rato restitutie. StorSimple-ondersteuningsplannen zijn in aanmerking komende op EA Verjaardag vermindering. Microsoft kunnen echter geen ondersteuning bieden aan StorSimple klanten zonder geldige support-contract.
+## <a name="cancellation-policy"></a>Annuleringsbeleid
+Ondersteuning wilt ontvangen StorSimple, moet de klant ondersteuningsplannen Standard of Premium aanschaffen voor de duur van de abonnementsperiode. Annulering resulteert niet in een naar rato restitutie. StorSimple-ondersteuningsplannen zijn in aanmerking komende op EA Verjaardag vermindering. Microsoft kan echter geen ondersteuning bieden aan klanten StorSimple zonder geldige support-contract.
 
-## <a name="renewal-policy"></a>**Vernieuwen van beleid**
-
-
-Bij de aankoop van StorSimple 8000 Series opslagmatrices wordt ondersteund door de volgende EA verjaardag. Klanten moet StorSimple-ondersteuning op EA Verjaardag vernieuwen. Plan voor StorSimple bestellingen zijn co-terminous. Klanten, worden geïnformeerd via e-mail over de aanstaande ondersteuning verstrijken voor StorSimple 8000 Series opslagmatrices en wordt verwacht dat de te volgen met de Microsoft-account/verkoop teams of hun Microsoft-licentieverlening oplossing Partner (gelaagde Serviceproviders) om StorSimple support te verlengen.
+## <a name="renewal-policy"></a>Verlengingen
 
 
-Standaard Azure ondersteuning omvat niet StorSimple hardware-ondersteuning. StorSimple ondersteuning voor vernieuwing kan worden uitgelijnd met de EA speciale datum door het ophalen van de vereiste ondersteuning SKU met het licentieaantal gelijk aan het aantal van de apparaten en de hoeveelheid besteld wordt het resterende aantal maanden ondersteuning nodig is tot en met de EA speciale datum als alle eenheden de dezelfde vervaldatum van het contract voor ondersteuning hebben. Als de eenheden vervaldatum verschillende ondersteuning hebt, elk toestel moet worden behandeld met één ondersteuning SKU met de eenheid Hoeveelheid besteld wordt het resterende aantal maanden ondersteuning nodig tot de datum van de verjaardag EA per elk apparaat. 
+Bij de aankoop van StorSimple 8000 Series opslagmatrices wordt ondersteund door de volgende EA verjaardag. Klanten moet StorSimple-ondersteuning op EA Verjaardag vernieuwen. Plan voor StorSimple bestellingen zijn coterminous. Klanten worden geïnformeerd via e-mail over de aanstaande ondersteuning verstrijken voor StorSimple 8000 Series opslagmatrices en wordt verwacht dat de te volgen met de Microsoft-account/verkoop teams of hun Microsoft-licentieverlening oplossing Partner (gelaagde Serviceproviders) om StorSimple support te verlengen.
+
+
+Standaard Azure ondersteuning omvat niet StorSimple hardware-ondersteuning. Als u vallen onder Premier of Unified Microsoft ondersteuning, moet u nog steeds standaard StorSimple ondersteuning voor vernieuwing aanschaffen. StorSimple ondersteuning voor vernieuwing kan worden uitgelijnd met de EA speciale datum door het ophalen van de vereiste ondersteuning SKU met het licentieaantal gelijk aan het aantal van de apparaten en de hoeveelheid besteld wordt het resterende aantal maanden ondersteuning nodig is tot en met de EA speciale datum als alle eenheden de dezelfde vervaldatum van het contract voor ondersteuning hebben. Als de eenheden vervaldatum verschillende ondersteuning hebt, elk toestel moet worden behandeld met één ondersteuning SKU met de eenheid Hoeveelheid besteld wordt het resterende aantal maanden ondersteuning nodig tot de datum van de verjaardag EA per elk apparaat. 
 
 StorSimple 8000 Series opslagmatrices wordt ondersteund op basis van hoe de StorSimple-matrix is gekocht. 
 
@@ -113,16 +114,16 @@ StorSimple 8000 Series opslagmatrices wordt ondersteund op basis van hoe de Stor
 |:---------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Standaard-ondersteuning** <br></br> [CWZ-00023] <br></br>*AzureStorSimple ShrdSvr ALNG SubsVL MVL StdSpprt*<br><br><br><br><br>                         |Inbegrepen.<br><br><br><br><br><br><br><br><br><br><br><br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<ul> <li>Geleverd aan klanten bij de initiële aankoop via de volgende EA verjaardag.<li> Klant moet ondersteuning in de volgende jaren aanschaffen als geen vervanging hardware-onderdelen kunnen worden verzonden zonder een actieve StorSimple support-contract.<br>   <br><br><br><br><br><br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | **Premium*** **support** <br></br> [CWZ-00024] <br></br> *AzureStorSimple ShrdSvr ALNG SubsVL MVL PremSpprt* <br><br><br><br><br><br>                         | Standaardondersteuning wordt automatisch opgenomen met abonnement, raadpleegt u de standaard Premium bijwerken.      <br><br><br><br><br><br><br><br><br> <br><br><br>                                                                                                                                                                                                                                                                                                                                                                                                                    | <ul> <li>Microsoft Premier support-contract vallen raadpleegt u de standaard premium upgraden. <li>Klanten die niet wordt gedekt door een Microsoft Premier-contract en Premium StorSimple ondersteuning wilt, moeten de SKU kopen bij vernieuwing.<br><br><br><br><br><br><br><br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Standaard naar Premium *** upgraden** <br></br> [CWZ- 00025] <br></br> *AzureStorSimple ShrdSvr ALNG SubsVL MVL Spprt- StepuptoPrem* <br><br><br><br><br><br><br><br><br>| Klanten wordt gedekt door Microsoft Premier Support-contract op het moment van aanschaf van StorSimple worden automatisch bijgewerkt naar Premium StorSimple ondersteuning gratis voor de duur van de tijd dat ze blijven wordt gedekt door Premier support.  Als klanten later Premier Support aanschaft, een gratis upgrade van de StorSimple-ondersteuning kan worden verkregen door aan te vragen het via SSSupOps@microsoft.com. <br></br>Non-Premier-klanten kunnen de standaard StorSimple op Premium upgrade SKU [CWZ 00025] op elk gewenst moment tijdens het contract Enterprise Agreement(EA) kopen.<br><br><br><br><br><br><br><br> | <ul><li> Klanten wordt gedekt door Microsoft Premier Support-contract kunnen aanschaffen SKU van de standaard ondersteuning [CWZ 00023] en het StorSimple Standard Support-contract wordt automatisch bijgewerkt, aan geen extra kosten voor de duur van de tijd dat ze vallen blijven Premier-ondersteuning. <li> Als klanten later Premier Support aanschaft, een gratis upgrade van de StorSimple-ondersteuning kan worden verkregen door aan te vragen het via SSSupOps@microsoft.com. <li> Niet-Premier-klanten wordt gedekt door StorSimple standaard ondersteuning kunnen de upgrade Premium-SKU [CWZ 00025] op elk gewenst moment tijdens het contract Enterprise Agreement(EA) aanschaffen. Volgende jaar, tijdens het vernieuwen van contract ondersteuning te schaffen rechtstreeks SKU van de Premium-ondersteuning [CWZ 00024] en niet alleen voor de upgrade SKU [CWZ 00025].<br><br> |
+| ** Standaard Premium *** upgraden <br></br> [CWZ- 00025] <br></br> *AzureStorSimple ShrdSvr ALNG SubsVL MVL Spprt- StepuptoPrem* <br><br><br><br><br><br><br><br><br>| Klanten wordt gedekt door Microsoft Premier Support-contract op het moment van aanschaf van StorSimple worden automatisch bijgewerkt naar Premium StorSimple ondersteuning gratis voor de duur van de tijd dat ze blijven wordt gedekt door Premier support.  Als klanten later Premier Support aanschaft, een gratis upgrade van de StorSimple-ondersteuning kan worden verkregen door aan te vragen het via SSSupOps@microsoft.com. <br></br>Non-Premier-klanten kunnen de standaard StorSimple op Premium upgrade SKU [CWZ 00025] op elk gewenst moment tijdens het contract Enterprise Agreement(EA) kopen.<br><br><br><br><br><br><br><br> | <ul><li> Klanten wordt gedekt door Microsoft Premier Support-contract kunnen aanschaffen SKU van de standaard ondersteuning [CWZ 00023] en het StorSimple Standard Support-contract wordt automatisch bijgewerkt, aan geen extra kosten voor de duur van de tijd dat ze vallen blijven Premier-ondersteuning. <li> Als klanten later Premier Support aanschaft, een gratis upgrade van de StorSimple-ondersteuning kan worden verkregen door aan te vragen het via SSSupOps@microsoft.com. <li> Niet-Premier-klanten wordt gedekt door StorSimple standaard ondersteuning kunnen de upgrade Premium-SKU [CWZ 00025] op elk gewenst moment tijdens het contract Enterprise Agreement(EA) aanschaffen. Volgende jaar, tijdens het vernieuwen van contract ondersteuning te schaffen rechtstreeks SKU van de Premium-ondersteuning [CWZ 00024] en niet alleen voor de upgrade SKU [CWZ 00025].<br><br> |
 
 
 
-*<text>* Premium dekking is niet beschikbaar op alle locaties. Neem contact op met Microsoft op SSSupOps@microsoft.com voor geografische dekking voordat het aanschaffen van een Premium-ondersteuning voor StorSimple.*
+*<text> * Premium dekking is niet beschikbaar op alle locaties. Neem contact op met Microsoft op SSSupOps@microsoft.com voor geografische dekking voordat het aanschaffen van een Premium-ondersteuning voor StorSimple.*
 
 ***Het StorSimple-apparaat moet worden geïmplementeerd in een regio waar de klant wordt gedekt door Premier support om in aanmerking voor een gratis upgrade naar premium StorSimple-ondersteuning.*
 
 
-De duur + klanten kunnen overschakelen naar abonnementsmodel waarin ondersteuning opgenomen is. Gebruik de StorSimple prijscategorie Rekenmachine voor abonnement-prijzen en neem contact op met SSSupOps@microsoft.com voor vragen. Overschakelen is een manier alleen via de duur + om het abonnement.
+De duur + klanten kunnen overschakelen naar abonnementsmodel waarin ondersteuning opgenomen is. De prijscategorie Rekenmachine StorSimple gebruiken voor het abonnement prijzen en neem contact op met SSSupOps@microsoft.com voor vragen. Overschakelen is een manier alleen via de duur + om het abonnement.
 
 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 084fdf2f9a65eed3e444851afb88390aacf33738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ae4e874d0fd0922295a4ec7ad719a0a1fb108c8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Cluster resource manager-instellingen voor Service Fabric-services configureren
 De Service Fabric Cluster Resource Manager kunt fijnmazig controle over de regels die bepalen van elke afzonderlijke service met de naam. Elke benoemde service kunt regels opgeven voor hoe moet worden toegewezen in het cluster. Elke benoemde service kunt ook de set met metrische gegevens die deze wil definiëren om te rapporteren, met inbegrip van hoe belangrijk dat ze zijn aan die service. Configureren van services uitvalt in drie verschillende taken:

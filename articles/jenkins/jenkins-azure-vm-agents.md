@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Schalen van uw implementaties Jenkins om vraag te voldoen met Azure VM-agents
 
@@ -91,7 +91,7 @@ In deze zelfstudie leert u het volgende:
             }
      ```
 
-    De voltooide service-principal moet gebruiken de `id` veld voor **abonnements-ID**, wordt de `appId` waarde voor **Client-ID**, `password` voor **Clientgeheim**, en een URL voor **OAuth 2.0-Tokeneindpunt** van `https://login.windows.net/<tenant_value>`. Selecteer **toevoegen** toevoegen van de service-principal en configureer vervolgens de invoegtoepassing voor het gebruik van de zojuist gemaakte referentie.
+    De voltooide service-principal moet gebruiken de `id` veld voor **abonnements-ID**, wordt de `appId` waarde voor **Client-ID**, `password` voor **Clientgeheim**, en `tenant` voor **Tenant-ID**. Selecteer **toevoegen** toevoegen van de service-principal en configureer vervolgens de invoegtoepassing voor het gebruik van de zojuist gemaakte referentie.
 
     ![Azure Service-Principal configureren](./media/jenkins-azure-vm-agents/new-service-principal.png)
 
@@ -130,7 +130,7 @@ Selecteer **sjabloon controleren** om te controleren of de configuratie en selec
 2. Voer `demoproject1` voor de naam en selecteer **Freestyle project**, selecteer daarna **OK**.
 3. In de **algemene** Kies **beperken waar project kan worden uitgevoerd** en het type `ubuntu` in **labelexpressie**. U ziet een bericht waarin wordt bevestigd dat het label wordt geleverd door de cloudconfiguratie in de vorige stap hebt gemaakt. 
    ![Taak instellen](./media/jenkins-azure-vm-agents/job-config.png)
-4. In de **Source Code Management** tabblad **Git** en voeg de volgende URL in de **URL opslagplaats** veld:`https://github.com/spring-projects/spring-petclinic.git`
+4. In de **Source Code Management** tabblad **Git** en voeg de volgende URL in de **URL opslagplaats** veld: `https://github.com/spring-projects/spring-petclinic.git`
 5. In de **bouwen** tabblad **toevoegen build stap**, klikt u vervolgens **aanroepen op het hoogste niveau Maven doelen**. Voer `package` in de **doelstellingen** veld.
 6. Selecteer **opslaan** om op te slaan de taakdefinitie.
 

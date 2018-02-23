@@ -41,6 +41,8 @@
 #### [Berichten overdragen, vergrendelen en verwerken](message-transfers-locks-settlement.md)
 #### [Berichtvolgorde en -timestamps](message-sequencing.md)
 #### [Verlopen van berichten (Time to Live)](message-expiration.md)
+#### [Afhandeling van berichten met behulp van Azure Event Grid](service-bus-to-event-grid-integration-concept.md)
+#### [Voorbeelden van Azure Event Grid](service-bus-to-event-grid-integration-example.md)
 ### [Verificatie en autorisatie](service-bus-authentication-and-authorization.md)
 #### [Migreren van ACS naar SAS](service-bus-migrate-acs-sas.md)
 #### [Verificatie met Shared Access Signatures](service-bus-sas.md)

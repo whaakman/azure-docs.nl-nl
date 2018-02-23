@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01bccb2f8d103faf77b39825a1f9ff663329ed7a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 38bc949917f6bb56486ad6267044ef2f19e33fcb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migreren IaaS-middelen van klassiek naar Azure Resource Manager met behulp van Azure PowerShell
 Deze stappen ziet u hoe u Azure PowerShell-opdrachten voor het migreren van infrastructuur als een dienst (IaaS) resources van het klassieke implementatiemodel naar het Azure Resource Manager-implementatiemodel.
@@ -59,7 +59,7 @@ Zie voor installatie-instructies [installeren en configureren van Azure PowerShe
 Om deze te migreren, moet u toegevoegd als medebeheerder voor het abonnement op de [Azure-portal](https://portal.azure.com).
 
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
-2. Selecteer in het menu Hub **abonnement**. Als u deze niet ziet, selecteert u **meer services**.
+2. Selecteer in het menu Hub **abonnement**. Als u deze niet ziet, selecteert u **alle services**.
 3. De abonnementvermelding in het juiste vinden en bekijk de **mijn rol** veld. Voor een medebeheerder de waarde moet _accountbeheerder_.
 
 Als u niet kunt toevoegen van een CO-beheerder bent, klikt u vervolgens contact op met een servicebeheerder of CO-beheerder voor het abonnement om uzelf toegevoegd.   

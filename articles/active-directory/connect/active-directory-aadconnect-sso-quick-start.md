@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/21/2017
 ms.author: billmath
-ms.openlocfilehash: b533df58d24b3bc76a229ad09c682d1d8aeaf741
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: snel starten
 
@@ -75,10 +75,10 @@ Volg deze instructies om te controleren of naadloze eenmalige aanmelding correct
 
 ## <a name="step-3-roll-out-the-feature"></a>Stap 3: De functie uitrolt
 
-Als u wilt de functie voor implementatie naar uw gebruikers, moet u de volgende Azure AD-URL's toevoegen aan de gebruikers Intranet-beveiligingszone-instellingen met behulp van Groepsbeleid in Active Directory:
+Als u wilt de functie voor implementatie naar uw gebruikers, moet u de volgende Azure AD-URL toevoegen aan de gebruikers Intranet-beveiligingszone-instellingen met behulp van Groepsbeleid in Active Directory:
 
-- https://AutoLogon.microsoftazuread-sso.com
-- https://aadg.Windows.NET.nsatc.NET
+- https://autologon.microsoftazuread-sso.com
+
 
 Bovendien moet u een Intranet zone beleidsinstelling opgeroepen inschakelen **toestaan dat updates statusbalk via script** via Groepsbeleid. 
 
@@ -87,7 +87,7 @@ Bovendien moet u een Intranet zone beleidsinstelling opgeroepen inschakelen **to
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Waarom moet u gebruikers Intranet-beveiligingszone-instellingen wijzigen?
 
-De browser berekent standaard automatisch de juiste zone Internet- of intranethosts van een specifieke URL. Bijvoorbeeld 'http://contoso/' worden toegewezen aan de zone Internet, terwijl "http://intranet.contoso.com/" wordt toegewezen aan de zone Internet (omdat de URL een periode bevat). Browsers verzenden Kerberos-tickets niet naar een cloudeindpunt, zoals de twee Azure AD-URL's, tenzij u expliciet de URL van de browser intranetzone.
+De browser berekent standaard automatisch de juiste zone Internet- of intranethosts van een specifieke URL. Bijvoorbeeld 'http://contoso/' worden toegewezen aan de zone Internet, terwijl "http://intranet.contoso.com/" wordt toegewezen aan de zone Internet (omdat de URL een periode bevat). Browsers wordt Kerberos-tickets niet verzonden naar een cloudeindpunt, zoals de URL van de Azure AD, tenzij u expliciet de URL aan de zone Lokaal Intranet van de browser toevoegen.
 
 ### <a name="detailed-steps"></a>Gedetailleerde stappen
 
@@ -96,7 +96,7 @@ De browser berekent standaard automatisch de juiste zone Internet- of intranetho
 3. Blader naar **Gebruikersconfiguratie** > **Beheersjablonen** > **Windows-onderdelen**  >   **Internet Explorer** > **Configuratiescherm Internet** > **beveiligingspagina**. Selecteer vervolgens **Site lijst van zonetoewijzingen**.
     ![Eenmalige aanmelding](./media/active-directory-aadconnect-sso/sso6.png)
 4. Schakelt u het beleid en voer de volgende waarden in het dialoogvenster:
-   - **Waardenaam**: de Azure AD-URL's waarin de Kerberos-tickets worden doorgestuurd.
+   - **Waardenaam**: de URL van de Azure AD waarin de Kerberos-tickets worden doorgestuurd.
    - **Waarde** (gegevens): **1** geeft aan de intranetzone.
 
    Het resultaat ziet er als volgt:
@@ -104,13 +104,9 @@ De browser berekent standaard automatisch de juiste zone Internet- of intranetho
     Waarde: https://autologon.microsoftazuread-sso.com
   
     Gegevens: 1
-        
-   Waarde: https://aadg.windows.net.nsatc.net
-
-    Gegevens: 1
 
    >[!NOTE]
-   > Als u weigeren sommige gebruikers met een naadloze eenmalige aanmelding wilt (bijvoorbeeld, als deze gebruikers zich op gedeelde kiosken aanmelden), de voorgaande waarden instellen op **4**. Deze actie wordt de Azure AD-URL's toegevoegd aan de zone met beperkte toegang en naadloze eenmalige aanmelding voortdurend mislukt.
+   > Als u weigeren sommige gebruikers met een naadloze eenmalige aanmelding wilt (bijvoorbeeld, als deze gebruikers zich op gedeelde kiosken aanmelden), de voorgaande waarden instellen op **4**. Deze actie wordt de Azure AD-URL toegevoegd aan de zone met beperkte toegang en naadloze eenmalige aanmelding voortdurend mislukt.
    >
 
 5. Selecteer **OK**, en selecteer vervolgens **OK** opnieuw.
@@ -146,9 +142,9 @@ Als u onderdrukt hebt de [AuthNegotiateDelegateWhitelist](https://www.chromium.o
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (alleen Mac OS)
 
-Raadpleeg voor Google Chrome op Mac OS en andere niet-Windows-platforms, [de lijst van het Project beleid chroom](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) voor meer informatie over geaccepteerde de Azure AD-URL's voor geïntegreerde verificatie.
+Raadpleeg voor Google Chrome op Mac OS en andere niet-Windows-platforms, [de lijst van het Project beleid chroom](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) voor meer informatie over hoe naar goedgekeurde IP-adressen voor de URL van het Azure AD authentication geïntegreerd.
 
-Het gebruik van Active Directory-groepsbeleid-uitbreidingen van derden de Azure AD-URL's Firefox en Google Chrome implementeert op Mac-gebruikers is buiten het bereik van dit artikel.
+Het gebruik van Active Directory-groepsbeleid-uitbreidingen van derden naar de URL van het Azure AD Firefox en Google Chrome implementeert op Mac-gebruikers is buiten het bereik van dit artikel.
 
 #### <a name="known-browser-limitations"></a>Bekende browser beperkingen
 

@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2afbc64519887f110c0213a4f565b4ef1317e26e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3c8bbb06fd511321a67e01772caeaa316ddb6e2a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
 
@@ -134,7 +134,7 @@ Wanneer u een Batch-pool maakt, kunt u de configuratie van de Virtuele Azure-mac
     Beschikbare besturingssystemen voor Cloud Services-configuratiepools worden weergegeven in de [Azure-compatibiliteitsmatrix voor releases van gastbesturingssystemen en SDK’s](../cloud-services/cloud-services-guestos-update-matrix.md). Wanneer u een pool maakt die Cloud Services-knooppunten bevat, moet u de knooppuntgrootte en het bijbehorende *type besturingssysteem* opgeven. Cloud Services wordt sneller in Azure geïmplementeerd dan virtuele machines waarop Windows wordt uitgevoerd. Als u pools met Windows-rekenknooppunten wilt, zult u merken dat Cloud Services prestatievoordelen biedt wat de implementatietijd betreft.
 
     * Het *type besturingssysteem* is ook bepalend voor de versies van .NET die samen met het besturingssysteem zijn geïnstalleerd.
-    * Net als bij werkrollen in Cloud Services kan het *type besturingssysteem* worden opgegeven. (Zie de sectie [Informatie over Cloud Services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) in [Overzicht van Cloud Services](../cloud-services/cloud-services-choose-me.md) voor meer informatie over werkrollen.)
+    * Net als bij werkrollen in Cloud Services kan het *type besturingssysteem* worden opgegeven (zie [Overzicht van Cloud Services](../cloud-services/cloud-services-choose-me.md) voor meer informatie over werkrollen).
     * Net als bij werkrollen verdient het aanbeveling om `*` op te geven voor de *versie van het besturingssysteem*, zodat de knooppunten automatisch worden bijgewerkt en er geen werk vereist is om tegemoet te komen aan nieuwe versies. Er wordt voornamelijk voor een specifieke versie van een besturingssysteem gekozen om ervoor te zorgen dat toepassingen compatibel blijven, en om compatibiliteitstests met eerdere versies te kunnen uitvoeren alvorens toe te staan dat de versie mag worden bijgewerkt. Na de validatie kan de *versie van het besturingssysteem* voor de pool worden bijgewerkt en kan de nieuwe installatiekopie van het besturingssysteem worden geïnstalleerd. Elke actieve taak wordt onderbroken en opnieuw in de wachtrij geplaatst.
 
 Wanneer u een pool maakt, moet u afhankelijk van het besturingssysteem van de basisinstallatiekopie van uw VHD de juiste **nodeAgentSkuId** selecteren. Door de bewerking [List Supported Node Agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) (Overzicht van ondersteunde knooppuntagent-SKU's) aan te roepen, krijgt u een overzicht van de SKU-id’s van beschikbare knooppuntagents en de verwijzingen naar hun OS-installatiekopie.
@@ -479,6 +479,8 @@ U kunt extra foutopsporing en probleemoplossing uitvoeren door u op afstand aan 
 > Als u via RDP of SSH verbinding wilt maken met een knooppunt, moet u in het knooppunt eerst een gebruiker maken. Hiervoor kunt u Azure Portal gebruiken, [een gebruikersaccount toevoegen aan een knooppunt][rest_create_user] met behulp van de Batch REST-API, de methode [ComputeNode.CreateComputeNodeUser][net_create_user] aanroepen in Batch .NET of de methode [add_user][py_add_user] aanroepen in de Batch Python-module.
 >
 >
+
+Zie [Configure or disable remote access to compute nodes in an Azure Batch pool](pool-endpoint-configuration.md) (Externe toegang tot rekenknooppunten in een Azure Batch-pool configureren of uitschakelen) als u RDP- of SSH-toegang tot rekenknooppunten wilt beperken of uitschakelen.
 
 ### <a name="troubleshooting-problematic-compute-nodes"></a>Problemen met problematische rekenknooppunten oplossen
 In situaties waarin een aantal taken mislukken, kan uw Batch-clienttoepassing of -service de metagegevens van de mislukte taken onderzoeken om een knooppunt te identificeren dat zich niet normaal gedraagt. Elk knooppunt in een pool krijgt een unieke id en het knooppunt waarin een taak wordt uitgevoerd, is opgenomen in de metagegevens van de taak. Als u eenmaal een probleemknooppunt hebt geïdentificeerd, kunt u verschillende acties uitvoeren:

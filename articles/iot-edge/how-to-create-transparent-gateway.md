@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0ea4d8ec51211f1208083d3f93c3c100dc54e6b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Maken van een IoT-randapparaat die als een transparante gateway fungeert-preview
 
@@ -63,7 +63,7 @@ U kunt het Powershell-voorbeeld en Bash-scripts die worden beschreven [voorbeeld
 
 1. Klonen van de Microsoft Azure IoT SDK's en bibliotheken voor C van GitHub:
 
-   ```
+   ```cmd/sh
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
    ```
 
@@ -75,7 +75,7 @@ U kunt het Powershell-voorbeeld en Bash-scripts die worden beschreven [voorbeeld
 
 Maak het nieuwe apparaatcertificaat:
 
-   ```
+   ```bash
    ./certGen.sh create_edge_device_certificate myGateway
    ```
 
@@ -83,14 +83,14 @@ Nieuwe bestanden worden gemaakt:.\certs\new-edge-device.* bevat de openbare sleu
  
 In de `certs` map en voer de volgende opdracht om op te halen van de volledige keten van de openbare sleutel van apparaat:
 
-   ```
+   ```bash
    cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem
    ```
 
 ### <a name="powershell"></a>PowerShell
 
 Maak het nieuwe apparaatcertificaat: 
-   ```
+   ```powershell
    New-CACertsEdgeDevice myGateway
    ```
 
@@ -115,7 +115,7 @@ Geef de gegevens van het apparaat en het certificaat aan de rand van de IoT-runt
  
 In Linux, met behulp van de Bash-uitvoer:
 
-   ```
+   ```bash
    sudo iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -126,7 +126,7 @@ In Linux, met behulp van de Bash-uitvoer:
 
 In Windows met behulp van de PowerShell-uitvoer:
 
-   ```
+   ```powershell
    iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -135,15 +135,11 @@ In Windows met behulp van de PowerShell-uitvoer:
         --owner-ca-cert-file {full path}/RootCA.pem
    ```
 
-Standaard Stel de voorbeeldscripts een wachtwoordzin voor de persoonlijke sleutel van het apparaat. Als u een wachtwoordzin instelt, moet u de volgende parameter toevoegen:
-
-   ```
-   --device-ca-passphrase {passphrase}
-   ```
+Standaard Stel de voorbeeldscripts een wachtwoordzin voor de persoonlijke sleutel van het apparaat. Als u een wachtwoordzin instelt, voeg de volgende parameter: `--device-ca-passphrase {passphrase}`.
 
 Het script vraagt u een wachtwoordzin voor het certificaat van de Agent van de rand instellen. Start opnieuw op de rand van de IoT-runtime na deze opdracht:
 
-   ```
+   ```cmd/sh
    iotedgectl restart
    ```
 
@@ -155,7 +151,7 @@ Eerst een downstream-device-toepassing te vertrouwen heeft de **IoT hub eigenaar
 
 Voor .NET-toepassingen, kunt u bijvoorbeeld het volgende fragment voor vertrouwen in een certificaat in PEM-indeling opgeslagen in pad toevoegen `certPath`. Afhankelijk van welke versie van het script dat u hebt gebruikt, het pad verwijst naar een `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) of `RootCA.pem` (Powershell).
 
-   ```
+   ```csharp
    using System.Security.Cryptography.X509Certificates;
    
    ...

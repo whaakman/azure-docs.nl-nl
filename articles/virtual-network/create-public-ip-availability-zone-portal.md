@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 2fcbed2f83d66a0b4336cd1c464bb02eff3ef229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e796c8be0a5db8cb67e4a091fa51ed89920852c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-the-azure-portal"></a>Maken van een openbaar IP-adres in een zone beschikbaarheid met de Azure-portal
 
@@ -36,11 +36,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Aanmelden bij de Azure portal op https://portal.azure.com. 
+Meld u aan bij Azure Portal op https://portal.azure.com. 
 
 ## <a name="create-a-zonal-public-ip-address"></a>Een zonal openbaar IP-adres maken
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Klik op **maken van een resource** in de linkerbovenhoek van de Azure portal.
 2. Selecteer **Networking**, en selecteer vervolgens **openbaar IP-adres**.
 3. Typ of Selecteer waarden voor de volgende instellingen, selecteer uw abonnement, accepteer de standaardwaarden voor de overige instellingen en klik vervolgens op **maken**:
 
@@ -50,7 +50,7 @@ Aanmelden bij de Azure portal op https://portal.azure.com.
     |Naam|De naam moet uniek zijn binnen de resourcegroep die u selecteert.|
     |Resourcegroep|Klik op Nieuw en voer myResourceGroup|
     |Locatie|West-Europa|
-    |Beschikbaarheid zone|Als u hebt geselecteerd de **standaard** SKU, kunt u *Zoneredundant* als u wilt dat het IP-adres zijn robuuste via zones. Als u selecteert de **Basic** SKU, het IP-adres is niet robuuste diverse zones. Ongeacht de SKU die u kiest, kunt u het adres toewijzen aan een specifieke zone als u kiest. |
+    |Beschikbaarheidszone|Als u hebt geselecteerd de **standaard** SKU, kunt u *Zoneredundant* als u wilt dat het IP-adres zijn robuuste via zones. Als u selecteert de **Basic** SKU, het IP-adres is niet robuuste diverse zones. Ongeacht de SKU die u kiest, kunt u het adres toewijzen aan een specifieke zone als u kiest. |
 
     De instellingen worden weergegeven in de portal, zoals wordt weergegeven in de volgende afbeelding:
 

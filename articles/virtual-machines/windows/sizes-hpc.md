@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 02/21/2018
 ms.author: jonbeck
-ms.openlocfilehash: fc2cae8208baa211db2166c9d66a83153fa7b445
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Hoge prestaties compute-VM-grootten
 
@@ -36,13 +36,7 @@ Deze interface kunt de RDMA-compatibele exemplaren om te communiceren via een In
 
 Hier volgen de vereisten voor RDMA-compatibele Windows virtuele machines toegang hebben tot de Azure-RDMA-netwerk: 
 
-* **Besturingssysteem**
-  
-  Windows Server 2012 R2, WindowsServer 2012
-  
-  > [!NOTE]
-  > Windows Server 2016 biedt momenteel geen ondersteuning voor RDMA-connectiviteit in Azure.
-  >
+* **Besturingssysteem** -Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 * **Beschikbaarheidsset of cloudservice** – de RDMA-compatibele virtuele machines in dezelfde beschikbaarheidsset (bij gebruik van het Azure Resource Manager-implementatiemodel) of in dezelfde cloudservice implementeren (bij gebruik van het klassieke implementatiemodel). Als u Azure Batch gebruikt, moet de RDMA-compatibele virtuele machines in dezelfde groep.
 
@@ -52,7 +46,7 @@ Hier volgen de vereisten voor RDMA-compatibele Windows virtuele machines toegang
 
 * **RDMA netwerkadresruimte** -de RDMA-netwerk in Azure behoudt zich het adresruimte 172.16.0.0/16. MPI-toepassingen op instanties zijn geïmplementeerd in een Azure-netwerk worden uitgevoerd, zorg dat de adresruimte van het virtuele netwerk niet de RDMA-netwerk overlapt.
 
-* **HpcVmDrivers VM-extensie** -op RDMA-compatibele virtuele machines, moet u de extensie HpcVmDrivers voor het installeren van Windows-netwerk apparaatstuurprogramma's voor connectiviteit RDMA toevoegen. (In bepaalde implementaties A8 en A9 exemplaren van de extensie HpcVmDrivers wordt automatisch toegevoegd.) Als de VM-extensie toevoegen aan een virtuele machine, kunt u [Azure PowerShell](/powershell/azure/overview) cmdlets. 
+* **HpcVmDrivers VM-extensie** - op RDMA-compatibele virtuele machines, de HpcVmDrivers-extensie voor het installeren van Windows-netwerk apparaatstuurprogramma's voor connectiviteit RDMA toevoegen. (In bepaalde implementaties A8 en A9 exemplaren van de extensie HpcVmDrivers wordt automatisch toegevoegd.) Als de VM-extensie toevoegen aan een virtuele machine, kunt u [Azure PowerShell](/powershell/azure/overview) cmdlets. 
 
   
   De volgende opdracht wordt de meest recente versie 1.1 HpcVMDrivers uitbreiding geïnstalleerd op een bestaande RDMA-compatibele virtuele machine met de naam *myVM* geïmplementeerd in de resourcegroep met de naam *myResourceGroup* in de  *VS-West* regio:

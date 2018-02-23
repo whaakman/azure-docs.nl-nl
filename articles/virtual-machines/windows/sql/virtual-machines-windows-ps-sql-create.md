@@ -1,10 +1,10 @@
 ---
-title: Het maken van SQL Server-VM's met Azure PowerShell | Microsoft Docs
+title: Inrichting handleiding voor SQL Server-VM's met Azure PowerShell | Microsoft Docs
 description: "Bevat de stappen en PowerShell-opdrachten voor het maken van een virtuele machine in Azure met SQL Server-installatiekopieën voor virtuele machine-galerie."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/29/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e6d1f36d998ac8726e3a74b31772a5dd5a24bd58
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Het maken van virtuele machines van SQL Server met Azure PowerShell
+# <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Het inrichten van SQL Server virtuele machines met Azure PowerShell
 
 Deze handleiding beschrijft de mogelijkheden voor het maken van SQL Server-VM's van Windows met Azure PowerShell. Zie voor een gestroomlijnde Azure PowerShell-voorbeeld met meer standaardwaarden, de [SQL VM Azure PowerShell Quick Start](quickstart-sql-vm-create-powershell.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Voor deze snelstartgids is moduleversie 3.6 of later van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+In dit artikel is de Azure PowerShell-moduleversie 3,6 of hoger vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
 ## <a name="configure-your-subscription"></a>Configureer uw abonnement
 
@@ -399,7 +399,7 @@ Nadat de virtuele machine is gemaakt, kunt u:
 
 - Verbinding maken met de virtuele machine via Extern bureaublad (RDP).
 - SQL Server-instellingen configureren in de portal voor uw virtuele machine, met inbegrip van:
-   - [Instellingen voor de opslag](virtual-machines-windows-sql-server-storage-configuration.md) 
+   - [instellingen voor de opslag](virtual-machines-windows-sql-server-storage-configuration.md) 
    - [Geautomatiseerde beheertaken](virtual-machines-windows-sql-server-agent-extension.md)
 - [Connectiviteit configureren](virtual-machines-windows-sql-connect.md).
 - Verbinding maken met clients en toepassingen naar het nieuwe exemplaar van SQL Server.

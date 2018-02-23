@@ -1,7 +1,7 @@
 ---
 title: Aan de slag met Hadoop en Hive in Azure HDInsight | Microsoft Docs
 description: Informatie over het maken van HDInsight-clusters en het opvragen van gegevens met Hive.
-keywords: aan de slag met hadoop, hadoop linux, hadoop quickstart, aan de slag met hive, hive quickstart
+keywords: aan de slag met hadoop, hadoop linux, hadoop snelstartgids, aan de slag met hive, hive-snelstartgids
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2018
 ms.author: jgao
-ms.openlocfilehash: e517edecce92acdadde5497558055c59fa819976
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a96612e09e51db8941a7828f8fe9cb7bbced837d
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop-zelfstudie: aan de slag met Hadoop in HDInsight
 
@@ -52,7 +52,7 @@ De Resource Manager-sjabloon die in deze zelfstudie wordt gebruikt, bevindt zich
     * **Resourcegroep**: maak een resourcegroep of selecteer een bestaande resourcegroep.  Een resourcegroep is een container met Azure-onderdelen.  In dit geval bevat de resourcegroep het HDInsight-cluster en het afhankelijke Azure Storage-account. 
     * **Locatie**: selecteer een Azure-locatie waar u uw cluster wilt maken.  Kies een locatie zo dicht mogelijk bij u in de buurt voor betere prestaties. 
     * **Clustertype**: selecteer **hadoop** voor deze zelfstudie.
-    * **Clusternaam**: voer een naam in voor het Hadoop-cluster.
+    * **Clusternaam**: voer een naam in voor het Hadoop-cluster. Omdat alle clusters in HDInsight dezelfde DNS-naamruimte delen, moet deze naam uniek zijn. De naam kan bestaan uit maximaal 59 tekens, inclusief letters, cijfers en afbreekstreepjes. De eerste en laatste tekens van de naam mogen geen streepjes zijn.
     * **Aanmeldingsgegevens voor het cluster**: de standaardaanmeldingsnaam is **admin**.
     * **SSH-gebruikersnaam en -wachtwoord**: de standaardgebruikersnaam is **sshuser**.  U kunt de naam wijzigen. 
      

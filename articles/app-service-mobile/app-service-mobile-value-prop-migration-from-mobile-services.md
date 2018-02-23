@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bdf49265b5ef88d11f4ed669aa05036839c574eb
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 95934ce8be3570918f72ed7f8101a3599512abed
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="getting-started"> </a>Ik gebruik Mobile Services. Welke voordelen heeft App Service voor mijn bestaande projecten?
 ## <a name="overview"></a>Overzicht
-Uw bestaande Mobile Service-projecten zijn veilig en blijven ondersteund. Er zijn echter een aantal voordelen die het *Azure App Service*-platform biedt voor uw mobiele app, die nu niet beschikbaar zijn in Mobile Services:
+Uw bestaande Mobile Service-projecten zijn veilig en blijven ondersteund. Er zijn echter voordelen die het *Azure App Service*-platform biedt voor uw mobiele app, die nu niet beschikbaar zijn in Mobile Services:
 
-* Eenvoudigere en efficiëntere aanbieding voor apps die zowel web- als mobiele clients bevat
+* Eenvoudigere en efficiëntere aanbieding voor apps die zowel web- als mobiele clients bevatten
 * Nieuwe hostfuncties, waaronder WebJobs, aangepaste CNames en betere bewaking
-* Directe integratie met Traffic Manager
+* Integratie met Traffic Manager
 * Verbinding met uw on-premises resources en VPN-netwerken met VNet naast hybride verbindingen
 * Bewaking, waarschuwingen en probleemoplossing voor uw app met NewRelic of AppInsights
 * Uitgebreider spectrum van de onderliggende rekenresources en prijzen
@@ -34,7 +34,7 @@ Uw bestaande Mobile Service-projecten zijn veilig en blijven ondersteund. Er zij
 * Ingebouwde mogelijkheden voor fasering, terugdraaien en testen in productieomgeving
 
 ## <a name="new-hosting-features"></a>Nieuwe hostingfuncties
-In *Azure App Service* wordt de code voor de back-end van *mobiele apps* in dezelfde container uitgevoerd als web-apps en API-apps. U kunt dus profiteren van alle functies in deze container, inclusief een aantal functies dat momenteel niet aanwezig is in Mobile Services:
+In *Azure App Service* wordt de code voor de back-end van *mobiele apps* in dezelfde container uitgevoerd als web-apps en API-apps. U kunt profiteren van alle functies in deze container, inclusief een aantal functies dat momenteel niet aanwezig is in Mobile Services:
 
 * Continu actieve back-endlogica toevoegen via WebJobs
 * Ervoor zorgen dat uw back-endcode altijd wordt uitgevoerd
@@ -42,7 +42,7 @@ In *Azure App Service* wordt de code voor de back-end van *mobiele apps* in deze
 * Geo-schaling van uw app met Traffic Manager
 * Alle gewenste bibliotheken en pakketten opnemen
 * (Voor .NET) Gebruikmaken van alle functies van ASP.NET, waaronder MVC
-* (Voor Node.js) Gebruikmaken van alle pure JavaScript-bibliotheken van het Node-ecosysteem, waaronder algemene MVC-bibliotheken
+* (Voor Node.js) Gebruikmaken van alle pure JavaScript-bibliotheken van het Node-ecosysteem, waaronder algemene MVC-bibliotheken.
 
 ## <a name="access-on-premises-data-using-vnet"></a>Toegang tot on-premises gegevens met behulp van VNet
 Met Mobile Services kunt u hybride verbindingen gebruiken voor toegang tot on-premises resources. Er zijn echter situaties waarbij een VPN-oplossing de voorkeur verdient. Met *Azure App Service* kunt u Azure VNet voor de back-endcode van uw mobiele app gebruiken.
@@ -54,7 +54,7 @@ Met Mobile Services kunt u hybride verbindingen gebruiken voor toegang tot on-pr
 Met Mobile Services werden alle exemplaren van uw back-endcode op kleine virtuele machines uitgevoerd. Met *Azure App Service* hebt u veel meer keuze bij het kiezen van de grootte van de virtuele machines. Daarnaast kunt u snel omhoog of omlaag schalen om in te spelen op de inkomende belasting van klanten, gebaseerd op verschillende maatstaven voor prestaties.
 
 ## <a name="be-in-the-know"></a>Blijf op de hoogte
-U kunt realtime op problemen reageren met bewaking en waarschuwingen, waarmee u en uw team automatisch op de hoogte worden gebracht van problemen. Integreer geavanceerde app-analyses met de bewakingsfunctionaliteit van New Relic en AppInsights, zodat u nog meer inzicht krijgt in de prestaties van uw mobiele app. Met *Azure App Service* kunt u nu waarschuwingen instellen op basis van verschillende maatstaven voor prestaties. Dit kunt u via programmacode of via Azure Portal doen.
+U kunt in realtime op problemen reageren met bewaking en waarschuwingen, waarmee u en uw team automatisch op de hoogte worden gebracht van problemen. Integreer geavanceerde app-analyses met de bewakingsfunctionaliteit van New Relic en AppInsights, zodat u inzicht krijgt in de prestaties van uw mobiele app. Met *Azure App Service* kunt u nu waarschuwingen instellen op basis van verschillende metrische gegevens voor prestaties. Dit kunt u via programmacode of via Azure Portal doen.
 
 ## <a name="keep-your-assets-safe"></a>Houd uw activa veilig
 U kunt automatisch een back-up maken van uw back-end en database. Uw code en gegevens zijn veilig na noodgevallen en kunnen eenvoudig worden hersteld, zodat u uw bedrijf met vertrouwen kunt runnen.

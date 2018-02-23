@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 9d6ecd53fc034fd7014b17c98f1c5a99088723fe
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f984f9b348f589e20cb8a4b68578ddef84d8292d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Snelstartgids: Scale compute in Azure SQL Data Warehouse met T-SQL
 
-Scale compute in Azure SQL Data Warehouse met T-SQL en SQL Server Management Studio (SSMS). Scale-out compute voor betere prestaties of schaal compute terug om de kosten besparen. 
+Scale compute in Azure SQL Data Warehouse met T-SQL en SQL Server Management Studio (SSMS). [Uitschalen compute](sql-data-warehouse-manage-compute-overview.md) voor betere prestaties of schaal back-berekeningen voor het opslaan van kosten. 
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -87,7 +87,7 @@ De huidige datawarehouse-eenheden voor uw datawarehouse weergeven:
     ![Huidige dwu's weergeven](media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 
-## <a name="scale-compute"></a>Scale compute
+## <a name="scale-compute"></a>De schaal van Compute aanpassen
 In SQL Data Warehouse, kunt u vergroten of verkleinen van rekenresources door datawarehouse units aan te passen. De [maken en Connect - portal](create-data-warehouse-portal.md) gemaakt **mySampleDataWarehouse** en met 400 dwu's wordt geïnitialiseerd. De volgende stappen aanpassen de dwu's voor **mySampleDataWarehouse**.
 
 Datawarehouse units wijzigen:

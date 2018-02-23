@@ -4,7 +4,7 @@ description: In dit artikel wordt uitgelegd hoe u SQL Server Failover Cluster In
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Exemplaar van SQL Server-failovercluster configureren op virtuele Machines in Azure
 
@@ -117,7 +117,7 @@ Met deze vereisten is voldaan, kunt u doorgaan met het bouwen van uw failover-cl
       >[!IMPORTANT]
       >U niet instellen of wijzigen van de beschikbaarheidsset nadat een virtuele machine is gemaakt.
 
-   Een afbeelding kiezen die vanuit Azure Marketplace. U kunt een Marketplace installatiekopie met die Windows Server en SQL Server of de Windows-Server bevat. Zie voor meer informatie [overzicht van SQL Server op Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   Een afbeelding kiezen die vanuit Azure Marketplace. U kunt een Marketplace installatiekopie met die Windows Server en SQL Server of de Windows-Server bevat. Zie voor meer informatie [overzicht van SQL Server op Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md)
 
    De officiële SQL Server-afbeeldingen in de Azure-galerie omvatten een geïnstalleerde SQL Server-exemplaar, plus de SQL Server-installatie van software en de sleutel.
 
@@ -352,7 +352,7 @@ De load balancer maken:
    - **Virtueel netwerk**: hetzelfde netwerk bevindt als de virtuele machines.
    - **Subnet**: hetzelfde subnet als de virtuele machines.
    - **Privé IP-adres**: hetzelfde IP-adres dat u met de netwerkbron FCI van SQL Server-cluster hebt toegewezen.
-   - **abonnement**: uw Azure-abonnement.
+   - **Abonnement**: uw Azure-abonnement.
    - **Resourcegroep**: gebruik dezelfde resourcegroep als uw virtuele machines.
    - **Locatie**: dezelfde Azure-locatie gebruiken als uw virtuele machines.
    Zie de volgende afbeelding:

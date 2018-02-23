@@ -1,6 +1,6 @@
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Klik in de linkerbovenhoek op **Nieuw > Berekenen > Windows Server 2016 Datacenter**.
+2. Beginnen in de linkerbovenhoek, klikt u op **maken van een resource** > **Compute** > **Windows Server 2016 Datacenter**.
 
     ![Naar de installatiekopieën van de virtuele machine van Azure in de portal navigeren](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 

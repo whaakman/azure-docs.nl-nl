@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Status controleren, instellen van logboekregistratie van diagnostische gegevens en waarschuwingen inschakelen voor Azure Logic Apps
 
@@ -29,7 +29,7 @@ Als u meldingen over fouten of andere mogelijke problemen, instellen van [waarsc
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Weergave wordt uitgevoerd en geschiedenis van trigger voor uw logische app
 
-1. Vinden van uw logische app in de [Azure-portal](https://portal.azure.com), kiest u in het Azure hoofdmenu **meer services**. In het zoekvak 'logische apps' vinden en kies **Logic apps**.
+1. Vinden van uw logische app in de [Azure-portal](https://portal.azure.com), kiest u in het Azure hoofdmenu **alle services**. Typ in het zoekvak 'logische apps' en kies **Logic apps**.
 
    ![Uw logische app zoeken](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
@@ -109,7 +109,7 @@ U kunt nu gebeurtenissen en andere gegevens zoeken voor trigger-gebeurtenissen, 
 
 Om te zoeken en weergeven van gebeurtenissen in uw logische app, zoals gebeurtenissen, gebeurtenissen, uitvoeren en actie activeren, als volgt te werk.
 
-1. In de [Azure-portal](https://portal.azure.com), kies **meer Services**. Zoek naar 'log analytics' en kies vervolgens **logboekanalyse** als volgt te werk:
+1. In de [Azure-portal](https://portal.azure.com), kies **alle Services**. Zoek naar 'log analytics' en kies vervolgens **logboekanalyse** als volgt te werk:
 
    ![Kies 'Log Analytics'](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 

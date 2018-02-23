@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Problemen met Azure File-synchronisatie (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -43,6 +43,10 @@ Bekijk installer.log om de oorzaak van de installatie is mislukt.
 > [!Note]  
 > De agentinstallatie mislukt als de computer is ingesteld op Microsoft Update gebruiken en de Windows Update-service wordt niet uitgevoerd.
 
+<a id="agent-installation-on-DC"></a>**Installatie van agent mislukt op Active Directory-domeincontroller** als u probeert en de synchronisatie-agent installeren op een Active Directory-domeincontroller waarbij de eigenaar van de PDC-functie op een Windows Server 2008 R2 of lager dan de versie van het besturingssysteem is, kunt u het probleem mogelijk bereikt waarbij de synchronisatie Agent niet worden geïnstalleerd.
+
+Om op te lossen, draagt u de functie PDC naar een andere domein domeincontrollers met Windows Server 2012R2 of meer recente daarna synchronisatie te installeren.
+
 <a id="agent-installation-websitename-failure"></a>**Installatie van agent mislukt vanwege de volgende fout: 'Opslag Sync-Agent is voortijdig beëindigd'**  
 Dit probleem kan optreden als de standaardnaam van de IIS-website wordt gewijzigd. Wijzig de naam van de standaardwebsite van IIS als "Default Web Site" en de installatie opnieuw uitvoeren om dit probleem omzeilen. Het probleem wordt opgelost in een toekomstige update van de agent. 
 
@@ -51,6 +55,8 @@ Als een server niet wordt vermeld onder **servers geregistreerd** voor een Servi
 1. Aanmelden bij de server die u wilt registreren.
 2. Open File Explorer en Ga naar de installatiemap van opslag Sync-Agent (de standaardlocatie is C:\Program Files\Azure\StorageSyncAgent). 
 3. ServerRegistration.exe uitgevoerd en voltooi de wizard voor het registreren van de server met een opslag-Sync-Service.
+
+
 
 <a id="server-already-registered"></a>**Serverregistratie het volgende bericht weergegeven tijdens de installatie van Azure bestand Sync-agent: 'deze server is al geregistreerd'** 
 
@@ -95,9 +101,7 @@ Uw gebruikersaccount moet de volgende Microsoft Authorization-machtigingen hebbe
 
 De volgende ingebouwde rollen hebben de vereiste machtigingen voor Microsoft Authorization:  
 * Eigenaar
-* Beheerder van gebruikerstoegang
-
-Om te bepalen of uw gebruikersrol van het account de vereiste machtigingen heeft:  
+* Beheerder voor gebruikerstoegang om te bepalen of uw gebruikersrol van het account de vereiste machtigingen heeft:  
 1. Selecteer in de Azure-portal **resourcegroepen**.
 2. Selecteer de resourcegroep waar het opslagaccount zich bevindt, en selecteer vervolgens **toegangsbeheer (IAM)**.
 3. Selecteer de **rol** (bijvoorbeeld eigenaar of bijdrager) voor uw gebruikersaccount.
@@ -105,11 +109,24 @@ Om te bepalen of uw gebruikersrol van het account de vereiste machtigingen heeft
     * **Roltoewijzing** moet **lezen** en **schrijven** machtigingen.
     * **Roldefinitie** moet **lezen** en **schrijven** machtigingen.
 
-<a id="server-endpoint-createjobfailed"></a>**Het maken van de endpoint mislukt, vanwege de volgende fout: 'MgmtServerJobFailed' (foutcode:-2134375898)**                                                                                                                           
+<a id="server-endpoint-createjobfailed"></a>**Het maken van de endpoint mislukt, vanwege de volgende fout: 'MgmtServerJobFailed' (foutcode:-2134375898)**                                                                                                                    
 Dit probleem treedt op als het pad naar het eindpunt van de server zich op het systeemvolume en cloud tiering is ingeschakeld. Cloud tiering wordt niet ondersteund op het systeemvolume. Een om servereindpunt te maken op het systeemvolume, cloud tiering bij het maken van de server het eindpunt niet uitschakelen.
 
 <a id="server-endpoint-deletejobexpired"></a>**Server-eindpunt verwijderen is mislukt, vanwege de volgende fout: "MgmtServerJobExpired"**                
 Dit probleem treedt op als de server offline is of geen verbinding met het netwerk. Als de server niet langer beschikbaar is, hef de registratie van de server in de portal die de server-eindpunten wordt verwijderd. Volg de stappen die worden beschreven in voor het verwijderen van de server-eindpunten [Hef de registratie van een server met het synchroniseren van Azure bestand](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+<a id="server-endpoint-provisioningfailed"></a>**Kan server eindpunt eigenschappenpagina te openen of cloud opslaglagenbeleid bijwerken**
+
+Dit probleem kan optreden als een bewerking voor het beheer op de server het eindpunt is mislukt. Als de eigenschappenpagina van server-eindpunt niet wordt geopend in de Azure portal, kan servereindpunt van de met behulp van PowerShell-opdrachten van de server bijwerken los het probleem. 
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+# Get the server endpoint id based on the server endpoint DisplayName property
+Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
+
+# Update the free space percent policy for the server endpoint
+Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
+```
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Als ik een bestand rechtstreeks in mijn Azure-bestandsshare via SMB of via de portal gemaakt, hoe lang duurt het voor het bestand om te synchroniseren op de servers in de groep voor synchronisatie?**  

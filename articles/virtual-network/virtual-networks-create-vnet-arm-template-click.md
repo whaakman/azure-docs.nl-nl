@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Een virtueel netwerk met een Azure Resource Manager-sjabloon maken
 
@@ -39,9 +39,9 @@ Dit artikel wordt uitgelegd hoe u een VNet met het implementatiemodel van Resour
 - [PowerShell (klassiek)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 - [CLI (klassiek)](virtual-networks-create-vnet-classic-cli.md)
 
-U ziet hoe u een bestaande ARM-sjabloon kunt downloaden en wijzigen vanuit GitHub, en de sjabloon vervolgens kunt implementeren met GitHub, PowerShell en Azure CLI.
+Informatie over het downloaden en wijzigen en de bestaande Azure Resource Manager-sjabloon vanuit GitHub, en de sjabloon implementeren vanuit GitHub, PowerShell en de Azure CLI.
 
-Als u de ARM-sjabloon rechtstreeks vanuit GitHub wilt implementeren zonder deze te wijzigen, gaat u naar [Een sjabloon implementeren vanuit GitHub](#deploy-the-arm-template-by-using-click-to-deploy).
+Als u wilt de Azure Resource Manager-sjabloon rechtstreeks vanuit GitHub, zonder deze te wijzigen implementeren, gaat u naar [een sjabloon implementeren vanuit github](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -52,11 +52,11 @@ U kunt de bestaande sjabloon voor het maken van een VNet en twee subnets vanuit 
 2. Klik op **azuredeploy.json** en vervolgens op **RAW**.
 3. Sla het bestand op in een lokale map op uw computer.
 4. Als u bekend met sjablonen bent, gaat u verder met stap 7.
-5. Open het bestand dat u zojuist hebt opgeslagen en bekijk de inhoud onder **parameters** in regel 5. ARM-sjabloonparameters bieden een tijdelijke aanduiding voor waarden die kunnen worden ingevuld tijdens de implementatie.
+5. Open het bestand dat u hebt opgeslagen en bekijk de inhoud onder **parameters** in regel 5. Azure Resource Manager-sjabloonparameters bieden een tijdelijke aanduiding voor waarden die kunnen worden ingevuld tijdens de implementatie.
    
    | Parameter | Beschrijving |
    | --- | --- |
-   | **location** |Azure-regio waar het VNet wordt aangemaakt |
+   | **location** |Azure-regio waar de VNet wordt gemaakt |
    | **vnetName** |Naam voor het nieuwe VNet |
    | **addressPrefix** |Adresruimte voor het VNet, in CIDR-indeling |
    | **subnet1Name** |Naam voor het eerste VNet |
@@ -71,7 +71,7 @@ U kunt de bestaande sjabloon voor het maken van een VNet en twee subnets vanuit 
 6. Controleer de inhoud onder **Resources** en let op het volgende:
    
    * **type**. Het type resource dat door de sjabloon wordt aangemaakt. In dit geval **Microsoft.Network/virtualNetworks**, die een VNet vertegenwoordigen.
-   * **Naam**. Naam voor de resource. Let op het gebruik van **[parameters('vnetName')]**. Deze geeft aan of de naam wordt geleverd als invoer door de gebruiker of een parameterbestand tijdens implementatie.
+   * **Naam**. Naam voor de resource. Let op het gebruik van **[parameters('vnetName')]**, wat betekent dat de naam die is opgegeven als invoer door de gebruiker of een parameterbestand tijdens de implementatie.
    * **Eigenschappen**. Lijst met eigenschappen voor de resource. Deze sjabloon maakt gebruik van de adresruimte en de subneteigenschappen tijdens het aanmaken van het VNet.
 7. Ga naar de [pagina Voorbeeldsjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Klik op **azuredeploy-paremeters.json** en vervolgens op **RAW**.
@@ -231,7 +231,7 @@ U kunt hergebruiken van vooraf gedefinieerde Azure Resource Manager-sjablonen ge
    
     ![Tegel implementatie in Preview Portal verzenden](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. Zodra de implementatie is voltooid in de Azure portal op **meer services**, type *virtuele netwerken* in het vak van het filter dat wordt weergegeven, klik vervolgens op virtuele netwerken om te zien van de virtuele netwerken-blade. Klik op de blade *TestVNet*. In de *TestVNet* blade, klikt u op **subnetten** om te zien van de subnetten gemaakt, zoals wordt weergegeven in de volgende afbeelding:
+10. Zodra de implementatie is voltooid in de Azure portal op **alle services**, type *virtuele netwerken* in het vak van het filter dat wordt weergegeven, klik vervolgens op virtuele netwerken om te zien van de virtuele netwerken-blade. Klik op de blade *TestVNet*. In de *TestVNet* blade, klikt u op **subnetten** om te zien van de subnetten gemaakt, zoals wordt weergegeven in de volgende afbeelding:
     
      ![VNet maken in de Preview Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 

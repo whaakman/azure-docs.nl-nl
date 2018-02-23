@@ -36,15 +36,15 @@
         - name: Azure voorbereiden
           href: tutorial-prepare-azure.md
         - name: On-premises Hyper-V voorbereiden
-          href: tutorial-prepare-on-premises-hyper-v.md
+          href: hyper-v-prepare-on-premises-tutorial.md
         - name: Herstel na noodgeval instellen voor virtuele Hyper-V-machines
-          href: tutorial-hyper-v-to-azure.md
+          href: hyper-v-azure-tutorial.md
         - name: Herstel na noodgeval instellen voor virtuele Hyper-V-machines in VMM-clouds
-          href: tutorial-hyper-v-vmm-to-azure.md
+          href: hyper-v-vmm-azure-tutorial.md
         - name: Noodherstelanalyse uitvoeren
           href: tutorial-dr-drill-azure.md
         - name: Failover en failback uitvoeren
-          href: tutorial-hyper-v-to-azure-failover-failback.md
+          href: hyper-v-azure-failover-failback-tutorial.md
     - name: Migreren naar Azure
       items:
         - name: Azure voorbereiden voor on-premises replicatie
@@ -64,11 +64,11 @@
         - name: VMware naar Azure-architectuur
           href: concepts-vmware-to-azure-architecture.md
         - name: Hyper-V naar Azure-architectuur
-          href: concepts-hyper-v-to-azure-architecture.md
+          href: hyper-v-azure-architecture.md
         - name: Fysieke naar Azure-architectuur
           href: concepts-physical-to-azure-architecture.md
         - name: Hyper-V naar secundaire site-architectuur
-          href: concepts-hyper-v-to-secondary-architecture.md
+          href: hyper-v-vmm-architecture.md
     - name: Ondersteuningsmatrix voor vereisten
       items:
         - name: Ondersteuningsmatrix voor Azure naar Azure
@@ -76,7 +76,7 @@
         - name: Ondersteuningsmatrix voor VMware naar Azure
           href: support-matrix-vmware-to-azure.md
         - name: Ondersteuningsmatrix voor Hyper-V naar Azure
-          href: support-matrix-hyper-v-to-azure.md
+          href: hyper-v-azure-support-matrix.md
         - name: Ondersteuningsmatrix voor on-premises naar Azure
           href: site-recovery-support-matrix-to-azure.md
         - name: Ondersteuningsmatrix voor on-premises naar secundaire site
@@ -97,6 +97,8 @@
           href: azure-to-azure-about-networking.md
         - name: Netwerktoewijzing instellen voor herstel na noodgevallen voor Azure-VM (preview)
           href: azure-to-azure-network-mapping.md
+        - name: Replicatie van netwerktoewijzing voor virtuele Hyper-V-machines instellen in VMM
+          href: hyper-v-vmm-network-mapping.md
         - name: Een IP-adres behouden bij herstel na noodgevallen voor Azure-VM (preview)
           href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Netwerktoewijzing voorbereiden voor replicatie van virtuele Hyper-V-machines naar Azure
@@ -104,7 +106,7 @@
         - name: IP-adressering instellen voor toegang tot Azure na een failover
           href: concepts-on-premises-to-azure-networking.md
         - name: IP-adressering instellen voor toegang tot een secundaire locatie na een failover
-          href: concepts-on-premises-to-on-premises-networking.md
+          href: hyper-v-vmm-networking.md
         - name: Netwerkinterfacebeheer voor on-premises-naar-Azure-scenario's
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Herstel na noodgeval
@@ -113,15 +115,15 @@
           href: azure-to-azure-replicate-after-migration.md
         - name: Herstel na noodgeval voor fysieke servers naar Azure
           href: tutorial-physical-to-azure.md
-        - name: Virtuele Hyper-V-machines repliceren naar een secundaire site
-          href: tutorial-vmm-to-vmm.md
-        - name: Virtuele VMware-machines en fysieke servers repliceren naar een secundaire site
+        - name: Herstel na noodgeval voor virtuele Hyper-V-machines naar een secundaire site
+          href: hyper-v-vmm-disaster-recovery.md
+        - name: Herstel na noodgeval voor virtuele VMware-machines en fysieke servers naar een secundaire site
           href: tutorial-vmware-to-vmware.md
         - name: Noodherstelanalyse uitvoeren in Azure
           href: site-recovery-test-failover-to-azure.md
-        - name: Noodherstelanalyse uitvoeren op een secundaire site
-          href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: Virtuele VMware-machines met ondersteuning voor meerdere tenants naar Azure
+        - name: Een oefening voor herstel na noodgeval uitvoeren voor virtuele Hyper-V-machines naar een secundaire site
+          href: hyper-v-vmm-test-failover.md
+        - name: Herstel na noodgeval voor virtuele VMware-machines met ondersteuning voor meerdere tenants naar Azure
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Failover en failback
       items:
@@ -130,17 +132,15 @@
         - name: Azure-runbooks aan herstelplannen toevoegen
           href: site-recovery-runbook-automation.md
         - name: VMM-scripts toevoegen aan herstelplannen
-          href: site-recovery-how-to-add-vmmscript.md
+          href: hyper-v-vmm-recovery-script.md
         - name: Failover
           items:
             - name: Over failover
               href: site-recovery-failover.md
-            - name: Een testfailover uitvoeren naar een secundaire site
-              href: tutorial-dr-drill-secondary.md
             - name: Een failover en failback uitvoeren voor fysieke servers
               href: physical-to-azure-failover-failback.md
-            - name: Een failover en failback uitvoeren tussen on-premises sites
-              href: tutorial-vmm-to-vmm-failover-failback.md
+            - name: Een failover en failback uitvoeren tussen on-premises sites voor virtuele Hyper-V-machines
+              href: hyper-v-vmm-failover-failback.md
         - name: Machines opnieuw beveiligen na een failover
           items:
             - name: Opnieuw beveiligen van een secundaire Azure-regio naar een primaire regio
@@ -152,7 +152,7 @@
             - name: Failback van Azure naar VMware
               href: site-recovery-how-to-failback-azure-to-vmware.md
             - name: Failback van Azure naar Hyper-V
-              href: site-recovery-failback-from-azure-to-hyper-v.md
+              href: hyper-v-azure-failback.md
         - name: Een Linux-hoofddoelserver voor failback instellen
           href: site-recovery-how-to-install-linux-master-target.md
     - name: Migreren
@@ -182,15 +182,15 @@
           href: null
           items:
             - name: Overzicht en vereisten
-              href: site-recovery-hyper-v-deployment-planner.md
+              href: hyper-v-deployment-planner-overview.md
             - name: Het hulpprogramma Deployment Planner uitvoeren
-              href: site-recovery-hyper-v-deployment-planner-run.md
+              href: hyper-v-deployment-planner-run.md
             - name: Het gegenereerde rapport analyseren
-              href: site-recovery-hyper-v-deployment-planner-analyze-report.md
+              href: hyper-v-deployment-planner-analyze-report.md
             - name: Het rapport met kostenramingen analyseren
-              href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
-        - name: Prestatieschaal testen voor Hyper-V-replicatie tussen on-premises sites
-          href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
+              href: hyper-v-deployment-planner-cost-estimation.md
+        - name: Prestatieschaal testen voor Hyper-V-replicatie naar een secundaire site
+          href: hyper-v-vmm-performance-results.md
     - name: Configureren
       items:
         - name: De bronomgeving instellen
@@ -214,7 +214,7 @@
             - name: Schijven uitsluiten van replicatie voor VMware-naar-Azure
               href: site-recovery-exclude-disk.md
             - name: Schijven uitsluiten van replicatie voor Hyper-V-naar-Azure
-              href: site-recovery-hyper-v-exclude-disk.md
+              href: hyper-v-exclude-disk.md
         - name: Replicatie inschakelen
           items:
             - name: Azure naar Azure-replicatie inschakelen
@@ -234,11 +234,11 @@
         - name: Virtuele VMware-machines naar Azure repliceren met behulp van PowerShell
           href: site-recovery-vmware-to-azure-powershell.md
         - name: Hyper-V-replicatie naar Azure instellen (zonder VMM) met behulp van PowerShell
-          href: site-recovery-deploy-with-powershell-resource-manager.md
+          href: hyper-v-azure-powershell-resource-manager.md
         - name: Hyper-V-replicatie naar Azure instellen (met VMM) met behulp van PowerShell
           href: site-recovery-vmm-to-azure-powershell-resource-manager.md
         - name: Hyper-V-replicatie naar een secundaire VMM-site instellen met behulp van PowerShell
-          href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
+          href: hyper-v-vmm-powershell-resource-manager.md
     - name: Workloads
       items:
         - name: Active Directory en DNS

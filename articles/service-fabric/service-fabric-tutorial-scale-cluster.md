@@ -1,6 +1,6 @@
 ---
 title: Een Azure Service Fabric-cluster schalen | Microsoft Docs
-description: Informatie over het snel schalen Service Fabric-cluster.
+description: Informatie over hoe u snel een Service Fabric-cluster kunt schalen.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -12,43 +12,43 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2017
+ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 63b4747164959b0e95f6d3f1908d1fd265589a98
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Een Service Fabric-cluster schalen
 
-Deze zelfstudie maakt deel uit van een reeks en ziet u hoe u het bestaande cluster uit- en schalen. Wanneer u hebt voltooid, hebt u wellicht schalen van uw cluster en het opschonen van eventuele resterende resources.
+Deze zelfstudie is deel twee van een serie. Hier ziet u hoe u een bestaand cluster kunt in- en uitschalen. Aan het einde van deze zelfstudie weet u hoe u een cluster kunt schalen en eventuele resterende resources kunt opschonen.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Het aantal clusters knooppunt lezen
-> * Toevoegen van de clusterknooppunten (scale-out)
-> * Verwijder de clusterknooppunten (schaal in)
+> * Het aantal clusterknooppunten lezen
+> * Clusterknooppunten toevoegen (uitschalen)
+> * Clusterknooppunten verwijderen (inschalen)
 
-In deze zelfstudie reeks leert u hoe:
+In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
-> * Maken van een veilige [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) op Azure met behulp van een sjabloon
-> * Een in- of -cluster schalen
-> * [Upgrade de runtime van een cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)
+> * Een veilig [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) maken in Azure met behulp van een sjabloon
+> * Een cluster in- of uitschalen
+> * [De runtime van een cluster upgraden](service-fabric-tutorial-upgrade-cluster.md)
+> * [API Management implementeren met Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u deze zelfstudie begint:
-- Als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Installeer de [Azure Powershell-moduleversie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) of [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Maken van een veilige [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) op Azure
-- Als u een Windows-cluster implementeert, kunt u een Windows-ontwikkelomgeving instellen. Installeer [Visual Studio 2017](http://www.visualstudio.com) en de **ontwikkelen van Azure**, **ASP.NET en web ontwikkeling**, en **.NET Core platformoverschrijdende ontwikkeling**werkbelastingen.  Stel een [.NET ontwikkelomgeving](service-fabric-get-started.md).
-- Als u een Linux-cluster implementeert, stelt u een Java-ontwikkelomgeving op [Linux](service-fabric-get-started-linux.md) of [Mac OS](service-fabric-get-started-mac.md).  Installeer de [Service Fabric CLI](service-fabric-cli.md). 
+Voor u met deze zelfstudie begint:
+- Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Installeer de [Azure Powershell-module, versie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) of [Azure CLI 2.0](/cli/azure/install-azure-cli).
+- Maak een veilig [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) in Azure
+- Als u een Windows-cluster implementeert, richt u een Windows-ontwikkelomgeving in. Installeer [Visual Studio 2017](http://www.visualstudio.com) en de workloads voor **Azure-ontwikkeling**, **ASP.NET-ontwikkeling en webontwikkeling** en **.NET Core platformoverschrijdende ontwikkeling**.  Richt vervolgens een [.NET-ontwikkelomgeving in](service-fabric-get-started.md).
+- Als u een Linux-cluster implementeert, richt u een Java-ontwikkelomgeving in voor [Linux](service-fabric-get-started-linux.md) of [Mac OS](service-fabric-get-started-mac.md).  Installeer de [Service Fabric CLI](service-fabric-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
-Aanmelden bij uw Azure-account, selecteer uw abonnement voordat u Azure-opdrachten uitvoeren.
+Meld u aan bij uw Azure-account en selecteer uw abonnement voordat u Azure-opdrachten gaat uitvoeren.
 
 ```powershell
 Login-AzureRmAccount
@@ -63,9 +63,9 @@ az account set --subscription <guid>
 
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 
-Als u wilt dit deel van de zelfstudie voltooien, moet u verbinding maken met zowel de Service Fabric-cluster en de virtuele-machineschaalset (die als host fungeert voor het cluster). De virtuele-machineschaalset is de Azure resource die als host fungeert voor Service Fabric in Azure.
+Om dit deel van de zelfstudie te voltooien, moet u verbinding maken met het Service Fabric-cluster en de virtuele-machineschaalset (die als host fungeert voor het cluster). De virtuele-machineschaalset is de Azure-resource die als host fungeert voor Service Fabric op Azure.
 
-Als u verbinding met een cluster, kunt u deze kunt opvragen voor meer informatie. Voor meer informatie over welke knooppunten het cluster is op de hoogte kunt u het cluster. Verbinding maken met het cluster in de volgende code gebruikt hetzelfde certificaat dat is gemaakt in het eerste deel van deze reeks. Zorg ervoor dat u de `$endpoint` en `$thumbprint` variabelen op uw waarden.
+Wanneer u verbinding maakt met een cluster, kunt u hieruit informatie opvragen. U kunt het cluster gebruiken om te weten te komen welke knooppunten het cluster herkent. Om verbinding te maken met het cluster wordt in de volgende code hetzelfde certificaat gebruikt dat ook in het eerste deel van deze serie is gebruikt. Let erop dat u de variabelen `$endpoint` en `$thumbprint` instelt op uw waarden.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
@@ -85,20 +85,20 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Nu dat u verbonden bent, kunt u een opdracht voor het ophalen van de status van elk knooppunt in het cluster. Voor PowerShell, gebruikt u de `Get-ServiceFabricClusterHealth` opdracht, en voor **sfctl** gebruiken de '' opdracht.
+Wanneer de verbinding is gemaakt, kunt u een opdracht gebruiken om de status van elk knooppunt in het cluster op te vragen. Voor PowerShell gebruikt u de opdracht `Get-ServiceFabricClusterHealth` en voor **sfctl** gebruikt u de opdracht `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Uitschalen
 
-Wanneer u uitschalen, kunt u meer exemplaren van de virtuele machine toevoegen aan de schaalaanpassingsset. Deze instanties, worden de knooppunten die gebruikmaakt van Service Fabric. Service Fabric kent Wanneer de schaalaanpassingsset heeft meer exemplaren (door het uitbreiden) toegevoegd en automatisch reageert. De volgende code haalt een schaal instellen op naam en verhoogt de **capaciteit** van de schaal van 1 instellen.
+Wanneer u uitschaalt, voegt u meer instanties van de virtuele machine toe aan de schaalset. Deze instanties worden de knooppunten die door Service Fabric worden gebruikt. Service Fabric weet wanneer er meer exemplaren aan de schaalset zijn toegevoegd (door uitschaling) en reageert daar automatisch op. Met de volgende code verkrijgt u een schaalset op naam en verhoogt u de **capaciteit** van de schaalset met 1.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
-Deze code wordt de capaciteit ingesteld op 6.
+Met deze code stelt u de capaciteit in op 6.
 
 ```azurecli
 # Get the name of the node with
@@ -108,46 +108,47 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 ```
 
-## <a name="scale-in"></a>Schalen in
+## <a name="scale-in"></a>Inschalen
 
-Schalen hetzelfde is als uitbreiden, behalve het gebruik van een lagere **capaciteit** waarde. Wanneer u in de schaalset schaalt, kunt u exemplaren van de virtuele machine verwijderen uit de schaalaanpassingsset. Normaal gesproken Service Fabric is merkt niets van wat is er gebeurd en het geeft aan dat een knooppunt is kwijtgeraakt. Service Fabric rapporten klikt u vervolgens een onjuiste status voor het cluster. Om te voorkomen dat slechte staat, moet u het service fabric informeren dat u het knooppunt niet meer zichtbaar verwacht.
+Inschalen is hetzelfde als uitschalen; u gebruikt alleen een lagere waarde voor de **capaciteit**. Wanneer u de schaalset inschaalt, verwijdert u instanties van de virtuele machine uit de schaalset. Normaal gesproken merkt Service Fabric niets van wat is er gebeurd en lijkt het alsof er een knooppunt verloren is gegaan. Service Fabric rapport daarom een onjuiste status voor het cluster. Om deze onjuiste status te voorkomen, moet u aan Service Fabric doorgeven dat u verwacht dat het knooppunt verdwijnt.
 
-### <a name="remove-the-service-fabric-node"></a>Verwijder de service fabric-knooppunt
+### <a name="remove-the-service-fabric-node"></a>Het Service Fabric-knooppunt verwijderen
 
 > [!NOTE]
-> Dit onderdeel is alleen van toepassing op de *Brons* duurzaamheid laag. Zie voor meer informatie over duurzaamheid [capaciteitsplanning voor Service Fabric-cluster][durability].
+> Dit gedeelte is alleen van toepassing op de *Bronzen* duurzaamheidslaag. Voor meer informatie over duurzaamheid raadpleegt u [Service Fabric cluster capacity planning][durability] (Capaciteitsplanning voor Service Fabric-clusters).
 
-Wanneer u in een virtuele-machineschaalset schaalt, verwijdert de schaal instellen (in de meeste gevallen) de virtuele machine-instantie die het laatst is gemaakt. Daarom moet u de overeenkomende, het laatst is gemaakt, service fabric-knooppunt gevonden. U vindt dit laatste knooppunt door het controleren van de grootste `NodeInstanceId` waarde van de eigenschap op de service fabric-knooppunten. De codevoorbeelden hieronder sorteren op het knooppunt exemplaar en de details van het exemplaar met de grootste id-waarde retourneren. 
+Wanneer u een virtuele-machineschaalset inschaalt, verwijdert de schaalset (in de meeste gevallen) de instantie van de virtuele machine die het laatst is gemaakt. Daarom moet u het overeenkomende, laatst gemaakte, Service Fabric-knooppunt vinden. U vindt dit laatste knooppunt door de hoogste waarde van eigenschap `NodeInstanceId` op de Service Fabric-knooppunten te controleren. In onderstaande codevoorbeelden worden de knooppuntinstanties gesorteerd en worden de details van de instantie met de hoogste id-waarde geretourneerd. 
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 ```
 
 ```azurecli
-`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
-De service fabric-cluster moet bekend dat dit knooppunt is vereist, worden verwijderd. Er zijn drie stappen die u moet uitvoeren:
+Het Service Fabric-cluster moet weten dat dit knooppunt zal worden verwijderd. Er zijn drie stappen die u moet uitvoeren:
 
-1. Het knooppunt uitschakelen zodat deze niet langer een repliceren van gegevens.  
-PowerShell:`Disable-ServiceFabricNode`  
-sfcli:`sfctl node disable`
+1. Schakel het knooppunt uit zodat het geen replica meer is voor gegevens.  
+PowerShell: `Disable-ServiceFabricNode`  
+sfcli: `sfctl node disable`
 
-2. Stop het knooppunt zodat de service fabric-runtime foutloos wordt afgesloten en uw app een terminate-aanvraag ontvangt.  
-PowerShell:`Start-ServiceFabricNodeTransition -Stop`  
-sfcli:`sfctl node transition --node-transition-type Stop`
+2. Stop het knooppunt zodat de Service Fabric-runtime netjes wordt afgesloten en uw app een beëindigingsaanvraag ontvangt.  
+PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
+sfcli: `sfctl node transition --node-transition-type Stop`
 
-2. Het knooppunt uit het cluster verwijdert.  
-PowerShell:`Remove-ServiceFabricNodeState`  
-sfcli:`sfctl node remove-state`
+2. Verwijder het knooppunt uit het cluster.  
+PowerShell: `Remove-ServiceFabricNodeState`  
+sfcli: `sfctl node remove-state`
 
-Zodra deze drie stappen op het knooppunt zijn toegepast, kan deze worden verwijderd uit de schaalaanpassingsset. Als u elke categorie duurzaamheid naast [Brons][durability], deze stappen worden uitgevoerd voor u wanneer u de schaal ingesteld exemplaar wordt verwijderd.
+Nadat deze drie stappen op het knooppunt zijn toegepast, kan het knooppunt worden verwijderd uit de schaalset. Als u naast de [bronzen][durability] duurzaamheidslaag nog een andere duurzaamheidslaag gebruikt, worden deze stappen voor u uitgevoerd wanneer de schaalsetinstantie wordt verwijderd.
 
-Het volgende codeblok opgehaald van het laatste knooppunt gemaakt, wordt uitgeschakeld, stopt en verwijdert u het knooppunt uit het cluster.
+In het volgende codeblok wordt het laatst gemaakte knooppunt opgehaald en wordt het knooppunt uitgeschakeld, gestopt en uit het cluster verwijderd.
 
 ```powershell
+#### After you've connected.....
 # Get the node that was created last
-$node = Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+$node = Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 
 # Node details for the disable/stop process
 $nodename = $node.NodeName
@@ -202,7 +203,7 @@ else
 }
 ```
 
-In de **sfctl** code hieronder, de volgende opdracht wordt gebruikt om op te halen de **knooppuntnaam** en **knooppunt-exemplaar-id** waarden van het laatste knooppunt:`sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+In onderstaande **sfctl**-code wordt de volgende opdracht gebruikt om de waarde van **knooppuntnaam** op te halen van het laatst gemaakte knooppunt: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -216,19 +217,19 @@ sfctl node remove-state --node-name _nt1vm_5
 ```
 
 > [!TIP]
-> Gebruik de volgende **sfctl** query's naar de status van elke stap controleren
+> Gebruik de volgende **sfctl**-query's om de status van elke stap te controleren
 >
-> **Deactivering status controleren**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+> **Deactiveringsstatus controleren**  
+> `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **Controleer de status van stoppen**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+> **Stopstatus controleren**  
+> `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
 
-### <a name="scale-in-the-scale-set"></a>Schalen in de schaalset
+### <a name="scale-in-the-scale-set"></a>De schaalset inschalen
 
-Nu dat de service fabric-knooppunt is verwijderd uit het cluster, kunt u de virtuele-machineschaalset geschaald in. In het volgende voorbeeld wordt de capaciteit van de set scale verminderd met 1.
+Nu het Service Fabric-knooppunt is verwijderd uit het cluster, kan de virtuele-machineschaalset worden ingeschaald. In onderstaand voorbeeld wordt de capaciteit van de schaalset verminderd met 1.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
@@ -237,7 +238,7 @@ $scaleset.Sku.Capacity -= 1
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
-Deze code wordt de capaciteit ingesteld op 5.
+Met deze code stelt u de capaciteit in op 5.
 
 ```azurecli
 # Get the name of the node with
@@ -253,13 +254,13 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Het aantal clusters knooppunt lezen
-> * Toevoegen van de clusterknooppunten (scale-out)
-> * Verwijder de clusterknooppunten (schaal in)
+> * Het aantal clusterknooppunten lezen
+> * Clusterknooppunten toevoegen (uitschalen)
+> * Clusterknooppunten verwijderen (inschalen)
 
 
-Ga vervolgens naar de volgende zelfstudie voor informatie over het upgraden van de runtime van een cluster.
+Daarna gaat u verder met de volgende zelfstudie, waarin u leert hoe u een upgrade uitvoert van de runtime van een cluster.
 > [!div class="nextstepaction"]
-> [Upgrade de runtime van een cluster](service-fabric-tutorial-upgrade-cluster.md)
+> [De runtime van een cluster upgraden](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

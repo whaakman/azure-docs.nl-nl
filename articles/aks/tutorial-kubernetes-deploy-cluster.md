@@ -1,6 +1,6 @@
 ---
-title: Kubernetes op Azure zelfstudie - Cluster implementeren
-description: AKS zelfstudie - Cluster implementeren
+title: 'Zelfstudie voor Kubernetes in Azure: Cluster implementeren'
+description: 'Zelfstudie voor AKS: Cluster implementeren'
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,51 +9,51 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c2318d9a5f72800f9cfbd430dca448fd1e5746f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: e0d5bd57a40fca837ead42e691e1fa0c802dc013
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Een Azure Container Service (AKS)-cluster implementeren
+# <a name="deploy-an-azure-container-service-aks-cluster"></a>Een AKS-cluster (Azure Container Service) implementeren
 
-Kubernetes biedt een gedistribueerd platform voor toepassingen in containers. Met AKS is het inrichten van een cluster met productie gereed Kubernetes snel en eenvoudig. In deze zelfstudie maakt deel uit drie acht, is in AKS een Kubernetes-cluster geïmplementeerd. Stappen voltooid omvatten:
+Kubernetes biedt een gedistribueerd platform voor toepassingen in containers. Met AKS kunt u eenvoudig en snel een Kubernetes-cluster inrichten dat gereed is voor productie. In deze zelfstudie, deel drie van de acht, wordt een Kubernetes-cluster geïmplementeerd in AKS. Dit zijn de uitgevoerde stappen:
 
 > [!div class="checklist"]
 > * Een Kubernetes AKS-cluster implementeren
-> * Installatie van de CLI Kubernetes (kubectl)
+> * Installatie van de Kubernetes-CLI (kubectl)
 > * Configuratie van kubectl
 
-In volgende zelfstudies leert de stem van de Azure-toepassing is geïmplementeerd op het cluster, uitgebreide, bijgewerkt en Operations Management Suite is geconfigureerd voor het bewaken van het cluster Kubernetes.
+In de volgende zelfstudies wordt de Azure Vote-toepassing geïmplementeerd in het cluster, geschaald en bijgewerkt en wordt Operations Management Suite geconfigureerd om het Kubernetes-cluster te controleren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In vorige zelfstudies is een installatiekopie van een container gemaakt en geüpload naar een Azure Container register-exemplaar. Als u deze stappen nog niet hebt gedaan en u wilt volgen, terug naar [zelfstudie 1 – installatiekopieën van de container maken][aks-tutorial-prepare-app].
+In de vorige zelfstudies is een containerinstallatiekopie gemaakt en geüpload naar een Azure Container Registry-exemplaar. Als u deze stappen niet hebt uitgevoerd en deze zelfstudie wilt volgen, gaat u terug naar [Zelfstudie 1: Containerinstallatiekopieën maken][aks-tutorial-prepare-app].
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>AKS preview voor uw Azure-abonnement inschakelen
-Terwijl AKS preview wordt, moet voor het maken van nieuwe clusters een functie-vlag op uw abonnement. U kunt deze functie voor een willekeurig aantal abonnementen die u wilt gebruiken kan aanvragen. Gebruik de `az provider register` opdracht voor het registreren van de provider AKS:
+## <a name="enabling-aks-preview-for-your-azure-subscription"></a>AKS-preview inschakelen voor uw Azure-abonnement
+Zolang AKS in preview is, moet voor het maken van nieuwe clusters een functievlag worden toegevoegd aan uw abonnement. U kunt deze functie aanvragen voor een willekeurig aantal abonnementen dat u wilt gebruiken. Gebruik de opdracht `az provider register` om de AKS-provider te registreren:
 
 ```azurecli-interactive
 az provider register -n Microsoft.ContainerService
 ```
 
-Na de registratie, bent u nu klaar voor het maken van een cluster Kubernetes met AKS.
+Als dat is gebeurd, kunt u een Kubernetes-cluster gaan maken met AKS.
 
 ## <a name="create-kubernetes-cluster"></a>Een Kubernetes-cluster maken
 
-Het volgende voorbeeld wordt een cluster met de naam `myK8sCluster` in een resourcegroep met de naam `myResourceGroup`. Deze resourcegroep is gemaakt in de [vorige zelfstudie][aks-tutorial-prepare-acr].
+In het volgende voorbeeld wordt een cluster genaamd `myAKSCluster` gemaakt in de resourcegroep genaamd `myResourceGroup`. Deze resourcegroep is gemaakt in de [vorige zelfstudie][aks-tutorial-prepare-acr].
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
-De implementatie is voltooid na een paar minuten en json retourneert informatie over de implementatie AKS geformatteerd.
+Na enkele minuten is de implementatie voltooid en retourneert json opgemaakte informatie over de AKS-implementatie.
 
-## <a name="install-the-kubectl-cli"></a>De kubectl CLI installeren
+## <a name="install-the-kubectl-cli"></a>De CLI kubectl installeren
 
-Gebruiken voor verbinding met het cluster Kubernetes vanaf de clientcomputer, [kubectl][kubectl], de opdrachtregel Kubernetes-client.
+Gebruik [kubectl][kubectl], de Kubernetes-opdrachtregelclient, als u vanaf uw clientcomputer verbinding wilt maken met het Kubernetes-cluster.
 
-Als u Azure CloudShell gebruikt, is kubectl al geïnstalleerd. Als u lokaal installeren wilt, voert u de volgende opdracht:
+Als u Azure CloudShell gebruikt, is kubectl al geïnstalleerd. Als u de client lokaal wilt installeren, voert u de volgende opdracht uit:
 
 ```azurecli
 az aks install-cli
@@ -61,13 +61,13 @@ az aks install-cli
 
 ## <a name="connect-with-kubectl"></a>Verbinden met kubectl
 
-Voer de volgende opdracht voor het configureren van kubectl verbinding maken met uw cluster Kubernetes:
+Als u kubectl zo wilt configureren dat de client verbinding maakt met uw Kubernetes-cluster, voert u de volgende opdracht uit:
 
 ```azurecli
-az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+az aks get-credentials --resource-group=myResourceGroup --name=myAKSCluster
 ```
 
-Om te controleren of de verbinding met uw cluster, voer de [kubectl ophalen knooppunten] [ kubectl-get] opdracht.
+Als u de verbinding met uw cluster wilt controleren, voert u de opdracht [kubectl get nodes][kubectl-get] uit.
 
 ```azurecli
 kubectl get nodes
@@ -77,24 +77,24 @@ Uitvoer:
 
 ```
 NAME                          STATUS    AGE       VERSION
-k8s-myk8scluster-36346190-0   Ready     49m       v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.7
 ```
 
-Zelfstudie is voltooid hebt u een cluster AKS gereed voor werkbelastingen. In volgende zelfstudies, is een toepassing met meerdere container geïmplementeerd op dit cluster, uitgebreid, bijgewerkt en bewaakt.
+Wanneer de zelfstudie is voltooid, hebt u een AKS Kubernetes-cluster dat gereed is voor werkbelastingen. In de volgende zelfstudies wordt een toepassing met meerdere containers geïmplementeerd in dit cluster, geschaald, bijgewerkt en gecontroleerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie is een cluster Kubernetes geïmplementeerd in AKS. De volgende stappen zijn voltooid:
 
 > [!div class="checklist"]
-> * Implementatie van een cluster Kubernetes AKS
-> * De Kubernetes CLI (kubectl) geïnstalleerd
-> * Geconfigureerde kubectl
+> * Een Kubernetes AKS-cluster is geïmplementeerd
+> * De Kubernetes-CLI (kubectl) is geïnstalleerd
+> * Kubectl is geconfigureerd
 
-Ga naar de volgende zelfstudie voor meer informatie over het uitvoeren van toepassing op het cluster.
+Ga naar de volgende zelfstudie om te leren hoe u de toepassing uitvoert in het cluster.
 
 > [!div class="nextstepaction"]
-> [De toepassing in Kubernetes implementeren][aks-tutorial-deploy-app]
+> [Toepassing implementeren in Kubernetes][aks-tutorial-deploy-app]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

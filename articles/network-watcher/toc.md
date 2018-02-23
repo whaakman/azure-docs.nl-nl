@@ -61,6 +61,7 @@
 # Procedures
 ## [VPN Gateway bewaken met Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Problemen met on-premises connectiviteit via VPN Gateway vaststellen](network-watcher-diagnose-on-premises-connectivity.md)
+## [Netwerkverbindingen bewaken](connection-monitor.md)
 ## [Naleving en controles op uw netwerk uitvoeren met PowerShell](network-watcher-nsg-auditing-powershell.md)
 ## [Application Gateway-logboeken in Azure Log Analytics analyseren](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ## Pakketopname

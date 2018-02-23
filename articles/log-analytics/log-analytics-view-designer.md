@@ -1,6 +1,6 @@
 ---
 title: Maken van weergaven voor het analyseren van gegevens in Azure Log Analytics | Microsoft Docs
-description: Ontwerper in Log Analytics kunt u aangepaste weergaven maken die worden weergegeven in de Azure-portal en verschillende visualisaties van gegevens in de werkruimte voor logboekanalyse bevatten. Dit artikel bevat een overzicht van Designer bekijken en procedures voor het maken en bewerken van aangepaste weergaven.
+description: Ontwerp weergeven in Log Analytics gebruikt, kunt u aangepaste weergaven die worden weergegeven in de Azure portal en tal van gegevensvisualisaties in de werkruimte voor logboekanalyse bevatten. Dit artikel bevat een overzicht van Designer bekijken en geeft de procedures voor het maken en bewerken van aangepaste weergaven.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,90 +14,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: a84f40503c1b9778c496461ebbf6864f99bd1c4b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 08d0e557f03f771901c9ac92fb080e74e5966452
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Weergave Designer gebruiken voor het maken van aangepaste weergaven in Log Analytics
-De ontwerper in [logboekanalyse](log-analytics-overview.md) kunt u aangepaste weergaven maken in de Azure portal die verschillende visualisaties van gegevens in de werkruimte voor logboekanalyse bevatten. Dit artikel bevat een overzicht van Designer bekijken en procedures voor het maken en bewerken van aangepaste weergaven.
+# <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Aangepaste weergaven maken met behulp van de ontwerpfunctie voor weergaven in Log Analytics
+Met behulp van de ontwerpfunctie voor weergaven in [Azure Log Analytics](log-analytics-overview.md), kunt u tal van aangepaste weergaven maken in de Azure-portal kunt u gegevens in de werkruimte voor logboekanalyse visualiseren. Dit artikel biedt een overzicht van Designer bekijken en procedures voor het maken en bewerken van aangepaste weergaven.
 
-Er zijn andere artikelen die beschikbaar zijn voor weergave Designer:
+Zie voor meer informatie over Designer bekijken:
 
-* [Tegel verwijzing](log-analytics-view-designer-tiles.md) -verwijzing van de instellingen voor elk van de tegels beschikbaar voor gebruik in aangepaste weergaven.
-* [Visualisatie onderdeelverwijzing](log-analytics-view-designer-parts.md) -verwijzing van de instellingen voor elk van de tegels beschikbaar voor gebruik in aangepaste weergaven.
+* [Tegel verwijzing](log-analytics-view-designer-tiles.md): biedt een Naslaggids voor de instellingen voor elk van de beschikbare tegels in aangepaste weergaven.
+* [Visualisatie onderdeelverwijzing](log-analytics-view-designer-parts.md): biedt een Naslaggids voor de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
 
 >[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [querytaal van nieuwe logboekanalyse](log-analytics-log-search-upgrade.md), en vervolgens de query's in alle weergaven moeten worden geschreven in de [nieuwe querytaal](https://go.microsoft.com/fwlink/?linkid=856078).  De weergaven die zijn gemaakt voordat de werkruimte werd bijgewerkt worden doorloopt geconverteerd.
+> Als uw werkruimte is bijgewerkt naar de [querytaal van nieuwe logboekanalyse](log-analytics-log-search-upgrade.md), query's in alle weergaven moeten worden geschreven in de [nieuwe querytaal](https://go.microsoft.com/fwlink/?linkid=856078). De weergaven die zijn gemaakt voordat de werkruimte werd bijgewerkt, worden automatisch geconverteerd.
 
 ## <a name="concepts"></a>Concepten
-Weergaven worden weergegeven op de **overzicht** pagina van de werkruimte voor logboekanalyse in de Azure portal.  De tegel voor elke aangepaste weergave wordt alfabetisch met de tegels weergegeven voor de oplossingen dezelfde werkruimte geïnstalleerd.
+Weergaven worden weergegeven op de **overzicht** pagina van de werkruimte voor logboekanalyse in de Azure portal. De tegels in elke aangepaste weergave alfabetische volgorde worden weergegeven en de tegels voor de oplossingen die zijn geïnstalleerd dezelfde werkruimte.
 
 ![Overzichtspagina](media/log-analytics-view-designer/overview-page.png)
 
-Weergaven maken met de ontwerpfunctie voor weergaven bevatten de elementen in de volgende tabel.
+De weergaven die u met de ontwerpfunctie voor weergaven maakt bevatten de elementen die worden beschreven in de volgende tabel:
 
 | Onderdeel | Beschrijving |
 |:--- |:--- |
-| Tegel |Weergegeven op de overzichtspagina voor uw werkruimte voor logboekanalyse.  Bevat een samenvatting van de informatie in de aangepaste weergave visual.  Verschillende typen van de tegel bieden verschillende visualisaties van records.  Klik op de tegel om de aangepaste weergave te openen. |
-| Aangepaste weergave |Wanneer de gebruiker klikt op de tegel weergegeven.  Bevat een of meer visualisatie delen. |
-| Visualisatie delen |Visualisatie van gegevens in de werkruimte voor logboekanalyse op basis van een of meer [Meld zoekopdrachten](log-analytics-log-searches.md).  De meeste onderdelen bevat een Header die een hoog niveau visualisatie bevat en een lijst van de bovenste resultaten.  Verschillende typen bieden verschillende visualisaties van records in de werkruimte voor logboekanalyse.  Klik op elementen in het gedeelte logboek zoekopdracht bieden gedetailleerde records. |
+| Tegels | Worden weergegeven in de werkruimte voor logboekanalyse **overzicht** pagina. Elke tegel geeft een visuele samenvatting van de aangepaste weergave vertegenwoordigt. Elk tegeltype biedt een andere visualisatie van uw records. Selecteert u een tegel om een aangepaste weergave weer te geven. |
+| Aangepaste weergave | Weergegeven wanneer u een tegel selecteert. Elke weergave bevat een of meer visualisatie delen. |
+| Visualisatie delen | Een visualisatie van gegevens in de werkruimte voor logboekanalyse op basis van een of meer aanwezig [Meld zoekopdrachten](log-analytics-log-searches.md). De meeste onderdelen bevatten een kop, waarmee een visualisatie in op hoog niveau, en een lijst waarin de bovenste resultaten. Elk onderdeeltype biedt een andere visualisatie van de records in de werkruimte voor logboekanalyse. U selecteert de elementen in het onderdeel zoekopdracht logboek die voorziet in gedetailleerde records. |
 
 
 ## <a name="work-with-an-existing-view"></a>Werken met een bestaande weergave
-Wanneer u een weergave die is gemaakt met de ontwerpfunctie voor weergaven opent, heeft dit een menu met de opties in de volgende tabel.
+Weergaven die zijn gemaakt met de ontwerpfunctie voor weergaven weergegeven de volgende opties:
 
 ![Overzicht van menu](media/log-analytics-view-designer/overview-menu.png)
 
+De opties worden in de volgende tabel beschreven:
 
 | Optie | Beschrijving |
 |:--|:--|
-| Vernieuwen   | Vernieuw de weergave met de meest recente gegevens. | 
-| Analytische gegevens | Open de [Advanced Analytics-portal](log-analytics-log-search-portals.md#advanced-analytics-portal) voor het analyseren van gegevens met logboek zoekopdrachten. () log-Analytics-log-Search-portals.MD#Advanced-Analytics-Portal). |
-| Filteren    | Stel een tijdfilter voor de gegevens die zijn opgenomen in de weergave. |
-| Bewerken      | Open de weergave in de Designer bekijken om te bewerken van de inhoud en configuratie.   |
-| Kloon     | Maak een nieuwe weergave en open het in de ontwerpfunctie voor weergave.  De nieuwe weergave heeft dezelfde naam als het origineel met "kopiëren" toegevoegd aan het einde van deze. |
+| Vernieuwen   | Hiermee vernieuwt u de weergave met de meest recente gegevens. | 
+| Analytische gegevens | Hiermee opent u de [Advanced Analytics-portal](log-analytics-log-search-portals.md#advanced-analytics-portal) voor het analyseren van gegevens met logboek zoekopdrachten. |
+| Filteren    | Hiermee stelt u een tijdfilter voor de gegevens die opgenomen in de weergave. |
+| Bewerken      | Hiermee opent u de weergave in de Designer bekijken om te bewerken van de inhoud en configuratie.  |
+| Kloon     | Een nieuwe weergave maakt en geopend in de ontwerpfunctie voor weergaven. De naam van de nieuwe weergave is hetzelfde als de oorspronkelijke naam, maar met *kopie* hieraan toegevoegd. |
 
 
 ## <a name="create-a-new-view"></a>Een nieuwe weergave maken
-Maak een nieuwe weergave in de **ontwerper** door te klikken op de tegel Designer bekijken op de overzichtspagina van de werkruimte voor logboekanalyse in de Azure portal.
+U kunt een nieuwe weergave maken in Designer bekijken door het selecteren van de **ontwerper** tegel op de **overzicht** pagina van de werkruimte voor logboekanalyse.
 
 ![Designer-venster weergeven](media/log-analytics-view-designer/view-designer-tile.png)
 
 
-## <a name="working-with-view-designer"></a>Werken met de Designer bekijken
-U werkt met Designer bekijken of u een nieuwe weergave maakt of een bestaande bewerkt.  
+## <a name="work-with-view-designer"></a>Werken met de Designer bekijken
+U kunt ontwerper nieuwe weergaven maken of bestaande relaties te bewerken. 
 
-De ontwerper bestaat uit drie deelvensters.  De **ontwerp** deelvenster de aangepaste weergave bevat die u maakt of bewerkt.  U toevoegen tegels en delen van de **besturingselement** deelvenster naar de **ontwerp** deelvenster.  De **eigenschappen** deelvenster worden de eigenschappen voor de tegel of het geselecteerde onderdeel weergegeven.
+Ontwerper bestaat uit drie deelvensters: 
+* **Ontwerp**: de aangepaste weergave bevat die u maakt of bewerkt. 
+* **Besturingselementen**: bevat de tegels en onderdelen die u toevoegt aan de **ontwerp** deelvenster. 
+* **Eigenschappen**: geeft de eigenschappen van de tegels of de geselecteerde onderdelen.
 
 ![Designer weergeven](media/log-analytics-view-designer/view-designer-screenshot.png)
 
-### <a name="configure-view-tile"></a>Tegel configureren
-Een aangepaste weergave kan slechts één tegel hebben.  Selecteer de **tegel** tabblad de **besturingselement** deelvenster op het huidige venster weergeven of Selecteer een alternatieve.  De **eigenschappen** deelvenster worden de eigenschappen voor het huidige venster weergegeven.  Configureer de eigenschappen van de tegel volgens de gedetailleerde informatie in de [tegel verwijzing](log-analytics-view-designer-tiles.md) en klik op **toepassen** wijzigingen op te slaan.
+### <a name="configure-the-view-tile"></a>De tegel configureren
+Een aangepaste weergave kan slechts één tegel hebben. Als u het huidige venster weergeven of Selecteer een alternatieve, selecteer de **tegel** tabblad de **besturingselement** deelvenster. De **eigenschappen** deelvenster ziet u de eigenschappen van het huidige venster. 
 
-### <a name="configure-visualization-parts"></a>Visualisatie onderdelen configureren
-Een weergave kan een onbeperkt aantal visualisatie onderdelen bevatten.  Selecteer de **weergave** tabblad en vervolgens een visualisatie onderdeel toevoegen aan de weergave.  De **eigenschappen** deelvenster worden de eigenschappen voor het geselecteerde onderdeel weergegeven.  Configureren van de weergave-eigenschappen volgens de gedetailleerde informatie in de [visualisatie onderdeelverwijzing](log-analytics-view-designer-parts.md) en klik op **toepassen** wijzigingen op te slaan.
+U kunt de tegel eigenschappen volgens de informatie in de [tegel verwijzing](log-analytics-view-designer-tiles.md) en klik vervolgens op **toepassen** de wijzigingen wilt opslaan.
 
-Weergaven hebben slechts één rij met visualisatie delen.  Bestaande onderdelen in een weergave rangschikken door te klikken en slepen naar een nieuwe locatie.
+### <a name="configure-the-visualization-parts"></a>De visualisatie-onderdelen configureren
+Een weergave kan een onbeperkt aantal visualisatie onderdelen bevatten. Selecteer om onderdelen toe aan een weergave de **weergave** tabblad en selecteer vervolgens een visualisatie-onderdeel. De **eigenschappen** deelvenster worden de eigenschappen van het geselecteerde onderdeel weergegeven. 
 
-U kunt een visualisatie deel verwijderen uit de weergave door te klikken op de **X** knop in de rechterbovenhoek van het onderdeel.
+U kunt de weergave-eigenschappen volgens de informatie in de [visualisatie onderdeelverwijzing](log-analytics-view-designer-parts.md) en klik vervolgens op **toepassen** de wijzigingen wilt opslaan.
+
+Weergaven hebben slechts één rij visualisatie delen. U kunt de bestaande onderdelen rangschikken door ze naar een nieuwe locatie te slepen.
+
+U kunt een visualisatie deel uit de weergave verwijderen door de **X** boven rechts van het onderdeel.
 
 
 ### <a name="menu-options"></a>Menuopties
-Wanneer u met een weergave in de bewerkingsmodus werkt, hebt u de opties in de volgende tabel.
+De opties voor het werken met weergaven in de bewerkingsmodus zijn beschreven in de volgende tabel.
 
 ![Menu Bewerken](media/log-analytics-view-designer/edit-menu.png)
 
 | Optie | Beschrijving |
 |:--|:--|
-| Opslaan        | Sla uw wijzigingen op en sluit de weergave. |
-| Annuleren      | Uw wijzigingen negeren en de weergave te sluiten. |
-| Weergave verwijderen | De weergave verwijderen. |
-| Exporteren      | Exporteren van de weergave een [Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) die u kunt importeren in een andere werkruimte.  De naam van het bestand moet de naam van de weergave met de extensie *omsview*. |
-| Importeren      | Importeer een *omsview* -bestand dat u hebt geëxporteerd uit een andere werkruimte.  Hiermee wordt de configuratie van de bestaande weergave overschreven. |
-| Kloon       | Maak een nieuwe weergave en open het in de ontwerpfunctie voor weergave.  De nieuwe weergave heeft dezelfde naam als het origineel met "kopiëren" toegevoegd aan het einde van deze. |
-| Publiceren     | De weergave exporteren naar een JSON-bestand die kan worden ingevoegd in een [Mangagement oplossing](../operations-management-suite/operations-management-suite-solutions-resources-views.md).  De naam van het bestand moet de naam van de weergave met de extensie *json*. Een tweede bestand is gemaakt met de extensie *resjson* die waarden voor resources die zijn gedefinieerd in het JSON-bestand bevat.
+| Opslaan        | De wijzigingen wilt opslaan en sluit u de weergave. |
+| Annuleren      | Wijzigingen en sluit u de weergave. |
+| Weergave verwijderen | Hiermee verwijdert u de weergave. |
+| Exporteren      | De weergave exporteert een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) die u kunt importeren in een andere werkruimte. De naam van het bestand is de naam van de weergave en hieraan een *omsview* extensie. |
+| Importeren      | Invoer de *omsview* -bestand dat u hebt geëxporteerd uit een andere werkruimte. Deze actie wordt de configuratie van de bestaande weergave overschreven. |
+| Kloon       | Een nieuwe weergave maakt en geopend in de ontwerpfunctie voor weergaven. De naam van de nieuwe weergave is hetzelfde als de oorspronkelijke naam, maar met *kopie* hieraan toegevoegd. |
+| Publiceren     | De weergave exporteert naar een JSON-bestand dat u kunt invoegen in een [beheeroplossing](../operations-management-suite/operations-management-suite-solutions-resources-views.md). De bestandsnaam is hetzelfde als de naam van de weergave, maar met een *json* extensie. Een tweede bestand, dat is gemaakt met een *resjson* -extensie, bevat de waarden voor de resources die zijn gedefinieerd in het JSON-bestand.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Voeg [tegels](log-analytics-view-designer-tiles.md) aan uw aangepaste weergave.

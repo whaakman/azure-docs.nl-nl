@@ -10,18 +10,20 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
-ms.date: 12/07/2017
-ms.openlocfilehash: d410516f807b7914e15bed1fb93ee58d3e340d1e
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.date: 02/05/2018
+ms.openlocfilehash: 7aeb4d5ad939cefcf8300b78b4afcc9d91ca0624
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Een werkstroom verzenden met behulp van meerdere invoergegevens uit hetzelfde voorbeeld
 
-In deze snelstartgids ziet u hoe u een werkstroom kunt verzenden naar de Microsoft Genomics-service wanneer uw invoerbestand bestaat uit meerdere FASTQ- of BAM-bestanden **die afkomstig zijn uit hetzelfde voorbeeld**. Houd er echter rekening mee dat u FASTQ- en BAM-bestanden **niet** kunt combineren in dezelfde verzending.
+In deze snelstartgids ziet u hoe u een werkstroom kunt verzenden naar de Microsoft Genomics-service wanneer uw invoerbestand bestaat uit meerdere FASTQ- of BAM-bestanden **die afkomstig zijn uit hetzelfde voorbeeld**. Als u bijvoorbeeld **hetzelfde voorbeeld** in meerdere stroken op de sequencer uitvoert, produceert de sequencer mogelijk een FASTQ-bestandenpaar voor elke strook. In plaats van dat deze FASTQ-bestanden voorafgaand aan alignment en variant calling worden samengevoegd, kunt u al deze invoer rechtstreeks verzenden naar de `msgen`-client. De uitvoer van de `msgen`-client zou een **één enkele set** met bestanden moeten zijn, waaronder een .bam-, .bai- en .vcf-bestand. 
 
-In dit onderwerp wordt ervan uitgegaan dat u de `msgen`-client al hebt geïnstalleerd en uitgevoerd, en dat u bekend bent met het gebruik van Azure Storage. Als u met behulp van de opgegeven voorbeeldgegevens een werkstroom hebt verzonden, bent u klaar om verder te gaan met deze snelstartgids. 
+Houd er echter rekening mee dat u FASTQ- en BAM-bestanden **niet** kunt combineren in dezelfde verzending. Bovendien is het **niet** mogelijk om meerdere FASTQ- of BAM-bestanden van meerdere personen te verzenden. 
+
+In dit artikel wordt ervan uitgegaan dat u de `msgen`-client al hebt geïnstalleerd en uitgevoerd, en dat u bekend bent met het gebruik van Azure Storage. Als u met behulp van de opgegeven voorbeeldgegevens een werkstroom hebt verzonden, bent u klaar om verder te gaan met deze snelstartgids. 
 
 
 ## <a name="multiple-bam-files"></a>Meerdere BAM-bestanden
@@ -32,7 +34,7 @@ Stel, u hebt meerdere BAM-bestanden als invoer, *reads.bam*, *additional_reads.b
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>De taak naar de `msgen`-client verzenden 
 
-U kunt meerdere BAM-bestanden verzenden door alle bijbehorende namen door te geven aan het argument --input-blob-name-1. Let op: alle bestanden moeten afkomstig zijn uit hetzelfde voorbeeld, maar de volgorde van de bestanden is niet van belang. Hieronder ziet u voorbeelden van verzendingen vanaf een opdrachtregel in Windows, in Unix en met behulp van een configuratiebestand. Voor de duidelijkheid zijn regeleinden toegevoegd:
+U kunt meerdere BAM-bestanden verzenden door alle bijbehorende namen door te geven aan het argument --input-blob-name-1. Let op: alle bestanden moeten afkomstig zijn uit hetzelfde voorbeeld, maar de volgorde van de bestanden is niet van belang. De volgende sectie bevat voorbeelden van verzendingen vanaf een opdrachtregel in Windows, in Unix en met behulp van een configuratiebestand. Voor de duidelijkheid zijn regeleinden toegevoegd:
 
 
 Voor Windows:
@@ -97,7 +99,7 @@ Stel, u hebt meerdere gekoppelde FASTQ-bestanden als invoer, *reads_1.fq.gz* en 
 
 Gekoppelde FASTQ-bestanden moeten niet alleen afkomstig zijn uit hetzelfde voorbeeld, maar ze moeten ook samen worden verwerkt.  De volgorde van de bestandsnamen is van belang wanneer ze als argumenten worden doorgegeven naar --input-blob-name-1 en --input-blob-name-2. 
 
-Hieronder ziet u voorbeelden van verzendingen vanaf een opdrachtregel in Windows, in Unix en met behulp van een configuratiebestand. Voor de duidelijkheid zijn regeleinden toegevoegd:
+De volgende sectie bevat voorbeelden van verzendingen vanaf een opdrachtregel in Windows, in Unix en met behulp van een configuratiebestand. Voor de duidelijkheid zijn regeleinden toegevoegd:
 
 
 Voor Windows:

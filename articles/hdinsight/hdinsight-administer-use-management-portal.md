@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hadoop op basis van Windows-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -43,7 +43,7 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 1. Aanmelden bij [https://portal.azure.com](https://portal.azure.com).
 2. Nadat u de portal geopend, kunt u:
 
-   * Klik op **nieuw** in het menu links om een nieuw cluster te maken:
+   * Klik op **maken van een resource** in het menu links om een nieuw cluster te maken:
 
        ![knop Nieuw HDInsight-cluster](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * Klik op **HDInsight-Clusters** in het menu links.
@@ -352,7 +352,7 @@ Voor verbinding met het cluster met behulp van extern bureaublad en gebruik de H
 1. Verbinding maken met het cluster via Extern bureaublad.
 2. Dubbelklik op het bureaublad op **Hadoop-opdrachtregel**.
 
-    ![HDI. HadoopCommandLine][image-hadoopcommandline]
+    ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
     Zie voor meer informatie over Hadoop opdrachten [Hadoop opdrachten verwijzing](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 

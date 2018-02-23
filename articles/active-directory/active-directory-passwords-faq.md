@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: afa609d7b47f3c743f5d3bfd4011e09c762ccbd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Veelgestelde vragen over wachtwoordbeheer
 
@@ -40,7 +40,7 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 
 * **V: kunnen mijn gebruikers registreren hun eigen wachtwoord opnieuw instellen van gegevens?**
 
-  > **A:** Ja. Zolang wachtwoord opnieuw instellen is ingeschakeld en worden ze in licentie gegeven, gaat u naar de registratieportal voor wachtwoordherstel (http://aka.ms/ssprsetup) registreren hun verificatiegegevens gebruikers. Gebruikers kunnen ook registreren via het toegangsvenster (http://myapps.microsoft.com). Als u wilt registreren via het toegangsvenster, moeten ze hun profielfoto selecteert, selecteert u **profiel**, en selecteer vervolgens de **registreren voor wachtwoordherstel** optie.
+  > **A:** Ja. Zolang wachtwoord opnieuw instellen is ingeschakeld en worden ze in licentie gegeven, gaat u naar de registratieportal voor wachtwoordherstel (https://aka.ms/ssprsetup) registreren hun verificatiegegevens gebruikers. Gebruikers kunnen ook registreren via het toegangsvenster (http://myapps.microsoft.com). Als u wilt registreren via het toegangsvenster, moeten ze hun profielfoto selecteert, selecteert u **profiel**, en selecteer vervolgens de **registreren voor wachtwoordherstel** optie.
   >
   >
 * **V: als ik wachtwoord opnieuw instellen voor een groep en vervolgens besluit in te schakelen voor iedereen zijn mijn gebruikers vereiste opnieuw registreren?**
@@ -180,7 +180,7 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
   >
 * **V: als een gebruiker meer dan het maximum aantal vragen dat vereist is om in te stellen is geregistreerd, hoe worden de beveiligingsvragen geselecteerd tijdens het opnieuw instellen?**
 
-  > **A:** *N* aantal beveiligingsvragen zijn willekeurig geselecteerd buiten het totale aantal vragen dat een gebruiker is geregistreerd voor waar *N* is het bedrag dat is ingesteld voor de  **Aantal vragen dat vereist is om in te stellen** optie. Bijvoorbeeld, als een gebruiker vijf beveiligingsvragen is geregistreerd, maar slechts drie vereist zijn voor een wachtwoord opnieuw instellen, drie van de vijf vragen willekeurig geselecteerd en vindt u op opnieuw instellen. Om te voorkomen dat vraag hammering, als de gebruiker de antwoorden op de vragen ontvangt verkeerde het selectieproces begint.
+  > **A:** *N* aantal beveiligingsvragen zijn willekeurig geselecteerd buiten het totale aantal vragen dat een gebruiker is geregistreerd voor waar *N* is het bedrag dat is ingesteld voor de **getal van vragen dat vereist is om in te stellen** optie. Bijvoorbeeld, als een gebruiker vijf beveiligingsvragen is geregistreerd, maar slechts drie vereist zijn voor een wachtwoord opnieuw instellen, drie van de vijf vragen willekeurig geselecteerd en vindt u op opnieuw instellen. Om te voorkomen dat vraag hammering, als de gebruiker de antwoorden op de vragen ontvangt verkeerde het selectieproces begint.
   >
   >
 * **V: hoe lang zijn de e-mail en SMS eenmalige wachtwoordcodes geldig?**

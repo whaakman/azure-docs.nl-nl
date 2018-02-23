@@ -1,6 +1,6 @@
 ---
-title: Serviceoverzicht configureren in Operations Management Suite | Microsoft Docs
-description: Serviceoverzicht is een Operations Management Suite-oplossing die automatisch de onderdelen van toepassing op Windows- en Linux-systemen worden gedetecteerd en de communicatie tussen services wordt toegewezen. Dit artikel bevat informatie voor het Serviceoverzicht implementeren in uw omgeving en gebruiken in verschillende scenario's.
+title: Serviceoverzicht configureren in Azure | Microsoft Docs
+description: Serviceoverzicht is een oplossing in Azure die automatisch toepassingsonderdelen op Windows- en Linux-systemen detecteert en de communicatie tussen services toewijst. Dit artikel bevat informatie voor het Serviceoverzicht implementeren in uw omgeving en gebruiken in verschillende scenario's.
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 1be3dd5718f940c784d22dbafb75c217dddecb9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d535c738943b4fea81798b6fc2eedc60ae6be41f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-service-map-in-operations-management-suite"></a>Serviceoverzicht configureren in Operations Management Suite
+# <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers, zoals u ze--beschouwen als onderling verbonden systemen die essentiële services leveren. Service-kaart toont de verbindingen tussen servers, processen en poorten via een TCP-verbinding architectuur waarvoor geen configuratie vereist, behalve de installatie van een agent.
 
-Dit artikel worden de details van het Serviceoverzicht en voorbereiding agents configureren. Zie voor meer informatie over het gebruik van Serviceoverzicht [het Serviceoverzicht-oplossing gebruiken in Operations Management Suite](operations-management-suite-service-map.md).
+Dit artikel worden de details van het Serviceoverzicht en voorbereiding agents configureren. Zie voor meer informatie over het gebruik van Serviceoverzicht [gebruik van de oplossing Serviceoverzicht in Azure](operations-management-suite-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Agent voor afhankelijkheden gedownload
 | File | OS | Versie | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.0 | 13CE5E232311010A6E63B21615F669C63B5DF450F26F7BA092F951E924656611 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.0 | A8913CA5308A0ED2EAEAC6E1E374B62E0EA4F8A941C560F63E89EBC3F8971D38  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.1 | 1E4ED4CA5940BEA462FC7CAEDF4DF1C7F92C927DE6D538C4DC61DCFDFFAB1A0B  |
 
 
 ## <a name="connected-sources"></a>Verbonden bronnen
-Serviceoverzicht afkomstig zijn uit de Microsoft-Agent voor afhankelijkheden. De Agent voor afhankelijkheden, is afhankelijk van de OMS-Agent voor de verbindingen met Operations Management Suite. Dit betekent dat een server moet zijn geïnstalleerd en geconfigureerd eerst de OMS-Agent en vervolgens de Agent voor afhankelijkheden kunnen worden geïnstalleerd. De volgende tabel beschrijft de verbonden bronnen die ondersteuning biedt voor de oplossing Serviceoverzicht.
+Serviceoverzicht afkomstig zijn uit de Microsoft-Agent voor afhankelijkheden. De Agent voor afhankelijkheden, is afhankelijk van de OMS-Agent voor de verbindingen met logboekanalyse. Dit betekent dat een server moet zijn geïnstalleerd en geconfigureerd eerst de OMS-Agent en vervolgens de Agent voor afhankelijkheden kunnen worden geïnstalleerd. De volgende tabel beschrijft de verbonden bronnen die ondersteuning biedt voor de oplossing Serviceoverzicht.
 
 | Verbonden bron | Ondersteund | Beschrijving |
 |:--|:--|:--|
 | Windows-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van agent-Windows-computers. <br><br>Naast de [OMS-Agent](../log-analytics/log-analytics-windows-agent.md), Windows-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Linux-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Linux-agent-computers. <br><br>Naast de [OMS-Agent](../log-analytics/log-analytics-linux-agents.md), Linux-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
-| Beheergroep System Center Operations Manager | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](../log-analytics/log-analytics-om-agents.md). <br><br>Er is een directe verbinding van de System Center Operations Manager agent-computer met Operations Management Suite vereist. Gegevens uit de beheergroep doorgestuurd naar de Operations Management Suite-opslagplaats.|
+| Beheergroep System Center Operations Manager | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](../log-analytics/log-analytics-om-agents.md). <br><br>Een directe verbinding van de System Center Operations Manager agent-computer met logboekanalyse is vereist. Gegevens uit de beheergroep doorgestuurd naar de werkruimte voor logboekanalyse.|
 | Azure Storage-account | Nee | Serviceoverzicht verzamelt gegevens van computers die door agents, dus er zijn geen gegevens te verzamelen van Azure Storage. |
 
 Serviceoverzicht ondersteunt alleen 64-bits-platforms.
 
-In Windows, Microsoft Monitoring Agent (MMA) wordt gebruikt door zowel System Center Operations Manager en Operations Management Suite verzamelen en verzenden van het bewaken van gegevens. (Deze agent heet de System Center Operations Manager-Agent, OMS-Agent, Log Analytics-Agent, MMA of Direct Agent, afhankelijk van de context.) System Center Operations Manager en Operations Management Suite bieden verschillende out van het vak versies van de MMA. Deze versies kunnen elk rapport naar System Center Operations Manager, Operations Management Suite of naar beide.  
+In Windows, Microsoft Monitoring Agent (MMA) wordt gebruikt door zowel System Center Operations Manager en logboekanalyse voor het verzamelen en verzenden bewakingsgegevens. (Deze agent heet de System Center Operations Manager-Agent, OMS-Agent, Log Analytics-Agent, MMA of Direct Agent, afhankelijk van de context.) System Center Operations Manager en Log Analytics bieden verschillende out van het vak versies van de MMA. Deze versies kunnen elk rapport naar System Center Operations Manager, met logboekanalyse of naar beide.  
 
-Op Linux, de OMS-Agent voor Linux Hiermee en verzendt het bewaken van gegevens met Operations Management Suite. U kunt Serviceoverzicht gebruiken op servers met OMS Direct Agents of op servers die zijn gekoppeld aan Operations Management Suite via System Center Operations Manager-beheergroepen.  
+Op Linux, de OMS-Agent voor Linux Hiermee en verzendt het bewaken van gegevens met logboekanalyse. U kunt Serviceoverzicht gebruiken op servers met OMS Direct Agents of op servers die zijn gekoppeld aan logboekanalyse via System Center Operations Manager-beheergroepen.  
 
-In dit artikel, verwijzen we naar alle agents--of Linux- of Windows, of verbonden met een beheergroep van System Center Operations Manager of rechtstreeks met Operations Management Suite--als de "OMS-Agent." We gebruiken de naam van de specifieke implementatie van de agent alleen indien nodig voor context.
+In dit artikel, verwijzen we naar alle agents--of Linux- of Windows, of verbonden met een beheergroep van System Center Operations Manager of rechtstreeks met logboekanalyse--als de "OMS-Agent." We gebruiken de naam van de specifieke implementatie van de agent alleen indien nodig voor context.
 
-De agent Serviceoverzicht stuurt de gegevens zelf geen en vereist geen wijzigingen in de firewalls en poorten. De gegevens in het Serviceoverzicht worden altijd verzonden door de OMS-Agent met Operations Management Suite rechtstreeks of via de OMS-Gateway.
+De agent Serviceoverzicht stuurt de gegevens zelf geen en vereist geen wijzigingen in de firewalls en poorten. De gegevens in het Serviceoverzicht worden altijd verzonden door de OMS-Agent met Log Analytics, rechtstreeks of via de OMS-Gateway.
 
 ![Serviceoverzicht agents](media/oms-service-map/agents.png)
 
-Als u een klant System Center Operations Manager met een beheergroep die is verbonden met Operations Management Suite:
+Als u een klant System Center Operations Manager met een beheergroep die is verbonden met logboekanalyse:
 
-- Als de System Center Operations Manager-agents toegang krijgen het Internet verbinding maken met Operations Management Suite tot kunnen, is geen aanvullende configuratie vereist.  
-- Als de System Center Operations Manager-agents geen toegang Operations Management Suite via Internet tot, moet u de OMS-Gateway werkt met System Center Operations Manager configureren.
+- Als uw System Center Operations Manager-agents toegang krijgen het Internet verbinding maken met logboekanalyse tot kunnen, is geen aanvullende configuratie vereist.  
+- Als de System Center Operations Manager-agents geen logboekanalyse via het Internet openen, moet u de OMS-Gateway werkt met System Center Operations Manager configureren.
   
-Als u de directe OMS-Agent gebruikt, moet u de OMS-Agent zelf verbinding maken met Operations Management Suite of met uw Gateway OMS configureren. De OMS-Gateway kan worden gedownload vanaf de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+Als u de directe OMS-Agent gebruikt, moet u de OMS-Agent zichzelf worden verbonden met logboekanalyse of met uw Gateway OMS configureren. De OMS-Gateway kan worden gedownload vanaf de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### <a name="management-packs"></a>Management packs
-Wanneer het Serviceoverzicht in een Operations Management Suite-werkruimte is geactiveerd, wordt een 300 KB management pack verzonden naar de Windows-servers in deze werkruimte. Als u System Center Operations Manager-agents in een [verbonden beheergroep](../log-analytics/log-analytics-om-agents.md), het Serviceoverzicht management pack van System Center Operations Manager is geïmplementeerd. Als de agents rechtstreeks verbonden zijn, levert Operations Management Suite het management pack.
+Wanneer het Serviceoverzicht in een werkruimte voor logboekanalyse is geactiveerd, wordt een 300 KB management pack verzonden naar de Windows-servers in deze werkruimte. Als u System Center Operations Manager-agents in een [verbonden beheergroep](../log-analytics/log-analytics-om-agents.md), het Serviceoverzicht management pack van System Center Operations Manager is geïmplementeerd. Als de agents rechtstreeks verbonden zijn, levert logboekanalyse het management pack.
 
 De naam van het management pack is Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Deze worden naar %Programfiles%\Microsoft bewaking Agent\Agent\Health Service State\Management Packs\ geschreven. De gegevensbron die gebruikmaakt van het management pack is % Program files%\Microsoft bewaking Agent\Agent\Health Service State\Resources\<AutoGeneratedID > \ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
@@ -147,7 +147,7 @@ Voor het implementeren van de Azure VM-extensie via PowerShell, kunt u het volge
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.1"
+$version = "9.3"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -180,7 +180,7 @@ Een zeer eenvoudige wijze om te controleren of de de afhankelijkheid-Agent wordt
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
     "type": "DependencyAgentWindows",
-    "typeHandlerVersion": "9.1",
+    "typeHandlerVersion": "9.3",
     "autoUpgradeMinorVersion": true
 }
 
@@ -267,11 +267,11 @@ Als uw afhankelijkheid Agent-installatie is voltooid, maar uw server in de oplos
 
 * Weet u op de [gratis prijscategorie van Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Het gratis-plan kunt u maximaal vijf unieke Serviceoverzicht-servers. Alle volgende servers zijn weergegeven niet in het Serviceoverzicht, zelfs als de voorafgaande vijf niet meer gegevens verzendt.
 
-* Is uw server verzenden logboek- en prestatiegegevens met Operations Management Suite? Ga naar het logboek zoeken en voer de volgende query voor uw computer: 
+* Is uw server verzenden logboek- en prestatiegegevens met Log Analytics? Ga naar het logboek zoeken en voer de volgende query voor uw computer: 
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  Krijgt u een aantal gebeurtenissen in de resultaten? Zijn de gegevens recente? Als dit het geval is, wordt de OMS-Agent naar behoren werkt en communicatie met de service Operations Management Suite. Als dit niet het geval is, controleert u de OMS-Agent op uw server: [OMS-Agent voor Windows probleemoplossing](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) of [OMS-Agent voor het oplossen van Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  Krijgt u een aantal gebeurtenissen in de resultaten? Zijn de gegevens recente? Als dit het geval is, wordt de OMS-Agent naar behoren werkt en communiceren met logboekanalyse. Als dit niet het geval is, controleert u de OMS-Agent op uw server: [OMS-Agent voor Windows probleemoplossing](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) of [OMS-Agent voor het oplossen van Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Server wordt weergegeven in het Serviceoverzicht, maar heeft geen processen
 Als u uw server in het Serviceoverzicht zien, maar geen gegevens verwerken of verbinding heeft, die aangeeft dat de afhankelijkheid-Agent geïnstalleerd en wordt uitgevoerd is, maar het kernelstuurprogramma niet geladen. 

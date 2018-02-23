@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 50ae54b9476c49b80236e295c0bf244df8236cff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec6bd6b053f6546c77508d29065de25739619d96
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Weer voorspellen met behulp van de sensorgegevens uit uw IoT-hub in Azure Machine Learning
 
@@ -80,7 +80,7 @@ U leert hoe u met Azure Machine Learning weerbericht prognose (kans regen) met b
 
 ### <a name="create-a-stream-analytics-job"></a>Een Stream Analytics-taak maken
 
-1. In de [Azure-portal](https://ms.portal.azure.com/), klikt u op **nieuw** > **Internet der dingen** > **Stream Analytics-taak**.
+1. In de [Azure-portal](https://portal.azure.com/), klikt u op **maken van een resource** > **Internet der dingen** > **Stream Analytics-taak**.
 1. Voer de volgende informatie voor de taak.
 
    **Taaknaam**: de naam van de taak. De naam moet wereldwijd uniek zijn.
@@ -89,7 +89,7 @@ U leert hoe u met Azure Machine Learning weerbericht prognose (kans regen) met b
 
    **Locatie**: gebruik dezelfde locatie als uw resourcegroep.
 
-   **Vastmaken aan dashboard**: Schakel deze optie voor eenvoudige toegang naar uw IoT-hub vanuit het dashboard.
+   **Vastmaken aan dashboard**: vink deze optie aan voor eenvoudige toegang tot uw IoT-hub vanuit het dashboard.
 
    ![Een Stream Analytics-taak maken in Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 

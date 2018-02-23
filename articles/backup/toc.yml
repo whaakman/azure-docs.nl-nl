@@ -79,6 +79,14 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: Gegevens herstellen vanaf Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
+    - name: Azure-bestandsshares
+      items:
+        - name: Een backup maken van Azure-bestandsshares
+          href: backup-azure-files.md
+        - name: Veelgestelde vragen over het maken van backups van Azure-bestandsshares
+          href: backup-azure-files-faq.md
+        - name: Problemen met Azure-bestandsshares oplossen
+          href: troubleshoot-azure-files.md
     - name: Azure-VM's
       items:
         - name: De virtuele machine voorbereiden

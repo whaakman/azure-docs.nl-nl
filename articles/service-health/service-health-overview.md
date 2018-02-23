@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5f2b68e800f484a64e79f965fc855aebe090186a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Status van de Azure-Service biedt tijdige en persoonlijke informatie wanneer problemen in de Azure-services invloed zijn op uw services.  Hiermee kunt u ook voorbereiden op toekomstige gepland onderhoud.
@@ -32,8 +32,13 @@ De Health-service houdt drie soorten health-gebeurtenissen die mogelijk van invl
     ![Service Health-gebeurtenissen](./media/service-health-overview/azure-service-health-overview-7.png)
 
 ## <a name="get-started-with-service-health"></a>Aan de slag met de Health-Service
-Start uw dashboard voor servicestatus, selecteer de tegel status van de Service op uw portal-dashboard. Als u de tegel eerder hebt verwijderd, of u aangepaste dashboard, zoekt u naar de Service Health-service in 'Meer services' (rechtsonder op uw dashboard).
+Start uw dashboard voor servicestatus, selecteer de tegel status van de Service op uw portal-dashboard. 
+
 ![Aan de slag met de Health-Service](./media/service-health-overview/azure-service-health-overview-1.png)
+
+Als u de tegel eerder hebt verwijderd, of u aangepaste dashboard, zoekt u naar de Service Health-service in '**alle services**' (linksboven op uw dashboard).
+
+![Aan de slag met de Health-Service](./media/service-health-overview/azure-service-health-overview-1a.png)
 
 ## <a name="see-current-issues-which-impact-your-services"></a>Zie actuele problemen die van invloed zijn uw services
 De **Service problemen** weergave bevat actieve problemen in Azure-services die van invloed zijn op de uw resources. U kunt begrijpen wanneer het probleem is begonnen, en welke services en regio's worden beïnvloed. U kunt ook de meest recente update om te begrijpen wat Azure doet het probleem op te lossen lezen. 

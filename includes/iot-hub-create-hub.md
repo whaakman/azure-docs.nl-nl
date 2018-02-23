@@ -1,7 +1,7 @@
 1. Meld u aan bij [Azure Portal][lnk-portal].
-1. Selecteer **Nieuw** > **Internet of Things** > **IoT Hub**.
+1. Selecteer **maken van een resource** > **Internet der dingen** > **IoT Hub**.
    
-    ![Snelbalk Azure Portal][1]
+    ![Schermopname van Azure portal navigatie naar IoT Hub][1]
 
 1. Voer in het deelvenster **IoT Hub** deelvenster de volgende informatie in voor uw IoT-hub:
 
@@ -21,8 +21,8 @@
 
 1. Klik op **Create**. Het maken van de IoT-hub kan een paar minuten duren. U kunt de voortgang bewaken via het deelvenster **Meldingen**.
 <!-- Images -->
-[1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
-[2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
+[1]: ./media/iot-hub-create-hub/create-iot-hub1.png
+[2]: ./media/iot-hub-create-hub/create-iot-hub2.png
 <!-- Links -->
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
