@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 12/14/2017
+ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: a16c2230c26865913285cb8cbd5b0f81426acdd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Blad cheats voor Azure SQL Data Warehouse
 Deze referentieoverzicht biedt nuttige tips en aanbevolen procedures voor het bouwen van uw Azure SQL Data Warehouse-oplossingen. Voordat u begint, meer informatie over elke stap in detail door te lezen [antivirusprogramma patronen met een Azure SQL Data Warehouse werkbelasting patronen en](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), waarin wordt uitgelegd wat SQL Data Warehouse is en wat niet.
@@ -121,7 +121,7 @@ Ten slotte opgehaald elke bronklasse met behulp van de laag geoptimaliseerd Comp
 Meer informatie over het werken met [resource klassen en gelijktijdigheid].
 
 ## <a name="lower-your-cost"></a>Uw kosten verlagen
-Een belangrijke functie van SQL Data Warehouse is de mogelijkheid om te pauzeren wanneer je niet gebruikt, die de facturering van rekenresources stopt. Een andere kernfunctie is het schalen van resources. Het onderbreken en schalen kunnen worden gedaan via de Azure-portal of via PowerShell-opdrachten.
+Een belangrijke functie van SQL Data Warehouse is de mogelijkheid om te [beheren van rekenresources](sql-data-warehouse-manage-compute-overview.md). U kunt onderbreken het datawarehouse als u niet gebruikt, die de facturering van rekenresources stopt. U kunt bronnen om te voldoen aan uw prestatievereisten schalen. Als u wilt onderbreken, gebruikt u de [Azure-portal](pause-and-resume-compute-portal.md) of [PowerShell](pause-and-resume-compute-powershell.md). Als u wilt schalen, gebruiken de [Azure-portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), of een [REST-API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Automatisch schalen die nu op het moment dat u wilt met Azure Functions:
 

@@ -4,7 +4,7 @@ description: Informatie over het automatiseren van de configuratie van SQL Serve
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
@@ -15,18 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/23/2017
 ms.author: jroth
-ms.openlocfilehash: 32b9564fa5c9ca6864ade343fda309b2c3edf123
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2d24bb839368b4f7fff61f0696c79a00c03af917
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configureren van Azure Sleutelkluis-integratie voor SQL Server op Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-ps-sql-keyvault.md)
-> * [Klassiek](../classic/ps-sql-keyvault.md)
-> 
-> 
+> * [Klassiek](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 ## <a name="overview"></a>Overzicht
 Er zijn meerdere onderdelen van SQL Server-versleuteling, zoals [transparante gegevensversleuteling (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [kolom: versleuteling op bestandsniveau (wissen)](https://msdn.microsoft.com/library/ms173744.aspx), en [back-upversleuteling](https://msdn.microsoft.com/library/dn449489.aspx). Deze vormen van versleuteling hoeft te beheren en opslaan van de cryptografische sleutels die u voor versleuteling gebruikt. De service Azure Key Vault (Azure Sleutelkluis) is ontworpen voor het verbeteren van de beveiliging en beheer van deze sleutels op een locatie met veilige en maximaal beschikbaar. De [SQL Server-Connector](http://www.microsoft.com/download/details.aspx?id=45344) kan SQL-Server in het gebruik van deze sleutels van Azure Sleutelkluis.

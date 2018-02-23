@@ -1,6 +1,6 @@
 ---
-title: Aanpassen van een Linux-VM voor eerst wordt opgestart in Azure | Microsoft Docs
-description: Meer informatie over het cloud-init en Sleutelkluis te gebruiken customze Linux VM's de eerste keer dat ze worden opgestart in Azure
+title: Een Linux-VM aanpassen bij de eerste keer opstarten in Azure | Microsoft Docs
+description: Meer informatie over het gebruik van cloud-init en Key Vault voor het aanpassen van Linux VM's als ze de eerste keer worden opgestart in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,49 +16,49 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 79d87b5d332597f2c0faf3c585eee49aba3e03bc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Het aanpassen van een virtuele Linux-machine op de eerste keer opstarten
-In een vorige zelfstudie hebt u geleerd hoe u voor SSH aan een virtuele machine (VM) en handmatig installeren NGINX. Voor het maken van virtuele machines op een snelle en consistente manier, is een vorm van automatisering doorgaans gewenst. Een gemeenschappelijke aanpak voor het aanpassen van een virtuele machine op de eerste keer opstarten is het gebruik [cloud init](https://cloudinit.readthedocs.io). In deze zelfstudie leert u het volgende:
+# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Een virtuele Linux-machine aanpassen bij de eerste keer opstarten
+In een vorige zelfstudie hebt u geleerd hoe u een virtuele machine (VM) via SSH kunt verbinden en NGINX handmatig kunt installeren. Als u virtuele machines op een snelle en consistente manier wilt maken, is een vorm van automatisering doorgaans gewenst. Een veelgebruikte manier voor het aanpassen van een virtuele machine bij de eerste keer opstarten is het gebruik van [cloud-init](https://cloudinit.readthedocs.io). In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Maken van een cloud-init-configuratiebestand
-> * Een virtuele machine die gebruikmaakt van een cloud-init-bestand maken
+> * Een cloud-init-configuratiebestand maken
+> * Een virtuele machine maken die gebruikmaakt van een cloud-init-bestand
 > * Een actieve Node.js-app weergeven nadat de virtuele machine is gemaakt
-> * Sleutelkluis gebruiken voor het veilig opslaan van certificaten
-> * Beveiligde implementaties van NGINX met cloud-init automatiseren
+> * Key Vault gebruiken voor het veilig opslaan van certificaten
+> * Beveiligde implementaties van NGINX automatiseren met cloud-init
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).  
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).  
 
 
 
 ## <a name="cloud-init-overview"></a>Overzicht van cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud init gebruiken voor het installeren van pakketten en bestanden schrijven of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of vereist agents naar uw configuratie toe te passen.
+[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud-init gebruiken voor het installeren van pakketten en schrijven van bestanden, of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud-init wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of agents vereist om uw configuratie toe te passen.
 
-Cloud-init werkt ook via distributies. Bijvoorbeeld, u niet gebruikt **apt get-installatie** of **yum installeren** om een pakket te installeren. In plaats daarvan kunt u een lijst met pakketten te installeren. Het hulpprogramma voor systeemeigen pakket cloud init automatisch gebruikt voor de distro die u selecteert.
+Cloud-init werkt ook in distributies. U gebruikt bijvoorbeeld niet **apt-get install** of **yum install** om een pakket te installeren. In plaats daarvan kunt u een lijst definiëren met te installeren pakketten. Cloud-init maakt automatisch gebruik van het hulpprogramma voor systeemeigen pakketbeheer voor de distro die u selecteert.
 
-We werken met onze partners ophalen van cloud-init opgenomen en in de afbeeldingen die ze naar Azure bieden werkt. De volgende tabel geeft een overzicht van de huidige beschikbaarheid van de cloud init op Azure-platform installatiekopieën:
+Samen met onze partners willen we cloud-init opnemen en werkend krijgen in de installatiekopieën die zij aan Azure leveren. De volgende tabel geeft een overzicht van de huidige beschikbaarheid van cloud-init op Azure-platforminstallatiekopieën:
 
 | Alias | Uitgever | Aanbieding | SKU | Versie |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04 TNS |meest recente |
+| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |meest recente |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |meest recente |
 | CoreOS |CoreOS |CoreOS |Stabiel |meest recente |
-| | OpenLogic | CentOS | 7 CI | meest recente |
-| | RedHat | RHEL | 7 ONBEWERKTE CI | meest recente
+| | OpenLogic | CentOS | 7-CI | meest recente |
+| | RedHat | RHEL | 7-RAW-CI | meest recente
 
 
-## <a name="create-cloud-init-config-file"></a>Cloud-init-configuratiebestand maken
-Overzicht van cloud-init in actie, maak een VM die NGINX installeert en een eenvoudige 'Hallo wereld' Node.js-app wordt uitgevoerd. De volgende cloud init-configuratie installeert de vereiste pakketten, maakt u een Node.js-app en vervolgens initialiseren en start u de app.
+## <a name="create-cloud-init-config-file"></a>Een cloud-init-configuratiebestand maken
+Als u cloud-init in actie wilt zien, maakt u een VM waarop NGINX is geïnstalleerd en een eenvoudige 'Hallo wereld' Node.js-app wordt uitgevoerd. Met de volgende cloud init-configuratie installeert u de vereiste pakketten, maakt u een Node.js-app en initialiseert en start u vervolgens de app.
 
-Maak een bestand met de naam in uw huidige shell *cloud init.txt* en plak de volgende configuratie. Maak bijvoorbeeld het bestand in de Cloud-Shell niet op uw lokale machine. U kunt een editor die u wilt gebruiken. Voer `sensible-editor cloud-init.txt` voor het maken van het bestand en een overzicht van beschikbare editors. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel:
+Maak in uw huidige shell een bestand met de naam *cloud-init.txt* en plak de volgende configuratie. Maak bijvoorbeeld het bestand in de Cloud Shell, niet op uw lokale computer. U kunt elke editor die u wilt gebruiken. Voer `sensible-editor cloud-init.txt` in voor het maken van het bestand en om een overzicht van beschikbare editors te zien. Controleer of het hele cloud-init-bestand correct is gekopieerd, met name de eerste regel:
 
 ```yaml
 #cloud-config
@@ -102,16 +102,16 @@ runcmd:
   - nodejs index.js
 ```
 
-Zie voor meer informatie over configuratieopties voor cloud-init [cloud init config voorbeelden](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
+Zie [Voorbeelden van cloud-init-configuraties](https://cloudinit.readthedocs.io/en/latest/topics/examples.html) voor meer informatie over configuratieopties voor cloud-init.
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
-Voordat u een virtuele machine maken kunt, maakt u een resourcegroep met [az groep maken](/cli/azure/group#create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupAutomate* in de *eastus* locatie:
+Voordat u een virtuele machine kunt maken, moet u eerst een resourcegroep maken met [az-groep maken](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupAutomate* gemaakt op de locatie *VS Oost*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create). Gebruik de `--custom-data` parameter om door te geven in uw cloud-init-configuratiebestand. Geef het volledige pad naar de *cloud init.txt* config als u het bestand buiten uw werkmap aanwezig opgeslagen. Het volgende voorbeeld wordt een virtuele machine met de naam *myAutomatedVM*:
+Maak een virtuele machine met [az vm create](/cli/azure/vm#az_vm_create). Gebruik de `--custom-data`-parameter om door te geven in uw cloud-init-configuratiebestand. Geef het volledige pad naar *cloud-init.txt* op als u het bestand buiten uw huidige werkmap hebt opgeslagen. In het volgende voorbeeld wordt een VM met de naam *myAutomatedVM* gemaakt:
 
 ```azurecli-interactive 
 az vm create \
@@ -123,34 +123,34 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 
-Het duurt enkele minuten duren voordat de virtuele machine moet worden gemaakt, de pakketten te installeren en de app te starten. Er zijn achtergrondtaken die uitvoeren blijven nadat de Azure CLI keert u terug naar de prompt. Het is mogelijk een andere paar minuten voordat u toegang hebt tot de app. Wanneer de virtuele machine is gemaakt, dient u de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot de Node.js-app via een webbrowser.
+Het duurt enkele minuten voordat de virtuele machine wordt gemaakt, de pakketten worden geïnstalleerd en de app gestart. Er zijn achtergrondtaken die nog worden uitgevoerd nadat u door de Azure CLI bent teruggeleid naar de prompt. Het duurt mogelijk nog een paar minuten voordat u toegang hebt tot de app. Wanneer de virtuele machine is gemaakt, let op de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot de Node.js-app in een webbrowser.
 
-Open poort 80 via Internet met zodat webverkeer bereiken van uw virtuele machine [az vm open poort](/cli/azure/vm#open-port):
+Open poort 80 via internet met [az vm open-port](/cli/azure/vm#az_vm_open_port) zodat beveiligd webverkeer uw virtuele machine kan bereiken:
 
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
-## <a name="test-web-app"></a>Test-web-app
-Nu kunt u een webbrowser openen en voer *http://<publicIpAddress>*  in de adresbalk. Geef uw eigen openbare IP-adres van de virtuele machine proces maken. Uw Node.js-app wordt weergegeven zoals in het volgende voorbeeld:
+## <a name="test-web-app"></a>Web-app testen
+U kunt nu een webbrowser openen en *http://<publicIpAddress>* in de adresbalk invoeren. Geef uw eigen openbare IP-adres op uit het creatieproces van de virtuele machine proces. Uw Node.js-app wordt weergegeven zoals in het volgende voorbeeld:
 
-![Bekijk actieve NGINX-website](./media/tutorial-automate-vm-deployment/nginx.png)
+![Actieve NGINX-site weergeven](./media/tutorial-automate-vm-deployment/nginx.png)
 
 
-## <a name="inject-certificates-from-key-vault"></a>Certificaten van de Sleutelkluis invoeren
-Deze optionele sectie wordt beschreven hoe u veilig opslaan van certificaten in Azure Sleutelkluis en ze tijdens de implementatie van de virtuele machine te injecteren. In plaats van met een aangepaste installatiekopie met de certificaten standaard uitbreidbaar, in dit proces zorgt ervoor dat de meest recente certificaten zijn ingevoegd op een virtuele machine op de eerste keer wordt opgestart. Tijdens het proces is het certificaat nooit verlaat de Azure-platform, of wordt weergegeven in een script, opdrachtregel geschiedenis of sjabloon.
+## <a name="inject-certificates-from-key-vault"></a>Certificaten van Key Vault invoeren
+In deze optionele sectie wordt beschreven hoe u certificaten veilig kunt opslaan in Azure Key Vault en ze tijdens de implementatie van de virtuele machine kunt invoeren. In plaats van een aangepaste installatiekopie te gebruiken die de certificaten standaard bevat, zorgt dit proces ervoor dat de meest recente certificaten zijn ingevoerd op een virtuele machine bij de eerste keer opstarten. Tijdens het proces verlaten de certificaten nooit het Azure-platform, en ook worden ze niet blootgesteld aan een script, opdrachtregelgeschiedenis of sjabloon.
 
-Azure Sleutelkluis beschermt cryptografische sleutels en geheimen, zoals certificaten of wachtwoorden. Sleutelkluis helpt te stroomlijnen van het sleutelbeheerproces en kunt u controle houdt over sleutels die toegang tot en uw gegevens te versleutelen. Dit scenario bevat enkele concepten die Sleutelkluis voor het maken en een certificaat te gebruiken, maar is niet een volledig overzicht over het gebruik van de Sleutelkluis.
+Azure Key Vault beschermt cryptografische sleutels en geheimen, zoals certificaten of wachtwoorden. Key Vault stroomlijnt het beheerproces voor sleutels en zorgt dat u de controle houdt over de sleutels waarmee uw gegevens toegankelijk zijn en worden versleuteld. Dit scenario bevat enkele Key Vault-concepten voor het maken en gebruiken van een certificaat, maar biedt geen volledig overzicht van het gebruik van Key Vault.
 
-De volgende stappen laten zien hoe u kunt:
+De volgende stappen laten zien hoe u het volgende kunt doen:
 
-- Maken van een Azure Sleutelkluis
-- Genereren of een certificaat uploaden naar de Sleutelkluis
-- Een geheim van het certificaat invoeren voor een virtuele machine maken
+- Een Azure Key Vault maken
+- Een certificaat genereren of uploaden naar de Key Vault
+- Een geheim maken van het certificaat dat moet worden ingevoerd in een virtuele machine
 - Een virtuele machine maken en het certificaat invoeren
 
-### <a name="create-an-azure-key-vault"></a>Maken van een Azure Sleutelkluis
-Maak eerst een Sleutelkluis met [az keyvault maken](/cli/azure/keyvault#create) en inschakelen voor gebruik wanneer u een virtuele machine implementeert. Elke Sleutelkluis moet een unieke naam hebben en moet alle kleine letters. Vervang *mykeyvault* in het volgende voorbeeld met de naam van uw eigen unieke Sleutelkluis:
+### <a name="create-an-azure-key-vault"></a>Een Azure Key Vault maken
+Maak eerst een Key Vault met [az keyvault create](/cli/azure/keyvault#az_keyvault_create) en schakel deze in voor gebruik wanneer u een virtuele machine implementeert. Elke Key Vault moet een unieke naam hebben van alleen kleine letters. Vervang *mykeyvault* in het volgende voorbeeld door de naam van uw eigen unieke Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=mykeyvault
@@ -160,8 +160,8 @@ az keyvault create \
     --enabled-for-deployment
 ```
 
-### <a name="generate-certificate-and-store-in-key-vault"></a>Certificaat genereren en opslaan in de Sleutelkluis
-Voor gebruik in productieomgevingen, moet u een geldig certificaat dat is ondertekend door een vertrouwde provider met importeren [az keyvault certificaat importeren](/cli/azure/keyvault/certificate#import). Voor deze zelfstudie, het volgende voorbeeld toont hoe kunt u een zelfondertekend certificaat met genereren [az keyvault-certificaat maken](/cli/azure/keyvault/certificate#create) die gebruikmaakt van het standaardbeleid voor certificaat:
+### <a name="generate-certificate-and-store-in-key-vault"></a>Een certificaat genereren en opslaan in Key Vault
+Voor gebruik in de productie, moet u een geldig certificaat importeren dat is ondertekend door een vertrouwde provider met [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). Voor deze zelfstudie toont het volgende voorbeeld hoe kunt u een zelfondertekend certificaat kunt genereren met [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) dat gebruikmaakt van het standaardbeleid voor certificaten:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -171,8 +171,8 @@ az keyvault certificate create \
 ```
 
 
-### <a name="prepare-certificate-for-use-with-vm"></a>Certificaat voor gebruik met de virtuele machine voorbereiden
-Het certificaat te gebruiken tijdens de virtuele machine proces voor het maken, verkrijgen van de ID van het certificaat met [az keyvault lijst-versies van het clientgeheim](/cli/azure/keyvault/secret#list-versions). De virtuele machine moet het certificaat in een bepaalde indeling invoeren deze bij het opstarten, converteert u dus het certificaat met [az vm indeling-geheim](/cli/azure/vm#format-secret). Het volgende voorbeeld wordt de uitvoer van deze opdrachten naar variabelen voor eenvoudig te gebruiken in de volgende stappen:
+### <a name="prepare-certificate-for-use-with-vm"></a>Een certificaat voor gebruik met een virtuele machine voorbereiden
+Om het certificaat te gebruiken tijdens het creatieproces van de virtuele machine, verkrijgen de ID van het certificaat met [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions). De virtuele machine moet het certificaat in een bepaalde indeling invoeren bij het opstarten. Converteer het certificaat daarom met [az vm format-secret](/cli/azure/vm#az_vm_format_secret). Het volgende voorbeeld wijst de uitvoer van deze opdrachten toe aan variabelen voor eenvoudig gebruik in de volgende stappen:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -183,10 +183,10 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
 
-### <a name="create-cloud-init-config-to-secure-nginx"></a>Maken van cloud-init-config NGINX beveiligen
-Wanneer u maakt een virtuele machine, certificaten en sleutels worden opgeslagen in de beveiligde */var/lib/waagent/* directory. U kunt een bijgewerkte cloud-init-configuratie van het vorige voorbeeld gebruiken voor het automatiseren van het certificaat toevoegen aan de virtuele machine en NGINX configureren.
+### <a name="create-cloud-init-config-to-secure-nginx"></a>Cloud-init-config maken om NGINX te beveiligen
+Wanneer u een virtuele machine maakt, worden certificaten en sleutels opgeslagen in de beveiligde */var/lib/waagent/* directory. U kunt de bijgewerkte cloud-init-configuratie uit het vorige voorbeeld gebruiken om het certificaat toe te voegen en NGINX te configureren.
 
-Maak een bestand met de naam *cloud-init-secured.txt* en plak de volgende configuratie. Opnieuw als u de Shell Cloud gebruikt, maken het configuratiebestand van de cloud init er en niet op uw lokale computer. Gebruik `sensible-editor cloud-init-secured.txt` voor het maken van het bestand en een overzicht van beschikbare editors. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel:
+Maak een bestand met de naam *cloud-init-secured.txt* en plak de volgende configuratie. Nogmaals, als u de Cloud Shell gebruikt, maakt u het cloud-init-configuratiebestand daar en niet op uw lokale computer. Gebruik `sensible-editor cloud-init-secured.txt` voor het maken van het bestand en om een overzicht van beschikbare editors te zien. Controleer of het hele cloud-init-bestand correct is gekopieerd, met name de eerste regel:
 
 ```yaml
 #cloud-config
@@ -237,8 +237,8 @@ runcmd:
   - nodejs index.js
 ```
 
-### <a name="create-secure-vm"></a>Beveiligde virtuele machine maken
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create). De gegevens van het certificaat wordt geïnjecteerd uit de Sleutelkluis met de `--secrets` parameter. Zoals in het vorige voorbeeld, geeft u ook in de cloud init-configuratie met de `--custom-data` parameter:
+### <a name="create-secure-vm"></a>Een beveiligde virtuele machine maken
+Maak een virtuele machine met [az vm create](/cli/azure/vm#az_vm_create). De gegevens van het certificaat worden geïnjecteerd uit de Sleutelkluis met de parameter `--secrets`. Net als in het vorige voorbeeld, geeft u ook de cloud-init-configuratie door met de parameter `--custom-data`:
 
 ```azurecli-interactive 
 az vm create \
@@ -251,9 +251,9 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Het duurt enkele minuten duren voordat de virtuele machine moet worden gemaakt, de pakketten te installeren en de app te starten. Er zijn achtergrondtaken die uitvoeren blijven nadat de Azure CLI keert u terug naar de prompt. Het is mogelijk een andere paar minuten voordat u toegang hebt tot de app. Wanneer de virtuele machine is gemaakt, dient u de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot de Node.js-app via een webbrowser.
+Het duurt enkele minuten voordat de virtuele machine wordt gemaakt, de pakketten worden geïnstalleerd en de app gestart. Er zijn achtergrondtaken die nog worden uitgevoerd nadat u door de Azure CLI bent teruggeleid naar de prompt. Het duurt mogelijk nog een paar minuten voordat u toegang hebt tot de app. Wanneer de virtuele machine is gemaakt, let op de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot de Node.js-app in een webbrowser.
 
-Zodat beveiligde webverkeer bereiken van uw virtuele machine poort 443 openen vanaf het Internet met [az vm open poort](/cli/azure/vm#open-port):
+Zodat beveiligde webverkeer uw virtuele machine bereiken kan, open poort 443 vanaf het Internet met [az vm open-port](/cli/azure/vm#az_vm_open_port):
 
 ```azurecli-interactive 
 az vm open-port \
@@ -262,27 +262,27 @@ az vm open-port \
     --port 443
 ```
 
-### <a name="test-secure-web-app"></a>Test beveiligde web-app
-Nu kunt u een webbrowser openen en voer *https://<publicIpAddress>*  in de adresbalk. Geef uw eigen openbare IP-adres van de virtuele machine proces maken. De beveiligingswaarschuwing accepteren als u een zelfondertekend certificaat gebruikt:
+### <a name="test-secure-web-app"></a>De beveiligde web-app testen
+Nu kunt u een webbrowser openen en *https://<publicIpAddress>*  in de adresbalk invoeren. Geef uw eigen openbare IP-adres op uit het creatieproces van de virtuele machine proces. Als u een zelfondertekend certificaat gebruikt, aanvaardt u de beveiligingswaarschuwing:
 
 ![Beveiligingswaarschuwing voor web browser accepteren](./media/tutorial-automate-vm-deployment/browser-warning.png)
 
-Uw beveiligde NGINX-site en Node.js app wordt vervolgens weergegeven zoals in het volgende voorbeeld:
+Uw beveiligde NGINX-site en Node.js app worden vervolgens weergegeven zoals in het volgende voorbeeld:
 
-![Actief beveiligde NGINX-site weergeven](./media/tutorial-automate-vm-deployment/secured-nginx.png)
+![Beveiligde actieve NGINX-site weergeven](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie kunt u virtuele machines op de eerste keer opstarten met cloud-init geconfigureerd. U hebt geleerd hoe u:
+In deze zelfstudie hebt u virtuele machines bij de eerste keer opstarten geconfigureerd met cloud-init. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Maken van een cloud-init-configuratiebestand
-> * Een virtuele machine die gebruikmaakt van een cloud-init-bestand maken
+> * Een cloud-init-configuratiebestand maken
+> * Een virtuele machine maken die gebruikmaakt van een cloud-init-bestand
 > * Een actieve Node.js-app weergeven nadat de virtuele machine is gemaakt
-> * Sleutelkluis gebruiken voor het veilig opslaan van certificaten
-> * Beveiligde implementaties van NGINX met cloud-init automatiseren
+> * Key Vault gebruiken voor het veilig opslaan van certificaten
+> * Beveiligde implementaties van NGINX automatiseren met cloud-init
 
-Ga naar de volgende zelfstudie voor informatie over het maken van aangepaste installatiekopieën van virtuele machine.
+Ga door naar de volgende zelfstudie voor informatie over het maken van aangepaste VM-installatiekopieën.
 
 > [!div class="nextstepaction"]
 > [Aangepaste VM-installatiekopieën maken](./tutorial-custom-images.md)

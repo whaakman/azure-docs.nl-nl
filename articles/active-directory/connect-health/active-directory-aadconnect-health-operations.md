@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5e6910ea52f880e28378c9bf7fde02d080bc2e58
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health-bewerkingen
 Dit onderwerp beschrijft de verschillende bewerkingen die u uitvoeren kunt met behulp van Azure Active Directory (Azure AD) Connect Health.
@@ -42,6 +42,9 @@ U kunt de Azure AD Connect Health-service voor het verzenden van e-mailmeldingen
 
 ## <a name="delete-a-server-or-service-instance"></a>Verwijderen van een server of -service-exemplaar
 
+>[!NOTE] 
+> Azure AD premium-licentie is vereist voor de stappen voor verwijdering.
+
 In sommige gevallen wilt u mogelijk een server verwijderen uit het bewaakt. Dit is wat u moet weten om een server verwijderen uit de Azure AD Connect Health-service.
 
 Wanneer u een server wilt verwijderen, rekening met het volgende:
@@ -51,7 +54,11 @@ Wanneer u een server wilt verwijderen, rekening met het volgende:
 * Deze actie worden de gegevens die al zijn verzameld van deze server niet worden verwijderd. Dat gegevens worden verwijderd volgens het gegevensretentiebeleid van Azure.
 * Nadat u deze actie uitvoert, als u wilt starten van de controle van dezelfde server moet opnieuw, u verwijderen en opnieuw installeren van de Health-Agent op deze server.
 
-### <a name="to-delete-a-server-from-the-azure-ad-connect-health-service"></a>Een server verwijderen uit de Azure AD Connect Health-service
+### <a name="delete-a-server-from-the-azure-ad-connect-health-service"></a>Een server verwijderen uit de Azure AD Connect Health-service
+
+>[!NOTE] 
+> Azure AD premium-licentie is vereist voor de stappen voor verwijdering.
+
 Azure AD Connect Health voor Active Directory Federatieservices (AD FS) en Azure AD Connect (Sync):
 
 1. Open de **Server** blade van de **serverlijst** blade door het selecteren van de naam van de server worden verwijderd.
@@ -133,7 +140,7 @@ Nu de vermelde gebruikers en groepen toegang hebben, volgens hun rollen.
 >
 
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Stap 3: De locatie van de blade delen met gebruikers of groepen
-1. Nadat u machtigingen toewijzen, een gebruiker toegang krijgen tot Azure AD Connect Health door te gaan [hier](http://aka.ms/aadconnecthealth).
+1. Nadat u machtigingen toewijzen, een gebruiker toegang krijgen tot Azure AD Connect Health door te gaan [hier](https://aka.ms/aadconnecthealth).
 2. De gebruiker kan op de blade vastmaken de blade of verschillende onderdelen ervan naar het dashboard. Klik op de **vastmaken aan dashboard** pictogram.<br>
    ![Schermopname van Azure AD Connect Health RBAC blade vastmaken, met Punaisepictogram gemarkeerd](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: edee4fbb37744a8ef93c6a0b7e60b0790d1af9c4
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installeren en gebruiken van Solr op HDInsight Hadoop-clusters
 
@@ -45,9 +45,9 @@ Informatie over het installeren van Solr in Azure HDInsight met behulp van de sc
 
 Dit script maakt de volgende wijzigingen aan het HDInsight-cluster:
 
-* Solr 4.9 in geïnstalleerd`/usr/hdp/current/solr`
+* Solr 4.9 in geïnstalleerd `/usr/hdp/current/solr`
 * Hiermee maakt u een gebruiker **solrusr**, dat wordt gebruikt voor het uitvoeren van de service Solr
-* Sets **solruser** als eigenaar van`/usr/hdp/current/solr`
+* Sets **solruser** als eigenaar van `/usr/hdp/current/solr`
 * Voegt een [Upstart](http://upstart.ubuntu.com/) configuratie die Solr automatisch wordt gestart.
 
 ## <a name="install"></a>Installeren met behulp van scriptacties Solr
@@ -61,7 +61,7 @@ Voor het maken van een cluster met Solr geïnstalleerd gebruikt u de stappen in 
 1. Van de __Cluster samenvatting__ sectie, select__Advanced settings__, klikt u vervolgens __acties Script__. Gebruik de volgende informatie voor het vullen van het formulier:
 
    * **NAAM**: een beschrijvende naam voor de scriptactie.
-   * **SCRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: Schakel deze optie
    * **WERKNEMER**: Schakel deze optie
    * **ZOOKEEPER**: Schakel deze optie om te installeren op het knooppunt Zookeeper

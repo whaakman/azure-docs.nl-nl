@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e6e21939d31db6860ee9d532f2421397ef8d33d4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fd93b3fa5b601a276047feab67758fe1a29d4e27
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Het configureren van wachtwoord eenmalige aanmelding voor de toepassing van een niet-galerie
 
 Naast de opties in de Azure AD-Toepassingsgalerie gevonden, hebt u ook de optie om toe te voegen een **niet galerie toepassing** wanneer de toepassing die u wilt dat er niet wordt vermeld. Met deze mogelijkheid kunt u elke toepassing die al bestaat in uw organisatie of een toepassing van derden die u mogelijk toevoegen van een leverancier die niet al deel uit van de [Azure AD-Toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
 
-Als u een niet-galerie-toepassing toevoegt, kunt u configureren de methode voor eenmalige aanmelding deze toepassing worden gebruikt door het selecteren van de **Single Sign-on** navigatie-item op een zakelijke toepassing in de [Azure Portal](https://portal.azure.com/).
+Als u een niet-galerie-toepassing toevoegt, kunt u configureren de methode voor eenmalige aanmelding deze toepassing worden gebruikt door het selecteren van de **Single Sign-on** navigatie-item op een zakelijke toepassing in de [Azure-portal](https://portal.azure.com/).
 
 Een van de eenmalige aanmelding methoden beschikbaar voor u is de [op basis van wachtwoorden Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) optie. Met de **toevoegen van een toepassing niet galerie** ervaring, kunt u elke toepassing die een gebruikersnaam voor de HTML gebaseerde renders integreren en wachtwoord invoeren veld, zelfs als deze zich niet in de set vooraf geïntegreerde toepassingen.
 
@@ -49,7 +49,7 @@ Dit is een uitstekende manier om te beginnen met elk type toepassing snel integr
 
 -   Toestaan dat een **beheerder** om op te geven de gedeelde gebruikersnaam of het wachtwoord dat wordt gebruikt door een groep personen met de referenties bijwerken wanneer functie [een groep toewijzen aan een toepassing](#assign-an-application-to-a-group-directly)
 
-Hieronder wordt beschreven hoe u kunt inschakelen [op basis van wachtwoorden Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) voor elke toepassing die u toevoegt met behulp van de **toevoegen van een toepassing niet galerie** optreden.
+De volgende sectie wordt beschreven hoe u kunt inschakelen [op basis van wachtwoorden Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) voor elke toepassing die u toevoegt met behulp van de **toevoegen van een toepassing niet galerie** optreden.
 
 ## <a name="overview-of-steps-required"></a>Overzicht van stappen vereist
 
@@ -67,47 +67,47 @@ Een toepassing uit de galerie van Azure AD te hoeft configureren:
 
 ## <a name="add-a-non-gallery-application"></a>Toevoegen van een toepassing niet-galerie
 
-Als u wilt een toepassing uit de galerie van Azure AD toevoegt, de volgende stappen uit te voeren:
+Als u wilt een toepassing uit de galerie van Azure AD toevoegt, de volgende stappen uit:
 
-1.  Open de [Azure Portal](https://portal.azure.com) en meld u aan als een **hoofdbeheerder** of **Co-beheerder**
+1.  Open de [Azure-portal](https://portal.azure.com) en meld u aan als een **hoofdbeheerder** of **Co-beheerder**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
+4.  Klik op **bedrijfstoepassingen** in het menu van de linkernavigatiebalk Azure Active Directory.
 
-5.  Klik op de **toevoegen** middenonder in de rechterbovenhoek op het **bedrijfstoepassingen** blade
+5.  Klik op de **toevoegen** middenonder in de rechterbovenhoek op het **bedrijfstoepassingen** deelvenster.
 
-6.  Klik op **Non-galerie-toepassing.**
+6.  Klik op **Non-galerie toepassing**.
 
 7.  Voer de naam van uw toepassing in de **naam** textbox. Selecteer **toevoegen.**
 
-Na een korte periode is het mogelijk om te zien van de toepassing configuration blade.
+Na een korte periode is het mogelijk om te zien deelvenster van de configuratie van de toepassing.
 
 ## <a name="configure-the-application-for-password-single-sign-on"></a>De toepassing voor eenmalige aanmelding wachtwoord configureren
 
-Volg de onderstaande stappen voor het configureren van eenmalige aanmelding voor een toepassing:
+Volg deze stappen voor het configureren van eenmalige aanmelding voor een toepassing:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
+4.  Klik op **bedrijfstoepassingen** in het menu van de linkernavigatiebalk Azure Active Directory.
 
 5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
+  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
 
 6.  Selecteer de toepassing die u wilt configureren eenmalige aanmelding.
 
-7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** van navigatiemenu links aan de van de toepassing.
+7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in de toepassing linkermenubalk menu.
 
 8.  Selecteer de modus **op basis van wachtwoorden eenmalige aanmelding.**
 
-9.  Voer de **aanmeldings-URL**. Dit is de URL waar gebruikers hun gebruikersnaam en wachtwoord aanmelden bij invoeren. Zorg ervoor dat de aanmeldingspagina velden zijn zichtbaar in de URL.
+9.  Voer de **aanmeldings-URL**. Dit is de URL waar gebruikers hun gebruikersnaam en wachtwoord aanmelden bij invoeren. Zorg ervoor dat de aanmeldingspagina-velden worden weergegeven op de URL.
 
 10. Gebruikers toewijzen aan de toepassing.
 
@@ -115,27 +115,27 @@ Volg de onderstaande stappen voor het configureren van eenmalige aanmelding voor
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Een gebruiker rechtstreeks aan een toepassing toewijzen
 
-Als u wilt toewijzen een of meer gebruikers rechtstreeks naar een toepassing, de volgende stappen uit te voeren:
+Als u wilt toewijzen een of meer gebruikers rechtstreeks naar een toepassing, de volgende stappen uit:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
+4.  Klik op **bedrijfstoepassingen** in het menu van de linkernavigatiebalk Azure Active Directory.
 
 5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
+  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
 
 6.  Selecteer de toepassing die u wilt toewijzen van een gebruiker in de lijst.
 
-7.  Nadat de toepassing wordt geladen, klikt u op **gebruikers en groepen** van navigatiemenu links aan de van de toepassing.
+7.  Nadat de toepassing wordt geladen, klikt u op **gebruikers en groepen** in de toepassing linkermenubalk menu.
 
-8.  Klik op de **toevoegen** knop boven de **gebruikers en groepen** lijst openen de **toevoegen toewijzing** blade.
+8.  Openen van de **toevoegen toewijzing** deelvenster klikt u op de **toevoegen** knop boven de **gebruikers en groepen** lijst.
 
-9.  Klik op de **gebruikers en groepen** selector van de **toevoegen toewijzing** blade.
+9.  Klik op de **gebruikers en groepen** selector van de **toevoegen toewijzing** deelvenster.
 
 10. Typ in het **volledige naam** of **e-mailadres** van de gebruiker die u geïnteresseerd bent in toewijzen in de **zoeken op naam of e-mailadres** zoekvak.
 
@@ -145,43 +145,43 @@ Als u wilt toewijzen een of meer gebruikers rechtstreeks naar een toepassing, de
 
 13. Wanneer u klaar bent met het selecteren van gebruikers, klikt u op de **Selecteer** om toe te voegen aan de lijst met gebruikers en groepen kunnen worden toegewezen aan de toepassing.
 
-14. **Optioneel:** klikt u op de **rol selecteren** selector in de **toevoegen toewijzing** blade te selecteren van een rol toewijzen aan de gebruikers die u hebt geselecteerd.
+14. **Optioneel:** klikt u op de **rol selecteren** selector in de **toevoegen toewijzing** klikken en selecteer een rol toewijzen aan de gebruikers die u hebt geselecteerd.
 
 15. Klik op de **toewijzen** knop de toepassing toewijzen aan de geselecteerde gebruikers.
 
 ## <a name="assign-an-application-to-a-group-directly"></a>Een toepassing toewijzen aan een groep rechtstreeks
 
-Als u wilt toewijzen een of meer groepen rechtstreeks aan een toepassing, de volgende stappen uit te voeren:
+Als u wilt toewijzen een of meer groepen rechtstreeks aan een toepassing, de volgende stappen uit:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
+4.  Klik op **bedrijfstoepassingen** in het menu van de linkernavigatiebalk Azure Active Directory.
 
 5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
+  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
 
 6.  Selecteer de toepassing die u wilt toewijzen van een gebruiker in de lijst.
 
-7.  Nadat de toepassing wordt geladen, klikt u op **gebruikers en groepen** van navigatiemenu links aan de van de toepassing.
+7.  Nadat de toepassing wordt geladen, klikt u op **gebruikers en groepen** in de toepassing linkermenubalk menu.
 
-8.  Klik op de **toevoegen** knop boven de **gebruikers en groepen** lijst openen de **toevoegen toewijzing** blade.
+8.  Openen van de **toevoegen toewijzing** deelvenster klikt u op de **toevoegen** knop boven de **gebruikers en groepen** lijst.
 
-9.  Klik op de **gebruikers en groepen** selector van de **toevoegen toewijzing** blade.
+9.  Klik op de **gebruikers en groepen** selector van de **toevoegen toewijzing** deelvenster.
 
 10. Typ in het **volledige groepsnaam** van de groep die u geïnteresseerd bent in toewijzen in de **zoeken op naam of e-mailadres** zoekvak.
 
 11. Beweeg de muisaanwijzer over de **groep** in de lijst om weer te geven een **selectievakje**. Schakel het selectievakje in naast de profielfoto of het logo voor uw gebruiker toevoegen aan de groep de **geselecteerde** lijst.
 
-12. **Optioneel:** als u wilt **toevoegen van meer dan één groep**, type in een andere **volledige groepsnaam** in de **zoeken op naam of e-mailadres** zoekvak en klik op het selectievakje in om toe te voegen van deze groep de **geselecteerde** lijst.
+12. **Optioneel:** als u wilt **toevoegen van meer dan één groep**, type in een andere **volledige groepsnaam** in de **zoeken op naam of e-mailadres** in het zoekvak en Schakel het selectievakje in om toe te voegen van deze groep de **geselecteerde** lijst.
 
 13. Wanneer u klaar bent met groepen te selecteren, klikt u op de **Selecteer** om toe te voegen aan de lijst met gebruikers en groepen kunnen worden toegewezen aan de toepassing.
 
-14. **Optioneel:** klikt u op de **rol selecteren** selector in de **toevoegen toewijzing** blade te selecteren van een rol toewijzen aan de groepen die u hebt geselecteerd.
+14. **Optioneel:** klikt u op de **rol selecteren** selector in de **toevoegen toewijzing** klikken en selecteer een rol toewijzen aan de groepen die u hebt geselecteerd.
 
 15. Klik op de **toewijzen** knop de toepassing toewijzen aan de geselecteerde groepen.
 

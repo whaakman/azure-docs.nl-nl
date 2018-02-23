@@ -1,6 +1,6 @@
 ---
-title: Referenties worden doorgegeven aan Azure met behulp van DSC | Microsoft Docs
-description: Overzicht van de referenties veilig worden doorgegeven aan virtuele machines in Azure met behulp van PowerShell Desired State Configuration
+title: Referenties doorgeven naar Azure met Desired State Configuration | Microsoft Docs
+description: Informatie over het veilig referenties worden doorgegeven aan virtuele machines in Azure met behulp van PowerShell Desired State Configuration (DSC).
 services: virtual-machines-windows
 documentationcenter: 
 author: zjalexander
@@ -16,26 +16,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: zachal,migreene
-ms.openlocfilehash: 140ca3cc9b72afac720e5bcf1d620ac9b1b72132
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a0a565c0bb7e17315c7b0475f3213b620a3e2d6c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="passing-credentials-to-the-azure-dsceextension-handler"></a>Referenties doorgeven aan de Azure DSCEextension-Handler
+# <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Referenties doorgeven aan de handler Azure DSCExtension
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-In dit artikel bevat informatie over de Desired State Configuration-extensie voor Azure.
-Een overzicht van de DSC-uitbreiding handler kan worden gevonden op [Inleiding tot de extensie Azure Desired State Configuration handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+In dit artikel bevat informatie over de uitbreiding Desired State Configuration (DSC) voor Azure. Zie voor een overzicht van de DSC-uitbreiding handler [Inleiding tot de extensie Azure Desired State Configuration handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="passing-in-credentials"></a>Doorgeven van referenties
+## <a name="pass-in-credentials"></a>Referenties doorgeven
 
-Als onderdeel van het configuratieproces, u mogelijk nodig hebt voor het instellen van gebruikersaccounts, toegang tot services of een programma installeert in een gebruikerscontext. Als u wilt doen, moet u referenties opgeven.
+Als onderdeel van het configuratieproces u mogelijk nodig hebt voor het instellen van gebruikersaccounts, toegang tot services of een programma installeert in een gebruikerscontext. Als u wilt doen, moet u referenties opgeven.
 
-DSC kunt u met parameters configuraties waarin de referenties zijn doorgegeven aan de configuratie en veilig opgeslagen in het MOF-bestanden.
-De extensie Azure Handler vereenvoudigt Referentiebeheer dankzij automatisch beheer van certificaten.
+DSC kunt u configuraties met parameters instellen. Referenties zijn doorgegeven aan de configuratie en veilig opgeslagen in het MOF-bestanden in een configuratie met parameters. De extensie Azure-handler vereenvoudigt Referentiebeheer dankzij automatisch beheer van certificaten.
 
-Houd rekening met de volgende DSC-configuratiescript dat een lokale gebruikersaccount met het opgegeven wachtwoord maakt:
+De volgende DSC-configuratiescript wordt een lokale gebruikersaccount gemaakt met het opgegeven wachtwoord:
 
 ```powershell
 configuration Main
@@ -61,15 +59,13 @@ configuration Main
 }
 ```
 
-Het is belangrijk om op te nemen *knooppunt localhost* als onderdeel van de configuratie.
-Als deze instructie ontbreekt, werken de volgende stappen niet als de extensie-handler specifiek zoekt naar het knooppunt localhost-instructie.
-Het is ook belangrijk om op te nemen de typecast *[PsCredential]*, zoals dit specifieke type de uitbreiding activeert voor het versleutelen van de referentie.
+Het is belangrijk om op te nemen **knooppunt localhost** als onderdeel van de configuratie. De extensie-handler specifiek zoekt de **knooppunt localhost** instructie. Als deze instructie ontbreekt, werken de volgende stappen niet. Het is ook belangrijk om op te nemen de typecast **[PsCredential]**. Dit specifieke type activeert de uitbreiding voor het versleutelen van de referentie.
 
-Dit script publiceren naar blob storage:
+Dit script publiceren naar Azure Blob-opslag:
 
 `Publish-AzureVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
-Stelt u de Azure DSC-uitbreiding en geef de referenties:
+De extensie Azure DSC instellen en geef de referenties:
 
 ```powershell
 $configurationName = "Main"
@@ -83,21 +79,15 @@ $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchiv
 $vm | Update-AzureVM
 ```
 
-## <a name="how-credentials-are-secured"></a>Hoe referenties worden beveiligd
+## <a name="how-a-credential-is-secured"></a>Hoe een referentie op die wordt beveiligd
 
-Vraagt u deze code uitvoert om een referentie.
-Zodra deze is opgegeven, wordt opgeslagen in het geheugen kort.
-Wanneer deze wordt gepubliceerd met `Set-AzureVmDscExtension` cmdlet, deze wordt verzonden via HTTPS naar de virtuele machine, een waar Azure slaat deze versleuteld op de schijf met het lokale certificaatarchief van de virtuele machine.
-Vervolgens wordt kort ontsleuteld in het geheugen en opnieuw versleuteld deze doorgeven aan DSC.
+Vraagt u deze code uitvoert om een referentie. Nadat de referentie is opgegeven, wordt deze kort opgeslagen in het geheugen. Wanneer de referentie is gepubliceerd met behulp van de **Set AzureVmDscExtension** de referentie-cmdlet wordt verzonden via HTTPS naar de virtuele machine. In de virtuele machine opgeslagen Azure de referentie op schijf wordt versleuteld met het lokale certificaatarchief van de virtuele machine. De referentie kort in het geheugen wordt ontsleuteld en vervolgens opnieuw versleuteld deze doorgeven aan DSC.
 
-Dit gedrag is anders dan [met behulp van veilige configuraties zonder de extensie-handler](https://msdn.microsoft.com/powershell/dsc/securemof). De Azure-omgeving biedt een manier voor het verzenden van configuratiegegevens veilig via certificaten. Wanneer u de handler van DSC-uitbreiding, is niet nodig voor een $CertificatePath of een $CertificateID / $Thumbprint vermelding in ConfigurationData.
+Dit proces is anders dan [met behulp van veilige configuraties zonder de extensie-handler](https://msdn.microsoft.com/powershell/dsc/securemof). De Azure-omgeving biedt een manier voor het verzenden van configuratiegegevens veilig via certificaten. Wanneer u de handler van DSC-uitbreiding gebruikt, u hoeft niet te bieden **$CertificatePath** of een **$CertificateID**/ **$Thumbprint** vermelding in **ConfigurationData**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure DSC-uitbreiding handler [Inleiding tot de extensie Azure Desired State Configuration handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-Bekijk de [Azure Resource Manager-sjabloon voor de uitbreiding van DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-Voor meer informatie over PowerShell DSC [gaat u naar de PowerShell-documentatiecentrum](https://msdn.microsoft.com/powershell/dsc/overview).
-
-Aanvullende functionaliteit die u met PowerShell DSC beheren kunt vinden [de PowerShell-galerie bladeren](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) voor meer DSC-resources.
+* Ophalen van een [Inleiding tot Azure DSC-uitbreiding handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Bekijk de [Azure Resource Manager-sjabloon voor de uitbreiding van DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Voor meer informatie over PowerShell DSC, gaat u naar de [PowerShell-documentatiecentrum](https://msdn.microsoft.com/powershell/dsc/overview).
+* Ga voor meer functionaliteit die u beheren kunt met behulp van PowerShell DSC, en voor meer DSC-resources, het [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: d61b29f1327f57bc32b2c53de3fe58e53fcf3cac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Persoonlijke gegevens beschermen met netwerkbeveiligingsfuncties: Azure Application Gateway en Netwerkbeveiligingsgroepen
 
@@ -59,18 +59,9 @@ U kunt een toepassingsgateway maken met WAF of WAF toevoegen aan een bestaande t
 
 Als een nieuwe toepassingsgateway maken met WAF ingeschakeld, het volgende doen:
 
-1. Aanmelden bij de Azure portal en in de **Favorieten** deelvenster van de portal klikt u op **nieuw**
-
-2. Klik op de blade **Nieuw** op **Netwerken**.
-
-3. Klik op **toepassingsgateway**.
-
-4. Navigeer naar de Azure-portal **klikt u op nieuw \> Networking \> Application Gateway.**
-
-   ![Toepassingsgateways maken](media/protect-netsec/app-gateway-01.png)
-
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer **maken van een resource** > **Networking** > **Application Gateway**.
 5. In de **basisbeginselen** blade die wordt weergegeven, geef de waarden voor de volgende velden: naam, laag SKU (Standard of WAF)-grootte (klein, middelgroot of groot), aantal (2 voor hoge beschikbaarheid)-instantie abonnement, resourcegroep en locatie.
-
 6. In de **instellingen** blade die wordt weergegeven onder **virtueel netwerk**, klikt u op **Kies een virtueel netwerk**. Deze stap wordt geopend, voer de blade van het virtueel netwerk kiezen.
 
 7. Klik op **nieuw** openen de **virtueel netwerk maken** blade.
@@ -126,7 +117,7 @@ Zie voor meer richtlijnen bij het plannen en implementeren van nsg's en een voor
 
 U maakt regels voor binnenkomende verbindingen in een bestaande NSG door het volgende doen:
 
-1. Klik op **Bladeren**, en vervolgens **Netwerkbeveiligingsgroepen**.
+1. Klik op **alle services**, en vervolgens **Netwerkbeveiligingsgroepen**.
 
 2. Klik in de lijst van nsg's op **NSG-FrontEnd**, en vervolgens **inkomende beveiligingsregels voor verbindingen.**
 
@@ -142,9 +133,9 @@ Zie voor meer instructies voor het nsg's maken in subnetten, regels maken en een
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Azure-netwerkbeveiliging](https://azure.microsoft.com/blog/azure-network-security/)
+[Azure Network Security](https://azure.microsoft.com/blog/azure-network-security/)
 
-[Aanbevolen beveiligingsprocedures voor Azure-netwerk](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
+[Aanbevolen procedures voor Azure-netwerkbeveiliging](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 
 [Informatie over een netwerkbeveiligingsgroep ophalen](https://docs.microsoft.com/rest/api/network/virtualnetwork/get-information-about-a-network-security-group)
 

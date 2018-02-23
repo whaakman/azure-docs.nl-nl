@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042bc44df7d3d61bf52d28a910dae1b125b9fdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) virtuele Azure-netwerk
 
@@ -81,7 +81,7 @@ Ja. U kunt de gebruiker gedefinieerde routering (UDR) gebruiken. Voor meer infor
 Nee. Wij ondersteunen geen multicast- of broadcast.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Welke protocollen kan ik gebruiken binnen VNets?
-U kunt TCP, UDP en TCP/IP ICMP-protocollen binnen VNets gebruiken. Multicast, broadcast, IP-in-IP-encapsulated pakketten en Generic Routing Encapsulation (GRE) pakketten worden binnen VNets geblokkeerd. 
+U kunt TCP, UDP en TCP/IP ICMP-protocollen binnen VNets gebruiken. Unicast binnen VNets, met uitzondering van Dynamic Host Configuration Protocol (DHCP) via Unicast wordt ondersteund (bronpoort UDP/68-bestemming poort UDP/67). Multicast, broadcast, IP-in-IP-encapsulated pakketten en Generic Routing Encapsulation (GRE) pakketten worden binnen VNets geblokkeerd. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Kan ik mijn routers standaard binnen een VNet pingen?
 Nee.

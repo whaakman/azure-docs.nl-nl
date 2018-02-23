@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 906450f75557820bb27762707c3328b08b23cccb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Inleiding tot Azure Advisor
 
@@ -32,7 +32,7 @@ Met Advisor, kunt u het volgende doen:
 * Verbeteren de prestaties, beveiliging en hoge beschikbaarheid van uw resources, zoals u Identificeer mogelijkheden om te beperken van uw algehele Azure hoeven te besteden aan.
 * Aanbevelingen met voorgestelde acties inline worden opgehaald.
 
-U hebt toegang tot Advisor via de [Azure-portal](https://aka.ms/azureadvisordashboard). Aanmelden bij de [portal](https://portal.azure.com), zoek **Advisor** in het navigatiemenu of zoekt u in de **meer services** menu.
+U hebt toegang tot Advisor via de [Azure-portal](https://aka.ms/azureadvisordashboard). Aanmelden bij de [portal](https://portal.azure.com), zoek **Advisor** in het navigatiemenu of zoekt u in de **alle services** menu.
 
 De Advisor-dashboard worden persoonlijke aanbevelingen voor al uw abonnementen weergegeven.  U kunt filters om weer te geven van de aanbevelingen voor specifieke abonnementen en brontypen toepassen.  De aanbevelingen worden onderverdeeld in vier categorieën: 
 
@@ -57,7 +57,7 @@ Als u niet onmiddellijk actie ondernemen op een aanbeveling wilt, kunt u deze ui
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 ### <a name="how-do-i-access-advisor"></a>Hoe krijg ik toegang tot Advisor?
-U hebt toegang tot Advisor via de [Azure-portal](https://aka.ms/azureadvisordashboard). Aanmelden bij de [portal](https://portal.azure.com), zoek **Advisor** in het navigatiemenu of zoekt u in de **meer services** menu.
+U hebt toegang tot Advisor via de [Azure-portal](https://aka.ms/azureadvisordashboard). Aanmelden bij de [portal](https://portal.azure.com), zoek **Advisor** in het navigatiemenu of zoekt u in de **alle services** menu.
 
 U kunt ook aanbevelingen van Advisor weergeven via de interface van de resource virtuele machine. Kies een virtuele machine en schuif vervolgens naar de Advisor-aanbevelingen in het menu. 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 69e8735417bc006296b8a6e5168d9fbeff052247
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: bc1ea42c9fb81fe1e2a2594fda48500132cbb539
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>Query voor AS2, X 12 en EDIFACT berichten in de Microsoft Operations Management Suite (OMS)
 
@@ -44,7 +44,7 @@ In dit voorbeeld ziet hoe u berichten op basis van hun DIF besturingselement aan
 > [!TIP] 
 > Als u de naam van uw OMS-werkruimte, gaat u naar de startpagina van uw werkruimte (`https://{your-workspace-name}.portal.mms.microsoft.com`), en beginnen bij stap 4. Anders kunt u beginnen bij stap 1.
 
-1. In de [Azure-portal](https://portal.azure.com), kies **meer Services**. Zoek naar 'log analytics' in en kies vervolgens **logboekanalyse** als volgt te werk:
+1. In de [Azure-portal](https://portal.azure.com), kies **alle Services**. Zoek naar 'log analytics' in en kies vervolgens **logboekanalyse** als volgt te werk:
 
    ![Log Analytics vinden](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 

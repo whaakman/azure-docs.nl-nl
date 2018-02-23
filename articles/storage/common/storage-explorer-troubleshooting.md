@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer probleemoplossingsgids
 
-Microsoft Azure Opslagverkenner (Preview) is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows, Mac OS- en Linux. De app kan verbinding maken met de Storage-accounts die worden gehost op Azure, soevereine Clouds en Azure-Stack.
+Microsoft Azure Opslagverkenner (Preview) is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows-, Mac OS- en Linux. De app kan verbinding maken met de Storage-accounts die worden gehost op Azure, nationale Clouds en Azure-Stack.
 
 Deze handleiding bevat een overzicht van oplossingen voor algemene problemen gezien in Opslagverkenner.
 
@@ -59,7 +59,7 @@ Wanneer Opslagverkenner een van de problemen tegenkomt, kan het niet meer te wet
 
 6. Open Opslagverkenner, klik op **bewerken** > **SSL-certificaten** > **certificaten importeren**, en gebruik vervolgens de bestandskiezer om te zoeken, selecteert, en Open het cer-bestanden die u hebt gemaakt.
 
-Als u geen zelfondertekende certificaten met behulp van de bovenstaande stappen niet kunt vinden, contact met ons opnemen via het hulpprogramma feedback voor meer informatie.
+Als u geen zelfondertekende certificaten met behulp van de voorgaande stappen niet kunt vinden, contact met ons opnemen via het hulpprogramma feedback voor meer informatie.
 
 ### <a name="unable-to-retrieve-subscriptions"></a>Kan geen abonnementen ophalen
 
@@ -73,7 +73,7 @@ Als u niet ophalen van uw abonnementen, nadat u zich hebt aangemeld, volg deze s
 
 - Verwijder en readding van het account.
 
-- Probeer een van de volgende bestanden worden verwijderd uit de hoofddirectory (dat wil zeggen, C:\Users\ContosoUser) en vervolgens opnieuw toe te voegen het account:
+- Probeer een van de volgende bestanden worden verwijderd uit de hoofddirectory (dat wil zeggen, C:\Users\ContosoUser) en vervolgens readding het account:
 
     - .adalcache
 
@@ -83,7 +83,7 @@ Als u niet ophalen van uw abonnementen, nadat u zich hebt aangemeld, volg deze s
 
 - Bekijk de ontwikkelhulpprogramma's console (door op F12 wordt gedrukt) wanneer u voor eventuele foutberichten aanmeldt zich:
 
-![Hulpprogramma's voor ontwikkelaars](./media/storage-explorer-troubleshooting/4022501_en_2.png)
+![ontwikkelhulpprogramma's](./media/storage-explorer-troubleshooting/4022501_en_2.png)
 
 ### <a name="unable-to-see-the-authentication-page"></a>Kan niet voor een overzicht van de verificatiepagina
 
@@ -113,10 +113,10 @@ Als u niet om een account te verwijderen, of als de koppeling opnieuw verifiëre
 
     - /Gebruikers/ < Uw_naam >/Library/Applicaiton ondersteuning/StorageExplorer voor Mac
 
-    - ~/.config/StorageExplorer voor Linux
+    - ~/.config/StorageExplorer for Linux
 
 > [!NOTE]
->  U moet alle uw referenties opnieuw invoeren als u deze bestanden verwijdert.
+>  Na het verwijderen van de voorgaande bestanden, moet u opnieuw aanmelden bij uw accounts.
 
 ## <a name="proxy-issues"></a>Proxy-problemen
 
@@ -173,13 +173,21 @@ Als u verbinding met een service met behulp van een SAS-URL en deze fout optreed
 
 - Als de SAS-URL is gebaseerd op een toegangsbeleid, controleert u of het beleid voor toegang niet is ingetrokken.
 
-Als uw per ongeluk een ongeldige SAS-URL die is gekoppeld en kan niet loskoppelen, volg dan deze stappen:
+Als u per ongeluk gekoppeld met behulp van een ongeldige SAS-URL en kan niet loskoppelen, volg deze stappen:
 1.  Als u Opslagverkenner, drukt u op F12 om de hulpprogramma's voor ontwikkelaars venster te openen.
 2.  Klik op het tabblad toepassing en klik vervolgens op van de lokale opslag > file:// in de structuur aan de linkerkant.
-3.  Zoek de sleutel gekoppeld aan het type van de service van de problematisch SAS-URI. Bijvoorbeeld, als de onjuiste SAS-URI voor een blob-container, zoek naar de sleutel met de naam 'StorageExplorer_AddStorageServiceSAS_v1_blob'.
+3.  Zoek de sleutel gekoppeld aan het type van de service van de problematisch SAS-URI. Bijvoorbeeld, als de onjuiste SAS-URI voor een blob-container, zoekt u naar de sleutel met de naam `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4.  De waarde van de sleutel moet een JSON-matrix. Het object dat is gekoppeld met ongeldige URI niet vinden en verwijderen.
 5.  Druk op Ctrl + R om opnieuw te laden Opslagverkenner.
 
+## <a name="linux-dependencies"></a>Linux-afhankelijkheden
+
+Voor Linux-distributies dan Ubuntu 16.04, moet u wellicht handmatig enkele afhankelijkheden te installeren. In het algemeen zijn de volgende pakketten vereist:
+* libgconf-2-4
+* libsecret
+* Up-to-date GCC
+
+Afhankelijk van uw distro mogelijk zijn er andere pakketten die u wilt installeren. Opslagverkenner [releaseopmerkingen](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) specifieke stappen voor een aantal distributies bevatten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

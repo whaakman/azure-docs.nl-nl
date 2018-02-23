@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49b4bbfda4518b03ef6080bec1e2a493933af4f5
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e9145b9cb85cda9179f7ce46de017a0ab3a38924
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Logic app werkstromen van vooraf gedefinieerde sjablonen maken
 
@@ -42,7 +42,7 @@ Als u nog geen abonnement op Azure hebt, [meld u dan aan voor een gratis Azure-a
 
 1. Als u nog niet gedaan hebt, meld u bij de [Azure-portal](https://portal.azure.com "Azure-portal").
 
-2. Kies in het Azure-menu de optie **Nieuw** > **Enterprise Integration** > **Logische app**.
+2. Kies in het Azure hoofdmenu **maken van een resource** > **Enterprise Integration** > **logische App**.
 
    ![Azure Portal, Nieuw, Enterprise Integration, Logische app](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 

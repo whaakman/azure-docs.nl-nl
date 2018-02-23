@@ -4,7 +4,7 @@ description: Dit onderwerp bevat algemene richtlijnen voor het beveiligen van SQ
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2017
 ms.author: jroth
-ms.openlocfilehash: 4ad9156e481eac0bae32bca35a2b126363e5d8b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa6568d33e86c055c12eb748eb67c8a2e7cc0f93
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Veiligheidsoverwegingen voor SQL Server in Azure Virtual Machines
 
@@ -48,7 +48,7 @@ Kies voor de beste beveiliging, de meest beperkende optie voor uw scenario. Bijv
 
 De geselecteerde opties in de portal gebruiken inkomende beveiligingsregels voor verbindingen op de virtuele machines [Netwerkbeveiligingsgroep](../../../virtual-network/virtual-networks-nsg.md) (NSG) wilt toestaan of weigeren van netwerkverkeer naar de virtuele machine. U kunt wijzigen of nieuwe regels voor binnenkomende NSG zodat verkeer naar de SQL Server-poort (standaard 1433) te maken. U kunt ook bepaalde IP-adressen die zijn toegestaan om te communiceren via deze poort opgeven.
 
-![Netwerkbeveiligingsgroepen](./media/virtual-machines-windows-sql-security/sql-vm-network-security-group-rules.png)
+![Regels voor netwerkbeveiligingsgroepen](./media/virtual-machines-windows-sql-security/sql-vm-network-security-group-rules.png)
 
 Naast het NSG-regels om te beperken van netwerkverkeer, kunt u ook de Windows Firewall op de virtuele machine gebruiken.
 

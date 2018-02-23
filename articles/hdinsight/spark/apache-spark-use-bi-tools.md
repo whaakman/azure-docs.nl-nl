@@ -15,23 +15,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/14/2018
 ms.author: jgao
-ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 97305ec6774e89e776653adbcdcf86b1cd63642f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI hulpmiddelen voor gegevensvisualisatie gebruiken met Azure HDInsight
 
-Informatie over het gebruik [Microsoft Power BI](http://powerbi.microsoft.com) en [Tableau](http://www.tableau.com) om gegevens in Apache Spark-cluster in Azure HDInsight te visualiseren.
+Informatie over het gebruik [Microsoft Power BI](http://powerbi.microsoft.com) om gegevens in Apache Spark-cluster in Azure HDInsight te visualiseren.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * **Voltooien van het artikel [interactieve query's uitvoeren op Spark-clusters in HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) en [Power BI-proefabonnement](https://app.powerbi.com/signupredirect?pbi_source=web) (optioneel).
-* **Tableau**: [Tableau bureaublad](http://www.tableau.com/products/desktop) en [Spark ODBC-stuurprogramma](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 
 ## <a name="hivetable"></a>Controleer of de gegevens
@@ -183,47 +182,49 @@ De Power BI-service kunt u rapporten en dashboards delen in uw organisatie. In d
 
 Het visuele element is vastgemaakt aan het dashboard - kunt u andere visuele elementen toevoegen aan het rapport en ze vastmaken aan het dashboard. Zie voor meer informatie over rapporten en dashboards [rapporten in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)en [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
-## <a name="tableau"></a>Tableau bureaublad gebruiken 
+<!--
+## <a name="tableau"></a>Use Tableau Desktop 
 
 > [!NOTE]
-> Deze sectie geldt alleen voor 1.5.2 Spark-clusters die zijn gemaakt in Azure HDInsight.
+> This section is applicable only for Spark 1.5.2 clusters created in Azure HDInsight.
 >
 >
 
-1. Installeer [Tableau bureaublad](http://www.tableau.com/products/desktop) op de computer waarop u deze zelfstudie voor Apache Spark BI uitvoert.
+1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
-2. Zorg ervoor dat deze computer ook Microsoft Spark ODBC-stuurprogramma geïnstalleerd. U kunt het stuurprogramma van [hier](http://go.microsoft.com/fwlink/?LinkId=616229).
+2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](http://go.microsoft.com/fwlink/?LinkId=616229).
 
-1. Start Tableau bureaublad. Klik in het linkerdeelvenster, uit de lijst met de server verbinding wil maken, klikt u op **Spark SQL**. Als Spark SQL niet wordt weergegeven in het linkerdeelvenster standaard, kunt u deze vinden door te klikken op **meer Servers**.
-2. Geef de waarden in het dialoogvenster Spark SQL-verbinding zoals weergegeven in de schermafbeelding en klik vervolgens op **OK**.
+1. Launch Tableau Desktop. In the left pane, from the list of server to connect to, click **Spark SQL**. If Spark SQL is not listed by default in the left pane, you can find it by click **More Servers**.
+2. In the Spark SQL connection dialog box, provide the values as shown in the screenshot, and then click **OK**.
 
-    ![Verbinding maken met een cluster voor Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "verbinding maken met een cluster voor Apache Spark BI")
+    ![Connect to a cluster for Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Connect to a cluster for Apache Spark BI")
 
-    De vervolgkeuzelijsten verificatie **Microsoft Azure HDInsight-Service** als optie alleen als u hebt geïnstalleerd het [ODBC-stuurprogramma van Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229) op de computer.
-3. Op het volgende scherm van de **Schema** omlaag, klik op de **vinden** pictogram en klik vervolgens op **standaard**.
+    The authentication drop-down lists **Microsoft Azure HDInsight Service** as an option, only if you installed the [Microsoft Spark ODBC Driver](http://go.microsoft.com/fwlink/?LinkId=616229) on the computer.
+3. On the next screen, from the **Schema** drop-down, click the **Find** icon, and then click **default**.
 
-    ![Schema voor Apache Spark BI vinden](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "schema voor Apache Spark BI zoeken")
-4. Voor de **tabel** veld, klikt u op de **vinden** pictogram opnieuw naar de lijst met alle Hive-tabellen die beschikbaar zijn in het cluster. U ziet de **hvac** tabel die u eerder met de notebook gemaakt.
+    ![Find schema for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "Find schema for Apache Spark BI")
+4. For the **Table** field, click the **Find** icon again to list all the Hive tables available in the cluster. You should see the **hvac** table you created earlier using the notebook.
 
-    ![Tabel niet vinden voor Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-table-apache-spark-bi.png "tabel voor Apache Spark BI zoeken")
-5. Slepen en neerzetten van de tabel aan het eerste vak aan de rechterkant. Tableau de gegevens worden geïmporteerd en geeft u het schema weer als gemarkeerde door een rood kader.
+    ![Find table for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-table-apache-spark-bi.png "Find table for Apache Spark BI")
+5. Drag and drop the table to the top box on the right. Tableau imports the data and displays the schema as highlighted by the red box.
 
-    ![Tabellen toevoegen aan Tableau voor Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "tabellen toevoegen aan Tableau voor Apache Spark BI")
-6. Klik op de **Sheet1** tabblad linksonder. Controleer een visualisatie waarin de gemiddelde doel en de werkelijke temperaturen voor alle gebouwen voor elke datum. Sleep **datum** en **bouwen ID** naar **kolommen** en **werkelijke Temp**/**Temp doel** naar **rijen**. Onder **aanhalingstekens**, selecteer **gebied** voor het gebruik van een map gebied voor gegevensvisualisatie Spark.
+    ![Add tables to Tableau for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "Add tables to Tableau for Apache Spark BI")
+6. Click the **Sheet1** tab at the bottom left. Make a visualization that shows the average target and actual temperatures for all buildings for each date. Drag **Date** and **Building ID** to **Columns** and **Actual Temp**/**Target Temp** to **Rows**. Under **Marks**, select **Area** to use an area map for Spark data visualization.
 
-     ![Toevoegen van velden voor Spark gegevensvisualisatie](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "velden voor Spark gegevensvisualisatie toevoegen")
-7. Standaard de temperatuur velden worden weergegeven als de statistische functie. Als u weergeven van de gemiddelde temperatuur in plaats daarvan wilt, u kunt dit doen in de vervolgkeuzelijst, zoals wordt weergegeven in de volgende schermafbeelding:
+     ![Add fields for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Add fields for Spark data visualization")
+7. By default, the temperature fields are shown as aggregate. If you want to show the average temperatures instead, you can do so from the drop-down, as shown in the following screenshot:
 
-    ![Gemiddelde temperatuur voor Spark gegevensvisualisatie nemen](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "gemiddelde temperatuur voor Spark gegevensvisualisatie duren")
+    ![Take average of temperature for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Take average of temperature for Spark data visualization")
 
-8. U kunt ook super-opleggen één temperatuur toewijzing via de andere met een beter idee van verschil tussen het doel en de werkelijke temperaturen krijgen. Beweeg de muisaanwijzer naar de hoek van de lagere gebied kaart totdat u de ingang shape gemarkeerd in een rode cirkel ziet. Sleep de kaart naar de andere kaart bovenaan en de muisknop loslaat, wanneer u de vorm die is gemarkeerd in rode rechthoek ziet.
+8. You can also super-impose one temperature map over the other to get a better feel of difference between target and actual temperatures. Move the mouse to the corner of the lower area map until you see the handle shape highlighted in a red circle. Drag the map to the other map on the top and release the mouse when you see the shape highlighted in red rectangle.
 
-    ![Samenvoegen van kaarten voor Spark gegevensvisualisatie](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "samenvoegen toegewezen voor Spark gegevensvisualisatie")
+    ![Merge maps for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "Merge maps for Spark data visualization")
 
-     De weergave van uw gegevens moet wijzigen, zoals weergegeven in de schermafbeelding:
+     Your data visualization should change as shown in the screenshot:
 
-    ![Tableau uitvoer voor Spark gegevensvisualisatie](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau uitvoer voor Spark gegevensvisualisatie")
-9. Klik op **opslaan** om op te slaan van het werkblad. U kunt dashboards maken en een of meer bladen aan toe te voegen.
+    ![Tableau output for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau output for Spark data visualization")
+9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
+-->
 
 ## <a name="next-steps"></a>Volgende stappen
 

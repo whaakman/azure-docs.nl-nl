@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Realtime-sensorgegevens uit uw Azure-IoT-hub visualiseren met behulp van de functie Web Apps van Azure App Service
 
@@ -49,7 +49,7 @@ In deze zelfstudie leert u hoe voor het visualiseren van realtime-sensorgegevens
 
 ## <a name="create-a-web-app"></a>Een webtoepassing maken
 
-1. In de [Azure-portal](https://ms.portal.azure.com/), klikt u op **nieuw** > **Web en mobiel** > **Web-App**.
+1. In de [Azure-portal](https://portal.azure.com/), klikt u op **maken van een resource** > **Web en mobiel** > **Web-App**.
 2. Voer een unieke naam, Controleer of het abonnement, geeft u een resourcegroep en een locatie, selecteer **vastmaken aan dashboard**, en klik vervolgens op **maken**.
 
    Het is raadzaam dat u dezelfde locatie als die van de resourcegroep selecteren. In dat geval helpt bij het verwerken van de snelheid en beperkt de kosten van de gegevensoverdracht.

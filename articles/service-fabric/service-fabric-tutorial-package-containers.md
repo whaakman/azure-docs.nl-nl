@@ -1,13 +1,13 @@
 ---
-title: Verpakken en distribueren van een Service Fabric-toepassing voor containers | Microsoft Docs
-description: Informatie over het genereren van de definitie van een Azure Service Fabric-toepassing met behulp van Yeoman en de toepassing van het pakket.
+title: Een Service Fabric-containertoepassing verpakken en implementeren | Microsoft Docs
+description: Leer hoe u een Azure Service Fabric-toepassingsdefinitie kunt genereren met behulp van Yeoman en de toepassing verpakken.
 services: service-fabric
 documentationcenter: 
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: Docker, Containers, Microservices, Service Fabric, Azure
+keywords: Docker, containers, Microservices, Service Fabric, Azure
 ms.assetid: 
 ms.service: service-fabric
 ms.topic: tutorial
@@ -16,43 +16,43 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
-ms.translationtype: MT
+ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Het pakket en containers implementeren als een Service Fabric-toepassing
+# <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Containers verpakken en implementeren als een Service Fabric-toepassing
 
-Deze zelfstudie maakt deel uit twee in een reeks. In deze zelfstudie wordt een sjabloon generator-hulpprogramma (Yeoman) gebruikt voor het genereren van de definitie van een Service Fabric-toepassing. Deze toepassing kan vervolgens worden gebruikt voor het implementeren van containers naar Service Fabric. In deze zelfstudie leert u het volgende: 
+Deze zelfstudie is deel twee van een serie. In deze zelfstudie wordt een hulpprogramma voor het genereren van sjablonen (Yeoman) gebruikt om een Service Fabric-toepassingsdefinitie te genereren. Deze toepassing kan vervolgens worden gebruikt voor het implementeren van containers naar Service Fabric. In deze zelfstudie leert u het volgende: 
 
 > [!div class="checklist"]
 > * Yeoman installeren  
-> * Maken van een toepassingspakket met Yeoman
+> * Een toepassingspakket maken met behulp van Yeoman
 > * Instellingen configureren in het toepassingspakket voor gebruik met containers
 > * De toepassing bouwen  
-> * Implementeren en uitvoeren van de toepassing 
-> * Opschonen van de toepassing
+> * De toepassing implementeren en uitvoeren 
+> * De toepassing opschonen
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Installatiekopieën van de container in Azure Container register gemaakt in gepusht [Part 1](service-fabric-tutorial-create-container-images.md) van deze zelfstudie reeksen worden gebruikt.
-- Linux-ontwikkelomgeving is [instellen](service-fabric-tutorial-create-container-images.md).
+- Er wordt gebruikgemaakt van de naar het Azure Container Registry gepushte containerinstallatiekopieën die in [Deel 1](service-fabric-tutorial-create-container-images.md) van deze zelfstudiereeks zijn gemaakt.
+- De Linux-ontwikkelomgeving moet zijn [ingesteld](service-fabric-tutorial-create-container-images.md).
 
 ## <a name="install-yeoman"></a>Yeoman installeren
-Service fabric bevat steigers hulpmiddelen voor het maken van toepassingen van definitieve Yeoman met generator van de sjabloon. De volgende stappen om te controleren of u hebt de Yeoman generator van de sjabloon. 
+Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal toepassingen kunt maken met behulp van de Yeoman-sjabloongenerator. Volg de stappen hieronder om ervoor te zorgen dat u de Yeoman-sjabloongenerator hebt. 
 
-1. Nodejs en NPM installeren op uw computer. Houd er rekening mee dat Mac OS x-gebruikers moeten de package manager Homebrew gebruiken
+1. Installeer nodejs en NPM op uw computer. Houd er rekening mee dat Mac OSX-gebruikers het pakketbeheerprogramma Homebrew moeten gebruiken
 
     ```bash
     sudo apt-get install npm && sudo apt install nodejs-legacy
     ```
-2. Installeer Yeoman sjabloon generator op uw computer uit NPM 
+2. De Yeoman-sjabloongenerator op uw computer installeren vanuit NPM 
 
     ```bash
     sudo npm install -g yo
     ```
-3. De container-generator voor Yeoman voor Service Fabric installeren
+3. De Yeoman-containergenerator van Service Fabric installeren
 
     ```bash 
     sudo npm install -g generator-azuresfcontainer
@@ -60,18 +60,18 @@ Service fabric bevat steigers hulpmiddelen voor het maken van toepassingen van d
 
 ## <a name="package-a-docker-image-container-with-yeoman"></a>Een Docker-containerinstallatiekopie verpakken met Yeoman
 
-1. Als u wilt maken van een container Service Fabric-toepassing in de container-tutorial-map van de gekloonde opslagplaats, voer de volgende opdracht.
+1. Voer de volgende opdracht uit in de directory 'container-tutorial' van de gekloonde opslagplaats om een Service Fabric-containertoepassing te maken.
 
     ```bash
     yo azuresfcontainer
     ```
 2. Typ 'TestContainer' als naam voor uw toepassing
 3. Typ 'azurevotefront' als naam voor uw toepassingsservice.
-4. Geef op het pad van de container-installatiekopie in ACR voor de opslagplaats frontend - bijvoorbeeld '\<acrName >.azurecr.io / azure-stem-voorzijde: v1'. De \<acrName > veld moet gelijk zijn aan de waarde die is gebruikt in de vorige zelfstudie.
-5. Druk op Enter om te laten de opdrachten sectie leeg.
-6. Geef een aantal exemplaren van 1.
+4. Geef het pad van de containerinstallatiekopie in de ACR voor de front-endopslagplaats op - bijvoorbeeld '\<acrName>.azurecr.io/azure-vote-front:v1'. Het veld \<acrName> moet gelijk zijn aan de waarde die is gebruikt in de vorige zelfstudie.
+5. Druk op Enter om de sectie Opdrachten leeg te laten.
+6. Geef 1 exemplaar op.
 
-Hieronder vindt u de invoer en uitvoer van het uitvoeren de yo opdracht:
+Hieronder ziet u de invoer en uitvoer van de yo-opdracht:
 
 ```bash
 ? Name your application TestContainer
@@ -87,16 +87,16 @@ Hieronder vindt u de invoer en uitvoer van het uitvoeren de yo opdracht:
    create TestContainer/uninstall.sh
 ```
 
-Als een andere containerservice toevoegen aan een toepassing die al is gemaakt met behulp van Yeoman, moet u de volgende stappen uitvoeren:
+Voer de volgende stappen uit als u nog een containerservice wilt toevoegen aan een toepassing die al is gemaakt met Yeoman:
 
-1. Eén niveau van de directory te wijzigen de **TestContainer** directory, bijvoorbeeld *. / TestContainer*
+1. Wijzig de directory naar een niveau hoger dan **TestContainer**, bijvoorbeeld *./TestContainer*
 2. Voer `yo azuresfcontainer:AddService` uit. 
-3. Naam van de service azurevoteback
-4. Geef het pad van de container-installatiekopie voor Redis - ' alpine: redis'
-5. Druk op Enter om te laten de opdrachten sectie leeg
+3. Noem de service 'azurevoteback'
+4. Geef het pad van de containerinstallatiekopie voor Redis op: 'alpine:redis'
+5. Druk op Enter om de sectie Opdrachten leeg te laten
 6. Geef '1' exemplaar op.
 
-De vermeldingen voor het toevoegen van de service die gebruikt worden alle weergegeven:
+Alle items voor het toevoegen van de gebruikte service worden getoond:
 
 ```bash
 ? Name of the application service: azurevoteback
@@ -108,30 +108,30 @@ De vermeldingen voor het toevoegen van de service die gebruikt worden alle weerg
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-Voor de rest van deze zelfstudie we werken de **TestContainer** directory. Bijvoorbeeld: *./TestContainer/TestContainer*. De inhoud van deze map moet als volgt.
+In de rest van deze zelfstudie werken we in de directory **TestContainer**. Bijvoorbeeld: *./TestContainer/TestContainer*. De inhoud van deze directory moet de volgende zijn.
 ```bash
 $ ls
 ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 ```
 
-## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Het toepassingsmanifest met referenties voor Azure Container register configureren
-Service Fabric voor het ophalen van de installatiekopieën van de container in Azure Container register, moet de referenties in de **ApplicationManifest.xml**. 
+## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Het toepassingsmanifest configureren met referenties voor Azure Container Registry
+Opdat Service Fabric de containerinstallatiekopieën kan ophalen uit de Azure Container Registry, moeten we de referenties opgeven in **ApplicationManifest.xml**. 
 
-Aanmelden bij uw ACR-exemplaar. Gebruik de **az acr aanmelding** opdracht om de bewerking te voltooien. Geef de unieke naam krijgen tot het register van de container wanneer deze is gemaakt.
+Meld u aan bij uw ACR-exemplaar. Gebruik de opdracht **az acr login** om de bewerking te voltooien. Geef de unieke naam op die u het containerregister hebt gegeven toen u het maakte.
 
 ```bash
 az acr login --name <acrName>
 ```
 
-De opdracht retourneert een **aanmelding geslaagd** bericht eenmaal is voltooid.
+De opdracht retourneert het bericht **Aanmelden geslaagd** wanneer deze is uitgevoerd.
 
-Voer vervolgens de volgende opdracht om op te halen van het wachtwoord van het register van de container. Dit wachtwoord wordt gebruikt door de Service Fabric voor verificatie met ACR voor het ophalen van de installatiekopieën van de container.
+Voer vervolgens de volgende opdracht uit om het wachtwoord van uw containerregister op te halen. Dit wachtwoord wordt door Service Fabric gebruikt voor authenticatie bij ACR om de containerinstallatiekopieën op te halen.
 
 ```bash
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-In de **ApplicationManifest.xml**, Voeg het volgende codefragment onder de **ServiceManifestImport** element voor de front-end-service. Voeg uw **acrName** voor de **AccountName** veld en het wachtwoord dat wordt geretourneerd door de vorige opdracht wordt gebruikt voor de **wachtwoord** veld. Een volledige **ApplicationManifest.xml** aan het einde van dit document wordt geleverd. 
+Voeg in **ApplicationManifest.xml** het codefragment toe onder het element **ServiceManifestImport** voor de front-endservice. Voeg uw **acrName** in voor het veld **AccountName** en het wachtwoord dat met de vorige opdracht is geretourneerd wordt gebruikt voor het veld **Wachtwoord**. Aan het einde van dit document vindt u een volledig **ApplicationManifest.xml**-bestand. 
 
 ```xml
 <Policies>
@@ -144,7 +144,7 @@ In de **ApplicationManifest.xml**, Voeg het volgende codefragment onder de **Ser
 
 ### <a name="configure-communication-port"></a>Communicatiepoort configureren
 
-Een HTTP-eindpunt configureren zodat clients met uw service kunnen communiceren. Open de *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* bestands- en declareert een endpoint-bron in de **ServiceManifest** element.  Voeg het protocol, de poort en de naam toe. Voor deze zelfstudie wordt de service luistert op poort 80. Het volgende fragment wordt geplaatst in de *ServiceManifest* tag op in de resource.
+Een HTTP-eindpunt configureren zodat clients met uw service kunnen communiceren. Open het bestand *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* en declareer een eindpuntresource in het element **ServiceManifest**.  Voeg het protocol, de poort en de naam toe. In deze zelfstudie luistert de service op poort 80. Het volgende fragment wordt onder de *ServiceManifest*-tag in de resource geplaatst.
   
 ```xml
 <Resources>
@@ -158,7 +158,7 @@ Een HTTP-eindpunt configureren zodat clients met uw service kunnen communiceren.
 
 ```
   
-Op dezelfde manier wijzigen Service Manifest voor de back-endservice. Open de *./TestContainer/azurevotebackPkg/ServiceManifest.xml* en declareert een endpoint-bron in de **ServiceManifest** element. Voor deze zelfstudie wordt de standaardwaarde redis van 6379 bijgehouden. Het volgende fragment wordt geplaatst in de *ServiceManifest* tag op in de resource.
+Wijzig het Service Manifest voor de back-endservice op dezelfde manier. Open het bestand *./TestContainer/azurevotebackPkg/ServiceManifest.xml* en declareer een eindpuntresource in het element **ServiceManifest**. Voor deze zelfstudie wordt de Redis-standaardwaarde van 6379 aangehouden. Het volgende fragment wordt onder de *ServiceManifest*-tag in de resource geplaatst.
 
 ```xml
 <Resources>
@@ -170,10 +170,10 @@ Op dezelfde manier wijzigen Service Manifest voor de back-endservice. Open de *.
   </Endpoints>
 </Resources>
 ```
-Geven de **UriScheme**automatisch wordt geregistreerd, het eindpunt van de container met de naamgeving van Service Fabric-service voor detectie. Een volledige ServiceManifest.xml voorbeeld-bestand voor de back-endservice is verstrekt aan het einde van dit artikel als voorbeeld. 
+Door het **UriScheme** op te geven wordt het eindpunt van de container automatisch geregistreerd bij de Service Fabric Naming-service voor de zichtbaarheid. Aan het einde van dit artikel wordt een volledig ServiceManifest.xml-bestand voor de back-endservice gegeven als voorbeeld. 
 
-### <a name="map-container-ports-to-a-service"></a>Container poorten toewijzen aan een service
-Als u wilt weergeven van de containers in het cluster, moeten we ook maakt u een poortbinding in de 'ApplicationManifest.xml'. De **PortBinding** beleid verwijst naar de **eindpunten** is gedefinieerd in de **ServiceManifest.xml** bestanden. Binnenkomende aanvragen naar deze eindpunten toegewezen aan de container-poorten die worden geopend en wordt begrensd hier. In de **ApplicationManifest.xml** bestand, voeg de volgende code om poort 80 en 6379 binden aan de eindpunten. Een volledige **ApplicationManifest.xml** is beschikbaar op het einde van dit document. 
+### <a name="map-container-ports-to-a-service"></a>Containerpoorten toewijzen aan een service
+Om de containers in het cluster beschikbaar te maken, moeten we ook een poortbinding maken in ApplicationManifest.xml. Het **PortBinding**-beleid verwijst naar de **Endpoints** die we hebben gedefinieerd in de **ServiceManifest.xml**-bestanden. Binnenkomende aanvragen voor deze eindpunten worden toegewezen aan de containerpoorten die hier worden geopend en gebonden. Voeg in het bestand **ApplicationManifest.xml** de volgende code toe om poort 80 en 6379 aan de eindpunten te binden. Aan het einde van dit document is een volledig **ApplicationManifest.xml**-bestand beschikbaar. 
   
 ```xml
 <ContainerHostPolicies CodePackageRef="Code">
@@ -189,7 +189,7 @@ Als u wilt weergeven van de containers in het cluster, moeten we ook maakt u een
 
 ### <a name="add-a-dns-name-to-the-backend-service"></a>Een DNS-naam toevoegen aan de back-endservice
   
-Voor Service Fabric deze DNS-naam toewijzen aan de back-endservice, de naam moet worden opgegeven de **ApplicationManifest.xml**. Voeg de **ServiceDnsName** kenmerk de **Service** element zoals wordt weergegeven: 
+Opdat Service Fabric deze DNS-naam kan toewijzen aan de back-endservice, moet de naam worden opgegeven in **ApplicationManifest.xml**. Voeg het kenmerk **ServiceDnsName** als volgt toe aan het **Service**-element: 
   
 ```xml
 <Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">
@@ -199,13 +199,13 @@ Voor Service Fabric deze DNS-naam toewijzen aan de back-endservice, de naam moet
 </Service>
 ```
 
-De frontend-service leest een omgevingsvariabele als u wilt weten van de DNS-naam van het Redis-exemplaar. Deze omgevingsvariabele is al gedefinieerd in de Dockerfile dat is gebruikt voor het genereren van de installatiekopie van het Docker en er is geen actie moet worden ondernomen hier.
+De frontend-service leest een omgevingsvariabele om achter de DNS-naam van het Redis-exemplaar te komen. Deze omgevingsvariabele is al gedefinieerd in de Dockerfile die is gebruikt om de Docker-installatiekopie te genereren, en er hoeft hier geen actie te worden ondernomen.
   
 ```Dockerfile
 ENV REDIS redisbackend.testapp
 ```
   
-Het volgende codefragment ziet u hoe de front-Python-code de omgevingsvariabele beschreven in de Dockerfile opneemt. Er is geen actie moet worden ondernomen hier. 
+Het volgende codefragment laat zien hoe de front-end-Python-code de in de Dockerfile beschreven omgevingsvariabele opneemt. Er hoeft hier geen actie te worden ondernomen. 
 
 ```python
 # Get DNS Name
@@ -215,40 +215,48 @@ redis_server = os.environ['REDIS']
 r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 ```
 
-Op dit moment in de zelfstudie is de sjabloon voor een pakket met Service-toepassing beschikbaar voor implementatie naar een cluster. In de volgende zelfstudie deze toepassing wordt geïmplementeerd en uitgevoerd in een Service Fabric-cluster.
+Op dit punt in de zelfstudie is de sjabloon voor een Service Package-toepassing beschikbaar voor implementatie naar een cluster. In de volgende zelfstudie wordt deze toepassing geïmplementeerd en uitgevoerd in een Service Fabric-cluster.
 
 ## <a name="create-a-service-fabric-cluster"></a>Een Service Fabric-cluster maken
-Gebruik uw eigen cluster of een cluster van derden om de toepassing te implementeren in een cluster in Azure.
+Maak uw eigen cluster om de toepassing te implementeren in een cluster in Azure.
 
-Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Deze wordt beheerd door het Service Fabric-team waar iedereen toepassingen implementeren en meer informatie over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
+Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Ze worden beheerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en informatie krijgen over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
+
+Als u beheerbewerkingen wilt uitvoeren op het beveiligde Party-cluster, kunt u gebruikmaken van Service Fabric Explorer, CLI of Powershell. Als u Service Fabric Explorer wilt gebruiken, moet u het PFX-bestand downloaden van de Party Cluster-website en het certificaat importeren in uw certificaatarchief (Windows of Mac) of in de browser zelf (Ubuntu). Er is geen wachtwoord voor de zelfondertekende certificaten van het Party-cluster. 
+
+Als u beheerbewerkingen wilt uitvoeren met Powershell of CLI, hebt u de PFX (Powershell) of PEM (CLI) nodig. Voer de volgende opdracht uit om de PFX te converteren naar een PEM-bestand:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Zie [Een Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) voor meer informatie over het maken van uw eigen cluster.
 
-## <a name="build-and-deploy-the-application-to-the-cluster"></a>Bouw en implementeer de toepassing aan het cluster
-De Azure-cluster met behulp van de Service Fabric-CLI kunt u de toepassing implementeren. Als Service Fabric CLI op uw computer niet is geïnstalleerd, voert u de instructies [hier](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) om deze te installeren. 
+## <a name="build-and-deploy-the-application-to-the-cluster"></a>De toepassing bouwen en implementeren in het cluster
+U kunt de toepassing implementeren in het Azure-cluster met behulp van de Service Fabric CLI. Als de Service Fabric CLI niet op uw computer is geïnstalleerd, volgt u de instructies [hier](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) om deze te installeren. 
 
-Maak verbinding met het Service Fabric-cluster in Azure. Het eindpunt van de tijdelijke aanduiding vervangt door uw eigen. Het eindpunt moet een volledige lijkt op de onderstaande URL.
+Maak verbinding met het Service Fabric-cluster in Azure. Vervang de plaatsaanduiding voor het eindpunt door uw eigen eindpunt. Het eindpunt moet een volledige URL zijn die lijkt op de onderstaande.
 
 ```bash
-sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
-Gebruik het script voor installatie is opgegeven in de **TestContainer** directory voor het kopiëren van het toepassingspakket naar het archief van de installatiekopie van het cluster, het toepassingstype registreren en geen exemplaar maken van de toepassing.
+Gebruik het installatiescript uit de **TestContainer**-directory om het toepassingspakket te kopiëren naar de installatiekopieopslag van het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
 
 ```bash
 ./install.sh
 ```
 
-Open een browser en Ga naar Service Fabric Explorer op http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Vouw het knooppunt toepassingen en houd er rekening mee dat er een vermelding voor het toepassingstype van uw en een andere voor het exemplaar.
+Open een browser en ga naar Service Fabric Explorer op http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Vouw het knooppunt Toepassingen uit. U ziet dat er een vermelding is voor uw toepassingstype en nog een voor het exemplaar.
 
 ![Service Fabric Explorer][sfx]
 
-Open een webbrowser om verbinding met de actieve toepassing, en Ga naar de url van het cluster - bijvoorbeeld http://lin0823ryf2he.cloudapp.azure.com:80. Hier ziet u de toepassing Voting in de web-UI.
+Om verbinding te maken met de actieve toepassing opent u een webbrowser en gaat u naar de cluster-URL: bijvoorbeeld http://lin0823ryf2he.cloudapp.azure.com:80. U ziet nu de stemtoepassing in de webgebruikersinterface.
 
-![votingapp][votingapp]
+![stemapp][votingapp]
 
 ## <a name="clean-up"></a>Opruimen
-Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingsexemplaar te verwijderen uit het cluster en de registratie van het toepassingstype op te heffen. Met deze opdracht neemt enige tijd opschonen van het exemplaar en de opdracht 'install.sh' onmiddellijk na dit script kan niet worden uitgevoerd. 
+Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingsexemplaar te verwijderen uit het cluster en de registratie van het toepassingstype op te heffen. Het duurt enige tijd om het exemplaar te wissen met deze opdracht, en de opdracht ‘install.sh’ mag niet onmiddellijk na dit script worden uitgevoerd. 
 
 ```bash
 ./uninstall.sh
@@ -292,7 +300,7 @@ Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingse
 </ApplicationManifest>
 ```
 
-### <a name="front-end-servicemanifestxml"></a>Front-ServiceManifest.xml 
+### <a name="front-end-servicemanifestxml"></a>Front-end ServiceManifest.xml 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotefrontPkg" Version="1.0.0"
@@ -326,7 +334,7 @@ Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingse
  </ServiceManifest>
 ```
 
-### <a name="redis-servicemanifestxml"></a>ServiceManifest.xml redis
+### <a name="redis-servicemanifestxml"></a>Redis ServiceManifest.xml
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotebackPkg" Version="1.0.0"
@@ -359,20 +367,20 @@ Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingse
 ```
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie zijn meerdere containers in een Service Fabric-toepassing met behulp van Yeoman verpakt. Deze toepassing is vervolgens geïmplementeerd en uitgevoerd op een Service Fabric-cluster. De volgende stappen zijn voltooid:
+In deze zelfstudie zijn meerdere containers verpakt in een Service Fabric-toepassing met behulp van Yeoman. Deze toepassing is vervolgens geïmplementeerd en uitgevoerd op een Service Fabric-cluster. De volgende stappen zijn voltooid:
 
 > [!div class="checklist"]
 > * Yeoman installeren  
-> * Maken van een toepassingspakket met Yeoman
+> * Een toepassingspakket maken met behulp van Yeoman
 > * Instellingen configureren in het toepassingspakket voor gebruik met containers
 > * De toepassing bouwen  
-> * Implementeren en uitvoeren van de toepassing 
-> * Opschonen van de toepassing
+> * De toepassing implementeren en uitvoeren 
+> * De toepassing opschonen
 
 Ga naar de volgende zelfstudie voor meer informatie over failover en schalen van de toepassing in Service Fabric.
 
 > [!div class="nextstepaction"]
-> [Meer informatie over failover en toepassingen vergroten/verkleinen](service-fabric-tutorial-containers-failover.md)
+> [Meer informatie over failover en schalen van toepassingen](service-fabric-tutorial-containers-failover.md)
 
 [votingapp]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
 [sfx]: ./media/service-fabric-tutorial-deploy-run-containers/containerspackagetutorialsfx.png

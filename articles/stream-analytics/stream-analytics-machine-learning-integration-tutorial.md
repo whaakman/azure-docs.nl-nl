@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Gevoel analyse uitvoeren met behulp van Azure Stream Analytics en Azure Machine Learning
 In dit artikel wordt beschreven hoe snel een eenvoudige Azure Stream Analytics-taak die Azure Machine Learning integreert instellen. U kunt een Machine Learning gevoel analytics-model van de Cortana Intelligence Gallery streaming tekstgegevens analyseren en te bepalen van de score gevoel in realtime. Met de Cortana Intelligence Suite kunt u deze taak uitvoeren zonder dat u de beschrijving van het bouwen van een gevoel analytics-model.
@@ -57,7 +57,7 @@ Op een hoog niveau voor het voltooien van de taken in dit artikel wordt uitgeleg
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Maken van een storage-container en upload het CSV-bestand voor invoer
 Voor deze stap kunt u een CSV-bestand, zoals beschikbaar is via GitHub.
 
-1. Klik in de Azure-portal op **nieuw** &gt; **opslag** &gt; **opslagaccount**.
+1. Klik in de Azure-portal op **maken van een resource** &gt; **opslag** &gt; **opslagaccount**.
 
    ![Nieuw opslagaccount maken](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -128,7 +128,7 @@ Nu kunt u een Stream Analytics-taak die de tweets voorbeeld van het CSV-bestand 
 
 1. Ga naar de [Azure Portal](https://portal.azure.com).  
 
-2. Klik op **nieuw** > **Internet der dingen** > **Stream Analytics-taak**. 
+2. Klik op **maken van een resource** > **Internet der dingen** > **Stream Analytics-taak**. 
 
    ![Azure portal pad voor het ophalen van een nieuwe Stream Analytics-taak](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
    

@@ -4,7 +4,7 @@ description: Dit onderwerp wordt beschreven hoe Azure storage voor VM's van SQL 
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 7d076b970481b68d9c352d54f3452b8e222f5c64
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 21c8b955d48da03559097db93b2cb66029a203ec
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuratie van de opslag voor virtuele machines van SQL Server
 Wanneer u de installatiekopie van een SQL Server-virtuele machine in Azure configureert, kunt u de Portal de opslagconfiguratie automatiseren. Dit omvat het toevoegen van opslag aan de virtuele machine, zodat de opslag die toegankelijk is voor SQL Server en te configureren om te optimaliseren voor uw specifieke vereisten.
@@ -37,7 +37,7 @@ Voor het gebruik van de configuratie-instellingen voor automatische opslag, moet
 ## <a name="new-vms"></a>Nieuwe virtuele machines
 De volgende secties wordt beschreven hoe u opslag voor de nieuwe virtuele machines van de SQL Server configureert.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portal
 Bij het inrichten van een virtuele machine met de installatiekopie van een SQL Server-galerie van Azure, kunt u automatisch configureren van de opslag voor uw nieuwe virtuele machine. U opgeven de grootte van de opslagruimte, prestatielimieten en type werkbelasting. De volgende schermafbeelding ziet de opslag configuratie blade die wordt gebruikt tijdens SQL VM-inrichting.
 
 ![SQL Server VM-opslag-configuratie tijdens het inrichten](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
@@ -132,7 +132,7 @@ De volgende tabel beschrijft de werkbelasting van de drie opties beschikbaar en 
 
 | Type werkbelasting | Beschrijving | Optimalisaties |
 | --- | --- | --- |
-| **Algemeen** |Standaardinstelling die ondersteuning biedt voor de meeste werkbelastingen |Geen |
+| Algemeen |Standaardinstelling die ondersteuning biedt voor de meeste werkbelastingen |None |
 | **Transactionele verwerking** |Optimaliseert de opslag voor OLTP-workloads van traditionele databases |Traceringsvlag 1117<br/>Traceringsvlag 1118 |
 | **Gegevensopslag** |Optimaliseert de opslag voor analyse- en rapportageworkloads |Traceringsvlag 610<br/>Traceringsvlag 1117 |
 

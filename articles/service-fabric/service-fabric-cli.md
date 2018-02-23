@@ -8,11 +8,11 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 10/20/2017
 ms.author: edwardsa
-ms.openlocfilehash: d24c7618c5d53cfe2871d596bfc0fe2cadd5940a
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 3d7c79e00d2b41669296d08250cb73434000cbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric-CLI
 
@@ -107,6 +107,19 @@ Als de installatie op Windows-subsysteem voor Linux mislukt vanwege onjuiste map
 ```bash
 sudo pip3 install sfctl
 ```
+
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (ondersteuning voor Service Fabric-preview)
+
+Voer de volgende opdrachten uit om Service Fabric-CLI op Redhat te installeren:
+
+```bash
+sudo yum install -y python34
+sudo yum install python34-setuptools
+sudo easy_install-3.4 pip
+sudo pip3 install sfctl
+```
+
+U kunt de stappen in het gedeelte **Ubuntu en Windows-subsysteem voor Linux** volgen om de installatie te testen
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS

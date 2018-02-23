@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Exchange AS2-berichten voor enterprise-integratie met logic apps
 
@@ -40,12 +40,12 @@ Nadat u [maken van een account integratie](../logic-apps/logic-apps-enterprise-i
 
 1.  Meld u aan bij [Azure Portal](http://portal.azure.com "Azure Portal").  
 
-2.  Selecteer in het menu links **meer services**. Voer in het zoekvak **integratie** als filter. Selecteer in de lijst met resultaten **Integratieaccounts**.
+2.  Selecteer in het menu links **alle services**. Voer in het zoekvak **integratie** als filter. Selecteer in de lijst met resultaten **Integratieaccounts**.
 
     > [!TIP]
-    > Als er geen **meer services**, mogelijk moet u eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **weergeven in het menu**.
+    > Als er geen **alle services**, mogelijk moet u eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **weergeven in het menu**.
 
-    ![Meer services, filter op "-integratie", selecteren "Integratieaccounts"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+    ![Alle services, filter op "-integratie", selecteren "Integratieaccounts"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. In de **Integratieaccounts** blade die wordt geopend, selecteert u de integratie-account waarin u wilt maken van de overeenkomst.
 Als er geen eventuele integratieaccounts [maken van een eerste](../logic-apps/logic-apps-enterprise-integration-accounts.md "alles over integratieaccounts").  
@@ -68,12 +68,12 @@ Als er geen eventuele integratieaccounts [maken van een eerste](../logic-apps/lo
     | --- | --- |
     | Naam |Naam van de overeenkomst |
     | Type licentieovereenkomst | AS2 moet |
-    | Host-Partner |Een overeenkomst moet een host en de Gast-partner. De host-partner vertegenwoordigt de organisatie die de overeenkomst configureert. |
-    | Identiteit van de host |Een id voor de host-partner |
-    | Gast Partner |Een overeenkomst moet een host en de Gast-partner. De Gast-partner vertegenwoordigt de organisatie die bedrijven gebruiken met de partner host doet. |
-    | Identiteit van de Gast |Een id voor de Gast-partner |
-    | Instellingen te ontvangen |Deze eigenschappen zijn van toepassing op alle berichten ontvangen door een overeenkomst. |
-    | Instellingen verzenden |Deze eigenschappen zijn van toepassing op alle berichten is verzonden door een overeenkomst. |
+    | Hostpartner |Een overeenkomst moet een host en de Gast-partner. De host-partner vertegenwoordigt de organisatie die de overeenkomst configureert. |
+    | Hostidentiteit |Een id voor de host-partner |
+    | Gastpartner |Een overeenkomst moet een host en de Gast-partner. De Gast-partner vertegenwoordigt de organisatie die bedrijven gebruiken met de partner host doet. |
+    | Gastidentiteit |Een id voor de Gast-partner |
+    | Ontvangstinstellingen |Deze eigenschappen zijn van toepassing op alle berichten ontvangen door een overeenkomst. |
+    | Verzendinstellingen |Deze eigenschappen zijn van toepassing op alle berichten is verzonden door een overeenkomst. |
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Configureren hoe uw ingangen overeenkomst berichten ontvangen
 
@@ -104,11 +104,11 @@ Uw overeenkomst is nu gereed voor het verwerken van inkomende berichten die aan 
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| Berichteigenschappen van het overschrijven |Hiermee wordt aangegeven dat eigenschappen ontvangen berichten kunnen worden genegeerd. |
-| Bericht moet worden ondertekend. |Vereist berichten digitaal worden ondertekend. Configureer het openbare certificaat van Gast partner voor handtekeningverificatie.  |
-| Bericht moet worden versleuteld. |Vereist berichten te versleutelen. Niet-versleutelde berichten worden geweigerd. Configureer het persoonlijke host partner-certificaat voor het ontsleutelen van berichten.  |
-| Bericht moet worden gecomprimeerd |Vereist berichten moeten worden gecomprimeerd. Niet-gecomprimeerde berichten worden geweigerd. |
-| MDN tekst |De standaard disposition melding (MDN) worden verzonden naar de afzender. |
+| Berichteigenschappen negeren |Hiermee wordt aangegeven dat eigenschappen ontvangen berichten kunnen worden genegeerd. |
+| Het bericht moet ondertekend zijn |Vereist berichten digitaal worden ondertekend. Configureer het openbare certificaat van Gast partner voor handtekeningverificatie.  |
+| Het bericht moet worden versleuteld |Vereist berichten te versleutelen. Niet-versleutelde berichten worden geweigerd. Configureer het persoonlijke host partner-certificaat voor het ontsleutelen van berichten.  |
+| Het bericht moet worden gecomprimeerd |Vereist berichten moeten worden gecomprimeerd. Niet-gecomprimeerde berichten worden geweigerd. |
+| MDN-tekst |De standaard disposition melding (MDN) worden verzonden naar de afzender. |
 | MDN verzenden |Vereist MDNs worden verzonden. |
 | Ondertekende MDN verzenden |Vereist MDNs zijn ondertekend. |
 | MIC-algoritme |Selecteer het algoritme moet worden gebruikt voor het ondertekenen van berichten. |
@@ -149,17 +149,17 @@ Uw overeenkomst is nu gereed voor het verwerken van uitgaande berichten die aan 
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| Ondertekenen van berichten inschakelen |Vereist dat alle berichten die zijn verzonden vanaf de overeenkomst moet worden ondertekend. |
+| Berichtondertekening inschakelen |Vereist dat alle berichten die zijn verzonden vanaf de overeenkomst moet worden ondertekend. |
 | MIC-algoritme |Het algoritme moet worden gebruikt voor het ondertekenen van berichten. Hiermee configureert u de host partner persoonlijk certificaat MIC-algoritme voor het ondertekenen van berichten. |
 | Certificaat |Selecteer het certificaat moet worden gebruikt voor het ondertekenen van berichten. Hiermee configureert u de host partner persoonlijk certificaat voor ondertekening van de berichten. |
-| Berichtcodering inschakelen |Versleuteling van alle berichten die worden verzonden vanuit deze overeenkomst is vereist. Hiermee configureert u het algoritme Gast partner openbaar certificaat te gebruiken voor het versleutelen van berichten. |
+| Berichtversleuteling inschakelen |Versleuteling van alle berichten die worden verzonden vanuit deze overeenkomst is vereist. Hiermee configureert u het algoritme Gast partner openbaar certificaat te gebruiken voor het versleutelen van berichten. |
 | Versleutelingsalgoritme |Het versleutelingsalgoritme voor berichtversleuteling. Hiermee configureert u de partner Gast openbaar certificaat voor het versleutelen van berichten. |
 | Certificaat |Het certificaat moet worden gebruikt om berichten te versleutelen. Hiermee configureert u de partner Gast persoonlijk certificaat voor het versleutelen van berichten. |
-| Bericht compressie inschakelen |Compressie van alle berichten die worden verzonden vanuit deze overeenkomst is vereist. |
-| HTTP-headers uitgevouwen |De HTTP-inhoudstype-header op één regel plaatst. |
-| Aanvraag MDN |Vereist een MDN voor alle berichten die van deze overeenkomst worden verzonden. |
-| Aanvraag MDN ondertekend |Vereist dat alle MDNs die worden verzonden naar deze overeenkomst worden ondertekend. |
-| Asynchrone MDN aanvraag |Asynchrone MDNs worden verzonden naar deze overeenkomst is vereist. |
+| Berichtcompressie inschakelen |Compressie van alle berichten die worden verzonden vanuit deze overeenkomst is vereist. |
+| HTTP-headers uitvouwen |De HTTP-inhoudstype-header op één regel plaatst. |
+| MDN aanvragen |Vereist een MDN voor alle berichten die van deze overeenkomst worden verzonden. |
+| Ondertekende MDN aanvragen |Vereist dat alle MDNs die worden verzonden naar deze overeenkomst worden ondertekend. |
+| Asynchrone MDN aanvragen |Asynchrone MDNs worden verzonden naar deze overeenkomst is vereist. |
 | URL |Geef de URL waar de MDNs. |
 | NRR inschakelen |Niet-afwijzing van ontvangst (NRR), een communicatiekenmerk dat bewijst vereist dat de gegevens zijn geadresseerd ontvangen. |
 | Indeling van het SHA2-algoritme |Selecteer algoritme indeling in de MIC of de uitgaande kopteksten aan het AS2-bericht of MDN aanmelden |

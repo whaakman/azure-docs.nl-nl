@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Routes met behulp van de Azure Portal oplossen
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Terwijl het voorbeeld alleen de systeemroutes van het wordt, kunnen dezelfde sta
 Overzicht van de cumulatieve routes die worden toegepast op een virtuele machine, moet u de volgende stappen uitvoeren:
 
 1. Meld u aan bij de Azure portal op https://portal.azure.com. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. Klik op **meer services**, klikt u vervolgens op **virtuele machines** in de lijst die wordt weergegeven.
+2. Klik op **alle services**, klikt u vervolgens op **virtuele machines** in de lijst die wordt weergegeven.
 3. Selecteer een virtuele machine om op te lossen in de lijst die wordt weergegeven en een VM-blade met opties wordt weergegeven.
 4. Klik op **spoor & oplossen van problemen met** en selecteer vervolgens een veelvoorkomend probleem. In dit voorbeeld **ik kan geen verbinding maken met mijn Windows-VM** is geselecteerd.
 
@@ -97,7 +97,7 @@ Lees voor meer probleemoplossing scenario's voor evaluatie van geforceerde tunne
 Als het netwerkverkeer is van invloed op voor een bepaalde netwerkinterface (NIC), kunt u een volledige lijst van effectieve routes rechtstreeks op een Netwerkinterfacekaart weergeven. Overzicht van de cumulatieve routes die worden toegepast op een NIC, moet u de volgende stappen uitvoeren:
 
 1. Meld u aan bij de Azure portal op https://portal.azure.com.
-2. Klik op **meer services**, klikt u vervolgens op **netwerkinterfaces**
+2. Klik op **alle services**, klikt u vervolgens op **netwerkinterfaces**
 3. Zoek in de lijst voor de naam van een NIC of Selecteer deze in de lijst die wordt weergegeven. In dit voorbeeld **VM1 NIC1** is geselecteerd.
 4. Selecteer **effectieve routes** in de **netwerkinterface** blade, zoals wordt weergegeven in de volgende afbeelding:
 
@@ -117,7 +117,7 @@ Bijvoorbeeld, een UDR (*UDRoute*) is opgegeven in een routetabel (*UDRouteTable*
 Overzicht van de cumulatieve routes voor een routetabel, moet u de volgende stappen uitvoeren:
 
 1. Meld u aan bij de Azure portal op https://portal.azure.com.
-2. Klik op **meer services**, klikt u vervolgens op **routetabellen**
+2. Klik op **alle services**, klikt u vervolgens op **routetabellen**
 3. Zoek in de lijst voor de routetabel die u wilt cumulatieve routes voor bekijken en deze te selecteren. In dit voorbeeld **UDRouteTable** is geselecteerd. Een blade voor de geselecteerde routetabel wordt weergegeven, zoals wordt weergegeven in de volgende afbeelding:
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image9.png)

@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: gwallace
-ms.openlocfilehash: 69a509612e6204fc93dd42bf2fe69cb165b5777c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cfb1debf9447cd66856b73166a133d5d498fcc79
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>DNS-Zones beheren in de Azure portal
 
@@ -31,7 +31,7 @@ In dit artikel laat zien hoe uw DNS-zones beheren met behulp van de Azure-portal
 ## <a name="create-a-dns-zone"></a>Een DNS-zone maken
 
 1. Aanmelden bij Azure Portal
-2. Klik in het menu Hub en klik op **Nieuw > Netwerken >** en klik vervolgens op **DNS-zone** om de blade DNS-zone maken te openen.
+2. Klik in het menu Hub en op **maken van een resource > netwerken >** en klik vervolgens op **DNS-zone** om het maken van DNS-zone-blade te openen.
 
     ![DNS-zone](./media/dns-operations-dnszones-portal/openzone650.png)
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9ce834e1eea8202f026a859c85067faef7ab7e0f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4aee1b0ded7a26df802ca2f05d6e93c153fa0476
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Een Windows Service Fabric-cluster implementeren in een virtueel Azure-netwerk
 Deze zelfstudie is deel één van een serie. U leert hoe u een Service Fabric-cluster met Windows in een [virtueel Azure-netwerk (VNET)](../virtual-network/virtual-networks-overview.md) en een [netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md) implementeert met behulp van PowerShell en een sjabloon. Wanneer u klaar bent, wordt er in de cloud een cluster uitgevoerd waarin u toepassingen kunt implementeren.  Zie [Een beveiligd Linux-cluster maken in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) als u een Linux-cluster wilt maken met behulp van Azure CLI.
@@ -36,7 +36,7 @@ In deze zelfstudie leert u het volgende:
 > * Verbinding maken met het cluster met behulp van PowerShell
 > * Een cluster verwijderen
 
-In deze serie zelfstudies leert u het volgende:
+In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
 > * Een beveiligd cluster maken in Azure
 > * [Een cluster in- of uitschalen](/service-fabric-tutorial-scale-cluster.md)
@@ -49,28 +49,28 @@ Voor u met deze zelfstudie begint:
 - Installeer de [Service Fabric SDK en PowerShell-module](service-fabric-get-started.md)
 - Installeer de [Azure Powershell-module, versie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 
-Met de volgende procedures wordt er een Service Fabric-cluster met vijf knooppunten gemaakt. Gebruik de [Azure Prijscalculator](https://azure.microsoft.com/pricing/calculator/) om de kosten te berekenen voor de uitvoering van een Service Fabric-cluster in Azure.
+Met de volgende procedures wordt er een Service Fabric-cluster met vijf knooppunten gemaakt. Gebruik de [Azure-prijscalculator](https://azure.microsoft.com/pricing/calculator/) om de kosten te berekenen voor het uitvoeren van een Service Fabric-cluster in Azure.
 
 ## <a name="key-concepts"></a>Belangrijkste concepten
 Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Clusters kunnen naar duizenden machines worden geschaald. Een machine of VM die onderdeel uitmaakt van een cluster, heet een knooppunt. Aan elk knooppunt wordt een knooppuntnaam toegewezen (een tekenreeks). Knooppunten hebben kenmerken zoals plaatsingseigenschappen.
 
-Het knooppunttype bepaalt de grootte, het aantal en de eigenschappen voor een set virtuele machines in het cluster. Elk gedefinieerd knooppunttype wordt ingesteld als een [virtuele-machineschaalset](/azure/virtual-machine-scale-sets/), een Azure-rekenresource die u gebruikt om een verzameling virtuele machines als set te implementeren en beheren. Elk knooppunttype kan dan onafhankelijk omhoog of omlaag worden geschaald, verschillende sets open poorten hebben en verschillende capaciteitsstatistieken hebben. Knooppunttypen worden gebruikt voor het definiëren van rollen voor een set clusterknooppunten, zoals "front-end" of "back-end".  Uw cluster kan meer dan één knooppunttype hebben, maar het primaire knooppunttype moet ten minste vijf VM's hebben voor productieclusters (of ten minste drie VM's voor testclusters).  [Service Fabric-systeemservices](service-fabric-technical-overview.md#system-services) worden op de knooppunten van het primaire knooppunttype geplaatst.
+Het knooppunttype bepaalt de grootte, het aantal en de eigenschappen van een set virtuele machines in het cluster. Elk gedefinieerd knooppunttype is ingesteld als een [virtuele-machineschaalset](/azure/virtual-machine-scale-sets/), een Azure-rekenresource die u gebruikt om een verzameling virtuele machines als set te implementeren en te beheren. Elk knooppunttype kan dan onafhankelijk omhoog of omlaag worden geschaald, verschillende open poorten bevatten en diverse capaciteitsstatistieken hebben. Knooppunttypen worden gebruikt voor het definiëren van rollen voor een set clusterknooppunten, zoals 'front-end' of 'back-end'.  Uw cluster kan meer dan één knooppunttype hebben, maar voor productieclusters moet het primaire knooppunttype ten minste vijf VM's bevatten (of ten minste drie VM's voor testclusters).  [Service Fabric-systeemservices](service-fabric-technical-overview.md#system-services) worden op de knooppunten van het primaire knooppunttype geplaatst.
 
-Het cluster wordt beveiligd met een clustercertificaat. Een clustercertificaat is een X.509-certificaat dat wordt gebruikt om communicatie tussen knooppunten te beveiligen en om eindpunten voor clusterbeheer aan een beheerclient toe te wijzen.  Het clustercertificaat biedt ook een SSL voor de API voor HTTPS-beheer en voor Service Fabric Explorer via HTTPS. Zelf-ondertekende certificaten zijn handig voor testclusters.  Gebruik voor productieclusters een certificaat van een certificeringsinstantie (CA) als clustercertificaat.
+Het cluster wordt beveiligd met een clustercertificaat. Een clustercertificaat is een X.509-certificaat dat wordt gebruikt om de communicatie tussen knooppunten te beveiligen en om eindpunten voor clusterbeheer aan een beheerclient toe te wijzen.  Het clustercertificaat biedt ook een SSL voor de API voor HTTPS-beheer en voor Service Fabric Explorer via HTTPS. Zelfondertekende certificaten zijn handig voor testclusters.  Gebruik voor productieclusters een certificaat van een certificeringsinstantie (CA) als clustercertificaat.
 
 Het clustercertificaat moet:
 
-- een persoonlijke sleutel bevatten.
-- gemaakt worden voor sleuteluitwisseling, exporteerbaar naar een Personal Information Exchange-bestand (.pfx).
-- een onderwerpnaam hebben die overeenkomt met het domein dat u gebruikt voor toegang tot het Service Fabric-cluster. Deze overeenkomst is vereist om de eindpunten van het HTTPS-beheer van het cluster en Service Fabric Explorer te voorzien van SSL. U kunt geen SSL-certificaat van een certificeringsinstantie (CA) krijgen voor het domein .cloudapp.azure.com. U hebt een aangepaste domeinnaam nodig voor uw cluster. Wanneer u een certificaat van een CA aanvraagt, moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam die u gebruikt voor uw cluster.
+- een persoonlijke sleutel bevatten,
+- gemaakt worden voor sleuteluitwisseling, exporteerbaar naar een Personal Information Exchange-bestand (.pfx),
+- een onderwerpnaam hebben die overeenkomt met het domein dat u gebruikt voor toegang tot het Service Fabric-cluster. Deze overeenkomst is vereist om de eindpunten van het HTTPS-beheer van het cluster en Service Fabric Explorer te voorzien van SSL. U kunt geen SSL-certificaat van een certificeringsinstantie (CA) krijgen voor het domein .cloudapp.azure.com. U hebt voor uw cluster een aangepaste domeinnaam nodig. Wanneer u een certificaat van een CA aanvraagt, moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam die u voor uw cluster gebruikt.
 
-Azure Key Vault wordt gebruikt om certificaten voor Service Fabric-clusters in Azure te beheren.  Wanneer een cluster in Azure wordt geïmplementeerd, haalt de Azure-resourceprovider die verantwoordelijk is voor het maken van Service Fabric-clusters, certificaten op uit de Key Vault en installeert deze op de cluster-VM's.
+Azure Key Vault wordt gebruikt om certificaten voor Service Fabric-clusters in Azure te beheren.  Wanneer een cluster in Azure is geïmplementeerd, is de Azure-resourceprovider verantwoordelijk voor het maken van Service Fabric-clusters die certificaten ophalen uit Key Vault en installeren op de cluster-VM's.
 
-In deze zelfstudie wordt een cluster met vijf knooppunten van één knooppunttype geïmplementeerd. Voor een implementatie van een productiecluster is [capaciteitsplanning](service-fabric-cluster-capacity.md) echter van groot belang. Hier volgen enkele dingen om te overwegen als onderdeel van dat proces.
+In deze zelfstudie wordt een cluster met vijf knooppunten van één knooppunttype geïmplementeerd. Voor een implementatie van een productiecluster is [capaciteitsplanning](service-fabric-cluster-capacity.md) echter van groot belang. Hier volgen enkele aandachtspunten voor dat proces.
 
-- Het aantal knooppunten en knooppunttypen dat nodig is voor uw cluster 
+- Het aantal knooppunten en knooppunttypen dat uw cluster nodig heeft 
 - De eigenschappen van elk knooppunttype (bijvoorbeeld grootte, primair knooppunt, internetverbinding en het aantal VM's)
-- De betrouwbaarheids- en duurzaamheidskenmerken van het cluster
+- De betrouwbaarheid en duurzaamheid van de clusterkenmerken
 
 ## <a name="download-and-explore-the-template"></a>De sjabloon downloaden en verkennen
 Download de volgende Resource Manager-sjabloonbestanden:
@@ -87,15 +87,15 @@ Er wordt een Windows-cluster geïmplementeerd met de volgende kenmerken:
 - beveiligd met een certificaat (configureerbaar in de sjabloonparameters)
 - [omgekeerde proxy](service-fabric-reverseproxy.md) is ingeschakeld
 - [DNS-service](service-fabric-dnsservice.md) is ingeschakeld
-- Een bronzen [duurzaamheidsniveau](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (configureerbaar in de sjabloonparameters)
-- Een zilveren [betrouwbaarheidsniveau](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (configureerbaar in de sjabloonparameters)
+- een bronzen [duurzaamheidsniveau](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (configureerbaar in de sjabloonparameters)
+- een zilveren [betrouwbaarheidsniveau](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (configureerbaar in de sjabloonparameters)
 - eindpunt van de clientverbinding: 19000 (configureerbaar in de sjabloonparameters)
 - eindpunt van de HTTP-gateway: 19080 (configureerbaar in de sjabloonparameters)
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 Er wordt een load balancer geïmplementeerd en er worden tests en regels ingesteld voor de volgende poorten:
-- eindpunt van de clientverbinding: 19000
-- eindpunt van de HTTP-gateway: 19080 
+- het eindpunt van de clientverbinding: 19000
+- het eindpunt van de HTTP-gateway: 19080 
 - toepassingspoort: 80
 - toepassingspoort: 443
 - omgekeerde proxy van Service Fabric: 19081
@@ -103,24 +103,24 @@ Er wordt een load balancer geïmplementeerd en er worden tests en regels ingeste
 Als er andere toepassingspoorten nodig zijn, moet u de bron Microsoft.Network/loadBalancers en de bron Microsoft.Network/networkSecurityGroups zo wijzigen dat verkeer kan binnenkomen.
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>Virtueel netwerk, subnet en netwerkbeveiligingsgroep
-De namen van het virtuele netwerk, het subnet en de netwerkbeveiligingsgroep worden gedefinieerd in de sjabloonparameters.  De adresruimten van het virtuele netwerk en het subnet worden ook gedefinieerd in de sjabloonparameters:
+De namen van het virtuele netwerk, het subnet en de netwerkbeveiligingsgroep zijn gedefinieerd in de sjabloonparameters.  De adresruimten van het virtuele netwerk en het subnet worden ook gedefinieerd in de sjabloonparameters:
 - adresruimte van virtueel netwerk: 172.16.0.0/20
 - Service Fabric-subnetadresruimte: 172.16.2.0/23
 
 De volgende regels voor binnenkomend verkeer worden ingeschakeld in de netwerkbeveiligingsgroep. U kunt de poortwaarden wijzigen door de sjabloonvariabelen te wijzigen.
 - ClientConnectionEndpoint (TCP): 19000
 - HttpGatewayEndpoint (HTTP/TCP): 19080
-- SMB : 445
-- Internodecommunication - 1025, 1026, 1027
-- Tijdelijk poortbereik – 49152 tot 65534 (minimaal 256 poorten vereist)
+- SMB: 445
+- Internodecommunication: 1025, 1026, 1027
+- Bereik kortstondige poorten: 49152 tot 65534 (minimaal 256 poorten vereist)
 - Poorten voor toepassingsgebruik: 80 en 443
-- Toepassingspoortbereik – 49152 tot 65534 (gebruikt voor communicatie tussen services en worden niet geopend in de Load balancer)
+- Bereik toepassingspoorten: 49152 tot 65534 (deze worden gebruikt voor communicatie tussen services en niet geopend in de load balancer)
 - Blokkeer alle andere poorten
 
-Als er andere toepassingspoorten nodig zijn, moet u de bron Microsoft.Network/loadBalancers en de bron Microsoft.Network/networkSecurityGroups zo wijzigen dat verkeer kan binnenkomen.
+Als er andere toepassingspoorten nodig zijn, moet u de resource Microsoft.Network/loadBalancers en de resource Microsoft.Network/networkSecurityGroups zo wijzigen dat inkomend verkeer is toegestaan.
 
 ## <a name="set-template-parameters"></a>De sjabloonparameters instellen
-Het parameterbestand [vnet-cluster.parameters.json][parameters] bepaalt veel waarden die worden gebruikt om het cluster en de bijbehorende bronnen te implementeren. Een aantal van de parameters die u mogelijk moet wijzigen voor uw implementatie:
+Het parameterbestand [vnet-cluster.parameters.json][parameters] bepaalt veel waarden die worden gebruikt om het cluster en de bijbehorende resources te implementeren. Enkele van de parameters die u mogelijk moet wijzigen voor uw implementatie:
 
 |Parameter|Voorbeeldwaarde|Opmerkingen|
 |---|---||
@@ -129,8 +129,8 @@ Het parameterbestand [vnet-cluster.parameters.json][parameters] bepaalt veel waa
 |clusterName|mysfcluster123| De naam van het cluster. |
 |location|southcentralus| De locatie van het cluster. |
 |certificateThumbprint|| <p>De waarde moet leeg zijn als u een zelfondertekend certificaat maakt of als u een certificaatbestand opgeeft.</p><p>Als u een bestaand certificaat wilt gebruiken dat u eerder hebt geüpload naar een sleutelkluis, vult u de waarde van de certificaatvingerafdruk in. Bijvoorbeeld "6190390162C988701DB5676EB81083EA608DCCF3"</p>. | 
-|certificateUrlValue|| <p>De waarde moet leeg zijn als u een zelfondertekend certificaat maakt of als u een certificaatbestand opgeeft. </p><p>Als u een bestaand certificaat wilt gebruiken dat u eerder hebt geüpload naar een sleutelkluis, vult u de URL van het certificaat in. Bijvoorbeeld "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
-|sourceVaultValue||<p>De waarde moet leeg zijn als u een zelfondertekend certificaat maakt of als u een certificaatbestand opgeeft.</p><p>Als u een bestaand certificaat wilt gebruiken dat u eerder hebt geüpload naar een sleutelkluis, vult u de waarde van de bronkluis in. Bijvoorbeeld "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
+|certificateUrlValue|| <p>De waarde moet leeg zijn als u een zelfondertekend certificaat maakt of als u een certificaatbestand opgeeft. </p><p>Als u een bestaand certificaat wilt gebruiken dat u eerder hebt geüpload naar een sleutelkluis, vult u de URL van het certificaat in. Bijvoorbeeld https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346.</p>|
+|sourceVaultValue||<p>De waarde moet leeg zijn als u een zelfondertekend certificaat maakt of als u een certificaatbestand opgeeft.</p><p>Als u een bestaand certificaat wilt gebruiken dat u eerder hebt geüpload naar een sleutelkluis, vult u de waarde van de bronkluis in. Bijvoorbeeld /subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT.</p>|
 
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Gegevens wetenschappelijke virtuele Machine gegevens opname hulpprogramma 's
 
@@ -35,7 +35,7 @@ Hier volgen enkele we hebt opgegeven op de DSVM verkeer hulpprogramma's.
 | Ondersteunde DSVM versies      | Windows      |
 | Doorgaans worden gebruikt      | Meerdere blobs van Azure storage te importeren in Azure Data Lake Store.      |
 |  Hoe gebruik / uitvoeren?    |   Open een opdrachtprompt, typ `adlcopy` om hulp te krijgen.    |
-| Koppelingen naar voorbeelden      | [Gebruikt AdlCopy] https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Koppelingen naar voorbeelden      | [Using AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Bijbehorende hulpprogramma's op de DSVM      | AzCopy, Azure vanaf de opdrachtregel     |
 
 ## <a name="azure-command-line"></a>Azure vanaf de opdrachtregel
@@ -74,7 +74,7 @@ Hier volgen enkele we hebt opgegeven op de DSVM verkeer hulpprogramma's.
 | Bijbehorende hulpprogramma's op de DSVM      | AzCopy, AdlCopy      |
 
 
-## <a name="bcp"></a>bcp
+## <a name="bcp"></a>BCP
 
 |    |           |
 | ------------- | ------------- |
@@ -84,6 +84,17 @@ Hier volgen enkele we hebt opgegeven op de DSVM verkeer hulpprogramma's.
 |  Hoe gebruik / uitvoeren?    |   Open een opdrachtprompt, typ `bcp` om hulp te krijgen.    |
 | Koppelingen naar voorbeelden      | [Hulpprogramma voor bulksgewijs kopiëren](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Bijbehorende hulpprogramma's op de DSVM      | SQL Server, sqlcmd      |
+
+## <a name="blobfuse"></a>blobfuse
+
+|    |           |
+| ------------- | ------------- |
+| Wat is het?   | Een hulpprogramma voor het koppelen van een Azure blob-container in het bestandssysteem van Linux.      |
+| Ondersteunde DSVM versies      | Linux      |
+| Doorgaans worden gebruikt      | Lezen en schrijven naar de blobs in een container      |
+|  Hoe gebruik / uitvoeren?    |   Voer _blobfuse_ op een terminal.    |
+| Koppelingen naar voorbeelden      | [blobfuse on GitHub)[https://github.com/Azure/azure-storage-fuse]      |
+| Bijbehorende hulpprogramma's op de DSVM      | Azure vanaf de opdrachtregel      |
 
 
 ## <a name="microsoft-data-management-gateway"></a>Microsoft Data Management Gateway

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
+ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: aa1ac804c9cd623e5fb03c97a38f9352ac8a42ad
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Service-eindpunten voor virtueel netwerk
 
@@ -28,7 +28,8 @@ Met service-eindpunten van Virtual Network (VNet) kunt u de privé-adresruimte v
 Deze functie is beschikbaar voor de volgende Azure-services en regio's:
 
 - **Azure Storage**: algemeen verkrijgbaar. Alle regio's in de openbare cloud van Azure en Azure Government.
-- **Azure SQL**: preview. Alle regio's in de openbare cloud van Azure.
+- **Azure SQL Database**: algemeen verkrijgbaar in alle Azure-regio's. 
+- **Azure SQL Datawarehouse**: preview. Alle regio's in de openbare cloud van Azure.
 
 Voor recente updates over de preview kijkt u op de pagina [Azure Virtual Network Updates](https://azure.microsoft.com/updates/?product=virtual-network) (Updates voor Azure Virtual Network).
 

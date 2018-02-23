@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Ontdek de mogelijkheden van de vooraf geconfigureerde oplossing voor externe controle
 
@@ -31,6 +31,7 @@ In deze zelfstudie leert u het volgende:
 > * Reageren op een waarschuwing wordt gegeven
 > * Werk de firmware in uw apparaten
 > * Uw assets ordenen
+> * Stoppen en starten van de gesimuleerde apparaten
 
 De volgende video ziet u een overzicht van de oplossing voor externe controle:
 
@@ -230,6 +231,16 @@ U kunt de tagwaarden gebruiken om filters te maken.
 
 De Contoso-operator kunt nu een query uitvoeren op basis van het operationele team zonder te hoeven wijzigen op de apparaten niets apparaten.
 
+## <a name="stop-simulated-devices"></a>Gesimuleerde apparaten stoppen
+
+Stoppen van de gesimuleerde apparaten kunt u het menu instellingen. Dit helpt de kosten van testen en verkennen van de oplossing te verlagen. Starten of stoppen van de gesimuleerde apparaten:
+
+1. Kies de **instellingen** pictogram.
+
+1. Klik in-of uitschakelen **met** in- of uitschakelen:
+
+    ![Menu Instellingen](media/iot-suite-remote-monitoring-explore/settings.png)
+
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u geleerd:
@@ -239,6 +250,7 @@ In deze zelfstudie hebt u geleerd:
 > * Reageren op een waarschuwing wordt gegeven
 > * Werk de firmware in uw apparaten
 > * Uw assets ordenen
+> * Stoppen en starten van de gesimuleerde apparaten
 
 Nu dat u hebt de oplossing voor externe controle verkend, zijn de voorgestelde volgende stappen uit voor meer informatie over de geavanceerde functies van de oplossing voor externe controle:
 

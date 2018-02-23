@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 83d23323f050f670680499ecb428c07c94096418
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Standaard-gebruikersmachtigingen in Azure Active Directory
 
@@ -59,7 +59,7 @@ Mogelijkheid om te registreren (maken) toepassingen | Deze optie instelt op Nee,
 Beheerders en gebruikers in de rol van Gast uitnodiging antwoorden kunnen uitnodigen gasten | Deze optie instelt op Nee voorkomt dat alle gebruikers uitnodigen gasten. Zie de standaardmachtigingen voor gebruikers configureren. Zie voor meer informatie [Apps, machtigingen en toestemming in Azure Active Directory](active-directory-apps-permissions-consent.md).
 Leden kunnen uitnodigen gasten | In te stellen op no voorkomt dat gebruikers uitnodigen gasten. Globale beheerders, gebruiker accountbeheerders en Gast Inviters is nog steeds mogelijk om uit te nodigen gasten. Zie voor meer informatie [Apps, machtigingen en toestemming in Azure Active Directory](active-directory-apps-permissions-consent.md).
 De toegang tot de Azure AD-beheerportal beperken | Deze optie instelt op Nee, kunnen gebruikers toegang tot de Azure Active Directory-portal.
-Mogelijkheid om te lezen van andere gebruikers | Zie voor meer informatie [Apps, machtigingen en toestemming in Azure Active Directory](active-directory-apps-permissions-consent.md).
+Mogelijkheid om te lezen van andere gebruikers | Deze instelling is alleen beschikbaar in PowerShell. In te stellen op $false voorkomt u dat alle niet-beheerders gebruiker gegevens uit de map lezen. Dit voorkomt niet dat lezen gebruiker informatie in andere Microsoft-services, zoals Exchange Online. Deze instelling is alleen bedoeld voor speciale omstandigheden en dit op $false wordt niet aanbevolen instelling.
 
 ## <a name="object-ownership"></a>Eigendom van objecten
 

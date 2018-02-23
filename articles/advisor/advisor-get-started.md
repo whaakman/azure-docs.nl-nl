@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Aan de slag met Azure Advisor
 
@@ -28,7 +28,7 @@ Informatie over het openen van Advisor via de Azure portal, aanbevelingen krijge
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Klik in het linkerdeelvenster op **Advisor**.  Als u Advisor niet in het linkerdeelvenster ziet, klikt u op **meer services**.  Klik in het deelvenster service menu onder **bewaking en beheer**, klikt u op **Advisor**.
+2. Klik in het linkerdeelvenster op **Advisor**.  Als u Advisor niet in het linkerdeelvenster ziet, klikt u op **alle services**.  Klik in het deelvenster service menu onder **bewaking en beheer**, klikt u op **Advisor**.
  De Advisor-dashboard wordt weergegeven.
 
    ![Toegang tot Azure Advisor met de Azure portal](./media/advisor-get-started/advisor-portal-menu.png) 

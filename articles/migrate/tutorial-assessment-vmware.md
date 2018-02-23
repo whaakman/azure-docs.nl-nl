@@ -1,27 +1,28 @@
 ---
-title: Detecteren en beoordelen van de lokale virtuele VMware-machines op de migratie naar Azure met Azure migreren | Microsoft Docs
-description: Beschrijft hoe om te detecteren en beoordelen van de lokale virtuele VMware-machines op de migratie naar Azure met behulp van de service Azure migreren.
+title: Azure Migrate gebruiken om on-premises virtuele VMware-machines te detecteren en te evalueren voor migratie naar Azure | Microsoft Docs
+description: Beschrijft hoe u met behulp van de service Azure Migrate on-premises virtuele VMware-machines kunt detecteren en evalueren voor migratie naar Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: a5019d3f729f2efbd01fca021b0089c7f99b0014
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: bbcfe95f5427681f8d55d647b102d35fc37f15ee
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detecteren en beoordelen van de lokale virtuele VMware-machines op de migratie naar Azure
+# <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>On-premises virtuele VMware-machines detecteren en beoordelen voor migratie naar Azure
 
-De [Azure migreren](migrate-overview.md) services evalueert voor lokale werkbelastingen voor migratie naar Azure.
+De service [Azure Migrate](migrate-overview.md) beoordeelt on-premises workloads voor migratie naar Azure.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Maak een project Azure migreren.
-> * Instellen van een lokale collector virtuele machine (VM) voor het detecteren van on-premises virtuele VMware-machines voor evaluatie.
-> * Groep virtuele machines en maak een beoordeling.
+> * Maak een Azure Migrate-project.
+> * Stel een on-premises collector-VM in om on-premises virtuele VMware-machines te detecteren voor evaluatie.
+> * Groepeer virtuele machines en maak een evaluatie.
 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/pricing/free-trial/) aan voordat u begint.
@@ -29,162 +30,162 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **VMware**: de virtuele machines die u wilt migreren, moet worden beheerd door een vCenter-serverversie 5.5, 6.0 of 6.5. Bovendien moet u één ESXi-host actief versie 5.0 of hoger voor het implementeren van de VM-collector. 
+- **VMware**: de virtuele machines die u wilt migreren, moeten worden beheerd door een vCenter Server met versie 5.5, 6.0 of 6.5. Daarnaast hebt u één ESXi-host met versie 5.0 of hoger nodig om de collector-VM te implementeren. 
  
 > [!NOTE]
-> Ondersteuning voor Hyper-V is in onze roadmap en snel worden ingeschakeld. 
+> Ondersteuning voor Hyper-V staat in onze roadmap en komt binnenkort beschikbaar. 
 
-- **vCenter Server-account**: U moet een alleen-lezen-account voor toegang tot de vCenter-Server. Azure migreren gebruikt deze account voor het detecteren van de lokale virtuele machines.
-- **Machtigingen**: op de vCenter-Server, moet u machtigingen voor het maken van een virtuele machine door het importeren van een bestand in. EICELLEN-indeling. 
-- **Instellingen voor statistieken**: de instellingen van de statistieken voor de vCenter-Server moeten worden ingesteld op niveau 3 voordat u implementatie begint. Indien deze lager is dan het niveau 3 beoordeling werkt, maar prestatiegegevens voor opslag en netwerk is niet verzameld. De grootte van de aanbevelingen in dit geval wordt uitgevoerd op basis van prestatiegegevens voor de CPU en geheugen en configuratie-gegevens voor de schijf en netwerkadapters. 
+- **vCenter Server-account**: u hebt een alleen-lezen-account nodig voor toegang tot de vCenter Server. Azure Migrate gebruikt dit account om de on-premises virtuele machines te detecteren.
+- **Machtigingen**: op de vCenter Server hebt u machtigingen nodig om een virtuele machine te maken door een bestand in .OVA-indeling te importeren. 
+- **Instellingen voor statistieken**: de instellingen voor statistieken voor de vCenter Server moeten worden ingesteld op niveau 3 voordat u de implementatie begint. Als ze lager zijn dan niveau 3, werkt de evaluatie wel, maar worden de prestatiegegevens voor opslag en netwerk niet verzameld. De aanbeveling van de grootte wordt in dit geval gebaseerd op prestatiegegevens voor CPU en geheugen en configuratiegegevens voor schijf en netwerkadapters. 
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-project"></a>Een project maken
 
-1. Klik in de Azure-portal op **maken van een resource**.
-2. Zoeken naar **Azure migreren**, en selecteer de service **Azure migreren (preview)** in de zoekresultaten. Klik vervolgens op **Maken**.
-3. Geef de naam van het project en de Azure-abonnement voor het project.
+1. Klik in Azure Portal op **Een resource maken**.
+2. Zoek naar **Azure Migrate** en selecteer de service **Azure Migrate (preview)** in de zoekresultaten. Klik vervolgens op **Maken**.
+3. Geef een projectnaam op en het Azure-abonnement voor het project.
 4. Maak een nieuwe resourcegroep.
-5. Geef de locatie op waarnaar u het project maken en klik vervolgens op **maken**. U kunt alleen een migreren van de Azure-project maken in de regio West-Centraal VS voor deze preview. U kunt echter nog steeds de migratie voor een doel-Azure-locatie plannen. De opgegeven locatie voor het project wordt alleen gebruikt voor het opslaan van de metagegevens die afkomstig zijn van lokale virtuele machines. 
+5. Geef de locatie op waar u het project wilt maken en klik op **Maken**. Voor deze preview kunt u een Azure Migrate-project alleen maken in de regio West-centraal VS. U kunt de migratie echter wel plannen voor elke Azure-doellocatie. De opgegeven locatie voor het project wordt alleen gebruikt om de metagegevens op te slaan die zijn verzameld van on-premises virtuele machines. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
 
 
-## <a name="download-the-collector-appliance"></a>Downloaden van het toestel collector
+## <a name="download-the-collector-appliance"></a>Het collector-apparaat downloaden
 
-Azure migreren maakt een lokale virtuele machine het toestel collector genoemd. Deze virtuele machine detecteert lokale virtuele VMware-machines en stuurt de metagegevens over deze naar de service Azure migreren. Als u het toestel collector instelt, downloadt u een. EICELLEN bestand en importeer ze in de lokale vCenter-server voor het maken van de virtuele machine.
+Azure Migrate maakt een on-premises virtuele machine die het collector-apparaat wordt genoemd. Deze virtuele machine detecteert on-premises virtuele VMware-machines en stuurt metagegevens van deze machines naar de service Azure Migrate. Om het collector-apparaat in te stellen, downloadt u een .OVA-bestand en importeert u het op de on-premises vCenter Server om de virtuele machine te maken.
 
-1. Klik in het project Azure migreren **aan de slag** > **Discover & schatten** > **Machines detecteren**.
-2. In **machines ontdekken**, klikt u op **downloaden**, voor het downloaden van de. EICELLEN-bestand.
-3. In **project referenties kopiëren**, Kopieer de project-ID en sleutel. U moet deze bij het configureren van de collector.
+1. Klik in het Azure Migrate-project op **Aan de slag** > **Detecteren en evalueren** > **Machines detecteren**.
+2. Klik in **Machines detecteren** op **Downloaden** om het .OVA-bestand te downloaden.
+3. Kopieer de project-id en -sleutel uit **Projectreferenties kopiëren**. U hebt deze nodig tijdens de configuratie van collector.
 
-    ![.Ova bestand downloaden](./media/tutorial-assessment-vmware/download-ova.png)
+    ![.OVA-bestand downloaden](./media/tutorial-assessment-vmware/download-ova.png)
 
-### <a name="verify-the-collector-appliance"></a>Controleer of het toestel collector
+### <a name="verify-the-collector-appliance"></a>Het collector-apparaat verifiëren
 
-Controleer of de. EICELLEN bestand is beveiligd voordat u deze implementeert.
+Controleer of het .OVA-bestand veilig is voordat u het implementeert.
 
-1. Open een opdrachtvenster beheerder op de machine waarop u het bestand hebt gedownload.
-2. Voer de volgende opdracht voor het genereren van de hash voor de eicellen:
+1. Open op de machine waarop u het bestand hebt gedownload een opdrachtvenster voor beheerders.
+2. Gebruik de volgende opdracht om de hash voor het OVA-bestand te genereren:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Voorbeeld van syntaxis:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Gebruiksvoorbeeld: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. De gegenereerde hash moet overeenkomen met deze instellingen.
     
-    Voor eicellen versie 1.0.8.49
+    Voor OVA-versie 1.0.8.49
     **Algoritme** | **Hash-waarde**
     --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7 
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
+    MD5 | cefd96394198b92870d650c975dbf3b8 
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
-    Voor de versie van de eicellen 1.0.8.40:
+    Voor OVA-versie 1.0.8.40:
 
     **Algoritme** | **Hash-waarde**
     --- | ---
-    MD5 |afbae5a2e7142829659c21fd8a9def3f
+    MD5 | afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
-## <a name="create-the-collector-vm"></a>De collector VM maken
+## <a name="create-the-collector-vm"></a>De collector-VM maken
 
-Het gedownloade bestand importeren in de vCenter-Server.
+Importeer het gedownloade bestand naar de vCenter Server.
 
-1. Klik in de console van de Client vSphere **bestand** > **OVF-sjabloon implementeren**.
+1. Klik in de Client vSphere-console op **Bestand** > **OVF-sjabloon implementeren**.
 
     ![OVF implementeren](./media/tutorial-assessment-vmware/vcenter-wizard.png)
 
-2. In de Wizard OVF sjabloon implementeren > **bron**, geef de locatie van het bestand .ova.
-3. In **naam** en **locatie**, Geef een beschrijvende naam voor de VM-collector en de inventaris-object waarmee de virtuele machine wordt gehost.
-5. In **Host/Cluster**, geeft u de host of cluster op waarmee de VM-collector wordt uitgevoerd.
-7. Geef de opslaglocatie voor de collector VM in opslag.
-8. In **schijfindeling**, het schijftype en de grootte opgeven.
-9. In **netwerktoewijzing**, geeft u het netwerk waarmee de VM-collector verbinding maakt. Het netwerk moet verbinding met internet, metagegevens verzenden naar Azure. 
-10. Controleer en Bevestig de instellingen en klik op **voltooien**.
+2. Geef in de wizard OVF-sjabloon implementeren > **Bron** de locatie van het .OVA-bestand op.
+3. Geef in **Naam** en **Locatie** een beschrijvende naam op voor de collector-VM, en het inventarisobject waarin de virtuele machine wordt gehost.
+5. Geef in **Host/Cluster** de host of het cluster op waarop de collector-VM wordt uitgevoerd.
+7. Geef in de opslag de opslaglocatie voor de collector-VM op.
+8. Geef in **Schijfindeling** het schijftype en de schijfgrootte op.
+9. Geef in **Netwerktoewijzing** het netwerk op waarmee de collector-VM verbinding maakt. Het netwerk moet verbinding hebben met internet om metagegevens te kunnen verzenden naar Azure. 
+10. Controleer en bevestig de instellingen en klik op **Voltooien**.
 
-## <a name="run-the-collector-to-discover-vms"></a>De collector voor het detecteren van virtuele machines worden uitgevoerd
+## <a name="run-the-collector-to-discover-vms"></a>De collector uitvoeren om virtuele machines te detecteren
 
-1. In de console vSphere Client met de rechtermuisknop op de virtuele machine > **Console openen**.
-2. Geef de taal, de tijdzone en het wachtwoord voorkeuren voor het apparaat.
-3. Klik op het bureaublad op de **uitvoeren collector** snelkoppeling.
-4. Open in de Collector Azure migreren **vereisten instellen**.
+1. Klik in de vSphere Client-console met de rechtermuisknop op de VM > **Console openen**.
+2. Geef de taal, de tijdzone en het wachtwoord op voor het apparaat.
+3. Klik op het bureaublad op de snelkoppeling **Collector uitvoeren**.
+4. Open in de Azure Migrate Collector het onderdeel **Vereisten instellen**.
     - Accepteer de licentievoorwaarden en lees de informatie van derden.
-    - De collector controleert of de virtuele machine toegang tot internet.
-    - Als de virtuele machine toegang heeft tot internet via een proxy, klikt u op **Proxy-instellingen**, en geef de proxy-adres en poort voor luisteren. Geef referenties op als de proxy moet worden geverifieerd.
+    - De collector controleert of de virtuele machine toegang heeft tot internet.
+    - Als de virtuele machine via een proxy toegang heeft tot internet, klikt u op **Proxyinstellingen** en geeft u het proxyadres en de controlepoort op. Geef referenties op als de proxy verificatie nodig heeft.
 
     > [!NOTE]
-    > Adres voor de proxyserver moet worden ingevoerd in het formulier http://ProxyIPAddress of http://ProxyFQDN. Alleen HTTP-proxy wordt ondersteund.
+    > Het proxyadres moet worden ingevoerd in de vorm http://IP-adres van proxy of http://FQDN van proxy. Alleen HTTP-proxy wordt ondersteund.
 
-    - De collector wordt gecontroleerd of de collectorservice wordt uitgevoerd. De service wordt standaard geïnstalleerd op de VM-collector.
+    - De collector controleert of de collectorservice wordt uitgevoerd. De service wordt standaard geïnstalleerd op de collector-VM.
     - Download en installeer de VMware PowerCLI.
 
-5. In **gegevens vCenter-Server opgeven**, het volgende doen:
-    - Geef de FQDN-naam of IP-adres van de vCenter-server.
-    - In **gebruikersnaam** en **wachtwoord**, geef de alleen-lezen accountreferenties die door de collector wordt gebruikt voor het detecteren van virtuele machines op de vCenter-server.
-    - In **verzameling bereik**, selecteert u een bereik voor detectie van de virtuele machine. De collector kan alleen detecteren voor virtuele machines binnen het opgegeven bereik. Bereik kan worden ingesteld op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1000 virtuele machines bevatten. 
+5. Doe het volgende in **vCenter Server-details opgeven**:
+    - Geef de naam (FQDN) of het IP-adres op van de vCenter Server.
+    - Geef in **User name** en **Password** de alleen-lezen accountreferenties op die de collector gebruikt om virtuele machines op de vCenter Server te detecteren.
+    - Selecteer in **Collection scope** een bereik voor VM-detectie. De collector kan alleen virtuele machines detecteren binnen het opgegeven bereik. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1000 virtuele machines bevatten. 
 
-6. In **Geef migratieproject**, geeft u de Azure migreren project-ID en sleutel dat u hebt gekopieerd uit de portal. Als niet kopiëren, de Azure portal openen van de VM-collector. In het project **overzicht** pagina, klikt u op **Machines detecteren**, en kopieer de waarden.  
-7. In **verzameling voortgang**, detectie bewaken en controleren van metagegevens verzameld van de virtuele machines zijn binnen het bereik. De collector zorgt voor een geschatte detectie.
+6. Geef in **Specify migration project** de Azure Migrate project-id en -sleutel op die u hebt gekopieerd in de portal. Als u deze niet hebt gekopieerd, opent u Azure Portal vanuit de collector-VM. Klik op de **overzichtspagina** van het project op **Machines detecteren** en kopieer de waarden.  
+7. In **View collection progress** bekijkt u de detectie en controleert u of metagegevens die vanuit de virtuele machines worden verzameld, zich binnen het bereik bevinden. De collector geeft aan hoe lang de detectie ongeveer zal duren.
 
 > [!NOTE]
 > De collector ondersteunt alleen 'Engels (Verenigde Staten)' als de taal van het besturingssysteem en de taal van de gebruikersinterface van de collector. Ondersteuning voor meer talen is binnenkort beschikbaar.
 
 
-### <a name="verify-vms-in-the-portal"></a>Controleer of virtuele machines in de portal
+### <a name="verify-vms-in-the-portal"></a>VM's verifiëren in de portal
 
-Detectie tijd is afhankelijk van hoeveel virtuele machines die u detectie. Normaal gesproken duurt voor 100 virtuele machines, nadat de collector is uitgevoerd op het om een uur voor de detectie is voltooid. 
+De detectietijd is afhankelijk van het aantal virtuele machines dat u detecteert. Nadat de collector is uitgevoerd, duurt het voor 100 virtuele machines gewoonlijk ongeveer een uur voordat de detectie is voltooid. 
 
-1. Klik in het project migratie Planner op **beheren** > **Machines**.
-2. Controleer of de virtuele machines die u wilt detecteren in de portal weergegeven.
+1. Klik in het Migration Planner-project op **Manage** > **Machines**.
+2. Controleer of de virtuele machines die u wilt detecteren in de portal worden weergegeven.
 
 
-## <a name="create-and-view-an-assessment"></a>Maken en weergeven van een beoordeling
+## <a name="create-and-view-an-assessment"></a>Een evaluatie maken en weergeven
 
-Nadat de virtuele machines zijn gedetecteerd, kunt u ze te groeperen en maken van een beoordeling. 
+Nadat virtuele machines zijn gedetecteerd, kunt u ze groeperen en een evaluatie maken. 
 
-1. In het project **overzicht** pagina, klikt u op **+ maken assessment**.
-2. Klik op **weergeven van alle** om te controleren van de evaluatie-eigenschappen.
-3. De groep te maken en geef een groepsnaam.
-4. Selecteer de computers die u wilt toevoegen aan de groep.
-5. Klik op **Assessment maken**wilt maken van de groep en de evaluatie.
-6. Nadat de beoordeling is gemaakt, weer te geven in **overzicht** > **Dashboard**.
-7. Klik op **assessment exporteren**, om deze te downloaden als een Excel-bestand.
+1. Klik op de **overzichtspagina** van het project op **+Evaluatie maken**.
+2. Klik op **Alles weergeven** om de evaluatie-eigenschappen te controleren.
+3. Maak de groep en geef een groepsnaam op.
+4. Selecteer de machines die u aan de groep wilt toevoegen.
+5. Klik op **Evaluatie maken** om de groep en de evaluatie te maken.
+6. Nadat de evaluatie is gemaakt, kunt u deze bekijken in **Overzicht** > **Dashboard**.
+7. Klik op **Evaluatie exporteren** om deze te downloaden als een Excel-bestand.
 
-### <a name="sample-assessment"></a>Voorbeeld assessment
+### <a name="sample-assessment"></a>Voorbeeldevaluatie
 
-Hier volgt een voorbeeld van een rapport assessment. Het bevat informatie over of VM's compatibel met Azure en Geschatte maandelijkse kosten zijn. 
+Hier volgt een voorbeeld van een evaluatierapport. Hierin wordt aangegeven of VM's compatibel zijn met Azure en wat de geschatte maandelijkse kosten zijn. 
 
-![Beoordelingsrapport](./media/tutorial-assessment-vmware/assessment-report.png)
+![Evaluatierapport](./media/tutorial-assessment-vmware/assessment-report.png)
 
 #### <a name="azure-readiness"></a>Azure-gereedheid
 
-Deze weergave toont de gereedheidsstatus voor elke computer.
+Deze weergave toont de gereedheidsstatus van elke computer.
 
-- Voor virtuele machines die klaar zijn, Azure migreren raadt u aan een VM-grootte in Azure.
-- Voor virtuele machines die nog niet klaar zijn, Azure migreren wordt uitgelegd waarom en biedt herstelstappen aan.
-- Azure migreren stelt hulpprogramma's die u voor de migratie gebruiken kunt. Als de computer geschikt is voor migratie van de lift en shift, wordt de Azure Site Recovery-service wordt aanbevolen. Als het een machine database, wordt de Azure-databaseservice migratie aanbevolen.
+- Voor virtuele machines die gereed zijn, wordt door Azure Migrate een VM-grootte in Azure aanbevolen.
+- Voor virtuele machines die niet gereed zijn, ziet u de reden daarvoor en worden door Azure Migrate oplossingen gegeven.
+- Azure Migrate stelt de hulpprogramma's voor die u voor de migratie kunt gebruiken. Als de computer geschikt is voor lift- en shift-migratie, wordt de Azure Site Recovery Service aanbevolen. Als het een databasecomputer betreft, wordt de Azure Database Migration Service aanbevolen.
 
-  ![Readiness Assessment](./media/tutorial-assessment-vmware/assessment-suitability.png)  
+  ![Gereedheid evalueren](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
-#### <a name="monthly-cost-estimate"></a>Schatting maandelijkse kosten
+#### <a name="monthly-cost-estimate"></a>Schatting van maandelijkse kosten
 
-Deze weergave toont de totale berekenings- en opslagkosten van de virtuele machines in Azure samen met de details voor elke computer wordt uitgevoerd. Maakt een schatting van kosten zijn berekend met behulp van de aanbevelingen op basis van prestaties grootte voor een machine en de schijven en de eigenschappen van de evaluatie. 
+Deze weergave toont de totale compute- en opslagkosten om de virtuele machines in Azure uit te voeren, evenals de details per VM. De geschatte kosten worden berekend met behulp van de op prestaties gebaseerde aanbevolen grootte voor een machine en de schijven, en de evaluatie-eigenschappen. 
 
 > [!NOTE]
-> De kosten schatting verstrekt door Azure migreren is voor het uitvoeren van de lokale virtuele machines als Azure-infrastructuur als een dienst (IaaS) virtuele machines. Azure migreren beschouwd niet als een Platform als een service (PaaS) of Software als een dienst (SaaS)-kosten. 
+> De kostenschatting die door Azure Migrate wordt verstrekt, geldt voor het uitvoeren van de on-premises VM's als een Azure IaaS-VM (Infrastructure as a service). Azure Migrate houdt geen rekening met PaaS- of SaaS-kosten (Platform as a service of Software as a service). 
 
-Geschatte maandelijkse kosten voor berekeningen en opslag worden samengevoegd voor alle virtuele machines in de groep. 
+Geschatte maandelijkse kosten voor computing en opslag worden samengevoegd voor alle virtuele machines in de groep. 
 
-![Assessment VM kosten](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
+![Evaluatie-kosten per VM](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-U kunt inzoomen op Zie details voor een specifieke computer.
+U kunt inzoomen om de details voor een specifieke computer te bekijken.
 
-![Assessment VM kosten](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
+![Evaluatie-kosten per VM](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meer informatie over](how-to-scale-assessment.md) detecteren en beoordelen van een grote VMware-omgeving.
-- Informatie over het maken van hoge betrouwbaarheid assessment groepen met behulp van [machine afhankelijkheid toewijzing](how-to-create-group-machine-dependencies.md)
-- [Meer informatie](concepts-assessment-calculation.md) over hoe beoordelingen zijn berekend.
+- [Meer informatie over](how-to-scale-assessment.md) het detecteren en evalueren van een grote VMware-omgeving.
+- Meer informatie over het maken van uiterst betrouwbare evaluatiegroepen met behulp van [toewijzing van VM-afhankelijkheid](how-to-create-group-machine-dependencies.md)
+- [Meer informatie](concepts-assessment-calculation.md) over hoe evaluaties worden berekend.

@@ -5,11 +5,11 @@ title: Documentatie voor Microsoft Azure
 description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Azure Cloud Services. Maak gebruik van documentatie, voorbeeldcode, zelfstudies en meer.
 featureFlags:
 - clicktale
-ms.openlocfilehash: 0eb89abcd31756a2147ac3df49d0c3fffb574eec
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 9f2b958d4a5d7869999d0cbaccaeed69672d6b0b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -722,7 +722,7 @@ ms.lasthandoff: 02/13/2018
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-entities-search/search-the-web">
+                                            <a href="/azure/cognitive-services/bing-entities-search/">
                                                 <img src="media/index/API_Bing_Entity_Search.svg" alt="" />
                                                 <p>Bing Entiteiten zoeken</p>
                                             </a>
@@ -1827,7 +1827,7 @@ ms.lasthandoff: 02/13/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Back-up maken</h3>
-                                                    <p>Eenvoudige en betrouwbare serverback-up naar de cloud</p>
+                                                    <p>Uw gegevens beschermen met cloudback-up als een service</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2747,7 +2747,7 @@ ms.lasthandoff: 02/13/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Bing Aangepaste zoekopdrachten</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/search-the-web"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Bing Entiteiten zoeken&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Bing Entiteiten zoeken&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Zoeken in Bing Image</a>
@@ -3888,7 +3888,7 @@ ms.lasthandoff: 02/13/2018
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/python/azure/python-sdk-azure-install">De Azure-bibliotheken voor Python ophalen</a>
+                                                    <a href="/python/azure">De Azure-bibliotheken voor Python ophalen</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/python/azure">Aan de slag</a>

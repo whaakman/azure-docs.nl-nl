@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Tomcat7 instellen op een virtuele Linux-machine met Azure
 Apache Tomcat (of gewoon Tomcat, ook voorheen ondersteuning Tomcat) is een open-source-webserver en de servlet-container die is ontwikkeld door de Apache Software Foundation (AVP). Tomcat implementeert de Servlet Java en de specificaties Java Server Pages (JSP) van Sun Microsystems. Tomcat biedt een pure Java HTTP web server-omgeving waarin u Java-code uit te voeren. In de eenvoudigste configuratie, Tomcat uitgevoerd in een proces één besturingssysteem. Dit proces wordt uitgevoerd voor een virtuele Java-machine (JVM). Elke HTTP-aanvraag via een browser Tomcat wordt als een afzonderlijke thread in het proces Tomcat verwerkt.  
@@ -30,7 +30,7 @@ Apache Tomcat (of gewoon Tomcat, ook voorheen ondersteuning Tomcat) is een open-
 
 In dit artikel leert u Tomcat7 installeren op een Linux-installatiekopie en deze implementeren in Azure.  
 
-U leert het volgende:  
+U leert:  
 
 * Het maken van een virtuele machine in Azure.
 * Klik hier voor meer informatie over het voorbereiden van de virtuele machine voor Tomcat7.
@@ -55,7 +55,7 @@ Een ander voordeel van deze methode is dat u hoeft niet verschillende wachtwoord
 Volg deze stappen voor het genereren van de SSH-sleutel voor verificatie.
 
 1. Download en installeer PuTTYgen van de volgende locatie: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-2. Puttygen.exe worden uitgevoerd.
+2. Run Puttygen.exe.
 3. Klik op **genereren** om de sleutels te genereren. In het proces kunt u aanvraaggrootte verhogen door de muis over de leeg gebied in het venster te verplaatsen.  
    ![PuTTY sleutel Generator schermafbeelding van de nieuwe sleutel knop activeringscode genereren][1]
 4. Nadat het proces genereren weergegeven Puttygen.exe uw nieuwe openbare sleutel.  
@@ -64,7 +64,7 @@ Volg deze stappen voor het genereren van de SSH-sleutel voor verificatie.
 6. Klik op **persoonlijke sleutel opslaan**, en opslaan in een bestand met de naam privateKey.ppk.
 
 ### <a name="step-2-create-the-image-in-the-azure-portal"></a>Stap 2: De afbeelding in de Azure portal maken
-1. In de [portal](https://portal.azure.com/), klikt u op **nieuw** in de taakbalk om een installatiekopie te maken. Kies de Linux-afbeelding die is gebaseerd op uw behoeften. Het volgende voorbeeld wordt de installatiekopie van het Ubuntu 14.04.
+1. In de [portal](https://portal.azure.com/), klikt u op **maken van een resource** in de taakbalk om een installatiekopie te maken. Kies de Linux-afbeelding die is gebaseerd op uw behoeften. Het volgende voorbeeld wordt de installatiekopie van het Ubuntu 14.04.
 ![Schermafbeelding van de portal die de nieuwe knop wordt weergegeven][3]
 
 2. Voor **hostnaam**, geef de naam op voor de URL die u en de Internet-clients gebruiken voor toegang tot deze virtuele machine. Het laatste deel van de DNS-naam, bijvoorbeeld tomcatdemo definiëren. Azure wordt vervolgens de URL gegenereerd als tomcatdemo.cloudapp.net.  

@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Veelgestelde vragen over Azure kosten Management
 
@@ -58,7 +58,7 @@ Als u niet alle gegevens van de aanbeveling optimaliseren weergeven, waarschijnl
 
 Een account activeren:
 
-1.  Klik in de portal Cloudyn **instellingen** in de linkerbovenhoek rechts en selecteer **Accounts in de Cloud**.
+1.  Klik in de rechterbovenhoek van de portal van Cloudyn op **Settings** en selecteer **Cloud Accounts**.
 2.  Zoek op het tabblad Microsoft Azure-Accounts voor accounts die u hebt een **niet-geactiveerde** abonnement.
 3.  Aan de rechterkant van een niet-geactiveerde account, klikt u op de **bewerken** symbool dat lijkt op een pen.
 4.  Uw tenant-ID en tarief-ID wordt automatisch gedetecteerd. Klik op **Volgende**.
@@ -116,9 +116,9 @@ Selecteer om extra CSP-accounts toe aan een entiteit **MSP toegang** in plaats v
 
 U mogelijk meerdere Azure-accounts met behulp van verschillende valuta's. Kostenrapporten in Cloudyn worden echter niet meer dan één Valutatype per rapport weergegeven.
 
-Als u meerdere abonnementen met verschillende valuta's hebt, een bovenliggende entiteit en de onderliggende entiteit valuta's worden weergegeven met de  **$**  symbool. Onze voorgestelde aanbevolen procedure is om te voorkomen dat met behulp van verschillende valuta's in de entiteitshiërarchie met dezelfde. Met andere woorden, moeten uw abonnementen die zijn ingedeeld in de structuur van een entiteit dezelfde valuta gebruiken.
+Als u meerdere abonnementen met verschillende valuta's hebt, een bovenliggende entiteit en de onderliggende entiteit valuta's worden weergegeven in USD  **$** . Onze voorgestelde aanbevolen procedure is om te voorkomen dat met behulp van verschillende valuta's in de entiteitshiërarchie met dezelfde. Met andere woorden, moeten uw abonnementen die zijn ingedeeld in de structuur van een entiteit dezelfde valuta gebruiken.
 
-Cloudyn automatisch detecteert de Enterprise Agreement abonnementsvaluta en goed geeft in rapporten.  Echter, Cloudyn alleen wordt de  **$**  symbool voor de CSP en web-directe Azure-accounts.
+Cloudyn automatisch detecteert de Enterprise Agreement abonnementsvaluta en goed geeft in rapporten.  Cloudyn geeft echter alleen USD  **$**  voor de CSP en web-directe Azure-accounts.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Wat zijn de gegevens Cloudyn tijdlijnen vernieuwen?
 

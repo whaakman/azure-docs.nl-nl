@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: dea6b137fb12467a881afaa9a3e6985b584f5559
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: c06270c75ae16ba516e71a5dde9db4a7277d7e38
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Inleiding tot App Service onder Linux
 
@@ -34,7 +34,7 @@ App Service onder Linux ondersteunt een aantal ingebouwde installatiekopieën om
 |---|---|
 | Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
 | PHP | 5.6, 7.0 |
-| .NET Core | 1.0, 1.1 |
+| .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
 
 ## <a name="deployments"></a>Implementaties
@@ -68,7 +68,7 @@ Controleer [Azure Status Dashboard](https://azure.microsoft.com/status).
 
 In Azure Portal worden alleen functies getoond die momenteel werken voor Web App for Containers. Naarmate er meer functies mogelijk worden, zullen ze op de portal worden getoond.
 
-Sommige functies, zoals de integratie van virtuele netwerken, verificatie van derden van Azure Active Directory of Kudu-site-extensies, zijn nog niet beschikbaar. Zodra deze functies beschikbaar zijn, worden de documentatie en de blog over de wijzigingen bijgewerkt.
+Sommige functies, zoals de integratie van virtuele netwerken, verificatie van derden van Azure Active Directory of Kudu-site-extensies, zijn nog niet beschikbaar. Wanneer deze functies beschikbaar zijn, worden de documentatie en de blog over de wijzigingen bijgewerkt.
 
 App Service onder Linux wordt alleen ondersteund met de app-serviceplannen [Basic en Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) en heeft geen [Free- of Shared-](https://azure.microsoft.com/pricing/details/app-service/plans/)laag. De volgende beperkingen zijn ook belangrijk voor App Service onder Linux:
 

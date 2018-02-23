@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 14bdbf3dd6d940cc3f4b665658f0c789916a2597
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services scale-out
 
@@ -42,7 +42,7 @@ Wanneer bewerkingen zijn voltooid, moet u een synchronisatie uitgevoerd tussen d
 
 ## <a name="monitor-qpu-usage"></a>Monitor QPU gebruik
 
- Om te bepalen of scale-out voor de server nodig is, door de server in Azure-portal met behulp van de metrische gegevens te controleren. Als uw QPU regelmatig maximaliseert, betekent dit dat het aantal query's op uw modellen overschrijdt de limiet QPU voor uw abonnement. De Query groep taak wachtrij lengte metriek verhoogt ook wanneer het aantal query's in de wachtrij voor de query thread groep beschikbaar QPU overschrijdt. Zie voor meer informatie, [metrische servergegevens controleren](analysis-services-monitor.md).
+ Om te bepalen of scale-out voor de server nodig is, door de server in Azure-portal met behulp van de metrische gegevens te controleren. Als uw QPU regelmatig maximaliseert, betekent dit dat het aantal query's op uw modellen overschrijdt de limiet QPU voor uw abonnement. De Query groep taak wachtrij lengte metriek verhoogt ook wanneer het aantal query's in de wachtrij voor de query thread groep beschikbaar QPU overschrijdt. Zie [Monitor server metrics](analysis-services-monitor.md) (Metrische servergegevens bewaken) voor meer informatie.
 
 ## <a name="configure-scale-out"></a>Configureren van scale-out
 
@@ -69,7 +69,7 @@ In **overzicht** > model > **synchroniseren model**.
 
 ![Scale-out schuifregelaar](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 Gebruik de **sync** bewerking.
 
 #### <a name="synchronize-a-model"></a>Een model synchroniseren   

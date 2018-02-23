@@ -17,13 +17,11 @@ articles/sql-database/sql-database-connect-query.md
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-2. Selecteer in de lijst aan de linkerkant **Bladeren**. 
+2. Selecteer in de lijst aan de linkerkant **alle services**. 
 
 3. Blader en selecteer **SQL-servers**. 
    
     ![Uw Azure SQL Database-server niet vinden in de portal][b21-FindServerInPortal]
-4. Voor het gemak minimaliseren de **Bladeren** blade.
-
 5. Typ de naam van uw server in het filtertekstvak. De rij wordt weergegeven.
 
 6. Selecteer de rij voor uw server. Een blade voor uw server wordt weergegeven.

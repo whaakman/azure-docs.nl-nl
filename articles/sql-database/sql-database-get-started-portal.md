@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/29/2018
-ms.author: ninarn
-ms.openlocfilehash: 63a16df5f36bba4ffb97529100b878f0a1591127
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/12/2018
+ms.author: carlrab
+ms.openlocfilehash: 7a57593825f816a03b59f6c5228243670f1e9e9e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Een Azure SQL-database maken in Azure Portal
 
@@ -84,7 +84,7 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
    >\* In de Premium-laag is momenteel ruim 1 TB opslag beschikbaar voor de volgende regio's: Australië - oost, Australië - zuidoost, Brazilië - zuid, Canada - centraal, Canada - oost, VS - midden, Frankrijk - centraal, Duitsland - centraal, Japan - oost, Japan - west, Korea - centraal, VS Noord-Centraal, Noord-Europa, VS Zuid-Centraal, Zuidoost-Azië, UK - zuid, UK - west, VS - oost2, VS - west, VS (overheid) - Virginia, en West-Europa. Zie [P11-P15: huidige beperkingen](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
-7. Voor deze zelfstudie selecteert u de servicelaag **Standard** en gebruikt u vervolgens de schuifregelaar om **100 DTU's (S3)** en **400** GB aan opslagruimte te selecteren.
+7. Voor deze zelfstudie selecteert u de servicelaag **Standard** en gebruikt u vervolgens de schuifregelaar om **10 DTU's (S0)** en **1** GB aan opslagruimte te selecteren.
 
    ![database-s1 maken](./media/sql-database-get-started-portal/create-database-s1.png)
 
@@ -138,17 +138,13 @@ U kunt nu verbinding maken met de SQL Database-server en de bijbehorende databas
 
 Nu u een voorbeelddatabase in Azure hebt gemaakt, gebruiken we het ingebouwde hulpprogramma voor query's binnen Azure Portal om te bevestigen dat u verbinding kunt maken met de database en query's kunt uitvoeren voor de gegevens.
 
-1. Ga op de SQL Database-pagina voor uw database in het linkermenu naar **Data Explorer (preview)** en klik hierop
+1. Klik op de pagina SQL Database voor uw database op **Query-editor (preview)** in het menu links en klik daarna op **Aanmelden**.
 
-   ![queryeditor zoeken](./media/sql-database-get-started-portal/find-query-editor.PNG)
+   ![aanmelding](./media/sql-database-get-started-portal/query-editor-login.png)
 
-2. Klik op **Aanmelden**, controleer de aanmeldingsgegevens en klik op **OK** om u aan te melden met behulp van verificatie bij de SQL-server met de aanmeldingsgegevens en het wachtwoord voor de server die u eerder hebt gemaakt.
+2. Selecteer de SQL Server-verificatie, geef de vereiste aanmeldingsgegevens op en klik op **OK** om u aan te melden.
 
-   ![aanmelding](./media/sql-database-get-started-portal/login-menu.png)
-
-3. Klik op **OK** om u aan te melden.
-
-4. Wanneer u bent geverifieerd als **ServerAdmin**, typt u de volgende query in het deelvenster van de query-editor:
+3. Wanneer u bent geverifieerd als **ServerAdmin**, typt u de volgende query in het deelvenster van de query-editor:
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -157,11 +153,11 @@ Nu u een voorbeelddatabase in Azure hebt gemaakt, gebruiken we het ingebouwde hu
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-5. Klik op **Uitvoeren** en bekijk de resultaten van de query in het deelvenster **Resultaten**.
+4. Klik op **Uitvoeren** en bekijk de resultaten van de query in het deelvenster **Resultaten**.
 
    ![resultaten queryeditor](./media/sql-database-get-started-portal/query-editor-results.png)
 
-6. Sluit de pagina **Data explorer**, klik op **OK** om uw niet-opgeslagen bewerkingen te verwijderen.
+5. Sluit de pagina **Data explorer**, klik op **OK** om uw niet-opgeslagen bewerkingen te verwijderen.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

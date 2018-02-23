@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Gebruik Azure Storage handtekeningen voor gedeelde toegang om toegang te beperken tot gegevens in HDInsight
 
@@ -216,7 +216,7 @@ Als u een bestaand cluster op basis van Linux hebt, kunt u de SAS naar toevoegen
    > [!IMPORTANT]
    > U moet verschillende services opnieuw starten voordat de wijziging van kracht.
 
-6. Selecteer in de Ambari-webgebruikersinterface, **HDFS** uit de lijst aan de linkerkant en selecteer vervolgens **start opnieuw alle van invloed op een** van de **serviceacties** vervolgkeuzelijst aan de rechterkant. Wanneer u wordt gevraagd, selecteert u __start opnieuw alle voldoen__.
+6. Selecteer in de Ambari-webgebruikersinterface, **HDFS** uit de lijst aan de linkerkant en selecteer vervolgens **start opnieuw alle van invloed op een** van de **serviceacties** vervolgkeuzelijst aan de rechterkant. Wanneer u wordt gevraagd, selecteert u __start opnieuw alle bevestigen__.
 
     Herhaal dit proces voor MapReduce2 en YARN.
 

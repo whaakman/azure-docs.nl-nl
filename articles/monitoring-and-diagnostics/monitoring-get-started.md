@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: ba4e8fe0d54deb4a980174ff7d0904854c794d3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c352c67aa0e9392c9e9d68822abeb27344bd8b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Aan de slag met Azure Monitor
-Azure Monitor is de platformservice die één bron biedt voor het bewaken van Azure-resources. Met Azure Monitor kunt u visualiseren, query's uitvoeren, routeren, archiveren en actie ondernemen op basis van de metrische gegevens en logboeken van resources in Azure. U kunt werken met deze gegevens via de blade van de Monitor-portal, [Monitor PowerShell-cmdlets](insights-powershell-samples.md), [platformoverschrijdende CLI](insights-cli-samples.md) of [Azure Monitor REST API's](https://msdn.microsoft.com/library/dn931943.aspx). In dit artikel gebruiken we de demonstratieportal om enkele belangrijke onderdelen van Azure Monitor te belichten.
+Azure Monitor is de platformservice die één bron biedt voor het bewaken van Azure-resources. Met Azure Monitor kunt u visualiseren, query's uitvoeren, routeren, archiveren en actie ondernemen op basis van de metrische gegevens en logboeken van resources in Azure. U kunt werken met het gebruik van deze gegevens met behulp van de Azure-portal [Monitor PowerShell-Cmdlets](insights-powershell-samples.md), [platformoverschrijdende CLI](insights-cli-samples.md), of [Monitor REST-API's van Azure](https://msdn.microsoft.com/library/dn931943.aspx). In dit artikel gebruiken we de demonstratieportal om enkele belangrijke onderdelen van Azure Monitor te belichten.
 
 ## <a name="walkthrough"></a>Walkthrough
-1. Navigeer in de portal naar **Meer services** en zoek de optie **Monitor**. Klik op het sterpictogram om deze optie toe te voegen aan uw lijst met favorieten, zodat deze altijd eenvoudig toegankelijk is vanaf de navigatiebalk aan de linkerkant.
+1. Navigeer in de portal naar **alle services** en zoek de **Monitor** optie. Klik op het sterpictogram om deze optie toe te voegen aan uw lijst met favorieten, zodat deze altijd eenvoudig toegankelijk is vanaf de navigatiebalk aan de linkerkant.
 
     ![Monitor in de lijst met services](./media/monitoring-get-started/monitor-more-services.png)
-2. Klik op de optie **Monitor** om de blade **Monitor** te openen. In deze blade zijn al uw controle-instellingen en -gegevens bijeengebracht in één geconsolideerde weergave. Als eerste wordt de sectie **Activiteitenlogboek** geopend.
+2. Klik op de **Monitor** optie voor het openen van de **Monitor** pagina. Deze pagina samenbrengt uw controle-instellingen en gegevens in één geconsolideerde weergave. Als eerste wordt de sectie **Activiteitenlogboek** geopend.
 
-    ![Navigatie in de blade Monitor](./media/monitoring-get-started/monitor-blade-nav.png)
+    ![Monitor voor navigatie](./media/monitoring-get-started/monitor-blade-nav.png)
 
     Azure Monitor omvat drie basiscategorieën controlegegevens: het **activiteitenlogboek**, **metrische gegevens** en **diagnoselogboeken**.
 3. Klik op **Activiteitenlogboek** om de sectie Activiteitenlogboek weer te geven.
 
-    ![Blade met activiteitenlogboek](./media/monitoring-get-started/monitor-act-log-blade.png)
+    ![Activiteitenlogboek](./media/monitoring-get-started/monitor-act-log-blade.png)
 
     In [**Activiteitenlogboek**](monitoring-overview-activity-logs.md) worden alle bewerkingen beschreven die worden uitgevoerd voor resources binnen uw abonnement. Met behulp van het activiteitenlogboek kunt u nagaan wie resources heeft toegevoegd, bijgewerkt of verwijderd binnen uw abonnement, en wanneer dat is gebeurd en wat er is veranderd. In het activiteitenlogboek ziet u bijvoorbeeld wanneer een web-app is gestopt en wie deze heeft gestopt. Gebeurtenissen in het activiteitenlogboek worden opgeslagen op het platform en kunnen gedurende 90 dagen worden doorzocht.
 
@@ -50,12 +50,12 @@ Azure Monitor is de platformservice die één bron biedt voor het bewaken van Az
 6. Ga terug naar uw dashboard. Nu kunt u zien of de query (en het aantal resultaten) wordt weergegeven in het dashboard. Dit is handig als u snel zien hoogwaardig acties die onlangs zijn opgetreden in uw abonnement wilt, bijvoorbeeld een nieuwe rol is toegewezen of een virtuele machine is verwijderd.
 
     ![Activiteitenlogboeken vastgemaakt aan dashboard](./media/monitoring-get-started/monitor-act-log-db.png)
-7. Ga terug naar de tegel **Monitor** en klik op de sectie **Metrische gegevens**. U moet eerst een resource selecteren door het filteren en te selecteren met behulp van de opties vervolgkeuzelijst bovenaan de blade.
+7. Ga terug naar de tegel **Monitor** en klik op de sectie **Metrische gegevens**. U moet eerst een resource selecteren door het filteren en te selecteren met behulp van de opties van de vervolgkeuzelijst aan de bovenkant van de pagina.
 
     ![Resource voor metrische gegevens filteren](./media/monitoring-get-started/monitor-met-filter.png)
 
     [**Metrische gegevens**](monitoring-overview-metrics.md) zijn beschikbaar voor alle Azure-resources. In deze weergave ziet u alle metrische gegevens bij elkaar, zodat u gemakkelijk inzicht krijgt in de prestaties van uw resources. Bekijk ook onze merk [nieuwe metrische gegevens voor grafieken ervaring](https://aka.ms/azuremonitor/new-metrics-charts) door te klikken op de **metrische gegevens (preview)** tabblad.
-8. Wanneer u een resource selecteert, worden alle beschikbare metrische gegevens weergegeven aan de linkerkant van de blade. U kunt meerdere metrische gegevens tegelijk in grafiekvorm weergeven door de metrische gegevens te selecteren en het grafiektype en tijdsbereik aan te passen. U kunt ook alle metrische waarschuwingen weergeven die zijn ingesteld voor deze resource.
+8. Wanneer u een resource hebt geselecteerd, worden alle beschikbare metrische gegevens weergegeven aan de linkerkant van de pagina. U kunt meerdere metrische gegevens tegelijk in grafiekvorm weergeven door de metrische gegevens te selecteren en het grafiektype en tijdsbereik aan te passen. U kunt ook alle metrische waarschuwingen weergeven die zijn ingesteld voor deze resource.
 
     ![Blade met metrische gegevens](./media/monitoring-get-started/monitor-metric-blade.png)
 
@@ -64,14 +64,14 @@ Azure Monitor is de platformservice die één bron biedt voor het bewaken van Az
    >
    >
 9. Wanneer u tevreden bent met de grafiek, kunt u deze vastmaken aan het dashboard met de knop **Vastmaken**.
-10. Ga terug naar de blade **Monitor** blad en klik op **Diagnostische logboeken**.
+10. Ga terug naar **Monitor** en klik op **diagnostische logboeken**.
 
     ![Blade met diagnostische logboeken](./media/monitoring-get-started/monitor-diaglogs-blade.png)
 
     [**Diagnostische logboeken**](monitoring-overview-of-diagnostic-logs.md) zijn logboeken *van* een resource met gegevens over de werking van die resource. Tellers van regels voor netwerkbeveiligingsgroepen en werkstroomlogboeken van logische apps zijn bijvoorbeeld allebei een type diagnostisch logboek. Deze logboeken kunnen worden opgeslagen in een opslagaccount, worden gestreamd naar een Event Hub, en/of worden verzonden naar [Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics is het operationele intelligence product van Microsoft voor geavanceerde zoekopdrachten en waarschuwingen.
 
     In de portal kunt u een lijst met alle resources binnen uw abonnement weergeven en filteren om te bepalen of diagnostische logboeken zijn ingeschakeld voor die resources.
-11. Klik op een resource in de blade met diagnostische logboeken. Als diagnostische logboeken worden opgeslagen in een opslagaccount, ziet u een lijst met uurlogboeken die u rechtstreeks kunt downloaden.
+11. Klik op een bron op de pagina Diagnostische logboeken. Als diagnostische logboeken worden opgeslagen in een opslagaccount, ziet u een lijst met uurlogboeken die u rechtstreeks kunt downloaden.
 
     ![Diagnostische logboeken voor één resource](./media/monitoring-get-started/monitor-diaglogs-detail.png)
 
@@ -80,7 +80,7 @@ Azure Monitor is de platformservice die één bron biedt voor het bewaken van Az
     ![Diagnostische logboeken inschakelen](./media/monitoring-get-started/monitor-diaglogs-enable.png)
 
     Als u diagnostische logboeken hebt ingesteld op Log Analytics, dan kunt u de logboeken doorzoeken in de sectie **Zoeken in logboeken** op de portal.
-12. Navigeer naar de sectie **Waarschuwingen** van de blade Monitor.
+12. Navigeer naar de **waarschuwingen** sectie van de Monitor-pagina.
 
     ![blade met waarschuwingen voor openbaar gebruik](./media/monitoring-get-started/monitor-alerts-nopp.png)
 

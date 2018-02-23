@@ -1,55 +1,58 @@
 ---
-title: Simuleer een fout bij het openen van redundante opslag met leestoegang in Azure | Microsoft Docs
-description: Een fout opgetreden bij het openen van geografisch redundante opslag met leestoegang simuleren
+title: Een fout simuleren bij het openen van redundante opslag met leestoegang in Azure | Microsoft Docs
+description: Een fout simuleren bij het openen van geografisch redundante opslag met leestoegang
 services: storage
-documentationcenter: 
-author: georgewallace
+author: ruthogunnnaike
 manager: jeconnoc
-editor: 
 ms.service: storage
-ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/05/2017
-ms.author: gwallace
-ms.custom: mvc
-ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.date: 12/23/2017
+ms.author: v-ruogun
+ms.openlocfilehash: 9ebf773cf39d832416dce820e67201c21a679296
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Een fout bij het openen van redundante opslag met leestoegang simuleren
+# <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Een fout simuleren bij het openen van redundante opslag met leestoegang
 
-Deze zelfstudie maakt deel uit twee van een serie. In deze zelfstudie injecteren u een mislukte reactie met Fiddler voor aanvragen voor een [leestoegang geografisch redundante](../common/storage-redundancy.md#read-access-geo-redundant-storage) opslagaccount (RA-GRS) om te simuleren een fout en de toepassing lezen van het secundaire eindpunt hebben.
+Deze zelfstudie is deel twee van een serie.  In deze zelfstudie kunt u [Fiddler](#simulate-a-failure-with-fiddler) of [statische routering](#simulate-a-failure-with-an-invalid-static-route) gebruiken om een fout te simuleren voor aanvragen voor het primaire eindpunt van uw [geografisch redundante](../common/storage-redundancy.md#read-access-geo-redundant-storage) opslagaccount met leestoegang en de toepassing te laten lezen vanuit het secundaire eindpunt.
 
 ![Scenario-app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-Deel 2 van de reeks, leert u hoe:
+Voor het volgen van deze zelfstudie moet u de vorige zelfstudie over opslag: [Uw toepassingsgegevens maximaal beschikbaar maken met Azure Storage][previous-tutorial] hebben afgerond.
+
+In deel twee van de serie leert u het volgende:
 
 > [!div class="checklist"]
-> * Uitvoeren en de toepassing te onderbreken
-> * Simuleer een fout
-> * Het herstel van de primaire eindpunt simuleren
+> * De toepassing uitvoeren en onderbreken
+> * Een fout simuleren met [Fiddler](#simulate-a-failure-with-fiddler) of [een ongeldige statische route](#simulate-a-failure-with-an-invalid-static-route) 
+> * Herstel van het primaire eindpunt simuleren
+
 
 ## <a name="prerequisites"></a>Vereisten
 
-Vereisten voor het voltooien van deze zelfstudie:
+Een fout met Fiddler simuleren: 
 
-* Download en installeer [Fiddler](https://www.telerik.com/download/fiddler)
+* [Fiddler downloaden](https://www.telerik.com/download/fiddler) en installeren
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Voor het voltooien van deze zelfstudie, u moet de zelfstudie hebt voltooid vorige opslag: [uw toepassingsgegevens maximaal beschikbaar met Azure storage maken][previous-tutorial].
+## <a name="simulate-a-failure-with-fiddler"></a>Een fout simuleren met Fiddler
 
-## <a name="launch-fiddler"></a>Fiddler starten
+Als u een fout wilt simuleren met Fiddler, voert u een mislukte reactie voor aanvragen aan het primaire eindpunt van uw geografisch redundante opslagaccount met leestoegang in om een fout te simuleren.
 
-Open Fiddler, selecteer **regels** en **regels aanpassen**.
+Voer de volgende stappen uit om een fout en herstel van het primaire eindpunt met Fiddler te simuleren.
 
-![Fiddler regels aanpassen](media/storage-simulate-failure-ragrs-account-app/figure1.png)
+### <a name="launch-fiddler"></a>Start Fiddler
 
-De ScriptEditor Fiddler gestart waarin de **SampleRules.js** bestand. Dit bestand wordt gebruikt om aan te passen Fiddler. Plak het volgende codevoorbeeld in de `OnBeforeResponse` functie. De nieuwe code uitgecommentarieerd om ervoor te zorgen dat de logica die het maakt niet onmiddellijk geïmplementeerd. Wanneer u klaar bent Selecteer **bestand** en **opslaan** uw wijzigingen op te slaan.
+Open Fiddler en selecteer **Rules** en **Customize Rules**.
+
+![Fiddler-regels aanpassen](media/storage-simulate-failure-ragrs-account-app/figure1.png)
+
+De Fiddler ScriptEditor wordt gestart en geeft het bestand **SampleRules.js** weer. Dit bestand wordt gebruikt om Fiddler aan te passen. Plak het volgende codevoorbeeld in de `OnBeforeResponse`-functie. De nieuwe code is als opmerking opgenomen om ervoor te zorgen dat de logica die deze maakt niet onmiddellijk wordt geïmplementeerd. Selecteer als u klaar bent **File** en **Save** om uw wijzigingen op te slaan.
 
 ```javascript
     /*
@@ -67,17 +70,23 @@ De ScriptEditor Fiddler gestart waarin de **SampleRules.js** bestand. Dit bestan
     */
 ```
 
-![Aangepaste regel plakken](media/storage-simulate-failure-ragrs-account-app/figure2.png)
+![De aangepaste regel plakken](media/storage-simulate-failure-ragrs-account-app/figure2.png)
 
-## <a name="start-and-pause-the-application"></a>Starten en de toepassing te onderbreken
+### <a name="start-and-pause-the-application"></a>De toepassing starten en onderbreken
 
-Druk in Visual Studio op **F5** of selecteer **Start** foutopsporing van de toepassing te starten. Zodra de toepassing wordt gestart bij het lezen van het primaire eindpunt, drukt u op **een willekeurige toets** in het consolevenster onderbreken van de toepassing.
+Voer de toepassing uit in uw IDE- of teksteditor. Wanneer de toepassing van het primaire eindpunt gaat lezen, drukt u op **een willekeurige toets** in het consolevenster om de toepassing te onderbreken.
 
-## <a name="simulate-failure"></a>Simuleer fout
+### <a name="simulate-failure"></a>Fout simuleren
 
-Met de toepassing onderbroken u kunt nu opmerkingen bij de aangepaste regel is opgeslagen in Fiddler een vorige stap. Deze code voorbeeld zoekt aanvragen met de RA-GRS-opslagaccount en als het pad de naam van de afbeelding bevat `HelloWorld`, wordt een Antwoordcode van `503 - Service Unavailable`.
+Als de toepassing is onderbroken, kunt u nu de aangepaste regel die in een voorgaande stap in Fiddler is opgeslagen als opmerking verwijderen. Het codevoorbeeld zoekt naar aanvragen voor het geografisch redundante opslagaccount met leestoegang en als het pad de naam van de installatiekopie, `HelloWorld`, bevat, wordt een antwoordcode van `503 - Service Unavailable` geretourneerd.
 
-Navigeer naar Fiddler en selecteer **regels** -> **regels aanpassen...** .  Opmerking verwijderen uit de volgende regels, vervangen door `STORAGEACCOUNTNAME` met de naam van uw opslagaccount. Selecteer **bestand** -> **opslaan** uw wijzigingen op te slaan.
+Navigeer naar Fiddler en selecteer **Rules** -> **Customize Rules...**.  Verwijder de volgende regels als opmerking en vervang `STORAGEACCOUNTNAME` door de naam van uw opslagaccount. Selecteer **File** -> **Save** om uw wijzigingen op te slaan. 
+
+> [!NOTE]
+> Als u de voorbeeldtoepassing op Linux uitvoert, moet u Fiddler telkens wanneer u het bestand **CustomRule.js** hebt bewerkt, opnieuw opstarten, zodat Fiddler de aangepaste logica installeert. 
+> 
+> 
+
 
 ```javascript
          if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net")
@@ -86,40 +95,93 @@ Navigeer naar Fiddler en selecteer **regels** -> **regels aanpassen...** .  Opme
          }
 ```
 
-Als u wilt doorgaan met de toepassing, drukt u op **een willekeurige toets** .
+Druk op **een willekeurige toets** om de toepassing te hervatten.
 
-Zodra de toepassing wordt gestart opnieuw uit te voeren, begint de aanvragen naar de primaire eindpunt mislukken. De toepassing probeert opnieuw verbinding maken met het primaire eindpunt 5 keer. Na de foutdrempelwaarde voor van vijf pogingen vraagt deze de installatiekopie van het secundaire alleen-lezen-eindpunt. Nadat de toepassing is haalt de installatiekopie van het 20 keer van het secundaire eindpunt, wordt de toepassing probeert te maken met het primaire eindpunt. Als het primaire eindpunt nog steeds niet bereikbaar is, hervat de toepassing bij het lezen van het secundaire eindpunt. Dit patroon is de [Circuitonderbreker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) patroon beschreven in de vorige zelfstudie.
+Wanneer de toepassing weer wordt uitgevoerd, gaan de aanvragen naar het primaire eindpunt mislukken. De toepassing probeert 5 keer opnieuw verbinding te maken met het primaire eindpunt. Na de foutdrempelwaarde van vijf pogingen wordt de installatiekopie van het secundaire eindpunt met alleen leestoegang aangevraagd. Nadat de toepassing de installatiekopie 20 keer van het secundaire eindpunt heeft opgehaald, probeert de toepassing verbinding te maken met het primaire eindpunt. Als het primaire eindpunt nog steeds niet bereikbaar is, hervat de toepassing het lezen van het secundaire eindpunt. Dit patroon is het [circuitonderbreker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker)-patroon dat in de vorige zelfstudie is beschreven.
 
-![Aangepaste regel plakken](media/storage-simulate-failure-ragrs-account-app/figure3.png)
+![De aangepaste regel plakken](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-## <a name="simulate-primary-endpoint-restoration"></a>Het herstel van de primaire eindpunt simuleren
+### <a name="simulate-primary-endpoint-restoration"></a>Herstel van het primaire eindpunt simuleren
 
-Met de Fiddler aangepaste regelset in de vorige stap, mislukken aanvragen naar de primaire eindpunt. Om te simuleren het primaire eindpunt weer werkt, verwijdert u de logica invoeren de `503` fout.
+Met de aangepaste regelset van Fiddler in de vorige stap, mislukken aanvragen naar het primaire eindpunt. Om te simuleren dat het primaire eindpunt weer werkt, verwijdert u de logica om de fout `503` in te voeren.
 
-De toepassing onderbreken, drukt u op **een willekeurige toets**.
+Druk op **een willekeurige toets** om de toepassing te onderbreken.
 
-### <a name="remove-the-custom-rule"></a>De aangepaste regel verwijderen
-
-Navigeer naar Fiddler en selecteer **regels** en **regels aanpassen...** .  Opmerkingen of verwijderen van de aangepaste logica in de `OnBeforeResponse` functie, de standaardfunctie verlaten. Selecteer **bestand** en **opslaan** de wijzigingen wilt opslaan.
+Navigeer naar Fiddler en selecteer **Rules** en **Customize Rules...**.  Neem de aangepaste logica op als opmerking of verwijder de aangepaste logica in de functie `OnBeforeResponse`, en verlaat de standaardfunctie. Selecteer **File** en **Save** om de wijzigingen op te slaan.
 
 ![Aangepaste regel verwijderen](media/storage-simulate-failure-ragrs-account-app/figure5.png)
 
-Als u klaar is, drukt u op **een willekeurige toets** hervatten van de toepassing. De toepassing blijft bij het lezen van het primaire eindpunt totdat dit bij 999 leesbewerkingen aankomt.
+Druk als u klaar bent op **een willekeurige toets** om de toepassing te hervatten. De toepassing blijft lezen van het primaire eindpunt totdat de 999 leesbewerkingen zijn bereikt.
 
-![Hervatten van de toepassing](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+![Toepassing hervatten](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+
+
+## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Een fout simuleren met een ongeldige statische route 
+U kunt een ongeldige statische route maken voor alle aanvragen naar het primaire eindpunt van uw [geografisch redundante](../common/storage-redundancy.md#read-access-geo-redundant-storage) opslagaccount met leestoegang. In deze zelfstudie wordt de lokale host gebruikt als de gateway voor routeringsaanvragen voor de opslagaccount. Het gebruik van de lokale host als de gateway zorgt ervoor dat alle aanvragen naar het primaire eindpunt van uw opslagaccount in een lusvorm terugkeren naar de host, wat vervolgens tot een fout leidt. Voer de volgende stappen uit om een fout en herstel van het primaire eindpunt met een ongeldige statische route te simuleren. 
+
+### <a name="start-and-pause-the-application"></a>De toepassing starten en onderbreken
+
+Voer de toepassing uit in uw IDE- of teksteditor. Wanneer de toepassing van het primaire eindpunt gaat lezen, drukt u op **een willekeurige toets** in het consolevenster om de toepassing te onderbreken. 
+
+### <a name="simulate-failure"></a>Fout simuleren
+
+Start terwijl de toepassing is onderbroken de opdrachtprompt van Windows als een beheerder of voer terminal als root uit op Linux. Voor informatie over het primaire-eindpuntdomein van de opslagaccount voert u de volgende opdracht in bij een opdrachtprompt of terminal.
+
+```
+nslookup STORAGEACCOUNTNAME.blob.core.windows.net
+``` 
+ Vervang `STORAGEACCOUNTNAME` door de naam van uw opslagaccount. Kopieer het IP-adres van uw opslagaccount naar een teksteditor voor later gebruik. Als u het IP-adres van uw lokale host wilt ophalen, typt u `ipconfig` in de Windows-opdrachtprompt of `ifconfig` in de Linux-terminal. 
+
+Als u een statische route voor de doelhost wilt toevoegen, typt u de volgende opdracht in een Windows-opdrachtprompt of Linux-terminal. 
+
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+  route add <destination_ip> gw <gateway_ip>
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+  route add <destination_ip> <gateway_ip>
+
+---
+ 
+Vervang `<destination_ip>` door het IP-adres van uw opslagaccount en `<gateway_ip>` door het IP-adres van uw lokale host. Druk op **een willekeurige toets** om de toepassing te hervatten.
+
+Wanneer de toepassing weer wordt uitgevoerd, gaan de aanvragen naar het primaire eindpunt mislukken. De toepassing probeert 5 keer opnieuw verbinding te maken met het primaire eindpunt. Na de foutdrempelwaarde van vijf pogingen wordt de installatiekopie van het secundaire eindpunt met alleen leestoegang aangevraagd. Nadat de toepassing de installatiekopie 20 keer van het secundaire eindpunt heeft opgehaald, probeert de toepassing verbinding te maken met het primaire eindpunt. Als het primaire eindpunt nog steeds niet bereikbaar is, hervat de toepassing het lezen van het secundaire eindpunt. Dit patroon is het [circuitonderbreker](/azure/architecture/patterns/circuit-breaker.md)-patroon dat in de vorige zelfstudie is beschreven.
+
+### <a name="simulate-primary-endpoint-restoration"></a>Herstel van het primaire eindpunt simuleren
+
+Om te simuleren dat het primaire eindpunt weer werkt, verwijdert u de statische route van het primaire eindpunt uit de routeringstabel. Hiermee worden alle aanvragen naar het primaire eindpunt via de standaardgateway gerouteerd. 
+
+Als u de statische route van een doelhost wilt verwijderen, typt u de volgende opdracht in een Windows-opdrachtprompt of Linux-terminal. 
+ 
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+route del <destination_ip> gw <gateway_ip>
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+route delete <destination_ip> <gateway_ip>
+
+---
+
+Druk op **een willekeurige toets** als u de toepassing wilt hervatten. De toepassing blijft lezen van het primaire eindpunt totdat de 999 leesbewerkingen zijn bereikt.
+
+![Toepassing hervatten](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deel twee van de reeks, hebt u geleerd over simuleren geografisch redundante opslag met leestoegang zoals het testen van een mislukt:
+In deel twee van de serie hebt u geleerd over het simuleren van een fout om geografisch redundante opslag met leestoegang te testen, zoals:
 
 > [!div class="checklist"]
-> * Uitvoeren en de toepassing te onderbreken
-> * Simuleer een fout
-> * Het herstel van de primaire eindpunt simuleren
+> * De toepassing uitvoeren en onderbreken
+> * Een fout simuleren met [Fiddler](#simulate-a-failure-with-fiddler) of [een ongeldige statische route](#simulate-a-failure-with-an-invalid-static-route) 
+> * Herstel van het primaire eindpunt simuleren
 
-Volg deze link om te zien van vooraf samengestelde opslag voorbeelden.
+Volg deze link om vooraf samengestelde opslagvoorbeelden te bekijken.
 
 > [!div class="nextstepaction"]
-> [Voorbeelden van Azure-opslag-script](storage-samples-blobs-cli.md)
+> [Voorbeelden van Azure Storage-scripts](storage-samples-blobs-cli.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md

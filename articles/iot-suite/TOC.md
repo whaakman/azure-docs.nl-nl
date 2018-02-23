@@ -17,7 +17,6 @@
 #### [Machtigingen op azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Kennismaken met de oplossing voor controle op afstand](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Verbinding maken met uw Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
-#### [Verbinding maken met uw MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### C gebruiken
 ###### [Gesimuleerde gegevens](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Echte sensoren gebruiken](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -26,6 +25,7 @@
 ###### [Gesimuleerde gegevens](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Echte sensoren gebruiken](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Firmware-update implementeren](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### [Verbinding maken met uw MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 ### Handleidingen
 #### Een gesimuleerd apparaat verbinden
@@ -99,5 +99,7 @@
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Veelgestelde vragen](iot-suite-faq.md)
+## [Veelgestelde vragen over externe bewaking](iot-suite-faq-rm-v2.md)
 ## [Veelgestelde vragen over verbonden factory's](iot-suite-faq-cf.md)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [Leertraject voor IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

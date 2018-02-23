@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 791761e33e0daa470668e268e5392a4b9361a1bd
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0994bdc7e6c86e10f7002649830fc59ad3d1a045
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 Azure SQL database auditing houdt databasegebeurtenissen en schrijft die deze naar een auditlogboek Meld u bij uw Azure storage-account. Ook controleren:
@@ -42,7 +42,8 @@ Configureer controle voor verschillende soorten gebeurteniscategorieën, zoals w
 > [!IMPORTANT]
 > Controlelogboeken worden geschreven naar **toevoeg-Blobs** in een Azure Blob-opslag voor uw Azure-abonnement.
 >
-> **Opslag in VNet** is momenteel **niet ondersteund**.
+> * **Premium-opslag** is momenteel **niet ondersteund** door toevoeg-Blobs.
+> * **Opslag in VNet** is momenteel **niet ondersteund**.
 
 ## <a id="subheading-8"></a>Serverniveau versus databaseniveau controlebeleid definiëren
 
@@ -68,7 +69,7 @@ De volgende sectie beschrijft de configuratie van controlebeleid met de Azure po
 1. Ga naar de [Azure Portal](https://portal.azure.com).
 2. Ga naar de **instellingen** blade van de SQL database/SQL-server die u wilt controleren. In de **instellingen** blade Selecteer **controle en detectie van bedreigingen**.
 
-    <a id="auditing-screenshot"></a>![Navigatiedeelvenster][1]
+    <a id="auditing-screenshot"></a> ![Navigatiedeelvenster][1]
 3. Als u liever een controlebeleid server instellen, kunt u de **serverinstellingen weergeven** koppeling in de databaseblade voor controle. U kunt vervolgens weergeven of wijzigen van de server controle-instellingen. Controlebeleid van de server van toepassing op alle bestaande en nieuwe databases op deze server.
 
     ![Navigatiedeelvenster][2]
@@ -81,7 +82,7 @@ De volgende sectie beschrijft de configuratie van controlebeleid met de Azure po
    >[!TIP]
    >Als u de meest buiten de controle rapporten sjablonen, gebruikt u hetzelfde opslagaccount voor alle gecontroleerde databases.
 
-    <a id="storage-screenshot"></a>![Navigatiedeelvenster][4]
+    <a id="storage-screenshot"></a> ![Navigatiedeelvenster][4]
 6. Als u aanpassen van de gecontroleerde gebeurtenissen wilt, kunt u dit doen via PowerShell of de REST-API.
 7. Nadat u de controle-instellingen hebt geconfigureerd, kunt u de mogelijkheid voor het detecteren van nieuwe threat inschakelen en configureren van e-mailberichten voor het ontvangen van beveiligingsberichten. Wanneer u detectie van dreigingen gebruikt, ontvangt u proactieve waarschuwingen voor afwijkende databaseactiviteiten die kunnen duiden op beveiligingsdreigingen. Zie voor meer informatie [aan de slag met detectie van dreigingen](sql-database-threat-detection-get-started.md).
 8. Klik op **Opslaan**.

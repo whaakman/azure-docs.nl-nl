@@ -378,8 +378,8 @@
               href: saas-dbpertenant-restore-single-tenant.md
             - name: Het tenantschema beheren
               href: saas-tenancy-schema-management.md
-            - name: Ad-hocquery's uitvoeren
-              href: saas-tenancy-adhoc-analytics.md
+            - name: Cross-tenant-rapportage
+              href: saas-tenancy-cross-tenant-reporting.md
             - name: ETL voor analyse
               href: saas-tenancy-tenant-analytics.md
         - name: Multitenant-database

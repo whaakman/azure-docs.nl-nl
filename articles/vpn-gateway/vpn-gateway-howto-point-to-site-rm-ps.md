@@ -1,10 +1,10 @@
 ---
 title: 'Via een computer verbinding maken met een virtueel Azure-netwerk met behulp van een point-to-site-verbinding en systeemeigen Azure-certificaatverificatie: PowerShell | Microsoft Docs'
-description: U kunt een computer op een veilige manier verbinden met uw virtuele netwerk door een point-to-site-VPN-gatewayverbinding te maken met behulp van systeemeigen VPN-gateway-certificaatverificatie van Azure. Dit artikel is van toepassing op het Resource Manager-implementatiemodel en maakt gebruik van PowerShell.
+description: Verbind Windows- en Mac OS X-clients veilig met een virtueel Azure-netwerk met behulp van P2S en zelfondertekende of door certificeringsinstanties uitgegeven certificaten. In dit artikel wordt PowerShell gebruikt.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
@@ -13,55 +13,34 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: bbaa5a6bbc01af4529c657aee3b2916942b4269f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 6c0e26b25db4ac92d30f89aac52990d4856e8c96
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Een point-to-site-verbinding naar een VNet configureren met behulp van systeemeigen Azure-certificaatverificatie: PowerShell
 
-In dit artikel wordt beschreven hoe u een VNet met een punt-naar-site-verbinding maakt in het Resource Manager-implementatiemodel met behulp van PowerShell. Bij deze configuratie wordt gebruikgemaakt van certificaten voor verificatie. In deze configuratie voert de Azure VPN-gateway de validatie van het certificaat uit in plaats van een RADIUS-server. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
+Dit artikel helpt u afzonderlijke clients met Windows of Mac OS X veilig met een Azure-VNet te verbinden. P2S-verbindingen zijn nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, bijvoorbeeld als u ook thuis werkt of op een congres verbinding wilt maken. U kunt P2S ook in plaats van een site-naar-site-VPN gebruiken wanneer u maar een paar clients hebt die verbinding moeten maken met een VNet. Punt-naar-site-verbindingen hebben geen VPN-apparaat of openbaar IP-adres nodig. P2S maakt de VPN-verbinding via SSTP (Secure Socket Tunneling Protocol) of IKEv2. Voor meer informatie over punt-naar-site-VPN leest u [About Point-to-Site VPN](point-to-site-about.md) (Over punt-naar-site-VPN).
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Azure Portal (klassiek)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
->
->
+![Diagram: een computer verbinden met een Azure VNet-punt-naar-site-verbinding](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
-Met een punt-naar-site-VPN-gateway (P2S) kunt u vanaf een afzonderlijke clientcomputer een beveiligde verbinding maken met uw virtuele netwerk. P2S-verbindingen zijn nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, bijvoorbeeld als u ook thuis werkt of op een congres verbinding wilt maken. Een P2S-VPN is ook een uitstekende oplossing in plaats van een site-naar-site-VPN wanneer u maar een paar clients hebt die verbinding moeten maken met een VNet. Er wordt een P2S-VPN-verbinding gestart vanaf Windows en Mac-apparaten. 
 
-Clients die verbinding maken, kunnen de volgende verificatiemethoden gebruiken:
+## <a name="architecture"></a>Architectuur
 
-* RADIUS-server
-* Systeemeigen Azure-certificaatverificatie van VPN Gateway
-
-Dit artikel helpt u bij het configureren van een P2S-configuratie met verificatie met behulp van de systeemeigen Azure-certificaatverificatie. Zie [P2S using RADIUS authentication](point-to-site-how-to-radius-ps.md) (P2S met behulp van RADIUS-verificatie) als u RADIUS wilt gebruiken om gebruikers die verbinding maken, te verifiëren.
-
-![Diagram: een computer verbinden met een Azure VNet-punt-naar-site-verbinding](./media/vpn-gateway-howto-point-to-site-rm-ps/p2snativeps.png)
-
-Punt-naar-site-verbindingen hebben geen VPN-apparaat of openbaar IP-adres nodig. P2S maakt de VPN-verbinding via SSTP (Secure Socket Tunneling Protocol) of IKEv2.
-
-* SSTP is een op SSL gebaseerde VPN-tunnel die alleen wordt ondersteund op Windows-clientplatforms. Omdat met SSTP firewalls kunnen worden gepasseerd, is dit een ideale optie om vanaf elke locatie verbinding te maken met Azure. De SSTP-versies 1.0, 1.1 en 1.2 aan de serverzijde worden ondersteund. De client besluit welke versie moet worden gebruikt. Voor Windows 8.1 en hoger, gebruikt SSTP standaard 1.2.
-
-* IKEv2 VPN, een op standaarden gebaseerde IPsec VPN-oplossing. IKEv2 VPN kan worden gebruikt om verbinding te maken vanaf Mac-apparaten (OSX-versie 10.11 en hoger).
-
-Voor point-to-site-verbindingen met systeemeigen Azure-certificaatverificatie is het volgende vereist:
+Native punt-naar-site-verbindingen voor certificaatverificatie in Azure gebruiken de volgende items, die u in deze oefening configureert:
 
 * Een RouteBased VPN-gateway.
 * De openbare sleutel (CER-bestand) voor een basiscertificaat dat is geüpload naar Azure. Nadat het certificaat is geüpload, wordt het beschouwd als een vertrouwd certificaat en wordt het gebruikt voor verificatie.
-* Een clientcertificaat dat wordt gegenereerd op basis van het basiscertificaat en dat wordt geïnstalleerd op elke clientcomputer die verbinding gaat maken met het VNet. Dit certificaat wordt gebruikt voor clientverificatie.
+* Een clientcertificaat dat is gegenereerd op basis van het basiscertificaat. Het clientcertificaat dat is geïnstalleerd op elke clientcomputer die met het VNet verbinding zal maken. Dit certificaat wordt gebruikt voor clientverificatie.
 * Een VPN-clientconfiguratie. De configuratiebestanden voor de VPN-client bevatten de gegevens die nodig zijn om de client te verbinden met het VNet. Met de bestanden wordt de bestaande VPN-client geconfigureerd die is ingebouwd in het besturingssysteem. Elke client die verbinding maakt, moet worden geconfigureerd met behulp van de instellingen in de configuratiebestanden.
-
-Voor meer informatie over point-to-site-verbindingen leest u [About Point-to-Site connections](point-to-site-about.md) (Over point-to-site-verbindingen).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 * Controleer of u een Azure-abonnement hebt. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) of [u aanmelden voor een gratis account](https://azure.microsoft.com/pricing/free-trial).
-* Installeer de meest recente versie van de PowerShell-cmdlets van Resource Manager. Zie [How to install and configure Azure PowerShell](/powershell/azure/overview) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets.
+* Installeer de meest recente versie van de PowerShell-cmdlets van Resource Manager. Zie [How to install and configure Azure PowerShell](/powershell/azure/overview) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets. Dit is belangrijk omdat eerdere versies van de cmdlets niet de huidige waarden bevatten die u nodig hebt voor deze oefening.
 
 ### <a name="example"></a>Voorbeeldwaarden
 
@@ -164,7 +143,7 @@ In deze sectie meldt u zich aan en declareert u de waarden die voor deze configu
 Configureer en maak de virtuele netwerkgateway voor uw VNet.
 
 * -GatewayType moet **Vpn** zijn en -VpnType moet **RouteBased** zijn.
-* -VpnClientProtocol wordt gebruikt om de soorten tunnels op te geven die u wilt inschakelen. De twee tunnelopties zijn **SSTP** en **IKEv2**. U kunt een van beide of beide inschakelen. Als u ze beide wilt inschakelen, geeft u beide namen op, gescheiden door een komma. De Strongswan-client op Android en Linux en de systeemeigen IKEv2 VPN-client op iOS en OS x gebruiken alleen de IKEv2-tunnel om verbinding te maken. Windows-clients proberen eerst IKEv2. Als daarmee geen verbinding kan worden gemaakt, vallen ze terug op SSTP.
+* -VpnClientProtocol wordt gebruikt om de soorten tunnels op te geven die u wilt inschakelen. De twee tunnelopties zijn **SSTP** en **IKEv2**. U kunt een van beide of beide inschakelen. Als u ze beide wilt inschakelen, geeft u beide namen op, gescheiden door een komma. De strongSwan-client op Android en Linux en de systeemeigen IKEv2 VPN-client op iOS en OS x gebruiken alleen de IKEv2-tunnel om verbinding te maken. Windows-clients proberen eerst IKEv2. Als daarmee geen verbinding kan worden gemaakt, vallen ze terug op SSTP.
 * Een VPN-gateway wordt binnen maximaal 45 minuten voltooid. De daadwerkelijke instelduur hangt af van de [gateway-SKU](vpn-gateway-about-vpn-gateway-settings.md) die u selecteert. In dit voorbeeld wordt IKEv2 gebruikt.
 
 ```powershell
@@ -428,3 +407,5 @@ U kunt een clientcertificaat opnieuw activeren door de vingerafdruk te verwijder
 
 ## <a name="next-steps"></a>Volgende stappen
 Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie. Zie [Azure and Linux VM Network Overview](../virtual-machines/linux/azure-vm-network-overview.md) (Overzicht van Azure- en Linux-VM-netwerken) voor meer informatie over netwerken en virtuele machines.
+
+Voor informatie over probleemoplossing voor P2S bekijkt u [Troubleshooting: Azure point-to-site connection problemens](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md) (Problemen met punt-naar-site-verbindingen in Azure oplossen).

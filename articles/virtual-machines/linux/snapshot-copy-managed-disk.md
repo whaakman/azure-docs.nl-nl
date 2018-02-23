@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 152c5a1103d32af27f689086cfcc9cc1a7acc5d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>Een momentopname maken 
 
@@ -65,7 +65,7 @@ De uitvoer ziet er ongeveer als:
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Azure portal gebruiken om een momentopname 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Beginnen in de linkerbovenhoek, klikt u op **nieuw** en zoek naar **momentopname**.
+2. Beginnen in de linkerbovenhoek, klikt u op **maken van een resource** en zoek naar **momentopname**.
 3. Klik op de blade momentopname **maken**.
 4. Voer een **naam** voor de momentopname.
 5. Selecteer een bestaande [Resourcegroep](../../azure-resource-manager/resource-group-overview.md#resource-groups) of typ de gewenste naam voor een nieuwe resourcegroep. 

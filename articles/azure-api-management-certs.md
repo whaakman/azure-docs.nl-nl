@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: e74a3e918a7c7426c743447e23ede9938ce3f63e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a865290602f64335e8b7cbfadf00d83234ae812d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Een Azure Service Management-certificaat uploaden
 Van beheercertificaten kunnen u verifiëren met het klassieke implementatiemodel verstrekt door Azure. Veel programma's en hulpprogramma's (zoals Visual Studio of de Azure SDK) gebruik van deze certificaten in configuratie en implementatie van verschillende Azure-services te automatiseren. 
@@ -38,7 +38,7 @@ U kunt ook [Azure Active Directory](https://azure.microsoft.com/en-us/services/a
 Zodra u hebt een beheercertificaat dat is gemaakt, (CER-bestand met alleen de openbare sleutel) kunt u deze in de portal uploaden. Wanneer het certificaat in de portal beschikbaar is, kan iedereen met een overeenkomend certificaat (persoonlijke sleutel) verbinding maken via de API Management en toegang tot de bronnen voor het gekoppelde abonnement.
 
 1. Meld u aan bij [Azure Portal](http://portal.azure.com).
-2. Klik op **meer services** op de lijst van de Azure-service onder Selecteer **abonnementen** in de _algemene_ servicegroep.
+2. Klik op **alle services** op de lijst van de Azure-service onder Selecteer **abonnementen** in de _algemene_ servicegroep.
 
     ![Abonnement-menu](./media/azure-api-management-certs/subscriptions_menu.png)
 

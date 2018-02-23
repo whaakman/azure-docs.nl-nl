@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 51734f5b39e9ca8af65048f2a7efd5c61cd53204
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Azure AD-AngularJS aan de slag
 
@@ -48,7 +48,7 @@ Als u wilt inschakelen voor de app voor het verifiëren van gebruikers en tokens
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Als u bent aangemeld bij meerdere mappen, moet u mogelijk om te controleren of dat u de juiste map bekijkt. Klik op uw account om dit te doen op de bovenste balk. Onder de **Directory** kiest u de Azure AD-tenant waar u uw toepassing registreren.
-3. Klik op **meer Services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
+3. Klik op **alle services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
 4. Klik op **App registraties**, en selecteer vervolgens **toevoegen**.
 5. Volg de aanwijzingen en maak een nieuwe webtoepassing en/of web-API:
   * **Naam** beschrijving van uw toepassing voor gebruikers.
@@ -78,8 +78,8 @@ Beginnen met het adal.js toevoegen aan het project TodoSPA met behulp van de Pac
 
 ### <a name="configure-the-back-end-server"></a>De back-end-server configureren
 Voor de single-page-app back-end te doen lijst API tokens van de browser accepteert, moet de back-end configuratie-informatie over de registratie van de app. Open in het project TodoSPA `web.config`. Vervang de waarden van de elementen in de `<appSettings>` sectie in overeenstemming met de waarden die u in de Azure portal gebruikt. Uw code zal naar deze waarden verwijzen wanneer deze gebruikmaakt van ADAL.
-  * `ida:Tenant`is het domein van uw Azure AD-tenant bijvoorbeeld: contoso.onmicrosoft.com.
-  * `ida:Audience`is de client-ID van uw toepassing die u hebt gekopieerd uit de portal.
+  * `ida:Tenant` is het domein van uw Azure AD-tenant bijvoorbeeld: contoso.onmicrosoft.com.
+  * `ida:Audience` is de client-ID van uw toepassing die u hebt gekopieerd uit de portal.
 
 ## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Stap 3: Gebruik ADAL om u te helpen, beveiligde pagina's in de app met één pagina
 Adal.js integreert met AngularJS route en HTTP-providers, zodat u beveiligde afzonderlijke weergaven in uw app met één pagina kunt.

@@ -1,8 +1,8 @@
 ---
 title: Actiegroepen in de Azure portal maken en beheren | Microsoft Docs
 description: Informatie over het actiegroepen in de Azure portal maken en beheren.
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
-ms.author: ancav
-ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/16/2018
+ms.author: dukek
+ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in de Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
 In dit artikel laat zien hoe actiegroepen in de Azure portal maken en beheren.
 
-U kunt een lijst van acties met actiegroepen configureren. Deze groepen kunnen vervolgens worden gebruikt wanneer u activiteitswaarschuwingen logboekbestand definieert. Deze groepen kunnen vervolgens worden hergebruikt door elke activiteit logboek waarschuwing die u hebt gedefinieerd, waarbij u ervoor zorgt dat elke keer dat de activiteit logboek waarschuwing is geactiveerd door dezelfde acties worden genomen.
+U kunt een lijst van acties met actiegroepen configureren. Deze groepen kunnen vervolgens worden gebruikt door elke waarschuwing die u hebt gedefinieerd, waarbij u ervoor zorgt dat telkens wanneer een waarschuwing wordt geactiveerd door dezelfde acties worden genomen.
 
 Een actiegroep kan maximaal 10 van elk actietype hebben. Elke actie bestaat uit de volgende eigenschappen:
 
@@ -56,7 +56,7 @@ Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen v
 
     a. **Naam**: Voer een unieke id voor deze actie.
 
-    b. **Actietype**: Selecteer SMS, e, webhook, Apps van Azure, ITSM of Automation-Runbook.
+    b. **Actietype**: Selecteer SMS-e-mailadres/Azure-app, Webhook, ITSM of Automation-Runbook.
 
     c. **Details**: op basis van het actietype, voer een telefoonnummer, e-mailadres, webhook URI, Apps van Azure, ITSM verbinding of Automation-runbook. Voor ITSM actie bovendien opgeven **werkitem** en andere velden uw ITSM hulpprogramma vereist.
 

@@ -1,5 +1,5 @@
 ---
-title: Analytics-query's uitvoeren op databases | Microsoft Docs
+title: "Uitvoeren van analyses van cross-tenant met behulp van geëxtraheerde gegevens | Microsoft Docs"
 description: Cross-tenant analytics query's met behulp van gegevens uit meerdere databases van Azure SQL Database hebt uitgepakt.
 keywords: zelfstudie sql-database
 services: sql-database
@@ -15,19 +15,19 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 62f09a7ff353783b0f54202554d126bf59ee941a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Cross-tenant analytics met gegevens opgehaald
 
-In deze zelfstudie maakt doorlopen u een volledige analytics scenario. Het scenario laat zien hoe analytics bedrijven slimme beslissingen kunt inschakelen. Gegevens die zijn geëxtraheerd uit de database van elke tenant gebruikt, kunt u analytics inzicht in het gedrag van de tenant, met inbegrip van hun gebruik van de voorbeeldtoepassing Wingtip Tickets SaaS. Dit scenario omvat drie stappen: 
+In deze zelfstudie maakt doorlopen u een volledige analytics scenario. Het scenario laat zien hoe analytics bedrijven slimme beslissingen kunt inschakelen. Gegevens die zijn geëxtraheerd uit de database van elke tenant gebruikt, u analytics gebruiken om inzicht te krijgen in de tenant gebruik gedrag en de toepassing. Dit scenario omvat drie stappen: 
 
-1.  **Gegevens extraheren** uit de database van elke tenant naar een winkel analytics.
-2.  **De opgehaalde gegevens optimaliseren** voor analytics verwerking.
-3.  Gebruik **Business Intelligence** hulpprogramma's om handig inzicht die besluitvorming kunnen leiden. 
+1.  **Pak** gegevens uit de database van elke tenant en **Load** in een archief analytics.
+2.  **De opgehaalde gegevens transformeren** voor analytics verwerking.
+3.  Gebruik **business intelligence** hulpprogramma's om handig inzicht die besluitvorming kunnen leiden. 
 
 In deze zelfstudie leert u het volgende:
 
@@ -42,29 +42,28 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="offline-tenant-analytics-pattern"></a>Offline tenant analytics patroon
 
-SaaS-toepassingen die u ontwikkelt hebben toegang tot een enorme hoeveelheid tenant-gegevens die zijn opgeslagen in de cloud. De gegevens biedt een uitgebreide bron van informatie over de werking en het gebruik van uw toepassing en het gedrag van de tenants. Deze inzichten kunnen leiden functie ontwikkeling, bruikbaarheid verbeteringen en andere investeringen in de app en het platform.
+Multitenant SaaS-toepassingen hebben doorgaans een enorme hoeveelheid tenant-gegevens die zijn opgeslagen in de cloud. Deze gegevens biedt een rijke bron van informatie over de werking en gebruik van uw toepassing en het gedrag van uw tenants. Deze inzichten kunnen leiden functie ontwikkeling, bruikbaarheid verbeteringen en andere investeringen in de app en het platform.
 
-Toegang tot de gegevens voor alle tenants is eenvoudig wanneer alle gegevens in een multitenant-database. Maar de toegang is complexer wanneer over duizenden databases op grote schaal gedistribueerd. Er is een manier om de complexiteit pak uitpakken van de gegevens naar een analytics-database of een datawarehouse. U vervolgens opvragen de store analytics voor het verzamelen van insights uit de tickets gegevens van alle tenants.
+Het is eenvoudig toegang krijgen tot gegevens voor alle tenants wanneer alle gegevens in een multitenant-database. Maar de toegang is complexer wanneer over mogelijk duizenden databases op grote schaal gedistribueerd. Een manier Pak de complexiteit en de impact van analysequery's op transactionele gegevens minimaliseren is om het ophalen van gegevens naar een doel ontworpen analytics database of de data warehouse.
 
-Deze zelfstudie toont een scenario voltooid analytics voor dit voorbeeld SaaS-toepassing. Eerste, elastische taken worden gebruikt voor het plannen van de extractie van gegevens uit de database van elke tenant. De gegevens worden verzonden naar een winkel analytics. De store analytics kan zijn van een SQL-Database of een SQL Data Warehouse. Voor het ophalen van grootschalige gegevens [Azure Data Factory](../data-factory/introduction.md) prees is.
+Deze zelfstudie toont een scenario voltooid analytics voor Wingtip Tickets SaaS-toepassing. Eerst *elastische taken* wordt gebruikt om gegevens te extraheren uit de database van elke tenant en laden in tijdelijke tabellen in een archief analytics. De store analytics kan zijn van een SQL-Database of een SQL Data Warehouse. Voor het ophalen van grootschalige gegevens [Azure Data Factory](../data-factory/introduction.md) wordt aanbevolen.
 
-Vervolgens wordt de geaggregeerde gegevens in een set is vernietigd [ster-schema](https://www.wikipedia.org/wiki/Star_schema) tabellen. De tabellen bestaan uit een centrale feitentabel plus gerelateerde dimensietabellen:
+Vervolgens wordt de geaggregeerde gegevens wordt omgezet in een reeks [ster-schema](https://www.wikipedia.org/wiki/Star_schema) tabellen. De tabellen bestaan uit een centrale feitentabel plus gerelateerde dimensietabellen.  Voor Wingtip Tickets:
 
 - De centrale feitentabel in de ster-schema bevat ticket gegevens.
-- De dimensietabellen bevatten gegevens over plaatsen, gebeurtenissen, klanten en datums kopen.
+- De dimensietabellen beschrijven plaatsen, gebeurtenissen, klanten en datums kopen.
 
-Samen het midden- en dimensie tabellen inschakelen efficiënt analytische verwerking. De ster-schema dat wordt gebruikt in deze zelfstudie wordt weergegeven in de volgende afbeelding:
+De centrale feiten- en dimensietabellen tabellen inschakelen samen efficiënt analytische verwerking. In de volgende afbeelding ziet u de ster-schema in deze zelfstudie gebruikt:
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-Ten slotte worden de ster-schema-tabellen opgevraagd. De queryresultaten worden visueel weergegeven om uit te lichten inzicht in het gedrag van de tenant en het gebruik van de toepassing. Met dit ster-schema, kunt u query's waarmee u achterhalen welke items als volgt uitvoeren:
+Ten slotte de store analytics opgevraagd met **PowerBI** inzicht in het gedrag van de tenant en het gebruik van de toepassing Wingtip Tickets markeren. Uitvoeren van query's die:
+ 
+- De relatieve populariteit van elke wilt weergeven
+- Markeer patronen in ticket sales voor verschillende gebeurtenissen
+- Het relatieve succes van verschillende plaatsen in de verkoop van hun gebeurtenis weergeven
 
-- Wie is aanschaf van tickets en vanaf welke u wilt.
-- Verborgen patronen en trends in de volgende gebieden:
-    - De verkoop van tickets.
-    - De relatieve populariteit van elke locatie vast.
-
-Begrijpen hoe consistent elke tenant wordt via de service biedt de mogelijkheid voor het maken van de service-abonnementen om te voorzien in hun behoeften. Deze zelfstudie bevat eenvoudige voorbeelden van inzichten die kunnen worden achterhaald van gegevens van de tenant.
+Begrijpen hoe elke tenant wordt via de service wordt gebruikt om de opties voor de service monetizing en het verbeteren van de service om tenants meer succesvol te verkennen. Deze zelfstudie bevat eenvoudige voorbeelden van de soorten inzichten die kunnen worden achterhaald van gegevens van de tenant.
 
 ## <a name="setup"></a>Instellen
 
@@ -76,7 +75,7 @@ Voor het voltooien van deze zelfstudie moet u ervoor zorgen dat aan de volgende 
 - De scripts Wingtip Tickets SaaS Database Per Tenant en de toepassing [broncode](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) worden gedownload van GitHub. Zie voor downloadinstructies ontvangen. Zorg ervoor dat *blokkering van het zip-bestand* voordat het uitpakken van de inhoud ervan. Bekijk de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de scripts Wingtip Tickets SaaS deblokkeren.
 - Power BI Desktop is geïnstalleerd. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - De batch van extra tentants is ingericht, raadpleegt u de [ **inrichten tenants zelfstudie**](saas-dbpertenant-provision-and-catalog.md).
-- Een taak account en accountdatabase taak hebt gemaakt. Zie de juiste stappen in de [ **Schema management zelfstudie**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Een taak account en accountdatabase taak hebt gemaakt. Zie de juiste stappen in de [ **Schema management zelfstudie**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Gegevens voor de demo maken
 
@@ -184,7 +183,7 @@ Verbinding maken met Power BI, en voor het importeren van de weergaven die u eer
 
 6. In de **Navigator** deelvenster onder de analytics-database, selecteer de tabellen ster-schema: fact_Tickets, dim_Events, dim_Venues, dim_Customers en dim_Dates. Selecteer vervolgens **Load**. 
 
-Gefeliciteerd. U hebt de gegevens in Power BI geladen. U kunt nu starten verkennen interessante visualisaties zodat u inzicht in uw tenants. Naast helpt u bij hoe analytics kunt u gegevensgestuurde aanbevelingen voor het managementteam Wingtip Tickets. De aanbevelingen kunnen u het model en de klant ervaring te optimaliseren.
+Gefeliciteerd! U hebt de gegevens in Power BI geladen. U kunt nu starten verkennen interessante visualisaties zodat u inzicht in uw tenants. Naast helpt u bij hoe analytics kunt u gegevensgestuurde aanbevelingen voor het managementteam Wingtip Tickets. De aanbevelingen kunnen u het model en de klant ervaring te optimaliseren.
 
 Begint u met de analyse van ticket verkoopgegevens om te zien van de variatie in gebruik over de plaatsen. De volgende opties selecteren in Power BI om te tekenen van een staafdiagram van het totale aantal tickets verkocht door elke locatie vast. Als gevolg van willekeurige variaties in de generator ticket kunnen uw resultaten afwijken.
  
@@ -239,9 +238,9 @@ In deze zelfstudie heeft u het volgende geleerd:
 > - Query analytics-database 
 > - Power BI voor gegevensvisualisatie gebruiken om te zien van trends in gegevens van de tenant 
 
-Gefeliciteerd.
+Gefeliciteerd!
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 - Aanvullende [zelfstudies waarin voort op de Wingtip SaaS-toepassing bouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - [Elastische taken](sql-database-elastic-jobs-overview.md).

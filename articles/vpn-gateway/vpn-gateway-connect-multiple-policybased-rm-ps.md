@@ -1,6 +1,6 @@
 ---
 title: 'Verbinding maken met Azure VPN-gateways u meerdere on-premises op beleid gebaseerde VPN-apparaten: Azure Resource Manager: PowerShell | Microsoft Docs'
-description: In dit artikel begeleidt u bij het configureren van Azure op route gebaseerde VPN-gateway niet meerdere op beleid gebaseerde VPN-apparaten met behulp van Azure Resource Manager en PowerShell.
+description: Configureer een Azure op route gebaseerde VPN-gateway op meerdere op beleid gebaseerde VPN-apparaten met Azure Resource Manager en PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: db4d8837fb5c5d15364422e957e4914966215674
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90c855e768f403098e535391afb55e3c78044b0a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Verbinding maken met Azure VPN-gateways u meerdere on-premises op beleid gebaseerde VPN-apparaten met behulp van PowerShell
 
@@ -43,9 +43,9 @@ De volgende diagrammen Markeer twee modellen:
 ### <a name="azure-support-for-policy-based-vpn"></a>Azure-ondersteuning voor VPN op basis van beleid
 Azure ondersteunt momenteel, beide modi van VPN-gateways: op route gebaseerde VPN-gateways en op beleid gebaseerde VPN-gateways. Ze zijn gebaseerd op verschillende interne platforms, ertoe leiden dat andere specificaties:
 
-|                          | **Beleid gebaseerd VPN-Gateway** | **Op route gebaseerd VPN-Gateway**               |
+|                          | **PolicyBased VPN Gateway** | **Op route gebaseerd VPN-Gateway**               |
 | ---                      | ---                         | ---                                      |
-| **Azure-Gateway SKU**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
+| **Azure Gateway SKU**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
 | **IKE-versie**          | IKEv1                       | IKEv2                                    |
 | **Max. S2S-verbindingen** | **1**                       | Basic-/ Standard: 10<br> HighPerformance: 30 |
 |                          |                             |                                          |
@@ -147,7 +147,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 Het volgende voorbeeld wordt een IPsec/IKE-beleid met deze algoritmen en parameters:
 * IKEv2: AES256, SHA384 DHGroup24
-* IPsec: AES256, SHA256, PFS24, SA levensduur 3600 seconden & 2048KB
+* IPsec: AES256, SHA256, PFS24, SA Lifetime 3600 seconds & 2048KB
 
 ```powershell
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 3600 -SADataSizeKilobytes 2048

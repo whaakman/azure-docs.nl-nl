@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.openlocfilehash: 47154202d0a8f7704561676fa645b5ccdb5b8c01
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8e86648195811a666a197b6ee06ad610a1c8d568
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Altijd versleuteld: Beveiligen van gevoelige gegevens in SQL-Database en opslaan van de versleutelingssleutels in het certificaatarchief van Windows
 
@@ -48,7 +48,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="create-a-blank-sql-database"></a>Een lege SQL-database maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik op **nieuwe** > **gegevens en opslag** > **SQL-Database**.
+2. Klik op **maken van een resource** > **gegevens en opslag** > **SQL-Database**.
 3. Maak een **leeg** database met de naam **kliniek** op een nieuwe of bestaande server. Zie voor gedetailleerde instructies over het maken van een database in de Azure portal [uw eerste Azure SQL database](sql-database-get-started-portal.md).
    
     ![Een lege database maken](./media/sql-database-always-encrypted/create-database.png)
@@ -60,7 +60,7 @@ U moet de verbindingsreeks later in de zelfstudie. Nadat de database is gemaakt,
    
     ![Kopieer de verbindingsreeks](./media/sql-database-always-encrypted/connection-strings.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Verbinding maken met de database met SSMS
+## <a name="connect-to-the-database-with-ssms"></a>Verbinding maken met de database via SSMS
 SSMS opent en verbinding maken met de server met de database kliniek.
 
 1. Open SSMS. (Klik op **Connect** > **Database-Engine** openen de **verbinding maken met Server** venster als dit niet geopend is).

@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: dekapur;chackdan;maburlik
+ms.openlocfilehash: 7d65845d21205e22a3e5b0868acb637ff614fb42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Een zelfstandige cluster met Windows Server maken
 U kunt Azure Service Fabric gebruiken voor het maken van Service Fabric-clusters op alle virtuele machines of de computers waarop Windows Server wordt uitgevoerd. Dit betekent dat u kunt implementeren en Service Fabric-toepassingen uitvoeren in een omgeving die een set met elkaar verbonden computers met Windows Server bevat, worden deze on-premises of bij een cloudprovider. Service Fabric bevat een installatiepakket voor het maken van Service Fabric-clusters die het zelfstandige pakket met Windows Server genoemd.
@@ -136,7 +136,7 @@ Nu u verbinding met het cluster met Service Fabric Explorer vanuit een van de ma
 U kunt toevoegen of knooppunten aan uw zelfstandige Service Fabric-cluster verwijderen als uw bedrijf. Zie [toevoegen of verwijderen van knooppunten aan een zelfstandige Service Fabric-cluster](service-fabric-cluster-windows-server-add-remove-nodes.md) voor gedetailleerde stappen.
 
 <a id="removecluster" name="removecluster_anchor"></a>
-## <a name="remove-a-cluster"></a>Verwijderen van een cluster
+## <a name="remove-a-cluster"></a>Een cluster verwijderen
 Als u een cluster wilt verwijderen, voert u het PowerShell-script *RemoveServiceFabricCluster.ps1* uit vanuit de pakketmap en geeft u daarbij het pad op naar het JSON-configuratiebestand. Optioneel kunt u een locatie voor het verwijderingslogboek opgeven.
 
 Dit script kan worden uitgevoerd op een machine met beheerdersrechten op alle machines die worden vermeld als knooppunten in het configuratiebestand van het cluster. Dit script wordt uitgevoerd op de machine geen deel uitmaken van het cluster.

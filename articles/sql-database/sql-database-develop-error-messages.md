@@ -1,30 +1,12 @@
----
-title: Foutcodes voor SQL - fout in databaseverbinding | Microsoft Docs
-description: "Meer informatie over SQL-foutcodes voor SQL-Database-clienttoepassingen, zoals algemene databasefouten verbinding met de database kopiëren en algemene fouten. "
-keywords: SQL-foutcode, toegang tot sql, fout in databaseverbinding, sql-foutcodes
-services: sql-database
-documentationcenter: 
-author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
-ms.service: sql-database
-ms.custom: develop apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/28/2017
-ms.author: sstein
-ms.openlocfilehash: 34e7142b5ca13ad8de5a4dbd380377abdf055c04
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ ---
+titel: foutcodes voor SQL - fout in databaseverbinding | Microsoft Docs beschrijving: ' meer informatie over SQL-foutcodes voor SQL-Database-clienttoepassingen, zoals algemene databasefouten verbinding met de database kopiëren en algemene fouten. ' trefwoorden: sql-foutcode, toegang tot sql database-verbindingsfout, sql-foutcodes services: sql-database documentationcenter: '' auteur: stevestein manager: jhubbard-editor: ''
+
+MS.AssetID: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: ms.workload apps ontwikkelen: 'Active' ms.tgt_pltfrm: n.v.t. ms.devlang: na ms.topic: artikel ms.date: 28-09/2017 ms.author: sstein
+
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-foutcodes voor SQL-Database-clienttoepassingen: verbindingsfouten en andere problemen van de Database
 
-Dit artikel bevat een overzicht van de SQL-foutcodes voor SQL-Database-clienttoepassingen, waaronder verbinding databasefouten, tijdelijke fouten (ook wel tijdelijke fouten), resource governance fouten, problemen met de database kopiëren, elastische pool en andere fouten. De meeste categorieën specifiek zijn voor Azure SQL Database en niet van toepassing op Microsoft SQL Server.
+Dit artikel bevat een overzicht van de SQL-foutcodes voor SQL-Database-clienttoepassingen, waaronder verbinding databasefouten, tijdelijke fouten (ook wel tijdelijke fouten), resource governance fouten, problemen met de database kopiëren, elastische pool en andere fouten. De meeste categorieën specifiek zijn voor Azure SQL Database en niet van toepassing op Microsoft SQL Server. Zie ook [system foutberichten](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Database-verbindingsfouten en tijdelijke fouten andere tijdelijke fouten
 De volgende tabel bevat informatie over de SQL-foutcodes voor verbindingsfouten gegevensverlies en andere tijdelijke fouten die mogelijk optreden wanneer uw toepassing probeert te krijgen tot SQL-Database. Zie voor het ophalen van gestarte zelfstudies over het verbinden met Azure SQL Database, [verbinding te maken met Azure SQL Database](sql-database-libraries.md).
@@ -37,7 +19,7 @@ Het is raadzaam dat uw clientprogramma Pogingslogica heeft zodat deze kan opnieu
 Tijdelijke fout fouten worden gewoonlijk manifest als een van de volgende foutberichten van uw client-programma's:
 
 * Database &lt;db_name&gt; op server &lt;Azure_instance&gt; is momenteel niet beschikbaar. Probeer het later opnieuw verbinding. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID van &lt;session_id&gt;
-* Database &lt;db_name&gt; op server &lt;Azure_instance&gt; is momenteel niet beschikbaar. Probeer het later opnieuw verbinding. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID van &lt;session_id&gt;. (Microsoft SQL Server, fout: 40613)
+* Database &lt;db_name&gt; op server &lt;Azure_instance&gt; is momenteel niet beschikbaar. Probeer het later opnieuw verbinding. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID van &lt;session_id&gt;. (Microsoft SQL Server, Error: 40613)
 * Een bestaande verbinding is verbroken door de externe host.
 * System.Data.Entity.Core.EntityCommandExecutionException: Er is een fout opgetreden tijdens het uitvoeren van de opdrachtdefinitie. Zie de binnenste uitzondering voor meer informatie. ---> System.Data.SqlClient.SqlException: Er is een fout transportniveau opgetreden tijdens het ontvangen van resultaten van de server. (provider: sessieprovider, fout: 19 - fysieke verbinding is niet bruikbaar)
 * Een verbinding met een secundaire database is mislukt omdat de database momenteel reconfguration wordt en is bezig het toepassen van nieuwe pagina's, terwijl in het midden van een actieve line transactie op de primaire database. 
@@ -118,7 +100,7 @@ De volgende fouten zijn gerelateerd aan het maken en gebruiken van elastische po
 | 40859 |EX_USER |Elastische groep biedt geen ondersteuning voor servicelaag '%ls'. |elastische groepservicelaag |Laag van de opgegeven service wordt niet ondersteund voor het inrichten van de elastische groep. |Geef de juiste editie of servicelaag de servicelaag standaard leeg laten. |
 | 40860 |EX_USER |Combinatie van elastische groep '%ls' en de service doelstelling '%ls' is ongeldig. |de naam van de elastische groep; naam van serviceniveaudoelstelling |Elastische pool en service doelstelling tegelijk worden opgegeven als de servicedoelstelling is opgegeven als 'ElasticPool'. |Geef de juiste combinatie van elastische pool en servicedoelstelling. |
 | 40861 |EX_USER |De database-editie is %. *ls kunnen niet anders dan de elastische groepservicelaag die is ' %.* ls'. |database-editie, elastische groepservicelaag |De database-editie is anders dan de elastische groepservicelaag. |Geef een database-editie die verschilt van de elastische groepservicelaag geen.  Houd er rekening mee dat de database-editie niet hoeft te worden opgegeven. |
-| 40862 |EX_USER |De naam van de elastische groep moet worden opgegeven als de servicedoelstelling voor de elastische groep is opgegeven. |Geen |Elastische pool servicedoelstelling vormt geen unieke identificatie voor een elastische pool. |Geef de naam van de elastische groep bij het gebruik van de servicedoelstelling voor de elastische groep. |
+| 40862 |EX_USER |De naam van de elastische groep moet worden opgegeven als de servicedoelstelling voor de elastische groep is opgegeven. |None |Elastische pool servicedoelstelling vormt geen unieke identificatie voor een elastische pool. |Geef de naam van de elastische groep bij het gebruik van de servicedoelstelling voor de elastische groep. |
 | 40864 |EX_USER |Het aantal dtu's voor de elastische groep moet ten minste (%d) dtu's voor servicelaag ' % * ls'. |Aantal dtu's voor de elastische groep; elastische groepservicelaag. |Probeert in te stellen van het aantal dtu's voor de elastische groep onder het minimum. |Probeer het opnieuw instellen van het aantal dtu's voor de elastische groep naar ten minste het minimum. |
 | 40865 |EX_USER |Het aantal dtu's voor de elastische groep niet langer zijn dan (%d) dtu's voor servicelaag ' % * ls'. |Aantal dtu's voor de elastische groep; elastische groepservicelaag. |Probeert in te stellen van het aantal dtu's voor de elastische groep is hoger dan de maximumlimiet. |Probeer het opnieuw instellen van het aantal dtu's voor de elastische groep op langer zijn dan de maximumlimiet. |
 | 40867 |EX_USER |De DTU max per database moet ten minste (%d) voor servicelaag ' % * ls'. |Maximale aantal DTU's per database. elastische groepservicelaag |Wilt het maximale aantal DTU's per database onder de ondersteunde limiet ingesteld. | onsider met behulp van de elastische groepservicelaag die ondersteuning biedt voor de gewenste instelling. |
@@ -144,7 +126,7 @@ De volgende fouten vallen niet in de vorige categorieën.
 | Foutcode | Ernst | Beschrijving |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) is niet een geldige naam omdat deze ongeldige tekens bevat. |
-| 18452 |14 |Aanmelden is mislukt. De aanmelding is afkomstig uit een niet-vertrouwd domein en kan niet worden gebruikt met Windows authentication.%. & #x2a; ls (Windows-aanmeldingen worden niet ondersteund in deze versie van SQL Server.) |
+| 18452 |14 |Aanmelding mislukt. De aanmelding is afkomstig uit een niet-vertrouwd domein en kan niet worden gebruikt met Windows authentication.%. & #x2a; ls (Windows-aanmeldingen worden niet ondersteund in deze versie van SQL Server.) |
 | 18456 |14 |Aanmelding mislukt voor gebruiker ' % #x2a;ls'.%. & #x2a; % ls. & #x2a; ls (de aanmelding is mislukt voor gebruiker '%. & #x2a; ls'. Wijzigen van het wachtwoord is mislukt. Wijzigen van wachtwoorden tijdens het aanmelden wordt niet ondersteund in deze versie van SQL Server.) |
 | 18470 |14 |Aanmelding mislukt voor gebruiker '%. & #x2a; ls'. Reden: Het account is disabled.%. & #x2a; ls |
 | 40014 |16 |Meerdere databases kunnen niet worden gebruikt in dezelfde transactie. |

@@ -1,7 +1,7 @@
 ---
 title: Een virtuele-Machineschaalset maken in de Azure portal | Microsoft Docs
 description: Informatie over het snel een virtuele-machineschaalset maken in de Azure portal
-keywords: Virtuele-machineschaalsets
+keywords: virtuele-machineschaalsets
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a501a852a317ec7d087904c3a675ebefce1bece0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: ae41149bf507e30dc5281fd60a9d6f77d2023293
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Een virtuele-Machineschaalset maken in de Azure portal
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal VM’s in de schaalset handmatig schalen of regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. In dit ophalen gestart artikel maakt u een virtuele-machineschaalset ingesteld in de Azure-portal. U kunt ook maken met een schaal ingesteld met de [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) of [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
@@ -36,7 +36,7 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 ## <a name="create-virtual-machine-scale-set"></a>Virtuele-machineschaalset maken
 U kunt een schaal ingesteld met een installatiekopie van Windows Server of Linux-installatiekopie zoals RHEL, CentOS, Ubuntu of SLES implementeren.
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Klik op **maken van een resource** in de linkerbovenhoek van de Azure portal.
 2. Zoeken naar *schaalset*, kies **virtuele-machineschaalset**, selecteer daarna **maken**.
 3. Voer een naam voor de schaal is ingesteld, zoals *myScaleSet*.
 4. Selecteer het gewenste OS-type, zoals *Windows Server 2016 Datacenter*.
@@ -65,8 +65,8 @@ Instellen exemplaren om weer te geven deze NAT-regels en de verbindingsinformati
 
 U kunt verbinding maken met elke virtuele machine in de schaal instelt met behulp van deze NAT-regels. Elk VM-instantie bevat een doel-IP-adres en de waarde van de TCP-poort. Bijvoorbeeld, als het IP-doeladres *104.42.1.19* en de TCP-poort is *50001*, u verbinding maken met het VM-exemplaar als volgt:
 
-- Voor een Windows-schaalset verbinding maken met de VM-instantie met RDP op`104.42.1.19:50001`
-- Voor een Linux-schaalset verbinding maken met de VM-instantie met SSH op`ssh azureuser@104.42.1.19 -p 50001`
+- Voor een Windows-schaalset verbinding maken met de VM-instantie met RDP op `104.42.1.19:50001`
+- Voor een Linux-schaalset verbinding maken met de VM-instantie met SSH op `ssh azureuser@104.42.1.19 -p 50001`
 
 Voer desgevraagd de referenties die u hebt opgegeven van de vorige stap bij het maken van de scale-set. De schaal set-exemplaren zijn reguliere virtuele machines die u kunt met werken normaal. Zie voor meer informatie over het implementeren en uitvoeren van toepassingen op uw scale set instanties [implementeren van uw toepassing op virtuele-machineschaalsets](virtual-machine-scale-sets-deploy-app.md)
 

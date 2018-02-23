@@ -23,6 +23,7 @@
 ### [MPP-architectuur](massively-parallel-processing-mpp-architecture.md)
 ### [Prestatielagen](performance-tiers.md)
 ### [Datawarehouse-eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Uitschalen, onderbreken, hervatten](sql-data-warehouse-manage-compute-overview.md)
 ### [Datawarehouse-back-ups](sql-data-warehouse-backups.md)
 ### [Controle](sql-data-warehouse-auditing-overview.md)
 ### [Capaciteitslimieten](sql-data-warehouse-service-capacity-limits.md)
@@ -50,7 +51,7 @@
 
 
 ## Bewaken en afstemmen
-### [Richtlijnen](resource-classes-for-workload-management.md)
+### [Werklastbeheer](resource-classes-for-workload-management.md)
 ### [Columnstore-compressie](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Controle](sql-data-warehouse-manage-monitor.md)
 ### [Problemen oplossen](sql-data-warehouse-troubleshoot.md)

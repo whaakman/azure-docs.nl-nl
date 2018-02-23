@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 4d48aff7d29def9fa54438a11885b4ff4fba54cc
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 63c2baa2f3924cf2274608df98b854683bc2baa8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Maken van een virtuele Windows-machine in een zone beschikbaarheid met de Azure-portal
 
@@ -31,11 +31,11 @@ In dit artikel wordt stapsgewijs via de Azure portal gebruiken voor het maken va
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure. 
 
-Aanmelden bij de Azure portal op https://portal.azure.com.
+Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Klik op **maken van een resource** in de linkerbovenhoek van de Azure portal.
 
 2. Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. 
 

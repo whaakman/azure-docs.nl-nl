@@ -16,11 +16,11 @@ ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e85300676eeee9259e40faa0e0ede94a36f6167
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d657eda25f3b26cb793a7ba1a4546f98c08b7e65
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Beheer van beheereenheden in Azure AD - openbare preview
 In dit artikel beschrijft administratieve eenheden – een nieuwe Azure Active Directory-container van bronnen die kunnen worden gebruikt voor het overdragen van beheerdersmachtigingen via subsets van gebruikers en -beleid toepassen op een subset van gebruikers. In Azure Active Directory kunnen administratieve eenheden centrale beheerders overdragen van machtigingen voor de regionale beheerders of beleid instellen op een gedetailleerd niveau.
@@ -28,7 +28,7 @@ In dit artikel beschrijft administratieve eenheden – een nieuwe Azure Active D
 Dit is handig in organisaties met onafhankelijke divisies, bijvoorbeeld een grote universiteit bestaat uit veel autonome scholen (Business school, school Engineering, enzovoort) die onafhankelijk van elkaar. Dergelijke afdelingen hebben hun eigen IT-beheerders die toegang te beheren, gebruikers beheren en beleidsregels die specifiek is voor hun deling instellen. Centrale beheerders kunnen wilt verlenen deze afdelingen beheerders machtigingen via de gebruikers in hun specifieke afdelingen. Meer specifiek, kunt het volgende voorbeeld de beheerder van een centrale, bijvoorbeeld een administratieve eenheid voor een bepaalde school (Business school) maken en deze vullen met alleen de zakelijke school gebruikers. Een centrale beheerder kan de IT-personeel van Business school toevoegen aan een rol binnen het bereik met andere woorden, Verleen de IT-medewerkers van Business school-beheerdersmachtigingen alleen via de Business school administratieve eenheid.
 
 > [!IMPORTANT]
-> Alleen als u Azure Active Directory Premium inschakelt, kunt u administratieve eenheid bereik beheerdersrollen toewijzen. Zie voor meer informatie [aan de slag met Azure AD Premium](active-directory-get-started-premium.md).
+> Vereist de beheerder binnen het bereik van administratieve eenheid in de administratieve eenheid een Azure Active Directory Premium-licentie en licenties voor Azure Active Directory Basic voor alle gebruikers hebben voor het gebruik van administratieve eenheden. Zie voor meer informatie [aan de slag met Azure AD Premium](active-directory-get-started-premium.md).
 >
 
 
@@ -40,4 +40,4 @@ U kunt maken en beheren van administratieve eenheden met de Azure Active Directo
 Zie voor meer informatie over de softwarevereisten en de Azure AD-module installeren en voor informatie over de Azure AD-Module-cmdlets voor het beheren van administratieve eenheden, inclusief syntaxis, beschrijvingen van parameters en voorbeelden [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Azure Active Directory-edities](active-directory-editions.md)
+[Azure Active Directory editions](active-directory-editions.md)

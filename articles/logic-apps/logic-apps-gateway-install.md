@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: b3c1e2afadea91f010c3e4b43206b6d30a75ec38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>De lokale data gateway voor Azure Logic Apps installeren
 
-Om uw logische apps toegang on-premises gegevensbronnen tot, moet u het installeren en instellen van de lokale data gateway. De gateway fungeert als een brug waarmee snelle gegevensoverdracht en -versleuteling tussen on-premises systemen en uw logische apps. De gateway stuurt gegevens van lokale bronnen op gecodeerde kanalen via de Azure Service Bus. Al het verkeer afkomstig is als beveiligde uitgaand verkeer van de gateway-agent. Meer informatie over [de werking van de gegevensgateway](#gateway-cloud-service).
+Om uw logische apps toegang on-premises gegevensbronnen tot, die u moet installeren en instellen van de lokale data gateway. De gateway fungeert als een brug waarmee snelle gegevensoverdracht en -versleuteling tussen on-premises systemen en uw logische apps. De gateway stuurt gegevens van lokale bronnen op gecodeerde kanalen via de Azure Service Bus. Al het verkeer afkomstig is als beveiligde uitgaand verkeer van de gateway-agent. Meer informatie over [de werking van de gegevensgateway](#gateway-cloud-service).
 
 De gateway ondersteunt verbindingen met deze gegevensbronnen on-premises:
 
@@ -35,8 +35,8 @@ De gateway ondersteunt verbindingen met deze gegevensbronnen on-premises:
 *   MySQL
 *   Oracle Database
 *   PostgreSQL
-*   SAP-toepassingsserver 
-*   SAP-berichtenserver
+*   SAP Application Server 
+*   SAP Message Server
 *   SharePoint
 *   SQL Server
 *   Teradata
@@ -54,18 +54,18 @@ Zie voor informatie over het gebruik van de gateway met andere services, deze ar
 
 ## <a name="requirements"></a>Vereisten
 
-**Minimale**:
+**Minimum**
 
-* .NET 4.5 framework
+* .NET 4.5 Framework
 * 64-bits versie van Windows 7 of Windows Server 2008 R2 (of hoger)
 
-**Aanbevolen**:
+**Aanbevolen**
 
 * 8-core CPU
 * 8 GB geheugen
 * 64-bits versie van Windows 2012 R2 (of hoger)
 
-**Belangrijke overwegingen**:
+**Belangrijke overwegingen**
 
 * De lokale data gateway alleen op een lokale computer geïnstalleerd.
 U kunt de gateway niet installeren op een domeincontroller.
@@ -80,7 +80,7 @@ U kunt de gateway niet installeren op een domeincontroller.
   > [!TIP]
   > Als u wilt gebruiken een Microsoft-account met een Visual Studio met MSDN-abonnement, eerst [(tenant) van een map maken in Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) met uw Microsoft-account of gebruik de standaardmap. Een gebruiker met een wachtwoord naar de map, en vervolgens toe aan die gebruikerstoegang geven tot uw abonnement. U kunt vervolgens weer aanmelden tijdens de installatie van de gateway met deze gebruikersnaam en wachtwoord.
 
-  Wanneer u maken en koppelen van een gateway-resource met de gateway-installatie, moet u dezelfde werk- of schoolaccount later in de Azure portal gebruiken. Selecteer deze gateway resource vervolgens in bij het maken van de verbinding tussen uw logische app en de on-premises gegevensbron. [Waarom moet ik een Azure AD werk- of schoolaccount?](#why-azure-work-school-account)
+  U moet dezelfde werk- of schoolaccount verderop in de Azure portal gebruiken bij het maken en koppelen van een gateway-resource met de gateway-installatie. Selecteer deze gateway resource vervolgens in bij het maken van de verbinding tussen uw logische app en de on-premises gegevensbron. [Waarom heb ik naar een Azure AD-werk- of schoolaccount?](#why-azure-work-school-account)
 
   > [!TIP]
   > Als u zich registreerde voor een Office 365-aanbieding en uw werkelijke Werke-mailadres niet opgeven, uw adres aanmelden als volgt uitzien jeff@contoso.onmicrosoft.com. 
@@ -93,7 +93,7 @@ U kunt de gateway niet installeren op een domeincontroller.
 
 ## <a name="install-the-data-gateway"></a>De gegevensgateway installeren
 
-1.  [Downloaden en uitvoeren van het installatieprogramma van de gateway op een lokale computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Downloaden en uitvoeren van het installatieprogramma van de gateway op een lokale computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Lees en accepteer de gebruiksvoorwaarden en de privacyverklaring.
 
@@ -197,7 +197,7 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-Als **TcpTestSucceeded** niet is ingesteld op **True**, u mogelijk geblokkeerd door een firewall. Als u worden uitgebreid wilt, vervangen door de **ComputerName** en **poort** waarden met de waarden die worden vermeld onder [poorten configureren](#configure-ports) in dit onderwerp.
+Als **TcpTestSucceeded** niet is ingesteld op **True**, u mogelijk geblokkeerd door een firewall. Als u worden uitgebreid wilt, vervangen door de **ComputerName** en **poort** waarden met de waarden die worden vermeld onder [poorten configureren](#configure-ports) in dit artikel.
 
 De firewall blokkeren mogelijk ook verbindingen waarmee de Azure Service Bus in de Azure-datacenters. Als u dit scenario gebeurt, goedkeuren (deblokkeren) de IP-adressen die datacenters in uw regio. Voor deze IP-adressen [ophalen van de Azure-IP-adressen lijst hier](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -205,20 +205,22 @@ De firewall blokkeren mogelijk ook verbindingen waarmee de Azure Service Bus in 
 
 De gateway maakt een uitgaande verbinding met [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) en op uitgaande poorten communiceert: TCP 443 (standaard), 5671, 5672, 9350 via 9354. De gateway nodig niet poorten voor inkomend verkeer. Meer informatie over [Azure Service Bus- en hybride oplossingen](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-| DOMEINNAMEN | UITGAANDE POORTEN | BESCHRIJVING |
-| --- | --- | --- |
-| *. analysis.windows.net | 443 | HTTPS | 
-| *. login.windows.net | 443 | HTTPS | 
-| *. servicebus.windows.net | 5671-5672 | Geavanceerde Message Queuing-Protocol (AMQP) | 
-| *. servicebus.windows.net | 443, 9350-9354 | Listeners op Service Bus Relay via TCP (443 voor toegangsbeheer token aanschaf vereist) | 
-| *. frontend.clouddatahub.net | 443 | HTTPS | 
-| *. core.windows.net | 443 | HTTPS | 
-| Login.microsoftonline.com | 443 | HTTPS | 
-| *. msftncsi.com | 443 | Gebruikt voor het testen van verbinding met internet wanneer de gateway onbereikbaar zijn door de Power BI-service is. | 
+| Domeinnamen | Uitgaande poorten | Beschrijving |
+| ------------ | -------------- | ----------- |
+| *.analysis.windows.net | 443 | HTTPS | 
+| *.login.windows.net | 443 | HTTPS | 
+| *.servicebus.windows.net | 5671-5672 | Geavanceerde Message Queuing-Protocol (AMQP) | 
+| *.servicebus.windows.net | 443, 9350-9354 | Listeners op Service Bus Relay via TCP (443 voor toegangsbeheer token aanschaf vereist) | 
+| *.frontend.clouddatahub.net | 443 | HTTPS | 
+| *.core.windows.net | 443 | HTTPS | 
+| login.microsoftonline.com | 443 | HTTPS | 
+| *.msftncsi.com | 443 | Gebruikt voor het testen van verbinding met internet wanneer de gateway onbereikbaar zijn door de Power BI-service is. | 
+||||
 
 Als u goed te keuren IP-adressen in plaats van de domeinen hebt, kunt u downloaden en gebruiken de [Microsoft Azure Datacenter IP-adresbereiken lijst](https://www.microsoft.com/download/details.aspx?id=41653). In sommige gevallen worden de Azure Service Bus-verbindingen gemaakt met IP-adres in plaats van een volledig gekwalificeerde domeinnamen.
 
 <a name="gateway-cloud-service"></a>
+
 ## <a name="how-does-the-data-gateway-work"></a>Hoe werkt de gegevensgateway?
 
 De gegevensgateway vergemakkelijkt de snelle en veilige communicatie tussen uw logische app, het gateway-cloudservice en uw on-premises gegevensbron. 
@@ -240,6 +242,7 @@ Wanneer de gebruiker in de cloud werkt met een element dat verbonden met uw on-p
 6. De resultaten worden uit de gegevensbron verzonden terug naar de gateway en vervolgens naar het gateway-cloudservice. De gateway-cloudservice gebruikt vervolgens de resultaten.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 ### <a name="general"></a>Algemeen
@@ -252,7 +255,7 @@ Wanneer de gebruiker in de cloud werkt met een element dat verbonden met uw on-p
 
 <a name="why-azure-work-school-account"></a>
 
-**Q**: Waarom moet ik een Azure werk- of schoolaccount aan te melden? <br/>
+**Q**: Waarom moet ik hebben een Azure werk- of schoolaccount aan te melden? <br/>
 **Een**: U kunt alleen een Azure werk- of schoolaccount bij het installeren van de lokale data gateway. Uw account wordt opgeslagen in een tenant die wordt beheerd door Azure Active Directory (Azure AD). Uw Azure AD-account UPN (user Principal name) normaal gesproken komt overeen met het e-mailadres.
 
 **Q**: waar mijn referenties worden opgeslagen? <br/>
@@ -278,7 +281,7 @@ U kunt de hulpprogramma van derden Azure snelheid testen-app gebruiken om te met
 **Een**: In Services Power BI Enterprise Gateway-Service voor de gateway wordt aangeroepen.
 
 **Q**: kan de gateway Windows-service worden uitgevoerd met Azure Active Directory-account? <br/>
-**Een**: Nee. De Windows-service moet een geldige Windows-account hebben. De service wordt standaard uitgevoerd met de Service-SID NT SERVICE\PBIEgwService.
+**Een**: Nee. De Windows-service moet een geldig Windows-account. De service wordt standaard uitgevoerd met de Service-SID NT SERVICE\PBIEgwService.
 
 ### <a name="high-availability-and-disaster-recovery"></a>Hoge beschikbaarheid en herstel na noodgevallen
 
@@ -289,7 +292,7 @@ U kunt de hulpprogramma van derden Azure snelheid testen-app gebruiken om te met
 **Een**: de herstelsleutel biedt een manier om te migreren of de gateway-instellingen herstellen na een noodgeval.
 
 **Q**: zijn er plannen voor het inschakelen van hoge beschikbaarheid scenario's met de gateway? <br/>
-**Een**: deze scenario's zijn op de roadmap, maar we een tijdlijn nog geen hebt.
+**Een**: sommige verbindingslijnen ondersteunen hoge beschikbaarheid-scenario's, zoals de connector bestandssysteem en anderen in de manier. Zie voor meer informatie [clusters met hoge beschikbaarheid voor lokale gegevensgateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
@@ -301,7 +304,7 @@ U kunt de hulpprogramma van derden Azure snelheid testen-app gebruiken om te met
 U kunt ook hulpprogramma's die de gegevensbron voor tracering van query's heeft bekijken. U kunt bijvoorbeeld de Extended Events of SQL Profiler gebruiken voor SQL Server en Analysis Services.
 
 **Q**: waar zich de logboeken van de gateway? <br/>
-**Een**: Zie's verderop in dit onderwerp.
+**Een**: Zie's verderop in dit artikel.
 
 ### <a name="update-to-the-latest-version"></a>Bijwerken naar de meest recente versie
 

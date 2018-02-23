@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 5e3c729ce3e75665078d7f33baed943087fbe0ca
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>De prestaties van een Cloudservice lokaal te testen in de Azure-Rekenemulator met behulp van de Profiler Visual Studio
 Tal van hulpprogramma's en technieken zijn beschikbaar voor het testen van de prestaties van cloudservices.
@@ -44,31 +44,35 @@ U kunt deze instructies met een bestaand project of met een nieuw project.  Als 
 
 Bijvoorbeeld toevoegen toepassing, code aan uw project die ervoor zorgt dat veel tijd ziet u een prestatieprobleem voor de hand liggende. Bijvoorbeeld, voeg de volgende code naar een werkrolproject:
 
-    public class Concatenator
+```csharp
+public class Concatenator
+{
+    public static string Concatenate(int number)
     {
-        public static string Concatenate(int number)
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
         {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
+            s += "\n" + count.ToString();
         }
+        return s;
     }
+}
+```
 
 Deze code aanroepen vanuit de RunAsync-methode in de werkrol RoleEntryPoint afgeleide klasse. (Negeer de waarschuwing over de methode synchroon uitgevoerd.)
 
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
-        }
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
+    }
+}
+```
 
 Bouwen en uitvoeren van uw cloudservice lokaal zonder foutopsporing (Ctrl + F5) met de oplossingsconfiguratie ingesteld op **Release**. Dit zorgt ervoor dat alle bestanden en mappen worden gemaakt voor het uitvoeren van de toepassing lokaal en zorgt ervoor dat alle emulators worden gestart. De gebruikersinterface van de Emulator Compute starten vanaf de taakbalk om te controleren of uw werkrol wordt uitgevoerd.
 
@@ -88,9 +92,11 @@ Als de projectmap zich op een netwerkstation bevindt, vraagt de profiler u een a
  U kunt ook koppelen aan een Webrol door aan WaIISHost.exe te koppelen.
 Als er meerdere werkprocessen functie in uw toepassing zijn, moet u de proces-id gebruiken om ze te onderscheiden. U kunt de processID programmatisch opvragen door het openen van het procesobject. Als u deze code aan de methode Run van de klasse die is afgeleid van RoleEntryPoint in een rol toevoegen, kunt u kunt bijvoorbeeld voor zoeken in het logbestand in de gebruikersinterface van de Emulator Compute weten welk proces verbinding maken met.
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 Als u wilt weergeven in het logboek, start de gebruikersinterface van de Emulator Compute.
 
@@ -126,16 +132,18 @@ Als u de code van de samengevoegde tekenreeks in dit artikel hebt toegevoegd, zi
 ## <a name="4-make-changes-and-compare-performance"></a>4: wijzigingen aanbrengen en vergelijkt u prestaties
 U kunt ook de prestaties voor en na een codewijziging vergelijken.  Stoppen van het proces dat wordt uitgevoerd en de code ter vervanging van de bewerking van de samengevoegde tekenreeks met het gebruik van StringBuilder bewerken:
 
-    public static string Concatenate(int number)
+```csharp
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
     {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
+        builder.Append("\n" + count.ToString());
     }
+    return builder.ToString();
+}
+```
 
 Uitvoeren van een andere prestaties doen, en vervolgens vergelijken de prestaties. De Explorer prestaties als het wordt uitgevoerd in dezelfde sessie, u kunt alleen Selecteer in beide rapporten, open het snelmenu, en kies **prestatierapporten vergelijken**. Als u vergelijken met een wordt uitgevoerd in een andere prestatiesessie wilt, opent u de **analyseren** menu en kies **prestatierapporten vergelijken**. Geef beide bestanden in het dialoogvenster dat wordt weergegeven.
 
@@ -145,7 +153,7 @@ De rapporten Markeer verschillen tussen de twee wordt uitgevoerd.
 
 ![Van vergelijkingsrapport][16]
 
-Gefeliciteerd. U slag bent gegaan met de profiler.
+Gefeliciteerd! U slag bent gegaan met de profiler.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 * Controleer of u een Release-build zijn profilering en starten zonder foutopsporing.

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 0cf26846a8f42238de09727a03dc6b50dff746b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Selfservice voor wachtwoordherstel in Azure AD-diepgaand
 
@@ -78,7 +78,7 @@ Standaard worden alleen de cloud kenmerken telefoon (werk) en de mobiele telefoo
 
 Gebruikers kunnen hun wachtwoord alleen opnieuw instellen als ze gegevens zijn aanwezig in de verificatiemethoden die de beheerder is ingeschakeld en is vereist.
 
-Als gebruikers hun mobiele telefoonnummer zichtbaar in de map niet wilt, maar ze nog steeds wilt gebruiken voor het wachtwoord opnieuw instellen, mag beheerders niet deze vullen in de map. Gebruikers moeten vervolgens vullen hun **telefoon voor authenticatie** kenmerk de [registratieportal voor wachtwoordherstel](http://aka.ms/ssprsetup). Beheerders kunnen deze informatie in het profiel van de gebruiker zien, maar het niet ergens anders gepubliceerd.
+Als gebruikers hun mobiele telefoonnummer zichtbaar in de map niet wilt, maar ze nog steeds wilt gebruiken voor het wachtwoord opnieuw instellen, mag beheerders niet deze vullen in de map. Gebruikers moeten vervolgens vullen hun **telefoon voor authenticatie** kenmerk de [registratieportal voor wachtwoordherstel](https://aka.ms/ssprsetup). Beheerders kunnen deze informatie in het profiel van de gebruiker zien, maar het niet ergens anders gepubliceerd.
 
 ### <a name="the-number-of-authentication-methods-required"></a>Het aantal verificatiemethoden vereist
 
@@ -180,7 +180,7 @@ Om deze optie inschakelt, heeft een gebruiker die is ingeschakeld voor wachtwoor
 * Federatieve toepassingen
 * Aangepaste toepassingen met Azure AD
 
-Wanneer registratie vereisen is uitgeschakeld, kunnen gebruikers hun contactgegevens nog steeds handmatig registreren. Ze kunnen beide Bezoek [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) of Selecteer de **registreren voor wachtwoordherstel** koppeling onder de **profiel** tabblad in het deelvenster toegang.
+Wanneer registratie vereisen is uitgeschakeld, kunnen gebruikers hun contactgegevens nog steeds handmatig registreren. Ze kunnen beide Bezoek [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) of Selecteer de **registreren voor wachtwoordherstel** koppeling onder de **profiel** tabblad in het deelvenster toegang.
 
 > [!NOTE]
 > Gebruikers kunnen de registratieportal voor wachtwoordherstel sluiten door te selecteren **annuleren** of door het venster te sluiten. Maar ze worden geregistreerd telkens wanneer ze zich aanmelden totdat ze hun registratie hebt voltooid, wordt gevraagd.

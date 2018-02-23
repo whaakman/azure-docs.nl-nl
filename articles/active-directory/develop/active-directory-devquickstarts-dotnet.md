@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 91efb85d17bd6ba57b1dc14253257f3f20e37c92
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET bureaublad (WPF) is aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -47,7 +47,7 @@ Als u wilt inschakelen voor uw app tokens krijgen, moet u eerst registreren in u
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op de bovenste balk op je account en klikt u onder de **Directory** kiest u de Active Directory-tenant waar u wilt uw toepassing registreren.
-3. Klik op **meer Services** in de nav linkerkant en kies **Azure Active Directory**.
+3. Klik op **alle services** in de nav linkerkant en kies **Azure Active Directory**.
 4. Klik op **App registraties** en kies **toevoegen**.
 5. Volg de aanwijzingen en maak een nieuwe **systeemeigen clienttoepassing**.
   * De **naam** van de toepassing bevat een beschrijving van uw toepassing aan eindgebruikers
@@ -131,7 +131,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 }
 ```
 
-* Echter, als de gebruiker heeft niet op de knop 'Afmelden', wilt u de sessie van de gebruiker voor de volgende keer dat ze de DirectorySearcher worden uitgevoerd.  Wanneer de app opent, kunt u controleren van de ADAL-tokencache voor een bestaande token en de gebruikersinterface worden dienovereenkomstig bijgewerkt.  In de `CheckForCachedToken()` methode, moet u een andere aanroep van `AcquireTokenAsync(...)`, ditmaal doorgeven in de `PromptBehavior.Never` parameter.  `PromptBehavior.Never`vertelt ADAL dat de gebruiker niet moet worden gevraagd voor aanmelding en ADAL moet in plaats daarvan Veroorzaak een exception wanneer het niet lukt om te retourneren van een token.
+* Echter, als de gebruiker heeft niet op de knop 'Afmelden', wilt u de sessie van de gebruiker voor de volgende keer dat ze de DirectorySearcher worden uitgevoerd.  Wanneer de app opent, kunt u controleren van de ADAL-tokencache voor een bestaande token en de gebruikersinterface worden dienovereenkomstig bijgewerkt.  In de `CheckForCachedToken()` methode, moet u een andere aanroep van `AcquireTokenAsync(...)`, ditmaal doorgeven in de `PromptBehavior.Never` parameter.  `PromptBehavior.Never` vertelt ADAL dat de gebruiker niet moet worden gevraagd voor aanmelding en ADAL moet in plaats daarvan Veroorzaak een exception wanneer het niet lukt om te retourneren van een token.
 
 ```csharp
 public async void CheckForCachedToken() 

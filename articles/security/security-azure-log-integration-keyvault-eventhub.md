@@ -8,18 +8,22 @@ editor: TomShinder
 ms.assetid: 
 ms.service: security
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 3cd80817bf8b2ef2f66e9942eddc186a3eb5b5e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Zelfstudie voor Azure Log-integratie: proces Azure Key Vault gebeurtenissen met behulp van Event Hubs
 
 Integratie van Azure Log kunt u geregistreerde gebeurtenissen ophalen en deze beschikbaar aan uw informatie en event management (SIEM) beveiligingssysteem. Deze zelfstudie toont een voorbeeld van hoe Azure Log-integratie kunnen worden gebruikt voor het verwerken van logboeken die zijn verkregen via Azure Event Hubs.
+
+>[!IMPORTANT]
+>De voorkeursmethode voor het integreren van Azure Logboeken is met behulp van de leverancier van uw SIEM Azure Monitor connector en volgende [instructies](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Echter, als de leverancier van uw SIEM geen een connector Azure bewaken biedt, u mogelijk gebruikmaken van integratie van Azure-logboek als tijdelijke oplossing (als uw SIEM wordt ondersteund door Azure Log-integratie) totdat deze connector beschikbaar is.
+
  
 Gebruik deze zelfstudie om bekend te raken met hoe Azure Log-integratie en Event Hubs samen werken met de voorbeeld-stappen te volgen en kennis van hoe de oplossing biedt ondersteuning voor elke stap. U kunt vervolgens nemen wat u hebt geleerd hier uw eigen stappen ter ondersteuning van de unieke vereisten van uw bedrijf maken.
 
@@ -38,7 +42,7 @@ Zie voor meer informatie over de services die in deze zelfstudie wordt vermeld:
 
 - [Azure Key Vault](../key-vault/key-vault-whatis.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Azure-logboekanalyse-integratie](security-azure-log-integration-overview.md)
+- [Azure Log Integration](security-azure-log-integration-overview.md)
 
 
 ## <a name="initial-setup"></a>Eerste installatie
@@ -86,13 +90,13 @@ Voordat u de stappen in dit artikel voltooien kunt, moet u het volgende:
 
    ![PowerShell-venster](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 5. Variabelen voor het opslaan van de waarden die wordt later gebruikt maken. Voer de volgende PowerShell-regels. Mogelijk moet u de waarden voor uw omgeving aanpassen.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’```(De abonnementsnaam van uw kan anders zijn. U ziet het als onderdeel van de uitvoer van de vorige opdracht.)
-    - ```$location = 'West US'```(Deze variabele wordt gebruikt om door te geven van de locatie waar de bronnen moeten worden gemaakt. U kunt deze variabele om te worden van een willekeurige locatie van uw keuze worden wijzigen.)
+    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (De abonnementsnaam van uw kan anders zijn. U ziet het als onderdeel van de uitvoer van de vorige opdracht.)
+    - ```$location = 'West US'``` (Deze variabele wordt gebruikt om door te geven van de locatie waar de bronnen moeten worden gemaakt. U kunt deze variabele om te worden van een willekeurige locatie van uw keuze worden wijzigen.)
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random```(De naam kan van alles zijn, maar deze alleen kleine letters en cijfers bevatten.)
-    - ``` $storageName = $name```(U kunt deze variabele wordt gebruikt voor de opslagaccountnaam.)
-    - ```$rgname = $name ```(U kunt deze variabele wordt gebruikt voor naam van de resourcegroep.)
-    - ``` $eventHubNameSpaceName = $name```(Dit is de naam van de event hub-naamruimte.)
+    - ``` $name = 'azlogtest' + $random``` (De naam kan van alles zijn, maar deze alleen kleine letters en cijfers bevatten.)
+    - ``` $storageName = $name``` (U kunt deze variabele wordt gebruikt voor de opslagaccountnaam.)
+    - ```$rgname = $name ``` (U kunt deze variabele wordt gebruikt voor naam van de resourcegroep.)
+    - ``` $eventHubNameSpaceName = $name``` (Dit is de naam van de event hub-naamruimte.)
 6. Geef het abonnement dat u met werkt:
     
     ```Select-AzureRmSubscription -SubscriptionName $subscriptionName```

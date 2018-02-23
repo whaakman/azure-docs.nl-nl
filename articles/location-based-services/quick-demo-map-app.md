@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 09022648c03ffa12aa3b060e5094c40ea5c3d61e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Een demo starten over interactief zoeken naar kaarten met de Azure Location Based Services (preview)
 
-In dit artikel worden de mogelijkheden beschreven van Azure Location Based Services (preview), of kortweg LBS, met behulp van een interactieve zoekopdracht met behulp van Azure-kaarten. U leert ook de basisstappen voor het maken van uw eigen LBS-account en voor het ophalen van de sleutel van uw account voor gebruik in de demo-webtoepassing. 
+In dit artikel worden de mogelijkheden beschreven van Azure LBS (Location Based Services) om een interactieve zoekopdracht uit te voeren met behulp van Azure-kaarten. U leert ook de basisstappen voor het maken van uw eigen LBS-account en voor het ophalen van de sleutel van uw account voor gebruik in de demo-webtoepassing. 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

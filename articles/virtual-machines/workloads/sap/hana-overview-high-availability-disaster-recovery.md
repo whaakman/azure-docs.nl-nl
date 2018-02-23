@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 02/01/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d41df9b9d9bd518bb507b0fcde001f35c11e6264
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 9ef09e33803a976e05e555ec7ae9eb872d237137
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA grote exemplaren hoge beschikbaarheid en herstel na noodgevallen in Azure 
 
@@ -111,7 +111,7 @@ SAP HANA in Azure (grote exemplaren) biedt twee opties voor back-up en herstel:
 De infrastructuur van de onderliggende SAP HANA in Azure (grote exemplaren) ondersteunt opslag van momentopnamen van volumes. Zowel back-up en herstel van volumes wordt ondersteund met de volgende overwegingen:
 
 - In plaats van de volledige-databaseback-ups, worden opslag volume momentopnamen regelmatig.
-- Wanneer een momentopname van een activering via hana/gegevens, hana/log en /hana/shared (inclusief /usr/sap) start volumes, de opslag momentopname een SAP HANA momentopname voordat deze de momentopname van de opslag wordt uitgevoerd. Deze momentopname met de SAP HANA is de installatie voor uiteindelijke logboek herstelbewerkingen kunnen na het herstel van de momentopname van de opslag.
+- Wanneer een momentopname van een activering via /hana/data en /hana/shared (inclusief /usr/sap) start volumes, de opslag momentopname een SAP HANA momentopname voordat deze de momentopname van de opslag wordt uitgevoerd. Deze momentopname met de SAP HANA is de installatie voor uiteindelijke logboek herstelbewerkingen kunnen na het herstel van de momentopname van de opslag.
 - Na het punt waar de opslag-momentopnamen met succes is uitgevoerd, wordt de momentopname SAP HANA verwijderd.
 - Transactie logboekback-ups regelmatig worden genomen en worden opgeslagen in het volume /hana/logbackups of in Azure. U kunt het /hana/logbackups volume met de transactie-logboekback-ups om een momentopname van een afzonderlijk te activeren. In dat geval hoeft u niet een momentopname HANA uitvoeren.
 - Als u een database naar een bepaalde tijd herstellen moet, aanvraag Microsoft Azure-ondersteuning (voor een productie-storing) of een SAP HANA op Azure Service Management om te zetten op een bepaalde opslag-momentopnamen. Een voorbeeld is een geplande herstel van een sandbox naar de oorspronkelijke staat.
@@ -149,7 +149,7 @@ De volgende secties bevatten informatie voor het uitvoeren van deze momentopname
 - Tijdens de grotere reorganisaties SAP HANA-tabellen, moeten opslag-momentopnamen worden vermeden, indien mogelijk.
 - Opslag-momentopnamen zijn vereist om te profiteren van de mogelijkheden voor herstel na noodgevallen van SAP HANA in Azure (grote exemplaren).
 
-### <a name="pre-requisites-for-leveraging-self-service-storage-snapshots"></a>Vereisten voor het gebruik van selfservice-opslag-momentopnamen
+### <a name="prerequisites-for-leveraging-self-service-storage-snapshots"></a>Vereisten voor het gebruik van selfservice-opslag-momentopnamen
 
 Om ervoor te zorgen dat momentopname script met succes wordt uitgevoerd, zorg ervoor dat Perl is geïnstalleerd op de Linux-besturingssysteem op de server HANA grote exemplaren. Perl is voorgeïnstalleerd op uw eenheid HANA grote exemplaar. Als u wilt controleren de versie perl, gebruik de volgende opdracht:
 
@@ -290,7 +290,7 @@ HANABackupCustomerDetails.txt
 Net als omgaan met de perl-scripts: 
 
 - De scripts nooit wijzigen tenzij de Microsoft Operations.
-- Wanneer u wordt gevraagd om het script of een parameterbestand te wijzigen, en gebruik altijd de linux-teksteditor zoals 'vi' en niet de Windows-editors zoals Kladblok. Met behulp van windows-editor kan beschadigd raken de bestandsindeling.
+- Wanneer u wordt gevraagd om het script of een parameterbestand te wijzigen, en gebruik altijd de Linux-teksteditor zoals 'vi' en niet de Windows-editors zoals Kladblok. Met behulp van windows-editor kan beschadigd raken de bestandsindeling.
 - Gebruik altijd de meest recente scripts. U kunt de nieuwste versie downloaden vanuit GitHub.
 - Gebruiken dezelfde versie van scripts in de omgeving.
 - Test de scripts en vertrouwd ophalen met de vereiste parameters en uitvoer van het script voordat rechtstreeks in het productiesysteem.
@@ -299,7 +299,7 @@ Net als omgaan met de perl-scripts:
 
 Het doel van de andere scripts en de bestanden is:
 
-- **Azure\_hana\_backup.pl**: dit script met cron voor het uitvoeren van opslag-momentopnamen op de HANA gegevens/log/gedeelde clustervolumes, het volume/hana/logbackups of het besturingssysteem plannen.
+- **Azure\_hana\_backup.pl**: dit script met cron voor het uitvoeren van opslag-momentopnamen op de HANA-gegevens en gedeelde volumes, het volume/hana/logbackups of het besturingssysteem plannen.
 - **Azure\_hana\_replicatie\_status.pl**: dit script geeft de algemene informatie over de replicatiestatus van de productiesite naar de site voor herstel na noodgevallen. De monitoren script om ervoor te zorgen dat de replicatie plaatsvindt en de grootte van de items die wordt worden gerepliceerd. Het bevat ook richtlijnen als een replicatie duurt te lang is of als de koppeling niet actief is.
 - **Azure\_hana\_momentopname\_details.pl**: dit script geeft een lijst van algemene informatie over alle momentopnamen, per volume, die aanwezig zijn in uw omgeving. Dit script kan worden uitgevoerd op de primaire server of op een server-eenheid in de locatie van het herstel na noodgevallen. Het script bevat de volgende informatie onderverdeeld op basis van elk volume dat momentopnamen bevat:
    * Grootte van het totale aantal momentopnamen in een volume

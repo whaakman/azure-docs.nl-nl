@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: 
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/29/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Diagnostische logboekregistratie instellen
 
@@ -53,15 +53,15 @@ Selecteren **Engine** registreert alle [xEvents](https://docs.microsoft.com/sql/
 |Melding     |    Melding     |
 |Sessie     |  Sessie initialiseren       |
 |Vergrendelingen    |  impasse       |
-|Verwerking van query 's     |   Begin van VertiPaq SE-Query      |
-|Verwerking van query 's     |   Einde van VertiPaq SE-Query      |
+|Verwerking van query 's     |   VertiPaq SE Query Begin      |
+|Verwerking van query 's     |   VertiPaq SE Query End      |
 |Verwerking van query 's     |   Cache overeenkomst van VertiPaq SE-Query      |
 |Verwerking van query 's     |   Begin van de directe Query      |
 |Verwerking van query 's     |  Einde van de directe Query       |
 
 ### <a name="service"></a>Service
 
-|Naam van bewerking  |Deze gebeurtenis treedt op wanneer  |
+|Bewerkingsnaam  |Deze gebeurtenis treedt op wanneer  |
 |---------|---------|
 |CreateGateway     |   Gebruiker configureert een gateway op server      |
 |ResumeServer     |    Hervatten van een server     |
@@ -83,12 +83,12 @@ Hiermee wordt de categorie metrische gegevens geregistreerd dezelfde [serverstat
 
     ![Schakel Diagnostische logboekregistratie voor Azure Cosmos DB in de Azure portal](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. In **diagnostische instellingen**, het volgende doen: 
+2. In **diagnostische instellingen**, geef de volgende opties: 
 
     * **Naam**. Voer een naam voor de logboeken te maken.
 
-    * **Archiveren naar een opslagaccount**. Om deze optie gebruikt, moet u een bestaand opslagaccount verbinding maken met. Zie [een opslagaccount maken](../storage/common/storage-create-storage-account.md). Volg de instructies voor het maken van een Resource Manager voor algemene doeleinden-account. Keer vervolgens terug naar deze pagina in de portal voor uw storage-account selecteren. Duurt enkele minuten duren voordat de zojuist gemaakte storage-accounts worden weergegeven in de vervolgkeuzelijst.
-    * **Stream naar een event hub**. Om deze optie gebruikt, moet u een Event Hub-naamruimte en event hub verbinding maken met. Zie het maken van een naamruimte Event Hubs [een Event Hubs-naamruimte en een event hub met de Azure portal maken](../event-hubs/event-hubs-create.md). Keer vervolgens terug naar deze pagina in de portal om de Event Hub-naamruimte en de beleid-naam te selecteren.
+    * **Archiveren naar een opslagaccount**. Om deze optie gebruikt, moet u een bestaand opslagaccount verbinding maken met. Zie [een opslagaccount maken](../storage/common/storage-create-storage-account.md). Volg de instructies voor het maken van een Resource Manager voor algemene doeleinden account, en selecteer vervolgens uw storage-account door terug naar deze pagina in de portal. Duurt enkele minuten duren voordat de zojuist gemaakte storage-accounts worden weergegeven in de vervolgkeuzelijst.
+    * **Stream naar een event hub**. Om deze optie gebruikt, moet u een Event Hub-naamruimte en event hub verbinding maken met. Zie voor meer informatie, [een Event Hubs-naamruimte en een event hub met de Azure portal maken](../event-hubs/event-hubs-create.md). Keer vervolgens terug naar deze pagina in de portal om de Event Hub-naamruimte en de beleid-naam te selecteren.
     * **Verzenden met logboekanalyse**. Om deze optie gebruikt, gebruik een bestaande werkruimte of maak een nieuwe werkruimte voor logboekanalyse volgens de stappen voor het [Maak een nieuwe werkruimte](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) in de portal. Zie voor meer informatie over het weergeven van uw logboeken in logboekanalyse [weergave wordt geregistreerd in logboekanalyse](#view-in-loganalytics).
 
     * **Engine**. Selecteer deze optie om aan te melden xEvents. Als u naar een opslagaccount archiveren wilt, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken zijn autodeleted nadat de bewaartermijn is verstreken.
@@ -171,7 +171,7 @@ In **Type**, klikt u op **AzureDiagnostics**, en klik vervolgens op **toepassen*
 
 Klik op **EventClass\_s** of een van de gebeurtenisnamen en Log Analytics blijft samenstellen van een query. Zorg ervoor dat u uw query's voor hergebruik.
 
-Zorg ervoor dat afhandeling Operations Management Suite waarmee een website met uitgebreide query, dashboarding en waarschuwen mogelijkheden op Log Analytics-gegevens.
+Zorg ervoor dat Zie Operations Management Suite waarmee een website met uitgebreide query, dashboarding en waarschuwen mogelijkheden op Log Analytics-gegevens.
 
 ### <a name="queries"></a>Query's
 

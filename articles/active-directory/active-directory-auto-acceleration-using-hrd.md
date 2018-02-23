@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
 ms.author: billmath
-ms.openlocfilehash: e2e6e5c40dc4a9f67f94c45f8394512db3f777f5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Aanmelden automatisch-versnelling voor een toepassing met een Thuisrealmdetectie-beleid configureren
 
@@ -83,9 +83,9 @@ Er zijn drie stappen voor het aanmelden automatisch-versnelling instellen op een
 
 1. Maken van een HRD-beleid voor automatische versnelling.
 
-2. Zoeken naar het principe van de service waarop het beleid te koppelen.
+2. Zoeken naar de service-principal waarop het beleid te koppelen.
 
-3. Het koppelen van het beleid aan het principe van de service. Beleid kunnen worden gemaakt in een tenant, maar hebben geen effect totdat deze zijn gekoppeld aan een entiteit. 
+3. Het beleid koppelen aan de service-principal. Beleid kunnen worden gemaakt in een tenant, maar hebben geen effect totdat deze zijn gekoppeld aan een entiteit. 
 
 Een HRD-beleid kan worden gekoppeld aan een service-principal en slechts één HRD beleid kan op elk gewenst moment actief op een bepaalde entiteit zijn.  
 
@@ -170,12 +170,12 @@ Get-AzureADPolicy
 ```
 
 
-Automatische-als versnelling wilt inschakelen nadat u een beleid HRD hebt, kunt u deze toewijzen aan meerdere service principes van de toepassing.
+Automatische-als versnelling wilt inschakelen nadat u een beleid HRD hebt, kunt u deze toewijzen aan meerdere service-principals van toepassing.
 
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Stap 2: Zoek de service-principal waarop het beleid toewijzen  
 U moet de **ObjectID** van de service-principals waarnaar u wilt toewijzen van het beleid. Er zijn verschillende manieren zoeken naar de **ObjectID** van service-principals.    
 
-U kunt de portal of u kunt een query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). U kunt ook gaan naar de [grafiek Explorer Tool](https://graphexplorer.cloudapp.net/) en meld u aan bij uw Azure AD-account om te zien van de service-principals van uw organisatie. Omdat u met behulp van PowerShell, kunt u de cmdlet get-AzureADServicePrincipal voor een lijst met de principes van de service en de id's gebruiken.
+U kunt de portal of u kunt een query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). U kunt ook gaan naar de [grafiek Explorer Tool](https://graphexplorer.cloudapp.net/) en meld u aan bij uw Azure AD-account om te zien van de service-principals van uw organisatie. Omdat u met behulp van PowerShell, kunt u de cmdlet get-AzureADServicePrincipal voor een lijst met de service-principals en hun id.
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Stap 3: Het beleid aan uw service-principal toewijzen  
 Nadat u hebt de **ObjectID** van de service-principal van de toepassing waarvoor u voor het configureren van automatische-versnelling wilt de volgende opdracht uitvoeren. Met deze opdracht wordt gekoppeld aan het beleid HRD die u in stap 1 hebt gemaakt met de service-principal die u in stap 2.

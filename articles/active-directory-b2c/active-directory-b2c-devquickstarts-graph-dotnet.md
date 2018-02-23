@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: 33df6c4255d4ca672e65237c8be45b3f0bc7864e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd84a8da348d0d534ba19a3d61970ec0d8c66cc8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Gebruik de Azure AD Graph API
 
@@ -45,7 +45,7 @@ Nadat u een B2C-tenant hebt, moet u registreren van uw toepassingen via de [Azur
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Uw account selecteren in de rechterbovenhoek van de pagina kiest u uw Azure AD B2C-tenant.
-3. Kies in het navigatiedeelvenster links **meer Services**, klikt u op **App registraties**, en klik op **toevoegen**.
+3. Kies in het navigatiedeelvenster links **alle Services**, klikt u op **App registraties**, en klik op **toevoegen**.
 4. Volg de aanwijzingen op het scherm en maak een nieuwe toepassing. 
     1. Selecteer **Web-App / API** als het toepassingstype.    
     2. Geef **een omleidings-URI** (bijvoorbeeld https://B2CGraphAPI) als het is niet relevant zijn voor dit voorbeeld.  
@@ -128,7 +128,7 @@ Voor het gebruik van de B2CGraphClient, opent u een `cmd` Windows command prompt
 Hiermee wordt een korte beschrijving van elke opdracht weergegeven. Telkens wanneer u een van deze opdrachten aanroepen `B2CGraphClient` doet een aanvraag bij de Azure AD Graph API.
 
 ### <a name="get-an-access-token"></a>Een toegangstoken opvragen
-Elk verzoek aan de Graph API vereist een toegangstoken voor verificatie. `B2CGraphClient`de open source Active Directory Authentication Library (ADAL) gebruikt om u te helpen toegangstokens te verkrijgen. ADAL gemakkelijker token overname door te geven van een eenvoudige API en wordt gelet op een aantal belangrijke details, zoals caching toegangstokens. Er geen gebruik van ADAL tokens, hoewel ophalen. U kunt ook tokens ophalen door HTTP-aanvragen.
+Elk verzoek aan de Graph API vereist een toegangstoken voor verificatie. `B2CGraphClient` de open source Active Directory Authentication Library (ADAL) gebruikt om u te helpen toegangstokens te verkrijgen. ADAL gemakkelijker token overname door te geven van een eenvoudige API en wordt gelet op een aantal belangrijke details, zoals caching toegangstokens. Er geen gebruik van ADAL tokens, hoewel ophalen. U kunt ook tokens ophalen door HTTP-aanvragen.
 
 > [!NOTE]
 > Deze voorbeeldcode maakt gebruik van ADAL v2 om te communiceren met de Graph API.  U moet ADAL v2 of v3 gebruiken om op te halen van de toegangstokens te geven die kunnen worden gebruikt met de Azure AD Graph API.
@@ -357,7 +357,7 @@ U kunt de volledige naam zoals `extension_55dc0861f9a44eb999e0a8a872204adb_Jerse
 > B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-Met behulp van `B2CGraphClient`, hebt u een servicetoepassing die uw gebruikers B2C-tenant programmatisch kunt beheren. `B2CGraphClient`een eigen toepassingsidentiteit gebruikt om de Azure AD Graph API te verifiëren. Ook krijgt deze tokens met behulp van een clientgeheim. Als u deze functionaliteit in uw toepassing opnemen, houd rekening met enkele belangrijke punten voor B2C-apps:
+Met behulp van `B2CGraphClient`, hebt u een servicetoepassing die uw gebruikers B2C-tenant programmatisch kunt beheren. `B2CGraphClient` een eigen toepassingsidentiteit gebruikt om de Azure AD Graph API te verifiëren. Ook krijgt deze tokens met behulp van een clientgeheim. Als u deze functionaliteit in uw toepassing opnemen, houd rekening met enkele belangrijke punten voor B2C-apps:
 
 * U moet de toepassing geven de juiste machtigingen in de tenant.
 * Nu moet u gebruikmaken van ADAL (geen MSAL) toegangstokens ophalen. (U kunt ook verzenden protocolberichten rechtstreeks, zonder gebruik van een bibliotheek.)

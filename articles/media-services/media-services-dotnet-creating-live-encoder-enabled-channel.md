@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5529f67ac03fe5c9b09203556f365a6009cf579a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 571467b88668aa2933ada9953b8ea33a9741a03f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken met .NET
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](m
 In de onderstaande stappen worden de taken beschreven voor het maken van algemene toepassingen voor het maken van livestreams.
 
 > [!NOTE]
-> De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived op Microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
+> De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived@microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
 > 
 > 
 
@@ -97,7 +97,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 * Een webcam en een coderingsprogramma dat een single bitrate livestream kan verzenden.
 
 ## <a name="considerations"></a>Overwegingen
-* De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived op Microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
+* De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived@Microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
 * Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit artikel](media-services-dotnet-manage-entities.md#limit-access-policies) voor meer informatie.
 
 ## <a name="download-sample"></a>Voorbeeld downloaden

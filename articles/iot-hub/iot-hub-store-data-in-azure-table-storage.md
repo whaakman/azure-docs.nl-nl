@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: xshi
-ms.openlocfilehash: 5419f0fb86f2a7b051ffc7fda17c74cf15178a6b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>IoT hub berichten met sensorgegevens naar uw Azure blob storage opslaan
 
@@ -45,7 +45,7 @@ U informatie over het maken van een Azure storage-account en een Azure-functie-a
 
 ## <a name="create-an-azure-storage-account"></a>Een Azure-opslagaccount maken
 
-1. In de [Azure-portal](https://portal.azure.com/), klikt u op **nieuw** > **opslag** > **opslagaccount**  >   **Maak**.
+1. In de [Azure-portal](https://portal.azure.com/), klikt u op **maken van een resource** > **opslag** > **opslagaccount**  >  **Maken**.
 
 2. Voer de benodigde gegevens voor het opslagaccount:
 

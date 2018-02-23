@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Bewaking Azure network-overzicht
 
@@ -46,7 +46,7 @@ Netwerk-Watcher heeft momenteel de volgende mogelijkheden:
 * **[Virtuele netwerkgateway en verbinding probleemoplossing](network-watcher-troubleshoot-manage-rest.md)**  -biedt de mogelijkheid om op te lossen virtuele netwerkgateways en verbindingen.
 * **[Netwerk-abonnementen](#network-subscription-limits)**  -Hiermee kunt u gebruik van netwerkbronnen op basis van limieten weergeven.
 * **[Configureren van diagnostische gegevens logboek](#diagnostic-logs)**  – biedt één of diagnostische logboeken voor netwerkbronnen in een resourcegroep uit te schakelen.
-* **[Connectiviteit (Preview)](network-watcher-connectivity-overview.md)**  -controleert of de mogelijkheid tot stand brengen van een directe TCP-verbinding van een virtuele machine naar een opgegeven eindpunt.
+* **[Problemen met verbinding](network-watcher-connectivity-overview.md)**  -controleert of de mogelijkheid tot stand brengen van een directe TCP-verbinding van een virtuele machine naar een opgegeven eindpunt verrijkt met Azure context.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Op rollen gebaseerde toegangsbeheer (RBAC) in de netwerk-Watcher
 
@@ -57,9 +57,9 @@ Netwerk-watcher gebruikt de [gebaseerd toegangsbeheer (RBAC) model](../active-di
 |Microsoft.Storage/ |Lezen|
 |Microsoft.Authorization/| Lezen| 
 |Microsoft.Resources/subscriptions/resourceGroups/| Lezen|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | Actie|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |Actie|
-|Microsoft.Storage/storageAccounts/listKeys/ | Actie|
+|Microsoft.Storage/storageAccounts/listServiceSas/ | Bewerking|
+|Microsoft.Storage/storageAccounts/listAccountSas/ |Bewerking|
+|Microsoft.Storage/storageAccounts/listKeys/ | Bewerking|
 |Microsoft.Compute/virtualMachines/ |Lezen|
 |Microsoft.Compute/virtualMachines/ |Schrijven|
 |Microsoft.Compute/virtualMachineScaleSets/ |Lezen|
@@ -82,7 +82,7 @@ Netwerk-abonnementen bieden u meer informatie over het gebruik van elk van de ne
 
 De volgende functies zijn beschikbaar voor bewaking van niveau resource:
 
-### <a name="audit-log"></a>Controlelogboek
+### <a name="audit-log"></a>Auditlogboek
 
 Bewerkingen die worden uitgevoerd als onderdeel van de configuratie van netwerken worden geregistreerd. Deze logboeken kunnen worden weergegeven in de Azure-portal of opgehaald met behulp van Microsoft-hulpprogramma's zoals Power BI of hulpprogramma's van derden. Controlelogboeken zijn beschikbaar via de portal, PowerShell, CLI en Rest-API. Zie voor meer informatie over controlelogboeken [bewerkingen met Resource Manager controleren](../resource-group-audit.md)
 

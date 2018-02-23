@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 7da4a7e0a60fd1e5c78f53b0a8e7ab333c5d2465
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: c56a4ec4d1abea5a862172966697747cbb3d234c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Hive query via JDBC-stuurprogramma in HDInsight
 
@@ -102,8 +102,8 @@ SQuirreL SQL is een JDBC-client die op afstand Hive-query's uitvoeren met uw HDI
 
         3. Kopieer de volgende bestanden vanuit de extern bureaublad-sessie eenmaal zijn verbonden, op uw lokale computer. Plaatsen in een lokale map met de naam `hivedriver`.
 
-            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-JDBC-0.14.0.2.2.9.1-7-standalone.jar
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-Common-2.6.0.2.2.9.1-7.jar
+            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
+            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-common-2.6.0.2.2.9.1-7.jar
             * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.jar
 
             > [!NOTE]
@@ -122,7 +122,7 @@ SQuirreL SQL is een JDBC-client die op afstand Hive-query's uitvoeren met uw HDI
 4. Voeg de volgende informatie in het dialoogvenster stuurprogramma toevoegen:
 
     * **Naam**: Hive
-    * **Voorbeeld-URL**:`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
+    * **Voorbeeld-URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
     * **Extra klassepad**: Gebruik de knop toevoegen om toe te voegen van de jar-bestanden eerder hebt gedownload
     * **Klassenaam**: org.apache.hive.jdbc.HiveDriver
 
@@ -140,7 +140,7 @@ SQuirreL SQL is een JDBC-client die op afstand Hive-query's uitvoeren met uw HDI
 
     * **Stuurprogramma**: Gebruik de vervolgkeuzelijst selecteren de **Hive** stuurprogramma
 
-    * **URL**:`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
+    * **URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
         Vervang **CLUSTERNAME** door de naam van uw HDInsight-cluster.
 

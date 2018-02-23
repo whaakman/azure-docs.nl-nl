@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics gebeurtenis volgorde overwegingen
 
@@ -70,6 +70,9 @@ Gebeurtenissen die een andere volgorde ontvangen, maar binnen de set out volgord
 * **Verwijderd**: verwijderd.
 
 Wanneer de Stream Analytics volgorde gebeurtenissen die in het venster tolerantie out volgorde worden ontvangen, is de uitvoer van de query door het venster out volgorde tolerantie vertraging.
+
+### <a name="early-events"></a>Vroege gebeurtenissen
+Bij de verwerking door de tijd van de toepassing, worden gebeurtenissen waarvan toepassing meer dan 5 minuten tevoren aankomsttijd is verwijderd of aangepast volgens de configuratieoptie die is geselecteerd.
 
 ### <a name="example"></a>Voorbeeld
 

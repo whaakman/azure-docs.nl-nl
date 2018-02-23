@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 93df6f5e6c966fdf4909a4c21ebc36bff4283a59
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Azure AD iOS aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -63,7 +63,7 @@ Als u uw app om op te halen van tokens instelt, moet u eerst registreren in uw A
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op uw account op de bovenste balk. Onder de **Directory** kiest u de Active Directory-tenant waar u uw toepassing registreren.
-3. Klik op **meer Services** in de meest linkse navigatievenster en selecteer vervolgens **Azure Active Directory**.
+3. Klik op **alle services** in de meest linkse navigatievenster en selecteer vervolgens **Azure Active Directory**.
 4. Klik op **App registraties**, en selecteer vervolgens **toevoegen**.
 5. Volg de aanwijzingen voor het maken van een nieuwe **systeemeigen clienttoepassing**.
   * De **naam** beschrijving van de toepassing van uw toepassing aan eindgebruikers.

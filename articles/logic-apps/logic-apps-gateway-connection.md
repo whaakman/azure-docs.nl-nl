@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: f385d832deed2eaf8ea21eb75d62944cbbf3d13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Verbinding maken met gegevensbronnen on-premises vanuit logic apps met lokale gegevensgateway
 
@@ -35,8 +35,8 @@ De gateway ondersteunt verbindingen met deze gegevensbronnen on-premises:
 *   MySQL
 *   Oracle Database
 *   PostgreSQL
-*   SAP-toepassingsserver 
-*   SAP-berichtenserver
+*   SAP Application Server 
+*   SAP Message Server
 *   SharePoint
 *   SQL Server
 *   Teradata
@@ -63,21 +63,19 @@ Zie voor informatie over het gebruik van de gateway met andere services, deze ar
   > [!NOTE]
   > Het Windows-service-account verschilt van het account dat wordt gebruikt voor het verbinden met on-premises gegevens bronnen, en van de Azure werk- of schoolaccount gebruikt voor aanmelding bij cloud-services.
 
-## <a name="set-up-the-data-gateway-connection"></a>De data gateway-verbinding instellen
-
-### <a name="1-install-the-on-premises-data-gateway"></a>1. De on-premises gegevensgateway installeren
+## <a name="install-the-on-premises-data-gateway"></a>De on-premises gegevensgateway installeren
 
 Als u nog niet gedaan hebt, volgt u de [stappen voor het installeren van de lokale data gateway](logic-apps-gateway-install.md). Voordat u met de andere stappen doorgaat, zorg er dan voor dat u de data gateway geïnstalleerd op een lokale computer.
 
 <a name="create-gateway-resource"></a>
 
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Een Azure-resource voor de lokale data gateway maken
+## <a name="create-an-azure-resource-for-the-on-premises-data-gateway"></a>Een Azure-resource voor de lokale data gateway maken
 
 Nadat u de gateway op een lokale computer installeert, maakt u uw data gateway als een resource in Azure. Uw gateway-resource koppelt in deze stap ook aan uw Azure-abonnement.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com "Azure Portal"). Zorg ervoor dat voor het gebruik van hetzelfde Azure werk of school e-mailadres gebruikt voor het installeren van de gateway.
 
-2. Kies in het Azure hoofdmenu **nieuw** > **Enterprise Integration** > **On-premises gegevensgateway** als volgt te werk:
+2. Kies in het Azure hoofdmenu **maken van een resource** > **Enterprise Integration** > **On-premises gegevensgateway**:
 
    !['On-premises data gateway' vinden](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -115,7 +113,7 @@ Nadat u de gateway op een lokale computer installeert, maakt u uw data gateway a
 
 <a name="connect-logic-app-gateway"></a>
 
-### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3. Uw logische app verbinden met de lokale data gateway
+## <a name="connect-your-logic-app-to-the-on-premises-data-gateway"></a>Uw logische app verbinden met de lokale data gateway
 
 Nu dat u hebt uw data gateway resource gemaakt en die uw Azure-abonnement is gekoppeld aan deze resource, maak een verbinding tussen uw logische app en de data gateway.
 
@@ -157,6 +155,7 @@ Nadat u een gatewayverbinding voor uw logische app maakt, kunt u later de instel
    > Als u de updates worden niet doorgevoerd, probeert u [stoppen en opnieuw starten van de gateway Windows-service](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
+
 ## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Schakelt u of uw lokale gegevens gateway bron verwijderen
 
 Als u wilt maken van een andere gateway-resource, uw gateway koppelen aan een andere resource of verwijder de gateway-resource, kunt u de bron van de gateway verwijderen zonder gevolgen voor de installatie van de gateway. 
@@ -166,6 +165,7 @@ Als u wilt maken van een andere gateway-resource, uw gateway koppelen aan een an
 3. Kies **On-premises Data Gateway**, en kies op de werkbalk resource **verwijderen**.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]

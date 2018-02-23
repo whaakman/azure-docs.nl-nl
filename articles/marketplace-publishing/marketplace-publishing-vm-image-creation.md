@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Handleiding voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace
 In dit artikel **stap 2**, wordt u begeleid bij het voorbereiden van de virtuele harde schijven (VHD's) dat u naar Azure Marketplace implementeren wilt. Uw VHD's vormen de basis van uw SKU. Het proces is afhankelijk van of u een SKU op basis van Linux of op basis van Windows biedt. In dit artikel komen beide scenario's. Dit proces kan worden uitgevoerd in combinatie met [accountaanmaking en registratie][link-acct-creation].
@@ -127,7 +127,7 @@ Wij raden u aan uw VHD in de cloud te ontwikkelen met behulp van Remote Desktop 
 
 **Verbinden via RDP met behulp van de [Microsoft Azure-portal][link-azure-portal]**
 
-1. Selecteer **Bladeren** > **VMs**.
+1. Selecteer **alle services** > **VMs**.
 2. De virtuele machines-blade wordt geopend. Zorg dat de virtuele machine die u wilt verbinden met wordt uitgevoerd en selecteer vervolgens in de lijst met geïmplementeerde virtuele machines.
 3. Er wordt een blade geopend die worden beschreven van de geselecteerde virtuele machine. Klik aan de bovenkant **Connect**.
 4. U wordt gevraagd om in te voeren de gebruikersnaam en wachtwoord die u hebt opgegeven tijdens het inrichten.
@@ -136,7 +136,7 @@ Wij raden u aan uw VHD in de cloud te ontwikkelen met behulp van Remote Desktop 
 
 Als u wilt downloaden van een extern bureaublad-bestand naar een lokale computer de [cmdlet Get-AzureRemoteDesktopFile][link-technet-2]. U moet deze cmdlet gebruikt, de naam van de service en de naam van de virtuele machine. Als u hebt gemaakt van de virtuele machine van de [Microsoft Azure-portal][link-azure-portal], u vindt deze informatie onder VM-eigenschappen:
 
-1. Selecteer in de Microsoft Azure-portal **Bladeren** > **VMs**.
+1. Selecteer in de Microsoft Azure-portal **alle services** > **VMs**.
 2. De virtuele machines-blade wordt geopend. Selecteer de virtuele machine die u hebt geïmplementeerd.
 3. Er wordt een blade geopend die worden beschreven van de geselecteerde virtuele machine.
 4. Klik op **Eigenschappen**.
@@ -214,7 +214,6 @@ Voor het implementeren van een virtuele machine van een installatiekopie van een
 
 1. Ga naar **nieuw** > **Compute** > **virtuele machine** > **vanuit galerie**.
 
-    ![tekenen][img-manage-vm-new]
 2. Ga naar **Mijn afbeeldingen**, en selecteer vervolgens de VM-installatiekopie waaruit een virtuele machine implementeren:
 
    1. Aandacht besteedt aan de afbeelding die u selecteert, omdat de **Mijn afbeeldingen** weergave bevat zowel installatiekopieën van besturingssystemen en VM-installatiekopieën.
@@ -407,15 +406,15 @@ Hierna volgen de stappen voor het genereren van SAS-URL met behulp van Microsoft
 
     Gegenereerde SAS-URL is voor container niveau en nu moeten de naam van de VHD toevoegen in het.
 
-    Indeling van de Container niveau SAS-URL:`https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    Indeling van de Container niveau SAS-URL: `https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
-    De naam van de VHD invoegen na de containernaam van de in SAS-URL zoals hieronder`https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    De naam van de VHD invoegen na de containernaam van de in SAS-URL zoals hieronder `https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     Voorbeeld:
 
     ![tekenen](media/marketplace-publishing-vm-image-creation/img5.2_15.png)
 
-    TestRGVM201631920152.vhd is de naam van de VHD en vervolgens de URL van de VHD-SAS`https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    TestRGVM201631920152.vhd is de naam van de VHD en vervolgens de URL van de VHD-SAS `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     - Zorg ervoor dat uw installatiekopie bestandsnaam en **".vhd"** zijn in de URI.
     - Controleer in het midden van de handtekening, **"sp rl ="** wordt weergegeven. Dit toont aan dat toegang voor lezen en de lijst met succes is opgegeven.
@@ -471,11 +470,11 @@ Hierna volgen de stappen voor het genereren van SAS-URL met Azure CLI
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.  De naam van de VHD invoegen na de containernaam van de in SAS-URL, zoals hieronder wordt weergegeven`https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+7.  De naam van de VHD invoegen na de containernaam van de in SAS-URL, zoals hieronder wordt weergegeven `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     Voorbeeld:
 
-    TestRGVM201631920152.vhd is de naam van de VHD en vervolgens de URL van de VHD-SAS
+    TestRGVM201631920152.vhd is de naam van de VHD en vervolgens de URL van de VHD-SAS 
 
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

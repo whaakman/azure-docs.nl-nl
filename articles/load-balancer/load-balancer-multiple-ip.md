@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 02388162ac4d2d86255c0a65d8b94253047f3983
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>De Load Balancer op meerdere IP-configuraties met behulp van de Azure-portal
 
@@ -89,7 +89,7 @@ De load balancer voor de configuratie maken:
 
 1. Blader naar de Azure-portal: http://portal.azure.com. Aanmelden met uw Azure-account.
 
-2. Selecteer in de linkerbovenhoek van het scherm **nieuw** > **Networking** > **Load Balancer**. Selecteer vervolgens **maken**.
+2. Selecteer in de linkerbovenhoek van het scherm **maken van een resource** > **Networking** > **Load Balancer**. Selecteer vervolgens **maken**.
 
 3. Onder **maken load balancer**, typ een naam voor de load balancer. In dit scenario we maken gebruik van de naam van de **mylb**.
 

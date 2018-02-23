@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 4424cbb83bdb31c60e15d62f9387b4050611a98d
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Virtuele machines starten/stoppen tijdens rustige uren oplossing (preview) in Azure Automation
 
@@ -75,7 +75,7 @@ Alle bovenliggende runbooks bevatten de *WhatIf* parameter. Als de waarde **True
 |AutoStop_Disable | geen | Hiermee schakelt u AutoStop waarschuwingen en standaardschema.| 
 |AutoStop_StopVM_Child | WebHookData | Alleen aangeroepen vanuit het bovenliggende runbook. Waarschuwingsregels aanroepen voor dit runbook om te stoppen van de virtuele machine.|  
 |Bootstrap_Main | geen | Één keer worden gebruikt voor het instellen van de bootstrap configuraties zoals webhookURI, die doorgaans niet toegankelijk vanuit Azure Resource Manager. Dit runbook wordt automatisch verwijderd na de geslaagde implementatie.|  
-|ScheduledStartStop_Child | VMName <br> Actie: Stoppen of starten <br> resourceGroupName | Alleen aangeroepen vanuit het bovenliggende runbook. Wordt uitgevoerd of het stoppen of starten voor de geplande stoppen.|  
+|ScheduledStartStop_Child | VMName <br> Actie: Stoppen of starten <br> ResourceGroupName | Alleen aangeroepen vanuit het bovenliggende runbook. Wordt uitgevoerd of het stoppen of starten voor de geplande stoppen.|  
 |ScheduledStartStop_Parent | Actie: Stoppen of starten <br> WhatIf: True of False | Dit geldt voor alle VM's in het abonnement. Bewerk de **External_Start_ResourceGroupNames** en **External_Stop_ResourceGroupNames** alleen uitvoeren op deze brongroepen doel. U kunt ook specifieke virtuele machines uitsluiten door het bijwerken van de **External_ExcludeVMNames** variabele. *WhatIf* gedraagt zich hetzelfde als in andere runbooks.|  
 |SequencedStartStop_Parent | Actie: Stoppen of starten <br> WhatIf: True of False | Maken van labels met de naam **klikvolgorde** en **SequenceStop** op elke virtuele machine die u starten/stoppen-sequence-activiteit wilt. De waarde van de tag moet een positief geheel getal (1, 2, 3) die overeenkomt met de volgorde waarin u wilt starten of stoppen. *WhatIf* gedraagt zich hetzelfde als in andere runbooks. <br> **Opmerking**: virtuele machines moet binnen de resourcegroepen die zijn gedefinieerd als External_Start_ResourceGroupNames External_Stop_ResourceGroupNames en External_ExcludeVMNames in Azure Automation-variabelen. Ze hebben de bijbehorende codes voor acties om te laten treden.|
 
@@ -83,7 +83,7 @@ Alle bovenliggende runbooks bevatten de *WhatIf* parameter. Als de waarde **True
 
 De volgende tabel bevat de variabelen die in uw Automation-account gemaakt.  Wijzig variabelen die worden voorafgegaan door alleen **externe**. Wijzigen van variabelen voorafgegaan door **intern** bijwerkingen veroorzaakt.  
 
-|**Variabele** | **Beschrijving**|
+|**variabele** | **Beschrijving**|
 ---------|------------|
 |External_AutoStop_Condition | De voorwaardelijke operator zijn vereist voor het configureren van de voorwaarde voordat een waarschuwing. Acceptabele waarden zijn **groter dan**, **GreaterThanOrEqual**, **LessThan**, en **LessThanOrEqual**.|  
 |External_AutoStop_Description | De waarschuwing voor de virtuele machine stoppen als het CPU-percentage de drempelwaarde overschrijdt.|  
@@ -115,13 +115,13 @@ De volgende tabel geeft een lijst van elk van de standaardplanningen in uw Autom
 
 U moet alle schema's, niet inschakelen omdat dit overlappende planning acties mogelijk maken. Het is raadzaam om te bepalen welke optimalisaties die u wilt uitvoeren en dienovereenkomstig wijzigen.  Zie de voorbeeldscenario's in de overzichtssectie voor verdere uitleg.   
 
-|**De naam van de planning** | **Frequentie** | **Beschrijving**|
+|**de naam van de planning** | **Frequentie** | **Beschrijving**|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Om de 8 uur | Kan het runbook AutoStop_CreateAlert_Parent om de 8 uur die op zijn beurt Hiermee stopt u de waarden op basis van een VM in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames en External_ExcludeVMNames in Azure Automation-variabelen worden uitgevoerd.  U kunt ook een door komma's gescheiden lijst met virtuele machines opgeven met behulp van de parameter VMList.|  
 |Scheduled_StopVM | De gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van het *stoppen* elke dag op de opgegeven tijd.  Automatisch alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door asset variabelen gestopt. U moet het bijbehorende schema inschakelen **geplande-StartVM**.|  
 |Scheduled_StartVM | De gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van het *Start* elke dag op de opgegeven tijd.  Alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door de juiste variabelen wordt automatisch gestart.  U moet het bijbehorende schema inschakelen **geplande StopVM**.|
-|Gesequentieerd StopVM | 1:00 uur (UTC), elke vrijdag | Het runbook Sequenced_Parent uitvoert met een parameter van het *stoppen* elke vrijdag op de opgegeven tijd.  Sequentieel (oplopend) stopt alle virtuele machines met een code van **SequenceStop** gedefinieerd door de betreffende variabelen.  Raadpleeg het gedeelte Runbooks voor meer informatie over labelwaarden en activa-variabelen.  U moet het bijbehorende schema inschakelen **geordende StartVM**.|
-|Gesequentieerd StartVM | 13:00 uur (UTC), elke maandag | Het runbook Sequenced_Parent uitvoert met een parameter van het *Start* elke maandag op de opgegeven tijd. Sequentieel alle VM's (aflopend) begint met een code van **klikvolgorde** gedefinieerd door de betreffende variabelen.  Raadpleeg het gedeelte Runbooks voor meer informatie over labelwaarden en activa-variabelen.  U moet het bijbehorende schema inschakelen **geordende StopVM**.|
+|Sequenced-StopVM | 1:00 uur (UTC), elke vrijdag | Het runbook Sequenced_Parent uitvoert met een parameter van het *stoppen* elke vrijdag op de opgegeven tijd.  Sequentieel (oplopend) stopt alle virtuele machines met een code van **SequenceStop** gedefinieerd door de betreffende variabelen.  Raadpleeg het gedeelte Runbooks voor meer informatie over labelwaarden en activa-variabelen.  U moet het bijbehorende schema inschakelen **geordende StartVM**.|
+|Sequenced-StartVM | 13:00 uur (UTC), elke maandag | Het runbook Sequenced_Parent uitvoert met een parameter van het *Start* elke maandag op de opgegeven tijd. Sequentieel alle VM's (aflopend) begint met een code van **klikvolgorde** gedefinieerd door de betreffende variabelen.  Raadpleeg het gedeelte Runbooks voor meer informatie over labelwaarden en activa-variabelen.  U moet het bijbehorende schema inschakelen **geordende StopVM**.|
 
 <br>
 
@@ -129,7 +129,7 @@ U moet alle schema's, niet inschakelen omdat dit overlappende planning acties mo
 
 Voer de volgende stappen uit om toe te voegen van de starten/stoppen virtuele machines tijdens rustige uren oplossing voor uw Automation-account en configureer vervolgens de variabelen voor het aanpassen van de oplossing.
 
-1. Klik in Azure Portal op **Nieuw**.<br> ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. Klik in de Azure-portal op **maken van een resource**.<br> ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. Typ in het deelvenster Marketplace een trefwoord zoals **Start** of **starten/stoppen**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. U kunt ook Typ trefwoorden in een of meer van de volledige naam van de oplossing en druk op Enter.  Selecteer **starten/stoppen virtuele machines [Preview] buiten kantooruren** in de zoekresultaten.  
 3. In de **starten/stoppen virtuele machines [Preview] buiten kantooruren** deelvenster voor de geselecteerde oplossing, Controleer de overzichtsgegevens en klik vervolgens op **maken**.  
 4. De **oplossing toevoegen** deelvenster wordt weergegeven. U wordt gevraagd de oplossing configureren voordat u deze in uw Automation-abonnement importeren kunt.<br><br> ![Blade Oplossing toevoegen voor VM-beheer](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: b2fc8a622549a9858c6c769a7e648fe07a3d01c1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Een virtueel netwerk maken met de Azure CLI
 
@@ -81,7 +81,7 @@ az vm create \
   --no-wait
 ```
 
-Azure maakt automatisch de virtuele machine in de *standaard* subnet van de *myVirtualNetwork* virtuele netwerk, omdat het virtuele netwerk in de resourcegroep en geen virtuele netwerken bestaat of subnet is opgegeven in de opdracht. Azure DHCP automatisch toegewezen 10.0.0.4 aan de virtuele machine tijdens het maken, omdat dit het eerste beschikbare adres in de *standaard* subnet. De locatie die in een virtuele machine wordt gemaakt, moet het virtuele netwerk bestaat in dezelfde locatie. De virtuele machine is niet in dezelfde resourcegroep bevinden als de virtuele machine is vereist als het in dit artikel.
+Azure maakt automatisch de virtuele machine in de *standaard* subnet van de *myVirtualNetwork* virtuele netwerk, omdat het virtuele netwerk in de resourcegroep en geen virtuele netwerken bestaat of subnet is opgegeven in de opdracht. Azure DHCP automatisch toegewezen 10.0.0.4 aan de virtuele machine tijdens het maken, omdat dit het eerste beschikbare adres in de *standaard* subnet. De locatie die in een virtuele machine wordt gemaakt, moet het virtuele netwerk bestaat in dezelfde locatie. De virtuele machine is niet vereist zijn in dezelfde resourcegroep bevinden als het virtuele netwerk als het in dit artikel.
 
 Maak een tweede virtuele machine. Standaard maakt Azure ook deze virtuele machine in de *standaard* subnet.
 

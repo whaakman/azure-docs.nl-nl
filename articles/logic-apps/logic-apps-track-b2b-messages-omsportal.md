@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Bijhouden van de B2B-communicatie in de Microsoft Operations Management Suite (OMS)
 
@@ -47,7 +47,7 @@ Na het instellen van B2B-communicatie tussen twee bedrijfsprocessen of toepassin
 
 Als u wilt bijhouden B2B-berichten voor uw logische app OMS, moet u toevoegen de **Logic Apps B2B** oplossing naar de OMS-portal. Meer informatie over [oplossingen toe te voegen aan OMS](../log-analytics/log-analytics-get-started.md).
 
-1. In de [Azure-portal](https://portal.azure.com), kies **meer Services**. Zoek naar 'log analytics' in en kies vervolgens **logboekanalyse** als volgt te werk:
+1. In de [Azure-portal](https://portal.azure.com), kies **alle Services**. Zoek naar 'log analytics' in en kies vervolgens **logboekanalyse** als volgt te werk:
 
    ![Log Analytics vinden](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
@@ -156,7 +156,7 @@ Hier volgen beschrijvingen van de eigenschap voor elk bericht AS2.
 | ACK | De status van het bericht MDN <br>Geaccepteerd = ontvangen of verzonden, een positieve MDN. <br>= Wachten op ontvangen of verzenden van een MDN in behandeling. <br>Afgewezen = ontvangen of een negatieve MDN verzonden. <br>Niet vereist = MDN is niet ingesteld in de overeenkomst. |
 | Richting | De richting van de AS2-bericht |
 | Correlatie-id | De ID die alle triggers en acties in een logische app correleert |
-| Bericht-id | De AS2-bericht-ID van de berichtkoppen AS2 |
+| Bericht-ID | De AS2-bericht-ID van de berichtkoppen AS2 |
 | Timestamp | De tijd waarop de actie AS2 het bericht verwerkt |
 |          |             |
 

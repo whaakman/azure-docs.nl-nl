@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7173c87dec980130992438954650227c16ad7292
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d4e76c85af7a9b90867d91a6290c4f4deea19a75
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="more-details-about-features-in-preview"></a>Meer informatie over functies in preview
 Dit onderwerp wordt beschreven hoe u functies die momenteel in preview.
@@ -26,7 +26,7 @@ Dit onderwerp wordt beschreven hoe u functies die momenteel in preview.
 ## <a name="group-writeback"></a>Groep terugschrijven
 De optie voor write-back van groep in optionele functies kunt u Write-back van **Office 365-groepen** naar een forest met Exchange geïnstalleerd. Dit is een groep die altijd is gemaakt in de cloud. Als u Exchange lokale hebt, kunt klikt u vervolgens u schrijven terug deze groepen met on-premises zodat gebruikers met een lokale Exchange-postvak kunnen verzenden en ontvangen van e-mailberichten van deze groepen.
 
-Meer informatie over Office 365-groepen en het gebruik ervan vindt [hier](http://aka.ms/O365g).
+Meer informatie over Office 365-groepen en het gebruik ervan vindt [hier](https://aka.ms/O365g).
 
 Een Office 365-groep wordt weergegeven als een distributiegroep op on-premises AD DS. Uw lokale Exchange-server moet zich op Exchange 2013 cumulatieve update 8 (uitgebracht in maart 2015) of Exchange 2016 dit nieuwe groepstype kan herkennen.
 

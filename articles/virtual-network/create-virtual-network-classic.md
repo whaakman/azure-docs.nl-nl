@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Een virtueel netwerk (klassiek) maken met meerdere subnetten
 
@@ -39,10 +39,10 @@ U een virtueel netwerk (klassiek) kunt maken met behulp van de [Azure-portal](#p
 ## <a name="portal"></a>Portal
 
 1. In een internetbrowser, gaat u naar de [Azure-portal](https://portal.azure.com). Meld u aan met uw [Azure-account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Als u nog geen Azure-account hebt, kunt u zich registreren voor een [gratis proefversie](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. Klik op **+ nieuw** in de portal.
-3. Voer *virtueel netwerk* in de **zoeken van de Marketplace** vak aan de bovenkant van de **nieuw** blade die wordt weergegeven.  Klik op **virtueel netwerk** wanneer deze wordt weergegeven in de zoekresultaten.
-4. Selecteer **klassieke** in de **een implementatiemodel selecteren** vak de **virtueel netwerk** blade die wordt weergegeven, klikt u vervolgens op **maken**. 
-5. Voer de volgende waarden op de **virtueel netwerk maken (klassiek)** blade en klik vervolgens op **maken**:
+2. Klik op **maken van een resource** in de portal.
+3. Voer *virtueel netwerk* in de **zoeken van de Marketplace** vak aan de bovenkant van de **nieuw** deelvenster dat wordt weergegeven. Klik op **virtueel netwerk** wanneer deze wordt weergegeven in de zoekresultaten.
+4. Selecteer **klassieke** in de **een implementatiemodel selecteren** vak de **virtueel netwerk** deelvenster dat wordt weergegeven, klikt u vervolgens op **maken**. 
+5. Voer de volgende waarden op de **virtueel netwerk maken (klassiek)** deelvenster en klik vervolgens op **maken**:
 
     |Instelling|Waarde|
     |---|---|
@@ -55,13 +55,13 @@ U een virtueel netwerk (klassiek) kunt maken met behulp van de [Azure-portal](#p
 
     Als u geen ervaring met Azure, meer informatie over [resourcegroepen](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [abonnementen](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), en [locaties](https://azure.microsoft.com/regions) (ook wel *regio's*).
 4. U kunt slechts één subnet in de portal maken wanneer u een virtueel netwerk maken. In deze zelfstudie maakt u een tweede subnet nadat u het virtuele netwerk hebt gemaakt. U kunt later maken met Internet toegankelijke bronnen in de **openbare** subnet. U bronnen die niet toegankelijk is vanaf het Internet in ook mogelijk maakt de **persoonlijke** subnet. Voer voor het maken van het tweede subnet **myVnet** in de **zoeken bronnen** vak aan de bovenkant van de pagina. Klik op **myVnet** wanneer deze wordt weergegeven in de zoekresultaten.
-5. Klik op **subnetten** (in de **instellingen** sectie) op de **virtueel netwerk maken (klassiek)** blade die wordt weergegeven.
-6. Klik op **+ toevoegen** op de **myVnet - subnetten** blade die wordt weergegeven.
-7. Voer **persoonlijke** voor **naam** op de **subnet toevoegen** blade. Voer **10.0.1.0/24** voor **-adresbereik**.  Klik op **OK**.
-8. Op de **myVnet - subnetten** , ziet u de **openbare** en **persoonlijke** subnetten die u hebt gemaakt.
+5. Klik op **subnetten** (in de **instellingen** sectie) op de **virtueel netwerk maken (klassiek)** deelvenster dat wordt weergegeven.
+6. Klik op **+ toevoegen** op de **myVnet - subnetten** deelvenster dat wordt weergegeven.
+7. Voer **persoonlijke** voor **naam** op de **subnet toevoegen** deelvenster. Voer **10.0.1.0/24** voor **-adresbereik**.  Klik op **OK**.
+8. Op de **myVnet - subnetten** deelvenster ziet u de **openbare** en **persoonlijke** subnetten die u hebt gemaakt.
 9. **Optionele**: wanneer u deze zelfstudie hebt voltooid, wilt u mogelijk de resources verwijderen die u hebt gemaakt, zodat u geen gebruik kosten:
-    - Klik op **overzicht** op de **myVnet** blade.
-    - Klik op de **verwijderen** pictogram op de **myVnet** blade.
+    - Klik op **overzicht** op de **myVnet** deelvenster.
+    - Klik op de **verwijderen** pictogram op de **myVnet** deelvenster.
     - Het verwijderen te bevestigen, klikt u op **Ja** in de **virtuele netwerk verwijderen** vak.
 
 ## <a name="azure-cli"></a>Azure-CLI

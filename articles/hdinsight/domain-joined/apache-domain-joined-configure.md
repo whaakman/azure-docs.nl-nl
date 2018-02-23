@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/15/2018
 ms.author: saurinsh
-ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b4d71eeb0aab75e67e851f867f194ed7578d0d1c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>HDInsight domein sandbox-omgeving configureren
 
-Meer informatie over het instellen van een Azure HDInsight-cluster met zelfstandige Active Directory en [Apache Zwerver](http://hortonworks.com/apache/ranger/) om te profiteren van sterke authenticatie- en uitgebreide op rollen gebaseerde toegang beleid voor toegangsbeheer (RBAC). Zie voor meer informatie [introduceren domein HDInsight-clusters](apache-domain-joined-introduction.md).
+Meer informatie over het instellen van een Azure HDInsight-cluster met zelfstandige Active Directory en [Apache Zwerver](http://hortonworks.com/apache/ranger/) om te profiteren van sterke authenticatie- en uitgebreide op rollen gebaseerde toegang beleid voor toegangsbeheer (RBAC). Zie voor meer informatie [introduceren domein HDInsight-clusters](apache-domain-joined-introduction.md). 
+
+> [!IMPORTANT]
+> Standaard worden deze instellen, dus alleen gebruikt bij het gebruik van Azure Storage-accounts. Als u wilt gebruiken met Azure Data Lake Store, Active Directory naar een nieuwe Azure Active Directory te synchroniseren.
 
 Zonder HDInsight-cluster lid van een domein, kan alleen elk cluster hebben een Hadoop-HTTP-account voor gebruikers en een SSH-account.  De verificatie met meerdere gebruikers kan worden bereikt met:
 
@@ -40,6 +43,7 @@ Een zelfstandige Active Directory wordt uitgevoerd op Azure IaaS in dit artikel 
     - HDInsight-cluster maken
 
 > [!IMPORTANT]
+> 
 > Oozie is niet ingeschakeld op HDInsight domein.
 
 ## <a name="prerequisite"></a>Vereiste

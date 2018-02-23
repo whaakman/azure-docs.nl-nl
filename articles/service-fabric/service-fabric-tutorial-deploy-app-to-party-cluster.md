@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Een toepassing implementeren in een Party-cluster in Azure
 Deze zelfstudie is deel twee van een reeks en laat zien hoe u een Azure Service Fabric-toepassing implementeert in een Party-cluster in Azure.
@@ -59,14 +59,33 @@ Als u wilt, kunt u ook uw eigen cluster gebruiken in plaats van het Party-cluste
 > [!NOTE]
 > Party-clusters zijn niet beveiligd, wat betekent dat uw toepassingen en gegevens in de clusters mogelijk zichtbaar zijn voor anderen. Implementeer dus geen inhoud die anderen niet mogen zien. Lees voor uitgebreide informatie onze gebruiksvoorwaarden (Engelstalig).
 
+Meld u aan en [neem deel aan een Windows-cluster](http://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Het certificaat en de waarde van het **verbindingseindpunt** worden in volgende stappen gebruikt.
+
+![PFX en verbindingseindpunt](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Op een Windows-computer installeert u het PFX-bestand in het certificaatarchief *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+
 ## <a name="deploy-the-app-to-the-azure"></a>De app implementeren in Azure
 Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio implementeren naar het Party-cluster.
 
-1. Klik met de rechtermuisknop op **Voting** in Solution Explorer en kies **Publiceren**.
+1. Klik met de rechtermuisknop op **Voting** in Solution Explorer en kies **Publiceren**. 
 
-    ![Het dialoogvenster Publiceren](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![Het dialoogvenster Publiceren](./media/service-fabric-quickstart-containers/publish-app.png)
 
-2. Typ het verbindingseindpunt van het Party-cluster in het veld **Connection Endpoint** en klik op **Publish**.
+2. Kopieer het **verbindingseindpunt** van het cluster van derden naar het veld **Verbindingseindpunt**. Bijvoorbeeld `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klik op **Advanced Connection Parameters** en vul de volgende gegevens in.  De waarden *FindValue* en *ServerCertThumbprint* moeten overeenkomen met de vingerafdruk van het certificaat dat in de vorige stap is geïnstalleerd. Klik op **Publish**. 
 
     Nadat het publiceren is voltooid, moet u via een browser een aanvraag kunnen verzenden naar de toepassing.
 
@@ -81,9 +100,9 @@ Service Fabric Explorer is een grafische gebruikersinterface voor het verkennen 
 
 De toepassing verwijderen uit het Party-cluster:
 
-1. Ga naar de Service Fabric Explorer, via de koppeling die is gepubliceerd op de aanmeldingspagina van het Party-cluster, zoals http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
+1. Ga naar de Service Fabric Explorer, via de koppeling die is gepubliceerd op de aanmeldingspagina van het Party-cluster, zoals Bijvoorbeeld: https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
-2. Ga in Service Fabric Explorer naar het knooppunt **fabric://Voting** in de boomstructuur aan de linkerkant.
+2. Ga in Service Fabric Explorer naar het knooppunt **fabric:/Voting** in de boomstructuur aan de linkerkant.
 
 3. Klik op de knop **Actions** in het deelvenster **Essentials** aan de rechterkant en kies **Delete Application**. Bevestig dat u het exemplaar van de toepassing wilt verwijderen, waarna het exemplaar wordt verwijderd van onze toepassing die wordt uitgevoerd in het cluster.
 

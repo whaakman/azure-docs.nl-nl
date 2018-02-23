@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Problemen met een object dat niet kan worden gesynchroniseerd naar Azure AD
 
 Als een object niet zoals verwacht naar Azure AD synchroniseren is, kan het zijn diverse redenen. Als u een e-mailbericht fout van Azure AD hebt ontvangen of u de fout in Azure AD Connect Health ziet, Lees [exportfouten oplossen](active-directory-aadconnect-troubleshoot-sync-errors.md) in plaats daarvan. Maar als u een waar het object niet in Azure AD is probleem oplossen wilt, in dit onderwerp wordt voor u. Wordt beschreven hoe u fouten gevonden in de lokale onderdeel Azure AD Connect-synchronisatie.
+
+>[!IMPORTANT]
+>Voor de implementatie van Azure Active Directory (AAD) verbinding maken met versie <verison> of hoger, gebruik de [probleemoplossing taak](active-directory-aadconnect-troubleshoot-objectsync.md) in de wizard object synchronisatieproblemen kunt oplossen. 
 
 Als u de fouten zoekt, gaat u om te kijken naar een aantal verschillende plaatsen in de volgende volgorde:
 
@@ -36,7 +39,7 @@ Start [Synchronization Service Manager](active-directory-aadconnectsync-service-
 De operations-tabblad Synchronization Service Manager is waar u de probleemoplossing moet beginnen. De operations-tabblad ziet u de resultaten van de meest recente bewerkingen.  
 ![Sync-Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
-Het bovenste gedeelte ziet u alle wordt uitgevoerd in chronische volgorde. Standaard de bewerkingen logboekgegevens houdt van de afgelopen zeven dagen, maar deze instelling kan worden gewijzigd met de [scheduler](active-directory-aadconnectsync-feature-scheduler.md). U wilt zoeken naar eventuele uitvoeren die een status geslaagd niet weergegeven. U kunt het sorteren door te klikken op de headers.
+Het bovenste gedeelte ziet u alle wordt uitgevoerd in chronologische volgorde. Standaard de bewerkingen logboekgegevens houdt van de afgelopen zeven dagen, maar deze instelling kan worden gewijzigd met de [scheduler](active-directory-aadconnectsync-feature-scheduler.md). U wilt zoeken naar eventuele uitvoeren die een status geslaagd niet weergegeven. U kunt het sorteren door te klikken op de headers.
 
 De **Status** kolom is de belangrijkste informatie en ziet u het meest ernstige probleem voor een uitvoering. Hier volgt een korte samenvatting van de meest voorkomende statussen in volgorde van prioriteit voor het onderzoeken van (waarbij * enkele mogelijke fout tekenreeksen geven).
 
@@ -78,7 +81,7 @@ Als u het object niet kunt vinden u zoekt, wordt deze mogelijk zijn gefilterd me
 
 Een andere nuttige zoekactie is het selecteren van de Azure AD-Connector in **bereik** Selecteer **in behandeling zijnde importeren**, en selecteer de **toevoegen** selectievakje. Deze zoekopdracht kunt u alle gesynchroniseerde objecten in Azure AD die niet kan gekoppeld aan een lokaal object worden.  
 ![Connector ruimte zoeken zwevende](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Deze objecten zijn gemaakt door een andere synchronisatie-engine of een synchronisatie-engine met een andere configuratie filteren. Deze weergave is een lijst met **zwevende** objecten niet meer wordt beheerd. Controleer deze lijst en overwegen te verwijderen van deze objecten met behulp van de [Azure AD PowerShell](http://aka.ms/aadposh) cmdlets.
+Deze objecten zijn gemaakt door een andere synchronisatie-engine of een synchronisatie-engine met een andere configuratie filteren. Deze weergave is een lijst met **zwevende** objecten niet meer wordt beheerd. Controleer deze lijst en overwegen te verwijderen van deze objecten met behulp van de [Azure AD PowerShell](https://aka.ms/aadposh) cmdlets.
 
 ### <a name="cs-import"></a>CS importeren
 Wanneer u een object cs opent, zijn er meerdere tabbladen boven. De **importeren** tabblad ziet u de gegevens die tijdelijk worden opgeslagen na importeren.  

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 05884fd39db284e268f31987e5ad7a47b9f87ebf
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Gegevens verplaatsen van een lokale SQL server naar SQL Azure met Azure Data Factory
 Dit onderwerp wordt beschreven hoe gegevens uit een lokale SQL Server-Database verplaatsen naar een Azure SQL Database via Azure Blob Storage met Azure Data Factory (ADF).
@@ -61,12 +61,12 @@ Deze zelfstudie wordt ervan uitgegaan dat u hebt:
 >
 >
 
-## <a name="upload-data"></a>De gegevens uploaden naar uw lokale SQL Server
+## <a name="upload-data"></a> De gegevens uploaden naar uw lokale SQL Server
 We gebruiken de [NYC Taxi gegevensset](http://chriswhong.com/open-data/foil_nyc_taxi/) ter illustratie van het migratieproces. De gegevensset NYC Taxi beschikbaar is, zoals beschreven in deze post, op Azure-blobopslag [NYC Taxi gegevens](http://www.andresmh.com/nyctaxitrips/). De gegevens heeft twee bestanden: het bestand trip_data.csv reis details bevat, en het bestand trip_far.csv details van het tarief dat voor elke reis betaald bevat. Een beschrijving van deze bestanden en voorbeelden vindt u in [NYC Taxi reizen gegevensset beschrijving](sql-walkthrough.md#dataset).
 
 U kunt aanpassen van de procedure die hier worden opgegeven voor een set van uw eigen gegevens of de stappen zoals beschreven met behulp van de NYC Taxi gegevensset. Als u wilt de gegevensset NYC Taxi uploaden naar uw lokale SQL Server-database, volgt u de procedure beschreven in [gegevens voor bulksgewijs importeren in SQL Server-Database](sql-walkthrough.md#dbload). Deze instructies zijn voor een SQL-Server op een virtuele Machine van Azure, maar de procedure voor het uploaden naar de lokale SQL Server is hetzelfde.
 
-## <a name="create-adf"></a>Een Azure-Gegevensfactory maken
+## <a name="create-adf"></a> Een Azure-Gegevensfactory maken
 De instructies voor het maken van een nieuwe Azure Data Factory en een resourcegroep in de [Azure-portal](https://portal.azure.com/) vindt u [maken van een Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory). Naam van het nieuwe exemplaar van de ADF *adfdsp* en de naam van de resourcegroep gemaakt *adfdsprg*.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Installeren en configureren van de Data Management Gateway
@@ -105,7 +105,7 @@ De definities JSON-indeling in de tabellen gebruiken de volgende namen:
 Drie tabeldefinities nodig zijn voor deze ADF-pijplijn:
 
 1. [On-premises SQL-tabel](#adf-table-onprem-sql)
-2. [Blobtabel](#adf-table-blob-store)
+2. [Blobtabel ](#adf-table-blob-store)
 3. [SQL Azure-tabel](#adf-table-azure-sql)
 
 > [!NOTE]
@@ -113,7 +113,7 @@ Drie tabeldefinities nodig zijn voor deze ADF-pijplijn:
 >
 >
 
-### <a name="adf-table-onprem-sql"></a>On-premises SQL-tabel
+### <a name="adf-table-onprem-sql">On-premises SQL-tabel</a>
 De definitie van de tabel voor de lokale SQL Server is opgegeven in het volgende JSON-bestand:
 
         {
@@ -148,7 +148,7 @@ Naam van de JSON-definitie van de tabel in een bestand kopiëren *onpremtabledef
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="adf-table-blob-store"></a>Blobtabel
+### <a name="adf-table-blob-store">Blobtabel </a>
 De definitie voor de tabel voor de locatie van de uitvoer-blob is in de volgende (Hiermee worden de opgenomen gegevens van on-premises naar Azure blob):
 
         {
@@ -178,7 +178,7 @@ Naam van de JSON-definitie van de tabel in een bestand kopiëren *bloboutputtabl
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="adf-table-azure-sq"></a>SQL Azure-tabel
+### <a name="adf-table-azure-sql">SQL Azure-tabel</a>
 Definitie voor de tabel voor de SQL Azure-uitvoer is in de volgende (de gegevens die afkomstig zijn van de blob dit schema toegewezen):
 
     {

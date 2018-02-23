@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15b3b44e45a59f44bd9bbd96dce867cc87fa410c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Azure Data Lake Analytics beheren met behulp van de Azure-portal
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -33,7 +33,7 @@ Informatie over het beheren van Azure Data Lake Analytics-accounts, gegevensbron
 ### <a name="create-an-account"></a>Een account maken
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **Nieuw** > **Intelligence + analyse** > **Data Lake Analytics**.
+2. Klik op **maken van een resource** > **Intelligence en analyse** > **Data Lake Analytics**.
 3. Selecteer waarden voor de volgende items: 
    1. **Naam**: de naam van de Data Lake Analytics-account.
    2. **Abonnement**: de Azure-abonnement gebruikt voor het account.

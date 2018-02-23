@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Back-up en herstel van versleutelde virtuele machines met Azure Backup
 In dit artikel wordt gesproken over de stappen voor de back-up en herstellen van virtuele machines (VM's) met behulp van Azure Backup. Het bevat ook informatie over ondersteunde scenario's, vereisten en stappen voor probleemoplossing voor foutgevallen.
@@ -48,7 +48,7 @@ In dit artikel wordt gesproken over de stappen voor de back-up en herstellen van
 Gebruik de volgende stappen voor instellen van een back-updoel, beleid, items configureren en activeren van een back-up.
 
 ### <a name="configure-backup"></a>Back-up configureren
-1. Als u al een Recovery Services-kluis openen, gaat u verder met de volgende stap. Als u een Recovery Services-kluis openen niet hebt, maar u zich in de Azure-portal op de **Hub** selecteert u **Bladeren**.
+1. Als u al een Recovery Services-kluis openen, gaat u verder met de volgende stap. Als u een Recovery Services-kluis openen niet hebt, maar u zich in de Azure portal, selecteer **alle services**.
 
    a. Typ in de lijst met resources **Recovery Services**.
 
@@ -98,7 +98,7 @@ Als u virtuele machines al back-up gemaakt in een Recovery Services-kluis die zi
 
 ## <a name="provide-permissions-to-backup"></a>Machtigingen verlenen aan back-up
 Gebruik de volgende stappen uit om relevante machtigingen aan back-up voor toegang tot de sleutelkluis en back-up van versleutelde virtuele machines.
-1. Selecteer **meer services**, en zoek naar **kluizen sleutel**.
+1. Selecteer **alle services**, en zoek naar **kluizen sleutel**.
 
     ![Sleutelkluizen](./media/backup-azure-vms-encryption/search-key-vault.png)
     

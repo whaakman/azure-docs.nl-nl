@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 08426b6142dd125a5981d65635ecc55336cb3d15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Beperkingen van de Azure-Cloud-Shell
 
@@ -33,7 +33,6 @@ De computer waarmee u uw Cloud-Shell-sessie is tijdelijk en deze wordt gerecycle
 * Met gekoppelde opslag, alleen de wijzigingen in de `clouddrive` directory blijven bestaan. In Bash, uw `$Home` directory ook persistent is gemaakt.
 * Azure-bestandsshares worden gekoppeld, alleen vanuit uw [regio toegewezen](persisting-shell-storage.md#mount-a-new-clouddrive).
   * Voer in Bash, `env` vinden van uw regio ingesteld als `ACC_LOCATION`.
-* Azure Files ondersteunt alleen lokaal redundante opslag en geo-redundant storage-accounts.
 
 ### <a name="browser-support"></a>Browserondersteuning
 
@@ -55,18 +54,11 @@ Cloud-Shell is bedoeld voor interactieve gebruiksvoorbeelden. Als gevolg hiervan
 
 ### <a name="user-permissions"></a>Gebruikersmachtigingen
 
-Machtigingen zijn ingesteld als gewone gebruikers zonder toegang tot sudo. Elke installatie buiten uw `$Home` directory is niet persistent.
-
-### <a name="clouddrive-smb-limited-permissions"></a>Clouddrive SMB beperkte machtigingen
-Bepaalde opdrachten binnen de `clouddrive` map zoals `git clone`, beschikt niet over de juiste machtigingen voor bepaalde bestanden lezen/schrijven. Als u dit probleem raakt, opnieuw proberen van uw `$Home` directory waarvoor geen beperkingen van SMB.
+Machtigingen zijn ingesteld als gewone gebruikers zonder toegang tot sudo. Elke installatie buiten uw `$Home` of `clouddrive` directory is niet persistent.
 
 ### <a name="editing-bashrc"></a>Editing .bashrc
 
-Waarschuwing nemen bij het bewerken van .bashrc, in dat geval kan leiden tot onverwachte fouten in de Cloud-Shell.
-
-### <a name="bashhistory"></a>.bash_history
-
-De geschiedenis van bash opdrachten mogelijk inconsistent vanwege Cloud Shell-sessie wordt onderbroken of gelijktijdige sessies.
+Neem voorzichtig te werk als bewerken .bashrc, in dat geval onverwachte fouten met Bash in de Cloud-Shell veroorzaken kan.
 
 ## <a name="powershell-limitations"></a>PowerShell-beperkingen
 

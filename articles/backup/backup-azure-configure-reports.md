@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40433df5ebe90aec3a9294f2c5a6083c4567b161
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: e32e84eacee3a43b948b0a4b4177ab956b34ca3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 In dit artikel wordt gesproken over de stappen voor het configureren van rapporten voor Azure Backup aan de hand van de Recovery Services-kluis en toegang tot deze rapporten via Power BI. Na deze stappen uitvoert, kunt u direct naar Power BI om alle rapporten weer te geven, aanpassen en rapporten maken gaan. 
@@ -38,7 +38,7 @@ In dit artikel wordt gesproken over de stappen voor het configureren van rapport
 
 ## <a name="configure-storage-account-for-reports"></a>Opslagaccount voor rapporten configureren
 Gebruik de volgende stappen voor het configureren van het opslagaccount voor de recovery services-kluis met Azure portal. Dit is een eenmalige configuratie en zodra storage-account is geconfigureerd, gaat u naar Power BI rechtstreeks naar het inhoudspakket weergeven en rapporten gebruikmaken.
-1. Als u al een Recovery Services-kluis opent, kunt u doorgaan naar volgende stap. Als er nog geen Recovery Services-kluis is geopend, maar Azure Portal wordt weergeven, klikt u in het menu Hub op **Bladeren**.
+1. Als u al een Recovery Services-kluis opent, kunt u doorgaan naar volgende stap. Als u geen een Recovery Services-kluis is geopend hebt, maar in de Azure portal worden, klikt u op **alle services**.
 
    * Typ in de lijst met resources **Recovery Services**.
    * Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Wanneer **Recovery Services-kluizen** wordt weergegeven, klikt u erop.
@@ -80,7 +80,7 @@ Gebruik de volgende stappen voor het configureren van het opslagaccount voor de 
 ## <a name="view-reports-in-power-bi"></a>Rapporten weergeven in Power BI 
 Nadat het opslagaccount voor het configureren van rapporten met behulp van de recovery services-kluis, duurt het ongeveer 24 uur voor het melden van gegevens stromende om in te starten. Gebruik de volgende stappen om rapporten te bekijken in Power BI na 24 uur voor het instellen van de storage-account:
 1. [Meld u aan](https://powerbi.microsoft.com/landing/signin/) naar Power BI.
-2. Klik op **gegevens ophalen** en klik op Get onder **Services** in de Inhoudsbibliotheek Pack. Gebruik de stappen die worden vermeld in [Power BI-documentatie voor toegang tot inhoudspakket](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
+2. Klik op **gegevens ophalen** en klik op **ophalen** onder **Services** in de Inhoudsbibliotheek Pack. Gebruik de stappen die worden vermeld in [Power BI-documentatie voor toegang tot inhoudspakket](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
 
      ![Het inhoudspakket importeren](./media/backup-azure-configure-reports/content-pack-import.png)
 3. Type **Azure Backup** in de zoekbalk en op **nu downloaden**.
@@ -88,7 +88,7 @@ Nadat het opslagaccount voor het configureren van rapporten met behulp van de re
       ![Inhoudspakket ophalen](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Voer de naam van de opslag in stap 5 hierboven hebt geconfigureerd en klik op **volgende** knop.
 
-    ![Voer opslagaccountnaam in](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
+    ![De opslagaccountnaam invoeren](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
 5. Voer de opslagaccountsleutel voor dit opslagaccount. U kunt [bekijken en kopiëren van de toegangssleutels voor opslag](../storage/common/storage-create-storage-account.md#manage-your-storage-account) door te navigeren naar uw storage-account in Azure-portal. 
 
      ![Voer het opslagaccount](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
@@ -148,9 +148,9 @@ Nadat het opslagaccount voor het configureren van rapporten met behulp van de re
    Ja, kunt u hetzelfde opslagaccount configureren op verschillende kluizen cross-kluis rapporten weer te geven. U kunt ook hetzelfde opslagaccount voor kluizen configureren voor abonnementen. U kunt dit opslagaccount vervolgens bij het verbinden met Azure Backup in Power BI-inhoudspakket gebruiken om de rapporten weer te geven. Het geselecteerde opslagaccount moet echter in dezelfde regio bevinden als de recovery services-kluis.
    
 ## <a name="troubleshooting-errors"></a>Het oplossen van problemen
-| Details van fouten | Oplossing |
+| Foutdetails | Oplossing |
 | --- | --- |
-| Na het instellen van het opslagaccount voor back-up-rapporten **Opslagaccount** nog steeds **niet geconfigureerd**. | Als u de storage-account is geconfigureerd, worden uw rapportagegegevens overgebracht ondanks dit probleem. U lost dit probleem, gaat u naar Azure portal > meer Services > diagnostische instellingen > RS kluis > instelling bewerken. De eerder geconfigureerde instelling verwijderen en een nieuwe instelling maken op basis van de dezelfde blade. Deze tijd stelt u het veld **naam** naar **service**. Dit moet het geconfigureerde storage-account worden weergegeven. |
+| Na het instellen van het opslagaccount voor back-up-rapporten **Opslagaccount** nog steeds **niet geconfigureerd**. | Als u de storage-account is geconfigureerd, worden uw rapportagegegevens overgebracht ondanks dit probleem. U lost dit probleem, gaat u naar Azure portal > alle services > diagnostische instellingen > RS kluis > instelling bewerken. De eerder geconfigureerde instelling verwijderen en een nieuwe instelling maken op basis van de dezelfde blade. Deze tijd stelt u het veld **naam** naar **service**. Dit moet het geconfigureerde storage-account worden weergegeven. |
 |Inhoud pack in Power BI, de fout na het importeren van Azure Backup **404-container is niet gevonden** wordt weergegeven. | Zoals voorgesteld in dit document, moet u 24 uur na het configureren van rapporten in de Recovery Services-kluis voor een goed overzicht in Power BI wachten. Als u probeert te krijgen tot de rapporten voordat 24 uur, krijgt u deze fout omdat voltooid is nog niet aanwezig is om geldige rapporten weer te geven. |
 
 ## <a name="next-steps"></a>Volgende stappen

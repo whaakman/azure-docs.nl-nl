@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 9f443c6e93f894f49ee2f82787be2025f74ed720
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 47f42c10a791caa8ab20401574fb853ad3e4f0e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limieten voor Azure SQL Database
 
@@ -114,7 +114,16 @@ U kunt vergroten of verkleinen van de beschikbare bronnen voor een elastische po
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Wat is het maximum aantal servers en databases?
 
-Het maximum aantal servers per abonnement per regio is 21. Het maximale aantal databases per server is 5000. Dit zijn dynamische limieten tot stand gebrachte experimenteel op basis van de nettolading van de grootte van analyse, logische master telemetrie verzameling analyse en enkele andere aspecten. U kunt aanvragen zijn dan deze limieten opgegeven u binnen de DTU-quotum blijven. Als het aantal databases en servers erg groot wordt, is het probleem dat u bereikt statistieken resourceverzameling in logische master en conflicten op beheertaken uit te voeren. Deze problemen zijn niet-fatale; ze worden latentie verbeteren.
+| Maximum | Waarde |
+| :--- | :--- |
+| Databases per server | 5000 |
+| Aantal servers per abonnement per regio | 21 |
+|||
+
+> [!IMPORTANT]
+> Als het aantal databases de limiet is per server nadert, kan het volgende gebeuren:
+> <br> • Verhogen latentie in met het uitvoeren van query's in de database master.  Het gaat hierbij om weergaven van de gebruiksstatistieken resource zoals sys.resource_stats.
+> <br> • Latentie in beheerbewerkingen vergroten en opbouwen van de portal standpunten die betrekking hebben op inventariseren van de server-databases.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>Wat gebeurt er wanneer de database en limieten elastische pool wordt bereikt?
 

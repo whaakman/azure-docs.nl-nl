@@ -3,8 +3,8 @@ title: Uw app implementeren in Azure en Azure Stack | Microsoft Docs
 description: Informatie over het implementeren van apps op Azure en Azure Stack met een hybride CI/CD-pipeline.
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: helaw
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 83bb401d5d65cd2c34015a1a14673363aeee81d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c073376db196b7d6c73c38d6a0a7b2c24949528
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Apps implementeren op Azure en Azure Stack
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
@@ -49,7 +50,7 @@ In dit onderwerp wordt ervan uitgegaan dat u enige kennis van Azure en Azure-Sta
  - Implementeer [App Service](../azure-stack-app-service-deploy.md) PaaS-services naar Azure-Stack.
  - Een Web-App maken en configureren voor [FTP-publicatie](../azure-stack-app-service-enable-ftp.md).  Noteer de nieuwe Web-App-URL, zoals het wordt later gebruikt.  
 
-### <a name="developer-tools"></a>Hulpprogramma's voor ontwikkelaars
+### <a name="developer-tools"></a>Ontwikkelhulpprogramma's
  - Maak een [VSTS werkruimte](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  Het aanmeldingsproces maakt een project met de naam 'MyFirstProject'.  
  - [Installeer Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) en [aanmelden bij VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
  - Verbinding maken met het project en [klonen lokaal](https://www.visualstudio.com/docs/git/gitquickstart).
@@ -59,7 +60,7 @@ In dit onderwerp wordt ervan uitgegaan dat u enige kennis van Azure en Azure-Sta
 
 ## <a name="create-app--push-to-vsts"></a>Push naar VSTS & app maken
 
-### <a name="create-application"></a>-Toepassing maken
+### <a name="create-application"></a>App maken
 In deze sectie maakt u een eenvoudige ASP.NET-toepassing maken en dit doorgeven aan VSTS.  Deze stappen vertegenwoordigen de normale developer-werkstroom en kunnen worden aangepast voor hulpprogramma's voor ontwikkelaars en talen. 
 
 1.  Open Visual Studio.
@@ -118,7 +119,7 @@ Nu dat u hebt een definitie van een leeg release hebt gemaakt en deze gekoppeld 
     |Gebruikersnaam | Gebruikersnaam die u hebt geconfigureerd bij het maken van de FTP-referenties voor Web-App |
     |Wachtwoord | Wachtwoord dat u hebt gemaakt bij het maken van FTP-referenties voor Web-App|
     |Bronmap | $(System.DefaultWorkingDirectory)\**\ |
-    |Externe map | KCC/site/wwwroot / |
+    |Externe map | /site/wwwroot/ |
     |Bestandspaden behouden | Ingeschakeld (ingeschakeld)|
 
 4.  Klik op **opslaan**
@@ -162,7 +163,7 @@ Nu dat u een release hebt gemaakt, configureert u de stappen die nodig zijn voor
     |Gebruikersnaam | Gebruikersnaam die u hebt geconfigureerd bij het maken van de FTP-referenties voor Web-App |
     |Wachtwoord | Wachtwoord dat u hebt gemaakt bij het maken van FTP-referenties voor Web-App|
     |Bronmap | $(System.DefaultWorkingDirectory)\**\ |
-    |Externe map | KCC/site/wwwroot /|
+    |Externe map | /site/wwwroot/|
     |Bestandspaden behouden | Ingeschakeld (ingeschakeld)|
 
 2.  Klik op **opslaan**

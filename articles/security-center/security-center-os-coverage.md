@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: fd238f0b2d877f7f57a27ce495dae8de1ab9c066
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Ondersteunde platforms in Azure Security Center
-Status beveiligingsbewaking en aanbevelingen zijn beschikbaar voor virtuele machines (VM's) gemaakt met behulp van zowel het klassieke als Resource Manager-implementatiemodel.
+Status beveiligingsbewaking en aanbevelingen zijn beschikbaar voor virtuele machines (VM's) gemaakt met behulp van zowel het klassieke en Resource Manager-implementatiemodel, en computers.
 
 > [!NOTE]
 > Meer informatie over de [klassieke en Resource Manager-implementatiemodel](../azure-classic-rm.md) voor Azure-resources.
 >
 >
 
-## <a name="supported-platforms-for-windows-vms"></a>Ondersteunde platforms voor VM's van Windows
+## <a name="supported-platforms-for-windows-computers-and-vms"></a>Ondersteunde platforms voor Windows-computers en virtuele machines
 Ondersteunde Windows-besturingssystemen:
 
 * Windows Server 2008
@@ -38,7 +38,7 @@ Ondersteunde Windows-besturingssystemen:
 * Windows Server 2016
 
 
-## <a name="supported-platforms-for-linux-vms"></a>Ondersteunde platforms voor virtuele Linux-machines
+## <a name="supported-platforms-for-linux-computers-and-vms"></a>Ondersteunde platforms voor Linux-computers en virtuele machines
 Ondersteunde Linux-besturingssystemen:
 
 * Ubuntu versies 12.04, 14.04, 16.04, 16.10

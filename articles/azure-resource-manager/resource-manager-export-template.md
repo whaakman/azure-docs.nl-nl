@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af34a64cd3cc33519f2cc69653982e00e4c1e9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Een Azure Resource Manager-sjabloon uit bestaande resources exporteren
 In dit artikel wordt uitgelegd hoe u een Resource Manager-sjabloon exporteert uit bestaande resources in uw abonnement. Aan de hand van de gegenereerde sjabloon kunt u een beter begrip krijgen van de syntaxis van sjablonen.
@@ -33,7 +33,7 @@ In dit onderwerp worden beide methoden via de portal beschreven.
 ## <a name="deploy-resources"></a>Resources implementeren
 Laten we beginnen door resources te implementeren in Azure, zodat u die kunt exporteren als een sjabloon. Als u al een resourcegroep in uw abonnement hebt die u wilt exporteren naar een sjabloon hebt, kunt u deze sectie overslaan. In de rest van dit artikel wordt ervan uitgegaan dat u de web-app en SQL-database-oplossing uit deze sectie hebt geïmplementeerd. Als u een andere oplossing gebruikt, is de ervaring mogelijk iets anders, maar de stappen voor het exporteren van een sjabloon blijven hetzelfde. 
 
-1. Selecteer **Nieuw** in [Azure Portal](https://portal.azure.com).
+1. In de [Azure-portal](https://portal.azure.com), selecteer **maken van een resource**.
    
       ![Nieuw selecteren](./media/resource-manager-export-template/new.png)
 2. Zoek naar **web-app + SQL** en selecteer dit resultaat uit de beschikbare opties.

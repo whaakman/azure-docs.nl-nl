@@ -4,7 +4,7 @@ description: Beschikbaarheid van groep Listeners configureren op het Azure Resou
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 74fa1e4c9cfa608a9a385f3dd82a0599fbcc421c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5efb72f450261e098b638af023001ddb2a5015cf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Een of meer altijd op beschikbaarheid beschikbaarheidsgroeplisteners - Resource Manager configureren
 Dit onderwerp wordt beschreven hoe:
@@ -28,13 +28,13 @@ Dit onderwerp wordt beschreven hoe:
 
 Een beschikbaarheidsgroep-listener is de naam van een virtueel netwerk waarmee clients zijn verbonden voor toegang tot de database. Op virtuele machines in Azure bevat een load balancer het IP-adres voor de listener. De load balancer wordt verkeer gerouteerd naar het exemplaar van SQL Server die op de testpoort luistert. Een beschikbaarheidsgroep maakt meestal gebruik van een interne load balancer. Een Azure interne load balancer kan één of meerdere IP-adressen te hosten. Elk IP-adres gebruikt een specifieke testpoort. Dit document wordt beschreven hoe PowerShell gebruiken voor het maken van een load balancer, of IP-adressen toevoegen aan een bestaande load balancer voor SQL Server-beschikbaarheidsgroepen. 
 
-De mogelijkheid meerdere IP-adressen toewijzen aan een interne load balancer is nieuw in Azure en is alleen beschikbaar in het Resource Manager-model. Voor het voltooien van deze taak moet u een SQL Server-beschikbaarheidsgroep geïmplementeerd op Azure virtuele machines in de Resource Manager-model hebben. Beide virtuele machines van SQL Server moet behoren tot dezelfde beschikbaarheidsset. U kunt de [Microsoft sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) automatisch maken van de beschikbaarheidsgroep in Azure Resource Manager. Deze sjabloon wordt automatisch de beschikbaarheidsgroep, met inbegrip van de interne load balancer voor u gemaakt. Als u liever, kunt u [handmatig configureren van een AlwaysOn-beschikbaarheidsgroep](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+De mogelijkheid meerdere IP-adressen toewijzen aan een interne load balancer is nieuw in Azure en is alleen beschikbaar in het Resource Manager-model. Voor het voltooien van deze taak moet u een SQL Server-beschikbaarheidsgroep geïmplementeerd op Azure virtuele machines in de Resource Manager-model hebben. Beide virtuele machines van SQL Server moet behoren tot dezelfde beschikbaarheidsset. U kunt de [Microsoft sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) automatisch maken van de beschikbaarheidsgroep in Azure Resource Manager. Deze sjabloon wordt automatisch de beschikbaarheidsgroep, met inbegrip van de interne load balancer voor u gemaakt. Als u liever, kunt u [handmatig configureren van een AlwaysOn-beschikbaarheidsgroep](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 In dit onderwerp is vereist dat uw beschikbaarheidsgroepen al zijn geconfigureerd.  
 
 Verwante onderwerpen zijn:
 
-* [AlwaysOn-beschikbaarheidsgroepen configureren in Azure virtuele machine (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [AlwaysOn-beschikbaarheidsgroepen configureren in Azure virtuele machine (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Een VNet-naar-VNet-verbinding configureren met behulp van Azure Resource Manager en PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
@@ -98,7 +98,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a>Voorbeeldscript: een IP-adres toevoegen aan een bestaande load balancer met PowerShell
+## <a name="Add-IP"></a> Voorbeeldscript: een IP-adres toevoegen aan een bestaande load balancer met PowerShell
 Toevoegen voor het gebruik van meer dan één beschikbaarheidsgroep een extra IP-adres aan de load balancer. Elk IP-adres vereist een eigen taakverdeling regel, testpoort en front-poort.
 
 De front-endpoort is de poort die toepassingen gebruiken voor verbinding met de SQL Server-exemplaar. IP-adressen voor verschillende beschikbaarheidsgroepen kunnen gebruiken dezelfde front-poort.
@@ -196,7 +196,7 @@ Houd rekening met de volgende richtlijnen op beschikbaarheidsgroep-listener in A
 
 
 ## <a name="for-more-information"></a>Voor meer informatie
-Zie voor meer informatie [configureren altijd op de beschikbaarheidsgroep in Azure VM handmatig](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Zie voor meer informatie [configureren altijd op de beschikbaarheidsgroep in Azure VM handmatig](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 ## <a name="powershell-cmdlets"></a>PowerShell-cmdlets
 Gebruik de volgende PowerShell-cmdlets voor het maken van een interne load balancer voor virtuele machines in Azure.

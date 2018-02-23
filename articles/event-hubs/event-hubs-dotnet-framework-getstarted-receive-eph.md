@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 8bb5b7e27291a06a713f0dfc7d5ca5a0a961de4c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8fd70380dbb88f379789e1a4730934dcd38cac5a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van het .NET Framework
 
@@ -45,7 +45,7 @@ In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naa
 
 Als u de [EventProcessorHost][EventProcessorHost] wilt gebruiken, moet u een [Azure Storage-account][Azure Storage account] hebben:
 
-1. Meld u aan bij [Azure Portal][Azure portal] en klik op**Nieuw** linksboven in het scherm.
+1. Meld u aan bij de [Azure-portal][Azure portal], en klik op **maken van een resource** op linksboven op het scherm.
 2. Klik op **Opslag** en klik vervolgens op **Opslagaccount**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)

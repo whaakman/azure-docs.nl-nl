@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ddc299d0a292ba17624aa3d0617e420a82f2abf3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor bijhouden van wijzigingen 
 In deze zelfstudie maakt u een Azure data factory met een pijplijn die gewijzigde gegevens laadt op basis van informatie over **wijzigingen** in de Azure SQL- brondatabase naar een Azure blob storage.  
@@ -151,6 +151,7 @@ Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure Pow
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
+1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
 1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
@@ -360,7 +361,7 @@ In deze stap maakt u een pijplijn met de volgende activiteiten en laat deze peri
 2. Er wordt een nieuw tabblad weergegeven voor het configureren van de pijplijn. U ziet ook de pijplijn in de structuurweergave. In het venster **Properties** wijzigt u de naam van de pijplijn in **IncrementalCopyPipeline**.
 
     ![Naam pijplijn](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
-3. Vouw **SQL Database** in de werkset **Activities** uit en sleep de activiteit **Lookup** naar het ontwerpoppervlak voor pijplijnen. Stel de naam van de activiteit in op **LookupLastChangeTrackingVersionActivity**. Deze activiteit haalt de versie voor het bijhouden van wijzigingen op die werd gebruikt in de laatste kopieerbewerking die is opgeslagen in de tabel **table_store_ChangeTracking_version**.
+3. Vouw in de **Activiteiten**-werkset de optie **Algemeen** uit. Gebruik vervolgens slepen-en-neerzetten om de **opzoekactiviteit** te verplaatsen naar het ontwerpoppervlak voor pijplijnen. Stel de naam van de activiteit in op **LookupLastChangeTrackingVersionActivity**. Deze activiteit haalt de versie voor het bijhouden van wijzigingen op die werd gebruikt in de laatste kopieerbewerking die is opgeslagen in de tabel **table_store_ChangeTracking_version**.
 
     ![Activiteit Lookup - naam](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Ga naar **Settings** in het venster **Properties** en selecteer **ChangeTrackingDataset** in het veld **Source Dataset**. 
@@ -406,14 +407,15 @@ In deze stap maakt u een pijplijn met de volgende activiteiten en laat deze peri
 12. Open het tabblad *SQL Account** en selecteer **AzureSqlDatabaseLinkedService** bij **Linked service**. 
 
     ![Opgeslagen-procedureactiviteit - SQL-account](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
-13. Open het tabblad **Stored Procedure** en voer de volgende stappen uit: 
+13. Ga naar het tabblad **Opgeslagen procedure** en voer de volgende stappen uit: 
 
-    1. Voer **Update_ChangeTracking_Version** in bij **Stored procedure name**.  
-    2. Gebruik in de sectie **Stored procedure parameters** de knop **+ New** om de volgende twee parameters toe te voegen:
+    1. Selecteer **Update_ChangeTracking_Version** bij **Opgeslagen procedurenaam**.  
+    2. Selecteer **Importparameter**. 
+    3. In de sectie **Opgeslagen-procedureparameters** geeft u de volgende waarden voor de parameters op: 
 
         | Name | Type | Waarde | 
         | ---- | ---- | ----- | 
-        | CurrentTrackingVersion | INT64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
+        | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | Tekenreeks | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Opgeslagen-procedureactiviteit - parameters](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
@@ -423,14 +425,15 @@ In deze stap maakt u een pijplijn met de volgende activiteiten en laat deze peri
 15. Klik op **Validate** op de werkbalk. Controleer of er geen validatiefouten zijn. Sluit het venster **Pipeline Validation Report** door op **>>** te klikken. 
 
     ![Knop Valideren](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  Publiceer entiteiten (gekoppelde services, gegevenssets en pijplijnen) naar de Data Factory-service door te klikken op de knop **Publish**. Wacht tot u het bericht **Publishing succeeded** ziet. 
+16.  Publiceer entiteiten (gekoppelde services, gegevenssets en pijplijnen) naar de Data Factory-service door te klikken op de knop **Alles publiceren**. Wacht tot u het bericht **Publishing succeeded** ziet. 
 
         ![De knop Publiceren](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>De pijplijn incrementele kopie uitvoeren
-Klik in de werkbalk voor de pijplijn op **Trigger** en klik vervolgens op **Trigger Now**. 
+1. Klik in de werkbalk voor de pijplijn op **Trigger** en klik vervolgens op **Trigger Now**. 
 
-![Menu Trigger Now](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![Menu Trigger Now](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+2. Selecteer in het venster **Pijplijnuitvoering** de optie **Voltooien**.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>De pijplijn incrementele kopie bewaken
 1. Klik op het tabblad **Monitor** aan de linkerkant. U ziet de pijplijnuitvoering in de lijst en de status ervan. Als u de lijst wilt vernieuwen, klikt u op **Refresh**. Met de koppelingen in de kolom **Actions** kunt u de activiteituitvoeringen weergeven die gekoppeld zijn aan de pijplijnuitvoering en kunt u de pijplijn opnieuw uitvoeren. 

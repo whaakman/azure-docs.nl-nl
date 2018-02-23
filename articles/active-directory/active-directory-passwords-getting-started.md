@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 88123cead40968ebf7327b81f94233529f97aa2f
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 34a6722fdd06cf0b198320e551daccc21956dc69
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Snelle implementatie van Azure AD-selfservice voor wachtwoordherstel
 
@@ -33,7 +33,7 @@ In deze handleiding wordt ervan uitgegaan dat u een werkende proefversie hebt va
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>SSPR inschakelen voor uw Azure Active Directory-tenant
 
-1. Selecteer in uw bestaande Azure AD-tenant de optie **Wachtwoord opnieuw instellen**.
+1. Selecteer vanuit uw bestaande Azure AD-tenant in **Azure Portal** onder **Azure Active Directory** de optie **Wachtwoord opnieuw instellen**.
 
 2. Op de pagina **Eigenschappen** kiest u onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld** een van de volgende opties:
    * **Geen**: niemand kan de SSPR-functionaliteit gebruiken.

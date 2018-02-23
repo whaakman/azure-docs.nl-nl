@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: ad12dee2eb01f839db07985fcb0805bf961354cc
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: bfd176aaf02dd96cee8877f1754dd0ce7ebded13
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>MapReduce in Hadoop in HDInsight gebruiken
 
@@ -31,10 +31,10 @@ Informatie over het uitvoeren van MapReduce-taken op HDInsight-clusters. Gebruik
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Gebruik de opdracht Hadoop via **SSH** |Linux |Linux, Unix, Mac OS X of Windows |
 | [REST](apache-hadoop-use-mapreduce-curl.md) |Verzenden van de taak op afstand via **REST** (voorbeelden gebruiken cURL) |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Verzenden van de taak op afstand via **Windows PowerShell** |Linux- of Windows |Windows |
-| [Extern bureaublad](apache-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 en 3.3) |Gebruik de opdracht Hadoop via **extern bureaublad** |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+>
 
 ## <a id="whatis"></a>Wat is MapReduce
 
@@ -46,7 +46,7 @@ Hadoop-MapReduce is een softwareframework voor het schrijven van taken die enorm
 
 Een voorbeeld van een eenvoudige word aantal MapReduce-taak wordt weergegeven in het volgende diagram:
 
-![HDI. WordCountDiagram][image-hdi-wordcountdiagram]
+![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
 De uitvoer van deze taak is een telling van het aantal keren dat elk woord is opgetreden in de tekst.
 
@@ -166,9 +166,8 @@ HDInsight kunt HiveQL taken uitvoeren met behulp van verschillende methoden. Geb
 | **Gebruik deze**... | **...om hiervoor** | ...door dit **cluster-besturingssysteem** | ...from dit **clientbesturingssysteem** |
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Gebruik de opdracht Hadoop via **SSH** |Linux |Linux, Unix, Mac OS X of Windows |
-| [CURL](apache-hadoop-use-mapreduce-curl.md) |Verzenden van de taak op afstand via **REST** |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
+| [Curl](apache-hadoop-use-mapreduce-curl.md) |Verzenden van de taak op afstand via **REST** |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Verzenden van de taak op afstand via **Windows PowerShell** |Linux- of Windows |Windows |
-| [Extern bureaublad](apache-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 en 3.3) |Gebruik de opdracht Hadoop via **extern bureaublad** |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.

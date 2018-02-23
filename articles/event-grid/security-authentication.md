@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: dda0e2efa72356f00b0372e4f6ce961719946b8d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Gebeurtenis raster beveiligings- en -verificatie 
 
@@ -59,6 +59,11 @@ Om te bewijzen dat eindpunt eigendom, echo teruggestuurd de validatiecode in de 
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+### <a name="event-delivery-security"></a>Gebeurtenis levering van beveiliging
+
+U kunt uw eindpunt webhook beveiligen door queryparameters toevoegen aan de webhook-URL bij het maken van een gebeurtenisabonnement. Stel één van deze queryparameters moeten een geheim, zoals een [toegangstoken](https://en.wikipedia.org/wiki/Access_token) dat de webhook kunt gebruiken voor het herkennen van de gebeurtenis afkomstig is van de gebeurtenis raster met geldige machtigingen. Gebeurtenis raster neemt deze queryparameters in elke gebeurtenis levering aan de webhook.
+
+Bij het bewerken van het abonnement van de gebeurtenis, de queryparameters wordt niet weergegeven of geretourneerd, tenzij de [--opnemen-volledige-eindpunt-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parameter wordt gebruikt in Azure [CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest).
 
 Ten slotte is het belangrijk te weten dat Azure gebeurtenis raster biedt alleen ondersteuning voor HTTPS-webhook-eindpunten.
 
@@ -68,15 +73,15 @@ Abonneren op een gebeurtenis, hebt u de **Microsoft.EventGrid/EventSubscriptions
 
 ### <a name="system-topics-azure-service-publishers"></a>Systeemonderwerpen (uitgevers Azure-service)
 
-Voor systeemonderwerpen moet u machtigingen voor schrijven van een nieuw gebeurtenisabonnement bij het bereik van de bron voor het publiceren van de gebeurtenis. De indeling van de resource is:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+Voor systeemonderwerpen moet u machtigingen voor schrijven van een nieuw gebeurtenisabonnement bij het bereik van de bron voor het publiceren van de gebeurtenis. De indeling van de resource is: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
-Bijvoorbeeld, om u te abonneren op een gebeurtenis op een opslagaccount met de naam **MIJNACCT**, moet u de machtiging Microsoft.EventGrid/EventSubscriptions/Write op:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+Bijvoorbeeld, om u te abonneren op een gebeurtenis op een opslagaccount met de naam **MIJNACCT**, moet u de machtiging Microsoft.EventGrid/EventSubscriptions/Write op: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 
 ### <a name="custom-topics"></a>Aangepaste-onderwerpen
 
-Voor aangepaste onderwerpen moet u machtigingen voor schrijven van een nieuw gebeurtenisabonnement bij het bereik van het onderwerp gebeurtenis raster. De indeling van de resource is:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+Voor aangepaste onderwerpen moet u machtigingen voor schrijven van een nieuw gebeurtenisabonnement bij het bereik van het onderwerp gebeurtenis raster. De indeling van de resource is: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-Bijvoorbeeld, om u te abonneren op een eigen onderwerp met de naam **mytopic**, moet u de machtiging Microsoft.EventGrid/EventSubscriptions/Write op:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+Bijvoorbeeld, om u te abonneren op een eigen onderwerp met de naam **mytopic**, moet u de machtiging Microsoft.EventGrid/EventSubscriptions/Write op: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
 ## <a name="topic-publishing"></a>Onderwerp publiceren
 
@@ -86,7 +91,7 @@ De verificatie-waarde in de HTTP-header te nemen. Gebruik voor SAS, **aeg-sas-to
 
 ### <a name="key-authentication"></a>Verificatie met sleutel
 
-Verificatie met een sleutel is de eenvoudigste vorm van verificatie. Gebruik de volgende indeling:`aeg-sas-key: <your key>`
+Verificatie met een sleutel is de eenvoudigste vorm van verificatie. Gebruik de volgende indeling: `aeg-sas-key: <your key>`
 
 Bijvoorbeeld het doorgeven van een sleutel met:
 
@@ -98,7 +103,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 SAS-tokens voor gebeurtenis raster zijn de resource een verlooptijd en een handtekening. De indeling van het SAS-token is: `r={resource}&e={expiration}&s={signature}`.
 
-De resource is het pad voor het onderwerp waarnaar u gebeurtenissen wilt verzenden. Een geldige resource-pad is bijvoorbeeld:`https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+De resource is het pad voor het onderwerp waarnaar u gebeurtenissen wilt verzenden. Een geldige resource-pad is bijvoorbeeld: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 U de handtekening van een sleutel gegenereerd.
 

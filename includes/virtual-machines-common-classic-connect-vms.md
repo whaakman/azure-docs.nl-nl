@@ -12,11 +12,11 @@ Virtuele netwerken zijn de aanbevolen manier om verbinding met virtuele machines
 Sluit de virtuele machines in een virtueel netwerk:
 
 1. Maken van het virtuele netwerk in de [Azure-portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) en 'klassieke implementatie' opgeven.
-2. Maken van de set van cloud-services voor uw implementatie naar aanleiding van uw ontwerp voor beschikbaarheidssets en taakverdeling. Klik in de Azure-portal op **Nieuw > berekenen > Cloudservice** voor elke cloudservice.
+2. Maken van de set van cloud-services voor uw implementatie naar aanleiding van uw ontwerp voor beschikbaarheidssets en taakverdeling. Klik in de Azure-portal op **maken van een resource > berekenen > Cloudservice** voor elke cloudservice.
 
   Als u de details van de cloud service invullen, kies dezelfde _resourcegroep_ gebruikt met het virtuele netwerk.
 
-3. Elke nieuwe virtuele machine toevoegen, klikt u op **Nieuw > berekenen**, selecteer vervolgens de installatiekopie van het juiste VM van de **aanbevolen apps**.
+3. Elke nieuwe virtuele machine toevoegen, klikt u op **maken van een resource > Compute**, selecteer vervolgens de installatiekopie van het juiste VM van de **aanbevolen apps**.
 
   In de virtuele machine **basisbeginselen** blade Kies dezelfde _resourcegroep_ gebruikt met het virtuele netwerk.
 

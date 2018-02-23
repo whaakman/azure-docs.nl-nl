@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8f5d4ba82fcf3c963373b0e90b707a7d86fc0fea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Uw toepassing registreren met uw Azure Active Directory-tenant
 
@@ -27,7 +27,7 @@ De Azure-portal kunt u uw toepassing registreren met uw Azure Active Directory (
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Uw account selecteren in de rechterbovenhoek van de pagina kiest u uw Azure AD-tenant.
-3. Kies in het navigatiedeelvenster links **meer Services**, klikt u op **App registraties**, en klik op **toevoegen**.
+3. Kies in het navigatiedeelvenster links **alle Services**, klikt u op **App registraties**, en klik op **toevoegen**.
 4. Volg de aanwijzingen op het scherm en maak een nieuwe toepassing. Als u specifieke voorbeelden voor webtoepassingen of systeemeigen toepassingen wilt, Bekijk onze [snelstartgidsen](active-directory-developers-guide.md).
   * Voor webtoepassingen, geeft u de **aanmeldings-URL**, dit is de basis-URL van uw app, waarbij kunnen gebruikers zich aanmelden bijvoorbeeld `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
@@ -40,7 +40,7 @@ Instellingen van een bestaande toepassing met de Azure portal kunt u eenvoudig w
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Uw account selecteren in de rechterbovenhoek van de pagina kiest u uw Azure AD-tenant.
-3. Kies in het navigatiedeelvenster links **meer Services**, klikt u op **App registraties**, en kies uw toepassing uit de lijst.
+3. Kies in het navigatiedeelvenster links **alle Services**, klikt u op **App registraties**, en kies uw toepassing uit de lijst.
 4. Klik op **instellingen** om de instellingenpagina voor de toepassing te openen.
   * De **eigenschappen** pagina kunt u de algemene informatie over de toepassing wijzigen. Dit omvat de toepassingsnaam, de aanmeldings-URL en de URL voor afmelden.
   * De **antwoord-URL's** pagina kunt u een antwoord-URL is waar Azure AD token antwoorden verzendt toevoegen.
@@ -54,7 +54,7 @@ De inline-manifest editor kunt u bepaalde toepassingseigenschappen van de die ni
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Uw account selecteren in de rechterbovenhoek van de pagina kiest u uw Azure AD-tenant.
-3. Kies in het navigatiedeelvenster links **meer Services**, klikt u op **App registraties**, en kies uw toepassing uit de lijst.
+3. Kies in het navigatiedeelvenster links **alle Services**, klikt u op **App registraties**, en kies uw toepassing uit de lijst.
 4. Klik op **Manifest** vanaf de toepassingspagina om het manifest inline-editor te openen.
 5. U kunt rechtstreeks wijzigingen aanbrengen in het manifest en sla deze wanneer u klaar bent. U kunt ook het manifest te openen in uw favoriete editor en het uploaden van het bijgewerkte manifest downloaden.
 

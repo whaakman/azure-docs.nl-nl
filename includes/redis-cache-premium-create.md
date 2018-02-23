@@ -1,4 +1,4 @@
-Als u een Premium-cache wilt maken, meldt u zich aan bij [Azure Portal](https://portal.azure.com) en klikt u op **Nieuw** > **Databases** > **Redis-cache**.
+Voor het maken van een premium-cache, aanmelding bij de [Azure-portal](https://portal.azure.com) en klik op **maken van een resource** > **Databases** > **Redis-Cache** .
 
 ![Cache maken](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 

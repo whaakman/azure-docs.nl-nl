@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Detecteren, identificeren en classificeren van persoonlijke gegevens in Microsoft Azure
 
@@ -59,22 +59,22 @@ Dit is vooral nuttig zijn als u wilt zoeken of persoonlijke gegevens voor een sp
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
 
-2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
+2. Selecteer **alle services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
 
    ![hoe ik gebruikersprofiel kunnen vinden en werkgegevens](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. Op de **gebruikers en groepen** blade Selecteer **gebruikers**.
 
-  ![Openen gebruikers en groepen](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![Openen gebruikers en groepen](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. Op de **gebruikers en groepen - gebruikers** blade, selecteert u een gebruiker in de lijst en selecteer vervolgens het volgende op de blade voor de geselecteerde gebruiker **profiel** om weer te geven gebruikersprofielgegevens die mogelijk persoonlijke gegevens bevatten.
 
-  ![gebruiker selecteren](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![gebruiker selecteren](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. Als u wilt toevoegen of wijzigen van gebruikersprofielgegevens, kunt u doen en selecteer vervolgens in de opdrachtbalk **opslaan.**
 6. Selecteer op de blade voor de geselecteerde gebruiker **Info werken** om werk gebruikersgegevens persoonlijke gegevens bevatten mogelijk weer te geven.
 
- ![werkgegevens weergeven](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![werkgegevens weergeven](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. Als u wilt toevoegen of gebruikersinformatie werk wijzigen, kunt u doen en selecteer vervolgens in de opdrachtbalk **opslaan.**
 

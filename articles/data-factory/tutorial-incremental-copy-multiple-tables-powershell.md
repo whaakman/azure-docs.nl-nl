@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 9eeb265e063e6642b90dd641d41d0a54cbc6951e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 593894b33dfcab4bc03a6223e2fdee1ff9bd7d15
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
 In deze zelfstudie maakt u een Azure Data Factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
@@ -110,7 +110,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     
     ```
 
-### <a name="create-destination-tables-in-your-sql-database"></a>Doeltabellen in uw SQL database maken
+### <a name="create-destination-tables-in-your-azure-sql-database"></a>Doeltabellen in uw Azure SQL-database maken
 1. Open SQL Server Management Studio en maak verbinding met de SQL Server-database.
 
 2. Klik in **Server Explorer** met de rechtermuisknop op de database en kies **Nieuwe query**.
@@ -133,7 +133,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Nog een tabel in de SQL-database maken om de bovengrenswaarde op te slaan
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Nog een tabel in Azure SQL Database maken om de bovengrenswaarde op te slaan
 1. Voer de volgende SQL-opdracht uit op de SQL-database om een tabel met de naam `watermarktable` te maken om de grenswaarde op te slaan: 
     
     ```sql
@@ -155,7 +155,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Een opgeslagen procedure maken in de SQL-database 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Een opgeslagen procedure maken in Azure SQL Database 
 
 Voer de volgende opdracht uit om een opgeslagen procedure te maken in de SQL-database. Deze opgeslagen procedure werkt de bovengrenswaarde bij elke pijplijnuitvoering bij. 
 
@@ -173,7 +173,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Gegevenstypen en aanvullende opgeslagen procedures maken
+### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Gegevenstypen en aanvullende opgeslagen procedures maken in Azure SQL Database
 Voer de volgende query uit om twee opgeslagen procedures en twee gegevenstypen te maken in de SQL-database. Deze worden gebruikt voor het samenvoegen van de gegevens uit de brontabellen in doeltabellen.
 
 ```sql

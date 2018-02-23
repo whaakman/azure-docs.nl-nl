@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 3a87e491e43c141d0afb08aa455c0d9682828ea1
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 624c861db9bb318c368cef04965da0a73dd028d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL Database met behulp van Azure SQL Analytics (Preview) in logboekanalyse bewaken
 
@@ -60,7 +60,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 Voer de volgende stappen uit om toe te voegen van de Azure SQL Analytics-oplossing naar de werkruimte.
 
 1. De Azure SQL Analytics-oplossing toevoegen aan uw werkruimte van [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).
-2. Klik in de Azure-portal op **nieuw** (het symbool +), selecteer vervolgens in de lijst met resources **bewaking + Management**.  
+2. Klik in de Azure-portal op **maken van een resource** > **bewaking + Management**.  
     ![Controle en beheer](./media/log-analytics-azure-sql/monitoring-management.png)
 3. In de **bewaking + Management** Klik **alle**.
 4. In de **aanbevolen** lijst, klikt u op **meer**, en klik vervolgens in de nieuwe lijst vinden **Azure SQL Analytics (Preview)** en selecteert u vervolgens.  

@@ -14,6 +14,7 @@
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Versiegeschiedenis van Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
+## [GDPR-naleving en Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
 # Verwant
 ## [Uw on-premises identiteiten integreren met Azure Active Directory](../active-directory-aadconnect.md)

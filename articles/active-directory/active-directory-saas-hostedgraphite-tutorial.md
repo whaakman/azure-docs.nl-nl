@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 57ee7770193641d0e13da2c7f8aaa6cfc6aefe73
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Zelfstudie: Azure Active Directory-integratie met gehoste-grafiek
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://www.hostedgraphite.com/metadata/<user id>`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://www.hostedgraphite.com/metadata/<user id>`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://www.hostedgraphite.com/complete/saml/<user id>`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://www.hostedgraphite.com/complete/saml/<user id>`
 
 4. Op de **grafiek domein gehost en URL's** sectie als u wilt configureren van de toepassing in **SP geïnitieerd modus**, voer de volgende stappen uit:
    
@@ -120,7 +120,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
   
     a. Klik op de **weergeven geavanceerde instellingen voor URL** optie
 
-    b. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen:`https://www.hostedgraphite.com/login/saml/<user id>/`   
+    b. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen: `https://www.hostedgraphite.com/login/saml/<user id>/`   
 
     > [!NOTE] 
     > Houd er rekening mee dat deze niet de werkelijke waarden zijn. U moet deze waarden bijwerken met de werkelijke id, antwoord-URL en meld u op de URL. Als u deze waarden, gaat u naar toegang setup op uw toepassing aan clientzijde of neem contact op met SAML -> [grafiek gehost ondersteuningsteam](mailto:help@hostedgraphite.com).
@@ -205,7 +205,7 @@ Het doel van deze sectie is het maken van een gebruiker Britta Simon aangeroepen
 Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker wordt gemaakt tijdens een poging tot toegang tot gehoste grafiek als deze nog niet bestaat.
 
 >[!NOTE]
->Als u een gebruiker handmatig maken moet, moet u contact op met het ondersteuningsteam grafiek gehost via < mailto:help@hostedgraphite.com >. 
+>Als u een gebruiker handmatig maken moet, moet u contact op met het ondersteuningsteam grafiek gehost via <mailto:help@hostedgraphite.com>. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
 
@@ -243,7 +243,7 @@ Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behu
 
 Als u op de tegel gehost grafiek in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing grafiek gehost.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

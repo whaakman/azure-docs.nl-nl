@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 082b410c9375dbdfa7f95ccd4c176e7384dad0d7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="getting-started"> </a>Mobile Apps in Azure App Service
 Azure App Service is een volledig beheerde [PaaS-](https://azure.microsoft.com/overview/what-is-paas/)aanbieding (Platform as a Service) voor professionele ontwikkelaars. De service biedt een uitgebreide reeks mogelijkheden voor web-, mobiele en integratiescenario's. 
@@ -38,21 +38,21 @@ Met de functie Mobile Apps kunt u het volgende doen:
 ## <a name="mobile-apps-features"></a>Functies van Mobile Apps
 De volgende functies zijn belangrijk wanneer u mobiele apps ontwikkelt die zijn ingeschakeld voor de cloud:
 
-* **Verificatie en autorisatie**: u kunt kiezen uit een steeds groeiende lijst met id-providers, zoals Azure Active Directory, voor ondernemingsverificatie, plus providers van sociale netwerken, zoals Facebook-, Google-, Twitter- en Microsoft-accounts. Mobile Apps biedt een OAuth 2.0-service voor elke provider. Daarnaast kunt u de SDK voor de id-provider ook integreren voor providerspecifieke functionaliteit.
+* **Verificatie en autorisatie**: ondersteuning voor id-providers, zoals Azure Active Directory, voor ondernemingsverificatie, plus providers van sociale netwerken, zoals Facebook-, Google-, Twitter- en Microsoft-accounts. Mobile Apps biedt een OAuth 2.0-service voor elke provider. Daarnaast kunt u de SDK voor de id-provider ook integreren voor providerspecifieke functionaliteit.
 
-    Lees meer over onze [verificatiefuncties].
+    Meer informatie over de [verificatiefuncties].
 
 * **Gegevenstoegang**: Mobile Apps biedt een voor mobiele apparaten geschikte OData v3-gegevensbron die is gekoppeld aan Azure SQL Database of een on-premises SQL-server. Omdat deze service kan worden gebaseerd op Entity Framework, kunt u eenvoudig integreren met andere NoSQL- en SQL-gegevensproviders, zoals [Azure Table Storage], MongoDB, [Azure Cosmos DB] en SaaS API-providers zoals Office 365 en Salesforce.com.
 
-* **Offlinesynchronisatie**: met behulp van onze client-SDK's kunt u eenvoudig robuuste en responsieve mobiele toepassingen ontwikkelen die met een offline-gegevensset werken. U kunt deze gegevensset automatisch met de gegevens in de back-end synchroniseren en er is ook ondersteuning voor conflictoplossing.
+* **Offlinesynchronisatie**: met behulp van de client-SDK's kunt u eenvoudig robuuste en responsieve mobiele toepassingen ontwikkelen die met een offline gegevensset werken. U kunt deze gegevensset automatisch met de gegevens in de back-end synchroniseren en er is ook ondersteuning voor conflictoplossing.
 
-  Lees meer over onze [gegevensfuncties].
+  Meer informatie over de [gegevensfuncties].
 
-* **Pushmeldingen**: onze client-SDK's kunnen probleemloos worden geïntegreerd met de registratiemogelijkheden van Azure Notification Hubs, zodat u pushmeldingen naar miljoenen gebruikers tegelijk kunt verzenden.
+* **Pushmeldingen**: de client-SDK's kunnen probleemloos worden geïntegreerd met de registratiemogelijkheden van Azure Notification Hubs, zodat u pushmeldingen naar miljoenen gebruikers tegelijk kunt verzenden.
 
-  Lees meer over onze [functies voor pushmeldingen].
+  Meer informatie over de [functies voor pushmeldingen].
 
-* **Client-SDK's**: wij bieden een volledige set client-SDK's voor native ontwikkeling ([iOS], [Android] en [Windows]), platformoverschrijdende ontwikkeling ([Xamarin.iOS en Xamarin.Android], [Xamarin.Forms]) en hybride toepassingsontwikkeling ([Apache Cordova]). Elke client-SDK is beschikbaar met een MIT-licentie en is open source.
+* **Client-SDK's**: er is een volledige set client-SDK's voor native ontwikkeling ([iOS], [Android] en [Windows]), platformoverschrijdende ontwikkeling ([Xamarin.iOS en Xamarin.Android], [Xamarin.Forms]) en hybride toepassingsontwikkeling ([Apache Cordova]). Elke client-SDK is beschikbaar met een MIT-licentie en is open source.
 
 ## <a name="azure-app-service-features"></a>Functies van Azure App Service
 De volgende platformfuncties zijn handig voor mobiele productiesites:
@@ -65,7 +65,7 @@ De volgende platformfuncties zijn handig voor mobiele productiesites:
 
   Lees meer over [Faseringsomgevingen].
 
-* **Doorlopende implementatie**: App Service kan worden geïntegreerd met veelgebruikte broncodebeheersystemen (Source Control Management), zodat u automatisch een nieuwe versie van uw back-end kunt implementeren door een vertakking van uw SCM-systeem te pushen.
+* **Doorlopende implementatie**: App Service kan worden geïntegreerd met veelgebruikte _broncodebeheersystemen_ (Source Control Management), zodat u eenvoudig een nieuwe versie van uw back-end kunt implementeren.
 
   Lees meer over [implementatieopties](../app-service/app-service-deploy-local-git.md).
 
@@ -73,7 +73,7 @@ De volgende platformfuncties zijn handig voor mobiele productiesites:
 
   Lees meer over [hybride verbindingen], [virtuele netwerken] en [ExpressRoute].
 
-* **Geïsoleerde/toegewezen omgevingen**: u kunt App Service uitvoeren in een volledig geïsoleerde en toegewezen omgeving, zodat Azure App Service-apps veilig en op grote schaal kunnen worden uitgevoerd. Deze omgeving is ideaal voor toepassingsworkloads die op grote schaal worden uitgevoerd, of waarvoor isolatie of beveiligde netwerktoegang nodig is.
+* **Geïsoleerde/toegewezen omgevingen**: u kunt App Service uitvoeren in een volledig geïsoleerde en toegewezen omgeving, zodat Azure App Service-apps veilig kunnen worden uitgevoerd. Deze omgeving is ideaal voor toepassingsworkloads die op grote schaal worden uitgevoerd, of waarvoor isolatie of beveiligde netwerktoegang nodig is.
 
   Lees meer over [App Service-omgevingen].
 

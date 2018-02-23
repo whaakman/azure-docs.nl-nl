@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 41ead775c8ce1919d8c3813b58c8a4d648c8bc64
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e166e73ba45e229d8049738fa4a79f5dc117d806
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Zelfstudie: Gegevens kopiëren van Blob Storage met SQL Database met behulp van de Data Factory
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Voordat u met deze zelfstudie begint, moet u aan de volgende vereisten voldoen:
 U moet de accountnaam en accountsleutel van uw Azure storage-account te doen in deze zelfstudie. Noteer **accountnaam** en **accountsleutel** voor uw Azure storage-account.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik op **meer services** op het menu aan de linkerkant en selecteer **Opslagaccounts**.
+2. Klik op **alle services** op het menu aan de linkerkant en selecteer **Opslagaccounts**.
 
     ![Bladeren - Storage-accounts](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. In de **Opslagaccounts** blade, selecteer de **Azure storage-account** die u wilt gebruiken in deze zelfstudie.
@@ -70,7 +70,7 @@ U moet de accountnaam en accountsleutel van uw Azure storage-account te doen in 
 ## <a name="collect-sql-server-database-user-names"></a>SQL server, database, gebruikersnamen verzamelen
 U moet de namen van Azure SQL-server, database en gebruiker in deze zelfstudie. Noteer de namen van **server**, **database**, en **gebruiker** voor uw Azure SQL database.
 
-1. In de **Azure-portal**, klikt u op **meer services** op de linkerkant en selecteer **SQL-databases**.
+1. In de **Azure-portal**, klikt u op **alle services** op de linkerkant en selecteer **SQL-databases**.
 2. In de **SQL databases blade**, selecteer de **database** die u wilt gebruiken in deze zelfstudie. Noteer de **databasenaam**.  
 3. In de **SQL-database** blade, klikt u op **eigenschappen** onder **instellingen**.
 4. Noteer de waarden voor **servernaam** en **AANMELDGEGEVENS van SERVERBEHEERDER**.
@@ -79,7 +79,7 @@ U moet de namen van Azure SQL-server, database en gebruiker in deze zelfstudie. 
 ## <a name="allow-azure-services-to-access-sql-server"></a>Azure-services voor toegang tot SQL server toestaan
 Zorg ervoor dat **toegang tot Azure-services toestaan** instelling ingeschakeld **ON** voor uw Azure SQL-server zodat de Data Factory-service toegang heeft tot uw Azure SQL-server. Voer de volgende stappen uit om dit te controleren en de instelling in te schakelen:
 
-1. Klik op de hub **Meer services** aan de linkerkant en klik op **SQL-servers**.
+1. Klik op **alle services** hub aan de linkerzijde en klik op **SQL-servers**.
 2. Selecteer uw server en klik op **Firewall** onder **INSTELLINGEN**.
 3. In de blade **Firewallinstellingen**schakelt u **Toegang tot Azure-services toestaan** **in**.
 4. Alle blades te sluiten door te klikken op **X**.

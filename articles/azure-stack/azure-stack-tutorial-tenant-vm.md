@@ -3,8 +3,8 @@ title: Virtuele machines beschikbaar maken voor de gebruikers van uw Azure-Stack
 description: Zelfstudie voor virtuele machines beschikbaar maken op Azure-Stack
 services: azure-stack
 documentationcenter: 
-author: vhorne
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/23/2017
-ms.author: victorh
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: f6fce4a3230c98295afb19e633bf2801c115831f
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Virtuele machines beschikbaar maken voor uw Azure-Stack-gebruikers
 
@@ -74,7 +75,7 @@ U kunt nu dingen gereed is voor uw gebruikers. Wanneer u het proces starten, wor
 
    In dit voorbeeld maken we eerst een quotum voor de Compute-service. Selecteer in de lijst naamruimte de **Microsoft.Compute** naamruimte en klik vervolgens op **maken nieuwe quota**.
    
-   ![Nieuwe quota maken](media/azure-stack-tutorial-tenant-vm/image06.png)
+   ![Nieuw quotum maken](media/azure-stack-tutorial-tenant-vm/image06.png)
 
    g. Op de **maken quotum** sectie, typ een naam voor het quotum en stelt u de gewenste parameters voor de quota en klik op **OK**.
 
@@ -86,7 +87,7 @@ U kunt nu dingen gereed is voor uw gebruikers. Wanneer u het proces starten, wor
 
    Herhaal deze stappen voor de netwerk- en -services en klik vervolgens op **OK** op de **quota** sectie.
 
-   ik. Klik op **OK** op de **nieuw plan** sectie.
+   i. Klik op **OK** op de **nieuw plan** sectie.
 
    j. Op de **Plan** sectie, selecteert u het nieuwe plan en klik op **Selecteer**.
 

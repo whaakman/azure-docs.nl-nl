@@ -4,7 +4,7 @@ description: In dit artikel wordt uitgelegd hoe u een SQL Server-beschikbaarheid
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 1ce90cf4bae66bfd6387a2698fd9b1ba7fc64595
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a954ca10bdec3343dbd8796b50053a1c8c40ff4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Een AlwaysOn-beschikbaarheidsgroep configureren op virtuele Azure-machines in verschillende regio 's
 
@@ -167,7 +167,7 @@ Na de verbinding test, de primaire replica naar uw primaire Datacenter gaan en d
 | ----- | ----- | ----- | ----- | -----
 | Primaire Datacenter | SQL-1 | Primair | Synchrone | Automatisch
 | Primaire Datacenter | SQL-2 | Secundair | Synchrone | Automatisch
-| Secundaire of door de externe Datacenter | SQL-3 | Secundair | Asynchrone | Handmatig
+| Secundaire of door de externe Datacenter | SQL-3 | Secundair | Asynchronous | Handmatig
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Meer informatie over de geplande en geforceerde handmatige failover
@@ -180,6 +180,6 @@ Zie de volgende onderwerpen voor meer informatie:
 ## <a name="additional-links"></a>Aanvullende koppelingen
 
 * [Altijd op beschikbaarheidsgroepen](http://msdn.microsoft.com/library/hh510230.aspx)
-* [Virtuele Machines in Azure](http://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Azure Virtual Machines](http://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Azure Load Balancers](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure Beschikbaarheidssets](../manage-availability.md)

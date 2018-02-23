@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
 
@@ -32,7 +32,7 @@ Als u wilt bekijken en toepassen van aanbevelingen voor prestaties, moet u de ju
 Gebruik de volgende stappen uit om te zoeken prestaties aanbevelingen in Azure-portal:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Ga naar **meer services** > **SQL-databases**, en selecteer uw database.
+2. Ga naar **alle services** > **SQL-databases**, en selecteer uw database.
 3. Navigeer naar **prestaties aanbeveling** om beschikbare aanbevelingen voor de geselecteerde database weer te geven.
 
 Prestaties aanbevelingen worden weergegeven in de tabel die vergelijkbaar is met wordt weergegeven op de volgende afbeelding:

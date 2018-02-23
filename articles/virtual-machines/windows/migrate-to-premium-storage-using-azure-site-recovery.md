@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 325ddb640e0cc10ae242e0a4ce2cc0d042dad320
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 15c9a6608421b3eeebe6fbe91a10a849bf36ed85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migreren naar Premium-opslag met behulp van Azure Site Recovery
 
@@ -80,7 +80,7 @@ U kunt Site Recovery kunt gebruiken voor het migreren van Azure IaaS VM's tussen
 ### <a name="step-1-create-a-recovery-services-vault"></a>Stap 1: Een Recovery Services-kluis maken
 
 1. Open de [Azure Portal](https://portal.azure.com).
-2. Selecteer **nieuwe** > **Management** > **back-up** en **Site Recovery (OMS)**. U kunt ook selecteren **Bladeren** > **Recovery Services-kluis** > **toevoegen**. 
+2. Selecteer **maken van een resource** > **Management** > **back-up** en **Site Recovery (OMS)**. U kunt ook selecteren **Bladeren** > **Recovery Services-kluis** > **toevoegen**. 
 3. Geef een regio die virtuele machines worden gerepliceerd naar. Selecteer de regio waar uw Bronmachines en bron storage-accounts zijn omwille van de migratie in dezelfde regio. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Stap 2: Uw beveiligingsdoelstellingen kiezen 

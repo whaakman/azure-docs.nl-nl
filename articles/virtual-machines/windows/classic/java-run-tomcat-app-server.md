@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 768c94fe0d2d6cfafc1f8b57256012e01de0f7a9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Een Java-toepassingsserver uitvoeren op een virtuele machine die is gemaakt volgens het klassieke implementatiemodel
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ De resultaten van de installatie is voltooid in Tomcat uitgevoerd op een virtuel
 
 ## <a name="to-create-a-virtual-machine"></a>Een virtuele machine maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).  
-2. Klik op **nieuw**, klikt u op **Compute**, klikt u vervolgens op **alle** in de **aanbevolen apps**.
+2. Klik op **maken van een resource**, klikt u op **Compute**, klikt u vervolgens op **alle** in de **aanbevolen apps**.
 3. Klik op **JDK**, klikt u op **JDK 8** in de **JDK** deelvenster.  
    Installatiekopieën van virtuele machine die ondersteuning bieden voor **JDK 6** en **JDK 7** beschikbaar zijn als u oudere toepassingen die niet gereed in JDK 8 uit te voeren.
 4. Selecteer in het deelvenster JDK 8 **klassieke**, klikt u vervolgens op **maken**.
@@ -121,7 +121,7 @@ Om te zien Tomcat vanaf externe computers wordt uitgevoerd, moet u een eindpunt 
 10. Op de **naam** scherm, Geef een naam voor de regel, zoals **HttpIn** (naam van de regel is niet vereist echter aan de naam van het eindpunt), en klik vervolgens op **voltooien**.  
     ![De naam van een nieuwe regel voor binnenkomende verbindingen][NewRuleName]
 
-Op dit moment uw website Tomcat worden weergegeven op een externe browser. Typ een URL van het formulier in de browser adres venster  **http://*uw\_DNS\_naam*. cloudapp.net**, waarbij ***uw\_DNS\_naam*** de DNS-naam die u hebt opgegeven toen u de virtuele machine hebt gemaakt.
+Op dit moment uw website Tomcat worden weergegeven op een externe browser. Typ een URL van het formulier in de browser adres venster **http://*uw\_DNS\_naam*. cloudapp.net**, waarbij ***uw\_DNS\_naam*** de DNS-naam die u hebt opgegeven toen u de virtuele machine hebt gemaakt.
 
 ## <a name="application-lifecycle-considerations"></a>Toepassing lifecycle overwegingen
 * Kan u uw eigen toepassing webarchief (WAR) maken en toe te voegen aan de **webapps** map. Bijvoorbeeld, een elementaire Java Service pagina (JSP) dynamic webproject maken en exporteren als een WAR-bestand. Kopieer vervolgens het WAR naar de Apache Tomcat **webapps** map op de virtuele machine en vervolgens uit te voeren in een browser.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 97e8d23d90821489575b3ac6e8f1e810b7ce25a9
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 51dca8955745b40a9126b142ea15e707fe58bc72
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Persoonlijke gegevens beheren in Microsoft Azure
 
@@ -59,23 +59,23 @@ U moet zich aanmelden met een account met globale beheerdersrechten voor de map.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
 
-2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
+2. Selecteer **alle services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
 
-    ![Media/image1.png](media/manage-personal-data-azure/image001.png)
+    ![media/image1.png](media/manage-personal-data-azure/image001.png)
 
 3. Op de **gebruikers en groepen** blade Selecteer **gebruikers**.
 
-    ![Media/image2.png](media/manage-personal-data-azure/image003.png)
+    ![media/image2.png](media/manage-personal-data-azure/image003.png)
 
 4. Op de **gebruikers en groepen - gebruikers** blade, selecteert u een gebruiker in de lijst en selecteer vervolgens het volgende op de blade voor de geselecteerde gebruiker **profiel** om weer te geven van de gebruikersgegevens voor het profiel dat moet worden gecorrigeerd of bijgewerkt.
 
-    ![Media/image3.png](media/manage-personal-data-azure/image005.png)
+    ![media/image3.png](media/manage-personal-data-azure/image005.png)
 
 5. Corrigeer of werkt u de gegevens en selecteer vervolgens in de opdrachtbalk **opslaan.**
 
 6.  Selecteer op de blade voor de geselecteerde gebruiker **Info werken** om weer te geven van gebruikersgegevens werk die moet worden gecorrigeerd of bijgewerkt.
 
-    ![Media/image4.png](media/manage-personal-data-azure/image007.png)
+    ![media/image4.png](media/manage-personal-data-azure/image007.png)
 
 7. Corrigeer of bijwerken van de gegevens voor het werk van gebruiker en selecteer vervolgens in de opdrachtbalk **opslaan.**
 
@@ -83,17 +83,17 @@ U moet zich aanmelden met een account met globale beheerdersrechten voor de map.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
 
-2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
+2. Selecteer **alle services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
 
     ![](media/manage-personal-data-azure/image001.png)
 
 3. Op de **gebruikers en groepen** blade Selecteer **gebruikers**.
 
-    ![Media/image2.png](media/manage-personal-data-azure/image003.png)
+    ![media/image2.png](media/manage-personal-data-azure/image003.png)
 
 4. Selecteer op de blade **Gebruikers en groepen - Gebruikers** een gebruiker in de lijst.
 
-    ![Media/image3.png](media/manage-personal-data-azure/image007.png)
+    ![media/image3.png](media/manage-personal-data-azure/image007.png)
 
 5. Selecteer op de blade voor de geselecteerde gebruiker **overzicht**, en selecteer vervolgens in de opdrachtbalk **verwijderen**.
 

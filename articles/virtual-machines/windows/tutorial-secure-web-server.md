@@ -1,68 +1,70 @@
 ---
-title: IIS beveiligen met SSL-certificaten in Azure | Microsoft Docs
-description: Meer informatie over het beveiligen van de IIS-webserver met SSL-certificaten op een Windows-virtuele machine in Azure
+title: IIS met SSL-certificaten beveiligen in Azure | Microsoft Docs
+description: Meer informatie over het beveiligen van de IIS-webserver met SSL-certificaten op een Windows-VM in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/14/2017
+ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 43f06422e1120f1c3b2a9d9d5d4be515213c0937
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
-ms.translationtype: MT
+ms.openlocfilehash: ada0703603df5ae5a324d38cda2b23a060a10992
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>IIS-webserver met SSL-certificaten op een virtuele Windows-machine in Azure beveiligen
-Beveiligde webservers, kan een Secure Sockets Layer (SSL)-certificaat worden gebruikt voor het versleutelen van internetverkeer. Deze SSL-certificaten kunnen worden opgeslagen in Azure Sleutelkluis en beveiligde implementaties van certificaten aan Windows virtuele machines (VM's) in Azure toestaan. In deze zelfstudie leert u het volgende:
+# <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Een IIS-webserver met SSL-certificaten beveiligen op een virtuele Windows-machine in Azure
+Om webservers te beveiligen, kan een Secure Sockets Layer (SSL)-certificaat worden gebruikt voor het versleutelen van internetverkeer. Deze SSL-certificaten kunnen worden opgeslagen in Azure Key Vault en beveiligde implementaties van certificaten aan virtuele Windows-machines (VM's) in Azure toestaan. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Maken van een Azure Sleutelkluis
-> * Genereren of een certificaat uploaden naar de Sleutelkluis
+> * Een Azure Key Vault maken
+> * Een certificaat genereren of uploaden naar de Key Vault
 > * Een virtuele machine maken en de IIS-webserver installeren
-> * Het certificaat invoeren in de virtuele machine en IIS te configureren met een SSL-binding
+> * Het certificaat invoeren in de virtuele machine en IIS configureren met een SSL-binding
 
-Voor deze zelfstudie is moduleversie 3,6 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie moduleversie 5.3 of later van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
 
 
 ## <a name="overview"></a>Overzicht
-Azure Sleutelkluis beschermt cryptografische sleutels en geheimen, zoals certificaten of wachtwoorden. Sleutelkluis helpt het beheerproces van het certificaat te stroomlijnen en kunt u controle houdt over sleutels die toegang hebben tot deze certificaten. U kunt een zelfondertekend certificaat in de Sleutelkluis maken of een bestaande, vertrouwd certificaat dat u al bezit uploaden.
+Azure Key Vault beschermt cryptografische sleutels en geheimen, zoals certificaten of wachtwoorden. Key Vault helpt het beheerproces voor certificaten te stroomlijnen en zorgt dat u de controle houdt over de sleutels waarmee deze certificaten toegankelijk zijn. U kunt een zelfondertekend certificaat in Key Vault maken of een bestaand, vertrouwd certificaat dat u al bezit uploaden.
 
-In plaats van met een aangepaste VM-installatiekopie die certificaten bevat standaard uitbreidbaar module u certificaten kunt invoeren in een actieve virtuele machine. Dit proces zorgt ervoor dat de meest recente certificaten tijdens de implementatie op een webserver zijn geïnstalleerd. Als u vernieuwen of vervangen van een certificaat, hebt u niet ook een nieuwe aangepaste VM-installatiekopie maken. De meest recente certificaten worden automatisch toegevoegd als u extra virtuele machines maken. Tijdens het hele proces, de certificaten nooit laat u de Azure-platform of beschikbaar worden gesteld in een script, opdrachtregel geschiedenis of sjabloon.
+In plaats van met een aangepaste VM-installatiekopie die standaard certificaten bevat, kunt u certificaten invoeren in een actieve virtuele machine. Dit proces zorgt ervoor dat de meest recente certificaten tijdens de implementatie op een webserver zijn geïnstalleerd. Als u een certificaat wilt vernieuwen of vervangen, hoeft u niet ook een nieuwe aangepaste VM-installatiekopie te maken. De meest recente certificaten worden automatisch toegevoegd als u extra virtuele machines maakt. Tijdens het hele proces verlaten de certificaten nooit het Azure-platform of zijn ze blootgesteld in een script, opdrachtregelgeschiedenis of sjabloon.
 
 
-## <a name="create-an-azure-key-vault"></a>Maken van een Azure Sleutelkluis
-Voordat u certificaten en een Sleutelkluis maken kunt, maakt u een resourcegroep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupSecureWeb* in de *VS-Oost* locatie:
+## <a name="create-an-azure-key-vault"></a>Een Azure Key Vault maken
+Voordat u een Key Vault en certificaten kunt maken, moet u eerst een resourcegroep maken met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupSecureWeb* gemaakt op de locatie *VS Oost*:
 
-```powershell
+```azurepowershell-interactive
 $resourceGroup = "myResourceGroupSecureWeb"
 $location = "East US"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Maak vervolgens een Sleutelkluis met [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Elke Sleutelkluis moet een unieke naam hebben en moet alle kleine letters. Vervang `<mykeyvault>` in het volgende voorbeeld met de naam van uw eigen unieke Sleutelkluis:
+Maak vervolgens een Key Vault met [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Elke Key Vault moet een unieke naam hebben van alleen kleine letters. Vervang `mykeyvault` in het volgende voorbeeld door de naam van uw eigen unieke Key Vault:
 
-```powershell
-$keyvaultName="<mykeyvault>"
+```azurepowershell-interactive
+$keyvaultName="mykeyvault"
 New-AzureRmKeyVault -VaultName $keyvaultName `
     -ResourceGroup $resourceGroup `
     -Location $location `
     -EnabledForDeployment
 ```
 
-## <a name="generate-a-certificate-and-store-in-key-vault"></a>Een certificaat genereren en opslaan in de Sleutelkluis
-Voor gebruik in productieomgevingen, moet u een geldig certificaat dat is ondertekend door een vertrouwde provider met importeren [importeren AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate). Voor deze zelfstudie, het volgende voorbeeld toont hoe kunt u een zelfondertekend certificaat met genereren [toevoegen AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) die gebruikmaakt van het standaardbeleid voor het certificaat van [ Nieuwe AzureKeyVaultCertificatePolicy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy). 
+## <a name="generate-a-certificate-and-store-in-key-vault"></a>Een certificaat genereren en opslaan in Key Vault
+Voor gebruik in de productie, moet u een geldig certificaat importeren dat is ondertekend door een vertrouwde provider met [Import-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate). Voor deze zelfstudie toont het volgende voorbeeld hoe u een zelfondertekend certificaat kunt genereren met [Add-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) dat gebruikmaakt van het standaardbeleid voor certificaten van [New-AzureKeyVaultCertificatePolicy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy). 
 
-```powershell
+```azurepowershell-interactive
 $policy = New-AzureKeyVaultCertificatePolicy `
     -SubjectName "CN=www.contoso.com" `
     -SecretContentType "application/x-pkcs12" `
@@ -77,85 +79,26 @@ Add-AzureKeyVaultCertificate `
 
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
-Stel dat een beheerder gebruikersnaam en wachtwoord voor de virtuele machine met [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Stel een beheerdersnaam en -wachtwoord in voor de virtuele machine met [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Nu kunt u de virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Het volgende voorbeeld maakt de vereiste virtuele netwerkonderdelen, de configuratie van het besturingssysteem, en maakt vervolgens een virtuele machine met de naam *myVM*:
+U kunt de virtuele machine nu maken met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt op de locatie *VS Oost*. Als ze nog niet bestaan, worden de ondersteunende netwerkresources gemaakt. Om beveiligd webverkeer mogelijk te maken, opent de cmdlet ook poort *443*.
 
-```powershell
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
+```azurepowershell-interactive
+# Create a VM
+New-AzureRmVm `
     -ResourceGroupName $resourceGroup `
+    -Name "myVM" `
     -Location $location `
-    -Name "myVnet" `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress `
-    -ResourceGroupName $resourceGroup `
-    -Location $location `
-    -AllocationMethod Static `
-    -IdleTimeoutInMinutes 4 `
-    -Name "myPublicIP"
-
-# Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name "myNetworkSecurityGroupRuleRDP"  `
-    -Protocol "Tcp" `
-    -Direction "Inbound" `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-# Create an inbound network security group rule for port 443
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
-    -Name "myNetworkSecurityGroupRuleWWW"  `
-    -Protocol "Tcp" `
-    -Direction "Inbound" `
-    -Priority 1001 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 443 `
-    -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName $resourceGroup `
-    -Location $location `
-    -Name "myNetworkSecurityGroup" `
-    -SecurityRules $nsgRuleRDP,$nsgRuleWeb
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
-    -Name "myNic" `
-    -ResourceGroupName $resourceGroup `
-    -Location $location `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIP.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS2" | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName "myVM" -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName "MicrosoftWindowsServer" `
-    -Offer "WindowsServer" -Skus "2016-Datacenter" -Version "latest" | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-# Create virtual machine
-New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -Credential $cred `
+    -OpenPorts 443
 
 # Use the Custom Script Extension to install IIS
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
@@ -168,13 +111,13 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server -IncludeManagementTools"}'
 ```
 
-Het duurt enkele minuten duren voordat de virtuele machine moet worden gemaakt. De laatste stap de Azure-extensie voor aangepaste scripts gebruikt voor het installeren van de IIS-webserver met [Set AzureRmVmExtension](/powershell/module/azurerm.compute/set-azurermvmextension).
+Het duurt enkele minuten voordat de virtuele machine wordt gemaakt. In de laatste stap wordt gebruikgemaakt van de Azure-extensie voor aangepaste scripts om de IIS-webserver te installeren met [Set AzureRmVmExtension](/powershell/module/azurerm.compute/set-azurermvmextension).
 
 
-## <a name="add-a-certificate-to-vm-from-key-vault"></a>Een certificaat toevoegen aan de virtuele machine uit Sleutelkluis
-Om het certificaat van de Sleutelkluis toevoegen aan een virtuele machine, krijgen de ID van het certificaat met [Get-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret). Het certificaat toevoegen aan de virtuele machine met [toevoegen AzureRmVMSecret](/powershell/module/azurerm.compute/add-azurermvmsecret):
+## <a name="add-a-certificate-to-vm-from-key-vault"></a>Een certificaat toevoegen aan de virtuele machine vanuit Key Vault
+Om het certificaat vanuit Key Vault toe te voegen aan een virtuele machine, haalt u de id van het certificaat op met [Get-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret). Voeg het certificaat toe aan de virtuele machine met [Add-AzureRmVMSecret](/powershell/module/azurerm.compute/add-azurermvmsecret):
 
-```powershell
+```azurepowershell-interactive
 $certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
 $vm=Get-AzureRMVM -ResourceGroupName $resourceGroup -Name "myVM"
@@ -185,12 +128,12 @@ Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
 ```
 
 
-## <a name="configure-iis-to-use-the-certificate"></a>IIS configureren voor het gebruik van het certificaat
-Gebruik de aangepaste Scriptextensie opnieuw met [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) de IIS-configuratie bij te werken. Deze update van toepassing is het certificaat van de Sleutelkluis ingevoegd op IIS en configureert u de web-binding:
+## <a name="configure-iis-to-use-the-certificate"></a>IIS configureren voor gebruik van het certificaat
+Gebruik de extensie voor aangepaste scripts opnieuw met [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) om de IIS-configuratie bij te werken. Deze update is van toepassing op het certificaat dat is ingevoerd vanuit Key Vault en configureert de webbinding:
 
-```powershell
+```azurepowershell-interactive
 $PublicSettings = '{
-    "fileUris":["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/secure-iis.ps1"],
+    "fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/secure-iis.ps1"],
     "commandToExecute":"powershell -ExecutionPolicy Unrestricted -File secure-iis.ps1"
 }'
 
@@ -206,32 +149,31 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 
 
 ### <a name="test-the-secure-web-app"></a>Testen van de beveiligde web-app
-Het openbare IP-adres van uw virtuele machine met [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). Het volgende voorbeeld verkrijgt het IP-adres voor `myPublicIP` eerder hebt gemaakt:
+Haal het openbare IP-adres van uw virtuele machine op met [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). In het volgende voorbeeld wordt het IP-adres opgehaald voor de `myPublicIP` die eerder is gemaakt:
 
-```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIP" | select "IpAddress"
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
-Nu kunt u een webbrowser openen en voer `https://<myPublicIP>` in de adresbalk. Voor het accepteren van de beveiligingswaarschuwing als u een zelfondertekend certificaat gebruikt, selecteert u **Details** en vervolgens **gaat u naar de webpagina**:
+Nu kunt u een webbrowser openen en `https://<myPublicIP>` in de adresbalk invoeren. Voor het accepteren van de beveiligingswaarschuwing als u een zelfondertekend certificaat hebt gebruikt, selecteert u **Details** en vervolgens **Ga verder naar de webpagina**:
 
 ![Beveiligingswaarschuwing voor web browser accepteren](./media/tutorial-secure-web-server/browser-warning.png)
 
-Uw beveiligde IIS-website wordt weergegeven zoals in het volgende voorbeeld:
+Uw beveiligde IIS-website wordt vervolgens weergegeven zoals in het volgende voorbeeld:
 
-![Weergave actief beveiligde IIS-website](./media/tutorial-secure-web-server/secured-iis.png)
+![Beveiligde actieve IIS-site weergeven](./media/tutorial-secure-web-server/secured-iis.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
-
-In deze zelfstudie maakt beveiligd u een IIS-webserver met een SSL-certificaat dat is opgeslagen in Azure Sleutelkluis. U hebt geleerd hoe u:
+In deze zelfstudie hebt u een IIS-webserver beveiligd met een SSL-certificaat dat is opgeslagen in Azure Key Vault. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Maken van een Azure Sleutelkluis
-> * Genereren of een certificaat uploaden naar de Sleutelkluis
+> * Een Azure Key Vault maken
+> * Een certificaat genereren of uploaden naar de Key Vault
 > * Een virtuele machine maken en de IIS-webserver installeren
-> * Het certificaat invoeren in de virtuele machine en IIS te configureren met een SSL-binding
+> * Het certificaat invoeren in de virtuele machine en IIS configureren met een SSL-binding
 
-Volg deze link om te zien van de vooraf gemaakte virtuele machine scriptvoorbeelden.
+Volg deze link om voorbeelden te zien van vooraf gemaakte virtuele machinescripts.
 
 > [!div class="nextstepaction"]
-> [Windows virtuele machine scriptvoorbeelden](./powershell-samples.md)
+> [Scriptvoorbeelden van virtuele Windows-machines](./powershell-samples.md)

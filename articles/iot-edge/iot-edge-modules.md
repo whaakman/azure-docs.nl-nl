@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 726bbafa9e4ba35cfa4a9cbf4d89056d52fe7963
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0f3ce7496427b6975eb4ac476e7d1737321ed2e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-azure-iot-edge-modules---preview"></a>Azure IoT rand modules begrijpen - voorbeeld
 
@@ -50,7 +50,7 @@ Elk exemplaar van de module heeft ook een overeenkomende module-twin die u gebru
 
 Een module-twin is een JSON-document met een module gegevens en configuratie-eigenschappen worden opgeslagen. Dit concept werkt parallel de [apparaat twin] [ lnk-device-twin] concept uit IoT Hub. De structuur van een module-twin is exact hetzelfde zijn als een apparaat-twin. De API's gebruikt voor interactie met beide typen horende zijn ook hetzelfde. Het enige verschil tussen de twee is de identiteit die wordt gebruikt om te instantiëren van de client-SDK. 
 
-```
+```csharp
 // Create a DeviceClient object. This DeviceClient will act on behalf of a 
 // module since it is created with a module’s connection string instead 
 // of a device connection string. 

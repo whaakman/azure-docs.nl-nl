@@ -8,7 +8,7 @@ Deze stappen oplossen veel toewijzingsfouten in virtuele machines:
 * De grootte van de virtuele machine naar een andere VM-grootte.<br>
     Klik op **door alle Bladeren** > **virtuele machines (klassiek)** > uw virtuele machine > **instellingen** > **grootte**. Zie voor gedetailleerde stappen [vergroten of verkleinen van de virtuele machine](https://msdn.microsoft.com/library/dn168976.aspx).
 * Alle virtuele machines van de cloudservice verwijderen en opnieuw maken van virtuele machines.<br>
-    Klik op **door alle Bladeren** > **virtuele machines (klassiek)** > uw virtuele machine > **verwijderen**. Klik vervolgens op **nieuw** > **Compute** > [installatiekopie van virtuele machine].
+    Klik op **door alle Bladeren** > **virtuele machines (klassiek)** > uw virtuele machine > **verwijderen**. Klik vervolgens op **maken van een resource** > **Compute** > [installatiekopie van virtuele machine].
 
 ### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Algemene toewijzingsfouten in het Azure Resource Manager-implementatiemodel
 Deze stappen oplossen veel toewijzingsfouten in virtuele machines:
@@ -53,7 +53,7 @@ Diagram 5 hieronder toont de taxonomie van de toewijzing van (vastgemaakt)-scena
 > 
 
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Scenario van toewijzing: Wijzig het formaat van een virtuele machine of virtuele machines of rolinstanties toevoegen aan een bestaande cloudservice
-**Fout**
+**Error**
 
 Upgrade_VMSizeNotSupported of GeneralError
 
@@ -68,7 +68,7 @@ Als de fout is Upgrade_VMSizeNotSupported *, kunt u een andere VM-grootte. Als m
 Als de fout is GeneralError *, is het waarschijnlijk dat het type resource (zoals een bepaalde VM-grootte) wordt ondersteund door het cluster, maar het cluster geen gratis resources op het moment dat heeft. Vergelijkbaar met het bovenstaande scenario, de gewenste compute resource bij het maken van een nieuwe cloudservice (Let erop dat de nieuwe cloudservice heeft tot het gebruik van een andere VIP) toevoegen en gebruiken van een regionaal virtueel netwerk verbinding maken uw cloudservices verkregen.
 
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Scenario van toewijzing: gedeeltelijk gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
-**Fout**
+**Error**
 
 GeneralError *
 
@@ -84,7 +84,7 @@ Als het aanvaardbaar is voor gebruik van een andere VIP, verwijderen van de gest
 * Als uw bestaande cloudservice niet voor een regionaal virtueel netwerk gebruikt wordt, een nieuw virtueel netwerk voor de nieuwe cloudservice maken en vervolgens [uw bestaande virtuele netwerk verbinden met de nieuwe virtuele netwerk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Zie voor meer informatie over [regionale virtuele netwerken](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Scenario van toewijzing: volledig gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
-**Fout**
+**Error**
 
 GeneralError *
 
@@ -97,7 +97,7 @@ Volledige toewijzing is opgeheven betekent dat u gestopt (toewijzing opgeheven) 
 Als deze aanvaardbaar is voor gebruik van een andere VIP, verwijderen van de oorspronkelijke gestopt (toewijzing ongedaan gemaakt) virtuele machines (maar houd het bijbehorende schijven) en verwijder de bijbehorende cloudservice (de bijbehorende rekenresources zijn al is vrijgegeven wanneer u gestopt (toewijzing ongedaan gemaakt) de virtuele machines). Maak een nieuwe cloudservice voor het toevoegen van de virtuele machines terug.
 
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Scenario van toewijzing: tijdelijke/productie-implementaties (platform als een service alleen)
-**Fout**
+**Error**
 
 New_General * of New_VMSizeNotSupported *
 
@@ -110,7 +110,7 @@ De implementatie van fasering en productie-implementatie van een cloudservice wo
 Verwijder de eerste implementatie en de oorspronkelijke cloudservice en implementeer de cloudservice opnieuw. Deze actie kan de eerste implementatie terechtkomen in een cluster met onvoldoende resources vrij voor beide implementaties of in een cluster die ondersteuning biedt voor de VM-grootten die u hebt aangevraagd.
 
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Scenario van toewijzing: affiniteitsgroep (VM-/ service nabijheid)
-**Fout**
+**Error**
 
 New_General * of New_VMSizeNotSupported *
 
@@ -123,7 +123,7 @@ Een compute resource toegewezen aan een affiniteitsgroep is gekoppeld aan één 
 Als een affiniteitsgroep niet nodig is, gebruikt u een affiniteitsgroep of uw rekenresources te groeperen in meerdere affiniteitsgroepen.
 
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Scenario van toewijzing: virtueel netwerk op basis van affiniteit-groep
-**Fout**
+**Error**
 
 New_General * of New_VMSizeNotSupported *
 
@@ -149,7 +149,7 @@ Wanneer u een toewijzingsfout ontvangt, kunt u zien als een van de scenario's be
 In het algemeen, zolang de fout betekent niet 'de aangevraagde VM-grootte wordt niet ondersteund', u kunt altijd opnieuw uitvoeren op een later tijdstip, zoals onvoldoende bronnen is in het cluster vrijgemaakt mogelijk aan uw aanvraag. Als het probleem is dat de aangevraagde VM-grootte niet wordt ondersteund, Zie hieronder voor tijdelijke oplossingen.
 
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Scenario van toewijzing: Wijzig het formaat van een virtuele machine of virtuele machines toevoegen aan een bestaande beschikbaarheidsset
-**Fout**
+**Error**
 
 Upgrade_VMSizeNotSupported * of GeneralError *
 
@@ -164,7 +164,7 @@ Als de fout is Upgrade_VMSizeNotSupported *, kunt u een andere VM-grootte. Als u
 Als de fout is GeneralError *, is het waarschijnlijk dat het type resource (zoals een bepaalde VM-grootte) wordt ondersteund door het cluster, maar het cluster geen gratis resources op het moment dat heeft. Als de virtuele machine deel van een andere beschikbaarheidsset uitmaken kan, maakt u een nieuwe virtuele machine in een andere beschikbaarheidsset (in dezelfde regio). Deze nieuwe virtuele machine kan vervolgens worden toegevoegd aan hetzelfde virtuele netwerk.  
 
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Scenario van toewijzing: gedeeltelijk gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
-**Fout**
+**Error**
 
 GeneralError *
 
@@ -177,7 +177,7 @@ Gedeeltelijke toewijzing is opgeheven betekent dat u (toewijzing ongedaan gemaak
 Stop alle virtuele machines in de beschikbaarheidsset voordat de eerste die opnieuw wordt opgestart. Dit zorgt ervoor dat er een nieuwe poging van de toewijzing wordt uitgevoerd en dat een nieuw cluster kan worden geselecteerd met de beschikbare capaciteit.
 
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Scenario van toewijzing: opnieuw opstarten volledig gestopt (toewijzing ongedaan gemaakt)
-**Fout**
+**Error**
 
 GeneralError *
 

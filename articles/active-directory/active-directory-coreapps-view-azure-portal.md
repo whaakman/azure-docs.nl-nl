@@ -16,22 +16,22 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: fd933ee33212007a58903b607055f437cc9206fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bcde742690e57d9195725fba524ee64cc691b30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Alle zakelijke apps die ik kunt beheren in Azure Active Directory weergeven
-U kunt uw zakelijke toepassingen in Azure Active Directory (Azure AD) kunt beheren. Dit omvat de apps die u kunt beheren, toewijzen gebruikers of groepen aan een app-eigenschappen voor de app, zoals de naam/het logo toepassing onderhouden en zelfs een toepassing uitschakelen zodat er geen gebruikers bij deze aanmelden zich weer te geven.
+U kunt uw zakelijke toepassingen in Azure Active Directory (Azure AD) kunt beheren. U kunt de apps beheren, gebruikers of groepen aan een app toewijzen, eigenschappen voor de app, zoals de naam/het logo toepassing onderhouden en zelfs een toepassing uitschakelen zodat er geen gebruikers bij het aanmelden zich weergeven.
 
 ## <a name="how-do-i-view-all-my-apps"></a>Hoe kan ik alle mijn apps bekijken?
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2. Selecteer **meer services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
-3. Op de **Azure Active Directory -** ***directoryname*** blade (dat wil zeggen, de Azure AD blade voor de map die u beheert), selecteer **bedrijfstoepassingen**.
+2. Selecteer **alle services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
+3. Op de **Azure Active Directory -** ***directoryname*** deelvenster (dat wil zeggen, de Azure AD voor de map die u beheert), selecteer **bedrijfstoepassingen**.
 
     ![Openen zakelijke apps](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)
-4. Op de **bedrijfstoepassingen** blade Selecteer **alle toepassingen**. Vanaf deze blade kunt u apps beheren, het wijzigen van de weergegeven kolommen of het filter de lijst om te zoeken die app die u (bijvoorbeeld om weer te geven wilt alleen apps uitgeschakeld).
+4. Op de **bedrijfstoepassingen** deelvenster **alle toepassingen**. In dit deelvenster kunt u apps beheren, het wijzigen van de weergegeven kolommen of het filter de lijst om te zoeken die app die u (bijvoorbeeld om weer te geven wilt alleen apps uitgeschakeld).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Een gebruiker of groep toewijzen aan een enterprise-app](active-directory-coreapps-assign-user-azure-portal.md)

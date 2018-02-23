@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b8bfbfca8daf506df083555d3046433b63e6bffe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD Windows universele-Platform (UWP/XAML) aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -48,7 +48,7 @@ Als u wilt inschakelen voor de app tokens krijgen, moet u eerst registreren in u
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op uw account op de bovenste balk. Klik vervolgens onder de **Directory** , selecteert u de Active Directory-tenant waar u de app te registreren.
-3. Klik op **meer Services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
+3. Klik op **alle services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
 4. Klik op **App registraties**, en selecteer vervolgens **toevoegen**.
 5. Volg de aanwijzingen voor het maken van een **systeemeigen clienttoepassing**.
   * **Naam** beschrijving van de app voor gebruikers.

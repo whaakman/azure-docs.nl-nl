@@ -1,6 +1,6 @@
 ---
 title: Serviceoverzicht integratie met System Center Operations Manager | Microsoft Docs
-description: Serviceoverzicht is een Operations Management Suite-oplossing die automatisch de onderdelen van toepassing op Windows- en Linux-systemen worden gedetecteerd en de communicatie tussen services wordt toegewezen. Dit artikel wordt het automatisch maken van gedistribueerde toepassing diagrammen in Operations Manager via een Serviceoverzicht.
+description: Serviceoverzicht is een oplossing in Azure die automatisch toepassingsonderdelen op Windows- en Linux-systemen detecteert en de communicatie tussen services toewijst. Dit artikel wordt het automatisch maken van gedistribueerde toepassing diagrammen in Operations Manager via een Serviceoverzicht.
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 906a90acb8754ff4b70235256cd184e2611ff5a0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Serviceoverzicht integratie met System Center Operations Manager
   > [!NOTE]
   > Deze functie is openbare preview.
   > 
   
-Operations Management Suite Serviceoverzicht automatisch detecteert de onderdelen van toepassing op Windows- en Linux-systemen en de communicatie tussen services wordt toegewezen. Serviceoverzicht kunt u de manier waarop u deze beschouwen als onderling verbonden systemen die essentiële services bieden voor uw servers weergeven. Service-kaart toont de verbindingen tussen servers, processen en poorten voor elke architectuur TCP-verbinding zonder configuratie vereist naast de installatie van een agent. Zie voor meer informatie de [Serviceoverzicht documentatie](operations-management-suite-service-map.md).
+Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Serviceoverzicht kunt u de manier waarop u deze beschouwen als onderling verbonden systemen die essentiële services bieden voor uw servers weergeven. Service-kaart toont de verbindingen tussen servers, processen en poorten voor elke architectuur TCP-verbinding zonder configuratie vereist naast de installatie van een agent. Zie voor meer informatie de [Serviceoverzicht documentatie](operations-management-suite-service-map.md).
 
 Met deze integratie tussen Serviceoverzicht en System Center Operations Manager, kunt u automatisch diagrammen voor gedistribueerde toepassing maken in Operations Manager die zijn gebaseerd op de dynamische afhankelijkheid toewijzingen in Serviceoverzicht.
 
 ## <a name="prerequisites"></a>Vereisten
 * Een Operations Manager-beheergroep (2012 R2 of hoger) die wordt beheerd door een reeks servers.
-* Een Operations Management Suite-werkruimte met de oplossing Serviceoverzicht is ingeschakeld.
+* Een werkruimte voor logboekanalyse met de oplossing Serviceoverzicht is ingeschakeld.
 * Een set servers (ten minste één) die worden beheerd door Operations Manager en verzenden van gegevens naar Serviceoverzicht. Windows en Linux-servers worden ondersteund.
-* Een service-principal met toegang tot de Azure-abonnement dat is gekoppeld aan de Operations Management Suite-werkruimte. Ga voor meer informatie naar [maken van een service-principal](#creating-a-service-principal).
+* Een service-principal met toegang tot de Azure-abonnement dat is gekoppeld aan de werkruimte voor logboekanalyse. Ga voor meer informatie naar [maken van een service-principal](#creating-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Installeer het Serviceoverzicht management pack
 U inschakelen de integratie tussen Operations Manager en Serviceoverzicht door het importeren van de Microsoft.SystemCenter.ServiceMap management pack-bundel (Microsoft.SystemCenter.ServiceMap.mpb). U kunt downloaden via het management pack-bundel van de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55763). De bundel bevat de volgende management packs:
 * Microsoft Service kaart Toepassingweergaven
 * Microsoft System Center Serviceoverzicht interne
 * Microsoft System Center Service kaart onderdrukkingen
-* Microsoft System Center-Serviceoverzicht
+* Microsoft System Center Service Map
 
 ## <a name="configure-the-service-map-integration"></a>Configureren van de integratie Serviceoverzicht
 Nadat u een nieuw knooppunt van het Serviceoverzicht management pack **Serviceoverzicht**, wordt weergegeven onder **Operations Management Suite** in de **beheer** deelvenster. 
@@ -55,7 +55,7 @@ Serviceoverzicht om integratie te configureren, het volgende doen:
 
     ![Het venster verbindingsconfiguratie](media/oms-service-map/scom-config-spn.png)
 
-3. In de **abonnement selectie** venster de Azure-abonnement, de Azure-resourcegroep (de knop met de Operations Management Suite-werkruimte) en de Operations Management Suite-werkruimte selecteren en klik vervolgens op **volgende**.
+3. In de **abonnement selectie** venster de Azure-abonnement, de Azure-resourcegroep (de knop met de werkruimte voor logboekanalyse) en de werkruimte voor logboekanalyse selecteren en klik vervolgens op **volgende**.
 
     ![De configuratie-werkruimte van Operations Manager](media/oms-service-map/scom-config-workspace.png)
 
@@ -73,22 +73,22 @@ Serviceoverzicht om integratie te configureren, het volgende doen:
 
     ![De Operations Manager Configuration-servicegroep](media/oms-service-map/scom-config-group.png)
 
-6. Optioneel: Selecteer de resourcegroep voor de beheerserver om te communiceren met Operations Management Suite en klik vervolgens op **werkruimte toevoegen**.
+6. Optioneel: Selecteer de resourcegroep voor de beheerserver om te communiceren met Log Analytics en klik vervolgens op **werkruimte toevoegen**.
 
     ![De Operations Manager configuratie resourcegroep](media/oms-service-map/scom-config-pool.png)
 
-    Het duurt even configureren en registreren van de Operations Management Suite-werkruimte. Nadat deze is geconfigureerd, wordt de eerste synchronisatie Serviceoverzicht van Operations Management Suite gestart in Operations Manager.
+    Het kan een minuut configureren en registreren van de werkruimte voor logboekanalyse duren. Nadat deze is geconfigureerd, wordt de eerste synchronisatie van Serviceoverzicht gestart in Operations Manager.
 
     ![De Operations Manager configuratie resourcegroep](media/oms-service-map/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>Monitor Serviceoverzicht
-Nadat de Operations Management Suite-werkruimte is aangesloten, een nieuwe map Serviceoverzicht wordt weergegeven in de **bewaking** deelvenster van de Operations Manager-console.
+Nadat de werkruimte voor logboekanalyse is aangesloten, een nieuwe map Serviceoverzicht wordt weergegeven in de **bewaking** deelvenster van de Operations Manager-console.
 
 ![Het deelvenster controle van Operations Manager](media/oms-service-map/scom-monitoring.png)
 
 De map Serviceoverzicht heeft vier knooppunten:
-* **Actieve waarschuwingen**: geeft een lijst van alle actieve waarschuwingen over de communicatie tussen Operations Manager en Service-kaart.  Houd er rekening mee dat deze waarschuwingen niet zijn dat Operations Management Suite waarschuwingen wordt gesynchroniseerd met Operations Manager. 
+* **Actieve waarschuwingen**: geeft een lijst van alle actieve waarschuwingen over de communicatie tussen Operations Manager en Service-kaart.  Deze waarschuwingen zijn niet logboekanalyse waarschuwingen wordt gesynchroniseerd met Operations Manager. 
 
 * **Servers**: geeft een lijst van de bewaakte servers die zijn geconfigureerd om te synchroniseren van Serviceoverzicht.
 
@@ -103,7 +103,7 @@ De map Serviceoverzicht heeft vier knooppunten:
     ![Het diagram van de gedistribueerde toepassing Operations Manager](media/oms-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Bewerken of verwijderen van de werkruimte
-U kunt bewerken of verwijderen van de werkruimte geconfigureerde via de **kaart Serviceoverzicht** deelvenster (**beheer** deelvenster > **Operations Management Suite** > **Serviceoverzicht**). U kunt slechts één Operations Management Suite-werkruimte nu configureren.
+U kunt bewerken of verwijderen van de werkruimte geconfigureerde via de **kaart Serviceoverzicht** deelvenster (**beheer** deelvenster > **Operations Management Suite** > **Serviceoverzicht**). U kunt slechts één werkruimte voor logboekanalyse nu configureren.
 
 ![Het deelvenster met Operations Manager bewerken](media/oms-service-map/scom-edit-workspace.png)
 
@@ -120,7 +120,7 @@ Een regel _Microsoft.SystemCenter.ServiceMapImport.Rule_, periodiek gegevens oph
 ## <a name="known-issues-and-limitations"></a>Bekende problemen en beperkingen
 
 Het huidige ontwerp biedt de volgende problemen en beperkingen:
-* U kunt alleen verbinding met een enkele Operations Management Suite-werkruimte.
+* U kunt alleen verbinding met een enkele werkruimte voor logboekanalyse.
 * Hoewel u servers aan de Service kaart groep Servers handmatig via toevoegen kunt de **ontwerpen** deelvenster de kaarten voor deze servers niet onmiddellijk worden gesynchroniseerd.  Ze worden gesynchroniseerd vanuit Serviceoverzicht tijdens de volgende synchronisatiecyclus.
 * Als u wijzigingen in de gedistribueerde toepassing diagrammen die zijn gemaakt door het management pack aanbrengt, worden deze wijzigingen op de volgende synchronisatie met Serviceoverzicht waarschijnlijk worden overschreven.
 

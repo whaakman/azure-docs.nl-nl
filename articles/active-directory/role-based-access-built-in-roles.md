@@ -15,11 +15,11 @@ ms.date: 01/30/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 520a52161438c967b7614ab01b2e9892612254f0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure
 Azure op rollen gebaseerde toegangsbeheer (RBAC) beschikt over de volgende ingebouwde rollen die kunnen worden toegewezen aan gebruikers, groepen en services. U kunt de definities van de ingebouwde rollen niet wijzigen. U kunt echter maken [aangepaste rollen in Azure RBAC](role-based-access-control-custom-roles.md) aanpassen aan de specifieke behoeften van uw organisatie.
@@ -50,9 +50,9 @@ In dit artikel wordt alleen de verschillende rollen die vandaag bestaan. Wanneer
 | [Lezer facturering](#billing-reader) | Alle factureringsgegevens kunt weergeven  |
 | [BizTalk Inzender](#biztalk-contributor) |BizTalk services kunt beheren |
 | [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) |ClearDB MySQL-databases kunt beheren |
-| [Inzender](#contributor) |Kunnen alles beheren behalve toegang. |
+| [Contributor](#contributor) |Kunnen alles beheren behalve toegang. |
 | [Data Factory Inzender](#data-factory-contributor) |Kan maken en beheren van gegevensfactory's en onderliggende resources binnen deze. |
-| [DevTest Labs gebruiker](#devtest-labs-user) |Kunnen alles weergeven en verbinding maken, starten, opnieuw opstarten en afsluiten van de virtuele machines |
+| [DevTest Labs User](#devtest-labs-user) |Kunnen alles weergeven en verbinding maken, starten, opnieuw opstarten en afsluiten van de virtuele machines |
 | [DNS-Zone Inzender](#dns-zone-contributor) |DNS-zones en -records beheren |
 | [DocumentDB-Account Inzender](#documentdb-account-contributor) |Azure DB die Cosmos-accounts kunnen beheren |
 | [Intelligente systemen Account Inzender](#intelligent-systems-account-contributor) |Intelligente systemen accounts kunnen beheren |
@@ -61,21 +61,20 @@ In dit artikel wordt alleen de verschillende rollen die vandaag bestaan. Wanneer
 | [Bewaking van de lezer](#monitoring-reader) |Alle bewakingsgegevens kunnen lezen |
 | [Inzender bewaking](#monitoring-contributor) |Kunnen lezen bewakingsgegevens en controle-instellingen bewerken |
 | [Inzender voor netwerken](#network-contributor) |Alle netwerkbronnen kunt beheren |
-| [Nieuwe Relic APM-Account Inzender](#new-relic-apm-account-contributor) |Nieuwe Relic prestaties Toepassingsbeheer accounts en -toepassingen kunnen beheren |
-| [Eigenaar](#owner) |Kunnen alles beheren, inclusief toegang |
-| [Lezer](#reader) |Alles weergeven, maar u kunt geen wijzigingen aanbrengen |
+| [Owner](#owner) |Kunnen alles beheren, inclusief toegang |
+| [Reader](#reader) |Alles weergeven, maar u kunt geen wijzigingen aanbrengen |
 | [Redis-Cache Inzender](#redis-cache-contributor) |Redis-caches kunt beheren |
 | [Scheduler-taak verzamelingen Inzender](#scheduler-job-collections-contributor) |Scheduler-taakverzamelingen kunt beheren |
 | [Search Service Inzender](#search-service-contributor) |Search-services kunt beheren |
 | [De beheerder beveiliging](#security-administrator) | In Security Center alleen: kunt weergeven beveiligingsbeleid, beveiliging statussen weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen |
-| [Beveiligingsbeheer](#security-manager) | Beveiligingsonderdelen, beveiligingsbeleid en virtuele machines beheren |
+| [Security Manager](#security-manager) | Beveiligingsonderdelen, beveiligingsbeleid en virtuele machines beheren |
 | [Beveiliging lezer](#security-reader) | In Security Center alleen: kunt aanbevelingen en waarschuwingen, weergave beveiligingsbeleid weergeven van beveiliging, maar geen wijzigingen aanbrengen weergeven |
 | [Site Recovery Inzender](#site-recovery-contributor) | Site Recovery kunt beheren in Recovery Services-kluis |
 | [Site Recovery-Operator](#site-recovery-operator) | Failover en failback bewerkingen Site Recovery in de Recovery Services-kluis kunnen beheren |
 | [Site Recovery lezer](#site-recovery-reader) | Alle beheerbewerkingen van Site Recovery kunt weergeven  |
 | [SQL DB Contributor](#sql-db-contributor) |Kan SQL-databases, maar niet hun beleid betrekking hebben op beveiliging beheren |
 | [SQL Security Manager](#sql-security-manager) |Het beleid betrekking hebben op de beveiliging van SQL-servers en databases kunt beheren |
-| [SQL Server Inzender](#sql-server-contributor) |Kan SQL-servers en databases, maar niet hun beleid betrekking hebben op beveiliging beheren |
+| [SQL Server Contributor](#sql-server-contributor) |Kan SQL-servers en databases, maar niet hun beleid betrekking hebben op beveiliging beheren |
 | [Klassieke Storage Account Inzender](#classic-storage-account-contributor) |Klassieke opslagaccounts kunt beheren |
 | [Storage-Account Inzender](#storage-account-contributor) |Storage-accounts kunnen beheren |
 | [Ondersteuning voor aanvraag Inzender](#support-request-contributor) | Kunt maken en beheren van aanvragen voor ondersteuning |
@@ -308,7 +307,7 @@ Kunnen alles beheren behalve toegang
 | --- | --- |
 | * |Maken en beheren van bronnen van alle typen |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Rollen en roltoewijzingen verwijderen niet |
 | Microsoft.Authorization/*/Write |Kan de functies en roltoewijzingen niet maken |
@@ -364,7 +363,7 @@ Kunnen DNS-zones en -records beheren.
 
 | **Acties** |  |
 | --- | --- |
-| Microsoft.Authorization/ \* /lezen |Lezen van rollen en roltoewijzingen |
+| Microsoft.Authorization/\*/read |Lezen van rollen en roltoewijzingen |
 | Microsoft.Insights/alertRules/\* |Maken en beheren van regels voor waarschuwingen |
 | Microsoft.Network/dnsZones/\* |DNS-zones en records maken en beheren |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Lezen van de status van de resources |
@@ -440,19 +439,6 @@ Alle netwerkbronnen kunt beheren
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
-
-### <a name="new-relic-apm-account-contributor"></a>Inzender voor het New Relic APM-account
-Nieuwe Relic prestaties Toepassingsbeheer accounts en -toepassingen kunnen beheren
-
-| **Acties** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |Lezen van rollen en functie toewijzingen |
-| Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
-| Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
-| Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
-| Microsoft.Support/* |Maken en ondersteuningstickets beheren |
-| NewRelic.APM/accounts/* |New Relic toepassingsprestaties management rekeningen maken en beheren |
 
 ### <a name="owner"></a>Eigenaar
 Kunnen alles beheren, inclusief toegang
@@ -601,28 +587,28 @@ Kan Failover en Failback kan maar niet andere Site Recovery management acties wo
 | Microsoft.RecoveryServices/vaults/replicationEvents/read | Replicatiegebeurtenissen lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Consistentie van de fabrics controleren |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Lees replicatie-fabrics |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/actie | Replicatie-gateway opnieuw koppelen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/action | Replicatie-gateway opnieuw koppelen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Replicatie fabric certificaat vernieuwen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Lezen van replicatie fabric-netwerken |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks replicationNetworkMappings/leestijd | Lees replicatie fabric netwerktoewijzing |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers leestijd | Beveiliging-containers gelezen |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers replicationProtectableItems/leestijd | Lijst met alle beveiligbare objecten |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/actie | Toepassen van een specifiek herstelpunt |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/failoverCommit/actie | Failover voor een mislukte doorvoeren boven item |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/plannedFailover/actie | De geplande failover voor een beveiligde item starten |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers replicationProtectedItems/leestijd | Lijst met alle beveiligde items |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers replicationProtectedItems/recoveryPoints/leestijd | Lijst met beschikbare herstelpunten |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/repairReplication/actie | Replicatie voor een beveiligde item herstellen |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/beveiligt/actie | Start voor een beveiligde item opnieuw te beveiligen|
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover, actie | Testfailover van een beveiligde item starten |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/actie | Het opruimen van een testfailover starten |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/unplannedFailover/actie | Niet-geplande failover van een beveiligde item starten |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read | Lees replicatie fabric netwerktoewijzing |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read | Beveiliging-containers gelezen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Lijst met alle beveiligbare objecten |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ applyRecoveryPoint/action | Toepassen van een specifiek herstelpunt |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ failoverCommit/action | Failover voor een mislukte doorvoeren boven item |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ plannedFailover/action | De geplande failover voor een beveiligde item starten |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read | Lijst met alle beveiligde items |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Lijst met beschikbare herstelpunten |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ repairReplication/action | Replicatie voor een beveiligde item herstellen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/reProtect/action | Start voor een beveiligde item opnieuw te beveiligen|
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/action | Testfailover van een beveiligde item starten |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ testFailoverCleanup/action | Het opruimen van een testfailover starten |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ unplannedFailover/action | Niet-geplande failover van een beveiligde item starten |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/updateMobilityService/actie | De mobility-service bijwerken |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers replicationProtectionContainerMappings/leestijd | Beveiliging lezen container toewijzingen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Beveiliging lezen container toewijzingen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders leestijd | Lees Recovery Services-providers |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ refreshProvider-replicationRecoveryServicesProviders/actie | Vernieuw Recovery Services-provider |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications leestijd | Alleen opslagclassificaties voor replicatie-fabrics |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications replicationStorageClassificationMappings/leestijd | Toewijzingen voor classificatie van bestanden lezen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read | Alleen opslagclassificaties voor replicatie-fabrics |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Toewijzingen voor classificatie van bestanden lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Lees de vCenter-gegevens geregistreerd |
 | Microsoft.RecoveryServices/vaults/replicationJobs/* | Maken en beheren van replicatietaken |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Lezen van replicatiebeleid |
@@ -659,15 +645,15 @@ Kan de status van de Site Recovery in de Recovery Services-kluis bewaken en onde
 | Microsoft.RecoveryServices/vaults/replicationEvents/read  | Replicatiegebeurtenissen lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read  | Lees replicatie-fabrics |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read  | Lezen van replicatie fabric-netwerken |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks replicationNetworkMappings/leestijd  | Lees replicatie fabric netwerktoewijzing |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers leestijd  |  Beveiliging-containers gelezen |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers replicationProtectableItems/leestijd  | Lijst met alle beveiligbare objecten |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers replicationProtectedItems/leestijd  | Lijst met alle beveiligde items |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers replicationProtectedItems/recoveryPoints/leestijd  | Lijst met beschikbare herstelpunten |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers replicationProtectionContainerMappings/leestijd  | Beveiliging lezen container toewijzingen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read  | Lees replicatie fabric netwerktoewijzing |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read  |  Beveiliging-containers gelezen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read  | Lijst met alle beveiligbare objecten |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read  | Lijst met alle beveiligde items |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read  | Lijst met beschikbare herstelpunten |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read  | Beveiliging lezen container toewijzingen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders leestijd  | Lees Recovery Services-providers |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications leestijd  | Alleen opslagclassificaties voor replicatie-fabrics |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications replicationStorageClassificationMappings/leestijd  |  Toewijzingen voor classificatie van bestanden lezen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read  | Alleen opslagclassificaties voor replicatie-fabrics |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read  |  Toewijzingen voor classificatie van bestanden lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read  |  Lees de vCenter-gegevens geregistreerd |
 | Microsoft.RecoveryServices/vaults/replicationJobs/read  |  Status van replicatietaken lezen |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read  |  Lezen van replicatiebeleid |
@@ -691,7 +677,7 @@ Kan SQL-databases, maar niet hun beleid betrekking hebben op beveiliging beheren
 | Microsoft.Sql/servers/read |Lezen van de SQL-Servers |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Sql/servers/databases/auditingPolicies/* |Controlebeleid kan niet worden bewerkt. |
 | Microsoft.Sql/servers/databases/auditingSettings/* |Controle-instellingen kan niet worden bewerkt. |
@@ -741,7 +727,7 @@ Kan SQL-servers en databases, maar niet hun beleid betrekking hebben op beveilig
 | Microsoft.Sql/servers/* |Maken en beheren van de SQL-servers |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Sql/servers/auditingPolicies/* |Controlebeleid van SQL server kan niet worden bewerkt. |
 | Microsoft.Sql/servers/auditingSettings/* |Kan geen SQL server-controle-instellingen bewerken |

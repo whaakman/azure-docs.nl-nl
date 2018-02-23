@@ -2,7 +2,7 @@ Azure-klanten kunnen iedere maand 25.000 gratis e-mails ontgrendelen. Deze 25.00
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Aanmelden voor een SendGrid-account
 1. Meld u aan bij de [Azure-portal][Azure portal].
-2. Klik in het menu aan de linkerkant op **Nieuw**.
+2. Klik in het menu aan de linkerkant op **maken van een resource**.
 
     ![opdracht-balk-nieuw][command-bar-new]
 3. Klik op **Invoegtoepassingen** en vervolgens op **SendGrid e-maillevering**.
@@ -45,7 +45,7 @@ Azure-klanten kunnen iedere maand 25.000 gratis e-mails ontgrendelen. Deze 25.00
 
     ![API-sleutels][api-keys]
 
-3. Klik op de vervolgkeuzelijst **API-sleutel maken** en selecteer **Algemene API-sleutel**.
+3. Klik op de **API-sleutel maken**.
 
     ![algemene-api-sleutel][general-api-key]
 4. Geef ten minste de **naam van de sleutel** op, verleen volledige toegang tot **Mail verzenden** en selecteer vervolgens **Opslaan**.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 10b5eb0062e4a029b0f233ee8af17d590d59c8d4
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 9f773a8dfe772864fc9fc437052ac766a87623d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>Een momentopname maken
 
@@ -27,7 +27,7 @@ Een momentopname van een VHD voor back-up of om op te lossen VM uitgeeft OS- of 
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Azure portal gebruiken om een momentopname 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Beginnen in de linkerbovenhoek, klikt u op **nieuw** en zoek naar **momentopname**.
+2. Beginnen in de linkerbovenhoek, klikt u op **maken van een resource** en zoek naar **momentopname**.
 3. Klik op de blade momentopname **maken**.
 4. Voer een **naam** voor de momentopname.
 5. Selecteer een bestaande [Resourcegroep](../../azure-resource-manager/resource-group-overview.md#resource-groups) of typ de gewenste naam voor een nieuwe resourcegroep. 

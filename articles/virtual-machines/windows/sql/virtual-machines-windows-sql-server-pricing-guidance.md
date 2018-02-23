@@ -4,7 +4,7 @@ description: Bevat de aanbevolen procedures voor het kiezen van de juiste SQL Se
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Prijsinformatie voor Azure VM's van SQL Server
 
@@ -46,7 +46,7 @@ Als een virtuele machine van SQL Server 2017 Azure maken met een van deze instal
 
 Als u een werkbelasting niet lightweight productie hebt, gebruikt u een van de volgende versies van SQL Server:
 
-| SQL Server-editie | Workload |
+| SQL Server Edition | Workload |
 |-----|-----|
 | Web | Kleine websites |
 | Standard | Kleine tot middelgrote werkbelastingen |
@@ -100,7 +100,7 @@ Als u wilt BYOL met een virtuele machine van SQL Server gebruiken, moet u een li
 Als een virtuele machine van SQL Server 2016 Azure maken met een van deze installatiekopieën bring-your-eigenaar-licentie, Zie de virtuele machines voorafgegaan door '{BYOL}':
 
 - [SQL Server 2016 Enterprise Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)
-- [SQL Server 2016 standaard Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
+- [SQL Server 2016 Standard Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
 
 > [!IMPORTANT]
 > Laat ons weten binnen tien dagen hoeveel SQL Server-licenties u in Azure. De koppelingen naar de vorige afbeeldingen hebben instructies over hoe u dit doet.
@@ -112,16 +112,16 @@ Als een virtuele machine van SQL Server 2016 Azure maken met een van deze instal
 
 Om te voorkomen onnodige kosten, kies de grootte van een optimale virtuele machine en overweeg onregelmatige afsluiten voor niet-doorlopende werkbelastingen.
 
-### <a id="machinesize"></a>Formaat van uw virtuele machine correct
+### <a id="machinesize"></a> Formaat van uw virtuele machine correct
 
 De licentiekosten van SQL Server is direct gerelateerd aan het aantal kernen. Kies een VM-grootte die overeenkomt met de verwachte behoeften voor CPU, geheugen, opslag en i/o-bandbreedte. Zie voor een volledige lijst met opties voor machinegrootte, [Windows VM-grootten](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) en [Linux VM-grootten](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Er zijn nieuwe machine-grootten die goed met bepaalde typen SQL Server-werkbelasting werken. Deze machines formaten hoge serviceniveaus geheugen, opslag en i/o-bandbreedte te behouden, maar ze hebben een lagere gevirtualiseerde core-telling. Neem bijvoorbeeld het volgende voorbeeld:
 
-| VM-grootte | vcpu 's | Geheugen | Maximum aantal schijven | Maximum aantal i/o-doorvoer | SQL-licentie kosten | Totale kosten (Compute + licentieverlening) |
+| VM-grootte | vCPU's | Geheugen | Maximum aantal schijven | Max I/O Throughput | SQL-licentie kosten | Totale kosten (Compute + licentieverlening) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 IOPS of 768 MB/s | | |
-| **Standard_DS14 4v2** | 4 | 112 GB | 32 | 51.200 IOPS of 768 MB/s | 75% lager | 57% lager |
+| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51.200 IOPS of 768 MB/s | 75% lager | 57% lager |
 
 > [!IMPORTANT]
 > Dit is een voorbeeld van een punt in tijd. Voor de meest recente specificaties, raadpleegt u de machine grootten artikelen en de prijzen voor Azure [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) en [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).

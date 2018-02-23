@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 855cb5b9cda873a2966465062d0164b2b054b1cd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -421,7 +421,7 @@ Hier volgen de stappen die u in deze sectie uitvoeren:
 
 ### <a name="step-1-create-the-data-factory"></a>Stap 1: De gegevensfactory maken
 1. Na het aanmelden bij de Azure portal, voer de volgende stappen uit:
-   1. Klik in het menu links op **NIEUW**.
+   1. Klik op **maken van een resource** in het menu links.
    2. Klik op **gegevens en analyse** in de **nieuw** blade.
    3. Klik op de blade **Gegevensanalyse** op **Gegevensfactory**.
    
@@ -441,7 +441,7 @@ Hier volgen de stappen die u in deze sectie uitvoeren:
 Met gekoppelde services worden gegevensarchieven of compute-services gekoppeld aan een Azure Data Factory. In deze stap koppelt u uw Azure Storage-account en de Azure Batch-account aan uw gegevensfactory.
 
 #### <a name="create-azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service maken
-1. Klik op de **auteur en implementeren van** tegel op de **DATA FACTORY** blade voor **CustomActivityFactory**. U ziet de Data Factory-Editor.
+1. Klik op de **auteur en implementeren van** tegel op de **DATA FACTORY** blade voor **CustomActivityFactory**. U ziet de Data Factory Editor.
 2. Klik op **nieuwe gegevensopslag** op de opdracht en kies **Azure storage**. U ziet het JSON-script voor het maken van een gekoppelde Azure Storage-service in de editor.
     
     ![Nieuwe gegevensopslag - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)

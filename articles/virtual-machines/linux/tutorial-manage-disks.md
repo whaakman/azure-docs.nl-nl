@@ -1,6 +1,6 @@
 ---
-title: Beheren van Azure-schijven met de Azure CLI | Microsoft Docs
-description: Zelfstudie - Azure-schijven met de Azure CLI beheren
+title: Azure-schijven beheren met de Azure CLI | Microsoft Docs
+description: 'Zelfstudie: Azure-schijven beheren met de Azure CLI'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,91 +16,91 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 87b410fdcd5901499e809f8d2b9a7b8788134cfc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="manage-azure-disks-with-the-azure-cli"></a>Azure-schijven met de Azure CLI beheren
+# <a name="manage-azure-disks-with-the-azure-cli"></a>Azure-schijven beheren met de Azure CLI
 
-Virtuele machines in Azure schijven gebruiken voor het opslaan van het besturingssysteem, toepassingen en gegevens van virtuele machines. Bij het maken van een virtuele machine is het van belang dat u kiest een grootte van de schijf en de configuratie geschikt is voor de verwachte werkbelasting. Deze zelfstudie bevat informatie over het implementeren en beheren van VM-schijven. U meer informatie over:
+Virtuele machines in Azure gebruiken schijven voor het opslaan van het besturingssysteem, toepassingen en gegevens van virtuele machines. Bij het maken van een virtuele machine is het van belang dat u een schijfgrootte en configuratie kiest die geschikt zijn voor de verwachte werkbelasting. Deze zelfstudie bevat informatie over het implementeren en beheren van VM-schijven. U krijgt informatie over:
 
 > [!div class="checklist"]
-> * OS-schijven en tijdelijke schijven
+> * Besturingssysteemschijven en tijdelijke schijven
 > * Gegevensschijven
-> * Standard en Premium-schijven
-> * Prestaties van de schijf
-> * Koppelen en gegevensschijven voorbereiden
-> * De schijfgrootte
-> * Schijf momentopnamen
+> * Standard- en Premium-schijven
+> * Schijfprestaties
+> * Het koppelen en voorbereiden van gegevensschijven
+> * De grootte van schijven wijzigen
+> * Momentopnamen van schijven
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="default-azure-disks"></a>Standaard Azure-schijven
 
-Wanneer een virtuele machine van Azure is gemaakt, worden twee schijven automatisch gekoppeld aan de virtuele machine. 
+Wanneer een virtuele Azure-machine wordt gemaakt, worden automatisch twee schijven aan de virtuele machine gekoppeld. 
 
-**Besturingssysteemschijf** -systeemschijven kan worden verkleind tot 1 terabyte is, en fungeert als host voor het besturingssysteem van de virtuele machines. De besturingssysteemschijf is gelabeld */dev/sda* standaard. De configuratie van de besturingssysteemschijf van de schijfcache is geoptimaliseerd voor OS-prestaties. Vanwege deze configuratie de besturingssysteemschijf **beter niet** toepassingen of gegevens hosten. Gebruik voor toepassingen en gegevens gegevensschijven, verderop in dit artikel worden beschreven. 
+**Besturingssysteemschijf**: de grootte van besturingssysteemschijven kan worden gewijzigd in maximaal 1 terabyte en besturingssysteemschijven fungeren als host voor het besturingssysteem van de virtuele machine. De besturingssysteemschijf is standaard gelabeld met */dev/sda*. De schijfcacheconfiguratie van de besturingssysteemschijf is geoptimaliseerd voor besturingssysteemprestaties. Vanwege deze configuratie kan de besturingssysteemschijf **beter geen** toepassingen of gegevens hosten. Gebruik voor toepassingen en gegevens gegevensschijven, die verderop in dit artikel worden beschreven. 
 
-**Tijdelijke schijf** -tijdelijke schijven gebruiken een SSD-schijf die zich op dezelfde Azure host als de virtuele machine. Tijdelijke schijven zijn maximaal zodat en kunnen worden gebruikt voor bewerkingen, zoals tijdelijke gegevensverwerking. Als de virtuele machine wordt verplaatst naar een nieuwe host, wordt echter gegevens die zijn opgeslagen op een tijdelijke schijf verwijderd. De grootte van de tijdelijke schijf wordt bepaald door de VM-grootte. Tijdelijke schijven zijn gelabeld */dev/sdb* en hebben een koppelpunt van *mnt*.
+**Tijdelijke schijf**: tijdelijke schijven gebruiken een SSD-schijf die zich op dezelfde Azure-host bevindt als de virtuele machine. Tijdelijke schijven leveren zeer goede prestaties en kunnen worden gebruikt voor bewerkingen als tijdelijke gegevensverwerking. Als de virtuele machine wordt verplaatst naar een nieuwe host, worden gegevens die zijn opgeslagen op een tijdelijke schijf echter verwijderd. De grootte van de tijdelijke schijf wordt bepaald door de VM-grootte. Tijdelijke schijven zijn gelabeld als */dev/sdb* en hebben een koppelpunt van */mnt*.
 
-### <a name="temporary-disk-sizes"></a>Tijdelijke schijfgrootten
+### <a name="temporary-disk-sizes"></a>Groottes van tijdelijke schijven
 
 | Type | VM-grootte | Maximumgrootte van tijdelijke schijf (GB) |
 |----|----|----|
-| [Algemeen doel](sizes-general.md) | A en D-reeks | 800 |
+| [Algemeen doel](sizes-general.md) | A- en D-serie | 800 |
 | [Geoptimaliseerde rekenkracht](sizes-compute.md) | F-serie | 800 |
-| [Geoptimaliseerd geheugen](../virtual-machines-windows-sizes-memory.md) | D en G-serie | 6144 |
-| [Geoptimaliseerde opslag](../virtual-machines-windows-sizes-storage.md) | L-reeks | 5630 |
-| [GPU](sizes-gpu.md) | N reeks | 1440 |
-| [Hoge prestaties](sizes-hpc.md) | A en H reeks | 2000 |
+| [Geoptimaliseerd geheugen](../virtual-machines-windows-sizes-memory.md) | D- en G-serie | 6144 |
+| [Geoptimaliseerde opslag](../virtual-machines-windows-sizes-storage.md) | L-serie | 5630 |
+| [GPU](sizes-gpu.md) | N-serie | 1440 |
+| [Hoge prestaties](sizes-hpc.md) | A- en H-serie | 2000 |
 
-## <a name="azure-data-disks"></a>Azure gegevensschijven
+## <a name="azure-data-disks"></a>Azure-gegevensschijven
 
-Extra gegevensschijven kunnen worden toegevoegd voor het installeren van toepassingen en gegevens op te slaan. Gegevensschijven moeten worden gebruikt in een situatie waarin de opslag van gegevens duurzaam en responsief gewenst is. Elke gegevensschijf heeft een maximale capaciteit van 1 terabyte. De grootte van de virtuele machine bepaalt hoeveel gegevensschijven kunnen worden gekoppeld aan een virtuele machine. Voor elke vCPU VM kunnen twee schijven worden gekoppeld. 
+Er kunnen extra gegevensschijven worden toegevoegd voor het installeren van toepassingen en opslaan van gegevens. Gegevensschijven moeten worden gebruikt in situaties waarin duurzame en responsieve gegevensopslag gewenst is. Elke gegevensschijf heeft een maximale capaciteit van 1 terabyte. De grootte van de virtuele machine bepaalt hoeveel gegevensschijven aan een virtuele machine kunnen worden gekoppeld. Voor elke VM-vCPU kunnen twee schijven worden gekoppeld. 
 
-### <a name="max-data-disks-per-vm"></a>Maximum aantal gegevensschijven per VM
+### <a name="max-data-disks-per-vm"></a>Max. aantal gegevensschijven per VM
 
-| Type | VM-grootte | Maximum aantal gegevensschijven per VM |
+| Type | VM-grootte | Max. aantal gegevensschijven per VM |
 |----|----|----|
-| [Algemeen doel](sizes-general.md) | A en D-reeks | 32 |
+| [Algemeen doel](sizes-general.md) | A- en D-serie | 32 |
 | [Geoptimaliseerde rekenkracht](sizes-compute.md) | F-serie | 32 |
-| [Geoptimaliseerd geheugen](../virtual-machines-windows-sizes-memory.md) | D en G-serie | 64 |
-| [Geoptimaliseerde opslag](../virtual-machines-windows-sizes-storage.md) | L-reeks | 64 |
-| [GPU](sizes-gpu.md) | N reeks | 48 |
-| [Hoge prestaties](sizes-hpc.md) | A en H reeks | 32 |
+| [Geoptimaliseerd geheugen](../virtual-machines-windows-sizes-memory.md) | D- en G-serie | 64 |
+| [Geoptimaliseerde opslag](../virtual-machines-windows-sizes-storage.md) | L-serie | 64 |
+| [GPU](sizes-gpu.md) | N-serie | 48 |
+| [Hoge prestaties](sizes-hpc.md) | A- en H-serie | 32 |
 
-## <a name="vm-disk-types"></a>VM-schijftypen
+## <a name="vm-disk-types"></a>Typen VM-schijven
 
-Azure biedt twee typen van de schijf.
+Azure biedt twee typen schijven.
 
-### <a name="standard-disk"></a>Standard-schijven
+### <a name="standard-disk"></a>Standard-schijf
 
-Standard Storage wordt ondersteund door HDD's en biedt voordelige en hoogwaardige opslag. Standaardschijven zijn ideaal voor een voordelige ontwikkelen en testen werkbelasting.
+Standard Storage wordt ondersteund door HDD's en biedt voordelige en hoogwaardige opslag. Standard-schijven zijn ideaal voor een kostenefficiënte werkbelasting voor ontwikkelen en testen.
 
 ### <a name="premium-disk"></a>Premium-schijf
 
-Premium-schijven worden ondersteund door de hoge prestaties, lage latentie SSD-schijf. Ideaal voor virtuele machines met productie werkbelasting. Premium-opslag ondersteunt DS-serie, DSv2-serie GS-serie en virtuele machines FS-serie. Premium-schijven zijn drie typen (P10, P20, P30), de grootte van de schijf bepaalt het schijftype. Wanneer u selecteert, wordt de een de waarde van de schijfgrootte afgerond naar het volgende type. Als de schijfgrootte minder dan 128 GB is, is het schijftype P10. Als de schijfgrootte tussen 129 en 512 GB, is de grootte een P20. Meer dan 512 GB, de grootte van een P30 is.
+Premium-schijven worden ondersteund door hoogwaardige schijven met een lage latentie op basis van SSD. Ideaal voor virtuele machines met een productiewerkbelasting. Premium Storage ondersteunt virtuele machines uit de DS-serie, DSv2-serie GS-serie en FS-serie. Premium-schijven worden geleverd in drie typen (P10, P20, P30); de grootte van de schijf bepaalt het schijftype. Wanneer u een selectie maakt, wordt de waarde van de schijfgrootte afgerond naar het volgende type. Als de schijfgrootte bijvoorbeeld kleiner dan 128 GB is, is het schijftype P10. Als de schijfgrootte tussen 129 en 512 GB is, is het type een P20. Van alles dat meer dan 512 GB is, is het type een P30.
 
-### <a name="premium-disk-performance"></a>Premium-schijfprestaties
+### <a name="premium-disk-performance"></a>Prestaties Premium-schijf
 
-|Premium-opslag schijftype | P10 | P20 | P30 |
+|Schijftype voor Premium Storage | P10 | P20 | P30 |
 | --- | --- | --- | --- |
-| Grootte van de schijf (afronden) | 128 GB | 512 GB | 1.024 GB (1 TB) |
-| Max. aantal IOP's per schijf | 500 | 2,300 | 5,000 |
+| Schijfgrootte (afronden) | 128 GB | 512 GB | 1.024 GB (1 TB) |
+| Max. aantal IOP's per schijf | 500 | 2.300 | 5.000 |
 Doorvoer per schijf | 100 MB/s | 150 MB/s | 200 MB/s |
 
-Terwijl de bovenstaande tabel max. IOP's per schijf identificeert, kan een hoger niveau van de prestaties worden bereikt door meerdere gegevensschijven te verwijderen. Een VM Standard_GS5 kunt bijvoorbeeld een maximumaantal IOPS 80.000 bereiken. Zie voor gedetailleerde informatie over max. IOP's per VM [Linux VM-grootten](sizes.md).
+In de bovenstaande tabel wordt het max. IOP's per schijf aangegeven, maar er kan een hoger prestatieniveau worden bereikt door striping van meerdere gegevensschijven. Een virtuele machine van het type Standard_GS5 kan bijvoorbeeld maximaal 80.000 IOPS bereiken. Zie [Linux VM-grootten](sizes.md) voor gedetailleerde informatie over het maximum aantal IOP's per VM.
 
-## <a name="create-and-attach-disks"></a>Maken en koppelen van schijven
+## <a name="create-and-attach-disks"></a>Schijven maken en koppelen
 
-Gegevensschijven worden gemaakt en gekoppeld tijdens de aanmaak van de VM of naar een bestaande virtuele machine.
+Gegevensschijven kunnen worden gemaakt en aan een VM worden gekoppeld tijdens het maken of aan een bestaande virtuele machine worden gekoppeld.
 
-### <a name="attach-disk-at-vm-creation"></a>Schijf bij het maken van de virtuele machine koppelen
+### <a name="attach-disk-at-vm-creation"></a>Schijf koppelen tijdens het maken van de virtuele machine
 
 Een resourcegroep maken met de opdracht [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
 
@@ -108,7 +108,7 @@ Een resourcegroep maken met de opdracht [az group create](https://docs.microsoft
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Maak een virtuele machine met de [az vm maken]( /cli/azure/vm#create) opdracht. De `--datadisk-sizes-gb` argument wordt gebruikt om op te geven dat een extra schijf moet worden gemaakt en gekoppeld aan de virtuele machine. Gebruik wilt maken en koppelen van meer dan één schijf, een door spaties gescheiden lijst met grootten van de schijf. In het volgende voorbeeld wordt een virtuele machine gemaakt met twee gegevensschijven, beide 128 GB. Omdat de schijfgrootte 128 GB, zijn deze schijven geconfigureerd als P10s waarmee maximaal 500 IOP's per schijf.
+Maak een VM met de opdracht [az vm create]( /cli/azure/vm#az_vm_create). Het argument `--datadisk-sizes-gb` wordt gebruikt om op te geven dat een extra schijf moet worden gemaakt en gekoppeld aan de virtuele machine. Als u meer dan één schijf wilt maken en koppelen, gebruikt u een door spaties gescheiden lijst met waarden voor schijfgroottes. In het volgende voorbeeld wordt een virtuele machine gemaakt met twee gegevensschijven, beide van 128 GB. Omdat de schijfgrootte 128 GB is, zijn deze schijven beide geconfigureerd als P10, dat maximaal 500 IOP's per schijf biedt.
 
 ```azurecli-interactive 
 az vm create \
@@ -120,9 +120,9 @@ az vm create \
   --generate-ssh-keys
 ```
 
-### <a name="attach-disk-to-existing-vm"></a>Schijf koppelen aan bestaande virtuele machine
+### <a name="attach-disk-to-existing-vm"></a>Een schijf koppelen aan een bestaande virtuele machine
 
-Als u een nieuwe schijf koppelen aan een bestaande virtuele machine wilt maken, gebruikt u de [az vm schijf koppelen](/cli/azure/vm/disk#attach) opdracht. Het volgende voorbeeld maakt een premium-schijf 128 GB groot, en deze is gekoppeld aan de virtuele machine in de vorige stap hebt gemaakt.
+Als u een nieuwe schijf wilt maken en koppelen aan een bestaande virtuele machine wilt maken, gebruikt u de opdracht [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach). In het volgende voorbeeld wordt een Premium-schijf gemaakt met een grootte van 128 GB en gekoppeld aan de virtuele machine die u in de vorige stap hebt gemaakt.
 
 ```azurecli-interactive 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
@@ -130,41 +130,41 @@ az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myD
 
 ## <a name="prepare-data-disks"></a>Gegevensschijven voorbereiden
 
-Zodra een schijf is gekoppeld aan de virtuele machine, moet het besturingssysteem worden geconfigureerd voor gebruik van de schijf. Het volgende voorbeeld laat zien hoe handmatig configureren van een schijf. Dit proces kan ook worden geautomatiseerd met behulp van cloud-init, die wordt beschreven in een [hoger zelfstudie](./tutorial-automate-vm-deployment.md).
+Wanneer een schijf is gekoppeld aan de virtuele machine, moet het besturingssysteem worden geconfigureerd voor gebruik van de schijf. Het volgende voorbeeld laat zien hoe u een schijf handmatig configureert. Dit proces kan ook worden geautomatiseerd met behulp van cloud-init, wat wordt beschreven in een [latere zelfstudie](./tutorial-automate-vm-deployment.md).
 
 ### <a name="manual-configuration"></a>Handmatige configuratie
 
-Maak een SSH-verbinding met de virtuele machine. De voorbeeld-IP-adres vervangen door het openbare IP-adres van de virtuele machine.
+Maak een SSH-verbinding met de virtuele machine. Vervang het voorbeeld van een IP-adres door het openbare IP-adres van de virtuele machine.
 
 ```azurecli-interactive 
 ssh 52.174.34.95
 ```
 
-De schijf met partitioneren `fdisk`.
+Partitioneer de schijf met `fdisk`.
 
 ```bash
 (echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc
 ```
 
-Een bestandssysteem schrijven naar de partitie met behulp van de `mkfs` opdracht.
+Schrijf een bestandssysteem naar de partitie met behulp van de opdracht `mkfs`.
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
 ```
 
-De nieuwe schijf koppelen zodat deze toegankelijk is in het besturingssysteem.
+Koppel de nieuwe schijf, zodat deze toegankelijk is in het besturingssysteem.
 
 ```bash
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-De schijf kan nu worden geopend via de *datadrive* koppelpunt die kan worden gecontroleerd door het uitvoeren van de `df -h` opdracht. 
+De schijf kan nu worden geopend via het *datadrive*-koppelpunt. Dit kan worden gecontroleerd door de opdracht `df -h` uit te voeren. 
 
 ```bash
 df -h
 ```
 
-De uitvoer ziet u het nieuwe station gekoppeld aan */datadrive*.
+De uitvoer geeft het nieuwe station weer dat is gekoppeld aan */datadrive*.
 
 ```bash
 Filesystem      Size  Used Avail Use% Mounted on
@@ -173,79 +173,79 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc1        50G   52M   47G   1% /datadrive
 ```
 
-Om ervoor te zorgen dat het station na opnieuw opstarten opnieuw is gekoppeld, moet deze worden toegevoegd aan de */etc/fstab* bestand. Om dit te doen, krijgen de UUID van de schijf met de `blkid` hulpprogramma.
+Om ervoor te zorgen dat het station na het opnieuw opstarten opnieuw wordt gekoppeld, moet het worden toegevoegd aan het bestand */etc/fstab*. Haal hiervoor de UUID van de schijf op met het hulpprogramma `blkid`.
 
 ```bash
 sudo -i blkid
 ```
 
-De uitvoer geeft de UUID van het station `/dev/sdc1` in dit geval.
+De uitvoer geeft de UUID van het station weer, in dit geval `/dev/sdc1`.
 
 ```bash
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Toevoegen van een regel vergelijkbaar met het volgende wanneer u de */etc/fstab* bestand. Ook dat barrières schrijven kan worden uitgeschakeld met *blokkade = 0*, deze configuratie kan de schijf worden verbeterd. 
+Voeg een regel toe aan het bestand */etc/fstab* die vergelijkbaar is met de volgende. Schrijfbarrières kunnen worden uitgeschakeld met *barrier=0*; deze configuratie kan de schijfprestaties verbeteren. 
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail,barrier=0   1  2
 ```
 
-Nu dat de schijf is geconfigureerd, sluit u de SSH-sessie.
+Nu de schijf is geconfigureerd, sluit u de SSH-sessie.
 
 ```bash
 exit
 ```
 
-## <a name="resize-vm-disk"></a>Formaat van VM-schijf
+## <a name="resize-vm-disk"></a>Grootte van VM-schijf wijzigen
 
-Wanneer een virtuele machine is geïmplementeerd, kunnen het besturingssysteem of een aangesloten gegevensschijven worden vergroot. Het vergroten van een schijf is handig wanneer hoeven meer opslagruimte of een hoger niveau van de prestaties (P10, P20, P30). Houd er rekening mee schijven in grootte kunnen niet worden verhoogd.
+Wanneer een virtuele machine is geïmplementeerd, kunnen het besturingssysteem of aangesloten gegevensschijven worden vergroot. Het vergroten van een schijf is handig wanneer u meer opslagruimte of hogere prestaties (P10, P20, P30) nodig hebt. De grootte van schijven kan niet worden verkleind.
 
-Voordat u voor de grootte van de schijf, is de Id of naam van de schijf nodig. Gebruik de [az Schijflijst](/cli/azure/disk#az_disk_list) opdracht voor het retourneren van alle schijven in een resourcegroep. Noteer de naam van de schijf die u wilt vergroten of verkleinen.
+U hebt de naam of id van de schijf nodig als u de grootte ervan wilt wijzigen. Gebruik de opdracht [az disk list](/cli/azure/disk#az_disk_list) om alle schijven in een resourcegroep te retourneren. Noteer de naam van de schijf die u wilt vergroten of verkleinen.
 
 ```azurecli-interactive 
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-De virtuele machine moet ook ongedaan. Gebruik de [az vm ongedaan]( /cli/azure/vm#deallocate) opdracht om te stoppen en de VM ongedaan gemaakt.
+Ook moet de toewijzing van de virtuele machine ongedaan worden gemaakt. Gebruik de opdracht [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) om de virtuele machine te stoppen en de toewijzing van de virtuele machine ongedaan te maken.
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-Gebruik de [az schijf update](/cli/azure/vm/disk#update) opdracht het formaat van de schijf. In dit voorbeeld wordt een schijf met de naam het formaat *myDataDisk* naar 1 terabyte.
+Gebruik de opdracht [az disk update](/cli/azure/vm/disk#az_vm_disk_update) om de grootte van de schijf te wijzigen. In dit voorbeeld wordt de grootte van een schijf met de naam *myDataDisk* gewijzigd in 1 terabyte.
 
 ```azurecli-interactive 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
 ```
 
-Nadat de bewerking formaat is voltooid, start u de virtuele machine.
+Nadat de grootte is gewijzigd, start u de virtuele machine.
 
 ```azurecli-interactive 
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-Als u het formaat van de schijf van het besturingssysteem hebt gewijzigd, wordt de partitie automatisch uitgebreid. Als u het formaat van een gegevensschijf hebt gewijzigd, moeten alle huidige partities worden uitgebreid in het besturingssysteem van de virtuele machines.
+Als u de grootte van de besturingssysteemschijf hebt gewijzigd, wordt de partitie automatisch uitgebreid. Als u de grootte van een gegevensschijf hebt gewijzigd, moeten alle huidige partities worden uitgebreid in het besturingssysteem van de virtuele machine.
 
 ## <a name="snapshot-azure-disks"></a>Momentopname maken van Azure-schijven
 
-Maken van een momentopname van de schijf, maakt een lezen alleen, punt in tijd kopie van de schijf. Azure VM-momentopnamen zijn handig voor het opslaan van snel de status van een virtuele machine voordat u configuratiewijzigingen in. In het geval van wijzigingen in de configuratie blijken ongewenste, kan status virtuele machine worden hersteld met behulp van de momentopname. Wanneer een virtuele machine meer dan één schijf heeft, wordt een momentopname gemaakt van elke schijf onafhankelijk van de andere. Houd rekening met de virtuele machine stoppen voordat het maken van momentopnamen van de schijf voor het maken van de toepassing consistente back-ups. U kunt ook de [Azure Backup-service](/azure/backup/), waardoor u automatische back-ups uitvoeren terwijl de virtuele machine wordt uitgevoerd.
+Met het maken van een momentopname van de schijf, wordt een alleen-lezen, tijdgebonden kopie van de schijf gemaakt. Azure VM-momentopnamen zijn handig om snel de status van een virtuele machine op te slaan voordat u configuratiewijzigingen aanbrengt. Als configuratiewijzigingen ongewenst blijken te zijn, kan de status van de virtuele machine worden hersteld met behulp van de momentopname. Wanneer een virtuele machine meer dan één schijf heeft, wordt van elke schijf een momentopname gemaakt, onafhankelijk van de andere schijven. Overweeg de virtuele machine te stoppen voordat u momentopnamen van de schijf maakt, zodat u toepassingsconsistente back-ups maakt. U kunt ook de [Azure Backup-service](/azure/backup/) gebruiken, waarmee u automatische back-ups kunt maken terwijl de virtuele machine wordt uitgevoerd.
 
 ### <a name="create-snapshot"></a>Momentopname maken
 
-Voordat u een momentopname van de virtuele machine schijf maakt, is de Id of naam van de schijf nodig. Gebruik de [az vm weergeven](https://docs.microsoft.com/cli/azure/vm#az_vm_show) opdracht voor het retourneren van de schijf-id. In dit voorbeeld wordt de schijf-id opgeslagen in een variabele, zodat deze kan worden gebruikt in een later stadium.
+Voor het maken van een momentopname van de schijf van een virtuele machine hebt u de id of naam van de schijf nodig. Gebruik de opdracht [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) om de schijf-id op te halen. In dit voorbeeld wordt de schijf-id opgeslagen in een variabele, zodat deze in een later stadium kan worden gebruikt.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 ```
 
-Nu dat u de id van de schijf van de virtuele machine hebt, maakt de volgende opdracht u een momentopname van de schijf.
+Nu u de id van de schijf van de virtuele machine hebt, kunt u met de volgende opdracht een momentopname van de schijf maken.
 
 ```azurcli
 az snapshot create -g myResourceGroupDisk --source "$osdiskid" --name osDisk-backup
 ```
 
-### <a name="create-disk-from-snapshot"></a>Schijf maken vanuit een momentopname.
+### <a name="create-disk-from-snapshot"></a>Schijf maken op basis van een momentopname
 
 Deze momentopname kan vervolgens worden geconverteerd naar een schijf die kan worden gebruikt om de virtuele machine opnieuw te maken.
 
@@ -253,15 +253,15 @@ Deze momentopname kan vervolgens worden geconverteerd naar een schijf die kan wo
 az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
 ```
 
-### <a name="restore-virtual-machine-from-snapshot"></a>Virtuele machine herstellen vanuit een momentopname.
+### <a name="restore-virtual-machine-from-snapshot"></a>Virtuele machine herstellen op basis van een momentopname
 
-Om te demonstreren herstel van virtuele machine, verwijder de bestaande virtuele machine. 
+Voor het herstellen van de virtuele machine dient u de bestaande virtuele machine te verwijderen. 
 
 ```azurecli-interactive 
 az vm delete --resource-group myResourceGroupDisk --name myVM
 ```
 
-Maak een nieuwe virtuele machine van de momentopname-schijf.
+Maak een nieuwe virtuele machine op basis van de momentopname van de schijf.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk mySnapshotDisk --os-type linux
@@ -271,13 +271,13 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 Alle gegevensschijven moeten opnieuw worden gekoppeld aan de virtuele machine.
 
-Zoek eerst de gegevens schijf naam met de [az Schijflijst](https://docs.microsoft.com/cli/azure/disk#az_disk_list) opdracht. In dit voorbeeld wordt de naam van de schijf in een variabele met de naam *datadisk*, die wordt gebruikt in de volgende stap.
+Zoek eerst de naam van de gegevensschijf op met de opdracht [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list). In dit voorbeeld wordt de naam van de schijf in een variabele met de naam *datadisk* geplaatst, die in de volgende stap wordt gebruikt.
 
 ```azurecli-interactive 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-Gebruik de [az vm schijf koppelen](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) opdracht om de schijf te koppelen.
+Gebruik de opdracht [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) om de schijf te koppelen.
 
 ```azurecli-interactive 
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
@@ -285,18 +285,18 @@ az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd over VM schijven onderwerpen, zoals:
+In deze zelfstudie hebt u meer geleerd over onderwerpen over VM-schijven, zoals:
 
 > [!div class="checklist"]
-> * OS-schijven en tijdelijke schijven
+> * Besturingssysteemschijven en tijdelijke schijven
 > * Gegevensschijven
-> * Standard en Premium-schijven
-> * Prestaties van de schijf
-> * Koppelen en gegevensschijven voorbereiden
-> * De schijfgrootte
-> * Schijf momentopnamen
+> * Standard- en Premium-schijven
+> * Schijfprestaties
+> * Het koppelen en voorbereiden van gegevensschijven
+> * De grootte van schijven wijzigen
+> * Momentopnamen van schijven
 
-Ga naar de volgende zelfstudie voor meer informatie over het automatiseren van VM-configuratie.
+In de volgende zelfstudie leert u hoe u de configuratie van virtuele machines automatiseert.
 
 > [!div class="nextstepaction"]
 > [VM-configuratie automatiseren](./tutorial-automate-vm-deployment.md)

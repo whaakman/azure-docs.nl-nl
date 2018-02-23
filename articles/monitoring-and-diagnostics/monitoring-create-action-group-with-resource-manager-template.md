@@ -1,8 +1,8 @@
 ---
 title: Actiegroepen maken met Resource Manager-sjablonen | Microsoft Docs
 description: Informatie over het maken van een actiegroep met een Azure Resource Manager-sjabloon.
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: 5e715cad5cb28ad0c763ffb29c43e9ee98741699
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.date: 02/16/2018
+ms.author: dukek
+ms.openlocfilehash: 1f97bf1e1e5c2800c2cdc16a6bcc1837f178e408
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Een actiegroep met Resource Manager-sjabloon maken
 Dit artikel laat zien hoe u een [Azure Resource Manager-sjabloon](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) actiegroepen configureren. Met behulp van sjablonen, kunt u automatisch actiegroepen die opnieuw kunnen worden gebruikt in bepaalde typen waarschuwingen instellen. Deze actiegroepen Zorg ervoor dat de juiste partijen worden gewaarschuwd wanneer een waarschuwing wordt geactiveerd.
@@ -33,7 +33,7 @@ We beschrijven eerst het maken van een Resource Manager-sjabloon voor een actieg
 
 ## <a name="resource-manager-templates-for-an-action-group"></a>Resource Manager-sjablonen voor een actiegroep
 
-Een om actiegroep te maken met een Resource Manager-sjabloon, die u maakt een resource van het type `Microsoft.Insights/actionGroups`. Vervolgens vult u alle bijbehorende eigenschappen. Hier vindt u twee voorbeeldsjablonen die een actiegroep maken.
+Voor het maken van een actiegroep met een Resource Manager-sjabloon die u maakt een resource van het type `Microsoft.Insights/actionGroups`. Vervolgens vult u alle bijbehorende eigenschappen. Hier vindt u twee voorbeeldsjablonen die een actiegroep maken.
 
 ```json
 {
@@ -56,7 +56,7 @@ Een om actiegroep te maken met een Resource Manager-sjabloon, die u maakt een re
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2018-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -139,7 +139,7 @@ Een om actiegroep te maken met een Resource Manager-sjabloon, die u maakt een re
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2018-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {

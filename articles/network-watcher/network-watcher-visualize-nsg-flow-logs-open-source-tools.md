@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 6caff3237e9694a00fc0847d5612b7a6e08d4b69
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f7d51352aa8411e36f4224804c90c2554d4ef9e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Azure-netwerk-Watcher NSG stroom logboeken met open-source hulpprogramma's te visualiseren
 
@@ -46,7 +46,7 @@ NSG stroom Logboeken verbinding met de elastische Stack, kunnen we een Kibana-da
 1. De elastische Stack versie 5.0 en hoger vereist Java 8. Voer de opdracht `java -version` uw versie controleren. Als u nog geen java installeren, Raadpleeg de documentatie op [van Oracle-website](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
 1. Download het juiste binaire pakket voor uw systeem:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -56,13 +56,13 @@ NSG stroom Logboeken verbinding met de elastische Stack, kunnen we een Kibana-da
 
 1. Controleer of Elasticsearch met de opdracht is uitgevoerd:
 
-    ```
+    ```bash
     curl http://127.0.0.1:9200
     ```
 
     U ziet een reactie vergelijkbaar met het volgende:
 
-    ```
+    ```json
     {
     "name" : "Angela Del Toro",
     "cluster_name" : "elasticsearch",
@@ -83,13 +83,13 @@ Zie voor verdere instructies voor het installeren van elastische zoeken naar de 
 
 1. Voer de volgende opdrachten Logstash installeren:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
 1. Vervolgens moet Logstash voor toegang tot en het parseren van de logboeken van de stroom te configureren. Maak een logstash.conf-bestand met:
 
-    ```
+    ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
@@ -162,13 +162,13 @@ Raadpleeg voor meer informatie over het installeren van Logstash de [officiële 
 
 Deze invoegtoepassing Logstash kunt u rechtstreeks toegang krijgen tot de logboeken van de stroom van hun aangewezen storage-account. Voer de opdracht uit de standaardinstallatiemap van Logstash (in dit geval /usr/share/logstash/bin) voor het installeren van deze invoegtoepassing:
 
-```
+```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
 Voer de opdracht Logstash starten:
 
-```
+```bash
 sudo /etc/init.d/logstash start
 ```
 
@@ -178,19 +178,19 @@ Raadpleeg de documentatie voor meer informatie over deze invoegtoepassing [hier]
 
 1. Voer de volgende opdrachten voor het installeren van Kibana:
 
-  ```
+  ```bash
   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
   ```
 
 1. Kibana gebruik de opdrachten uitvoeren:
 
-  ```
+  ```bash
   cd kibana-5.2.0-linux-x86_64/
   ./bin/kibana
   ```
 
-1. Als u wilt de webinterface voor uw Kibana weergeven, gaat u naar`http://localhost:5601`
+1. Als u wilt de webinterface voor uw Kibana weergeven, gaat u naar `http://localhost:5601`
 1. In dit scenario is het patroon index voor de logboeken van de stroom 'nsg-flow-logs'. U kunt het patroon van de index in de sectie 'uitvoer' van het bestand logstash.conf wijzigen.
 
 1. Als u weergeven van het dashboard Kibana op afstand wilt, maakt u een inkomende NSG-regel om toegang te kunnen **5601 poort**.

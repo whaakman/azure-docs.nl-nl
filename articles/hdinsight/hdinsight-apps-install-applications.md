@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/16/2018
 ms.author: jgao
-ms.openlocfilehash: 9924a9656f2e2e268356b8ce293d58afc3d535a9
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: cfaad24e7bf1c38f3be1e13c88fc932be0bd502c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Hadoop-toepassingen van derden op Azure HDInsight installeren
 
@@ -33,13 +33,12 @@ De volgende lijst bevat de gepubliceerde toepassingen:
 * **AtScale Intelligence Platform** Hiermee schakelt u uw HDInsight-cluster in een scale-out OLAP-server. De toepassing kunt u query miljarden rijen met gegevens die u met de BI-hulpprogramma's van Microsoft Excel, Power BI en Tableau Software naar QlikView.
 * **Cask CDAP voor HDInsight** biedt de eerste unified integratieplatform voor big data dat wordt het de tijd voor de productie voor data-toepassingen en gegevens meren met 80%. Deze toepassing biedt alleen ondersteuning voor standaard HBase 3.4-clusters.
 * **DATAIKU DDS op HDInsight** kunnen gegevens professionals prototype, bouwen en implementeren zeer specifieke services die onbewerkte gegevens naar indrukwekkende business voorspellingen transformeren.
-* **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) biedt analisten een interactieve wijze voor het detecteren, analyseren en visualiseren van de resultaten over big data. Betrek eenvoudig aanvullende gegevensbronnen en ontdek snel nieuwe relaties en antwoorden op vragen.
 * **H2O kunstmatige Intelligence voor HDInsight (bèta)** H2O mineraalwater ondersteunt de volgende algoritmen voor gedistribueerde: GLM, Naïve Bayes, gedistribueerde willekeurige Forest, kleurovergang versterking Machine, Deep Neural Networks, Deep leren, K-means, PCA, Lage waarden van positie modellen, Afwijkingsdetectie en Autoencoders gegeneraliseerd.
 * **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) is een enterprise-ready datawarehouse aangedreven door Apache Kylin en Apache Hadoop; het onderliggende seconde biedt latentie voor grootschalige gegevensset opvragen en gegevensanalyse voor vereenvoudigt zakelijke gebruikers en analisten. 
 * **Paxata Self-service gegevens voorbereiden**
-* **SnapLogic Hadooplex** de SnapLogic Hadooplex uitgevoerd op HDInsight kunnen klanten om te krijgen tot zakelijke inzichten sneller door selfservice gegevensopname en de voorbereiding van vrijwel elke bron voor het Microsoft Azure cloud-platform.
 * **Spark-taakserver voor KNIME Spark Executor** Spark-taakserver voor KNIME Spark Executor wordt gebruikt voor het KNIME Analytics Platform verbinding met HDInsight-clusters.
 * **StreamSets Data Collector voor HDInsight** biedt een complete geïntegreerde IDE (Integrated Development Environment) waarin u opnamepijplijnen die stream- en batchgegevens filteren en diverse in-stream transformaties bevatten, in alle richtingen kunt ontwerpen, testen, implementeren en beheren, en dat alles zonder aangepaste code te hoeven schrijven. 
+* **[Trifacta](http://www.trifacta.com/)**  kunnen gegevens engineers en analisten efficiënter verkennen en de gegevens van de diverse huidige voorbereiden door het gebruik van machine learning-voor een gebruikerservaring innovatieve, werkstroom en architectuur.
 * **WANdisco Fusion HDI App** continue consistent verbinding met de gegevens kunt gewijzigd waar deze zich bevinden. Biedt u toegang tot uw gegevens op elk gewenst moment en overal met zonder uitvaltijd en niet wordt onderbroken.
 
 De instructies in dit artikel zijn bestemd voor gebruik met Azure Portal. U kunt ook de Azure Resource Manager-sjabloon exporteren vanuit de portal of een kopie van de Resource Manager-sjabloon van leveranciers verkrijgen, en Azure PowerShell en Azure CLI gebruiken om de sjabloon te implementeren.  Zie [maken Hadoop-clusters in HDInsight met behulp van Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
@@ -58,14 +57,10 @@ De volgende procedure beschrijft hoe u HDInsight-toepassingen in een bestaand HD
 4. Klik op **Toepassingen** onder de categorie **Configuraties**. Hier ziet u een lijst met geïnstalleerde toepassingen. Als u Toepassingen niet kunt vinden, betekent dit dat er geen toepassingen zijn voor deze versie van het HDInsight-cluster.
    
     ![Menu van HDInsight-toepassingenportal](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
-5. Klik op **toevoegen** in het menu. 
-   
-    ![HDInsight-toepassingen, geïnstalleerde apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
-   
-    Er wordt een lijst met bestaande HDInsight-toepassingen weergegeven.
+5. Klik op **toevoegen** in het menu. Er wordt een lijst met bestaande HDInsight-toepassingen weergegeven.
    
     ![HDInsight-toepassingen, beschikbare toepassingen](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
-6. Klik op een van de toepassingen, ga akkoord met de juridische bepalingen en klik vervolgens op **Selecteren**.
+6. Klik op een van de beschikbare toepassingen en volg de aanwijzingen om de juridische voorwaarden te accepteren.
 
 U kunt de installatiestatus zien in de portalmeldingen (klik boven aan de portal op het belpictogram). Nadat de toepassing is geïnstalleerd, wordt de toepassing wordt weergegeven in de lijst met geïnstalleerde Apps.
 
@@ -80,7 +75,7 @@ De portal toont een lijst van de geïnstalleerde HDInsight-toepassingen voor een
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in het linkermenu op **HDInsight-clusters**. 
 3. Klik op een HDInsight-cluster.
-4. Van **instellingen**, klikt u op **toepassingen** onder de **algemene** categorie. De geïnstalleerde Apps worden weergegeven aan de rechterkant. 
+4. Van **instellingen**, klikt u op **toepassingen** onder de **configuratie** categorie. De geïnstalleerde Apps worden weergegeven aan de rechterkant. 
    
     ![HDInsight-toepassingen, geïnstalleerde apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Klik op een van de geïnstalleerde toepassingen om de eigenschap weer te geven. De lijsten met eigenschappen:

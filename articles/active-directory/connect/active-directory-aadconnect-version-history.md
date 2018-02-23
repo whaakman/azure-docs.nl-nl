@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2017
+ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen zijn van toepassing op alle doelgroepen.
@@ -35,6 +35,73 @@ Vereiste machtigingen | Zie voor de vereiste machtigingen voor een update van to
 
 Download | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117490"></a>1.1.749.0
+Status: Beschikbaar voor klanten selecteren
+
+>[!NOTE]
+>Wanneer de upgrade naar deze nieuwe versie is voltooid, wordt deze automatisch een volledige synchronisatie en de volledige import voor de Azure AD-connector en een volledige synchronisatie voor de AD-connector activeren. Omdat dit enige tijd, afhankelijk van de grootte van uw Azure AD Connect-omgeving duren kan, zorg ervoor dat u de benodigde stappen voor de ondersteuning van dit of houd uit op het upgraden van totdat u handige even de tijd om dit te doen hebt gevonden hebt genomen.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Opgeloste problemen
+* Tijdvenster los op de achtergrond taken voor het filteren van partitie pagina wanneer
+* Los op achtergrondtaken voor partitie filteren pagina tijdvenster wanneer u overschakelt naar de volgende pagina.
+
+* Een fout die toegangsfout tijdens de aangepaste actie ConfigDB veroorzaakt vast
+
+* Heeft een fout bij het herstellen van de time-out van de SQL-verbinding.
+
+* Een bug vast waar de certificaten met jokertekens SAN een controle van vereisten is mislukt
+
+* Heeft een fout die ervoor zorgt miiserver.exe vastlopen tijdens het exporteren van een Azure AD-connector dat.
+
+* Een bug geregistreerd welke poging ongeldig wachtwoord vast op DC bij het uitvoeren van de wizard Azure AD Connect-configuratie wijzigen
+
+
+#### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
+
+* Privacyinstellingen voor de datum van de algemene beveiliging regulering (GDPR) toe te voegen.  Voor GDPR zijn we vereist om aan te geven de typen van klantgegevens die worden gedeeld met Microsoft (telemetrie, status, enz.) bevatten koppelingen naar gedetailleerde online documentatie en bieden een manier voor onze klanten om hun voorkeuren wijzigen.  Dit selectievakje in voegt het volgende:
+
+
+    - Delen van gegevens en privacy-melding op het opschonen installeren EULA-pagina.
+    - Delen en privacy melding gegevens op de upgradepagina.
+    - Een nieuwe aanvullende taak 'Privacy-instellingen' waarin de gebruiker de voorkeuren kunt wijzigen.
+
+* toepassingstelemetrie - beheerder kan deze klasse van gegevens in- en uitgeschakeld overschakelen op wordt
+
+* Statusgegevens van Azure AD - beheerder moet de health-portal voor het beheren van instellingen voor de status bezoeken.
+   Zodra de service-beleid is gewijzigd, wordt de agents lezen en wordt deze toepassen.
+
+* Apparaat terugschrijven Configuratieacties en een voortgangsbalk zien voor de initialisatie van de pagina
+
+* Algemene Diagnostics verbeterd met HTML-rapport en volledige gegevens verzamelen in een ZIP-tekst / HTML-rapport
+
+* Verbeterde de betrouwbaarheid van de automatische upgrade en extra telemetrie van de toegevoegde om te controleren of dat de status van de server kan worden bepaald.
+
+* Beschikbare machtigingen beperken tot beschermde accounts op AD-Connector-account
+
+  * Voor nieuwe installaties van de wizard worden beperkt, de machtigingen die accounts met bevoegdheden hebben op het account MSOL na het maken van het account MSOL.
+
+De wijzigingen zorgt voor het volgende:
+1. Snelle installatie
+2. Aangepaste installaties met account automatisch maken
+
+* Het installatieprogramma wordt gewijzigd zodat het SA-bevoegdheden op een schone installatie van Azure AD Connect niet nodig
+
+* Een nieuw hulpprogramma voor het oplossen van problemen met synchronisatie voor een specifiek object toegevoegd. Is deze beschikbaar is onder de optie 'Object synchronisatie oplossen' van Azure AD Connect Wizard oplossen aanvullende taak. Op dit moment controleert het hulpprogramma voor het volgende:
+
+  * UserPrincipalName komt niet overeen tussen gesynchroniseerde gebruikersobject en het gebruikersaccount in Azure AD-Tenant.
+  * Als het object is gefilterd van synchronisatie vanwege domein filteren
+  * Als het object van synchronisatie vanwege organisatie-eenheid (OE) voor het filteren is gefilterd
+
+* Een nieuw hulpprogramma om te synchroniseren van de huidige wachtwoordhash opgeslagen in de lokale Active Directory voor een specifiek gebruikersaccount toegevoegd.
+
+Het hulpprogramma is niet vereist voor wachtwoord wijzigen. Is deze beschikbaar is onder de optie 'Problemen met synchronisatie van wachtwoordhash' van Azure AD Connect Wizard oplossen aanvullende taak.
+
+
+
+
+
+
 ## <a name="116540"></a>1.1.654.0
 Status: 12 December 2017
 
@@ -50,7 +117,7 @@ Een verbetering is toegevoegd aan Azure AD Connect versie 1.1.654.0 (en na) om e
 >[!NOTE]
 >Deze release verwijdert alleen de kwetsbaarheid voor nieuwe installaties van Azure AD Connect waarop de serviceaccount is gemaakt door het installatieproces. Voor bestaande installaties, of in gevallen waarin u het account zelf opgeven, moet u ervoor zorgen dat deze kwetsbaarheid niet bestaat.
 
-#### <a name="lock"></a>Toegang tot het AD DS-account vergrendelen
+#### <a name="lock"></a> Toegang tot het AD DS-account vergrendelen
 Vergrendelen van toegang tot het AD DS-account door het implementeren van de volgende machtigingswijzigingen in de on-premises AD:  
 
 *   Overname van het opgegeven object uitschakelen
@@ -169,7 +236,7 @@ Status: Oktober 19 2017
 
 * Voorheen als u Hash wachtwoordsynchronisatie inschakelen probeerde, Azure AD Connect controleert niet of het AD-Connector-account vereist machtigingen voor het synchroniseren van de wachtwoord-hashes van on-premises AD dat. Azure AD Connect-wizard wordt nu, Controleer en waarschuwen als de AD-Connector-account niet beschikt over voldoende machtigingen.
 
-### <a name="ad-fs-management"></a>AD FS-beheer
+### <a name="ad-fs-management"></a>AD FS Management
 #### <a name="fixed-issue"></a>Opgelost probleem
 * Een probleem is gerelateerd aan het gebruik van opgelost [msDS-ConsistencyGuid als Bronanker](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) functie. Dit probleem geldt voor klanten die u hebt geconfigureerd *Federatie met AD FS* als de gebruiker aanmelden methode. Wanneer u de uitvoert *Bronanker configureren* verandert in met behulp van een taak in de wizard, Azure AD Connect * ms-DS-ConsistencyGuid als bronkenmerk voor onveranderbare id genoemd. Als onderdeel van deze wijziging probeert Azure AD Connect bij te werken van de claimregels voor onveranderbare id genoemd in AD FS. Deze stap is echter mislukt omdat Azure AD Connect heeft niet de beheerdersreferenties vereist AD FS kunt configureren. Met deze oplossing Azure AD Connect nu vraagt u de administrator-referenties invoeren voor AD FS, wanneer u uitvoert het *Bronanker configureren* taak.
 
@@ -211,7 +278,7 @@ Status: September 05 2017
 #### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
 * Ondersteuning toegevoegd voor Microsoft Azure Government Cloud en Microsoft Cloud Duitsland.
 
-### <a name="ad-fs-management"></a>AD FS-beheer
+### <a name="ad-fs-management"></a>AD FS Management
 #### <a name="fixed-issues"></a>Opgeloste problemen
 * De cmdlet initialiseren ADSyncNGCKeysWriteBack in de AD-prep powershell-module is onjuist ACL'ing de device registration-container en zou daarom alleen bestaande machtigingen overnemen.  Dit is bijgewerkt, zodat de synchronisatie-serviceaccount de juiste machtigingen heeft.
 
@@ -397,7 +464,7 @@ CBool(
     |CertSubject|CertIssuer|CertKeyAlgorithm|
     |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
     |CertSubjectNameOid|CertIssuerDN|IsCert|
-    |CertFriendlyName|certThumbprint|CertExtensionOids|
+    |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Selecteer|
@@ -413,9 +480,9 @@ CBool(
     * Persoon: distinguishedName
 
   * Volgende kenmerken zijn toegevoegd aan Azure AD-Connector schema:
-    * Groep: OnPremisesSamAccountName
+    * Group: OnPremisesSamAccountName
     * Groep: NetBiosName
-    * Groep: DNS-domeinnaam
+    * Group: DnsDomainName
     * Gebruiker: OnPremisesDistinguishedName
 
 * Het script van de cmdlet ADSyncDomainJoinedComputerSync heeft nu een nieuwe optionele parameter met de naam AzureEnvironment. De parameter wordt gebruikt om op te geven welke regio die wordt gehost door de bijbehorende Azure Active Directory-tenant. Geldige waarden zijn:
@@ -431,10 +498,10 @@ CBool(
 #### <a name="issues-fixed"></a>Problemen worden opgelost
 
 * Volgende URL's zijn nieuwe WS-Federation-eindpunten die zijn geïntroduceerd door Azure AD tolerantie tegen storing van de verificatie verbeteren en worden toegevoegd met on-premises AD FS-configuratie voor het vertrouwen van beantwoorden partij:
-  * https://Ests.Login.microsoftonline.com/Login.srf
-  * https://stamp2.Login.microsoftonline.com/Login.srf
-  * https://CCS.Login.microsoftonline.com/Login.srf
-  * https://CCS-sdf.Login.microsoftonline.com/Login.srf
+  * https://ests.login.microsoftonline.com/login.srf
+  * https://stamp2.login.microsoftonline.com/login.srf
+  * https://ccs.login.microsoftonline.com/login.srf
+  * https://ccs-sdf.login.microsoftonline.com/login.srf
   
 * Een probleem dat AD FS onjuist claimwaarde genereren voor IssuerID heeft opgelost. Het probleem doet zich voor als er meerdere geverifieerde domeinen in de Azure AD-tenant en het domeinachtervoegsel van het kenmerk userPrincipalName is gebruikt voor het genereren van de claim IssuerID ten minste is 3 niveaus diep (bijvoorbeeld johndoe@us.contoso.com). Het probleem is opgelost doordat de reguliere expressie die wordt gebruikt door de claimregels.
 

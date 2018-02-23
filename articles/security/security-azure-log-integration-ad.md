@@ -12,23 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 08/08/2017
+ms.date: 02/16/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 8a1295cc86057ed72940e774d0bd423d61142e31
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f45f43a0296a7d90a68b0526f805ea50a1ce6c6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integratie van Azure Active Directory-auditlogboeken
 
 Controlegebeurtenissen van Azure Active Directory (Azure AD) kunnen u bepalen bevoorrechte acties die is opgetreden in Azure Active Directory. U kunt zien welke typen gebeurtenissen die u bijhouden aan de hand van kunt [Azure Active Directory-controlerapportgebeurtenissen](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
 
+
 > [!NOTE]
 > Voordat u de stappen in dit artikel, moet u controleren de [aan de slag](security-azure-log-integration-get-started.md) en voltooi de stappen bevat.
 
-## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Stappen voor het integreren van Azure Active directory-auditlogboeken
+## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Stappen voor het integreren van Azure Active Directory-auditlogboeken
 
 1. Open de opdrachtprompt en voer deze opdracht uit:
 
@@ -70,7 +71,5 @@ Zie voor meer informatie over de integratie van Azure-logboek:
 
 * [Microsoft Azure Log-integratie voor Azure logboeken](https://www.microsoft.com/download/details.aspx?id=53324): deze Download Center-pagina geeft details, systeemvereisten en installatie-instructies voor de integratie van Azure-logboek.
 * [Inleiding tot Azure Log integratie](security-azure-log-integration-overview.md): in dit artikel bevat een inleiding tot Azure Log integratie, de belangrijkste mogelijkheden en hoe het werkt.
-* [Partner configuratiestappen](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): dit blogbericht ziet u de integratie van Azure Log werken met partneroplossingen Splunk, HP ArcSight en IBM QRadar configureren.
 * [Veelgestelde vragen over de Azure Log integratie](security-azure-log-integration-faq.md): in dit artikel antwoorden op vragen over Azure Log-integratie.
-* [Security Center waarschuwingen integreren met Azure Log integratie](../security-center/security-center-integrating-alerts-with-log-integration.md): dit artikel laat zien hoe u wilt synchroniseren van waarschuwingen van Beveiligingscentrum, samen met de beveiliging van de virtuele machine gebeurtenissen die worden verzameld door Azure Diagnostics- en Azure audit logboeken met uw logboekanalyse of SIEM-oplossing.
 * [Nieuwe functies voor Azure Diagnostics- en Azure controlelogboeken](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): dit blogbericht maakt u kennis met Azure controlelogboeken en andere functies waarmee u inzicht in de bewerkingen van uw Azure-resources.

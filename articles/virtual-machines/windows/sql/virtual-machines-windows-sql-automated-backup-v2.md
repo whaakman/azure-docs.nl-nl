@@ -4,7 +4,7 @@ description: Verklaart de functie voor automatische back-up voor SQL Server 2016
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/05/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ecae49e70a0fdd30be8a0872d02abcf4a4c228bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Automatische back-v2 voor SQL Server 2016 Azure Virtual Machines (Resource Manager)
 
@@ -71,22 +71,22 @@ De volgende tabel beschrijft de opties die kunnen worden geconfigureerd voor aut
 | **Automatische back-up** | In-of uitschakelen (uitgeschakeld) | Hiermee schakelt automatische back-up voor een virtuele machine in Azure met SQL Server 2016 Standard of Enterprise of. |
 | **Bewaarperiode** | 1 tot 30 dagen (30 dagen) | Het aantal dagen wilt bewaren van back-ups. |
 | **Storage-Account** | Azure Storage-account | Een Azure storage-account moet worden gebruikt voor het opslaan van automatische back-up-bestanden in blob-opslag. Een container is gemaakt op deze locatie voor het opslaan van alle back-upbestanden. De naamconventie voor back-upbestand bevat de datum en tijd GUID van database. |
-| **Versleuteling** |In-of uitschakelen (uitgeschakeld) | Hiermee schakelt versleuteling of. Als versleuteling is ingeschakeld, de certificaten voor de back-up terugzetten bevinden zich in het opgegeven opslagaccount in dezelfde **automaticbackup** container met behulp van de dezelfde naamgevingsregel. Als het wachtwoord wordt gewijzigd, wordt een nieuw certificaat wordt gegenereerd met dit wachtwoord, maar het oude certificaat blijft voor het herstellen van eerdere back-ups. |
-| **Wachtwoord** |Wachtwoord tekst | Een wachtwoord voor versleutelingssleutels. Dit is alleen vereist als versleuteling is ingeschakeld. Om een versleutelde back-up herstellen, moet u het juiste wachtwoord en het bijbehorende certificaat dat is gebruikt op het moment dat de back-up is gehaald hebben. |
+| **Versleuteling** |In-of uitschakelen (uitgeschakeld) | Hiermee schakelt versleuteling of. Als versleuteling is ingeschakeld, worden de certificaten voor de back-up terugzetten bevinden zich in het opgegeven opslagaccount. Dit maakt gebruik van dezelfde **automaticbackup** container met de dezelfde naamgevingsregel. Als het wachtwoord wordt gewijzigd, wordt een nieuw certificaat wordt gegenereerd met dit wachtwoord, maar het oude certificaat blijft voor het herstellen van eerdere back-ups. |
+| **Wachtwoord** |Wachtwoord tekst | Een wachtwoord voor versleutelingssleutels. Dit wachtwoord is alleen vereist als versleuteling is ingeschakeld. Om een versleutelde back-up herstellen, moet u het juiste wachtwoord en het bijbehorende certificaat dat is gebruikt op het moment dat de back-up is gehaald hebben. |
 
 ### <a name="advanced-settings"></a>Geavanceerde instellingen
 
 | Instelling | Bereik (standaard) | Beschrijving |
 | --- | --- | --- |
-| **Back-ups van de Database** | In-of uitschakelen (uitgeschakeld) | Wanneer dit is ingeschakeld, wordt ook back-up van de systeemdatabases deze functie: Master, MSDB en Model. Voor de databases MSDB en het Model en controleert u of ze in de modus voor volledig herstel als u wilt dat de logboekback-ups moeten worden uitgevoerd. Logboekback-ups worden nooit genomen voor Master. En er is geen back-ups worden gemaakt voor TempDB. |
-| **Back-upschema** | Handmatige/geautomatiseerde (geautomatiseerde) | Standaard wordt back-upschema automatisch bepaald op basis van de groei van het logboek. Handmatige back-upschema kan de gebruiker om op te geven het tijdvenster voor back-ups. In dit geval worden back-ups alleen ooit plaatsvinden op de opgegeven frequentie en tijdens het opgegeven tijdvenster van een bepaalde dag. |
-| **Volledige back-upfrequentie** | Dagelijks/wekelijks | De frequentie van volledige back-ups. In beide gevallen begint volledige back-ups tijdens het volgende geplande tijdstip-venster. Wanneer u wekelijks is ingeschakeld, kunnen back-ups van meerdere dagen totdat alle databases hebt met succes back-up gemaakt omvatten. |
+| **Back-ups van de Database** | In-of uitschakelen (uitgeschakeld) | Wanneer dit is ingeschakeld, deze functie ook een back-up van de systeemdatabases: Master, MSDB en Model. Voor de databases MSDB en het Model en controleert u of ze in de modus voor volledig herstel als u wilt dat de logboekback-ups moeten worden uitgevoerd. Logboekback-ups worden nooit genomen voor Master. En er is geen back-ups worden gemaakt voor TempDB. |
+| **Back-upschema** | Handmatige/geautomatiseerde (geautomatiseerde) | Standaard wordt back-upschema automatisch bepaald op basis van de groei van het logboek. Handmatige back-upschema kan de gebruiker om op te geven het tijdvenster voor back-ups. In dit geval plaatsvinden back-ups alleen op de opgegeven frequentie en tijdens het opgegeven tijdvenster van een bepaalde dag. |
+| **Volledige back-upfrequentie** | Dagelijks/wekelijks | De frequentie van volledige back-ups. In beide gevallen starten volledige back-ups tijdens het volgende geplande tijdstip-venster. Wanneer u wekelijks is ingeschakeld, kunnen back-ups van meerdere dagen totdat alle databases hebt met succes back-up gemaakt omvatten. |
 | **Begintijd van volledige back-up** | 00:00 – 23:00 (01:00) | Begintijd van een bepaalde dag gedurende welke volledige back-ups kunnen worden uitgevoerd. |
 | **Volledige back-up tijdvenster** | 1 – 23 uur (1 uur) | De duur van de periode van een bepaalde dag gedurende welke volledige back-ups kunnen worden uitgevoerd. |
 | **Back-upfrequentie logboek** | 5 – 60 minuten (60 minuten) | De frequentie van logboekback-ups. |
 
 ## <a name="understanding-full-backup-frequency"></a>Volledige back-upfrequentie begrijpen
-Het is belangrijk om het verschil tussen de dagelijkse en wekelijkse volledige back-ups van. In deze poging doorlopen we twee voorbeeldscenario's.
+Het is belangrijk om het verschil tussen de dagelijkse en wekelijkse volledige back-ups van. Houd rekening met de volgende twee voorbeeldscenario's.
 
 ### <a name="scenario-1-weekly-backups"></a>Scenario 1: Wekelijkse back-ups
 U hebt een SQL Server-VM met een aantal zeer grote databases.
@@ -98,13 +98,13 @@ Op maandag, kunt u automatische back-up v2 inschakelen met de volgende instellin
 - Volledige back-begintijd: **01:00 uur**
 - Volledige back-up tijdvenster: **1 uur**
 
-Dit betekent dat het volgende beschikbare back-upvenster dinsdag op 1 uur 1 uur. Op dat moment wordt begint automatische back-up back-ups van uw databases een tegelijk. In dit scenario zijn uw databases groot genoeg is dat de volledige back-ups voor de eerste paar databases wordt voltooid. Echter na één uur zijn niet alle databases back-ups.
+Dit betekent dat het volgende beschikbare back-upvenster dinsdag op 1 uur 1 uur. Op dat moment wordt begint automatische back-up back-ups van uw databases een tegelijk. In dit scenario zijn uw databases groot genoeg of volledige back-ups worden uitgevoerd voor de eerste paar-databases. Echter na één uur zijn niet alle databases back-ups.
 
-Als dit gebeurt, begint automatische back-up back-ups van de resterende databases op de volgende dag, woensdag om 01: 00 1 uur. Als niet alle databases die back-ups zijn in die tijd, probeert het opnieuw op de volgende dag op hetzelfde moment. Dit wordt voortgezet totdat alle databases is back-ups zijn.
+Als dit gebeurt, wordt automatische back-up begint back-ups van de resterende databases op de volgende dag, woensdag op 1 uur gedurende één uur. Als niet alle databases die back-ups zijn in die tijd, wordt geprobeerd opnieuw de volgende dag op hetzelfde moment. Dit gaat door totdat alle databases is back-ups zijn.
 
-Zodra het dinsdag opnieuw bereikt, worden automatische back-up begint back-ups van alle databases weer.
+Nadat het dinsdag opnieuw bereikt, wordt er automatische back-up begint back-ups van alle databases opnieuw.
 
-Dit scenario ziet u dat automatische back-up alleen binnen het opgegeven tijdvenster werkt en elke database, worden back-up eenmaal per week. Dit betekent ook dat het mogelijk voor back-ups naar meerdere dagen in het geval waar het is niet mogelijk alle back-ups in een enkele dag voltooid is.
+Dit scenario ziet u dat automatische back-up alleen binnen het opgegeven tijdvenster werkt en elke database back-up eenmaal per week. Dit betekent ook dat het mogelijk voor back-ups naar meerdere dagen in het geval waar het is niet mogelijk alle back-ups in een enkele dag voltooid is.
 
 ### <a name="scenario-2-daily-backups"></a>Scenario 2: Dagelijkse back-ups
 U hebt een SQL Server-VM met een aantal zeer grote databases.
@@ -118,7 +118,7 @@ Op maandag, kunt u automatische back-up v2 inschakelen met de volgende instellin
 
 Dit betekent dat het volgende beschikbare back-upvenster maandag om 10 uur gedurende 6 uur. Op dat moment wordt begint automatische back-up back-ups van uw databases een tegelijk.
 
-Klik vervolgens op dinsdag bij 10 gedurende 6 uur, wordt volledige back-ups van alle databases opnieuw gestart.
+Op dinsdag bij 10 gedurende 6 uur, volledige back-ups van alle databases start vervolgens opnieuw.
 
 > [!IMPORTANT]
 > Bij het plannen van dagelijkse back-ups, wordt het aanbevolen dat u een breed tijdvenster om te controleren of dat alle databases kunnen een back-up binnen deze tijd plannen. Dit is vooral belangrijk in het geval waar u een grote hoeveelheid gegevens back-up hebt.
@@ -182,7 +182,7 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -Version "1.2" -Location $region 
 ```
 
-### <a id="verifysettings"></a>Controleer of de huidige instellingen
+### <a id="verifysettings"></a> Controleer of de huidige instellingen
 Als u automatische back-up ingeschakeld tijdens het inrichten, kunt u PowerShell gebruiken om te controleren van uw huidige configuratie. Voer de **Get-AzureRmVMSqlServerExtension** opdracht en bekijk de **AutoBackupSettings** eigenschap:
 
 ```powershell

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - bewaking met OMS Log Analytics instellen | Microsoft Docs
-description: Informatie over het instellen van OMS voor het visualiseren en analyseren van gebeurtenissen voor het controleren van uw Azure Service Fabric-clusters.
+title: Azure Service Fabric - bewaking met OMS Log Analytics ingesteld | Microsoft Docs
+description: Informatie over het instellen van Operations Management Suite voor het visualiseren en analyseren van gebeurtenissen voor het bewaken van uw Azure Service Fabric-clusters.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,67 +14,71 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 53b06c5a1395f34c96d4011366835a920d5c670b
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="set-up-oms-log-analytics-for-a-cluster"></a>OMS Log Analytics voor een cluster instellen
+# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Operations Management Suite Log Analytics voor een cluster instellen
 
-U kunt instellen wanneer er een OMS-werkruimte via Azure Resource Manager, PowerShell of via Azure Marketplace. Als u een bijgewerkte sjabloon voor Resource Manager van uw implementatie, dezelfde sjabloon voor toekomstig gebruik, gebruiken voor het instellen van uw omgeving OMS. Implementeren via de Marketplace is gemakkelijker als u al een cluster dat is geïmplementeerd met diagnostische gegevens die zijn ingeschakeld hebt. PowerShell gebruiken in het geval dat u bent niet gemachtigd abonnement niveau in het account waarmee u OMS implementeert, of via de Resource Manager-sjabloon implementeren.
+U kunt instellen wanneer er een werkruimte van Operations Management Suite (OMS) via Azure Resource Manager, PowerShell of Azure Marketplace. Als u een bijgewerkte sjabloon voor Resource Manager van uw implementatie voor toekomstig gebruik onderhoudt, moet u dezelfde sjabloon gebruiken voor het instellen van uw omgeving OMS. Implementatie via de Marketplace is eenvoudiger als u al een cluster dat is geïmplementeerd met diagnostische gegevens die zijn ingeschakeld. Als u geen abonnement toegang in het account waarmee u OMS implementeert, implementeert u met behulp van PowerShell of de Resource Manager-sjabloon.
 
 > [!NOTE]
-> Moet u beschikken over diagnostische gegevens ingeschakeld voor uw cluster om weer te geven van de cluster-platform niveau gebeurtenissen te kunnen instellen met succes van OMS om te controleren van uw cluster.
+> Als u OMS instelt voor het bewaken van uw cluster, moet u diagnostische gegevens die zijn ingeschakeld voor de weergave van gebeurtenissen voor cluster- of platform-niveau hebben.
 
-## <a name="deploying-oms-using-azure-marketplace"></a>Met behulp van Azure Marketplace OMS implementeren
+## <a name="deploy-oms-by-using-azure-marketplace"></a>OMS implementeren met behulp van Azure Marketplace
 
-Als u liever een OMS-werkruimte toevoegen nadat u een cluster hebt geïmplementeerd, Ga naar Azure Marketplace (in de Portal) en zoekt u *'Service Fabric Analytics'.*
+Als u een OMS-werkruimte toevoegen wilt nadat u een cluster hebt geïmplementeerd, Ga naar Azure Marketplace in de portal en zoek naar **Service Fabric Analytics**:
 
-1. Klik op **nieuw** in het navigatiemenu links. 
+1. Selecteer **nieuw** in het navigatiemenu links. 
 
-2. Zoeken naar *Service Fabric Analytics*. Klik op de resource die wordt weergegeven.
+2. Zoeken naar **Service Fabric Analytics**. Selecteer de resource die wordt weergegeven.
 
-3. Klik op **maken**
+3. Selecteer **Maken**.
 
     ![OMS SF analyses in de Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Klik in het venster van het maken van Service Fabric Analytics **Selecteer een werkruimte** voor de *OMS-werkruimte* veld en vervolgens **Maak een nieuwe werkruimte**. Vul de vereiste vermeldingen - hier de enige vereiste is dat het abonnement voor de Service Fabric-cluster en de OMS-werkruimte moet gelijk zijn. Nadat de gegevens zijn geverifieerd, wordt de OMS-werkruimte gaat implementeren. Dit moet alleen een paar minuten duren.
+4. Selecteer in het venster van het maken van Service Fabric Analytics **Selecteer een werkruimte** voor de **OMS-werkruimte** veld en vervolgens **Maak een nieuwe werkruimte**. Vul de vereiste vermeldingen. De enige vereiste hier is het abonnement voor de Service Fabric-cluster en de OMS-werkruimte is hetzelfde. Als uw vermeldingen zijn geverifieerd, wordt de OMS-werkruimte gestart om te implementeren. De implementatie duurt slechts enkele minuten.
 
-5. Wanneer u klaar bent, klikt u op **maken** opnieuw op de onderkant van het Service Fabric Analytics-venster maken. Zorg ervoor dat de nieuwe werkruimte wordt weergegeven onder *OMS-werkruimte*. De oplossing wordt toegevoegd aan de werkruimte die u zojuist hebt gemaakt.
+5. Wanneer u klaar bent, selecteert u **maken** opnieuw op de onderkant van het Service Fabric Analytics-venster maken. Zorg ervoor dat de nieuwe werkruimte wordt weergegeven onder **OMS-werkruimte**. Deze actie worden de oplossing toegevoegd aan de werkruimte die u hebt gemaakt.
 
-Als u van Windows gebruikmaakt, gaat u verder met de volgende stappen OMS aansluiten op het opslagaccount waar uw Clustergebeurtenissen worden opgeslagen. Het inschakelen van deze ervaring voor Linux-clusters correct is nog in voortgang. Ondertussen, gaat u verder met de OMS-Agent aan het cluster toe te voegen.  
+Als u van Windows gebruikmaakt, gaat u verder met de volgende stappen uit om met OMS het opslagaccount waar uw Clustergebeurtenissen worden opgeslagen. 
 
-1. De werkruimte moet nog steeds zijn verbonden met de diagnostics-gegevens die afkomstig zijn van uw cluster. Navigeer naar de resourcegroep die u hebt gemaakt met de Service Fabric Analytics-oplossing in. U ziet een *ServiceFabric (\<nameOfOMSWorkspace\>)*. Klik op de oplossing om te navigeren naar de overzichtspagina van waar u Oplossingsinstellingen, werkruimte-instellingen wijzigen en navigeer naar de OMS-portal.
+>[!NOTE]
+>Inschakelen van deze ervaring voor Linux-clusters is nog niet beschikbaar. 
 
-2. Klik in het navigatiemenu links op **opslagaccounts logboeken**onder *werkruimte gegevensbronnen*.
+### <a name="add-the-oms-agent-to-your-cluster"></a>De OMS-Agent aan het cluster toevoegen 
 
-3. Op de *Storage account logboeken* pagina, klikt u op **toevoegen** aan de bovenkant van uw cluster logboeken toevoegen aan de werkruimte.
+1. De werkruimte moet worden verbonden met de diagnostics-gegevens die afkomstig zijn van uw cluster. Ga naar de resourcegroep waarin u de Service Fabric Analytics-oplossing hebt gemaakt. Selecteer **ServiceFabric\<nameOfOMSWorkspace\>**  en Ga naar de overzichtspagina. U kunt daar instellingen, werkruimte-instellingen wijzigen en toegang tot de OMS-portal.
 
-4. Klik op **opslagaccount** de juiste account gemaakt in het cluster toe te voegen. Als u de standaardnaam gebruikt, het storage-account heet *sfdg\<resourceGroupName\>*. U kunt dit ook bevestigen door het controleren van de Azure Resource Manager-sjabloon gebruikt voor het implementeren van uw cluster, door de waarde die wordt gebruikt voor de `applicationDiagnosticsStorageAccountName`. Misschien hebt u ook Schuif naar beneden en klik op **laden meer** als de naam niet wordt weergegeven. Klik op de juiste opslagaccountnaam omhoog om deze te selecteren.
+2. In het menu linkernavigatievenster onder **werkruimte gegevensbronnen**, selecteer **opslagaccounts logboeken**.
 
-5. Vervolgens hebt u om op te geven de *gegevenstype*, die moet worden ingesteld op **gebeurtenissen van de Service Fabric**.
+3. Op de **Storage account logboeken** pagina **toevoegen** aan de bovenkant van uw cluster logboeken toevoegen aan de werkruimte.
 
-6. De *bron* automatisch moet worden ingesteld op *WADServiceFabric\*EventTable*.
+4. Selecteer **opslagaccount** de juiste account gemaakt in het cluster toe te voegen. Als u de standaardnaam gebruikt, het opslagaccount is **sfdg\<resourceGroupName\>**. U kunt dit ook bevestigen met de Azure Resource Manager-sjabloon gebruikt voor het implementeren van uw cluster, door de waarde die wordt gebruikt voor **applicationDiagnosticsStorageAccountName**. Als de naam niet wordt weergegeven, schuif naar beneden en selecteer **laden meer**. Selecteer de naam van het opslagaccount.
 
-7. Klik op **OK** verbinding maken met uw werkruimte logboeken voor uw cluster.
+5. Geef het gegevenstype. Stel deze in op **gebeurtenissen van de Service Fabric**.
+
+6. Zorg ervoor dat de bron wordt automatisch ingesteld op **WADServiceFabric\*EventTable**.
+
+7. Selecteer **OK** verbinding maken met uw werkruimte logboeken voor uw cluster.
 
     ![Logboeken voor storage-account toevoegen aan OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
-Het account moet nu worden weergegeven als onderdeel van uw *Storage account logboeken* in uw werkruimte-gegevensbronnen.
+Het account nu worden weergegeven als onderdeel van uw opslagaccount wordt geregistreerd in uw werkruimte-gegevensbronnen.
 
-U hebt nu de Service Fabric Analytics-oplossing in een logboekanalyse OMS-werkruimte nu goed met uw cluster-platform en de logboektabel van toepassing verbonden is met dit toegevoegd. U kunt aanvullende bronnen toevoegen aan de werkruimte op dezelfde manier.
+U kunt de Service Fabric Analytics-oplossing hebt toegevoegd in een logboekanalyse OMS-werkruimte nu goed met uw cluster-platform en de logboektabel van toepassing verbonden is. U kunt aanvullende bronnen toevoegen aan de werkruimte op dezelfde manier.
 
 
-## <a name="deploying-oms-using-a-resource-manager-template"></a>OMS met een Resource Manager-sjabloon implementeren
+## <a name="deploy-oms-by-using-a-resource-manager-template"></a>OMS implementeren met behulp van een Resource Manager-sjabloon
 
-Bij het implementeren van een cluster met behulp van een Resource Manager-sjabloon, het Service Fabric-oplossing aan de sjabloon moet een nieuwe OMS-werkruimte maken toevoegen en configureren voor het lezen van gegevens uit de tabellen met de juiste opslag.
+Wanneer u een cluster met een Resource Manager-sjabloon implementeert, de sjabloon is, wordt een nieuwe OMS-werkruimte maakt, voegt de Service Fabric-oplossing naar de werkruimte en geconfigureerd voor het lezen van gegevens uit de tabellen met de juiste opslag.
 
-[Hier](https://azure.microsoft.com/resources/templates/service-fabric-oms/) is een voorbeeldsjabloon die u kunt gebruiken en aanpassen volgens de vereisten. Meer sjablonen waarmee u verschillende opties voor het instellen van een OMS-werkruimte kan worden gevonden op [Service Fabric en OMS sjablonen](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+U kunt gebruiken en wijzigen [deze voorbeeldsjabloon](https://azure.microsoft.com/resources/templates/service-fabric-oms/) om te voldoen aan uw vereisten. Sjablonen waarmee u verschillende opties voor het instellen van een OMS-werkruimte kan worden gevonden op [Service Fabric en OMS sjablonen](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
 
-De belangrijkste wijzigingen zijn aangebracht, zijn de volgende:
-
-1. Voeg `omsWorkspaceName` en `omsRegion` aan uw parameters. Dit betekent het volgende codefragment toe te voegen aan de gedefinieerde parameters in uw *template.json* bestand. U kunt de standaardwaarden wijzigen wens naar. U moet ook toevoegen met de twee nieuwe parameters in uw *parameters.json* om hun waarden voor de resource-implementatie te definiëren:
+De volgende wijzigingen aanbrengen:
+1. Voeg `omsWorkspaceName` en `omsRegion` aan uw parameters door het volgende codefragment toe te voegen aan de gedefinieerde parameters in uw *template.json* bestand. U kunt de standaardwaarden wijzigen wens naar. Voeg ook de twee nieuwe parameters in uw *parameters.json* bestand om hun waarden voor de resource-implementatie te definiëren:
     
     ```json
     "omsWorkspacename": {
@@ -98,9 +102,9 @@ De belangrijkste wijzigingen zijn aangebracht, zijn de volgende:
     }
     ```
 
-    De `omsRegion` waarden moeten voldoen aan een specifieke set van de waarden. U moet kiezen die het dichtst bij de implementatie van het cluster.
+    De `omsRegion` waarden moeten voldoen aan een specifieke set van de waarden. Kiezen die het dichtst bij de implementatie van het cluster.
 
-2. Als u de logboekbestanden van de toepassing worden sturen met OMS, Controleer of de `applicationDiagnosticsStorageAccountType` en `applicationDiagnosticsStorageAccountName` zijn opgenomen als parameters in de sjabloon. Als dat niet het geval is, toe te voegen aan het gedeelte variabelen als volgt te werk en hun waarden indien nodig bewerken. U kunt ook deze opnemen als parameters, indien gewenst, de indeling die hierboven worden gebruikt na.
+2. Als u de logboekbestanden van de toepassing met OMS verzendt, eerst bevestigen dat de `applicationDiagnosticsStorageAccountType` en `applicationDiagnosticsStorageAccountName` zijn opgenomen als parameters in de sjabloon. Als ze niet opgenomen zijn, toe te voegen aan het gedeelte variabelen en hun waarden indien nodig bewerken. U kunt ze ook opnemen als parameters aan de hand van de voorgaande indeling.
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
@@ -114,7 +118,7 @@ De belangrijkste wijzigingen zijn aangebracht, zijn de volgende:
     "solutionName": "ServiceFabric"
     ```
 
-4. De volgende wordt toegevoegd aan het einde van uw bronnensectie na waar de Service Fabric-clusterbron is gedeclareerd.
+4. Voeg het volgende toe aan het einde van uw bronnensectie na waar de Service Fabric-clusterbron is gedeclareerd:
 
     ```json
     {
@@ -175,19 +179,19 @@ De belangrijkste wijzigingen zijn aangebracht, zijn de volgende:
     > [!NOTE]
     > Als u hebt toegevoegd de `applicationDiagnosticsStorageAccountName` als een variabele, zorg ervoor dat elke verwijzing naar deze wijzigen `variables('applicationDiagnosticsStorageAccountName')` in plaats van `parameters('applicationDiagnosticsStorageAccountName')`.
 
-5. De sjabloon implementeren als een Resource Manager-upgrade voor uw cluster. Dit wordt gedaan met behulp van de `New-AzureRmResourceGroupDeployment` API in de AzureRM PowerShell-module. Een van de voorbeeldopdracht zou zijn:
+5. De sjabloon als een Resource Manager-upgrade voor uw cluster implementeren met behulp van de `New-AzureRmResourceGroupDeployment` API in de AzureRM PowerShell-module. Een van de voorbeeldopdracht zou zijn:
 
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName "sfcluster1" -TemplateFile "<path>\template.json" -TemplateParameterFile "<path>\parameters.json"
     ``` 
 
-    Azure Resource Manager zich voor het detecteren van dit is een update aan voor een bestaande resource. Alleen wordt de wijzigingen tussen de sjabloon voor het besturen van de bestaande implementatie en de nieuwe sjabloon die verwerkt.
+    Azure Resource Manager heeft vastgesteld dat deze opdracht een update aan voor een bestaande resource. Wordt alleen de wijzigingen tussen de sjabloon voor het besturen van de bestaande implementatie en de nieuwe sjabloon opgegeven verwerkt.
 
-## <a name="deploying-oms-using-azure-powershell"></a>Met Azure PowerShell OMS implementeren
+## <a name="deploy-oms-by-using-azure-powershell"></a>OMS implementeren met behulp van Azure PowerShell
 
-U kunt ook uw resource OMS Log Analytics via PowerShell implementeren. Dit wordt bereikt met behulp van de `New-AzureRmOperationalInsightsWorkspace` opdracht. Om dit doet, zorg ervoor dat u hebt geïnstalleerd [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Dit script gebruiken voor het maken van een nieuwe OMS Log Analytics-werkruimte en de Service Fabric-oplossing aan toe te voegen: 
+U kunt ook uw resource OMS Log Analytics via PowerShell implementeren met behulp van de `New-AzureRmOperationalInsightsWorkspace` opdracht. Als u deze methode gebruikt, zorg ervoor dat u hebt geïnstalleerd [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Dit script gebruiken voor het maken van een nieuwe OMS Log Analytics-werkruimte en de Service Fabric-oplossing aan toe te voegen: 
 
-```ps
+```PowerShell
 
 $SubscriptionName = "<Name of your subscription>"
 $ResourceGroup = "<Resource group name>"
@@ -211,9 +215,9 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-Zodra dit is voltooid, als uw cluster zich in een Windows-cluster, de stappen in de bovenstaande sectie OMS Log Analytics aansluiten op de juiste opslagaccount.
+Wanneer u bent klaar, de stappen in de vorige sectie OMS Log Analytics verbinding met het juiste storage-account.
 
-U kunt ook andere oplossingen toevoegen of andere wijzigingen aanbrengen in de OMS-werkruimte met behulp van PowerShell. Voor meer informatie over deze, Zie [Log Analytics beheren met behulp van PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md)
+U kunt ook andere oplossingen toevoegen of andere wijzigingen aanbrengen in de OMS-werkruimte met behulp van PowerShell. Zie voor meer informatie, [Log Analytics beheren met behulp van PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [De OMS-Agent implementeren](service-fabric-diagnostics-oms-agent.md) naar uw knooppunten om te verzamelen prestatiemeteritems en verzamelen van Logboeken voor uw containers en docker-statistieken

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5dd762cffbca909c5f682a16c86ef5a86f4860de
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Beperking van API Management toegangsbeleid
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -500,7 +500,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |tijdverschil|TimeSpan. Gebruiken om op te geven van de verwachte maximumtijd verschil tussen de systeemklokken van de uitgever van het beveiligingstoken en het exemplaar van API Management.|Nee|0 seconden|  
 |kan de niet-validatie-foutbericht|Het foutbericht te retourneren in de HTTP-antwoordtekst als de JWT niet kan gevalideerd worden. Dit bericht moet de speciale tekens escape hebben.|Nee|Standaardfoutbericht, is afhankelijk van validatieprobleem, bijvoorbeeld 'JWT niet aanwezig."|  
 |kan geen validatie httpcode|HTTP-statuscode te retourneren als de JWT niet gevalideerd worden.|Nee|401|  
-|header-naam|De naam van de HTTP-header van het token.|Ofwel `header-name` of `query-paremeter-name` moet worden opgegeven, maar niet beide.|N/A|  
+|header-naam|De naam van de HTTP-header van het token.|Ofwel `header-name` of `query-parameter-name` moet worden opgegeven, maar niet beide.|N/A|  
 |id|De `id` -kenmerk uit voor de `key` element kunt u opgeven van de tekenreeks die wordt vergeleken met `kid` claim in het token (indien aanwezig) om erachter te komen met de juiste sleutel moet worden gebruikt voor validatie van handtekening.|Nee|N/A|  
 |Overeenkomst|De `match` -kenmerk uit voor de `claim` element geeft aan of de waarde van elke claim in het beleid aanwezig zijn in het token voor de validatie moet mislukt. Mogelijke waarden zijn:<br /><br /> -                          `all` -de waarde van elke claim in het beleid moet aanwezig zijn in het token voor de validatie mislukt.<br /><br /> -                          `any` -ten minste één claimwaarde moet aanwezig zijn in het token voor de validatie mislukt.|Nee|all|  
 |query-paremeter-naam|De naam van de de queryparameter van het token.|Ofwel `header-name` of `query-paremeter-name` moet worden opgegeven, maar niet beide.|N/A|  
@@ -508,7 +508,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |vereisen schema|De naam van het token schema, bijvoorbeeld 'Bearer'. Wanneer dit kenmerk is ingesteld, kan het beleid zorgt ervoor dat het opgegeven schema is aanwezig in de waarde van de autorisatie-header.|Nee|N/A|
 |vereisen ondertekend-tokens|Booleaanse waarde. Geeft aan of een token vereist om te worden ondertekend.|Nee|waar|  
 |Scheidingsteken|De tekenreeks. Hiermee geeft u een scheidingsteken (bijvoorbeeld ",") moet worden gebruikt voor een set waarden extraheren uit een claim meerdere waarden.|Nee|N/A| 
-|url|Open ID configuratie eindpunt-URL op waar de metagegevens van de Open-ID-configuratie kan worden verkregen. Gebruik de volgende URL voor Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` waarbij u de naam van uw directory-tenant, bijvoorbeeld vervangt `contoso.onmicrosoft.com`.|Ja|N/A|  
+|url|Open ID configuratie eindpunt-URL op waar de metagegevens van de Open-ID-configuratie kan worden verkregen. Het antwoord moet volgens specificaties zoals gedefinieerd in URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Gebruik de volgende URL voor Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` waarbij u de naam van uw directory-tenant, bijvoorbeeld vervangt `contoso.onmicrosoft.com`.|Ja|N/A|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels voor Jupyter-notebook in Spark-clusters in Azure HDInsight 
 
@@ -83,13 +83,13 @@ Hier volgen enkele voordelen van het gebruik van de nieuwe kernels op Jupyter-no
    | Verwerkt Magic-pakket | Voorbeeld | Beschrijving |
    | --- | --- | --- |
    | help |`%%help` |Genereert een lijst met alle beschikbare magics met voorbeeld en beschrijving |
-   | Info |`%%info` |Sessie-informatie voor het huidige Livy eindpunt uitvoer |
+   | info |`%%info` |Sessie-informatie voor het huidige Livy eindpunt uitvoer |
    | configureren |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Hiermee configureert u de parameters voor het maken van een sessie. De vlag (-f) is verplicht als een sessie al is gemaakt, die zorgt ervoor dat de sessie wordt verwijderd en opnieuw gemaakt. Bekijk [van Livy POST /sessions aanvraagtekst](https://github.com/cloudera/livy#request-body) voor een lijst met geldige parameters op. Parameters moeten worden doorgegeven als een JSON-tekenreeks en moeten op de volgende regel na de magic, zoals wordt weergegeven in de voorbeeldkolom. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Een Hive-query op de sqlContext worden uitgevoerd. Als de `-o` parameter is doorgegeven, het resultaat van de query wordt bewaard de %% lokale Python context als een [Pandas](http://pandas.pydata.org/) dataframe. |
-   | lokale |`%%local`<br>`a=1` |De code in de volgende regels wordt lokaal uitgevoerd. De sitecode moet geldige Python2 code zelfs ongeacht de kernel dat u gebruikt. Zo is, zelfs als u **PySpark3** of **Spark** kernels tijdens het maken van de notebook als u de `%%local` magische in een cel, die cel moet alleen code bevatten, geldige Python2... |
+   | lokaal |`%%local`<br>`a=1` |De code in de volgende regels wordt lokaal uitgevoerd. De sitecode moet geldige Python2 code zelfs ongeacht de kernel dat u gebruikt. Zo is, zelfs als u **PySpark3** of **Spark** kernels tijdens het maken van de notebook als u de `%%local` magische in een cel, die cel moet alleen code bevatten, geldige Python2... |
    | logboeken |`%%logs` |De logboeken levert voor de huidige sessie van Livy. |
-   | verwijderen |`%%delete -f -s <session number>` |Hiermee verwijdert u een bepaalde sessie van het huidige Livy-eindpunt. Houd er rekening mee dat u de sessie die is gestart voor de kernel zichzelf niet verwijderen. |
-   | Opruimen |`%%cleanup -f` |Hiermee verwijdert u alle sessies voor de huidige Livy-eindpunt, waaronder deze laptop-sessie. De vlag force -f is verplicht. |
+   | verwijderen |`%%delete -f -s <session number>` |Hiermee verwijdert u een bepaalde sessie van het huidige Livy-eindpunt. U kunt de sessie die is gestart voor de kernel zichzelf niet verwijderen. |
+   | opruimen |`%%cleanup -f` |Hiermee verwijdert u alle sessies voor de huidige Livy-eindpunt, waaronder deze laptop-sessie. De vlag force -f is verplicht. |
 
    > [!NOTE]
    > Naast de magics die door de PySpark-kernel zijn toegevoegd, kunt u ook gebruiken de [ingebouwde IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), inclusief `%%sh`. U kunt de `%%sh` verwerkt Magic-pakket voor het uitvoeren van scripts en codeblok op het cluster headnode.
@@ -160,7 +160,6 @@ De nieuwe kernels zijn in de fase in ontwikkeling en zal vervallen gedurende een
 * [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](apache-spark-use-bi-tools.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark-streaming: Spark in HDInsight gebruiken voor het bouwen van realtime streamingtoepassingen](apache-spark-eventhub-streaming.md)
 * [Websitelogboekanalyse met Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren

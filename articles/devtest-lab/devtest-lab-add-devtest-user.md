@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Eigenaars- en gebruikers toevoegen in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -36,7 +36,7 @@ Er zijn drie belangrijkste rollen kunt u een gebruiker toewijzen:
 
 De volgende tabel ziet u de acties die kunnen worden uitgevoerd door gebruikers in elk van deze rollen:
 
-| **Gebruikers met deze rol acties kunnen uitvoeren** | **DevTest Labs gebruiker** | **Eigenaar** | **Inzender** |
+| **Gebruikers met deze rol acties kunnen uitvoeren** | **DevTest Labs User** | **Owner** | **Contributor** |
 | --- | --- | --- | --- |
 | **Taken voor het testlab** | | | |
 | Gebruikers toevoegen aan een lab |Nee |Ja |Nee |
@@ -64,7 +64,7 @@ Eigenaars- en gebruikers kunnen worden toegevoegd op het niveau van het lab via 
 De volgende stappen begeleiden u bij het proces van een eigenaar of gebruiker toevoegen aan een lab in Azure DevTest Labs:
 
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecteer **Meer services** en selecteer in de lijst vervolgens **DevTest Labs**.
+2. Selecteer **alle services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
 3. Selecteer de gewenste testomgeving uit de lijst van labs.
 4. Selecteer op de labblade **configuratie**. 
 5. Op de **configuratie** blade Selecteer **gebruikers**.
@@ -118,7 +118,7 @@ U kunt aanvullende eigenaars toevoegen aan een lab via de labblade in de [Azure-
 Als u wilt een eigenaar toevoegen aan een Azure-abonnement, de volgende stappen uit:
 
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecteer **meer Services**, en selecteer vervolgens **abonnementen** uit de lijst.
+2. Selecteer **alle Services**, en selecteer vervolgens **abonnementen** uit de lijst.
 3. Selecteer het gewenste abonnement.
 4. Selecteer **toegang** pictogram. 
    

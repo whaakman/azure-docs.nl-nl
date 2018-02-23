@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: ef0dc1b820f42b73af3af3882085729ecc21230c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2741ea2931ddd7989fc05e1cddbeedb80bf30410
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Het maken van een App Service omgeving v1 
 
@@ -42,13 +42,13 @@ Het is belangrijk te weten van de dingen die u niet wijzigen. Deze aspecten die 
 Wanneer het verzamelen van een VNet en het opgeven van een subnet, Controleer of is het groot genoeg voor een eventuele toekomstige groei. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Maken van een App Service-omgeving v1
-Maken van een App Service-omgeving v1 die u wilt zoeken van de Azure Marketplace voor ***App Service-omgeving v1***, of door te gaan via nieuw -> Web en mobiel -> App Service-omgeving. Een ASEv1 maken:
+Voor het maken van een App Service-omgeving v1, kunt u zoeken in Azure Marketplace voor ***App Service-omgeving v1***, of Ga via **maken van een resource** -> **Web en mobiel**  ->  **App Service-omgeving**. Een ASEv1 maken:
 
-1. Geef de naam van uw as-omgeving. De naam die is opgegeven voor de as-omgeving wordt gebruikt voor de apps die zijn gemaakt in de as-omgeving. Naam van het subdomein zou zijn als de naam van de as-omgeving appsvcenvdemo. *appsvcenvdemo.p.azurewebsites.net*. Als u een app met de naam dus gemaakt *mytestapp* en vervolgens het normaal zou op adresseerbare zijn *mytestapp.appsvcenvdemo.p.azurewebsites.net*. U kunt witruimte niet gebruiken in de naam van uw as-omgeving. Als u hoofdletters in de naam gebruikt, worden de domeinnaam de totale kleine versie met die naam. Als u een ILB gebruikt vervolgens de naam van uw as-omgeving wordt niet gebruikt in een subdomein maar in plaats daarvan expliciet is opgegeven tijdens het maken van de as-omgeving
+1. Geef de naam van uw as-omgeving. De naam die u voor de as-omgeving opgeeft wordt gebruikt voor de apps die zijn gemaakt in de as-omgeving. Als de naam van de as-omgeving appsvcenvdemo is, de naam van het subdomein zou zijn: *appsvcenvdemo.p.azurewebsites.net*. Als u een app met de naam dus gemaakt *mytestapp*, het normaal zou zijn op adresseerbare *mytestapp.appsvcenvdemo.p.azurewebsites.net*. U kunt witruimte niet gebruiken in de naam van uw as-omgeving. Als u tekens hoofdletters in de naam gebruiken, worden de domeinnaam de totale kleine versie met die naam. Als u een ILB, wordt de naam van uw as-omgeving wordt niet gebruikt in een subdomein maar in plaats daarvan expliciet is opgegeven tijdens het maken van de as-omgeving.
    
     ![][1]
-2. Selecteer uw abonnement. Het abonnement dat u gebruikt voor uw as-omgeving is ook een die alle apps in die as-omgeving met worden gemaakt. U kunt uw as-omgeving in een VNet dat in een ander abonnement plaatsen
-3. Selecteer of geef een nieuwe resourcegroep. De resourcegroep die wordt gebruikt voor uw as-omgeving moet dezelfde dat wordt gebruikt voor uw VNet. Als u een bestaande VNet selecteert wordt vervolgens de selectie van de resourcegroep voor uw as-omgeving bijgewerkt naar aanleiding van uw VNet.
+2. Selecteer uw abonnement. Het abonnement dat u voor uw as-omgeving gebruiken ook van toepassing op alle apps die u in dat as-omgeving maakt. U kunt uw as-omgeving in een VNet dat in een ander abonnement plaatsen.
+3. Selecteer of geef een nieuwe resourcegroep. De resourcegroep die wordt gebruikt voor uw as-omgeving moet dezelfde dat wordt gebruikt voor uw VNet. Als u een bestaande VNet selecteert, wordt de selectie van de resourcegroep voor uw as-omgeving wordt bijgewerkt naar aanleiding van uw VNet.
    
     ![][2]
 4. Controleer uw selecties virtueel netwerk en de locatie. U kunt een nieuw VNet maken of selecteren van een bestaande VNet. Als u een nieuw VNet daarna kunt u een naam en locatie opgeven. De nieuwe VNet heeft de adres-bereik 192.168.250.0/23 en een subnet met de naam **standaard** die is gedefinieerd als 192.168.250.0/24. U kunt ook gewoon een reeds bestaande klassiek of Resource Manager VNet selecteren. De selectie van het VIP bepaalt of de as-omgeving rechtstreeks toegankelijk zijn vanaf internet (extern) of als een interne Load Balancer (ILB) wordt gebruikt. Voor meer informatie over deze lezen [met behulp van een interne Load Balancer met een App-serviceomgeving][ILBASE]. Als u een VIP-type van extern selecteert kunt u het aantal externe IP-adressen het systeem is gemaakt met voor IPSSL doeleinden selecteren. Als u interne selecteren moet u opgeven van het subdomein die door uw as-omgeving wordt gebruikt. ASEs kan worden geïmplementeerd in virtuele netwerken die gebruikmaken van *beide* openbare-adresbereiken, *of* RFC1918 adresruimten (dat wil zeggen particuliere adressen). U moet het VNet tevoren maken om een virtueel netwerk gebruiken met een openbare-adresbereik. Wanneer u een bestaande VNet selecteren moet u een nieuw subnet maken tijdens het maken van de as-omgeving. **U kunt een vooraf gemaakte subnet niet gebruiken in de portal. Als u uw as-omgeving met een resource manager-sjabloon maakt, kunt u een as-omgeving met een bestaande subnet.** Een as-omgeving maken van een sjabloon gebruiken de informatie hier [maken van een App-serviceomgeving uit sjabloon] [ ILBAseTemplate] en hier [een ILB-App Service-omgeving te maken van sjabloon][ASEfromTemplate].

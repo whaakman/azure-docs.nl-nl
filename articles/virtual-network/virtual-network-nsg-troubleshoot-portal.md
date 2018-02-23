@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Netwerkbeveiligingsgroepen met de Azure Portal oplossen
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ De volgende stappen voor het oplossen van nsg's voor een virtuele machine:
 U kunt de volledige lijst van de regels voor een effectieve beveiligingsmethode weergeven op een Netwerkinterfacekaart, van de virtuele machine zelf. U kunt ook toevoegen, wijzigen en verwijderen van zowel NIC en het subnetmasker NSG-regels op de blade effectieve regels als u machtigingen hebt voor deze bewerkingen uitvoeren.
 
 1. Meld u aan bij de Azure portal op https://portal.azure.com met een Azure-account. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. Klik op **meer services**, klikt u vervolgens op **virtuele machines** in de lijst die wordt weergegeven.
+2. Klik op **alle services**, klikt u vervolgens op **virtuele machines** in de lijst die wordt weergegeven.
 3. Selecteer een virtuele machine om op te lossen in de lijst die wordt weergegeven en een VM-blade met opties wordt weergegeven.
 4. Klik op **spoor & oplossen van problemen met** en selecteer vervolgens een veelvoorkomend probleem. In dit voorbeeld **ik kan geen verbinding maken met mijn Windows-VM** is geselecteerd. 
    
@@ -96,7 +96,7 @@ U kunt de volledige lijst van de regels voor een effectieve beveiligingsmethode 
 Als uw VM-netwerkverkeer wordt gebracht voor een specifieke NIC, kunt u een volledige lijst van de effectieve regels voor de Netwerkkaart op uit de context van de netwerkinterfaces weergeven door de volgende stappen:
 
 1. Meld u aan bij de Azure portal op https://portal.azure.com.
-2. Klik op **meer services**, klikt u vervolgens op **netwerkinterfaces** in de lijst die wordt weergegeven.
+2. Klik op **alle services**, klikt u vervolgens op **netwerkinterfaces** in de lijst die wordt weergegeven.
 3. Selecteer een netwerkinterface. In de volgende afbeelding een NIC met de naam *VM1 NIC1* is geselecteerd.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image5.png)
@@ -113,7 +113,7 @@ Als uw VM-netwerkverkeer wordt gebracht voor een specifieke NIC, kunt u een voll
 Bij het NSG-regels wijzigen, is het raadzaam om te controleren van de impact van de regels die wordt toegevoegd aan een bepaalde virtuele machine. Vindt u een volledige lijst van de regels voor een effectieve beveiligingsmethode voor de NIC's die een bepaalde NSG wordt toegepast zonder de context van de opgegeven NSG-blade overschakelen. Voor het oplossen van effectieve regels binnen een NSG, moet u de volgende stappen uitvoeren:
 
 1. Meld u aan bij de Azure portal op https://portal.azure.com.
-2. Klik op **meer services**, klikt u vervolgens op **Netwerkbeveiligingsgroepen** in de lijst die wordt weergegeven.
+2. Klik op **alle services**, klikt u vervolgens op **Netwerkbeveiligingsgroepen** in de lijst die wordt weergegeven.
 3. Selecteer een NSG. Een NSG VM1 nsg met de naam is geselecteerd in de volgende afbeelding.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image6.png)

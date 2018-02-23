@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: ca4566ced525f0cb732afc15d96d9ef73fd8cff5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Altijd versleuteld: Beveiligen van gevoelige gegevens in SQL-Database en de versleutelingssleutels in Azure Sleutelkluis
 
@@ -79,7 +79,7 @@ U kunt snel een sleutelkluis maken het volgende script uit te voeren. Zie voor e
 
 ## <a name="create-a-blank-sql-database"></a>Een lege SQL-database maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Ga naar **nieuwe** > **gegevens en opslag** > **SQL-Database**.
+2. Ga naar **maken van een resource** > **Databases** > **SQL-Database**.
 3. Maak een **leeg** database met de naam **kliniek** op een nieuwe of bestaande server. Zie voor gedetailleerde instructies over het maken van een database in de Azure portal [uw eerste Azure SQL database](sql-database-get-started-portal.md).
    
     ![Een lege database maken](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
@@ -91,7 +91,7 @@ U moet de verbinding tekenreeks verderop in de zelfstudie, dus nadat u de databa
    
     ![Kopieer de verbindingsreeks](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Verbinding maken met de database met SSMS
+## <a name="connect-to-the-database-with-ssms"></a>Verbinding maken met de database via SSMS
 SSMS opent en verbinding maken met de server met de database kliniek.
 
 1. Open SSMS. (Ga naar **Connect** > **Database-Engine** openen de **verbinding maken met Server** venster als deze niet geopend is.)

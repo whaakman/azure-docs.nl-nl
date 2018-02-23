@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snelstartgids: Uw eerste rand van de IoT-module van de Azure-portal naar een Windows-apparaat implementeren - voorbeeld
 
@@ -32,7 +32,7 @@ Deze zelfstudie wordt ervan uitgegaan dat u een computer of virtuele machine met
 3. Installeer [Python 2.7 op Windows] [ lnk-python] en zorg ervoor dat u de opdracht pip kunt gebruiken.
 4. Voer de volgende opdracht voor het downloaden van het script IoT Edge-besturingselement.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
@@ -43,7 +43,7 @@ Deze zelfstudie wordt ervan uitgegaan dat u een computer of virtuele machine met
 >    * Windows IoT Core (16299 bouwen) op een apparaat x64 64
 >
 > Volg de instructies in voor Windows IoT Core [IoT rand runtime installeren op Windows IoT Core][lnk-install-iotcore]. Anders gewoon [Docker voor het gebruik van Windows-containers configureren][lnk-docker-containers], en desgewenst valideren uw vereisten met de volgende powershell-opdracht:
->    ```
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -78,19 +78,19 @@ De runtime IoT-rand wordt geïmplementeerd op alle rand van de IoT-apparaten. He
 
 Configureer de runtime door uw verbindingsreeks rand van de IoT-apparaat uit de vorige sectie.
 
-```
+```cmd
 iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Start de runtime.
 
-```
+```cmd
 iotedgectl start
 ```
 
 Controleer de Docker om te zien of de rand van de IoT-agent wordt uitgevoerd als een module.
 
-```
+```cmd
 docker ps
 ```
 

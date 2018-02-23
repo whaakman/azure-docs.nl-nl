@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 7fbca027d02512671cb380e9b440b03ffef86b89
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 66c356d6d42254e7443b645bff3393daca67012b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Voorbeeld van aangepaste bron-verbindingen (Python) 
 Lees voordat u deze bijlage lezen, [Python uitbreidbaarheid overzicht](data-prep-python-extensibility-overview.md).
@@ -45,7 +45,7 @@ Nu moet u kunnen data.world bibliotheken importeren.
 
 #### <a name="load-data-into-data-preparation"></a>Gegevens laden in het voorbereiden van gegevens
 
-Maak een nieuwe gegevens op basis van een script-stroom. Het volgende script vervolgens gebruiken voor het laden van de gegevens van data.world.
+Maak een transformatie transformeren gegevensstroom (Script). Het volgende script vervolgens gebruiken voor het laden van de gegevens van data.world.
 
 ```python
 #paths = df['Path'].tolist()

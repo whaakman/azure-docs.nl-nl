@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: 55a6c5cd5a0544b297bb68841c5ff0314f48dcc9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Meerdere VM-omgevingen en PaaS-resources met Azure Resource Manager-sjablonen maken
 
@@ -65,7 +65,7 @@ Er zijn een paar regels volgen om u te ordenen van uw Azure Resource Manager-sja
 De volgende stappen helpen u bij een opslagplaats toe te voegen aan uw testomgeving met behulp van de Azure-portal. 
 
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
+1. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
 1. Selecteer de gewenste testomgeving uit de lijst van labs.   
 1. Op de testomgeving **overzicht** deelvenster **configuratie en het beleid**.
 
@@ -81,7 +81,7 @@ De volgende stappen helpen u bij een opslagplaats toe te voegen aan uw testomgev
     - **GIT kloon-URL** -GIT HTTPS-kloon-URL invoeren in GitHub of Visual Studio Team Services.  
     - **Vertakking** -Voer de naam van de filialen voor toegang tot uw Azure Resource Manager-Sjabloondefinities. 
     - **Persoonlijke toegangstoken** -het persoonlijke toegangstoken veilig toegang krijgen tot uw opslagplaats wordt gebruikt. Als u uw token vanuit Visual Studio Team Services, selecteer  **&lt;uwnaam >> Mijn profiel > Beveiliging > openbare toegangstoken**. Als u uw token vanuit GitHub, selecteer uw avatar gevolgd door het selecteren van **instellingen > openbare toegangstoken**. 
-    - **Paden voor mappen** -met een van de twee invoervelden, geeft u het mappad die begint met een slash - / - en is ten opzichte van de Git-kloon-URI bij uw artefactdefinities (eerste invoerveld) of de Sjabloondefinities van uw Azure Resource Manager-.   
+    - **Paden voor mappen** -met een van de twee invoervelden, geeft u het mappad die begint met een slash - / - en is ten opzichte van de Git-kloon-URI bij uw artefactdefinities (eerste invoerveld) of de Sjabloondefinities van uw Azure Resource Manager- .   
     
         ![Openbare opslagplaats](./media/devtest-lab-create-environment-from-arm/repo-values.png)
 
@@ -95,7 +95,7 @@ De volgende sectie helpt u bij het maken van omgevingen van een Azure Resource M
 Als een opslagplaats Azure Resource Manager-sjabloon is geconfigureerd in de testomgeving, kunnen uw lab-gebruikers een omgeving met behulp van Azure portal met de volgende stappen maken:
 
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
+1. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
 1. Selecteer de gewenste testomgeving uit de lijst van labs.   
 1. Selecteer op de testomgeving deelvenster **toevoegen +**.
 1. De **kiezen een base** deelvenster ziet u de basisinstallatiekopieën kunt u met de Azure Resource Manager-sjablonen eerst weergegeven. Selecteer de gewenste Azure Resource Manager-sjabloon.
@@ -109,10 +109,10 @@ Als een opslagplaats Azure Resource Manager-sjabloon is geconfigureerd in de tes
     > [!NOTE]
     > Er zijn verschillende parameterwaarden die - zelfs als opgegeven - als lege waarden worden weergegeven. Daarom als deze waarden gebruikers aan parameters in een Azure Resource Manager-sjabloon toewijzen, DevTest Labs heeft niet de waarden weergeven. In plaats daarvan leeg invoervelden weergegeven waar lab gebruikers een waarde moeten opgeven bij het maken van de omgeving.
     > 
-    > - GEN UNIEKE
-    > - -UNIEKE - GEN [N]
+    > - GEN-UNIQUE
+    > - GEN-UNIQUE-[N]
     > - GEN-SSH-PUB-KEY
-    > - GEN-WACHTWOORD 
+    > - GEN-PASSWORD 
  
 1. Selecteer **toevoegen** voor het maken van de omgeving. De omgeving wordt gestart onmiddellijk inrichting met het weergeven van de status in de **mijn virtuele machines** lijst. Een nieuwe resourcegroep wordt automatisch gemaakt door de testomgeving voor het inrichten van de resources die zijn gedefinieerd in de Azure Resource Manager-sjabloon.
 1. Zodra de omgeving is gemaakt, selecteer de omgeving in de **mijn virtuele machines** lijst opent u het deelvenster van de groep resource en bladert u alle resources in de omgeving is ingericht.

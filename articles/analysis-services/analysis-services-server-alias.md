@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: a947dde1551c653faa54f088c1712c41c7657aa0
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e0119580c4128ffd237127a62e29dac34297da5d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="alias-server-names"></a>Servernamen alias
 
@@ -39,7 +39,7 @@ Wanneer u verbinding maakt vanaf een client, de naam van de alias wordt ingevoer
 
 ![Power BI Desktop-verbinding](media/analysis-services-alias/aas-alias-connect-pbid.png)
 
-## <a name="create-an-alias"></a>Een alias maken
+## <a name="create-an-alias"></a>Alias maken
 
 Een alias om eindpunt te maken, kunt u een TriggerSet-methode die een geldige naam voor de Azure Analysis Services-server retourneert. Bijvoorbeeld: een verwijzing naar een bestand in Azure Blob Storage waarin de werkelijke server name, of maken en publiceren van een webformulieren van ASP.NET-toepassing.
 

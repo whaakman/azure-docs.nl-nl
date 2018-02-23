@@ -17,6 +17,7 @@
 ### [Upgraden van DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Upgrade uitvoeren van een vorige versie](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Installeren met behulp van een bestaande ADSync-database](active-directory-aadconnect-existing-database.md)
+### [Installeren met behulp van gedelegeerde SQL-beheerdersmachtigingen](active-directory-aadconnect-sql-delegation.md)
 
 # Procedures
 ## Plannen en ontwerpen
@@ -51,6 +52,7 @@
 
 
 ## Azure AD Connect Sync beheren
+### [GDPR-naleving en Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Onopzettelijke verwijderingen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD-serviceaccount](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -81,6 +83,7 @@
 ### [Connectiviteit](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Fouten tijdens synchronisatie](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Object is niet gesynchroniseerd](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Synchronisatie van object met behulp van de taak voor het oplossen van problemen](active-directory-aadconnect-troubleshoot-objectsync.md)
 ### [Wachtwoordsynchronisatie](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [LargeObject-fout veroorzaakt door userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Probleem met LocalDB met limiet van 10 GB oplossen](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)

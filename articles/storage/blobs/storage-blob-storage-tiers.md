@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a4dc2ba7a356c26b75f5c9b519940b32f6763fa4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: dynamische-, statische- en archiefopslaglaag
 
 ## <a name="overview"></a>Overzicht
 
-Azure Storage biedt drie opslaglagen voor de opslag van blob-objecten, zodat u gegevens zeer voordelig kunt opslaan afhankelijk van hoe u deze gebruikt. De Azure **Hot Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die regelmatig worden geopend. De Azure **Cool Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die niet regelmatig worden geopend en die gedurende minimaal dertig dagen worden opgeslagen. De Azure **Archive Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die zelden worden geraadpleegd en die gedurende ten minste 180 dagen worden opgeslagen met flexibele latentievereisten (orde van grootte uur). De Archive Storage-laag is slechts beschikbaar op blob-niveau en niet op opslagaccountniveau. Voor gegevens in de Cool Storage-laag is een iets lagere beschikbaarheid toegestaan, maar ze vereisen nog steeds een hoge duurzaamheid en een gelijke tijdsduur voor toegang en doorvoer als gegevens in de Hot Storage-laag. Voor gegevens in de Cool Storage-laag zijn een SLA met een iets lagere beschikbaarheid en hogere toegangskosten (in vergelijking met gegevens in de Hot Storage-laag) aanvaardbaar vanwege de veel lagere opslagkosten. Archiefopslag is offline en biedt de laagste kosten voor opslag, maar ook de hoogste toegangskosten.
+Azure Storage biedt drie opslaglagen voor de opslag van blob-objecten, zodat u gegevens zeer voordelig kunt opslaan afhankelijk van hoe u deze gebruikt. De Azure **Hot Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die regelmatig worden geopend. De Azure **Cool Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die niet regelmatig worden geopend en die gedurende minimaal dertig dagen worden opgeslagen. De Azure **Archive Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die zelden worden geraadpleegd en die gedurende ten minste 180 dagen worden opgeslagen met flexibele latentievereisten (orde van grootte uur). De Archive Storage-laag is slechts beschikbaar op blob-niveau en niet op opslagaccountniveau. Voor gegevens in de Cool Storage-laag is een iets lagere beschikbaarheid toegestaan, maar ze vereisen nog steeds een hoge duurzaamheid en een gelijke tijdsduur voor toegang en doorvoer als gegevens in de Hot Storage-laag. Voor gegevens in de Cool Storage-laag zijn een SLA met een iets lagere beschikbaarheid en hogere toegangskosten (in vergelijking met gegevens in de Hot Storage-laag) aanvaardbaar vanwege de veel lagere opslagkosten. Archiefopslag is offline en biedt de laagste kosten voor opslag, maar ook de hoogste toegangskosten. Alleen de dynamische-opslaglaag en statische-opslaglaag (niet archief) kunnen worden ingesteld op het accountniveau. De lagen kunnen alle drie op het objectniveau worden ingesteld.
 
 Het aantal gegevens dat is opgeslagen in de cloud, groeit vandaag de dag exponentieel. Voor een effectief beheer van de kosten voor uw groeiende opslagbehoeften is het vanwege kostenoptimalisatie een goed idee om de gegevens te ordenen op basis van kenmerken als toegangsfrequentie en geplande bewaarperiode. Er bestaan verschillen in de manier waarop gegevens die in de cloud zijn opgeslagen, tijdens hun levensduur worden gegenereerd, benaderd en verwerkt. Sommige gegevens worden tijdens hun hele levensduur actief geopend en gewijzigd. Andere gegevens worden in het begin van hun levensduur regelmatig geopend, terwijl dit naarmate de tijd verstrijkt, aanzienlijk minder vaak gebeurt. Weer andere gegevens in de cloud zijn inactief en worden, als ze eenmaal zijn opgeslagen, zelden tot nooit geopend.
 
@@ -59,7 +59,7 @@ Als een blob in Archive Storage verblijft, is deze offline en kan niet worden ge
 
 Enkele voorbeelden van gebruiksscenario's voor de Archive Storage-laag:
 
-* Gegevenssets waarvan voor de lange termijn een back-up is gemaakt, die zijn gearchiveerd of die na een noodgeval zijn hersteld.
+* Langetermijnback-up, secundaire back-up en gegevenssets voor archivering
 * Oorspronkelijke (onbewerkte) gegevens die moeten worden bewaard, zelfs nadat deze zijn verwerkt tot hun uiteindelijke, bruikbare vorm. (*Bijvoorbeeld*: onbewerkte mediabestanden na transcodering naar andere indelingen)
 * Compliance- en archiveringsgegevens die gedurende lange tijd moeten worden opgeslagen en bijna nooit worden geopend. (*Bijvoorbeeld*: beeldmateriaal van beveiligingscamera‘s, oude röntgenfoto‘s/MRI‘s in ziekenhuizen, geluidsopnamen en transcripties van verkoopgesprekken voor financiële diensten)
 
@@ -83,7 +83,7 @@ Als een blob wordt verplaatst naar een minder dynamische laag (dynamisch->statis
 
 Als u het accountniveau omschakelt van dynamisch naar statisch, worden alleen schrijfacties in rekening gebracht (per 10.000) voor alle blobs zonder een ingestelde opslaglaag in GPv2-accounts. Er zijn geen kosten hiervoor in Blob Storage-accounts. Er worden kosten in rekening gebracht voor zowel leesbewerkingen (per 10.000) als voor het ophalen van gegevens (per GB) als u uw Blob Storage- of GPv2-account omschakelt van statisch naar dynamisch. Kosten voor vroegtijdige verwijdering van een blob die is verplaatst uit de opslaglaag Cool of Archive kunnen ook van toepassing zijn.
 
-### <a name="cool-and-archive-early-deletion-effective-february-1-2018"></a>Vroegtijdige verwijdering uit Cool en Archive (van kracht per 1 februari 2018)
+### <a name="cool-and-archive-early-deletion-effective-march-1-2018"></a>Vroege verwijdering voor statisch en archief (gaat in op 1 maart 2018)
 
 In aanvulling op de kosten per GB per maand is elke blob die wordt verplaatst naar de cool-opslaglaag (alleen GPv2-accounts) onderworpen aan een periode van 30 dagen van vroegtijdige verwijdering uit Cool en is elke blob die wordt verplaatst naar de Archive-laag onderworpen aan een periode van 180 dagen van vroegtijdige verwijdering uit Archive. Deze kosten zijn evenredig verdeeld. Als bijvoorbeeld een blob na 45 dagen wordt verplaatst naar de archieflaag en vervolgens wordt verwijderd of na 45 dagen wordt verplaatst naar de dynamische laag, worden kosten voor vroegtijdige verwijdering in rekening gebracht die gelijk zijn aan 135 (180 min 45) dagen van opslag van die blob in de archieflaag.
 
@@ -177,7 +177,7 @@ Elke blob wordt altijd gefactureerd volgens de opslaglaag aangegeven door de blo
 
 **Hoe bepaal ik of ik bij het verwijderen of verplaatsen van een blob uit de cool- of archive-laag een toeslag voor vroegtijdige verwijdering moet betalen?**
 
-Voor elke blob die binnen 30 dagen of 180 dagen wordt verwijderd of verplaatst uit respectievelijk de statische- (alleen GPv2-accounts) of archiefopslaglaag, wordt een vooraf vastgesteld bedrag voor vroegtijdige verwijdering in rekening gebracht (geldt vanaf 1 februari 2018). U kunt bepalen hoe lang een blob in de cool- of archive-laag is geweest door de blob-eigenschap **Wijzigingstijd toegangslaag** te controleren die een tijdstempel biedt van de laatste wijziging van de laag. Zie [Vroegtijdige verwijdering uit Cool en Archive](#cool-and-archive-early-deletion) voor meer informatie.
+Voor elke blob die binnen 30 dagen of 180 dagen wordt verwijderd of verplaatst uit respectievelijk de statische (alleen GPv2-accounts) of archiefopslaglaag, wordt een vooraf vastgesteld bedrag voor vroegtijdige verwijdering in rekening gebracht (geldt vanaf 1 maart 2018). U kunt bepalen hoe lang een blob in de cool- of archive-laag is geweest door de blob-eigenschap **Wijzigingstijd toegangslaag** te controleren die een tijdstempel biedt van de laatste wijziging van de laag. Zie [Vroegtijdige verwijdering uit Cool en Archive](#cool-and-archive-early-deletion) voor meer informatie.
 
 **Welke Azure Tools en SDK's ondersteunen laaginstelling op blobniveau en archiefopslag?**
 

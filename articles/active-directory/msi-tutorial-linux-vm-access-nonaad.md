@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 0e9eba9baeec00f13880ba6b32d87be8e5872bc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: bd2f251e97248497592b40128dcc03db5d6eba7a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure Sleutelkluis 
 
@@ -45,7 +45,7 @@ Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.c
 
 Voor deze zelfstudie maken we een nieuwe Linux VM. U kunt ook MSI op een bestaande virtuele machine inschakelen.
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Klik op de **maken van een resource** knop gevonden in de linkerbovenhoek van de Azure portal.
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
 3. Geef de informatie van de virtuele machine op. Voor **verificatietype**, selecteer **openbare SSH-sleutel** of **wachtwoord**. De gemaakte referenties kunnen u zich aanmelden bij de virtuele machine.
 
@@ -77,7 +77,7 @@ Met behulp van MSI Vind uw code toegangstokens voor verificatie naar bronnen die
 
 Eerst moet er een Sleutelkluis maken en onze VM identiteit toegang verlenen aan de Sleutelkluis.   
 
-1. Selecteer boven aan de linkernavigatiebalk **+ nieuw** vervolgens **beveiliging en identiteit** vervolgens **Sleutelkluis**.  
+1. Selecteer boven de linkernavigatiebalk **maken van een resource** > **beveiliging en identiteit** > **Sleutelkluis**.  
 2. Geef een **naam** voor de nieuwe Sleutelkluis. 
 3. De Sleutelkluis niet vinden in de hetzelfde abonnement en de resource-groep als de virtuele machine die u eerder hebt gemaakt. 
 4. Selecteer **toegangsbeleid** en klik op **nieuwe toevoegen**. 

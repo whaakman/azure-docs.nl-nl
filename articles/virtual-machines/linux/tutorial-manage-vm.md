@@ -1,6 +1,6 @@
 ---
-title: Maken en beheren van virtuele Linux-machines met de Azure CLI | Microsoft Docs
-description: Zelfstudie - maken en beheren van virtuele Linux-machines met de Azure CLI
+title: Virtuele Linux-machines maken en beheren met de Azure CLI | Microsoft Docs
+description: 'Zelfstudie: virtuele Linux-machines maken en beheren met de Azure CLI'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,51 +16,51 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: b2e9324cbe7ae683a472ecc0ee93329773886f88
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Maken en beheren van virtuele Linux-machines met de Azure CLI
+# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Virtuele Linux-machines maken en beheren met de Azure CLI
 
-Virtuele machines van Azure bieden een volledig worden geconfigureerd en flexibele computeromgeving. Deze zelfstudie bevat informatie over basic virtuele machine van Azure-implementatie items zoals het selecteren van een VM-grootte, een VM-installatiekopie te selecteren en implementeren van een virtuele machine. Procedures voor:
+Virtuele machines in Azure bieden een volledig geconfigureerde en flexibele computeromgeving. Deze zelfstudie bevat informatie over basisconcepten voor het implementeren van virtuele Azure-machines, zoals het selecteren van een VM-grootte, het selecteren van een VM-installatiekopie en het implementeren van een virtuele machine. Procedures voor:
 
 > [!div class="checklist"]
-> * Maken en verbinding maken met een virtuele machine
-> * Selecteer en gebruik van VM-installatiekopieën
-> * Weergeven en gebruiken van specifieke VM-grootten
+> * Een virtuele machine maken en verbinding maken met een virtuele machine
+> * VM-installatiekopieën selecteren en gebruiken
+> * Specifieke VM-grootten weergeven en gebruiken
 > * De grootte van een virtuele machine wijzigen
-> * Bekijken en te begrijpen status virtuele machine
+> * De status van een virtuele machine weergeven en begrijpen
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
 Een resourcegroep maken met de opdracht [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
 
-Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Een resourcegroep moet worden gemaakt voordat een virtuele machine. In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroupVM* wordt gemaakt in de *eastus* regio. 
+Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Voordat een virtuele machine wordt gemaakt, moet een resourcegroep worden gemaakt. In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroupVM* gemaakt in de regio *VS - Oost*. 
 
 ```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus
 ```
 
-De resourcegroep is opgegeven bij het maken of wijzigen van een virtuele machine die in deze zelfstudie kan worden gezien.
+De resourcegroep wordt opgegeven tijdens het maken of wijzigen van een virtuele machine, zoals in deze zelfstudie te zien is.
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-Maak een virtuele machine met de [az vm maken](https://docs.microsoft.com/cli/azure/vm#az_vm_create) opdracht. 
+Maak een virtuele machine met de opdracht [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
 
-Wanneer u een virtuele machine maakt, er zijn diverse opties beschikbaar zoals besturingssysteemkopie schijf sizing en administratieve referenties. In dit voorbeeld wordt een virtuele machine gemaakt met de naam *myVM* Ubuntu Server uitgevoerd. 
+Wanneer u een virtuele machine maakt, zijn er diverse opties beschikbaar zoals besturingssysteeminstallatiekopie, schijfgrootte en beheerdersreferenties. In dit voorbeeld wordt een virtuele machine gemaakt met de naam *myVM* waarop Ubuntu-server wordt uitgevoerd. 
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Het duurt enkele minuten voor het maken van de virtuele machine. Wanneer de virtuele machine is gemaakt, levert de Azure CLI informatie over de virtuele machine. Noteer de `publicIpAddress`, dit adres kan worden gebruikt voor toegang tot de virtuele machine... 
+Het maken van de virtuele machine kan een paar minuten duren. Wanneer de virtuele machine is gemaakt, biedt de Azure CLI informatie over de virtuele machine. Noteer het `publicIpAddress`; dit adres kan worden gebruikt voor toegang tot de virtuele machine... 
 
 ```azurecli-interactive 
 {
@@ -75,31 +75,31 @@ Het duurt enkele minuten voor het maken van de virtuele machine. Wanneer de virt
 }
 ```
 
-## <a name="connect-to-vm"></a>Verbinding maken met virtuele machine
+## <a name="connect-to-vm"></a>Verbinding maken met de virtuele machine
 
-U kunt nu verbinding met de virtuele machine met SSH in de Azure-Cloud-Shell of vanaf uw lokale computer. Vervang het voorbeeld IP-adres met de `publicIpAddress` in de vorige stap hebt genoteerd.
+U kunt nu verbinding maken met de virtuele machine met SSH in de Azure Cloud Shell of vanaf uw lokale computer. Vervang het voorbeeld van een IP-adres door het `publicIpAddress` dat u in de vorige stap hebt genoteerd.
 
 ```bash
 ssh 52.174.34.95
 ```
 
-Zodra u aangemeld bij de virtuele machine, kunt u deze kunt installeren en configureren van toepassingen. Wanneer u klaar bent, sluit u de SSH-sessie als normale:
+Nadat u bent aangemeld bij de virtuele machine, kunt u toepassingen gaan installeren en configureren. Wanneer u klaar bent, sluit u de SSH-sessie af zoals gebruikelijk:
 
 ```bash
 exit
 ```
 
-## <a name="understand-vm-images"></a>VM-installatiekopieën begrijpen
+## <a name="understand-vm-images"></a>Inzicht in VM-installatiekopieën
 
-De Azure marketplace bevat veel afbeeldingen die kunnen worden gebruikt voor het maken van virtuele machines. Een virtuele machine is gemaakt met behulp van een installatiekopie van een virtuele Ubuntu in de vorige stappen. In deze stap wordt de Azure CLI gebruikt voor het zoeken van de marketplace voor een installatiekopie CentOS, die vervolgens wordt gebruikt voor het implementeren van een tweede virtuele machine.  
+Azure Marketplace bevat vele installatiekopieën die kunnen worden gebruikt voor het maken van virtuele machines. In de vorige stappen is een virtuele machine gemaakt met behulp van een Ubuntu-installatiekopie. In deze stap wordt de Azure CLI gebruikt om op de Marketplace te zoeken naar een CentOS-installatiekopie, die vervolgens wordt gebruikt voor het implementeren van een tweede virtuele machine.  
 
-Als een lijst van de meest gebruikte afbeeldingen wilt weergeven, gebruikt de [az vm afbeeldingenlijst](/cli/azure/vm/image#list) opdracht.
+Als u een lijst wilt weergeven van de meest gebruikte installatiekopieën, gebruikt u de opdracht [az vm image list](/cli/azure/vm/image#az_vm_image_list).
 
 ```azurecli-interactive 
 az vm image list --output table
 ```
 
-Uitvoer van de opdracht retourneert de meest populaire VM-installatiekopieën in Azure.
+De uitvoer van de opdracht retourneert de meest populaire VM-installatiekopieën in Azure.
 
 ```bash
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
@@ -117,7 +117,7 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-Een volledige lijst ziet door toe te voegen de `--all` argument. De lijst met afbeeldingen kan ook worden gefilterd door `--publisher` of `–-offer`. In dit voorbeeld wordt de lijst gefilterd voor alle afbeeldingen met een aanbieding die overeenkomt met *CentOS*. 
+U kunt een volledige lijst zien door het argument `--all` toe te voegen. De lijst met installatiekopieën kan ook worden gefilterd door `--publisher` of `–-offer`. In dit voorbeeld wordt de lijst gefilterd voor alle installatiekopieën met een aanbieding die overeenkomt met *CentOS*. 
 
 ```azurecli-interactive 
 az vm image list --offer CentOS --all --output table
@@ -136,33 +136,33 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Voor het implementeren van een virtuele machine met de installatiekopie van een specifieke Noteer de waarde in de *Urn* kolom. Bij het opgeven van de installatiekopie van kan het versienummer van de installatiekopie worden vervangen door 'nieuwste', die de meest recente versie van de verdeling selecteert. In dit voorbeeld wordt de `--image` argument wordt gebruikt om de nieuwste versie van de installatiekopie van een CentOS 6.5 geven.  
+Als u een virtuele machine wilt implementeren met een specifieke installatiekopie, noteert u de waarde ervan in de kolom *Urn*. Bij het opgeven van de installatiekopie kan het versienummer van de installatiekopie worden vervangen door 'nieuwste', waarmee de meest recente versie van de distributie wordt geselecteerd. In dit voorbeeld wordt het argument `--image` gebruikt om de nieuwste versie van een CentOS 6.5-installatiekopie op te geven.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
 ```
 
-## <a name="understand-vm-sizes"></a>VM-grootten begrijpen
+## <a name="understand-vm-sizes"></a>Inzicht in VM-grootten
 
-De grootte van een virtuele machine bepaalt de hoeveelheid compute-bronnen zoals CPU en GPU geheugen die beschikbaar zijn gesteld voor de virtuele machine. Virtuele machines moet het juiste formaat voor de verwachte werkbelasting. Als de werkbelasting toeneemt, kan een bestaande virtuele machine kan worden gewijzigd.
+De grootte van een virtuele machine bepaalt de hoeveelheid rekenresources, zoals CPU, GPU en geheugen, die beschikbaar zijn gesteld voor de virtuele machine. Virtuele machines moeten de juiste grootte krijgen voor de verwachte werkbelasting. Als de werkbelasting toeneemt, kan de grootte van een bestaande virtuele machine worden gewijzigd.
 
 ### <a name="vm-sizes"></a>VM-grootten
 
-De volgende tabel categoriseert grootten in gebruiksvoorbeelden.  
+In de volgende tabel zijn grootten gecategoriseerd in use-cases.  
 
 | Type                     | Grootten           |    Beschrijving       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Algemeen doel](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0 7| Taakverdeling CPU-naar-geheugen. Ideaal voor dev / testen en in kleine tot middelgrote oplossingen voor toepassingen en gegevens.  |
-| [Geoptimaliseerde rekenkracht](sizes-compute.md)   | FS, F             | Hoog CPU-naar-geheugen. Goede voor gemiddeld verkeer toepassingen, netwerkapparatuur en batchprocessen.        |
-| [Geoptimaliseerd geheugen](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Hoge geheugen-naar-core. Ideaal voor relationele databases, middelgrote tot grote caches en in het geheugen analytics.                 |
+| [Algemeen doel](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Evenwichtige CPU-geheugenverhouding. Ideaal voor ontwikkelen/testen en in kleine tot middelgrote toepassingen en gegevensoplossingen.  |
+| [Geoptimaliseerde rekenkracht](sizes-compute.md)   | Fs, F             | Hoge CPU-geheugenverhouding. Goed voor middelgrootte verkeerstoepassingen, netwerkapparatuur en batchprocessen.        |
+| [Geoptimaliseerd geheugen](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Hoge geheugen-kernverhouding. Uiterst geschikt voor relationele-databases, middelgrote tot grote caches en analysefuncties in het geheugen.                 |
 | [Geoptimaliseerde opslag](../virtual-machines-windows-sizes-storage.md)      | Ls                | Snelle doorvoer van schijfgegevens en IO. Ideaal voor big data-, SQL- en NoSQL-databases.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NC            | Gespecialiseerde VMs gericht voor zware grafische weergave en het bewerken van video's.       |
-| [Hoge prestaties](sizes-hpc.md) | H, A8 11          | De krachtigste CPU VMs met optionele hoge gegevensdoorvoer netwerkinterfaces (RDMA). 
+| [GPU](sizes-gpu.md)          | NV, NC            | Gespecialiseerde VM's bedoeld voor intensieve grafische rendering en videobewerking.       |
+| [Hoge prestaties](sizes-hpc.md) | H, A8-11          | Onze krachtigste CPU-VM's met optionele netwerkinterfaces (RDMA) voor hoge doorvoer. 
 
 
-### <a name="find-available-vm-sizes"></a>Zoeken naar beschikbare VM-grootten
+### <a name="find-available-vm-sizes"></a>Beschikbare VM-grootten zoeken
 
-Als een lijst met VM-grootten die beschikbaar zijn in een bepaalde regio wilt weergeven, gebruikt de [az vm-lijst-groottes](/cli/azure/vm#list-sizes) opdracht. 
+Als u een lijst wilt weergeven met de VM-grootten die beschikbaar zijn in een bepaalde regio, gebruikt u de opdracht [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
@@ -191,9 +191,9 @@ Gedeeltelijke uitvoer:
                 16         57344  Standard_A7                           8           1047552                  619520
 ```
 
-### <a name="create-vm-with-specific-size"></a>Virtuele machine maken met een specifieke grootte
+### <a name="create-vm-with-specific-size"></a>Een virtuele machine met een specifieke grootte maken
 
-In de vorige VM maken bijvoorbeeld is een grootte niet opgegeven, waardoor het een standaardgrootte. Een VM-grootte kan worden geselecteerd maken met behulp van tijd [az vm maken](/cli/azure/vm#create) en de `--size` argument. 
+In het vorige voorbeeld over het maken van een virtuele machine, is er geen grootte opgegeven, waardoor de standaardgrootte werd gebruikt. Een VM-grootte kan worden geselecteerd tijdens het maken met behulp van [az vm create](/cli/azure/vm#az_vm_create) en het argument `--size`. 
 
 ```azurecli-interactive 
 az vm create \
@@ -206,60 +206,60 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>De grootte van een virtuele machine wijzigen
 
-Nadat een virtuele machine is geïmplementeerd, kan het vergroten of verkleinen resourcetoewijzing worden gewijzigd. U kunt de huidige grootte van een virtuele machine met weergeven [az vm weergeven](/cli/azure/vm#show):
+Nadat een virtuele machine is geïmplementeerd, kan de grootte ervan worden gewijzigd om meer of minder resources toe te wijzen. U kunt de huidige grootte van een virtuele machine weergeven met [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-Grootte wijzigen van een virtuele machine, Controleer of de gewenste grootte beschikbaar op de huidige Azure-cluster is. De [az vm-vm-formaat-opties voor](/cli/azure/vm#list-vm-resize-options) opdracht retourneert de lijst met grootten. 
+Voordat u de grootte van een virtuele machine wijzigt, moet u controleren of de gewenste grootte beschikbaar is in het huidige Azure-cluster. Met de opdracht [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options) wordt de lijst met grootten geretourneerd. 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-Als de gewenste grootte beschikbaar is, kan de virtuele machine worden gewijzigd van een status ingeschakeld op, maar deze opnieuw wordt opgestart tijdens de bewerking. Gebruik de [az vm vergroten of verkleinen]( /cli/azure/vm#resize) opdracht voor het uitvoeren van het formaat te wijzigen.
+Als de gewenste grootte beschikbaar is, kan de grootte van de virtuele machine worden gewijzigd terwijl de virtuele machine wordt uitgevoerd. De virtuele machine moet wel opnieuw worden opgestart tijdens de bewerking. Gebruik de opdracht [az vm resize]( /cli/azure/vm#az_vm_resize) om de grootte te wijzigen.
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-Als de gewenste grootte niet op het huidige cluster is, moet de VM ongedaan voordat de bewerking formaat kan plaatsvinden. Gebruik de [az vm ongedaan]( /cli/azure/vm#deallocate) opdracht om te stoppen en de VM ongedaan gemaakt. Opmerking: wanneer de virtuele machine wordt ingeschakeld weer, geen gegevens op de tijdelijke schijf kan worden verwijderd. Het openbare IP-adres verandert ook tenzij een statisch IP-adres wordt gebruikt. 
+Als de gewenste grootte niet beschikbaar is in het huidige cluster, moet de toewijzing van de VM ongedaan worden gemaakt voordat de grootte kan worden gewijzigd. Gebruik de opdracht [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) om de virtuele machine te stoppen en de toewijzing van de virtuele machine ongedaan te maken. Opmerking: wanneer de virtuele machine weer wordt ingeschakeld, zijn gegevens op de tijdelijke schijf mogelijk verwijderd. Het openbare IP-adres verandert ook, tenzij een statisch IP-adres is gebruikt. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
-Zodra de toewijzing opgeheven, kan het formaat optreden. 
+Nadat de toewijzing ongedaan is gemaakt, kan de grootte worden gewijzigd. 
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
 ```
 
-Na het formaat te wijzigen, kan de virtuele machine worden gestart.
+Als de grootte is gewijzigd, kan de virtuele machine worden gestart.
 
 ```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
-## <a name="vm-power-states"></a>VM-energiestatus
+## <a name="vm-power-states"></a>Energiestatussen voor de virtuele machine
 
-Een Azure VM kan een van de vele energiestatussen hebben. Deze status vertegenwoordigt de huidige status van de virtuele machine vanuit het oogpunt van de hypervisor. 
+Een Azure VM kan op een van de vele energiestatussen worden ingesteld. Deze status vertegenwoordigt de huidige status van de virtuele machine vanuit het oogpunt van de hypervisor. 
 
-### <a name="power-states"></a>Energiestatus
+### <a name="power-states"></a>Energiestatussen
 
-| Energieniveau | Beschrijving
+| Energiestatus | Beschrijving
 |----|----|
-| Starting | Geeft aan dat de virtuele machine wordt gestart. |
-| Running | Hiermee wordt aangegeven dat de virtuele machine wordt uitgevoerd. |
-| Stopping | Hiermee wordt aangegeven dat de virtuele machine wordt gestopt. | 
-| Stopped | Hiermee wordt aangegeven dat de virtuele machine is gestopt. Virtuele machines in de gestopte status nog steeds kosten compute.  |
-| Toewijzing | Hiermee wordt aangegeven dat de virtuele machine wordt opgeheven. |
-| De toewijzing ongedaan gemaakt | Hiermee wordt aangegeven dat de virtuele machine verwijderd uit de hypervisor maar nog steeds beschikbaar in het vlak van het besturingselement is. Virtuele machines in de status van de Deallocated kan niet worden compute-kosten in rekening. |
-| - | Hiermee wordt aangegeven dat de voedingsstatus van de virtuele machine onbekend is. |
+| Starten | Geeft aan dat de virtuele machine wordt gestart. |
+| In uitvoering | Geeft aan dat de virtuele machine wordt uitgevoerd. |
+| Stoppen | Geeft aan dat de virtuele machine wordt gestopt. | 
+| Gestopt | Geeft aan dat de virtuele machine is gestopt. Virtuele machines met de status Gestopt genereren nog steeds rekenkosten.  |
+| Vrijgeven | Geeft aan dat de toewijzing van de virtuele machine ongedaan wordt gemaakt. |
+| Toewijzing ongedaan gemaakt | Geeft aan dat de virtuele machine is verwijderd uit de hypervisor maar nog steeds beschikbaar is in het vlak van het besturingselement. Virtuele machines met de status Toewijzing ongedaan gemaakt genereren geen rekenkosten. |
+| - | Geeft aan dat de Aan-/uitstatus van de virtuele machine onbekend is. |
 
-### <a name="find-power-state"></a>Energieniveau vinden
+### <a name="find-power-state"></a>Energiestatus zoeken
 
-Voor het ophalen van de status van een bepaalde virtuele machine, gebruikt u de [az vm-instantieweergave ophalen](/cli/azure/vm#get-instance-view) opdracht. Zorg ervoor dat een geldige naam voor een virtuele machine en de resourcegroep opgeven. 
+Als u de status van een bepaalde virtuele machine wilt ophalen, gebruikt u de opdracht [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view). Zorg ervoor dat u een geldige naam opgeeft voor de virtuele machine en resourcegroep. 
 
 ```azurecli-interactive 
 az vm get-instance-view \
@@ -278,11 +278,11 @@ PowerState/running  VM running       Info
 
 ## <a name="management-tasks"></a>Beheertaken
 
-Tijdens de levenscyclus van een virtuele machine, kan u wilt uitvoeren van beheertaken, zoals starten, stoppen of een virtuele machine wordt verwijderd. Bovendien wilt u maken van scripts voor terugkerende of complexe taken automatiseren. Met de Azure CLI, kunnen veel algemene beheertaken worden uitgevoerd vanaf de opdrachtregel of in scripts. 
+Tijdens de levenscyclus van een virtuele machine wilt u mogelijk beheertaken uitvoeren, zoals het starten, stoppen of verwijderen van een virtuele machine. Misschien wilt u ook scripts maken voor het automatiseren van terugkerende of complexe taken. Met de Azure CLI kunnen veel algemene beheertaken worden uitgevoerd vanaf de opdrachtregel of in scripts. 
 
-### <a name="get-ip-address"></a>IP-adres
+### <a name="get-ip-address"></a>IP-adres ophalen
 
-Deze opdracht retourneert de persoonlijke en openbare IP-adressen van een virtuele machine.  
+Met deze opdracht worden het privé- en openbare IP-adres van een virtuele machine geretourneerd.  
 
 ```azurecli-interactive 
 az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
@@ -302,7 +302,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="delete-resource-group"></a>Resourcegroep verwijderen
 
-Verwijderen van een resourcegroep, verwijdert tevens alle resources binnen, zoals de VM, het virtuele netwerk en de schijf. De `--no-wait` parameter retourneert besturingselement op de vraag zonder te wachten totdat de bewerking is voltooid. De `--yes` parameter bevestigt dat u wilt verwijderen van de bronnen zonder een extra prompt om dit te doen.
+Als u een resourcegroep verwijdert, verwijdert u ook alle resources binnen deze groep, zoals de VM, het virtuele netwerk en de schijf. De parameter `--no-wait` retourneert het besturingselement naar de prompt zonder te wachten totdat de bewerking is voltooid. De parameter `--yes` bevestigt dat u de resources wilt verwijderen, zonder een extra prompt om dit te doen.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes
@@ -310,16 +310,16 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd over basic VM maken en beheren zoals het:
+In deze zelfstudie hebt u geleerd over basistaken voor het maken en beheren van een virtuele machine, zoals:
 
 > [!div class="checklist"]
-> * Maken en verbinding maken met een virtuele machine
-> * Selecteer en gebruik van VM-installatiekopieën
-> * Weergeven en gebruiken van specifieke VM-grootten
+> * Een virtuele machine maken en verbinding maken met een virtuele machine
+> * VM-installatiekopieën selecteren en gebruiken
+> * Specifieke VM-grootten weergeven en gebruiken
 > * De grootte van een virtuele machine wijzigen
-> * Bekijken en te begrijpen status virtuele machine
+> * De status van een virtuele machine weergeven en begrijpen
 
-Ga naar de volgende zelfstudie voor meer informatie over de VM-schijven.  
+In de volgende zelfstudie leert u meer over VM-schijven.  
 
 > [!div class="nextstepaction"]
-> [Maken en beheren van VM-schijven](./tutorial-manage-disks.md)
+> [VM-schijven maken en beheren](./tutorial-manage-disks.md)

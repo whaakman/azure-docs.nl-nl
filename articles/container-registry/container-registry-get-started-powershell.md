@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 10/08/2017
+ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 80b5055dee35cd6efe62ee949c05aef386a3ba14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>Een Azure Container Registry maken met behulp van PowerShell
 
@@ -21,7 +21,7 @@ Azure Container Registry is een beheerde service voor Docker-containerregisters 
 
 Voor deze snelstartgids is moduleversie 3.6 of later van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
-Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker op elke configureren op elk [Mac](https://docs.docker.com/docker-for-mac/)-, [Windows](https://docs.docker.com/docker-for-windows/)- of [Linux](https://docs.docker.com/engine/installation/#supported-platforms)-systeem.
+Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker configureren op elk [Mac][docker-mac]-, [Windows][docker-windows]- of [Linux][docker-linux]-systeem.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -57,13 +57,13 @@ Voordat u installatiekopieën van containers gaat pushen en pullen, moet u zich 
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Gebruik vervolgens de opdracht [docker login](https://docs.docker.com/engine/reference/commandline/login/) om u aan te melden bij het ACR-exemplaar.
+Gebruik vervolgens de opdracht [docker login][docker-login] om u aan te melden bij het ACR-exemplaar.
 
 ```bash
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
-De opdracht retourneert een bericht dat de aanmelding is gelukt.
+De opdracht retourneert `Login Succeeded` nadat deze is voltooid. Mogelijk ziet u een waarschuwing die het gebruik van de parameter `--password-stdin` aanraadt. Hoewel buiten het bestek van dit artikel, wordt u deze best practice aangeraden. Zie de verwijzing voor de opdracht [docker login][docker-login] voor meer informatie.
 
 ## <a name="push-image-to-acr"></a>Installatiekopie naar ACR overdragen met een push-bewerking
 
@@ -79,13 +79,13 @@ De installatiekopie moet zijn getagd met de naam van de ACR-aanmeldingsserver. V
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Tag de installatiekopie met de opdracht [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Vervang *acrLoginServer* door de naam van de aanmeldingsserver van het ACR-exemplaar.
+Label de installatiekopie met de opdracht [docker tag][docker-tag]. Vervang *acrLoginServer* door de naam van de aanmeldingsserver van het ACR-exemplaar.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Gebruik ten slotte [docker push](https://docs.docker.com/engine/reference/commandline/push/) om de installatiekopieën naar het ACR-exemplaar te pushen. Vervang *acrLoginServer* door de naam van de aanmeldingsserver van het ACR-exemplaar.
+Gebruik ten slotte [docker push][docker-push] om de installatiekopieën naar het ACR-exemplaar te pushen. Vervang *acrLoginServer* door de naam van de aanmeldingsserver van het ACR-exemplaar.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -105,3 +105,11 @@ In deze snelstartgids hebt u een Azure Container Registry met de Azure-opdrachtr
 
 > [!div class="nextstepaction"]
 > [Zelfstudie voor Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

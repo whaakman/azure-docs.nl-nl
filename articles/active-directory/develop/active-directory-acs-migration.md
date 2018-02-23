@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: f3de9016fe29a51ab2c7fb9e93fcd33af0f0e871
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migreren van de Azure Access Control-service
 
@@ -180,7 +180,7 @@ Een alternatieve methode is het volgen van [dit codevoorbeeld](https://github.co
 
 Als u deze benadering kiest, moet u begrijpen [sleutelrollover in Azure AD-ondertekening](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Deze methode maakt gebruik van de Azure AD globaal ondertekeningssleutel voor het probleem van tokens. Standaard geeft WIF handtekeningsleutels niet automatisch vernieuwd. Wanneer u Azure AD de globale handtekeningsleutels draait, moet uw implementatie WIF worden voorbereid om de wijzigingen te accepteren.
 
-Als u met Azure AD via het OpenID Connect of OAuth-protocol integreren kunt, raden wij doet. We hebben uitgebreide documentatie en richtlijnen over het Azure AD integreren in uw webtoepassing beschikbaar in onze [Ontwikkelaarshandleiding voor Azure AD](http://aka.ms/aaddev).
+Als u met Azure AD via het OpenID Connect of OAuth-protocol integreren kunt, raden wij doet. We hebben uitgebreide documentatie en richtlijnen over het Azure AD integreren in uw webtoepassing beschikbaar in onze [Ontwikkelaarshandleiding voor Azure AD](https://aka.ms/aaddev).
 
 <!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
@@ -231,7 +231,7 @@ Als u besluit dat Azure AD B2C het beste migratiepad voor uw toepassingen en ser
 In sommige gevallen mogelijk vindt u die Azure AD en Azure AD B2C zijn niet voldoende zijn voor toegangsbeheer in uw webtoepassingen vervangen zonder dat u belangrijke code wijzigingen aanbrengt. Sommige algemene voorbeelden hiervan zijn:
 
 - Webtoepassingen die gebruikmaken van WIF of WS-Federation voor aanmelden bij sociale id-providers zoals Google of Facebook.
-- Webtoepassingen die direct federation aan een onderneming uitvoeren identificeren provider via het protocol WS-Federation.
+- Webtoepassingen die direct federation naar een enterprise-id-provider via het protocol WS-Federation uitvoeren.
 - Webtoepassingen waarvoor het toegangstoken dat is uitgegeven door een identiteitsprovider van sociale (zoals Google of Facebook) als een claim in de tokens die zijn uitgegeven door toegangsbeheer.
 - Webtoepassingen met complexe token transformatie regels die Azure AD of Azure AD B2C niet reproduceren.
 - Multitenant webtoepassingen die gebruikmaken van ACS om Federatie af te veel andere identiteitsproviders centraal te beheren
@@ -282,7 +282,7 @@ U kunt ook Azure AD gebruiken voor verificatie van de server naar server met beh
 | Het registreren van een client | Maken van een service-identiteit in de Access Control-beheerportal | Een andere Azure AD-webtoepassing maken in de Azure portal |
 | Protocol dat wordt gebruikt |-OAuth WRAP protocol<br />-De referenties van de client OAuth 2.0-concept 13 verlenen | OAuth 2.0-clientreferenties verlenen |
 | Methoden voor clientverificatie |-Eenvoudig wachtwoord<br />-Ondertekende SWT<br />-SAML-token van een federatieve identiteiten-provider |-Eenvoudig wachtwoord<br />-Ondertekende JWT |
-| Token indelingen |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Alleen JWT |
+| Token indelingen |-JWT<br />-SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | Alleen JWT |
 | Token transformatie |-Aangepaste claims toevoegen<br />-Eenvoudig als dan claimuitgifte logica | Aangepaste claims toe te voegen | 
 | Configureren en beheren van taken automatiseren | Ondersteund via Access Control-Management-Service | Ondersteund via Microsoft Graph en Azure AD Graph API |
 

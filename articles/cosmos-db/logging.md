@@ -12,36 +12,61 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/20/2018
 ms.author: mimig
-ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Diagnostische logboekregistratie van Azure DB Cosmos
 
-Zodra u hebt gestart met behulp van een of meer Azure DB die Cosmos-databases, u kunt controleren hoe en wanneer uw databases worden geopend. Diagnostische logboekregistratie in Azure Cosmos DB, kunt u deze bewaking uitvoeren. Als u Diagnostische logboekregistratie inschakelt, kunt u Logboeken verzenden [Azure Storage](https://azure.microsoft.com/services/storage/), ze streamt [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), en/of exporteren naar [logboekanalyse](https://azure.microsoft.com/services/log-analytics/), die deel uitmaakt van [ Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+Zodra u hebt gestart met behulp van een of meer Azure DB die Cosmos-databases, u kunt controleren hoe en wanneer uw databases worden geopend. In dit artikel biedt een overzicht van alle beschikbare logboeken op de Azure-platform en vervolgens wordt uitgelegd hoe u Diagnostische logboekregistratie voor controledoeleinden logboeken te verzenden in te schakelen [Azure Storage](https://azure.microsoft.com/services/storage/), ze streamt [Azure Event Hubs ](https://azure.microsoft.com/services/event-hubs/), en/of exporteren naar [logboekanalyse](https://azure.microsoft.com/services/log-analytics/), die deel uitmaakt van [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+
+## <a name="logs-available-in-azure"></a>Logboeken beschikbaar in Azure
+
+Voordat we krijgen tot uw account voor Azure Cosmos DB bewaking, kunnen een aantal zaken over logboekregistratie en controle verduidelijken. Er zijn verschillende typen logboeken op de Azure-platform. Er zijn [Azure activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [metrische gegevens](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), gebeurtenissen, heartbeat bewaking, operations-Logboeken, enzovoort. Er zijn breed spectrum van Logboeken. U ziet een volledige lijst met Logboeken in [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) in de Azure portal. 
+
+De volgende afbeelding toont de verschillende soorten Azure logboeken beschikbaar.
+
+![Verschillende soorten Azure Logboeken](./media/logging/azurelogging.png)
+
+Voor onze bespreking kunt richten op de Azure-activiteit, Azure diagnostisch en metrische gegevens. Wat is dus het verschil tussen deze drie logboeken? 
+
+### <a name="azure-activity-log"></a>Azure Activity Log
+
+De Azure Activity Log is een abonnementlogboek biedt inzicht in het abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Het activiteitenlogboek rapporten besturingselement vlak gebeurtenissen voor uw abonnementen onder de beheercategorie. Met het activiteitenlogboek, kunt u bepalen de ' wat, wie, en wanneer ' voor een (PUT, POST, verwijderen schrijfbewerkingen) die zijn gemaakt op de resources in uw abonnement. U kunt ook de status van de bewerking en andere relevante eigenschappen begrijpen. 
+
+Het activiteitenlogboek verschilt van diagnostische logboeken. Activiteitenlogboeken bevatten gegevens over de bewerkingen van een resource van buitenaf (de ' besturingselement-vlak'). In de context Azure Cosmos DB maken een deel van het besturingselement vlak bewerkingen behoren verzameling, lijst met sleutels, delete-sleutels, lijst database, enzovoort. Logboeken met diagnostische gegevens worden gegenereerd door een resource en bieden informatie over de werking van de bron (de "data-vlak'). Sommige van de voorbeelden van gegevens vlak diagnostische logboeken zijn delete, insert, readfeed bewerking, enzovoort.
+
+Activiteitenlogboeken (vlak beheerbewerkingen) is mogelijk veel meer uitgebreidere aard, daarbij het volledige e-mailadres van de aanroeper, aanroeper IP-adres, Resourcenaam, bewerkingsnaam en TenantId, enz. Het activiteitenlogboek bevat verschillende [categorieën](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) van gegevens. Zie voor volledige informatie over de schema's uit deze categorieën [Azure Activity Log gebeurtenis schema](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema).  Diagnostische logboeken kan echter zijn beperkende aard zoals PII gegevens vaak uit deze is verwijderd. Dus moet u wellicht de IP-adres van de aanroeper, maar de laatste octent wordt verwijderd.
+
+### <a name="azure-metrics"></a>Azure metrische gegevens
+
+[Azure metrische gegevens](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics), de belangrijkste soort Azure telemetriegegevens (ook wel prestatiemeteritems) die door de meeste Azure-resources. Metrische gegevens kunt u informatie weergeven over de doorvoer, opslag, consistentie, beschikbaarheid en de latentie van uw Azure DB die Cosmos-resources. Zie voor meer informatie [bewaking en foutopsporing met metrische gegevens in Azure Cosmos DB](use-metrics.md).
+
+### <a name="azure-diagnostic-logs"></a>Azure diagnostische logboeken
+
+Azure diagnostische logboeken zijn verzonden door een resource van Logboeken en leveren van uitgebreide, regelmatig gegevens over de werking van de bron. De inhoud van deze logboeken varieert per resourcetype. Diagnostische logboeken niveau resource afwijken van de Gast OS-niveau diagnostische logboeken. Gastbesturingssysteem diagnostische logboeken zijn deze die worden verzameld door een agent wordt uitgevoerd binnen een virtuele machine of andere ondersteund resourcetype. Diagnostische logboeken niveau resource vereisen geen gegevens van de resource-specifieke agent en vastleggen van de Azure-platform zelf, terwijl de Gast OS-niveau diagnostische logboeken vastleggen van gegevens van het besturingssysteem en toepassingen die worden uitgevoerd op een virtuele machine.
 
 ![Diagnostische logboekregistratie voor opslag, Event Hubs of Operations Management Suite via Log Analytics](./media/logging/azure-cosmos-db-logging-overview.png)
 
-Gebruik deze handleiding om aan de slag met Azure Cosmos DB logboekregistratie via de Azure-portal, CLI of PowerShell.
-
-## <a name="what-is-logged"></a>Wat is geregistreerd?
+### <a name="what-is-logged-by-azure-diagnostic-logs"></a>Wat is vastgelegd door diagnostische logboeken van Azure?
 
 * Alle back-end voor geverifieerde aanvragen (TCP/REST) worden voor alle API's, vastgelegd, ook mislukte aanvragen als gevolg van toegangsmachtigingen, systeemfouten of ongeldige aanvragen. Ondersteuning voor de gebruiker geïnitieerd grafiek, Cassandra, en tabel API-aanvragen zijn momenteel niet beschikbaar.
 * Bewerkingen op de database, inclusief CRUD-bewerkingen op alle documenten, containers en -databases.
 * Bewerkingen voor sleutels, waaronder maken, wijzigen of verwijderen van deze sleutels.
 * Niet-geverifieerde aanvragen die in een 401-respons resulteren. Dit zijn bijvoorbeeld aanvragen die geen Bearer-token hebben, ongeldige of verlopen aanvragen of aanvragen met een ongeldig token.
 
-## <a name="prerequisites"></a>Vereisten
-Deze zelfstudie hebt u de volgende bronnen:
+<a id="#turn-on"></a>
+## <a name="turn-on-logging-in-the-azure-portal"></a>Schakelt logboekregistratie in de Azure portal
+
+Diagnostische gegevens als logboekregistratie wilt inschakelen, hebt u de volgende bronnen:
 
 * Een bestaande Azure DB die Cosmos-account, database en container. Zie voor instructies over het maken van deze resources [een databaseaccount maken met de Azure-portal](create-sql-api-dotnet.md#create-a-database-account), [CLI voorbeelden](cli-samples.md), of [voorbeelden PowerShell](powershell-samples.md).
 
-<a id="#turn-on"></a>
-## <a name="turn-on-logging-in-the-azure-portal"></a>Schakelt logboekregistratie in de Azure portal
+Schakel diagnostische gegevens vastleggen in de Azure portal door het volgende doen:
 
 1. In de [Azure-portal](https://portal.azure.com), in uw Azure DB-Cosmos-account, klikt u op **diagnostische logboeken** in de navigatiebalk aan de linkerkant en klik vervolgens op **diagnostische gegevens inschakelen**.
 
@@ -98,7 +123,7 @@ U kunt deze parameters zodat meerdere uitvoeropties combineren.
 
 ## <a name="turn-on-logging-using-powershell"></a>Schakel logboekregistratie met behulp van PowerShell
 
-Als u logboekregistratie met behulp van PowerShell, moet u Azure Powershell met een versie 1.0.1 of hoger.
+Als u Diagnostische logboekregistratie met behulp van PowerShell, moet u Azure Powershell met een versie 1.0.1 of hoger.
 
 Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement.
 
@@ -233,7 +258,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 /MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/CONTOSOCOSMOSDB/y=2017/m=09/d=28/h=19/m=00/PT1H.json
 ```
 
-Als u in deze uitvoer zien kunt, de blobs de volgende naamgevingsregels:`resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+Als u in deze uitvoer zien kunt, de blobs de volgende naamgevingsregels: `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 De datum- en tijdwaarden maken gebruik van UTC.
 
@@ -285,8 +310,8 @@ Als u alleen specifieke blobs wilt downloaden, moet u jokertekens gebruiken. Bij
 
 Daarnaast doet u het volgende:
 
-* Query uitvoeren op de status van diagnostische instellingen voor uw database-resource:`Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
-* Uitschakelen van logboekregistratie van **DataPlaneRequests** categorie voor uw account database resource:`Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
+* Query uitvoeren op de status van diagnostische instellingen voor uw database-resource: `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+* Uitschakelen van logboekregistratie van **DataPlaneRequests** categorie voor uw account database resource: `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
 
 
 De blobs die worden geretourneerd in elk van deze query's worden opgeslagen als tekst, die is opgemaakt als een JSON-blob, zoals wordt weergegeven in de volgende code. 
@@ -315,7 +340,7 @@ Zie voor meer informatie over de gegevens in elke blob JSON, [uw logboeken Azure
 
 ## <a name="managing-your-logs"></a>Het beheren van uw logboeken
 
-Logboeken worden beschikbaar gesteld in uw account twee uur vanaf het moment dat de Azure DB die Cosmos-bewerking is uitgevoerd. Het is aan u om uw logboeken in uw opslagaccount te beheren:
+Diagnostische logboeken worden beschikbaar gesteld in uw account twee uur vanaf het moment dat de Azure DB die Cosmos-bewerking is uitgevoerd. Het is aan u om uw logboeken in uw opslagaccount te beheren:
 
 * Gebruik standaardmethoden van Azure voor toegangsbeheer om uw logboeken te beveiligen door het aantal gebruikers te beperken dat toegang heeft tot de logboeken.
 * Verwijder de logboeken die u niet meer in uw opslagaccount wilt bewaren.
@@ -325,7 +350,7 @@ Logboeken worden beschikbaar gesteld in uw account twee uur vanaf het moment dat
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Logboeken bekijken in Log Analytics
 
-Als u hebt geselecteerd de **verzenden met logboekanalyse** optie bij het inschakelen van logboekregistratie van diagnostische gegevens van uw verzameling wordt doorgestuurd naar logboekanalyse binnen twee uur. Dit betekent dat als u onmiddellijk na het inschakelen van logboekregistratie logboekanalyse bekijkt, u niet alle gegevens ziet. Twee uur wachten en probeer het opnieuw 
+Als u hebt geselecteerd de **verzenden met logboekanalyse** optie bij het inschakelen van diagnostische logboekregistratie diagnostische gegevens van uw verzameling wordt doorgestuurd naar logboekanalyse binnen twee uur. Dit betekent dat als u onmiddellijk na het inschakelen van logboekregistratie logboekanalyse bekijkt, u niet alle gegevens ziet. Twee uur wachten en probeer het opnieuw 
 
 Voordat u uw logboeken weergeeft, moet u te zien als uw werkruimte voor logboekanalyse is bijgewerkt naar de nieuwe Log Analytics query language gebruiken. U kunt dit controleren, opent u de [Azure-portal](https://portal.azure.com), klikt u op **logboekanalyse** aan de linkerkant, selecteer vervolgens de naam van de werkruimte zoals weergegeven in de volgende afbeelding. De **OMS-werkruimte** pagina wordt weergegeven zoals in de volgende afbeelding.
 

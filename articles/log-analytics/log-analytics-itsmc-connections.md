@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: a51ba4b45b7f6c72037d5c562a4ccd59e601cee4
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinding maken met ITSM producten/services met IT Service Management-Connector
 In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM producten, services en de IT-Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](log-analytics-itsmc-overview.md).
@@ -185,11 +185,12 @@ De volgende secties bevatten meer informatie over het verbinding maken met uw Se
 ### <a name="prerequisites"></a>Vereisten
 Zorg ervoor dat de volgende vereisten wordt voldaan:
 - ITSMC geïnstalleerd. Meer informatie: [toevoegen van de IT-Service Management-Connector oplossing](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow ondersteunde versies: ondersteuning, Istanboel, Helsinki, Geneva
+- ServiceNow ondersteunde versies: Kingston, ondersteuning, Istanboel, Helsinki, Geneva.
 
 **De volgende items in hun ServiceNow-exemplaar moet doen door ServiceNow Admins**:
 - Client-ID en clientgeheim voor het product ServiceNow genereren. Zie de volgende informatie zoals vereist voor informatie over het maken van de client-ID en geheim:
 
+    - [OAuth voor Kingston instellen](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
     - [Instellen van OAuth voor ondersteuning](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [OAuth voor Istanboel instellen](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [OAuth voor Helsinki instellen](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -199,7 +200,7 @@ Zorg ervoor dat de volgende vereisten wordt voldaan:
 - Installeer de App gebruiker voor Microsoft OMS-integratie (ServiceNow-app). [Meer informatie](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Maak gebruikersrol voor integratie voor de gebruiker app is geïnstalleerd. Informatie over het maken van de gebruikersrol integratie [hier](#create-integration-user-role-in-servicenow-app).
 
-### <a name="connection-procedure"></a>**Verbindingsprocedure**
+### <a name="connection-procedure"></a>Verbindingsprocedure
 Gebruik de volgende procedure om een ServiceNow-verbinding te maken:
 
 

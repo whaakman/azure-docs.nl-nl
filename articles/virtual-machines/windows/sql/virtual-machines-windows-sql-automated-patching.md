@@ -4,7 +4,7 @@ description: Verklaart de functie automatisch patchen voor SQL Server Virtual Ma
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
@@ -15,24 +15,22 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: e3459e8a62386a94938aa52792b94e87315a48ab
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c1cdf03133d765f7726d16378b042de8e04b2cfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automated Patching voor SQL Server in virtuele machines van Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
-> * [Klassiek](../classic/sql-automated-patching.md)
-> 
-> 
+> * [Klassiek](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 Geautomatiseerde Patching stelt u een onderhoudsvenster voor een virtuele Machine van Azure met SQL Server. Automatische Updates kunnen alleen worden geïnstalleerd tijdens deze periode. Voor SQL Server zorgt deze rescriction systeemupdates en eventuele bijbehorende opnieuw is opgestart bij de best mogelijke voor de database optreden. Geautomatiseerde Patching is afhankelijk van de [uitbreiding voor SQL Server IaaS-Agent](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-De klassieke versie van dit artikel vindt u [automatisch patchen voor SQL Server in Azure virtuele Machines klassieke](../classic/sql-automated-patching.md).
+De klassieke versie van dit artikel vindt u [automatisch patchen voor SQL Server in Azure virtuele Machines klassieke](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md).
 
 ## <a name="prerequisites"></a>Vereisten
 Voor het gebruik van automatisch patchen, kunt u overwegen de volgende vereisten:

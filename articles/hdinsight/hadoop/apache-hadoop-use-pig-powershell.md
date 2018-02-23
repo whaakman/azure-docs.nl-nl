@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/27/2017
+ms.date: 02/16/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b883a3d9559c2f11742cd54716d8220b2034470d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7fa50e206c86b307f7e2a90ff0938571b64f41bb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Gebruik Azure PowerShell Pig-taken uitvoeren met HDInsight
 
@@ -40,9 +40,7 @@ Dit document bevat een voorbeeld van het gebruik van Azure PowerShell voor het v
 
 * **Een werkstation met Azure PowerShell**.
 
-[!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
-
-## <a id="powershell"></a>Pig-taken met behulp van PowerShell uitgevoerd
+## <a id="powershell"></a>Pig-taak uitgevoerd
 
 Azure PowerShell biedt *cmdlets* waarmee u kunt op afstand Pig-taken uitvoeren op HDInsight. PowerShell gebruikt intern, REST-aanroepen naar [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) uitgevoerd op het HDInsight-cluster.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 8797910651c54baa3529b015d4195cf2a5c06ece
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: afbb3392a4726ea067bf19c117792b866d9e79f3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Doorvoer instellen voor Azure DB die Cosmos-containers
 
@@ -49,7 +49,7 @@ De volgende tabel bevat de doorvoer die beschikbaar zijn voor containers:
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>De doorvoer instellen via de Azure-portal
 
 1. In een nieuw venster openen de [Azure-portal](https://portal.azure.com).
-2. Klik op de linkerbalk op **Azure Cosmos DB**, of klik op **meer Services** aan de onderkant en schuif vervolgens naar **Databases**, en klik vervolgens op **Azure Cosmos DB**.
+2. Klik op de linkerbalk op **Azure Cosmos DB**, of klik op **alle services** aan de onderkant en schuif vervolgens naar **Databases**, en klik vervolgens op **Azure Cosmos DB**.
 3. Selecteer uw account Cosmos DB.
 4. Klik in het nieuwe venster **Data Explorer** in het navigatiemenu.
 5. Vouw uw database en de container in het nieuwe venster en klik vervolgens op **schaal & instellingen**.

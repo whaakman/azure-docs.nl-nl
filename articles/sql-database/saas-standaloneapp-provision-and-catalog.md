@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: eec7f9262dd8e8cccb5ba68cbe2f12581cd01470
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Inrichten en catalogus nieuwe tenants met behulp van de toepassing per tenant SaaS-patroon
 
@@ -30,7 +30,7 @@ In dit artikel bevat twee hoofdonderdelen:
 * Een zelfstudie die PowerShell voorbeeldcode die kunnen ingericht en catalogiseren worden markeert
     * De zelfstudie maakt gebruik van de Wingtip Tickets SaaS voorbeeldtoepassing, aangepast aan de app zelfstandige per tenant-patroon.
 
-## <a name="application-per-tenant-pattern"></a>Toepassing per tenant patroon
+## <a name="standalone-application-per-tenant-pattern"></a>Zelfstandige toepassing per tenant patroon
 De zelfstandige app per tenant patroon is een van de verschillende patronen voor multitenant SaaS-toepassingen.  Een zelfstandige app wordt in dit patroon worden ingericht voor elke tenant. De toepassing bestaat uit niveau toepassingsonderdelen en een SQL-database.  Elke tenant-app kan worden geïmplementeerd in het abonnement van de leverancier.  U kunt ook Azure biedt een [beheerde toepassingen programma](https://docs.microsoft.com/en-us/azure/managed-applications/overview) in die een app kan worden geïmplementeerd in een tenant-abonnement en beheerd door de leverancier van de tenant namens. 
 
    ![patroon van de App per tenant](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
@@ -59,7 +59,7 @@ Elke tenant moet een nieuwe Azure-resourcegroep, die moet worden gemaakt voordat
 
 In deze zelfstudie leert u het volgende:
 * Een catalogus inrichten
-* Registreren van de tenant-databases geïmplementeerd eerder in de catalogus
+* Registreren van de voorbeeld-tenant-databases die u hebt geïmplementeerd eerder in de catalogus
 * Een extra tenant in te richten en deze te registreren in de catalogus
 
 Een Azure Resource Manager-sjabloon wordt te implementeren en configureren van de toepassing, de tenant-database maken en vervolgens een Bacpac-bestand voor het initialiseren van het importeren gebruikt. De aanvraag importeren kan enkele minuten duren voordat deze ondernomen wordt in de wachtrij geplaatst.
@@ -148,3 +148,5 @@ In deze zelfstudie hebt u het volgende geleerd:
 > * Klik hier voor meer informatie over het implementeren van de zelfstandige Wingtip Tickets SaaS-toepassing.
 > * Over de servers en databases die gezamenlijk de app.
 > * Klik hier voor meer informatie over het verwijderen van de voorbeeldresources om te stoppen gerelateerde facturering.
+
+Vindt u op hoe de catalogus wordt gebruikt ter ondersteuning van verschillende scenario's voor cross-tenant met behulp van de database per tenant-versie van de [Wingtip Tickets SaaS-toepassing](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

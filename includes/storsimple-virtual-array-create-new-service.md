@@ -2,7 +2,7 @@
 
 1.  Meld u met uw Microsoft-accountreferenties aan bij Azure Portal met deze URL: <https://portal.azure.com/>. Als het apparaat in de portal van de overheid implementeert, aanmelden op: <https://portal.azure.us/>
 
-2.  Klik in de Azure-portal op **+ nieuw** &gt; **opslag** &gt; **virtuele StorSimple-reeks**.
+2.  Klik in de Azure-portal op **+ maken van een resource** &gt; **opslag** &gt; **virtuele StorSimple-reeks**.
 
     ![Nieuwe service maken](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 

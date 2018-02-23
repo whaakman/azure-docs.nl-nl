@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 1c5459533ecc8c505b62a9c44c395cfd08a3a629
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 71e33ec82c3db6fb7efa52dd12315e309658aab9
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Inhoudsbeheer vereisten bepalen voor uw oplossing voor hybride identiteit
-Inhoudsbeheer vereisten voor uw bedrijf kan een directe invloed hebben op uw beslissing over welke oplossing voor hybride identiteit moet worden gebruikt. Met de komst van meerdere apparaten en de mogelijkheid van gebruikers voor hun eigen apparaten meebrengen ([BYOD](http://aka.ms/byodcg)), het bedrijf een eigen gegevens moet beveiligen, maar deze ook moet ervoor zorgen dat de privacy van gebruikers behouden. Gewoonlijk wellicht wanneer een gebruiker zijn of haar eigen apparaat heeft hij ook meerdere referenties zal worden afwisselende volgens de toepassing die hij gebruikt. Het is belangrijk om te onderscheiden welke inhoud is gemaakt met behulp van persoonlijke referenties die gemaakt met zakelijke referenties. De oplossing van uw identiteit moet kunnen communiceren met cloud services voor een naadloze ervaring voor de eindgebruiker tijdens zijn privacy garanderen en verhoogt de beveiliging tegen het gegevenslekken van. 
+Inhoudsbeheer vereisten voor uw bedrijf kan een directe invloed hebben op uw beslissing over welke oplossing voor hybride identiteit moet worden gebruikt. Met de komst van meerdere apparaten en de mogelijkheid van gebruikers voor hun eigen apparaten meebrengen ([BYOD](https://aka.ms/byodcg)), het bedrijf een eigen gegevens moet beveiligen, maar deze ook moet ervoor zorgen dat de privacy van gebruikers behouden. Gewoonlijk wellicht wanneer een gebruiker zijn of haar eigen apparaat heeft hij ook meerdere referenties zal worden afwisselende volgens de toepassing die hij gebruikt. Het is belangrijk om te onderscheiden welke inhoud is gemaakt met behulp van persoonlijke referenties die gemaakt met zakelijke referenties. De oplossing van uw identiteit moet kunnen communiceren met cloud services voor een naadloze ervaring voor de eindgebruiker tijdens zijn privacy garanderen en verhoogt de beveiliging tegen het gegevenslekken van. 
 
 Oplossing voor uw identiteit zal worden gebruikt door andere technische besturingselementen om te voorzien van inhoudsbeheer, zoals wordt weergegeven in de afbeelding hieronder:
 

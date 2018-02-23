@@ -13,11 +13,11 @@ ms.devlang:
 ms.topic: hero-article
 ms.date: 01/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 9e0b0efdf28e6d8b99d1cdf702dd0698ad87da7b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: abb5fd4953709198f6071bbdd4a1dc86900f0183
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>Een Azure-SSIS-integratieruntime inrichten met behulp van de gebruikersinterface van Azure Data Factory
 Deze zelfstudie bevat de stappen voor het gebruik van Azure Portal om een Azure SSIS-integratieruntime (IR) in te richten in Azure Data Factory. Vervolgens kunt u SQL Server Data Tools of SQL Server Management Studio gebruiken om pakketten van SQL Server Integration Services (SSIS) te implementeren in deze runtime van Azure. Zie [Overzicht van integratieruntime in Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime) voor algemene informatie over een Azure-SSIS IR.
@@ -26,7 +26,7 @@ In deze zelfstudie voert u de volgende stappen uit:
 
 > [!div class="checklist"]
 > * Een data factory maken.
-> * Een Azure-SSIS-integratieruntime maken en starten.
+> * Een Azure-SSIS-integratieruntime inrichten.
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is (GA), raadpleegt u de [documentatie voor versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -41,8 +41,9 @@ In deze zelfstudie voert u de volgende stappen uit:
  
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).    
-2. Selecteer **Nieuw** in het menu links, selecteer **Gegevens en analyses** en selecteer vervolgens **Data Factory**. 
+1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
+2. Meld u aan bij [Azure Portal](https://portal.azure.com/).    
+3. Selecteer **Nieuw** in het menu links, selecteer **Gegevens en analyses** en selecteer vervolgens **Data Factory**. 
    
    ![Selectie van Data Factory in het deelvenster Nieuw](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 3. Voer op de pagina **Nieuwe gegevensfactory** **MyAzureSsisDataFactory** in voor **Name**. 
@@ -69,7 +70,7 @@ In deze zelfstudie voert u de volgende stappen uit:
 11. Zodra de bewerking is voltooid, ziet u de pagina **Data Factory**.
    
    ![Startpagina voor de gegevensfactory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-12. Selecteer **Maken en controleren** om de gebruikersinterface (UI) van Azure Data Factory te openen op een afzonderlijk tabblad. 
+12. Selecteer **Maken en controleren** om de gebruikersinterface van Data Factory te openen op een nieuw tabblad. 
 
 ## <a name="provision-an-azure-ssis-integration-runtime"></a>Een Azure-SSIS-integratieruntime inrichten
 
@@ -104,7 +105,7 @@ In deze zelfstudie voert u de volgende stappen uit:
    e. Selecteer bij **Serverlaag catalogusdatabase** de servicelaag voor de SSISDB-database. De standaardwaarde is **Basic**.
 
    f. Selecteer **Volgende**. 
-4. Selecteer op de pagina **Geavanceerde instellingen** een waarde voor**het maximale aantal parallelle uitvoeringen per knooppunt**.   
+4. Selecteer op de pagina **Geavanceerde instellingen** een waarde voor het **maximale aantal parallelle uitvoeringen per knooppunt**.   
 
    ![Geavanceerde instellingen](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)    
 5. Deze stap is *optioneel*. Als u een klassiek netwerk hebt waaraan u de integratieruntime wilt koppelen (gemaakt via het klassieke implementatiemodel of via Azure Resource Manager), selecteert u de optie voor het**selecteren van een VNet om uw Azure-SSIS-integratieruntime aan te koppelen en om toe te staan dat via Azure-services VNet-machtigingen/-instellingen** worden geconfigureerd. Voer hierna de volgende stappen uit: 
@@ -160,7 +161,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Een data factory maken.
-> * Een Azure-SSIS-integratieruntime maken en starten.
+> * Een Azure-SSIS-integratieruntime inrichten.
 
 Ga verder met de volgende zelfstudie als u wilt weten hoe u on-premises gegevens kopieert naar de cloud: 
 

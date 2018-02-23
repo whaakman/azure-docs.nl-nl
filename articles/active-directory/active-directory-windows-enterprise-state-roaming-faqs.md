@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>Veelgestelde vragen over instellingen en gegevensroaming
 In dit onderwerp worden enkele vragen beantwoord IT-beheerders over de instellingen en synchroniseren van app-gegevens hebben kunnen.
@@ -80,7 +80,7 @@ Wanneer meerdere Azure AD-accounts van verschillende Azure AD-tenants, zijn op h
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Wat zijn de opties voor roaming voor een bestaande Windows-bureaubladtoepassingen?
 Roaming werkt alleen voor universele Windows-apps. Er zijn twee opties beschikbaar voor het inschakelen van roaming op een bestaande Windows desktop-toepassing:
 
-* De [bureaublad Bridge](http://aka.ms/desktopbridge) kunt u ervoor zorgt dat uw bestaande Windows desktop-apps op het Universal Windows Platform. Hier kunt minimale codewijzigingen worden om te profiteren van Azure AD app dataroaming. De brug bureaublad biedt uw apps met een app-id, die is vereist voor roaming voor bestaande desktop-apps van app-gegevens.
+* De [bureaublad Bridge](https://aka.ms/desktopbridge) kunt u ervoor zorgt dat uw bestaande Windows desktop-apps op het Universal Windows Platform. Hier kunt minimale codewijzigingen worden om te profiteren van Azure AD app dataroaming. De brug bureaublad biedt uw apps met een app-id, die is vereist voor roaming voor bestaande desktop-apps van app-gegevens.
 * [Gebruiker ervaring Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) kunt u een sjabloon aangepaste instellingen voor bestaande Windows desktop-apps maken en zwervende voor Win32-apps inschakelen. Deze optie is niet vereist voor de ontwikkelaar van de app om de code van de app te wijzigen. UE-V is beperkt tot de lokale Active Directory zwervende voor klanten die Microsoft Desktop Optimization Pack hebt aangeschaft.
 
 Beheerders kunnen configureren UE-V voor Windows desktop app-gegevens door te wijzigen van de instellingen van het Windows-besturingssysteem en universele app-gegevens via roaming roamen [UE-V-groepsbeleid](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), waaronder:

@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 39c1be51d7aa54691a6ff55483138a603c3fabed
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Clusters in HDInsight met Hadoop, Spark en Kafka instellen
 
@@ -64,11 +64,11 @@ Volg de instructies op het scherm een basic clusterinstallatie doen. Details wor
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie [HDInsight 3.3 buiten gebruik stellen](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 
-## <a name="resource-group-name"></a>Naam resourcegroep 
+## <a name="resource-group-name"></a>Resourcegroepnaam 
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helpt u werkt met de resources in uw toepassing als een groep aangeduid als een Azure-resourcegroep. U kunt implementeren, bijwerken, bewaken of verwijderen van alle resources voor uw toepassing in een enkele, gecoördineerde bewerking.
 
-## <a name="cluster-types"></a>Clustertypen en configuratie
+## <a name="cluster-types">Clustertypen en configuratie</a>
 Azure HDInsight biedt momenteel de volgende clustertypen, elk met een reeks onderdelen voor bepaalde functies.
 
 > [!IMPORTANT]
@@ -127,6 +127,8 @@ Tijdens de configuratie voor het standaardeindpunt opslag geeft u een blob-conta
 
 ### <a name="optional-metastores"></a>Optionele metastores
 U kunt optioneel Hive of Oozie metastores kunt maken. Niet alle clustertypen ondersteunen metastores echter en Azure SQL Data Warehouse is niet compatibel met metastores. 
+
+Zie voor meer informatie [archieven van de externe metagegevens in Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 
 > [!IMPORTANT]
 > Wanneer u een aangepaste metastore maakt, gebruik geen streepjes, streepjes of spaties in de naam van de database. Hierdoor kan het proces voor het maken van cluster mislukken.
@@ -226,7 +228,7 @@ Sommige systeemeigen Java-onderdelen, zoals Mahout en trapsgewijze, kunnen worde
 Soms wilt u de volgende configuratiebestanden tijdens het maakproces configureren:
 
 * clusterIdentity.xml
-* Core-site.xml
+* core-site.xml
 * gateway.XML
 * hbase-env.xml
 * hbase-site.xml
@@ -235,7 +237,7 @@ Soms wilt u de volgende configuratiebestanden tijdens het maakproces configurere
 * hive-site.xml
 * mapred-site
 * oozie-site.xml
-* oozie env.xml
+* oozie-env.xml
 * storm-site.xml
 * tez-site.xml
 * webhcat-site.xml

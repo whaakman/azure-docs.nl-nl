@@ -4,7 +4,7 @@ description: Deze zelfstudie maakt gebruik van resources die zijn gemaakt met he
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>On-premises altijd op beschikbaarheidsgroepen uitbreiden naar Azure
 Altijd op beschikbaarheidsgroepen bieden hoge beschikbaarheid voor groepen van database door secundaire replica's toe te voegen. Deze replica's staan failover wordt uitgevoerd de databases bij een fout. Ze kunnen ook worden gebruikt voor het offloaden van lezen werkbelastingen of back-uptaken.

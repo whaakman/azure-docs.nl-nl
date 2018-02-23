@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3d99dabe778b9b9234db9fe130ba503cd8b57834
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Wijzigingen van de virtuele machine met Azure Event raster en Logic Apps bewaken
 
@@ -51,7 +51,7 @@ Eerst een logische app maken en toevoegen van een trigger voor de gebeurtenis ra
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 
-2. Kies in de linkerbovenhoek van het Azure hoofdmenu **nieuw** > **Enterprise Integration** > **logische App**.
+2. Kies in de linkerbovenhoek van het Azure hoofdmenu **maken van een resource** > **Enterprise Integration** > **logische App**.
 
    ![Logische app maken](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
@@ -109,7 +109,7 @@ Eerst een logische app maken en toevoegen van een trigger voor de gebeurtenis ra
    
    ![Raster voorbeeld-trigger Gebeurtenisdetails](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
-9. Sla uw logische app. Kies **Opslaan** op de werkbalk van de ontwerper. Om samen te vouwen en een actie-gegevens in uw logische app verbergen, kies de titelbalk van de actie.
+9. Sla uw logische app op. Kies **Opslaan** op de werkbalk van de ontwerper. Om samen te vouwen en een actie-gegevens in uw logische app verbergen, kies de titelbalk van de actie.
 
    ![Uw logische app opslaan](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
 
@@ -150,7 +150,7 @@ Typ deze expressie:
 
    ![Logic app voorwaarde](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
 
-5. Sla uw logische app.
+5. Sla uw logische app op.
 
 ## <a name="send-email-when-your-virtual-machine-changes"></a>E-mail verzenden wanneer de virtuele machine wordt gewijzigd
 
@@ -198,7 +198,7 @@ Voeg nu een [ *actie* ](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 
    ![Voltooide logische app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
-5. Sla uw logische app. Om samen te vouwen en details van elke actie in uw logische app verbergen, kies de titelbalk van de actie.
+5. Sla uw logische app op. Om samen te vouwen en details van elke actie in uw logische app verbergen, kies de titelbalk van de actie.
 
    ![Uw logische app opslaan](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save-completed.png)
 

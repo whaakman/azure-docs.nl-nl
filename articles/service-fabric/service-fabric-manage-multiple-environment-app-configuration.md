@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/09/2017
 ms.author: mikhegn
-ms.openlocfilehash: 959fdb4aceee48863f3914d1b91f2bec6e256d6b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6bc986236d50106485dce151f1f74622f56400c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="manage-applications-for-multiple-environments"></a>Toepassingen voor omgevingen met meerdere beheren
+# <a name="manage-applications-for-multiple-environments"></a>Toepassingen voor meerdere omgevingen beheren
 
 Azure Service Fabric-clusters kunnen u voor het maken van clusters met behulp van een willekeurige plaats van een tot vele duizenden computers. In de meeste gevallen u merkt dat uw toepassing in meerdere configuraties van clusters te implementeren: uw lokaal ontwikkelcluster, een gedeelde ontwikkelcluster en uw productiecluster. Alle deze clusters worden beschouwd als verschillende omgevingen die uw code heeft om in te voeren. Binaire bestanden van toepassingen via deze breed scala zonder aanpassingen kunnen uitvoeren, maar vaak wilt u de toepassing anders te configureren.
 
@@ -55,8 +55,8 @@ Bij het maken van een benoemde toepassingsexemplaren in Service Fabric, hebt u d
 ## <a name="next-steps"></a>Volgende stappen
 De volgende artikelen laten zien hoe u een aantal van de concepten beschreven hier:
 
-- [Het opgeven van omgevingsvariabelen voor services in Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
-- [Het poortnummer van een service met behulp van de parameters in Service Fabric opgeven](service-fabric-how-to-specify-environment-variables.md)
+- [Het opgeven van omgevingsvariabelen voor services in Service Fabric](service-fabric-how-to-specify-environment-variables.md)
+- [Het poortnummer van een service met behulp van de parameters in Service Fabric opgeven](service-fabric-how-to-specify-port-number-using-parameters.md)
 - [Hoe om te voorzien van configuratiebestanden](service-fabric-how-to-parameterize-configuration-files.md)
 
 - [Variabele omgevingsverwijzing](service-fabric-environment-variables-reference.md)

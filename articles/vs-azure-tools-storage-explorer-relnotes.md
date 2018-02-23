@@ -14,25 +14,79 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: d23ddfb881695b2310d379a9112e6ab8305c0cce
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Opslagverkenner (Preview)
 
-Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.4 (Preview), evenals release-opmerkingen voor eerdere versies vrijgeven.
+Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.5 (Preview), evenals release-opmerkingen voor eerdere versies vrijgeven.
 
 [Microsoft Azure Opslagverkenner (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows-, Mac OS- en Linux.
+
+## <a name="version-095"></a>Versie 0.9.5
+02/06/2018
+
+### <a name="download-azure-storage-explorer-095-preview"></a>Azure Storage Explorer 0.9.5 (Preview) downloaden
+- [Azure Opslagverkenner (Preview) 0.9.5 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Opslagverkenner (Preview) 0.9.5 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Opslagverkenner (Preview) 0.9.5 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nieuw
+
+* Ondersteuning voor bestandsshares momentopnamen:
+    * Momentopnamen maken en beheren voor uw bestandsshares.
+    * Eenvoudig schakelen tussen momentopnamen van uw bestandsshares als kunt verkennen.
+    * Vorige versies van uw bestanden te herstellen.
+* Preview-ondersteuning voor Azure Data Lake Store:
+    * Verbinding maken met uw ADLS-resources via meerdere accounts.
+    * Verbinding maken met en ADLS-resources met behulp van ADL URI's delen.
+    * Basic bestandsmap operations recursief uitvoeren.
+    * Pincode afzonderlijke mappen voor Snelweergavetoegang.
+    * De statistieken van de map weergeven.
+
+### <a name="fixes"></a>Oplossingen
+* Starten van de prestaties verbeterd.
+* Verschillende oplossingen voor problemen.
+
+### <a name="known-issues"></a>Bekende problemen
+* Opslagverkenner biedt geen ondersteuning voor AD FS-accounts.
+* Wanneer u ontwikkelt voor Azure-Stack, mislukken uploaden van bepaalde bestanden zoals toevoeg-blobs.
+* Wanneer u op 'Annuleren' voor een taak, duurt het even voor die taak te annuleren. Dit is omdat we de annuleren filter tijdelijke oplossing hier gebruiken.
+* Als u de verkeerde PINCODE/smartcardcertificaat kiest, moet u opnieuw opstarten om Opslagverkenner besluit vergeet.
+* Het paneel met toepassingsinstellingen account kan worden weergegeven dat u moet referenties voor het filteren van abonnementen opnieuw invoeren.
+* Naam van de BLOB's (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam te wijzigen.
+* Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde Azure-Stack storage-account.
+* De Electron shell die wordt gebruikt door Opslagverkenner heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Opslagverkenner is leeg (leeg) hoofdvenster weer te geven, kunt u proberen Storage Explorer te starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door het toevoegen van de `--disable-gpu` switch:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is up-to-date - kunt u dit doen door de volgende opdrachten uit te voeren en de computer opnieuw te starten:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* U moet installeren GConf voor gebruikers op Ubuntu 17.04 - kunt u dit doen door de volgende opdrachten uit te voeren en de computer opnieuw te starten:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-094--093"></a>Versie 0.9.4 / 0.9.3
 01/21/2018
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>Azure Storage Explorer 0.9.4 (Preview) downloaden
-- [Azure Opslagverkenner (Preview) 0.9.4 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Opslagverkenner (Preview) 0.9.4 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Opslagverkenner (Preview) 0.9.4 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Download de Azure Opslagverkenner (Preview) 0.9.4 voor Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Download de Azure Opslagverkenner (Preview) 0.9.4 voor Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Azure Opslagverkenner (Preview) 0.9.4 voor Linux downloaden](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>Nieuw
 * Uw bestaande Storage Explorer-venster wordt niet opnieuw worden gebruikt wanneer:
@@ -76,15 +130,30 @@ Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.4 (Prev
     sudo apt-get install libgconf-2-4
     ```
 
+## <a name="previous-releases"></a>Eerdere versies
+
+* [Versie 0.9.2](#version-092)
+* [Versie 0.9.1 / 0.9.0](#version-091)
+* [Versie 0.8.16](#version-0816)
+* [Versie 0.8.14](#version-0814)
+* [Versie 0.8.13](#version-0813)
+* [Versie 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Versie 0.8.9 / 0.8.8](#version-089--088)
+* [Versie 0.8.7](#version-087)
+* [Versie 0.8.6](#version-086)
+* [Versie 0.8.5](#version-085)
+* [Versie 0.8.4](#version-084)
+* [Versie 0.8.3](#version-083)
+* [Versie 0.8.2](#version-082)
+* [Versie 0.8.0](#version-080)
+* [Versie 0.7.20160509.0](#version-07201605090)
+* [Versie 0.7.20160325.0](#version-07201603250)
+* [Versie 0.7.20160129.1](#version-07201601291)
+* [Versie 0.7.20160105.0](#version-07201601050)
+* [Versie 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-092"></a>Versie 0.9.2
 11/01/2017
-
-### <a name="download-azure-storage-explorer-092-preview"></a>Azure Storage Explorer 0.9.2 (Preview) downloaden
-* [Download de Azure Opslagverkenner (Preview) 0.9.2 voor Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Download de Azure Opslagverkenner (Preview) 0.9.2 voor Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Azure Opslagverkenner (Preview) 0.9.2 voor Linux downloaden](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-
 
 ### <a name="hotfixes"></a>Hotfixes
 * Er zijn onverwachte gegevenswijzigingen zijn mogelijk bij het bewerken van Edm.DateTime waarden voor de tabelentiteiten, afhankelijk van de lokale tijdzone. De editor gebruikt nu een vak tekst zonder opmaak waardoor nauwkeurige, consistente controle hebt over Edm.DateTime waarden.
@@ -144,32 +213,6 @@ Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.4 (Prev
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-
-
-
-
-
-## <a name="previous-releases"></a>Eerdere versies
-
-* [Versie 0.9.1 / 0.9.0](#version-091)
-* [Versie 0.8.16](#version-0816)
-* [Versie 0.8.14](#version-0814)
-* [Versie 0.8.13](#version-0813)
-* [Versie 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Versie 0.8.9 / 0.8.8](#version-089--088)
-* [Versie 0.8.7](#version-087)
-* [Versie 0.8.6](#version-086)
-* [Versie 0.8.5](#version-085)
-* [Versie 0.8.4](#version-084)
-* [Versie 0.8.3](#version-083)
-* [Versie 0.8.2](#version-082)
-* [Versie 0.8.0](#version-080)
-* [Versie 0.7.20160509.0](#version-07201605090)
-* [Versie 0.7.20160325.0](#version-07201603250)
-* [Versie 0.7.20160129.1](#version-07201601291)
-* [Versie 0.7.20160105.0](#version-07201601050)
-* [Versie 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-091--090-preview"></a>Versie 0.9.1 / 0.9.0 (Preview)
 10/20/2017

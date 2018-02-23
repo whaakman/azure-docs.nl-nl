@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: ab5d184fde2cbcb517b325624c8405954b4d0972
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f86ebf3e79812eb50e58cbb320336cbd1149e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pause-and-start-your-power-bi-embedded-capacity-in-the-azure-portal"></a>Onderbreken en de capaciteit van de Power BI Embedded te starten in de Azure-portal
 
@@ -35,9 +35,9 @@ De capaciteit van de onderbreken, voorkomt u wordt gefactureerd. De capaciteit v
 
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
 
-2. Selecteer **meer services** > **Power BI Embedded** om te zien van de capaciteit.
+2. Selecteer **alle services** > **Power BI Embedded** om te zien van de capaciteit.
 
-    ![Meer services in Azure portal](media/pause-start/azure-portal-more-services.png)
+    ![Alle services in Azure portal](media/pause-start/azure-portal-more-services.png)
 
 3. Selecteer de capaciteit die u wilt onderbreken.
 
@@ -57,9 +57,9 @@ Gebruik op basis van de capaciteit van de hervat. Starten van de capaciteit van 
 
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
 
-2. Selecteer **meer services** > **Power BI Embedded** om te zien van de capaciteit.
+2. Selecteer **alle services** > **Power BI Embedded** om te zien van de capaciteit.
 
-    ![Meer services in Azure portal](media/pause-start/azure-portal-more-services.png)
+    ![Alle services in Azure portal](media/pause-start/azure-portal-more-services.png)
 
 3. Selecteer de capaciteit die u wilt starten.
 
@@ -71,7 +71,7 @@ Gebruik op basis van de capaciteit van de hervat. Starten van de capaciteit van 
 
 5. Selecteer **Ja**, die wordt bevestigd dat u wilt starten, de capaciteit.
 
-    ![Start bevestigen](media/pause-start/azure-portal-confirm-start.png)
+    ![Starten bevestigen](media/pause-start/azure-portal-confirm-start.png)
 
 Als de inhoud aan deze capaciteit is toegewezen, is deze beschikbaar na het starten.
 

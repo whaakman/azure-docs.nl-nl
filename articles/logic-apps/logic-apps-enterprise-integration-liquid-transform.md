@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: c1a1a5530c19d39a8e37d122235c8340caa88570
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4bb003afd757faac675a9af8599a781247717a64
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Geavanceerde JSON-transformaties aan een sjabloon voor vloeibare uitvoeren
 
@@ -110,7 +110,46 @@ Informatie over het gebruik van een vloeibare kaart of de sjabloon, die onderste
 
 Na de JSON-invoer aan uw logische app van [Postman](https://www.getpostman.com/postman) of een vergelijkbaar hulpprogramma. De getransformeerde JSON-uitvoer van uw logische app ziet er in dit voorbeeld:
   
-![Voorbeeld van uitvoer](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
+![Voorbeeld van uitvoer](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+
+## <a name="more-liquid-action-examples"></a>Meer voorbeelden van vloeibare actie
+Vloeistof is niet beperkt tot alleen de JSON-transformaties. Hier volgen andere beschikbare transformatie-bewerkingen die vloeistof gebruiken.
+
+* JSON transformeren naar tekst
+  
+  Hier volgt de vloeibare sjabloon voor dit voorbeeld gebruikt:
+   
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+   Dit zijn Voorbeeldinvoer en uitvoer:
+  
+   ![Voorbeeld van uitvoer JSON naar tekst](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+
+* De XML in JSON transformeren
+  
+  Hier volgt de vloeibare sjabloon voor dit voorbeeld gebruikt:
+   
+   ``` json
+   [{% JSONArrayFor item in content -%}
+        {{item}}
+    {% endJSONArrayFor -%}]
+   ```
+   Dit zijn Voorbeeldinvoer en uitvoer:
+
+   ![Voorbeeld van uitvoer XML in JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+
+* XML transformeren naar tekst
+  
+  Hier volgt de vloeibare sjabloon voor dit voorbeeld gebruikt:
+
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+
+   Dit zijn Voorbeeldinvoer en uitvoer:
+
+   ![Voorbeeld van uitvoer XML-tekst](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

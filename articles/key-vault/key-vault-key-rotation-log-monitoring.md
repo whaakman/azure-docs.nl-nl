@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Azure Key Vault instellen met end-to-end sleutelrotatie en -controle
 ## <a name="introduction"></a>Inleiding
@@ -255,12 +255,12 @@ De volgende stap is het [maken van een Azure Service Bus-wachtrij](../service-bu
 
 1. Een Service Bus-naamruimte maken (als u al die u wilt gebruiken voor deze, gaat u verder met stap 2 hebt).
 2. Blader naar de servicebus in de Azure portal en selecteer de naamruimte die u wilt maken van de wachtrij in.
-3. Selecteer **nieuw** en kies **Service Bus > wachtrij** en voer de vereiste gegevens.
+3. Selecteer **maken van een resource**, **Enterprise Integration**, **Service Bus**, en voer de vereiste gegevens.
 4. Selecteer de Service Bus-verbindingsinformatie door de naamruimte kiezen en op **verbindingsgegevens**. U moet deze informatie gebruiken voor de volgende sectie.
 
 Vervolgens [maken van een Azure-functie](../azure-functions/functions-create-first-azure-function.md) om te pollen sleutelkluis-Logboeken in het opslagaccount en nieuwe gebeurtenissen kunnen worden opgepikt. Dit is een functie die volgens een planning wordt geactiveerd.
 
-Kies voor het maken van een Azure-functie **Nieuw > functie-App** in de Azure portal. U kunt tijdens het maken van een bestaand abonnement hosting gebruiken of een nieuwe maken. U kunt ook kiezen voor het hosten van dynamische. Meer informatie over de functie opties host kunnen worden gevonden op [Azure Functions schalen](../azure-functions/functions-scale.md).
+Kies voor het maken van een Azure-functie **maken van een resource**, zoeken de marketplace voor _functie-App_, en klik op **maken**. U kunt tijdens het maken van een bestaand abonnement hosting gebruiken of een nieuwe maken. U kunt ook kiezen voor het hosten van dynamische. Meer informatie over de functie opties host kunnen worden gevonden op [Azure Functions schalen](../azure-functions/functions-scale.md).
 
 Wanneer de functie Azure is gemaakt, gaat u naar het en kies een timer functie en C\#. Klik vervolgens op **maken van deze functie**.
 

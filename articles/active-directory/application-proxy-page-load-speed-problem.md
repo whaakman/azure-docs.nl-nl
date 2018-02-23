@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: d02c29fa6239cb36cb5fb95da4d325cca57952aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Een toepassing toepassingsproxy duurt te lang om te laden
 
@@ -31,7 +31,7 @@ Als deze overwegingen niet helpt, er zijn momenteel hebben helaas momenteel geen
 De datacenters met de service voor toepassingsproxy kunnen gevonden met de [Connectorhulpprogramma poorten Test](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>Feedback over toepassingsproxy data center-locaties 
-Mogelijk zijn er Azure-datacenters die toepassingsproxy nog niet zijn maar zou leiden tot een verbetering geweldige latentie voor u. De locatie van het datacentrum < aadapfeedback@microsoft.com > zodat we uw feedback als we vouw plannen kunt gebruiken.
+Mogelijk zijn er Azure-datacenters die toepassingsproxy nog niet zijn maar zou leiden tot een verbetering geweldige latentie voor u. De locatie van het datacentrum <aadapfeedback@microsoft.com> zodat we uw feedback als we vouw plannen kunt gebruiken.
 
 We werken aan enkele aanvullende mogelijkheden die de latentie verbeteren voor tenants die momenteel Zie lang latenties en zorg ervoor dat voor het delen van documentatie zodra deze beschikbaar is.
 

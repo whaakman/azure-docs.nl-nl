@@ -15,15 +15,13 @@ U kunt de klassieke virtuele machines toevoegen in een beschikbaarheidsset met b
 > 
 > 
 
-## <a id="createset"></a>Optie 1: Maak een virtuele machine en een beschikbaarheidsset op hetzelfde moment
+## <a id="createset"> </a>Optie 1: Maak een virtuele machine en een beschikbaarheidsset op hetzelfde moment
 U kunt de Azure-portal of Azure PowerShell-opdrachten gebruiken om dit te doen.
 
 De Azure portal gebruiken:
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com) als u dat nog niet hebt gedaan.
-2. Klik in het hubmenu op **+ nieuw**, en klik vervolgens op **virtuele Machine**.
-   
-    ![De installatiekopie van de alternatieve tekst](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+2. Klik op **maken van een resource** > **Compute**.
 3. Selecteer de Marketplace virtuele machine-installatiekopie die u wilt gebruiken. U kunt een Linux- of Windows virtuele machine maken.
 4. Controleer of het implementatiemodel is ingesteld voor de geselecteerde virtuele machine, **klassieke** en klik vervolgens op **maken**
    
@@ -38,11 +36,11 @@ De Azure portal gebruiken:
 
 Zie voor het gebruik van Azure PowerShell-opdrachten voor het maken van een virtuele machine van Azure en toe te voegen aan een nieuwe of bestaande beschikbaarheidsset, [Azure PowerShell gebruiken voor het maken en vooraf configureren van virtuele machines op basis van Windows](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"></a>Optie 2: een bestaande virtuele machine toevoegen aan een beschikbaarheidsset
+## <a id="addmachine"> </a>Optie 2: Een bestaande virtuele machine toevoegen aan een beschikbaarheidsset
 In de Azure portal kunt u bestaande klassieke virtuele machines aan een bestaande beschikbaarheidsset instellen of maak een nieuwe voor ze kunt toevoegen. (Houd er rekening mee dat de virtuele machines in dezelfde beschikbaarheidsset tot dezelfde cloudservice behoren moet). De stappen zijn bijna hetzelfde. Met Azure PowerShell, kunt u de virtuele machine toevoegen aan een bestaande beschikbaarheidsset.
 
 1. Als u dit nog niet hebt gedaan, meld u bij de [Azure-portal](https://portal.azure.com).
-2. Klik in het menu Hub op **virtuele Machines (klassiek)**.
+2. Klik in het menu links op **virtuele Machines (klassiek)**.
    
     ![De installatiekopie van de alternatieve tekst](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 3. Selecteer in de lijst met virtuele machines, de naam van de virtuele machine die u wilt toevoegen aan de set.

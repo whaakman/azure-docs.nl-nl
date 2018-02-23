@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: samacha
-ms.openlocfilehash: 98230a8b61d1776a9ab23fd416af306efc700959
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a169343481f1cdf43af82a7768cfe08cbd4886
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Real-time Twitter-gevoel analyse in Azure Stream Analytics
 
@@ -51,7 +51,7 @@ De voorbeeldtoepassing gebeurtenissen gegenereerd en stuurt deze naar een Azure 
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Een event hub-naamruimte en event hub maken
 In deze procedure maakt u eerst een event hub-naamruimte maken en vervolgens voegt u toe een event hub naar die naamruimte. Event hub-naamruimten worden gebruikt voor het gerelateerde gebeurtenis bus exemplaren logisch groeperen. 
 
-1. Aanmelden bij de Azure-portal en klikt u op **nieuw** > **Internet der dingen** > **Event Hub**. 
+1. Aanmelden bij de Azure-portal en klikt u op **maken van een resource** > **Internet der dingen** > **Event Hub**. 
 
 2. In de **naamruimte maken** blade, voer de naam van een naamruimte zoals `<yourname>-socialtwitter-eh-ns`. U kunt een naam voor de naamruimte, maar de naam moet geldig zijn voor een URL en deze uniek zijn binnen Azure. 
     
@@ -200,7 +200,7 @@ De volgende procedure worden beide benaderingen.
 
 Nu dat tweet gebeurtenissen streaming in realtime van Twitter, kunt u een Stream Analytics-taak instellen voor het analyseren van deze gebeurtenissen in realtime.
 
-1. Klik in de Azure-portal op **nieuw** > **Internet der dingen** > **Stream Analytics-taak**.
+1. Klik in de Azure-portal op **maken van een resource** > **Internet der dingen** > **Stream Analytics-taak**.
 
 2. Naam van de taak `socialtwitter-sa-job` en een abonnement, resourcegroep en locatie opgeven.
 

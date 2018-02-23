@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 94a7d35115420d455fe94e1173abf76622172f6f
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 77ac6a7cfe089fa934592c412c75a9f33efde5e8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Azure AD-Xamarin aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -50,7 +50,7 @@ Als u wilt inschakelen voor de app tokens krijgen, moet u eerst registreren in u
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op uw account op de bovenste balk. Klik vervolgens onder de **Directory** , selecteert u de Active Directory-tenant waar u de app te registreren.
-3. Klik op **meer Services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
+3. Klik op **alle services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
 4. Klik op **App registraties**, en selecteer vervolgens **toevoegen**.
 5. Maak een nieuwe **systeemeigen clienttoepassing**, volg de aanwijzingen.
   * **Naam** beschrijving van de app voor gebruikers.
@@ -96,7 +96,7 @@ Nu dat u een app in Azure AD hebt, kunt u ADAL installeert en uw identiteitsgere
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Stap 4: Gebruik ADAL tokens ophalen uit Azure AD
 Bijna alle van de app verificatielogica ligt in `DirectorySearcher.SearchByAlias(...)`. In de platform-specifieke projecten nodig is om door te geven van een contextuele parameter voor de `DirectorySearcher` PCL.
 
-1. Open DirectorySearcher.cs en voeg vervolgens een nieuwe parameter voor de `SearchByAlias(...)` methode. `IPlatformParameters`de contextuele parameter die kapselt de platform-specifieke objecten die ADAL nodig zijn voor de verificatie is.
+1. Open DirectorySearcher.cs en voeg vervolgens een nieuwe parameter voor de `SearchByAlias(...)` methode. `IPlatformParameters` de contextuele parameter die kapselt de platform-specifieke objecten die ADAL nodig zijn voor de verificatie is.
 
     ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
@@ -123,7 +123,7 @@ Deze actie geeft ADAL de coördinaten die kan communiceren met Azure AD.
     ...
     ```
 
-    `AcquireTokenAsync(...)`eerst probeert te retourneren van een token voor de aangevraagde bron (in dit geval de Graph-API) zonder gebruikers hun referenties invoeren (via caching of oude tokens vernieuwen). Zo nodig toont het gebruikers de aanmeldingspagina van Azure AD voordat de aangevraagde token ophalen.
+    `AcquireTokenAsync(...)` eerst probeert te retourneren van een token voor de aangevraagde bron (in dit geval de Graph-API) zonder gebruikers hun referenties invoeren (via caching of oude tokens vernieuwen). Zo nodig toont het gebruikers de aanmeldingspagina van Azure AD voordat de aangevraagde token ophalen.
 4. Het toegangstoken koppelen aan de Graph API-aanvraag in de **autorisatie** header:
 
     ```csharp

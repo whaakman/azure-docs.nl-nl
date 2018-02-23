@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1be9947c43c70b7248201b9f470fb3cf5a11519e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 656e0e16167a73ef3c3eab21d6896f5fc280e375
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Een groep maken en leden toevoegen in Azure Active Directory
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ In dit artikel wordt uitgelegd hoe u maakt en vult een nieuwe groep in Azure Act
 
 ## <a name="how-do-i-create-a-group"></a>Hoe maak ik een groep?
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
+2. Selecteer **alle services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
 
    ![Gebruikersbeheer openen](./media/active-directory-groups-create-azure-portal/search-user-management.png)
 3. Op de **gebruikers en groepen** blade Selecteer **alle groepen**.

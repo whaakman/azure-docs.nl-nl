@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jgao
-ms.openlocfilehash: 8a3119b636d69e031ee69a0e4a5c0ef7faf6776f
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 544a11f5d9e92f081a8ae494529b7d8ef19551fa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Websitelogboeken analyseren met een aangepaste Python-bibliotheek met Spark-cluster in HDInsight
 
@@ -94,7 +94,7 @@ Nadat uw gegevens wordt opgeslagen als een Hive-tabel, in de volgende sectie maa
         sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
-1. `iislogparser`biedt een functie `parse_log_line` die retourneert `None` als een regel van een veldnamenrij is en een exemplaar van retourneert de `LogLine` klasse als een regel worden ontdekt. Gebruik de `LogLine` klasse alleen de logboek-regels ophalen uit de RDD:
+1. `iislogparser` biedt een functie `parse_log_line` die retourneert `None` als een regel van een veldnamenrij is en een exemplaar van retourneert de `LogLine` klasse als een regel worden ontdekt. Gebruik de `LogLine` klasse alleen de logboek-regels ophalen uit de RDD:
 
         def parse_line(l):
             import iislogparser
@@ -211,7 +211,6 @@ Nadat uw gegevens wordt opgeslagen als een Hive-tabel, in de volgende sectie maa
 * [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](apache-spark-use-bi-tools.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark-streaming: Spark in HDInsight gebruiken voor het bouwen van realtime streamingtoepassingen](../hdinsight-apache-spark-eventhub-streaming.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)

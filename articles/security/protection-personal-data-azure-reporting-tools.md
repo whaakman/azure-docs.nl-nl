@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Beveiliging voor documenten van persoonlijke gegevens met Azure-hulpprogramma's voor rapportage
 
@@ -144,7 +144,7 @@ Er zijn een aantal manieren voor gebruik van de gegevens in het activiteitenlogb
 
 - U kunt de gegevens met behulp van de Azure Monitor REST API, CLI-opdrachten query [PowerShell](https://docs.microsoft.com/powershell/) cmdlets, of de .NET SDK.
 
-Selecteer aan de slag met Azure Monitor **meer Services** in de Azure portal.
+Selecteer aan de slag met Azure Monitor **alle services** in de Azure portal.
 
 1. Schuif omlaag naar **Monitor** in de **controleren en beheren van** sectie.
 

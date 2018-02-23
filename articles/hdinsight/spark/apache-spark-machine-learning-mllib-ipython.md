@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: jgao
-ms.openlocfilehash: 864d34306dad2915a15b032a27600cefdc632bb9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e1d7b46aeaf8f21fdf2942f986643746dad3313
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Spark MLlib gebruiken voor het bouwen van een machine learning-toepassing en analyseren van een gegevensset
 
@@ -79,9 +79,9 @@ In de onderstaande stappen kunt u een model om te zien wat er nodig is om te gev
         from pyspark.sql.types import *
 
 ## <a name="construct-an-input-dataframe"></a>Maken van een invoer dataframe
-We kunnen gebruiken `sqlContext` transformaties uitvoeren op gestructureerde gegevens. De eerste taak is de voorbeeldgegevens laden ((**Food_Inspections1.csv**)) in een Spark SQL *dataframe*.
+U kunt `sqlContext` transformaties uitvoeren op gestructureerde gegevens. De eerste taak is de voorbeeldgegevens laden ((**Food_Inspections1.csv**)) in een Spark SQL *dataframe*.
 
-1. Omdat de onbewerkte gegevens zich in een CSV-indeling, moeten we de Spark-context gebruiken voor het ophalen van elke regel van het bestand in het geheugen als niet-gestructureerde tekst; vervolgens gebruikt u de CSV-bibliotheek van Python elke regel afzonderlijk parseren.
+1. Omdat de onbewerkte gegevens in een CSV-indeling is, moet u de context Spark gebruiken voor het ophalen van elke regel van het bestand in het geheugen als niet-gestructureerde tekst; vervolgens gebruikt u de CSV-bibliotheek van Python elke regel afzonderlijk parseren.
 
         def csvParse(s):
             import csv
@@ -93,7 +93,7 @@ We kunnen gebruiken `sqlContext` transformaties uitvoeren op gestructureerde geg
 
         inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
-1. We nu hebben het CSV-bestand als een RDD.  Om het schema van de gegevens te begrijpen, ophalen we één rij uit de RDD.
+1. U hebt nu het CSV-bestand als een RDD.  Om het schema van de gegevens te begrijpen, kunt u één rij ophalen uit de RDD.
 
         inspections.take(1)
 
@@ -120,7 +120,7 @@ We kunnen gebruiken `sqlContext` transformaties uitvoeren op gestructureerde geg
           '41.97583445690982',
           '-87.7107455232781',
           '(41.97583445690982, -87.7107455232781)']]
-1. De voorgaande uitvoer geeft ons een idee van het schema van het invoerbestand. Het bevat de naam van elke instelling, het type van de inrichting, het adres, de gegevens van de controles en de locatie, onder andere. Laten we enkele kolommen selecteren die zijn handig voor onze predictive Analytics en de resultaten groeperen als een dataframe dat we vervolgens gebruiken om een tijdelijke tabel te maken.
+1. De voorgaande uitvoer geeft ons een idee van het schema van het invoerbestand. Het bevat de naam van elke instelling, het type van de inrichting, het adres, de gegevens van de controles en de locatie, onder andere. Laten we enkele kolommen selecteren die zijn handig voor onze predictive Analytics en de resultaten groeperen als een dataframe dat u vervolgens gebruiken om een tijdelijke tabel te maken.
 
         schema = StructType([
         StructField("id", IntegerType(), False),
@@ -130,7 +130,7 @@ We kunnen gebruiken `sqlContext` transformaties uitvoeren op gestructureerde geg
 
         df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
         df.registerTempTable('CountResults')
-1. Nu een *dataframe*, `df` waarop we onze analyse kunt uitvoeren. We hebben ook een aanroep van de tijdelijke tabel **CountResults**. Vindt u vier kolommen in de dataframe van belang: **id**, **naam**, **resultaten**, en **schendingen**.
+1. U hebt nu een *dataframe*, `df` waarop u onze analyse kunt uitvoeren. U hebt ook een aanroep van de tijdelijke tabel **CountResults**. Vindt u vier kolommen in de dataframe van belang: **id**, **naam**, **resultaten**, en **schendingen**.
 
     We gaan een kort voorbeeld van de gegevens ophalen:
 
@@ -172,7 +172,7 @@ We kunnen gebruiken `sqlContext` transformaties uitvoeren op gestructureerde geg
         |  Pass w/ Conditions|
         |     Out of Business|
         +--------------------+
-1. Een snelle visualisatie kan we beter reden over de distributie van deze resultaten. We hebben al de gegevens in een tijdelijke tabel **CountResults**. U kunt de volgende SQL-query uitvoeren op de tabel voor een beter inzicht te krijgen van hoe de resultaten worden gedistribueerd.
+1. Een snelle visualisatie kan we beter reden over de distributie van deze resultaten. Hebt u al de gegevens in een tijdelijke tabel **CountResults**. U kunt de volgende SQL-query uitvoeren op de tabel voor een beter inzicht te krijgen van hoe de resultaten worden gedistribueerd.
 
         %%sql -o countResultsdf
         SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
@@ -203,12 +203,12 @@ We kunnen gebruiken `sqlContext` transformaties uitvoeren op gestructureerde geg
 
    * Bedrijven niet vinden
    * Mislukt
-   * Doorgeven
+   * Geslaagd
    * PSS met voorwaarden
    * Buiten bedrijf
 
-     Laat het ons ontwikkel een model waarmee de uitkomst van een inspectie voeding kan raden schendingen van het gegeven. Aangezien logistic regression een classificatiemethode binaire is, is het verstandig om onze gegevens in twee categorieën: **mislukken** en **doorgeven**. Een 'doorgeven met voorwaarden' nog steeds een op te geven, zodat wanneer we het model trainen, we beide resultaten als gelijkwaardig beschouwt. Gegevens met de andere resultaten ('Bedrijven niet vinden' of 'Out of Business') zijn niet handig zodat we uit onze trainingset verwijderen. Dit mag geen probleem omdat deze twee categorieën gezamenlijk een kleine hoeveelheid van de resultaten toch.
-1. Laat het ons opwekken en onze bestaande dataframe converteren (`df`) in een nieuwe dataframe waar elke inspectie wordt weergegeven als een combinatie van schendingen van het label. In ons geval een label van `0.0` vertegenwoordigt een fout optreedt, wordt een label van `1.0` vertegenwoordigt een is voltooid en een label van `-1.0` bepaalde resultaten naast deze twee vertegenwoordigt. We uitfilteren die andere resultaten bij het berekenen van de nieuwe gegevensframe.
+     Laat het ons ontwikkel een model waarmee de uitkomst van een inspectie voeding kan raden schendingen van het gegeven. Aangezien logistic regression een classificatiemethode binaire is, is het verstandig om onze gegevens in twee categorieën: **mislukken** en **doorgeven**. Een 'doorgeven met voorwaarden' nog steeds een op te geven, dus als u het model trainen, u de twee resultaten als gelijkwaardig beschouwt. Gegevens met de andere resultaten ('Bedrijven niet vinden' of 'Out of Business') zijn niet handig zodat u deze van onze trainingset verwijderen. Dit mag geen probleem omdat deze twee categorieën gezamenlijk een kleine hoeveelheid van de resultaten toch.
+1. Laat het ons opwekken en onze bestaande dataframe converteren (`df`) in een nieuwe dataframe waar elke inspectie wordt weergegeven als een combinatie van schendingen van het label. In ons geval een label van `0.0` vertegenwoordigt een fout optreedt, wordt een label van `1.0` vertegenwoordigt een is voltooid en een label van `-1.0` bepaalde resultaten naast deze twee vertegenwoordigt. U uitfilteren die andere resultaten bij het berekenen van de nieuwe gegevensframe.
 
         def labelForResults(s):
             if s == 'Fail':
@@ -233,11 +233,11 @@ We kunnen gebruiken `sqlContext` transformaties uitvoeren op gestructureerde geg
         [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Een logistic regressiemodel maken van de invoer dataframe
-De laatste taak is de gelabelde gegevens te converteren naar een indeling die kan worden geanalyseerd door logistic regression. De invoer voor een logistic regression-algoritme moet een reeks *label-functie vector paren*, waarbij 'functie vector' een vector van getallen die de invoer punt. Dus moeten we de kolom 'schendingen', die wordt semi-gestructureerde en bevat veel opmerkingen in vrije tekst, naar een matrix van real-getallen die met een machine gemakkelijk kan begrijpen converteren.
+De laatste taak is de gelabelde gegevens te converteren naar een indeling die kan worden geanalyseerd door logistic regression. De invoer voor een logistic regression-algoritme moet een reeks *label-functie vector paren*, waarbij 'functie vector' een vector van getallen die de invoer punt. U moet dus de kolom 'schendingen', die wordt semi-gestructureerde en bevat veel opmerkingen in vrije tekst, naar een matrix van real-getallen die met een machine gemakkelijk kan begrijpen converteren.
 
 Een standaard machine learning-benadering voor het verwerken van natuurlijke taal is een 'index' van elk woord distinct toewijzen en vervolgens een vector doorgeven aan de machine learning-algoritme dat de waarde voor elke index de relatieve frequentie van dat woord in de tekenreeks bevat.
 
-MLlib biedt een eenvoudige manier om deze bewerking niet uitvoeren. Eerst 'basisvormen' elke tekenreeks schendingen om op te halen van de afzonderlijke woorden in elke tekenreeks. Vervolgens gebruikt u een `HashingTF` elke set van tokens omzetten in een functie-vector die vervolgens kan worden doorgegeven aan de logistic regression-algoritme om te maken van een model. We uitvoeren alle deze stappen in de reeks met behulp van een "pipeline".
+MLlib biedt een eenvoudige manier om deze bewerking niet uitvoeren. Eerst 'basisvormen' elke tekenreeks schendingen om op te halen van de afzonderlijke woorden in elke tekenreeks. Vervolgens gebruikt u een `HashingTF` elke set van tokens omzetten in een functie-vector die vervolgens kan worden doorgegeven aan de logistic regression-algoritme om te maken van een model. U uitvoeren alle deze stappen in de reeks met behulp van een "pipeline".
 
     tokenizer = Tokenizer(inputCol="violations", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
@@ -247,7 +247,7 @@ MLlib biedt een eenvoudige manier om deze bewerking niet uitvoeren. Eerst 'basis
     model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-on-a-separate-test-dataset"></a>Evalueren van het model op een afzonderlijke testgegevensset
-Gebruiken we het model dat we eerder tot gemaakt *voorspellen* wat de resultaten van nieuwe controles worden, op basis van de schendingen die zijn waargenomen. We dit model op de gegevensset getraind **Food_Inspections1.csv**. Laat het ons gebruik van een tweede gegevensset **Food_Inspections2.csv**, naar *evalueren* de sterkte van dit model op nieuwe gegevens. Deze tweede gegevensverzameling (**Food_Inspections2.csv**) moet al zijn in de standaard storage-container die is gekoppeld aan het cluster.
+U kunt het model dat u eerder naar gemaakt *voorspellen* wat de resultaten van nieuwe controles worden, op basis van de schendingen die zijn waargenomen. U dit model op de gegevensset getraind **Food_Inspections1.csv**. Laat het ons gebruik van een tweede gegevensset **Food_Inspections2.csv**, naar *evalueren* de sterkte van dit model op nieuwe gegevens. Deze tweede gegevensverzameling (**Food_Inspections2.csv**) moet al zijn in de standaard storage-container die is gekoppeld aan het cluster.
 
 1. Het volgende codefragment maakt u een nieuwe dataframe **predictionsDf** die de voorspelling gegenereerd door het model bevat. Het codefragment maakt ook een tijdelijke tabel genaamd **voorspellingen** op basis van de dataframe.
 
@@ -279,7 +279,7 @@ Gebruiken we het model dat we eerder tot gemaakt *voorspellen* wat de resultaten
         predictionsDf.take(1)
 
    Er is een voorspelling voor het eerste item in de testgegevensset.
-1. De `model.transform()` methode past de dezelfde transformatie uit op nieuwe gegevens die met hetzelfde schema en een voorspelling van het classificeren van de gegevens aankomen. We kunt enkele eenvoudige statistieken om een beeld van hoe nauwkeurig zijn van onze voorspellingen doen:
+1. De `model.transform()` methode past de dezelfde transformatie uit op nieuwe gegevens die met hetzelfde schema en een voorspelling van het classificeren van de gegevens aankomen. U kunt een aantal eenvoudige statistieken om een beeld van hoe nauwkeurig onze voorspellingen zijn doen:
 
         numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
                                               (prediction = 1 AND (results = 'Pass' OR
@@ -301,9 +301,9 @@ Gebruiken we het model dat we eerder tot gemaakt *voorspellen* wat de resultaten
     Met behulp van logistic regression met Spark biedt ons een nauwkeurige model van de relatie tussen schendingen beschrijvingen in het Engels en een opgegeven bedrijf zou doorgeven of afbreken van een voeding inspectie.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Een visuele representatie van de voorspelling te maken
-We kunnen een definitieve visualisatie om ons te helpen nu reden over de resultaten van deze test maken.
+U kunt een definitieve visualisatie om ons te helpen nu reden over de resultaten van deze test opstellen.
 
-1. Begin met het uitpakken van de verschillende voorspellingen en de resultaten van de **voorspellingen** tijdelijke tabel die eerder hebt gemaakt. De volgende query's scheiden de uitvoer als *true_positive*, *false_positive*, *true_negative*, en *false_negative*. In de onderstaande query's we uitschakelen visualisatie met `-q` en ook de uitvoer op te slaan (met behulp van `-o`) als dataframes die vervolgens kunnen worden gebruikt met de `%%local` verwerkt Magic-pakket.
+1. U start het uitpakken van de verschillende voorspellingen en de resultaten van de **voorspellingen** tijdelijke tabel die eerder hebt gemaakt. De volgende query's scheiden de uitvoer als *true_positive*, *false_positive*, *true_negative*, en *false_negative*. In de onderstaande query's u uitschakelen visualisatie met `-q` en ook de uitvoer op te slaan (met behulp van `-o`) als dataframes die vervolgens kunnen worden gebruikt met de `%%local` verwerkt Magic-pakket.
 
         %%sql -q -o true_positive
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -343,7 +343,6 @@ Nadat u klaar bent met het uitvoeren van de toepassing, moet u de notebook om re
 ### <a name="scenarios"></a>Scenario's
 * [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](apache-spark-use-bi-tools.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark-streaming: Spark in HDInsight gebruiken voor het bouwen van realtime streamingtoepassingen](apache-spark-eventhub-streaming.md)
 * [Websitelogboekanalyse met Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren

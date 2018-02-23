@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 06d807b83f700c675c6979998dd8f74372a4845f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynchrone vernieuwen met de REST-API
 U kunt de gegevensvernieuwing asynchrone bewerkingen op uw Azure Analysis Services-modellen in tabelvorm uitvoeren met behulp van elke programmeertaal die REST-aanroepen ondersteunt. Dit omvat de synchronisatie van alleen-lezen-replica's voor query scale-out. 
@@ -104,7 +104,7 @@ Het opgeven van parameters is niet vereist. De standaardwaarde is toegepast.
 |Type     |  Enum       |  Het type verwerking moet worden uitgevoerd. De typen worden afgestemd op de TMSL [de opdracht refresh](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typen: volledige, clearValues, dataOnly, automatische berekening, toevoegen en defragmenteren.       |   Automatisch      |
 |CommitMode     |  Enum       |  Hiermee wordt bepaald of de objecten worden doorgevoerd in batches of alleen als u klaar. Modi omvatten: standaard transactionele, partialBatch.  |  transactionele       |
 |MaxParallelism     |   Int      |  Deze waarde bepaalt het maximum aantal threads waarop de verwerking van opdrachten parallel worden uitgevoerd. Dit uitgelijnd met de eigenschap MaxParallelism die kan worden ingesteld in de TMSL [opdracht sequentiëren](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) of andere methoden gebruiken.       | 10        |
-|retryCount    |    Int     |   Geeft het aantal keren dat de bewerking zal opnieuw worden geprobeerd voordat deze is mislukt.      |     0    |
+|RetryCount    |    Int     |   Geeft het aantal keren dat de bewerking zal opnieuw worden geprobeerd voordat deze is mislukt.      |     0    |
 |Objecten     |   Matrix      |   Een matrix met objecten die moeten worden verwerkt. Elk object bevat: "tabel" bij het verwerken van de gehele tabel of 'tabel' en 'partitie' bij het verwerken van een partitie. Als er geen objecten worden opgegeven, wordt het hele model wordt vernieuwd. |   Het gehele model verwerken      |
 
 CommitMode is gelijk aan partialBatch. Deze wordt gebruikt wanneer een initiële laden van grote gegevenssets dat doet, kan uren duren. Als tijdens het vernieuwen mislukt nadat het vastleggen van een of meer batches is, de doorgevoerd batches blijft toegewezen (dit wordt niet terugdraaien doorgevoerd partijen).
@@ -208,7 +208,7 @@ De voorbeeldcode kunt interactieve aanmelding, gebruikersnaam en wachtwoord, of 
 
 Deze vorm van verificatie vereist een Azure-toepassing worden gemaakt met de benodigde API-machtigingen toegewezen. 
 
-1.  Klik in de Azure-portal op **nieuw** > **Azure Active Directory** > **App registraties** > **nieuw registratie van toepassing**.
+1.  Klik in de Azure-portal op **maken van een resource** > **Azure Active Directory** > **App registraties**  >   **Registratie van de nieuwe toepassing**.
 
     ![Nieuwe toepassing registreren](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 

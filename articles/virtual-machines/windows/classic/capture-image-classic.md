@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6f7d8e8b3d1ed7c8a06f7e11fea492eec8b60409
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ee6371faa9c3cc72104ba0eb05d17226679fa420
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Leg een installatiekopie van een virtuele machine van Azure Windows vast die is gemaakt volgens het klassieke implementatiemodel.
+# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Een installatiekopie van een virtuele machine van Azure Windows vastleggen die is gemaakt volgens het klassieke implementatiemodel
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Zie voor informatie over het model van de Resource Manager, [beheerde-installatiekopie van een gegeneraliseerde virtuele machine in Azure](../capture-image-resource.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -57,7 +57,7 @@ Voordat u een installatiekopie van een virtuele machine van Azure vastlegt, kunt
 
    ![Voer Sysprep uit](./media/capture-image/SysprepGeneral.png)
 5. Sysprep is afgesloten van de virtuele machine, waardoor de status van de virtuele machine in de Azure portal naar wijzigt **gestopt**.
-6. Klik in de Azure-portal op **virtuele Machines (klassiek)** en selecteer de virtuele machine die u wilt vastleggen. De **VM-installatiekopieën (klassiek)** groep wordt vermeld onder **Compute** wanneer u bekijkt **meer services**.
+6. Klik in de Azure-portal op **virtuele Machines (klassiek)** en selecteer de virtuele machine die u wilt vastleggen. De **VM-installatiekopieën (klassiek)** groep wordt vermeld onder **Compute** wanneer u bekijkt **alle services**.
 
 7. Klik op de opdrachtbalk op **vastleggen**.
 
@@ -74,7 +74,7 @@ Voordat u een installatiekopie van een virtuele machine van Azure vastlegt, kunt
     ![De installatiekopie is geslaagd](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-De installatiekopie is gereed om te worden gebruikt voor het maken van virtuele machines. Om dit te doen, maakt u een virtuele machine door het selecteren van de **meer services** menuopdracht onderaan in het menu services, klikt u vervolgens **VM-installatiekopieën (klassiek)** in de **Compute** groep. Zie voor instructies [een virtuele machine maken van een installatiekopie van een](createportal.md).
+De installatiekopie is gereed om te worden gebruikt voor het maken van virtuele machines. Om dit te doen, maakt u een virtuele machine door het selecteren van de **alle services** menuopdracht onderaan in het menu services, klikt u vervolgens **VM-installatiekopieën (klassiek)** in de **Compute** groep. Zie voor instructies [een virtuele machine maken van een installatiekopie van een](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

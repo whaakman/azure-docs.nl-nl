@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Een externe App Service-omgeving maken #
 
@@ -59,7 +59,7 @@ De App Service-abonnement is een container van apps. Wanneer u een app in App Se
 
 Een as-omgeving maken bij het maken van een App Service-abonnement:
 
-1. In de [Azure-portal](https://portal.azure.com/), selecteer **nieuw** > **Web en mobiel** > **Web-App**.
+1. In de [Azure-portal](https://portal.azure.com/), selecteer **maken van een resource** > **Web en mobiel** > **Web-App**.
 
     ![Web-Apps maken][1]
 
@@ -97,7 +97,7 @@ Een as-omgeving maken bij het maken van een App Service-abonnement:
 
 Als u een zelfstandige as-omgeving maakt, heeft niets in deze. Een leeg as-omgeving maakt nog steeds een maandelijkse kosten voor de infrastructuur. Volg deze stappen voor het maken van een as-omgeving met een ILB of maken van een as-omgeving in een eigen resourcegroep bevinden. Nadat u uw as-omgeving maakt, kunt u apps in deze maken met behulp van het normale proces. Selecteer uw nieuwe as-omgeving als de locatie.
 
-1. Zoek de Azure Marketplace voor **App Service-omgeving**, of selecteer **nieuw** > **Web Mobile** > **App Service Omgeving**. 
+1. Zoek de Azure Marketplace voor **App Service-omgeving**, of selecteer **maken van een resource** > **Web Mobile** > **App Service-omgeving**. 
 
 2. Voer de naam van uw as-omgeving. Deze naam wordt gebruikt voor de apps die zijn gemaakt in de as-omgeving. Als de naam *mynewdemoase*, is de subdomeinnaam *. mynewdemoase.p.azurewebsites.net*. Als u een app met de naam maakt *mytestapp*, adresseerbare op mytestapp.mynewdemoase.p.azurewebsites.net is. U kunt witruimte niet gebruiken in de naam. Als u hoofdletters gebruikt, is de domeinnaam de totale kleine versie van de naam. Als u een ILB, wordt de naam van uw as-omgeving wordt niet gebruikt in een subdomein maar in plaats daarvan expliciet is opgegeven tijdens het maken van de as-omgeving.
 

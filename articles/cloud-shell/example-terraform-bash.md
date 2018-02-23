@@ -1,6 +1,6 @@
 ---
-title: Met Terraform met Bash in de Azure-Cloud-Shell implementeren | Microsoft Docs
-description: Azure-resources met Terraform in Bash implementeren
+title: Met Terraform van Bash in de Azure-Cloud-Shell implementeren | Microsoft Docs
+description: Met Terraform van Bash in de Azure-Cloud-Shell implementeren
 services: Azure
 documentationcenter: 
 author: tomarcher
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: c75b5d521dc3eacaf5c5921c35442b1afeb4fa13
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="terraform-and-bash-in-cloud-shell"></a>Terraform en Bash in de Cloud-Shell
+# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Met Terraform van Bash in de Azure-Cloud-Shell implementeren
 Dit artikel begeleidt u bij het maken van een resourcegroep met de [Terraform AzureRM provider](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
 [Hashicorp Terraform](https://www.terraform.io/) is een open-source hulpprogramma dat API's in declaratieve configuratiebestanden die worden kunnen gedeeld onder teamleden kunnen worden bewerkt, wordt gecontroleerd en samengestelde codifies. De Microsoft-AzureRM-provider wordt gebruikt om te communiceren met de resources die worden ondersteund door Azure Resource Manager via de AzureRM APIs. 

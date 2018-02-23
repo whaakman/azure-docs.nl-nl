@@ -3,11 +3,11 @@ Service Bus-onderwerpen en -abonnementen bieden ondersteuning voor een berichten
 
 ![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
 
-Anders dan bij Service Bus-wachtrijen, waarin elk bericht door een enkele gebruiker wordt verwerkt, bieden onderwerpen en abonnementen een 'één-naar-veel'-communicatiewijze, waarbij een patroon voor publiceren/abonneren wordt gebruikt. Het is mogelijk meerdere abonnementen voor een onderwerp te registreren. Wanneer een bericht naar een onderwerp wordt verzonden, wordt dit vervolgens beschikbaar gemaakt voor elk abonnement, waar het vervolgens zelfstandig wordt afgehandeld/verwerkt.
+In tegenstelling tot het Service Bus-wachtrijen, waarbij elk bericht wordt verwerkt door een enkele gebruiker, bieden onderwerpen en abonnementen een 'één-op-veel'-vorm van communicatie, een patroon voor publiceren/abonneren. Het is mogelijk meerdere abonnementen voor een onderwerp te registreren. Wanneer een bericht naar een onderwerp wordt verzonden, wordt dit vervolgens beschikbaar gemaakt voor elk abonnement, waar het vervolgens zelfstandig wordt afgehandeld/verwerkt.
 
-Een abonnement op een onderwerp lijkt op een virtuele wachtrij die kopieën van de berichten ontvangen die naar het onderwerp zijn verzonden. U kunt eventueel per abonnement filterregels voor een onderwerp registreren, waardoor u met behulp van een filter of een beperking kunt bepalen welke berichten naar een onderwerp door welke onderwerpabonnementen worden ontvangen.
+Een abonnement op een onderwerp lijkt op een virtuele wachtrij die kopieën van de berichten ontvangen die naar het onderwerp zijn verzonden. Desgewenst kunt u filterregels voor een onderwerp per abonnement op basis van een registreren. Filterregels kunt u filteren of beperken welke berichten naar een onderwerp door welke onderwerpabonnementen worden ontvangen.
 
-Service Bus-onderwerpen en -abonnementen stellen u in staat om voor veel gebruikers en toepassingen een groot aantal berichten te schalen en te verwerken.
+Service Bus-onderwerpen en abonnementen kunnen u schalen en te verwerken van een groot aantal berichten voor veel gebruikers en toepassingen.
 
 ## <a name="create-a-namespace"></a>Een naamruimte maken
 Als u Service Bus-onderwerpen en -abonnementen in Azure wilt gebruiken, moet u eerst een *servicenaamruimte maken*. Een naamruimte biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing.
@@ -15,11 +15,11 @@ Als u Service Bus-onderwerpen en -abonnementen in Azure wilt gebruiken, moet u e
 Ga als volgt te werk om een naamruimte te maken:
 
 1. Meld u aan bij [Azure Portal][Azure portal].
-2. Klik in het linker navigatiedeelvenster van de portal achtereenvolgens op **Nieuw**, **Enterprise Integration** en **Service Bus**.
+2. Klik in het linkernavigatievenster van de portal op **maken van een resource**, klikt u vervolgens op **Enterprise Integration**, en klik vervolgens op **Service Bus**.
 3. Voer in het dialoogvenster **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
 4. Nadat u hebt gecontroleerd of de naam van de naamruimte beschikbaar is, kiest u de prijscategorie (Basic, Standard of Premium).
 5. Kies in het veld **Abonnement** een Azure-abonnement waarin u de naamruimte maakt.
-6. Kies in het veld **Resourcegroep** een bestaande resourcegroep waarin de naamruimte zal zijn opgenomen of maak een nieuwe resourcegroep.      
+6. In de **resourcegroep** veld, kiest u een bestaande resourcegroep waarin de naamruimte woont of maak een nieuwe.      
 7. Kies in **Locatie** het land of regio waarin uw naamruimte moet worden gehost.
    
     ![Een naamruimte maken][create-namespace]
@@ -27,11 +27,11 @@ Ga als volgt te werk om een naamruimte te maken:
 
 ### <a name="obtain-the-credentials"></a>De referenties ophalen
 1. Klik in de lijst met naamruimten op de zojuist gemaakte naam voor de naamruimte.
-2. Klik in de blade **Service Bus-naamruimte** op **Beleid voor gedeelde toegang**.
-3. Klik in de blade **Beleid voor gedeelde toegang** op **RootManageSharedAccessKey**.
+2. In de **Service Bus-naamruimte** deelvenster, klikt u op **gedeeld toegangsbeleid**.
+3. In de **gedeeld toegangsbeleid** deelvenster, klikt u op **RootManageSharedAccessKey**.
    
     ![verbinding-gegevens][connection-info]
-4. Klik in het blade **Beleid: RootManageSharedAccessKey** op de knop Kopiëren naast **Verbindingsreeks–primaire sleutel** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik.
+4. In de **beleid: RootManageSharedAccessKey** deelvenster, klik op de kopie knop Volgende om door te **Connection string – primaire sleutel**, de verbindingsreeks kopiëren naar uw Klembord voor later gebruik.
    
     ![connection-string][connection-string]
 
