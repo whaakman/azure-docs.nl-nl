@@ -25,13 +25,9 @@
   items:
     - name: Structuur van Azure-beleidsdefinities
       href: policy-definition.md
-- name: Handleidingen
-  items:
-    - name: Beleidsregels maken met de REST API
-      href: policy-insights.md
 - name: Naslaginformatie
   items:
-    - name: Azure-CLI
+    - name: Azure CLI
       href: /cli/azure/policy
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.resources/#policies'
