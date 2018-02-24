@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 796a455ffb906a47ab4ac9ae069537b0d7a31156
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b9cf32ed54b831d12b9e511ab70f017991f359a6
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK voor SQL-API: downloaden en release-opmerkingen
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/13/2018
 
 <tr><td>**Voorbeelden**</td><td>[.NET-codevoorbeelden](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>Aan de slag</td><td>[Aan de slag met Azure Cosmos DB .NET SDK](sql-api-get-started.md)</td></tr>
+<tr><td>**Aan de slag**</td><td>[Aan de slag met Azure Cosmos DB .NET SDK](sql-api-get-started.md)</td></tr>
 
 <tr><td>**Zelfstudie voor web-app**</td><td>[Ontwikkeling van webtoepassing met Azure Cosmos-DB](sql-api-dotnet-application.md)</td></tr>
 
@@ -53,6 +53,10 @@ ms.lasthandoff: 02/13/2018
 </table></br>
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
+
+* Onregelmatige SessionConsistency race condition vast.
+
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
 * Regressie vast waar FeedOptions.MaxItemCount = -1 heeft een System.ArithmeticException: paginaformaat negatief is.
@@ -285,6 +289,7 @@ De aanvragen die naar Azure Cosmos DB met behulp van een buiten gebruik gestelde
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.20.2](#1.20.2) |21 februari 2018 |--- |
 | [1.20.1](#1.20.1) |05 februari 2018 |--- |
 | [1.19.1](#1.19.1) |16 november 2017 |--- |
 | [1.19.0](#1.19.0) |10 november 2017 |--- |

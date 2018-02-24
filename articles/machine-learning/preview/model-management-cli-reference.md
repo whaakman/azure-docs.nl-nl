@@ -4,18 +4,18 @@ description: Azure Machine Learning-Model Management opdrachtregelinterface verw
 services: machine-learning
 author: raymondl
 ms.author: raymondl, aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 219c61d1842369caadaf8e85dcb039242c37ef6c
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="model-management-command-line-interface-reference"></a>Verwijzing naar een model management opdrachtregelinterface
 
@@ -70,7 +70,7 @@ Lokale argumenten:
 
 **De implementatie-omgeving instellen**
 
-De setup-opdracht moet u bijdrager toegang hebben tot het abonnement. Als u die hebt, moet u ten minste Inzender toegang tot de resourcegroep die u wilt implementeren in. Hiertoe de laatste, moet u de Resourcegroepnaam opgeven als onderdeel van de setup-opdracht via `-g` de vlag. 
+De setup-opdracht moet u bijdrager toegang hebben tot het abonnement. Als u die niet hebt, moet u minimaal toegangsrechten van een bijdrager hebben voor de resourcegroep waarin u wilt implementeren. Als u dat laatste wilt doen, moet u de naam van de resourcegroep opgeven als onderdeel van de installatieopdracht via de vlag `-g`. 
 
 Er zijn twee opties voor implementatie: *lokale* en *cluster*. Instellen van de `--cluster` (of `-c`) vlag schakelt Clusterimplementatie, die voorziet in een ACS-cluster. De syntaxis van de basisinstellingen is als volgt:
 
@@ -110,7 +110,7 @@ Algemene argumenten
     register
     show
 
-**Registreren van een model**
+Registreren van een model
 
 Opdracht voor het registreren van het model.
 

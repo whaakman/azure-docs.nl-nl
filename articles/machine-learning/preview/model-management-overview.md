@@ -3,18 +3,18 @@ title: Conceptueel overzicht van Azure Machine Learning-Model Management | Micro
 description: Dit document wordt uitgelegd concepten Model Management voor Azure Machine Learning.
 services: machine-learning
 author: nk773
-ms.author: neerajkh, padou
+ms.author: padou
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0474e7ae77128a46fc6218de814913d07aa63d97
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 931dfae740996325cc62071a861e81ef5f67548b
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-model-management"></a>Machine Learning Modelbeheer van Azure
 
@@ -32,7 +32,7 @@ Azure Machine Learning-Model Management biedt een register van de modelversies. 
 
 Azure Machine Learning Compute-omgevingen help bij het instellen en beheren van schaalbare clusters voor het hosten van de modellen. De compute-omgeving is gebaseerd op Azure Container Services. Azure Container Services biedt automatische blootstelling van Machine Learning API's als REST-API-eindpunten met de volgende functies:
 
-- Authentication
+- Verificatie
 - Taakverdeling
 - Automatische scale-out
 - Versleuteling

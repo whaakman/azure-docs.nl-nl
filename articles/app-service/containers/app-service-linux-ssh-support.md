@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 7e6bb974565810ebb8d8e21d1c274d42d6d39e55
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5c877222c9ce409ea8758d5830f79e4a8b64fd8f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-ondersteuning voor Azure App Service op Linux
 
@@ -54,7 +54,7 @@ Deze stappen zijn worden weergegeven in de Azure App Service-opslagplaats als [e
 1. Bevatten de `openssh-server` installatie in [ `RUN` instructie](https://docs.docker.com/engine/reference/builder/#run) in de Dockerfile voor uw installatiekopie en het wachtwoord voor de basis-account toe aan set `"Docker!"`.
 
     > [!NOTE]
-    > Deze configuratie is niet toegestaan voor externe verbindingen naar de container. SSH kan alleen worden benaderd via de Kudu / SCM-Site, die is geverifieerd met de referenties van de publicatie.
+    > Deze configuratie staat geen externe verbindingen naar de container toe. SSH kan alleen worden benaderd via de Kudu / SCM-Site, die is geverifieerd met de referenties van de publicatie.
 
     ```docker
     # ------------------------
@@ -69,14 +69,14 @@ Deze stappen zijn worden weergegeven in de Azure App Service-opslagplaats als [e
 
     > [!NOTE]
     > De *sshd_config* bestand moet bevatten de volgende of de verbinding is mislukt: 
-    > * `Ciphers`moet ten minste een van de volgende opnemen: `aes128-cbc,3des-cbc,aes256-cbc`.
-    > * `MACs`moet ten minste een van de volgende opnemen: `hmac-sha1,hmac-sha1-96`.
+    > * `Ciphers` moet ten minste een van de volgende opnemen: `aes128-cbc,3des-cbc,aes256-cbc`.
+    > * `MACs` moet ten minste een van de volgende opnemen: `hmac-sha1,hmac-sha1-96`.
 
     ```docker
     COPY sshd_config /etc/ssh/
     ```
 
-1. Poort 2222 in omvatten de [ `EXPOSE` instructie](https://docs.docker.com/engine/reference/builder/#expose) voor de Dockerfile. Hoewel het hoofdwachtwoord bekend is, wordt poort 2222 niet toegankelijk vanaf internet. Het is een interne alleen poort toegankelijk alleen door containers in het netwerk bridge van een virtueel particulier netwerk.
+1. Poort 2222 in omvatten de [ `EXPOSE` instructie](https://docs.docker.com/engine/reference/builder/#expose) voor de Dockerfile. Hoewel het hoofdwachtwoord bekend is, is poort 2222 niet toegankelijk vanaf het internet. Het is een interne alleen poort toegankelijk alleen door containers in het netwerk bridge van een virtueel particulier netwerk.
 
     ```docker
     EXPOSE 2222 80
@@ -101,9 +101,9 @@ Maakt gebruik van de Dockerfile de [ `CMD` instructie](https://docs.docker.com/e
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende koppelingen voor meer informatie over Web-App voor Containers. U kunt vragen en problemen op boeken [ons forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Zie de volgende koppelingen voor meer informatie over Web-App voor Containers. Vragen kunt u posten op [ons forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Het gebruik van een aangepaste Docker-installatiekopie voor Web-App voor Containers](quickstart-custom-docker-image.md)
-* [Met behulp van .NET Core in Azure App Service op Linux](quickstart-dotnetcore.md)
-* [Met behulp van Ruby in Azure App Service op Linux](quickstart-ruby.md)
-* [Web-App voor Containers Veelgestelde vragen over Azure App Service](app-service-linux-faq.md)
+* [Een aangepaste Docker-installatiekopie uitvoeren voor Web App for Containers](quickstart-docker-go.md)
+* [.NET Core gebruiken in Azure App Service onder Linux](quickstart-dotnetcore.md)
+* [Ruby gebruiken in Azure App Service onder Linux](quickstart-ruby.md)
+* [Web App for Containers van Azure App Service: veelgestelde vragen](app-service-linux-faq.md)

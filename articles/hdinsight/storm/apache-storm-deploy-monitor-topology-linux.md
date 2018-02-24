@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: a972344e2b6205fbcf69d2969c42211ec5b24869
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implementeren en beheren van Apache Storm-topologieën op HDInsight
 
@@ -226,9 +226,9 @@ U vindt de volledig gekwalificeerde domeinnaam (FQDN) voor het hoofdknooppunt va
 
 * **Tijdens een SSH-sessie**: Gebruik de opdracht `headnode -f` tijdens een SSH-sessie op het cluster.
 * **Vanaf Ambari Web**: Selecteer **Services** vanaf de bovenkant van de pagina, selecteer **Storm**. Van de **samenvatting** tabblad **Storm UI Server**. De FQDN-naam van het knooppunt dat als host fungeert voor de Storm-gebruikersinterface en de REST-API wordt weergegeven boven aan de pagina.
-* **Van de Ambari REST-API**: Gebruik de opdracht `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` informatie ophalen over het knooppunt dat de Storm-gebruikersinterface en de REST-API op worden uitgevoerd. Vervang **wachtwoord** met de Administrator-wachtwoord voor het cluster. Vervang **CLUSTERNAME** met de naam van het cluster. In het antwoord bevat de vermelding 'hostnaam' de FQDN-naam van het knooppunt.
+* **Van de Ambari REST-API**: Gebruik de opdracht `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` informatie ophalen over het knooppunt dat de Storm-gebruikersinterface en de REST-API op worden uitgevoerd. Vervang **CLUSTERNAME** met de naam van het cluster. Wanneer u wordt gevraagd, voert u het wachtwoord voor de aanmeldingsaccount (admin). In het antwoord bevat de vermelding 'hostnaam' de FQDN-naam van het knooppunt.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Verificatie
 
 Aanvragen voor de REST-API moeten gebruiken **basisverificatie**, zodat u de beheerder de naam van HDInsight-cluster en het wachtwoord gebruiken.
 

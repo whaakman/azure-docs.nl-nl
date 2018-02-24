@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 221ee6990fe0b5bfc9e745fc85543c4e04e41bd3
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Azure Data Lake Store gebruiken voor het vastleggen van gegevens uit Event Hubs
 
@@ -86,11 +86,11 @@ In deze sectie maakt u een Event Hub in een Event Hubs-naamruimte. U ook configu
 
 2. Van de **overzicht** deelvenster van de naamruimte van Event Hubs, klikt u op **+ Event Hub**.
 
-    ![Event Hub maken](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Event Hub maken")
+    ![Create Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Create Event Hub")
 
 3. Geef de volgende waarden voor het configureren van Event Hubs voor het vastleggen van gegevens naar Data Lake Store.
 
-    ![Event Hub maken](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Event Hub maken")
+    ![Create Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Create Event Hub")
 
     a. Geef een naam voor de Event Hub.
     

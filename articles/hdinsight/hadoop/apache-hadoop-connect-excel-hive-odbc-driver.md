@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: d169645b9b701e611d27e0d984bf44b7ca85d2ad
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: b2b5427f037203e86f6b73610084993892ed4a37
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Excel verbinden met Hadoop in Azure HDInsight met het Microsoft Hive ODBC-stuurprogramma
 
@@ -46,7 +46,7 @@ Voordat u dit artikel, hebt u de volgende items:
 ## <a name="install-microsoft-hive-odbc-driver"></a>Installeer Microsoft Hive ODBC-stuurprogramma
 Download en installeer Microsoft Hive ODBC-stuurprogramma van de [Downloadcentrum][hive-odbc-driver-download].
 
-Dit stuurprogramma kan worden geïnstalleerd op een 32-bits of 64-bits versies van Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 en Windows Server 2012. Het stuurprogramma kan verbinding maken met Azure HDInsight (versie 1.6 of hoger) en Azure HDInsight-Emulator (v.1.0.0.0 en hoger). U moet de versie die overeenkomt met de versie van de toepassing waarbij u gebruikmaakt van het ODBC-stuurprogramma installeren. Het stuurprogramma wordt gebruikt voor deze zelfstudie uit Office Excel.
+Dit stuurprogramma kan worden geïnstalleerd op een 32-bits of 64-bits versies van Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 en Windows Server 2012. Het stuurprogramma staat verbinding met Azure HDInsight. U moet de versie die overeenkomt met de versie van de toepassing waarbij u gebruikmaakt van het ODBC-stuurprogramma installeren. Het stuurprogramma wordt gebruikt voor deze zelfstudie uit Office Excel.
 
 ## <a name="create-hive-odbc-data-source"></a>Hive ODBC-gegevensbron maken
 De volgende stappen ziet u het maken van een Hive ODBC-gegevensbron.

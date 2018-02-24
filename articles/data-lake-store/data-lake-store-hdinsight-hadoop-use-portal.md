@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 20f87e9c545eae283ff1514feeda0b1f9057e668
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>HDInsight-clusters maken met Data Lake Store via de Azure-portal
 > [!div class="op_single_selector"]
@@ -185,9 +185,9 @@ Als u gebruikt, bijvoorbeeld het cluster dat u hebt gemaakt met Data Lake Store 
     CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsstorage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
 
 Beschrijvingen van:
-* `adl://hdiadlstorage.azuredatalakestore.net/`is de hoofdmap van het Data Lake Store-account.
-* `/clusters/myhdiadlcluster`is de hoofdmap van de clustergegevens die u hebt opgegeven tijdens het maken van het cluster.
-* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/`de locatie van de voorbeeld-bestand dat u in de query gebruikt is.
+* `adl://hdiadlstorage.azuredatalakestore.net/` is de hoofdmap van het Data Lake Store-account.
+* `/clusters/myhdiadlcluster` is de hoofdmap van de clustergegevens die u hebt opgegeven tijdens het maken van het cluster.
+* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/` de locatie van de voorbeeld-bestand dat u in de query gebruikt is.
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-store-as-additional-storage"></a>Een Hive-query uitvoeren op gegevens in een Data Lake Store (als extra opslag)
 

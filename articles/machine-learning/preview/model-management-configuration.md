@@ -4,17 +4,17 @@ description: Dit document beschrijft de stappen en -concepten betrokken bij het 
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 151e7c2dc808a8fa117a0d7a1950185abe9e3152
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="model-management-setup"></a>Instellingen voor het beheer van model
 
@@ -107,7 +107,7 @@ De lokale omgeving setup-opdracht maakt u de volgende bronnen in uw abonnement:
 - Een resourcegroep (als niet is opgegeven)
 - een opslagaccount
 - Een Azure Container Registry (ACR)
-- Application insights
+- Application Insights
 
 Nadat setup voltooid is, stelt u de omgeving moet worden gebruikt met de volgende opdracht:
 
@@ -129,7 +129,7 @@ De installatieopdracht van de cluster-omgeving maakt de volgende bronnen in uw a
 - een opslagaccount
 - Een Azure Container Registry (ACR)
 - Een Kubernetes-implementatie in een Azure Container Service (ACS)-cluster
-- Application insights
+- Application Insights
 
 De resourcegroep, een opslagaccount en een ACR worden snel gemaakt. De ACS-implementatie kan maximaal 20 minuten duren. 
 

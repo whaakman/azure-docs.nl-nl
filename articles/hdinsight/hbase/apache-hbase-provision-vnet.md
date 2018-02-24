@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 1d3dba645acf51a7dcdd42fa23c82db962244b62
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 08f71340fea7424262fc9c549351bd50bcfcafe2
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>HBase-clusters maken in HDInsight in Azure Virtual Network
 Informatie over het maken van Azure HDInsight HBase-clusters in een [Azure Virtual Network][1].
@@ -44,7 +44,7 @@ In deze sectie maakt u een Linux-gebaseerde HBase-cluster maken met het afhankel
 > Sommige eigenschappen zijn hardgecodeerd in de sjabloon. Bijvoorbeeld:
 >
 > * **Locatie**: VS-Oost 2
-> * **Cluster versie**: 3.6
+> * **Cluster-versie**: 3.6
 > * **Aantal worker-knooppunten cluster**: 2
 > * **Storage-account standaard**: een unieke tekenreeks
 > * **Virtuele-netwerknaam**: &lt;Clusternaam >-vnet
@@ -65,7 +65,7 @@ In deze sectie maakt u een Linux-gebaseerde HBase-cluster maken met het afhankel
    * **Resourcegroep**: Selecteer **nieuw**, en geef een nieuwe Resourcegroepnaam.
    * **Locatie**: selecteer een locatie voor de resourcegroep.
    * **Clusternaam**: Voer een naam voor het Hadoop-cluster moet worden gemaakt.
-   * **Aanmeldgegevens voor het cluster**: de standaardaanmeldnaam is **admin**.
+   * **Aanmeldingsgegevens voor het cluster**: de standaardaanmeldingsnaam is **admin**.
    * **SSH-gebruikersnaam en -wachtwoord**: de standaardgebruikersnaam is **sshuser**.  U kunt de naam wijzigen.
    * **Ik ga akkoord met de voorwaarden de hierboven vermelde**: (selecteren)
 3. Klik op **Kopen**. Het duurt ongeveer 20 minuten om een cluster te maken. Zodra het cluster is gemaakt, kunt u de cluster-blade in de portal om deze te openen.
@@ -250,7 +250,7 @@ In deze zelfstudie hebt u geleerd hoe een HBase-cluster maken. Voor meer informa
 * [Lege edge-knooppunten in HDInsight gebruiken](../hdinsight-apps-use-edge-node.md)
 * [HBase-replicatie in HDInsight configureren](apache-hbase-replication.md)
 * [Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Aan de slag met HBase met Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
+* [Aan de slag met HBase en Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Overzicht van Virtual Network](../../virtual-network/virtual-networks-overview.md)
 
 [1]: http://azure.microsoft.com/services/virtual-network/

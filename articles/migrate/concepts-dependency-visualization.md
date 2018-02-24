@@ -4,13 +4,13 @@ description: Biedt een overzicht van assessment berekeningen in de service Azure
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-visualization"></a>Visualisatie van afhankelijkheden
 
@@ -35,7 +35,7 @@ Voor het gebruik van afhankelijkheid visualisatie die u wilt downloaden en insta
 
 ## <a name="do-i-need-to-pay-for-it"></a>Heb ik nodig voor het betalen?
 
-Ja. De werkruimte voor logboekanalyse standaard wordt gemaakt, maar deze wordt niet gebruikt, tenzij u afhankelijkheid visualisatie in Azure migreren gebruiken. Als u afhankelijkheid visualisatie gebruiken (of gebruik de werkruimte buiten Azure migreren), wordt u in rekening gebracht voor gebruik van de werkruimte.  [Meer informatie](https://azure.microsoft.com/pricing/details/insight-analytics/) over Serviceoverzicht oplossing prijzen. 
+Meer informatie over prijzen voor Azure Migrate vindt u [hier](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Hoe kan ik de werkruimte beheren?
 

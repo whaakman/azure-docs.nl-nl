@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 0c77ccd29e3e22005c3339ed4e89dccfed725fa0
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 4a10dac1eca85b54ef144a91445af6dad3b5d93e
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>Gegevens in Data Lake Store te analyseren met Power BI
 In dit artikel leert u hoe u Power BI Desktop om te analyseren en visualiseren van gegevens die zijn opgeslagen in Azure Data Lake Store.

@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 04f76d15f12b52d7b47011010a5ce20cc45174ee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5bb2ee2b9b838cc9feca60eca6b2c721ca58ed45
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Gegevens in Hadoop met de Microsoft Avro Library serialiseren
 
@@ -78,7 +78,7 @@ De Microsoft Avro Library bevat een hulpprogramma voor het genereren van code wa
 3. Ga naar de map C:\SDK\src\Microsoft.Hadoop.Avro.Tools en build.bat uitvoeren. (Het bestand aanroepen MSBuild van de 32-bits-distributie van het .NET Framework. Als u wilt de 64-bits versie te gebruiken, bewerk build.bat, de opmerkingen in het bestand te volgen.) Zorg ervoor dat de build geslaagd is. (Op sommige systemen MSBuild kan leiden tot waarschuwingen. Deze waarschuwingen hebben geen invloed op het hulpprogramma, zolang er geen fouten build zijn.)
 4. Het gecompileerde hulpprogramma bevindt zich in C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools.
 
-Als u bekend bent met de syntaxis van de opdrachtregel, voer de volgende opdracht uit de map waarin het hulpprogramma voor het genereren van code bevindt:`Microsoft.Hadoop.Avro.Tools help /c:codegen`
+Als u bekend bent met de syntaxis van de opdrachtregel, voer de volgende opdracht uit de map waarin het hulpprogramma voor het genereren van code bevindt: `Microsoft.Hadoop.Avro.Tools help /c:codegen`
 
 U kunt het hulpprogramma testen, kunt u C#-klassen genereren van het JSON-schema-voorbeeldbestand geleverd met de broncode. Voer de volgende opdracht:
 

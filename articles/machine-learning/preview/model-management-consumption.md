@@ -4,17 +4,17 @@ description: "Dit document beschrijft de stappen en -concepten betrokken bij ge�
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b8641cd2d4a34821b7cf0e644345f0904bad294a
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="consuming-web-services"></a>Webservices verbruiken
 Wanneer u een model als een realtime-webservice implementeert, kunt u gegevens verzenden en voorspellingen ophalen vanaf verschillende platforms en toepassingen. De realtime-webservice wordt een REST-API voor het ophalen van voorspellingen. U kunt gegevens verzenden naar de webservice in de indeling van één of meerdere rij ophalen van een of meer voorspellingen tegelijk.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 84bc344438d5542cc6409fa50aa6e55eb547c6a8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Continue implementatie met Web-App voor Containers
 
@@ -71,7 +71,7 @@ Zorg ervoor dat u het bereik definiëren als de opslagplaats met de installatiek
 
 Wanneer de installatiekopie wordt bijgewerkt, krijgen de web-app automatisch bijgewerkt met de nieuwe installatiekopie.
 
-### <a name="docker-hub"></a>Docker-Hub
+### <a name="docker-hub"></a>Docker Hub
 
 Klik op de pagina Docker Hub **Webhooks**, vervolgens **maken van een WEBHOOK**.
 
@@ -86,9 +86,9 @@ Wanneer de installatiekopie wordt bijgewerkt, krijgen de web-app automatisch bij
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Wat is Azure App Service op Linux?](./app-service-linux-intro.md)
-* [Azure-Container register](https://azure.microsoft.com/services/container-registry/)
-* [Met behulp van .NET Core in Azure App Service op Linux](quickstart-dotnetcore.md)
-* [Met behulp van Ruby in Azure App Service op Linux](quickstart-ruby.md)
-* [Het gebruik van een aangepaste Docker-installatiekopie voor Web-App voor Containers](quickstart-custom-docker-image.md)
-* [Web-App voor Containers Veelgestelde vragen over Azure App Service](./app-service-linux-faq.md)
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+* [.NET Core gebruiken in Azure App Service onder Linux](quickstart-dotnetcore.md)
+* [Ruby gebruiken in Azure App Service onder Linux](quickstart-ruby.md)
+* [Een aangepaste Docker-installatiekopie uitvoeren voor Web App for Containers](quickstart-docker-go.md)
+* [Web App for Containers van Azure App Service: veelgestelde vragen](./app-service-linux-faq.md)
 * [Web-App voor Containers met Azure CLI 2.0 beheren](./app-service-linux-cli.md)

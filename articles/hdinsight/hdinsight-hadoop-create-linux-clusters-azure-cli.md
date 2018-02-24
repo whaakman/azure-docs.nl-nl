@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1ed98856753854b0d6baee5bfa74d0623043aa99
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Maken van HDInsight-clusters met de Azure CLI
 
@@ -29,8 +29,9 @@ ms.lasthandoff: 12/11/2017
 De stappen in dit document procedure voor het maken van een 3.5 HDInsight-cluster met behulp van de Azure CLI 1.0.
 
 > [!IMPORTANT]
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
-
+> In dit onderwerp wordt beschreven hoe de Azure CLI 1.0 gebruiken voor het maken van een HDInsight-cluster. Deze versie van de CLI is afgeschaft en ondersteuning voor het maken van HDInsight-clusters niet is toegevoegd aan Azure CLI 2.0.
+>
+> U kunt ook Azure PowerShell gebruiken voor het maken en beheren van HDInsight-clusters. Zie voor meer informatie de [HDInsight-clusters maken met Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) document.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -41,7 +42,7 @@ De stappen in dit document procedure voor het maken van een 3.5 HDInsight-cluste
 * **Azure CLI**. De stappen in dit document zijn laatste getest met Azure CLI versie 0.10.14.
 
     > [!IMPORTANT]
-    > De stappen in dit document werken niet met Azure CLI 2.0. Azure CLI 2.0 biedt geen ondersteuning voor het maken van een HDInsight-cluster.
+    > Azure CLI 1.0 is afgeschaft en ondersteuning voor het maken van HDInsight-clusters niet is toegevoegd aan Azure CLI 2.0.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
 

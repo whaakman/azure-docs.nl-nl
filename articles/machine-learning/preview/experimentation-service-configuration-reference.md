@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning-experimenten Service configuratiebestanden
 
@@ -36,7 +36,7 @@ Dit bestand is een [conda omgeving bestand](https://conda.io/docs/using/envs.htm
 
 In dit bestand geeft u Python-pakketten die uw script nodig voor uitvoering heeft. Azure ML experimenteren Service maakt de conda-omgeving in de installatiekopie van het Docker volgens uw lijst met afhankelijkheden. De lijst met pakketten hier moet bereikbaar zijn door de engine voor het uitvoeren. Om die reden moeten pakketten worden weergegeven in de kanalen, zoals:
 
-* [continuum.IO](https://anaconda.org/conda-forge/repo)
+* [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
 * een openbaar toegankelijk eindpunt (URL)
 * of een lokaal pad
@@ -128,7 +128,7 @@ Deze opdracht maakt u een combinatie van bestanden op basis van het opgegeven do
 _\<COMPUTE doelnaam > .compute_ bestand geeft verbinding en configuratie-informatie voor de compute-doel. Het is een lijst met naam-waardeparen. Dit zijn de ondersteunde instellingen.
 
 **type**: Type van de compute-omgeving. Ondersteunde waarden zijn:
-  - lokale
+  - lokaal
   - Docker
   - remotedocker
   - cluster
@@ -143,7 +143,7 @@ _\<COMPUTE doelnaam > .compute_ bestand geeft verbinding en configuratie-informa
 
 **sharedVolumes**: markering om aan te geven die engine voor het uitvoeren moet gebruiken Docker gedeeld volume onderdeel projectbestanden heen en weer worden geleverd. Met deze vlag ingeschakeld kunt uitvoering versnellen omdat Docker toegang tot projecten rechtstreeks zonder de noodzaak om te kopiëren. Het is raadzaam om in te stellen _false_ als de Docker-engine wordt uitgevoerd op Windows omdat het volume voor Docker onder Windows kan flaky delen. Stel deze in op _true_ als deze op Mac OS- of Linux wordt uitgevoerd.
 
-**nvidiaDocker**: deze optie als de waarde _waar_, ziet u de Azure ML experimenteren Service moet gebruiken _nvidia docker_ opdracht, in plaats van de normale _docker_ opdracht starten van de Docker-installatiekopie. De _nvidia docker_ engine staat de Docker-container op toegang GPU hardware. De instelling is vereist als u wilt uitvoeren van GPU in de Docker-container. Biedt ondersteuning voor Linux-host _nvidia docker_. Bijvoorbeeld: DSVM op basis van Linux in Azure wordt geleverd met _nvidia docker_. _NVIDIA docker_ vanaf nu wordt niet ondersteund in Windows.
+**nvidiaDocker**: deze optie als de waarde _waar_, ziet u de Azure ML experimenteren Service moet gebruiken _nvidia docker_ opdracht, in plaats van de normale _docker_opdracht starten van de Docker-installatiekopie. De _nvidia docker_ engine staat de Docker-container op toegang GPU hardware. De instelling is vereist als u wilt uitvoeren van GPU in de Docker-container. Biedt ondersteuning voor Linux-host _nvidia docker_. Bijvoorbeeld: DSVM op basis van Linux in Azure wordt geleverd met _nvidia docker_. _NVIDIA docker_ vanaf nu wordt niet ondersteund in Windows.
 
 **nativeSharedDirectory**: deze eigenschap geeft u het basisobject in Active directory (bijvoorbeeld: _~/.azureml/share/_) waar de bestanden kunnen worden opgeslagen om te worden gedeeld tussen wordt uitgevoerd op hetzelfde doel compute. Als deze instelling wordt gebruikt wanneer u gebruikmaakt van een Docker-container _sharedVolumes_ moet worden ingesteld op true. Anders mislukt de uitvoering.
 
@@ -166,8 +166,8 @@ _'az ml experiment indienen foo.runconfig'_ automatisch wordt uitgevoerd de opdr
 **Omgevingsvariabelen**: in deze sectie kan gebruikers omgevingsvariabelen worden ingesteld als onderdeel van hun wordt uitgevoerd. Gebruiker kan met de naam / waarde-paren in de volgende indeling omgevingsvariabelen opgeven:
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Deze omgevingsvariabelen kunnen worden geopend in de code van de gebruiker. Bijvoorbeeld, de omgevingsvariabele met de naam 'EXAMPLE_ENV_VAR' in deze code phyton worden afgedrukt

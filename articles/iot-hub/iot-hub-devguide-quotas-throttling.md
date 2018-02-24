@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7aa963e7f7463dbc06ba98e4876ea5d98f6921c8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub quota's en beperking
 
@@ -31,6 +31,8 @@ De SKU bepaalt ook de bandbreedteregeling beperkingen die IoT Hub worden afgedwo
 
 ## <a name="operation-throttles"></a>Bewerking vertragingen
 Bewerking vertragingen zijn snelheid beperkingen die zijn toegepast in minuut bereiken en zijn bedoeld om te voorkomen dat misbruik. IoT Hub wordt geprobeerd om te voorkomen dat er fouten indien mogelijk wordt geretourneerd, maar begint uitzonderingen retourneren als de beperking wordt geschonden te lang.
+
+Op elk gewenst kunt u quota's of versnelling limieten verhogen door het aantal ingerichte eenheden van IoT-hub te verhogen.
 
 De volgende tabel toont de afgedwongen vertragingen. Waarden verwijzen naar een afzonderlijke hub.
 
@@ -50,15 +52,11 @@ De volgende tabel toont de afgedwongen vertragingen. Waarden verwijzen naar een 
 
 <sup>1</sup>beperking van de grootte van de meter is 8 KB
 
-> [!IMPORTANT]
-> De *apparaatverbindingen* versnelling bepaalt de snelheid waarmee nieuwe apparaatverbindingen worden met een IoT-hub gemaakt kunnen. De *apparaatverbindingen* versnelling heeft geen betrekking op het maximale aantal gelijktijdig verbonden apparaten. De beperking, is afhankelijk van het aantal eenheden die zijn ingericht voor de IoT-hub.
+De *apparaatverbindingen* versnelling bepaalt de snelheid waarmee nieuwe apparaatverbindingen worden met een IoT-hub gemaakt kunnen. De *apparaatverbindingen* versnelling heeft geen betrekking op het maximale aantal gelijktijdig verbonden apparaten. De beperking, is afhankelijk van het aantal eenheden die zijn ingericht voor de IoT-hub.
 
 Als u één eenheid S1 koopt, krijgt u bijvoorbeeld een vertraging van 100 verbindingen per seconde. Daarom voor 100.000 apparaten verbinding, duurt het minimaal 1000 seconden (ongeveer 16 minuten). U kunt echter zo veel gelijktijdig verbonden apparaten als er apparaten zijn geregistreerd in het identiteitenregister hebben.
 
 Voor een gedetailleerdere beschrijving van IoT Hub beperking gedrag, Zie het blogbericht [IoT-Hub bandbreedtebeperking en u][lnk-throttle-blog].
-
-> [!NOTE]
-> Op elk gewenst kunt u quota's of versnelling limieten verhogen door het aantal ingerichte eenheden van IoT-hub te verhogen.
 
 > [!IMPORTANT]
 > Bewerkingen in het systeemregister identiteit zijn bedoeld voor gebruik tijdens runtime in Apparaatbeheer en inrichting van scenario's. Lezen of bijwerken van een groot aantal apparaat-id's wordt ondersteund door [importeren en exporteren van taken][lnk-importexport].

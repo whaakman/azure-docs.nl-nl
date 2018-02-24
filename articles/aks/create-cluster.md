@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 3e884bc16680d74801911547045deb48246afccd
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 37d6dfc0aa6b3e4fcd88a53e83a3a3d7f2157681
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-an-azure-container-service-aks-cluster"></a>Een Azure Container Service (AKS)-cluster maken
 
@@ -21,7 +21,7 @@ Een Azure Container Service (AKS)-cluster kan worden gemaakt met de Azure CLI of
 
 ## <a name="azure-cli"></a>Azure-CLI
 
-Gebruik de [az aks maken] [ az-aks-create] opdracht voor het verwijderen van het cluster AKS.
+Gebruik de [az aks maken] [ az-aks-create] opdracht de cluster AKS maken.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster

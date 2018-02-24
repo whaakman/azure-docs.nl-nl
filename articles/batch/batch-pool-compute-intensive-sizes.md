@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/21/2018
 ms.author: danlep
-ms.openlocfilehash: dc28c3a9d46baa8e8d2136ffccbb4e7ff6675b1e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 181e9bd7c17e4618edd63dd92d70947a61c68758
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Gebruik van RDMA-compatibele of GPU ingeschakeld exemplaren in Batch-pools
 
@@ -33,9 +33,11 @@ Dit artikel bevat richtlijnen en voorbeelden aan sommige gespecialiseerde groott
 
 ## <a name="subscription-and-account-limits"></a>Abonnement en limieten
 
-* **Quota's** : de [toegewezen kernen quotum per Batch-account](batch-quota-limit.md#resource-quotas) beperkt mogelijk het nummer of het type van knooppunten die u aan een Batch-pool toevoegen kunt. U waarschijnlijk een quotum bereikt wanneer u RDMA-compatibele GPU ingeschakeld of andere multicore VM-grootten kiest. Standaard is dit quotum 20 kernen. Een afzonderlijke quotum van toepassing op [prioriteit Laag VMs](batch-low-pri-vms.md), als u deze gebruikt. 
+* **Quota en limieten** : de [toegewezen kernen quotum per Batch-account](batch-quota-limit.md#resource-quotas) beperkt mogelijk het nummer of het type van knooppunten die u aan een Batch-pool toevoegen kunt. U waarschijnlijk een quotum bereikt wanneer u RDMA-compatibele GPU ingeschakeld of andere multicore VM-grootten kiest. Een afzonderlijke quotum van toepassing op [prioriteit Laag VMs](batch-low-pri-vms.md), als u deze gebruikt. 
 
-Als u aanvragen van een verhoging van het quotum alleen, opent u een [online klant ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md) zonder kosten.
+  Daarnaast gebruiken van bepaalde families VM in uw Batch-account, zoals NCv2 en ND, wordt beperkt vanwege beperkte capaciteit. Gebruik van deze familie is alleen beschikbaar door het aanvragen van een verhoging van het quotum van de standaardwaarde van 0 kernen.  
+
+  Als u aanvragen van een verhoging van het quotum alleen, opent u een [online klant ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md) zonder kosten.
 
 * **Beschikbaarheid in regio's** - rekenintensieve VM's mogelijk niet beschikbaar in de regio's waar u uw Batch-accounts maken. Om te controleren of een grootte beschikbaar zijn, Zie [producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/regions/services/).
 
@@ -50,10 +52,10 @@ De RDMA en GPU-mogelijkheden van rekenintensieve grootten worden alleen onderste
 | Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Poolinstellingen |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 TNS,<br/>SUSE Linux Enterprise Server 12 HPC, of<br/>Op basis van centOS HPC<br/>(Azure Marketplace) | Intel MPI 5 | Communicatie tussen knooppunten inschakelen, uitschakelen van de uitvoering van gelijktijdige taken |
-| [NC, NCv2, ND reeks *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (verschilt per serie) | Ubuntu 16.04 TNS,<br/>Red Hat Enterprise Linux 7.3, of<br/>7.3 op basis van CentOS<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.1 stuurprogramma 's | N/A | 
-| [NV reeks](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 TNS,<br/>Red Hat Enterprise Linux 7.3, of<br/>7.3 op basis van CentOS<br/>(Azure Marketplace) | NVIDIA RASTER 4.3 stuurprogramma 's | N/A |
+| [NC, NCv2, ND reeks *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (verschilt per serie) | Ubuntu 16.04 TNS,<br/>Red Hat Enterprise Linux 7.3 of 7.4, of<br/>CentOS 7.3 of 7.4<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit stuurprogramma 's | N/A | 
+| [NV reeks](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 TNS,<br/>Red Hat Enterprise Linux 7.3, of<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA RASTER stuurprogramma 's | N/A |
 
-* RDMA-connectiviteit op NC24r, NC24r_v2 en ND24r VM's wordt ondersteund op Ubuntu 16.04 TNS of op basis van CentOS 7.3 HPC (uit Azure Marketplace) met Intel MPI.
+* RDMA-connectiviteit op NC24r, NC24rs_v2 en ND24r VM's wordt ondersteund op Ubuntu 16.04 TNS (uit Azure Marketplace) met Intel MPI.
 
 
 
@@ -61,11 +63,11 @@ De RDMA en GPU-mogelijkheden van rekenintensieve grootten worden alleen onderste
 
 | Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Poolinstellingen |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 or<br/>WindowsServer 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 of hoger, of<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM-extensie | Communicatie tussen knooppunten inschakelen, uitschakelen van de uitvoering van gelijktijdige taken |
-| [NC, NCv2, ND reeks *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (verschilt per serie) | WindowsServer 2016 of <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla stuurprogramma's of CUDA Toolkit 9.1 's| N/A | 
-| [NV reeks](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | WindowsServer 2016 of<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA RASTER 4.3 stuurprogramma 's | N/A |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | WindowsServer 2016, 2012 R2, of<br/>2012 (azure Marketplace) | Microsoft MPI 2012 R2 of hoger, of<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM-extensie | Communicatie tussen knooppunten inschakelen, uitschakelen van de uitvoering van gelijktijdige taken |
+| [NC, NCv2, ND reeks *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (verschilt per serie) | WindowsServer 2016 of <br/>2012 R2 (Azure Marketplace) | NVIDIA Tesla stuurprogramma's of CUDA Toolkit 's| N/A | 
+| [NV reeks](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | WindowsServer 2016 of<br/>2012 R2 (Azure Marketplace) | NVIDIA RASTER stuurprogramma 's | N/A |
 
-* RDMA-connectiviteit op NC24r, NC24r_v2 en ND24r VM's wordt ondersteund op Windows Server 2012 R2 (uit Azure Marketplace) met de extensie HpcVMDrivers en Microsoft MPI of Intel MPI.
+* RDMA-connectiviteit op NC24r, NC24rs_v2 en ND24rs VM's wordt ondersteund op Windows Server 2016 of Windows Server 2012 R2 (uit Azure Marketplace) met de extensie HpcVMDrivers en Microsoft MPI of Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows-groepen - configuratie voor Cloud-services
 
@@ -75,7 +77,7 @@ De RDMA en GPU-mogelijkheden van rekenintensieve grootten worden alleen onderste
 
 | Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Poolinstellingen |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>WindowsServer 2012 of<br/>Windows Server 2008 R2 (Gast OS-familie) | Microsoft MPI 2012 R2 of hoger, of<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM-extensie | Communicatie tussen knooppunten, inschakelen<br/> uitvoering van gelijktijdige taken uitschakelen |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | WindowsServer 2016, 2012 R2, 2012 of<br/>2008 R2 (Gast OS-familie) | Microsoft MPI 2012 R2 of hoger, of<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM-extensie | Communicatie tussen knooppunten, inschakelen<br/> uitvoering van gelijktijdige taken uitschakelen |
 
 
 
@@ -130,7 +132,7 @@ CUDA toepassingen op een pool van Linux NC-knooppunten uitgevoerd, moet u CUDA T
 | Instelling | Waarde |
 | ---- | ---- |
 | **Type installatiekopie** | Aangepaste installatiekopie |
-| **Aangepaste installatiekopie** | Naam van de installatiekopie |
+| Aangepaste installatiekopie | Naam van de installatiekopie |
 | **Knooppunt agent SKU** | batch.node.ubuntu 16.04 |
 | **De grootte van knooppunt** | NC6 Standard |
 

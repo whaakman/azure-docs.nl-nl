@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: ae266b0fc78083250c5d14ff2978cd59d394b202
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informatie voor niet-aanbevolen distributies
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-De Azure-platform SLA van toepassing op virtuele machines met Linux-besturingssysteem alleen wanneer een van de [goedgekeurde distributies](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) wordt gebruikt. Alle Linux-distributies die beschikbaar zijn in de afbeelding voor Azure-galerie zijn aangebracht distributies en de vereiste configuratie.
+De Azure-platform SLA van toepassing op virtuele machines met Linux-besturingssysteem alleen wanneer een van de [goedgekeurde distributies](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) wordt gebruikt. Voor deze aangebracht distributies Linux installatiekopieën beschikbaar in Azure Marketplace met de vereiste configuratie.
 
 * [Linux op Azure - goedgekeurde distributies](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ondersteuning voor Linux-afbeeldingen in Microsoft Azure](https://support.microsoft.com/kb/2941892)

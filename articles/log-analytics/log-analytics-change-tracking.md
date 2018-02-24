@@ -3,7 +3,7 @@ title: Wijzigingen bijhouden met Azure Log Analytics | Microsoft Docs
 description: De oplossing voor wijzigingen bijhouden in Log Analytics kunt u identificeren van software- en Windows-Service-wijzigingen die in uw omgeving plaatsvinden.
 services: log-analytics
 documentationcenter: 
-author: MGoedtel
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: magoedte
+ms.author: gwallace
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7af2fb89f8fac9df3f784aac50c8fac7880fde43
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in de software in uw omgeving met de oplossing voor wijzigingen bijhouden
 
@@ -112,7 +112,7 @@ De volgende tabel bevat de methoden van de collectie en andere informatie over h
 
 De volgende tabel toont de frequentie van de verzameling gegevens voor de soorten wijzigingen.
 
-| **Type wijzigen** | **frequency** | **Biedt****agent****verschillen wanneer gevonden verzenden?**  |
+| **Type wijzigen** | **frequency** | **Biedt****agent****verschillen wanneer gevonden verzenden?** |
 | --- | --- | --- |
 | Windows-register | 50 minuten | Nee |
 | Windows-bestand | 30 minuten | Ja. Als er geen wijziging in 24 uur, wordt een momentopname wordt verzonden. |

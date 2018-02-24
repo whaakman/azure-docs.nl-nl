@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 9638c7148d4347bb9cbc9e48022037ee6cb983d7
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Back-up van Windows virtuele machines in Azure
 
@@ -104,7 +104,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 Ga naar de volgende zelfstudie voor meer informatie over het bewaken van virtuele machines.
 
 > [!div class="nextstepaction"]
-> [Virtuele machines bewaken](tutorial-monitoring.md)
+> [Bepalen van virtuele machines](tutorial-govern-resources.md)
 
 
 

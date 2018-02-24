@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/15/2018
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Ontdek de mogelijkheden van de vooraf geconfigureerde oplossing voor externe controle
 
@@ -114,7 +114,7 @@ Op de **onderhoud** pagina vindt u de details van de regel die de Koelunit druk 
 
     ![Onderhoudspagina bevat een overzicht van waarschuwingen die zijn geactiveerd](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. De eerste waarschuwing in de lijst is de meest recente. Klik op de **Koelunit druk** alarm verbonden apparaten en telemetrie weergeven. De telemetrie ziet u een piek zware belasting voor de Koelunit:
+1. De eerste waarschuwing in de lijst is de meest recente. Klik op de **Koelunit druk te hoog** alarm verbonden apparaten en telemetrie weergeven. De telemetrie ziet Druk pieken voor de Koelunit:
 
     ![Onderhoudspagina toont telemetrie voor de geselecteerde waarschuwing](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
@@ -159,12 +159,12 @@ Gebruik voor de benodigde apparaatstuurprogramma beheertaken uitvoeren, de **app
 
     ![Selecteer een apparaat op de pagina apparaten](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Klik op de **planning** knop en kies vervolgens **Firmware-update**. Voer waarden in voor **taaknaam** en **Firmware URI**. Kies **toepassen** plannen van de taak nu uitvoeren:
+1. Klik op de **planning** knop en kies vervolgens **Firmware-update**. Voer waarden in voor **taaknaam**, **firmwareversie**, en **Firmware URI**. Kies **toepassen** plannen van de taak nu uitvoeren:
 
     ![Planning firmware-update op apparaat](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Met de gesimuleerde apparaten kunt u elke URL die u als dat het **Firmware URI** waarde. De URL toegang de gesimuleerde apparaten geen.
+    > Met de gesimuleerde apparaten kunt u elke URL die u als dat het **Firmware URI** waarde en een waarde die u voor de configuratie de **firmwareversie**. De URL toegang de gesimuleerde apparaten geen.
 
 1. Houd er rekening mee hoeveel apparaten is van invloed op de taak en kies **toepassen**:
 

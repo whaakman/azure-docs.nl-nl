@@ -27,7 +27,7 @@
       href: policy-definition.md
 - name: Naslaginformatie
   items:
-    - name: Azure CLI
+    - name: Azure-CLI
       href: /cli/azure/policy
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.resources/#policies'
