@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 903177506c31ec96452cbbdbade4a3d91dbf7571
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure service van de metagegevens van het exemplaar
 
@@ -75,8 +75,8 @@ De volgende tabel bevat een verwijzing naar andere indelingen met de die API 's 
 
 API | Standaardindeling voor gegevens | Andere indelingen
 --------|---------------------|--------------
-/Instance | JSON | Tekst
-/scheduledevents | JSON | geen
+/Instance | json | Tekst
+/scheduledevents | json | geen
 
 Geef de vereiste indeling als een parameter van de querytekenreeks worden opgegeven in de aanvraag voor toegang tot een niet-standaard antwoordindeling moet. Bijvoorbeeld:
 
@@ -302,7 +302,7 @@ subnetadres / | Subnetadres van de virtuele machine | 2017-04-02
 subnetvoorvoegsel / | Subnetvoorvoegsel, voorbeeld 24 | 2017-04-02 
 ipv6/ipAddress | Lokale IPv6-adres van de virtuele machine | 2017-04-02 
 MAC-adres | Mac-adres van VM | 2017-04-02 
-scheduledevents | Op dit moment in de openbare Preview. Zie [gebeurtenissen gepland](scheduled-events.md) | 2017-03-01
+scheduledevents | Zie [gebeurtenissen gepland](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Voorbeeldscenario's voor gebruik  
 
@@ -411,4 +411,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [gepland gebeurtenissen](scheduled-events.md) API **openbare preview** geleverd door de service-exemplaar metagegevens.
+- Meer informatie over [gebeurtenissen gepland](scheduled-events.md)

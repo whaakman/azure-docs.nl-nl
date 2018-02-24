@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/02/2017
 ms.author: raynew
-ms.openlocfilehash: db09ff30ff9f3852e84162b8400572e76515230f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b264e2ceac4e76faa37d21972b94cfe323aa3ce5
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="assessment-calculations"></a>Beoordelingsberekeningen
 
@@ -109,28 +109,28 @@ Als het criterium sizing *als lokale sizing*, Azure migreren houdt geen rekening
  
 ### <a name="confidence-rating"></a>Betrouwbaarheid
 
-Elke beoordeling in Azure migreren is gekoppeld aan een classificatie van vertrouwen met een bereik van 1 ster tot 5 sterren (1 ster wordt laagste en 5 sterren wordt hoogste). De betrouwbaarheid wordt toegewezen aan een beoordeling op basis van de beschikbaarheid van de gegevenspunten die nodig zijn voor de beoordeling te berekenen. Kunt u de schatting van de betrouwbaarheid van de grootte van aanbevelingen die door Azure migreren. 
+Elke beoordeling in Azure migreren is gekoppeld aan een classificatie van vertrouwen met een bereik van 1 ster 5 ster (1 ster wordt de laagste en 5 ster de hoogste). De betrouwbaarheid wordt toegewezen aan een beoordeling op basis van de beschikbaarheid van de gegevenspunten die nodig zijn voor de beoordeling te berekenen. De betrouwbaarheid van een beoordeling kunt u schatten van de betrouwbaarheid van de grootte van aanbevelingen die door Azure migreren. 
 
-Betrouwbaarheid is handig als u de *formaat op basis van prestaties* als niet alle gegevenspunten zijn mogelijk beschikbaar. Voor *als lokale sizing*, de betrouwbaarheid is altijd 5 sterren, als de benodigde grootte van de virtuele machine gegevens migreren van Azure heeft. 
+Betrouwbaarheid is handig als u de *formaat op basis van prestaties* zoals Azure migreren niet voldoende gegevenspunten hebt doen formaat op basis van gebruik. Voor *als lokale sizing*, de betrouwbaarheid is altijd 5 sterren, zoals Azure migreren alle gegevenspunten moet het formaat van de virtuele machine is. 
 
-Voor op basis van prestaties sizing moet Azure migreren de gebruiksgegevens voor de CPU en geheugen. Voor elke schijf die is gekoppeld aan de virtuele machine, moet de lezen/schrijven IOPS en doorvoer te doen formaat op basis van prestaties. Op dezelfde manier voor elke netwerkadapter die is gekoppeld aan de virtuele machine, moet Azure migreren het netwerk in/out doen formaat op basis van prestaties. Als een van de bovenstaande gebruik nummers niet beschikbaar in de vCenter-Server zijn, de grootte aanbeveling uitgevoerd door Azure migreren mogelijk niet betrouwbaar. Afhankelijk van het percentage van de gegevens die beschikbaar zijn, wordt de betrouwbaarheid voor de beoordeling beschikbaar:
+Azure migreren voor schaling op basis van prestaties van de virtuele machine heeft de gebruiksgegevens voor de CPU en geheugen nodig. Voor elke schijf die is gekoppeld aan de virtuele machine, moet deze ook, lezen/schrijven IOPS en doorvoer. Op dezelfde manier voor elke netwerkadapter die is gekoppeld aan de virtuele machine, moet Azure migreren het netwerk in/out doen formaat op basis van prestaties. Als een van de bovenstaande gebruik nummers niet beschikbaar in de vCenter-Server zijn, de grootte aanbeveling uitgevoerd door Azure migreren mogelijk niet betrouwbaar. Afhankelijk van het percentage van de gegevens die beschikbaar zijn, wordt de betrouwbaarheid voor de beoordeling beschikbaar:
 
    **Beschikbaarheid van gegevenspunten** | Betrouwbaarheid
    --- | ---
    0%-20% | 1 ster
-   21%-40% | 2 sterren
-   41%-60% | 3 sterren
-   61%-80% | 4 sterren
-   81%-100% | 5 sterren
+   21%-40% | 2 ster
+   41%-60% | 3 ster
+   61%-80% | 4 ster
+   81%-100% | 5 ster
 
 Een evaluatie kan niet alle gegevenspunten beschikbaar vanwege een van de volgende redenen hebben:
-- De instelling van de statistieken in vCenter die server niet is ingesteld op niveau 3 en de evaluatie heeft sizing als criterium formaat op basis van prestaties. Als de instelling van de statistieken in vCenter Server lager dan niveau 3 is, is geen prestatiegegevens voor de schijf en netwerk verzameld van vCenter-Server. In dit geval dat de aanbeveling is opgegeven door de Azure migreren voor de schijf en netwerk alleen is gebaseerd op wat lokale is toegewezen. Voor opslag raadt Azure migreren standaardschijven als er geen manier om te bepalen is of de schijf hoog IOP's / doorvoer is en moet premium-schijven.
-- De instelling van de statistieken in vCenter Server is ingesteld op niveau 3 gedurende een korte periode voordat de detectie bij de start. Als u het niveau van de instelling statistieken in 3 vandaag en kick uitschakelen van de detectie met behulp van het toestel collector morgen (na 24 uur), wijzigt als u een beoordeling voor één dag maakt, hebt u bijvoorbeeld alle gegevenspunten. Maar als u de duur van de prestaties in de eigenschappen van de assessment in een maand verandert, de betrouwbaarheid wordt uitgeschakeld als de schijf en netwerk prestatiegegevens voor de laatste één maand is niet beschikbaar. Als u wilt rekening houden met de prestatiegegevens van de laatste één maand, verdient het aanbeveling vCenter Server statistieken instelling op niveau 3 gedurende één maand voordat u ere van de detectie te houden. 
+- De instelling van de statistieken in vCenter die server niet is ingesteld op niveau 3 en de evaluatie heeft sizing als criterium formaat op basis van prestaties. Als de instelling van de statistieken in vCenter Server lager dan niveau 3 is, is geen prestatiegegevens voor de schijf en netwerk verzameld van vCenter-Server. In dit geval is de aanbeveling is opgegeven door de Azure migreren voor de schijf en netwerk niet op basis van gebruik. Voor opslag raadt Azure migreren standaardschijven zoals zonder rekening te houden de IOP's / doorvoer van de schijf, migreren van Azure kan niet worden geïdentificeerd als de schijf een premium-schijf in Azure nodig hebt.
+- De instelling van de statistieken in vCenter Server is ingesteld op niveau 3 gedurende een kortere periode voordat de detectie bij de start. Bijvoorbeeld, laten we eens het scenario waar het wijzigen van de statistieken niveau 3 vandaag en kick uitschakelen van de detectie met behulp van het toestel collector morgen (na 24 uur) in te stellen. Als u een beoordeling voor één dag maakt, hebt u de gegevenspunten en de betrouwbaarheid van de beoordeling is 5 sterren. Maar als u de duur van de prestaties in de eigenschappen van de assessment in een maand verandert, de betrouwbaarheid wordt uitgeschakeld als de schijf en netwerk prestatiegegevens voor de laatste één maand niet beschikbaar. Als u wilt rekening houden met de prestatiegegevens van de laatste één maand, verdient het aanbeveling vCenter Server statistieken instelling op niveau 3 gedurende één maand voordat u ere van de detectie te houden. 
 - Enkele virtuele machines zijn afgesloten tijdens de periode waarvoor de beoordeling wordt berekend. Als er geen VM's zijn uitgeschakeld voor bepaalde duur, heeft vCenter-Server geen prestatiegegevens van de voor deze periode. 
 - Enkele virtuele machines zijn gemaakt tussen de periode waarvoor de beoordeling wordt berekend. Bijvoorbeeld, als u maakt een beoordeling van de prestatiegeschiedenis van afgelopen één maand, maar enkele virtuele machines zijn gemaakt in de omgeving alleen een week geleden. In dergelijke gevallen de prestatiegeschiedenis van de nieuwe virtuele machines niet meer worden er voor de gehele duur.
 
 > [!NOTE]
-> Als de betrouwbaarheid van de beoordeling lager dan 3 sterren is, wij raden u aan te wijzigen van de vCenter-Server statistieken instellingen niveau tot 3, wacht u totdat de duur die u wilt overwegen voor beoordeling (1 dag/1 week/1 maand) en voert u detectie en beoordeling. Als de voorgaande kan niet worden uitgevoerd, op basis van prestaties sizing mogelijk niet betrouwbaar en het wordt aanbevolen overschakelen naar *als lokale sizing* door de eigenschappen van de evaluatie te wijzigen.
+> Als de betrouwbaarheid van de beoordeling lager dan 4 sterren is, wij raden u aan te wijzigen van de vCenter-Server statistieken instellingen niveau tot 3, wacht u totdat de duur die u wilt overwegen voor beoordeling (1 dag/1 week/1 maand) en voert u detectie en beoordeling. Als de voorgaande kan niet worden uitgevoerd, op basis van prestaties sizing mogelijk niet betrouwbaar en het wordt aanbevolen overschakelen naar *als lokale sizing* door de eigenschappen van de evaluatie te wijzigen.
 
 ## <a name="monthly-cost-estimation"></a>Maandelijkse kosten schatting
 

@@ -9,18 +9,19 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: d777d467b3f0d4ef6101dffa551ec5c85feb209c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c89556cf66526f793ab81383e205ff45075385a3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>C#-topologieën ontwikkelen voor Apache Storm met behulp van het Data Lake tools voor Visual Studio
 
@@ -42,9 +43,6 @@ Als u wilt gebruiken een C#-topologie met een cluster op basis van Linux, moet u
 
 > [!IMPORTANT]
 > C#-topologieën met op Linux gebaseerde clusters moeten .NET 4.5 en Mono gebruiken om op het HDInsight-cluster te worden uitgevoerd. Controleer [Mono compatibiliteit](http://www.mono-project.com/docs/about-mono/compatibility/) voor potentiële compatibiliteitsproblemen.
-
-> [!WARNING]
-> Als u problemen bouwen van de projecten die gebruikmaken van SCP.NET versie 1.0.0.x, neem contact op met Microsoft ondersteuning voor hulp.
 
 ## <a name="install-visual-studio"></a>Visual Studio installeren
 
@@ -124,7 +122,7 @@ De Data Lake tools voor Visual Studio bieden de volgende sjablonen:
 | Storm-voorbeeld |Een basic word-count-topologie. |
 
 > [!WARNING]
-> Niet alle sjablonen, werken met HDInsight op basis van Linux. Nuget-pakketten die worden gebruikt door de sjablonen zijn mogelijk niet compatibel met Mono. Controleer de [Mono compatibiliteit](http://www.mono-project.com/docs/about-mono/compatibility/) documenteren en gebruik de [.NET draagbaarheid Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) om potentiële problemen te identificeren.
+> Niet alle sjablonen werken met HDInsight op basis van Linux. NuGet-pakketten die worden gebruikt door de sjablonen zijn mogelijk niet compatibel met Mono. Controleer de [Mono compatibiliteit](http://www.mono-project.com/docs/about-mono/compatibility/) documenteren en gebruik de [.NET draagbaarheid Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) om potentiële problemen te identificeren.
 
 In de stappen in dit document kunt u het type basic Storm-toepassing een topologie maakt.
 
@@ -169,7 +167,7 @@ Zie voor een topologie die gebruikmaakt van dit onderdeel en werkt met Storm op 
 
    * **Mislukken** (alleen voor transactionele topologie): tuples die zijn mislukt-verwerking van andere onderdelen in de topologie worden verwerkt. Implementatie van een methode is mislukt, kunt u de tuple opnieuw verzenden zodat deze opnieuw kan worden verwerkt.
 
-2. Vervang de inhoud van de **Spout** klasse met de volgende tekst. Deze spout verzendt willekeurig een zin in de topologie.
+2. Vervang de inhoud van de **Spout** klasse met de volgende tekst: een zin deze spout willekeurig verzendt naar de topologie.
 
     ```csharp
     private Context ctx;
@@ -290,7 +288,7 @@ Zie voor een topologie die gebruikmaakt van dit onderdeel en werkt met Storm op 
     }
     ```
 
-5. Open **Counter.cs**, en vervang de inhoud van de klasse door het volgende:
+5. Open **Counter.cs**, en vervang de inhoud van de klasse door de volgende code:
 
     ```csharp
     private Context ctx;
@@ -352,7 +350,7 @@ Spouts en bolts worden gerangschikt in een grafiek, waarmee wordt gedefinieerd h
 
 Zinnen zijn verzonden vanaf de spout en worden gedistribueerd naar exemplaren van de splitser bolt. De splitser bout verdeelt de zinnen in woorden die worden gedistribueerd naar de teller bolt.
 
-Omdat het aantal woorden is die lokaal zijn opgeslagen in het exemplaar van prestatiemeteritem, willen we om ervoor te zorgen dat bepaalde woorden naar hetzelfde exemplaar van prestatiemeteritem bolt vloeien. Elk exemplaar houdt van specifieke woorden. Aangezien de splitser bout geen status onderhoudt, het echt maakt niet uit welke instantie van de splitser bepaald welke zin ontvangt.
+Omdat het aantal woorden is die lokaal zijn opgeslagen in het exemplaar van prestatiemeteritem, u om ervoor te zorgen dat bepaalde woorden naar hetzelfde exemplaar van prestatiemeteritem bolt vloeien. Elk exemplaar houdt van specifieke woorden. Aangezien de splitser bout geen status onderhoudt, het echt maakt niet uit welke instantie van de splitser bepaald welke zin ontvangt.
 
 Open **Program.cs**. De methode voor belangrijke **GetTopologyBuilder**, dat wordt gebruikt voor het definiëren van de topologie die wordt verzonden naar Storm. Vervang de inhoud van **GetTopologyBuilder** met de volgende code voor het implementeren van de topologie die eerder zijn beschreven:
 
@@ -472,16 +470,16 @@ Voor een voorbeeld van een hybride-topologie, maak een project en selecteer **St
   > Deze versie wordt ook beschreven hoe Clojure code uit een tekstbestand gebruiken als een Java-component.
 
 
-Als u wilt overschakelen van de topologie die wordt gebruikt wanneer het project wordt ingediend, verplaatst het `[Active(true)]` instructie aan de topologie die u gebruiken wilt, alvorens deze aan het cluster.
+Als u wilt overschakelen van de topologie die wordt gebruikt wanneer het project wordt ingediend, gaan de `[Active(true)]` instructie aan de topologie die u gebruiken wilt, alvorens deze aan het cluster.
 
 > [!NOTE]
 > Alle Java-bestanden die vereist zijn, worden geleverd als onderdeel van dit project in de **JavaDependency** map.
 
 Overweeg het volgende bij het maken en verzenden van een hybride-topologie:
 
-* U moet gebruiken **JavaComponentConstructor** voor het maken van een exemplaar van de Java-klasse voor een spout of Bolts.
+* Gebruik **JavaComponentConstructor** voor het maken van een exemplaar van de Java-klasse voor een spout of Bolts.
 
-* U moet gebruiken **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** voor het serialiseren van de gegevens van of naar Java-onderdelen vanuit Java-objecten naar JSON.
+* Gebruik **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** voor het serialiseren van de gegevens van of naar Java-onderdelen vanuit Java-objecten naar JSON.
 
 * Bij het indienen van de topologie met de server, moet u de **aanvullende configuraties** optie om op te geven de **Java bestandspaden**. Het opgegeven pad moet de map waarin de JAR-bestanden die uw Java-klassen bevatten.
 
@@ -703,7 +701,7 @@ Hoewel het eenvoudig voor het implementeren van een topologie met een cluster, i
 
 ### <a name="log-information"></a>Logboekgegevens
 
-U kunt eenvoudig gegevens van de onderdelen van uw topologie vastleggen met behulp van `Context.Logger`. De volgende maakt bijvoorbeeld een informatieve logboekvermelding:
+U kunt eenvoudig gegevens van de onderdelen van uw topologie vastleggen met behulp van `Context.Logger`. De volgende opdracht maakt bijvoorbeeld een informatieve logboekvermelding:
 
 ```csharp
 Context.Logger.Info("Component started");

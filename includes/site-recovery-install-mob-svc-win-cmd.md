@@ -27,13 +27,13 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 
 | Parameter|Type|Beschrijving|Mogelijke waarden|
 |-|-|-|-|
-|/ Functie|Verplicht|Geeft aan of de Mobility-Service (MS) moet worden geïnstalleerd of MasterTarget(MT) moet worden geïnstalleerd.|MS </br> MT|
-|/InstallLocation|Optioneel|Locatie waar de Mobility-Service is geïnstalleerd|Een map op de computer|
-|/ Platform|Verplicht|Hiermee geeft u het platform waarop de Mobility-Service is ophalen geïnstalleerd </br> </br>- **VMware** : deze waarde wordt gebruikt als u mobility-service op een virtuele machine uitgevoerd installeert op *VMware vSphere ESXi-Hosts*, *Hyper-V-Hosts* en *fysieke Servers* </br> - **Azure** : deze waarde wordt gebruikt als u agent op een virtuele machine van Azure IaaS installeert| VMware </br> Azure|
-|/ Silent|Optioneel|Hiermee geeft u het installatieprogramma uitvoeren in de stille modus| N.v.t.|
+|/ Functie|Verplicht|Hiermee geeft u op of de Mobility-Service (MS) moet worden geïnstalleerd of MasterTarget (MT) moet worden geïnstalleerd.|MS </br> MT|
+|/InstallLocation|Optioneel|De locatie waar de Mobility-Service is geïnstalleerd.|Een map op de computer|
+|/Platform|Verplicht|Hiermee geeft u het platform waarop de Mobility-Service is geïnstalleerd. </br> </br>- **VMware**: deze waarde wordt gebruikt als u de Mobility-Service op een virtuele machine uitgevoerd installeert op *VMware vSphere ESXi-hosts*, *Hyper-V-hosts*, en *fysieke servers*. </br> - **Azure**: deze waarde wordt gebruikt als u een agent op een virtuele machine van Azure IaaS installeren. | VMware </br> Azure|
+|/ Silent|Optioneel|Hiermee geeft u het installatieprogramma uitvoeren in de stille modus.| N/A|
 
 >[!TIP]
-> De installatielogboeken kunnen van %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log worden gevonden
+> De setup-Logboeken vindt u onder % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 
 #### <a name="mobility-service-registration-command-line-arguments"></a>Opdrachtregelargumenten van de Mobility-Service-registratie
 
@@ -44,9 +44,9 @@ UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <Passphrase
 
   | Parameter|Type|Beschrijving|Mogelijke waarden|
   |-|-|-|-|
-  |/ CSEndPoint |Verplicht|IP-adres van de configuratieserver| Een geldig IP-adres|
+  |/CSEndPoint |Verplicht|IP-adres van de configuratieserver| Een geldig IP-adres|
   |/PassphraseFilePath|Verplicht|Locatie van de wachtwoordzin |Een geldig UNC- of lokale bestandspad|
 
 
 >[!TIP]
-> De logboeken AgentConfiguration vindt u onder %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log
+> De agentconfiguratie Logboeken vindt u onder % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.

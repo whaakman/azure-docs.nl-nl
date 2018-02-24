@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7515f6b2e074c33488fc44768705896d7c9d8ce6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bd725e2201cb08853f4fb63d156b6359427663b
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Inzicht in de Azure IoT Edge-runtime en de bijbehorende architectuur - voorbeeld
 
@@ -94,10 +94,10 @@ Elk item in de woordenlijst modules bevat specifieke informatie over een module 
 * **settings.createOptions** : een tekenreeks die rechtstreeks aan de Docker-daemon wordt doorgegeven bij het starten van een module-container. Toevoegen van Docker-opties in deze eigenschap kunt u geavanceerde opties zoals poort doorsturen of koppelen van volumes in een module-container.  
 * **status** – de status waarin de Edge-agent de module plaatst. Deze waarde wordt meestal ingesteld op *met* zoals de meeste mensen wilt gebruiken voor de agent van de rand om direct te starten alle modules op het apparaat. U kan echter opgeven dat de oorspronkelijke status van een module die u wilt stoppen en wachten op een later tijdstip aan de rand agent starten van een module. De agent rand meldt de status van elke module terug naar de cloud in de eigenschappen van gemeld. Een verschil tussen de gewenste eigenschappen en de gerapporteerde is een indicator of een apparaat zorgt. De ondersteunde statussen zijn:
    * Downloaden
-   * Wordt uitgevoerd
+   * In uitvoering
    * Niet in orde
    * Mislukt
-   * Stopped
+   * Gestopt
 * **restartPolicy** : hoe de Edge-agent opnieuw wordt opgestart een module. Mogelijke waarden:
    * Nooit: Start de agent rand nooit de module.
    * onFailure - als de module vastloopt, de Edge-agent opnieuw worden opgestart. Als de module nu correct wordt afgesloten, de Edge-agent niet opnieuw wordt opgestart deze.
@@ -123,8 +123,8 @@ De agent IoT rand speelt een cruciale rol in de beveiliging van een Edge van de 
 - [Azure IoT rand modules begrijpen][lnk-modules]
 
 <!-- Images -->
-[1]: ./media/iot-edge-runtime/pipeline.png
-[2]: ./media/iot-edge-runtime/gateway.png
+[1]: ./media/iot-edge-runtime/Pipeline.png
+[2]: ./media/iot-edge-runtime/Gateway.png
 [3]: ./media/iot-edge-runtime/ModuleEndpoints.png
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 

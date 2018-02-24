@@ -4,17 +4,17 @@ description: Biedt een overzicht van bekende problemen in de service Azure migre
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 12/12/2017
+ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
-## <a name="troubleshoot-common-errors"></a>Veelvoorkomende fouten oplossen
+## <a name="troubleshoot-common-errors"></a>Veelvoorkomende problemen oplossen
 
 [Azure migreren](migrate-overview.md) voor lokale werkbelastingen voor migratie naar Azure evalueert. Gebruik dit artikel bij het oplossen van problemen bij het implementeren en gebruiken Azure migreren.
 
@@ -26,12 +26,12 @@ Als u elke URL gebaseerde, firewall-proxy gebruikt om te bepalen uitgaande verbi
 
 **URL** | **Doel**  
 --- | ---
-*. portal.azure.com | Vereist connectiviteit met de Azure-service controleren en valideren tijdsynchronisatie verstrekt.
-*. oneget.org | Vereist voor het downloaden van de powershell op basis van vCenter PowerCLI module.
+*.portal.azure.com | Vereist connectiviteit met de Azure-service controleren en valideren tijdsynchronisatie verstrekt.
+*.oneget.org | Vereist voor het downloaden van de powershell op basis van vCenter PowerCLI module.
 
 **De collector geen verbinding maken met het project met de project-ID en sleutel ik gekopieerd vanuit de portal.**
 
-Zorg ervoor dat u hebt gekopieerd en geplakt, de juiste informatie. Als u wilt oplossen, installeert u Microsoft Monitoring Agent (MMA) als volgt:
+Zorg ervoor dat u hebt gekopieerd en geplakt, de juiste informatie. Installeer de Microsoft Monitoring Agent (MMA) om op te lossen, en controleer of als de MMA op het project als volgt aansluiten kunt:
 
 1. Bij de collector VM, downloaden de [MMA](https://go.microsoft.com/fwlink/?LinkId=828603).
 2. Dubbelklik op het gedownloade bestand voor het starten van de installatie.
@@ -67,15 +67,15 @@ Om de verzameling van prestatiegegevens van de schijf en netwerk, het niveau van
 
 ## <a name="troubleshoot-readiness-issues"></a>Gereedheidsproblemen oplossen
 
-**Probleem** | **Oplossen**
+**Probleem** | **Fix**
 --- | ---
-Opstarten type wordt niet ondersteund | Wijzig in BIOS voordat u een migratie uitvoert.
-Het aantal schijven is overschreden | Verwijder de ongebruikte schijven van de machine vóór de migratie.
-Schijfgrootte overschrijdt de limiet | Schijven verkleinen tot minder dan 4 TB vóór de migratie. 
-Schijf die in de opgegeven locatie niet beschikbaar | Zorg ervoor dat de schijf is in de doellocatie voordat u migreert.
-Niet beschikbaar voor de redundantie van de opgegeven schijf | De schijf moet het opslagtype voor redundantie gedefinieerd in de evaluatie-instellingen (LRS standaard) gebruiken.
-Kan de schijf geschiktheid vanwege een interne fout niet bepalen. | Maak een nieuwe beoordeling van de groep. 
-Virtuele machine met de vereiste kernen en het geheugen is niet gevonden | Azure kan niet nauwkeurig een geschikte VM-type. Verminder het geheugen en het aantal kernen van de on-premises machine voordat u migreert. 
+Niet-ondersteund opstarttype | Azure biedt geen ondersteuning voor virtuele machines met EFI-opstarten-type. Het verdient het opstart-type converteren naar BIOS voordat u een migratie uitvoert. <br/><br/>U kunt [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) voor de migratie van dergelijke virtuele machines uitvoeren, zoals deze het type opstarten van de virtuele machine naar BIOS tijdens de migratie converteren wordt.
+Het aantal schijven overschrijdt de limiet | Verwijder de ongebruikte schijven van de machine vóór de migratie.
+De schijfgrootte overschrijdt de limiet | Azure biedt ondersteuning voor schijven met tot grootte 4 TB. Schijven verkleinen tot minder dan 4 TB vóór de migratie. 
+Schijf niet beschikbaar op de opgegeven locatie | Zorg ervoor dat de schijf is in de doellocatie voordat u migreert.
+Schijf niet beschikbaar voor de opgegeven redundantie | De schijf moet het opslagtype voor redundantie gedefinieerd in de evaluatie-instellingen (LRS standaard) gebruiken.
+Kan de geschiktheid van de schijf niet bepalen vanwege een interne fout | Maak een nieuwe beoordeling van de groep. 
+Er is geen VM met vereiste kernen en geheugen gevonden | Azure kan niet nauwkeurig een geschikte VM-type. Verminder het geheugen en het aantal kernen van de on-premises machine voordat u migreert. 
 Een of meer schijven niet bruikbaar. | Zorg ervoor dat lokale schijven zijn 4 TB of onder voordat u een migratie uitvoert.
 Een of meer ongeschikt netwerkadapters. | Verwijder de ongebruikte netwerkadapters van de machine vóór de migratie.
 Kan de geschiktheid van de virtuele machine vanwege een interne fout niet bepalen. | Maak een nieuwe beoordeling van de groep. 
@@ -83,12 +83,15 @@ Kan de geschiktheid voor een of meer schijven vanwege een interne fout niet bepa
 Kan de geschiktheid voor een of meer netwerkadapters vanwege een interne fout niet bepalen. | Maak een nieuwe beoordeling van de groep.
 De VM is niet gevonden voor de prestaties van de vereiste opslag. | De prestaties van de opslag (IOP's / doorvoer) vereist voor de machine overschrijdt de ondersteuning van de virtuele machine van Azure. Verminderen de opslagvereisten voor de machine vóór de migratie.
 De VM is niet gevonden voor de vereiste netwerkprestaties. | De netwerkprestaties (in/out) vereist voor de machine overschrijdt de ondersteuning van de virtuele machine van Azure. Verminder de netwerkvereisten voor de machine. 
-De VM is niet gevonden voor de opgegeven prijscategorie. | Controleer de instellingen voor de prijscategorie laag. 
+De VM is niet gevonden in de opgegeven prijscategorie. | Als de prijscategorie is ingesteld op standaard, kunt u overwegen de virtuele machine downsizing voordat u migreert naar Azure. Als de sizing laag Basic is, kunt u de prijscategorie van de beoordeling wijzigen in standaard. 
 De VM is niet gevonden in de opgegeven locatie. | Gebruik een andere doellocatie vóór de migratie.
-Problemen met ondersteuning voor Linux-besturingssysteem | Zorg ervoor dat je actief 64-bits met deze ondersteund [besturingssystemen](../virtual-machines/linux/endorsed-distros.md).
-Problemen met ondersteuning voor Windows-besturingssysteem | Zorg ervoor dat u een ondersteund besturingssysteem uitvoert. [Meer informatie](concepts-assessment-calculation.md#azure-suitability-analysis)
-Onbekend besturingssysteem. | Controleer of het besturingssysteem die is opgegeven in vCenter juist is en herhaal het detectieproces.
-Visual Studio-abonnement is vereist. | Windows-clientbesturingssystemen worden alleen ondersteund voor abonnementen van Visual Studio (MSDN).
+Onbekend besturingssysteem | Het besturingssysteem van de virtuele machine is opgegeven als 'Overig' in vCenter Server, als gevolg van die Azure migreren niet de gereedheid van de virtuele machine van Azure identificeren. Zorg ervoor dat het besturingssysteem op de machine [ondersteund](https://aka.ms/azureoslist) door Azure voordat u de machine migreert.
+Voorwaardelijk ondersteunde Windows-besturingssysteem | Het besturingssysteem is verstreken het einde van de datum van de ondersteuning en moet een aangepaste ondersteunen overeenkomst (CSA) voor [ondersteuning in Azure](https://aka.ms/WSosstatement), moet u een upgrade van het besturingssysteem vóór de migratie naar Azure.
+Niet-ondersteunde Windows-besturingssysteem | Azure ondersteunt alleen [geselecteerde versies van Windows-besturingssysteem](https://aka.ms/WSosstatement), moet u een upgrade van het besturingssysteem van de machine voordat u migreert naar Azure. 
+Voorwaardelijk goedgekeurd door Linux-besturingssysteem | Azure onderschrijft alleen [geselecteerde versies van Linux-besturingssysteem](../virtual-machines/linux/endorsed-distros.md), moet u een upgrade van het besturingssysteem van de machine voordat u migreert naar Azure.
+Unendorsed Linux OS | De machine kan worden opgestart in Azure, maar er is geen ondersteuning van het besturingssysteem wordt verstrekt door Azure, moet u een upgrade van het besturingssysteem naar een [goedgekeurd door Linux-versie](../virtual-machines/linux/endorsed-distros.md) voordat u migreert naar Azure
+Niet-ondersteunde hoeveelheid bits van besturingssysteem | Virtuele machines met 32-bits besturingssysteem kunnen worden opgestart in Azure, maar het wordt aanbevolen voor upgrade van het besturingssysteem van de virtuele machine van de 32-bits naar 64-bits voordat u migreert naar Azure.
+Visual Studio-abonnement is vereist. | De machines is een Windows-client uitgevoerd binnen het die OS wordt alleen ondersteund in Visual Studio-abonnement.
 
 
 ## <a name="collect-logs"></a>Verzamelen van Logboeken

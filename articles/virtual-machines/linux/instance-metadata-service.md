@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 40b684fe5681123f3c32d3984b2725f97b427f1b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 9222fcebd51ff13e797f40f3fdb0ddaa955d2611
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure service van de metagegevens van het exemplaar
 
@@ -75,8 +75,8 @@ De volgende tabel bevat een verwijzing naar andere indelingen met de die API 's 
 
 API | Standaardindeling voor gegevens | Andere indelingen
 --------|---------------------|--------------
-/Instance | JSON | Tekst
-/scheduledevents | JSON | geen
+/Instance | json | Tekst
+/scheduledevents | json | geen
 
 Geef de vereiste indeling als een parameter van de querytekenreeks worden opgegeven in de aanvraag voor toegang tot een niet-standaard antwoordindeling moet. Bijvoorbeeld:
 
@@ -98,7 +98,7 @@ HTTP-statuscode | Reden
 404 – Niet gevonden | Het gevraagde element bestaat niet 
 405 methode is niet toegestaan | Alleen `GET` en `POST` aanvragen worden ondersteund
 429 te veel aanvragen | De API ondersteunt momenteel maximaal 5 query's per seconde
-Fout 500-Service     | Probeer na enige tijd
+500 Service Error     | Probeer na enige tijd
 
 ### <a name="examples"></a>Voorbeelden
 
@@ -284,10 +284,10 @@ Gegevens | Beschrijving | Versie geïntroduceerd
 location | Azure-regio de virtuele machine wordt uitgevoerd in de | 2017-04-02 
 naam | Naam van de virtuele machine | 2017-04-02
 aanbieding | Bieden informatie over de VM-afbeelding. Deze waarde is alleen aanwezig voor afbeeldingen van afbeelding voor Azure-galerie geïmplementeerd. | 2017-04-02
-Uitgever | Uitgever van de VM-installatiekopie | 2017-04-02
-SKU | Specifieke SKU voor de VM-installatiekopie | 2017-04-02
+publisher | Uitgever van de VM-installatiekopie | 2017-04-02
+sku | Specifieke SKU voor de VM-installatiekopie | 2017-04-02
 versie | Versie van de VM-afbeelding | 2017-04-02
-besturingssysteemtype | Linux- of Windows | 2017-04-02
+osType | Linux- of Windows | 2017-04-02
 platformUpdateDomain |  [Updatedomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
 platformFaultDomain | [Foutdomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
 vmId | [De unieke id](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) voor de virtuele machine | 2017-04-02
@@ -296,13 +296,13 @@ subscriptionId | Azure-abonnement voor de virtuele Machine | 2017-08-01
 tags | [Labels](../../azure-resource-manager/resource-group-using-tags.md) voor uw virtuele Machine  | 2017-08-01
 resourceGroupName | [Resourcegroep](../../azure-resource-manager/resource-group-overview.md) voor uw virtuele Machine | 2017-08-01
 placementGroupId | [Plaatsing groep](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) van de schaal van uw virtuele Machine instellen | 2017-08-01
-IPv4/privateIpAddress | Lokale IPv4-adres van de virtuele machine | 2017-04-02
-IPv4/publicIpAddress | Openbaar IPv4-adres van de virtuele machine | 2017-04-02
+ipv4/privateIpAddress | Lokale IPv4-adres van de virtuele machine | 2017-04-02
+ipv4/publicIpAddress | Openbaar IPv4-adres van de virtuele machine | 2017-04-02
 subnetadres / | Subnetadres van de virtuele machine | 2017-04-02 
 subnetvoorvoegsel / | Subnetvoorvoegsel, voorbeeld 24 | 2017-04-02 
-IPv6/IP-adres | Lokale IPv6-adres van de virtuele machine | 2017-04-02 
+ipv6/ipAddress | Lokale IPv6-adres van de virtuele machine | 2017-04-02 
 MAC-adres | Mac-adres van VM | 2017-04-02 
-scheduledevents | Op dit moment in de openbare Preview Zie [scheduledevents](scheduled-events.md) | 2017-03-01
+scheduledevents | Zie [scheduledevents](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Voorbeeldscenario's voor gebruik  
 
@@ -376,17 +376,17 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 Taal | Voorbeeld 
 ---------|----------------
-Ruby     | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.RB
-Aan de slag  | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.go            
-Python   | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.PY
-C++      | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample-Windows.cpp
-C#       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.cs
-Javascript | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.js
-PowerShell | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.ps1
-Bash       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.sh
-Perl       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.pl
-Java       | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.Java
-Visual Basic | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.vb
+Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+Aan de slag  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
+C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
+Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 
 ## <a name="faq"></a>Veelgestelde vragen
@@ -411,4 +411,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.vb
     
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [gepland gebeurtenissen](scheduled-events.md) API **openbare preview** geleverd door de service-exemplaar metagegevens.
+- Meer informatie over [gepland gebeurtenissen](scheduled-events.md).

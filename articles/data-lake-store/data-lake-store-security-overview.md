@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: d65341ae79a8894d054503e0b0807dee3e4cca8c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3df23e8803d8b34cc4178f8047d0fe2172d04be
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Beveiliging in Azure Data Lake Store
 Veel bedrijven profiteert van big data-analyses voor zakelijke inzichten zodat beslissingen voor de smartcard. Een organisatie kan een complex en gereglementeerde omgeving met een toenemend aantal diverse gebruikers hebben. Is het essentieel is voor een ondernemings-om ervoor te zorgen dat essentiële bedrijfsgegevens veiliger, wordt opgeslagen met het juiste niveau van toegang te krijgen tot afzonderlijke gebruikers. Azure Data Lake Store is ontworpen om te voldoen aan deze beveiligingsvereisten. In dit artikel meer informatie over de beveiligingsmogelijkheden van Data Lake Store, met inbegrip van:
@@ -54,7 +54,7 @@ Houd er rekening mee dat hoewel rollen zijn toegewezen voor accountbeheer, sommi
 
 | Rollen | Rights management | Data access-rechten | Uitleg |
 | --- | --- | --- | --- |
-| Er is geen rol die is toegewezen |None |Beheerst door de ACL |De gebruiker niet de Azure portal of Azure PowerShell-cmdlets gebruiken om te bladeren Data Lake Store. De gebruiker kan alleen de opdrachtregelprogramma's gebruiken. |
+| Er is geen rol die is toegewezen |Geen |Beheerst door de ACL |De gebruiker niet de Azure portal of Azure PowerShell-cmdlets gebruiken om te bladeren Data Lake Store. De gebruiker kan alleen de opdrachtregelprogramma's gebruiken. |
 | Eigenaar |Alle |Alle |De rol van eigenaar is een beheerder. Deze rol kan alles beheren en heeft volledige toegang tot gegevens. |
 | Lezer |Alleen-lezen |Beheerst door de ACL |De rol lezer kunt alles met betrekking tot accountbeheer, zoals welke gebruiker is toegewezen aan welke rol weergeven. De rol lezer kunt geen wijzigingen aanbrengen. |
 | Inzender |Alles behalve rollen toevoegen en verwijderen |Beheerst door de ACL |De rol Inzender kunt bepaalde aspecten van een account, zoals implementaties en bij het maken en beheren van waarschuwingen beheren. De rol Inzender kunt toevoegen of verwijderen van rollen. |

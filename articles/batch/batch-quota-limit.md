@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -39,9 +39,10 @@ Als u van plan bent te productieworkloads in Batch uitvoeren, moet u wellicht ee
 ## <a name="resource-quotas"></a>Resourcequota
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-### <a name="quotas-in-user-subscription-mode"></a>Quota's in de gebruikersmodus-abonnement
 
-Als u een Batch-account maken met toepassingen toewijzing modus is ingesteld op een eerdere versie van de Batch-API gebruikt **gebruikerabonnement**, quota anders worden toegepast. In deze modus niet meer wordt aanbevolen, worden Batch VM's en andere bronnen gemaakt rechtstreeks in uw abonnement wanneer een groep is gemaakt. Het quotum van Azure Batch kernen geldt niet voor een account dat is gemaakt in deze modus. In plaats daarvan de quota's in uw abonnement voor de regionale compute kernen en andere resources zijn toegepast. Meer informatie over deze quota in [Azure-abonnement en Servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md).
+### <a name="cores-quotas-in-user-subscription-mode"></a>Kernen quota's in de gebruikersmodus-abonnement
+
+Als u een Batch-account hebt gemaakt met de groep toewijzing modus is ingesteld op **gebruikerabonnement**, quota anders worden toegepast. In deze modus worden Batch VM's en andere bronnen gemaakt rechtstreeks in uw abonnement wanneer een groep is gemaakt. De Azure Batch kernen quota niet van toepassing op een account dat is gemaakt in deze modus. In plaats daarvan de quota's in uw abonnement voor de regionale compute kernen en andere resources zijn toegepast. Meer informatie over deze quota in [Azure-abonnement en Servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md).
 
 ## <a name="other-limits"></a>Andere limieten
 | **Resource** | **Maximumaantal** |
@@ -108,7 +109,7 @@ Nadat u uw ondersteuningsaanvraag hebt ingediend, ondersteuning van Azure contac
 ## <a name="related-topics"></a>Verwante onderwerpen
 * [Een Azure Batch-account maken met de Azure-portal](batch-account-create-portal.md)
 * [Overzicht van Azure Batch-functies](batch-api-basics.md)
-* [Azure-abonnement en Servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md)
+* [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) (Limieten, quota's en beperkingen voor het Azure-abonnement en de Azure-service)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

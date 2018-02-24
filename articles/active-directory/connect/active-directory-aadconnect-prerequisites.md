@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9c35e796cb823b2b059b726f099d658ee5e8192b
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -149,13 +149,13 @@ Voorafgaand aan versie 1.1.614.0, Azure AD Connect standaard TLS 1.0 gebruikt vo
 Als u Azure AD Connect om Active Directory Federation Services of de Webtoepassingsproxy te implementeren, moet u deze vereisten voldoet:
 
 * Als de doelserver verbonden met het domein is, zorgt Windows extern beheerde is ingeschakeld
-  * Gebruik in een venster met verhoogde bevoegdheid PSH opdracht de opdracht`Enable-PSRemoting –force`
+  * Gebruik in een venster met verhoogde bevoegdheid PSH opdracht de opdracht `Enable-PSRemoting –force`
 * Als de doelserver is een niet-domein WAP-machine, wordt er zijn een aantal aanvullende vereisten
   * Op de doelcomputer (WAP-machine):
     * Zorg ervoor dat de winrm (Windows Remote Management / WS-Management)-service wordt uitgevoerd via de module Services
-    * Gebruik in een venster met verhoogde bevoegdheid PSH opdracht de opdracht`Enable-PSRemoting –force`
+    * Gebruik in een venster met verhoogde bevoegdheid PSH opdracht de opdracht `Enable-PSRemoting –force`
   * Op de computer waarop de wizard wordt uitgevoerd (als de doelcomputer niet van het domein gekoppelde of niet-vertrouwd domein is):
-    * Gebruik de opdracht in een venster met verhoogde bevoegdheid PSH opdracht`Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+    * Gebruik de opdracht in een venster met verhoogde bevoegdheid PSH opdracht `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
     * In Server Manager:
       * DMZ WAP host toevoegen aan Machinegroep (Serverbeheer beheren ->-Servers toevoegen... > tabblad DNS gebruiken)
       * Tabblad Serverbeheer alle Servers: klik WAP-server met de rechtermuisknop en kies beheren als..., lokale (niet domein) referenties invoeren voor de machine WAP

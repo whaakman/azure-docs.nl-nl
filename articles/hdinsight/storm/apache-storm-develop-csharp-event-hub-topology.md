@@ -8,22 +8,23 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: 9ad160377a8779ae917e6fd2d605ee01b12c3e2a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Procesgebeurtenissen van Azure Event Hubs met Storm op HDInsight (C#)
 
-Informatie over het werken met Azure Event Hubs van Apache Storm op HDInsight. Dit document wordt een C# Storm-topologie te lezen en schrijven van gegevens uit Evbent Hubs
+Informatie over het werken met Azure Event Hubs van Apache Storm op HDInsight. Dit document wordt een C# Storm-topologie te lezen en schrijven van gegevens uit Event Hubs
 
 > [!NOTE]
 > Zie voor een Java-versie van dit project, [verwerken van gebeurtenissen van Azure Event Hubs met Storm op HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
@@ -36,9 +37,6 @@ De stappen in dit document SCP.NET, een NuGet-pakket waarmee u eenvoudig te make
 > Terwijl de stappen in dit document, is afhankelijk van een Windows-ontwikkelomgeving met Visual Studio, kan het project gecompileerd naar een Storm op HDInsight-cluster dat gebruik maakt van Linux worden verzonden. Op basis van Linux-clusters die zijn gemaakt na 28 oktober 2016 ondersteunen alleen SCP.NET topologieën.
 
 HDInsight 3.4 en groter gebruiken Mono voor het uitvoeren van C#-topologieën. Het voorbeeld in dit document gebruikt werkt met HDInsight 3.6. Als u van plan om uw eigen .NET-oplossingen voor HDInsight te maken bent, controleert u de [Mono compatibiliteit](http://www.mono-project.com/docs/about-mono/compatibility/) document voor potentiële compatibiliteitsproblemen.
-
-> [!WARNING]
-> Als u problemen bouwen van de projecten die gebruikmaken van SCP.NET versie 1.0.0.x, neem contact op met Microsoft ondersteuning voor hulp.
 
 ### <a name="cluster-versioning"></a>Cluster-versies
 
@@ -142,7 +140,7 @@ Maak een map met de naam `eventhubspout`, en sla het bestand naar de map.
 
 Event Hubs is de gegevensbron voor dit voorbeeld. Gebruik de informatie in de sectie 'Een event hub maken' van [aan de slag met Event Hubs](../../event-hubs/event-hubs-create.md).
 
-1. Nadat de event hub is gemaakt, weergeven de **EventHub** blade in de Azure portal en selecteer **gedeeld toegangsbeleid**. Selecteer **+ toevoegen** toevoegen van het volgende beleid:
+1. Nadat de event hub is gemaakt, weergeven de **EventHub** instellingen in de Azure portal en selecteer **gedeeld toegangsbeleid**. Selecteer **+ toevoegen** toevoegen van het volgende beleid:
 
    | Naam | Machtigingen |
    | --- | --- |
