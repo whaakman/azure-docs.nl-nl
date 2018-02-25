@@ -3,7 +3,7 @@ title: Uw app implementeren in Azure en Azure Stack | Microsoft Docs
 description: Informatie over het implementeren van apps op Azure en Azure Stack met een hybride CI/CD-pipeline.
 services: azure-stack
 documentationcenter: 
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: 
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/25/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 6c073376db196b7d6c73c38d6a0a7b2c24949528
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6292a846a2c3d7e112558ef0d2b62b3a3fdd3c51
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Apps implementeren op Azure en Azure Stack
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
@@ -50,7 +50,7 @@ In dit onderwerp wordt ervan uitgegaan dat u enige kennis van Azure en Azure-Sta
  - Implementeer [App Service](../azure-stack-app-service-deploy.md) PaaS-services naar Azure-Stack.
  - Een Web-App maken en configureren voor [FTP-publicatie](../azure-stack-app-service-enable-ftp.md).  Noteer de nieuwe Web-App-URL, zoals het wordt later gebruikt.  
 
-### <a name="developer-tools"></a>Ontwikkelhulpprogramma's
+### <a name="developer-tools"></a>Hulpprogramma's voor ontwikkelaars
  - Maak een [VSTS werkruimte](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  Het aanmeldingsproces maakt een project met de naam 'MyFirstProject'.  
  - [Installeer Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) en [aanmelden bij VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
  - Verbinding maken met het project en [klonen lokaal](https://www.visualstudio.com/docs/git/gitquickstart).
@@ -72,7 +72,7 @@ In deze sectie maakt u een eenvoudige ASP.NET-toepassing maken en dit doorgeven 
 ### <a name="commit-and-push-changes-to-vsts"></a>Doorvoeren en wijzigingen naar VSTS forceren
 1.  Team Explorer Visual Studio, selecteer de vervolgkeuzelijst en klikt u op **wijzigingen**.
 2.  Geef een commit-bericht en selecteer **doorvoeren alle**. U wordt mogelijk gevraagd het oplossingsbestand opslaan, klikt u op Ja om op te slaan alle.
-3.  Zodra doorgevoerd, biedt Visual Studio synchronisatie van wijzigingen aan uw project. Selecteer **Sync**.
+3.  Zodra doorgevoerd, biedt Visual Studio synchronisatie van wijzigingen aan uw project. Selecteer **Synchroniseren**.
 
     ![afbeelding van het scherm doorvoeren nadat de commit is voltooid](./media/azure-stack-solution-pipeline/image1.png)
 
