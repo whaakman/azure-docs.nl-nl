@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b92731f89f3d0bab4f23221223e469ddf9550
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Een virtueel netwerk maken met de Azure CLI
 
-In dit artikel leert u hoe u een virtueel netwerk maken. Na het maken van een virtueel netwerk, moet u twee virtuele machines implementeren in het virtuele netwerk en privé communiceren tussen deze twee.
+In dit artikel leert u hoe u een virtueel netwerk maken. Na het maken van een virtueel netwerk, kunt u twee virtuele machines implementeren in het virtuele netwerk om communicatie tussen deze twee particuliere netwerk te testen.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Ga voor de geïnstalleerde versie uitvoeren `az --version`. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). 
+Als u wilt installeren en gebruiken van de CLI lokaal, in dit artikel is vereist dat u de Azure CLI versie 2.0.4 worden uitgevoerd of hoger. Ga voor de geïnstalleerde versie uitvoeren `az --version`. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -66,11 +66,13 @@ Alle virtuele netwerken zijn een of meer adresvoorvoegsels aan hen toegewezen. O
 
 Een ander deel van de informatie wordt gegeven is de **addressPrefix** van *10.0.0.0/24* voor de *standaard* subnet is opgegeven in de opdracht. Een virtueel netwerk bevat nul of meer subnetten. De opdracht gemaakt één subnet met de naam *standaard*, maar er is geen adresvoorvoegsel opgegeven voor het subnet. Wanneer een adresvoorvoegsel is niet voor een virtueel netwerk of een subnet opgegeven, definieert Azure 10.0.0.0/24 standaard als het adresvoorvoegsel voor het eerste subnet. Als gevolg hiervan wordt het subnet 10.0.0.0-10.0.0.254 omvat, maar alleen 10.0.0.4-10.0.0.254 beschikbaar zijn, omdat Azure reserveert de eerste vier adressen (0-3) en het laatste adres in elk subnet.
 
-## <a name="create-virtual-machines"></a>Virtuele machines maken
+## <a name="test-network-communication"></a>Test de netwerkcommunicatie
 
-Een virtueel netwerk kunt verschillende soorten Azure-bronnen te privé met elkaar communiceren. Een type resource dat u in een virtueel netwerk implementeren kunt is een virtuele machine. Twee virtuele machines maken in het virtuele netwerk, zodat u kunt valideren en inzicht in de werking van communicatie tussen virtuele machines in een virtueel netwerk in een latere stap.
+Een virtueel netwerk kunt verschillende soorten Azure-bronnen te privé met elkaar communiceren. Een type resource dat u in een virtueel netwerk implementeren kunt is een virtuele machine. Twee virtuele machines maken in het virtuele netwerk, zodat u persoonlijke communicatie tussen deze in een later stadium kunt valideren.
 
-Maak een virtuele machine met de [az vm maken](/cli/azure/vm#az_vm_create) opdracht. Het volgende voorbeeld wordt een virtuele machine met de naam *myVm1*. Als SSH-sleutels niet al bestaan op de standaardlocatie van de sleutel, wordt deze de opdracht maken. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`. De `--no-wait` optie maakt de virtuele machine op de achtergrond, zodat u kunt doorgaan met de volgende stap.
+### <a name="create-virtual-machines"></a>Virtuele machines maken
+
+Maak een virtuele machine met de opdracht [az vm create](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVm1*. Als SSH-sleutels niet al bestaan op de standaardlocatie van de sleutel, wordt deze de opdracht maken. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`. De `--no-wait` optie maakt de virtuele machine op de achtergrond, zodat u kunt doorgaan met de volgende stap.
 
 ```azurecli-interactive 
 az vm create \
@@ -110,7 +112,7 @@ De virtuele machine duurt een paar minuten maken. Nadat de virtuele machine is g
 
 In het voorbeeld ziet u dat de **privateIpAddress** is *10.0.0.5*. Azure DHCP automatisch toegewezen *10.0.0.5* aan de virtuele machine omdat het adres van de volgende beschikbaar in de *standaard* subnet. Noteer de **publicIpAddress**. Dit adres wordt gebruikt voor toegang tot de virtuele machine vanaf het Internet in een later stadium. Het openbare IP-adres is niet toegewezen binnen het virtuele netwerk of subnet adresvoorvoegsels. Openbare IP-adressen worden toegewezen vanuit een [groep adressen toegewezen aan elke Azure-regio](https://www.microsoft.com/download/details.aspx?id=41653). Terwijl Azure welk openbare IP-adres is toegewezen aan een virtuele machine weet, is het besturingssysteem in een virtuele machine geen bewust te maken van een openbaar IP-adres toegewezen.
 
-## <a name="connect-to-a-virtual-machine"></a>Verbinding maken met een virtuele machine
+### <a name="connect-to-a-virtual-machine"></a>Verbinding maken met een virtuele machine
 
 Gebruik de volgende opdracht voor het maken van een SSH-sessie met de *myVm2* virtuele machine. Vervang `<publicIpAddress>` met het openbare IP-adres van uw virtuele machine. In het bovenstaande voorbeeld is het IP-adres is *40.68.254.142*.
 
@@ -118,7 +120,7 @@ Gebruik de volgende opdracht voor het maken van een SSH-sessie met de *myVm2* vi
 ssh <publicIpAddress>
 ```
 
-## <a name="validate-communication"></a>Communicatie valideren
+### <a name="validate-communication"></a>Communicatie valideren
 
 Gebruik de volgende opdracht om te bevestigen dat communicatie met *myVm1* van *myVm2*:
 
@@ -136,9 +138,11 @@ ping bing.com -c 4
 
 U ontvangt vier reacties van bing.com. Standaard kan een virtuele machine in een virtueel netwerk uitgaand naar het Internet communiceren.
 
+De SSH-sessie met uw virtuele machine afsluiten
+
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer deze niet langer nodig is, kunt u de [az groep verwijderen](/cli/azure/group#az_group_delete) opdracht om te verwijderen van de resourcegroep en alle resources bevat. De SSH-sessie met uw virtuele machine afsluiten en verwijder vervolgens de bronnen.
+Wanneer deze niet langer nodig is, kunt u de [az groep verwijderen](/cli/azure/group#az_group_delete) opdracht om te verwijderen van de resourcegroep en alle resources die deze bevat:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -146,8 +150,7 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel als u een standaard virtuele netwerk met één subnet en twee virtuele machines geïmplementeerd. Als u wilt weten hoe u een aangepaste virtueel netwerk maken met meerdere subnetten en algemene beheertaken uitvoeren, blijven de zelfstudie voor het maken van een aangepaste virtueel netwerk en van het beheer.
-
+In dit artikel als u een standaard virtueel netwerk met één subnet geïmplementeerd. Als u wilt weten hoe u een aangepaste virtueel netwerk maken met meerdere subnetten, blijven de zelfstudie voor het maken van een aangepaste virtueel netwerk.
 
 > [!div class="nextstepaction"]
-> [Een aangepaste virtueel netwerk maken en deze te beheren](virtual-networks-create-vnet-arm-pportal.md#azure-cli)
+> [Een aangepaste virtueel netwerk maken](virtual-networks-create-vnet-arm-pportal.md#azure-cli)

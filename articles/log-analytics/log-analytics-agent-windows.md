@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 87513ef82b5f754669a3a21dd736ecab6fb26fba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3bb023cfd94c7b87550d692101d30f922de80bf9
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows-computers verbinding met de Log Analytics-service in Azure
 
@@ -26,28 +26,28 @@ Om te controleren en beheren van virtuele machines of fysieke computers in uw lo
 
 De agent wordt weergegeven als de service Microsoft Monitoring Agent op een bewaakte Windows-computer. De service Microsoft Monitoring Agent verzamelt gebeurtenissen van logboekbestanden en Windows-gebeurtenislogboek, prestatiegegevens en andere telemetrie. Zelfs als de agent kan niet communiceren met de Log Analytics-service rapporteert, wordt de agent blijft actief en plaatst de verzamelde gegevens op de schijf van de bewaakte computer. Wanneer de verbinding wordt hersteld, verzendt de service Microsoft Monitoring Agent verzamelde gegevens naar de service.
 
-De agent kan worden geïnstalleerd met behulp van een van de volgende methoden. De meeste installaties gebruik een combinatie van deze methoden voor het installeren van verschillende sets van computers, naar gelang van toepassing.
+De agent kan worden geïnstalleerd met behulp van een van de volgende methoden. De meeste installaties gebruik een combinatie van deze methoden voor het installeren van verschillende sets van computers, naar gelang van toepassing.  Later in dit artikel vindt u informatie over het gebruik van elke methode.
 
 * Handmatige installatie. Setup wordt handmatig uitgevoerd op de computer met de wizard setup vanaf de opdrachtregel of geïmplementeerd met behulp van een bestaande software-distributie-hulpprogramma.
 * Azure Automation Desired State Configuration (DSC). Gebruik van DSC in Azure Automation met een script voor Windows-computers die al zijn geïmplementeerd in uw omgeving.  
 * PowerShell-script.
 * Resource Manager-sjabloon voor virtuele machines met Windows on-premises in Azure-Stack.  
 
-Raadpleeg [Gegevens uit uw omgeving verzamelen met Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites) voor informatie over de netwerk- en systeemvereisten voor het implementeren van de Windows-agent.
+Raadpleeg voor informatie over de netwerk- en vereisten voor het implementeren van de Windows-agent, [vereisten voor Windows-computers](log-analytics-concept-hybrid.md#prerequisites).
 
 ## <a name="obtain-workspace-id-and-key"></a>Werkruimte-ID en -sleutel ophalen
-Voordat u de MMA (Microsoft Monitoring Agent) voor Windows installeert, hebt u eerst de werkruimte-id en -sleutel voor uw Log Analytics-werkruimte nodig.  Deze informatie is vereist tijdens de installatie van elke installatiemethode correct configureren van de agent en ervoor zorgen dat deze kan communiceren met logboekanalyse.  
+Voordat u de MMA (Microsoft Monitoring Agent) voor Windows installeert, hebt u eerst de werkruimte-id en -sleutel voor uw Log Analytics-werkruimte nodig.  Deze informatie is vereist tijdens de installatie van elke installatiemethode correct configureren van de agent en ervoor zorgen dat deze kan communiceren met logboekanalyse in Azure commerciële en -US Government-cloud.  
 
 1. Klik in de Azure-portal op **alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. Selecteer in de lijst met Log Analytics-werkruimten, de werkruimte die u van plan bent over het configureren van de agent om aan te melden.
 3. Selecteer **Geavanceerde instellingen**.<br><br> ![Geavanceerde instellingen van Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecteer **Verbonden bronnen** en selecteer vervolgens **Windows-servers**.   
-5. De waarde rechts van **Werkruimte-id** en **Primaire sleutel**. Kopieer en plak beide in uw favoriete editor.   
+5. Kopiëren en plakken in uw favoriete editor de **werkruimte-ID** en **primaire sleutel**.    
    
-## <a name="install-the-agent-using-setup"></a>Installeer de agent via setup
-Met de volgende stappen wordt de agent voor Log Analytics in Azure en een Azure Government-cloud op uw computer geïnstalleerd en geconfigureerd met behulp van de setup voor de MMA.  Het installatieprogramma voor de agent is opgenomen in het gedownloade bestand en om moet worden geëxtraheerd 
+## <a name="install-the-agent-using-setup-wizard"></a>De agent installeert met de wizard setup
+De volgende stappen installeren en configureren van de agent voor logboekanalyse in Azure en Azure Government cloud met behulp van de wizard setup van Microsoft Monitoring Agent op uw computer.  
 
-1. Selecteer op de pagina **Windows-servers** de desbetreffende versie bij **Windows Agent downloaden** om deze te downloaden. De versie is afhankelijk van de processorarchitectuur van het Windows-besturingssysteem.
+1. In de werkruimte Analyics logboek van de **Windows-Servers** pagina die u eerder, schakel de juiste genavigeerd **Windows-Agent downloaden** versie te downloaden, afhankelijk van de processorarchitectuur van de Windows-besturingssysteem.   
 2. Voer Setup uit om de agent op de computer te installeren.
 2. Klik op de pagina **Welkom** op **Volgende**.
 3. Lees de licentie op de pagina **Licentievoorwaarden** en klik op **Akkoord**.
@@ -63,7 +63,7 @@ Met de volgende stappen wordt de agent voor Log Analytics in Azure en een Azure 
 Als u klaar bent wordt de **MMA** in het **Configuratiescherm** weergegeven. Om te bevestigen meldt met Log Analytics, Bekijk [controleren of de verbinding van de agent met logboekanalyse](#verify-agent-connectivity-to-log-analytics). 
 
 ## <a name="install-the-agent-using-the-command-line"></a>Installeer de agent via de opdrachtregel
-Het gedownloade bestand voor de agent is een zelfstandig installatiepakket dat is gemaakt met IExpress.  Het installatieprogramma voor de agent en de ondersteunende bestanden zijn opgenomen in het pakket en moet worden geëxtraheerd correct wilt installeren via de opdrachtregel die wordt weergegeven in de volgende voorbeelden.  Deze methode ondersteunt de configuratie van de agent voor het rapporteren van US Government-en Azure commerciële.  
+Het gedownloade bestand voor de agent is een zelfstandig installatiepakket dat is gemaakt met IExpress.  Het installatieprogramma voor de agent en de ondersteunende bestanden zijn opgenomen in het pakket en moet worden geëxtraheerd correct wilt installeren via de opdrachtregel die wordt weergegeven in de volgende voorbeelden.    
 
 >[!NOTE]
 >Als u een agent bijwerken wilt, moet u de logboekanalyse scripting API gebruiken. Zie het onderwerp [beheren en onderhouden van de agent Log Analytics voor Windows en Linux](log-analytics-agent-manage.md) voor meer informatie.
@@ -84,13 +84,13 @@ De volgende tabel licht de specifieke Log Analytics-parameters ondersteund door 
 2. Voor de achtergrond de agent installeren en configureren van deze rapporteert aan een werkruimte in de commerciële Azure-cloud, vanuit de map uitgepakt u de setup-bestanden naar het type: 
    
      ```dos
-    setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
    of typ voor het configureren van de agent om te rapporteren aan Azure US Government cloud: 
 
      ```dos
-    setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>De agent installeert met DSC in Azure Automation
@@ -122,6 +122,7 @@ Als u wilt de productcode rechtstreeks vanaf het agent-installatiepakket ophalen
         $OPSINSIGHTS_WS_KEY = Get-AutomationVariable -Name "OPSINSIGHTS_WS_KEY"
 
         Import-DscResource -ModuleName xPSDesiredStateConfiguration
+        Import-DscResource –ModuleName PSDesiredStateConfiguration
 
         Node OMSnode {
             Service OIService
@@ -141,7 +142,7 @@ Als u wilt de productcode rechtstreeks vanaf het agent-installatiepakket ophalen
                 Path  = $OIPackageLocalPath
                 Name = "Microsoft Monitoring Agent"
                 ProductId = "8A7F2C51-4C7D-4BFD-9014-91D11F24AAE2"
-                Arguments = '/C:Deploy"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
+                Arguments = '/C:"setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
                 DependsOn = "[xRemoteFile]OIPackage"
             }
         }
@@ -154,7 +155,7 @@ Als u wilt de productcode rechtstreeks vanaf het agent-installatiepakket ophalen
 
 ## <a name="verify-agent-connectivity-to-log-analytics"></a>Controleer of de agent-connectiviteit met Log Analytics
 
-Zodra instalaltion van de agent voltooid is, is controle van de is verbonden en rapportage kan worden uitgevoerd op twee manieren.  
+Zodra de installatie van de agent is voltooid, is controle van de is verbonden en rapportage kan worden uitgevoerd op twee manieren.  
 
 Bij de computer in **Configuratiescherm**, het item opzoeken **Microsoft Monitoring Agent**.  Selecteer deze en klik op de **Azure logboekanalyse (OMS)** tabblad en de agent moet worden weergegeven in een bericht weergegeven: **de Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite-service.**<br><br> ![Verbindingsstatus van MMA met Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 

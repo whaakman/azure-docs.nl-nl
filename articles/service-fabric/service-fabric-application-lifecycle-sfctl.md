@@ -2,17 +2,17 @@
 title: Azure Service Fabric-toepassingen met Azure Service Fabric CLI beheren
 description: Informatie over het implementeren en toepassingen van een Azure Service Fabric-cluster verwijderen met behulp van Azure Service Fabric CLI
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: edwardsa
-ms.openlocfilehash: 6c8501e8c863e1240a277bf8064118a2b113a81b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: bikang
+ms.openlocfilehash: 2d330921b66a1c261298601dad46f00f66659037
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Een Azure Service Fabric-toepassing te beheren met behulp van Azure Service Fabric CLI
 
@@ -75,7 +75,7 @@ De om toepassingspakket te verwijderen uit het installatiekopiearchief, gebruik 
 sfctl store delete --content-path app_package_dir
 ```
 
-`content-path`moet de naam van de map die u hebt geüpload wanneer u de toepassing gemaakt.
+`content-path` moet de naam van de map die u hebt geüpload wanneer u de toepassing gemaakt.
 
 ### <a name="create-an-application-from-an-application-type"></a>Maak een toepassing van een toepassingstype
 
@@ -85,7 +85,7 @@ Nadat u de toepassing inricht, moet u de volgende opdracht gebruiken een naam en
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-`app-name`de naam die u wilt gebruiken voor het toepassingsexemplaar is. Aanvullende parameters kunt u krijgen via het eerder ingerichte toepassingsmanifest.
+`app-name` de naam die u wilt gebruiken voor het toepassingsexemplaar is. Aanvullende parameters kunt u krijgen via het eerder ingerichte toepassingsmanifest.
 
 De toepassingsnaam moet beginnen met het voorvoegsel `fabric:/`.
 

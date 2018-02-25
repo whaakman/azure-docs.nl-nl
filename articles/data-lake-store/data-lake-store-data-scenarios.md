@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 6428c6d9fcb577f18221ee48a61456c460bd8176
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: bd69d3c353c7f44efb37e2359412aa3a9f3e8f8d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Met behulp van Azure Data Lake Store voor big data-vereisten
 Er zijn vier belangrijke fasen in grote gegevensverwerking:
@@ -40,8 +40,8 @@ Dit staat voor kleinere gegevenssets die worden gebruikt voor het maken van een 
 
 | Gegevensbron | Met behulp van opnemen |
 | --- | --- |
-| Lokale computer |<ul> <li>[Azure Portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure platformoverschrijdende CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Met behulp van Data Lake Tools voor Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
-| Azure Storage-Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy hulpprogramma](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp uitgevoerd op HDInsight-cluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
+| Lokale computer |<ul> <li>[Azure-portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure Cross-platform CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Met behulp van Data Lake Tools voor Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy hulpprogramma](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp uitgevoerd op HDInsight-cluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Gestroomde gegevens
 Hiermee worden gegevens die kunnen worden gegenereerd met verschillende bronnen zoals toepassingen, apparaten, sensoren, enzovoort. Deze gegevens kan door verschillende hulpprogramma's in een Data Lake Store worden ingenomen. Deze hulpprogramma's worden meestal vastleggen en verwerken van de gegevens op basis van door gebeurtenis in realtime, en schrijf vervolgens de gebeurtenissen in batches in Data Lake Store zodat ze verder kunnen worden verwerkt.
@@ -61,7 +61,7 @@ U kunt ook brongegevens van relationele databases. Gedurende een periode verzame
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Web server-logboekgegevens (uploaden met behulp van aangepaste toepassingen)
 Dit type dataset wordt specifiek genoemd, omdat analyse van de logboekgegevens van web server een algemene gebruiksvoorbeeld voor big data-toepassingen is en grote volumes van logboekbestanden wilt uploaden naar Data Lake Store is vereist. U kunt een van de volgende hulpprogramma's gebruiken om uw eigen scripts of toepassingen voor het uploaden van deze gegevens te schrijven.
 
-* [Azure platformoverschrijdende CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+* [Azure Cross-platform CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
@@ -72,7 +72,7 @@ Voor het uploaden van web server-logboekgegevens, en ook voor andere soorten geg
 De meeste HDInsight-clustertypen (Hadoop, HBase, Storm) ondersteuning voor Data Lake Store als een gegevens-opslagplaats. HDInsight-clusters toegang tot gegevens uit Azure Storage BLOB's (WASB). Voor betere prestaties kunt u de gegevens uit WASB kopiëren naar een Data Lake Store-account die is gekoppeld aan het cluster. U kunt de volgende hulpprogramma's gebruiken om de gegevens te kopiëren.
 
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
-* [AdlCopy-Service](data-lake-store-copy-data-azure-storage-blob.md)
+* [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Gegevens opgeslagen in de on-premises of IaaS Hadoop-clusters
@@ -121,7 +121,7 @@ In dergelijke gevallen kunt u een van de volgende opties gebruiken:
 
 U kunt ook de volgende methoden gebruiken om te schrijven van uw eigen scripttoepassing voor het downloaden van gegevens in Data Lake Store.
 
-* [Azure platformoverschrijdende CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+* [Azure Cross-platform CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md)
 

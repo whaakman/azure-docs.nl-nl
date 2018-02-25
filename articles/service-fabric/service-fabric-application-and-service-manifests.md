@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8e0cf78aef7e973188ce9581ec94f012f6ecde90
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 35288fe5473ab788916503d986aa5360b150b947
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric-toepassing en service manifesten
 Dit artikel wordt beschreven hoe Service Fabric-toepassingen en services worden gedefinieerd en samengestelde met behulp van de bestanden ApplicationManifest.xml en ServiceManifest.xml.  Het XML-schema voor deze manifestbestanden wordt beschreven in [ServiceFabricServiceModel.xsd schemadocumentatie](service-fabric-service-model-schema.md).
@@ -159,7 +159,7 @@ Service manifesten, zoals **versie** kenmerken ongestructureerde tekenreeksen zi
 
 **Certificaten** (niet ingesteld in het voorgaande voorbeeld) wordt aangegeven dat de certificaten voor [setup-HTTPS-eindpunten](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) of [versleutelen geheimen in het toepassingsmanifest](service-fabric-application-secret-management.md).
 
-**Beleid** (niet ingesteld in het voorgaande voorbeeld) beschrijft de logboekverzameling [standaard run as](service-fabric-application-runas-security.md), [health](service-fabric-health-introduction.md#health-policies), en [beveiligingstoegang](service-fabric-application-runas-security.md) beleid instellen op het niveau van de toepassing.
+**Beleid** (niet ingesteld in het voorgaande voorbeeld) beschrijft de logboekverzameling [standaard run as](service-fabric-application-runas-security.md), [health](service-fabric-health-introduction.md#health-policies), en [beveiligingstoegang](service-fabric-application-runas-security.md) beleidsregels in te stellen op de niveau van de toepassing.
 
 **Principals** (niet ingesteld in het voorgaande voorbeeld) beschrijven de beveiligings-principals (gebruikers of groepen) vereist voor het [uitvoeren services en beveiligde bronnen](service-fabric-application-runas-security.md).  Principals wordt verwezen in de **beleid** secties.
 

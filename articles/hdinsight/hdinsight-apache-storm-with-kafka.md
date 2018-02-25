@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9e714b1dc97fb12c2994537d33cefd98b5c9cf99
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Apache Kafka met Storm op HDInsight gebruiken
 
@@ -36,7 +36,7 @@ De code voor het voorbeeld in dit document gebruikt is beschikbaar op [https://g
 
 Als u wilt compileren dit project, moet u de volgende configuratie voor uw ontwikkelomgeving:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) of hoger. HDInsight 3.5 of hoger vereisen Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) of hoger. HDInsight 3.5 of hoger vereisen Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -46,11 +46,11 @@ Als u wilt compileren dit project, moet u de volgende configuratie voor uw ontwi
 
 De volgende omgevingsvariabelen kunnen worden ingesteld wanneer u Java en de JDK op uw ontwikkelwerkstation installeert. Echter, moet u controleren of ze bestaan en dat ze de juiste waarden voor uw systeem bevatten.
 
-* `JAVA_HOME`-moet verwijzen naar de map waar de JDK die is geïnstalleerd.
-* `PATH`-moet bevatten de volgende paden:
+* `JAVA_HOME` -moet verwijzen naar de map waar de JDK die is geïnstalleerd.
+* `PATH` -moet bevatten de volgende paden:
   
-    * `JAVA_HOME`(of equivalente paden).
-    * `JAVA_HOME\bin`(of equivalente paden).
+    * `JAVA_HOME` (of equivalente paden).
+    * `JAVA_HOME\bin` (of equivalente paden).
     * De map waar Maven is geïnstalleerd.
 
 ## <a name="create-the-clusters"></a>Clusters maken
@@ -121,7 +121,7 @@ Dit project bevat twee topologieën:
     Deze topologie wordt de Storm-HdfsBolt gebruikt om gegevens te schrijven naar de opslag van de standaard voor het Storm-cluster.
 ### <a name="flux"></a>Flux
 
-De topologieën worden gedefinieerd met [lichtstroom](https://storm.apache.org/releases/1.1.0/flux.html). Lichtstroom werd geïntroduceerd in 0.10.x Storm en kunt u de topologieconfiguratie van de code te scheiden. De topologie is voor de topologieën die gebruikmaken van het framework lichtstroom, gedefinieerd in een YAML-bestand. Het YAML-bestand kan worden opgenomen als onderdeel van de topologie. Het kan ook een zelfstandig bestand gebruikt wanneer u de topologie indienen zijn. Lichtstroom ondersteunt ook het vervangen van de variabelen tijdens runtime, die wordt gebruikt in dit voorbeeld.
+De topologieën worden gedefinieerd met [lichtstroom](https://storm.apache.org/releases/1.1.2/flux.html). Lichtstroom werd geïntroduceerd in 0.10.x Storm en kunt u de topologieconfiguratie van de code te scheiden. De topologie is voor de topologieën die gebruikmaken van het framework lichtstroom, gedefinieerd in een YAML-bestand. Het YAML-bestand kan worden opgenomen als onderdeel van de topologie. Het kan ook een zelfstandig bestand gebruikt wanneer u de topologie indienen zijn. Lichtstroom ondersteunt ook het vervangen van de variabelen tijdens runtime, die wordt gebruikt in dit voorbeeld.
 
 De volgende parameters zijn ingesteld tijdens de uitvoering voor deze topologieën:
 
@@ -131,7 +131,7 @@ De volgende parameters zijn ingesteld tijdens de uitvoering voor deze topologie�
 
 * `${kafka.zookeeper.hosts}`: De hosts die Zookeeper op in het cluster Kafka wordt uitgevoerd.
 
-Zie voor meer informatie over topologieën lichtstroom [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Zie voor meer informatie over topologieën lichtstroom [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Download en compileren van het project
 
@@ -255,7 +255,7 @@ Zie voor meer informatie over topologieën lichtstroom [https://storm.apache.org
 
     * `--remote`: De topologie Nimbus verzenden. De topologie wordt verdeeld over de worker-knooppunten in het cluster.
 
-    * `-R /writer.yaml`: Gebruik de `writer.yaml` bestand voor het configureren van de topologie. `-R`Hiermee wordt aangegeven dat deze bron wordt opgenomen in het jar-bestand. Het is in de hoofdmap van de jar dus `/writer.yaml` is het pad naar het.
+    * `-R /writer.yaml`: Gebruik de `writer.yaml` bestand voor het configureren van de topologie. `-R` Hiermee wordt aangegeven dat deze bron wordt opgenomen in het jar-bestand. Het is in de hoofdmap van de jar dus `/writer.yaml` is het pad naar het.
 
     * `--filter`: Vullen vermeldingen in de `writer.yaml` topologie met behulp van de waarden in de `dev.properties` bestand. Bijvoorbeeld: de waarde van de `kafka.topic` vermelding in het bestand wordt gebruikt ter vervanging van de `${kafka.topic}` vermelding in de definitie van de topologie.
 

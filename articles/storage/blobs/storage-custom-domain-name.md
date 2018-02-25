@@ -2,23 +2,17 @@
 title: Een aangepaste domeinnaam configureren voor het eindpunt van de Azure Blob-opslag | Microsoft Docs
 description: De Azure portal gebruiken voor uw eigen canonieke naam (CNAME) toewijzen aan het eindpunt van de Blob-opslag in een Azure Storage-account.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Een aangepaste domeinnaam configureren voor het eindpunt voor Blob Storage
 
@@ -32,9 +26,9 @@ De volgende tabel bevat enkele voorbeeld-URL's voor blob-gegevens die zich in ee
 
 | Resourcetype | Standaard-URL | Aangepast domein-URL |
 | --- | --- | --- |
-| Storage-account | http://mystorageaccount.BLOB.Core.Windows.NET | http://www.contoso.com |
-| Blob |http://mystorageaccount.BLOB.Core.Windows.NET/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Hoofdcontainer | http://mystorageaccount.BLOB.Core.Windows.NET/myblob of http://mystorageaccount.blob.core.windows.net/$ root/myblob| http://www.contoso.com/myblob of http://www.contoso.com/$ root/myblob |
+| Storage-account | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
+| Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
+| Hoofdcontainer | http://mystorageaccount.BLOB.Core.Windows.NET/myblob of http://mystorageaccount.blob.core.windows.net/$ root/myblob| http://www.contoso.com/myblob or http://www.contoso.com/$root/myblob |
 
 ## <a name="direct-vs-intermediary-domain-mapping"></a>Directe versus tussenliggend domein toewijzing
 

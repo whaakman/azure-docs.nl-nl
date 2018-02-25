@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event raster gebeurtenis schema
 
@@ -30,7 +30,7 @@ Het volgende voorbeeld ziet u de eigenschappen die worden gebruikt door alle geb
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -72,7 +72,7 @@ Het schema dat is gepubliceerd voor een Azure Blob storage-gebeurtenis is bijvoo
   }
 ]
 ```
- 
+
 ## <a name="event-properties"></a>Eigenschappen van gebeurtenis
 
 Alle gebeurtenissen bevatten dezelfde volgende op het hoogste niveau gegevens:
@@ -92,7 +92,9 @@ Zie voor meer informatie over de eigenschappen in het gegevensobject, de gebeurt
 
 * [Azure-abonnementen (beheerbewerkingen)](event-schema-subscriptions.md)
 * [Blob Storage](event-schema-blob-storage.md)
-* [Event hubs](event-schema-event-hubs.md)
+* [Event Hubs](event-schema-event-hubs.md)
+* [Service Bus](event-schema-service-bus.md)
+* [IoT Hub](event-schema-iot-hub.md)
 * [Resourcegroepen (beheerbewerkingen)](event-schema-resource-groups.md)
 
 Voor aangepaste onderwerpen bepaalt de uitgever van gebeurtenissen voor het gegevensobject. De gegevens op het hoogste niveau moet dezelfde velden als resource gedefinieerd gebeurtenissen (standaard) bevatten. Bij het publiceren van gebeurtenissen naar aangepaste onderwerpen, kunt u overwegen modelleren van de houder van uw gebeurtenissen voor Routering en filteren.

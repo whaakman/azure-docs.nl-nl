@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c12c4fc6cabd695101abf922eba77b9cd3ee00fa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4dafedb3fef821cd2562cf47937d034fdc59d92e
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="application-upgrade-parameters"></a>Parameters toepassingsupgrade
 In dit artikel beschrijft de verschillende parameters beschreven die van toepassing tijdens de upgrade van een Azure Service Fabric-toepassing. De parameters omvatten de naam en versie van de toepassing. Deze knoppen waarmee de time-outs en statuscontroles die worden toegepast tijdens de upgrade zijn en ze verwijzen naar de beleidsregels die moeten worden toegepast wanneer een upgrade mislukt.

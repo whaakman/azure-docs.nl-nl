@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 02/23/2018
 ms.author: mimig
-ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
 Nu beschikbaar: Azure Cosmos DB [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner). Meer informatie [schatting van de doorvoer moet](request-units.md#estimating-throughput-needs).
@@ -44,7 +44,7 @@ Als Azure Cosmos DB een meerdere model-database is, is het belangrijk te weten d
 ## <a name="request-units-and-request-charges"></a>Aanvraageenheden en kosten van de aanvraag
 Azure Cosmos DB biedt snelle en voorspelbare prestaties door *reserveren* bronnen om te voldoen aan de behoeften van uw toepassing doorvoer.  Omdat de toepassing laden en patronen wijzigen na verloop van tijd toegang, wordt Azure Cosmos DB kunt u eenvoudig vergroten of verkleinen van de hoeveelheid gereserveerde doorvoer die beschikbaar zijn voor uw toepassing.
 
-Met Azure Cosmos DB is gereserveerde doorvoer opgegeven in termen van aanvraageenheden per seconde verwerkt. U kunt zien aanvraageenheden als valuta doorvoer, waarbij u *reserveren* een hoeveelheid gegarandeerde aanvraageenheden die beschikbaar zijn voor uw toepassing op basis van per seconde.  Elke bewerking in Azure Cosmos DB - schrijven, uitvoeren van een query, het bijwerken van een document - verbruikt CPU, geheugen en IOPS.  Dat wil zeggen, elke bewerking leidt ertoe dat een *aanvragen kosten*, die wordt uitgedrukt in *aanvraageenheden*.  Informatie over de factoren die van invloed zijn op aanvraag eenheid kosten, samen met de vereisten van de doorvoer van uw toepassing, kunt u uw toepassing uitvoeren als de kosten-effectief mogelijk. De queryverkenner is ook een fantastische hulpprogramma voor het testen van de kern van een query.
+Met Azure Cosmos DB is gereserveerde doorvoer opgegeven in termen van aanvraageenheden per seconde verwerkt. U kunt zien aanvraageenheden als valuta doorvoer, waarbij u *reserveren* een hoeveelheid gegarandeerde aanvraageenheden die beschikbaar zijn voor uw toepassing op basis van per seconde.  Elke bewerking in Azure Cosmos DB - schrijven, uitvoeren van een query, het bijwerken van een document - verbruikt CPU, geheugen en IOPS.  Dat wil zeggen, elke bewerking leidt ertoe dat een *aanvragen kosten*, die wordt uitgedrukt in *aanvraageenheden*.  Informatie over de factoren die van invloed zijn op aanvraag eenheid kosten, samen met de vereisten van de doorvoer van uw toepassing, kunt u uw toepassing uitvoeren als de kosten-effectief mogelijk. De Data Explorer in de Azure portal is ook een fantastische hulpprogramma voor het testen van de kern van een query.
 
 Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij Aravind Ramachandran wordt uitgelegd aanvraageenheden en voorspelbare prestaties met Azure Cosmos DB.
 
@@ -118,8 +118,8 @@ Hier is bijvoorbeeld een tabel waarin het aantal aanvraageenheden om in te richt
     <tbody>
         <tr>
             <td valign="top"><p><strong>De grootte van artikel</strong></p></td>
-            <td valign="top"><p><strong>Leesbewerkingen per seconde</strong></p></td>
-            <td valign="top"><p><strong>Schrijfbewerkingen per seconde</strong></p></td>
+            <td valign="top"><p><strong>Reads/second</strong></p></td>
+            <td valign="top"><p><strong>Writes/second</strong></p></td>
             <td valign="top"><p><strong>Aanvraageenheden</strong></p></td>
         </tr>
         <tr>
@@ -190,9 +190,7 @@ Met het hulpprogramma is eenvoudig:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Gebruik de antwoordheader van Azure DB die Cosmos aanvraag kosten
-Elke reactie van de service Azure Cosmos DB bestaat uit een aangepaste header (`x-ms-request-charge`) die de aanvraageenheden dat is gebruikt voor de aanvraag bevat. Deze header is ook toegankelijk via de Azure Cosmos DB SDK's. In de .NET SDK is RequestCharge een eigenschap van het object ResourceResponse.  Azure Cosmos DB Query Explorer in de Azure portal biedt voor query's, kosten aanvraaggegevens voor uitgevoerde query's.
-
-![RU kosten in de Query Explorer onderzoeken][1]
+Elke reactie van de service Azure Cosmos DB bestaat uit een aangepaste header (`x-ms-request-charge`) die de aanvraageenheden dat is gebruikt voor de aanvraag bevat. Deze header is ook toegankelijk via de Azure Cosmos DB SDK's. In de .NET SDK is RequestCharge een eigenschap van het object ResourceResponse.  Azure Cosmos DB Data Explorer in de Azure portal biedt voor query's, kosten aanvraaggegevens voor uitgevoerde query's.
 
 Met deze in gedachten, één methode voor het schatten van de hoeveelheid gereserveerde doorvoer vereist door uw toepassing is voor het vastleggen van de aanvraag eenheid kosten die zijn gekoppeld aan met het normale bewerkingen uitvoeren in een representatieve item gebruikt door de toepassing en vervolgens het schatten van het aantal bewerkingen wilt u uitvoeren per seconde.  Zorg ervoor dat voor het meten en zijn typische query's en ook gebruik van Azure DB die Cosmos-script.
 
@@ -304,8 +302,8 @@ De volgende tabel bevat een benadering aanvraag eenheid kosten voor normale bewe
 
 | Bewerking | Aanvraag eenheid kosten |
 | --- | --- |
-| Item maken |~ 15 RU |
-| Item lezen |~ 1 RU |
+| -Item maken |~15 RU |
+| Item lezen |~1 RU |
 | Query-item met id |~2.5 RU |
 
 In deze tabel ziet een benadering aanvraag bovendien eenheid kosten voor typische query's in de toepassing gebruikt:
@@ -313,9 +311,9 @@ In deze tabel ziet een benadering aanvraag bovendien eenheid kosten voor typisch
 | Query’s uitvoeren | Aanvraag eenheid kosten | het aantal geretourneerde artikelen |
 | --- | --- | --- |
 | Selecteer voeding door-id |~2.5 RU |1 |
-| Selecteer levensmiddelen op fabrikant |~ 7 RU |7 |
-| Selecteer door Voedingsgroep en de volgorde op basis van gewicht |~ 70 RU |100 |
-| Bovenste 10 levensmiddelen in een Voedingsgroep selecteren |~ 10 RU |10 |
+| Selecteer levensmiddelen op fabrikant |~7 RU |7 |
+| Selecteer door Voedingsgroep en de volgorde op basis van gewicht |~70 RU |100 |
+| Bovenste 10 levensmiddelen in een Voedingsgroep selecteren |~10 RU |10 |
 
 > [!NOTE]
 > RU kosten variëren, afhankelijk van het aantal items geretourneerd.
@@ -326,7 +324,7 @@ Met deze informatie kunt u schat de RU-vereisten voor deze toepassing gezien het
 
 | Bewerking/Query | Het geschatte aantal per seconde | Vereiste RUs |
 | --- | --- | --- |
-| Item maken |10 |150 |
+| -Item maken |10 |150 |
 | Item lezen |100 |100 |
 | Selecteer levensmiddelen op fabrikant |25 |175 |
 | Selecteer door de Voedingsgroep |10 |700 |
@@ -334,7 +332,7 @@ Met deze informatie kunt u schat de RU-vereisten voor deze toepassing gezien het
 
 In dit geval verwacht u dat de vereiste van een gemiddelde doorvoersnelheid van 1,275 RU/s.  Afronden naar de dichtstbijzijnde 100, zou u 1.300 RU/s voor de verzameling van deze toepassing inrichten.
 
-## <a id="RequestRateTooLarge"></a>Overschrijding van gereserveerde doorvoer grenzen in Azure Cosmos-DB
+## <a id="RequestRateTooLarge"></a> Overschrijding van gereserveerde doorvoer grenzen in Azure Cosmos-DB
 Intrekken dat verzoek eenheidsverbruik wordt beoordeeld als een percentage per seconde als het budget leeg is. Voor toepassingen die groter zijn dan de frequentie van de eenheid ingerichte aanvraag voor een container, worden aanvragen voor deze verzameling beperkt tot de snelheid onder het niveau van de gereserveerde zakt. Wanneer er een vertraging optreedt, de server optie preventief eindigt de aanvraag met RequestRateTooLargeException (HTTP-statuscode 429) en retourneert de x-ms-opnieuw-na-ms-header die aangeeft van de hoeveelheid tijd in milliseconden, dat de gebruiker alvorens nogmaals te proberen wachten moet de de aanvraag.
 
     HTTP Status 429
@@ -345,7 +343,7 @@ Als u gebruikmaakt van de Client-SDK voor .NET en LINQ-query's en vervolgens de 
 
 Als er meer dan één client cumulatief werken boven het percentage aanvragen het standaardgedrag voor opnieuw proberen niet toereikend zijn en de client genereert een DocumentClientException met statuscode 429 tot de toepassing. In dergelijke gevallen overweegt u verwerken gedrag voor het opnieuw en logica in uw toepassing fout routines voor het afhandelen of een uitbreiding van de gereserveerde doorvoer voor de container.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a>Gereserveerde doorvoerlimieten in API overschrijden voor MongoDB
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Gereserveerde doorvoerlimieten in API overschrijden voor MongoDB
 Toepassingen die groter is dan de ingerichte aanvraageenheden voor een verzameling wordt pas de frequentie waarmee het niveau van de gereserveerde worden beperkt. Wanneer er een vertraging optreedt, de back-end optie preventief beëindigd wanneer de aanvraag met een *16500* foutcode - *te veel aanvragen*. Standaard-API voor MongoDB wordt automatisch opnieuw maximaal 10 keer voordat er een *te veel aanvragen* foutcode. Als er veel *te veel aanvragen* foutcodes, kunt u ook beide toe te voegen gedrag voor het opnieuw in routines voor foutafhandeling van uw toepassing of [waardoor de gereserveerde doorvoer voor de verzameling](set-throughput.md).
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -358,7 +356,6 @@ Zie voor meer informatie over Azure Cosmos DB, de Azure DB die Cosmos [documenta
 
 Als u wilt beginnen met de schaal en prestaties testen met Azure Cosmos DB, Zie [prestaties en schaal testen met Azure Cosmos DB](performance-testing.md).
 
-[1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png

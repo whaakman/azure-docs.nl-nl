@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Beheren van uw IoT Hub apparaat-id's in bulk
 
@@ -49,7 +49,18 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > [!NOTE]
 > Gebruik de **RegistryManager** klasse in uw C#-code, het toevoegen van de **Microsoft.Azure.Devices** NuGet-pakket aan uw project. De **RegistryManager** klasse bevindt zich in de **Microsoft.Azure.Devices** naamruimte.
 
-U kunt de **RegistryManager** klasse om de status van de **taak** met behulp van de geretourneerde **JobProperties** metagegevens.
+U kunt de **RegistryManager** klasse om de status van de **taak** met behulp van de geretourneerde **JobProperties** metagegevens. Maken van een exemplaar van de **RegistryManager** klasse, gebruikt u de **CreateFromConnectionString** methode:
+
+```csharp
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+```
+
+De verbindingsreeks voor uw IoT-hub in de Azure portal zoeken:
+
+- Navigeer naar uw IoT-hub.
+- Selecteer **gedeeld toegangsbeleid**.
+- Een beleid selecteert, rekening houdend met de machtigingen die u nodig hebt.
+- Kopieer de connectionstring van het paneel aan de rechterkant van het scherm.
 
 De volgende C#-codefragment wordt getoond hoe elke vijf seconden pollen om te zien als de taak is uitgevoerd:
 
@@ -236,7 +247,7 @@ Als het importbestand twin metagegevens bevat, overschrijft deze metagegevens va
 
 Gebruik het optionele **ImportMode %** eigenschap in de serialisatiegegevens importeren voor elk apparaat om te bepalen van de import proces per apparaat. De **ImportMode %** eigenschap heeft de volgende opties:
 
-| ImportMode % | Beschrijving |
+| importMode | Beschrijving |
 | --- | --- |
 | **createOrUpdate** |Als een apparaat niet met de opgegeven bestaat **id**, het zojuist is ingeschreven. <br/>Als het apparaat al bestaat, bestaande gegevens wordt overschreven met de opgegeven invoergegevens zonder betrekking tot de **ETag** waarde. <br> De gebruiker kan eventueel twin gegevens samen met de apparaatgegevens opgeven. De twin etag, wordt indien opgegeven, verwerkt onafhankelijk van het apparaat etag. Als er niet overeen met de bestaande twin etag komt, wordt een fout naar het logboekbestand geschreven. |
 | **maken** |Als een apparaat niet met de opgegeven bestaat **id**, het zojuist is ingeschreven. <br/>Als het apparaat al bestaat, wordt er een fout naar het logboekbestand geschreven. <br> De gebruiker kan eventueel twin gegevens samen met de apparaatgegevens opgeven. De twin etag, wordt indien opgegeven, verwerkt onafhankelijk van het apparaat etag. Als er niet overeen met de bestaande twin etag komt, wordt een fout naar het logboekbestand geschreven. |

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
@@ -215,9 +215,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** | N.v.t.| moet worden ingesteld op `queueTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
 |**direction**| N.v.t. | In de *function.json* alleen het bestand. moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
-|**naam** | N.v.t. |De naam van de variabele die staat voor de wachtrij in functiecode.  | 
+|**Naam** | N.v.t. |De naam van de variabele die staat voor de wachtrij in functiecode.  | 
 |**queueName** | **QueueName**| De naam van de wachtrij om te pollen. | 
-|**verbinding** | **Verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+|**Verbinding** | **Verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -234,23 +234,35 @@ Gebruik in JavaScript, `context.bindings.<name>` voor toegang tot de nettolading
 
 ## <a name="trigger---message-metadata"></a>Trigger - bericht metagegevens
 
-De trigger wachtrij biedt verschillende eigenschappen voor metagegevens. Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies voor gegevensbinding in andere bindingen of als parameters in uw code. De waarden hebben dezelfde betekenis als [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+De trigger wachtrij bevat diverse [eigenschappen voor metagegevens](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies voor gegevensbinding in andere bindingen of als parameters in uw code. De waarden hebben dezelfde betekenis als [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
 |Eigenschap|Type|Beschrijving|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Wachtrij-nettolading (als een geldige tekenreeks). Als de wachtrij nettolading als een tekenreeks bericht `QueueTrigger` heeft dezelfde waarde als de variabele met de naam door de `name` eigenschap in *function.json*.|
 |`DequeueCount`|`int`|Het aantal keren dat dit bericht uit wachtrij is geplaatst.|
-|`ExpirationTime`|`DateTimeOffset?`|De tijd waarop het bericht is verlopen.|
+|`ExpirationTime`|`DateTimeOffset`|De tijd waarop het bericht is verlopen.|
 |`Id`|`string`|Wachtrij bericht-ID.|
-|`InsertionTime`|`DateTimeOffset?`|De tijd die het bericht is toegevoegd aan de wachtrij.|
-|`NextVisibleTime`|`DateTimeOffset?`|De tijd die het bericht vervolgens zichtbaar zijn.|
+|`InsertionTime`|`DateTimeOffset`|De tijd die het bericht is toegevoegd aan de wachtrij.|
+|`NextVisibleTime`|`DateTimeOffset`|De tijd die het bericht vervolgens zichtbaar zijn.|
 |`PopReceipt`|`string`|Pop ontvangst van het bericht.|
 
 ## <a name="trigger---poison-messages"></a>Trigger - verontreinigde berichten
 
-Wanneer een functie van de trigger wachtrij mislukt Azure Functions probeert opnieuw, voor de functie maximaal vijf keer een bepaalde wachtrij-bericht, met inbegrip van de eerste poging. Als alle vijf pogingen mislukken, wordt een bericht met de runtime van functions toegevoegd aan een wachtrij met de naam  *&lt;originalqueuename >-verontreinigd*. U kunt schrijven om een functie verwerken van berichten uit de wachtrij verontreinigd door registratie of het verzenden van een melding dat handmatige aandacht nodig is.
+Wanneer een functie van de trigger wachtrij mislukt Azure Functions probeert opnieuw, voor de functie maximaal vijf keer een bepaalde wachtrij-bericht, met inbegrip van de eerste poging. Als alle vijf pogingen mislukken, wordt een bericht met de runtime van functions toegevoegd aan een wachtrij met de naam * &lt;originalqueuename >-verontreinigd*. U kunt schrijven om een functie verwerken van berichten uit de wachtrij verontreinigd door registratie of het verzenden van een melding dat handmatige aandacht nodig is.
 
 Voor het afhandelen van verontreinigde berichten handmatig, Controleer de [dequeueCount](#trigger---message-metadata) van het bericht uit de wachtrij.
+
+## <a name="trigger---polling-algorithm"></a>Trigger - algoritme voor polling
+
+De wachtrij-trigger implementeert een willekeurige exponentiële back-off-algoritme het effect van niet-actieve wachtrij op de opslagkosten transaction polling beperkt.  Wanneer een bericht is gevonden, wordt de runtime Wacht twee seconden en wordt er gecontroleerd of een ander bericht; Wanneer er geen bericht is gevonden, wacht ongeveer vier seconden alvorens het opnieuw proberen. Na meerdere mislukte pogingen om op te halen van een wachtrijbericht blijft de wachttijd verhogen totdat het de maximale wachttijd, die standaard één minuut bereikt. De maximale wachttijd kan worden geconfigureerd via de `maxPollingInterval` eigenschap in de [host.json bestand](functions-host-json.md#queues).
+
+## <a name="trigger---concurrency"></a>Trigger - gelijktijdigheid van taken
+
+Wanneer er meerdere Wachtrijberichten wachten, wordt de wachtrij-trigger berichten batchgewijs opgehaald en exemplaren gelijktijdig voor het verwerken van deze functie wordt aangeroepen. Standaard is de batchgrootte 16. Wanneer het aantal verwerkte mag 8, wordt de runtime opgehaald van een andere batch en begint met de verwerking van deze berichten. Daarom is het maximum aantal gelijktijdige-berichten per functie op een virtuele machine (VM) wordt verwerkt 24. Deze beperking geldt afzonderlijk voor elke functie wachtrij geactiveerd op elke virtuele machine. Als uw app in de functie uitgeschaald naar meerdere virtuele machines, wordt elke VM wacht tot triggers en functies uitvoert. Als een functie-app uitgeschaald 3 virtuele machines, is het standaard maximum aantal gelijktijdige exemplaren van een wachtrij geactiveerd functie 72.
+
+De batchgrootte en de drempelwaarde voor het ophalen van een nieuwe batch zijn geconfigureerd in de [host.json bestand](functions-host-json.md#queues). Als u minimaliseren parallelle uitvoering voor wachtrij-geactiveerde functies in een functie-app wilt, kunt u de batchgrootte instellen op 1. Deze instelling voorkomt gelijktijdigheid alleen zolang de functie-app wordt uitgevoerd op een enkele virtuele machine (VM). 
+
+De trigger wachtrij automatisch wordt voorkomen dat een functie verwerken van een wachtrijbericht meerdere keren; functies hoeft niet te worden geschreven naar de idempotent worden.
 
 ## <a name="trigger---hostjson-properties"></a>Trigger - eigenschappen host.json
 
@@ -437,9 +449,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** | N.v.t. | moet worden ingesteld op `queue`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
 |**direction** | N.v.t. | moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
-|**naam** | N.v.t. | De naam van de variabele die staat voor de wachtrij in functiecode. Ingesteld op `$return` om te verwijzen naar de retourwaarde van de functie.| 
+|**Naam** | N.v.t. | De naam van de variabele die staat voor de wachtrij in functiecode. Ingesteld op `$return` om te verwijzen naar de retourwaarde van de functie.| 
 |**queueName** |**QueueName** | De naam van de wachtrij. | 
-|**verbinding** | **Verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+|**Verbinding** | **Verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

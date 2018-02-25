@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/29/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 028aa0f23c3a7c98c4801d9e306c5dcfa35aab80
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 1b63515970f81b1cab679287d84707d531fd102a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>Toepassingen die worden uitgevoerd op virtuele VMware-machines naar Azure repliceren
 
@@ -50,7 +50,7 @@ Bij het repliceren van virtuele VMware-machines:
 1. Klik op **Stap 2: toepassing repliceren** > **Bron**. Wanneer u replicatie voor het eerst inschakelt, klikt u in de kluis op **+Repliceren** om replicatie in te schakelen voor aanvullende machines.
 2. In de **bron** pagina > **bron**, selecteer de configuratieserver.
 3. In **type Machine**, selecteer **virtuele Machines** of **fysieke Machines**.
-4. In **vCenter/vSphere-Hypervisor**, selecteert u de vCenter-server die de host vSphere beheert of Selecteer de host. Deze instelling niet relevant als u fysieke machines repliceert.
+4. Selecteer in **vCenter/vSphere-hypervisor** de vCenter-server waarmee de vSphere-host wordt beheerd, of selecteer de host. Deze instelling niet relevant als u fysieke machines repliceert.
 5. Selecteer de processerver, de naam van de configuratieserver worden wordt als u geen processervers extra hebt gemaakt. Klik vervolgens op **OK**.
 
     ![Replicatiebron inschakelen](./media/site-recovery-vmware-to-azure/enable-replication2.png)
@@ -84,7 +84,7 @@ Bij het repliceren van virtuele VMware-machines:
     >    * Verzamelen virtuele machines en fysieke servers zodat ze uw werkbelastingen. Inschakelen van de consistentie tussen meerdere VM's kan invloed hebben op prestaties van de werkbelasting. Alleen gebruiken als machines dezelfde werkbelasting worden uitgevoerd en moet u de consistentie.
 
     ![Replicatie inschakelen](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-14. Klik op **replicatie inschakelen**. U kunt de voortgang van volgen de **beveiliging inschakelen** taak **instellingen** > **taken** > **Site Recovery-taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
+14. Klik op **Replicatie inschakelen**. U kunt de voortgang van de taak **Beveiliging inschakelen** volgen via **Instellingen** > **Taken** > **Site Recovery-taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
 
 > [!NOTE]
 > Als de machine is voorbereid voor de push-installatie, wordt het onderdeel van de Mobility-Service geïnstalleerd wanneer beveiliging is ingeschakeld. Nadat het onderdeel is geïnstalleerd op de computer, wordt een beveiligingstaak wordt gestart en is mislukt. Na de fout moet u elke computer handmatig opnieuw te starten. Na het opnieuw opstarten wordt de beveiligingstaak opnieuw begint en initiële replicatie plaatsvindt.
@@ -119,7 +119,7 @@ Vervolgens moet u controleren of de eigenschappen van de bronmachine. Houd er re
     Als een bronmachine twee netwerkadapters heeft en de grootte van de doelmachine vier ondersteunt, heeft de doelmachine twee adapters. Als de bronmachine twee adapters heeft, maar de ondersteunde doelgrootte slechts één ondersteunt, heeft de doelmachine slechts één adapter.
     - Als de virtuele machine meerdere netwerkadapters heeft, ze alle verbinding maken met hetzelfde netwerk. De eerste die wordt weergegeven in de lijst wordt ook het geval is, de *standaard* netwerkadapter in de virtuele machine van Azure.
 
-### <a name="azure-hybrid-use-benefit"></a>Azure hybride gebruik Benefit
+### <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
 
 Klanten van Microsoft Software Assurance kunnen Azure hybride gebruiken voordeel op te slaan op licentiekosten voor Windows Server-machines die worden gemigreerd naar Azure of Azure gebruiken voor herstel na noodgevallen gebruiken. Als u in aanmerking voor de Azure hybride gebruiken profiteren, kunt u opgeven dat de virtuele machine toegewezen voordeel een die Azure Site Recovery wordt gemaakt is als er een failover. Om dit te doen:
 - Ga naar het gedeelte berekenings- en eigenschappen van de gerepliceerde virtuele machine.

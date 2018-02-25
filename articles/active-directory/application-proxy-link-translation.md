@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 02/23/2018
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Koppelingen voor apps die zijn gepubliceerd met Azure AD-toepassingsproxy hardcoded omleiden
 
@@ -27,7 +27,7 @@ Azure AD-toepassingsproxy stelt uw lokale apps beschikbaar voor gebruikers die e
 
 De beste manier om ervoor te zorgen dat koppelingen werken op dezelfde manier zowel binnen als buiten uw bedrijfsnetwerk noodzakelijk is voor het configureren van de externe URL's van uw apps voor dezelfde zijn als de interne URL's. Gebruik [aangepaste domeinen](active-directory-application-proxy-custom-domains.md) voor het configureren van de externe URL's om uw zakelijke domeinnaam in plaats van de proxy van het standaardtoepassingsdomein.
 
-Als u aangepaste domeinen niet in uw tenant gebruiken, houdt uw koppelingen werken ongeacht waar uw gebruikers zich met de functie koppeling vertaling van Application Proxy. Wanneer u apps die rechtstreeks op de interne eindpunten of poorten verwijzen hebt, kunt u deze interne URL's toewijzen aan de gepubliceerde externe toepassing Proxy URL's. Wanneer de vertaling van koppelingen is ingeschakeld en toepassingsproxy doorzoekt HTML, CSS en JavaScript-select-tags voor gepubliceerde interne koppelingen. Vervolgens zet de service voor toepassingsproxy deze om zodat uw gebruikers beschikken over een ononderbroken ervaring.
+Als u aangepaste domeinen niet in uw tenant gebruiken, houdt uw koppelingen werken ongeacht waar uw gebruikers zich met de functie koppeling vertaling van Application Proxy. Wanneer u apps die rechtstreeks op de interne eindpunten of poorten verwijzen hebt, kunt u deze interne URL's toewijzen aan de gepubliceerde externe toepassing Proxy URL's. Wanneer de vertaling van de koppeling is ingeschakeld en toepassingsproxy doorzoekt HTML en CSS voor gepubliceerde interne koppelingen, de service voor toepassingsproxy zet deze zodat uw gebruikers beschikken over een ononderbroken ervaring.
 
 >[!NOTE]
 >De koppeling NAT-functie is voor tenants die voor welke reden dan ook niet met aangepaste domeinen hebben de dezelfde interne en externe URL's voor hun apps. Voordat u deze functie inschakelt, zien als [aangepaste domeinen in Azure AD-toepassingsproxy](active-directory-application-proxy-custom-domains.md) voor u kan doen.
@@ -64,7 +64,7 @@ Wanneer u de vertaling van koppelingen voor de app voordelen inschakelt, worden 
 Ter verbetering van prestaties en beveiliging, is enkele koppelingen zijn niet geconverteerd:
 
 - De koppelingen niet binnen de codetags. 
-- Koppelingen niet in HTML, CSS of JavaScript. 
+- Koppelingen niet in de HTML-indeling of CSS. 
 - Interne koppelingen geopend vanuit andere programma's. Koppelingen verzonden via e-mail of chatbericht of in andere documenten opgenomen won't worden vertaald. De gebruikers moeten weten om naar de externe URL te gaan.
 
 Als u moet voor de ondersteuning van een van deze twee scenario's, gebruikt u dezelfde interne en externe URL's in plaats van de vertaling van koppelingen.  
@@ -84,7 +84,7 @@ Nu wanneer uw gebruikers toegang krijgen deze toepassing tot, scant de proxy aut
 
 ## <a name="send-feedback"></a>Feedback verzenden
 
-We willen uw waarmee u deze functie werkt voor al uw apps. We zoeken naar meer dan 30 labels in HTML en CSS en overweegt die JavaScript aanvragen om te ondersteunen. Hebt u een voorbeeld van de gegenereerde koppelingen die niet zijn wordt vertaald, verzendt een codefragment aan [Application Proxy Feedback](mailto:aadapfeedback@microsoft.com). 
+We willen uw waarmee u deze functie werkt voor al uw apps. We zoeken op meer dan 30 labels in HTML en CSS. Hebt u een voorbeeld van de gegenereerde koppelingen die niet zijn wordt vertaald, verzendt een codefragment aan [Application Proxy Feedback](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Volgende stappen
 [Aangepaste domeinen gebruiken met Azure AD-toepassingsproxy](active-directory-application-proxy-custom-domains.md) in dezelfde interne en externe URL

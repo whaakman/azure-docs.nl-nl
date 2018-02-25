@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 091e7e6cabf325cdd9d4289e7d22e71c583d91db
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: dd8203763eb6abd19e2b3483636dc4d80f7effdf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>Maak een virtueel netwerk met behulp van PowerShell
 
-In dit artikel leert u hoe u een virtueel netwerk maken. Na het maken van een virtueel netwerk, moet u twee virtuele machines implementeren in het virtuele netwerk en privé communiceren tussen deze twee.
+In dit artikel leert u hoe u een virtueel netwerk maken. Na het maken van een virtueel netwerk, kunt u twee virtuele machines implementeren in het virtuele netwerk om communicatie tussen deze twee particuliere netwerk te testen.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Als u wilt installeren en gebruiken van PowerShell lokaal, in deze zelfstudie vereist de Azure PowerShell moduleversie 5.1.1 of hoger. Ga voor de geïnstalleerde versie uitvoeren ` Get-Module -ListAvailable AzureRM`. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u wilt installeren en gebruiken van PowerShell lokaal, in dit artikel is vereist voor de AzureRM PowerShell moduleversie 5.1.1 of hoger. Ga voor de geïnstalleerde versie uitvoeren ` Get-Module -ListAvailable AzureRM`. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -71,9 +71,11 @@ De configuratie van subnetten met schrijven naar het virtuele netwerk met [Set-A
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="create-virtual-machines"></a>Virtuele machines maken
+## <a name="test-network-communication"></a>Test de netwerkcommunicatie
 
-Een virtueel netwerk kunt verschillende soorten Azure-bronnen te privé met elkaar communiceren. Een type resource dat u in een virtueel netwerk implementeren kunt is een virtuele machine. Twee virtuele machines maken in het virtuele netwerk, zodat u kunt valideren en inzicht in de werking van communicatie tussen virtuele machines in een virtueel netwerk in een latere stap.
+Een virtueel netwerk kunt verschillende soorten Azure-bronnen te privé met elkaar communiceren. Een type resource dat u in een virtueel netwerk implementeren kunt is een virtuele machine. Twee virtuele machines maken in het virtuele netwerk, zodat u persoonlijke communicatie tussen deze in een later stadium kunt valideren.
+
+### <a name="create-virtual-machines"></a>Virtuele machines maken
 
 Maak een virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Als deze stap wordt uitgevoerd, wordt u gevraagd referenties op te geven. De waarden die u invoert, worden geconfigureerd als de gebruikersnaam en het wachtwoord voor de virtuele machine. De locatie die in een virtuele machine wordt gemaakt, moet het virtuele netwerk bestaat in dezelfde locatie. De virtuele machine is niet in dezelfde resourcegroep bevinden als de virtuele machine is vereist als het in dit artikel. De `-AsJob` parameter kan de opdracht op de achtergrond uitgevoerd, zodat u kunt doorgaan met de volgende taak.
 
@@ -108,7 +110,7 @@ New-AzureRmVm `
 ```
 De virtuele machine duurt een paar minuten maken. Nadat deze is gemaakt, Azure retourneert uitvoer over de gemaakte virtuele machine. Hoewel het niet in de uitvoer van de geretourneerde Azure toegewezen *10.0.0.5* naar de *myVm2* virtuele machine, omdat het adres van de volgende beschikbaar in het subnet.
 
-## <a name="connect-to-a-virtual-machine"></a>Verbinding maken met een virtuele machine
+### <a name="connect-to-a-virtual-machine"></a>Verbinding maken met een virtuele machine
 
 Gebruik de [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) opdracht voor het retourneren van het openbare IP-adres van een virtuele machine. Een openbaar, Internet routeerbare IP-adres in Azure met elke virtuele machine standaard wordt toegewezen. Het openbare IP-adres is toegewezen aan de virtuele machine vanuit een [groep adressen toegewezen aan elke Azure-regio](https://www.microsoft.com/download/details.aspx?id=41653). Terwijl Azure welk openbare IP-adres is toegewezen aan een virtuele machine weet, is het besturingssysteem in een virtuele machine geen bewust te maken van een openbaar IP-adres toegewezen. Het volgende voorbeeld wordt het openbare IP-adres van de *myVm1* virtuele machine:
 
@@ -124,7 +126,7 @@ mstsc /v:<publicIpAddress>
 
 Een Remote Desktop Protocol (RDP)-bestand is gemaakt, naar de computer gedownload en geopend. Geef de gebruikersnaam en wachtwoord die u hebt opgegeven bij het maken van de virtuele machine en klik vervolgens op **OK**. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Klik op **Ja** of **Doorgaan** om door te gaan met de verbinding.
 
-## <a name="validate-communication"></a>Communicatie valideren
+### <a name="validate-communication"></a>Communicatie valideren
 
 Probeert te pingen van een Windows-virtuele machine mislukt, omdat ping niet is toegestaan via de Windows firewall standaard. Om toe te staan ping naar *myVm1*, voer de volgende opdracht uit vanaf de opdrachtprompt:
 
@@ -138,7 +140,7 @@ Valideren van de communicatie met *myVm2*, voer de volgende opdracht vanaf een o
 mstsc /v:myVm2
 ```
 
-Verbinding met extern bureaublad is mislukt omdat beide virtuele machines privé IP-adressen toegewezen vanuit de *standaard* subnet en omdat de extern bureaublad openen via de Windows-firewall standaard is. U bent geen verbinding maken met *myVm2* door hostnaam omdat Azure automatisch DNS-naamomzetting voor alle hosts binnen een virtueel netwerk biedt. De opdracht ping vanaf een opdrachtprompt opdracht mijn *myVm1*, van *myVm2*.
+Verbinding met extern bureaublad is mislukt omdat beide virtuele machines privé IP-adressen toegewezen vanuit de *standaard* subnet en omdat de extern bureaublad openen via de Windows-firewall standaard is. U bent geen verbinding maken met *myVm2* door hostnaam omdat Azure automatisch DNS-naamomzetting voor alle hosts binnen een virtueel netwerk biedt. Pingen vanaf een opdrachtprompt mijn *myVm1*, van *myVm2*.
 
 ```
 ping myvm1
@@ -152,9 +154,11 @@ ping bing.com
 
 U ontvangt vier reacties van bing.com. Standaard kan een virtuele machine in een virtueel netwerk uitgaand naar het Internet communiceren.
 
+De extern bureaublad-sessiehost af te sluiten. 
+
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer deze niet langer nodig is, kunt u de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) opdracht om te verwijderen van de resourcegroep en alle resources bevat. De extern bureaublad-sessiehost sluiten en voer vervolgens de volgende opdracht vanaf uw computer te verwijderen van de resourcegroep:
+Wanneer deze niet langer nodig is, kunt u de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) opdracht om te verwijderen van de resourcegroep en alle resources die deze bevat:
 
 ```azurepowershell-interactive 
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -162,8 +166,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel als u een standaard virtuele netwerk met één subnet en twee virtuele machines geïmplementeerd. Voor meer informatie over hoe u een aangepaste virtueel netwerk maken met meerdere subnetten en beheertaken uitvoeren in virtuele Basisnetwerk, blijven de zelfstudie voor het maken van een aangepaste virtueel netwerk en van het beheer.
-
+In dit artikel als u een standaard virtueel netwerk met één subnet geïmplementeerd. Als u wilt weten hoe u een aangepaste virtueel netwerk maken met meerdere subnetten, blijven de zelfstudie voor het maken van een aangepaste virtueel netwerk.
 
 > [!div class="nextstepaction"]
-> [Een aangepaste virtueel netwerk maken en deze te beheren](virtual-networks-create-vnet-arm-pportal.md#powershell)
+> [Een aangepaste virtueel netwerk maken](virtual-networks-create-vnet-arm-pportal.md#powershell)

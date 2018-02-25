@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: be43e34976682847c4756e062ec5b638ebc26063
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Oplossen van problemen met de replicatie van de virtuele machine van Azure naar Azure
 
@@ -22,7 +22,7 @@ Dit artikel wordt beschreven welke algemene problemen in de Azure Site Recovery 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Problemen met Azure-resource-quotum (foutcode 150097)
 Uw abonnement moet worden ingeschakeld voor het maken van virtuele Azure-machines in de doelregio die u wilt gebruiken als uw herstel na noodgevallen regio. Uw abonnement moet ook voldoende quota is ingeschakeld voor het maken van virtuele machines met een specifieke grootte hebben. Standaard hervat Site Recovery dezelfde grootte hebben voor het doel VM als de bron-VM. Als de grootte van de overeenkomende niet beschikbaar is, wordt de grootte van de dichtstbijzijnde mogelijk automatisch gekozen. Als er geen overeenkomende grootte die ondersteuning biedt voor VM-configuratie bron is, wordt dit foutbericht weergegeven:
 
-Foutcode | **Mogelijke oorzaken** | Aanbeveling
+**Foutcode** | **Mogelijke oorzaken** | **Aanbeveling**
 --- | --- | ---
 150097<br></br>**Bericht**: replicatie kan niet worden ingeschakeld voor de virtuele machine VmName. | -Uw abonnements-ID is mogelijk niet ingeschakeld voor het maken van alle virtuele machines in de doellocatie van de regio.</br></br>-Uw abonnements-ID is mogelijk niet ingeschakeld of beschikt niet over voldoende quotum voor het specifieke VM-grootten maken in de doellocatie van de regio.</br></br>-Een geschikte doel VM-grootte die overeenkomt met de bron-VM NIC aantal (2) is niet gevonden voor de abonnements-ID in de doellocatie van de regio.| Neem contact op met [ondersteuning voor facturering aan Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) voor het maken van de virtuele machine voor het vereiste VM-grootte in de doellocatie voor uw abonnement. Nadat deze ingeschakeld, moet u de mislukte bewerking opnieuw.
 
@@ -35,7 +35,7 @@ Als de doellocatie een beperking van capaciteit heeft, Schakel replicatie uit en
 
 Als de meest recente vertrouwde certificaten niet aanwezig op de virtuele machine, kan de taak 'replicatie inschakelen' mislukken. Zonder de certificaten mislukt de verificatie en autorisatie van Site Recovery serviceaanroepen van de virtuele machine. Het foutbericht voor de taak is mislukt 'replicatie inschakelen' Site Recovery wordt weergegeven:
 
-Foutcode | **Mogelijke oorzaak** | **Aanbevelingen**
+**Foutcode** | **Mogelijke oorzaak** | **Aanbevelingen**
 --- | --- | ---
 151066<br></br>**Bericht**: Site Recovery-configuratie is mislukt. | De vereiste vertrouwde basiscertificaten wordt gebruikt voor autorisatie en verificatie niet beschikbaar zijn op de machine. | -Voor een virtuele machine met de Windows-besturingssysteem, zorg ervoor dat de vertrouwde basiscertificaten aanwezig is op de computer. Zie voor informatie [configureren van vertrouwde basiscertificaten en niet-toegestane certificaten](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-Volg de richtlijnen voor vertrouwde basiscertificaten gepubliceerd door de Linux-besturingssysteem versie distributor voor een virtuele machine met het Linux-besturingssysteem.
 
@@ -161,7 +161,7 @@ Aan de lijst met geaccepteerde [de gewenste URL's](azure-to-azure-about-networki
 
 Een nieuwe schijf die is gekoppeld aan de virtuele machine moet worden geïnitialiseerd.
 
-Foutcode | **Mogelijke oorzaken** | **Aanbevelingen**
+**Foutcode** | **Mogelijke oorzaken** | **Aanbevelingen**
 --- | --- | ---
 150039<br></br>**Bericht**: Azure gegevensschijf (DiskName) (DiskURI) met de logische eenheid number (LUN) (LUNValue) is niet toegewezen aan een bijbehorende schijf wordt gerapporteerd door binnen de virtuele machine die dezelfde LUN-waarde heeft. | -Een nieuwe gegevensschijf is gekoppeld aan de virtuele machine, maar deze is niet geïnitialiseerd.</br></br>-De gegevensschijf in de virtuele machine is de LUN-waarde waarmee de schijf is gekoppeld aan de virtuele machine niet correct rapporteren.| Zorg dat de gegevensschijven worden geïnitialiseerd en probeer het opnieuw.</br></br>Voor Windows: [koppelen en een nieuwe schijf initialiseren](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Voor Linux: [initialiseren van een nieuwe gegevensschijf in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 

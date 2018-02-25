@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 76bbee514eac36aec8eaf84e8a20f85a27559fc7
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Zelfstudie: Azure Active Directory-integratie met ADP federatieve SSO
 
@@ -122,7 +122,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![ADP federatieve SSO-domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
 
-    In de **id** textbox, typ een URL:`https://fed.adp.com/` 
+    In de **id** textbox, typ een URL: `https://fed.adp.com/` 
     
 5. De toepassing ADP federatieve SSO verwacht de SAML-asserties in een specifieke indeling waarvoor u aangepaste kenmerktoewijzingen toevoegen aan uw configuratie van SAML-token kenmerken. De volgende Schermafbeelding toont een voorbeeld voor deze. De naam van de claim wordt altijd worden **'PersonImmutableID'** en waarvan de waarde die we hebben toegewezen aan **werknemer-id**. 
 
@@ -197,9 +197,8 @@ Bij ontvangst van de bevestiging van uw vertegenwoordiger ADP uw ADP (s) en het 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
 7. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **gekoppelde aanmelding** te koppelen van uw toepassing **ADP federatieve SSO**.
-<!---Loc Comment:Sentence "to link your application to ADP Federated SSO." should be concatenated with the previous sentence--->
 
-    ![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Eenmalige aanmelding gekoppeld](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 
 8. Navigeer naar de **configureren aanmeldings-URL** sectie, voert u de volgende stappen uit:
 

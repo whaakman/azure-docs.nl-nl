@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 409dd26cc1dfcb1c562d175a43e842b213501d03
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architectuur van de replicatie van Azure naar Azure
 
@@ -69,10 +69,10 @@ Als replicatie is ingeschakeld, wordt de Site Recovery-extensie Mobility-service
  - Authenticatie van Office 365-URL's of het IP-adressen
  - Cache storage account IP-adressen
 
-Als u de consistentie tussen meerdere VM's inschakelt, wordt de machines in de replicatiegroep met elkaar communiceren via poort 20004. Zorg ervoor dat er geen firewall-apparaat de interne communicatie tussen de VM's via poort 20004 te blokkeren.
+Als u multi-VM-consistentie inschakelt, communiceren machines in de replicatiegroep met elkaar via poort 20004. Zorg ervoor dat de interne communicatie tussen de VM's via poort 20004 niet door een firewall-apparaat wordt geblokkeerd.
 
 > [!IMPORTANT]
-Als u virtuele Linux-machines deel uitmaken van een replicatiegroep wilt, zorg ervoor dat het uitgaande verkeer op poort 20004 handmatig aan de hand van de richtlijnen van de specifieke versie van Linux wordt geopend.
+Als u wilt dat Linux VM’s deel uitmaken van een replicatiegroep, zorg er dan voor dat het uitgaande verkeer op poort 20004 handmatig wordt geopend volgens de richtlijnen van de specifieke Linux-versie.
 
 ### <a name="step-3"></a>Stap 3
 

@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e32e84eacee3a43b948b0a4b4177ab956b34ca3c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1c6cc4ba95f440f09f11a93927fd67873f8813e8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 In dit artikel wordt gesproken over de stappen voor het configureren van rapporten voor Azure Backup aan de hand van de Recovery Services-kluis en toegang tot deze rapporten via Power BI. Na deze stappen uitvoert, kunt u direct naar Power BI om alle rapporten weer te geven, aanpassen en rapporten maken gaan. 

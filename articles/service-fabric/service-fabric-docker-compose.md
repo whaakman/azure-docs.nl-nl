@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: b6275cee87455bf8a226a51a6b2093b67c3159d0
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6c4e29a9d7976f5f18d3cf825b22cdef04c0c16d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Ondersteuning voor de implementatie van docker Compose in Azure Service Fabric (Preview)
 
@@ -45,7 +45,7 @@ Een implementatie voor Service Fabric opstellen maken van een docker-compose.yml
 New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName`en `RegistryPassword` verwijzen naar de container register gebruikersnaam en wachtwoord. Nadat u de implementatie hebt voltooid, kunt u de status ervan controleren met behulp van de volgende opdracht:
+`RegistryUserName` en `RegistryPassword` verwijzen naar de container register gebruikersnaam en wachtwoord. Nadat u de implementatie hebt voltooid, kunt u de status ervan controleren met behulp van de volgende opdracht:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp

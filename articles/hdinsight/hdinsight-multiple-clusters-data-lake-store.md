@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 1fe81286c395a529a14ba87edc26390a2bab3f90
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c306c66354f34fc945a5fe0ffa11d63bce4d7005
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Meerdere HDInsight-clusters met een Azure Data Lake Store-account gebruiken
 
@@ -42,9 +42,9 @@ Om deze mapstructuur effectief door HDInsight-clusters worden gebruikt, moet de 
 
 |Map  |Machtigingen  |Gebruiker die eigenaar is  |Groep die eigenaar is  | Benoemde gebruiker | Benoemde gebruikersmachtigingen | Benoemde groep | Benoemde groepsmachtigingen |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |Beheerder |Beheerder  |Service-principal |--x  |FINGRP   |r-x         |
-|/clusters | rwxr-x--x |Beheerder |Beheerder |Service-principal |--x  |FINGRP |r-x         |
-|clusters/Financiën | rwxr-x--t |Beheerder |FINGRP  |Service-principal |rwx  |-  |-     |
+|/ | rwxr-x--x  |beheerder |beheerder  |Service-principal |--x  |FINGRP   |r-x         |
+|/clusters | rwxr-x--x |beheerder |beheerder |Service-principal |--x  |FINGRP |r-x         |
+|clusters/Financiën | rwxr-x--t |beheerder |FINGRP  |Service-principal |rwx  |-  |-     |
 
 In de tabel
 

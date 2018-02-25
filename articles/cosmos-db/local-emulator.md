@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 2512ba4ea89bd3477c7901cda29ab3682d834195
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4b18ad16338722cc9dbd314eded900fdd554ecec
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>De Azure Cosmos DB Emulator gebruiken voor lokale ontwikkeling en testen
 
@@ -255,7 +255,7 @@ Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` b
 </tr>
 <tr>
   <td>NoExplorer</td>
-  <td>Geen documentverkenner weergeven bij het opstarten.</td>
+  <td>Geen data explorer weergeven bij het opstarten.</td>
   <td>CosmosDB.Emulator.exe /NoExplorer</td>
   <td></td>
 </tr>

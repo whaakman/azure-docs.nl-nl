@@ -3,7 +3,7 @@ title: Het installeren van een server voor Linux-hoofddoel voor failover van Azu
 description: Voordat een virtuele Linux-machine opnieuw te beveiligen, moet u een Linux-hoofddoel-server. Informatie over het installeren van een.
 services: site-recovery
 documentationcenter: 
-author: rajani-janaki-ram
+author: nsoneji
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/22/2017
-ms.author: rajanaki
-ms.openlocfilehash: 11f9385c1082011ee690f48f2579b6f3b156d125
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/22/2018
+ms.author: nisoneji
+ms.openlocfilehash: 27b38eafd9ab5da11d66ede4d446a4952e30c534
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Een server voor Linux-hoofddoel installeren
 Nadat u uw virtuele machines in Azure een failover, u kunt een failback uit op de virtuele machines naar de lokale site. Als u wilt een failback uit, moet u beveiligt u de virtuele machine van Azure naar de lokale site opnieuw. Voor dit proces moet u een lokale hoofddoelserver voor het ontvangen van het verkeer. 
@@ -265,7 +265,7 @@ Gebruik de volgende stappen voor het maken van een schijf bewaren:
     
     Selecteer **invoegen** om te beginnen met het bewerken van het bestand. Maak een nieuwe regel en voeg vervolgens de volgende tekst. De schijf multipath-ID op basis van de gemarkeerde multipath-ID van de vorige opdracht bewerken.
 
-    **/dev/mapper/ <Retention disks multipath id> /mnt/bewaren ext4 rw 0 0**
+     **/dev/mapper/ <Retention disks multipath id> /mnt/bewaren ext4 rw 0 0**
 
     Selecteer **Esc**, en typ vervolgens **: wq** (schrijven en sluiten) het editorvenster te sluiten.
 
