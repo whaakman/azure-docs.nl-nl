@@ -373,8 +373,6 @@
           href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
         - name: Verbinden aan Azure Functions
           href: ../azure-functions/functions-bindings-documentdb.md
-        - name: Gegevens analyseren met Hadoop
-          href: run-hadoop-with-hdinsight.md
         - name: Integreren met Azure Search
           href: ../search/search-howto-index-documentdb.md
         - name: Gegevens verplaatsen met Azure Data Factory
