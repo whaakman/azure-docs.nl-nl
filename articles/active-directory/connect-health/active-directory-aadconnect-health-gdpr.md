@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2018
 ms.author: billmath
-ms.openlocfilehash: b9a0b9027bbead00300040186e453933b3a7f46b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d66f717f546271a5e5c3c49d6cbaef1c190d18d8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect-health"></a>GDPR compatibiliteit en Azure AD Connect Health 
 
@@ -35,6 +35,8 @@ Azure AD Connect Health worden onderverdeeld in de **gegevensprocessor** categor
 
 ## <a name="data-retention-policy"></a>Beleid voor gegevensretentie
 Azure AD Connect Health geen rapporten genereren, analyses uitvoeren of inzicht dan 30 dagen. Daarom Azure AD Connect Health niet opslaan, verwerkt of alle gegevens na 30 dagen bewaren. Dit ontwerp is compatibel met de GDPR voorschriften, Microsoft privacy nalevingsreglementen en bewaarbeleid voor gegevens van Azure AD. 
+
+Servers met actieve **Health service-gegevens is niet up-to-date** **fout** waarschuwingen voor meer dan 30 opeenvolgende dagen raden aan dat er geen gegevens Connect Health heeft bereikt tijdens die periode. Deze servers wordt uitgeschakeld en wordt niet weergegeven in de portal Connect Health. Als u wilt de servers opnieuw inschakelt, moet u verwijderen en [opnieuw installeren van de health-agent](active-directory-aadconnect-health-agent-install.md). Houd er rekening mee dat dit niet van toepassing op **waarschuwingen** met hetzelfde Waarschuwingstype. Waarschuwingen geven aan dat gegevens gedeeltelijk ontbreken op de server die u wordt gewaarschuwd voor. 
  
 ## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Gegevens verzamelen en bewaken in Azure AD Connect Health uitschakelen
 Azure AD Connect Health kunt u stop het verzamelen van gegevens voor elke bewaakte server of voor een exemplaar van een bewaakte service. U kunt bijvoorbeeld gegevens te verzamelen voor afzonderlijke servers voor ADFS (Active Directory Federation Services) die worden bewaakt met Azure AD Connect Health stoppen. U kunt ook het verzamelen van gegevens voor het hele AD FS-exemplaar dat wordt bewaakt met Azure AD Connect Health stoppen. Wanneer u hiervoor kiest, worden de bijbehorende servers via de portal Azure AD Connect Health verwijderd na het stoppen van verzamelen van gegevens. 
@@ -53,7 +55,7 @@ Als u de gegevensverzameling en -bewaking voor een afzonderlijke bewaakte server
 - Alle gegevens die behoren tot het exemplaar van de bewaakte service is verwijderd volgens het Gegevensretentiebeleid van Microsoft Azure.
 
 ### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>Gegevensverzameling en -bewaking voor een bewaakte server uitschakelen
-Zie [verwijderen van een server van Azure AD Connect Health](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service).
+Zie [verwijderen van een server van Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
 
 ### <a name="disable-data-collection-and-monitoring-for-an-instance-of-a-monitored-service"></a>Uitschakelen van gegevensverzameling en -bewaking voor een exemplaar van een bewaakte service
 Zie [verwijderen van een service-exemplaar van Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).

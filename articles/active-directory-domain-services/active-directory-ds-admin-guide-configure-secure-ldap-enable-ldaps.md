@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Beveiligde LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
 
@@ -113,7 +113,6 @@ De volgende tabel ziet u een voorbeeld van een NSG die u configureren kunt, als 
 ## <a name="troubleshooting"></a>Problemen oplossen
 Als u problemen ondervindt bij het verbinding maken met het beheerde domein met behulp van beveiligde LDAP, voert u de volgende stappen:
 * Zorg ervoor dat de keten van de verlener van het beveiligde LDAP-certificaat wordt vertrouwd op de client. U kunt de basiscertificeringsinstantie toevoegen aan het certificaatarchief van vertrouwde basiscertificeringsinstanties op de client de vertrouwensrelatie tot stand brengen.
-* Controleer of dat het beveiligde LDAP-certificaat niet is uitgegeven door een tussenliggende certificeringsinstantie die niet standaard op een nieuwe windows-computer wordt vertrouwd.
 * Controleer of de LDAP-client (bijvoorbeeld ldp.exe) een verbinding maakt met het beveiligde LDAP-eindpunt met een DNS-naam, niet het IP-adres.
 * Controleer of de DNS-naam die van de LDAP-client verbinding met wordt omgezet in het openbare IP-adres voor beveiligde LDAP op het beheerde domein maakt.
 * Controleer of dat de beveiligde LDAP-certificaat voor uw beheerde domein heeft de DNS-naam in het onderwerp of de alternatieve onderwerpnamen-kenmerk.

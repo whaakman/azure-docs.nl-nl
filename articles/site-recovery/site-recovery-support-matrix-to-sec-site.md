@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 256bad0c3c06182b6be2b647ae27db90fe69724d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>De ondersteuningsmatrix voor replicatie naar een secundaire site met Azure Site Recovery
 
@@ -49,7 +49,7 @@ De volgende tabel geeft een overzicht van besturingssysteemondersteuning voor ma
 
 **VMware of fysieke server** | **Hyper-V (met VMM)**
 --- | ---
-64-bits Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minste SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6,8, 6,9, 7.1, 7.2 <br/><br/> Centos 6.5 6.6, 6.7, 6,8, 6,9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6,8 met Red Hat compatibel kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Een besturingssysteem Gast [ondersteund door Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+64-bits Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minste SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5 6.6, 6.7, 6,8, 6,9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6,8 met Red Hat compatibel kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Een besturingssysteem Gast [ondersteund door Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## <a name="linux-machine-storage"></a>Linux-opslag
 
@@ -81,7 +81,7 @@ IPv4 | Ja | Ja
 IPv6 | Nee | Nee
 Vaste IP-adres (Windows) | Ja | Ja
 Vaste IP-adres (Linux) | Ja | Ja
-Meerdere NIC 's | Ja | Ja
+Multi-NIC | Ja | Ja
 
 
 ## <a name="storage"></a>Storage
@@ -90,8 +90,8 @@ Meerdere NIC 's | Ja | Ja
 
 **Storage (host)** | **VMware of fysieke server** | **Hyper-V (met VMM)**
 --- | --- | ---
-NFS | Ja | N.v.t.
-SMB 3.0 | N.v.t. | Ja
+NFS | Ja | N/A
+SMB 3.0 | N/A | Ja
 SAN (ISCSI) | Ja | Ja
 Multipath (MPIO) | Ja | Ja
 
@@ -99,21 +99,21 @@ Multipath (MPIO) | Ja | Ja
 
 **Configuratie** | **VMware of fysieke server** | **Hyper-V (met VMM)**
 --- | --- | ---
-VMDK | Ja | N.v.t.
-VHD/VHDX | N.v.t. | Ja (maximaal 16 schijven)
-Generatie 2 VM | N.v.t. | Ja
+VMDK | Ja | N/A
+VHD/VHDX | N/A | Ja (maximaal 16 schijven)
+Generatie 2 VM | N/A | Ja
 Clusterschijf gedeeld | Ja  | Nee
 Versleutelde schijf | Nee | Nee
-UEFI| Ja | N.v.t.
+UEFI| Ja | N/A
 NFS | Nee | Nee
 SMB 3.0 | Nee | Nee
-RDM | Ja | N.v.t.
+RDM | Ja | N/A
 Schijf > 1 TB | Ja | Ja
 Volume met striped schijf > 1 TB<br/><br/> LVM | Ja | Ja
 Opslagruimten | Nee | Ja
 Schijf hot toevoegen of verwijderen | Ja | Nee
 Schijf uitsluiten | Ja | Ja
-Multipath (MPIO) | N.v.t. | Ja
+Multipath (MPIO) | N/A | Ja
 
 ## <a name="vaults"></a>Kluizen
 
@@ -124,10 +124,10 @@ Verplaats de opslag, netwerk, Azure VM's via resourcegroepen (binnen of tussen a
 
 ## <a name="provider-and-agent"></a>Provider en agent
 
-**Naam** | **Beschrijving** | **Meest recente versie** | **Details**
+**Naam** | **Beschrijving** | **meest recente versie** | **Details**
 --- | --- | --- | --- | ---
 **Azure Site Recovery Provider** | Coördineert de communicatie tussen de on-premises servers en Azure <br/><br/> Op de on-premises VMM-servers of op de Hyper-V-servers worden geïnstalleerd als er geen VMM-server | 5.1.19 ([beschikbaar is via de portal](http://aka.ms/downloaddra)) | [Meest recente functies en oplossingen](https://support.microsoft.com/kb/3155002)
-**Mobility-service** | Coördineert de replicatie tussen de on-premises VMware-servers of fysieke servers en de secundaire site<br/><br/> Geïnstalleerd op de VMware-VM of fysieke servers dat u wilt repliceren  | N.V.T. (beschikbaar via de portal) | N.v.t.
+**Mobility-service** | Coördineert de replicatie tussen de on-premises VMware-servers of fysieke servers en de secundaire site<br/><br/> Geïnstalleerd op de VMware-VM of fysieke servers dat u wilt repliceren  | N.V.T. (beschikbaar via de portal) | N/A
 
 
 ## <a name="next-steps"></a>Volgende stappen

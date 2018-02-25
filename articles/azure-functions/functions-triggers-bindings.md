@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e7141d92a186bec67c374bd5046ee08047feedec
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 
@@ -43,7 +43,7 @@ Wanneer u functies ontwikkelen met behulp van Visual Studio voor het maken van e
 
 Zie voor informatie over welke bindingen zijn Preview-versie of voor gebruik in productieomgevingen zijn goedgekeurd, [ondersteunde talen](supported-languages.md).
 
-## <a name="example-queue-trigger-and-table-output-binding"></a>Voorbeeld: wachtrij trigger en tabel uitvoer binding
+## <a name="example-trigger-and-binding"></a>Voorbeeld van de trigger en binding
 
 Stel dat u wilt een nieuwe rij naar Azure Table storage schrijven telkens wanneer een nieuw bericht wordt weergegeven in Azure Queue storage. Dit scenario kan worden geïmplementeerd met behulp van een Azure Queue storage trigger en een Azure-tabelopslag uitvoer binding. 
 
@@ -79,7 +79,7 @@ Weergeven en bewerken van de inhoud van *function.json* in de Azure-portal klikt
 > [!NOTE]
 > De waarde van `connection` is de naam van een app-instelling met de verbindingsreeks, niet de verbindingsreeks zelf. Bindingen verbinding gebruiken tekenreeksen die zijn opgeslagen in de instellingen van de app om af te dwingen de beste praktijk die *function.json* bevat geen geheimen van de service.
 
-Hier volgt een C#-scriptcode die geschikt is voor deze trigger en binding. U ziet dat de naam van de parameter waarmee de inhoud van het wachtrij-bericht is `order`; deze naam is vereist omdat de `name` eigenschapwaarde in *function.json* is`order` 
+Hier volgt een C#-scriptcode die geschikt is voor deze trigger en binding. U ziet dat de naam van de parameter waarmee de inhoud van het wachtrij-bericht is `order`; deze naam is vereist omdat de `name` eigenschapwaarde in *function.json* is `order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -124,7 +124,7 @@ function generateRandomId() {
 }
 ```
 
-In een class-bibliotheek, dezelfde trigger gebruikt en de bindingsgegevens &mdash; wachtrij- en tabelnamen, storage-accounts, werken de parameters voor invoer en uitvoer &mdash; wordt geleverd door de kenmerken:
+In een class-bibliotheek, dezelfde trigger gebruikt en de bindingsgegevens &mdash; wachtrij- en tabelnamen, storage-accounts, werken de parameters voor invoer en uitvoer &mdash; wordt geleverd door de kenmerken in plaats van een bestand function.json. Hier volgt een voorbeeld:
 
 ```csharp
  public static class QueueTriggerTableOutput
@@ -156,18 +156,59 @@ In een class-bibliotheek, dezelfde trigger gebruikt en de bindingsgegevens &mdas
 
 Alle triggers en bindingen hebben een `direction` eigenschap in de *function.json* bestand:
 
-- Voor triggers is de richting altijd`in`
-- Invoer- en uitvoergegevens bindingen gebruiken `in` en`out`
+- Voor triggers is de richting altijd `in`
+- Invoer- en uitvoergegevens bindingen gebruiken `in` en `out`
 - Sommige bindingen ondersteuning voor een speciale richting `inout`. Als u `inout`, alleen de **geavanceerde editor** is beschikbaar in de **integreren** tabblad.
 
 Als u werkt met [kenmerken in een class-bibliotheek](functions-dotnet-class-library.md) voor het configureren van triggers en bindingen, de richting is opgegeven in een kenmerkconstructor of afgeleid van het parametertype.
 
-## <a name="using-the-function-return-type-to-return-a-single-output"></a>Het retourtype van functie gebruiken om te retourneren van één uitvoer
+## <a name="using-the-function-return-value"></a>Met behulp van de geretourneerde waarde van de functie
 
-Het vorige voorbeeld laat zien hoe de geretourneerde waarde van de functie gebruiken voor uitvoer naar een binding die is opgegeven in *function.json* met behulp van de speciale waarde `$return` voor de `name` eigenschap. (Dit wordt alleen ondersteund in de talen die u een retourwaarde, zoals C# script, JavaScript en F hebt #.) Als een functie meerdere bindingen van de uitvoer heeft, gebruikt u `$return` voor slechts één van de uitvoer-bindingen. 
+In de talen die over een retourwaarde beschikt, kunt u een binding uitvoer binden aan de retourwaarde:
+
+* In C# klassebibliotheek, het kenmerk van de binding uitvoer van toepassing op de geretourneerde waarde van de methode.
+* In andere talen, stelt u de `name` eigenschap in *function.json* naar `$return`.
+
+Als u meer dan één item schrijven wilt, gebruikt u een [object collector](functions-reference-csharp.md#writing-multiple-output-values) in plaats van de retourwaarde. Als er meerdere bindingen van de uitvoer, gebruikt u de retourwaarde voor slechts één van beide.
+
+Zie het voorbeeld taalspecifieke:
+
+* [C#](#c-example)
+* [C# script (.csx)](#c-script-example)
+* [F#](#f-example)
+* [JavaScript](#javascript-example)
+
+### <a name="c-example"></a>C#-voorbeeld
+
+Hier volgt C#-code die de retourwaarde voor een binding uitvoer, gevolgd door een async-voorbeeld gebruikt:
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return Task.FromResult(json);
+}
+```
+
+### <a name="c-script-example"></a>Voorbeeld van C#-script
+
+Hier wordt de uitvoer-binding in de *function.json* bestand:
 
 ```json
-// excerpt of function.json
 {
     "name": "$return",
     "type": "blob",
@@ -176,10 +217,9 @@ Het vorige voorbeeld laat zien hoe de geretourneerde waarde van de functie gebru
 }
 ```
 
-De voorbeelden hieronder tonen retourneren hoe typen worden gebruikt met bindingen in C#-script, JavaScript en F # uitvoer.
+Dit is de C# scriptcode, gevolgd door een async-voorbeeld:
 
 ```cs
-// C# example: use method return value for output binding
 public static string Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -189,7 +229,6 @@ public static string Run(WorkItem input, TraceWriter log)
 ```
 
 ```cs
-// C# example: async method, using return value for output binding
 public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -198,21 +237,49 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 }
 ```
 
+### <a name="f-example"></a>F #-voorbeeld
+
+Hier wordt de uitvoer-binding in de *function.json* bestand:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Dit is de F #-code:
+
+```fsharp
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+### <a name="javascript-example"></a>JavaScript-voorbeeld
+
+Hier wordt de uitvoer-binding in de *function.json* bestand:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+In JavaScript, de retourwaarde gaat in de tweede parameter voor `context.done`:
+
 ```javascript
-// JavaScript: return a value in the second parameter to context.done
 module.exports = function (context, input) {
     var json = JSON.stringify(input);
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
-```
-
-```fsharp
-// F# example: use return value for output binding
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
 ```
 
 ## <a name="binding-datatype-property"></a>De eigenschap dataType binding
@@ -232,13 +299,32 @@ Voor de talen die dynamisch worden getypeerd zoals JavaScript, gebruikt u de `da
 
 Andere opties voor `dataType` zijn `stream` en `string`.
 
-## <a name="resolving-app-settings"></a>Het omzetten van app-instellingen
+## <a name="binding-expressions-and-patterns"></a>Expressies voor gegevensbinding en patronen
 
-Als een best practice moeten geheimen en verbindingsreeksen worden beheerd met behulp van app-instellingen, in plaats van configuratiebestanden. Dit beperkt de toegang tot deze geheime gegevens en wordt het veilig om op te slaan *function.json* in een openbare resourcebeheerbibliotheek.
+Een van de meest krachtige functies van triggers en bindingen is *bindingsexpressies*. In de *function.json* -bestand en in functieparameters en code, kunt u expressies dat uit diverse bronnen worden omgezet naar waarden.
+
+De meeste expressies worden geïdentificeerd door ze tussen accolades. Bijvoorbeeld in een functie van de trigger wachtrij `{queueTrigger}` wordt omgezet in de wachtrij berichttekst. Als de `path` eigenschap voor een blob uitvoer-binding is `container/{queueTrigger}` en de functie wordt geactiveerd door een wachtrijbericht `HelloWorld`, een blob met de naam `HelloWorld` wordt gemaakt.
+
+Soorten expressies voor gegevensbinding
+
+* [App-instellingen](#binding-expressions---app-settings)
+* [Naam van de trigger-bestand](#binding-expressions---trigger-file-name)
+* [Trigger metagegevens](#binding-expressions---trigger-metadata)
+* [JSON-nettoladingen](#binding-expressions---json-payloads)
+* [Nieuwe GUID](#binding-expressions---create-guids)
+* [Huidige datum en tijd](#binding-expressions---current-time)
+
+### <a name="binding-expressions---app-settings"></a>Expressies voor gegevensbinding - app-instellingen
+
+Als een best practice moeten geheimen en verbindingsreeksen worden beheerd met behulp van app-instellingen, in plaats van configuratiebestanden. Dit beperkt de toegang tot deze geheime gegevens en wordt het veilig voor het opslaan van bestanden, zoals *function.json* in openbare source control-opslagplaatsen.
 
 App-instellingen zijn ook nuttig wanneer u configuratie wilt wijzigen op basis van de omgeving. In een testomgeving kunt u bijvoorbeeld voor het bewaken van een andere wachtrij of blob storage-container.
 
-Appinstellingen zijn opgelost wanneer een waarde procenttekens, zoals tussen `%MyAppSetting%`. Houd er rekening mee dat de `connection` eigenschap van triggers en bindingen is een speciaal geval en -waarden als de app-instellingen automatisch worden opgelost. 
+Expressies voor gegevensbinding van App-instelling anders uit andere expressies voor gegevensbinding zijn geïdentificeerd: ze worden ingepakt in procenttekens in plaats van accolades. Als het blob uitvoer binding-pad is bijvoorbeeld `%Environment%/newblob.txt` en de `Environment` is de waarde van de app-instelling `Development`, een blob's worden aangemaakt in de `Development` container.
+
+Wanneer een functie wordt lokaal uitgevoerd, app-instellingswaarden afkomstig zijn van de *local.settings.json* bestand.
+
+Houd er rekening mee dat de `connection` eigenschap van triggers en bindingen is een speciaal geval en waarden, automatisch opgelost als de appinstellingen, zonder procenttekens. 
 
 Het volgende voorbeeld wordt een Azure Queue Storage-trigger die gebruikmaakt van een app-instelling `%input-queue-name%` voor het definiëren van de wachtrij voor het activeren van op.
 
@@ -268,9 +354,75 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-metadata-properties"></a>Eigenschappen van de trigger-metagegevens
+### <a name="binding-expressions---trigger-file-name"></a>Expressies voor gegevensbinding - trigger-bestandsnaam
 
-Naast de nettolading van de gegevens die is geleverd door een trigger (zoals een bericht in de wachtrij waarmee een functie is geactiveerd), bieden veel triggers aanvullende metagegevenswaarden. Deze waarden kunnen worden gebruikt als de invoerparameters in C# en F # of eigenschappen op de `context.bindings` -object in JavaScript. 
+De `path` voor een Blob trigger een patroon dat u kunt verwijzen naar de naam van de activerende blob in andere bindingen en code werkt niet. Het patroon kan ook betekenen filtercriteria die opgeeft welke blobs een functie-aanroep kunnen activeren.
+
+In de volgende Blob-trigger binding, bijvoorbeeld de `path` patroon is `sample-images/{filename}`, die wordt gemaakt met de bindingexpressie voor een met de naam `filename`:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    ...
+```
+
+De expressie `filename` kan vervolgens worden gebruikt in een uitvoer-binding om op te geven van de naam van de blob wordt gemaakt:
+
+```json
+    ...
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Functiecode toegang heeft tot deze dezelfde waarde met behulp van `filename` als een parameternaam:
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+Dezelfde mogelijkheid om het gebruik van de expressies voor gegevensbinding en patronen is van toepassing op kenmerken in de klassenbibliotheken van de. Het kenmerk constructorparameters zijn in het volgende voorbeeld wordt hetzelfde `path` waarden als de voorgaande *function.json* voorbeelden: 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{filename}")] Stream image,
+    [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
+    string filename,
+    TraceWriter log)
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+}
+
+```
+
+U kunt ook expressies voor het delen van de bestandsnaam in, bijvoorbeeld de extensie maken. Zie voor meer informatie over het gebruik van expressies en patronen in de Blob-padtekenreeks de [opslag binding blobverwijzing](functions-bindings-storage-blob.md).
+ 
+### <a name="binding-expressions---trigger-metadata"></a>Expressies voor gegevensbinding - trigger metagegevens
+
+Naast de nettolading van de gegevens die is geleverd door een trigger (zoals de inhoud van het bericht uit de wachtrij waarmee een functie is geactiveerd), bieden veel triggers aanvullende metagegevenswaarden. Deze waarden kunnen worden gebruikt als de invoerparameters in C# en F # of eigenschappen op de `context.bindings` -object in JavaScript. 
 
 Een Azure Queue storage-trigger ondersteunt bijvoorbeeld de volgende eigenschappen:
 
@@ -304,112 +456,11 @@ De metagegevenswaarden van deze zijn beschikbaar in *function.json* bestandseige
 
 Details van de eigenschappen van de metagegevens voor elke trigger worden beschreven in het bijbehorende verwijzingsartikel. Zie voor een voorbeeld [wachtrij trigger metagegevens](functions-bindings-storage-queue.md#trigger---message-metadata). Documentatie is ook beschikbaar in de **integreren** tabblad van de portal in de **documentatie** hieronder de configuratiegebied binding.  
 
-## <a name="binding-expressions-and-patterns"></a>Expressies voor gegevensbinding en patronen
+### <a name="binding-expressions---json-payloads"></a>Expressies voor gegevensbinding - JSON-nettoladingen
 
-Een van de meest krachtige functies van triggers en bindingen is *bindingsexpressies*. U kunt in de configuratie voor een binding patroon expressies die vervolgens kunnen worden gebruikt in andere bindingen of uw code definiëren. Metagegevens van de trigger kan ook worden gebruikt in expressies voor gegevensbinding, zoals wordt weergegeven in de vorige sectie.
+Wanneer een trigger nettolading JSON is, raadpleegt u de eigenschappen in de configuratie voor andere bindingen in dezelfde functie en functiecode.
 
-Stel bijvoorbeeld dat u wilt dat het formaat van afbeeldingen in een bepaalde blob storage-container, vergelijkbaar met de **Image-aanwijzer Formaat** sjabloon in de **nieuwe functie** pagina van de Azure-portal (Zie de **voorbeelden**  scenario). 
-
-Hier volgt de *function.json* definitie:
-
-```json
-{
-  "bindings": [
-    {
-      "name": "image",
-      "type": "blobTrigger",
-      "path": "sample-images/{filename}",
-      "direction": "in",
-      "connection": "MyStorageConnection"
-    },
-    {
-      "name": "imageSmall",
-      "type": "blob",
-      "path": "sample-images-sm/{filename}",
-      "direction": "out",
-      "connection": "MyStorageConnection"
-    }
-  ],
-}
-```
-
-U ziet dat de `filename` parameter wordt gebruikt in zowel de definitie van de blob-trigger en de blob uitvoer van de binding. Deze parameter kan ook worden gebruikt in de functiecode.
-
-```csharp
-// C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
-{
-    log.Info($"Blob trigger processing: {filename}");
-    // ...
-} 
-```
-
-<!--TODO: add JavaScript example -->
-<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
-
-Dezelfde mogelijkheid om het gebruik van de expressies voor gegevensbinding en patronen is van toepassing op kenmerken in de klassenbibliotheken van de. Dit is bijvoorbeeld een installatiekopie van het formaat van de functie in een class-bibliotheek:
-
-```csharp
-[FunctionName("ResizeImage")]
-[StorageAccount("AzureWebJobsStorage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
-{
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
-
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-}
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
-```
-
-### <a name="create-guids"></a>GUID's maken
-
-De `{rand-guid}` bindende expressie maakt een GUID. Het volgende voorbeeld wordt een GUID voor het maken van een unieke blob-naam: 
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{rand-guid}"
-}
-```
-
-### <a name="current-time"></a>Huidige tijd
-
-De expressie voor gegevensbinding `DateTime` wordt omgezet naar `DateTime.UtcNow`.
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{DateTime}"
-}
-```
-
-## <a name="bind-to-custom-input-properties"></a>Verbinding maken met aangepaste eigenschappen voor de invoer
-
-Bindingsexpressies kan ook verwijzen naar eigenschappen die zijn gedefinieerd in de nettolading van de trigger. U wilt bijvoorbeeld dynamisch binding met een blob storage-bestand uit een bestandsnaam is opgegeven in een webhook.
-
-Bijvoorbeeld de volgende *function.json* maakt gebruik van een eigenschap genaamd `BlobName` van de nettolading van de trigger:
+Het volgende voorbeeld wordt de *function.json* -bestand voor een webhook-functie die een blob-naam in JSON ontvangt: `{"BlobName":"HelloWorld.txt"}`. Een Blob invoer binding leest de blob en het HTTP-uitvoer binding retourneert de blobinhoud van het HTTP-antwoord. U ziet dat de binding van Blob-invoer opgehaald van de blob-naam door verwijst rechtstreeks naar de `BlobName` eigenschap (`"path": "strings/{BlobName}"`)
 
 ```json
 {
@@ -424,7 +475,7 @@ Bijvoorbeeld de volgende *function.json* maakt gebruik van een eigenschap genaam
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName}",
+      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -436,7 +487,7 @@ Bijvoorbeeld de volgende *function.json* maakt gebruik van een eigenschap genaam
 }
 ```
 
-U kunt dit doen in C# en F #, moet u een POCO waarin de velden die zullen worden gedeserialiseerd in de nettolading van de trigger definiëren.
+Dit werkt in C# en F #, moet u een klasse die de velden om te worden gedeserialiseerd definieert, zoals in het volgende voorbeeld:
 
 ```csharp
 using System.Net;
@@ -458,7 +509,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 }
 ```
 
-JSON-deserialisatie wordt automatisch uitgevoerd in JavaScript, en kunt u de eigenschappen rechtstreeks gebruiken.
+JSON-deserialisatie in JavaScript, wordt automatisch worden uitgevoerd.
 
 ```javascript
 module.exports = function (context, info) {
@@ -476,9 +527,67 @@ module.exports = function (context, info) {
 }
 ```
 
-## <a name="configuring-binding-data-at-runtime"></a>Configureren van die gegevens bindt tijdens runtime
+#### <a name="dot-notation"></a>Puntnotatie
 
-In C# en andere .NET-talen, kunt u een patroon imperatieve binding in plaats van de declaratieve bindingen in *function.json* en kenmerken. Imperatieve binding is handig wanneer bindende parameters moeten worden berekend tijdens runtime in plaats van ontwerp. Zie voor meer informatie, [Binding tijdens runtime via imperatieve bindingen](functions-reference-csharp.md#imperative-bindings) in de C# naslaginformatie voor ontwikkelaars.
+Als sommige van de eigenschappen in de JSON-nettolading objecten met eigenschappen, kunt u met die via puntnotatie verwijzen. Stel bijvoorbeeld dat uw JSON uitziet:
+
+```json
+{"BlobName": {
+  "FileName":"HelloWorld",
+  "Extension":"txt"
+  }
+}
+```
+
+U kunt rechtstreeks naar verwijzen `FileName` als `BlobName.FileName`. Met deze JSON-indeling, dit is wat de `path` eigenschap in het voorgaande voorbeeld eruit als:
+
+```json
+"path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+```
+
+In C# moet u twee klassen:
+
+```csharp
+public class BlobInfo
+{
+    public BlobName BlobName { get; set; }
+}
+public class BlobName
+{
+    public string FileName { get; set; }
+    public string Extension { get; set; }
+}
+```
+
+### <a name="binding-expressions---create-guids"></a>Expressies voor gegevensbinding - maken GUID 's
+
+De `{rand-guid}` bindende expressie maakt een GUID. Het volgende blobpad in een `function.json` maakt een blob met een naam zoals *50710cb5-84b9 - 4d 87 9d 83-a03d6976a682.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{rand-guid}"
+}
+```
+
+### <a name="binding-expressions---current-time"></a>Expressies voor gegevensbinding - huidige tijd
+
+De expressie voor gegevensbinding `DateTime` wordt omgezet naar `DateTime.UtcNow`. Het volgende blobpad in een `function.json` maakt een blob met een naam zoals *2018-02-16T17-59-55Z.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
+## <a name="binding-at-runtime"></a>Binding tijdens runtime
+
+In C# en andere .NET-talen, kunt u een patroon imperatieve binding in plaats van de declaratieve bindingen in *function.json* en kenmerken. Imperatieve binding is handig wanneer bindende parameters moeten worden berekend tijdens runtime in plaats van ontwerp. Zie voor meer informatie, de [C# referentie voor ontwikkelaars](functions-dotnet-class-library.md#binding-at-runtime) of de [C# script referentie voor ontwikkelaars](functions-reference-csharp.md#binding-at-runtime).
 
 ## <a name="functionjson-file-schema"></a>Function.JSON bestand schema
 

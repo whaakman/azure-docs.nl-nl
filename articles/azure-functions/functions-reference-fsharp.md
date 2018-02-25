@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 314f528a1fcef2c7afb0eedba012023f3bc9502b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 039306b093d92b66883edcca10e42f7b1dbc7245
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-f-developer-reference"></a>Naslaginformatie over Azure Functions-F # ontwikkelaars
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -82,7 +82,7 @@ let Run(blob: string, output: byref<string>, log: TraceWriter) =
     output <- input
 ```
 
-## <a name="async"></a>Asynchrone
+## <a name="async"></a>Async
 De `async` werkstroom kan worden gebruikt, maar het resultaat moet retourneren een `Task`. Dit kan worden gedaan met `Async.StartAsTask`, bijvoorbeeld:
 
 ```fsharp
@@ -172,7 +172,7 @@ Een editor die ondersteuning biedt voor F # Compiler-Services worden niet op de 
 #r "Microsoft.Azure.WebJobs.Host.dll"
 #endif
 
-open Sytem
+open System
 open Microsoft.Azure.WebJobs.Host
 
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -184,7 +184,7 @@ Wanneer uw code wordt uitgevoerd in Azure Functions, verwerking van de bron met 
 <a name="package"></a>
 
 ## <a name="package-management"></a>Pakket management
-Als u NuGet-pakketten in een functie F #, Voeg een `project.json` van het bestand in de map van de functie in het bestandssysteem van de functie-app. Hier volgt een voorbeeld `project.json` -bestand dat wordt toegevoegd een NuGet-pakket verwijzing naar `Microsoft.ProjectOxford.Face` versie 1.1.0:
+Als u NuGet-pakketten in een functie F #, Voeg een `project.json` -bestand naar de map van de functie in het bestandssysteem van de functie-app. Hier volgt een voorbeeld `project.json` -bestand dat wordt toegevoegd een NuGet-pakket verwijzing naar `Microsoft.ProjectOxford.Face` versie 1.1.0:
 
 ```json
 {
@@ -258,9 +258,9 @@ let mylog(log: TraceWriter, text: string) =
 
 Paden biedt aan de `#load` richtlijn zijn ten opzichte van de locatie van uw `.fsx` bestand.
 
-* `#load "logger.fsx"`een bestand in de map van de functie laadt.
-* `#load "package\logger.fsx"`laden van een bestand in de `package` map in de map van de functie.
-* `#load "..\shared\mylogger.fsx"`laden van een bestand in de `shared` map op hetzelfde niveau als de functie-map, dat wil zeggen, direct onder `wwwroot`.
+* `#load "logger.fsx"` een bestand in de map van de functie laadt.
+* `#load "package\logger.fsx"` laden van een bestand in de `package` map in de map van de functie.
+* `#load "..\shared\mylogger.fsx"` laden van een bestand in de `shared` map op hetzelfde niveau als de functie-map, dat wil zeggen, direct onder `wwwroot`.
 
 De `#load` richtlijn werkt alleen met `.fsx` (F # script)-bestanden, en niet met `.fs` bestanden.
 

@@ -11,15 +11,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e49f555b2ae972cd3a0437fc44d2331aaeb5e955
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure
 Azure op rollen gebaseerde toegangsbeheer (RBAC) beschikt over de volgende ingebouwde rollen die kunnen worden toegewezen aan gebruikers, groepen en services. U kunt de definities van de ingebouwde rollen niet wijzigen. U kunt echter maken [aangepaste rollen in Azure RBAC](role-based-access-control-custom-roles.md) aanpassen aan de specifieke behoeften van uw organisatie.
@@ -51,6 +51,7 @@ In dit artikel wordt alleen de verschillende rollen die vandaag bestaan. Wanneer
 | [BizTalk Inzender](#biztalk-contributor) |BizTalk services kunt beheren |
 | [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) |ClearDB MySQL-databases kunt beheren |
 | [Contributor](#contributor) |Kunnen alles beheren behalve toegang. |
+| [De rol van de lezer-Account cosmos DB](#cosmos-db-account-reader-role) |Kan gegevens van Azure DB die Cosmos-account lezen |
 | [Data Factory Inzender](#data-factory-contributor) |Kan maken en beheren van gegevensfactory's en onderliggende resources binnen deze. |
 | [DevTest Labs User](#devtest-labs-user) |Kunnen alles weergeven en verbinding maken, starten, opnieuw opstarten en afsluiten van de virtuele machines |
 | [DNS-Zone Inzender](#dns-zone-contributor) |DNS-zones en -records beheren |
@@ -307,10 +308,23 @@ Kunnen alles beheren behalve toegang
 | --- | --- |
 | * |Maken en beheren van bronnen van alle typen |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Rollen en roltoewijzingen verwijderen niet |
 | Microsoft.Authorization/*/Write |Kan de functies en roltoewijzingen niet maken |
+
+### <a name="cosmos-db-account-reader-role"></a>Rol van lezer voor Cosmos DB-account
+Gegevens van Azure DB die Cosmos-account kan worden gelezen. Zie [DocumentDB-Account Inzender](#documentdb-account-contributor) voor het beheren van Azure DB die Cosmos-accounts.
+
+| **Acties** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|Lezen van rollen en roltoewijzingen kunnen machtigingen die u aan elke gebruiker lezen|
+|Microsoft.DocumentDB/*/read|Lezen van een verzameling|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|Het kenmerk alleen-lezen sleutels deelvenster lezen|
+|Microsoft.Insights/Metrics/read|Metrische gegevens lezen-account|
+|Microsoft.Insights/MetricDefinitions/read|Metrische definities lezen|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Lezen van resourcegroepen|
+|Microsoft.Support/*|Maken en ondersteuningstickets beheren|
 
 ### <a name="data-factory-contributor"></a>Inzender Data Factory
 Maken en beheren van de gegevensfactory en de onderliggende resources binnen deze.
@@ -677,7 +691,7 @@ Kan SQL-databases, maar niet hun beleid betrekking hebben op beveiliging beheren
 | Microsoft.Sql/servers/read |Lezen van de SQL-Servers |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Sql/servers/databases/auditingPolicies/* |Controlebeleid kan niet worden bewerkt. |
 | Microsoft.Sql/servers/databases/auditingSettings/* |Controle-instellingen kan niet worden bewerkt. |
@@ -727,7 +741,7 @@ Kan SQL-servers en databases, maar niet hun beleid betrekking hebben op beveilig
 | Microsoft.Sql/servers/* |Maken en beheren van de SQL-servers |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Sql/servers/auditingPolicies/* |Controlebeleid van SQL server kan niet worden bewerkt. |
 | Microsoft.Sql/servers/auditingSettings/* |Kan geen SQL server-controle-instellingen bewerken |

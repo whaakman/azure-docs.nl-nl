@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: dac0bf117e56c788adf46bc0647f684eccf8cf42
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: d2e3fc7c59e0b57e77d2239ff73368f96426ef39
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Overzicht van Service Bus-transactieverwerking
-Dit artikel wordt de transactiemogelijkheden van Azure Service Bus. Veel van de bespreking van de wordt geïllustreerd door het [atomische transacties met Service Bus-voorbeeld](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions). In dit artikel is beperkt tot een overzicht van transactieverwerking en de *verzenden* functie in Service Bus, terwijl het voorbeeld atomische transacties grotere en complexere binnen het bereik is.
+
+Dit artikel wordt de transactiemogelijkheden van Microsoft Azure Service Bus. Veel van de bespreking van de wordt geïllustreerd door het [atomische transacties met Service Bus-voorbeeld](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions). In dit artikel is beperkt tot een overzicht van transactieverwerking en de *verzenden* functie in Service Bus, terwijl het voorbeeld atomische transacties grotere en complexere binnen het bereik is.
 
 ## <a name="transactions-in-service-bus"></a>Transacties in de Servicebus
+
 Een [ *transactie* ](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions#what-are-transactions) twee of meer bewerkingen gegroepeerd in een *uitvoering bereik*. Een dergelijke transactie moet ervoor zorgen dat alle bewerkingen die horen bij een bepaalde groep bewerkingen slagen of gezamenlijk mislukken door aard. In dit opzicht transacties fungeren als één eenheid ondergebracht, die vaak aangeduid als *atomisch*. 
 
 Service Bus is een broker transactionele berichten en garandeert een transactionele integriteit voor alle interne bewerkingen op basis van de bericht-stores. Alle overdrachten van berichten op de Service Bus, zoals het verplaatsen van berichten naar een [wachtrij voor onbestelbare berichten](service-bus-dead-letter-queues.md) of [automatisch doorsturen](service-bus-auto-forwarding.md) van berichten tussen entiteiten transactionele zijn. Als zodanig als Service Bus een bericht accepteert, is al opgeslagen en gelabeld met een volgnummer. Daarna de overdracht van een bericht binnen de Service Bus zijn gecoördineerde bewerkingen voor alle entiteiten en wordt geen van beide leiden tot verlies (bron is geslaagd en mislukt doel) of om te worden gedupliceerd (mislukt van de bron en doel is geslaagd) van het bericht.
@@ -31,6 +33,7 @@ Service Bus is een broker transactionele berichten en garandeert een transaction
 Service Bus biedt ondersteuning voor groepering bewerkingen op een enkele Berichtentiteit (wachtrij, onderwerp, abonnement) binnen het bereik van een transactie. Bijvoorbeeld, u kunt meerdere berichten verzenden naar een wachtrij uit vanuit een transactiebereik en de berichten worden pas doorgevoerd in de wachtrij logboek wanneer de transactie is voltooid.
 
 ## <a name="operations-within-a-transaction-scope"></a>Bewerkingen binnen een transactiebereik
+
 De bewerkingen die kunnen worden uitgevoerd vanuit een transactiebereik zijn als volgt:
 
 * **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: verzenden, SendAsync, SendBatch, SendBatchAsync 
@@ -41,11 +44,13 @@ Ontvangen bewerkingen zijn niet toegevoegd, omdat ervan wordt uitgegaan dat de t
 De bestemming van het bericht (voltooid, afbreken, onbestelbare, uitstellen) uitgevoerd binnen het bereik van, en afhankelijk van de algehele uitkomst van de transactie.
 
 ## <a name="transfers-and-send-via"></a>Overschrijvingen en 'verzenden '
+
 Om in te schakelen transactionele overdracht van gegevens uit een wachtrij op een processor en vervolgens naar een andere wachtrij, Service Bus ondersteunt *overdrachten*. In een overdrachtsbewerking een afzender eerst verzendt een bericht naar een *wachtrij*, en het bericht in de wachtrij onmiddellijk worden verplaatst naar de bestemmingswachtrij met de dezelfde implementatie voor robuuste overdracht die het automatisch doorsturen mogelijkheid is afhankelijk van. Het bericht is nooit doorgevoerd in het logboek van de wachtrij zodanig dat deze zichtbaar is voor de overdracht van de wachtrij consumenten.
 
 De kracht van deze mogelijkheid transactionele wordt zichtbaar wanneer de wachtrij zelf de bron van de invoer berichten van de afzender is. Met andere woorden, Service Bus kunt overdragen het bericht naar de doelwachtrij 'via' de wachtrij, tijdens het uitvoeren van een complete (of uitstelt, of onbestelbare)-bewerking op het invoerbericht, allemaal in een atomic-bewerking. 
 
 ### <a name="see-it-in-code"></a>Deze weergegeven in de code
+
 Als u deze overschrijvingen instelt, moet u een afzender die gericht is op de doelwachtrij via de wachtrij maken. U hebt ook een ontvanger waarmee berichten van die dezelfde wachtrij opgehaald. Bijvoorbeeld:
 
 ```csharp

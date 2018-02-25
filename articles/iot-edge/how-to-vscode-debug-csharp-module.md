@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 46d9ca0bf6c9ddf95c147fc2eb62d275c973845e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5ed517cf8d70cd279a55b79ad448709116cf511b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Gebruik Visual Studio Code fouten opsporen in een C#-module met Azure IoT rand
 In dit artikel vindt u gedetailleerde instructies voor het gebruik van [Visual Studio Code](https://code.visualstudio.com/) als de belangrijkste ontwikkelprogramma fouten opsporen in uw Azure-IoT-Edge-modules.
@@ -47,7 +47,7 @@ Nadat u de voorgaande zelfstudie hebt voltooid, hebt u de volgende items gereed:
 
 2. In `launch.json`, blader naar de **fouten opsporen in IoT rand aangepaste Module (.NET Core)** sectie. Onder **pipeArgs**, vult u de `<container_name>`. Deze moet `filtermodule` in deze zelfstudie.
 
-    ![Schermafbeelding van de Code van de VS foutopsporingsvenster](./media/how-to-debug-csharp-module/f5-debug-option.png)
+    ![Schermafbeelding van de VS Code launch.json](./media/how-to-debug-csharp-module/add-container-name.png)
 
 3. Blader naar **Program.cs**. Toevoegen van een onderbrekingspunt in de `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
 4. Druk op **F5** opnieuw, en selecteert u het proces om aan te koppelen. In deze zelfstudie maakt u de procesnaam moet `FilterModule.dll`.

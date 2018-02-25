@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 7a8cd09731ccdf7ad7385f7e707125c3902ebdf2
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9e0c602646009b20c8d4f8a29d55b7f44a089131
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>Problemen met lokale VMware of fysieke server replicatie
 U wordt een specifieke foutbericht weergegeven bij het beveiligen van uw virtuele VMware-machines of fysieke servers met Azure Site Recovery. In dit artikel vindt u details van de meestvoorkomende foutberichten aangetroffen, samen met stappen om op te lossen ze voor probleemoplossing.
@@ -83,11 +83,11 @@ Als u nog geen verbinding maken, controleert u of als het probleem toegang veroo
 
   `*.backup.windowsazure.com:` Wordt gebruikt voor overdracht en indeling van replicatiegegevens
 
-  `*.blob.core.windows.net:`Gebruikt voor toegang tot het opslagaccount dat winkels gegevens gerepliceerde
+  `*.blob.core.windows.net:` Gebruikt voor toegang tot het opslagaccount dat winkels gegevens gerepliceerde
 
   `*.hypervrecoverymanager.windowsazure.com:` Wordt gebruikt voor bewerkingen en indeling in het kader van replicatiebeheer
 
-  `time.nist.gov`en `time.windows.com`: gebruikt om te controleren van de synchronisatie tussen system en globale tijd.
+  `time.nist.gov` en `time.windows.com`: gebruikt om te controleren van de synchronisatie tussen system en globale tijd.
 
 URL's voor **Azure Government Cloud**:
 

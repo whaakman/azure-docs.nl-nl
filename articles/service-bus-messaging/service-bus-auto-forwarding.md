@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: 6c92acee9d7609f4fedcddd40563b1a55fa08fac
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: be23d919b0c96d6c9b96ee328d1b18ad978a9dcc
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Service Bus-entiteiten met automatisch doorsturen Chaining
 
 De Service Bus *automatisch doorsturen* functie kunt u een wachtrij of een abonnement op een andere wachtrij of onderwerp maakt deel uit van dezelfde naamruimte zijn gekoppeld. Wanneer automatisch doorsturen is ingeschakeld, wordt Service Bus automatisch verwijdert van berichten die worden geplaatst in de eerste wachtrij of abonnement (bron) en plaatst deze in de tweede wachtrij of onderwerp (doel). Houd er rekening mee dat het nog steeds mogelijk rechtstreeks een bericht verzenden naar de doelentiteit is. Het is ook niet mogelijk om te koppelen van een subwachtrij, zoals een wachtrij voor onbestelbare berichten, naar een andere wachtrij of onderwerp.
 
 ## <a name="using-auto-forwarding"></a>Automatisch doorsturen gebruiken
-U kunt automatisch doorsturen inschakelen door het instellen van de [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] of [SubscriptionDescription.ForwardTo] [ SubscriptionDescription.ForwardTo] eigenschappen op de [QueueDescription] [ QueueDescription] of [SubscriptionDescription] [ SubscriptionDescription] objecten voor de bron, zoals in het volgende voorbeeld.
+
+U kunt automatisch doorsturen inschakelen door het instellen van de [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] of [SubscriptionDescription.ForwardTo] [ SubscriptionDescription.ForwardTo] Eigenschappen van de [QueueDescription] [ QueueDescription] of [SubscriptionDescription] [ SubscriptionDescription] objecten voor de bron, zoals in de bijvoorbeeld:
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -35,7 +36,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 De doelentiteit moet bestaan op het moment dat de bronentiteit is gemaakt. Als de doelentiteit niet bestaat, retourneert Service Bus een uitzondering wanneer u wordt gevraagd om te maken van de bronentiteit.
 
-Automatisch doorsturen kunt u een onderwerp uitbreiden. Service Bus-limieten de [aantal abonnementen op een bepaald onderwerp](service-bus-quotas.md) tot 2.000. Door het tweede niveau onderwerpen maken, kunt u gebruikmaken van aanvullende abonnementen. Houd er rekening mee dat zelfs als u niet aan de Service Bus-beperking van het aantal abonnementen gebonden, het toevoegen van een tweede verificatieniveau onderwerpen de algehele doorvoer van uw onderwerp verbeteren kunt.
+Automatisch doorsturen kunt u een onderwerp uitbreiden. Service Bus-limieten de [aantal abonnementen op een bepaald onderwerp](service-bus-quotas.md) tot 2.000. Door het tweede niveau onderwerpen maken, kunt u gebruikmaken van aanvullende abonnementen. Zelfs als u niet aan de Service Bus-beperking van het aantal abonnementen gebonden, kunt het toevoegen van een tweede verificatieniveau onderwerpen de totale doorvoer van uw onderwerp verbeteren.
 
 ![Automatisch doorsturen scenario][0]
 

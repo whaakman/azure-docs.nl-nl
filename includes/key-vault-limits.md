@@ -1,10 +1,10 @@
 Transacties sleutel (maximum aantal transacties dat is toegestaan in 10 seconden kluis per regio<sup>1</sup>):
 
-|sleuteltype|HSM-sleutel<br>Sleutel maken|HSM-sleutel<br>Alle andere transacties|Software-sleutel<br>Sleutel maken|Software-sleutel<br>Alle andere transacties|
+|Sleuteltype|HSM-sleutel<br>Sleutel maken|HSM-sleutel<br>Alle andere transacties|Software-key<br>Sleutel maken|Software-key<br>Alle andere transacties|
 |:---|---:|---:|---:|---:|
-|RSA 2048-bits|5|1000|10|2000|
-|RSA 3072-bits|5|250|10|500|
-|RSA 4096 bits|5|125|10|250|
+|RSA 2048-bit|5|1000|10|2000|
+|RSA 3072-bit|5|250|10|500|
+|RSA 4096-bit|5|125|10|250|
 |
 
 Geheimen, Opslagaccountsleutels beheerd en kluis transacties:
@@ -12,5 +12,7 @@ Geheimen, Opslagaccountsleutels beheerd en kluis transacties:
 | --- | --- |
 | Alle transacties |2000 |
 |
+
+Zie [Azure Key Vault richtlijnen beperking](../key-vault/key-vault-ovw-throttling.md) voor informatie over het afhandelen van beperking wanneer deze limiet is overschreden.
 
 <sup>1</sup> er is een abonnement wide limiet voor alle transactietypen die 5 x per sleutelkluis limiet is. Bijvoorbeeld HSM - andere transacties per abonnement zijn beperkt tot 5000 transacties in 10 seconden per abonnement.

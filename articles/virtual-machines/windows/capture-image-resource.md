@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 172ad5198f7c813ed114f9fe3caea3d6a5dc6a97
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 84f6f0c13e8c06aa934d98ecc3c3e4a61f95c641
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Maken van een begeleide afbeelding van een gegeneraliseerde virtuele machine in Azure
 
@@ -55,7 +55,7 @@ Zorg ervoor dat de serverfuncties die op de computer uitgevoerd worden ondersteu
 3. In **naam**, typ de naam die u wilt gebruiken voor de afbeelding.
 4. In **resourcegroep** select **nieuw** en typ een naam in of selecteer **gebruik bestaande** en selecteer een resourcegroep te gebruiken uit de vervolgkeuzelijst.
 5. Als u de bron-VM verwijderen wilt nadat de installatiekopie gemaakt, selecteer is **automatisch verwijderen van deze virtuele machine na het maken van de installatiekopie van het**.
-6. Wanneer u klaar bent, klikt u op **maken**.
+6. Klik op **Maken** wanneer u klaar bent.
 16. Nadat de installatiekopie is gemaakt, ziet u dit als een **installatiekopie** resource in de lijst met resources in de resourcegroep.
 
 
@@ -65,7 +65,7 @@ Zorg ervoor dat de serverfuncties die op de computer uitgevoerd worden ondersteu
 Het maken van een installatiekopie van een rechtstreeks vanuit de virtuele machine, zorgt u ervoor dat de installatiekopie alle schijven die zijn gekoppeld aan de virtuele machine bevat, inclusief de Besturingssysteemschijf en alle gegevensschijven. In dit voorbeeld laat zien hoe een begeleide afbeelding maken van een virtuele machine of schijven die gebruikt worden beheerd.
 
 
-Voordat u begint, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module hebt. Voer de volgende opdracht om deze te installeren.
+Voordat u begint, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module hebt. Voer de volgende opdracht om deze te installeren. (Gebruik `Get-Module` om te controleren welke versie u hebt.)
 
 ```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0

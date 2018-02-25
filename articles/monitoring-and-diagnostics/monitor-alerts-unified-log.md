@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Logboek waarschuwingen in Azure Monitor - waarschuwingen (Preview)
 Dit artikel vindt u informatie over hoe waarschuwingsregels in Analytics query's voor werk in Azure waarschuwingen (Preview) en worden de verschillen tussen verschillende soorten logboek waarschuwingsregels beschreven.
@@ -27,11 +27,20 @@ Momenteel Azure waarschuwingen (Preview), ondersteunt Meld u waarschuwingen op q
 
 > [!WARNING]
 
-> Logboek waarschuwingen in de Azure-waarschuwingen (Preview) ondersteunt momenteel geen cross-werkruimte of cross-app-query's.
+> Logboek waarschuwing in Azure waarschuwingen (Preview) ondersteunt momenteel geen cross-werkruimte of cross-app-query's.
+
+Ook gebruikers hun query's in Analytics platform van keuze in Azure kunnen verbeteren en vervolgens *importeren voor gebruik in waarschuwingen (Preview) door het opslaan van de query*. Volgende stappen uitvoeren:
+- Voor Application Insights: Ga naar Analytics-portal, query's en de resultaten te valideren. Sla met unieke naam in *gedeelde query's*.
+- Voor logboekanalyse: Ga naar logboek zoeken, query's en de resultaten te valideren. Gebruik vervolgens opslaan met de unieke naam in elke categorie.
+
+Klik wanneer [maken van een waarschuwing in een logboek in waarschuwingen (Preview)](monitor-alerts-unified-usage.md), ziet u de opgeslagen query vermeld als signaaltype **logboek (opgeslagen Query)**; zoals geïllustreerd in onderstaand voorbeeld: ![opgeslagen Query die zijn geïmporteerd op waarschuwingen](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+
+> [!NOTE]
+> Met behulp van **logboek (opgeslagen Query)** resulteert in een import op waarschuwingen. Eventuele wijzigingen die zijn uitgevoerd na in Analytics wordt daarom niet worden reflecteert in opgeslagen waarschuwingsregels en vice versa.
 
 ## <a name="log-alert-rules"></a>Meld u regels voor waarschuwingen
 
-Waarschuwingen worden gemaakt met Azure-waarschuwingen (Preview) automatisch logboek query's uitvoeren met regelmatige tussenpozen.  Als de resultaten van de query logboek aan bepaalde criteria voldoen, wordt een waarschuwing record gemaakt. Een of meer acties voor het proactief zullen u informeren over de waarschuwing of een ander proces lijkt op het uitvoeren van runbooks, met behulp van aanroepen kan vervolgens automatisch uitgevoerd door de regel [actiegroepen](monitoring-action-groups.md).  Verschillende soorten waarschuwingsregels gebruiken verschillende logica voor deze analyses.
+Waarschuwingen worden gemaakt met Azure-waarschuwingen (Preview) automatisch logboek query's uitvoeren met regelmatige tussenpozen.  Als de resultaten van de query logboek aan bepaalde criteria voldoen, wordt een waarschuwing record gemaakt. Een of meer acties voor het proactief zullen u informeren over de waarschuwing of een ander proces, zoals het verzenden van gegevens voor het gebruik van de externe toepassing aanroepen kan vervolgens automatisch uitgevoerd door de regel [json gebaseerde webhook](monitor-alerts-unified-log-webhook.md)met [actiegroepen](monitoring-action-groups.md). Verschillende soorten waarschuwingsregels gebruiken verschillende logica voor deze analyses.
 
 Waarschuwingsregels worden gedefinieerd door de volgende details:
 
@@ -47,24 +56,26 @@ Elke waarschuwingsregel in Log Analytics is een van twee typen.  Elk van deze ty
 
 De verschillen tussen waarschuwingsregel typen zijn als volgt.
 
-- **Aantal resultaten** waarschuwingsregel maakt altijd één waarschuwing even **metrische meting** waarschuwingsregel maakt een waarschuwing voor elk object dat de drempelwaarde overschrijdt.
+- ** Aantal resultaten waarschuwingsregels maakt altijd één waarschuwing even **metrische meting** waarschuwingsregel maakt een waarschuwing voor elk object dat de drempelwaarde overschrijdt.
 - **Aantal resultaten** waarschuwingsregels genereren een waarschuwing als de drempelwaarde één keer wordt overschreden. **Metrische meting** waarschuwingsregels een waarschuwing kunnen maken wanneer de drempel wordt overschreden een bepaald aantal keren gedurende een bepaald tijdsinterval.
 
 ## <a name="number-of-results-alert-rules"></a>Aantal resultaten waarschuwingsregels
-**Aantal resultaten** waarschuwingsregels maken van één waarschuwing wanneer het aantal records dat wordt geretourneerd door de query de opgegeven drempelwaarde overschrijdt.
+**Aantal resultaten** waarschuwingsregels maken van één waarschuwing wanneer het aantal records dat wordt geretourneerd door de query de opgegeven drempelwaarde overschrijdt. Dit type van de waarschuwingsregel is ideaal voor het werken met gebeurtenissen, zoals Windows-gebeurtenislogboeken, Syslog WebApp-antwoord en aangepaste logboeken.  U wilt maken van een waarschuwing wanneer een bepaalde foutgebeurtenis wordt gemaakt, of wanneer er meerdere foutgebeurtenissen worden gemaakt binnen een bepaalde periode.
 
-**Drempelwaarde**: de drempelwaarde voor een **aantal resultaten** waarschuwingsregel is groter dan of kleiner is dan een bepaalde waarde.  Als het aantal records dat wordt geretourneerd door de zoekopdracht logboek aan deze criteria voldoen, wordt een waarschuwing gemaakt.
+**Drempelwaarde**: de drempelwaarde voor een ** aantal resultaten waarschuwingsregels is groter dan of kleiner is dan een bepaalde waarde.  Als het aantal records dat wordt geretourneerd door de zoekopdracht logboek aan deze criteria voldoen, wordt een waarschuwing gemaakt.
 
-### <a name="scenarios"></a>Scenario's
-
-#### <a name="events"></a>Gebeurtenissen
-Dit type waarschuwingsregel is ideaal voor het werken met gebeurtenissen, zoals Windows-gebeurtenislogboeken, Syslog, en aangepaste logboeken.  U wilt maken van een waarschuwing wanneer een bepaalde foutgebeurtenis wordt gemaakt, of wanneer er meerdere foutgebeurtenissen worden gemaakt binnen een bepaalde periode.
-
-Voor waarschuwing bij één gebeurtenis, stelt u het aantal resultaten op groter dan 0 en de frequentie en tijdvenster tot vijf minuten.  Die de query wordt uitgevoerd elke vijf minuten en controleer of het exemplaar van een enkelvoudige gebeurtenis die is gemaakt sinds de laatste keer dat de query werd uitgevoerd.  Een langer frequentie mogelijk vertraagd de tijd tussen de gebeurtenis die wordt verzameld en de waarschuwing wordt gemaakt.
-
-Sommige toepassingen kunnen zich aanmelden voor een incidentele fout die mag niet per se een melding kan genereren.  De toepassing kan bijvoorbeeld het proces opnieuw starten die de foutgebeurtenis gemaakt en slaagt de volgende keer.  U kan in dit geval niet wilt laten maken van de waarschuwing, tenzij meerdere gebeurtenissen worden gemaakt binnen een bepaalde periode.  
+Waarschuw op één gebeurtenis, het aantal resultaten ingesteld op groter dan 0 en Controleer op het exemplaar van een enkelvoudige gebeurtenis die is gemaakt sinds de laatste keer dat de query werd uitgevoerd. Sommige toepassingen kunnen zich aanmelden voor een incidentele fout die mag niet per se een melding kan genereren.  De toepassing kan bijvoorbeeld het proces opnieuw starten die de foutgebeurtenis gemaakt en slaagt de volgende keer.  U kan in dit geval niet wilt laten maken van de waarschuwing, tenzij meerdere gebeurtenissen worden gemaakt binnen een bepaalde periode.  
 
 In sommige gevallen wilt u mogelijk een waarschuwing in het ontbreken van een gebeurtenis maken.  Bijvoorbeeld, een proces kan zich aanmelden reguliere gebeurtenissen om aan te geven dat deze correct werkt.  Als deze niet een van deze gebeurtenissen binnen een bepaalde periode, moet een waarschuwing worden gemaakt.  In dit geval stelt u de drempelwaarde op **minder dan 1**.
+
+### <a name="example"></a>Voorbeeld
+Neem bijvoorbeeld een scenario waarin u wilt weten wanneer uw web gebaseerde App biedt een antwoord aan gebruikers met code 500 (dat wil) interne serverfout. U zou een waarschuwingsregel maken met de volgende details:  
+**Query:** aanvragen | waar resultCode == '500'<br>
+**Tijdvenster:** 30 minuten<br>
+**Waarschuwing frequentie:** vijf minuten<br>
+**De waarde voor drempel:** geweldige dan 0<br>
+
+Waarschuwing zou voert u de query om de 5 minuten met 30 minuten aan gegevens - gezocht naar een record waarop resultaatcode 500 is. Als een dergelijke record wordt gevonden, wordt deze geactiveerd de waarschuwing en de trigger de actie die is geconfigureerd.
 
 ## <a name="metric-measurement-alert-rules"></a>Waarschuwingsregels metrische meting
 
@@ -74,7 +85,7 @@ In sommige gevallen wilt u mogelijk een waarschuwing in het ontbreken van een ge
 
 > [!NOTE]
 
-> Statistische functie in de query moet met de naam/aangeroepen: AggregatedValue en geef een numerieke waarde.
+> Statistische functie in de query moet met de naam/aangeroepen: AggregatedValue en geef een numerieke waarde. 
 
 
 **Veld groeperen**: een record met een cumulatieve waarde voor elk exemplaar van dit veld wordt gemaakt en een waarschuwing worden gegenereerd voor elk.  Bijvoorbeeld, als u wilt dat er waarschuwingen gegenereerd voor elke computer, gebruikt u **door Computer**   
@@ -84,6 +95,8 @@ In sommige gevallen wilt u mogelijk een waarschuwing in het ontbreken van een ge
 > Metrische meting regels voor waarschuwingen die zijn gebaseerd op de Application Insights, kunt u het veld voor het groeperen van de gegevens opgeven. Gebruik hiervoor de **cumulatieve op** optie in de definitie van de regel.   
 
 **Interval**: definieert de tijdsinterval waarover de gegevens worden samengevoegd.  Bijvoorbeeld, als u hebt opgegeven **vijf minuten**, een record voor elk exemplaar van het groepsveld om de 5 minuten gedurende de periode die is opgegeven voor de waarschuwing geaggregeerd zouden worden gemaakt.
+> [!NOTE]
+> Functie van de opslaglocatie moet worden gebruikt in query. Ook als ongelijke tijdsintervallen voor tijdvenster worden geproduceerd door het gebruik van de functie van de Bin - wordt waarschuwing in plaats daarvan gebruikt u bin_at functie om te controleren of dat er is een vast punt
 
 **Drempelwaarde**: de drempelwaarde voor waarschuwingsregels metrische meting wordt gedefinieerd door een cumulatieve waarde en een aantal schendingen.  Als alle gegevenspunten in de zoekopdracht logboek deze waarde overschrijdt, heeft deze beschouwd als een schending.  Als het aantal schendingen in voor elk object in de resultaten van de opgegeven waarde overschrijdt, wordt een waarschuwing gemaakt voor dat object.
 
@@ -104,6 +117,8 @@ In dit voorbeeld zou er afzonderlijke waarschuwingen voor srv02 en srv03 worden 
 
 
 ## <a name="next-steps"></a>Volgende stappen
+* Begrijpen [webhookacties voor logboek-waarschuwingen](monitor-alerts-unified-log-webhook.md)
 * [Een overzicht van Azure-waarschuwingen (Preview)](monitoring-overview-unified-alerts.md)
 * Meer informatie over [met behulp van Azure waarschuwingen (preview)](monitor-alerts-unified-usage.md)
+* Meer informatie over [Application Insights](../application-insights/app-insights-analytics.md)
 * Meer informatie over [logboekanalyse](../log-analytics/log-analytics-overview.md).    

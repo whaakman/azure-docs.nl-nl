@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 85935e60bba4b27972282700e2e9c9a22b403bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71275d437aabdd5699f0d462fddc5a190ff19db
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Toegangsbeheer op basis van rollen voor Service Fabric-clients
 Azure Service Fabric ondersteunt twee verschillende toegangsrechten besturingselementtypen voor clients die zijn verbonden met een Service Fabric-cluster: beheerder en gebruiker. Toegangsbeheer kan de Clusterbeheerder om te beperken van toegang tot bepaalde clusterbewerkingen voor verschillende groepen gebruikers, zodat het cluster beter te beveiligen.  
@@ -50,7 +50,7 @@ Het type beheerder toegang besturingselement heeft volledige toegang to alle Fab
 * **RecoverServicePartitions**: servicepartities herstellen                             
 * **RecoverSystemPartitions**: service systeempartities herstellen                             
 
-### <a name="cluster-operations"></a>Bewerkingen voor een cluster
+### <a name="cluster-operations"></a>Clusterbewerkingen
 * **ProvisionFabric**: MSI en de clusternaambron manifest inrichten                             
 * **UpgradeFabric**: beginnen cluster                             
 * **UnprovisionFabric**: MSI en de clusternaambron manifest hierbij                         

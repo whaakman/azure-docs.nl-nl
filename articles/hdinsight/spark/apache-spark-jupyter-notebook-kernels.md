@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels voor Jupyter-notebook in Spark-clusters in Azure HDInsight 
 
@@ -135,7 +135,11 @@ U kunt openen de **00 - [Lees mij eerst] Spark Magic Kernel functies** notebook 
 
 ## <a name="where-are-the-notebooks-stored"></a>Waar worden de laptops opgeslagen?
 
-Jupyter-notebooks worden opgeslagen in het opslagaccount die is gekoppeld aan het cluster onder de **/HdiNotebooks** map.  Notitieblokken, bestanden en mappen die u vanuit Jupyter maakt zijn toegankelijk is vanaf de storage-account.  Bijvoorbeeld, als u een map maken met Jupyter **mijnmap** en een laptop **myfolder/mynotebook.ipynb**, u toegang hebt tot die laptop `/HdiNotebooks/myfolder/mynotebook.ipynb` binnen het storage-account.  Het omgekeerde geldt ook, dat wil zeggen, als u een laptop rechtstreeks uploaden naar uw opslagaccount op `/HdiNotebooks/mynotebook1.ipynb`, de laptop is ook van Jupyter zichtbaar.  Laptops blijven in de storage-account, zelfs nadat het cluster wordt verwijderd.
+Als uw cluster Azure Storage als het standaardopslagaccount gebruikt, Jupyter-notebooks zijn opgeslagen in de opslagaccount onder de **/HdiNotebooks** map.  Notitieblokken, bestanden en mappen die u vanuit Jupyter maakt zijn toegankelijk is vanaf de storage-account.  Bijvoorbeeld, als u een map maken met Jupyter **mijnmap** en een laptop **myfolder/mynotebook.ipynb**, u toegang hebt tot die laptop `/HdiNotebooks/myfolder/mynotebook.ipynb` binnen het storage-account.  Het omgekeerde geldt ook, dat wil zeggen, als u een laptop rechtstreeks uploaden naar uw opslagaccount op `/HdiNotebooks/mynotebook1.ipynb`, de laptop is ook van Jupyter zichtbaar.  Laptops blijven in de storage-account, zelfs nadat het cluster wordt verwijderd.
+
+> [!NOTE]
+> HDInsight-clusters met Azure Data Lake Store als de opslag van de standaard geen notitieblokken opgeslagen in de bijbehorende opslagruimte.
+>
 
 De manier waarop notitieblokken worden opgeslagen in het opslagaccount is compatibel met HDFS. Dus als u SSH in het cluster dat kunt u opdrachten voor het beheer zoals weergegeven in het volgende fragment:
 
@@ -143,8 +147,7 @@ De manier waarop notitieblokken worden opgeslagen in het opslagaccount is compat
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-
-Als er problemen bij toegang tot het opslagaccount voor het cluster zijn, de laptops worden ook opgeslagen op de headnode `/var/lib/jupyter`.
+Ongeacht of het cluster maakt gebruik van Azure Storage of Azure Data Lake Store als het standaardopslagaccount, worden ook de laptops opgeslagen op het cluster headnode op `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Ondersteunde browser
 

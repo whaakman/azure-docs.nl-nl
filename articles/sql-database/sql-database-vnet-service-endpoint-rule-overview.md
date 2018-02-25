@@ -17,11 +17,11 @@ ms.workload: On Demand
 ms.date: 02/20/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c1bb1698723af60544b89f4b3168c44a32d31afd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Gebruik Virtual Network service-eindpunten en regels voor Azure SQL Database
 
@@ -127,6 +127,8 @@ U hebt de optie voor het gebruik van [op rollen gebaseerde toegangsbeheer (RBAC)
 ## <a name="limitations"></a>Beperkingen
 
 De functie van de regels voor virtueel netwerk heeft voor Azure SQL Database, de volgende beperkingen:
+
+- Een Web-App kunnen worden toegewezen aan een persoonlijke IP-adres in een VNet/subnet. Zelfs als de service-eindpunten van het opgegeven VNet/subnet zijn ingeschakeld, is het verbindingen van de Web-App met de server heeft een Azure openbare IP-bron niet de bron van een VNet/subnet. Om in te schakelen connectiviteit vanuit een Web-App naar een server waarop de firewallregels VNet, moet u **alle Azure-services toestaan** op de server.
 
 - In de firewall voor de SQL-Database, is elke regel virtueel netwerk verwijst naar een subnet. Alle deze subnetten waarnaar wordt verwezen, moeten worden gehost in dezelfde geografische regio die als host fungeert voor de SQL-Database.
 

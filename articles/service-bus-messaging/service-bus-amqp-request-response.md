@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: 31f5a11cda1827a0a50fd2be0b7260daedf26e24
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: d72a4de8591898a55e4225ace154fd5ed53e6f91
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 in Microsoft Azure Service Bus: aanvraag-antwoord-bewerkingen
 
-Dit onderwerp wordt de lijst met Microsoft Azure Service Bus-aanvraag/antwoord-bewerkingen gedefinieerd. Deze informatie is gebaseerd op het concept van de werkende AMQP Management versie 1.0.  
+In dit artikel definieert de lijst met Microsoft Azure Service Bus-aanvraag/antwoord-bewerkingen. Deze informatie is gebaseerd op het concept van de werkende AMQP Management versie 1.0.  
   
 Zie voor een gedetailleerde wire-niveau AMQP 1.0-protocol handleiding, waarin wordt uitgelegd hoe Service Bus implementeert en bouwt voort op de technische OASIS AMQP-specificatie, de [AMQP 1.0 in Azure Service Bus en Event Hubs protocol handleiding] [ AMQP 1.0-protocol handleiding].  
   
@@ -128,7 +128,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|Tekenreeks|Ja|`com.microsoft:renew-lock`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:renew-lock`|  
 |`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
   
  De berichttekst voor de aanvraag moet bestaan uit de sectie van een amqp-waarde met een map met de volgende items:  
@@ -144,7 +144,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt.|  
-|StatusDescription|Tekenreeks|Nee|Beschrijving van de status.|  
+|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit de sectie van een amqp-waarde met een map met de volgende items:  
   
@@ -162,7 +162,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|Tekenreeks|Ja|`com.microsoft:peek-message`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
   
 De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
@@ -179,7 +179,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – heeft geen berichten meer<br /><br /> 0xcc: Er is geen inhoud – geen berichten meer|  
-|StatusDescription|Tekenreeks|Nee|Beschrijving van de status.|  
+|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
@@ -191,7 +191,7 @@ De kaart die vertegenwoordigt een bericht moet de volgende vermeldingen bevatten
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|Bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
+|bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
   
 ### <a name="schedule-message"></a>Schema-bericht  
 
@@ -203,7 +203,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|Tekenreeks|Ja|`com.microsoft:schedule-message`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
   
 De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
@@ -216,10 +216,10 @@ De kaart die vertegenwoordigt een bericht moet de volgende vermeldingen bevatten
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bericht-id|Tekenreeks|Ja|`amqpMessage.Properties.MessageId`Als tekenreeks|  
-|sessie-id|Tekenreeks|Ja|`amqpMessage.Properties.GroupId as string`|  
-|Partitiesleutel|Tekenreeks|Ja|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
-|Bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
+|bericht-id|tekenreeks|Ja|`amqpMessage.Properties.MessageId` Als tekenreeks|  
+|sessie-id|tekenreeks|Ja|`amqpMessage.Properties.GroupId as string`|  
+|Partitiesleutel|tekenreeks|Ja|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
+|bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
   
 #### <a name="response"></a>Antwoord  
 
@@ -228,7 +228,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt.|  
-|StatusDescription|Tekenreeks|Nee|Beschrijving van de status.|  
+|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een map met de volgende items:  
   
@@ -246,7 +246,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|Tekenreeks|Ja|`com.microsoft:cancel-scheduled-message`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
   
 De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
@@ -262,7 +262,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt.|  
-|StatusDescription|Tekenreeks|Nee|Beschrijving van de status.|  
+|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een map met de volgende items:  
   
@@ -282,14 +282,14 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|Tekenreeks|Ja|`com.microsoft:renew-session-lock`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
   
 De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|sessie-id|Tekenreeks|Ja|Sessie-ID.|  
+|sessie-id|tekenreeks|Ja|Sessie-ID.|  
   
 #### <a name="response"></a>Antwoord  
 
@@ -298,13 +298,13 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – heeft geen berichten meer<br /><br /> 0xcc: Er is geen inhoud – geen berichten meer|  
-|StatusDescription|Tekenreeks|Nee|Beschrijving van de status.|  
+|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een map met de volgende items:  
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|vervaldatum|tijdstempel|Ja|Nieuwe verlopen.|  
+|verlooptijd|tijdstempel|Ja|Nieuwe verlopen.|  
   
 ### <a name="peek-session-message"></a>Sessie-bericht  
 
@@ -316,7 +316,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|Tekenreeks|Ja|`com.microsoft:peek-message`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
   
 De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
@@ -325,7 +325,7 @@ De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met
 |---------|----------------|--------------|--------------------|  
 |uit de volgnummer|lang|Ja|Het volgnummer van waaruit peek gestart.|  
 |aantal berichten|int|Ja|Maximum aantal berichten te inspecteren.|  
-|sessie-id|Tekenreeks|Ja|Sessie-ID.|  
+|sessie-id|tekenreeks|Ja|Sessie-ID.|  
   
 #### <a name="response"></a>Antwoord  
 
@@ -334,7 +334,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – heeft geen berichten meer<br /><br /> 0xcc: Er is geen inhoud – geen berichten meer|  
-|StatusDescription|Tekenreeks|Nee|Beschrijving van de status.|  
+|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een map met de volgende items:  
   
@@ -346,7 +346,7 @@ De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|Bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
+|bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
   
 ### <a name="set-session-state"></a>Set-sessiestatus  
 
@@ -358,14 +358,14 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|Tekenreeks|Ja|`com.microsoft:peek-message`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
   
 De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|sessie-id|Tekenreeks|Ja|Sessie-ID.|  
+|sessie-id|tekenreeks|Ja|Sessie-ID.|  
 |sessiestatus|bytematrix|Ja|Ondoorzichtige binaire gegevens.|  
   
 #### <a name="response"></a>Antwoord  
@@ -375,7 +375,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
-|StatusDescription|Tekenreeks|Nee|Beschrijving van de status.|  
+|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 ### <a name="get-session-state"></a>Get-sessiestatus  
 
@@ -387,14 +387,14 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|Tekenreeks|Ja|`com.microsoft:get-session-state`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
   
 De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|sessie-id|Tekenreeks|Ja|Sessie-ID.|  
+|sessie-id|tekenreeks|Ja|Sessie-ID.|  
   
 #### <a name="response"></a>Antwoord  
 
@@ -403,7 +403,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
-|StatusDescription|Tekenreeks|Nee|Beschrijving van de status.|  
+|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
@@ -421,7 +421,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|Tekenreeks|Ja|`com.microsoft:get-message-sessions`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
   
 De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
@@ -439,7 +439,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – heeft geen berichten meer<br /><br /> 0xcc: Er is geen inhoud – geen berichten meer|  
-|StatusDescription|Tekenreeks|Nee|Beschrijving van de status.|  
+|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
@@ -458,14 +458,14 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|Tekenreeks|Ja|`com.microsoft:add-rule`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:add-rule`|  
 |`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
   
 De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|naam van regel|Tekenreeks|Ja|Regelnaam, met uitzondering van namen abonnement en het onderwerp.|  
+|naam van regel|tekenreeks|Ja|Regelnaam, met uitzondering van namen abonnement en het onderwerp.|  
 |Beschrijving van regel|Kaart|Ja|Regelbeschrijving zoals opgegeven in de volgende sectie.|  
   
 De **beschrijving van regel** kaart moet de volgende vermeldingen bevatten waarin **sql-filter** en **correlatie-filter** sluiten elkaar wederzijds uit:  
@@ -480,27 +480,27 @@ De kaart sql-filter moet de volgende vermeldingen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|expressie|Tekenreeks|Ja|De filterexpressie SQL.|  
+|expressie|tekenreeks|Ja|De filterexpressie SQL.|  
   
 De **correlatie-filter** kaart moet ten minste één van de volgende vermeldingen bevatten:  
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|correlatie-id|Tekenreeks|Nee||  
-|bericht-id|Tekenreeks|Nee||  
-|tot|Tekenreeks|Nee||  
-|antwoord aan|Tekenreeks|Nee||  
-|Label|Tekenreeks|Nee||  
-|sessie-id|Tekenreeks|Nee||  
-|antwoord-naar-sessie-id|Tekenreeks|Nee||  
-|type inhoud|Tekenreeks|Nee||  
+|correlatie-id|tekenreeks|Nee||  
+|bericht-id|tekenreeks|Nee||  
+|tot|tekenreeks|Nee||  
+|antwoord aan|tekenreeks|Nee||  
+|label|tekenreeks|Nee||  
+|sessie-id|tekenreeks|Nee||  
+|antwoord-naar-sessie-id|tekenreeks|Nee||  
+|type inhoud|tekenreeks|Nee||  
 |properties|Kaart|Nee|Is toegewezen aan Servicebus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
   
 De **sql regelactie** kaart vergezeld gaan van de volgende items:  
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|expressie|Tekenreeks|Ja|SQL-expressie in te grijpen.|  
+|expressie|tekenreeks|Ja|SQL-expressie in te grijpen.|  
   
 #### <a name="response"></a>Antwoord  
 
@@ -509,7 +509,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
-|StatusDescription|Tekenreeks|Nee|Beschrijving van de status.|  
+|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 ### <a name="remove-rule"></a>Regel verwijderen  
   
@@ -519,14 +519,14 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|Tekenreeks|Ja|`com.microsoft:remove-rule`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
   
 De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|naam van regel|Tekenreeks|Ja|Regelnaam, met uitzondering van namen abonnement en het onderwerp.|  
+|naam van regel|tekenreeks|Ja|Regelnaam, met uitzondering van namen abonnement en het onderwerp.|  
   
 #### <a name="response"></a>Antwoord  
 
@@ -535,7 +535,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
-|StatusDescription|Tekenreeks|Nee|Beschrijving van de status.|  
+|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 ## <a name="deferred-message-operations"></a>Uitgestelde berichtbewerkingen  
   
@@ -549,7 +549,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|Tekenreeks|Ja|`com.microsoft:receive-by-sequence-number`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
   
 De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
@@ -566,7 +566,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
-|StatusDescription|Tekenreeks|Nee|Beschrijving van de status.|  
+|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
@@ -579,7 +579,7 @@ De kaart die vertegenwoordigt een bericht moet de volgende vermeldingen bevatten
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |LOCK-token|UUID|Ja|Vergrendeling token als `receiver-settle-mode` is 1.|  
-|Bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
+|bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
   
 ### <a name="update-disposition-status"></a>Status van de toestand bijwerken  
 
@@ -591,17 +591,17 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|Tekenreeks|Ja|`com.microsoft:update-disposition`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
   
 De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|toestand-status|Tekenreeks|Ja|Voltooid<br /><br /> Afgebroken<br /><br /> Onderbroken|  
+|toestand-status|tekenreeks|Ja|Voltooid<br /><br /> Afgebroken<br /><br /> Onderbroken|  
 |LOCK-tokens|matrix van uuid|Ja|Bericht vergrendeling tokens disposition status bij te werken.|  
-|wachtrij voor onbestelbare reden|Tekenreeks|Nee|Kan worden ingesteld als bestemming status wordt ingesteld op **onderbroken**.|  
-|Beschrijving van de wachtrij voor onbestelbare|Tekenreeks|Nee|Kan worden ingesteld als bestemming status wordt ingesteld op **onderbroken**.|  
+|deadletter-reason|tekenreeks|Nee|Kan worden ingesteld als bestemming status wordt ingesteld op **onderbroken**.|  
+|Beschrijving van de wachtrij voor onbestelbare|tekenreeks|Nee|Kan worden ingesteld als bestemming status wordt ingesteld op **onderbroken**.|  
 |Eigenschappen te wijzigen|Kaart|Nee|Lijst met Service Bus brokered-berichteigenschappen te wijzigen.|  
   
 #### <a name="response"></a>Antwoord  
@@ -611,7 +611,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
-|StatusDescription|Tekenreeks|Nee|Beschrijving van de status.|
+|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

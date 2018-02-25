@@ -1,6 +1,6 @@
 ---
-title: "Monitor voor Resource Manager geïmplementeerde virtuele machine back-ups | Microsoft Docs"
-description: "Controleer gebeurtenissen en waarschuwingen van de back-ups van Resource Manager geïmplementeerde virtuele machine. Verzenden van e-mail op basis van waarschuwingen."
+title: Back-waarschuwingen voor Azure virtual machines bewaken | Microsoft Docs
+description: Controleer gebeurtenissen en waarschuwingen van de virtuele machine van Azure back-uptaken. Verzenden van e-mail op basis van waarschuwingen.
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2016
+ms.date: 02/23/2018
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: 1e9f6d44965e8a6cd9529ef860f0fb57fd8e572d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0f92d63d6eabe48bfac444b79bc10e090df239ca
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Waarschuwingen voor back-ups van een virtuele Azure-machine controleren
 Waarschuwingen zijn reacties van de service een drempelwaarde bereikt of overschreden. Weten wanneer start problemen kan essentieel zijn voor de bedrijven kosten worden beperkt. Waarschuwingen doorgaans niet plaats op een planning en dus is het handig om te weten zo snel mogelijk na het optreden van waarschuwingen. Bijvoorbeeld, als een back-up of herstel de taak is mislukt, een waarschuwing wordt gegenereerd binnen vijf minuten van de fout. Op het kluisdashboard bevat de tegel waarschuwingen voor back-up kritiek en waarschuwingsniveau gebeurtenissen. U kunt alle gebeurtenissen weergeven in de instellingen voor waarschuwingen voor back-up. Maar wat moet u doen als een waarschuwing treedt op wanneer u aan een afzonderlijke probleem werkt? Als u niet weet wanneer de waarschuwing gebeurt, kan dat een kleine ongemak zijn of deze gegevens in gevaar kan brengen. Om te zorgen dat de juiste personen zich bewust bent van een waarschuwing - wanneer deze zich voordoet, de service voor het verzenden van meldingen van waarschuwingen via e-mail te configureren. Zie voor meer informatie over het instellen van e-mailmeldingen [meldingen configureren](backup-azure-monitor-vms.md#configure-notifications).

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Inleiding tot Azure Advisor
 
 Informatie over de belangrijkste mogelijkheden van Azure Advisor en antwoorden op veelgestelde vragen.
 
 ## <a name="what-is-advisor"></a>Wat is Advisor?
-Advisor is een persoonlijke cloud-consultant waarmee u Volg de aanbevolen procedures om uw Azure-implementaties te optimaliseren. Het analyseert uw resourceconfiguratie en de telemetrie van de informatie over het gebruik en vervolgens raadt aan om de oplossingen waarmee u de kosteneffectiviteit, prestaties, beschikbaarheid en beveiliging van uw Azure-resources te verbeteren.
+Advisor is een persoonlijke cloud-consultant waarmee u Volg de aanbevolen procedures om uw Azure-implementaties te optimaliseren. Het analyseert uw resourceconfiguratie en gebruikstelemetrie, en raadt vervolgens oplossingen aan die u kunnen helpen de kosteneffectiviteit, prestaties, hoge beschikbaarheid en beveiliging van uw Azure-resources te verbeteren.
 
 Met Advisor, kunt u het volgende doen:
 * Proactieve, bruikbare ophalen en gepersonaliseerde aanbevolen procedures. 
@@ -52,7 +52,7 @@ U kunt op een categorie om de lijst met aanbevelingen in die categorie weer te g
 
 Selecteer de aanbevolen actie om een aanbeveling voor het implementeren van de aanbeveling.  Een eenvoudige interface, waarmee u de aanbeveling implementeren of u Raadpleeg de documentatie die u met implementatie helpt wordt geopend.  Wanneer u een aanbeveling implementeert, kan het op een dag voor Advisor herkennen die duren.
 
-Als u niet onmiddellijk actie ondernemen op een aanbeveling wilt, kunt u deze uitstellen voor een opgegeven periode of genegeerd.  Als u niet ontvangen van aanbevelingen voor een specifiek abonnement of resourcegroep wilt, kunt u Advisor alleen om aanbevelingen te genereren voor de opgegeven abonnementen en resourcegroepen configureren.
+Als u niet onmiddellijk actie ondernemen op een aanbeveling wilt, kunt u het uitstellen van een opgegeven periode of genegeerd.  Als u niet ontvangen van aanbevelingen voor een specifiek abonnement of resourcegroep wilt, kunt u Advisor alleen om aanbevelingen te genereren voor de opgegeven abonnementen en resourcegroepen configureren.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -69,9 +69,9 @@ Als u de aanbevelingen voor een abonnement Advisor te ontvangen, moet u uw abonn
 
 Advisor bevat aanbevelingen voor virtuele machines, beschikbaarheidssets Toepassingsgateways, App-Services, SQL-servers, SQL-databases en Redis-Cache.
 
-### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>Kan ik uitstellen of een aanbeveling negeren?
+### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Kan ik uitstellen of een aanbeveling negeren?
 
-Als u wilt uitstellen of een aanbeveling negeren, klikt u op de **uitstellen** koppeling. U kunt opgeven dat een tijd uitstellen periode of selecteer **nooit** naar de aanbeveling negeren.
+Als u uitstellen of een aanbeveling negeren, klikt u op de **uitstellen** koppeling. U kunt opgeven dat een uitstellen periode of selecteer **nooit** naar de aanbeveling negeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 

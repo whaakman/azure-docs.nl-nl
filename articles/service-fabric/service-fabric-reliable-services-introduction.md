@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: masnider;
-ms.openlocfilehash: 601b1c7713c9785d949c1c72000ec7f3f63dd682
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="reliable-services-overview"></a>Overzicht van Reliable Services
 Azure Service Fabric vereenvoudigt schrijven en staatloze en stateful Reliable Services beheren. Dit onderwerp wordt beschreven:
@@ -40,12 +40,12 @@ Reliable Services biedt een eenvoudige, krachtige, op het hoogste niveau program
   * meldingen ontvangen over configuratie-en code
   * zoeken en te communiceren met andere services
   * (optioneel) gebruiken de [betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md)
-  * ...en zodat ze toegang hebben tot veel andere mogelijkheden via een eerste-klas programmeermodel in diverse programmeertalen.
+  * .. en zodat ze toegang hebben tot veel andere mogelijkheden via een eerste-klas programmeermodel in diverse programmeertalen.
 * Een eenvoudige model voor het uitvoeren van uw eigen code die lijkt op modellen die u om te gebruikt programmeren. Uw code is een goed gedefinieerde toegangspunt en de levenscyclus van eenvoudig te beheren.
 * Een communicatiemodel pluggable. Gebruik het transport van uw keuze, zoals HTTP met [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, aangepaste TCP-protocollen, of iets anders. Betrouwbare Services bieden sommige geweldige out-of-the-box-opties die u kunt gebruiken of u kunt uw eigen.
 * Voor stateful services het programmeermodel Reliable Services kunt u voor het opslaan van uw status meteen in uw service met behulp van consistent en betrouwbaar [betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md). Betrouwbare verzamelingen zijn een eenvoudige reeks maximaal beschikbare en betrouwbare verzameling klassen die worden vertrouwd voor iedereen die is gebruikt C#-verzamelingen. Traditioneel vereist services externe systemen voor betrouwbare statusbeheer. Met betrouwbare verzamelingen kunt u uw status naast uw berekenings opslaan met de dezelfde hoge beschikbaarheid en betrouwbaarheid die u hebt zou verwachten van maximaal beschikbare externe stores. Dit model verbetert ook latentie omdat u zijn CO-locatie op de berekenings- en status moet werken.
 
-Bekijk deze video van Microsoft Virtual Academy voor een overzicht van Reliable services:<center>
+Bekijk deze video van Microsoft Virtual Academy voor een overzicht van Reliable services: <center>
 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
 <img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
 </a>

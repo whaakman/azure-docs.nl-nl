@@ -15,30 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 8bc7767d9903761f3338b7825185171aad74de78
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>COMPUTE context opties voor R Server op HDInsight
 
 Microsoft R Server op Azure HDInsight bepaalt hoe aanroepen worden uitgevoerd door de instelling van de compute-context. In dit artikel bevat een overzicht van de opties die beschikbaar zijn om op te geven of en hoe de uitvoering is geparallelliseerde over kernen van de edge-knooppunt of de HDInsight-cluster.
 
-Het edge-knooppunt van een cluster is een handige locatie verbinding maken met het cluster en voor het uitvoeren van uw R-scripts. Met een edge-knooppunt hebt u de optie van de parallelized gedistribueerde functies van ScaleR over de kernen van de edge-knooppunt server wordt uitgevoerd. U kunt ook deze uitvoeren op de knooppunten van het cluster met behulp van ScaleR Hadoop kaart verminderen of Spark compute-contexten.
+Het edge-knooppunt van een cluster is een handige locatie verbinding maken met het cluster en voor het uitvoeren van uw R-scripts. Met een edge-knooppunt hebt u de optie van de parallelized gedistribueerde functies van RevoScaleR over de kernen van de edge-knooppunt server wordt uitgevoerd. U kunt ook deze uitvoeren op de knooppunten van het cluster met behulp van RevoScaleR Hadoop kaart verminderen of Spark compute-contexten.
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Microsoft R Server op Azure HDInsight
-[Microsoft R Server op Azure HDInsight](r-server-overview.md) biedt de nieuwste mogelijkheden voor analyses op basis van R. Het kan gebruiken gegevens die zijn opgeslagen in een HDFS-container in uw [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage-account, een Data Lake store of het lokale bestandssysteem van Linux. Aangezien R Server is gebouwd op open-source R, wordt in de R-toepassingen die u bouwt de 8000 + open-source R-pakketten kunnen toepassen. Ze kunnen ook de routines in gebruiken [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), van Microsoft big analytics gegevenspakket die is opgenomen in R Server.  
+[Microsoft R Server op Azure HDInsight](r-server-overview.md) biedt de nieuwste mogelijkheden voor analyses op basis van R. Het kan gebruiken gegevens die zijn opgeslagen in een HDFS-container in uw [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage-account, een Data Lake store of het lokale bestandssysteem van Linux. Aangezien R Server is gebouwd op open-source R, wordt in de R-toepassingen die u bouwt de 8000 + open-source R-pakketten kunnen toepassen. Ze kunnen ook de routines in gebruiken [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), van Microsoft big analytics gegevenspakket die is opgenomen in R Server.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>COMPUTE contexten voor een edge-knooppunt
-In het algemeen een R-script wordt uitgevoerd in R Server op de edge-knooppunt uitgevoerd binnen de R-interpreter op dat knooppunt. De uitzonderingen zijn de stappen die een ScaleR functie aanroept. Het aanroepen van de ScaleR uitgevoerd in een compute-omgeving die wordt bepaald door de manier waarop u de context van de compute ScaleR instelt.  Wanneer u uw R-script vanaf een edge-knooppunt uitvoeren, wordt de mogelijke waarden van de compute-context zijn:
+In het algemeen een R-script wordt uitgevoerd in R Server op de edge-knooppunt uitgevoerd binnen de R-interpreter op dat knooppunt. De uitzonderingen zijn de stappen die een RevoScaleR functie aanroept. Het aanroepen van de RevoScaleR uitgevoerd in een compute-omgeving die wordt bepaald door de manier waarop u de context van de compute RevoScaleR instelt.  Wanneer u uw R-script vanaf een edge-knooppunt uitvoeren, wordt de mogelijke waarden van de compute-context zijn:
 
 - lokale opeenvolgende (*lokale*)
 - lokale parallel (*localpar*)
 - Kaart verminderen
 - Spark
 
-De *lokale* en *localpar* opties verschillen alleen in het **rxExec** aanroepen uitgevoerd. Ze beide uitgevoerd andere rx-functieaanroepen op een parallelle manier over alle beschikbare kernen tenzij anders is aangegeven door het gebruik van de ScaleR **numCoresToUse** optie, bijvoorbeeld `rxOptions(numCoresToUse=6)`. Parallelle uitvoeringsopties bieden optimale prestaties.
+De *lokale* en *localpar* opties verschillen alleen in het **rxExec** aanroepen uitgevoerd. Ze beide uitgevoerd andere rx-functieaanroepen op een parallelle manier over alle beschikbare kernen tenzij anders is aangegeven door het gebruik van de RevoScaleR **numCoresToUse** optie, bijvoorbeeld `rxOptions(numCoresToUse=6)`. Parallelle uitvoeringsopties bieden optimale prestaties.
 
 De volgende tabel geeft een overzicht van de verschillende compute context opties in te stellen hoe aanroepen uitgevoerd:
 
@@ -72,11 +72,11 @@ Deze principes gezien, bieden de volgende secties een aantal algemene regels van
 * De kaart verminderen compute-context alleen gebruiken als u een onoverkomelijke probleem met de compute-context voor Spark optreden omdat in het algemeen langzamer.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Inline-help op rxSetComputeContext
-Zie voor meer informatie over en voorbeelden van ScaleR compute contexten, de inline in R help bij de methode rxSetComputeContext, bijvoorbeeld:
+Zie voor meer informatie over en voorbeelden van RevoScaleR compute contexten, de inline in R help bij de methode rxSetComputeContext, bijvoorbeeld:
 
     > ?rxSetComputeContext
 
-U kunt ook verwijzen naar de [ScaleR gedistribueerde Computing handleiding](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) die beschikbaar is in de [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) bibliotheek.
+U kunt ook verwijzen naar de [gedistribueerde computing overzicht](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) in [Machine Learning-Server-documentatie](https://docs.microsoft.com/machine-learning-server/).
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd over de opties die beschikbaar zijn om op te geven of en hoe de uitvoering is geparallelliseerde over kernen van de edge-knooppunt of de HDInsight-cluster. Zie de volgende onderwerpen voor meer informatie over het gebruik van R Server met HDInsight-clusters:

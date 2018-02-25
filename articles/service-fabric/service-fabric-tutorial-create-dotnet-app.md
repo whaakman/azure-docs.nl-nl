@@ -1,11 +1,11 @@
---titel: Maak een .NET-toepassing voor Service Fabric | Microsoft Docs beschrijving: informatie over het maken van een toepassing met een front-ASP.NET Core en een stateful betrouwbare service back-end en de toepassing implementeren naar een cluster.
+--titel: Maak een .NET-toepassing voor Service Fabric | Microsoft Docs beschrijving: In deze zelfstudie leert u hoe een toepassing met een front-ASP.NET Core en een stateful betrouwbare service back-end maken en implementeren van de toepassing naar een cluster.
 Services: service fabric-documentationcenter: .net auteur: rwike77 manager: timlt-editor: ''
 
 MS.AssetID: ms.service: service fabric-ms.devlang: dotNet ms.topic: zelfstudie ms.tgt_pltfrm: N.V.T. ms.workload: N.V.T. ms.date: 29-01/2018 ms.author: ryanwi ms.custom: mvc
 
 ---
 
-# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Een toepassing met een ASP.NET Core web-API front-end service en een stateful back-endservice maken en implementeren
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: maken en implementeren van een toepassing met een front-ASP.NET Core Web API-service en een stateful back-endservice
 Deze zelfstudie is deel één van een serie.  U leert hoe u een Azure Service Fabric-toepassing met een front-end van ASP.NET Core web-API en een stateful back-endservice maakt voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core-web-front-end die stemresultaten opslaat in een stateful back-endservice in het cluster. Als u de stemtoepassing niet handmatig wilt maken, kunt u [de broncode downloaden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en verdergaan met [Het voorbeeld van een stemtoepassing doorlopen](#walkthrough_anchor).
 
 ![Diagram van de toepassing](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)

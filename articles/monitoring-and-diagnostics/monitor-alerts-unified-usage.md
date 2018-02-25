@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 5e4068cc694b623f67d998f410f207356efd873f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Maken, waarschuwingen bekijken en beheren met behulp van Azure Monitor - waarschuwingen (Preview)
+# <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Maken, weergeven en waarschuwingen beheren met behulp van Azure Monitor - waarschuwingen (Preview)
 
 ## <a name="overview"></a>Overzicht
 In dit artikel leest u hoe waarschuwingen met de nieuwe waarschuwingen (Preview)-interface in Azure-portal instellen. Er is een definitie van een waarschuwingsregel in drie delen:
@@ -28,14 +28,14 @@ In dit artikel leest u hoe waarschuwingen met de nieuwe waarschuwingen (Preview)
 - De criteria: Bepaalde voorwaarde of logica die wanneer gezien in signaal, moeten worden geactiveerd door actie
 - Actie: Specifieke aanroep naar een ontvanger van een melding verzonden - e-mail, SMS, webhook enzovoort.
 
-Waarschuwingen (Preview) wordt de term **logboek waarschuwingen** te beschrijven waar signaal aangepaste query op basis is van waarschuwingen [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md). De metrische waarschuwing mogelijkheid aangeroepen [bijna Real-Time metriek waarschuwingen](monitoring-near-real-time-metric-alerts.md) in de bestaande waarschuwingen ervaring wordt verwezen als **metriek waarschuwingen** in de waarschuwingen (Preview). In *metriek waarschuwingen*, bieden sommige brontypen [multidimensionale metrische gegevens](monitoring-metric-charts.md) voor specifieke Azure-resource en daarom waarschuwingen voor deze resource specifiekere met extra filters op kan worden gemaakt dimensies; Deze waarschuwingen worden aangeduid als **multidimensionale metrische gegevens waarschuwingen**.
+Waarschuwing (Preview) wordt de term **logboek waarschuwingen** te beschrijven waar signaal aangepaste query op basis is van waarschuwingen [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) of [Azure Application Insights](../application-insights/app-insights-analytics.md). De metrische waarschuwing mogelijkheid aangeroepen [bijna Real-Time metriek waarschuwingen](monitoring-near-real-time-metric-alerts.md) in de bestaande waarschuwingen ervaring wordt verwezen als **metriek waarschuwingen** in de waarschuwingen (Preview). In *metriek waarschuwingen*, bieden sommige brontypen [multidimensionale metrische gegevens](monitoring-metric-charts.md) voor specifieke Azure-resource en daarom waarschuwingen voor deze resource specifiekere met extra filters op kan worden gemaakt dimensies; Deze waarschuwingen worden aangeduid als **multidimensionale metrische gegevens waarschuwingen**.
 Waarschuwingen van Azure (Preview) biedt ook een uniform overzicht op al uw regels voor waarschuwingen en de mogelijkheid voor het beheren van één plaats; inclusief eventuele niet-opgeloste waarschuwingen weergeven. Meer informatie over de functionaliteit van [Azure Alerts(Preview) - overzicht](monitoring-overview-unified-alerts.md).
 
 > [!NOTE]
-> Terwijl Azure waarschuwingen (Preview) een nieuwe en verbeterde ervaring biedt voor het maken van waarschuwingen in Azure. De bestaande [Azure waarschuwingen](monitoring-overview-alerts.md) ervaring blijven bruikbaar
+> Terwijl Azure waarschuwingen (Preview) een nieuwe en verbeterde ervaring biedt voor het maken van waarschuwingen in Azure. De bestaande [Azure waarschuwingen](monitoring-overview-alerts.md) ervaring bruikbaar blijft
 >
 
-Gedetailleerde volgen is stapsgewijze handleiding voor het gebruik van Azure-waarschuwingen (Preview).
+Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van Azure-waarschuwingen (Preview).
 
 ## <a name="create-an-alert-rule-with-the-azure-portal"></a>Een waarschuwingsregel maken met de Azure portal
 1. In de [portal](https://portal.azure.com/), selecteer **Monitor** en kies onder de sectie MONITOR - **waarschuwingen (Preview)**.  
@@ -81,16 +81,13 @@ Gedetailleerde volgen is stapsgewijze handleiding voor het gebruik van Azure-waa
 
     ![Signaal logica voor multidimensionale metrische gegevens configureren](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Meld u waarschuwingen*: Zorg ervoor dat **brontype** is een bron analytics zoals *logboekanalyse*/*Application Insights*, en vervolgens één keer juiste **resource** is gekozen, klikt u op *gedaan*. Vervolgens gebruikt de **criteria toevoegen** om de lijst met signaal opties die beschikbaar zijn voor de bron- en uit de lijst signaal **aangepaste logboek zoekactie** optie voor het gekozen Meld monitor-service, zoals *logboek Analytics*/*Application Insights*.
+8. *Meld u waarschuwingen*: Zorg ervoor dat **brontype** is een bron analytics zoals *logboekanalyse* of *Application Insights*, klikt u vervolgens één keer juiste  **resource** is gekozen, klikt u op *gedaan*. Vervolgens gebruikt de **criteria toevoegen** om de lijst met signaal opties die beschikbaar zijn voor de bron- en uit de lijst signaal **aangepaste logboek zoekactie** optie voor het gekozen Meld monitor-service, zoals *logboek Analytics* of *Application Insights*.
 
    ![Selecteer een resource - het aangepaste logboek zoeken](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > **Waarschuwingen preview** lijsten opgeslagen logboek zoekt terwijl signaaltype - logboek (opgeslagen Query) wanneer resource gekozen logboekanalyse.
-   Zodat u kunt de query in Analytics perfect en deze vervolgens opslaan voor toekomstig gebruik - meer details beschikbaar op [met logboek zoeken in logboekanalyse](../log-analytics/log-analytics-log-searches.md). Vervolgens kunt u regels voor waarschuwingen op basis van deze query's rechtstreeks, zoals wordt weergegeven in het volgende voorbeeldscherm met opgeslagen zoekopdrachten:
-
-   ![Selecteer een resource - het aangepaste logboek zoeken](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+   > Waarschuwingen (Preview) lijsten kunnen importeren analytics query als signaaltype - **logboek (opgeslagen Query)**, zoals in bovenstaande afbeelding. Zodat gebruikers kunnen de query in Analytics perfect en deze vervolgens opslaan voor toekomstig gebruik in waarschuwingen - meer informatie over het gebruik van opgeslagen query die beschikbaar zijn op [met logboek zoeken in logboekanalyse](../log-analytics/log-analytics-log-searches.md) of [gedeelde query's in application insights Analytics](../log-analytics/log-analytics-overview.md). 
 
 9.  *Meld u waarschuwingen*: eenmaal hebt geselecteerd, query voor waarschuwingen kan worden vermeld in de **zoekquery** veld; als de querysyntaxis is onjuist het veld fout in rood weergegeven. Als de querysyntaxis juist - ter referentie wordt historische gegevens van de opgegeven query weergegeven als een grafiek met de optie voor het aanpassen van het tijdvenster van afgelopen zes uur voor vorige week.
 
@@ -141,7 +138,7 @@ Voor **logboek waarschuwingen** waarschuwingen kunnen worden gebaseerd op:
 
 2. De **waarschuwingen (Preview) Dashboard** wordt weergegeven - waarin alle Azure-waarschuwingen zijn unified en weergegeven in een enkelvoud board ![waarschuwing Dashboard](./media/monitoring-overview-unified/alerts-preview-overview.png)
 3. Van links naar rechts boven ziet het Dashboard u in één oogopslag de volgende - protocollen voor een gedetailleerd overzicht kan worden geklikt:
-    - *Deze gebeurtenis wordt gestart waarschuwingen*: het aantal waarschuwingen momenteel die logica voldaan en in staat gebeurtenis wordt gestart
+    - *Deze gebeurtenis wordt gestart waarschuwingen*: het aantal waarschuwingen op dit moment hebt voldaan aan de logica en in staat wordt gestart
     - *Totaal aantal waarschuwingsregels*: het aantal waarschuwingsregels gemaakt en in subtekst, het getal dat zijn momenteel ingeschakeld
 4. Een lijst met alle gestarte waarschuwingen weergegeven die de gebruiker kan klikken om details te bekijken
 5. Tot in zoeken naar specifieke waarschuwingen; een de dropdown-opties op de voorgrond kunt gebruiken voor het filteren van specifieke *abonnement, resourcegroep en/of Resource*. Verdere voor een niet-omgezette waarschuwing, gebruikt de *Filter waarschuwing* optie vinden voor het opgegeven trefwoord - specifieke overeenkomende waarschuwingen met *, waarschuwing Criteria, Resource-groep en doelbron*

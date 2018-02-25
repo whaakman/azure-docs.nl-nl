@@ -1,25 +1,24 @@
 ---
-title: Over netwerktoewijzing voor replicatie van Hyper-V-machines in VMM-clouds met Site Recovery | Microsoft Docs
+title: Over netwerktoewijzing voor replicatie naar Azure met Site Recovery Hyper-V-machine (met VMM) | Microsoft Docs
 description: Beschrijft hoe netwerktoewijzing voor replicatie van Hyper-V-machines in VMM-clouds met Azure Site Recovery beheerd instellen.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: 5b8ebf3bd118a7b082949b3f3c6ef60a07641ba1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="about-network-mapping-for-hyper-v-vm-with-vmm-replication"></a>Over netwerktoewijzing voor Hyper-V virtuele machine met VMM-replicatie 
+# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Netwerktoewijzing voorbereiden voor replicatie van virtuele Hyper-V-machines naar Azure
 
 
-Dit artikel helpt u om te begrijpen en te plannen voor netwerktoewijzing tijdens de replicatie van Hyper-V-machines in System Center Virtual Machine Manager (VMM)-clouds met behulp van de [Azure Site Recovery-service](site-recovery-overview.md).
+Dit artikel helpt u om te begrijpen en voorbereiden op netwerktoewijzing wanneer u Hyper-V-machines in System Center Virtual Machine Manager (VMM)-clouds naar Azure of naar een secundaire site repliceren met behulp van de [Azure Site Recovery](site-recovery-overview.md) service.
 
-Netwerktoewijzing wordt gebruikt als Hyper-V-machines repliceren in een VMM-cloud naar een secundaire VMM-cloud of naar Azure beheerde.
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Voorbereiden van de netwerktoewijzing voor replicatie naar Azure
 
@@ -123,4 +122,5 @@ Netwerktoewijzing van VMNetwork1 Chicago wordt gewijzigd. | VM-1 wordt verbonden
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Meer informatie over](hyper-v-vmm-networking.md) IP-adressering na een failover naar een secundaire VMM-site.
+- [Meer informatie over](hyper-v-vmm-networking.md) IP-adressering na een failover naar een secundaire VMM-site.
+- [Meer informatie over](concepts-on-premises-to-azure-networking.md) IP-adressering na een failover naar Azure.
