@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: 34ad4d7038202bd5efa2b3c210571268a39bf278
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 29ac4517ec691f94f24ced81ca227cd4d1e7214e
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Met behulp van de bevoegde eindpunt in Azure-Stack
 
@@ -60,7 +60,7 @@ Het is raadzaam dat u verbinding met de PEP alleen vanaf de host van de levenscy
       ````PowerShell
         $cred = Get-Credential
 
-        Enter-PSSession -ComputerName <IP_address_of_ERCS>`
+        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       De `ComputerName` parameter is het IP-adres of de DNS-naam van een van de virtuele machines die als host fungeert voor de PEP. 
@@ -69,7 +69,7 @@ Het is raadzaam dat u verbinding met de PEP alleen vanaf de host van de levenscy
       ````PowerShell
         $cred = Get-Credential
 
-        Enter-PSSession -ComputerName azs-ercs01`
+        Enter-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```` 
    Wanneer u wordt gevraagd, gebruikt u de volgende referenties:
@@ -129,7 +129,7 @@ Voer de volgende stappen uit voor het importeren van de sessie PEP op uw lokale 
       ````PowerShell
         $cred = Get-Credential
 
-        $session = New-PSSession -ComputerName <IP_address_of_ERCS>`
+        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       De `ComputerName` parameter is het IP-adres of de DNS-naam van een van de virtuele machines die als host fungeert voor de PEP. 
@@ -138,7 +138,7 @@ Voer de volgende stappen uit voor het importeren van de sessie PEP op uw lokale 
       ````PowerShell
        $cred = Get-Credential
 
-       $session = New-PSSession -ComputerName azs-ercs01`
+       $session = New-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```` 
    Wanneer u wordt gevraagd, gebruikt u de volgende referenties:

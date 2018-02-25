@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2018
+ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: a5b321bc06ef14207eddf5aa77ff983ada1e409f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
@@ -44,7 +44,7 @@ Als u welke inhoud besluit wilt opnemen in uw Azure-Stack marketplace, moet u re
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. Selecteer het item dat u wilt dat in de lijst en klik vervolgens op **downloaden**. Hiermee start u downloaden van de VM-installatiekopie voor het geselecteerde item. Downloadtijden variëren.
+5. Selecteer het item dat u wilt dat in de lijst en klik vervolgens op **downloaden**. De VM-afbeelding voor het item dat u hebt geselecteerd dat begint met het downloaden. Downloadtijden variëren.
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
@@ -62,7 +62,7 @@ Gebruik de volgende stappen voor het downloaden van de vereiste marketplace-item
 
 1. Open een PowerShell-console als beheerder en [Azure Stack specifieke PowerShell-modules installeren](azure-stack-powershell-install.md). Zorg ervoor dat u installeert **PowerShell versie 1.2.11 of hoger**.  
 
-2. De Azure-account dat u hebt gebruikt voor het registreren van de Azure-Stack toevoegen. U kunt dit doen de **Add-AzureRmAccount** cmdlet zonder parameters. U wordt gevraagd de referenties van uw Azure-account in te voeren en wellicht 2-factor-verificatie op basis van de configuratie van uw account te gebruiken.  
+2. De Azure-account dat u hebt gebruikt voor het registreren van de Azure-Stack toevoegen. Uitvoeren als u wilt toevoegen op het account, de **Add-AzureRmAccount** cmdlet zonder parameters. U wordt gevraagd de referenties van uw Azure-account in te voeren en wellicht 2-factor-verificatie op basis van de configuratie van uw account te gebruiken.  
 
 3. Als u meerdere abonnementen hebt, voer de volgende opdracht om te selecteren die u hebt gebruikt voor registratie:  
 
@@ -75,16 +75,16 @@ Gebruik de volgende stappen voor het downloaden van de vereiste marketplace-item
 
    ```PowerShell
    # Download the tools archive.
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/vnext.zip `
-     -OutFile vnext.zip
+   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+     -OutFile master.zip
 
    # Expand the downloaded files.
-   expand-archive vnext.zip `
+   expand-archive master.zip `
      -DestinationPath . `
      -Force
 
    # Change to the tools directory.
-   cd \AzureStack-Tools-vnext
+   cd \AzureStack-Tools-master
 
    ```
 
@@ -94,7 +94,7 @@ Gebruik de volgende stappen voor het downloaden van de vereiste marketplace-item
    Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
-     -destination “<Destination folder path>” `
+     -destination "<Destination folder path>" `
      -AzureTenantID $AzureContext.Tenant.TenantId `
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
@@ -103,15 +103,17 @@ Gebruik de volgende stappen voor het downloaden van de vereiste marketplace-item
 
    ![Azure Marketplace-items pop](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Selecteer de installatiekopie die u wilt downloaden (u kunt meerdere installatiekopieën selecteren door de Ctrl-toets ingedrukt te houden) en noteer de versie van de installatiekopie, gebruikt u deze versie voor het importeren van de afbeelding in de volgende sectie > klikt u op **Ok** > accepteer de juridische bepalingen door te klikken op **Ja**. U kunt ook de lijst met afbeeldingen filteren met behulp van de **criteria toevoegen** optie. Het downloaden van het duurt even afhankelijk van de grootte van de afbeelding. Één keer downloaden van de afbeeldingen is beschikbaar in het doelpad die u eerder hebt opgegeven. De download bevat de VHD-bestand en galerie-items in de notatie Azpkg.  
+7. Selecteer de installatiekopie die u wilt downloaden en noteer de versie van de installatiekopie. U kunt meerdere installatiekopieën selecteren door de Ctrl-toets ingedrukt te houden. U gebruikt de afbeeldingsversie voor het importeren van de afbeelding in de volgende sectie.  Klik vervolgens op **Ok**, en accepteer de juridische voorwaarden door te klikken op **Ja**. U kunt ook de lijst met afbeeldingen filteren met behulp van de **criteria toevoegen** optie. 
+
+   Het downloaden van het duurt even afhankelijk van de grootte van de afbeelding. Één keer downloaden van de afbeeldingen is beschikbaar in het doelpad die u eerder hebt opgegeven. De download bevat de VHD-bestand en galerie-items in de notatie Azpkg.
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>De installatiekopie van het importeren en deze publiceren naar de Stack Azure marketplace
 
-1. Nadat u de installatiekopie & galerij downloaden, ze en de inhoud opslaan in de map AzureStack-hulpprogramma's-vnext naar een verwisselbaar station en kopieer het naar de Stack van Azure-omgeving (u kunt kopiëren naar lokaal op een willekeurige locatie, zoals: 'C:\MarketplaceImages'.)   
+1. Nadat u de installatiekopie en galerij downloaden, ze en de inhoud opslaan in de map AzureStack-hulpprogramma's-master om een verwisselbaar station en kopieer het naar de Stack van Azure-omgeving (u kunt deze kopiëren lokaal naar elke locatie, zoals: 'C:\MarketplaceImages').   
 
 2. Voordat u de installatiekopie importeert, moet u verbinden met de Azure-Stack-operator omgeving met behulp van de stappen in [Azure Stack-operator PowerShell-omgeving configureren](azure-stack-powershell-configure-admin.md).  
 
-3. De installatiekopie importeren naar Azure Stack met de cmdlet Add-AzsVMImage. Wanneer u deze cmdlet gebruikt, zorg er dan voor dat de uitgever, aanbieding en de parameterwaarden van andere vervangen door de waarden van de installatiekopie die u wilt importeren. U kunt de 'publisher', 'aanbieding' en 'sku' waarden van een installatiekopie van het object imageReference van het Azpkg-bestand dat u eerder hebt gedownload en de waarde '-versie uit stap 6 ophalen in de vorige sectie.
+3. De installatiekopie importeren naar Azure Stack met de cmdlet Add-AzsVMImage. Wanneer u deze cmdlet gebruikt, zorg ervoor dat u de *publisher*, *bieden*, en andere parameterwaarden met de waarden van de installatiekopie die u wilt importeren. U krijgt de *publisher*, *bieden*, en *sku* waarden van de installatiekopie van het object imageReference van het Azpkg-bestand dat u eerder hebt gedownload en de  *versie* waarde uit stap 6 in de vorige sectie.
 
    ```json
    "imageReference": {
@@ -131,8 +133,8 @@ Gebruik de volgende stappen voor het downloaden van de vereiste marketplace-item
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
-    -Version "2017.09.25" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
+    -Version "2016.127.20171215" `
+    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
     -CreateGalleryItem $False `
     -Location Local
    ```
