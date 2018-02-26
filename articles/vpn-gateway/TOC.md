@@ -19,6 +19,8 @@
 ### [Azure-CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure Portal (klassiek)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
+## [Configuratiescripts voor VPN-apparaten downloaden](vpn-gateway-download-vpndevicescript.md)
+
 ## Point-to-site-verbindingen configureren – systeemeigen Azure-certificaatverificatie
 ### Een point-to-site-VPN configureren
 #### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

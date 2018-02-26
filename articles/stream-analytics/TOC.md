@@ -62,6 +62,7 @@
 ### [Overwegingen over gebeurtenisvolgordes](stream-analytics-out-of-order-and-late-events.md)
 ### [Limieten Event Hub-lezer](stream-analytics-event-hub-consumer-groups.md)
 ### [Diagnostische logboeken](stream-analytics-job-diagnostic-logs.md)
+### [Ongeldige gebeurtenissen ophalen](stream-analytics-malformed-events.md)
 
 ## Automatiseren
 ### [Management .NET-SDK gebruiken](stream-analytics-dotnet-management-sdk.md)

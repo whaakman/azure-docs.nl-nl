@@ -5,11 +5,11 @@ title: Documentatie voor Microsoft Azure
 description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Azure Cloud Services. Maak gebruik van documentatie, voorbeeldcode, zelfstudies en meer.
 featureFlags:
 - clicktale
-ms.openlocfilehash: 9f2b958d4a5d7869999d0cbaccaeed69672d6b0b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8179149046ac8f1240dd547edc0442d0543f4be0
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -593,7 +593,7 @@ ms.lasthandoff: 02/22/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>AI en Cognitive Services</h3>
+                                    <h3>AI + Machine Learning</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/machine-learning/preview">
@@ -849,7 +849,7 @@ ms.lasthandoff: 02/22/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Gegevens en analyse</h3>
+                                    <h3>Analytische gegevens</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/hdinsight/">
@@ -1160,7 +1160,7 @@ ms.lasthandoff: 02/22/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Controle en beheer</h3>
+                                    <h3>Beheerhulpprogramma's</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-policy/">
@@ -2308,7 +2308,7 @@ ms.lasthandoff: 02/22/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Gegevens en analyse</a>
+                        <a href="#analytics">Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/hdinsight/">
@@ -2541,8 +2541,8 @@ ms.lasthandoff: 02/22/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#cognitive">AI en Cognitive Services</a>
-                        <ul id="cognitive" class="cardsA">
+                        <a href="#ai">AI + Machine Learning</a>
+                        <ul id="ai" class="cardsA">
                             <li class="fullSpan">
                                 <h2>Kunstmatige intelligentie</h2>
                             </li>
@@ -3486,7 +3486,7 @@ ms.lasthandoff: 02/22/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#mgmt">Controle en beheer</a>
+                        <a href="#mgmt">Beheerhulpprogramma's</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
                                 <a href="/azure/azure-policy/">
