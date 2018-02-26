@@ -36,14 +36,16 @@
       href: delivery-and-retry.md
 - name: Handleidingen
   items:
+    - name: Posten naar een aangepast onderwerp
+      href: post-to-custom-topic.md
     - name: Gebeurtenissen op een HTTP-eindpunt ontvangen
       href: receive-events.md
     - name: Gegevens uit Event Hubs naar DataWarehouse streamen
       href: event-grid-event-hubs-integration.md
     - name: Meldingen verzenden over IoT Hub-gebeurtenissen
       href: publish-iot-hub-events-to-logic-apps.md
-    - name: Posten naar een aangepast onderwerp
-      href: post-to-custom-topic.md
+    - name: Luisteren naar Service Bus-gebeurtenissen met functies en Logic Apps
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Sjablonen voor gebeurtenisabonnementen
       href: event-subscription-template.md
     - name: Gebeurtenisverzending bewaken

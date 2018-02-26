@@ -44,9 +44,9 @@
           href: storage-monitor-troubleshoot-storage-application.md
     - name: Voor cloudopslag met hoge beschikbaarheid ontwerpen
       items:
-        - name: Uw toepassing maximaal beschikbaar maken
+        - name: 1 - Uw toepassing maximaal beschikbaar maken
           href: storage-create-geo-redundant-storage.md
-        - name: Een fout met RA-GRS-opslag simuleren
+        - name: 2 - Een fout met RA-GRS-opslag simuleren
           href: storage-simulate-failure-ragrs-account-app.md
     - name: On-premises gegevens naar de cloud migreren met AzCopy
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -54,13 +54,13 @@
       href: storage-unstructured-search.md
     - name: De prestaties en schaalbaarheid van opslagoplossingen optimaliseren
       items:
-        - name: Een virtuele machine en een opslagaccount maken
+        - name: 1 - Een virtuele machine en een opslagaccount maken
           href: storage-blob-scalable-app-create-vm.md
-        - name: Grote gegevensvolumes uploaden naar een Azure-opslagaccount
+        - name: 2 - Grote gegevensvolumes uploaden naar een Azure-opslagaccount
           href: storage-blob-scalable-app-upload-files.md
-        - name: Grote gegevensvolumes downloaden vanuit een Azure-opslagaccount
+        - name: 3 - Grote gegevensvolumes downloaden vanuit een Azure-opslagaccount
           href: storage-blob-scalable-app-download-files.md
-        - name: Metrische gegevens over doorvoer en latentie controleren
+        - name: 4 - Metrische gegevens over doorvoer en latentie controleren
           href: storage-blob-scalable-app-verify-metrics.md
 - name: Voorbeelden
   items:

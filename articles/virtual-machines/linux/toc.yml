@@ -33,21 +33,23 @@
       href: tutorial-virtual-network.md
     - name: 9 - Back-ups maken van virtuele machines
       href: tutorial-backup-vms.md
-    - name: 10 - Virtuele machines bewaken en bijwerken
+    - name: 10 - Virtuele machines beheren
+      href: tutorial-govern-resources.md
+    - name: 11 - Virtuele machines bewaken en bijwerken
       href: tutorial-monitoring.md
-    - name: 11 - Beveiliging van virtuele machines beheren
+    - name: 12 - VM-beveiliging beheren
       href: tutorial-azure-security.md
-    - name: 12 - Jenkins implementeren
+    - name: 13 - Jenkins implementeren
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 13 - CI/CD met Team Services
+    - name: 14 - CI/CD met Team Services
       href: tutorial-build-deploy-jenkins.md
-    - name: 14a - Een LAMP-stack maken
+    - name: 15a - Een LAMP-stack maken
       href: tutorial-lamp-stack.md
-    - name: 14b - Een LEMP-stack maken
+    - name: 15b - Een LEMP-stack maken
       href: tutorial-lemp-stack.md
-    - name: 14c - Een MEAN-stack maken
+    - name: 15c - Een MEAN-stack maken
       href: tutorial-mean-stack.md
-    - name: 15 - Webserver beveiligen met SSL
+    - name: 16 - Webserver beveiligen met SSL
       href: tutorial-secure-web-server.md
 - name: Voorbeelden
   items:

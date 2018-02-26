@@ -3,6 +3,7 @@
 ## [Resourceproviders en -typen](resource-manager-supported-services.md)
 ## [Resource Manager en klassieke implementatie](resource-manager-deployment-model.md)
 ## [Abonnementsgovernance](resource-manager-subscription-governance.md)
+## [Resources organiseren met beheergroepen](management-groups-overview.md)
 
 # Aan de slag
 ## [Een sjabloon maken en implementeren](resource-manager-create-first-template.md)
@@ -45,7 +46,8 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Tags gebruiken om resources te organiseren](resource-group-using-tags.md)
 ### [Resources verplaatsen naar nieuwe groep of abonnement](resource-group-move-resources.md)
-### [Abonnementen organiseren met beheergroepen](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Beheergroepen maken](management-groups-create.md)
+### [Uw beheergroepen beheren](management-groups-manage.md)
 ### [Voorbeelden governance](resource-manager-subscription-examples.md)
 ### [Beheerde toepassingen](../managed-applications/overview.md)
 

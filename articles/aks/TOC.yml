@@ -55,6 +55,8 @@
       items:
         - name: Statisch IP-adres
           href: static-ip.md
+        - name: Inkomend verkeer en TLS
+          href: ingress.md
     - name: Verificatie en beveiliging
       items:
         - name: Een service-principal maken

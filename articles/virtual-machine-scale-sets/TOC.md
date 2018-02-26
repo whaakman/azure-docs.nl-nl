@@ -42,7 +42,7 @@
 #### [Azure PowerShell gebruiken](virtual-machine-scale-sets-manage-powershell.md)
 ### [Verticaal schalen in een schaalset](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Automatische upgrades voor het besturingssysteem](virtual-machine-scale-sets-automatic-upgrade.md)
-### [Upgrades voor schaalsets](virtual-machine-scale-sets-upgrade-scale-set.md)
+### [Een schaalset aanpassen](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [DSC en schaalsets](virtual-machine-scale-sets-dsc.md)
 ### [Netwerkservice voor schaalsets](virtual-machine-scale-sets-networking.md)
 ### [Een sjabloon converteren voor beheerde schijven](virtual-machine-scale-sets-convert-template-to-md.md)

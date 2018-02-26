@@ -36,11 +36,9 @@
 #### [Assets beheren voor meerdere opslagaccounts](meda-services-managing-multiple-storage-accounts.md)
 ### [Quota en beperkingen](media-services-quotas-and-limitations.md)
 ## [Postman configureren](media-rest-apis-with-postman.md)
-### Streaming on demand
-#### [Omgeving](postman-environment.md)
-#### [Verzameling](postman-collection.md)
-### Live streamen
-#### [Verzameling](postman-live-streaming-collection.md)
+### [Verzameling voor streaming on demand](postman-collection.md)
+### [Verzameling voor live streamen](postman-live-streaming-collection.md)
+### [Omgeving](postman-environment.md)
 ## Inhoud uploaden
 ### Bestanden uploaden in een account
 #### [Azure Portal](media-services-portal-upload-files.md)
