@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 9ba36c4cf932cab2e449b12a307639184feab049
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c2cbe1c60f67c689a38d1585245610a6fa73bff4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installeren en configureren van een lokale gegevensgateway
 Een lokale gegevensgateway is vereist wanneer een of meer Azure Analysis Services-servers in dezelfde regio verbinding met on-premises gegevensbronnen maken. Zie voor meer informatie over de gateway, [On-premises gegevensgateway](analysis-services-gateway.md).
@@ -27,7 +27,7 @@ Een lokale gegevensgateway is vereist wanneer een of meer Azure Analysis Service
 ## <a name="prerequisites"></a>Vereisten
 **Minimale vereisten:**
 
-* .NET 4.5 framework
+* .NET 4.5 Framework
 * 64-bits versie van Windows 7 / Windows Server 2008 R2 (of hoger)
 
 **Aanbevolen:**
@@ -64,7 +64,7 @@ Een lokale gegevensgateway is vereist wanneer een of meer Azure Analysis Service
    > [!NOTE]
    > Als u zich met een domeinaccount aanmeldt, wordt het toegewezen aan uw organisatieaccount in Azure AD. Account van uw organisatie wordt gebruikt als beheerder van de gateway.
 
-## <a name="register"></a>Registreren
+## <a name="register"></a>Register
 Om een gateway-resource maken in Azure, moet u het lokale exemplaar dat u hebt geïnstalleerd met de Gateway-Cloudservice registreren. 
 
 1.  Selecteer **registreren van een nieuwe gateway op deze computer**.
@@ -118,5 +118,5 @@ Nadat u hebt geïnstalleerd en uw gateway is geregistreerd, moet u een gateway-r
 Dat is alles. Als u wilt openen van poorten of problemen oplost, moet u uitchecken [On-premises gegevensgateway](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Analyseservices beheren](analysis-services-manage.md)   
+* [Manage Analysis Services](analysis-services-manage.md)   
 * [Gegevens ophalen uit Azure Analysis Services](analysis-services-connect.md)

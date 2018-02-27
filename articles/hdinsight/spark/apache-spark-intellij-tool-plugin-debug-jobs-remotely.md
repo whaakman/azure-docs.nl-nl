@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 3a673d2ad58f85f5437c378a1d05aa4963893df1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 315a879368e522cc17eeff7be766f0c8a38d470b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure-Toolkit voor IntelliJ gebruiken om op te sporen Spark scala-toepassingen op afstand in HDInsight via VPN-verbinding
 
@@ -94,7 +94,7 @@ U wordt aangeraden dat u ook een Apache Spark-cluster maken in Azure HDInsight d
 
     a. Selecteer **HDInsight** > **Spark in HDInsight (Scala)**.
 
-    b. Selecteer **volgende**.
+    b. Selecteer **Volgende**.
 2. In de volgende **nieuw Project** in het dialoogvenster de volgende handelingen uit en selecteer vervolgens **voltooien**:
 
     - Voer een naam en locatie.
@@ -275,7 +275,6 @@ U wordt aangeraden dat u ook een Apache Spark-cluster maken in Azure HDInsight d
 * [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](apache-spark-use-bi-tools.md)
 * [Spark met Machine Learning: Spark in HDInsight analyseren gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark-Streaming: Spark in HDInsight voor het bouwen van realtime streamingtoepassingen gebruiken](apache-spark-eventhub-streaming.md)
 * [Websitelogboekanalyse met Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren

@@ -3,8 +3,8 @@ title: "Linux-installatiekopieën toevoegen aan Azure-Stack"
 description: "Meer informatie over hoe Linux installatiekopieën toevoegen aan Azure-Stack."
 services: azure-stack
 documentationcenter: 
-author: anjayajodha
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
-ms.openlocfilehash: a8763c01cba4e5a9eaa3b7842b627d6eb9661a95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.author: brenduns
+ms.reviewer: anajod
+ms.openlocfilehash: 29e5443de4dc43efe6d536b0f8b9cfc6ad37a669
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Linux-installatiekopieën toevoegen aan Azure-Stack
 
@@ -40,7 +41,7 @@ U kunt downloaden en uitpakken van installatiekopieën van virtuele Azure-Stack-
    * [CentOS](http://olstacks.cloudapp.net/latest/)
    * [CoreOS](https://stable.release.core-os.net/amd64-usr/current/coreos_production_azure_image.vhd.bz2)
    * [SuSE](https://download.suse.com/Download?buildid=VCFi7y7MsFQ~)
-   * [Ubuntu 14.04 TNS](https://partner-images.canonical.com/azure/azure_stack/) / [Ubuntu 16.04 TNS](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
+   * [Ubuntu 14.04 LTS](https://partner-images.canonical.com/azure/azure_stack/) / [Ubuntu 16.04 LTS](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
 
 1. Uitpakken van de installatiekopie van het VHD indien nodig en [de installatiekopie toevoegen aan de Marketplace](azure-stack-add-vm-image.md). Zorg ervoor dat de `OSType` parameter is ingesteld op `Linux`.
 2. Nadat u de installatiekopie aan de Marketplace hebt toegevoegd, een Marketplace-item is gemaakt en gebruikers een virtuele Linux-machine kunnen implementeren.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e303e2744023711a7648f9a6b29709e549d40e1
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management data model verwijzing naar de sjabloon
 Dit onderwerp beschrijft de entiteit en type representaties voor algemene items in de gegevensmodellen gebruikt voor de developer portal sjablonen in Azure API Management.  
@@ -47,11 +47,11 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 -   [Abonnement](#Subscription)  
 -   [Samenvatting van abonnement](#SubscriptionSummary)  
 -   [Gebruikersaccountgegevens](#UserAccountInfo)  
--   [Gebruiker aanmelden](#UseSignIn)  
--   [Meld u aan gebruiker](#UserSignUp)  
+-   [Gebruikersaanmelding](#UseSignIn)  
+-   [Gebruiker registreren](#UserSignUp)  
   
 ##  <a name="API"></a> API  
- De `API` entiteit heeft de volgende eigenschappen.  
+ De `API` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -62,10 +62,10 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |pad|tekenreeks|Relatieve URL is een unieke id van deze API en alle bijbehorende paden resource binnen het service-exemplaar van API Management. Deze wordt toegevoegd aan de API-eindpunt basis-URL opgegeven tijdens het maken van de service-exemplaar om een openbare URL voor deze API.|  
 |Protocollen|matrix van getal|Hierin wordt beschreven op welke protocollen de bewerkingen in deze API kunnen worden aangeroepen. Toegestane waarden zijn `1 - http` en `2 - https`, of beide.|  
 |authenticationSettings|[Autorisatie-instellingen voor server-verificatie](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Verzameling van verificatie-instellingen die zijn opgenomen in deze API.|  
-|subscriptionKeyParameterNames|object|Optionele eigenschap die kan worden gebruikt om aangepaste namen voor de query en/of koptekst parameters met de abonnementssleutel te geven. Als deze eigenschap aanwezig is moet er ten minste één van de volgende twee eigenschappen bevatten.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
+|subscriptionKeyParameterNames|object|Optionele eigenschap die kan worden gebruikt om aangepaste namen voor de query en/of koptekst parameters met de abonnementssleutel te geven. Als deze eigenschap aanwezig is, moet er ten minste één van de volgende twee eigenschappen bevatten.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="APISummary"></a>API-overzicht  
- De `API summary` entiteit heeft de volgende eigenschappen.  
+##  <a name="APISummary">API-overzicht</a>  
+ De `API summary` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -73,8 +73,8 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |naam|tekenreeks|De naam van de API. Mag niet leeg zijn. Maximale lengte is 100 tekens.|  
 |description|tekenreeks|Beschrijving van de API. Mag niet leeg zijn. Kan HTML-opmaak labels bevatten. Maximumlengte is 1000 tekens.|  
   
-##  <a name="Application"></a>Toepassing  
- De `application` entiteit heeft de volgende eigenschappen.  
+##  <a name="Application">Toepassing</a>  
+ De `application` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -85,14 +85,14 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |Versie|tekenreeks|Versie-informatie voor de toepassing.|  
 |Vereisten|tekenreeks|Een beschrijving van de vereisten voor de toepassing.|  
 |Status|nummer|De huidige status van de toepassing.<br /><br /> -0 - geregistreerd<br /><br /> -1 - verzonden<br /><br /> -2 - gepubliceerd<br /><br /> -3 - geweigerd<br /><br /> -4 - niet gepubliceerd|  
-|RegistrationDate|Datum en tijd|De datum en tijd die de toepassing is geregistreerd.|  
+|RegistrationDate|DateTime|De datum en tijd die de toepassing is geregistreerd.|  
 |Categorie-id|nummer|De categorie van de toepassing (financiën, entertainment, enz.)|  
 |DeveloperId|tekenreeks|De unieke id van de ontwikkelaar die de aanvraag heeft ingediend.|  
 |Bijlagen|Verzameling van [bijlage](#Attachment) entiteiten.|Eventuele bijlagen voor de toepassing zoals schermafbeeldingen of pictogrammen.|  
 |Pictogram|[Bijlage](#Attachment)|Het pictogram de voor de toepassing.|  
   
-##  <a name="Attachment"></a>Bijlage  
- De `attachment` entiteit heeft de volgende eigenschappen.  
+##  <a name="Attachment">Bijlage</a>  
+ De `attachment` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -101,7 +101,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |Type|tekenreeks|Het type van de bijlage.|  
 |ContentType|tekenreeks|Het mediatype van de bijlage.|  
   
-##  <a name="Sample"></a>Voorbeeld van code  
+##  <a name="Sample">Voorbeeld van code</a>  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -118,17 +118,17 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |headers|Verzameling van [Header](#Header) entiteiten.|Headers voor deze bewerking.|  
 |parameters|Verzameling van [Parameter](#Parameter) entiteiten.|De parameters die zijn gedefinieerd voor deze bewerking.|  
   
-##  <a name="Comment"></a>Opmerking  
- De `API` entiteit heeft de volgende eigenschappen.  
+##  <a name="Comment">Opmerking</a>  
+ De `API` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
 |Id|nummer|De id van de opmerking.|  
 |CommentText|tekenreeks|De hoofdtekst van de opmerking. Kan HTML bevatten.|  
 |DeveloperCompany|tekenreeks|De naam van het bedrijf van de ontwikkelaar.|  
-|PostedOn|Datum en tijd|De datum en tijdstip waarop die de opmerking is gepost.|  
+|PostedOn|DateTime|De datum en tijdstip waarop die de opmerking is gepost.|  
   
-##  <a name="Issue"></a>Probleem  
+##  <a name="Issue"></a> Probleem  
  De `issue` entiteit heeft de volgende eigenschappen.  
   
 |Eigenschap|Type|Beschrijving|  
@@ -139,20 +139,20 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |Beschrijving|tekenreeks|Beschrijving van het probleem.|  
 |SubscriptionDeveloperName|tekenreeks|De voornaam van de ontwikkelaar die het probleem gerapporteerd.|  
 |IssueState|tekenreeks|De huidige status van het probleem. Mogelijke waarden zijn voorgesteld, Opened, gesloten.|  
-|ReportedOn|Datum en tijd|De datum en tijd die het probleem is opgetreden.|  
+|ReportedOn|DateTime|De datum en tijd die het probleem is opgetreden.|  
 |Opmerkingen|Verzameling van [Opmerking](#Comment) entiteiten.|Opmerkingen over dit probleem.|  
 |Bijlagen|Verzameling van [bijlage](api-management-template-data-model-reference.md#Attachment) entiteiten.|Eventuele bijlagen aan het probleem.|  
 |Services|Verzameling van [API](#API) entiteiten.|De API's die zijn geabonneerd op door de gebruiker die het probleem wordt ingediend.|  
   
-##  <a name="Filtering"></a>Filteren  
- De `filtering` entiteit heeft de volgende eigenschappen.  
+##  <a name="Filtering"></a> Filteren  
+ De `filtering` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
 |Patroon|tekenreeks|De huidige zoekterm; of `null` als er geen zoekterm.|  
 |Tijdelijke aanduiding voor|tekenreeks|De tekst die moet worden weergegeven in het zoekvak als er geen zoekterm opgegeven.|  
   
-##  <a name="Header"></a>Koptekst  
+##  <a name="Header"></a> Koptekst  
  Deze sectie beschrijft de `parameter` weergave.  
   
 |Eigenschap|Beschrijving|Type|  
@@ -165,7 +165,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |Vereist|booleaans|Hiermee wordt aangegeven of de header is vereist.|  
 |readOnly|booleaans|Hiermee wordt aangegeven of de header is alleen-lezen.|  
   
-##  <a name="HTTPRequest"></a>HTTP-aanvraag  
+##  <a name="HTTPRequest">HTTP-aanvraag</a>  
  Deze sectie beschrijft de `request` weergave.  
   
 |Eigenschap|Type|Beschrijving|  
@@ -175,7 +175,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |parameters|matrix van [Parameter](#Parameter)|Verzameling parameters van de aanvraag opnieuw.|  
 |verklaringen|matrix van [weergave](#Representation)|Verzameling van bewerking aanvraag verklaringen.|  
   
-##  <a name="HTTPResponse"></a>HTTP-antwoord  
+##  <a name="HTTPResponse"></a> HTTP-antwoord  
  Deze sectie beschrijft de `response` weergave.  
   
 |Eigenschap|Type|Beschrijving|  
@@ -184,8 +184,8 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |description|tekenreeks|Beschrijving van de reactie bewerking.|  
 |verklaringen|matrix van [weergave](#Representation)|Verzameling van bewerking antwoord verklaringen.|  
   
-##  <a name="Operation"></a>Bewerking  
- De `operation` entiteit heeft de volgende eigenschappen.  
+##  <a name="Operation"></a> bewerking  
+ De `operation` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -193,14 +193,14 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |naam|tekenreeks|De naam van de bewerking. Mag niet leeg zijn. Maximale lengte is 100 tekens.|  
 |description|tekenreeks|Beschrijving van de bewerking. Mag niet leeg zijn. Kan HTML-opmaak labels bevatten. Maximumlengte is 1000 tekens.|  
 |Schema|tekenreeks|Hierin wordt beschreven op welke protocollen de bewerkingen in deze API kunnen worden aangeroepen. Toegestane waarden zijn `http`, `https`, of beide `http` en `https`.|  
-|uriTemplate|tekenreeks|Relatieve URL sjabloon identificeren van de doelbron voor deze bewerking. Kan parameters bevatten. Voorbeeld:`customers/{cid}/orders/{oid}/?date={date}`|  
+|uriTemplate|tekenreeks|Relatieve URL sjabloon identificeren van de doelbron voor deze bewerking. Kan parameters bevatten. Voorbeeld: `customers/{cid}/orders/{oid}/?date={date}`|  
 |host|tekenreeks|De URL van de API Management-gateway die als host fungeert voor de API.|  
 |HttpMethod|tekenreeks|HTTP-bewerkingsmethode.|  
 |Aanvraag|[HTTP-aanvraag](#HTTPRequest)|Een entiteit die gegevens voor de aanvraag bevat.|  
 |antwoorden|matrix van [HTTP-antwoord](#HTTPResponse)|Matrix van bewerking [HTTP-antwoord](#HTTPResponse) entiteiten.|  
   
-##  <a name="Menu"></a>Bewerking menu  
- De `operation menu` entiteit heeft de volgende eigenschappen.  
+##  <a name="Menu"></a> Bewerking menu  
+ De `operation menu` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -209,8 +209,8 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |Bewerking|tekenreeks|Het Menutype.|  
 |MenuItems|Verzameling van [bewerking menuopdracht](#MenuItem) entiteiten.|De bewerkingen voor de huidige API.|  
   
-##  <a name="MenuItem"></a>Bewerking menu-item  
- De `operation menu item` entiteit heeft de volgende eigenschappen.  
+##  <a name="MenuItem"></a> Bewerking menu-item  
+ De `operation menu item` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -218,8 +218,8 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |Titel|tekenreeks|De beschrijving van de bewerking.|  
 |HttpMethod|tekenreeks|De Http-methode van de bewerking.|  
   
-##  <a name="Paging"></a>Paginering  
- De `paging` entiteit heeft de volgende eigenschappen.  
+##  <a name="Paging"></a> Paginering  
+ De `paging` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -242,8 +242,8 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |type|nummer|Hiermee wordt aangegeven of deze parameter is een padparameter (1) of een parameter querystring (2).|  
 |typeName|tekenreeks|Het parametertype.|  
   
-##  <a name="Product"></a>Product  
- De `product` entiteit heeft de volgende eigenschappen.  
+##  <a name="Product">Product</a>  
+ De `product` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -256,7 +256,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |MultipleSubscriptionsCount|nummer|Maximum aantal abonnementen voor dit product een gebruiker mag hebben op hetzelfde moment.|  
   
 ##  <a name="Provider"></a> Provider  
- De `provider` entiteit heeft de volgende eigenschappen.  
+ De `provider` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -264,16 +264,16 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |authenticationType|tekenreeks|Het providertype. (Azure Active Directory, Facebook-aanmelding, Google-Account, Microsoft-Account, Twitter).|  
 |Bijschrift|tekenreeks|Weergavenaam van de provider.|  
   
-##  <a name="Representation"></a>Weergave  
+##  <a name="Representation">Weergave</a>  
  Deze sectie beschrijft een `representation`.  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|contentType|tekenreeks|Hiermee geeft u een geregistreerde of aangepaste inhoudstype voor deze weergave bijvoorbeeld `application/xml`.|  
+|contentType|tekenreeks|Hiermee wordt een geregistreerde of aangepaste inhoudstype voor deze weergave bijvoorbeeld `application/xml`.|  
 |voorbeeld|tekenreeks|Een voorbeeld van de weergave.|  
   
-##  <a name="Subscription"></a>Abonnement  
- De `subscription` entiteit heeft de volgende eigenschappen.  
+##  <a name="Subscription"></a> Abonnement  
+ De `subscription` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -282,7 +282,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |ProductTitle|tekenreeks|De naam van het product. Mag niet leeg zijn. Maximale lengte is 100 tekens.|  
 |ProductDescription|tekenreeks|Beschrijving van het product. Mag niet leeg zijn. Kan HTML-opmaak labels bevatten. Maximumlengte is 1000 tekens.|  
 |ProductDetailsUrl|tekenreeks|Relatieve URL naar de details van het product.|  
-|state|tekenreeks|De status van het abonnement. Mogelijke statussen zijn:<br /><br /> - `0 - suspended`– het abonnement is geblokkeerd en de abonnee kan API's van het product niet aanroepen.<br /><br /> - `1 - active`– het abonnement actief is.<br /><br /> - `2 - expired`– het abonnement is bereikt de verloopdatum en is gedeactiveerd.<br /><br /> - `3 - submitted`– de Abonnementaanvraag is gemaakt door de ontwikkelaar, maar is nog niet goedgekeurd of afgewezen.<br /><br /> - `4 - rejected`– de Abonnementaanvraag is geweigerd door een beheerder.<br /><br /> - `5 - cancelled`– het abonnement is geannuleerd door de ontwikkelaar of beheerder.|  
+|state|tekenreeks|De status van het abonnement. Mogelijke statussen zijn:<br /><br /> - `0 - suspended` – het abonnement is geblokkeerd en de abonnee kan API's van het product niet aanroepen.<br /><br /> - `1 - active` – het abonnement actief is.<br /><br /> - `2 - expired` – het abonnement is bereikt de verloopdatum en is gedeactiveerd.<br /><br /> - `3 - submitted` – de Abonnementaanvraag is gemaakt door de ontwikkelaar, maar is nog niet goedgekeurd of afgewezen.<br /><br /> - `4 - rejected` – de Abonnementaanvraag is geweigerd door een beheerder.<br /><br /> - `5 - cancelled` – het abonnement is geannuleerd door de ontwikkelaar of beheerder.|  
 |DisplayName|tekenreeks|Weergavenaam van het abonnement.|  
 |CreatedDate|Datum/tijd|De datum waarop het abonnement is gemaakt, in de ISO 8601-notatie: `2014-06-24T16:25:00Z`.|  
 |CanBeCancelled|booleaans|Hiermee wordt aangegeven of het abonnement kan worden geannuleerd door de huidige gebruiker.|  
@@ -298,16 +298,16 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |cancelUrl|tekenreeks|De relatieve Url om het abonnement.|  
 |RenewUrl|tekenreeks|De relatieve Url om het abonnement te verlengen.|  
   
-##  <a name="SubscriptionSummary"></a>Samenvatting van abonnement  
- De `subscription summary` entiteit heeft de volgende eigenschappen.  
+##  <a name="SubscriptionSummary"></a> Samenvatting van abonnement  
+ De `subscription summary` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
 |Id|tekenreeks|Bron-id. Een unieke identificatie van het abonnement binnen het huidige exemplaar van API Management-service. De waarde is een geldige relatieve URL in de indeling van `subscriptions/{sid}` waar `{sid}` is de abonnement-id. Deze eigenschap is alleen-lezen.|  
 |DisplayName|tekenreeks|De weergavenaam van het abonnement|  
   
-##  <a name="UserAccountInfo"></a>Gebruikersaccountgegevens  
- De `user account info` entiteit heeft de volgende eigenschappen.  
+##  <a name="UserAccountInfo"></a> Gebruikersaccountgegevens  
+ De `user account info` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -319,8 +319,8 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |ProviderName|tekenreeks|Providernaam van verificatie.|  
 |IsBasicAccount|booleaans|De waarde True als dit account is geregistreerd met e-mailadres en wachtwoord; ONWAAR als het account is geregistreerd met een provider.|  
   
-##  <a name="UseSignIn"></a>Gebruiker aanmelden  
- De `user sign in` entiteit heeft de volgende eigenschappen.  
+##  <a name="UseSignIn"></a> Gebruiker aanmelden  
+ De `user sign in` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -337,8 +337,8 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |UserRegistrationTerms|tekenreeks|Termen die een gebruiker accepteren moet voordat u zich aanmeldt.|  
 |UserRegistrationTermsEnabled|booleaans|Hiermee wordt aangegeven of de voorwaarden zijn ingeschakeld.|  
   
-##  <a name="UserSignUp"></a>Meld u aan gebruiker  
- De `user sign up` entiteit heeft de volgende eigenschappen.  
+##  <a name="UserSignUp"></a> Meld u aan gebruiker  
+ De `user sign up` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  

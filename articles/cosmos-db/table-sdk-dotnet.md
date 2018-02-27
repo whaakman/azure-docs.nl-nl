@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/21/2018
 ms.author: mimig
-ms.openlocfilehash: 9083ae631f654789b621a1fc62e0b9d31c24f119
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: af14e9dbd5f65d5cefa3d9424b8628f10d8160da
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabel .NET API: Downloaden en release-opmerkingen
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/09/2018
 |**API-documentatie**|[.NET API-naslagdocumentatie](https://aka.ms/acdbtableapiref)|
 |**Snelstartgids**|[Azure Cosmos DB: Een app met .NET- en de tabel-API maken](create-table-dotnet.md)|
 |**Zelfstudie**|[Azure Cosmos DB: Ontwikkelen met de tabel API in .NET](tutorial-develop-table-dotnet.md)|
-|**Huidige ondersteunde framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+|**Huidige ondersteunde framework**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
 > Als u tijdens de preview een tabel-API-account hebt gemaakt, moet u een [nieuw tabel-API-account](create-table-dotnet.md#create-a-database-account) maken om te kunnen werken met de algemeen beschikbare SDK’s voor tabel-API's.

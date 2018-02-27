@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 37310689881e403aa5e3f4f4d4a18180cbccc05d
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 98be7e65c2280aa58cf904cbca265f87610eff55
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Een Azure-bestandsshare in Azure Containerexemplaren koppelen
 
@@ -74,8 +74,8 @@ Geef de share- en volume koppelpunt bij het maken van de container met een Azure
 az container create \
     --resource-group $ACI_PERS_RESOURCE_GROUP \
     --name hellofiles \
-    --image seanmckenna/aci-hellofiles \
-    --ip-address Public \
+    --image microsoft/aci-hellofiles \
+    --dns-name-label aci-demo \
     --ports 80 \
     --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
     --azure-file-volume-account-key $STORAGE_KEY \
@@ -83,12 +83,14 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
+De `--dns-name-label` waarde moet uniek zijn binnen de Azure-regio maken van het exemplaar van de container. Werk de waarde in de voorgaande opdracht als u krijgt een **label DNS-naam** foutbericht wordt weergegeven wanneer u de opdracht niet uitvoeren.
+
 ## <a name="manage-files-in-mounted-volume"></a>Bestanden in gekoppelde volume beheren
 
-Nadat de container wordt gestart, kunt u de eenvoudige web-app geïmplementeerd de [aci-seanmckenna-hellofiles] [ aci-hellofiles] afbeelding voor het beheren van de bestanden in de Azure-bestandsshare op het opgegeven koppelpad. Het IP-adres voor de web-app met de [az container weergeven] [ az-container-show] opdracht:
+Nadat de container wordt gestart, kunt u de eenvoudige web-app geïmplementeerd de [aci-microsoft-hellofiles] [ aci-hellofiles] afbeelding voor het beheren van de bestanden in de Azure-bestandsshare op het opgegeven koppelpad. De web-app volledig gekwalificeerde domeinnaam (FQDN) te verkrijgen met de [az container weergeven] [ az-container-show] opdracht:
 
 ```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --output table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
 ```
 
 U kunt de [Azure-portal] [ portal] of een hulpprogramma zoals de [Microsoft Azure Storage Explorer] [ storage-explorer] op te halen en het bestand is geschreven naar controleren de bestandsshare.
@@ -142,7 +144,7 @@ Meer informatie over het koppelen van andere volumetypen in Azure Containerexemp
 * [Koppelen van een geheime volume in Azure Containerexemplaren](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->
-[aci-hellofiles]: https://hub.docker.com/r/seanmckenna/aci-hellofiles/
+[aci-hellofiles]: https://hub.docker.com/r/microsoft/aci-hellofiles/
 [portal]: https://portal.azure.com
 [storage-explorer]: https://storageexplorer.com
 

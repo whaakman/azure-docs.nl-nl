@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a8b9efffd6373ee33026e915b0a14e15d41295b3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3cedc16e3a420fd846b7860b69f4b19591ad1777
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Inleiding tot Azure Data wetenschappelijke virtuele Machine voor Linux en Windows
 
-De gegevens wetenschappelijke virtuele Machine (DSVM) is een aangepaste VM-installatiekopie op van Microsoft Azure-cloud die speciaal voor gegevenswetenschap doen. DSVM bevat veel populaire gegevenswetenschap- en andere hulpprogramma's die vooraf zijn geïnstalleerd en geconfigureerd voor het snel ontwikkelen van intelligente toepassingen voor geavanceerde analyses. Het is beschikbaar op Windows Server en op Linux. We bieden de Windows-editie van DSVM op Server 2016 en Server 2012. We bieden de Linux-versie van de DSVM op Ubuntu 16.04 LTS en op Linux-distributies op basis van OpenLogic 7.2 CentOS. 
+De gegevens wetenschappelijke virtuele Machine (DSVM) is een aangepaste VM-installatiekopie op van Microsoft Azure-cloud die speciaal voor gegevenswetenschap doen. DSVM bevat veel populaire gegevenswetenschap- en andere hulpprogramma's die vooraf zijn geïnstalleerd en geconfigureerd voor het snel ontwikkelen van intelligente toepassingen voor geavanceerde analyses. Het is beschikbaar op Windows Server en op Linux. We bieden de Windows-editie van DSVM op Server 2016 en Server 2012. Linux-edities van de DSVM op 16.04-TNS Ubuntu en CentOS 7.4 bieden we.
 
 In dit onderwerp wordt beschreven wat u kunt doen met de VM van de wetenschappelijke gegevens, bevat een overzicht van enkele van de belangrijkste scenario's voor het gebruik van de virtuele machine, itemizes van de belangrijkste functies beschikbaar op de Windows- en Linux-versies en bevat instructies over het gebruik ervan aan de slag.
 
@@ -49,13 +49,13 @@ Gegevens wetenschappelijke hackathons/wedstrijden of grootschalige gegevens mode
 De VM van de wetenschappelijke gegevens kunnen worden gebruikt om te evalueren of informatie over hulpprogramma's zoals Microsoft ML-Server, SQL Server, Visual Studio tools, Jupyter, diep learning / ML toolkits en nieuwe hulpprogramma's populaire in community met minimale inspanning setup. Aangezien de wetenschappelijke gegevens VM kan snel worden ingesteld, kan deze worden toegepast in andere op korte termijn gebruiksscenario's zoals het repliceren van gepubliceerde experimenten, demo's, volgende leidraden in sessies online of telefonische vergaderingen zelfstudies wordt uitgevoerd.
 
 ### <a name="deep-learning"></a>Grondige learning
-De virtuele machine voor gegevenswetenschap kan worden gebruikt voor training model grondige learning-algoritmen met op GPU (Graphics processing unit) gebaseerde hardware. DSVM kunt met behulp van een VM schalen hebben van Azure-cloud, u op basis van GPU hardware gebruiken in de cloud volgens nodig. Een kunt overschakelen naar een VM op basis van GPU bij het trainen van grote modellen of Snelle berekeningen moet terwijl dezelfde schijf met het besturingssysteem.  De editie Windows Server 2016 van DSVM is voorgeïnstalleerd met GPU-stuurprogramma's, frameworks en GPU-versie van de deep learning-algoritmen. Op de Linux deep learning in GPU alleen ingeschakeld de [gegevens wetenschappelijke virtuele Machine voor Linux (Ubuntu) edition](http://aka.ms/dsvm/ubuntu). U kunt de Windows-Ubuntu-2016-editie van gegevens wetenschappelijke VM implementeren naar Azure virtuele machine in dat geval niet op basis van GPU alle deep learning frameworks wordt terugval naar de CPU-modus. Eerder voor Windows Server 2012 wordt gepubliceerd een [grondige learning toolkit](http://aka.ms/dsvm/deeplearning) maar nu wordt aangeraden Windows Server 2016 voor grondige learning op basis van Windows-werkbelastingen. De op basis van CentOS Linux-editie van de DSVM alleen bevat de CPU builds van enkele van de deep leren werken met hulpprogramma's (Microsoft cognitieve Toolkit TensorFlow, MXNet), maar niet vooraf is geïnstalleerd met de GPU-stuurprogramma's en frameworks. 
+De virtuele machine voor gegevenswetenschap kan worden gebruikt voor training model grondige learning-algoritmen met op GPU (Graphics processing unit) gebaseerde hardware. DSVM kunt met behulp van een VM schalen hebben van Azure-cloud, u op basis van GPU hardware gebruiken in de cloud volgens nodig. Een kunt overschakelen naar een VM op basis van GPU bij het trainen van grote modellen of Snelle berekeningen moet terwijl dezelfde schijf met het besturingssysteem.  De editie Windows Server 2016 van DSVM is voorgeïnstalleerd met GPU-stuurprogramma's en frameworks GPU-versies van grondige learning frameworks. Deep learning in GPU is ingeschakeld op de Linux op de CentOS en Ubuntu DSVMs. U kunt de editie Ubuntu, CentOS of Windows 2016 van gegevens wetenschappelijke VM implementeren naar Azure virtuele machine niet op basis van GPU in dat geval alle grondige learning frameworks terugval naar de CPU-modus wordt. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Wat opgenomen in de VM van de wetenschappelijke gegevens?
 De virtuele Machine van de gegevens wetenschap heeft veel populaire gegevenswetenschap en deep hulpmiddel al geïnstalleerd en geconfigureerd. Dit omvat ook hulpprogramma's waarmee u gemakkelijk kunt werken met diverse Azure-gegevens en analyse producten. U kunt verkennen en bouwen van voorspellende modellen op grote gegevenssets met behulp van de Server van de ML Microsoft (R, Python) of met behulp van SQL Server 2017. Een host met andere hulpprogramma's van de open-source-community en van Microsoft zijn ook opgenomen, evenals voorbeeld code en laptops. De volgende tabel itemizes en vergelijkt de belangrijkste onderdelen die deel uitmaken van de Windows- en Linux-edities van de gegevens wetenschappelijke virtuele Machine.
 
 
-| **Hulpprogramma**                                                           | **Windows-editie** | **Linux-editie** |
+| **Hulpprogramma**                                                           | **Windows Edition** | **Linux Edition** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) met populaire pakketten die vooraf zijn geïnstalleerd   |J                      | J             |
 | [Microsoft ML Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) ontwikkelaarsversie bevat, <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) framework (R & Python) voor parallelle en gedistribueerde hoge prestaties<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package) -nieuwe de nieuwste ML algoritmen van Microsoft <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [R en Python uitoefening](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |J                      | J |
@@ -74,9 +74,9 @@ De virtuele Machine van de gegevens wetenschap heeft veel populaire gegevenswete
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | J |
 | JupyterHub (meerdere gebruikers notitieblokken server)| N | J |
 | **Ontwikkelingsprogramma's, IDE en Code-editors**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) > met Git Plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs), en [R-Tools voor Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | J | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) > met Git Plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs), en [R-hulpprogramma's voor het visuele element Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | J | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio bureaublad](https://www.rstudio.com/products/rstudio/#Desktop) | J | J |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [PyCharm](https://www.jetbrains.com/pycharm/) | N | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Atom](https://atom.io/) | N | J |
@@ -84,14 +84,15 @@ De virtuele Machine van de gegevens wetenschap heeft veel populaire gegevenswete
 | &nbsp;&nbsp;&nbsp;&nbsp;* Vim en Emacs | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git en GitBash | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;* .net framework | J | N |
-| Power BI Desktop | J | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* .Net Framework | J | N |
+| PowerBI Desktop | J | N |
 | SDK's voor toegang tot Azure en Cortana Intelligence Suite van services | J | J |
 | **Verplaatsing van gegevens en beheerprogramma 's** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Opslagverkenner | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azure CLI](https://docs.microsoft.com/cli/azure/overview) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | J | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | J | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [BLOB ZEKERING stuurprogramma](https://github.com/Azure/azure-storage-fuse) | N | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Adlcopy (Azure Data Lake Storage)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | J | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Hulpprogramma voor gegevensmigratie DocDB](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | J | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx): gegevens verplaatsen tussen OnPrem en Cloud | J | N |
@@ -102,10 +103,10 @@ De virtuele Machine van de gegevens wetenschap heeft veel populaire gegevenswete
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Xgboost](https://github.com/dmlc/xgboost) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](http://www.cs.waikato.ac.nz/ml/weka/) | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Rammelaar](http://rattle.togaware.com/) | J | J |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](http://rattle.togaware.com/) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (alleen Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/) | N | Y (alleen Ubuntu) |
-| **Op basis van GPU Deep leren werken met hulpprogramma 's** |Windows Server 2016-editie  |Ubuntu-editie |
+| **Op basis van GPU Deep leren werken met hulpprogramma 's** |Windows Server 2016 edition  | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft cognitieve Toolkit (voorheen bekend als CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | J | J|
@@ -113,7 +114,10 @@ De virtuele Machine van de gegevens wetenschap heeft veel populaire gegevenswete
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Torch](http://torch.ch/) | N | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Theano](https://github.com/Theano/Theano) | N | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Keras](https://keras.io/)| N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [NVidia cijfers](https://github.com/NVIDIA/DIGITS) | N | J |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [PyTorch](http://pytorch.org/)| N | J |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [NVidia Digits](https://github.com/NVIDIA/DIGITS) | N | J |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet Model Server](https://github.com/awslabs/mxnet-model-server) | N | J |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow levering](https://www.tensorflow.org/serving/) | N | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, CUDNN, Nvidia stuurprogramma](https://developer.nvidia.com/cuda-toolkit) | J | J |
 | **Platform voor big Data (alleen Devtest)**|||
 | &nbsp;&nbsp;&nbsp;&nbsp;* Lokale [Spark](http://spark.apache.org/) zelfstandige | N | J |
@@ -126,7 +130,7 @@ De virtuele Machine van de gegevens wetenschap heeft veel populaire gegevenswete
   * [DSVM op basis van Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm)
   
   of 
-  * [DSVM op basis van Windows Server 2012](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) 
+  * [Windows Server 2012 based DSVM](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) 
 * Klik op de **IT ophalen nu** knop.
 * Meld u aan de virtuele machine van het externe bureaublad met de referenties die u hebt opgegeven toen u de virtuele machine hebt gemaakt.
 * Als u wilt detecteren en de hulpprogramma's starten, klikt u op de **Start** menu.
@@ -137,7 +141,7 @@ De virtuele Machine van de gegevens wetenschap heeft veel populaire gegevenswete
 
   of
 
-  * [OpenLogic CentOS DSVM gebaseerd](http://aka.ms/dsvm/centos)
+  * [DSVM op basis van centOS](http://aka.ms/dsvm/centos)
 
   
 * Klik op de **nu downloaden** knop.

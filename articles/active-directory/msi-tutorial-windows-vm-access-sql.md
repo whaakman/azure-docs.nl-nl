@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 4e6645071da5353cbe12c7353d85f95eb8874c4f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 58c6b5e076e9546aa621c9d1aea8893edf4335c0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Een Windows VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure SQL
 
@@ -44,7 +44,7 @@ Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.c
 
 Voor deze zelfstudie maken we een nieuwe Windows VM.  U kunt ook MSI op een bestaande virtuele machine inschakelen.
 
-1.  Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1.  Klik op de **maken van een resource** knop gevonden in de linkerbovenhoek van de Azure portal.
 2.  Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. 
 3.  Geef de informatie van de virtuele machine op. De **gebruikersnaam** en **wachtwoord** gemaakte Hier ziet u de referenties die u kunt aanmelden bij de virtuele machine.
 4.  Kies de juiste **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
@@ -155,7 +155,7 @@ Voor deze stap, moet u [Microsoft SQL Server Management Studio](https://docs.mic
 1.  Start SQL Server Management Studio.
 2.  In de **verbinding maken met Server** dialoogvenster, Voer uw SQL server-naam in de **servernaam** veld.
 3.  In de **verificatie** optie **Active Directory - Universal met ondersteuning voor MFA**.
-4.  In de **gebruikersnaam** en voer de naam van de Azure AD-account die u hebt ingesteld als de beheerder van de server, bijvoorbeeld:helen@woodgroveonline.com
+4.  In de **gebruikersnaam** en voer de naam van de Azure AD-account die u hebt ingesteld als de beheerder van de server, bijvoorbeeld: helen@woodgroveonline.com
 5.  Klik op **Opties**.
 6.  In de **verbinding maken met database** en voer de naam van de systeembestanden-database die u wilt configureren.
 7.  Klik op **Verbinden**.  Voltooi de aanmelding.

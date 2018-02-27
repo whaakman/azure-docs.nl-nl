@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.openlocfilehash: 925aa88d32f6f5cea252616cf079faf35857eb8a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Azure Recovery Services-kluizen en -servers controleren en beheren voor Windows-machines
 
@@ -32,13 +32,11 @@ Dit artikel bevat een overzicht van de back-monitor en beheertaken via de Azure 
 De Recovery Services-kluisdashboard ziet u de gegevens of de kenmerken van een Recovery Services-kluis.
 
 1. Aanmelden bij de [Azure Portal](https://portal.azure.com/) met behulp van uw Azure-abonnement.
-2. Klik in het menu Hub op **meer Services**.
-
-    ![Lijst met Recovery Services-kluizen stap 1 openen](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+2. Klik op **alle services**. 
 
 3. U wilt openen een Recovery Services-kluis. Begint te typen in het dialoogvenster **Recovery Services**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Recovery Services-kluizen** om de lijst met Recovery Services-kluizen in uw abonnement weer te geven.
 
-    ![Een Recovery Services-kluis maken, stap 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+     ![Lijst met Recovery Services-kluizen stap 1 openen](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
     De lijst met Recovery Services-kluizen wordt geopend.
 
@@ -74,9 +72,9 @@ Vanaf de bovenkant van het Dashboard:
 ## <a name="alerts-for-backups-using-azure-backup-agent"></a>Waarschuwingen voor back-ups met Azure backup-agent:
 | Waarschuwingsniveau | Waarschuwingen verzonden |
 | --- | --- |
-| Kritieke |Back-upfouten, herstelfout |
-| Waarschuwing |Back-up is voltooid met waarschuwingen (wanneer < 100 bestanden zijn niet back-up vanwege problemen met de beschadiging en > 1.000.000 bestanden zijn met succes back-up) |
-| Informatief |Geen |
+| Kritiek | voor back-up mislukt, herstelfout en uitgestelde verwijderen dat wil zeggen, wanneer iemand stopt de beveiliging met gegevens verwijderen |
+| Waarschuwing | voor back-up is voltooid met waarschuwingen (wanneer < 100 bestanden zijn niet back-up vanwege problemen met de beschadiging en > 1.000.000 bestanden zijn met succes back-up) |
+| Informatief | Er is geen informatieve waarschuwingen zijn momenteel beschikbaar voor Azure backup-agent |
 
 ## <a name="manage-backup-alerts"></a>Back-up waarschuwingen beheren
 Klik op de **waarschuwingen voor back-up** tegel openen de **waarschuwingen voor back-up** menu waarschuwingen en beheren.
@@ -110,14 +108,14 @@ Waarschuwingen kunnen worden verzonden voor de volgende niveaus:
 
 * Kritieke
 * Waarschuwing
-* Informatie
+* informatie
 
 Deactiveren van de waarschuwing met de **deactiveren** knop in het menu taak details. Wanneer u klikt op deactiveert, kunt u de opmerkingen bij de resolutie opgeven.
 
 Kies van de kolommen die u wilt weergeven als onderdeel van de waarschuwing met de **kolommen kiezen** knop.
 
 > [!NOTE]
-> Van de **instellingen** menu u back-waarschuwingen beheren door te selecteren **bewaking en rapporten > waarschuwingen en gebeurtenissen > back-waarschuwingen** en vervolgens te klikken op **Filter** of ** Meldingen configureren**.
+> Van de **instellingen** menu u back-waarschuwingen beheren door te selecteren **bewaking en rapporten > waarschuwingen en gebeurtenissen > back-waarschuwingen** en vervolgens te klikken op **Filter** of  **Meldingen configureren**.
 >
 >
 
@@ -282,7 +280,7 @@ Naar beperking inschakelen:
     ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/finish-exclusions.png)
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-**W1. De status van de back-uptaak wordt als voltooid in de Azure backup-agent, waarom niet het ophalen van onmiddellijk weergegeven in de portal?**
+**Q1. De status van de back-uptaak wordt als voltooid in de Azure backup-agent, waarom niet het ophalen van onmiddellijk weergegeven in de portal?**
 
 A1. Er wordt op maximale vertraging van 15 minuten tussen de status van de back-uptaak doorgevoerd in de Azure backup agent en de Azure portal.
 
@@ -307,7 +305,7 @@ A3. Hieronder volgen de gevallen wanneer de melding niet verzonden wordt om te r
 2. Ervan uitgaande dat het proces niet wordt uitgevoerd, opent u **Configuratiescherm** en de lijst met services bladeren. Starten of opnieuw starten **Microsoft Azure Recovery Services Management Agent**.
 
     Ga voor meer informatie de logbestanden op:<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`Bijvoorbeeld:<br/>
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Bijvoorbeeld:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>Volgende stappen

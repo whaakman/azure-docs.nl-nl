@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-top"></a>Uw bestaande Azure Mobile Service migreren naar Azure App Service
 Met de [algemene beschikbaarheid van Azure App Service], Azure Mobile Services-sites kunnen worden eenvoudig gemigreerd ter plekke om te profiteren van alle functies van de Azure App Service.  Dit document wordt uitgelegd wat u kunt verwachten wanneer uw site uit Azure Mobile Services migreren naar Azure App Service.
@@ -32,7 +32,7 @@ Migratie van uw Azure Mobile Service Hiermee schakelt u uw mobiele Service in ee
 Microsoft is aanbevelen migreren van uw Azure Mobile Service om te profiteren van de functies van Azure App Service, waaronder:
 
 * Nieuwe host-functies, waaronder [WebJobs] en [aangepaste domeinnamen].
-* Bewaking en probleemoplossing met New Relic of [Application Insights].
+* Bewaking en probleemoplossing met [Application Insights].
 * Ingebouwde DevOps tooling, met inbegrip van [staging-sleuven], terugdraaien en in productie testen.
 * [Automatische schaling], taakverdeling, en [prestatiebewaking].
 
@@ -127,7 +127,7 @@ Het bestand met publicatie-instellingen wordt op uw computer gedownload.  Normaa
 
 1. Open Visual Studio en het Azure Mobile Service-project.
 2. Met de rechtermuisknop op het project in de **Solution Explorer** en selecteer **publiceren...**
-3. Klik op **importeren**
+3. Klik op **Importeren**.
 4. Klik op **Bladeren** en selecteert u het gedownloade bestand publicatie-instellingen.  Klik op **OK**
 5. Klik op **Validate Connection** om te controleren of het werk van de instellingen voor publiceren.
 6. Klik op **publiceren** voor het publiceren van uw site.
@@ -184,7 +184,7 @@ Opmerking: **MS\_AadTenants** wordt opgeslagen als een door komma's gescheiden l
 >
 >
 
-### <a name="easytables"></a>Gegevens
+### <a name="easytables"></a>Data
 De *gegevens* tabblad in Mobile Services is vervangen door *gemakkelijk tabellen* binnen de Azure-portal.  Toegang krijgen tot gemakkelijk tabellen:
 
 1. Meld u aan bij [Azure-portal].
@@ -269,9 +269,9 @@ De volgende aanvullende appinstellingen zijn gemigreerd van uw mobiele Service e
 | Toepassingsinstelling | Beschrijving |
 |:--- |:--- |
 | **MS\_MobileServiceName** |De naam van uw app |
-| **MS\_MobileServiceDomainSuffix** |Het voorvoegsel van het domein. Internet Explorer Azure-mobile.net |
+| **MS\_MobileServiceDomainSuffix** |Het voorvoegsel van het domein. i.e azure-mobile.net |
 | **MS\_ApplicationKey** |De sleutel van uw toepassing |
-| **MS\_hoofdsleutel** |De hoofdsleutel van uw app |
+| **MS\_MasterKey** |De hoofdsleutel van uw app |
 
 De Toepassingssleutel en de hoofdsleutel zijn identiek aan de sleutels van de toepassing van uw oorspronkelijke mobiele Service.  In het bijzonder wordt de sleutel van de toepassing verzonden door mobiele clients voor het valideren van het gebruik van de mobiele API.
 

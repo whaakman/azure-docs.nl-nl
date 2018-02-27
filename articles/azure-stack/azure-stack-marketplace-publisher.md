@@ -3,8 +3,8 @@ title: Gebruik de Marketplace-toolkit maken en publiceren van marketplace-items 
 description: Meer informatie over het snel marketplace-items maken met de publicatie Toolkit
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: ByronR
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: helaw
-ms.openlocfilehash: 5b2c04d2cbc06e1572dc2e40712f6cf9d886aa1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 61ee3296429f9641643f1c9268ae89e3691fcfa1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Het hulpprogramma voor publishing marketplace-items toevoegen
 Toevoegen van de inhoud op de [Azure Stack Marketplace](azure-stack-marketplace.md) uw oplossingen beschikbaar stelt aan u en uw tenants voor implementatie.  De Toolkit Marketplace maakt Azure Marketplace-pakketten (.azpkg)-bestanden op basis van uw IaaS Azure Resource Manager-sjablonen of VM-extensies.  U kunt ook de Marketplace-werkset gebruiken voor het publiceren van .azpkg bestanden, gemaakt met het hulpprogramma of met behulp van [handmatige](azure-stack-create-and-publish-marketplace-item.md) stappen.  In dit onderwerp leidt u door het programma is gedownload, het maken van een marketplace-item op basis van een VM-sjabloon en dat het item te publiceren naar de Stack Azure Marketplace.     
@@ -72,7 +73,7 @@ In deze sectie kunt u het marketplace-item publiceren naar de Stack Azure Market
     
     |Veld|Beschrijving|
     |-----|-----|
-    | Naam van de Service-beheer | Service Administrator-account.  Voorbeeld:ServiceAdmin@mydomain.onmicrosoft.com |
+    | Naam van de Service-beheer | Service Administrator-account.  Voorbeeld:  ServiceAdmin@mydomain.onmicrosoft.com |
     | Wachtwoord | Wachtwoord voor de Service Administrator-account. |
     | API-eindpunt | Azure Stack Azure Resource Manager-eindpunt.  Voorbeeld: management.local.azurestack.external |
 2.  Klik op **publiceren** en het publishing logboek wordt weergegeven.
@@ -88,7 +89,7 @@ De Marketplace-Toolkit bevat een *solution.parameters.ps1* kunt u uw eigen param
 ## <a name="support-files"></a>Ondersteuning voor bestanden
 | Beschrijving | Voorbeeld |
 | ----- | ----- |
-| 40 x 40 PNG-pictogram | ![](./media/azure-stack-marketplace-publisher/image1.png) |
+| 40x40 .png icon | ![](./media/azure-stack-marketplace-publisher/image1.png) |
 | 90 x 90 PNG-pictogram | ![](./media/azure-stack-marketplace-publisher/image2.png) |
 | 115 x 115 PNG-pictogram | ![](./media/azure-stack-marketplace-publisher/image3.png) |
 | 255 x 115 PNG-pictogram | ![](./media/azure-stack-marketplace-publisher/image4.png) |

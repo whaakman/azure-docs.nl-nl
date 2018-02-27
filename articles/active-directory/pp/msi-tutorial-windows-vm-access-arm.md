@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: df559f44fd0613c39734efc8ae3132ae831ab857
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2816a19833f45a7e3a344e31f4131d23d9a8417a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Een Windows VM beheerde Service identiteit (MSI) gebruiken voor toegang tot de Resource Manager
 
@@ -44,7 +44,7 @@ Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.c
 
 Voor deze zelfstudie maken we een nieuwe Windows VM.  U kunt ook MSI op een bestaande virtuele machine inschakelen.
 
-1.  Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1.  Klik op **maken van een resource** op de linkerbovenhoek van de Azure portal.
 2.  Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. 
 3.  Geef de informatie van de virtuele machine op. De **gebruikersnaam** en **wachtwoord** gemaakte Hier ziet u de referenties die u kunt aanmelden bij de virtuele machine.
 4.  Kies de juiste **abonnement** voor de virtuele machine in de vervolgkeuzelijst.

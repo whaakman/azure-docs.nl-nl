@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: e9983cb29c59ebf29dd247c2e6f70cc052eab39d
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: cf4721e57d846db299ec6b8cdb7dc8cceb9d638f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Scriptactie gebruiken voor het installeren van externe Python-pakketten voor Jupyter-notebooks in Apache Spark-clusters in HDInsight
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Informatie over het gebruik van scriptacties voor het configureren van een Apach
 
 U kunt zoeken in de [package index](https://pypi.python.org/pypi) voor de volledige lijst met pakketten die beschikbaar zijn. U kunt ook een lijst met beschikbare pakketten opvragen uit andere bronnen. Bijvoorbeeld, kunt u pakketten beschikbaar gesteld via installeren [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) of [conda smidse](https://conda-forge.org/feedstocks/).
 
-In dit artikel leert u hoe u installeert de [TensorFlow](https://www.tensorflow.org/) van het pakket met behulp van de scriptactie op het cluster en wordt via de Jupyter-notebook gebruikt.
+In dit artikel leert u hoe voor het installeren van de [TensorFlow](https://www.tensorflow.org/) van het pakket met behulp van de scriptactie op het cluster en wordt via de Jupyter-notebook gebruikt.
 
 ## <a name="prerequisites"></a>Vereisten
 U hebt het volgende:
@@ -90,7 +90,6 @@ U hebt het volgende:
 * [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](apache-spark-use-bi-tools.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark-streaming: Spark in HDInsight gebruiken voor het bouwen van realtime streamingtoepassingen](apache-spark-eventhub-streaming.md)
 * [Websitelogboekanalyse met Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren

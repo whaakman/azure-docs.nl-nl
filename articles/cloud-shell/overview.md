@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: b710c324f72fa56a2ebad0d1b35052639611d30d
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: da415f4fb276f3d86d3ff1634a08fa11eabe6e7f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Overzicht van Azure-Cloud-Shell
 Azure Cloud-Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources.
@@ -69,9 +69,9 @@ Op de eerste keer opstarten die cloud Shell wordt gevraagd om een resource te ma
 Een lokaal redundant opslagaccount (LRS) en de Azure-bestanden delen kunnen namens jou worden gemaakt. De share Azure-bestanden wordt gebruikt voor zowel Bash en PowerShell omgevingen als u wilt gebruiken. Reguliere opslagkosten van toepassing.
 
 Drie bronnen worden namens jou gemaakt:
-1. De resourcegroep met de naam:`cloud-shell-storage-<region>`
-2. Opslagaccount met de naam:`cs<uniqueGuid>`
-3. De bestandsshare met de naam:`cs-<user>-<domain>-com-<uniqueGuid>`
+1. De resourcegroep met de naam: `cloud-shell-storage-<region>`
+2. Opslagaccount met de naam: `cs<uniqueGuid>`
+3. De bestandsshare met de naam: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
 > Bash in de Cloud-Shell maakt ook een standaardinstallatiekopie van 5 GB schijfruimte om te blijven behouden `$Home`. Alle bestanden in uw directory $Home zoals SSH-sleutels worden doorgevoerd in de schijfinstallatiekopie van uw gebruiker opgeslagen in de gekoppelde Azure-bestandsshare. Aanbevolen procedures van toepassing bij het opslaan van bestanden in uw directory $Home en de gekoppelde Azure-bestandsshare.
@@ -83,7 +83,7 @@ Een geavanceerde optie is opgegeven voor het koppelen van bestaande resources vo
 Klik op 'Weergeven geavanceerde instellingen' bij de prompt opslag setup om extra opties weer te geven.
 
 > [!Note]
-> Opgegeven waarin DropDowns worden gefilterd voor uw vooraf toegewezen Cloud Shell regio en LRS/GRS-accounts voor opslag.
+> Opgegeven waarin DropDowns worden gefilterd voor uw vooraf toegewezen Cloud Shell regio en GRS-LRS/ZRS-opslagaccounts.
 
 [Meer informatie over Cloud Shell opslag, updaten van Azure-bestandsshares en het uploaden/downloaden van bestanden.](persisting-shell-storage.md)
 

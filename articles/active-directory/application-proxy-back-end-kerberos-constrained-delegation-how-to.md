@@ -3,7 +3,7 @@ title: Problemen met Kerberos-beperkte overdracht configuraties voor toepassings
 description: Problemen met Kerberos-beperkte overdracht configuraties voor toepassingsproxy.
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7b31f53e14e3f9a175e5dda95a18eb89dbca99dc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 02/09/2018
+ms.author: markvi
+ms.reviewer: harshja
+ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Problemen met Kerberos-beperkte overdracht configuraties voor toepassingsproxy
 
@@ -33,7 +34,7 @@ In dit artikel maakt de volgende veronderstellingen:
 
 -   De gepubliceerde doeltoepassing is gebaseerd op IIS en Microsoft implementatie van Kerberos.
 
--   De hosts servers en toepassingen zich in één Active Directory-domein bevinden. Gedetailleerde informatie over cross-domein en forest-scenario's vindt u in de [KCD technisch document](http://aka.ms/KCDPaper).
+-   De hosts servers en toepassingen zich in één Active Directory-domein bevinden. Gedetailleerde informatie over cross-domein en forest-scenario's vindt u in de [KCD technisch document](https://aka.ms/KCDPaper).
 
 -   De desbetreffende toepassing is gepubliceerd in een Azure-tenant met vooraf-verificatie ingeschakeld en gebruikers te verifiëren bij Azure via authenticatie op basis van formulieren worden verwacht. Rich client verificatie scenario's worden niet behandeld in dit artikel wordt beschreven, maar worden toegevoegd op een bepaald moment in de toekomst.
 
@@ -51,7 +52,7 @@ Met name de sectie over het configureren van KCD op 2012R2, omdat dit een fundam
 
 -   Waar mogelijk, moet u niet alle actieve apparaten in de IP-Adressen/id's tussen connector hosts en de DC's, plaatsen wanneer deze soms via Tussenkomende worden en core RPC-verkeer verstoren
 
-Het verdient aanbeveling om te testen delegering in het eenvoudigste scenario's. Meer variabelen introduceren, hoe meer u wellicht concurreren met. Bijvoorbeeld: beperken van de test voor één connector bespaart kostbare tijd en aanvullende connectors kunnen worden toegevoegd nadat de problemen zijn opgelost.
+In het eenvoudigste scenario's moet u de overdracht testen. Meer variabelen introduceren, hoe meer u wellicht concurreren met. Bijvoorbeeld: beperken van de test voor één connector bespaart kostbare tijd en aanvullende connectors kunnen worden toegevoegd nadat de problemen zijn opgelost.
 
 Sommige omgevingsfactoren kunnen ook een bijdrage leveren aan een probleem. Tijdens het testen, de architectuur tot een absoluut minimum om te voorkomen dat deze omgevingsfactoren te minimaliseren. Bijvoorbeeld, onjuist geconfigureerde interne firewall ACL's zijn niet ongewoon, dus indien mogelijk hebben al het verkeer van een connector kunnen rechtstreeks via de DC's en de back-end-toepassing. 
 
@@ -79,7 +80,7 @@ Als u deze helemaal, vervolgens het belangrijkste probleem zeker hebt bestaat. S
 
 **Clientverificatie vooraf van** : de externe gebruiker verificatie met Azure via een browser.
 
-Wordt vooraf verifiëren naar Azure is van cruciaal belang voor KCD SSO functie. Dit moet worden getest en eerst opgelost als er problemen zijn. De verificatie vooraf fase heeft geen relatie met KCD of de gepubliceerde toepassing. Het moet redelijk eenvoudig naar eventuele afwijkingen corrigeren door sanity controleren van het onderwerp account bestaat in Azure, en dat deze is niet uitgeschakeld/geblokkeerd. Het foutbericht in de browser is meestal beschrijvende genoeg om te begrijpen van de oorzaak. U kunt ook onze andere problemen met documenten om te controleren als u niet zeker weet controleren.
+Wordt vooraf verifiëren naar Azure is van cruciaal belang voor KCD SSO functie. U moet testen en dit adres als er problemen zijn. De verificatie vooraf fase heeft geen relatie met KCD of de gepubliceerde toepassing. Het moet redelijk eenvoudig naar eventuele afwijkingen corrigeren door sanity controleren van het onderwerp account bestaat in Azure, en dat deze is niet uitgeschakeld/geblokkeerd. Het foutbericht in de browser is meestal beschrijvende genoeg om te begrijpen van de oorzaak. U kunt ook onze andere problemen met documenten om te controleren als u niet zeker weet controleren.
 
 **Overdracht service** : de Azure-Proxy connector ophalen van een Kerberos-serviceticket uit een KDC (Kerberos Distribution Center) namens gebruikers.
 
@@ -103,13 +104,13 @@ En de overeenkomende vermeldingen gezien dat het gebeurtenislogboek zou worden g
 
 -   Controleer of het domeinbeleid wordt afgedwongen beperken de [de maximale grootte van de uitgegeven tokens voor Kerberos](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/), zoals dit voorkomt dat de connector het verkrijgen van een token als overmatige worden gevonden
 
-Een nieuwe netwerktracering vastleggen van de uitwisseling tussen de connector-host en een domein KDC worden dan de volgende aanbevolen stap bij het verkrijgen van meer op laag niveau informatie over de problemen. Zie voor meer informatie, [diepgaand oplossen papier](https://aka.ms/proxytshootpaper).
+Een nieuwe netwerktracering vastleggen van de uitwisseling tussen de connector-host en een domein KDC worden dan de volgende aanbevolen stap bij het verkrijgen van meer op laag niveau informatie over de problemen. Voor meer informatie ziet, [diepgaand oplossen papier](https://aka.ms/proxytshootpaper).
 
-Als tickets er goed uitziet, ziet u een gebeurtenis in de logboeken met de mededeling dat de verificatie is mislukt vanwege de toepassing een 401 retourneren. Dit geeft doorgaans aan dat de doeltoepassing uw ticket weigeren, dus doorgaan met de volgende volgende fase.
+Als tickets er goed uitziet, ziet u een gebeurtenis in de logboeken met de mededeling dat de verificatie is mislukt vanwege de toepassing een 401 retourneren. Dit geeft doorgaans aan dat de doeltoepassing uw ticket weigert, dus gaan met de volgende fase van de volgende:
 
 **Doeltoepassing** -de consument van het Kerberos-ticket geleverd door de connector
 
-In dit stadium die wordt verwacht dat de connector hebt verzonden een Kerberos ticket voor de back-end-service als een koptekst binnen de eerste toepassingsaanvraag.
+In deze fase wordt de connector naar verwachting een Kerberos-serviceticket hebt verzonden naar de back-end als een koptekst binnen de eerste toepassingsaanvraag.
 
 -   Met behulp van de toepassing interne URL die is gedefinieerd in de portal valideren dat de toepassing toegankelijk rechtstreeks vanuit de browser op de host van de connector is. U kunt Meld u vervolgens aan met succes. Details hierover vindt u op de pagina van de connector oplossen.
 
@@ -125,7 +126,7 @@ In dit stadium die wordt verwacht dat de connector hebt verzonden een Kerberos t
 
 2.  Tijdelijk NTLM uit de lijst met providers op de IIS-website in en toegang app rechtstreeks vanuit Internet Explorer op de host van de connector verwijderen. Met NTLM niet langer in de lijst met providers moet u toegang tot de toepassing alleen Kerberos gebruiken. Als dit niet lukt, vervolgens die wijst erop dat er een probleem met de configuratie van de toepassing en Kerberos-verificatie niet werkt.
 
-Als Kerberos niet beschikbaar is, is controle van de verificatie-instellingen van de toepassing in IIS om ervoor te zorgen, te onderhandelen over bovenste met NTLM onder het vermeld. (Geen onderhandelen: kerberos of Negotiate: PKU2U). Alleen doorgaan als Kerberos functioneel is.
+Als Kerberos niet beschikbaar is, is controle van de verificatie-instellingen van de toepassing in IIS om ervoor te zorgen, te onderhandelen over bovenste met NTLM onder het vermeld. (Geen onderhandelen: Kerberos of onderhandelingsbericht: PKU2U). Alleen doorgaan als Kerberos functioneel is.
 
    ![Windows-verificatieproviders](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
@@ -141,17 +142,27 @@ Als Kerberos niet beschikbaar is, is controle van de verificatie-instellingen va
 
     ![Venster voor configuratie van IIS-toepassing](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
 
-    Zodra u weet dat de identiteit, geven het volgende vanaf een opdrachtprompt om ervoor te zorgen dat dit account definitief is geconfigureerd met de desbetreffende SPN. Bijvoorbeeld:`setspn –q http/spn.wacketywack.com`
+    Zodra u weet dat de identiteit, geven het volgende vanaf een opdrachtprompt om ervoor te zorgen dat dit account definitief is geconfigureerd met de desbetreffende SPN. Bijvoorbeeld:  `setspn –q http/spn.wacketywack.com`
 
     ![SetSPN-opdrachtvenster](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 
 -   Controleer of de SPN-naam is gedefinieerd voor de instellingen van de toepassing in de portal is de dezelfde SPN geconfigureerd op basis van het AD-doelaccount dat door de toepassingsgroep app gebruikt
 
-   ![SPN-configuratie in Azure Portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
+   ![SPN-configuratie in Azure-portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
    
 -   Ga naar de IIS- en selecteer de **configuratie-Editor** optie voor de toepassing en navigeer naar **system.webServer/security/authentication/windowsAuthentication** om te controleren of de waarde **UseAppPoolCredentials** is **True**
 
    ![App-groepen van IIS-configuratie referentie-optie](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+
+Na het wijzigen van deze waarde **True**, alle Kerberos-tickets moeten worden verwijderd uit de back-endserver in cache opgeslagen. U kunt dit doen door de volgende opdracht uit te voeren:
+
+```powershell
+Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
+``` 
+
+Zie voor meer informatie [opschonen van de Kerberos-ticket clientcache voor alle sessies](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf).
+
+
 
 Terwijl wordt nuttig zijn bij het verbeteren van Kerberos-bewerkingen, verlaten kernelmodus ingeschakeld ook zorgt ervoor het ticket voor de aangevraagde service om te worden ontsleuteld met behulp van computeraccount dat. Dit wordt ook het lokale systeem, dus met dit instellen op true onderbreken KCD wanneer de toepassing wordt gehost op meerdere servers in een farm genoemd.
 

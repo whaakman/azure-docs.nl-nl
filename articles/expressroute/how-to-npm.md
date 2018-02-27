@@ -1,9 +1,9 @@
 ---
-title: Prestatiemeter netwerk configureren voor Azure ExpressRoute-circuits (Preview) | Microsoft Docs
-description: NPM configureren voor Azure ExpressRoute-circuits. (Preview)
+title: Prestatiemeter netwerk configureren voor Azure ExpressRoute-circuits | Microsoft Docs
+description: Cloud-gebaseerde netwerkbewaking configureren voor Azure ExpressRoute-circuits.
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: ajaycode
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
-ms.author: pareshmu
-ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
-ms.translationtype: MT
+ms.date: 02/14/2018
+ms.author: agummadi
+ms.openlocfilehash: 4d5bf1550ecd5982e51c0ae8d3917102d2f7c253
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configureren van netwerk-Prestatiemeter voor ExpressRoute (Preview)
+# <a name="configure-network-performance-monitor-for-expressroute"></a>Configureren van netwerk-Prestatiemeter voor ExpressRoute
 
 Netwerk Performance Monitor (NPM) is een cloud-gebaseerde netwerk bewakingsoplossing, die wordt bewaakt connectiviteit tussen Azure-cloud-implementaties en lokale locaties (filialen, enzovoort). NPM maakt deel uit van Microsoft Operations Management Suite (OMS). NPM biedt nu een extensie voor ExpressRoute waarmee u de prestaties van het netwerk via ExpressRoute-circuits die zijn geconfigureerd voor gebruik van persoonlijke Peering bewaken. Wanneer u NPM voor ExpressRoute configureert, kunt u detecteren netwerkproblemen identificeren en oplossen.
 
@@ -62,9 +62,15 @@ Bewaking agents zijn geïnstalleerd op meerdere servers, zowel on-premises en in
 
 Als u al met een netwerk Prestatiemeter voor het bewaken van andere objecten of -services en u al werkruimte in een van de ondersteunde regio's hebt, kunt u stap 1 en 2 van de stap overslaan en beginnen met de configuratie met stap 3.
 
-## <a name="configure"></a>Stap 1: Een werkruimte (in het abonnement waarvoor de VNETs die zijn gekoppeld aan de ExpressRoute-Circuit(s)) maken
+## <a name="configure"></a>Stap 1: Een werkruimte maken
+
+Maak een werkruimte in het abonnement waarvoor de VNets koppelen aan de ExpressRoute-circuit(s).
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer het abonnement waarvoor de VNETs brengen aan uw ExpressRoute-circuit. Zoek in de lijst van services in de **Marketplace** voor 'Prestatiemeter netwerk'. Klik in het retourtype op om de **netwerk Prestatiemeter** pagina.
+
+>[!NOTE]
+>U kunt een nieuwe werkruimte maken of gebruik een bestaande werkruimte.  Als u gebruiken van een bestaande werkruimte wilt, moet u ervoor zorgen dat de werkruimte is gemigreerd naar de nieuwe querytaal. [Meer informatie...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+>
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Aan de onderkant van de belangrijkste **netwerk Prestatiemeter** pagina, klikt u op **maken** openen **netwerk-Prestatiemeter - nieuwe oplossing maken** pagina. Klik op **OMS-werkruimte - Selecteer een werkruimte** om de werkruimten pagina te openen. Klik op **+ maken nieuwe werkruimte** om de pagina van de werkruimte te openen.
@@ -79,29 +85,25 @@ Als u al met een netwerk Prestatiemeter voor het bewaken van andere objecten of 
   >[!NOTE]
   >Het ExpressRoute-circuit kan worden, overal ter wereld en hoeft niet te worden in dezelfde regio bevinden als de werkruimte.
   >
-
-
+  
   ![Werkruimte](.\media\how-to-npm\4.png)<br><br>
 4. Klik op **OK** opslaan en de sjabloon instellingen implementeren. Nadat de sjabloon wordt gevalideerd, klikt u op **maken** voor het implementeren van de werkruimte.
 5. Nadat u de werkruimte is geïmplementeerd, gaat u naar de **NetworkMonitoring(name)** resource die u hebt gemaakt. Controleer de instellingen en klik vervolgens op **oplossing is aanvullende configuratie vereist**.
 
   ![aanvullende configuratie](.\media\how-to-npm\5.png)
-6. Op de **Welkom bij de Prestatiemeter netwerk** pagina **TCP gebruik van de synthetische transacties**, klikt u vervolgens op **indienen**. De TCP-transacties worden alleen gebruikt voor maken en de verbinding verbreken. Er zijn geen gegevens worden verzonden via deze TCP-verbindingen.
-
-  ![TCP voor synthetische transacties](.\media\how-to-npm\6.png)
 
 ## <a name="agents"></a>Stap 2: Installeren en configureren van agents
 
 ### <a name="download"></a>2.1: download het installatiebestand van de agent
 
-1. Op de **Performance Monitor netwerkconfiguratie - TCP-installatiepagina** voor uw resource in de **OMS-Agents installeren** sectie, klikt u op de agent die overeenkomt met de processor en het downloaden van de server de Setup-bestand.
+1. Ga naar de **algemene instellingen** tabblad van de **netwerkconfiguratie Performance Monitor** pagina voor uw resource. Klik op de agent die overeenkomt met de processor van de server van de **OMS-Agents installeren** sectie en het setup-bestand te downloaden.
 
   >[!NOTE]
   >De agent moet worden geïnstalleerd op een Windows Server (2008 SP1 of hoger). Bewaking van ExpressRoute-circuits met behulp van Windows Desktop-besturingssysteem- en Linux-besturingssysteem wordt niet ondersteund. 
   >
   >
 2. Kopieer de **werkruimte-ID** en **primaire sleutel** naar Kladblok.
-3. In de **Agents configureren** sectie, het downloaden van het Powershell-Script. Het PowerShell-script kunt u de relevante firewallpoort voor de TCP-transacties te openen.
+3. Van de **OMS-Agents configureren voor bewaking met TCP-protocol** sectie, het downloaden van het Powershell-Script. Het PowerShell-script kunt u de relevante firewallpoort voor de TCP-transacties te openen.
 
   ![PowerShell-script](.\media\how-to-npm\7.png)
 
@@ -211,7 +213,7 @@ De NPM-pagina bevat een pagina voor ExpressRoute die een overzicht van de status
 
   ![Dashboard](.\media\how-to-npm\dashboard.png)
 
-### <a name="circuits"></a>Circuits lijst
+### <a name="circuits"></a>Lijst met circuits
 
 Een lijst van alle bewaakte ExpressRoute-circuits wilt bekijken, klikt u op de **ExpressRoute-circuits** tegel. U kunt een circuit selecteren en weergeven van de status, trendgrafieken voor pakketverlies, bandbreedte en latentie. De grafieken, zijn interactief. U kunt een aangepaste tijdvenster voor het uitzetten van de grafieken selecteren. Sleep de muis over een gebied op de grafiek inzoomen en fijnmazig gegevenspunten bekijken.
 

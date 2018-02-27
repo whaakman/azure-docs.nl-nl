@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst met elk document dat is geschreven over de verschillende functies van de toepassing-gerelateerde in Azure Active Directory (Azure AD).
@@ -53,7 +53,7 @@ Eenmalige aanmelding kunt gebruikers toegang krijgen tot een aantal apps en serv
 | Artikel handleiding |  |
 |:---:| --- |
 | Een inleiding tot federatieve en andere typen van eenmalige aanmelding |[Eenmalige aanmelding met Azure AD](active-directory-appssoaccess-whatis.md) |
-| SaaS-apps die vooraf geïntegreerd met Azure AD met zijn duizenden vereenvoudigd configuratiestappen voor eenmalige aanmelding |[Aan de slag met Azure AD-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Volledige lijst met vooraf geïntegreerde Apps die ondersteuning bieden voor Federatie](http://aka.ms/aadfederatedapps)<br /><br />[Uw App toevoegen aan de App-galerie van Azure AD](active-directory-app-gallery-listing.md) |
+| SaaS-apps die vooraf geïntegreerd met Azure AD met zijn duizenden vereenvoudigd configuratiestappen voor eenmalige aanmelding |[Aan de slag met Azure AD-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Volledige lijst met vooraf geïntegreerde Apps die ondersteuning bieden voor Federatie](active-directory-saas-tutorial-list.md)<br /><br />[Uw App toevoegen aan de App-galerie van Azure AD](active-directory-app-gallery-listing.md) |
 | Meer dan 150 app-zelfstudies over het configureren van eenmalige aanmelding voor apps zoals [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), en nog veel meer |[Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Het handmatig instellen en aanpassen van uw configuratie voor eenmalige aanmelding |[Hoe om te configureren voor federatieve eenmalige aanmelding voor Apps die niet zijn opgenomen in de Azure Active Directory-Toepassingsgalerie](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Het aanpassen van uitgegeven Claims in het SAML-Token voor vooraf geïntegreerde Apps](active-directory-saml-claims-customization.md) |
 | Gids voor probleemoplossing voor federatieve apps die gebruikmaken van het SAML-protocol |[Het oplossen van problemen op basis van SAML eenmalige aanmelding](active-directory-saml-debugging.md) |

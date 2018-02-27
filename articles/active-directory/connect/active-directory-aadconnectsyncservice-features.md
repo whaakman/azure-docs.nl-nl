@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: e939c6a53a1154b23431581e789605d83e849fe2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b716e553f7c4c11f6d566b43d771217fdf4b3a93
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect sync-service-functies
 De synchronisatiefunctie van Azure AD Connect bestaat uit twee onderdelen:
@@ -28,7 +28,7 @@ De synchronisatiefunctie van Azure AD Connect bestaat uit twee onderdelen:
 
 Dit onderwerp wordt uitgelegd hoe u de volgende functies van de **Azure AD Connect-synchronisatieservice** werk en hoe kunt u ze configureren met Windows PowerShell.
 
-Deze instellingen zijn geconfigureerd door de [Azure Active Directory-Module voor Windows PowerShell](http://aka.ms/aadposh). Download en installeer deze afzonderlijk van Azure AD Connect. De cmdlets die zijn beschreven in dit onderwerp zijn geïntroduceerd in de [versie van de maart 2016 (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Als u niet de cmdlets in dit onderwerp wordt beschreven hebt of ze geen hetzelfde resultaat genereren, Controleer of dat u de meest recente versie uitvoert.
+Deze instellingen zijn geconfigureerd door de [Azure Active Directory-Module voor Windows PowerShell](https://aka.ms/aadposh). Download en installeer deze afzonderlijk van Azure AD Connect. De cmdlets die zijn beschreven in dit onderwerp zijn geïntroduceerd in de [versie van de maart 2016 (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Als u niet de cmdlets in dit onderwerp wordt beschreven hebt of ze geen hetzelfde resultaat genereren, Controleer of dat u de meest recente versie uitvoert.
 
 Als u wilt zien van de configuratie in uw Azure AD-directory, `Get-MsolDirSyncFeatures`.  
 ![Get-MsolDirSyncFeatures resultaat](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)

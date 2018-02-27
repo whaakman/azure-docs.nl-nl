@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ccee4fd0359ab9fe8bd025ead9a2d0993bb718f2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -219,7 +219,7 @@ Zie voor meer informatie [minder prompts aanmelden: de nieuwe ervaring 'aangemel
 
 **Type:** nieuwe functie  
 **Servicecategorie:** gebruiksvoorwaarden  
-**Product mogelijkheid:** Governance
+**Product mogelijkheid:** Governance/naleving
  
 Een optie voor beheerders moet hun gebruikers uit te breiden de gebruiksvoorwaarden voorafgaand aan de voorwaarden accepteren.
 
@@ -251,7 +251,7 @@ Zie voor meer informatie [wat is Azure AD Privileged Identity Management?](https
  
 In December 2017, zijn de volgende nieuwe apps met ondersteuning voor identiteitsfederatie toegevoegd in de app-galerie:
 
-[Accredible](https://go.microsoft.com/fwlink/?linkid=863523), Adobe ervaring Manager [EFI digitale winkel](https://go.microsoft.com/fwlink/?linkid=861685), [Communifire](https://go.microsoft.com/fwlink/?linkid=861676) CybSafe, [FactSet](https://go.microsoft.com/fwlink/?linkid=863525), [INSTALLATIEKOPIE WORKS](https://go.microsoft.com/fwlink/?linkid=863517), [MOBI](https://go.microsoft.com/fwlink/?linkid=863521), [MobileIron Azure AD-integratie](https://go.microsoft.com/fwlink/?linkid=858027), [Reflektive](https://go.microsoft.com/fwlink/?linkid=863518), [SAML SSO voor Bamboe door resolutie GmbH](https://go.microsoft.com/fwlink/?linkid=863520), [SAML SSO voor Bitbucket door resolutie GmbH](https://go.microsoft.com/fwlink/?linkid=863519), [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522), WebHR, Zenegy Azure AD-integratie.
+[Accredible](https://go.microsoft.com/fwlink/?linkid=863523), Adobe ervaring Manager [EFI digitale winkel](https://go.microsoft.com/fwlink/?linkid=861685), [Communifire](https://go.microsoft.com/fwlink/?linkid=861676) CybSafe, [FactSet](https://go.microsoft.com/fwlink/?linkid=863525), [INSTALLATIEKOPIE werkt](https://go.microsoft.com/fwlink/?linkid=863517), [MOBI](https://go.microsoft.com/fwlink/?linkid=863521), [MobileIron Azure AD-integratie](https://go.microsoft.com/fwlink/?linkid=858027), [Reflektive](https://go.microsoft.com/fwlink/?linkid=863518), [SAML SSO voor Bamboe door resolutie GmbH](https://go.microsoft.com/fwlink/?linkid=863520), [SAML SSO voor Bitbucket door resolutie GmbH](https://go.microsoft.com/fwlink/?linkid=863519), [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522), WebHR, Zenegy Azure AD-integratie.
 
 Zie voor een volledig overzicht van alle beschikbare zelfstudies [integratie van de SaaS-toepassingen met Azure Active Directory](https://aka.ms/appstutorial).
 
@@ -494,7 +494,7 @@ U kunt nu opnemen of uitsluiten Mac OS als een voorwaarde voor het platform van 
 
 Zie voor meer informatie:
 
-- [Maken van een nalevingsbeleid voor apparaten voor Mac OS-apparaten met Intune](https://aka.ms/macoscompliancepolicy)
+- [Een apparaatnalevingsbeleid maken voor macOS-apparaten in Intune](https://aka.ms/macoscompliancepolicy)
 - [Voorwaardelijke toegang in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
@@ -666,7 +666,7 @@ Zie voor meer informatie [verwijzing voor het melden van MFA in de Azure portal]
 
 **Type:** nieuwe functie  
 **Servicecategorie:** gebruiksvoorwaarden  
-**Product mogelijkheid:** Governance  
+**Product mogelijkheid:** Governance/naleving  
 
 
 
@@ -709,7 +709,7 @@ Zie voor meer informatie [Privileged Identity Management voor Azure-resources](h
 
 **Type:** nieuwe functie  
 **Servicecategorie:** beoordelingen openen  
-**Product mogelijkheid:** Governance  
+**Product mogelijkheid:** Governance/naleving  
 
 
 

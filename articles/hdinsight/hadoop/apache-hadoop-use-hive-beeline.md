@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 01/02/2018
 ms.author: larryfr
-ms.openlocfilehash: 19c5f165b47f7de4a014226460f82f3ca12b3eec
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>De client Beeline gebruiken met Apache Hive
 
@@ -29,9 +29,9 @@ Informatie over het gebruik [Beeline](https://cwiki.apache.org/confluence/displa
 
 Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van uw HDInsight-cluster. Beeline maakt JDBC verbinding met HiveServer2, een service die wordt gehost op uw HDInsight-cluster. U kunt ook Beeline gebruiken voor toegang tot de Hive in HDInsight op afstand via internet. De volgende voorbeelden bieden de meest voorkomende verbindingsreeksen gebruikt vanaf Beeline verbinding maken met HDInsight:
 
-* __Van een headnode of edge-knooppunt van een SSH-verbinding Beeline__:`-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
-* __Met behulp van Beeline op een client via een virtueel Azure-netwerk verbinding maken met HDInsight__:`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-* __Met behulp van Beeline op een client, via het openbare internet verbinding maken met HDInsight__:`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
+* __Van een headnode of edge-knooppunt van een SSH-verbinding Beeline__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+* __Met behulp van Beeline op een client via een virtueel Azure-netwerk verbinding maken met HDInsight__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Met behulp van Beeline op een client, via het openbare internet verbinding maken met HDInsight__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]
 > Vervang `admin` met de cluster-aanmeldingsaccount voor uw cluster.
@@ -44,7 +44,7 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van uw HDInsi
 
 ## <a id="prereq"></a>Vereisten
 
-* Een op Linux gebaseerde Hadoop op HDInsight-cluster.
+* Een op Linux gebaseerde Hadoop op HDInsight-cluster versie 3.4 of hoger.
 
   > [!IMPORTANT]
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -53,7 +53,7 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van uw HDInsi
 
     Zie voor meer informatie over het gebruik van SSH [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="beeline"></a>Gebruik Beeline
+## <a id="beeline"></a>Een Hive-query uitvoeren
 
 1. Bij het starten van Beeline, moet u een verbindingsreeks opgeven voor HiveServer2 op uw HDInsight-cluster:
 
@@ -116,25 +116,34 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van uw HDInsi
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+        GROUP BY t4;
     ```
 
     Deze instructies uitvoeren de volgende acties:
 
-    * `DROP TABLE`-Als de tabel bestaat, wordt deze verwijderd.
+    * `DROP TABLE` -Als de tabel bestaat, wordt deze verwijderd.
 
-    * `CREATE EXTERNAL TABLE`-Maakt een **externe** tabel in Hive. De tabeldefinitie opslaan externe tabellen alleen in Hive. De gegevens blijft op de oorspronkelijke locatie.
+    * `CREATE EXTERNAL TABLE` -Maakt een **externe** tabel in Hive. De tabeldefinitie opslaan externe tabellen alleen in Hive. De gegevens blijft op de oorspronkelijke locatie.
 
-    * `ROW FORMAT`-Hoe de gegevens zijn ingedeeld. In dit geval worden de velden in elk logboek gescheiden door een spatie.
+    * `ROW FORMAT` -Hoe de gegevens zijn ingedeeld. In dit geval worden de velden in elk logboek gescheiden door een spatie.
 
-    * `STORED AS TEXTFILE LOCATION`-Waarin de gegevens worden opgeslagen en in welke bestandsindeling.
+    * `STORED AS TEXTFILE LOCATION` -Waarin de gegevens worden opgeslagen en in welke bestandsindeling.
 
-    * `SELECT`: Hiermee kunt u een telling van alle rijen waarin kolom **t4** bevat de waarde **[fout]**. Deze query retourneert een waarde van **3** omdat er zijn drie rijen met deze waarde.
+    * `SELECT` : Hiermee kunt u een telling van alle rijen waarin kolom **t4** bevat de waarde **[fout]**. Deze query retourneert een waarde van **3** omdat er zijn drie rijen met deze waarde.
 
-    * `INPUT__FILE__NAME LIKE '%.log'`-Hive probeert het schema toepassen op alle bestanden in de map. In dit geval wordt bevat de map bestanden die niet overeenkomen met het schema. Om te voorkomen dat een garbagecollection-gegevens in de resultaten, deze instructie vertelt Hive dat we alleen gegevens uit bestanden eindigt op moet retourneren. log.
+    * `INPUT__FILE__NAME LIKE '%.log'` -Hive probeert het schema toepassen op alle bestanden in de map. In dit geval wordt bevat de map bestanden die niet overeenkomen met het schema. Om te voorkomen dat een garbagecollection-gegevens in de resultaten, deze instructie vertelt Hive dat we alleen gegevens uit bestanden eindigt op moet retourneren. log.
 
   > [!NOTE]
   > Externe tabellen moeten worden gebruikt wanneer u de onderliggende gegevens wordt bijgewerkt door een externe bron verwacht. Bijvoorbeeld, een uploadproces geautomatiseerde gegevens of een MapReduce-bewerking.
@@ -167,7 +176,7 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van uw HDInsi
 
 5. Gebruiken om af te sluiten Beeline `!exit`.
 
-## <a id="file"></a>Gebruik Beeline een HiveQL-bestand uit te voeren
+### <a id="file"></a>Gebruik Beeline een HiveQL-bestand uit te voeren
 
 Gebruik de volgende stappen uit om te maken van een bestand en voer vervolgens met behulp van Beeline.
 
@@ -225,11 +234,11 @@ Gebruik de volgende stappen uit om te maken van een bestand en voer vervolgens m
 
 Als u Beeline lokaal geïnstalleerd hebben en verbinding via het openbare internet maken, gebruikt u de volgende parameters:
 
-* __Verbindingsreeks__:`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
+* __Verbindingsreeks__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
 
-* __Aanmeldingsnaam van de cluster__:`-n admin`
+* __Aanmeldingsnaam van de cluster__: `-n admin`
 
-* __Aanmeldingswachtwoord cluster__`-p 'password'`
+* __Aanmeldingswachtwoord cluster__ `-p 'password'`
 
 Vervang de `clustername` in de verbindingstekenreeks met de naam van uw HDInsight-cluster.
 
@@ -237,7 +246,7 @@ Vervang `admin` met de naam van uw cluster aanmelding en vervang `password` met 
 
 Als u Beeline lokaal geïnstalleerd hebben en verbinding via een virtueel Azure-netwerk maken, gebruikt u de volgende parameters:
 
-* __Verbindingsreeks__:`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Verbindingsreeks__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 
 Gebruik de informatie in de volledig gekwalificeerde domeinnaam van een headnode vindt de [beheren HDInsight met de Ambari REST-API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
 
