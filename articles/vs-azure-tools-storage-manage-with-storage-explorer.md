@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Aan de slag met Opslagverkenner (Preview)
 ## <a name="overview"></a>Overzicht
@@ -28,6 +28,16 @@ Azure Storage Explorer (Preview) is een zelfstandige app waarmee u eenvoudig met
 
 ## <a name="prerequisites"></a>Vereisten
 * [Opslagverkenner (Preview) downloaden en installeren](http://www.storageexplorer.com)
+
+> [!NOTE]
+> Voor Linux-distributies dan Ubuntu 16.04, moet u wellicht handmatig enkele afhankelijkheden te installeren. In het algemeen zijn de volgende pakketten vereist:
+> * libgconf-2-4
+> * libsecret
+> * Up-to-date GCC
+>
+> Afhankelijk van uw distro mogelijk zijn er andere pakketten die u wilt installeren. Opslagverkenner [releaseopmerkingen](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) specifieke stappen voor een aantal distributies bevatten.
+>
+>
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Verbinding maken met een opslagaccount of -service
 Opslagverkenner (Preview) biedt verschillende manieren om verbinding te maken met opslagaccounts. U kunt bijvoorbeeld:
@@ -240,18 +250,18 @@ Naast het beheer van Azure DB die Cosmos accounts via Azure-abonnement moet een 
     ![connection-string][22]
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Verbinding maken met Azure Data Lake Store URI verwijst
-Als u toegang krijgen tot de resources die niet aanwezig in uw abonnement wilt. Maar anderen verleent u voor de Uri voor de bronnen. In dit geval kunt u naar Data Lake Store met de Uri nadat u bent aangemeld. Raadpleeg de volgende stappen.
+Als u toegang wilt krijgen tot de resources die niet aanwezig zijn in uw abonnement, maar anderen de URI voor de resources aan u geven. In dit geval kunt u de URI gebruiken om verbinding te maken met Data Lake Store nadat u bent aangemeld. Bekijk de volgende stappen.
 1. Open Opslagverkenner (Preview).
-2. Vouw in het linkerdeelvenster **Local en gekoppelde**.
-3. Met de rechtermuisknop op **Data Lake Store**, en selecteer in het contextmenu - **verbinding maken met Data Lake Store...** .
+2. Vouw **Lokaal en gekoppeld** uit in het linkerdeelvenster.
+3. Klik met uw rechtermuisknop op **Data Lake Store** en selecteer **Verbinding maken met Data Lake Store...** in het contextmenu.
 
-    ![verbinding maken met Data Lake Store contextmenu](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+    ![contextmenu Verbinding maken met Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
 
-4. Voer de Uri en vervolgens het hulpprogramma gaat naar de locatie van de URL die u zojuist hebt ingevoerd.
+4. Voer de URI in. Vervolgens navigeert het hulpprogramma naar de locatie van de URL die u zojuist hebt ingevoerd.
 
-    ![verbinding maken met Data Lake Store context dialoogvenster](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+    ![dialoogvenster Verbinding maken met Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
 
-    ![verbinding maken met Data Lake Store-resultaat](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+    ![resultaat Verbinding maken met Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
 
 ## <a name="search-for-storage-accounts"></a>Zoeken naar opslagaccounts
 Als u wilt zoeken naar een opslagresource en waar deze zich niet meer weet, kunt u het zoekvak boven aan het linkerdeelvenster om te zoeken naar de resource.

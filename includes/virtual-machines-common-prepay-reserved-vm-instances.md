@@ -8,7 +8,7 @@ U kunt gereserveerde virtuele Machine-exemplaren kopen de [Azure-portal](https:/
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Een exemplaar van de gereserveerde virtuele Machine kopen
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer **meer Services** > **reserveringen**.
+2. Selecteer **alle services** > **reserveringen**.
 3. Selecteer **toevoegen** om aan te schaffen van een nieuwe reservering.
 4. Vul de vereiste velden in. Actieve virtuele machine-exemplaren die overeenkomen met de kenmerken die u selecteert om op te halen van de reservering korting te kwalificeren. Het werkelijke nummer van uw VM-exemplaren die de korting te krijgen, is afhankelijk van het bereik en de hoeveelheid die is geselecteerd.
 

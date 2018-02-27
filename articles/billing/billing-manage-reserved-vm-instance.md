@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3f5f974630c4bf1c68599e26612ed729b55bcfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Exemplaren van de gereserveerde virtuele Machine beheren
 
@@ -28,7 +28,7 @@ Nadat u een exemplaar van Azure gereserveerde virtuele machine hebt gekocht, kun
 
 Het bereik van een reservering bijwerken: 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer **meer Services** > **reserveringen**.
+2. Selecteer **alle Services** > **reserveringen**.
 3. Selecteer de reservering.
 4. Selecteer **instellingen** > **configuratie**.
 5. Het bereik wijzigen. Als u wijzigt van gedeeld naar één scope, kunt u alleen abonnementen waar u de eigenaar bent. Alleen abonnementen in dezelfde facturering context als de reservering kan worden geselecteerd. De facturering context wordt bepaald door het abonnement dat u hebt geselecteerd tijdens de reservering is gekocht. Het bereik is alleen van toepassing op de aanbieding betalen naar gebruik MS-AZR - 0003P abonnementen en Enterprise aanbieding MS-AZR - 0017P abonnementen. Ontwikkelen en testen abonnementen zijn niet in aanmerking voor het ophalen van de reservering korting voor enterprise-overeenkomsten.
@@ -69,7 +69,7 @@ U kunt toegang onafhankelijk tot reserveringen beheren vanuit de abonnementen di
  
 Toegangsbeheer voor een reservering overdragen: 
 1.  Meld u aan bij [Azure Portal](https://portal.azure.com).
-2.  Selecteer **meer Services** > **reservering** tot lijst reserveringen waartoe u toegang hebt.
+2.  Selecteer **alle Services** > **reservering** tot lijst reserveringen waartoe u toegang hebt.
 3.  Selecteer de reservering die u wilt toegang aan andere gebruikers delegeren.
 4.  Selecteer **Access Control (IAM)** in het menu.
 5.  Selecteer **toevoegen** > **rol** > **eigenaar** (of een andere rol als u toegang wilt geven beperkt). 

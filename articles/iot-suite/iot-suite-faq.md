@@ -1,7 +1,7 @@
 ---
 title: Azure IoT Suite Veelgestelde vragen | Microsoft Docs
 description: Veelgestelde vragen over IoT Suite
-services: 
+services: iot-suite
 suite: iot-suite
 documentationcenter: 
 author: dominicbetts
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 432b4c080572c72dc131ee198a59c81631495415
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c79c90c4f6c28153d4d299015a06a6bc37145081
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Veelgestelde vragen over IoT Suite
 
-Zie ook de verbonden factory-specifieke [Veelgestelde vragen over](iot-suite-faq-cf.md).
+Zie ook de [Veelgestelde vragen over het factory-specifieke verbonden](iot-suite-faq-cf.md) en de [remote monitoring-specifieke Veelgestelde vragen over](iot-suite-faq-rm-v2.md) .
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Waar vind ik de broncode voor de vooraf geconfigureerde oplossingen
 
@@ -34,41 +34,26 @@ De broncode is opgeslagen in de volgende GitHub-opslagplaatsen:
 * [Oplossing voor voorspeld onderhoud vooraf geconfigureerde](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Verbonden factory vooraf geconfigureerde oplossing](https://github.com/Azure/azure-iot-connected-factory)
 
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Hoeveel kost het inrichten van de nieuwe oplossing voor externe controle
-
-De nieuwe vooraf geconfigureerde oplossing biedt twee opties voor implementatie:
-
-* Een *basic* optie ontworpen voor ontwikkelaars die op zoek naar de lagere kosten voor ontwikkeling of klanten die willen maken van een demo noch een bewijs van het concept.
-* Een *standaard* optie ontworpen voor ondernemingen willen implementeren van een infrastructuur gereed voor productie.
-
-### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Hoe zorgt dat ik kostenbeperkend mijn tijdens het ontwikkelen van Mijn-oplossing?
-
-Naast het bieden van twee gedifferentieerde implementaties, heeft de nieuwe oplossing voor externe controle een instelling of de gesimuleerde apparaten op aanvraag uit te schakelen. Het uitschakelen van de simulatie, vermindert de gegevens in de oplossing en dus de totale kosten ingenomen.
-
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>De nieuwe microservices architectuur beschikbaar is voor de drie vooraf geconfigureerde oplossingen?
 
 Alleen de oplossing voor externe controle wordt op dit moment wordt de architectuur microservices gebruikt als ze het breedste scenario omvatten.
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Welke voordelen biedt de nieuwe open-source microservices gebaseerde architectuur in de nieuwe update?
 
-Architectuur van de afgelopen twee jaar aanzienlijk zich heeft ontwikkeld. Micro services is als een geweldige patroon voor het bereiken van de schaal en flexibiliteit, zonder verlies van ontwikkelingssnelheid ontstaan. Deze architectuur patroon wordt gebruikt in verschillende Microsoft-services intern met betrouwbaar en schaalbaarheid resultaten. We wilt deze in de praktijk learning zodat onze klanten van deze profiteren opslaan.
+Architectuur van de afgelopen twee jaar aanzienlijk zich heeft ontwikkeld. Microservices is ontstaan als een geweldige patroon voor het bereiken van de schaal en flexibiliteit, zonder verlies van ontwikkelingssnelheid. Deze architectuur patroon wordt gebruikt in verschillende Microsoft-services intern met betrouwbaar en schaalbaarheid resultaten. We wilt deze in de praktijk learning zodat onze klanten van deze profiteren opslaan.
 
 ### <a name="is-the-new-preconfigured-solution-available-in-the-same-geographic-region-as-the-existing-solution"></a>De nieuwe vooraf geconfigureerde oplossing is beschikbaar in dezelfde geografische regio als de bestaande oplossing?
 
 Ja, de nieuwe externe controle is beschikbaar in dezelfde geografische regio's.
 
-### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Wat is het verschil tussen de basis en standaard implementatie-opties? Hoe bepaal ik tussen de twee implementatie-opties?
-
-Elke Implementatieoptie reageert op verschillende behoeften. De eenvoudige implementatie is ontworpen om aan de slag en implementatiemodel en kleine testfases ontwikkelen. Het biedt een gestroomlijnde architectuur met de minimaal benodigde resources en lagere kosten. De standaardimplementatie is ontworpen om te bouwen en aanpassen van een oplossing gereed is voor productie en biedt een implementatie met de vereiste elementen mee die. Betrouwbaarheid en schaal application microservices als Docker-containers zijn gebouwd en geïmplementeerd met behulp van een orchestrator (Kubernetes standaard). De orchestrator is verantwoordelijk voor de implementatie, schaalbaarheid en beheer van de toepassing. Kies een optie op basis van uw huidige behoeften. U kunt een, de andere of een combinatie van beide, afhankelijk van uw projectfase gebruiken.
-
-### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Kan ik mijn bestaande investeringen in Azure IoT Suite gebruikmaken doorgaan?
-
-Ja. Een oplossing die tegenwoordig blijft werken in uw Azure-abonnement en de broncode blijft beschikbaar in GitHub.
-
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Wat is het verschil tussen het verwijderen van een resourcegroep in Azure Portal en op verwijderen te klikken in een vooraf geconfigureerde oplossing op azureiotsuite.com?
 
 * Als u de vooraf geconfigureerde oplossing in verwijdert [azureiotsuite.com](https://www.azureiotsuite.com/), verwijdert u alle resources die zijn ingericht toen u de vooraf geconfigureerde oplossing hebt gemaakt. Als u aanvullende bronnen toegevoegd aan de resourcegroep, wordt deze resources worden ook verwijderd.
 * Als u de resourcegroep in verwijdert de [Azure-portal](https://portal.azure.com), verwijdert u alleen de resources in die resourcegroep. U moet ook de Azure Active Directory-toepassing die is gekoppeld aan de vooraf geconfigureerde oplossing verwijderen.
+
+### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Kan ik mijn bestaande investeringen in Azure IoT Suite gebruikmaken doorgaan?
+
+Ja. Een oplossing die tegenwoordig blijft werken in uw Azure-abonnement en de broncode blijft beschikbaar in GitHub.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Hoeveel exemplaren van de IoT Hub kan ik inrichten in een abonnement?
 
@@ -77,10 +62,6 @@ Standaard kunt u inrichten [10 IoT hubs per abonnement](../azure-subscription-se
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Hoeveel exemplaren van Azure DB die Cosmos kan ik inrichten in een abonnement?
 
 Vijftig. Kunt u een [Azure-ondersteuningsticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) deze limiet te verhogen, maar standaard kunt u alleen 50 exemplaren van de Cosmos-database per abonnement inrichten.
-
-### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Hoe kan ik een dynamische kaart configureren op het dashboard?
-
-Zie voor meer informatie [Upgrade kaart sleutel apparaten wilt bekijken op een dynamische kaart](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Hoeveel gratis Bing Kaarten-API's kan ik inrichten met een abonnement?
 
@@ -105,6 +86,7 @@ Zie het blogbericht van Eric Golpe van [overzicht van het verwijderen van een Az
 
 U kunt ook enkele van de andere functies en mogelijkheden van de vooraf geconfigureerde IoT Suite-oplossingen verkennen:
 
+* [Ontdek de mogelijkheden van de vooraf geconfigureerde oplossing voor externe controle](iot-suite-remote-monitoring-explore.md)
 * [Overzicht van voorspeld onderhoud vooraf geconfigureerde oplossing](iot-suite-predictive-overview.md)
 * [Overzicht van de verbonden factory vooraf geconfigureerde oplossing](iot-suite-connected-factory-overview.md)
 * [Beveiliging van een compleet nieuwe IoT](securing-iot-ground-up.md)

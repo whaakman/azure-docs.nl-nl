@@ -11,7 +11,7 @@ ms.author: gamonroy
 ms.custom: mvc
 ms.openlocfilehash: 2ba18f638d3cc56437b659b7ab6754338a2220cf
 ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/23/2018
 ---

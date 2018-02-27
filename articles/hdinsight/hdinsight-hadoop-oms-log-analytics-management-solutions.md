@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 9b2871a3dc7e8c3f36666d44e68c298f43fa6267
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: f8a073fbf40feaef97053bb1165d63bbca3e3feb
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="add-hdinsight-cluster-management-solutions-to-log-analytics"></a>Oplossingen voor HDInsight-cluster toevoegen aan Log Analytics
 
@@ -45,10 +45,10 @@ In deze sectie kunt u een oplossing voor beheer van HBase-cluster toevoegen aan 
 
 2. In de galerie met oplossingen, klikt u op een van de volgende tegels:
 
-    - HDInsight Hadoop-bewaking
+    - HDInsight Hadoop Monitoring
     - HDInsight HBase Monitoring (Preview)
-    - HDInsight Kafka bewaking
-    - HDInsight Storm bewaking
+    - HDInsight Kafka Monitoring
+    - HDInsight Storm Monitoring
     - HDInsight Spark bewaking
 
 3. Klik in het volgende scherm op **toevoegen**.  De volgende schermafbeelding ziet de knop toevoegen voor de bewaking van HBase.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ab0cd45334581f6f5c6dd6e86939e018df5de074
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Routefilters voor Microsoft-peering configureren: Azure-portal
 > [!div class="op_single_selector"]
@@ -92,7 +92,7 @@ Maak een lijst van BGP-Communitywaarden die u wilt gebruiken in het routefilter.
 Een routefilter kan slechts één regel, en de regel moet van het type 'Toestaan'. Deze regel kan een lijst met BGP-Communitywaarden die zijn gekoppeld hebben.
 
 ### <a name="1-create-a-route-filter"></a>1. Maken van een routefilter
-U kunt een routefilter maken door de optie voor het maken van een nieuwe resource. Klik op **nieuw** > **Networking** > **RouteFilter**, zoals wordt weergegeven in de volgende afbeelding:
+U kunt een routefilter maken door de optie voor het maken van een nieuwe resource. Klik op **maken van een resource** > **Networking** > **RouteFilter**, zoals wordt weergegeven in de volgende afbeelding:
 
 ![Maken van een routefilter](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
 

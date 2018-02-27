@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Oplossen van prestatieproblemen van trage web-app in Azure App Service
 Dit artikel helpt u problemen met trage web app prestaties in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -58,10 +58,10 @@ Deze optie kunt u achterhalen als uw toepassing problemen ondervindt. Klik op de
 
 Sommige van de metrische gegevens die u voor uw web-app kunt bewaken
 
-* Gemiddelde geheugen werkset
+* Gemiddeld geheugenwerkset
 * Gemiddelde reactietijd
 * CPU-tijd
-* Geheugen-werkset
+* Geheugenwerkset
 * Aanvragen
 
 ![web-app-prestaties bewaken](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
@@ -83,18 +83,14 @@ Om in te stellen, Zie [in Azure App Service-apps bewaken](web-sites-monitor.md).
 Zie ook [Azure-websites te houden van plus Eindpuntcontrole - met Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) voor een video over eindpuntcontrole.
 
 #### <a name="application-performance-monitoring-using-extensions"></a>APM-extensies gebruiken
-U kunt ook de toepassingsprestaties van uw bewaken met behulp van *site-uitbreidingen*.
+U kunt ook de toepassingsprestaties van uw bewaken met behulp van een *site-uitbreiding*.
 
 Elke App Service-web-app biedt een uitbreidbare management-eindpunt waarmee u een krachtige reeks hulpprogramma's die zijn geïmplementeerd als site-uitbreidingen te gebruiken. Extensies zijn onder andere: 
 
 - Bron code-editors, zoals [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Beheerhulpprogramma's voor verbonden resources, zoals een MySQL-database is verbonden met een web-app.
 
-[Azure Application Insights](/services/application-insights/) en [New Relic](/marketplace/partners/newrelic/newrelic/) zijn twee van de site-uitbreidingen die beschikbaar zijn voor prestatiebewaking. Voor het gebruik van New Relic door een agent tijdens runtime te installeren. Voor het gebruik van Azure Application Insights bouwen van uw code bij een SDK en u kunt ook een uitbreiding die toegang tot aanvullende gegevens biedt installeren. De SDK kunt u code schrijven voor het gebruik en prestaties van uw app in meer detail controleren.
-
-Zie voor het gebruik van Application Insights [prestaties van webtoepassingen bewaken](../application-insights/app-insights-web-monitor-performance.md).
-
-Zie voor het gebruik van New Relic [nieuwe Relic prestaties Toepassingsbeheer op Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
+[Azure Application Insights](/services/application-insights/) is van een site-uitbreiding die is ook beschikbaar voor prestatiebewaking. Opnieuw samenstellen uw code bij een SDK voor het gebruik van Application Insights. U kunt ook een uitbreiding die toegang tot aanvullende gegevens biedt installeren. De SDK kunt u code schrijven voor het gebruik en prestaties van uw app in meer detail controleren. Zie voor meer informatie [prestaties van webtoepassingen bewaken](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 
@@ -137,7 +133,7 @@ De portal van de ondersteuning van Azure App Service biedt drie afzonderlijke ta
 
 1. Huidige gedrag observeren
 2. Door het verzamelen van diagnostische gegevens en uitvoeren van de ingebouwde analyzers analyseren
-3. Beperken
+3. Oplossen
 
 Als het probleem nu voordoet zich, klikt u op **analyseren** > **Diagnostics** > **onderzoeken nu** voor het maken van een diagnostische sessie voor u, verzamelt HTTP zich aanmeldt, Logboeken, geheugen dumpbestanden, PHP-foutenlogboek en PHP-proces rapport.
 

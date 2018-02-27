@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -241,7 +241,7 @@ Geschatte tijd om te voltooien: 20 minuten
 
 | Vereiste | Resources |
 | --- | --- |
-| Een Microsoft Azure AD basic of premium-abonnement en een Azure AD-directory waarvoor u een globale beheerder bent | [Azure Active Directory-edities](active-directory-editions.md) |
+| Een Microsoft Azure AD basic of premium-abonnement en een Azure AD-directory waarvoor u een globale beheerder bent | [Azure Active Directory editions](active-directory-editions.md) |
 | Een webtoepassing gehost on-premises die u wilt configureren voor externe toegang |  |
 | Een server met Windows Server 2012 R2 of Windows 8.1 of hoger, waarop u de Connector voor toepassingsproxy kunt installeren | [Azure AD-toepassingsproxy connectors begrijpen](application-proxy-understand-connectors.md) |
 | Als er een firewall in het pad, zorg ervoor dat deze geopend is zodat de Connector HTTPS (TCP) aanvragen naar de toepassingsproxy kunt maken | [Toepassingsproxy inschakelen in de Azure-portal: vereisten voor toepassingsproxy](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
@@ -256,7 +256,7 @@ Geschatte tijd om te voltooien: 20 minuten
 | De on-premises toepassing publiceren in Azure AD als een toepassing toepassingsproxy | [Toepassingen publiceren met Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md) |
 | Testgebruikers toewijzen | [Toepassingen publiceren met Azure AD-toepassingsproxy: een testgebruiker toevoegen](application-proxy-publish-azure-portal.md#add-a-test-user) |
 | Configureer desgewenst een ervaring voor eenmalige aanmelding voor uw gebruikers | [Geef eenmalige aanmelding met Azure AD-toepassingsproxy](application-proxy-sso-azure-portal.md) |
-| App testen door het aanmelden bij de portal MyApps als toegewezen gebruiker | https://myapps.Microsoft.com |
+| App testen door het aanmelden bij de portal MyApps als toegewezen gebruiker | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Overwegingen
 
@@ -289,7 +289,7 @@ Geschatte tijd om te voltooien: 60 minuten
 | Synchronisatieregels maakt, zodat objecten in de Metaverse over vereiste kenmerken voor werkbelastingen | [Azure AD Connect-synchronisatie: aanbevolen procedures voor het wijzigen van de standaardconfiguratie: wijzigingen aan de regels voor synchronisatie](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect-synchronisatie: inzicht declaratieve inrichting](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect-synchronisatie: inzicht declaratieve inrichting expressies](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Volledige synchronisatiecyclus starten | [Azure AD Connect-synchronisatie: Scheduler: Start de planner](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | In geval van problemen wilt oplossen | [Troubleshoot an object that is not synchronizing to Azure AD](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) (Problemen oplossen wanneer een object niet wordt gesynchroniseerd met Azure AD) |
-| Controleer of, LDAP-gebruiker kunt aanmelden en toegang tot de toepassing | https://myapps.Microsoft.com |
+| Controleer of, LDAP-gebruiker kunt aanmelden en toegang tot de toepassing | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Overwegingen
 
@@ -314,7 +314,7 @@ Geschatte tijd om te voltooien: 10 minuten
 
 | Stap | Resources |
 | --- | --- |
-| Identificeren van de groep die toegang tot de toepassing heeft gekregen en configureer de eigenaar van de opgegeven groep| [De instellingen voor een groep in Azure Active Directory beheren](active-directory-groups-settings-azure-portal.md) |
+| Identificeren van de groep die toegang tot de toepassing heeft gekregen en configureer de eigenaar van de opgegeven groep| [De instellingen voor een groep in Azure Active Directory beheren ](active-directory-groups-settings-azure-portal.md) |
 | Meld u aan als de eigenaar van de groep, Zie het lidmaatschap van de groepen tabblad van het toegangsvenster | [Azure Active Directory-groepen Management-pagina](https://account.activedirectory.windowsazure.com/r/#/groups) |
 | Toevoegen van de Informatiemedewerker die u wilt testen |  |
 | Meld u aan als de Informatiemedewerker, Controleer dat de tegel beschikbaar is | [Wat is het toegangsvenster?](active-directory-saas-access-panel-introduction.md) |
@@ -340,7 +340,7 @@ Als de toepassing heeft de inrichting is ingeschakeld, moet u mogelijk Wacht een
 | --- | --- |
 | Verwijder de gebruiker uit de groep die de app is toegewezen aan | [Groepslidmaatschap voor gebruikers in uw Azure Active Directory-tenant beheren](active-directory-groups-members-azure-portal.md) |
 | Wacht enkele minuten duren voordat de inrichting ongedaan | [Geautomatiseerde Gebruikersinrichting voor SaaS-App in Azure AD: hoe werkt geautomatiseerde inrichting?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
-| Meld u aan als de Informatiemedewerker naar de portal van mijn apps en Bevestig dat tegel ontbreekt op een afzonderlijke browsersessie | http://myapps.Microsoft.com |
+| Meld u aan als de Informatiemedewerker naar de portal van mijn apps en Bevestig dat tegel ontbreekt op een afzonderlijke browsersessie | http://myapps.microsoft.com |
 
 
 ### <a name="considerations"></a>Overwegingen
@@ -364,14 +364,14 @@ Geschatte tijd om te voltooien: 10 minuten
 | --- | --- |
 | Ga naar de blade bedrijfstoepassingen in Azure AD-beheerportal | [Azure AD-beheerportal: Bedrijfstoepassingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) |
 | De toepassing van de vereisten met selfservice configureren | [Wat is er nieuw in Enterprise Toepassingsbeheer in Azure Active Directory: toegang tot selfservice-toepassingen configureren](active-directory-enterprise-apps-whats-new-azure-portal.md#configure-self-service-application-access) |
-| Meld u aan als de Informatiemedewerker naar Mijn apps-portal | http://myapps.Microsoft.com |
+| Meld u aan als de Informatiemedewerker naar Mijn apps-portal | http://myapps.microsoft.com |
 | U ziet ' + app toevoegen ' knop in op de pagina. Toegang krijgen tot de app gebruiken |  |
 
 ### <a name="considerations"></a>Overwegingen
 
 De gekozen toepassingen mogelijk inrichting vereisten, dus gaat onmiddellijk de app kan ertoe leiden dat een aantal fouten. Als de toepassing gekozen ondersteuning biedt voor inrichting met azure ad en deze is geconfigureerd, kunt u dit gebruiken als een goede kans om weer te geven van de hele stroom complete werken. Zie de bouwsteen voor [SaaS federatieve SSO configuratie](#saas-federated-sso-configuration) voor verdere aanbevelingen
 
-## <a name="self-service-password-reset"></a>Selfservice voor wachtwoordherstel
+## <a name="self-service-password-reset"></a>Selfservice voor wachtwoord opnieuw instellen
 
 Geschatte tijd om te voltooien: 15 minuten
 
@@ -391,7 +391,7 @@ Geschatte tijd om te voltooien: 15 minuten
 | Navigeer naar Azure AD-beheerportal: wachtwoord opnieuw instellen | [Azure AD-beheerportal: Wachtwoord opnieuw instellen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) |
 | Bepaal dat het beleid voor wachtwoordherstel. Voor de POC-doeleinden, kunt u telefonische oproep en Q & A. Het verdient aanbeveling om in te schakelen moet u aanmelden bij het toegangspaneel-registratie |  |
 | Meld u af en meld u aan als een Informatiemedewerker |  |
-| Geef de selfservice voor wachtwoordherstel gegevens zoals geconfigureerd per stap 2 | http://aka.MS/ssprsetup |
+| Geef de selfservice voor wachtwoordherstel gegevens zoals geconfigureerd per stap 2 | https://aka.ms/ssprsetup |
 | Sluit de browser |  |
 | De aanmelding beginnen als de Informatiemedewerker die u in stap 4 gebruikt |  |
 | Het wachtwoord opnieuw instellen | [Uw eigen wachtwoord bijwerken: Mijn wachtwoord opnieuw instellen](active-directory-passwords-update-your-own-password.md) |
@@ -442,7 +442,7 @@ Geschatte tijd om te voltooien: 10 minuten
 | SaaS-toepassing is al geconfigureerd |  |
 | Implementatiemodel gebruikers zijn al toegewezen aan de toepassing |  |
 | Er zijn referenties voor de gebruiker Implementatiemodel beschikbaar |  |
-| Implementatiemodel gebruiker is geregistreerd voor MFA. Via een telefoon met goede ontvangst | http://aka.MS/ssprsetup |
+| Implementatiemodel gebruiker is geregistreerd voor MFA. Via een telefoon met goede ontvangst | https://aka.ms/ssprsetup |
 | Apparaat in het interne netwerk. IP-adres geconfigureerd in het interne-adresbereik | Uw IP-adres vinden: https://www.bing.com/search?q=what%27s+my+ip |
 | Apparaat in het externe netwerk (een telefoon met behulp van het mobiele netwerk van de provider kan worden) |  |
 
@@ -508,7 +508,7 @@ Geschatte tijd om te voltooien: 20 minuten
 | Open tor-browser | [Tor Browser downloaden](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Aanmelden bij https://myapps.microsoft.com met het Implementatiemodel gebruikersaccount | [Azure Active Directory: Identity Protection playbook: Risicogebeurtenissen simuleren](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | Wacht 5-7 minuten |  |
-| Meld u aan als een globale beheerder zijn om https://portal.azure.com en open de blade Identity Protection | https://aka.MS/aadipgetstarted |
+| Meld u aan als een globale beheerder zijn om https://portal.azure.com en open de blade Identity Protection | https://aka.ms/aadipgetstarted |
 | Open de blade van de gebeurtenissen risico. Er is een item onder 'Aanmeldingen vanaf anonieme IP-adressen'  | [Azure Active Directory: Identity Protection playbook: Risicogebeurtenissen simuleren](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Overwegingen
@@ -532,8 +532,8 @@ Geschatte tijd om te voltooien: 10 minuten
 
 | Stap | Resources |
 | --- | --- |
-| Meld u aan als een globale beheerder zijn om https://portal.azure.com de blade en open Identity Protection | https://aka.MS/aadipgetstarted |
-| Een beleid voor aanmelden risico als volgt inschakelen:<br/>-Toegewezen aan: Implementatiemodel gebruiker<br/>-Voorwaarden: Aanmelden risico gemiddeld of hoger (aanmelden vanaf anonieme locatie wordt beschouwd als een gemiddeld risiconiveau)<br/>-Besturingselementen: MFA vereisen | [Azure Active Directory: Identity Protection playbook: aanmelden risico](active-directory-identityprotection-playbook.md#sign-in-risk) |
+| Meld u aan als een globale beheerder zijn om https://portal.azure.com de blade en open Identity Protection | https://aka.ms/aadipgetstarted |
+| Een beleid voor aanmelden risico als volgt inschakelen:<br/>-Toegewezen aan: Implementatiemodel gebruiker<br/>-Voorwaarden: Aanmelden risico gemiddeld of hoger (aanmelden vanaf anonieme locatie wordt beschouwd als een gemiddeld risiconiveau)<br/>-Besturingselementen: MFA vereisen | [Azure Active Directory: Identity Protection playbook: aanmelden risico](active-directory-identityprotection-playbook.md) |
 | Open tor-browser | [Tor Browser downloaden](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Aanmelden bij https://myapps.microsoft.com met het implementatiemodel gebruikersaccount |  |
 | U ziet de MFA-controle | [Aanmelden-ervaringen met Azure AD Identity Protection: riskant aanmelden herstel](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
@@ -560,7 +560,7 @@ Geschatte tijd om te voltooien: 20 minuten
 | --- | --- |
 | "Verificatie met gebruikerscertificaat" op de AD FS inschakelen | [Verificatiebeleid configureren: Globaal primaire verificatie in Windows Server 2012 R2 configureren](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
 | Optioneel: Authenticatie via certificaat inschakelen in Azure AD voor Exchange ActiveSync-clients | [Aan de slag met verificatie op basis van certificaten in Azure Active Directory](active-directory-certificate-based-authentication-get-started.md) |
-| Navigeer naar het Toegangspaneel en zich verifiëren met gebruikerscertificaat | https://myapps.Microsoft.com |
+| Navigeer naar het Toegangspaneel en zich verifiëren met gebruikerscertificaat | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Overwegingen
 

@@ -4,7 +4,7 @@ description: Deze zelfstudie laat zien hoe een SQL Server altijd op beschikbaarh
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configureren AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
@@ -40,13 +40,13 @@ De volgende tabel bevat de vereisten die u nodig hebt voltooid voordat u deze ze
 
 |  |Vereiste |Beschrijving |
 |----- |----- |----- |
-|![vierkante](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Twee SQL-Servers | -In een Azure beschikbaarheidsset <br/> -In één domein <br/> -Met de functie Failover Clustering is geïnstalleerd |
-|![vierkante](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Bestandsshare voor cluster-witness |  
-|![vierkante](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server-serviceaccount | Domeinaccount |
-|![vierkante](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Agent-serviceaccount | Domeinaccount |  
-|![vierkante](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Firewall-poorten | -SQL Server: **1433** voor het standaardexemplaar <br/> -Eindpunt voor databasespiegeling: **5022** of een beschikbare poort <br/> -Azure load balancer-test: **59999** of een beschikbare poort |
-|![vierkante](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Toevoegen van de functie Failoverclustering | Deze functie nodig hebben voor zowel SQL-Servers |
-|![vierkante](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Installatieaccount van het domein | -Lokale beheerder zijn op elke SQL Server <br/> -Lid is van SQL Server vaste serverrol sysadmin voor elk exemplaar van SQL Server  |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Two SQL Servers | -In een Azure beschikbaarheidsset <br/> -In één domein <br/> -Met de functie Failover Clustering is geïnstalleerd |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Bestandsshare voor cluster-witness |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server-serviceaccount | Domeinaccount |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Agent-serviceaccount | Domeinaccount |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Firewall-poorten | -SQL Server: **1433** voor het standaardexemplaar <br/> -Eindpunt voor databasespiegeling: **5022** of een beschikbare poort <br/> -Azure load balancer-test: **59999** of een beschikbare poort |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Toevoegen van de functie Failoverclustering | Deze functie nodig hebben voor zowel SQL-Servers |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Installatieaccount van het domein | -Lokale beheerder zijn op elke SQL Server <br/> -Lid is van SQL Server vaste serverrol sysadmin voor elk exemplaar van SQL Server  |
 
 
 Voordat u de zelfstudie begint, moet u [voldoen aan vereisten voor het maken van AlwaysOn-beschikbaarheidsgroepen in Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Als deze vereiste onderdelen zijn al voltooid, kunt u springen naar [Cluster maken](#CreateCluster).
@@ -55,7 +55,7 @@ Voordat u de zelfstudie begint, moet u [voldoen aan vereisten voor het maken van
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-##Het cluster maken
+## Het cluster maken
 
 Nadat de vereiste onderdelen zijn voltooid, wordt de eerste stap is om een Windows Server-failovercluster met twee SQL-servers en een witness-server te maken.  
 
@@ -221,7 +221,7 @@ Repeat these steps on the second SQL Server.
 7. In **Objectverkenner**, met de rechtermuisknop op **Databases** en klik op **nieuwe Database**.
 8. In **databasenaam**, type **MyDB1**, klikt u vervolgens op **OK**.
 
-### <a name="backupshare"></a>Maak een back-share
+### <a name="backupshare"></a> Maak een back-share
 
 1. Op de eerste SQL-Server in **Serverbeheer**, klikt u op **extra**. Open **Computerbeheer**.
 
@@ -321,7 +321,7 @@ U bent nu klaar om te configureren van een beschikbaarheidsgroep met behulp van 
 
    Uw **AlwaysOn Dashboard** ziet er ongeveer als volgt.
 
-   ![AG-Dashboard](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/78-agdashboard.png)
+   ![AG Dashboard](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/78-agdashboard.png)
 
    U ziet de replica's, de failover-modus van elke replica en de synchronisatiestatus.
 
@@ -337,7 +337,7 @@ U hebt op dit moment een beschikbaarheidsgroep met replica's op twee exemplaren 
 
 <a name="configure-internal-load-balancer"></a>
 
-## <a name="create-an-azure-load-balancer"></a>Een Azure load balancer maken
+## <a name="create-an-azure-load-balancer"></a>Een Azure-load balancer maken
 
 Op virtuele machines in Azure vereist een SQL Server-beschikbaarheidsgroep een load balancer. De load balancer bevat het IP-adres voor de beschikbaarheidsgroep-listener. Deze sectie bevat een overzicht van de load balancer maken in de Azure-portal.
 
@@ -352,7 +352,7 @@ Op virtuele machines in Azure vereist een SQL Server-beschikbaarheidsgroep een l
    | Instelling | Veld |
    | --- | --- |
    | **Naam** |Gebruik een naam in voor de load balancer, zoals **sqlLB**. |
-   | **Type** |interne |
+   | **Type** |Intern |
    | **Virtueel netwerk** |Gebruik de naam van de virtuele Azure-netwerk. |
    | **Subnet** |De naam van het subnet dat de virtuele machine is in gebruik.  |
    | **IP-adrestoewijzing** |Statisch |
@@ -421,7 +421,7 @@ Voor het configureren van de load balancer, moet u een back-endpool een test mak
    | **Protocol** | Kies TCP |TCP |
    | **Poort** | Gebruik de poort voor SQL Server-exemplaar | 1433 |
    | **Back-Endpoort** | Dit veld wordt niet gebruikt wanneer zwevend IP is ingesteld voor direct server return | 1433 |
-   | **Test** |De naam die u hebt opgegeven voor de test | SQLAlwaysOnEndPointProbe |
+   | **Probe** |De naam die u hebt opgegeven voor de test | SQLAlwaysOnEndPointProbe |
    | **Sessiepersistentie** | Vervolgkeuzelijst | **Geen** |
    | **Time-out voor inactiviteit** | Minuten geopend te houden die een TCP-verbinding | 4 |
    | **Zwevend IP (direct server return)** | |Ingeschakeld |
@@ -431,7 +431,7 @@ Voor het configureren van de load balancer, moet u een back-endpool een test mak
 
 1. Klik op **OK** om in te stellen van de load-balancingregels.
 
-## <a name="configure-listener"></a>De listener configureren
+## <a name="configure-listener"></a> De listener configureren
 
 De volgende wat te doen is voor het configureren van een beschikbaarheidsgroep-listener op het failovercluster.
 

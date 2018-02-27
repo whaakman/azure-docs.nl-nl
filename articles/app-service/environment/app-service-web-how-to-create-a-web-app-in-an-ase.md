@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: b031807073313e9e093dbc7576ecfd3d2a970abe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e8540409c6174ad02bd2d9d57c53e0279f49871
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Een web-app maken in een App Service-omgeving v1
 
@@ -38,7 +38,7 @@ Deze zelfstudie laat zien hoe u maakt de web-apps en App Service-plannen een [Ap
 Deze zelfstudie wordt ervan uitgegaan dat u een App Service-omgeving hebt gemaakt. Als u die nog niet hebt gedaan, Zie [maken van een App-serviceomgeving](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Een webtoepassing maken
-1. In de [Azure Portal](https://portal.azure.com/), klikt u op **Nieuw > Web + mobiel > Web-App**. 
+1. In de [Azure Portal](https://portal.azure.com/), klikt u op **maken van een resource > Web + mobiel > Web-App**. 
    
     ![][1]
 2. Selecteer uw abonnement.  
@@ -47,7 +47,7 @@ Deze zelfstudie wordt ervan uitgegaan dat u een App Service-omgeving hebt gemaak
 3. Selecteer of maak een resourcegroep.
    
     *Resourcegroepen* kunt u Azure gerelateerde resources beheren als één eenheid en zijn handig bij het maken van *toegangsbeheer op basis van rollen* regels (RBAC) voor uw apps. Zie voor meer informatie [overzicht van Azure Resource Manager][ResourceGroups]. 
-4. Selecteer of maak een App Service-abonnement.
+4. Selecteer of maak een App Service-plan.
    
     *App Service-plannen* beheerde sets met web-apps.  Normaal gesproken wanneer u prijzen selecteert, wordt de prijs toegepast op het App Service-abonnement in plaats van de afzonderlijke apps. In een as-omgeving betaalt u voor de compute-exemplaren die is toegewezen aan de as-omgeving in plaats van de lijst met uw ASP.  Als u wilt schalen van het aantal exemplaren van een web-app die u de exemplaren van uw App Service opschalen plan en deze van invloed op alle van de web-apps in plan.  Sommige functies zoals site sleuven of VNET integratie hebben ook hoeveelheidsbeperkingen binnen het plan.  Zie voor meer informatie [overzicht van Azure App Service-plannen](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
    
@@ -63,7 +63,7 @@ Deze zelfstudie wordt ervan uitgegaan dat u een App Service-omgeving hebt gemaak
     Als uw as-omgeving gebruikmaakt van een interne VIP en vervolgens de URL van een app in dat as-omgeving is: [*sitename*]. [ *subdomein opgegeven tijdens het maken van de as-omgeving*]   
     Nadat u uw ASP tijdens het maken van de as-omgeving selecteren, ziet u het subdomein bijwerken hieronder **naam**
 
-## <a name="createplan"></a>Een App Service-abonnement maken
+## <a name="createplan"></a> Een App Service-abonnement maken
 Wanneer u een App Service-abonnement in een App Service-omgeving maakt, zijn uw keuzes worker verschillend omdat er geen gedeelde werknemers zich in een as-omgeving.  De werknemers die u moet gebruiken zijn degene die zijn toegewezen aan de as-omgeving door de beheerder.  Dit betekent dat voor het maken van een nieuw plan hoeft te hebben meer werknemers die zijn toegewezen aan uw as-omgeving werknemersgroep dan het totale aantal exemplaren voor alle uw plannen al uit de betreffende worker-groep.  Als u geen voldoende werknemers in uw werknemersgroep as-omgeving om uw plan te maken, moet u samen met uw beheerder as-omgeving aan om ze toegevoegd.
 
 Een ander verschil met App Service-abonnementen die worden gehost door een App Service-omgeving is het ontbreken van de prijzen voor selectie.  Wanneer u een App Service-omgeving hebt u betaalt voor de rekenresources die door het systeem gebruikt en bevatten geen extra kosten voor de plannen in deze omgeving.  Normaal gesproken wanneer u een App Service-abonnement maakt u een prijscategorie selecteren waarmee wordt bepaald van de facturering.  Een App Service-omgeving is in wezen een persoonlijke locatie waarin u inhoud kunt maken.  U betaalt voor de omgeving en niet voor het hosten van uw inhoud.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>SQL-query's voor Azure Cosmos-DB
 
@@ -174,7 +174,7 @@ Wij willen graag aandacht te vestigen op enkele opmerkelijk aspecten van de Cosm
 * Cosmos DB ondersteunt alleen strikte JSON-documenten. Dit betekent dat de systeem- en expressies zijn beperkt tot alleen met JSON-typen zijn getroffen. Raadpleeg de [JSON-specificatie](http://www.json.org/) voor meer informatie.  
 * Een Cosmos-DB-verzameling is een container zonder schema van JSON-documenten. De relaties in gegevensentiteiten binnen en tussen documenten in een verzameling worden impliciet door containment en niet door de primaire sleutel en refererende sleutels relaties vastgelegd. Dit is een belangrijk aspect waard wijzen op in het licht de intra-document wordt besproken verderop in dit artikel.
 
-## <a id="Indexing"></a>Cosmos DB indexeren
+## <a id="Indexing"></a> Cosmos DB indexeren
 Voordat we in de SQL-syntaxis ophalen, is het waard het ontwerp van de indexering in Azure Cosmos DB. 
 
 Het doel van de indexen van de database is voor het uitvoeren van query's in hun diverse vormen en vormen met minimale brongebruik (zoals CPU en input/output) en tegelijkertijd goede doorvoer en lage latentie. Vaak is de keuze van de juiste index voor query's in een database vereist veel planning en experimenteren. Deze aanpak vormt een uitdaging voor schema-minder databases waarin de gegevens voldoen niet aan een strikte schema en snel ontwikkeld. 
@@ -203,7 +203,7 @@ De `FROM <from_specification>` component is optioneel tenzij de bron is gefilter
 
 Een query, zoals `SELECT * FROM Families` geeft aan dat de volledige verzameling worden Families de bron via die u wilt inventariseren. Een speciale ROOT-id kan worden gebruikt voor de verzameling in plaats van met de naam van de verzameling. De volgende lijst bevat de regels die per query worden afgedwongen:
 
-* De verzameling mag alias hebben, zoals `SELECT f.id FROM Families AS f` of gewoon `SELECT f.id FROM Families f`. Hier `f` is het equivalent van `Families`. `AS`is een optioneel trefwoord tot de alias van de id.
+* De verzameling mag alias hebben, zoals `SELECT f.id FROM Families AS f` of gewoon `SELECT f.id FROM Families f`. Hier `f` is het equivalent van `Families`. `AS` is een optioneel trefwoord tot de alias van de id.
 * Eenmaal alias hebben, de oorspronkelijke bron kan niet worden gebonden. Bijvoorbeeld: `SELECT Families.id FROM Families f` syntaxis is ongeldig omdat de id 'Families' kan niet meer worden omgezet.
 * Alle eigenschappen die moeten worden verwezen moet volledig gekwalificeerd zijn. Dit wordt afgedwongen in het ontbreken van de toepassing van de strikte schema om te voorkomen dat geen bindingen niet eenduidig. Daarom `SELECT id FROM Families f` syntaxis is ongeldig omdat de eigenschap `id` niet is gebonden.
 
@@ -924,7 +924,7 @@ U kunt ook statistische functies uitvoeren in combinatie met filters. De volgend
 
     [ 1 ]
 
-De volgende tabel bevat de lijst met ondersteunde statistische functies in de SQL-API. `SUM`en `AVG` via numerieke waarden worden uitgevoerd terwijl `COUNT`, `MIN`, en `MAX` via getallen, tekenreeksen, Booleaanse waarden en null-waarden kunnen worden uitgevoerd. 
+De volgende tabel bevat de lijst met ondersteunde statistische functies in de SQL-API. `SUM` en `AVG` via numerieke waarden worden uitgevoerd terwijl `COUNT`, `MIN`, en `MAX` via getallen, tekenreeksen, Booleaanse waarden en null-waarden kunnen worden uitgevoerd. 
 
 | Gebruik | Beschrijving |
 |-------|-------------|
@@ -937,7 +937,7 @@ De volgende tabel bevat de lijst met ondersteunde statistische functies in de SQ
 Statistische functies kunnen ook worden uitgevoerd via de resultaten van een matrix herhaling. Zie voor meer informatie [herhaling van de matrix in query's](#Iteration).
 
 > [!NOTE]
-> Wanneer u de Azure portal Queryverkenner, houd er rekening mee dat aggregatie van query's kunnen het resultaat gedeeltelijk geaggregeerde via een querypagina. De SDK's produceert één cumulatieve waarde op alle pagina's. 
+> Wanneer u de Azure portal Data Explorer, houd er rekening mee dat aggregatie van query's kunnen het resultaat gedeeltelijk geaggregeerde via een querypagina. De SDK's produceert één cumulatieve waarde op alle pagina's. 
 > 
 > Als u wilt uitvoeren met code aggregatie-query's, moet u de .NET SDK 1.12.0, .NET Core SDK 1.1.0 of Java SDK 1.9.5 of hoger.    
 >
@@ -1205,7 +1205,7 @@ In dit voorbeeld is een natuurlijke extensie van het vorige voorbeeld en voert e
         }
     }
 
-`AndersenFamily`heeft één onderliggende die één huisdier heeft. Dus het vectorproduct resulteert in een rij is (1\*1\*1) van deze reeks. WakefieldFamily echter twee onderliggende items heeft, maar slechts één onderliggende 'Jesse' huisdieren heeft. Jesse heeft echter twee huisdieren. Daarom het vectorproduct 1 levert\*1\*2 = 2 rijen uit deze reeks.
+`AndersenFamily` heeft één onderliggende die één huisdier heeft. Dus het vectorproduct resulteert in een rij is (1\*1\*1) van deze reeks. WakefieldFamily echter twee onderliggende items heeft, maar slechts één onderliggende 'Jesse' huisdieren heeft. Jesse heeft echter twee huisdieren. Daarom het vectorproduct 1 levert\*1\*2 = 2 rijen uit deze reeks.
 
 In het volgende voorbeeld, er is een extra filter op `pet`. Dit omvat niet alle tuples waar de pet-naam geen is 'Schaduwkopie'. U ziet dat we kunnen bouwen tuples uit matrices, filter op een van de elementen van de tuple en een combinatie van de elementen project. 
 
@@ -1394,7 +1394,7 @@ Cosmos DB ondersteunt ook een aantal ingebouwde functies voor algemene bewerking
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wiskundige functies  | ABS, maximum, EXP, FLOOR, logboek, LOG10, POWER, ROUND, aanmelding, SQRT, VIERKANT, geheel, BOOGCOS, ASIN, BOOGTAN, ATN2, Cosinus, COT, graden PI, radialen, SIN en TAN |
 | Controle van de functies van het type | IS_ARRAY, IS_BOOL IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED en IS_PRIMITIVE                                                           |
-| Tekenreeksfuncties        | CONCAT, bevat ENDSWITH, INDEX_OF, links, lengte, kleine, LTRIM, vervangen, REPLICEREN, REVERSE, rechts, RTRIM, STARTSWITH, SUBTEKENREEKS en hoofdletters       |
+| Tekenreeks-functies        | CONCAT, bevat ENDSWITH, INDEX_OF, links, lengte, kleine, LTRIM, vervangen, REPLICEREN, REVERSE, rechts, RTRIM, STARTSWITH, SUBTEKENREEKS en hoofdletters       |
 | Matrixfuncties         | ARRAY_CONCAT, ARRAY_CONTAINS ARRAY_LENGTH en ARRAY_SLICE                                                                                         |
 | Ruimtelijke functies       | ST_DISTANCE, ST_WITHIN ST_INTERSECTS, ST_ISVALID en ST_ISVALIDDETAILED                                                                           | 
 
@@ -1495,7 +1495,7 @@ U kunt nu een query's als volgt uitvoeren met behulp van deze functies:
 
     [true]
 
-### <a name="string-functions"></a>Tekenreeksfuncties
+### <a name="string-functions"></a>Tekenreeks-functies
 De volgende scalaire functies een bewerking uitvoeren op een tekenreekswaarde van de invoer en een tekenreeks, numerieke of Booleaanse waarde retourneren. Hier volgt een lijst met ingebouwde tekenreeks-functies:
 
 | Gebruik | Beschrijving |
@@ -2212,7 +2212,7 @@ Het volgende voorbeeld toont joins, die zijn uitgedrukt via LINQ SelectMany.
 
 De .NET-client worden automatisch alle pagina's van de resultaten van de query in de foreach-blokken zoals hierboven doorlopen. De query-opties die zijn geïntroduceerd in de REST-API-sectie zijn ook beschikbaar in de .NET SDK met de `FeedOptions` en `FeedResponse` klassen in de methode CreateDocumentQuery. Het aantal pagina's kan worden beheerd met behulp van de `MaxItemCount` instelling. 
 
-U kunt ook expliciet paginering bepalen door het maken van `IDocumentQueryable` met behulp van de `IQueryable` object, klikt u vervolgens op het lezen van de` ResponseContinuationToken` waarden en deze weer toe als `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery`kan worden ingesteld voor het inschakelen van scans als de query kan niet worden ondersteund door het geconfigureerde indexeringsbeleid. Voor gepartitioneerde verzamelingen kunt u `PartitionKey` aan de query uitvoeren voor één partitie (Hoewel Cosmos DB dit automatisch uit de querytekst ophalen kunt), en `EnableCrossPartitionQuery` query's uitvoeren die mogelijk moet worden uitgevoerd tegen meerdere partities. 
+U kunt ook expliciet paginering bepalen door het maken van `IDocumentQueryable` met behulp van de `IQueryable` object, klikt u vervolgens op het lezen van de` ResponseContinuationToken` waarden en deze weer toe als `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery` kan worden ingesteld voor het inschakelen van scans als de query kan niet worden ondersteund door het geconfigureerde indexeringsbeleid. Voor gepartitioneerde verzamelingen kunt u `PartitionKey` aan de query uitvoeren voor één partitie (Hoewel Cosmos DB dit automatisch uit de querytekst ophalen kunt), en `EnableCrossPartitionQuery` query's uitvoeren die mogelijk moet worden uitgevoerd tegen meerdere partities. 
 
 Raadpleeg [Azure Cosmos DB .NET-voorbeelden](https://github.com/Azure/azure-documentdb-net) voor meer voorbeelden met query's. 
 

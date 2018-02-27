@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f1b92c604e20198714e9697bf4d08b3f71f23ae3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Het oplossen van hybride Azure Active Directory die lid zijn van downlevel-apparaten 
 
@@ -62,7 +62,7 @@ Dit onderwerp vindt u richtlijnen over het oplossen van problemen op te lossen.
 
 1. Open de opdrachtprompt als beheerder 
 
-2. Type`"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
+2. type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
 
 Met deze opdracht geeft een dialoogvenster waarmee u meer informatie over de status van de join.
 
@@ -82,6 +82,18 @@ Als de hybride Azure AD join niet geslaagd is, biedt in het dialoogvenster u inf
 - U bent niet aangemeld op als een domeingebruiker
 
     ![Werkplekdeelname voor Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/03.png)
+    
+    Er zijn enkele verschillende redenen waarom deze fout kan optreden:
+    
+    1. De gebruiker aangemeld is niet als een domeingebruiker (bijvoorbeeld een lokale gebruiker). Hybride Azure AD join op downlevel-apparaten wordt alleen ondersteund voor gebruikers van een domein.
+    
+    2. Als Autoworkplace.exe om een of andere reden niet kan achtergrond verifiëren met Azure AD of AD FS. Enkele mogelijke redenen kan worden uitgaande gebonden verbindingsproblemen met Azure AD-URL's (Raadpleeg de vereisten) of dat MFA ingeschakeld/geconfigureerd voor de gebruiker is, maar WIAORMUTLIAUTHN niet is geconfigureerd op de federatieserver (configuratiestappen selectievakje). Een andere mogelijkheid is die thuis realm detectie (HRD) pagina wacht gebruikersinteractie zo wordt voorkomen dat Autoworkplace.exe achtergrond verkrijgen van een 
+    
+    3. Als de organisatie van Azure AD gebruikmaakt zijn naadloze eenmalige aanmelding, de volgende URL's niet aanwezig op het intranet in Internet Explorer van het apparaat:
+    - https://autologon.microsoftazuread-sso.com
+    - https://aadg.windows.net.nsatc.net
+    
+    en de instelling 'Toestaan dat updates voor de statusbalk via scripts' moet zijn ingeschakeld voor de intranetzone.
 
 - Een quotum is bereikt
 
