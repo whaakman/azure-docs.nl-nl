@@ -73,7 +73,7 @@ Voer deze opdracht uit:
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## <a name="attach-a-data-disk"></a>Een gegevensschijf koppelen
-Deze taak zijn een paar stappen vereist. Gebruik eerst de *** toevoegen-AzureDataDisk *** cmdlet de schijf toevoegen aan het $vm-object. Vervolgens gebruikt u **Update-AzureVM** cmdlet bij te werken van de configuratie van de virtuele machine.
+Deze taak zijn een paar stappen vereist. Gebruik eerst de ****toevoegen-AzureDataDisk**** cmdlet de schijf toevoegen aan het $vm-object. Vervolgens gebruikt u **Update-AzureVM** cmdlet bij te werken van de configuratie van de virtuele machine.
 
 U moet ook beslissen of u een nieuwe schijf wilt koppelen of een schijf die al gegevens bevat. Voor een nieuwe schijf, de opdracht wordt het VHD-bestand gemaakt en gekoppeld.
 
