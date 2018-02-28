@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 7eb31b91480b6e57135581cfa2f5503de3189e10
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: ba19a4fc24668bff27c961b5b415f840d1132a34
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="service-endpoint-manager"></a>Eindpunt van servicebeheer
+# <a name="service-endpoint-monitor"></a>Monitor voor service-eindpunt
 
-De mogelijkheden voor Service-eindpunt beheer in [netwerk Prestatiemeter](log-analytics-network-performance-monitor.md) kunt u netwerkverbinding met een willekeurig eindpunt met een open TCP-poort te bewaken. Dergelijke eindpunten zijn websites, SaaS-toepassingen, PaaS-toepassingen en SQL-databases. 
+De mogelijkheid van de Monitor voor Service-eindpunt in [netwerk Prestatiemeter](log-analytics-network-performance-monitor.md) kunt u netwerkverbinding met een willekeurig eindpunt met een open TCP-poort te bewaken. Dergelijke eindpunten zijn websites, SaaS-toepassingen, PaaS-toepassingen en SQL-databases. 
 
 U kunt de volgende functies met uitvoeren **Monitor voor Service-eindpunt**: 
 
