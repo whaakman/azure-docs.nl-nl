@@ -1,66 +1,66 @@
 ---
-title: Kubernetes op Azure zelfstudie - Monitor Kubernetes
-description: AKS zelfstudie - Monitor Kubernetes met Microsoft Operations Management Suite (OMS)
+title: 'Zelfstudie voor Kubernetes in Azure: Kubernetes bewaken'
+description: AKS-zelfstudie - Kubernetes bewaken met Microsoft Operations Management Suite (OMS)
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 2fedd615733e3bf51469d3b69d5fe51e3e99087e
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-azure-container-service-aks"></a>Monitor Azure Containerservice (AKS)
+# <a name="monitor-azure-container-service-aks"></a>Azure Container Service (AKS) bewaken
 
-Uw cluster Kubernetes en containers is niet kritiek, vooral bij een productiecluster op grote schaal met meerdere toepassingen.
+Het is erg belangrijk om uw Kubernetes-cluster en -containers te bewaken, vooral wanneer u een productiecluster op schaal uitvoert met meerdere toepassingen.
 
-In deze zelfstudie configureert u bewaking van uw AKS cluster met de [Containers oplossing voor logboekanalyse][log-analytics-containers].
+In deze zelfstudie configureert u bewaking van uw AKS-cluster met de [containerbewakingsoplossing voor Log Analytics][log-analytics-containers].
 
-Deze zelfstudie maakt deel uit zeven acht, komen de volgende taken:
+In deze zelfstudie, deel zeven van acht, komen de volgende taken aan bod:
 
 > [!div class="checklist"]
-> * De container bewakingsoplossing configureren
-> * De bewaking agents configureren
-> * Toegang tot de controlegegevens in de Azure portal
+> * De containerbewakingsoplossing configureren
+> * De bewakingsagents configureren
+> * Toegang tot de controlegegevens in Azure Portal
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Een toepassing is in de vorige zelfstudies ingepakt in container-installatiekopieën, deze installatiekopieën geüpload naar het register van Azure-Container en een Kubernetes-cluster gemaakt.
+In de vorige zelfstudies is er een toepassing verpakt in containerinstallatiekopieën, zijn de installatiekopieën geüpload naar Azure Container Registry en is er een Kubernetes-cluster gemaakt.
 
-Als u deze stappen nog niet hebt gedaan en u wilt volgen, terug naar [zelfstudie 1 – installatiekopieën van de container maken][aks-tutorial-prepare-app].
+Als u deze stappen niet hebt uitgevoerd en deze zelfstudie wilt volgen, gaat u terug naar [Zelfstudie 1: Containerinstallatiekopieën maken][aks-tutorial-prepare-app].
 
-## <a name="configure-the-monitoring-solution"></a>De oplossing voor controle configureren
+## <a name="configure-the-monitoring-solution"></a>De bewakingsoplossing configureren
 
-Selecteer in de Azure-portal **nieuw** en zoek naar `Container Monitoring Solution`. Zodra u zich bevindt, selecteert u **maken**.
+Selecteer in Azure Portal **Een resource maken** en zoek naar `Container Monitoring Solution`. Nadat u dat hebt gevonden, selecteert u **Maken**.
 
 ![Oplossing toevoegen](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Maak een nieuwe OMS-werkruimte of een bestaande set selecteren. Het formulier OMS-werkruimte begeleidt u bij dit proces.
+Maak een nieuwe OMS-werkruimte of selecteer een bestaande werkruimte. Het formulier OMS-werkruimte begeleidt u door dit proces.
 
-Selecteer bij het maken van de werkruimte **vastmaken aan dashboard** gemakkelijk kunt ophalen.
+Wanneer u de werkruimte maakt, selecteert u **Aan dashboard vastmaken** om deze eenvoudig op te halen.
 
 ![OMS-werkruimte](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
-Wanneer u klaar bent, selecteer **OK**. Als validatie is voltooid, selecteert u **maken** de bewakingsoplossing container maken.
+Selecteer **Ok** wanneer u gereed bent. Nadat de validatie is voltooid, selecteert u **Maken** om de containerbewakingsoplossing te maken.
 
-Zodra de werkruimte is gemaakt, wordt deze in de Azure portal aan u gepresenteerd.
+Nadat de werkruimte is gemaakt, wordt deze weergegeven in Azure Portal.
 
-## <a name="get-workspace-settings"></a>Werkruimte-instellingen ophalen
+## <a name="get-workspace-settings"></a>Instellingen voor werkruimte ophalen
 
-De logboekanalyse werkruimte-ID en sleutel nodig zijn voor het configureren van de oplossing-agent op de knooppunten Kubernetes.
+De werkruimte-id en -sleutel van Log Analytics zijn nodig om de oplossingsagent op de Kubernetes-knooppunten te configureren.
 
-Als u wilt deze waarden ophaalt, selecteer **OMS-werkruimte** in het menu van container-oplossingen-links. Selecteer **geavanceerde instellingen** en noteer de **WERKRUIMTE-ID** en de **primaire sleutel**.
+Als u deze waarden wilt ophalen, selecteert u **OMS-werkruimte** in het linkermenu van de containeroplossing. Selecteer **Geavanceerde instellingen** en noteer de **WERKRUIMTE-ID** en de **PRIMAIRE SLEUTEL**.
 
-## <a name="configure-monitoring-agents"></a>Monitoring-agents configureren
+## <a name="configure-monitoring-agents"></a>Bewakingsagents configureren
 
-Het volgende Kubernetes manifestbestand kan worden gebruikt voor het configureren van de container monitoring-agents op een cluster Kubernetes. Het maken van een Kubernetes [DaemonSet][kubernetes-daemonset], die een enkele schil wordt uitgevoerd op elk clusterknooppunt.
+Het volgende Kubernetes-manifestbestand kan worden gebruikt om de containerbewakingsagents op een Kubernetes-cluster te configureren. Het maakt een Kubernetes-[DaemonSet][kubernetes-daemonset] die één pod op elk clusterknooppunt uitvoert.
 
-Opslaan van de volgende tekst in een bestand met de naam `oms-daemonset.yaml`, en vervang de tijdelijke aanduiding voor waarden voor `WSID` en `KEY` Log Analytics-werkruimte-ID en sleutel van uw.
+Bewaar de volgende tekst in een bestand met de naam `oms-daemonset.yaml` en vervang de tijdelijke waarden voor `WSID` en `KEY` door de werkruimte-id en -sleutel van Log Analytics.
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -131,15 +131,15 @@ spec:
        path: /var/lib/docker/containers/
 ```
 
-De DaemonSet maken met de volgende opdracht:
+Maak de DaemonSet met de volgende opdracht:
 
-```azurecli-interactive
+```azurecli
 kubectl create -f oms-daemonset.yaml
 ```
 
-Om te zien dat de DaemonSet is gemaakt, worden uitgevoerd:
+Voer de volgende opdracht uit om te controleren dat de DaemonSet is gemaakt:
 
-```azurecli-interactive
+```azurecli
 kubectl get daemonset
 ```
 
@@ -150,29 +150,29 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-Nadat de agents uitvoert, duurt het enkele minuten voor OMS opnemen en verwerken van de gegevens.
+Wanneer de agents worden uitgevoerd, duurt het een aantal minuten voordat de OMS de gegevens heeft opgenomen en verwerkt.
 
 ## <a name="access-monitoring-data"></a>Toegang tot bewakingsgegevens
 
-Selecteer de werkruimte voor logboekanalyse die is vastgemaakt aan het portaldashboard in de Azure-portal. Klik op de **Container bewaking oplossing** tegel. Hier vindt u informatie over de AKS cluster en de containers uit het cluster.
+Selecteer in Azure Portal de Log Analytics-werkruimte die is vastgemaakt aan het portaldashboard. Klik op de tegel **Containerbewakingsoplossing**. Hier vindt u informatie over het AKS-cluster en de containers van het cluster.
 
 ![Dashboard](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Zie de [Azure Log Analytics-documentatie] [ log-analytics-docs] voor gedetailleerde hulp bij het uitvoeren van query's en analyseren van bewakingsgegevens.
+Raadpleeg de [Azure Log Analytics-documentatie][log-analytics-docs] voor gedetailleerde hulp bij het uitvoeren van query's en het analyseren van bewakingsgegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt bewaakt u uw cluster Kubernetes met OMS. Taken aan de orde opgenomen:
+In deze zelfstudie hebt u uw Kubernetes-cluster met OMS bewaakt. Behandelde taken zijn:
 
 > [!div class="checklist"]
-> * De container bewakingsoplossing configureren
-> * De bewaking agents configureren
-> * Toegang tot de controlegegevens in de Azure portal
+> * De containerbewakingsoplossing configureren
+> * De bewakingsagents configureren
+> * Toegang tot de controlegegevens in Azure Portal
 
-Ga naar de volgende zelfstudie voor meer informatie over het upgraden van Kubernetes naar een nieuwe versie.
+Ga naar de volgende zelfstudie om te leren hoe u Kubernetes bijwerkt naar een nieuwe versie.
 
 > [!div class="nextstepaction"]
-> [Upgrade Kubernetes][aks-tutorial-upgrade]
+> [Kubernetes bijwerken][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
