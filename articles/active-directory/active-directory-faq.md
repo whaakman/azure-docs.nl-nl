@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 80df81f365ac884bc1f44268e615975407f485f0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-faq"></a>Veelgestelde vragen over Azure Active Directory
 Azure Active Directory (Azure AD) is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.
@@ -29,7 +29,7 @@ Zie [Wat is Azure Active Directory?](active-directory-whatis.md) voor meer infor
 ## <a name="access-azure-and-azure-active-directory"></a>Toegang tot Azure en Azure Active Directory
 **V: Waarom wordt 'Geen abonnementen gevonden' weergegeven wanneer ik Azure AD wil openen in Azure Portal?**
 
-**A:** Voor toegang tot Azure Portal moet elke gebruiker machtigingen hebben in een Azure-abonnement. Als u een betaald abonnement voor Office 365 of Azure AD hebt, gaat u naar [http://aka.ms/accessAAD](http://aka.ms/accessAAD) voor eenmalige activering in één stap. Anders moet u een gratis [Azure-account](https://azure.microsoft.com/pricing/free-trial/) activeren of een betaald abonnement afsluiten.
+**A:** Voor toegang tot Azure Portal moet elke gebruiker machtigingen hebben in een Azure-abonnement. Als u een betaald abonnement voor Office 365 of Azure AD hebt, gaat u naar [https://aka.ms/accessAAD](https://aka.ms/accessAAD) voor eenmalige activering in één stap. Anders moet u een gratis [Azure-account](https://azure.microsoft.com/pricing/free-trial/) activeren of een betaald abonnement afsluiten.
 
 Zie voor meer informatie:
 

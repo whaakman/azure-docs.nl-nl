@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 49683da9f03871cbe5c27dd06d27111864eb489e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Gegevens verplaatsen tussen lokale bronnen en de cloud met Data Management Gateway
 > [!NOTE]
@@ -55,7 +55,7 @@ Voordat u deze procedure begint, hebt u de volgende vereisten:
 In deze stap maakt u de Azure portal gebruiken voor het maken van een Azure Data Factory-exemplaar met de naam **ADFTutorialOnPremDF**.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **+ nieuw**, klikt u op **Intelligence en analyse**, en klik op **Data Factory**.
+2. Klik op **maken van een resource**, klikt u op **Intelligence en analyse**, en klik op **Data Factory**.
 
    ![Nieuw -> DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
 3. In de **nieuwe gegevensfactory** pagina **ADFTutorialOnPremDF** voor de naam.
@@ -131,7 +131,7 @@ In deze stap maakt u de Azure portal gebruiken voor het maken van een Azure Data
    * **Updates plannen** moet worden geïnstalleerd op een bepaald tijdstip van de dag.
    * Wanneer de gateway is **laatst bijgewerkt**.
    * Geef de tijd waarop een update voor de gateway kan worden geïnstalleerd.
-8. Overschakelen naar de **instellingen** tabblad. Het certificaat dat is opgegeven in de **certificaat** worden gebruikt om de referenties voor het lokale gegevensarchief die u in de portal opgeeft versleutelen/ontsleutelen. (optioneel) Klik op **wijziging** voor gebruik in plaats hiervan uw eigen certificaat. De gateway maakt standaard gebruik van het certificaat dat automatisch wordt gegenereerd door de Data Factory-service.
+8. Schakel over naar het tabblad **Instellingen**. Het certificaat dat is opgegeven in de **certificaat** worden gebruikt om de referenties voor het lokale gegevensarchief die u in de portal opgeeft versleutelen/ontsleutelen. (optioneel) Klik op **wijziging** voor gebruik in plaats hiervan uw eigen certificaat. De gateway maakt standaard gebruik van het certificaat dat automatisch wordt gegenereerd door de Data Factory-service.
 
     ![De configuratie van de gateway-certificaat](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
