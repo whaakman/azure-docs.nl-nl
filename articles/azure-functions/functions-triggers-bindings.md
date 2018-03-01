@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: e7141d92a186bec67c374bd5046ee08047feedec
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 
@@ -31,7 +31,7 @@ Een *trigger* definieert hoe een functie wordt aangeroepen. Een functie moet exa
 
 Invoer en uitvoer *bindingen* bieden een declaratieve manier verbinding maken met gegevens vanuit uw code. Bindingen zijn optioneel en een functie kunt meerdere invoer en uitvoer bindingen. 
 
-Triggers en bindingen kunnen u de details van de services die u met werkt voor hardcoderen voorkomen. U functie ontvangt gegevens (bijvoorbeeld de inhoud van een wachtrijbericht) in functieparameters. Verzenden van gegevens (bijvoorbeeld voor het maken van een wachtrijbericht) met behulp van de geretourneerde waarde van de functie een `out` parameter, of een [object collector](functions-reference-csharp.md#writing-multiple-output-values).
+Triggers en bindingen kunnen u de details van de services die u met werkt voor hardcoderen voorkomen. De functie ontvangt gegevens (bijvoorbeeld de inhoud van een wachtrijbericht) in functieparameters. Verzenden van gegevens (bijvoorbeeld voor het maken van een wachtrijbericht) met behulp van de geretourneerde waarde van de functie een `out` parameter, of een [object collector](functions-reference-csharp.md#writing-multiple-output-values).
 
 Als u functies ontwikkelen met behulp van de Azure-portal, triggers en bindingen zijn geconfigureerd in een *function.json* bestand. De portal biedt een gebruikersinterface voor deze configuratie, maar u kunt het bestand bewerken rechtstreeks door te wijzigen in de **geavanceerde editor**.
 
@@ -42,6 +42,50 @@ Wanneer u functies ontwikkelen met behulp van Visual Studio voor het maken van e
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 Zie voor informatie over welke bindingen zijn Preview-versie of voor gebruik in productieomgevingen zijn goedgekeurd, [ondersteunde talen](supported-languages.md).
+
+## <a name="register-binding-extensions"></a>Binding extensies registreren
+
+In versie 2.x van de Azure Functions-runtime, moet u expliciet registreren de [binding extensies](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) die u in de functie-app gebruiken. 
+
+Uitbreidingen worden geleverd als NuGet-pakketten, waarbij de pakketnaam doorgaans wordt gestart met [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  De manier waarop u installeren en registreren van uitbreidingen van de binding is afhankelijk van hoe het ontwikkelen van uw functies: 
+
++ [Lokaal in C# met behulp van Visual Studio of Code van de VS](#precompiled-functions-c)
++ [Lokaal via Azure Functions kernonderdelen](#local-development-azure-functions-core-tools)
++ [In de Azure portal](#azure-portal-development) 
+
+Er zijn een kernset aan bindingen in versie 2.x die niet worden geleverd als extensies. U hoeft niet te registreren van uitbreidingen voor de volgende triggers en bindingen: HTTP, timer en Azure Storage. 
+
+Voor informatie over het instellen van een functie-app-versie 2.x van de runtime functies Zie [hoe gericht op Azure Functions-runtime-versies](set-runtime-version.md). Versie 2.x van de runtime van Functions is momenteel in preview. 
+
+De pakketversies die wordt weergegeven in deze sectie vindt u alleen als voorbeelden. Controleer de [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) om te bepalen welke versie van een bepaalde extensie worden vereist door de andere afhankelijkheden in de functie-app.    
+
+###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Lokale C# ontwikkelen met behulp van Visual Studio of Code van de VS 
+
+Wanneer u Visual Studio of Visual Studio Code voor het ontwikkelen van functies in C# lokaal gebruikt, moet u gewoon het NuGet-pakket voor de uitbreiding toevoegen. 
+
++ **Visual Studio**: de NuGet Package Manager-hulpprogramma's gebruiken. De volgende [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) opdracht wordt de extensie Azure Cosmos DB geïnstalleerd vanuit de Package Manager-Console:
+
+    ```
+    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
+    ```
++ **Visual Studio Code**: U kunt pakketten installeren via de opdrachtprompt de [dotnet pakket toevoegen](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) opdracht in de CLI .NET als volgt:
+
+    ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
+    ```
+
+### <a name="local-development-azure-functions-core-tools"></a>Lokale ontwikkeling Core hulpprogramma's van Azure-functies
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+### <a name="azure-portal-development"></a>Ontwikkelen van Azure portal
+
+Wanneer u een functie maken of een binding aan een bestaande functie toevoegt, wordt u gevraagd wanneer de uitbreiding voor de trigger of de binding wordt toegevoegd moet worden geregistreerd.   
+
+Nadat een waarschuwing wordt weergegeven voor de specifieke extensie wordt geïnstalleerd, klikt u op **installeren** registreren van de extensie. U moet elke uitbreiding slechts één keer voor een bepaalde functie-app installeren. 
+
+>[!Note] 
+>Een plan verbruik kan 10 minuten duren voordat het installatieproces van het in de portal.
 
 ## <a name="example-trigger-and-binding"></a>Voorbeeld van de trigger en binding
 
@@ -70,9 +114,9 @@ Hier volgt een *function.json* -bestand voor dit scenario.
 }
 ```
 
-Het eerste element in de `bindings` matrix is de trigger van Queue storage. De `type` en `direction` eigenschappen geven de trigger. De `name` eigenschap identificeert de functieparameter die de inhoud van het wachtrij-bericht ontvangen. De naam van de wachtrij voor het bewaken van `queueName`, en de verbindingsreeks in de app-instelling geïdentificeerd door `connection`.
+Het eerste element in de `bindings` matrix is de trigger van Queue storage. De `type` en `direction` eigenschappen geven de trigger. De `name` eigenschap identificeert de functieparameter die de inhoud van het wachtrij-bericht ontvangt. De naam van de wachtrij voor het bewaken van `queueName`, en de verbindingsreeks in de app-instelling geïdentificeerd door `connection`.
 
-Het tweede element in de `bindings` matrix is de Azure-tabelopslag uitvoer van de binding. De `type` en `direction` eigenschappen geven de binding. De `name` -eigenschap geeft u op hoe de functie biedt de nieuwe rij van de tabel in dit geval met behulp van de geretourneerde waarde van de functie. De naam van de tabel wordt `tableName`, en de verbindingsreeks in de app-instelling geïdentificeerd door `connection`.
+Het tweede element in de `bindings` matrix is de Azure-tabelopslag uitvoer van de binding. De `type` en `direction` eigenschappen geven de binding. De `name` -eigenschap geeft u op hoe de functie zorgt voor de nieuwe rij in de tabel, met behulp van de functie wordt in dit geval waarde retourneren. De naam van de tabel wordt `tableName`, en de verbindingsreeks in de app-instelling geïdentificeerd door `connection`.
 
 Weergeven en bewerken van de inhoud van *function.json* in de Azure-portal klikt u op de **geavanceerde editor** kiezen op de **integreren** tabblad van de functie.
 

@@ -1,3 +1,5 @@
+# [Documentatie voor Redis Cache](index.md)
+
 # Overzicht
 ##[Waarom kiezen voor Redis Cache](https://azure.microsoft.com/services/cache/)
 ##[Premium-functies verkennen](cache-premium-tier-intro.md)

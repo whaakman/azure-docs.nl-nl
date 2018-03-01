@@ -66,9 +66,7 @@
     - name: Resources
       items:
         - name: Prijscategorieën
-          href: concepts-service-tiers.md
-        - name: Rekeneenheden
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: Limieten
           href: concepts-limits.md
     - name: Gegevenstoegang en -beveiliging
@@ -77,6 +75,12 @@
           href: concepts-firewall-rules.md
         - name: SSL configureren
           href: concepts-ssl-connection-security.md
+    - name: Bedrijfscontinuïteit
+      items:
+        - name: Overzicht
+          href: concepts-business-continuity.md
+        - name: Back-ups en herstellen
+          href: concepts-backup.md
     - name: Controleren
       href: concepts-monitoring.md
     - name: Ontwikkeling
@@ -137,6 +141,12 @@
       items:
         - name: Waarschuwingen maken op basis van metrische gegevens
           href: howto-alert-on-metric.md
+    - name: Problemen oplossen
+      items:
+        - name: Prestatieproblemen van query's oplossen
+          href: howto-troubleshoot-query-performance.md
+        - name: Weergaven gebruiken in sys-schema
+          href: howto-troubleshoot-sys-schema.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

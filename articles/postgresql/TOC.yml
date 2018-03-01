@@ -58,9 +58,7 @@
     - name: Resources
       items:
         - name: Prijscategorieën
-          href: concepts-service-tiers.md
-        - name: Rekeneenheden
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: Limieten
           href: concepts-limits.md
     - name: Gegevenstoegang en -beveiliging
@@ -69,6 +67,12 @@
           href: concepts-firewall-rules.md
         - name: SSL configureren
           href: concepts-ssl-connection-security.md
+    - name: Bedrijfscontinuïteit
+      items:
+        - name: Overzicht
+          href: concepts-business-continuity.md
+        - name: Back-ups en herstellen
+          href: concepts-backup.md
     - name: Controleren
       href: concepts-monitoring.md
     - name: Ontwikkeling
@@ -77,7 +81,9 @@
           href: concepts-connection-libraries.md
 - name: Handleidingen
   items:
-    - name: Firewall-regels
+    - name: Gebruikers maken
+      href: howto-create-users.md
+    - name: Firewall beheren
       items:
         - name: Azure Portal
           href: howto-manage-firewall-using-portal.md

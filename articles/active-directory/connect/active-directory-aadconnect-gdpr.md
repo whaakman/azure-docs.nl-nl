@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: billmath
-ms.openlocfilehash: 68b36e1806d3338b07d4c2c400de233aff270132
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect"></a>GDPR naleving en Azure AD Connect 
 
@@ -33,7 +33,7 @@ Naleving van regelgeving beveiliging algemene gegevens voor Azure AD Connect-ins
 1.  Gegevens ophalen voor een persoon op verzoek en gegevens van die persoon de installaties verwijderen
 2.  Zorg ervoor dat er geen gegevens behouden blijven na 48 uur.
 
-De tweede optie het beste het advies de Azure AD Connect-team.  De reden wordt, is dat mogelijk is tot nu toe door het eenvoudigst te implementeren en onderhouden.
+Het team van Azure AD Connect raadt de tweede optie, omdat het is veel eenvoudiger te implementeren en onderhouden.
 
 Een Azure AD Connect sync-server slaat de volgende gegevens op die binnen het bereik van GDPR naleving:
 1.  Gegevens over een persoon in de **Azure AD Connect-database**

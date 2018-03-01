@@ -11,11 +11,11 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ce3d6d5aa721f84bda6d8de6eac161deb934a1e5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Aan de slag met de Batch-SDK voor Node.js
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/18/2017
 >
 >
 
-Ontdek de basis voor het bouwen van een Batch-client in Node.js met behulp van de [Azure Batch Node.js-SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). Er wordt een stapsgewijze benadering gebruikt om inzicht te krijgen in een scenario voor een Batch-toepassing. Daarna wordt de toepassing met een Node.js-client ingesteld.  
+Ontdek de basis voor het bouwen van een Batch-client in Node.js met behulp van de [Azure Batch Node.js-SDK](/javascript/api/overview/azure/batch). Er wordt een stapsgewijze benadering gebruikt om inzicht te krijgen in een scenario voor een Batch-toepassing. Daarna wordt de toepassing met een Node.js-client ingesteld.  
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u praktische kennis hebt van Node.js en vertrouwd bent met Linux. Er wordt ook van uitgegaan dat u een Azure-account hebt ingesteld met toegangsrechten voor het maken van Batch- en Storage-services.
@@ -73,7 +73,7 @@ Met deze opdracht wordt de meest recente versie van de Azure Batch Node-SDK geï
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Stap 2: een Azure Batch-account maken
 
-U kunt het maken via [Azure Portal](batch-account-create-portal.md) of vanaf de opdrachtregel ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](https://docs.microsoft.com/cli/azure/overview)).
+U kunt het maken via [Azure Portal](batch-account-create-portal.md) of vanaf de opdrachtregel ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/azure/overview)).
 
 Nu volgende opdrachten om er een te maken via Azure CLI.
 
@@ -360,5 +360,5 @@ De portal biedt een gedetailleerd overzicht van de taken en de taakstatus. U kun
 ## <a name="next-steps"></a>Volgende stappen
 
 - Lees het artikel [Overzicht van Azure Batch-functies](batch-api-basics.md). Dit is raadzaam als u niet vertrouwd bent met de service.
-- Zie de [naslaginformatie voor Batch Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) voor informatie over de Batch-API.
+- Zie de [naslaginformatie voor Batch Node.js](/javascript/api/overview/azure/batch) voor informatie over de Batch-API.
 

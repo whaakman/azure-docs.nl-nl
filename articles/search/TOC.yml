@@ -5,6 +5,7 @@
     - name: Over Azure Search
       href: search-what-is-azure-search.md
 - name: Snelstartgidsen
+  expanded: true
   items:
     - name: Een service maken
       href: search-create-service-portal.md

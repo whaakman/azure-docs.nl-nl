@@ -12,25 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 9b7be70d726edfa9dbda3719d431e532106724b6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 08b78f59dc758f12556f332546ccb6043bef2812
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="what-is-event-hubs"></a>Wat is Event Hubs?
 
 Azure Event Hubs is een uiterst schaalbaar platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Event Hubs biedt mogelijkheden voor klein- en grootschalige scenario’s voor [publiceren/abonneren](/biztalk/core/publish-and-subscribe-architecture). Hierbij fungeert de service als toegangspunt voor big data.
-
-## <a name="why-use-event-hubs"></a>Het nut van Event Hubs
-
-De verwerkingsmogelijkheden voor gebeurtenissen en telemetrie van Event Hubs zijn ideaal voor:
-
-* Toepassingsinstrumentatie
-* Verwerking van gebruikerservaringen of werkstromen
-* Internet of Things (IoT)-scenario’s
 
 Event Hubs maakt bijvoorbeeld het bijhouden van het gebruik van mobiele apps mogelijk, evenals het verzamelen van informatie over gegevensverkeer van web-farms, het vastleggen van spelgebeurtenissen in consolegames en het verzamelen van telemetriegegevens van industriële machines, verbonden voertuigen of andere apparaten.
 

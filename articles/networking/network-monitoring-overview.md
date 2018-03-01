@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 6793bd8d2c561554213e9fe645aab018dba7a925
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: 6d93821b59e1f69a48c3d5eeda96dad2edddb188
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="network-monitoring-solutions"></a>Oplossingen voor netwerkbeheer 
 
@@ -44,6 +44,8 @@ Prestatiemeter maakt deel uit van de NPM en netwerkbewaking is voor de cloud en 
 * Het specifieke segment in het netwerk, die verantwoordelijk is voor de prestaties verslechteren bepalen
 * De status van het netwerk, zonder de noodzaak van SNMP
 
+![NPM topologiekaart](./media/network-monitoring-overview/npm-topology-map.png) 
+
 Voor meer informatie raadpleegt u de volgende artikelen:
 
 * [Configureren van een oplossing voor Network Monitor in Log Analytics](../log-analytics/log-analytics-network-performance-monitor.md) 
@@ -64,6 +66,22 @@ Raadpleeg voor meer informatie de volgende artikelen:
 
 * [Netwerkprestatiemeter configureren voor ExpressRoute](../expressroute/how-to-npm.md)
 * [blogbericht](https://aka.ms/NPMExRmonitorGA)
+
+## <a name="service-endpoint-monitor"></a>Monitor voor service-eindpunt
+
+U kunt nu bereikbaarheid van toepassingen testen en knelpunten in on-premises, carrier netwerken en datacenters voor cloud/persoonlijk detecteren, met het bewaken van de Service-eindpunt.
+
+* End-to-end-netwerkconnectiviteit om toepassingen te bewaken
+* Application delivery correleren met prestaties van het netwerk, exacte locatie van de degradatie langs het pad tussen de gebruiker en de toepassing te detecteren
+* Test toepassing bereikbaarheid vanaf meerdere gebruikerslocaties over de hele wereld
+* Bepalen van de latentie en pakket wegvallend netwerk voor uw line-of-business- en SaaS-toepassingen
+* Hotspots op het netwerk, die kan worden veroorzaakt door slechte prestaties bepalen
+* Bereikbaarheid voor Office 365-toepassingen met behulp van de ingebouwde tests voor Microsoft Office 365, Dynamics 365, Skype voor bedrijven en andere Microsoft-services bewaken
+
+Raadpleeg voor meer informatie de volgende artikelen:
+
+* [Prestatiemeter netwerk configureren voor het bewaken van de Service-eindpunten](https://aka.ms/applicationconnectivitymonitorguide)
+* [blogbericht](https://aka.ms/svcendptmonitor)
 
 ## <a name="next-steps"></a>Volgende stappen
 

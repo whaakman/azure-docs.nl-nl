@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 De replica's die deel uitmaken van servicepartities beheren.
@@ -64,7 +64,7 @@ Hiermee haalt u de details van de replica die is geïmplementeerd op een Service
 ## <a name="sfctl-replica-health"></a>sfctl replica health
 Hiermee haalt u de status van een Service Fabric stateful service replica of stateless service-exemplaar.
 
-Hiermee haalt u de status van een Service Fabric-replica. EventsHealthStateFilter gebruiken voor het filteren van de verzameling van health-gebeurtenissen die zijn gerapporteerd voor de replica op basis van de status. .
+Hiermee haalt u de status van een Service Fabric-replica. EventsHealthStateFilter gebruiken voor het filteren van de verzameling van health-gebeurtenissen die zijn gerapporteerd voor de replica op basis van de status.
 
 ### <a name="arguments"></a>Argumenten
 
@@ -72,7 +72,7 @@ Hiermee haalt u de status van een Service Fabric-replica. EventsHealthStateFilte
 | --- | --- |
 | --partitie-id [vereist]| De identiteit van de partitie.|
 | --replica-id [vereist]| De id van de replica.|
-| --gebeurtenissen-health-status-filter| Hiermee kunt u filteren van de verzameling HealthEvent objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn geheel getal van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen die worden gebruikt voor het evalueren van de geaggregeerde status. Als niet wordt opgegeven, worden alle items geretourneerd. De statuswaarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan een combinatie van deze waarde die is verkregen met behulp van bitwise "OR"-operator worden. Bijvoorbeeld, als de opgegeven waarde is ingesteld op 6 vervolgens alle gebeurtenissen met HealthState waarde OK (2) en de waarschuwing (4) geretourneerd. -Standaard - standaardwaarde. Komt overeen met een HealthState. De waarde is nul. -None - filteren die niet overeenkomt met de waarde van een HealthState. Gebruikt om te kunnen geen resultaten geretourneerd bij een bepaalde verzameling van statussen. De waarde is 1. -Ok - Filter dat overeenkomt met invoer-met HealthState waarde Ok. De waarde is 2. -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4. -Fout - Filter dat overeenkomt met invoer met HealthState waarde fout. De waarde is 8. -All - Filter dat overeenkomt met invoer met de waarde van een HealthState. De waarde is 65535.|
+| --gebeurtenissen-health-status-filter| Hiermee kunt u filteren van de verzameling HealthEvent objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn geheel getal van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen die worden gebruikt voor het evalueren van de geaggregeerde status. Als niet wordt opgegeven, worden alle items geretourneerd. De statuswaarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan een combinatie van deze waarden die zijn verkregen met behulp van bitwise "OR"-operator worden. Bijvoorbeeld, als de opgegeven waarde is ingesteld op 6 vervolgens alle gebeurtenissen met HealthState waarde OK (2) en de waarschuwing (4) geretourneerd. -Standaard - standaardwaarde. Komt overeen met een HealthState. De waarde is nul. -None - filteren die niet overeenkomt met de waarde van een HealthState. Gebruikt om te kunnen geen resultaten geretourneerd bij een bepaalde verzameling van statussen. De waarde is 1. -Ok - Filter dat overeenkomt met invoer-met HealthState waarde Ok. De waarde is 2. -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4. -Fout - Filter dat overeenkomt met invoer met HealthState waarde fout. De waarde is 8. -All - Filter dat overeenkomt met invoer met de waarde van een HealthState. De waarde is 65535.|
 | --time-out -t             | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
@@ -82,13 +82,13 @@ Hiermee haalt u de status van een Service Fabric-replica. EventsHealthStateFilte
 | --debug                  | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o              | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
-| --query                  | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
+| --query                  | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie.|
 | --uitgebreide                | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
 Hiermee haalt u de informatie over een replica van een Service Fabric-partitie.
 
-De respons bevatten de ID, rol, status, status, knooppuntnaam, bedrijfstijd en andere details weer over de replica.
+Het antwoord bevat de id, rol, status, status, knooppuntnaam, bedrijfstijd en andere details weer over de replica.
 
 ### <a name="arguments"></a>Argumenten
 
@@ -96,7 +96,7 @@ De respons bevatten de ID, rol, status, status, knooppuntnaam, bedrijfstijd en a
 | --- | --- |
 | --partitie-id [vereist]| De identiteit van de partitie.|
 | --replica-id [vereist]| De id van de replica.|
-| --vervolgtoken  | De token voortzetting-parameter wordt gebruikt voor het verkrijgen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in een enkele antwoordthread passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep, retourneert de API volgende reeks resultaten. Als er geen verdere resultaten bevat vervolgens het vervolgtoken geen waarde. De waarde van deze parameter mag geen URL zijn gecodeerd.|
+| --vervolgtoken  | De token voortzetting-parameter wordt gebruikt voor het verkrijgen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in een enkele antwoordthread passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep, retourneert de API volgende reeks resultaten. Als er geen verdere resultaten, bevat klikt u vervolgens het vervolgtoken geen waarde. De waarde van deze parameter mag geen URL zijn gecodeerd.|
 | --time-out -t          | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
@@ -106,7 +106,7 @@ De respons bevatten de ID, rol, status, status, knooppuntnaam, bedrijfstijd en a
 | --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
-| --query               | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
+| --query               | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie.|
 | --uitgebreide             | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 ## <a name="sfctl-replica-list"></a>lijst met sfctl replica 's

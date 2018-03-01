@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9015347042ea9cce221ec5febd4ae60cbeac9315
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="track-asynchronous-azure-operations"></a>Asynchrone bewerkingen voor Azure bijhouden
 Sommige Azure REST-bewerkingen asynchroon uitgevoerd omdat de bewerking kan niet snel worden voltooid. In dit onderwerp wordt beschreven hoe de status van asynchrone bewerkingen via waarden in het antwoord geretourneerd.  
@@ -39,9 +39,9 @@ Raadpleeg de [REST API-documentatie](/rest/api/) om te zien van de antwoorden vo
 ## <a name="monitor-status-of-operation"></a>Monitor status van bewerking
 De asynchrone REST-bewerkingen retourwaarden header die u gebruikt om de status van de bewerking te bepalen. Er zijn mogelijk drie headerwaarden om te controleren:
 
-* `Azure-AsyncOperation`-URL voor het controleren van de actieve status van de bewerking. Als de bewerking voor deze waarde retourneert, gebruik altijd het (in plaats van locatie) de status van de bewerking.
-* `Location`-URL om te bepalen wanneer een bewerking is voltooid. Gebruik deze waarde alleen als Azure-asynchrone bewerking wordt niet geretourneerd.
-* `Retry-After`-Het aantal seconden moet worden gewacht voordat de status van de asynchrone bewerking.
+* `Azure-AsyncOperation` -URL voor het controleren van de actieve status van de bewerking. Als de bewerking voor deze waarde retourneert, gebruik altijd het (in plaats van locatie) de status van de bewerking.
+* `Location` -URL om te bepalen wanneer een bewerking is voltooid. Gebruik deze waarde alleen als Azure-asynchrone bewerking wordt niet geretourneerd.
+* `Retry-After` -Het aantal seconden moet worden gewacht voordat de status van de asynchrone bewerking.
 
 Niet elke asynchrone bewerking retourneert echter al deze waarden. U wilt bijvoorbeeld de waarde van de Azure-asynchrone bewerking header voor één bewerking en de waarde van de locatie-header voor een andere bewerking evalueren. 
 
@@ -82,7 +82,7 @@ Alleen `status` wordt geretourneerd voor alle antwoorden op. Het foutobject word
 Bewerkingen die maken, bijwerken of verwijderen (PUT, PATCH, verwijderen) een resource doorgaans retourneren een `provisioningState` waarde. Wanneer een bewerking is voltooid, wordt de volgende drie waarden geretourneerd: 
 
 * Geslaagd
-* Is mislukt
+* Mislukt
 * Geannuleerd
 
 Alle andere waarden geven dat de bewerking wordt nog steeds uitgevoerd. De resourceprovider kan een aangepaste waarde die aangeeft van de status retourneren. Bijvoorbeeld, krijgt u **geaccepteerde** wanneer de aanvraag is ontvangen en wordt uitgevoerd.
@@ -194,5 +194,4 @@ Als de aanvraag wordt nog steeds uitgevoerd, ontvangt u een statuscode 202. Als 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor documentatie over elke REST-bewerking [REST API-documentatie](/rest/api/).
-* Zie voor meer informatie over het beheren van resources via de REST-API van Resource Manager [met de REST-API van Resource Manager](resource-manager-rest-api.md).
 * Zie voor meer informatie over het implementeren van sjablonen met de REST-API van Resource Manager [resources met Resource Manager-sjablonen en REST-API van Resource Manager implementeren](resource-group-template-deploy-rest.md).

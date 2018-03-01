@@ -1,3 +1,5 @@
+# [Documentatie voor Service Bus-berichten](index.md)
+
 # Overzicht
 ## [Wat is Service Bus Messaging?](service-bus-messaging-overview.md)
 ## [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)

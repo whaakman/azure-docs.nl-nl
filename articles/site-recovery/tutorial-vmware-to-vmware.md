@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: 9de0cb3d22a4e500b66640f70f936ae955bbadb8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Instellen van herstel na noodgevallen van on-premises VMware-virtuele machines of fysieke servers naar een secundaire site
 
@@ -62,10 +62,10 @@ Als volgt te werk om de updates te installeren:
 >Updateversie alle Scout-onderdelen mogelijk niet hetzelfde als in het ZIP-bijwerkbestand. De oudere versie aangeven dat er is geen wijziging in het onderdeel sinds de vorige update deze update.
 
 Download de [bijwerken](https://aka.ms/asr-scout-update6) ZIP-bestand. Het bestand bevat de volgende onderdelen: 
-  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.GZ
+  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
   - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-  - UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
   - UA update4 bits voor RHEL5, OL5, OL6, SUSE 10, 11 SUSE: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. Pak het ZIP-bestanden.
@@ -103,8 +103,8 @@ Scout Update 6 is een cumulatieve update. Deze bevat alle correcties van Update 
 #### <a name="new-platform-support"></a>Nieuwe platformondersteuning
 * Is er ondersteuning toegevoegd voor bron Windows Server 2016
 * Is er ondersteuning toegevoegd voor de volgende Linux-besturingssystemen:
-    - Red Hat Enterprise Linux (RHEL) 6,9
-    - CentOS 6,9
+    - Red Hat Enterprise Linux (RHEL) 6.9
+    - CentOS 6.9
     - Oracle Linux 5,11
     - Oracle Linux 6,8
 * Is er ondersteuning toegevoegd voor VMware Center 6.5
@@ -124,7 +124,7 @@ Scout Update 5 is een cumulatieve update. Het bevat alle correcties uit Update 1
 - Als bronservers, het hoofddoel, configuratie, proces en RX-servers zijn Update 4 al wordt uitgevoerd, gaat u deze alleen op de hoofddoelserver toe te passen. 
 
 #### <a name="new-platform-support"></a>Nieuwe platformondersteuning
-* SUSE Linux Enterprise Server 11 4(SP4) servicepack
+* SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
 * SLES 11 SP4 64 bits **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** wordt verpakt met de base Scout GA-pakket (**InMage_Scout_Standard_8.0.1 GA.zip**). Het pakket GA downloaden vanuit de portal, zoals beschreven in [een kluis maken](#create-a-vault).
 
 
@@ -153,10 +153,10 @@ Scout Update 4 is een cumulatieve update. Dit omvat alle oplossingen van Update 
 
 * Is er ondersteuning toegevoegd voor de vCenter/vSphere 6.0, 6.1 en 6.2
 * Is er ondersteuning toegevoegd voor deze Linux-besturingssystemen:
-  * Red Hat Enterprise Linux (RHEL) 7.0, 7.1 en 7.2
+  * Red Hat Enterprise Linux (RHEL) 7.0, 7.1 and 7.2
   * CentOS 7.0, 7.1 en 7.2
-  * Red Hat Enterprise Linux (RHEL) 6,8
-  * CentOS 6,8
+  * Red Hat Enterprise Linux (RHEL) 6.8
+  * CentOS 6.8
 
 > [!NOTE]
 > RHEL/CentOS 7 64-bits **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** wordt verpakt met de base Scout GA pakket **InMage_Scout_Standard_8.0.1 GA.zip**. Download het pakket Scout GA via de portal zoals beschreven in [een kluis maken](#create-a-vault).

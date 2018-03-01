@@ -1,8 +1,10 @@
+- name: Documentatie over Terraform op Azure
+  href: index.yml
 - name: Overzicht
   items:
     - name: Meer informatie over Terraform op Azure
       href: terraform-overview.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Terraform installeren en configureren

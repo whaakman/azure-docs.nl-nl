@@ -1,3 +1,5 @@
+# [Documentatie voor DevTest Labs](index.md)
+
 # Overzicht
 ## [Over Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concepten](devtest-lab-concepts.md)
@@ -65,7 +67,7 @@
 ## Integratie met CI/CD
 ### [Labs integreren in uw VSTS CI/CD-pijplijn](devtest-lab-integrate-ci-cd-vsts.md)
 
-# Verwijzing
+# Naslaginformatie
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Labs automatisch maken of wijzigen](devtest-lab-use-arm-and-powershell-for-lab-resources.md)

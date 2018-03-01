@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: carlrab
-ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Wat is Azure SQL Database Servicelagen?
 
@@ -35,8 +35,8 @@ Het kiezen van een servicelaag is vooral afhankelijk van zakelijke continuïteit
 |SLA voor actieve tijdsduur|99,99%|99,99%|99,99%|N.V.T. in preview|
 |Retentie van back-ups|7 dagen|35 dagen|35 dagen|
 |CPU|Laag|Laag, Gemiddeld, hoog|Gemiddeld, hoog|
-|I/o-doorvoer|Laag  | Middelgroot | Orde van grootte hoger is dan de standaard|
-|I/o-latentie|Hoger is dan Premium|Hoger is dan Premium|Lager is dan Basic en Standard|
+|I/o-doorvoer (bij benadering) |2.5 IOP's per DTU  | 2.5 IOP's per DTU | 48 IOP's per DTU|
+|I/o-latentie (bij benadering)|5 ms (lezen), 10 ms (schrijven)|5 ms (lezen), 10 ms (schrijven)|2 ms (lezen/schrijven)|
 |Columnstore indexeren en in het geheugen OLTP|N/A|N/A|Ondersteund|
 |||||
 

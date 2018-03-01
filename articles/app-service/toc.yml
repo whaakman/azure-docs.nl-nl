@@ -57,6 +57,8 @@
       href: app-service-cli-samples.md
     - name: Azure PowerShell
       href: app-service-powershell-samples.md
+    - name: Resource Manager-sjablonen
+      href: app-service-rm-template-samples.md
 - name: Concepten
   items:
     - name: De werking van App Service
@@ -111,6 +113,8 @@
           href: app-service-deployment-credentials.md
         - name: Faseringsomgevingen maken
           href: web-sites-staged-publishing.md
+        - name: Richtlijnen voor Resource Manager-sjablonen
+          href: web-sites-rm-template-guidance.md
     - name: Aangepast domein toewijzen
       items:
         - name: Een domein kopen

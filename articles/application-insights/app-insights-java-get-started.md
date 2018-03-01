@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99c9740e3f19e2a09332317b08e06352ffa8eee7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Aan de slag met Application Insights in een Java-webproject
 
@@ -70,12 +70,12 @@ Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te dow
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[1.0,)</version>
+        <version>[2.0,)</version>
       </dependency>
     </dependencies>
 ```
 
-* *Validatiefouten in build of controlesom?* Probeer een specifieke versie te gebruiken, bijvoorbeeld: `<version>1.0.n</version>`. U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) of in onze [Maven-artefacten](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Validatiefouten in build of controlesom?* Probeer een specifieke versie te gebruiken, bijvoorbeeld: `<version>2.0.n</version>`. U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) of in onze [Maven-artefacten](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Moet u bijwerken naar een nieuwe SDK?* Vernieuw de afhankelijkheden van uw project.
 
 #### <a name="if-youre-using-gradle"></a>Als u Gradle gebruikt...
@@ -90,19 +90,19 @@ Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te dow
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '2.+'
       // or applicationinsights-core for bare API
     }
 ```
 
-* *Validatiefouten in build of controlesom? Probeer een specifieke versie te gebruiken, bijvoorbeeld:* `version:'1.0.n'`. *U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Validatiefouten in build of controlesom? Probeer een specifieke versie te gebruiken, bijvoorbeeld:* `version:'2.0.n'`. *U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Bijwerken naar een nieuwe SDK*
   * Vernieuw de afhankelijkheden van uw project.
 
 #### <a name="otherwise-"></a>Of...
 Voeg de SDK handmatig toe:
 
-1. Download de [Application Insights-SDK voor Java](https://aka.ms/aijavasdk).
+1. Download de [Application Insights-SDK voor Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
 2. Pak het zip-bestand uit en voeg de binaire bestanden toe aan uw project.
 
 ### <a name="questions"></a>Vragen...
@@ -112,7 +112,7 @@ Voeg de SDK handmatig toe:
   * `applicationinsights-web` biedt u metrische gegevens waarin het aantal HTTP-aanvragen en -reactietijden worden bijhouden. U kunt dit onderdeel weglaten als u deze telemetrie niet automatisch wilt verzamelen. Bijvoorbeeld omdat u deze zelf wilt schrijven.
 * *De SDK bijwerken wanneer er wijzigingen worden gepubliceerd*
 
-  * Download de meest recente [Application Insights-SDK voor Java](https://aka.ms/qqkaq6) en vervang de oude versie.
+  * Download de meest recente [Application Insights-SDK voor Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) en vervang de oude versie.
   * De wijzigingen worden beschreven in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Een Application Insights-.xml-bestand toevoegen

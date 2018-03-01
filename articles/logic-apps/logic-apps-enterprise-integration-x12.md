@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 7a274ad33b7181d238203290cf63937df5f13bbc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Exchange X12 berichten voor enterprise-integratie met logic apps
 
@@ -31,37 +31,34 @@ Voordat u kunt X12 uitwisselen berichten voor Azure Logic Apps, moet u een X12 o
 
 Hier volgt de items die u nodig:
 
-* Een [integratie account](../logic-apps/logic-apps-enterprise-integration-accounts.md) die al is gedefinieerd en die zijn gekoppeld aan uw Azure-abonnement
+* Een [integratie account](logic-apps-enterprise-integration-create-integration-account.md) die al is gedefinieerd en die zijn gekoppeld aan uw Azure-abonnement
 * Ten minste twee [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) die zijn gedefinieerd in uw account integratie en geconfigureerd met de X12 id onder **Business identiteiten**    
-* Een vereiste [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) voor het uploaden naar uw [integratie-account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+* Een vereiste [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) die u kunt uploaden naar uw integratie-account
 
-Nadat u [maken van een account integratie](../logic-apps/logic-apps-enterprise-integration-accounts.md), [partners toevoegen](logic-apps-enterprise-integration-partners.md), en hebben een [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) dat u wilt gebruiken, kunt u een X12 overeenkomst met de volgende stappen.
+Nadat u [maken van een account integratie](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [partners toevoegen](logic-apps-enterprise-integration-partners.md), en hebben een [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) dat u wilt gebruiken, kunt u een X12 overeenkomst met de volgende stappen.
 
 ## <a name="create-an-x12-agreement"></a>Maken van een X12 overeenkomst
 
-1.  Meld u aan bij [Azure Portal](http://portal.azure.com "Azure Portal"). Selecteer in het menu links **alle services**. 
+1. Meld u aan bij [Azure Portal](http://portal.azure.com "Azure Portal"). 
 
-    > [!TIP]
-    > Als er geen **alle services**, mogelijk moet u eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **weergeven in het menu**.
+2. Selecteer in het Azure hoofdmenu **alle services**. Voer in het zoekvak "-integratie" en selecteer vervolgens **integratieaccounts**.  
 
-    ![Selecteer op het menu links, 'Alle services'](./media/logic-apps-enterprise-integration-x12/account-1.png)
+   ![Uw account integratie vinden](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.  Typ in het zoekvak "-integratie" als filter. Selecteer in de lijst met resultaten **Integratieaccounts**.  
+   > [!TIP]
+   > Als **alle services** niet wordt weergegeven, wordt u wellicht eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **weergeven in het menu**.
 
-    ![Filteren op "-integratie", selecteert u 'Integratieaccounts'](./media/logic-apps-enterprise-integration-x12/account-2.png)
+3. Onder **Integratieaccounts**, selecteert u de integratie account waar u de overeenkomst toevoegen.
 
-3. In de **Integratieaccounts** blade die wordt geopend, selecteert u de integratie-account waar u de overeenkomst toevoegen.
-Als er geen eventuele integratieaccounts [maken van een eerste](../logic-apps/logic-apps-enterprise-integration-accounts.md "alles over integratieaccounts").
-
-    ![Integratie-account selecteren wanneer u de overeenkomst](./media/logic-apps-enterprise-integration-x12/account-3.png)
+   ![Integratie-account selecteren wanneer u de overeenkomst](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Selecteer **overzicht**, selecteer vervolgens de **overeenkomsten** tegel. Als u een tegel overeenkomsten geen hebt, eerst de tegel toevoegen. 
 
-    ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. Kies in de blade van de overeenkomsten die wordt geopend, **toevoegen**.
+5. Onder **overeenkomsten**, kies **toevoegen**.
 
-    ![Kies 'Add'](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Kies 'Add'](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. Onder **toevoegen**, voer een **naam** voor de overeenkomst. Selecteer voor het type licentieovereenkomst **X12**. Selecteer de **Host Partner**, **Hostidentiteit**, **Gast Partner**, en **Gast identiteit** voor de overeenkomst. Zie voor meer eigenschapdetails, de tabel in deze stap.
 
@@ -263,7 +260,7 @@ Andere dan de tekenset, kunt u een andere set scheidingstekens voor elk berichtt
 | Eigenschap | Beschrijving |
 | --- | --- |
 | Tekenset moet worden gebruikt |Valideren van de eigenschappen, selecteer de X12 tekenset. De opties zijn Basic, uitgebreid en UTF8. |
-| Schema |Selecteer een schema in de vervolgkeuzelijst. Nadat u elke rij hebt voltooid, wordt er automatisch een nieuwe rij toegevoegd. Voor het geselecteerde schema, de scheidingstekens set selecteren die u gebruiken wilt, op basis van de volgende beschrijvingen van het scheidingsteken. |
+| Schema |Selecteer een schema in de vervolgkeuzelijst. Nadat u elke rij hebt voltooid, wordt er automatisch een nieuwe rij toegevoegd. Voor het geselecteerde schema, de scheidingstekens set selecteren die u gebruiken wilt, op basis van de onderstaande scheidingsteken beschrijvingen. |
 | Invoertype |Selecteer een type invoer in de vervolgkeuzelijst. |
 | Scheidingsteken voor onderdelen |Afzonderlijke elementen van de samengestelde gegevensbron, voert u één teken. |
 | Scheidingsteken voor gegevenselementen |Afzonderlijke eenvoudige gegevenselementen in de elementen van de samengestelde gegevensbron, voert u één teken. |
@@ -291,13 +288,13 @@ Wanneer elke rij van de validatie is voltooid, wordt automatisch een andere toeg
 
 ## <a name="find-your-created-agreement"></a>De overeenkomst zoeken
 
-1.  Als u klaar bent met het instellen van alle uw overeenkomst-eigenschappen op de **toevoegen** blade kiezen **OK** maken van uw overeenkomst is voltooid en Ga terug naar de blade van het integratie-account.
+1.  Als u klaar bent met het instellen van alle uw overeenkomst-eigenschappen op de **toevoegen** pagina **OK** te maken van uw overeenkomst voltooien en keer terug naar uw account integratie.
 
     Nu uw toegevoegde overeenkomst wordt weergegeven in uw **overeenkomsten** lijst.
 
-2.  U kunt ook uw overeenkomsten weergeven in uw Accountoverzicht integratie. Kies op de blade van het integratie-account **overzicht**, selecteer vervolgens de **overeenkomsten** tegel.
+2.  U kunt ook uw overeenkomsten weergeven in uw Accountoverzicht integratie. Kies in het menu van de account integratie **overzicht**, selecteer vervolgens de **overeenkomsten** tegel.
 
-    ![Kies 'Overeenkomsten' tegel om weer te geven van alle overeenkomsten](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+    ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## <a name="view-the-swagger"></a>De swagger weergeven
 Zie de [swagger details](/connectors/x12/). 

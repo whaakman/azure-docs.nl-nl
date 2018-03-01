@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 73b8a28fa2f2b432f12a230be9326b6696d3908a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery-ondersteuningsmatrix voor het repliceren van Azure naar Azure
 
@@ -39,7 +39,7 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 
 **Verplaatsen van brontype** | **Ondersteund / niet ondersteund** | **Opmerkingen**  
 --- | --- | ---
-Kluis over brongroepen verplaatsen | Niet ondersteund |U kunt de Recovery services-kluis niet verplaatsen tussen resourcegroepen.
+**Kluis over brongroepen verplaatsen** | Niet ondersteund |U kunt de Recovery services-kluis niet verplaatsen tussen resourcegroepen.
 **Verplaatsen van Compute, Storage en het netwerk naar andere resourcegroepen** | Niet ondersteund |Als u een virtuele machine (of de bijbehorende onderdelen, zoals opslag en netwerk) verplaatst nadat de replicatie is ingeschakeld, moet u replicatie uitschakelen en inschakelen van replicatie voor de virtuele machine opnieuw.
 
 
@@ -93,7 +93,7 @@ De onderstaande ondersteuning is van toepassing op elke workload uitgevoerd op d
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Ondersteunde versies van Ubuntu kernel voor Azure virtual machines
 
-Release | **De versie van de Mobility-service** | Kernelversie |
+**Release** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic naar 3.13.0-121-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic naar 3.13.0-125-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-83-generic |
@@ -153,8 +153,8 @@ Tijdelijke schijf | Altijd uitgesloten van replicatie | Tijdelijke schijf is uit
 Snelheid van de gegevens wijzigen op de schijf | Maximaal 10 MBps per schijf voor Premium-opslag en 2 MBps per schijf voor Standard-opslag | Als de gemiddelde gegevenswijzigingssnelheid op de schijf dan 10 (voor Premium) en 2 MBps (voor standaard) continu is, replicatie wordt niet kan verwerken. Echter, als dit een ' burst ' in incidentele gegevens is en de gegevenswijzigingssnelheid is groter dan 10 MBps (voor Premium) en 2 MBps (voor Standard) voor enige tijd en ontvangt u omlaag, replicatie wordt lopen. In dit geval ziet u mogelijk enigszins vertraagd herstelpunten.
 Schijven op standaard storage-accounts | Ondersteund |
 Schijven op premium storage-accounts | Ondersteund | Als een virtuele machine schijven die zijn verdeeld over premium en standard storage-accounts bevat, kunt u een ander doel storage-account voor elke schijf om te controleren of hebt u dezelfde opslagconfiguratie van de in doelregio selecteren
-Standaardschijven beheerd | Niet ondersteund |  
-Premium-beheerde schijven | Niet ondersteund |
+Standaardschijven beheerd | Ondersteund in Azure-regio's waarin de Azure Site Recovery wordt ondersteund. Government clouds worden momenteel niet ondersteund.  |  
+Premium-beheerde schijven | Ondersteund in Azure-regio's waarin de Azure Site Recovery wordt ondersteund. Government clouds worden momenteel niet ondersteund. |
 Opslagruimten | Ondersteund |         
 Codering in rust (SSE) | Ondersteund | Voor de cache en het doel storage-accounts, kunt u een opslagaccount SSE ingeschakeld.     
 Azure Disk Encryption (ADE) | Niet ondersteund |

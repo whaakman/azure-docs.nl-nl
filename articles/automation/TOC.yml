@@ -19,7 +19,7 @@
       href: automation-watchers-tutorial.md
     - name: Updates voor uw virtuele machine beheren
       href: automation-tutorial-update-management.md
-    - name: Updates vrijgeven en wijzigingen bijhouden
+    - name: Updates vrijgeven en wijzigingen bijhouden met behulp van een runbook
       href: automation-onboard-solutions.md
     - name: Software op een virtuele machine identificeren
       href: automation-tutorial-installed-software.md
@@ -27,20 +27,24 @@
       href: automation-tutorial-troubleshoot-changes.md
 - name: Procedures
   items:
+    - name: Onboarding
+      items:
+        - name: Onboarding vanuit een Azure-VM
+          href: automation-onboard-solutions-from-vm.md
+        - name: Onboarding vanuit een Automation-account
+          href: automation-onboard-solutions-from-automation-account.md
     - name: Updatebeheer
       items:
-        - name: Overzicht
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+        - name: Overzicht van updatebeheer
+          href: automation-update-management.md
         - name: Updates voor meerdere virtuele machines beheren
           href: manage-update-multi.md
-        - name: SCCM integreren met OMS-updatebeheer
+        - name: SCCM integreren met updatebeheer
           href: oms-solution-updatemgmt-sccmintegration.md
-    - name: Wijzigingen bijhouden
+    - name: Tracering wijzigen
       items:
-        - name: Overzicht
-          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Wijzigingen aan uw virtuele machines bijhouden
-          href: automation-vm-change-tracking.md
+        - name: Overzicht van wijzigingen bijhouden
+          href: automation-change-tracking.md
     - name: Inventaris
       items:
         - name: Een virtuele machine beheren met inventarisverzameling

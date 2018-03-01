@@ -7,8 +7,10 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Automatische inrichting instellen
+    - name: Automatische inrichting instellen - Portal
       href: quick-setup-auto-provision.md
+    - name: Automatische inrichting instellen - Sjabloon
+      href: quick-setup-auto-provision-rm.md
     - name: Een gesimuleerd apparaat maken
       items:
         - name: TPM
@@ -91,6 +93,8 @@
       href: how-to-revoke-device-access-portal.md
     - name: Inrichting van apparaten verwijderen
       href: how-to-unprovision-devices.md
+    - name: Bewijs van bezit uitvoeren voor X.509 CA-certificaten
+      href: how-to-verify-certificates.md
     - name: Gebruik HSM met SDK
       href: use-hsm-with-sdk.md
     - name: Toegang tot de inrichtingsservice beheren
@@ -99,6 +103,8 @@
       href: how-to-manage-dps-with-cli.md
     - name: SDK-hulpprogramma's gebruiken om te ontwikkelen
       href: how-to-use-sdk-tools.md
+    - name: Verbinding maken met een MXChip IoT DevKit
+      href: how-to-connect-mxchip-iot-devkit.md
 - name: Naslaginformatie
   items:
     - name: REST

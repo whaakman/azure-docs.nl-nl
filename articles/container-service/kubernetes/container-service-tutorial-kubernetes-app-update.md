@@ -6,25 +6,25 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 09/14/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 34b08111863df99dc05a7b269464ce65a916a171
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5f22bb3ac378bc9b1ff94db486d6ea6053c64514
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Een toepassing bijwerken in Kubernetes
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Nadat een toepassing is geïmplementeerd in Kubernetes, kunt u deze bijwerken door een nieuwe containerinstallatiekopie of versie van de installatiekopie op te geven. Wanneer u dit doet, wordt de update gefaseerd, zodat telkens maar een deel van de implementatie wordt bijgewerkt. Deze gefaseerde update maakt het mogelijk dat de toepassing kan worden uitgevoerd tijdens de update. Het biedt ook een terugdraaimechanisme als er een implementatiefout optreedt. 
+Nadat een toepassing is geïmplementeerd in Kubernetes, kunt u deze bijwerken door een nieuwe containerinstallatiekopie of versie van de installatiekopie op te geven. Wanneer u dit doet, wordt de update gefaseerd, zodat telkens maar een deel van de implementatie wordt bijgewerkt. Dankzij deze gefaseerde update kan de toepassing tijdens de update worden uitgevoerd. Het biedt ook een terugdraaimechanisme als er een implementatiefout optreedt. 
 
 In deze zelfstudie, deel zes van zeven, wordt de voorbeeldapp Azure Vote bijgewerkt. Taken die u uitvoert, zijn onder andere:
 
 > [!div class="checklist"]
-> * De code van de frond-end toepassing bijwerken
+> * De code van de front-endtoepassing bijwerken
 > * Een bijgewerkte containerinstallatiekopie maken
 > * De containerinstallatiekopie naar Azure Container Registry pushen
 > * De bijgewerkte containerinstallatiekopie implementeren
@@ -35,7 +35,7 @@ In de volgende zelfstudies wordt Operations Management Suite geconfigureerd voor
 
 In de vorige zelfstudies is een toepassing verpakt in een containerinstallatiekopie, de installatiekopie geüpload naar Azure Container Registry en een Kubernetes-cluster gemaakt. De toepassing is vervolgens in het Kubernetes-cluster uitgevoerd. 
 
-Er is ook een toepassingsopslagplaats gekloond die de broncode van de toepassing bevat en een vooraf gemaakt Docker Compose-bestand dat wordt gebruikt in deze zelfstudie. Controleer of u een kloon van de opslagplaats hebt gemaakt en of u naar de gekloonde map bent gegaan. In deze map bevindt zich een map genaamd `azure-vote` en een bestand genaamd `docker-compose.yml`.
+Er is ook een toepassingsopslagplaats gekloond die de broncode van de toepassing bevat en een vooraf gemaakt Docker Compose-bestand dat wordt gebruikt in deze zelfstudie. Controleer of u een kloon van de opslagplaats hebt gemaakt en of u mappen in de gekloonde map hebt gewijzigd. In deze map bevindt zich een map genaamd `azure-vote` en een bestand genaamd `docker-compose.yml`.
 
 Als u deze stappen niet hebt voltooid en deze zelfstudie wilt volgen, gaat u terug naar [Zelfstudie 1: Containerinstallatiekopieën maken](./container-service-tutorial-kubernetes-prepare-app.md). 
 
@@ -77,7 +77,7 @@ Blader naar http://localhost:8080 om de bijgewerkte toepassing te zien.
 
 ## <a name="tag-and-push-images"></a>Installatiekopieën taggen en pushen
 
-Tag de `azure-vote-front`-installatiekopie met de aanmeldingsserver van het containerregister. 
+Tag de `azure-vote-front`-installatiekopie met de aanmeldingserver van het containerregister. 
 
 Haal de naam van de aanmeldingsserver op met de opdracht [az acr list](/cli/azure/acr#az_acr_list).
 
@@ -161,7 +161,7 @@ Blader naar het IP-adres om de bijgewerkte toepassing te zien.
 In deze zelfstudie hebt u een toepassing bijgewerkt en deze update geïmplementeerd in een Kubernetes-cluster. De volgende taken zijn uitgevoerd:
 
 > [!div class="checklist"]
-> * De code van de front-end toepassing is bijgewerkt
+> * De code van de front-endtoepassing is bijgewerkt
 > * Een bijgewerkte containerinstallatiekopie is gemaakt
 > * De containerinstallatiekopie is gepusht naar Azure Container Registry
 > * De bijgewerkte toepassing is geïmplementeerd

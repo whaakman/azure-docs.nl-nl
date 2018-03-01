@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c830400ca1ccd7273ba3acfbd4f17eb2081add87
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 47608993320d987822422ea103e4e2043de2d2e8
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Kubernetes dashboard met Azure Container Service (AKS)
 
@@ -23,7 +23,7 @@ De Azure CLI kunnen worden gebruikt voor het starten van het Kubernetes Dashboar
 
 Bij de stappen die in dit document worden uiteengezet, wordt ervan uitgegaan dat u een AKS-cluster hebt gemaakt en een kubectl-verbinding met het cluster hebt gemaakt. Als u deze items moet weergeven, de [AKS Quick Start][aks-quickstart].
 
-U ook moet de Azure CLI versie 2.0.27 of later geïnstalleerd en geconfigureerd. Voer az --version uit om de versie te zoeken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
+Ook moet de Azure CLI-versie 2.0.27 of later zijn geïnstalleerd en geconfigureerd. Voer az --version uit om de versie te zoeken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Start Kubernetes dashboard
 

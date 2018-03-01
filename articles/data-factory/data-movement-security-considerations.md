@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ebe0523849b4709424e2f4bdac00f6bf98bf7cf4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - beveiligingsoverwegingen voor gegevensverplaatsing
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -122,7 +122,7 @@ Virtueel netwerk is een logische representatie van uw netwerk in de cloud. U kun
 
 De volgende tabel geeft een overzicht van het netwerk en aanbevelingen voor de configuratie van host zichzelf integratie runtime op basis van verschillende combinaties van de bron en bestemming locaties voor hybride gegevensverplaatsing.
 
-| Bron      | Doel                              | Netwerkconfiguratie                    | Integratie runtime-instellingen                |
+| Bron      | Doel                              | Netwerkconfiguratie                    | Installatie van integratieruntime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | IPSec VPN (punt-naar-site of site-naar-site) | De runtime host zichzelf integratie kan worden geïnstalleerd van on-premises of in een Azure virtuele machine u (VM) in VNet |
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | ExpressRoute (Privépeering)           | De runtime host zichzelf integratie kan worden on-premises geïnstalleerd of op een virtuele machine van Azure in VNet |
@@ -150,8 +150,8 @@ De volgende tabel bevat **uitgaande poort** en vereisten voor het domein voor de
 | `*.servicebus.windows.net`    | 443, 80        | Vereist door de runtime host zichzelf integratie verbinding maken met services voor gegevensverplaatsing in Data Factory |
 | `*.core.windows.net`          | 443            | Gebruikt door de runtime host zichzelf integratie verbinding maken met Azure Storage-Account wanneer u de [kopie gefaseerde](copy-activity-performance.md#staged-copy) functie. |
 | `*.frontend.clouddatahub.net` | 443            | Vereist door de runtime host zichzelf integratie verbinding maken met de Azure Data Factory-service. |
-| `*.database.windows.net`      | 1433           | (Optioneel) als bestemming voor de Azure SQL-Database nodig / Azure SQL Data Warehouse. De functie gefaseerde kopiëren gebruiken om gegevens te kopiëren naar Azure SQL Database/Azure SQL Data Warehouse zonder de poort 1433 openen. |
-| `*.azuredatalakestore.net`    | 443            | (Optioneel) nodig hebt bij het doel Azure Data Lake store is |
+| `*.database.windows.net`      | 1433           | (Optioneel) bij het kopiëren van/naar Azure SQL-Database nodig / Azure SQL Data Warehouse. De functie gefaseerde kopiëren gebruiken om gegevens te kopiëren naar Azure SQL Database/Azure SQL Data Warehouse zonder de poort 1433 openen. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Optioneel) nodig bij het kopiëren van/naar is Azure Data Lake store |
 
 > [!NOTE] 
 > Wellicht hebt u voor het beheren van poorten / whitelisting-domeinen in de bedrijfsfirewall niveau zoals vereist door de respectieve gegevensbronnen. Deze tabel alleen maakt gebruik van Azure SQL Database, Azure SQL Data Warehouse, Azure Data Lake Store als voorbeelden.   

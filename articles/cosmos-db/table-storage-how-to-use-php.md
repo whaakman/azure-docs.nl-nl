@@ -14,18 +14,18 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 4965247d77e8a3a9f5dbaa2e70952993b4bdf4ff
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Het gebruik van Azure Storage, Table-service of Cosmos DB tabel API met PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's met behulp van de Azure Storage, Table-service en de API van Azure Cosmos DB tabel uitvoeren. De voorbeelden zijn geschreven in PHP en gebruik de [Azure SDK voor PHP][download]. De scenario's worden behandeld: **maken en het verwijderen van een tabel**, en **invoegen, verwijderen en het uitvoeren van query's entiteiten in een tabel**. Zie voor meer informatie over de Azure Table-service de [Vervolgstappen](#next-steps) sectie.
+Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's met behulp van de Azure Storage, Table-service en de API van Azure Cosmos DB tabel uitvoeren. De voorbeelden zijn geschreven in PHP en gebruik de [clientbibliotheek van Azure Storage tabel PHP][download]. De scenario's worden behandeld: **maken en het verwijderen van een tabel**, en **invoegen, verwijderen en het uitvoeren van query's entiteiten in een tabel**. Zie voor meer informatie over de Azure Table-service de [Vervolgstappen](#next-steps) sectie.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -422,7 +422,7 @@ catch(ServiceException $e){
 }
 ```
 
-Voor controles gelijktijdigheid van taken, kunt u instellen de Etag voor een entiteit moet worden verwijderd met behulp van de **DeleteEntityOptions -> setEtag** methode en geven de **DeleteEntityOptions** object naar de ** deleteEntity** als een vierde parameter.
+Voor controles gelijktijdigheid van taken, kunt u instellen de Etag voor een entiteit moet worden verwijderd met behulp van de **DeleteEntityOptions -> setEtag** methode en geven de **DeleteEntityOptions** object naar de  **deleteEntity** als een vierde parameter.
 
 ## <a name="batch-table-operations"></a>Batchbewerkingen tabel
 De **TableRestProxy -> batch** methode kunt u meerdere bewerkingen uitvoeren in een enkele aanvraag. Het patroon hier omvat het toevoegen van bewerkingen voor **BatchRequest** object en vervolgens doorgegeven de **BatchRequest** object toe aan de **TableRestProxy -> batch** methode. Toevoegen van een bewerking voor een **BatchRequest** object, u een van de volgende methoden kunt aanroepen, kunt u meerdere keren:

@@ -1,3 +1,5 @@
+# [Documentatie voor virtuele machines](index.md)
+
 # [Virtuele Linux-machines](linux/overview.md)
 # [Virtuele Windows-machines](windows/overview.md)
 # [Linux-VM's met klassieke implementatie](linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)

@@ -1,3 +1,5 @@
+# [Documentatie voor Analysis Services](index.md)
+
 # Overzicht
 ## [Over Analysis Services](analysis-services-overview.md)
 ## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
@@ -14,6 +16,7 @@
 
 # Uitleg 
 ## [Een on-premises gegevensgateway installeren en configureren](analysis-services-gateway-install.md)
+## [Een Power BI Desktop-bestand importeren](analysis-services-import-pbix.md)
 ## [Back-up en herstel](analysis-services-backup.md)
 ## [Vernieuwen met REST-API](analysis-services-async-refresh.md)
 ## [Uitschalen configureren](analysis-services-scale-out.md)
@@ -30,25 +33,26 @@
 ### [Verbinden met Power BI](analysis-services-connect-pbi.md)
 ### [Een ODC-bestand maken](analysis-services-odc.md)
 ## Zelfstudies
+### [1 - Een voorbeeldmodel maken](analysis-services-create-sample-model.md)
 ### [Gegevensmodellering: zelfstudie Adventure Works](tutorials/aas-adventure-works-tutorial.md)
-### [1: Een project voor een tabellair model maken](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
-### [2: Gegevens ophalen](tutorials/aas-lesson-2-get-data.md)
-### [3: Als gegevenstabel markeren](tutorials/aas-lesson-3-mark-as-date-table.md) 
-### [4: Relaties maken](tutorials/aas-lesson-4-create-relationships.md) 
-### [5: Berekende kolommen maken](tutorials/aas-lesson-5-create-calculated-columns.md)
-### [6: Metingen maken](tutorials/aas-lesson-6-create-measures.md)  
-### [7: Key Performance Indicators maken](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
-### [8: Perspectieven maken](tutorials/aas-lesson-8-create-perspectives.md) 
-### [9: Hiërarchieën maken](tutorials/aas-lesson-9-create-hierarchies.md) 
-### [10: Partities maken](tutorials/aas-lesson-10-create-partitions.md) 
-### [11: Rollen maken](tutorials/aas-lesson-11-create-roles.md)
-### [12: Analyseren in Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
-### [13: Implementeren](tutorials/aas-lesson-13-deploy.md)
-### [Aanvullende les: Detailrijen](tutorials/aas-supplemental-lesson-detail-rows.md)
-### [Aanvullende les: Dynamische beveiliging](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [Aanvullende les: Onregelmatige hiërarchieën](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+#### [1: Een project voor een tabellair model maken](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
+#### [2 - Gegevens ophalen](tutorials/aas-lesson-2-get-data.md)
+#### [3: Als gegevenstabel markeren](tutorials/aas-lesson-3-mark-as-date-table.md) 
+#### [4: Relaties maken](tutorials/aas-lesson-4-create-relationships.md) 
+#### [5 - Berekende kolommen maken](tutorials/aas-lesson-5-create-calculated-columns.md)
+#### [6 - Metingen maken](tutorials/aas-lesson-6-create-measures.md)  
+#### [7: Key Performance Indicators maken](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
+#### [8 - Perspectieven maken](tutorials/aas-lesson-8-create-perspectives.md) 
+#### [9 - Hiërarchieën maken](tutorials/aas-lesson-9-create-hierarchies.md) 
+#### [10 - Partities maken](tutorials/aas-lesson-10-create-partitions.md) 
+#### [11 - Rollen maken](tutorials/aas-lesson-11-create-roles.md)
+#### [12: Analyseren in Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
+#### [13 - Implementeren](tutorials/aas-lesson-13-deploy.md)
+#### [Aanvullende les: Detailrijen](tutorials/aas-supplemental-lesson-detail-rows.md)
+#### [Aanvullende les: Dynamische beveiliging](tutorials/aas-supplemental-lesson-dynamic-security.md)
+#### [Aanvullende les: Onregelmatige hiërarchieën](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
-# Verwijzing
+# Naslaginformatie
 ## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)

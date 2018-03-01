@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hadoop op basis van Windows-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -294,7 +294,7 @@ De console HDInsight Query bevat de volgende functies:
     ![YARN gebruikersinterface van de HDInsight-portal](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
 
 ## <a name="run-hive-queries"></a>Hive-query's uitvoeren
-Aan het Hive-taken via de Portal hebt uitgevoerd, klikt u op **Hive-Editor** in de Query voor HDInsight-console. Zie [openen HDInsight Query console](#open-hdinsight-query-console).
+Als u wilt uitvoeren van Hive-taken via de Portal, klikt u op **Hive-Editor** in de Query voor HDInsight-console. Zie [openen HDInsight Query console](#open-hdinsight-query-console).
 
 ## <a name="monitor-jobs"></a>Taken controleren
 Als u wilt bewaken taken vanuit de Portal, klikt u op **Taakgeschiedenis** in de Query voor HDInsight-console. Zie [openen HDInsight Query console](#open-hdinsight-query-console).
@@ -356,7 +356,7 @@ Voor verbinding met het cluster met behulp van extern bureaublad en gebruik de H
 
     Zie voor meer informatie over Hadoop opdrachten [Hadoop opdrachten verwijzing](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
-Naam van de map heeft in de vorige schermafbeelding het Hadoop-versienummer ingesloten. Het versienummer kan gewijzigd op basis van de versie van de Hadoop-onderdelen geïnstalleerd op het cluster. U kunt de omgevingsvariabelen Hadoop gebruiken om te verwijzen naar deze mappen. Bijvoorbeeld:
+Naam van de map heeft in de vorige schermafbeelding het Hadoop-versienummer ingesloten. Het versienummer kunt wijzigen op basis van de versie van de Hadoop-onderdelen geïnstalleerd op het cluster. U kunt de omgevingsvariabelen Hadoop gebruiken om te verwijzen naar deze mappen. Bijvoorbeeld:
 
     cd %hadoop_home%
     cd %hive_home%

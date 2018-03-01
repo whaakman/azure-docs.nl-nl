@@ -1,3 +1,5 @@
+# [Documentatie voor Power BI Embedded](index.md)
+
 # Overzicht
 ## [Over Power BI Embedded](what-is-power-bi-embedded.md)
 
@@ -25,7 +27,7 @@
 
 # Naslaginformatie
 ## API's
-### [REST-API's voor Azure Resource Management](https://docs.microsoft.com/rest/api/power-bi-embedded/)
+### [REST API's voor Azure Resource Management](https://docs.microsoft.com/rest/api/power-bi-embedded/)
 ### [REST-API's voor Power BI](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 
 # Resources

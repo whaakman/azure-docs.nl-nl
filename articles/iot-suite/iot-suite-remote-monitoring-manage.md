@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Uw apparaten beheren en configureren
 
@@ -42,11 +42,11 @@ Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u 
 
 ## <a name="add-a-simulated-device"></a>Een gesimuleerd apparaat toevoegen
 
-Navigeer naar de **apparaten** pagina in de oplossing en kies vervolgens **nieuw apparaat**. In de **nieuw apparaat** deelvenster, kiest u **gesimuleerde**:
+Navigeer naar de **apparaten** pagina in de oplossing en kies vervolgens **+ nieuw apparaat**. In de **nieuw apparaat** deelvenster, kiest u **gesimuleerde**:
 
 ![Een gesimuleerd apparaat inrichten](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Laat het aantal apparaten inrichten ingesteld op **1**. Kies **defecte Engine** als de **Apparaatmodel**, en kies vervolgens **toepassen** voor het maken van het gesimuleerde apparaat:
+Laat het aantal apparaten inrichten ingesteld op **1**. Kies de **defecte Engine** apparaat model en kies vervolgens **toepassen** voor het maken van het gesimuleerde apparaat:
 
 ![Een engine voor het gesimuleerde apparaat inrichten](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 

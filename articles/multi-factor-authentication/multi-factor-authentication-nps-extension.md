@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 8c3ceb8a455ea32ebbd1393aa2484b8b8c898ef8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ee8b89ab93fd10129cbb0e0634c5c920a928f1c1
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -63,7 +63,7 @@ Windows Server 2008 R2 SP1 of hoger.
 Deze bibliotheken worden automatisch geïnstalleerd met de extensie.
 
 -   [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Microsoft Azure Active Directory-Module voor Windows PowerShell versie 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-   [Microsoft Azure Active Directory-Module voor Windows PowerShell versie 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 De Microsoft Azure Active Directory-Module voor Windows PowerShell is geïnstalleerd, als deze nog niet aanwezig is, via een configuratiescript die u als onderdeel van het installatieproces uitvoert. Er is niet nodig voor het installeren van deze module tevoren als deze nog niet is geïnstalleerd.
 

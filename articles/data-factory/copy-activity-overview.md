@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2095d75ed042ae8be02ae0a1570f8e77d06a3563
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: faad821d406ac155516696c1207c8c9deef8fdab
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
@@ -152,11 +152,11 @@ U kunt controleren met de kopieerbewerking op Azure Data Factory 'Auteur & Monit
 
 Als u wilt bewaken visueel met de kopieerbewerking uitvoeren, Ga naar uw data factory -> **auteur & Monitor** -> **tabblad Monitor**, ziet u een lijst van de pijplijn wordt uitgevoerd met een koppeling 'Weergave activiteit wordt uitgevoerd' in de  **Acties** kolom. 
 
-![De pijplijn bewaken wordt uitgevoerd](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+![Pijplijnuitvoeringen controleren](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
 Klik op de lijst van activiteiten in deze pijplijn. In de **acties** kolom, hebt u koppelingen naar de kopie activiteit invoer, uitvoer, fouten (als kopieeractiviteit uitvoeren is mislukt) en meer informatie.
 
-![Monitor activiteit wordt uitgevoerd](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+![Uitvoering van activiteiten controleren](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
 Klik op de '**Details**' koppeling onder **acties** om details van de uitvoering van de activiteit van het exemplaar en de prestatiekenmerken te zien. Hier ziet u informatie inclusief volume/rijen/bestanden van de gegevens gekopieerd van de bron opvangen, doorvoer, stappen het doorloopt met bijbehorende duur en configuraties voor uw scenario kopiëren gebruikt.
 
@@ -170,7 +170,7 @@ Klik op de '**Details**' koppeling onder **acties** om details van de uitvoering
 
 De activiteitsgegevens uitvoering kopiëren en prestatiekenmerken zijn ook geretourneerd als resultaat van uitgevoerde Kopieeractiviteit -> sectie uitvoer. Hieronder volgt een uitputtende lijst. alleen de van toepassing door op uw scenario kopie wordt weergegeven. Informatie over het bewaken van de activiteit die wordt uitgevoerd van [Quick Start sectie bewaking](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
-| Naam van eigenschap  | Beschrijving | Eenheid |
+| De naam van eigenschap  | Beschrijving | Eenheid |
 |:--- |:--- |:--- |
 | dataRead | Gegevensgrootte van het lezen van bron | Waarde voor Int64 in **bytes** |
 | dataWritten | Gegevensgrootte opvangen geschreven | Waarde voor Int64 in **bytes** |

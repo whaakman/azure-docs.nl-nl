@@ -1,3 +1,5 @@
+# [Documentatie voor Azure Billing](index.md)
+
 # Aan de slag
 ## [Onverwachte kosten voorkomen](billing-getting-started.md)
 ## [Services maken die deel uitmaken van een gratis account](billing-create-free-services-included-free-account.md)

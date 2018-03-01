@@ -35,7 +35,7 @@ Hier volgen enkele van de functies van Premium-opslag:
 
 * **Premium-opslag-schijven**
 
-    Premium-opslag biedt ondersteuning voor VM-schijven die kunnen worden bijgevoegd aan een specifieke virtuele machines voor grootte-serie. Premium-opslag ondersteunt DS-serie, DSv2-serie GS-serie, Ls-serie en virtuele machines Fs-serie. U hebt de mogelijkheid van zeven schijfgrootten: P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), p 40 (2048GB), P50 (4095GB). P4 en P6 schijfgrootten worden alleen nog ondersteund voor schijven die worden beheerd. De grootte van elke schijf heeft zijn eigen prestatiespecificaties. Afhankelijk van uw toepassing, kunt u een of meer schijven aan uw virtuele machine te koppelen. De specificaties in nader worden beschreven [Premium-opslag schaalbaarheids- en prestatiedoelen](#scalability-and-performance-targets).
+    Premium-opslag biedt ondersteuning voor VM-schijven die kunnen worden bijgevoegd aan een specifieke virtuele machines voor grootte-serie. Premium-opslag ondersteunt DS-serie, DSv2-serie GS-serie, Ls-serie Fs-serie en Esv3-serie virtuele machines. U hebt de mogelijkheid van zeven schijfgrootten: P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), p 40 (2048GB), P50 (4095GB). P4 en P6 schijfgrootten worden alleen nog ondersteund voor schijven die worden beheerd. De grootte van elke schijf heeft zijn eigen prestatiespecificaties. Afhankelijk van uw toepassing, kunt u een of meer schijven aan uw virtuele machine te koppelen. De specificaties in nader worden beschreven [Premium-opslag schaalbaarheids- en prestatiedoelen](#scalability-and-performance-targets).
 
 * **Premium-pagina-blobs**
 
@@ -62,7 +62,7 @@ Hier volgen enkele van de functies van Premium-opslag:
 ## <a name="supported-vms"></a>Ondersteunde virtuele machines
 Premium-opslag ondersteunt DS-serie, DSv2-serie GS-serie, Ls-serie Fs-serie en B-serie virtuele machines. Met deze VM-typen kunt u schijven standard en premium storage. U niet premium-opslag-schijven gebruiken met VM-reeks die geen Premium-opslag-compatibel.
 
-Zie voor meer informatie over de VM-typen en groottes in Azure voor Windows [Windows VM-grootten](../articles/virtual-machines/windows/sizes.md). Zie voor meer informatie over de VM-typen en groottes in Azure voor Linux [Linux VM-grootten](../articles/virtual-machines/linux/sizes.md).
+Zie [Grootten voor virtuele Windows-machines](../articles/virtual-machines/windows/sizes.md) voor informatie over de VM-typen en -grootten in Azure voor Windows. Zie [Grootten voor virtuele Linux-machines](../articles/virtual-machines/linux/sizes.md) voor informatie over de VM-typen en -grootten in Azure voor Linux.
 
 Dit zijn enkele van de functies van de DS-serie, DSv2-serie GS-serie, Ls-serie en Fs-serie virtuele machines:
 
@@ -236,12 +236,12 @@ De volgende Linux-distributies zijn gevalideerd voor Azure Premium-opslag. Voor 
 
 | Distributie | Versie | Ondersteunde kernel | Details |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-AMD64-server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-AMD64-server-20150123-en-us-30GB |
+| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
 | Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| SUSE-sles-12-prioriteit-v20150213 <br> SUSE-sles-12-v20150213 |
+| SUSE | SLES 12| 3.12.36-38.1+| SUSE-sles-12-prioriteit-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+| 3.18.4+ | Virtuele CoreOS 584.0.0 |
+| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
 | CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 vereist](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in het volgende gedeelte* |
 | CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [Aanbevolen LIS4](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in het volgende gedeelte* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |

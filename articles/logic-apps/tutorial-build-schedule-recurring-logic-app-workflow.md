@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4360249367632a01e4357c527f595f8416c7cc38
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Verkeer controleren met een logische app op basis van een planning
 
@@ -53,7 +53,7 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
 
 ## <a name="create-your-logic-app"></a>Uw logische app maken
 
-1. Kies in het Azure-menu de optie **Nieuw** > **Enterprise Integration** > **Logische app**.
+1. Kies in het hoofdmenu van Azure **Een resource maken** > **Bedrijfsintegratie** > **Logische app**.
 
    ![Logische app maken](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 
@@ -147,8 +147,8 @@ Nu u een trigger hebt, voegt u een [actie](../logic-apps/logic-apps-overview.md#
    | **Optimaliseren** | timeWithTraffic | Een parameter voor het optimaliseren van uw route, zoals afstand, reistijd in actuele verkeerssituatie, enzovoort. Selecteer deze parameter: "timeWithTraffic" | 
    | **Afstandseenheid** | <*your-preference*> | De afstandseenheid die voor de route wordt gebruikt. In dit artikel wordt gebruikgemaakt van de eenheid: "Mijl"  | 
    | **Vervoermiddel** | Auto | Het vervoermiddel voor uw route. Selecteer dit vervoermiddel: "Auto" | 
-   | **Datum/tijd openbaar vervoer** | None | Alleen van toepassing op het vervoermiddel openbaar vervoer | 
-   | **Notering datum/tijd** | Geen | Alleen van toepassing op het vervoermiddel openbaar vervoer | 
+   | **Datum/tijd openbaar vervoer** | Geen | Alleen van toepassing op het vervoermiddel openbaar vervoer | 
+   | **Notering datum/tijd** | None | Alleen van toepassing op het vervoermiddel openbaar vervoer | 
    |||| 
 
    Zie [Een route berekenen](https://msdn.microsoft.com/library/ff701717.aspx) voor meer informatie over deze parameters.

@@ -1,3 +1,5 @@
+# [Documentatie voor Azure Resource Manager](index.md)
+
 # Overzicht
 ## [Wat is Resource Manager?](resource-group-overview.md)
 ## [Resourceproviders en -typen](resource-manager-supported-services.md)
@@ -43,13 +45,11 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure-CLI](xplat-cli-azure-resource-manager.md)
 ### [Azure Portal](resource-group-portal.md)
-### [REST API](resource-manager-rest-api.md)
 ### [Tags gebruiken om resources te organiseren](resource-group-using-tags.md)
 ### [Resources verplaatsen naar nieuwe groep of abonnement](resource-group-move-resources.md)
 ### [Beheergroepen maken](management-groups-create.md)
 ### [Uw beheergroepen beheren](management-groups-manage.md)
 ### [Voorbeelden governance](resource-manager-subscription-examples.md)
-### [Beheerde toepassingen](../managed-applications/overview.md)
 
 ## Toegang beheren
 ### Een service-principal maken

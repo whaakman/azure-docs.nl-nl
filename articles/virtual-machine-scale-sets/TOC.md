@@ -1,3 +1,5 @@
+# [Documentatie voor virtuele-machineschaalsets](index.md)
+
 # Overzicht
 ## [Wat zijn schaalsets voor virtuele machines?](virtual-machine-scale-sets-overview.md)
 

@@ -6,21 +6,21 @@ author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/25/2018
 ms.author: anoopkv
-ms.openlocfilehash: 3b09c11d76d5c88b904afa3c6d256bc475992339
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: f7ec02cb4723d8a4ea0847810b1a1822cf20e957
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
-U implementeert een on-premises configuratieserver wanneer u [Azure Site Recovery](site-recovery-overview.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure. De configuratie server coördinaten communicatie tussen on-premises VMware en Azure. Hiermee gegevensreplicatie ook worden beheerd. Dit artikel begeleidt u bij de stappen die nodig zijn voor het implementeren van de configuratieserver.
+U implementeert een on-premises configuratieserver wanneer u [Azure Site Recovery](site-recovery-overview.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure. De configuratie server coördinaten communicatie tussen on-premises VMware en Azure. Hiermee gegevensreplicatie ook worden beheerd. Dit artikel begeleidt u bij de stappen die nodig zijn voor het implementeren van de configuratieserver wanneer u virtuele VMware-machines naar Azure repliceert. [Ga als volgt in dit artikel](site-recovery-set-up-physical-to-azure.md) als u nodig hebt voor het instellen van een configuratieserver voor replicatie van de fysieke server.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Het is raadzaam dat u de configuratieserver als een maximaal beschikbare VMware VM implementeren. Voor replicatie van de fysieke server, worden de configuratieserver ingesteld op een fysieke machine. Minimale hardwarevereisten worden samengevat in de volgende tabel.
+Het is raadzaam dat u de configuratieserver als een maximaal beschikbare VMware VM implementeren. Minimale hardwarevereisten worden samengevat in de volgende tabel.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -118,4 +118,4 @@ Als u een extra NIC en de configuratieserver toevoegen wilt, moet u deze toevoeg
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de zelfstudies over het instellen van herstel na noodgevallen van [virtuele VMware-machines](tutorial-vmware-to-azure.md) en [fysieke servers](tutorial-physical-to-azure.md) naar Azure.
+Instellen van herstel na noodgevallen van [virtuele VMware-machines](tutorial-vmware-to-azure.md) naar Azure.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 103e4ca5ffd6c9dfe5043af9d8f75763705eb939
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Azure PowerShell gebruiken om een service-principal te maken voor toegang tot resources
 
@@ -36,7 +36,7 @@ De eenvoudigste manier om te controleren of uw account over de juiste machtiging
 
 Nu gaat u verder met een sectie voor verificatie met:
 
-* [wachtwoord](#create-service-principal-with-password)
+* [Wachtwoord](#create-service-principal-with-password)
 * [zelf-ondertekend certificaat](#create-service-principal-with-self-signed-certificate)
 * [certificaat van certificeringsinstantie](#create-service-principal-with-certificate-from-certificate-authority)
 
@@ -403,7 +403,7 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 > Het toegangstoken is verlopen, zodat u met behulp van een opgeslagen profiel werkt alleen voor zolang het token ongeldig is.
 >  
 
-U kunt ook aanroepen REST-bewerkingen van PowerShell om aan te melden. U kunt het toegangstoken voor gebruik met andere bewerkingen ophalen uit het verificatieantwoord. Zie voor een voorbeeld van het ophalen van het toegangstoken door aan te roepen REST-bewerkingen [genereren van een Token toegang](resource-manager-rest-api.md#generating-an-access-token).
+U kunt ook aanroepen REST-bewerkingen van PowerShell om aan te melden. U kunt het toegangstoken voor gebruik met andere bewerkingen ophalen uit het verificatieantwoord. Zie voor een voorbeeld van het ophalen van het toegangstoken door aan te roepen REST-bewerkingen [maken van de aanvraag](/rest/api/#create-the-request).
 
 ## <a name="debug"></a>Fouten opsporen
 

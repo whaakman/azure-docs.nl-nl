@@ -5,6 +5,7 @@
     - name: Over Azure IoT Edge
       href: how-iot-edge-works.md
 - name: Snelstartgidsen
+  expanded: true
   items:
     - name: Implementeren naar de rand - Linux
       href: quickstart-linux.md
