@@ -21,7 +21,7 @@ Als u uw web-app nog niet als een Traffic Manager-eindpunt hebt toegevoegd, moet
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. Klik op **valideren** om op te slaan van de configuratie van de naam.
-6. Wanneer u op klikt **valideren** Azure wordt ere van domeinverificatie werkstroom. Hiermee wordt gecontroleerd op domein eigendom, evenals de beschikbaarheid en rapport geslaagd hostnaam of gedetailleerde fout met prescriptieve guidence voor het oplossen van de fout.    
+6. Wanneer u op klikt **valideren** Azure wordt ere van domeinverificatie werkstroom. Hiermee wordt gecontroleerd op domein eigendom, evenals de beschikbaarheid en rapport geslaagd hostnaam of gedetailleerde fout met richtlijnen voor het oplossen van de fout.    
 7. Na geslaagde validatie **hostnaam toevoegen** knop wordt actief en is het mogelijk naar de hostnaam van de toewijzing. Nu gaat u naar uw aangepaste domeinnaam in een browser. U ziet nu uw app wordt uitgevoerd met behulp van uw aangepaste domeinnaam. 
    
    Zodra de configuratie is voltooid, kunt u de aangepaste domeinnaam wordt weergegeven in de **domeinnamen** gedeelte van uw web-app.

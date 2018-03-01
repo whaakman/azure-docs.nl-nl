@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a3b83f0a5ed9638f3e9277d4a467b478961d3fc3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a3143703a946cadccf14d1675399c0848835d97c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>Problemen met het configureren en inrichten van gebruikers voor een toepassing
 
@@ -31,5 +31,6 @@ ms.lasthandoff: 12/11/2017
   De volgende documenten kunnen u helpen een aantal van de meest voorkomende problemen in deze categorie op te lossen.
   * [Ik weet niet hoe ik het inrichten van gebruikers naar een toepassing in de Azure AD-galerie moet configureren](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-how-to/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Er treedt een probleem op bij het configureren van het inrichten van gebruikers naar een toepassing in de Azure AD-galerie](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [Probleem bij het opslaan van referenties tijdens het configureren van gebruikers inrichten tot een galerie van Azure Active Directory-toepassing](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-storage-limit/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Ik heb inrichten naar mijn toepassing in de Azure AD-galerie ingesteld, maar er worden geen gebruikers ingericht](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-no-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Het inrichten naar mijn toepassing in de Azure AD-galerie werkt, maar de verkeerde set gebruikers wordt ingericht](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-wrong-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
