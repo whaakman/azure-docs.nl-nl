@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 593894b33dfcab4bc03a6223e2fdee1ff9bd7d15
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0a6bcf78561ef4f57d788ef19e132d1a855b8c2a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
 In deze zelfstudie maakt u een Azure Data Factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
@@ -155,7 +155,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Een opgeslagen procedure maken in Azure SQL Database 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Een opgeslagen procedure maken in de Azure SQL-database 
 
 Voer de volgende opdracht uit om een opgeslagen procedure te maken in de SQL-database. Deze opgeslagen procedure werkt de bovengrenswaarde bij elke pijplijnuitvoering bij. 
 
@@ -704,7 +704,7 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Selecteer **Meer services**, zoek met het trefwoord *Data Factory’s* en selecteer **Data factory’s**. 
+2. Selecteer **Alle services**, zoek met het trefwoord *gegevensfactory's* en selecteer **Gegevensfactory's**. 
 
     ![Het menu voor gegevensfactory's](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
 

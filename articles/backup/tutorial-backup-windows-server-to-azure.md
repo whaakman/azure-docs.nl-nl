@@ -1,37 +1,37 @@
 ---
-title: Maak een back-up van Windows Server naar Azure | Microsoft Docs
-description: Deze zelfstudie gegevens back-ups van de lokale Windows-Servers in een Recovery Services-kluis.
-services: back up
+title: Een back-up van een Windows-server naar Azure maken | Microsoft Docs
+description: In deze zelfstudie wordt beschreven hoe u een back-up maakt van een on-premises Windows-server naar een Recovery Services-kluis.
+services: backup
 documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
 editor: 
-keywords: WindowsServer back-up; back-up van WindowsServer. een back-up en herstel na noodgevallen
+keywords: windows-server back-up; back-up windows-server; back-up en herstel na noodgevallen
 ms.assetid: 
-ms.service: back up
-ms.workload: storage-back up-recovery
+ms.service: backup
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/23/2017
+ms.date: 2/14/2018
 ms.author: saurabhsensharma;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 0dbf3850c7fcccb1a02e70a19b498522a4ce0e79
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: de0398b7f295894a3cac7c67b68cef237c3ac2c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="back-up-windows-server-to-azure"></a>Maak back-ups van Windows Server naar Azure
+# <a name="back-up-windows-server-to-azure"></a>Een back-up maken van een Windows-server naar Azure
 
 
-Azure Backup kunt u uw Windows-Server beschermen tegen beschadigingen aanvallen en noodsituaties. Azure Backup biedt een lichtgewicht hulpprogramma bekend als de agent van Microsoft Azure Recovery Services (MARS). De MARS-agent is geïnstalleerd op de Windows Server-bestanden en mappen en configuratiegegevens van de server via Windows Server System State te beveiligen. Deze zelfstudie wordt uitgelegd hoe u MARS-Agent kunt gebruiken voor back-up van uw Windows-Server naar Azure. In deze zelfstudie leert u het volgende: 
+U kunt Azure Backup gebruiken om uw Windows-server te beschermen tegen beschadigingen, aanvallen en noodgevallen. Azure Backup biedt een lichtgewicht hulpprogramma dat bekendstaat als Microsoft Azure Recovery Services-agent (MARS). De MARS-agent wordt geïnstalleerd op de Windows-server om bestanden en mappen te beschermen, evenals serverconfiguratiegegevens (via Windows Server System State). In deze zelfstudie wordt uitgelegd hoe u de MARS-agent kunt gebruiken om van uw Windows-server een back-up te maken naar Azure. In deze zelfstudie leert u het volgende: 
 
 
 > [!div class="checklist"]
-> * Downloaden en stelt u de MARS-Agent
-> * Maak een back-up van tijden configureren en het bewaarschema voor back-ups van uw server
-> * Een ad-hoc back-up uitvoeren
+> * De MARS-agent downloaden en instellen
+> * Back-uptijden en retentieschema configureren voor back-ups van uw server
+> * Op ad-hocbasis een back-up maken
 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
@@ -40,121 +40,121 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
-Voordat u kunt back-up van Windows Server, moet u een locatie voor de back-ups maken of herstelpunten worden opgeslagen. Een [Recovery Services-kluis](backup-azure-recovery-services-vault-overview.md) is een container in Azure die de back-ups van uw Windows-Server worden opgeslagen. Volg onderstaande stappen voor het maken van een Recovery Services-kluis in de Azure-portal. 
+Voordat u een back-up kunt maken van uw Windows-server, moet u een locatie maken om de back-ups (of herstelpunten) te bewaren. Een [Recovery Services-kluis](backup-azure-recovery-services-vault-overview.md) is een container in Azure waarin de back-ups van uw Windows-server worden opgeslagen. Volg de onderstaande stappen om een Recovery Services-kluis in Azure Portal te maken. 
 
-1. Selecteer op het menu links **alle services** en typt u in de lijst met services **Recovery Services**. Klik op **Recovery Services-kluizen**.
+1. Selecteer in het menu links **Alle services** en typ **Recovery Services** in de lijst met services. Klik op **Recovery Services-kluizen**.
 
    ![Recovery Services-kluis openen](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  Klik in het menu **Recovery Services-kluizen** op **Toevoegen**.
 
-   ![Geef informatie op voor de kluis](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
+   ![informatie opgeven voor de kluis](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
-3.  In de **Recovery Services-kluis** menu
+3.  Typ in het menu **Recovery Services-kluis**
 
-    - Type *myRecoveryServicesVault* in **naam**.
-    - De huidige abonnements-ID komt in **abonnement**.
-    - Voor **resourcegroep**, selecteer **gebruik bestaande** en kies *myResourceGroup*. Als *myResourceGroup* niet bestaat, selecteer **nieuw** en het type *myResourceGroup*. 
-    - Van de **locatie** vervolgkeuzelijst, kies *West-Europa*.
-    - Klik op **maken** Recovery Services-kluis maken.
+    - *myRecoveryServicesVault* in bij **Naam**.
+    - De huidige abonnements-id wordt weergegeven in **Abonnement**.
+    - Selecteer voor **Resourcegroep** de optie **Bestaande gebruiken** en kies *myResourceGroup*. Als *myResourceGroup* niet bestaat, selecteert u **Nieuwe maken** en typt u *myResourceGroup*. 
+    - Kies in de vervolgkeuzelijst **Locatie** de optie *West-Europa*.
+    - Klik op **Maken** om de Recovery Services-kluis te maken.
  
-Zodra de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Services-kluizen.
+Nadat de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Services-kluizen.
 
-## <a name="download-recovery-services-agent"></a>Recovery Services-agent downloaden
+## <a name="download-recovery-services-agent"></a>De Recovery Services-agent downloaden
 
-De Microsoft Azure Recovery Services (MARS)-agent maakt een koppeling tussen Windows Server en de Recovery Services-kluis. De volgende procedure wordt uitgelegd hoe u de agent downloaden naar uw server.
+De Microsoft Azure Recovery Services-agent (MARS) maakt een koppeling tussen de Windows-server en uw Recovery Services-kluis. In de volgende procedure wordt uitgelegd hoe u de agent downloadt naar uw server.
 
-1.  Selecteer in de lijst met Recovery Services-kluizen **myRecoveryServicesVault** om het dashboard te openen.
+1.  Selecteer **myRecoveryServicesVault** in de lijst met Recovery Services-kluizen om het dashboard ervan te openen.
 
-   ![Geef informatie op voor de kluis](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
+   ![informatie opgeven voor de kluis](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
-2.  Klik op het dashboard kluismenu **back-up**.
+2.  Klik in het menu van het kluisdashboard op **Back-up**.
 
-3.  Op de **back-updoel** menu:
+3.  In het menu **Doel van back-up**:
 
-    - voor **waar wordt uw workload uitgevoerd?**, selecteer**On-premises**, 
-    - voor **wat wilt u back-up maken?**, selecteer **bestanden en mappen** en **systeemstatus** 
+    - Selecteer voor **Waar wordt uw workload uitgevoerd?** de optie **On-premises**, 
+    - Selecteer voor **Waarvan wilt u een back-up maken?** de opties **Bestanden en mappen** en **Systeemstatus** 
 
-    ![Geef informatie op voor de kluis](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+    ![informatie opgeven voor de kluis](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
     
-4.  Klik op **infrastructuur voorbereiden** openen de **infrastructuur voorbereiden** menu.
-5.  Op de **infrastructuur voorbereiden** menu, klikt u op **Agent downloaden voor Windows Server of Windows Client** voor het downloaden van de *MARSAgentInstaller.exe*. 
+4.  Klik op **Infrastructuur voorbereiden** om het menu **Infrastructuur voorbereiden** te openen.
+5.  Klik in het menu **Infrastructuur voorbereiden** op **Agent voor Windows-server of Windows-client downloaden** om *MARSAgentInstaller.exe* te downloaden. 
 
     ![infrastructuur voorbereiden](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
-    Het installatieprogramma opent een browservenster afzonderlijke en downloadt **MARSAgentInstaller.exe**.
+    Het installatieprogramma opent een afzonderlijke browser en downloadt **MARSAgentInstaller.exe**.
  
-6.  Voordat u het gedownloade bestand hebt uitgevoerd, klikt u op de **downloaden** knop op de blade van de infrastructuur voorbereiden voor het downloaden en opslaan van de **Kluisreferenties** bestand. Dit bestand is vereist voor de MARS-Agent verbindt met de Recovery Services-kluis.
+6.  Voordat u het gedownloade bestand uitvoert, klikt u op de knop **Downloaden** op de blade 'Infrastructuur voorbereiden' om het bestand **Vault Credentials** te downloaden en op te slaan. Dit bestand is vereist om de MARS-agent te verbinden met de Recovery Services-kluis.
 
     ![infrastructuur voorbereiden](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
 ## <a name="install-and-register-the-agent"></a>De agent installeren en registreren
 
-1. Zoek en dubbelklik op de gedownloade **MARSagentinstaller.exe**.
-2. De **installatiewizard voor Microsoft Azure Recovery Services Agent** wordt weergegeven. Als u de wizard doorloopt, geef de volgende informatie wanneer u wordt gevraagd en klik op **registreren**.
-    - Locatie voor de installatie en -cache-map.
-    - Proxy serverinformatie als u een proxyserver gebruiken voor verbinding met internet.
-    - De gebruiker en wachtwoord invoeren als u een geverifieerde proxyserver gebruiken.
+1. Zoek naar en dubbelklik op het gedownloade bestand **MARSagentinstaller.exe**.
+2. De **installatiewizard voor de Microsoft Azure Recovery Services-agent** wordt weergegeven. Terwijl u de wizard doorloopt, geeft u de volgende gegevens op wanneer u daarom wordt gevraagd en klikt u vervolgens op **Registreren**.
+    - Een locatie voor de installatie en de cachemap.
+    - De gegevens van uw proxyserver als u een proxyserver gebruikt om verbinding te maken met internet.
+    - Uw gebruikersnaam en wachtwoord als u gebruikmaakt van een geverifieerde proxyserver.
 
     ![infrastructuur voorbereiden](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
-3. Aan het einde van de wizard, klikt u op **doorgaan met de registratie** en geef de **Kluisreferenties** dat u hebt gedownload in de vorige procedure.
+3. Aan het einde van de wizard klikt u op **Doorgaan naar registratie** en geeft u het bestand **Vault Credentials** op dat u in de vorige procedure hebt gedownload.
  
-4. Geef desgevraagd een wachtwoordzin voor versleuteling voor het versleutelen van back-ups van Windows Server. Sla de wachtwoordzin op een veilige locatie zoals Microsoft de wachtwoordzin niet herstellen als deze verbroken wordt.
+4. Geef, wanneer hierom wordt gevraagd, een wachtwoordzin voor versleuteling op om de back-ups van uw Windows-server te versleutelen. Bewaar de wachtwoordzin op een veilige locatie, omdat Microsoft de wachtwoordzin niet kan herstellen als u deze kwijtraakt.
 
 5. Klik op **Voltooien**. 
 
-## <a name="configure-backup-and-retention"></a>Configureer back-up en retentie
+## <a name="configure-backup-and-retention"></a>Back-up en retentie configureren
 
-De Microsoft Azure Recovery Services agent kunt u schema voor back-ups naar Azure, op Windows Server. De volgende stappen uitvoeren op de server waar u de agent gedownload.
+U gebruikt de Microsoft Azure Recovery Services-agent om te plannen wanneer er back-ups van uw Windows-server naar Azure moeten worden gemaakt. Voer de volgende stappen uit op de server waarnaar u de agent hebt gedownload.
 
 1. Open de Microsoft Azure Recovery Services-agent. U vindt deze door te zoeken naar **Microsoft Azure Backup** op uw machine.
 
-2.  Klik in de console van de Recovery Services-agent op **back-up plannen** onder de **actiedeelvenster**.
+2.  Klik in de console van de Recovery Services-agent op **Back-up plannen** in het deelvenster **Acties**.
 
     ![infrastructuur voorbereiden](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-3. Klik op **volgende** om te navigeren naar de **Items selecteren voor Back up** pagina.
+3. Klik op **Volgende** om naar de pagina **Item selecteren voor back-up** te navigeren.
 
-4. Klik op **Items toevoegen** en selecteer in het dialoogvenster **systeemstatus** en bestanden of mappen die u back wilt-up. Klik vervolgens op **OK**.
+4. Klik op **Items toevoegen** en selecteer **systeemstatus** in het dialoogvenster dat wordt geopend, evenals de bestanden of mappen waarvan u een back-up wilt maken. Klik vervolgens op **OK**.
 
 5. Klik op **Volgende**.
 
-6. Op de **back-upschema opgeven (systeemstatus)** pagina, geef de tijd van de dag of week wanneer back-ups moeten worden geactiveerd voor systeemstatus en klikt u op **volgende** 
+6. Geef op de pagina **Back-upschema opgeven (Systeemstatus)** de tijd van de dag of van de week op waarop de back-up voor de systeemstatus moet worden geactiveerd. Klik vervolgens op **Volgende** 
 
-7.  Op de **retentiebeleid selecteren (systeemstatus)** pagina, selecteert u het bewaarbeleid voor de back-up van systeemstatus en klikt u op **volgende**
-8. Op dezelfde manier, selecteer het back-planning en het bewaren van beleid voor de geselecteerde bestanden en mappen. 
-8.  Op de **Kies eerste Back-up Type** pagina, laat de optie **automatisch via het netwerk** geselecteerd en klik vervolgens op **volgende**.
-9.  Op de **bevestiging** pagina, lees de informatie en klik vervolgens op **voltooien**.
+7.  Selecteer op de pagina **Retentiebeleid selecteren (Systeemstatus)** het retentiebeleid voor de back-up van de systeemstatus. Klik vervolgens op **Volgende**
+8. Selecteer op dezelfde manier het back-upschema en het retentiebeleid voor de geselecteerde bestanden en mappen. 
+8.  Laat op de pagina **Eerste back-uptype kiezen** de optie **Automatisch via het netwerk** ingeschakeld en klik op **Volgende**.
+9.  Lees de informatie op de pagina **Bevestiging** en klik vervolgens op **Voltooien**.
 10. Nadat u de wizard voor het maken van een back-upschema hebt doorlopen, klikt u op **Sluiten**.
 
-## <a name="perform-an-ad-hoc-back-up"></a>Een ad-hoc back-up uitvoeren
+## <a name="perform-an-ad-hoc-back-up"></a>Op ad-hocbasis een back-up maken
 
-U kunt de planning hebt vastgesteld, wanneer back-uptaken uitgevoerd. Echter, u hebt geen back-up de server. Het is disaster recovery aanbevolen een back-up op-aanvraag om ervoor te zorgen gegevenstolerantie voor uw server uitvoeren.
+U hebt een planning ingesteld voor het uitvoeren van de back-uptaken. U hebt echter nog geen back-up gemaakt van de server. In het kader van noodherstel doet u er verstandig aan om een back-up op aanvraag te maken, zodat gegevenstolerantie voor uw server is gewaarborgd.
 
-1.  Klik in de console van de Microsoft Azure Recovery Services-agent op **Back-Up uit**.
+1.  Klik in de console van de Microsoft Azure Recovery Services-agent op **Nu back-up maken**.
 
     ![infrastructuur voorbereiden](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
-2.  Op de **Back-Up uit** wizard, schakelt u een van **bestanden en mappen** of **systeemstatus** die u wilt back-up en klikt u op **volgende** 
-3. Op de **bevestiging** pagina, controleert u de instellingen die de **Back-Up uit** wizard gebruikt voor back-up van uw server. Klik vervolgens op **Back-up maken**.
-4.  Klik op **Sluiten** om de wizard te sluiten. Als u de wizard sluit voordat de back-up proces is voltooid, blijft de wizard op de achtergrond uitgevoerd.
-4.  Nadat de eerste back-up is voltooid, **taak voltooid** status wordt weergegeven **taken** deelvenster van de console MARS-agent.
+2.  Selecteer in de wizard **Nu back-up maken** een bestand in **Bestanden en mappen** of de **systeemstatus** waarvan u een back-up wilt maken. Klik vervolgens op **Volgende** 
+3. Controleer op de pagina **Bevestiging** de instellingen die de wizard **Nu back-up maken** gebruikt om een back-up van uw server te maken. Klik vervolgens op **Back-up maken**.
+4.  Klik op **Sluiten** om de wizard te sluiten. Als u de wizard sluit voordat het back-upproces is voltooid, blijft de wizard op de achtergrond actief.
+4.  Nadat de eerste back-up is voltooid, wordt de status **Taak voltooid** weergegeven in het deelvenster **Taken** in de console van de MARS-agent.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie gebruikt u de Azure-portal: 
+In deze zelfstudie hebt u Azure Portal voor het volgende gebruikt: 
  
 > [!div class="checklist"] 
 > * Een Recovery Services-kluis maken 
 > * De Microsoft Azure Recovery Services-agent downloaden 
 > * De agent installeren 
-> * Back-up configureren voor Windows Server 
-> * Een back-up op aanvraag 
+> * Een back-up configureren voor een Windows-server 
+> * Een back-up op aanvraag uitvoeren 
 
-Doorgaan met de volgende zelfstudie voor het herstellen van bestanden van Azure naar Windows Server
+Ga door naar de volgende zelfstudie om bestanden te herstellen van Azure naar een Windows-server
 
 > [!div class="nextstepaction"] 
-> [Bestanden herstellen van Azure naar Windows Server](./tutorial-backup-restore-files-windows-server.md) 
+> [Bestanden herstellen van Azure naar een Windows-server](./tutorial-backup-restore-files-windows-server.md) 
 

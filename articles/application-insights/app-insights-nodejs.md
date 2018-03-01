@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8f7a2344b6676a9067cf0adff04f49a73ce457fc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5b8e35a953c936949af0d496345f537ad85fc359
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Node.js-services en -apps bewaken met Application Insights
 
@@ -47,7 +47,7 @@ Voordat u begint, moet u ervoor zorgen dat u een Azure-abonnement hebt of moet u
 
 
 1. Meld u aan bij [Azure Portal][portal].
-2. Selecteer **Nieuw** > **Ontwikkelhulpprogramma's** > **Application Insights**. De resource bevat een eindpunt voor het ontvangen van telemetriegegevens, opslag voor deze gegevens, opgeslagen rapporten en dashboards, regel- en waarschuwingsconfiguratie en meer.
+2. Selecteer **Een resource maken** > **Hulpprogramma's voor ontwikkelaars** > **Application Insights**. De resource bevat een eindpunt voor het ontvangen van telemetriegegevens, opslag voor deze gegevens, opgeslagen rapporten en dashboards, regel- en waarschuwingsconfiguratie en meer.
 
   ![Een Application Insights-resource maken](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 

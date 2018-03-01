@@ -6,9 +6,9 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 Een Azure SQL-database wordt gemaakt met een gedefinieerde set [reken- en opslagresources](../articles/sql-database/sql-database-service-tiers.md). De database is gemaakt in een [Azure-resourcegroep](../articles/azure-resource-manager/resource-group-overview.md) en in een [logische Azure SQL Database-server](../articles/sql-database/sql-database-features.md). 
 
-Volg deze stappen voor het maken van een lege SQL-database. 
+Volg deze stappen om een lege SQL-database te maken. 
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
 
 2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **Maken** onder **SQL-database** op de pagina **Nieuw**.
 
@@ -21,7 +21,7 @@ Volg deze stappen voor het maken van een lege SQL-database.
    | **Databasenaam** | mySampleDatabase | Zie [Database-id's](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) voor geldige databasenamen. | 
    | **Abonnement** | Uw abonnement  | Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
    | **Resourcegroep** | myResourceGroup | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen. |
-   | **Bron selecteren** | Lege database | Hiermee geeft u op dat een lege database moet worden gemaakt. |
+   | **Bron selecteren** | Lege database | Hiermee geeft u aan dat er een lege database moet worden gemaakt. |
 
 4. Klik op **Server** als u een nieuwe server voor de nieuwe database wilt maken en configureren. Vul het **nieuwe serverformulier** in met de volgende gegevens: 
 
@@ -38,7 +38,7 @@ Volg deze stappen voor het maken van een lege SQL-database.
 
 6. Klik op **Prijscategorie** om de servicelaag, het aantal DTU's en de hoeveelheid opslag op te geven. Bekijk de opties voor de hoeveelheid DTU's en opslag die voor elke servicelaag beschikbaar zijn. 
 
-7. Voor deze zelfstudie selecteert u de **standaard** servicelaag en gebruik vervolgens de schuifregelaar om te selecteren **100 dtu's (S3)** en **400** GB aan opslagruimte.
+7. Voor deze zelfstudie selecteert u de servicelaag **Standard** en gebruikt u vervolgens de schuifregelaar om **100 DTU's (S3)** en **400** GB aan opslagruimte te selecteren.
 
    ![database-s1 maken](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -47,14 +47,14 @@ Volg deze stappen voor het maken van een lege SQL-database.
    > [!IMPORTANT]
    > \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie [de prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor meer informatie. 
    >
-   >\*In de laag Premium meer dan 1 TB aan opslag is momenteel beschikbaar in de volgende gebieden: Australië-Oost, Australië-Zuidoost, Canada centraal, Canada Oost, Frankrijk centraal, Duitsland centraal, Japan-Oost, centraal Korea Zuid-centraal VS Zuid-Oost-Azië, ons East2 , VS-west, VS Gov Virginia en West-Europa. Zie [P11-P15: huidige beperkingen](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* In de Premium-laag is momenteel ruim 1 TB aan opslag beschikbaar voor de volgende regio's: Australië - oost, Australië - zuidoost, Canada - centraal, Canada - oost, Frankrijk - centraal, Duitsland - centraal, Japan - oost, Korea - centraal, VS Zuid-Centraal, Zuidoost-Azië, VS - oost2, VS - west, VS (overheid) - Virginia, en West-Europa. Zie [P11-P15: huidige beperkingen](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Als u de servicelaag, het aantal DTU's en de hoeveelheid opslagruimte hebt geselecteerd, klikt u op **Toepassen**.  
 
-10. Selecteer een **sortering** voor de lege database (Gebruik de standaardwaarde voor deze zelfstudie). Zie voor meer informatie over sorteringen [sorteringen](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Selecteer een **sortering** voor de lege database (gebruik de standaardwaarde in deze zelfstudie). Zie [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations) (Sorteringen) voor meer informatie over sorteringen
 
-11. Klik op **Maken** om de database in te richten. Inrichting vergt over een minuut en een halve te voltooien. 
+11. Klik op **Maken** om de database in te richten. De inrichting duurt ongeveer anderhalve minuut. 
 
 12. Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
     
@@ -68,13 +68,13 @@ De service SQL Database maakt een firewall op serverniveau die voorkomt dat exte
 > SQL Database communiceert via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u geen verbinding maken met uw Azure SQL Database-server, tenzij de IT-afdeling poort 1433 openstelt.
 >
 
-1. Wanneer de implementatie is voltooid, klikt u op **SQL Databases** in het menu aan de linkerkant. Klik vervolgens op de pagina **SQL Databases** op **mySampleDatabase**. De overzichtspagina voor uw database wordt geopend, waarin u de volledig gekwalificeerde servernaam (zoals **mynewserver20170824.database.windows.net**) en biedt opties voor verdere configuratie. 
+1. Wanneer de implementatie is voltooid, klikt u op **SQL Databases** in het menu aan de linkerkant. Klik vervolgens op de pagina **SQL Databases** op **mySampleDatabase**. De overzichtspagina voor uw database wordt geopend, met de volledig gekwalificeerde servernaam (zoals **mynewserver20170824.database.windows.net**) en opties voor verdere configuratie. 
 
 2. Kopieer deze volledig gekwalificeerde servernaam om in volgende Quick Starts verbinding te maken met de server en de bijbehorende databases. 
 
    ![servernaam](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
 
-3. Klik op **serverfirewall ingesteld** op de werkbalk. De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend. 
+3. Klik op de werkbalk op **Serverfirewall instellen**. De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend. 
 
    ![serverfirewallregel](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
 

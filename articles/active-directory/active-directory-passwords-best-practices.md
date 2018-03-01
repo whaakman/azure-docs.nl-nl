@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 0ab45043e2f75ff07a2a1a48e69507be185b56ab
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 063c92a006696afb998799c312515c79c19a48f4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Selfservice voor wachtwoordherstel implementeren
 
@@ -61,7 +61,7 @@ Veel klanten vinden een e-mailcampagne, met eenvoudig te gebruiken instructies, 
 Veel klanten kiezen ervoor een webpagina te hosten en een DNS-basisvermelding te maken, zoals https://passwords.contoso.com. Ze vullen deze pagina met koppelingen naar de volgende informatie:
 
 * [Azure AD Portal voor wachtwoordherstel: https://aka.ms/sspr](https://aka.ms/sspr)
-* [Azure AD Portal voor registratie voor wachtwoordherstel: http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Azure AD Portal voor registratie voor wachtwoordherstel: https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
 * [Azure AD Portal voor wijzigen wachtwoord: https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Overige organisatiespecifieke informatie
 

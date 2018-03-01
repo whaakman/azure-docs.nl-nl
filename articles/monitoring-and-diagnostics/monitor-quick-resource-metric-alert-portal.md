@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Een melding ontvangen wanneer een metrische waarde voldoet aan een voorwaarde
 
@@ -30,11 +30,11 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-logic-app"></a>Een logische app maken
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Klik op de knop **Een resource maken** in de linkerbovenhoek van Azure Portal.
 
-2. Zoek en selecteer **Logische app**. Maak een nieuwe resourcegroep met de naam **myResourceGroup**. Gebruik hiervoor de standaardlocatie. Klik op de knop **Maken**.
+2. Zoek en selecteer **Logische app**. Klik op de knop **Maken**.
 
-3. Voer de gegevens voor de logisch app in en selecteer de optie **Vastmaken aan dashboard**. Klik op **Maken** wanneer u klaar bent.
+3. Voer de logische app-gegevens in zoals op de volgende afbeelding wordt weergegeven.  Gebruik de standaardlocatie. Selecteer de optie **Vastmaken aan dashboard**.  Klik op **Maken** wanneer u klaar bent. 
 
     ![Voer basisinformatie over de logische app in via de portal](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
@@ -61,6 +61,8 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 12. Klik op **Opslaan**.
 
+13. Het kan tot wel 5 minuten duren voordat de logische app de acties heeft uitgevoerd.  
+
 ## <a name="view-metrics-for-your-logic-app"></a>Metrische gegevens voor uw logische app weergeven
 
 1. Klik op de optie **Controleren** in het navigatiedeelvenster aan de linkerkant.
@@ -71,7 +73,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 4. Wijzig het **Tijdsbereik** van de grafiek zodat de gegevens voor het afgelopen uur worden weergegeven.
 
-5. U ziet nu een grafiek met het totale aantal uitvoeringen die het afgelopen uur zijn gestart met de logische app.
+5. U ziet nu een grafiek met het totale aantal uitvoeringen die het afgelopen uur zijn gestart met de logische app. Als u die niet ziet, zorg er dan voor dat u na de bovenstaande stap minstens vijf minuten hebt gewacht, en vernieuw dan uw browser. 
 
     ![Een grafiek met metrische gegevens tekenen voor de logische app-resource](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 

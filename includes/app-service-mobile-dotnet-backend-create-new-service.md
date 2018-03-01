@@ -1,6 +1,6 @@
-1. Meld u aan bij [Azure Portal].
+1. Meld u aan bij de [Azure Portal].
 
-2. Klik op **Nieuw**.
+2. Klik op **Een resource maken**.
 
 3. Typ **Mobile Apps** in het zoekvak.
 

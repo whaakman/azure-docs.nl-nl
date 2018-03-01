@@ -1,6 +1,6 @@
 ---
-title: "Maken van een functie in Azure die is geïmplementeerd vanuit GitHub | Microsoft Docs"
-description: Een functie-app maken en implementeren van de functiecode van een GitHub-opslagplaats met behulp van Azure Functions.
+title: "Een functie in Azure maken die wordt geïmplementeerd vanuit GitHub | Microsoft Docs"
+description: Maak een functie-app en implementeer functiecode vanuit een GitHub-opslagplaats met behulp van Azure Functions.
 services: functions
 ms.service: functions
 keywords: 
@@ -10,46 +10,50 @@ ms.author: cfowler
 ms.date: 01/09/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: c4224bc7973cd1e3ca36799db9f23a124fcba807
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-ms.translationtype: MT
+ms.openlocfilehash: 9ad38a7ff00e5cea2cf958b4cb69679a27f84d4a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-in-azure-that-is-deployed-from-github"></a>Maken van een functie in Azure die is geïmplementeerd vanuit GitHub
+# <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Een functie-app in Azure maken die wordt geïmplementeerd vanuit GitHub
 
-Dit voorbeeldscript maakt een functie-app met de [verbruik plan](../functions-scale.md#consumption-plan) met de bijbehorende resources en continu implementeert uw functiecode van een GitHub-opslagplaats. In dit voorbeeld hebt u het volgende nodig:
+Met dit Azure Functions-voorbeeldscript wordt een functie-app gemaakt met behulp van het [verbruiksabonnement](../functions-scale.md#consumption-plan), samen met de bijbehorende resources. Het script configureert ook de functiecode voor continue implementatie vanuit een GitHub-opslagplaats. 
 
-* Een GitHub-opslagplaats met functies code, die u hebt beheerdersbevoegdheden nodig voor.
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
+
+Voor dit voorbeeld hebt u het volgende nodig:
+
+* Een GitHub-opslagplaats met functiecode waarvoor u beheerdersbevoegdheden hebt.
 * Een [Personal Access Token (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) voor uw GitHub-account.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u in plaats daarvan de Azure CLI lokaal, moet u het installeren en gebruiken van versie 2.0 of hoger. Om te bepalen van de versie van Azure CLI, voert `az --version`. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u de Azure CLI liever lokaal gebruikt, moet u versie 2.0 of hoger installeren en gebruiken. Voer `az --version` uit om te bepalen welke versie van Azure CLI u hebt. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
-Dit voorbeeld maakt u een Azure-functie-app en implementeert functiecode vanuit GitHub.
+In dit voorbeeld maakt u een Azure-functie-app en implementeert u functiecode vanuit GitHub.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github-continuous/deploy-function-app-with-function-github-continuous.sh?highlight=3-4 "Azure Service")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht. Dit script maakt gebruik van de volgende opdrachten:
+Elke opdracht in de tabel is een koppeling naar specifieke documentatie over de opdracht. In dit script worden de volgende opdrachten gebruikt:
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [AZ groep maken](https://docs.microsoft.com/cli/azure/group#az_group_create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ storage-account maken](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Hiermee maakt u een App Service-abonnement. |
-| [AZ functionapp maken](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
-| [AZ appservice webconfiguratie bronbeheer](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Een functie-app koppelt aan een Git of volgt opslagplaats. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Hiermee maakt u een App Service-plan. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Hiermee koppelt u een functie-app aan een Git- of Mercurial-opslagplaats. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+Zie de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview) voor meer informatie over de Azure CLI.
 
-Aanvullende voorbeelden van Azure Functions CLI-script kunnen worden gevonden in de [documentatie van Azure Functions](../functions-cli-samples.md).
+Meer voorbeeldscripts voor de Azure Functions CLI zijn te vinden in de [Azure Functions-documentatie](../functions-cli-samples.md).

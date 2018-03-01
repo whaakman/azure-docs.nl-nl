@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 8a91e92e0e535b047ddfcfeff53de72d769f05c7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f7ec8872849ad7881fb46bca5831c2985d003c13
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Quickstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal
 
@@ -32,7 +32,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure Portal. 
 
-1. Klik in Azure Portal op **+**, klik op **Gegevens en analyses** en klik vervolgens op **Azure Databricks (preview)**. 
+1. Klik in Azure Portal op **Een resource maken**, klik op **Gegevens en analyses** en klik vervolgens op **Azure Databricks (preview)**. 
 
     ![Databricks in Azure Portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks in Azure Portal")
 

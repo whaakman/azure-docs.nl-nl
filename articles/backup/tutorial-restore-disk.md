@@ -1,56 +1,56 @@
 ---
-title: Herstellen van een VM-schijf met Azure Backup | Microsoft Docs
-description: Informatie over het herstellen van een schijf en een herstellen van een virtuele machine in Azure met back-up en Recovery Services maken.
-services: backup, virtual-machines
+title: Een VM-schijf herstellen met Azure Backup | Microsoft Docs
+description: Leer hoe u een schijf kunt herstellen en een herstel-VM maken in Azure met Backup and Recovery Services.
+services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2017
+ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9bc6da13786eb9eb6186ceadf0432b3a3ec2c941
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.openlocfilehash: 571d40c46771f43ad5ea78fe92398de09e87393c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Herstellen van een schijf en het maken van een herstelde virtuele machine in Azure
-Azure Backup maakt herstelpunten die zijn opgeslagen in een geografisch redundante recovery kluizen. Wanneer u vanaf een herstelpunt herstelt, kunt u de hele virtuele machine of de afzonderlijke bestanden terugzetten. In dit artikel wordt uitgelegd hoe u een volledige virtuele machine herstellen. In deze zelfstudie leert u het volgende:
+# <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Een schijf herstellen en een herstelde VM maken in Azure
+Azure Backup maakt herstelpunten die worden opgeslagen in geografisch redundante kluizen van Recovery Services. Wanneer u vanaf een herstelpunt herstelt, kunt u de hele VM of afzonderlijke bestanden herstellen. In dit artikel wordt uitgelegd hoe u een volledige VM kunt herstellen. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Lijst en selecteer herstelpunten
+> * Herstelpunten in een lijst opnemen en selecteren
 > * Een schijf herstellen vanaf een herstelpunt
-> * Een virtuele machine van de herstelde schijf maken
+> * Een VM maken op basis van de herstelde schijf
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.18 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.18 of hoger gebruiken. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="prerequisites"></a>Vereisten
-Deze zelfstudie vereist een Linux VM die is beveiligd met Azure Backup. Om te simuleren een per ongeluk verwijderen van de VM- en herstelproces, kunt u een virtuele machine maken van een schijf in een herstelpunt. Als u een Linux VM die is beveiligd met Azure Backup moet, Zie [Back-up van een virtuele machine in Azure met de CLI](quick-backup-vm-cli.md).
+Deze zelfstudie vereist een Linux-VM die is beveiligd met Azure Backup. Om het per ongeluk verwijderen van een VM en het herstelproces te simuleren, maakt u een VM op basis van een schijf in een herstelpunt. Zie [Een back-up van een virtuele machine maken in Azure met de CLI](quick-backup-vm-cli.md) als u een Linux-VM nodig hebt die is beschermd met Azure Backup.
 
 
 ## <a name="backup-overview"></a>Overzicht van Backup
-Wanneer Azure een back-up begint, maakt de Backup-extensie op de virtuele machine een momentopname punt in tijd. De Backup-extensie is geïnstalleerd op de virtuele machine wanneer de eerste back-up wordt aangevraagd. Azure Backup kan ook een momentopname van de onderliggende opslag als de virtuele machine niet wordt uitgevoerd wanneer de back-up plaatsvindt.
+Wanneer Azure een back-up begint, maakt de back-upextensie op de VM een momentopname van een bepaald tijdstip. De back-upextensie wordt geïnstalleerd op de VM wanneer de eerste back-up wordt aangevraagd. Azure Backup kan ook een momentopname van de onderliggende opslag maken als de VM niet wordt uitgevoerd ten tijde van de back-up.
 
-Standaard heeft Azure Backup een bestand system consistente back-up. Zodra de Azure Backup maakt de momentopname, worden de gegevens worden overgedragen naar de Recovery Services-kluis. Als u wilt optimaliseren, Azure Backup identificeert en alleen de blokken met gegevens die zijn gewijzigd sinds de vorige back-up overdraagt.
+Standaard maakt Azure Backup een back-up die consistent is met een bestandssysteem. Nadat Azure Backup de momentopname heeft gemaakt, worden de gegevens overgedragen naar de Recovery Services-kluis. Azure Backup identificeert en draagt alleen de blokken gegevens over die zijn veranderd sinds de vorige back-up, om de efficiëntie te maximaliseren.
 
-Wanneer de overdracht van gegevens voltooid is, wordt de momentopname is verwijderd en een herstelpunt wordt gemaakt.
+Wanneer de gegevensoverdracht is voltooid, wordt de momentopname verwijderd en wordt er een herstelpunt gemaakt.
 
 
-## <a name="list-available-recovery-points"></a>Lijst met beschikbare herstelpunten
-Voor het herstellen van een schijf, selecteert u een herstelpunt wordt gemaakt als de bron voor de gegevens voor herstel. Wanneer het standaardbeleid voor elke dag van een herstelpunt maakt en deze gedurende 30 dagen behoudt, kunt u een aantal herstelpunten dat kunt u het selecteren van een bepaald punt in tijd voor herstel houden. 
+## <a name="list-available-recovery-points"></a>Lijst met beschikbare herstelpunten maken
+Voor het herstellen van een schijf selecteert u een herstelpunt als bron voor de te herstellen gegevens. Aangezien het standaardbeleid elke dag een herstelpunt maakt en gedurende 30 dagen bewaart, kunt u een reeks herstelpunten behouden waarmee u een bepaald tijdstip kunt kiezen om te herstellen. 
 
-Gebruiken om een lijst met beschikbare herstelpunten weer, [az back-recoverypoint lijst](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). Het herstelpunt **naam** wordt gebruikt voor het herstellen van schijven. In deze zelfstudie willen we de meest recente beschikbare herstelpunt. De `--query [0].name` parameter selecteert u de naam van de meest recente herstelpunt punt als volgt:
+Gebruik [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) om een lijst met beschikbare herstelpunten te zien. De **naam** van het herstelpunt wordt gebruikt om schijven te herstellen. In deze zelfstudie willen we het meest recente beschikbare herstelpunt gebruiken. Met de parameter `--query [0].name` selecteert u als volgt de naam van het meest recente herstelpunt:
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -63,10 +63,10 @@ az backup recoverypoint list \
 ```
 
 
-## <a name="restore-a-vm-disk"></a>De schijf van een virtuele machine herstellen
-Voor het herstellen van de schijf van het herstelpunt, moet u eerst een Azure storage-account maken. Dit opslagaccount wordt gebruikt voor het opslaan van de herstelde schijf. In de extra stappen de herstelde schijf gebruikt voor het maken van een virtuele machine.
+## <a name="restore-a-vm-disk"></a>Een VM-schijf herstellen
+Om uw schijf te herstellen vanaf het herstelpunt, maakt u eerst een Azure opslagaccount. Dit opslagaccount wordt gebruikt voor het opslaan van de herstelde schijf. In latere stappen wordt de herstelde schijf gebruikt voor het maken van een VM.
 
-1. Gebruik voor het maken van een opslagaccount [az storage-account maken](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create). De opslagaccountnaam moet worden alleen kleine letters bevatten en globaal uniek zijn. Vervang *mystorageaccount* met uw eigen unieke naam:
+1. Gebruik [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create) om een opslagaccount te maken. De naam van het opslagaccount mag alleen kleine letters bevatten, en moet globaal uniek zijn. Vervang *mystorageaccount* door uw eigen unieke naam:
 
     ```azurecli-interactive
     az storage account create \
@@ -75,7 +75,7 @@ Voor het herstellen van de schijf van het herstelpunt, moet u eerst een Azure st
         --sku Standard_LRS
     ```
 
-2. Herstellen van de schijf uit uw herstelpunt met [az back-up terugzetten terugzetten schijven](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks). Vervang *mystorageaccount* met de naam van het opslagaccount dat u hebt gemaakt in de voorgaande opdracht. Vervang *myRecoveryPointName* met de recovery point-naam die u hebt verkregen in de uitvoer van de vorige [az back-recoverypoint lijst](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) opdracht:
+2. Herstel de schijf vanaf uw herstelpunt met [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks). Vervang *mystorageaccount* door de naam van het opslagaccount dat u met de vorige opdracht hebt gemaakt. Vervang *myRecoveryPointName* door de naam van het herstelpunt dat u hebt verkregen in de uitvoer van de vorige opdracht [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list):
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -89,7 +89,7 @@ Voor het herstellen van de schijf van het herstelpunt, moet u eerst een Azure st
 
 
 ## <a name="monitor-the-restore-job"></a>De hersteltaak bewaken
-Gebruik voor het controleren van de status van de hersteltaak [az back-uptaak lijst](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az_backup_job_list):
+U kunt de status van hersteltaken controleren met [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az_backup_job_list):
 
 ```azurecli-interactive 
 az backup job list \
@@ -98,7 +98,7 @@ az backup job list \
     --output table
 ```
 
-De uitvoer is vergelijkbaar met het volgende voorbeeld, waarin de hersteltaak is *InProgress*:
+De uitvoer is vergelijkbaar met het volgende voorbeeld, waarin u kunt zien dat de hersteltaak wordt uitgevoerd (*InProgress*):
 
 ```
 Name      Operation        Status      Item Name    Start Time UTC       Duration
@@ -108,13 +108,13 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Wanneer de *Status* van de taak terugzetten rapporten *voltooid*, de schijf is hersteld naar het opslagaccount.
+Wanneer de *Status* van de hersteltaak *Voltooid* is, is de schijf hersteld naar het opslagaccount.
 
 
-## <a name="convert-the-restored-disk-to-a-managed-disk"></a>De herstelde schijf converteren naar een schijf beheerd
-De hersteltaak wordt een niet-beheerde schijf gemaakt. Om een virtuele machine van de schijf maken, moet u deze eerst geconverteerd naar een beheerde schijf.
+## <a name="convert-the-restored-disk-to-a-managed-disk"></a>De herstelde schijf converteren naar een beheerde schijf
+Met de hersteltaak wordt een niet-beheerde schijf gemaakt. Om een VM ta maken op basis van de schijf, moet u deze eerst converteren naar een beheerde schijf.
 
-1. Verkrijgen van de verbindingsgegevens voor uw opslagaccount met [az storage-account weergeven verbindingsreeks](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string). Vervang *mystorageaccount* met de naam van uw storage-account als volgt:
+1. Haal de verbindingsgegevens voor uw opslagaccount op met [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string). Vervang *mystorageaccount* door de naam van uw opslagaccount, als volgt:
     
     ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
@@ -123,7 +123,7 @@ De hersteltaak wordt een niet-beheerde schijf gemaakt. Om een virtuele machine v
         --name mystorageaccount )
     ```
 
-2. De onbeheerde schijf is in het opslagaccount beveiligd. De volgende opdrachten informatie ophalen over de onbeheerde schijf en maak een variabele met de naam *uri* die wordt gebruikt in de volgende stap bij het maken van de schijf worden beheerd.
+2. Uw onbeheerde schijf wordt beveiligd in het opslagaccount. Met de volgende opdrachten wordt informatie over uw onbeheerde schijf opgehaald en wordt een variabele met de naam *uri* gemaakt, die wordt gebruikt in de volgende stap, wanneer u de beheerde schijf maakt.
 
     ```azurecli-interactive
     container=$(az storage container list --query [0].name -o tsv)
@@ -131,7 +131,7 @@ De hersteltaak wordt een niet-beheerde schijf gemaakt. Om een virtuele machine v
     uri=$(az storage blob url --container-name $container --name $blob -o tsv)
     ```
 
-3. Nu u een schijf beheerd van de herstelde schijf met maken kunt [az schijf maken](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az_disk_create). De *uri* variabele uit de vorige stap wordt gebruikt als bron voor de schijf worden beheerd.
+3. Nu kunt u [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az_disk_create) gebruiken om van uw herstelde schijf een beheerde schijf te maken. De variabele *uri* uit de vorige stap wordt gebruikt als bron voor de beheerde schijf.
 
     ```azurecli-interactive
     az disk create \
@@ -140,7 +140,7 @@ De hersteltaak wordt een niet-beheerde schijf gemaakt. Om een virtuele machine v
         --source $uri
     ```
 
-4. Als u nu een beheerd schijf van de herstelde schijf hebt, opschonen van de niet-beheerde schijf- en opslagbeheer rekening met [az storage-account verwijderen](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_delete). Vervang *mystorageaccount* met de naam van uw storage-account als volgt:
+4. Nu u een beheerde schijf van uw herstelde schijf hebt, kunt u de onbeheerde schijf en het opslagaccount opschonen met [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_delete). Vervang *mystorageaccount* door de naam van uw opslagaccount, als volgt:
 
     ```azurecli-interactive
     az storage account delete \
@@ -149,10 +149,10 @@ De hersteltaak wordt een niet-beheerde schijf gemaakt. Om een virtuele machine v
     ```
 
 
-## <a name="create-a-vm-from-the-restored-disk"></a>Een virtuele machine van de herstelde schijf maken
-De laatste stap is het maken van een virtuele machine van de schijf worden beheerd.
+## <a name="create-a-vm-from-the-restored-disk"></a>Een VM maken op basis van de herstelde schijf
+De laatste stap is het maken van een VM van de beheerde schijf.
 
-1. Een virtuele machine maken van de schijf worden beheerd met [az vm maken](/cli/azure/vm?view=azure-cli-latest#az_vm_create) als volgt:
+1. Gebruik [az vm create](/cli/azure/vm?view=azure-cli-latest#az_vm_create) om als volgt een VM te maken van uw beheerde schijf:
 
     ```azurecli-interactive
     az vm create \
@@ -162,7 +162,7 @@ De laatste stap is het maken van een virtuele machine van de schijf worden behee
         --os-type linux
     ```
 
-2. Lijst om te bevestigen dat de virtuele machine is gemaakt van de herstelde schijf, de virtuele machines in de resourcegroep met [az vm lijst](/cli/azure/vm?view=azure-cli-latest#az_vm_list) als volgt:
+2. Om te bevestigen dat uw VM van uw herstelde schijf is gemaakt, maakt u als volgt een lijst van de VM's in uw resourcegroep met [az vm list](/cli/azure/vm?view=azure-cli-latest#az_vm_list):
 
     ```azurecli-interactive
     az vm list --resource-group myResourceGroup --output table
@@ -170,15 +170,15 @@ De laatste stap is het maken van een virtuele machine van de schijf worden behee
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie maakt u een schijf hersteld vanaf een herstelpunt en wordt gemaakt van een virtuele machine van de schijf. U hebt geleerd hoe u:
+In deze zelfstudie hebt u een schijf van een herstelpunt hersteld en vervolgens een VM van de schijf gemaakt. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Lijst en selecteer herstelpunten
+> * Herstelpunten in een lijst opnemen en selecteren
 > * Een schijf herstellen vanaf een herstelpunt
-> * Een virtuele machine van de herstelde schijf maken
+> * Een VM maken op basis van de herstelde schijf
 
-Ga naar de volgende zelfstudie voor meer informatie over het herstellen van afzonderlijke bestanden van een herstelpunt wordt gemaakt.
+Ga naar de volgende zelfstudie voor meer informatie over het herstellen van afzonderlijke bestanden van een herstelpunt.
 
 > [!div class="nextstepaction"]
-> [Bestanden herstellen met een virtuele machine in Azure](tutorial-restore-files.md)
+> [Bestanden herstellen naar een virtuele machine in Azure](tutorial-restore-files.md)
 

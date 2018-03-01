@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 6b22e06cc569ff58f4e988a014d39c90245bf260
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 555422356ef16319716a6f54d3ba90082ee25838
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Zelfstudie: Azure Portal gebruiken voor het maken van een Data Factory-pijplijn om gegevens te kopiëren 
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ Hier volgen de stappen die u uitvoert als onderdeel van deze zelfstudie:
 
 Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens van een bron- naar een doelgegevensopslagplaats te kopiëren en een HDInsight Hive-activiteit om een Hive-script uit te voeren voor het transformeren van invoergegevens naar productuitvoergegevens. U begint in deze stap met het maken van de gegevensfactory.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/) en klik op **Nieuw** in het menu links. Selecteer **Gegevensanalyse** en klik op **Data Factory**. 
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/) en klik op **Een resource maken** in het menu links. Selecteer **Gegevens en analyses** en klik op **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. In de blade **Nieuwe gegevensfactory**:

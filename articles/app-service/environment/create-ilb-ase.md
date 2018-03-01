@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een ILB maken en gebruiken met een App Service-omgeving #
 
@@ -55,7 +55,7 @@ Er is een aantal dingen dat u niet kunt doen wanneer u een ILB AS-omgeving gebru
 
 Ga als volgt te werk om een ILB AS-omgeving te maken:
 
-1. Selecteer in Azure Portal achtereenvolgens **Nieuw** > **Web en mobiel** > **App Service Environment**.
+1. Selecteer in Azure Portal achtereenvolgens **Een resource maken** > **Web en mobiel** > **App Service Environment**.
 
 2. Selecteer uw abonnement.
 
@@ -106,7 +106,7 @@ Als u het **VIP-type** instelt op **Intern**, wordt de naam van de AS-omgeving n
 
 Het maken van een app in een ILB AS-omgeving werkt hetzelfde als het maken van een app in een AS-omgeving.
 
-1. Selecteer in Azure Portal achtereenvolgens **Nieuw** > **Web en mobiel** > **Web** of **Mobile** of **API-app**.
+1. Selecteer in Azure Portal achtereenvolgens **Een resource maken** > **Web en mobiel** > **Web** of **Mobiel** of **API-app**.
 
 2. Voer de naam van de app in.
 

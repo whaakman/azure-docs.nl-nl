@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 38a8792588e013a0105ea57b20b2560f0acf02e6
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: c5b0f5250a08915e987a1eb5229f2c4648e660fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Aan de slag met Azure Data Lake Store met Azure Portal
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
 ## <a name="create-an-azure-data-lake-store-account"></a>Een Azure Data Lake Store-account maken
 
 1. Meld u aan bij de nieuwe [Azure Portal](https://portal.azure.com).
-2. Klik op **Nieuw**, klik op **Gegevens en opslag** en klik vervolgens op **Azure Data Lake Store**. Lees de informatie op de blade **Azure Data Lake Store** en klik vervolgens op **Maken** in de linkerbenedenhoek van het blad.
+2. Klik op **Een resource maken**, klik op **Gegevens en opslag** en klik vervolgens op **Azure Data Lake Store**. Lees de informatie op de blade **Azure Data Lake Store** en klik vervolgens op **Maken** in de linkerbenedenhoek van het blad.
 3. In de blade **Nieuwe Data Lake Store** geeft u de waarden op zoals u ze in de volgende schermafbeelding ziet:
    
     ![Een nieuw Azure Data Lake Store-account maken](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Een nieuw Azure Data Lake Store-account maken")

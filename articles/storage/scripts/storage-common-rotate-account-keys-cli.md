@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-voorbeeldscript - toegang van draaien opslagaccountsleutels | Microsoft Docs
-description: Een Azure Storage-account maken en vervolgens ophalen en de toegangssleutels van account draaien.
+title: Azure CLI-voorbeeldscript - Opslagaccountsleutels draaien | Microsoft Docs
+description: Maak een Azure Storage-account en haal de toegangssleutels van het account op en draai ze.
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,45 +15,45 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: c8c99dd8663eab5b5c1c47d34f110f9dceaace6b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.openlocfilehash: 52531d227c61cddabb7e8471f536e6d5786e95a3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Een opslagaccount maken en de toegangssleutels van account draaien
+# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Aen Azure Storage-account maken en de accounttoegangssleutels draaien
 
-Dit script maakt een Azure Storage-account, toegangstoetsen voor het nieuwe opslagaccount wordt weergegeven en wordt verlengd (draait) de sleutels.
+Met dit script wordt een Azure Storage-account gemaakt, worden de toegangssleutels van het nieuwe opslagaccount weergegeven en worden de sleutels vernieuwd (gedraaid).
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
 [!code-azurecli-interactive[main](../../../cli_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.sh "Rotate storage account keys")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Voer de volgende opdracht om de resourcegroep, storage-account en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, het opslagaccount en alle gerelateerde resources te verwijderen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script gebruikt de volgende opdrachten om de storage-account maken, ophalen en de toegangstoetsen draaien. Elk item in de tabel is gekoppeld aan de opdracht specifieke documentatie bij.
+In dit script worden de volgende opdrachten gebruikt om het opslagaccount te maken en de toegangssleutels ervan op te halen en te draaien. Elke opdracht in de tabel is een koppeling naar specifieke documentatie over de opdracht.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [AZ groep maken](/cli/azure/group#create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ storage-account maken](/cli/azure/storage/account#create) | Maakt een Azure Storage-account in de opgegeven resourcegroep. |
-| [lijst met opslagaccounts die sleutels AZ](/cli/azure/storage/account/keys#list) | Geeft de opslagaccountsleutels voor toegang voor het opgegeven account. |
-| [de opslagaccountsleutels AZ vernieuwen](/cli/azure/storage/account/keys#renew) | Opnieuw genereren toegangssleutel voor de primaire of secundaire opslagaccount. |
+| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Hiermee maakt u een Azure Storage-account in de opgegeven resourcegroep. |
+| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Hiermee geeft u de toegangssleutels voor het opgegeven opslagaccount weer. |
+| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Hiermee wordt de primaire of secundaire toegangssleutel van het opslagaccount opnieuw gegenereerd. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](/cli/azure/overview).
+Zie de [documentatie van Azure CLI](/cli/azure/overview) voor meer informatie over de Azure CLI.
 
-Extra opslagruimte CLI scriptvoorbeelden vindt u in de [voorbeelden van Azure CLI voor Azure-blobopslag](../blobs/storage-samples-blobs-cli.md).
+Meer CLI-voorbeeldscripts voor Storage vindt u in de [Azure CLI-voorbeelden voor Azure Blob Storage](../blobs/storage-samples-blobs-cli.md).

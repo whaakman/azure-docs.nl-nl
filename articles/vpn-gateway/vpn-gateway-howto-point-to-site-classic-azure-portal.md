@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: bac84043eb6456feae35c59b6ee12f9be5f46297
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: fe460113441933d655b183e87cceefee4dd24d24
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Een punt-naar-site-verbinding naar een VNet configureren met behulp van verificatie via een certificaat (klassiek): Azure Portal
 
@@ -80,9 +80,7 @@ Controleer eerst of u een Azure-abonnement hebt. Als u nog geen Azure-abonnement
 Als u nog geen virtueel netwerk hebt, maakt u er een. De schermafbeeldingen dienen alleen als voorbeeld. Zorg dat u de waarden vervangt door die van uzelf. Volg de volgende stappen om een VNet te maken met behulp van Azure Portal:
 
 1. Navigeer via een browser naar de [Azure Portal](http://portal.azure.com) en log, indien nodig, in met uw Azure-account.
-2. Klik op **Nieuw**. In het veld **Marketplace doorzoeken** typt u 'virtueel netwerk'. Zoek **Virtual Network** in de lijst met resultaten en klik erop om de pagina **Virtual Network** te openen.
-
-  ![Pagina voor zoeken van virtueel netwerk](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
+2. Klik op **Een resource maken** > **Netwerken** > **Virtueel netwerk**. 
 3. Kies onder aan de pagina Virtual Network de optie **Klassiek** in de lijst **Selecteer een implementatiemodel** en klik vervolgens op **Maken**.
 
   ![Een implementatiemodel selecteren](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/selectmodel.png)
@@ -184,6 +182,11 @@ Als u een P2S-verbinding wilt maken vanaf een andere clientcomputer dan de compu
 ## <a name="connect"></a>5. Verbinding maken met Azure
 
 ### <a name="connect-to-your-vnet"></a>Verbinding maken met uw VNet
+
+>[!NOTE]
+>U moet beheerdersrechten hebben op de clientcomputer waarmee u de verbinding tot stand brengt.
+>
+>
 
 1. Als u met uw VNet wilt verbinden, gaat u op de clientcomputer naar de VPN-verbindingen en zoekt u de VPN-verbinding die u hebt gemaakt. Deze heeft dezelfde naam als het virtuele netwerk. Klik op **Verbinden**. Er verschijnt mogelijk een pop-upbericht dat verwijst naar het certificaat. Klik in dat geval op **Doorgaan** om verhoogde bevoegdheden te gebruiken.
 2. Klik op de pagina **Verbindingsstatus** op **Verbinden** om de verbinding te starten. Als het scherm **Certificaat selecteren** wordt geopend, controleert u of het weergegeven clientcertificaat het certificaat is dat u voor de verbinding wilt gebruiken. Als dat niet het geval is, gebruikt u de pijl-omlaag om het juiste certificaat te selecteren en klikt u op **OK**.

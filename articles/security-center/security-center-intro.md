@@ -1,5 +1,5 @@
 ---
-title: Wat is Azure Security Center? | Microsoft Docs
+title: Wat is Azure Security Center?| Microsoft Docs
 description: Meer informatie over Azure Security Center, de belangrijkste mogelijkheden van Azure Security Center en hoe Azure Security Center werkt.
 services: security-center
 documentationcenter: na
@@ -9,100 +9,101 @@ editor:
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 50a54b8d2a73807aa9a0217f7ccf971b8c516494
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: MT
+ms.openlocfilehash: 08102ce4caead003925aa600f4f7f005b1c336e0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-azure-security-center"></a>Wat is Azure Security Center?
-Azure Security Center biedt geïntegreerde beveiligingsbewaking en geavanceerde threat protection over hybride cloudwerkbelastingen. Met Security Center, kunt u toepassen van beveiligingsbeleid voor uw werkbelastingen, uw blootstelling aan bedreigingen, beperken en detecteren en reageren op aanvallen.
+Azure Security Center biedt geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor verschillende hybride cloudworkloads. Met Security Center kunt u beveiligingsbeleid toepassen voor verschillende workloads, blootstelling aan bedreigingen beperken en aanvallen detecteren en afwenden.
 
 Waarom Security Center gebruiken?
 
-- **Gecentraliseerd beheer van** : Zorg ervoor dat de naleving van het bedrijf of regelgeving beveiligingsvereisten door het centraal beheren van beveiligingsbeleid voor alle werkbelastingen van uw hybride cloud.
-- **Continue beveiligingsevaluatie** – bewaken van de beveiliging van de machines, netwerken, opslag- en -services en toepassingen voor het detecteren van mogelijke beveiligingsproblemen.
-- **Uitvoerbare aanbevelingen** – beveiligingsproblemen oplossen voordat ze kunnen worden misbruikt door aanvallers met aanbevelingen voor beveiliging van prioriteit en actie worden uitgevoerd.
-- **Geavanceerde beveiliging cloud** – bedreigingen met alleen bij het time-toegang voor de poorten voor beheertaken en whitelisting beperken tot besturingselement toepassingen die worden uitgevoerd op uw virtuele machines.
-- **Prioriteit van waarschuwingen en incidenten** -Focus op de meest kritieke bedreigingen eerst met prioriteit beveiligingswaarschuwingen en incidenten.
-- **Geïntegreerde beveiligingsoplossingen** - verzamelen, zoeken en van beveiligingsgegevens uit diverse bronnen, met inbegrip van verbonden partneroplossingen analyseren.
+- **Gecentraliseerd beheer van beleid**: zorg voor naleving van bedrijfsspecifieke en wettelijke beveiligingsvereisten door beveiligingsbeleid voor al uw hybride cloudworkloads centraal te beheren.
+- **Continue beveiligingsevaluatie**: bewaak de beveiliging van computers, netwerken, opslag- en gegevensservices en toepassingen door mogelijke beveiligingsproblemen te detecteren.
+- **Uitvoerbare aanbevelingen**: los beveiligingsproblemen op voordat ze kunnen worden misbruikt door aanvallers met op prioriteit gebaseerde en uitvoerbare beveiligingsaanbevelingen.
+- **Geavanceerde cloudbeveiliging**: verminder bedreigingen met just-in-time-toegang tot beheerpoorten en opname in whitelist om controle te houden over de toepassingen die worden uitgevoerd op uw virtuele machines.
+- **Op prioriteit gebaseerde waarschuwingen en incidenten**: richt u eerst op de meest kritieke bedreigingen met op prioriteit gebaseerde beveiligingswaarschuwingen en -incidenten.
+- **Geïntegreerde beveiligingsoplossingen**: verzamel, zoek en analyseer beveiligingsgegevens uit verschillende bronnen, inclusief verbonden oplossingen van partners.
 
-De **Security Center - overzicht** biedt snel inzicht in de beveiligingsstatus van uw Azure en niet-Azure-werkbelastingen, zodat u om te detecteren en beoordelen van de beveiliging van uw werkbelastingen kunt herkennen en verhelpen van risico's. De ingebouwde dashboard geeft onmiddellijk inzicht in beveiligingswaarschuwingen voor en zwakke plekken die aandacht vereisen.
+**Security Center - overzicht** biedt snel inzicht in de beveiligingsstatus van uw Azure- en niet-Azure-workloads, zodat u de beveiliging van uw workloads kunt bepalen en beoordelen en risico's kunt herkennen en verminderen. Het ingebouwde dashboard geeft onmiddellijk inzicht in beveiligingswaarschuwingen en zwakke plekken die aandacht vereisen.
 
 ![Overzicht][1]
 
-## <a name="centralized-policy-management"></a>Gecentraliseerd beheer
-Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en helpt ervoor te zorgen dat aan de beveiligingsvereisten van het bedrijf of aan regelgeving wordt voldaan. In Security Center kunt u beleid definiëren en aanpassen aan uw type werkbelasting of de vertrouwelijkheid van uw gegevens.
+## <a name="centralized-policy-management"></a>Gecentraliseerd beleidsbeheer
+Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en helpt ervoor te zorgen dat aan de beveiligingsvereisten van het bedrijf of aan regelgeving wordt voldaan. In Security Center definieert u beleid en past u dit aan uw type workload of de gevoeligheid van uw gegevens aan.
 
 Beleidsregels van Security Center bevatten de volgende onderdelen:
 
-- **Gegevensverzameling**: bepaalt agent inrichting en beveiliging [gegevensverzameling](security-center-enable-data-collection.md) instellingen.
-- **Beveiligingsbeleid**: bepalen welke besturingselementen Security Center monitors en raadt aan om door te bewerken de [beveiligingsbeleid](security-center-policies.md).
-- **E-mailmeldingen**: beveiliging contactpersonen bepaalt en [e-mailmelding](security-center-provide-security-contact-details.md) instellingen.
-- **Prijscategorie**: gratis definieert of standaard [prijzen selectie](security-center-pricing.md). De laag die u kiest, bepaalt welke Security Center-functies zijn beschikbaar voor resources binnen het bereik.
+- **Gegevensverzameling**: bepaalt instellingen voor configuratie van agent en beveiliging van [gegevensverzameling](security-center-enable-data-collection.md).
+- **Beveiligingsbeleid**: bepaalt welke besturingselementen Security Center bewaakt en aanbeveelt door het [beveiligingsbeleid](security-center-policies.md) te bewerken.
+- **E-mailmeldingen**: bepaalt instellingen voor contactpersonen en [e-mailmeldingen](security-center-provide-security-contact-details.md) voor beveiliging.
+- **Prijscategorie**: definieert de [prijsselectie](security-center-pricing.md) Gratis of Standard. De laag die u kiest, bepaalt welke Security Center-functies beschikbaar zijn voor resources binnen het bereik.
 
 ![Beveiligingsbeleid][2]
 
-Zie [beleid beveiligingsoverzicht](security-center-policies-overview.md) voor meer informatie.
+Zie [Overzicht van beveiligingsbeleid](security-center-policies-overview.md) voor meer informatie.
 
 ## <a name="continuous-security-assessment"></a>Continue beveiligingsevaluatie
-Security Center analyseert de beveiligingsstatus van uw rekenresources, virtuele netwerken, opslag en services van gegevens en toepassingen. Continue assessment helpt u bij het detecteren van mogelijke beveiligingsproblemen, zoals systemen met ontbrekende beveiligingsupdates of blootgestelde netwerkpoorten. Selecteer een tegel in de sectie voorkomen voor meer informatie, waaronder een lijst met bronnen en alle zwakke plekken die zijn geïdentificeerd.
+Security Center analyseert de beveiligingsstatus van uw rekenresources, virtuele netwerken, opslag- en gegevensservices en toepassingen. Continue evaluatie helpt u bij het detecteren van mogelijke beveiligingsproblemen, zoals systemen met ontbrekende beveiligingsupdates of netwerkpoorten die risico lopen. Selecteer een tegel in de sectie Preventie voor meer informatie, waaronder een lijst met resources en alle zwakke plekken die zijn geïdentificeerd.
 
-![Beveiligingsstatus bewaken][3]
+![Bewaking van beveiligingsstatus][3]
 
-Zie [Security health monitoring](security-center-monitoring.md) voor meer informatie.
+Zie [Bewaking van beveiligingsstatus](security-center-monitoring.md) voor meer informatie.
 
 ## <a name="actionable-recommendations"></a>Uitvoerbare aanbevelingen
-Security Center analyseert de beveiligingsstatus van uw Azure en niet-Azure-resources voor het identificeren van mogelijke beveiligingsproblemen. Een lijst met aanbevelingen voor beveiliging prioriteit leidt u door het proces van patches.
+Security Center analyseert de beveiligingsstatus van uw Azure- en niet-Azure-resources om mogelijke beveiligingsproblemen op te sporen. Een lijst met op prioriteit gebaseerde beveiligingsaanbevelingen helpt u bij het afhandelen van beveiligingsproblemen.
 
 ![Aanbevelingen][4]
 
-Zie [aanbevelingen voor beveiliging beheren](security-center-recommendations.md) voor meer informatie.
+Zie [Beveiligingsaanbevelingen beheren](security-center-recommendations.md) voor meer informatie.
 
 ## <a name="just-in-time-vm-access"></a>Just-In-Time-VM-toegang
-Verminder de kwetsbaarheid van netwerk met alleen in de tijd, beheerde toegang tot de poorten voor beheertaken op Azure Virtual machines blootstelling aan brute force en andere netwerkaanvallen drastisch wordt gereduceerd.
+Verminder het oppervlak voor netwerkaanvallen met just-in-time, gecontroleerde toegang tot beheerpoorten op Azure VM's in om het oppervlak dat wordt blootgesteld aan beveiligingsaanvallen en andere netwerkaanvallen, drastisch te reduceren.
 
 ![Just-In-Time-VM-toegang][5]
 
-Regels opgeven voor hoe gebruikers verbinding met virtuele machines maken kunnen. Wanneer deze nodig is, kan toegang worden aangevraagd vanuit Security Center of via PowerShell. Als de aanvraag aan de regels voldoet, wordt automatisch toegang verleend voor de gevraagde tijd.
+Geef regels op voor hoe gebruikers verbinding met virtuele machines kunnen maken. Indien nodig, kan toegang worden aangevraagd vanuit Security Center of via PowerShell. Als de aanvraag aan de regels voldoet, wordt automatisch toegang verleend voor de gevraagde tijd.
 
-Zie [beheren via in de tijd toegang tot een virtuele machine](security-center-just-in-time.md) voor meer informatie.
+Zie [VM-toegang beheren met behulp van just-in-time](security-center-just-in-time.md) voor meer informatie.
 
 ## <a name="adaptive-application-controls"></a>Adaptieve toepassingsbesturingselementen
-Malware en andere ongewenste toepassingen blokkeren door het toepassen van aanbevelingen whitelisting aangepast aan uw specifieke Azure werkbelastingen en aangedreven door machine learning.
+Blokkeer malware en andere ongewenste toepassingen door aanbevelingen voor opname in de whitelist toe te passen die zijn afgestemd op uw specifieke Azure-workloads en gebruikmaken van machine learning.
 
 ![Adaptieve toepassingsbesturingselementen][6]
 
-Bekijk en klik op om toe te passen de aanbevolen toepassing whitelisting regels die zijn gegenereerd door Security Center of bewerk de regels die al zijn geconfigureerd.
+Bekijk en klik op toepassingen om de aanbevolen regels voor de opname in de whitelist die door Security Center zijn gegenereerd toe te passen of de regels die al zijn geconfigureerd te bewerken.
 
-Zie [adaptieve toepassing besturingselementen](security-center-adaptive-application.md) voor meer informatie.
+Zie [Adaptieve toepassingsbesturingselementen](security-center-adaptive-application.md) voor meer informatie.
 
-## <a name="prioritized-alerts-and-incidents"></a>Waarschuwingen van prioriteit en incidenten
-Security Center maakt gebruik van geavanceerde analyses en wereldwijde dreigingen binnenkomende aanvallen detecteren en na schenden activiteit. Waarschuwingen worden geplaatst en gegroepeerd in incidenten, helpen u zich op de meest kritieke bedreigingen eerst richten. U kunt ook uw eigen aangepaste beveiligingswaarschuwingen maken.
+## <a name="prioritized-alerts-and-incidents"></a>Waarschuwingen en incidenten op basis van prioriteit
+Security Center maakt gebruik van geavanceerde analyses en informatie over wereldwijde dreigingen om binnenkomende aanvallen en schendingen van de beveiliging te detecteren. Waarschuwingen krijgen een prioriteit en worden gegroepeerd in incidenten, zodat u zich eerst op de meest kritieke bedreigingen kunt richten. U kunt ook uw eigen aangepaste beveiligingswaarschuwingen maken.
 
-![Waarschuwingen van prioriteit en incidenten][7]
+![Waarschuwingen en incidenten op basis van prioriteit][7]
 
-U kunt snel de omvang en de impact van een aanval-ervaring bieden een visuele, interactieve onderzoek beoordelen en gebruiken van vooraf gedefinieerde of ad-hoc-query's voor dieper exploratie van beveiligingsgegevens.
+U kunt snel de omvang en de impact van een aanval beoordelen via een visuele, interactieve onderzoeksmethode en vooraf gedefinieerde of ad hoc-query's gebruiken voor diepergaand onderzoek van de beveiligingsgegevens.
 
-Zie [beheren en erop reageren beveiligingswaarschuwingen](security-center-managing-and-responding-alerts.md) voor meer informatie.
+Zie [Beveiligingswaarschuwingen beheren en erop reageren](security-center-managing-and-responding-alerts.md).
 
-## <a name="integrate-your-security-solutions"></a>Integratie van uw beveiligingsoplossingen
-U kunt verzamelen, zoeken en van beveiligingsgegevens uit diverse bronnen, met inbegrip van verbonden partneroplossingen zoals netwerkfirewalls en andere Microsoft-services in Security Center analyseren.
+## <a name="integrate-your-security-solutions"></a>Uw beveiligingsoplossingen integreren
+U kunt beveiligingsgegevens verzamelen, zoeken en analyseren uit diverse bronnen, met inbegrip van verbonden partneroplossingen zoals netwerkfirewalls en andere Microsoft-services in Security Center.
 
 ![Beveiligingsoplossingen integreren][8]
 
-Zie [integreren beveiligingsoplossingen](security-center-partner-integration.md) voor meer informatie.
+Zie [Beveiligingsoplossingen integreren](security-center-partner-integration.md) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Om te beginnen met Security Center, moet u een abonnement op Microsoft Azure. Als u niet een abonnement hebt, kunt u zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/free/).
-- Security Center de gratis prijscategorie is met uw Azure-abonnement ingeschakeld. Als u wilt profiteren van Geavanceerd beveiligingsbeheer en threat detectiemogelijkheden, moet u upgraden naar de Standard-prijscategorie. De Standard-laag is gratis gedurende de eerste 60 dagen. Zie de [Security Center pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
-- Als u klaar bent om in te schakelen Security Center Standard nu de [Snelstartgids: vrijgeven uw Azure-abonnement Security Center Standard](security-center-get-started.md) leidt u door de stappen.
+- U moet over een Microsoft Azure-abonnement beschikken om met Security Center aan de slag te gaan. Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/free/).
+- De prijscategorie Gratis van Security Center wordt met uw Azure-abonnement ingeschakeld. Als u wilt profiteren van geavanceerd beveiligingsbeheer en mogelijkheden voor het detecteren van bedreigingen, moet u een upgrade uitvoeren naar de prijscategorie Standard. De prijscategorie Standard is gedurende de eerste 60 dagen gratis. Zie de [pagina met prijzen van Security Center](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
+- Als u nu Security Center Standard wilt inschakelen, raadpleegt u de [Quickstart: Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Snelstartgids: uw Azure-abonnement registreren voor Security Center Standard) voor meer informatie.
 
 
 <!--Image references-->

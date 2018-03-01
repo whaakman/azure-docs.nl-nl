@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9b6b9df01f0e56cac3fe45bd0ef8290ca1587a1a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Quickstart: Uw eerste werkstroom voor logische apps bouwen - Azure Portal
 
@@ -38,7 +38,7 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
 
 ## <a name="create-your-logic-app"></a>Uw logische app maken 
 
-1. Kies in het Azure-menu de optie **Nieuw** > **Enterprise Integration** > **Logische app**.
+1. Kies in het hoofdmenu van Azure **Een resource maken** > **Bedrijfsintegratie** > **Logische app**.
 
    ![Logische app maken](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 

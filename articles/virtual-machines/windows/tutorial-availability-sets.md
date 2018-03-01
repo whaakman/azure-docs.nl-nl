@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b8577a02f0c9396b64af986950fddaa1e00925ec
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 247f86dafe35d69dd742583d246862b739d9fe90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-use-availability-sets"></a>Beschikbaarheidssets gebruiken
 
@@ -119,7 +119,7 @@ Get-AzureRmVMSize `
 
 U kunt ook Azure Advisor gebruiken om meer informatie te krijgen over het verbeteren van de beschikbaarheid van uw VM's. Azure Advisor helpt u best practices voor het optimaliseren van uw Azure-implementaties te volgen. Het analyseert uw resourceconfiguratie en gebruikstelemetrie, en raadt vervolgens oplossingen aan die u kunnen helpen de kosteneffectiviteit, prestaties, hoge beschikbaarheid en beveiliging van uw Azure-resources te verbeteren.
 
-Meld u aan bij [Azure Portal](https://portal.azure.com), selecteer **Meer services** en voer **Advisor** in. Het Advisor-dashboard toont de persoonlijke aanbevelingen voor het geselecteerde abonnement. Zie [Aan de slag met Azure Advisor](../../advisor/advisor-get-started.md) voor meer informatie.
+Meld u aan bij [Azure Portal](https://portal.azure.com), selecteer **Alle services** en typ **Advisor**. Het Advisor-dashboard toont de persoonlijke aanbevelingen voor het geselecteerde abonnement. Zie [Aan de slag met Azure Advisor](../../advisor/advisor-get-started.md) voor meer informatie.
 
 
 ## <a name="next-steps"></a>Volgende stappen

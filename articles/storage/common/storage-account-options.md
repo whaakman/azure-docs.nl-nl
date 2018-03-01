@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-account-options"></a>Opties voor Azure Storage-account
 
@@ -125,7 +125,7 @@ U kunt de toegangslaag in de volgende voorbeelden niet instellen op Archive, omd
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Selecteer in het menu Hub achtereenvolgens **Nieuw** > **Gegevens en opslag** > **Opslagaccount**.
+2. Selecteer in het menu Hub achtereenvolgens **Een resource maken** > **Gegevens en opslag** > **Opslagaccount**.
 
 3. Voer een naam in voor het opslagaccount.
 
@@ -159,7 +159,7 @@ U kunt de toegangslaag in de volgende voorbeelden niet instellen op Archive, omd
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Ga naar uw opslagaccount, selecteer Alle resources en selecteer vervolgens uw opslagaccount.
+2. Ga naar uw opslagaccount, selecteer **Alle resources** en selecteer vervolgens uw opslagaccount.
 
 3. Klik in de sectie Instellingen op **Configuratie**.
 
@@ -173,7 +173,7 @@ U kunt de toegangslaag in de volgende voorbeelden niet instellen op Archive, omd
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Ga naar uw opslagaccount, selecteer Alle resources en selecteer vervolgens uw opslagaccount.
+2. Ga naar uw opslagaccount, selecteer **Alle resources** en selecteer vervolgens uw opslagaccount.
 
 3. Klik in de Instellingen-blade op **Configuratie** om de accountconfiguratie te bekijken en/of te wijzigen.
 
@@ -185,7 +185,7 @@ U kunt de toegangslaag in de volgende voorbeelden niet instellen op Archive, omd
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Als u naar de blob in uw opslagaccount wilt gaan, selecteert u achtereenvolgens Alle resources, uw opslagaccount, uw container en uw blob.
+2. Als u naar de blob in uw opslagaccount wilt gaan, selecteert u achtereenvolgens **Alle resources**, uw opslagaccount, uw container en uw blob.
 
 3. Klik op de blade met blob-eigenschappen op het vervolgkeuzemenu **Toegangslaag** om de opslaglaag **Hot**, **Cool** of **Archive** te selecteren.
 

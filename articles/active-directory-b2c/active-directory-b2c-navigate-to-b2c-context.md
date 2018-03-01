@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 6c1fd08c52f33a062d06e0593cbbe00346bb44f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a9b9f71d0c11aee238661d57fd2e5246f1bf0842
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Overschakelen naar uw Azure AD B2C-tenant
 
@@ -34,13 +34,13 @@ U moet bij Azure Portal zijn aangemeld als een globale beheerder van de Azure AD
 
 Azure Portal wordt vernieuwd.  U bent nu aangemeld bij Azure Portal in de context van uw Azure AD B2C-tenant.
 
-## <a name="navigate-to-the-b2c-features-blade"></a>Ga naar de blade B2C-functies
+## <a name="navigate-to-the-b2c-features-pane"></a>Ga naar het deelvenster B2C-functies
 
 1. Klik op **Bladeren** in de navigatiebalk aan de linkerkant.
-1. Klik op **> Meer services** en zoek vervolgens naar `Azure AD B2C` in het linker navigatievenster.  (Als u het aan het Startboard links wilt vastmaken, klikt u op de ster aan de linkerkant van Azure AD B2C)
-1. Klik op **Azure AD B2C** voor toegang tot de blade B2C-functies.
+1. Klik op **> Alle services** en zoek vervolgens naar `Azure AD B2C` in het linkernavigatievenster.  (Als u het aan het Startboard links wilt vastmaken, klikt u op de ster aan de linkerkant van Azure AD B2C)
+1. Klik op **Azure AD B2C** voor toegang tot het deelvenster B2C-functies.
    
-    ![Schermafbeelding van bladeren naar de blade B2C-functies](./media/active-directory-b2c-get-started/b2c-browse.png)
+    ![Schermafbeelding van bladeren naar het deelvenster B2C-functies](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]
-> U moet een globale beheerder van de B2C-tenant zijn om de blade B2C-functies te kunnen openen. Een globale beheerder van andere tenant of een gebruiker van een tenant heeft hiertoe geen toegang.  U kunt overschakelen naar uw B2C-tenant met behulp van de tenantwisselaar in de rechterbovenhoek van Azure Portal.
+> U moet een algemene beheerder van de B2C-tenant zijn om het deelvenster B2C-functies te kunnen openen. Een globale beheerder van andere tenant of een gebruiker van een tenant heeft hiertoe geen toegang.  U kunt overschakelen naar uw B2C-tenant met behulp van de tenantwisselaar in de rechterbovenhoek van Azure Portal.

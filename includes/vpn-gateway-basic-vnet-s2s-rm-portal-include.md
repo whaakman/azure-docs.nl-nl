@@ -6,7 +6,7 @@ Volg onderstaande stappen als u in het Resource Manager-implementatiemodel een V
 >
 
 1. Open een browser, ga naar [Azure Portal](http://portal.azure.com) en meld u aan met uw Azure-account.
-2. Klik op **Nieuw**. In het veld **Marketplace doorzoeken** typt u 'virtueel netwerk'. Zoek **Virtual Network** in de lijst met resultaten en klik erop om de pagina **Virtual Network** te openen.
+2. Klik op **Een resource maken**. In het veld **Marketplace doorzoeken** typt u 'virtueel netwerk'. Zoek **Virtual Network** in de lijst met resultaten en klik erop om de pagina **Virtual Network** te openen.
 3. Ga onder aan de pagina Virtual Network naar de lijst **Selecteer een implementatiemodel**, selecteer de optie **Resource Manager** in de lijst en klik vervolgens op **Maken**. Hiermee opent u de pagina Virtueel netwerk maken.
 
     ![Pagina Virtueel netwerk maken](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/vnet.png "Pagina Virtueel netwerk maken")
