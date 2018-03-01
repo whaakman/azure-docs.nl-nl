@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: c06270c75ae16ba516e71a5dde9db4a7277d7e38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 465e3d2c0c2b7c5d811441ede20adb9da2dbe847
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Inleiding tot App Service onder Linux
 
@@ -68,7 +68,7 @@ Controleer [Azure Status Dashboard](https://azure.microsoft.com/status).
 
 In Azure Portal worden alleen functies getoond die momenteel werken voor Web App for Containers. Naarmate er meer functies mogelijk worden, zullen ze op de portal worden getoond.
 
-Sommige functies, zoals de integratie van virtuele netwerken, verificatie van derden van Azure Active Directory of Kudu-site-extensies, zijn nog niet beschikbaar. Wanneer deze functies beschikbaar zijn, worden de documentatie en de blog over de wijzigingen bijgewerkt.
+Sommige functies, zoals de integratie van virtuele netwerken, verificatie van derden van Azure Active Directory of Kudu-site-extensies, zijn nog niet beschikbaar. Zodra deze functies beschikbaar zijn, worden de documentatie en de blog over de wijzigingen bijgewerkt.
 
 App Service onder Linux wordt alleen ondersteund met de app-serviceplannen [Basic en Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) en heeft geen [Free- of Shared-](https://azure.microsoft.com/pricing/details/app-service/plans/)laag. De volgende beperkingen zijn ook belangrijk voor App Service onder Linux:
 
@@ -90,7 +90,7 @@ U hebt toegang tot de SCM-site via **Geavanceerde hulpmiddelen** in het menu **O
 
 Zie de volgende koppelingen om aan de slag te gaan met App Service onder Linux. Vragen kunt u posten op [ons forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Een aangepaste Docker-installatiekopie uitvoeren voor Web App for Containers](quickstart-custom-docker-image.md)
+* [Een aangepaste Docker-installatiekopie uitvoeren voor Web App for Containers](quickstart-docker-go.md)
 * [.NET Core gebruiken in Azure App Service onder Linux](quickstart-dotnetcore.md)
 * [Ruby gebruiken in Azure App Service onder Linux](quickstart-ruby.md)
 * [Web App for Containers van Azure App Service: veelgestelde vragen](app-service-linux-faq.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-Script steekproef - maken van een Service Fabric-cluster | Microsoft Docs
-description: 'Azure PowerShell-Script voorbeeld: een drie-knooppunt test Service Fabric-cluster maken.'
+title: Azure PowerShell-voorbeeldscript - Een Service Fabric-cluster maken | Microsoft Docs
+description: 'Azure PowerShell-voorbeeldscript: een Service Fabric-testcluster met drie knooppunten maken.'
 services: service-fabric
 documentationcenter: 
 author: rwike77
@@ -12,46 +12,46 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 03348efa4ebdaed987df73756c6b57da0cc76fb5
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: fd94a5dd9630cc65dedc180cdfd7aafea83c4866
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-three-node-test-service-fabric-cluster"></a>Een drie-knooppunt test Service Fabric-cluster maken
+# <a name="create-a-three-node-test-service-fabric-cluster"></a>Een Service Fabric-testcluster met drie knooppunten maken
 
-Dit voorbeeldscript wordt een drie-knooppunt test Service Fabric-cluster beveiligd met een X.509-certificaat gemaakt. De configuratie van het cluster drie knooppunt wordt ondersteund voor het ontwikkelen en testen omdat kunt u veilig uitvoeren van upgrades en afzonderlijke knooppuntfouten overleven (zolang ze niet tegelijkertijd uitgevoerd). Productiecluster vijf of meer knooppunten zijn vereist om gelijktijdige fouten netwerkfouten.  
+Met dit voorbeeldscript wordt een Service Fabric-testcluster met drie knooppunten gemaakt dat wordt beveiligd met een X.509-certificaat. De clusterconfiguratie met drie knooppunten wordt ondersteund voor ontwikkelen en testen omdat u veilig upgrades kunt uitvoeren en uitvallen van knooppunten kunt overleven (zolang ze niet tegelijk uitvallen). Productieclusters moeten vijf of meer knooppunten hebben om bestand te zijn tegen gelijktijdig uitvallen van knooppunten.  
 
-De opdracht maakt u een zelfondertekend certificaat en geüpload naar een nieuwe sleutelkluis, die wordt gemaakt in dezelfde resourcegroep bevinden als het cluster. Het certificaat wordt ook gekopieerd naar een lokale map.  Stel de *-OS* parameter in om de versie van Windows of Linux die op de clusterknooppunten wordt uitgevoerd te kiezen.  Pas de parameters zo nodig aan.
+Met de opdracht maakt u een zelfondertekend certificaat dat wordt geüpload naar een nieuwe sleutelkluis, die wordt gemaakt in dezelfde resourcegroep als het cluster. Het certificaat wordt ook gekopieerd naar een lokale map.  Stel de *-OS* parameter in om de versie van Windows of Linux die op de clusterknooppunten wordt uitgevoerd te kiezen.  Pas de parameters zo nodig aan.
 
-Installeer zo nodig de Azure PowerShell met de instructie gevonden in de [Azure PowerShell handleiding](/powershell/azure/overview) en voer vervolgens `Login-AzureRmAccount` geen verbinding maken met Azure. 
+Installeer zo nodig de Azure PowerShell volgens de instructies in de [Azure PowerShell handleiding](/powershell/azure/overview) en voer vervolgens `Login-AzureRmAccount` uit om verbinding maken met Azure. 
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
 [!code-powershell[main](../../../powershell_scripts/service-fabric/create-test-cluster/create-test-cluster.ps1 "Create a test Service Fabric cluster")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht om te verwijderen van de resourcegroep, cluster en alle gerelateerde resources worden gebruikt.
+Nadat het voorbeeldscript is uitgevoerd, kan de volgende opdracht worden gebruikt om de resourcegroep, het cluster en alle gerelateerde resources te verwijderen.
 
 ```powershell
 $groupname="mysfclustergroup"
 Remove-AzureRmResourceGroup -Name $groupname -Force
 ```
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel is een koppeling naar specifieke documentatie over de opdracht.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Nieuwe AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Maakt een nieuwe Service Fabric-cluster. |
+| [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Hiermee wordt een nieuw Service Fabric-cluster gemaakt. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).
+Zie voor meer informatie over de Azure PowerShell-module de [documentatie van Azure PowerShell](/powershell/azure/overview).
 
-Aanvullende voorbeelden van de Azure Powershell voor Azure Service Fabric vindt u in de [voorbeelden van Azure PowerShell](../service-fabric-powershell-samples.md).
+Meer voorbeelden voor Azure Powershell voor Azure Service Fabric vindt u in de [voorbeelden van Azure PowerShell](../service-fabric-powershell-samples.md).
