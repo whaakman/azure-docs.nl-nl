@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 803d9e9ea7411c6de4dd15670f495fa8e169a989
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Concept gebruiken met Azure Containerservice (AKS)
 
@@ -27,28 +27,7 @@ Bij de stappen die in dit document worden uiteengezet, wordt ervan uitgegaan dat
 
 U moet ook een persoonlijke Docker-register in Azure Container register (ACR). Zie voor instructies over het implementeren van een ACR-exemplaar de [Quick Start Azure Container register][acr-quickstart].
 
-## <a name="install-helm"></a>Helm installeren
-
-De CLI Helm is een client die wordt uitgevoerd op uw ontwikkelsysteem en kunt u starten, stoppen en beheren van toepassingen met Helm grafieken.
-
-U kunt de CLI Helm installeren op een Mac met `brew`. Zie voor aanvullende installatie-opties, [Helm installeren][install-helm].
-
-```console
-brew install kubernetes-helm
-```
-
-Uitvoer:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
-```
+Helm moet ook worden geïnstalleerd in uw cluster AKS. Zie voor meer informatie over het installeren van helm [Helm voor gebruik met Azure Container Service (AKS)][aks-helm].
 
 ## <a name="install-draft"></a>Concept installeren
 
@@ -227,13 +206,13 @@ In eerste instantie de *extern IP-* voor de service wordt weergegeven als `pendi
 deadly-squid-java   10.0.141.72   <pending>     80:32150/TCP   14m
 ```
 
-Nadat u het externe IP-adres is gewijzigd van `pending` naar een `IP address`, gebruik `Control+C` het proces van de controle kubectl te stoppen.
+Zodra het EXTERNE IP-adres is gewijzigd van `pending` in een `IP address`, gebruikt u `Control+C` om het controleproces van kubectl te stoppen.
 
 ```
 deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
 ```
 
-Overzicht van de toepassing, blader naar het externe IP-adres.
+Als u de toepassing wilt zien, bladert u naar het externe IP-adres.
 
 ```console
 curl 52.175.224.118
@@ -307,10 +286,10 @@ Zie voor meer informatie over het gebruik van concept, de ontwerp-documentatie o
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
 [install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
-[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
-[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-helm]: ./kubernetes-helm.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

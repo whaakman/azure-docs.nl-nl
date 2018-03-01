@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Problemen oplossen en het oplossen van problemen met apparaat
 
@@ -58,6 +58,8 @@ Om te bevestigen op de waarschuwing, selecteer de **waarschuwing voorvallen** en
 
 ![De alarmen bevestigen](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
+Wanneer u het alarm erkent, de status van de instantie moet worden gewijzigd in **bevestigd**.
+
 In de lijst ziet u de **Prototype** verantwoordelijk voor het starten van het alarm temperatuur apparaat:
 
 ![Lijst van de apparaten waardoor het alarm](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
@@ -84,7 +86,7 @@ Als u wilt weergeven in de details van een bepaalde taak of methodeaanroep, kies
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie we u laten zien hoe naar:
+In deze zelfstudie hebt u gezien hoe:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

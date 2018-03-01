@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Overwegingen voor virtuele Machines in Azure Stack
 
@@ -41,19 +41,25 @@ Virtuele machines zijn op aanvraag, schaalbare computerbronnen die worden aangeb
 |Virtuele-machineschaalsets|Automatisch geschaald ondersteund|Automatisch geschaald niet ondersteund.<br>Meer exemplaren toevoegen aan een schaal ingesteld met de portal, Resource Manager-sjablonen of PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Grootten van virtuele machines
+Azure legt limieten op verschillende manieren om te voorkomen dat overmatig van resources (lokale en serviceniveau-server). De ervaring voor de tenant kunt celinhoud sommige limieten van een verbruik tenants van resource afnemen wanneer een ruis neighbor overconsumes resources. 
+- Voor netwerken uitgaande van de virtuele machine zijn er bandbreedte caps aanwezig. Hoofdletters in Azure-Stack overeen met de caps in Azure.  
+- Voor opslagbronnen implementeert Azure Stack IOPs opslaglimieten om te voorkomen dat basic overmatig van bronnen door tenants voor toegang tot opslag. 
+- Voor virtuele machines met meerdere schijven van de bijgesloten gegevens is de maximale doorvoer van elke afzonderlijke gegevensschijf 500 IOPS aan voor HHDs en 2300 IOPS voor SSD's.
 
-Azure-Stack ondersteunt de volgende grootten:
+De volgende tabel bevat de virtuele machines die worden ondersteund op Azure-Stack samen met hun configuratie:
 
-| Type | Grootte | Aantal ondersteunde formaten |
-| --- | --- | --- |
-|Algemeen doel |Basic A|A0 - A4|
-|Algemeen doel |Standard A|A0 - A7|
-|Algemeen doel |D-serie|D1 - D4|
-|Algemeen doel |Dv2-serie|D1_v2 - D5_v2|
-|Algemeen doel |DS-serie|DS1 - DS4|
-|Algemeen doel |DSv2-serie|DS1_v2 - DS5_v2|
-|Geoptimaliseerd geheugen|DS-serie|DS11 - DS14|
-|Geoptimaliseerd geheugen |DSv2-serie|DS11_v2 - DS14_v2|
+| Type           | Grootte          | Aantal ondersteunde formaten |
+| ---------------| ------------- | ------------------------ |
+|Algemeen doel |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Algemeen doel |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|Algemeen doel |D-serie       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|Algemeen doel |Dv2-serie     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Algemeen doel |DS-serie      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Algemeen doel |DSv2-serie    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Geoptimaliseerd geheugen|D-serie       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|Geoptimaliseerd geheugen|DS-serie      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Geoptimaliseerd geheugen|Dv2-serie     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Geoptimaliseerd geheugen|DSv2-series -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 Grootte van virtuele machines en hun bijbehorende resource hoeveelheden zijn consistent met de Azure-Stack en Azure. Deze consistentie bevat bijvoorbeeld de hoeveelheid geheugen, het aantal kernen en nummer of grootte van gegevensschijven dat kan worden gemaakt. Prestaties van de hetzelfde VM-grootte in Azure-Stack is afhankelijk van de onderliggende kenmerken van een bepaalde Azure Stack-omgeving.
 
