@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/11/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fe5717b6dece6c6d03586045fb5fa0ccadd5e262
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b676898cca7e5c80d6ba872e76a9effdb852bfff
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry implementeren en gebruiken
 
@@ -30,7 +30,7 @@ In volgende zelfstudies wordt dit ACR-exemplaar geïntegreerd met een Kubernetes
 
 In de [vorige zelfstudie][aks-tutorial-prepare-app] hebt u een containerinstallatiekopie voor een eenvoudige Azure Voting-toepassing gemaakt. Als u niet de installatiekopie voor de Azure Voting-toepassing hebt gemaakt, ga dan terug naar [Zelfstudie 1: Containerinstallatiekopieën maken][aks-tutorial-prepare-app].
 
-Voor deze zelfstudie moet u de versie Azure CLI 2.0.21 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+Voor deze zelfstudie moet u de versie Azure CLI 2.0.27 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
 ## <a name="deploy-azure-container-registry"></a>Azure Container Registry implementeren
 
