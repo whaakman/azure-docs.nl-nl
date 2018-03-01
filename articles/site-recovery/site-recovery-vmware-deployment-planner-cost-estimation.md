@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/28/2017
+ms.date: 02/22/2018
 ms.author: nisoneji
-ms.openlocfilehash: 36309eb85244435a853013448c83d125420c001c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0a4d8958c0bbbe8b0242bfe8943d01ef66afec74
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapport met kostenramingen van de Azure Site Recovery-implementatieplanner  
 
@@ -154,7 +154,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Ondersteunde valuta's
 Met Azure Site Recovery Deployment Planner kunt u het kostenrapport genereren met een van de volgende valuta's.
 
-|Valuta|Naam||Valuta|Naam||Valuta|Naam|
+|Valuta|Name||Valuta|Name||Valuta|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|Argentijnse peso ($)||AUD|Australische dollar ($)||BRL|Braziliaanse real (R$)|
 |CAD|Canadese dollar ($)||CHF|Zwitserse frank. (chf)||DKK|Deense kroon (kr)|

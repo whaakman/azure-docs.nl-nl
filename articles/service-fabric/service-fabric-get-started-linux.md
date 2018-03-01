@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/5/2018
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: b39a5790e5a2ef5483428842b537e0189f5f2b32
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20239acba46996ed7ec84a2fbaf300190deebc7f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Uw ontwikkelomgeving voorbereiden in Linux
 > [!div class="op_single_selector"]
@@ -230,6 +230,7 @@ sudo apt-get install -f
 * [Een Linux-ontwikkelomgeving voorbereiden in Windows](service-fabric-local-linux-cluster-windows.md)
 * [De Service Fabric-CLI gebruiken voor het beheren van uw toepassingen](service-fabric-application-lifecycle-sfctl.md)
 * [Verschillen tussen Service Fabric in Windows en Linux](service-fabric-linux-windows-differences.md)
+* [Besturingssysteempatches automatiseren in uw Linux-cluster](service-fabric-patch-orchestration-application-linux.md)
 * [Aan de slag met Service Fabric-CLI](service-fabric-cli.md)
 
 <!-- Links -->

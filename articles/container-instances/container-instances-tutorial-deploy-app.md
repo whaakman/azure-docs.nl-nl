@@ -1,84 +1,86 @@
 ---
-title: Zelfstudie voor Azure Containerexemplaren - app implementeren
-description: Zelfstudie voor Azure Containerexemplaren deel 3 van 3 - toepassing implementeren
+title: Zelfstudie voor Azure Container Instances - App implementeren
+description: Zelfstudie voor Azure Container Instances deel 3 van 3 - App implementeren
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 01/02/2018
+ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 471caa1b24dc7017c70782c072b2068f9635244b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 99bd03bf4c3ca2d7b1ced51ebfe8be669f271c1c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-container-to-azure-container-instances"></a>Een container implementeren naar Azure Containerexemplaren
+# <a name="deploy-a-container-to-azure-container-instances"></a>Een container implementeren in Azure Container Instances
 
-Dit is de laatste zelfstudie in een reeks drie delen. Eerder in de reeks [is gemaakt met een installatiekopie van een container](container-instances-tutorial-prepare-app.md) en [naar een Azure Container Registry gepusht](container-instances-tutorial-prepare-acr.md). In dit artikel is de zelfstudie reeks voltooid door het implementeren van de container op exemplaren van Azure-Container.
+Dit is de laatste zelfstudie in een reeks van drie. U hebt eerder [een containerinstallatiekopie gemaakt](container-instances-tutorial-prepare-app.md) en [gepusht naar een Azure Container Registry](container-instances-tutorial-prepare-acr.md). In dit artikel wordt de zelfstudie afgerond door de container te implementeren in Azure Container Instances.
 
 In deze zelfstudie hebt u:
 
 > [!div class="checklist"]
-> * De container van het Azure-Container register met de Azure CLI implementeren
-> * De toepassing in de browser weergeven
-> * Bekijk de logboeken van de container
+> * De container van de Azure Container Registry implementeren met behulp van de Azure CLI
+> * De toepassing in de browser bekijken
+> * De containerlogboeken bekijken
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Deze zelfstudie vereist dat u de Azure CLI versie 2.0.23 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [2.0 voor Azure CLI installeren][azure-cli-install].
+Voor deze zelfstudie moet u de versie Azure CLI 2.0.27 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
-Voor deze zelfstudie hebt voltooid, moet u een Docker-ontwikkelomgeving die lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker op elke configureren [Mac][docker-mac], [Windows][docker-windows], of [Linux] [ docker-linux] system.
+Er moet lokaal een Docker-ontwikkelomgeving zijn geïnstalleerd om deze zelfstudie te voltooien. Docker biedt pakketten die eenvoudig Docker configureren op elk [Mac][docker-mac]-, [Windows][docker-windows]- of [Linux][docker-linux]-systeem.
 
-Azure Cloud-Shell is dan de Docker-onderdelen die nodig zijn voor het voltooien van elke stap in deze zelfstudie niet opgenomen. U moet de Azure CLI en Docker-ontwikkelomgeving installeren op uw lokale computer om deze zelfstudie te voltooien.
+Azure Cloud Shell bevat niet de vereiste Docker-onderdelen die nodig zijn om elke stap in deze zelfstudie te voltooien. U moet Azure CLI en de Docker-ontwikkelomgeving op uw lokale computer installeren om deze zelfstudie te voltooien.
 
-## <a name="deploy-the-container-using-the-azure-cli"></a>De container met de Azure CLI implementeren
+## <a name="deploy-the-container-using-the-azure-cli"></a>De container implementeren met behulp van de Azure CLI
 
-De Azure CLI kunt de implementatie van een container voor exemplaren van Azure-Container in één opdracht. Omdat de container-installatiekopie wordt gehost in het persoonlijke Azure-Container register, moet u de referenties voor toegang tot dit opnemen. De referenties met de volgende Azure CLI-opdrachten ophalen.
+Dankzij de Azure CLI kan een container met één opdracht worden geïmplementeerd in Azure Container Instances. Aangezien de containerinstallatiekopie wordt gehost in de persoonlijke Azure Container Registry, moet u de referenties opnemen die vereist zijn om hier toegang toe te krijgen. Haal de referenties op met de volgende Azure CLI-opdrachten.
 
-Container register login-server (update met de registernaam van uw):
+Aanmeldingsserver van containerregister (werk bij met de naam van uw register):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Container register wachtwoord:
+Wachtwoord van containerregister:
 
 ```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Voer de volgende opdracht voor het implementeren van uw installatiekopie container uit het register van de container met een resource-aanvraag van het CPU-kern 1 en 1 GB geheugen. Vervang `<acrLoginServer>` en `<acrPassword>` met de waarden die u hebt ontvangen van de vorige twee opdrachten.
+Voer de volgende opdracht uit om de containerinstallatiekopie van het containerregister te implementeren met een resource-aanvraag van 1 CPU-kern en 1 GB geheugen. Vervang `<acrLoginServer>` en `<acrPassword>` door de waarden die u hebt opgehaald met de vorige twee opdrachten. Vervang `<acrName>` door de naam van het containerregister.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-Binnen enkele seconden, moet u een initiële reactie ontvangen van Azure Resource Manager. U kunt de status van de implementatie weergeven, met [az container weergeven][az-container-show]:
+Binnen een paar seconden zou u een eerste reactie moeten ontvangen van Azure Resource Manager. De waarde `--dns-name-label` moet uniek zijn voor de Azure-regio waar u de containerinstallatiekopie maakt. Werk de waarde in het vorige voorbeeld bij als u een foutbericht over het **DNS-naamlabel** krijgt wanneer u de opdracht uitvoert.
+
+Gebruik [az container show][az-container-show] om de status van de implementatie te bekijken:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-Herhaal de [az container weergeven] [ az-container-show] opdracht totdat de status van verandert *in behandeling* naar *met*, die minder dan een minuut duren. Wanneer de container is *met*, gaat u verder met de volgende stap.
+Herhaal de opdracht [az container show][az-container-show] totdat de status verandert van *In behandeling* in *Wordt uitgevoerd*. Als het goed is, duurt dit minder dan een minuut. Wanneer de container de status *Wordt uitgevoerd* heeft, gaat u verder met de volgende stap.
 
-## <a name="view-the-application-and-container-logs"></a>Bekijk de logboeken toepassingen en container
+## <a name="view-the-application-and-container-logs"></a>De toepassings- en containerlogboeken bekijken
 
-Zodra de implementatie is geslaagd, weergegeven van de container openbaar IP-adres met de [az container weergeven] [ az-container-show] opdracht:
+Wanneer de implementatie is geslaagd, geeft u de volledig gekwalificeerde domeinnaam (FQDN) van de container weer met de opdracht [az container show][az-container-show]:
 
 ```bash
-az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Voorbeeld van uitvoer:`"13.88.176.27"`
+Voorbeelduitvoer: `"aci-demo.eastus.azurecontainer.io"`
 
-Overzicht van de actieve toepassing, gaat u naar het openbare IP-adres in uw favoriete browser.
+Als u de actieve toepassing wilt bekijken, navigeert u in uw browser naar de weergegeven DNS-naam:
 
-![Hallo wereld-app in de browser][aci-app-browser]
+![Hello world-app in browser][aci-app-browser]
 
-U kunt ook de uitvoer van de container bekijken:
+U kunt ook de logboekuitvoer van de container bekijken:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name aci-tutorial-app
@@ -94,7 +96,7 @@ listening on port 80
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u niet langer de bronnen die u in deze zelfstudie reeks hebt gemaakt, kunt u uitvoeren de [az groep verwijderen] [ az-group-delete] opdracht om te verwijderen van de resourcegroep en alle resources die deze bevat. Deze opdracht verwijdert u de container-registersleutel die u hebt gemaakt, evenals de actieve container en alle gerelateerde resources.
+Als u de resources die u in de zelfstudiereeks hebt gemaakt, niet langer nodig hebt, kunt u de opdracht [az group delete][az-group-delete] uitvoeren om de resourcegroep en alle resources daarin te verwijderen. Met deze opdracht verwijdert u het containerregister dat u hebt gemaakt, evenals de actieve container en alle gerelateerde resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -102,12 +104,12 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt voltooid u het proces voor het implementeren van uw containers op Azure Containerexemplaren. De volgende stappen zijn voltooid:
+In deze zelfstudie hebt u het proces voor het implementeren van uw containers naar Azure Container Instances doorlopen. De volgende stappen zijn voltooid:
 
 > [!div class="checklist"]
-> * De container van het Azure-Container register met de Azure CLI geïmplementeerd
-> * De toepassing weergegeven in de browser.
-> * De logboeken van de container weergegeven
+> * De container van de Azure Container Registry implementeren met behulp van de Azure CLI
+> * De toepassing in de browser bekijken
+> * De containerlogboeken ophalen
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
