@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9212e2a0063446cc6f1fd5faeb7ee61888fc0ecf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Een PHP- en MySQL-web-app maken in Azure App Service in Linux
 
@@ -32,7 +32,7 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een MySQL-database in Azure maken
-> * Een Python-app verbinden met MySQL
+> * Een PHP-app verbinden met MySQL
 > * De app implementeren in Azure
 > * Het gegevensmodel bijwerken en de app opnieuw implementeren
 > * Logboeken met diagnostische gegevens vanaf Azure streamen
@@ -62,13 +62,13 @@ Maak in een terminalvenster verbinding met uw lokale MySQL-server. U kunt dit te
 mysql -u root -p
 ```
 
-Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord in voor het account `root`. Als u het wachtwoord van uw rootaccount niet meer weet, bekijkt u [MySQL: het opnieuw instellen van het hoofdwachtwoord](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord in voor het `root`-account. Als u het wachtwoord van uw rootaccount niet meer weet, bekijkt u [MySQL: het opnieuw instellen van het hoofdwachtwoord](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 Als uw opdracht succesvol is uitgevoerd, wordt uw MySQL-server uitgevoerd. Als dit niet het geval is, zorgt u ervoor dat de lokale MySQL-server is gestart door de [Stappen na installatie van MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) te volgen.
 
 ### <a name="create-a-database-locally"></a>Lokaal een database maken
 
-Op de prompt `mysql` maakt u een database.
+Maak een database bij de prompt `mysql`.
 
 ```sql 
 CREATE DATABASE sampledb;
@@ -95,7 +95,7 @@ Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen.
 git clone https://github.com/Azure-Samples/laravel-tasks
 ```
 
-`cd` naar de gekloonde adreslijst.
+`cd` naar de gekloonde map.
 Installeer de vereiste pakketten.
 
 ```bash
@@ -206,7 +206,7 @@ Gebruik _$tr0ngPa$w0rd!_, dat u hebt opgegeven toen u de databaseserver maakte, 
 
 ### <a name="create-a-production-database"></a>Maak een productiedatabase
 
-Op de prompt `mysql` maakt u een database.
+Maak een database bij de prompt `mysql`.
 
 ```sql
 CREATE DATABASE sampledb;
@@ -253,7 +253,7 @@ MYSQL_SSL=true
 Sla de wijzigingen op.
 
 > [!TIP]
-> Dit bestand is voor het beveiligen van uw MySQL-verbindingsgegevens al uitgesloten van de Git-opslagplaats (Zie _.gitignore_ in de hoofdmap van de opslagplaats). Later leert u hoe u omgevingsvariabelen in App Service configureert om verbinding te maken met uw database in Azure Database for MySQL (Preview). Met omgevingsvariabelen heeft u het *.env*-bestand in App Service niet nodig.
+> Dit bestand is voor het beveiligen van uw MySQL-verbindingsgegevens al uitgesloten van de Git-opslagplaats (zie _.gitignore_ in de hoofdmap van de opslagplaats). Later leert u hoe u omgevingsvariabelen in App Service configureert om verbinding te maken met uw database in Azure Database for MySQL (Preview). Met omgevingsvariabelen heeft u het *.env*-bestand in App Service niet nodig.
 >
 
 ### <a name="configure-ssl-certificate"></a>SSL-certificaat configureren
@@ -276,7 +276,7 @@ Het certificaat `BaltimoreCyberTrustRoot.crt.pem` is voor uw gemak in deze zelfs
 
 ### <a name="test-the-application-locally"></a>De toepassing lokaal testen
 
-Voer Rails-databasemigraties uit met _.env.production_ als het omgevingsbestand om de tabellen te maken in de MySQL-database in Azure Database for MySQL (Preview). Vergeet niet dat _. env.production_ de verbindingsgegevens heeft voor uw MySQL-database in Azure.
+Voer Laravel-databasemigraties uit met _.env.production_ als het omgevingsbestand om de tabellen te maken in uw MySQL-database in Azure Database for MySQL (Preview). Vergeet niet dat _. env.production_ de verbindingsgegevens heeft voor uw MySQL-database in Azure.
 
 ```bash
 php artisan migrate --env=production --force
@@ -320,7 +320,7 @@ In deze stap implementeert u de met MySQL verbonden PHP-toepassing naar Azure Ap
 De toepassing Laravel wordt gestart in de map _/public_. De standaardinstallatiekopie van PHP Docker voor App Service maakt gebruik van Apache, dit laat u de `DocumentRoot` niet aanpassen voor Laravel. U kunt echter `.htaccess` gebruiken om alle aanvragen te herschrijven, zodat zij verwijzen naar _/openbaar_ in plaats van naar de hoofdmap. In de hoofdmap van de opslagplaats is voor dit doel al een `.htaccess` toegevoegd. Uw Laravel-toepassing is hiermee gereed om te worden geïmplementeerd.
 
 > [!NOTE] 
-> Als u echter liever niet _.htaccess_ herschrijft, kunt u uw Laravel-toepassing in plaats daarvan met een [aangepaste Docker-installatiekopie](quickstart-custom-docker-image.md) implementeren.
+> Als u echter liever niet _.htaccess_ herschrijft, kunt u uw Laravel-toepassing in plaats daarvan met een [aangepaste Docker-installatiekopie](quickstart-docker-go.md) implementeren.
 >
 >
 
@@ -375,7 +375,7 @@ Stel de toepassingssleutel in de App Service-web-app in met behulp van de opdrac
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"` geeft Laravel de opdracht foutopsporingsinformatie te retourneren wanneer de geïmplementeerde web-app fouten tegenkomt. Als een productietoepassing wordt uitgevoerd, stelt u deze in op `false`, dat is veiliger.
+`APP_DEBUG="true"` geeft Laravel de opdracht foutopsporingsinformatie te retourneren wanneer de geïmplementeerde web-app fouten tegenkomt. Als een productietoepassing wordt uitgevoerd, stelt u deze in op `false`, wat een veiliger optie is.
 
 ### <a name="push-to-azure-from-git"></a>Pushen naar Azure vanaf Git
 
@@ -412,10 +412,10 @@ remote: Running deployment command...
 > U merkt dat het implementatieproces aan het einde [Composer](https://getcomposer.org/)-pakketten installeert. In App Service worden deze automatische taken tijdens de standaardimplementatie niet uitgevoerd, dus bevat deze voorbeeldopslagplaats drie extra bestanden in de hoofdmap om deze in te schakelen:
 >
 > - `.deployment` - Dit bestand draagt App Service op om `bash deploy.sh` uit te voeren als het aangepaste implementatiescript.
-> - `deploy.sh` - Het aangepaste implementatiescript. Als u het bestand bekijkt, ziet u dat `php composer.phar install` wordt uitgevoerd na `npm install`.
+> - `deploy.sh`: het aangepaste implementatiescript. Als u het bestand bekijkt, ziet u dat `php composer.phar install` wordt uitgevoerd na `npm install`.
 > - `composer.phar` - Het Composer-pakketbeheer.
 >
-> U kunt deze aanpak gebruiken om een stap toe te voegen aan de op Git gebaseerde implementatie naar App Service. Zie voor meer informatie het [Script voor aangepaste implementatie](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+> U kunt deze aanpak gebruiken om een stap toe te voegen aan de op Git gebaseerde implementatie naar App Service. Zie het [Script voor aangepaste implementatie](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) voor meer informatie.
 >
 
 ### <a name="browse-to-the-azure-web-app"></a>Bladeren naar de Azure-web-app
@@ -424,7 +424,7 @@ Blader naar `http://<app_name>.azurewebsites.net` en voeg een paar taken toe aan
 
 ![PHP-app uitgevoerd in Azure App Service](./media/tutorial-php-mysql-app/php-mysql-in-azure.png)
 
-Gefeliciteerd, u voert een gegevensgestuurde PHP-app uit in Azure App Service.
+U voert nu een gegevensgestuurde PHP-app uit in Azure App Service.
 
 ## <a name="update-model-locally-and-redeploy"></a>Het model lokaal bijwerken en opnieuw implementeren
 
@@ -509,13 +509,13 @@ Open het bestand *resources/views/tasks.blade.php*. Zoek de `<tr>`-openingstag e
 
 De bovenstaande code verandert de rijkleur, afhankelijk van of de taak voltooid is.
 
-U hebt de volgende code in de volgende regel:
+U hebt de volgende code in deze regel:
 
 ```html
 <td class="table-text"><div>{{ $task->name }}</div></td>
 ```
 
-Vervang de gehele rij door de volgende code:
+Vervang de gehele regel door de volgende code:
 
 ```html
 <td>
@@ -566,7 +566,7 @@ Zodra `git push` voltooid is, gaat u naar de Azure-web-app en probeert u de nieu
 
 ![In Azure gepubliceerde model- en databasewijzigingen](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
-Als u taken heeft toegevoegd, worden deze in de database bewaard. Als u het schema bijwerkt, blijven bestaande gegevens intact.
+Als u taken hebt toegevoegd, worden deze in de database bewaard. Als u het schema bijwerkt, blijven bestaande gegevens intact.
 
 ## <a name="manage-the-azure-web-app"></a>De Azure-web-app beheren
 
@@ -592,7 +592,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Een MySQL-database in Azure maken
-> * Een Python-app verbinden met MySQL
+> * Een PHP-app verbinden met MySQL
 > * De app implementeren in Azure
 > * Het gegevensmodel bijwerken en de app opnieuw implementeren
 > * Logboeken met diagnostische gegevens vanaf Azure streamen
