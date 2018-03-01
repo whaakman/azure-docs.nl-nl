@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8c6dbc507cd1b79fe9424071bc3eb8bf24331a16
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Exchange AS2-berichten voor enterprise-integratie met logic apps
 
@@ -40,23 +40,22 @@ Nadat u [maken van een account integratie](../logic-apps/logic-apps-enterprise-i
 
 1.  Meld u aan bij [Azure Portal](http://portal.azure.com "Azure Portal").  
 
-2.  Selecteer in het menu links **alle services**. Voer in het zoekvak **integratie** als filter. Selecteer in de lijst met resultaten **Integratieaccounts**.
+2. Selecteer op het Azure hoofdmenu **alle services**. Voer in het zoekvak "-integratie" en selecteer vervolgens **integratieaccounts**.
 
-    > [!TIP]
-    > Als er geen **alle services**, mogelijk moet u eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **weergeven in het menu**.
+   ![Uw account integratie vinden](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
-    ![Alle services, filter op "-integratie", selecteren "Integratieaccounts"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   > [!TIP]
+   > Als er geen **alle services**, mogelijk moet u eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **tekstlabels weergeven**.
 
-3. In de **Integratieaccounts** blade die wordt geopend, selecteert u de integratie-account waarin u wilt maken van de overeenkomst.
-Als er geen eventuele integratieaccounts [maken van een eerste](../logic-apps/logic-apps-enterprise-integration-accounts.md "alles over integratieaccounts").  
+3. Onder **Integratieaccounts**, selecteert u de integratie account waar u wilt maken van de overeenkomst.
 
-    ![Wanneer u de overeenkomst voor de integratie-account selecteren](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Wanneer u de overeenkomst voor de integratie-account selecteren](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
 4. Kies de **overeenkomsten** tegel. Als u een tegel overeenkomsten geen hebt, eerst de tegel toevoegen.
 
     ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. Kies in de blade van de overeenkomsten die wordt geopend, **toevoegen**.
+5. Onder **overeenkomsten**, kies **toevoegen**.
 
     ![Kies 'Add'](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
@@ -166,13 +165,13 @@ Uw overeenkomst is nu gereed voor het verwerken van uitgaande berichten die aan 
 
 ## <a name="find-your-created-agreement"></a>De overeenkomst zoeken
 
-1.  Als u klaar bent met het instellen van alle uw overeenkomst-eigenschappen op de **toevoegen** blade kiezen **OK** maken van uw overeenkomst is voltooid en Ga terug naar de blade van het integratie-account.
+1. Als u klaar bent met het instellen van alle uw overeenkomst-eigenschappen op de **toevoegen** pagina **OK** te maken van uw overeenkomst voltooien en keer terug naar uw account integratie.
 
     Nu uw toegevoegde overeenkomst wordt weergegeven in uw **overeenkomsten** lijst.
 
-2.  U kunt ook uw overeenkomsten weergeven in uw Accountoverzicht integratie. Kies op de blade van het integratie-account **overzicht**, selecteer vervolgens de **overeenkomsten** tegel. 
+2. U kunt ook uw overeenkomsten weergeven in uw Accountoverzicht integratie. Kies in het menu van de account integratie **overzicht**, selecteer vervolgens de **overeenkomsten** tegel. 
 
-    ![Kies 'Overeenkomsten' tegel om weer te geven van alle overeenkomsten](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
+   ![Kies 'Overeenkomsten' tegel om weer te geven van alle overeenkomsten](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>De swagger weergeven
 Zie de [swagger details](/connectors/as2/). 

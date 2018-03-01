@@ -1,8 +1,11 @@
+# [Documentatie voor Azure AD Domain Services](index.md)
+
 # Overzicht
 ## [Wat is Azure AD Domain Services?](active-directory-ds-overview.md)
 ## Is dit geschikt voor u?
 ### [Vergelijken met Windows Server AD](active-directory-ds-comparison.md)
 ### [Vergelijken met Azure AD Join](active-directory-ds-compare-with-azure-ad-join.md)
+## [Nieuwe functies](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Functies](active-directory-ds-features.md)
 ## [Scenario's](active-directory-ds-scenarios.md)
 ## [Hoe synchronisatie werkt](active-directory-ds-synchronization.md)
@@ -16,6 +19,7 @@
 ## [Taak 5: Wachtwoordsynchronisatie inschakelen](active-directory-ds-getting-started-password-sync.md)
 
 # Procedures
+## [De status van een beheerd domein controleren](active-directory-ds-check-health.md)
 ## [Azure AD Domain Services gebruiken in Azure CSP-abonnementen](active-directory-ds-csp.md)
 ## [Azure AD Domain Services inschakelen met behulp van PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Een beheerd domein koppelen
@@ -28,7 +32,7 @@
 ## Een beheerd domein beheren
 ### [Een beheerd domein beheren](active-directory-ds-admin-guide-administer-domain.md)
 ### [DNS beheren in een beheerd domein](active-directory-ds-admin-guide-administer-dns.md)
-### [De status van uw domein controleren](active-directory-ds-check-health.md)
+
 ### Secure LDAP configureren voor een beheerd domein
 #### [Taak 1: Een certificaat voor Secure LDAP verkrijgen](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Taak 2: het certificaat voor Secure LDAP exporteren](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

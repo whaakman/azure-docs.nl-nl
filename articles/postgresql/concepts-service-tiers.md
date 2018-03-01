@@ -11,10 +11,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: 9de2d93735942903df9320741baadf2c934bd7ab
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure-Database voor PostgreSQL-opties en prestaties: inzicht in wat er beschikbaar is in elke prijscategorie
 Wanneer u een Azure-Database voor PostgreSQL-server maakt, besluit u over drie belangrijkste keuzes voor het configureren van de resources die voor die server toegewezen. Deze keuzes invloed hebben op de prestaties en schaalbaarheid van de server.
@@ -78,7 +78,7 @@ Rekenuren voor dat eenheden zijn een meting van CPU-verwerking doorvoer die besc
 | Server voor max. IOP's ingericht | 3000 IOP 'S | 3000 IOP 'S | 3000 IOP 'S | 3000 IOP 'S |
 | Server voor max. IOP's per GB ingericht | Vaste 3 IOP's per GB | Vaste 3 IOP's per GB | Vaste 3 IOP's per GB | Vaste 3 IOP's per GB |
 
-\*Grootte van de opslagruimte voor de maximale verwijst naar de maximum ingerichte opslagruimte voor uw server.
+\* Grootte van de opslagruimte voor de maximale verwijst naar de maximum ingerichte opslagruimte voor uw server.
 
 ## <a name="storage"></a>Storage 
 De opslagconfiguratie definieert de hoeveelheid beschikbare opslagcapaciteit naar een Azure-Database voor PostgreSQL-server. De opslag die wordt gebruikt door de service omvat de databasebestanden, tijdelijke bestanden, transactielogboeken en de serverlogboeken PostgreSQL. Houd rekening met de grootte van de opslag die nodig is voor het hosten van uw databases en de prestatie-eisen (IOPS) bij het selecteren van de opslagconfiguratie.

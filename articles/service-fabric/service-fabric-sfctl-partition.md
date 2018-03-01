@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 01dd1900fe765618e5da20bd289b9c3a021ea9a3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-partition"></a>sfctl partitie
+# <a name="sfctl-partition"></a>sfctl partition
 Doorzoeken en beheren van partities voor elke service.
 
 ## <a name="commands"></a>Opdrachten
@@ -48,7 +48,7 @@ Doorzoeken en beheren van partities voor elke service.
 Hiermee haalt u de status van de opgegeven Service Fabric-partitie.
 
 Hiermee haalt u de statusgegevens van de opgegeven partitie. EventsHealthStateFilter gebruiken voor het filteren van de verzameling van health-gebeurtenissen voor de service op basis van de status is gerapporteerd.
-ReplicasHealthStateFilter gebruiken voor het filteren van de verzameling van objecten ReplicaHealthState op de partitie. Als u een partitie die niet in het archief health bestaat opgeeft, retourneert deze cmdlet een fout opgetreden. .
+ReplicasHealthStateFilter gebruiken voor het filteren van de verzameling van objecten ReplicaHealthState op de partitie. Als u een partitie die niet in het archief health bestaat opgeeft, retourneert deze cmdlet een fout opgetreden.
 
 ### <a name="arguments"></a>Argumenten
 
@@ -101,7 +101,7 @@ Hiermee wordt de lijst met partities van een Service Fabric-service opgehaald. H
 
 |Argument|Beschrijving|
 | --- | --- |
-| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is 'fabric://myapp/app1/svc1', de service-identiteit zou zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
+| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is "fabric: / myapp/app1/svc1 ', de service-identiteit zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
 | --vervolgtoken| De token voortzetting-parameter wordt gebruikt voor het verkrijgen van de volgende set resultaten.         Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in een enkele antwoordthread passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep, retourneert de API volgende reeks resultaten. Als er geen verdere resultaten, bevat klikt u vervolgens het vervolgtoken geen waarde. De waarde van deze parameter mag geen URL zijn gecodeerd.|
 | --time-out -t        | Server time-out in seconden.  Standaard: 60.|
 
@@ -162,7 +162,7 @@ Hiermee wordt aangegeven met het Service Fabric-cluster dat deze proberen moet t
 ## <a name="sfctl-partition-restart"></a>sfctl partitie opnieuw opstarten
 Deze API wordt opnieuw opgestart enkele of alle replica's of exemplaren van de opgegeven partitie.
 
-Deze API is handig voor het testen van failover. Als gebruikt voor het doel van een partitie staatloze service, moet RestartPartitionMode AllReplicasOrInstances. De GetPartitionRestartProgress-API met behulp van de dezelfde OperationId ophalen van de voortgang van de aanroepen. .
+Deze API is handig voor het testen van failover. Als gebruikt voor het doel van een partitie staatloze service, moet RestartPartitionMode AllReplicasOrInstances. De GetPartitionRestartProgress-API met behulp van de dezelfde OperationId ophalen van de voortgang van de aanroepen.
 
 ### <a name="arguments"></a>Argumenten
 
@@ -170,8 +170,8 @@ Deze API is handig voor het testen van failover. Als gebruikt voor het doel van 
 | --- | --- |
 | --bewerking-id [vereist]| Een GUID die een aanroep van deze API identificeert.  Dit wordt doorgegeven in de bijbehorende GetProgress-API.|
 | --partitie-id [vereist]| De identiteit van de partitie.|
-| --opnieuw opstarten-partitie-modus [vereist]| -Ongeldige: gereserveerd.  Niet doorgegeven aan de API. -AllReplicasOrInstances - alle replica's of exemplaren in de partitie worden in één keer opnieuw gestart. -OnlyActiveSecondaries - alleen voor de secundaire replica's opnieuw worden gestart. .|
-| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is 'fabric://myapp/app1/svc1', de service-identiteit zou zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in de vorige v ersies vergelijken.|
+| --opnieuw opstarten-partitie-modus [vereist]| Beschrijven welke partities te starten.|
+| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam van de is "fabric: / myapp/app1/svc1 ', de service-identiteit zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in de vorige ve rsions.|
 | --time-out -t                    | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten

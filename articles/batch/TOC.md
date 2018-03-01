@@ -41,12 +41,12 @@
 ## [Toepassingspakketten maken](batch-application-packages.md)
 
 ## Pools maken en beheren
-### [Rekenknooppunten automatisch schalen](batch-automatic-scaling.md)
-### [Rekenintensieve VM's](batch-pool-compute-intensive-sizes.md)
+### [Compute-knooppunten automatisch schalen](batch-automatic-scaling.md)
+### [Rekenintensieve VM’s](batch-pool-compute-intensive-sizes.md)
 ### [Toegang tot rekenknooppunten configureren](pool-endpoint-configuration.md)
 ### [Een pool maken met een aangepaste installatiekopie](batch-custom-images.md)
 ### [Een pool in een virtueel netwerk maken](batch-virtual-network.md)
-### [Rekenknooppunten in Linux](batch-linux-nodes.md)
+### [Compute-knooppunten in Linux](batch-linux-nodes.md)
 ### [Virtuele machines met lage prioriteit](batch-low-pri-vms.md)
 
 ## Taken beheren
@@ -83,9 +83,9 @@
 
 ## [Azure-CLI](/cli/azure/batch)
 ## [Azure PowerShell](/powershell/module/azurerm.batch)
-## [.NET](/dotnet/api/microsoft.azure.batch)
-## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](/nodejs/api/overview/azure/batch)
+## [.NET](/dotnet/api/overview/azure/batch)
+## [Java](/java/api/overview/azure/batch)
+## [Node.js](/javascript/api/overview/azure/batch)
 ## [Python](/python/api/overview/azure/batch)
 ## REST
 ### [Batch-service](/rest/api/batchservice)
@@ -100,7 +100,6 @@
 ### [Gebeurtenis taak voltooid](batch-task-complete-event.md)
 ### [Gebeurtenis taak mislukt](batch-task-fail-event.md)
 ## [Omgevingsvariabelen Batch-rekenknooppunt](batch-compute-node-environment-variables.md)
-### [Resource Manager-sjabloon](/templates/microsoft.batch/batchaccounts)
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
@@ -110,6 +109,7 @@
 ## [HPC-oplossingen in Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/batch/)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
+## [Resource Manager-sjabloon](/azure/templates/microsoft.batch/batchaccounts)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=batch)

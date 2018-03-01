@@ -17,12 +17,12 @@
   items:
     - name: 1 - Gebruik en kosten controleren
       href: tutorial-review-usage.md
-    - name: 2 - Toegang tot gegevens beheren
-      href: tutorial-user-access.md
-    - name: 3 - Uitgaven voorspellen
+    - name: 2 - Uitgaven voorspellen
       href: tutorial-forecast-spending.md
-    - name: 4 - Kosten beheren
+    - name: 3 - Kosten beheren
       href: tutorial-manage-costs.md
+    - name: 4 - Toegang tot gegevens beheren
+      href: tutorial-user-access.md
 - name: Concepten
   items:
     - name: Inzicht krijgen in kostenrapporten

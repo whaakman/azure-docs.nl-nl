@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 02/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 9e714b1dc97fb12c2994537d33cefd98b5c9cf99
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: eca3f95b672a7334d77ac027b4774addf4efed2c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Apache Kafka met Storm op HDInsight gebruiken
 
@@ -172,7 +172,7 @@ Zie voor meer informatie over topologieën lichtstroom [https://storm.apache.org
     ```
 
     > [!IMPORTANT]
-    > Het Bash-voorbeeld wordt ervan uitgegaan dat `$CLUSTERNAME` bevat de naam van het HDInsight-cluster. Ook wordt ervan uitgegaan dat [jq](https://stedolan.github.io/jq/) is geïnstalleerd. Voer desgevraagd het wachtwoord voor de aanmeldingsaccount van het cluster.
+    > Het Bash-voorbeeld wordt ervan uitgegaan dat `$CLUSTERNAME` bevat de naam van het HDInsight-cluster. Ook wordt ervan uitgegaan dat [jq](https://stedolan.github.io/jq/) versie 1.5 of hoger is geïnstalleerd. Voer desgevraagd het wachtwoord voor de aanmeldingsaccount van het cluster.
 
     De waarde die het resultaat is vergelijkbaar met de volgende tekst:
 
@@ -218,7 +218,7 @@ Zie voor meer informatie over topologieën lichtstroom [https://storm.apache.org
 4. Sla de `dev.properties` -bestand en gebruikt u de volgende opdracht te uploaden naar de Storm-cluster:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Vervang **gebruikersnaam** met de SSH-gebruikersnaam voor het cluster. Vervang **BASENAME** met de basisnaam die u hebt gebruikt bij het maken van het cluster.
@@ -287,6 +287,9 @@ Zie voor meer informatie over topologieën lichtstroom [https://storm.apache.org
     Gebruik Ctrl + c drukken script wordt beëindigd.
 
 ## <a name="start-the-reader"></a>Start de lezer
+
+> [!NOTE]
+> Wanneer de lezer in de Storm-gebruikersinterface bekijkt, ziet u mogelijk een __topologie spouts lag fout__ sectie. In dit voorbeeld kunt u deze fout negeren.
 
 1. Gebruik de volgende opdracht om te starten van de topologie van de lezer van de SSH-sessie met het Storm-cluster:
 

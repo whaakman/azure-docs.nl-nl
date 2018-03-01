@@ -9,15 +9,15 @@
       href: model-management-overview.md
 - name: Snelstartgidsen
   items:
-    - name: Installeren en maken
+    - name: Installeren en starten
       href: quickstart-installation.md
 - name: Zelfstudies
   items:
     - name: 1 - Gegevens voorbereiden
       href: tutorial-classifying-iris-part-1.md
-    - name: 2 - Een model bouwen
+    - name: 2 - Modellen bouwen
       href: tutorial-classifying-iris-part-2.md
-    - name: 3 - Een model implementeren
+    - name: 3 - Modellen implementeren
       href: tutorial-classifying-iris-part-3.md
     - name: 4 - Geavanceerde gegevensvoorbereiding
       href: tutorial-bikeshare-dataprep.md

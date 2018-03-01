@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: e4d14f396b3a928975b671d10254cfbcc822a0d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a4d2ccb4b4ba27983537f26e66b5c279f427d466
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,9 +35,12 @@ U kunt gegevens van/naar Azure SQL Database kopiëren naar een ondersteunde sink
 
 In het bijzonder ondersteunt deze connector Azure SQL Database:
 
-- Kopiëren van gegevens via SQL-verificatie.
+- Kopiëren van gegevens met **SQL-verificatie**, en **Azure Active Directory-toepassing tokenverificatie** met Service-Principal of beheerde Service identiteit (MSI).
 - Als een bron ophalen van gegevens met behulp van SQL-query of een opgeslagen procedure.
 - Als sink, het toevoegen van gegevens naar de doeltabel of een opgeslagen procedure met aangepaste logica wordt aangeroepen tijdens het kopiëren.
+
+> [!IMPORTANT]
+> Als u gegevens met behulp van Azure integratie Runtime kopieert, configureert u [Azure SQL Server-Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) naar [toestaan van Azure Services voor toegang tot de server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Als u gegevens met behulp van Self-hosted integratie Runtime kopieert, moet u de firewall Azure SQL-Server zodat de juiste IP-adresbereik, met inbegrip van de machine IP die wordt gebruikt om verbinding met Azure SQL Database te configureren.
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -52,13 +55,21 @@ De volgende eigenschappen worden ondersteund voor Azure SQL Database gekoppeld-s
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **AzureSqlDatabase** | Ja |
-| connectionString |Geef informatie op die nodig zijn voor het verbinding maken met de Azure SQL Database-exemplaar voor de eigenschap connectionString. Alleen basisverificatie wordt ondersteund. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectionString |Geef informatie op die nodig zijn voor het verbinding maken met de Azure SQL Database-exemplaar voor de eigenschap connectionString. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| servicePrincipalId | Geef de toepassing client-ID. | Ja als u de AAD-verificatie met de Service-Principal. |
+| servicePrincipalKey | De sleutel van de toepassing opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja als u de AAD-verificatie met de Service-Principal. |
+| tenant | De tenant-gegevens (domain name of tenant-ID) opgeven onder uw toepassing zich bevindt. U kunt deze ophalen door de muis in de rechterbovenhoek van de Azure portal. | Ja als u de AAD-verificatie met de Service-Principal. |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
-> [!IMPORTANT]
-> Configureer [Azure SQL Database-Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) de databaseserver worden [toestaan van Azure Services voor toegang tot de server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Bovendien, als u gegevens naar Azure SQL Database van buiten Azure, met inbegrip van on-premises gegevensbronnen met data factory zelf gehoste integratie Runtime kopieert, juiste IP-adresbereik voor de machine die gegevens te naar Azure SQL verzenden is configureren De database.
+Voor andere verificatietypen, Zie de volgende secties over vereisten en JSON-voorbeelden respectievelijk:
 
-**Voorbeeld:**
+- [SQL-verificatie](#using-sql-authentication)
+- [Met behulp van AAD-toepassing tokenverificatie - service-principal](#using-service-principal-authentication)
+- [Met behulp van AAD-toepassing tokenverificatie - beheerde service-identiteit](#using-managed-service-identity-authentication)
+
+### <a name="using-sql-authentication"></a>SQL-verificatie
+
+**Voorbeeld van de gekoppelde service met behulp van SQL-verificatie:**
 
 ```json
 {
@@ -69,6 +80,113 @@ De volgende eigenschappen worden ondersteund voor Azure SQL Database gekoppeld-s
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-service-principal-authentication"></a>Met behulp van verificatie van de service-principal
+
+Volg deze stappen voor het gebruik van de service principal gebaseerde AAD-toepassing tokenverificatie:
+
+1. **[Een Azure Active Directory-toepassing maken vanuit Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Noteer de naam van de toepassing en de volgende waarden die u gebruikt voor het definiëren van de gekoppelde service:
+
+    - Toepassings-id
+    - Sleutel van toepassing
+    - Tenant-id
+
+2. **[Inrichten van een Azure Active Directory-beheerder](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  voor uw Azure SQL-Server op Azure-portal als u dit nog niet hebt gedaan. De AAD-beheerder moet een AAD-gebruiker of groep AAD, maar mag niet een service-principal. Deze stap is uitgevoerd, zodat in de volgende stap u een AAD-identiteit gebruiken kunt voor het maken van een ingesloten database-gebruiker voor de service principal.
+
+3. **Een ingesloten database-gebruiker maken voor de service-principal**, door verbinding te maken van de database van/naar die u wilt kopiëren van gegevens met behulp van hulpprogramma's zoals SSMS met een AAD identiteit met ten minste ALTER machtigingen en het uitvoeren van de volgende T-SQL. Meer informatie op de ingesloten databasegebruiker [hier](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your application name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **De service-principal de vereiste machtigingen verlenen** zoals u gewend voor SQL-gebruikers, bijvoorbeeld bent door het uitvoeren van onderstaande:
+
+    ```sql
+    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    ```
+
+5. In de ADF, configureert u een service van Azure SQL Database gekoppeld.
+
+
+**Voorbeeld van de gekoppelde service met behulp van verificatie van de service-principal:**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identity-authentication"></a>Met behulp van verificatie van de beheerde service-identiteit
+
+Een gegevensfactory kan worden gekoppeld aan een [beheerde service-identiteit (MSI)](data-factory-service-identity.md), die staat voor deze specifieke gegevensfactory. U kunt deze service-identiteit gebruiken voor verificatie van Azure SQL Database, waardoor deze aangewezen factory voor toegang en gegevens kopiëren van/naar uw database.
+
+Voor het gebruik van MSI op basis van tokenverificatie AAD-toepassing, als volgt te werk:
+
+1. **Een groep maken in Azure AD en maak de factory MSI lid van de groep**.
+
+    a. Zoek de identiteit van de data factory-service vanuit Azure-portal. Ga naar uw data factory -> Eigenschappen-exemplaar > de **IDENTITY-SERVICE-ID**.
+
+    b. Installeer de [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module, meld u aan met `Connect-AzureAD` opdracht in en voer de volgende opdrachten in een groep maken en toevoegen van de gegevensfactory MSI als een lid.
+    ```powershell
+    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
+    ```
+
+2. **[Inrichten van een Azure Active Directory-beheerder](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  voor uw Azure SQL-Server op Azure-portal als u dit nog niet hebt gedaan. De AAD-beheerder kan een AAD-gebruiker of AAD-groep zijn. Als u de groep met MSI een beheerdersrol verleent, stap 3 en 4 hieronder overslaan als de beheerder volledige toegang tot de database hebben zou.
+
+3. **Maak een ingesloten database-gebruiker voor de AAD-groep**, door verbinding te maken van de database van/naar die u wilt kopiëren van gegevens met behulp van hulpprogramma's zoals SSMS met een AAD identiteit met ten minste ALTER machtigingen en het uitvoeren van de volgende T-SQL. Meer informatie op de ingesloten databasegebruiker [hier](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **De AAD-groep nodig machtigingen verlenen** zoals u gewend voor SQL-gebruikers, bijvoorbeeld bent door het uitvoeren van onderstaande:
+
+    ```sql
+    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    ```
+
+5. In de ADF, configureert u een service van Azure SQL Database gekoppeld.
+
+**Voorbeeld van de gekoppelde service met MSI-verificatie:**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             }
         },
         "connectVia": {
@@ -455,9 +573,9 @@ Bij het kopiëren van gegevens van/naar Azure SQL Database, worden de volgende t
 | Binaire |Byte[] |
 | bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
-| datum |Datum en tijd |
-| Datum en tijd |Datum en tijd |
-| datetime2 |Datum en tijd |
+| datum |DateTime |
+| Datum en tijd |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimale |Decimale |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
@@ -471,7 +589,7 @@ Bij het kopiëren van gegevens van/naar Azure SQL Database, worden de volgende t
 | nvarchar |Tekenreeks, Char] |
 | echte |Single |
 | ROWVERSION |Byte[] |
-| smalldatetime |Datum en tijd |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimale |
 | sql_variant |Object * |

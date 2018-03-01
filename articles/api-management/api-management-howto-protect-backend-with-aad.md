@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: MT
+ms.openlocfilehash: b11d80d1837d6474c7ee88f173de43e00fbb6cd5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Het beveiligen van een Web-API-back-end met Azure Active Directory en API Management
 De volgende video ziet u hoe het bouwen van een Web-API-back-end en beveiligen met behulp van OAuth 2.0-protocol met Azure Active Directory en API Management.  Dit artikel bevat een overzicht en aanvullende informatie voor de stappen in de video. Deze 24 minuut video ziet u hoe aan:
@@ -33,7 +33,7 @@ De volgende video ziet u hoe het bouwen van een Web-API-back-end en beveiligen m
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Een Azure AD-directory maken
-Voor het beveiligen van uw Web-API back-end met Azure Active Directory moet u eerst hebben een AAD-tenant. In deze video van een tenant met de naam **APIMDemo** wordt gebruikt. Voor het maken van een AAD-tenant, aanmelding bij de [klassieke Azure-Portal](https://manage.windowsazure.com) en klik op **nieuw**->**App Services**->**Active Directory**  -> **Directory**->**aangepast maken**. 
+Als u wilt beveiligen van uw Web-API back-end met Azure Active Directory moet u eerst een AAD-tenant hebben. In deze video van een tenant met de naam **APIMDemo** wordt gebruikt. Voor het maken van een AAD-tenant, aanmelding bij de [klassieke Azure-Portal](https://manage.windowsazure.com) en klik op **nieuw**->**App Services**->**Active Directory**  -> **Directory**->**aangepast maken**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 

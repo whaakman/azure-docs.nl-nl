@@ -11,8 +11,12 @@
 ## [Azure AD Connect Health-bewerkingen](active-directory-aadconnect-health-operations.md)
 ## [Fouten tijdens synchronisatie](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
+# Problemen oplossen
+## [Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
+## [De Health Service-gegevens zijn niet actueel](active-directory-aadconnect-health-data-freshness.md)
+
 # Naslaginformatie
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Versiegeschiedenis van Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 ## [GDPR-naleving en Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
@@ -23,5 +27,4 @@
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
-##[Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

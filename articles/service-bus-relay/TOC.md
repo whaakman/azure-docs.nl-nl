@@ -1,3 +1,5 @@
+# [Documentatie voor Service Bus Relay](index.md)
+
 # Overzicht
 ## [Wat is Relay?](relay-what-is-it.md)
 ## [Veelgestelde vragen](relay-faq.md)

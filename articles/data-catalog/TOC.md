@@ -1,3 +1,5 @@
+# [Documentatie voor Data Catalog](index.md)
+
 # Overzicht
 ## [Wat is Data Catalog?](data-catalog-what-is-data-catalog.md)
 ## [Algemene scenario's](data-catalog-common-scenarios.md)

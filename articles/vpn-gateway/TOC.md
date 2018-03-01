@@ -1,3 +1,5 @@
+# [VPN Gateway-documentatie](index.md)
+
 # Overzicht
 ## [Over VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [Veelgestelde vragen VPN Gateway](vpn-gateway-vpn-faq.md)

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: bfc55a305fd0099af5cc2bb394420e547d2703bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c82ee87b341de4e85e2eab566f7a3c6fcffdace1
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure-Stack
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 
 ## <a name="virtual-machine-extensions"></a>Extensies virtuele machine
-U wordt aangeraden deze te downloaden wanneer er updates voor de VM-extensies die u nodig hebt. Uitbreidingen die worden verzonden in het product wordt niet bijgewerkt in de normale patch- en bijwerkproces; Controleer regelmatig op updates. Andere extensies zijn alleen beschikbaar via de Marketplace-beheer.
+Wanneer er updates beschikbaar voor virtuele machine (VM)-uitbreidingen die u gebruikt zijn, moet u deze downloaden. Uitbreidingen die worden verzonden in het product bijwerken niet in de normale patch- en bijwerkproces; zo vaak controleren op updates. Andere extensies zijn alleen beschikbaar via de Marketplace-beheer.
 
 |  | De itemnaam van het | Beschrijving | Uitgever | Het type besturingssysteem |
 | --- | --- | --- | --- | --- |
@@ -71,9 +71,9 @@ Microsoft Azure-Stack ondersteunt de volgende Azure Marketplace virtuele machine
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Express op SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Gratis versie van SQL Server 2016 SP1 express. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise on SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | Databaseplatform voor intelligente, bedrijfskritieke toepassingen. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Web on SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | Databaseplatform voor intelligente, bedrijfskritieke toepassingen. | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft-Machine Learning-Server 9.2.1 op WindowsServer 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft-Machine Learning-Server 9.2.1 op WindowsServer 2016. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft-Machine Learning-Server 9.2.1 op Ubuntu 16.04 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft-Machine Learning-Server 9.2.1 op Ubuntu 16.04. | Microsoft + Canonical |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft-Machine Learning-Server 9.2.1 op CentOS Linux 7.2 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft-Machine Learning-Server 9.2.1 op CentOS Linux 7.2. | Microsoft + Rogue Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft-Machine Learning-Server 9.3.0 op WindowsServer 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onWindowsServer2016) | Microsoft-Machine Learning-Server 9.3.0 op WindowsServer 2016. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft-Machine Learning-Server 9.3.0 op Ubuntu 16.04 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Microsoft-Machine Learning-Server 9.3.0 op Ubuntu 16.04. | Microsoft + Canonical |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft-Machine Learning-Server 9.3.0 op CentOS Linux 7.2 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | Microsoft-Machine Learning-Server 9.3.0 op CentOS Linux 7.2. | Microsoft + Rogue Wave |
 
 
 ## <a name="linux-distributions"></a>Linux-distributies

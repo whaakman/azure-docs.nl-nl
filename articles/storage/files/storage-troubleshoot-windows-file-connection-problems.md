@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 5aacc8a920c9343c5efa89128aabb1505fc2d9aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 073d163e139c9fd400e4b3177c26d4ddb6228ed0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Oplossen van problemen in Windows Azure-bestanden
 
@@ -141,7 +141,7 @@ Een slash (/) de opdracht net use geïnterpreteerd als een opdrachtregeloptie. A
 
 U kunt een van de volgende stappen gebruiken om het probleem te omzeilen:
 
-- Voer de volgende PowerShell-opdracht:
+- Voer de volgende PowerShell-opdracht uit:
 
   `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc" `
 
@@ -164,6 +164,12 @@ Gebruik een van de volgende oplossingen:
 
 -   Het station koppelen vanuit dezelfde gebruikersaccount dat de toepassing bevat. U kunt een hulpprogramma zoals PsExec gebruiken.
 - Geeft de naam van het opslagaccount en de sleutel in de gebruikersnaam en wachtwoordparameters van het net gebruik de opdracht.
+- Gebruik de opdracht cmdkey de referenties in Aanmeldingsgegevensbeheer toevoegen. Dit uitvoeren vanaf de opdrachtregel in de service-account context, via een interactieve aanmelding of met behulp van runas.
+  
+  `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
+- De share rechtstreeks zonder een toegewezen stationsletter toewijzen. Sommige toepassingen kunnen niet opnieuw verbinding met de stationsletter correct, zodat het volledige UNC-pad mogelijk betrouwbaarder. 
+
+  `net use * \\storage-account-name.file.core.windows.net\share`
 
 Nadat u deze instructies opvolgt, verschijnt er het volgende foutbericht weergegeven wanneer u net gebruiken voor het serviceaccount/in het netwerk uitvoert: 'Systeemfout 1312 is opgetreden. De sessie van een opgegeven gebruiker bestaat niet. Het is mogelijk al beëindigd." Als dit het geval is, zorg ervoor dat de gebruikersnaam die wordt doorgegeven aan net gebruik domeingegevens bevat (bijvoorbeeld: ' [opslagaccountnaam]. file.core.windows .net ').
 
@@ -180,9 +186,9 @@ Als u wilt een bestand via het netwerk kopieert, moet u het eerst ontsleutelen. 
 
 - Gebruik de **kopiëren /d** opdracht. Hierdoor kan de versleutelde bestanden worden opgeslagen als de ontsleutelde bestanden op de bestemming.
 - Stel de volgende registersleutel:
-  - Pad = HKLM\Software\Policies\Microsoft\Windows\System
+  - Path = HKLM\Software\Policies\Microsoft\Windows\System
   - Waarde type DWORD =
-  - Naam CopyFileAllowDecryptedRemoteDestination =
+  - Name = CopyFileAllowDecryptedRemoteDestination
   - Waarde = 1
 
 Let erop dat voor het instellen van de registersleutel is van invloed op alle kopieerbewerkingen die zijn aangebracht aan netwerkshares.

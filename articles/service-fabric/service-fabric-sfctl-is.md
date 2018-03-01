@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b611a447dd6669a09ca16c816de74acd7f3e8c7e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3a4c7a308bdf7132cebffc13a5e7214ec73eaf2
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-is"></a>sfctl is
 Vragen en opdrachten naar de service infrastructuur verzenden.
@@ -34,14 +34,14 @@ Vragen en opdrachten naar de service infrastructuur verzenden.
 ## <a name="sfctl-is-command"></a>sfctl is opdracht
 Een administratieve opdracht uitvoeren op het opgegeven exemplaar van de Service-infrastructuur.
 
-Deze API biedt voor clusters met een of meer exemplaren van de Service-infrastructuur is geconfigureerd, een manier voor het verzenden van infrastructuur-specifieke opdrachten op een bepaalde instantie van de Service-infrastructuur. Beschikbare opdrachten en hun bijbehorende antwoord indelingen variëren afhankelijk van de infrastructuur waarop het cluster wordt uitgevoerd. Deze API biedt ondersteuning voor het Service Fabric-platform; Dit is niet bedoeld voor rechtstreeks gebruik vanuit uw code. .
+Deze API biedt voor clusters met een of meer exemplaren van de Service-infrastructuur is geconfigureerd, een manier voor het verzenden van infrastructuur-specifieke opdrachten op een bepaalde instantie van de Service-infrastructuur. Beschikbare opdrachten en hun bijbehorende antwoord indelingen variëren afhankelijk van de infrastructuur waarop het cluster wordt uitgevoerd. Deze API biedt ondersteuning voor het Service Fabric-platform; Dit is niet bedoeld voor rechtstreeks gebruik vanuit uw code. 
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --opdracht [vereist]| De tekst van de opdracht kan worden aangeroepen. De inhoud van de opdracht is specifiek voor infrastructuur.  Standaardwaarde: is de opdracht.|
-| --service-id     | De identiteit van de infrastructuur-service. Dit is de volledige naam van de service infrastructuur zonder de "fabric:' URI-schema. Deze parameter is alleen vereist voor clusters met meer dan één exemplaar van infrastructuur-service wordt uitgevoerd.|
+| --opdracht [vereist]| De tekst van de opdracht kan worden aangeroepen. De inhoud van de opdracht is specifiek voor infrastructuur. |
+| --service-id     | De identiteit van de infrastructuur-service. De ID is de volledige naam van de service infrastructuur zonder de "fabric:' URI-schema. Deze parameter is alleen vereist voor clusters met meer dan één exemplaar van infrastructuur-service wordt uitgevoerd.|
 | --time-out -t     | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
@@ -63,8 +63,8 @@ Deze API biedt voor clusters met een of meer exemplaren van de Service-infrastru
 
 |Argument|Beschrijving|
 | --- | --- |
-| --opdracht [vereist]| De tekst van de opdracht kan worden aangeroepen. De inhoud van de opdracht is specifiek voor infrastructuur.  Standaardwaarde: query is.|
-| --service-id     | De identiteit van de infrastructuur-service. Dit is de volledige naam van de service infrastructuur zonder de "fabric:' URI-schema. Deze parameter is alleen vereist voor clusters met meer dan één exemplaar van infrastructuur-service wordt uitgevoerd.|
+| --opdracht [vereist]| De tekst van de opdracht kan worden aangeroepen. De inhoud van de opdracht is specifiek voor infrastructuur.|
+| --service-id     | De identiteit van de infrastructuur-service. De ID is de volledige naam van de service infrastructuur zonder de "fabric:' URI-schema. Deze parameter is alleen vereist voor clusters met meer dan één exemplaar van infrastructuur-service wordt uitgevoerd.|
 | --time-out -t     | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten

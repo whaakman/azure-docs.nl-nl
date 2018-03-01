@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 36b9379f88ce024c1dcbf9977a873d95076d10df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Logboekanalyse voor Azure Load Balancer
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 U kunt verschillende typen logboeken in Azure beheren en problemen oplossen netwerktaakverdelers. Sommige van deze logboeken zijn toegankelijk via de portal. Alle logboeken kunnen worden opgehaald uit Azure blob-opslag en worden bekeken in verschillende hulpprogramma's zoals Excel en Power BI. U kunt meer informatie over de verschillende typen logboeken in de onderstaande lijst.
 
 * **Controlelogboeken:** kunt u [Azure controlelogboeken](../monitoring-and-diagnostics/insights-debugging-with-events.md) (voorheen bekend als operationele Logboeken) om alle bewerkingen die worden verzonden naar uw Azure-abonnementen en hun status weer te geven. Controlelogboeken zijn standaard ingeschakeld en kunnen worden weergegeven in de Azure-portal.
-* **Waarschuwing van gebeurtenislogboeken:** kunt u dit logboek rasied waarschuwingen weergeven met de load balancer. De status voor de load balancer worden verzameld om de vijf minuten. Dit logboek wordt alleen geschreven als een load balancer waarschuwing gebeurtenis treedt op.
+* **Waarschuwing van gebeurtenislogboeken:** kunt u dit logboek waarschuwingen die worden gegenereerd door de load balancer weergeven. De status voor de load balancer worden verzameld om de vijf minuten. Dit logboek wordt alleen geschreven als een load balancer waarschuwing gebeurtenis treedt op.
 * **Health test Logboeken:** kunt u dit logboek bekijken door uw health test, zoals het aantal exemplaren in uw back-end-pool die aanvragen vanwege health test problemen niet van de load balancer ontvangen gedetecteerde problemen. Dit logboek wordt geschreven naar wanneer er een wijziging in de status van de test.
 
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Aanmelden bij de [Azure-portal](http://portal.azure.com). Als u een load balance
 > [!NOTE]
 > Controlelogboeken vereisen een afzonderlijke opslagaccount niet. Het gebruik van opslag voor de gebeurtenis en health test logboekregistratie wordt service worden kosten in rekening.
 
-## <a name="audit-log"></a>Controlelogboek
+## <a name="audit-log"></a>Auditlogboek
 
 Het controlelogboek wordt standaard gegenereerd. De logboeken worden bewaard gedurende 90 dagen in de Azure gebeurtenislogboeken store. Meer informatie over deze logboeken door te lezen de [gebeurtenissen bekijken en controlelogboeken](../monitoring-and-diagnostics/insights-debugging-with-events.md) artikel.
 
@@ -140,7 +140,7 @@ U moet verbinding maken met uw opslagaccount en ophalen van de JSON-logboekverme
 > [!TIP]
 > Als u bekend met Visual Studio en de basisconcepten bent van het wijzigen van waarden voor de constanten en variabelen in C#, kunt u de [Meld converter extra](https://github.com/Azure-Samples/networking-dotnet-log-converter) beschikbaar is via GitHub.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Uw Azure controlelogboeken met Power BI visualiseren](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogbericht.
 * [Weergeven en analyseren van Azure controlelogboeken in Power BI en meer](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogbericht.

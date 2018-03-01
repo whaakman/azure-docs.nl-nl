@@ -1,3 +1,5 @@
+# [Documentatie voor Azure Active Directory](index.md)
+
 # Overzicht
 ## [Wat is Azure Active Directory?](active-directory-whatis.md)
 ## [Over Azure-identiteitsbeheer](identity-fundamentals.md)
@@ -248,6 +250,13 @@
 ##### [Configuratie](active-directory-application-config-content-map.md)
 ##### [Aanmelden](active-directory-application-sign-in-content-map.md)
 ##### [Inrichten](active-directory-application-provisioning-content-map.md)
+###### [Verifiëren of een gebruiker is ingericht](application-provisioning-when-will-provisioning-finish-specific-user.md)
+###### [Het inrichten duurt lang](application-provisioning-when-will-provisioning-finish.md)
+###### [Het inrichten van gebruikers configureren](application-provisioning-config-how-to.md)
+###### [Problemen bij het configureren van inrichting](application-provisioning-config-problem.md)
+###### [Problemen bij het opslaan van administratorreferenties](application-provisioning-config-problem-storage-limit.md)
+###### [Er worden geen gebruikers ingericht](application-provisioning-config-problem-no-users-provisioned.md)
+###### [De verkeerde gebruikers worden ingericht](application-provisioning-config-problem-wrong-users-provisioned.md)
 ##### [Toegang beheren](active-directory-application-access-content-map.md)
 ##### [Toegangsvenster](active-directory-application-access-panel-content-map.md)
 ##### [Toepassingsproxy](active-directory-application-proxy-content-map.md)
