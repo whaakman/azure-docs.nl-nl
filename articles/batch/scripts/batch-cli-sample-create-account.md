@@ -1,73 +1,60 @@
 ---
-title: 'Azure CLI-Script voorbeeld: een Batch-account maken | Microsoft Docs'
-description: 'Azure CLI-Script voorbeeld: een Batch-account maken'
+title: Azure CLI-voorbeeldscript - Batch-account maken - Batch-service | Microsoft Docs
+description: Azure CLI-voorbeeldscript - Een batch-account maken in Batch-servicemodus | Microsoft Docs
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: e8e8e475c1fe32346dde39e187a007ec7f62a2f3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-batch-account-with-the-azure-cli"></a>Een Batch-account maken met de Azure CLI
+# <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI-voorbeeld:- Een batch-account maken in Batch-servicemodus
 
-Dit script maakt een Azure Batch-account en toont hoe verschillende eigenschappen van het account kunnen worden opgevraagd en bijgewerkt.
+Dit script maakt een Azure Batch-account in de Batch-servicemodus en laat zien hoe u verschillende eigenschappen van het account kunt opvragen of bijwerken. Wanneer u een Batch-account maakt in de standaard Batch-servicemodus, worden de rekenknooppunten ervan intern toegewezen door de Batch-service. Toegewezen rekenknooppunten hebben een afzonderlijk vCPU (kern) quotum en het account kan worden geauthenticeerd via gedeelde sleutelgegevens of een Azure Active Directory-token.
 
-## <a name="prerequisites"></a>Vereisten
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Installeer de Azure CLI met behulp van de instructies in de [Azure CLI installatiehandleiding](https://docs.microsoft.com/cli/azure/install-azure-cli), als u dit nog niet hebt gedaan.
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0.20 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). 
 
-## <a name="batch-account-sample-script"></a>Voorbeeldscript voor batch-account
+## <a name="example-script"></a>Voorbeeldscript
 
-Wanneer u een Batch-account maakt, standaard worden de rekenknooppunten toegewezen intern door de Batch-service. Toegewezen rekenknooppunten zijn onderworpen aan een afzonderlijke kerngeheugenquotum en het account kan worden geverifieerd, hetzij via gedeelde sleutel referenties of een Azure Active Dirctory-token.
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
-
-## <a name="batch-account-using-user-subscription-sample-script"></a>Batch-account met behulp van de gebruiker abonnement voorbeeldscript
-
-U kunt er ook voor kiezen om Batch de rekenknooppunten in uw eigen Azure-abonnement maken.
-Accounts die worden toegewezen compute knooppunten in uw abonnement moeten worden geverifieerd via een Azure Active Directory-token en de rekenknooppunten toegewezen meetelt quotum voor uw abonnement. Voor het maken van een account in deze modus, moet een verwijzing naar een Sleutelkluis opgeven bij het maken van het account.
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Nadat u een van de bovenstaande voorbeelden van scripts uitvoeren, voer de volgende opdracht om te verwijderen van de resourcegroep en alle gerelateerde resources (met inbegrip van de Batch-accounts, Azure Storage-accounts en Azure sleutelkluizen).
+Gebruik de volgende opdracht om de resourcegroep en alle resources die er aan zijn gekoppeld te verwijderen.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdrachten voor het maken van een resourcegroep, Batch-account en alle gerelateerde resources. Elke opdracht in de tabel is gekoppeld aan de opdracht specifieke documentatie bij.
+In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel is een koppeling naar opdracht-specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [AZ groep maken](https://docs.microsoft.com/cli/azure/group#az_group_create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ batch-account maken](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_create) | Maakt de Batch-account.  |
-| [AZ batch-account instellen](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_set) | De eigenschappen van de updates van het Batch-account.  |
-| [AZ batch-account weergeven](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_show) | Haalt de details van de opgegeven Batch-account.  |
-| [lijst van AZ batch-account-sleutels](https://docs.microsoft.com/cli/azure/batch/account/keys#az_batch_account_keys_list) | Hiermee haalt u de toegangssleutels van het opgegeven Batch-account.  |
-| [aanmeldingsnaam AZ batch-account](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Wordt geverifieerd op basis van de opgegeven Batch-account voor verdere tussenkomst van de CLI.  |
-| [AZ storage-account maken](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Hiermee maakt u een opslagaccount. |
-| [AZ keyvault maken](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | Maakt een sleutelkluis. |
-| [AZ keyvault-beleid instellen](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | Het beveiligingsbeleid van de opgegeven sleutelkluis bijwerken. |
-| [AZ groep verwijderen](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle ingesloten resources. |
+| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Hiermee wordt de Batch-account gemaakt. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Hiermee maakt u een opslagaccount. |
+| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | Hiermee worden eigenschappen van het Batch-account bijgewerkt.  |
+| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | Hiermee worden details van het opgegeven Batch-account opgehaald.  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | Hiermee worden de toegangssleutels van het opgegeven Batch-account opgehaald.  |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Hiermee wordt authenticatie uitgevoerd met het opgegeven Batch-account voor verdere interactie met de CLI.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
-
-Aanvullende Batch CLI scriptvoorbeelden vindt u in de [documentatie van Azure Batch CLI](../batch-cli-samples.md).
+Zie de [documentatie van Azure CLI](/cli/azure/overview) voor meer informatie over de Azure CLI.

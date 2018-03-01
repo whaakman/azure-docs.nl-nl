@@ -1,60 +1,61 @@
 ---
-title: Azure CLI Script voorbeeld - een toepassing toevoegen in een Batch | Microsoft Docs
-description: Azure CLI Script voorbeeld - een toepassing toevoegen in Batch
+title: Azure CLI-voorbeeldscript - een toepassing toevoegen in Batch | Microsoft Docs
+description: Azure CLI-voorbeeldscript - een toepassing toevoegen in Batch
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: cbfe8ab565ecf7f298a9a6c0f0c8298c675f178c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: 348e94e745350173196aeb64df3a814a05dd9144
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="adding-applications-to-azure-batch-with-azure-cli"></a>Toepassingen toevoegen aan Azure Batch met Azure CLI
+# <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI-voorbeeld: een toepassing toevoegen aan een Azure Batch-account
 
-Dit script laat zien hoe een toepassing voor gebruik met een Azure Batch-pool of taak instellen. Als u een toepassing instelt, het uitvoerbare bestand, samen met eventuele afhankelijkheden, in een ZIP-bestand van het pakket. In dit voorbeeld het uitvoerbare bestand zip-bestand wordt aangeroepen ' Mijn-toepassing-exe.zip'.
+Dit script laat zien hoe u een toepassing kunt toevoegen voor gebruik met een Azure Batch-groep of -taak. Als u een toepassing wilt instellen om aan uw Batch-account toe te voegen, verpakt u uw uitvoerbare bestand samen met eventuele afhankelijkheden in een .zip-bestand. 
 
-## <a name="prerequisites"></a>Vereisten
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-- Installeer de Azure CLI met behulp van de instructies in de [Azure CLI installatiehandleiding](https://docs.microsoft.com/cli/azure/install-azure-cli), als u dit nog niet hebt gedaan.
-- Maak een Batch-account als u er nog geen hebt. Zie [een Batch-account maken met de Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account) voor een voorbeeld van een script dat een account maakt.
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0.20 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="example-script"></a>Voorbeeldscript
 
-[!code-azurecli[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
 
-## <a name="clean-up-application"></a>Opschonen van de toepassing
+## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Nadat u het bovenstaande voorbeeld van een script uitgevoerd, voer de volgende opdrachten om de toepassing en alle bijbehorende geüploade toepassingspakketten te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep en alle resources die er aan zijn gekoppeld te verwijderen.
 
-```azurecli
-az batch application package delete -g myresourcegroup -n mybatchaccount --application-id myapp --version 1.0 --yes
-az batch application delete -g myresourcegroup -n mybatchaccount --application-id myapp --yes
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script gebruikt de volgende opdrachten voor het maken van een toepassing en upload een toepassingspakket.
-Elke opdracht in de tabel is gekoppeld aan de opdracht specifieke documentatie bij.
+In dit script worden de volgende opdrachten gebruikt.
+Elke opdracht in de tabel is een koppeling naar opdracht-specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [AZ batch-toepassing maken](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_create) | Een toepassing maakt.  |
-| [AZ batch-toepassing instellen](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_set) | Eigenschappen van een toepassing van updates.  |
-| [AZ batch-toepassingspakket maken](https://docs.microsoft.com/cli/azure/batch/application/package#az_batch_application_package_create) | Voegt een toepassingspakket toe aan de opgegeven toepassing.  |
+| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Hiermee maakt u een opslagaccount. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Hiermee wordt de Batch-account gemaakt. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Hiermee wordt authenticatie uitgevoerd met het opgegeven Batch-account voor verdere interactie met de CLI.  |
+| [az batch application create](/cli/azure/batch/application#az_batch_application_create) | Hiermee wordt een toepassing gemaakt.  |
+| [az batch application package create](/cli/azure/batch/application/package#az_batch_application_package_create) | Hiermee voegt u een toepassingspakket toe aan de opgegeven toepassing.  |
+| [az batch application set](/cli/azure/batch/application#az_batch_application_set) | Hiermee worden de eigenschappen van een toepassing bijgewerkt.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
-
-Aanvullende Batch CLI scriptvoorbeelden vindt u in de [documentatie van Azure Batch CLI](../batch-cli-samples.md).
+Zie de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview) voor meer informatie over de Azure CLI.

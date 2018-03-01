@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-voorbeeldscript - containers verwijderen met het voorvoegsel | Microsoft Docs
-description: Azure Storage-blob-containers op basis van het voorvoegsel van een container verwijderen.
+title: Azure CLI-voorbeeldscript - Containers verwijderen op basis van voorvoegsel | Microsoft Docs
+description: Verwijder Azure Storage-blobcontainers op basis van het voorvoegsel van een containernaam.
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,46 +15,46 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: d14195abf1c17d11e259ed9edb5112626b063112
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.openlocfilehash: 3eab1878c2a5f6b1d031ef3208e30a4df19dc41e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="delete-containers-based-on-container-name-prefix"></a>Verwijderen van containers op basis van het voorvoegsel van container
+# <a name="delete-containers-based-on-container-name-prefix"></a>Containers verwijderen op basis van het containernaamvoorvoegsel
 
-Dit script eerst maakt een paar voorbeeld containers in Azure Blob-opslag en vervolgens verwijdert enkele van de containers op basis van een voorvoegsel in de containernaam van de.
+Met dit script worden eerst een aantal voorbeeldcontainers in Azure Blob Storage gemaakt, en vervolgens enkele containers verwijderd op basis van het voorvoegsel van de containernaam.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
 [!code-azurecli-interactive[main](../../../cli_scripts/storage/delete-containers-by-prefix/delete-containers-by-prefix.sh?highlight=2-3 "Delete containers by prefix")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Voer de volgende opdracht om te verwijderen van de resourcegroep, resterende containers, en alle gerelateerde resources.
+Gebruik de volgende opdracht om de resourcegroep, de resterende containers en alle gerelateerde resources te verwijderen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script wordt de volgende opdrachten om te verwijderen van containers op basis van het voorvoegsel van container. Elk item in de tabel is gekoppeld aan de opdracht specifieke documentatie bij.
+In dit script worden de volgende opdrachten gebruikt containers te verwijderen op basis van het voorvoegsel van de containernaam. Elke opdracht in de tabel is een koppeling naar specifieke documentatie over de opdracht.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [AZ groep maken](/cli/azure/group#create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ storage-account maken](/cli/azure/storage/account#create) | Maakt een Azure Storage-account in de opgegeven resourcegroep. |
-| [AZ storage-container maken](/cli/azure/storage/container#create) | Maakt een container in Azure Blob-opslag. |
-| [lijst met AZ storage-container](/cli/azure/storage/container#list) | Geeft een lijst van de containers in een Azure Storage-account. |
-| [AZ opslag container verwijderen](/cli/azure/storage/container#delete) | Hiermee verwijdert u containers in een Azure Storage-account. |
+| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Hiermee maakt u een Azure Storage-account in de opgegeven resourcegroep. |
+| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Hiermee maakt u een container in Azure Blob Storage. |
+| [az storage container list](/cli/azure/storage/container#az_storage_container_list) | Hiermee maakt u een lijst van de containers in een Azure Storage-account. |
+| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Hiermee verwijdert u containers in een Azure Storage-account. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](/cli/azure/overview).
+Zie de [documentatie van Azure CLI](/cli/azure/overview) voor meer informatie over de Azure CLI.
 
-Extra opslagruimte CLI scriptvoorbeelden vindt u in de [voorbeelden van Azure CLI voor Azure Storage](../blobs/storage-samples-blobs-cli.md).
+Meer CLI-voorbeeldscripts voor Storage vindt u in de [Azure CLI-voorbeelden voor Azure Storage](../blobs/storage-samples-blobs-cli.md).

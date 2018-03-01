@@ -1,43 +1,41 @@
 ---
-title: Downloaden van grote hoeveelheden willekeurige gegevens uit Azure Storage | Microsoft Docs
-description: Informatie over het gebruik van de Azure SDK downloaden van grote hoeveelheden willekeurige gegevens van een Azure Storage-account
+title: Grote hoeveelheden willekeurige gegevens downloaden uit Azure Storage | Microsoft Docs
+description: Informatie over het gebruik van de Azure SDK om grote hoeveelheden willekeurige gegevens uit een Azure Storage-account te downloaden
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 3842860acb1c0fdd9e07f6d2f678ac5d5304003b
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: MT
+ms.openlocfilehash: 673dc8fc7fd5d08f9541595af16078d44c7f8308
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Downloaden van grote hoeveelheden willekeurige gegevens uit Azure storage
+# <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Grote hoeveelheden willekeurige gegevens downloaden uit Azure Storage
 
-Deze zelfstudie maakt deel uit drie van een serie. Deze zelfstudie laat zien hoe u voor het downloaden van grote hoeveelheden gegevens uit Azure storage.
+Deze zelfstudie is deel drie van een serie. Deze zelfstudie laat zien hoe u grote hoeveelheden gegevens uit Azure Storage kunt downloaden.
 
-Deel 3 van de reeks, leert u hoe:
+In deel drie van de serie leert u het volgende:
 
 > [!div class="checklist"]
 > * De toepassing bijwerken
 > * De toepassing uitvoeren
-> * Valideren van het aantal verbindingen
+> * Het aantal verbindingen valideren
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het voltooien van deze zelfstudie, u moet de zelfstudie hebt voltooid vorige opslag: [uploaden van grote hoeveelheden willekeurige gegevens parallel naar Azure storage][previous-tutorial].
+Voor het volgen van deze zelfstudie moet u de vorige zelfstudie over opslag: [Upload large amounts of random data in parallel to Azure storage][previous-tutorial] (Grote hoeveelheden willekeurige gegevens parallel uploaden naar Azure Storage).
 
-## <a name="remote-into-your-virtual-machine"></a>Extern verbinding met uw virtuele machine
+## <a name="remote-into-your-virtual-machine"></a>Extern verbinding maken met uw virtuele machine
 
- Als een extern bureaublad-sessiehost maken met de virtuele machine, gebruik de volgende opdracht op uw lokale machine. Het IP-adres vervangen door de publicIPAddress van uw virtuele machine. Wanneer u hierom wordt gevraagd, typt u de referenties die zijn gebruikt bij het maken van de virtuele machine.
+ Gebruik de volgende opdracht op uw lokale machine om een sessie met een extern bureaublad te starten voor de virtuele machine. Vervang het IP-adres door het publicIPAddress van de virtuele machine. Wanneer u hierom wordt gevraagd, typt u de referenties die zijn gebruikt bij het maken van de virtuele machine.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -45,7 +43,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="update-the-application"></a>De toepassing bijwerken
 
-In de vorige zelfstudie geüpload u alleen bestanden met de opslagaccount. Open `D:\git\storage-dotnet-perf-scale-app\Program.cs` in een teksteditor. Vervang de `Main` methode met het volgende voorbeeld. Deze opmerkingen voorbeeld buiten de taak uploaden en uncomments de taken downloaden en het verwijderen van de inhoud van het storage-account als u klaar.
+In de vorige zelfstudie hebt u alleen bestanden naar het opslagaccount geüpload. Open `D:\git\storage-dotnet-perf-scale-app\Program.cs` in een teksteditor. Vervang de `Main`-methode door het volgende voorbeeld. Hierdoor wordt de uploadtaak als opmerking gemarkeerd en wordt na voltooiing de downloadtaak en de taak waarmee de inhoud wordt verwijderd uit het opslagaccount, als opmerking verwijderd.
 
 ```csharp
 public static void Main(string[] args)
@@ -85,7 +83,7 @@ public static void Main(string[] args)
 }
 ```
 
-Nadat de toepassing is bijgewerkt, moet u de toepassing opnieuw te bouwen. Open een `Command Prompt` en navigeer naar `D:\git\storage-dotnet-perf-scale-app`. De toepassing opnieuw door het uitvoeren van `dotnet build` zoals te zien is in het volgende voorbeeld:
+Nadat de toepassing is bijgewerkt, moet u de toepassing opnieuw bouwen. Open een `Command Prompt` en navigeer naar `D:\git\storage-dotnet-perf-scale-app`. Voer de toepassing opnieuw uit door `dotnet build` uit te voeren, zoals het volgende voorbeeld laat zien:
 
 ```
 dotnet build
@@ -93,23 +91,23 @@ dotnet build
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-Nu dat de toepassing is opnieuw opgebouwd is het tijd om de toepassing met de bijgewerkte code uitvoeren. Als deze niet al is geopend, opent u een `Command Prompt` en navigeer naar `D:\git\storage-dotnet-perf-scale-app`.
+Nadat de toepassing opnieuw is gebouwd is het tijd om de toepassing met de bijgewerkte code uit te voeren. Als deze niet al is geopend, opent u een `Command Prompt` en navigeert u naar `D:\git\storage-dotnet-perf-scale-app`.
 
-Type `dotnet run` de toepassing uit te voeren.
+Typ `dotnet run` om de toepassing uit te voeren.
 
 ```
 dotnet run
 ```
 
-De toepassing leest de containers die zich in de storage-account opgegeven in de **storageconnectionstring**. Doorlopen van de blobs 10 op een tijdstip met de [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) methode in de containers en downloads ze aan de lokale machine met behulp van de [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) methode.
-De volgende tabel toont de [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) die voor elke blob zijn gedefinieerd zoals deze is gedownload.
+De toepassing leest de containers die zich in het opslagaccount bevinden en die zijn opgegeven in de **storageconnectionstring**. Deze doorloopt de blobs in de containers met tien tegelijk met behulp van de methode [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) en downloadt deze naar de lokale machine met behulp van de methode [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_).
+De volgende tabel toont de [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) die voor elke blob worden gedefinieerd bij het downloaden ervan.
 
 |Eigenschap|Waarde|Beschrijving|
 |---|---|---|
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| waar| Deze eigenschap de controle van de MD5-hash van de inhoud die geüpload wordt uitgeschakeld. Het uitschakelen van de MD5-validatie produceert een snellere overdracht. Maar niet bevestigt de geldigheid of de integriteit van de bestanden worden overgebracht. |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| onwaar| Deze eigenschap bepaalt als een MD5-hash wordt berekend en opgeslagen.   |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Met deze eigenschap wordt de controle uitgeschakeld van de MD5-hash van de inhoud die wordt geüpload. MD5-validatie zorgt voor een snellere overdracht. Maar hiermee wordt de geldigheid of de integriteit van de bestanden die worden overgebracht, niet bevestigd. |
+|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Deze eigenschap bepaalt of een MD5-hash wordt berekend en opgeslagen.   |
 
-De `DownloadFilesAsync` taak in het volgende voorbeeld wordt weergegeven:
+De taak `DownloadFilesAsync` wordt in het volgende voorbeeld weergegeven:
 
 ```csharp
 private static async Task DownloadFilesAsync()
@@ -193,9 +191,9 @@ private static async Task DownloadFilesAsync()
 }
 ```
 
-### <a name="validate-the-connections"></a>Valideren van de verbindingen
+### <a name="validate-the-connections"></a>De verbindingen valideren
 
-Terwijl de bestanden worden gedownload, kunt u controleren of het aantal gelijktijdige verbindingen naar uw opslagaccount. Open een `Command Prompt` en het type `netstat -a | find /c "blob:https"`. Deze opdracht geeft u het aantal verbindingen die momenteel zijn geopend met behulp van `netstat`. Het volgende voorbeeld ziet een vergelijkbare uitvoer naar wat u ziet bij het uitvoeren van de zelfstudie. Als u in het voorbeeld zien kunt, wordt met meer dan 280 verbindingen geopend waren toen de willekeurige bestanden downloaden van het opslagaccount.
+Terwijl de bestanden worden gedownload, kunt u controleren hoeveel gelijktijdige verbindingen naar uw opslagaccount er zijn. Open een `Command Prompt` en typ `netstat -a | find /c "blob:https"`. Deze opdracht geeft u het aantal verbindingen die momenteel zijn geopend met behulp van `netstat`. Het volgende voorbeeld laat uitvoer zien die te vergelijken is met wat u ziet als u de zelfstudie zelf uitvoert. Zoals u in het voorbeeld kunt zien, waren er meer dan 280 verbindingen geopend toen de willekeurige bestanden van het opslagaccount werden gedownload.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -206,15 +204,15 @@ C:\>
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deel 2 van de reeks, hebt u geleerd over het downloaden van grote hoeveelheden willekeurige gegevens van een opslagaccount, zoals het:
+In deel drie uit de serie bent u meer te weten gekomen over het downloaden van grote hoeveelheden willekeurige gegevens uit een opslagaccount, om het volgende te kunnen doen:
 
 > [!div class="checklist"]
 > * De toepassing uitvoeren
-> * Valideren van het aantal verbindingen
+> * Het aantal verbindingen valideren
 
-Ga naar de vierde deel van de reeks om te controleren of de doorvoer en latentie metrische gegevens in de portal.
+Ga verder met het vierde deel van de serie als u metrische gegevens over doorvoer en latentie in de portal wilt controleren.
 
 > [!div class="nextstepaction"]
-> [Controleer of de doorvoer en latentie metrische gegevens in de portal](storage-blob-scalable-app-verify-metrics.md)
+> [Metrische gegevens over doorvoer en latentie controleren in de portal](storage-blob-scalable-app-verify-metrics.md)
 
 [previous-tutorial]: storage-blob-scalable-app-upload-files.md

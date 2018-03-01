@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-Script steekproef - berekenen blob-container grootte | Microsoft Docs
-description: De grootte van een container in Azure Blob-opslag berekenen door het totaal te berekenen van de grootte van de blobs in de container.
+title: Azure CLI-voorbeeldscript - Blobcontainergrootte berekenen | Microsoft Docs
+description: Bereken de grootte van een container in Azure Blob Storage door de grootte van de blobs in de container op te tellen.
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,47 +15,47 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/28/2017
 ms.author: tamram
-ms.openlocfilehash: 61a553e47a642aead323a19d0724fdccc94a6282
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.openlocfilehash: f9213018969ab47ce2e78d8c119f22dedaff9452
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="calculate-the-size-of-a-blob-storage-container"></a>De grootte van een Blob storage-container berekenen
+# <a name="calculate-the-size-of-a-blob-storage-container"></a>De grootte van een Blob Storage-container berekenen
 
-Dit script wordt de grootte van een container in Azure Blob storage berekend door het totaal te berekenen van de grootte van de blobs in de container.
+Met dit script wordt de grootte van een container in Azure Blob Storage berekend door de grootte van de blobs in de container op te tellen.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
-> Dit script CLI biedt een geschatte grootte voor de container en mag niet worden gebruikt voor facturering berekeningen.
+> Dit CLI-script geeft een geschatte grootte van de container en dient niet te worden gebruikt voor factureringsberekeningen.
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
 [!code-azurecli[main](../../../cli_scripts/storage/calculate-container-size/calculate-container-size.sh?highlight=2-3 "Calculate container size")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Voer de volgende opdracht om de resourcegroep, container en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, container en alle gerelateerde resources te verwijderen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdrachten om de grootte van de Blob storage-container te berekenen. Elk item in de tabel is gekoppeld aan de opdracht specifieke documentatie bij.
+In dit script worden de volgende opdrachten gebruikt om de grootte van de Blob Storage-container te berekenen. Elke opdracht in de tabel is een koppeling naar specifieke documentatie over de opdracht.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [AZ groep maken](/cli/azure/group#create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [uploaden van blob storage AZ](/cli/azure/storage/account#create) | Lokale bestanden naar een Azure Blob storage-container geüpload. |
-| [lijst met blob storage AZ](/cli/azure/storage/account/keys#list) | Hier worden de blobs in een Azure Blob storage-container. |
+| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az storage blob upload](/cli/azure/storage/account#az_storage_account_create) | Hiermee worden lokale bestanden geüpload naar een Azure Blob Storage-container. |
+| [az storage blob list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Hiermee wordt een lijst gemaakt van de blobs in een Azure Blob Storage-container. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](/cli/azure/overview).
+Zie de [documentatie van Azure CLI](/cli/azure/overview) voor meer informatie over de Azure CLI.
 
-Extra opslagruimte CLI scriptvoorbeelden vindt u in de [voorbeelden van Azure CLI voor Azure-blobopslag](../blobs/storage-samples-blobs-cli.md).
+Meer CLI-voorbeeldscripts voor Storage vindt u in de [Azure CLI-voorbeelden voor Azure Blob Storage](../blobs/storage-samples-blobs-cli.md).
