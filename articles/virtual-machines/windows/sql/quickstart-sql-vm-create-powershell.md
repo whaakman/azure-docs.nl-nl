@@ -4,24 +4,27 @@ description: In deze zelfstudie ziet u hoe u een virtuele SQL Server 2017-machin
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 9af08fd46314ff102eff95e0832f7ce96bc161d6
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: a9976810a67d47d92d6b04cd33c83fb35bf3d466
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Een virtuele SQL Server-machine voor Windows maken met Azure PowerShell
+# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Snelstartgids: een virtuele SQL Server-machine voor Windows maken met Azure PowerShell
 
 In deze snelstartgids gaat u een virtuele SQL Server-machine maken met Azure PowerShell.
+
+> [!TIP]
+> Deze snelstartgids biedt een pad voor het snel inrichten van en verbinding maken met een SQL-VM. Zie de [Handleiding over de inrichting van SQL Server-VM's met Azure PowerShell](virtual-machines-windows-ps-sql-create.md) voor meer informatie over andere Azure PowerShell-opties voor het maken van virtuele SQL-machines.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 22bf52f7452f182510c3714f7d1c2ca884446953
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Aan de slag met Azure DNS met behulp van Azure Portal
 
@@ -34,8 +34,8 @@ Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten.
 
 ## <a name="create-a-dns-zone"></a>Een DNS-zone maken
 
-1. Aanmelden bij Azure Portal
-2. Klik in het menu Hub en klik op **Nieuw > Netwerken >** en klik vervolgens op **DNS-zone** om de pagina **DNS-zone maken** te openen.
+1. Meld u aan bij Azure Portal.
+2. Klik in het menu Hub op **Een resource maken > Netwerken >** en klik vervolgens op **DNS-zone** om de pagina **DNS-zone maken** te openen.
 
     ![DNS-zone](./media/dns-getstarted-portal/openzone650.png)
 

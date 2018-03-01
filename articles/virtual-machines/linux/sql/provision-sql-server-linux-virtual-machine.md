@@ -12,11 +12,11 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Een virtuele SQL Server-machine inrichten in Azure Portal
 
@@ -41,9 +41,9 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-1. Klik in het linkerdeelvenster op **Nieuw**.
+1. Klik in het linkerdeelvenster op **Een resource maken**.
 
-1. Klik in het deelvenster **Nieuw** op **Berekenen**.
+1. Klik in het deelvenster **Een resource maken** op **Compute**.
 
 1. Klik op **Alles bekijken** naast de kop **Aanbevolen**.
 

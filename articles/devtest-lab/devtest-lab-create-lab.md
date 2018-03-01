@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: v-craic
-ms.openlocfilehash: 3fd1f0ca01e9a800eaf3ba9843c7e3165023ccef
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a2148f8891c94f457a95282b8a3b7067c86c62ed
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Een lab maken in Azure DevTest Labs
 Een lab in Azure DevTest Labs is de infrastructuur die een groep resources omvat, zoals VM's (virtuele machines), waarmee u deze resources beter kunt beheren door limieten en quota op te geven. In dit artikel wordt uitgelegd hoe u een lab maakt met behulp van Azure Portal.
@@ -32,9 +32,9 @@ Als u een lab wilt maken, hebt u het volgende nodig:
 In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te maken in Azure DevTest Labs. 
 
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecteer in het hoofdmenu aan de linkerkant **Meer services** (onder aan de lijst).
+1. Selecteer in het hoofdmenu aan de linkerkant **Alle services** (boven aan de lijst).
 
-    ![Menuoptie Meer services](./media/devtest-lab-create-lab/more-services-menu-option.png)
+    ![Menuoptie Alle services](./media/devtest-lab-create-lab/more-services-menu-option.png)
 
 1. Selecteer **DevTest Labs** in de lijst met beschikbare services.
 1. Selecteer in het gebied **DevTest Labs** de optie **Toevoegen**.

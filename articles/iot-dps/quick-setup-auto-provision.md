@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 00e0f169c7de2521b15b89c2d935967e51b38960
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e444e46b9044d822731683781112be83c8c6db04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>IoT Hub Device Provisioning Service instellen met Azure Portal
 
@@ -31,7 +31,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Klik op de knop **Een resource maken** in de linkerbovenhoek van Azure Portal.
 
 2. Selecteer **Internet of Things**, selecteer **IoT Hub** en klik op de knop **Maken**. 
 
@@ -44,9 +44,9 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>Een nieuw exemplaar van de IoT Hub Device Provisioning Service maken
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Klik op de knop **Een resource maken** in de linkerbovenhoek van Azure Portal.
 
-2. *Zoek op de marketplace* naar de **Device Provisioning Service**. Selecteer **IoT Device Provisioning Service** en klik op de knop **Maken**. 
+2. *Zoek op de marketplace* naar de **Device Provisioning Service**. Selecteer **IoT Hub Device Provisioning Service** en klik op de knop **Maken**. 
 
 3. Geef uw Device Provisioning Service-exemplaar een **naam**. Selecteer het abonnement dat moet worden gebruikt voor dit exemplaar en de naam van een nieuwe of bestaande resourcegroep. Selecteer de locatie. Klik op **Maken** wanneer u klaar bent.
 

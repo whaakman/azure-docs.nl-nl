@@ -1,5 +1,5 @@
 ---
-title: Snelstartgids met Azure Application Insights | Microsoft Docs
+title: Quickstart met Azure Application Insights | Microsoft Docs
 description: Biedt instructies om snel een Node.js-web-app in te stellen om te controleren met Application Insights
 services: application-insights
 keywords: 
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b2c8b8cab312f581a9ceb14179a0a7cab94516d6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 30b75f577b5e68614131e6476586921a752768dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Beginnen met controleren van de Node.js-webtoepassing
 
@@ -24,7 +24,7 @@ Deze snelstartgids helpt u Application Insights SDK versie 0.22 voor Node.js toe
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze snelstartgids:
+Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 - U hebt een Azure-abonnement en een bestaande Node.js-webtoepassing nodig.
 
@@ -40,11 +40,11 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke toepassing met een internetverbinding, ongeacht of deze on-premises wordt uitgevoerd of in de cloud. Gebruik de volgende stappen om deze gegevens te bekijken.
 
-1. Selecteer **Nieuw** > **Controle + Beheer** > **Application Insights**.
+1. Selecteer **Een resource maken** > **Controle en Beheer** > **Application Insights**.
 
    ![Application Insights-resource toevoegen](./media/app-insights-nodejs-quick-start/001-u.png)
 
-   Er wordt een configuratiescherm weergegeven. Gebruik de onderstaande tabel om de invoervelden in te vullen.
+   Er wordt een configuratiescherm weergegeven. Gebruik de volgende tabel om de invoervelden in te vullen.
 
     | Instellingen        | Waarde           | Beschrijving  |
    | ------------- |:-------------|:-----|

@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 85783d58b2b02a9d0c6230429bebf2806514dee5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Een Azure Active Directory-tenant verkrijgen
 In Azure Active Directory (Azure AD) is een [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) representatief voor een organisatie.  Het is een toegewezen exemplaar van de Azure AD-service die een organisatie ontvangt en waarvan de organisatie de eigenaar is wanneer deze zich registreert voor een Microsoft-cloudservice, zoals Azure, Microsoft Intune of Office 365.  Elke Azure AD-tenant is uniek en werkt afzonderlijk van andere Azure AD-tenants.  
@@ -44,7 +44,7 @@ Als u zich eerder hebt geregistreerd voor een Azure-abonnement met uw afzonderli
 Voer hiervoor de volgende stappen uit.  U kunt ook een nieuwe tenant en een beheerder in deze tenant maken via een vergelijkbare procedure.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com) met uw afzonderlijke account
-2. Ga naar de sectie Azure Active Directory van de portal (op de linkernavigatiebalk onder **Meer services**)
+2. Ga naar de sectie Azure Active Directory van de portal (op de linkernavigatiebalk onder **Alle services**)
 3. U moet automatisch worden aangemeld bij de standaarddirectory. Als dit niet het geval is, kunt u van directory wisselen door in de rechterbovenhoek op uw accountnaam te klikken.
 4. Kies in de sectie **Snelle taken** de optie **Een gebruiker toevoegen**.
 5. Geef in het formulier Gebruiker toevoegen de volgende informatie op:
@@ -58,7 +58,7 @@ Voer hiervoor de volgende stappen uit.  U kunt ook een nieuwe tenant en een behe
 8. Als u het tijdelijke wachtwoord wilt wijzigen, meldt u zich aan bij [https://login.microsoftonline.com](https://login.microsoftonline.com) met dit nieuwe gebruikersaccount en wijzigt u het wachtwoord als u hierom wordt gevraagd.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Een Azure-abonnement voor de organisatie gebruiken
-Als u zich eerder hebt geregistreerd voor een Azure-abonnement met uw organisatieaccount, hebt u al een tenant.  In [Azure Portal](https://portal.azure.com) vindt u een tenant wanneer u naar Meer services en Azure Active Directory navigeert.  U kunt deze tenant naar wens gebruiken.
+Als u zich eerder hebt geregistreerd voor een Azure-abonnement met uw organisatieaccount, hebt u al een tenant.  In [Azure Portal](https://portal.azure.com) vindt u een tenant wanneer u naar 'Alle services' en 'Azure Active Directory' navigeert.  U kunt deze tenant naar wens gebruiken.
 
 ## <a name="start-from-scratch"></a>De procedure vanaf het begin uitvoeren
 U hoeft zich geen zorgen te maken als u de bovenstaande informatie niet begrijpt. Ga naar [Azure Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) om een nieuwe Azure AD-directory te maken. Wanneer u de procedure hebt voltooid, krijgt u uw eigen Azure AD-tenant met de domeinnaam die u hebt gekozen tijdens het aanmelden.  In [Azure Portal](https://portal.azure.com) kunt u uw tenant zoeken door in het linkernavigatievenster naar **Azure Active Directory** te gaan.

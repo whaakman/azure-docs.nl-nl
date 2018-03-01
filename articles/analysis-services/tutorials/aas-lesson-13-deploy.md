@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 251795f394d30418e1c03ec7b92fec40a75b2c3d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy"></a>Implementeren
 
@@ -28,7 +28,7 @@ In deze les gaat u eigenschappen voor de implementatie configureren. U gaat een 
 Geschatte tijd voor het voltooien van deze les: **5 minuten**  
   
 ## <a name="prerequisites"></a>Vereisten  
-Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 12: Analyseren in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+Dit artikel maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 12: Analyseren in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
 > U hebt [beheerdersmachtigingen](../analysis-services-server-admins.md) nodig voor de externe Analysis Services-server om hiernaar te kunnen implementeren.  
@@ -67,6 +67,9 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
   
 3. Als de implementatie is voltooid, kunt u op **Close** klikken.  
   
+
+In deze les wordt de meestgebruikte en eenvoudigste methode voor het implementeren van een tabellair model vanuit SSDT beschreven. Geavanceerde implementatie-opties, zoals de implementatiewizard of automatisering met XMLA en AMO bieden meer flexibiliteit, consistentie en geplande implementaties. Zie voor meer informatie [Tabular model solution deployment (Implementatie van oplossingen met tabellaire modellen)](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular).
+
 ## <a name="conclusion"></a>Conclusie  
 Gefeliciteerd. U bent klaar met het ontwerpen en implementeren van uw eerste tabellaire model van Analysis Services. Deze zelfstudie heeft u stapsgewijs begeleid bij het uitvoeren van de algemene taken voor het maken van een tabellair model. Het model Adventure Works Internet Sales is nu geïmplementeerd. U kunt nu SQL Server Management Studio gebruiken om het model te beheren, en processcripts en een back-upplan te maken. Gebruikers kunnen nu ook verbinding maken met het model met behulp van een rapportageclienttoepassing zoals Microsoft Excel of Power BI.  
 

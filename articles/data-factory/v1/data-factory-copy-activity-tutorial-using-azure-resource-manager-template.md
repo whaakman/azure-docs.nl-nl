@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 20a2e50fa3e1f81655566d9dfd7fb0cc62a2844c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 898d3a6fe7b3fa5be6f70eb2e0e7f3a48f82adef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Zelfstudie: een Azure Resource Manager-sjabloon gebruiken voor het maken van een Data Factory-pijplijn om gegevens te kopiëren 
 > [!div class="op_single_selector"]
@@ -340,7 +340,7 @@ Maak een JSON-bestand met de naam **ADFCopyTutorialARM-Parameters.json** dat par
 ## <a name="monitor-pipeline"></a>De pijplijn bewaken
 
 1. Meld u met uw Azure-account aan bij [Azure Portal](https://portal.azure.com).
-2. Klik in het linkermenu op **Gegevensfactory's** (of) klik op **Meer services** en vervolgens op **Gegevensfactory's** onder de categorie **Informatie en analytische gegevens**.
+2. Klik in het linkermenu op **Gegevensfabrieken**, (of) klik op **Alle services** en vervolgens op **Gegevensfabrieken** onder de categorie **Informatie en analytische gegevens**.
    
     ![Het menu voor gegevensfactory's](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
 3. Zoek uw gegevenfactory (AzureBlobToAzureSQLDatabaseDF) op de pagina **Gegevensfactory's** op. 

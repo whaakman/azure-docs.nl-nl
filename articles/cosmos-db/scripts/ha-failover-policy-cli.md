@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Maak een failoverbeleid voor maximale beschikbaarheid | Microsoft Docs
-description: Azure CLI-Script steekproef - maken van een failover-beleid voor hoge beschikbaarheid
+title: Azure CLI-script - Een failoverbeleid voor hoge beschikbaarheid maken | Microsoft Docs
+description: Azure CLI-voorbeeldscript - Een failover-beleid voor hoge beschikbaarheid maken
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,45 +16,45 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: 96083d66cc1a2ef179f9313c1b3ed04162c1c048
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 139679eb58516c9eda02f048e8c839e1b7bceb48
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Maken van een failover-beleid voor hoge beschikbaarheid met behulp van de Azure CLI
+# <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Een failoverbeleid voor hoge beschikbaarheid maken met behulp van de Azure CLI
 
-Dit voorbeeldscript CLI een Cosmos-DB Azure-account maakt en configureert deze voor maximale beschikbaarheid.
+Met dit voorbeeld-CLI-script wordt een Azure Cosmos DB-account gemaakt en vervolgens geconfigureerd voor hoge beschikbaarheid.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
 [!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/high-availability-cosmosdb-configure-failover/high-availability-cosmosdb-configure-failover.sh?highlight=23-27 "Create an Azure Cosmos DB failover policy")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om de resourcegroep en alle resources die er aan zijn gekoppeld te verwijderen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel is een koppeling naar specifieke documentatie over de opdracht.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [AZ groep maken](/cli/azure/group#create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ cosmosdb maken](/cli/azure/sql/server#create) | Maakt een Cosmos-DB Azure-account. |
-| [AZ cosmosdb update](/cli/azure/cosmosdb#update) | Account voor Azure DB die Cosmos-updates. |
-| [AZ groep verwijderen](/cli/azure/resource#delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle ingesloten resources. |
+| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az cosmosdb create](/cli/azure/sql/server#az_sql_server_create) | Hiermee wordt een Azure Cosmos DB-account gemaakt. |
+| [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) | Hiermee wordt een Azure Cosmos DB-account bijgewerkt. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+Zie de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview) voor meer informatie over de Azure CLI.
 
-Extra Azure Cosmos DB CLI scriptvoorbeelden vindt u in de [Azure Cosmos DB CLI documentatie](../cli-samples.md).
+Meer Azure Cosmos DB CLI-voorbeeldscripts vindt u in de [documentatie van Azure Cosmos DB CLI](../cli-samples.md).

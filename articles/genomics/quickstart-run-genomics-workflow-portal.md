@@ -10,11 +10,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 71f5e4d1288a361c4b52ff45fb4c6601fa39a757
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ed2048755317649d160bcfd71519af715067b99b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snelstartgids: een werkstroom uitvoeren via de service Microsoft Genomics
 
@@ -84,7 +84,7 @@ U kunt deze pakketten installeren met `pip`, `easy_install` of via de standaard 
 
 
 ### <a name="test-the-microsoft-genomics-client"></a>De Microsoft Genomics-client testen
-Download het configuratiebestand in uw Genomics-account om de client voor Microsoft Genomics te testen. Navigeer naar uw Genomics-account door links onderin op **Meer services** te klikken, te filteren en Genomics-accounts te selecteren.
+Download het configuratiebestand in uw Genomics-account om de client voor Microsoft Genomics te testen. Navigeer naar uw Genomics-account door links bovenin op **Alle services** te klikken, te filteren en Genomics-accounts te selecteren.
 
 
 ![In Azure Portal filteren op Microsoft Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "In Azure Portal filteren op Microsoft Genomics")

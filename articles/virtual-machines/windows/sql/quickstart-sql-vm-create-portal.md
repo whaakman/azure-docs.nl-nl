@@ -4,7 +4,7 @@ description: Deze zelfstudie laat zien hoe u een virtuele SQL Server 2017-machin
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 2bf2382094f88c8c57077df10473b5f3a2e4c127
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e6ae3937a9805dfec8784efaf8370117754a03ad
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Een virtuele SQL Server 2017-machine voor Windows maken in Azure Portal
+# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Snelstartgids: Een virtuele SQL Server 2017-machine voor Windows maken in Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
@@ -27,13 +27,16 @@ ms.lasthandoff: 12/12/2017
 
 In deze quickstart gaat u een virtuele SQL Server-machine maken in Azure Portal.
 
-Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+> [!TIP]
+> Deze snelstartgids biedt een pad voor het snel inrichten van en verbinding maken met een SQL-VM. Bekijk [Provisioning guide for Windows SQL Server VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md) (Inrichtingshandleiding voor Windows SQL Server-VM's in Azure Portal) voor andere inrichtingskeuzes voor SQL-VM's.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a id="select"></a> Een installatiekopie selecteren voor uw virtuele SQL Server-machine
 
-1. Meld u met uw account aan bij [Azure Portal](https://portal.azure.com).
+1. Meld u met uw account aan bij de [Azure Portal](https://portal.azure.com).
 
-1. Klik in Azure Portal op **Nieuw**. In de portal wordt het venster **Nieuw** geopend.
+1. Klik in Azure Portal op **Een resource maken**. 
 
 1. Typ in het zoekveld **SQL Server 2017 Developer on Windows Server 2016** en druk op ENTER.
 
@@ -42,9 +45,9 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
    ![Nieuw zoekvenster](./media/quickstart-sql-vm-create-portal/newsearch.png)
 
    > [!TIP]
-   > In deze zelfstudie maken we gebruik van de Developer Edition omdat deze een complete versie van de SQL Server is die gratis kan worden gebruikt voor ontwikkelings-/testdoeleinden. U betaalt alleen voor de kosten van het uitvoeren van de virtuele machine. Raadpleeg [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor virtuele SQL Server-machines in Azure) voor uitgebreide prijsinformatie.
+   > In deze zelfstudie maken we gebruik van de Developer Edition omdat deze een complete versie van de SQL Server is die gratis gebruikt kan worden voor ontwikkelings-/testdoeleinden. U betaalt alleen voor de kosten van het uitvoeren van de virtuele machine. Raadpleeg [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor virtuele SQL Server-machines in Azure) voor uitgebreide prijsinformatie.
 
-1. Klik op **Maken**.
+1. Klik op **Create**.
 
 ## <a id="configure"></a> Algemene gegevens opgeven
 
@@ -64,7 +67,7 @@ Geef op de pagina **Basisbeginselen** de volgende gegevens op:
 
 ## <a name="choose-virtual-machine-size"></a>De grootte van de virtuele machine kiezen
 
-Kies in de stap **Grootte** de grootte van uw virtuele machine. Dit doet u in het venster **Een grootte kiezen**. Het venster bevat in eerste instantie aanbevolen grootten voor de machine op basis van de geselecteerde installatiekopie. 
+In de stap **Grootte** kiest u de grootte van uw virtuele machine. Dit doet u in het venster **Een grootte kiezen**. Het venster bevat in eerste instantie aanbevolen grootten voor de machine op basis van de geselecteerde installatiekopie. 
 
 1. Klik op **Alles weergeven** voor een overzicht van alle beschikbare machinegrootten.
 
@@ -95,9 +98,9 @@ Configureer in het venster **SQL Server-instellingen** de volgende opties:
 
 ## <a name="create-the-sql-server-vm"></a>De virtuele SQL Server-machine maken
 
-Bekijk in het venster **Samenvatting** de samenvatting en klik op **Kopen** om de SQL Server, de resourcegroep en de resources te maken die zijn opgegeven voor deze virtuele machine.
+Bekijk in het venster **Samenvatting** de samenvatting en klik op **Kopen** om de SQL Server, de resourcegroep en de resources te maken die zijn opgegeven voor deze VM.
 
-U kunt de implementatie bewaken vanuit Azure Portal. Met de knop **Meldingen** bovenaan het scherm kunt u de algemene status van de implementatie weergeven.
+U kunt de implementatie bewaken vanuit Azure Portal. Met de knop **Meldingen** boven aan het scherm kunt u de algemene status van de implementatie weergeven.
 
 > [!TIP]
 > Het implementeren van een virtuele SQL Server-machine voor Windows kan enkele minuten duren.
@@ -131,7 +134,7 @@ Doorloop de volgende stappen om via Extern bureaublad verbinding te maken met de
 
 Nadat u verbinding hebt gemaakt met de virtuele SQL Server-machine, kunt u SQL Server Management Studio starten en verbinding maken met Windows-verificatie met behulp van de lokale beheerdersreferenties. Als u SQL Server-verificatie inschakelt, kunt u ook verbinding maken met SQL-verificatie. Dit kan met behulp van de SQL-aanmeldingsnaam en het wachtwoord die u hebt geconfigureerd tijdens het inrichten.
 
-Met toegang tot de machine kunt u rechtstreeks de instellingen voor de machine en de SQL-server wijzigen op basis van uw vereisten. U kunt bijvoorbeeld de firewallinstellingen configureren of de SQL Server-configuratie-instellingen wijzigen.
+Met toegang tot de machine kunt u rechtstreeks de instellingen voor de machine en de SQL Server wijzigen op basis van uw vereisten. U kunt bijvoorbeeld de firewallinstellingen configureren of de SQL Server-configuratie-instellingen wijzigen.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -142,4 +145,4 @@ Als het niet nodig is dat de virtuele SQL-machine continu wordt uitgevoerd, kunt
 In deze quickstart hebt u een virtuele SQL Server 2017-machine gemaakt in Azure Portal. Raadpleeg het volgende artikel voor meer informatie over hoe u uw gegevens naar de nieuwe SQL-server migreert.
 
 > [!div class="nextstepaction"]
-> [Een database migreren naar een virtuele SQL-machine](virtual-machines-windows-migrate-sql.md)
+> [Een database migreren naar een SQL-VM](virtual-machines-windows-migrate-sql.md)

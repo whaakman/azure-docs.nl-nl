@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8f0f575319eec0517366079c637ad7565530ac70
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5274ec13ec2d04194e2dd4c8ec93be0f78329b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Een interne load balancer maken in Azure Portal
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/11/2018
 Gebruik de volgende stappen om een interne load balancer te maken vanuit Azure Portal.
 
 1. Open een browser, ga naar [Azure Portal](http://portal.azure.com) en meld u aan met uw Azure-account.
-2. Klik linksboven in het scherm op **Nieuw** > **Netwerken** > **Load balancer**.
+2. Klik linksboven in het scherm op **Een resource maken** > **Netwerken** > **Load balancer**.
 3. Voer op de blade **Load balancer maken** een **naam** in voor de load balancer.
 4. Klik onder **Type** op **Intern**.
 5. Klik op **Virtueel netwerk** en selecteer het virtuele netwerk waarin u de load balancer wilt maken.

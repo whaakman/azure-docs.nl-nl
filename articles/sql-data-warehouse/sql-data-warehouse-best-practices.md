@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: barbkess
-ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Aanbevolen procedures voor Azure SQL Data Warehouse
 Dit artikel bevat een verzameling van aanbevolen procedures waarmee u optimale resultaten kunt bereiken met Azure SQL Data Warehouse.  Sommige onderwerpen in dit artikel zijn eenvoudig uit te leggen, andere zijn geavanceerder, waardoor we alleen de basis hiervan kunnen behandelen.  Het doel van dit artikel is om u een aantal richtlijnen te geven en u te wijzen op belangrijke onderdelen bij het maken van een datawarehouse.  In elk gedeelte maakt u kennis met een onderwerp en wordt u gewezen op gedetailleerdere artikelen die dieper op het onderwerp ingaan.
@@ -29,14 +29,8 @@ Laat u niet afschrikken door dit artikel als u net met Azure SQL Data Warehouse 
 Zie voor hulp bij het laden [Richtlijnen voor het laden van gegevens](guidance-for-loading-data.md).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Kosten verlagen met onderbreken en schalen
-Een belangrijke functie van SQL Data Warehouse is de mogelijkheid om het te onderbreken wanneer u het niet gebruikt, wat voorkomt dat rekenresources in rekening worden gebracht.  Een andere kernfunctie is het schalen van resources.  Onderbreken en schalen kunnen via de Azure Portal of met PowerShell-opdrachten worden uitgevoerd.  Het loont om deze functies te leren kennen, omdat ze de kosten van uw datawarehouse drastisch kunnen verlagen wanneer deze niet wordt gebruikt.  Als u liever wilt dat uw datawarehouse altijd toegankelijk is, kunt u overwegen deze omlaag te schalen naar het kleinste formaat, DW100, in plaats van deze te onderbreken.
+Zie [Compute beheren](sql-data-warehouse-manage-compute-overview.md) voor meer informatie over kostenverlaging via onderbreking en schaling. 
 
-Zie ook [Rekenresources onderbreken][Pause compute resources], [Rekenresources hervatten][Resume compute resources], [Rekenresources schalen].
-
-## <a name="drain-transactions-before-pausing-or-scaling"></a>Transacties stoppen voor onderbreken of schalen
-Wanneer u uw SQL Data Warehouse onderbreekt of schaalt, worden uw query’s achter de schermen geannuleerd zodra u het onderbreek- of schaalverzoek start.  Een eenvoudige SELECT-query annuleren is een snelle bewerking en heeft zo goed als geen invloed op de duur van het onderbreken of schalen van uw instantie.  Maar transactiequery’s, die uw gegevens of de structuur van uw gegevens wijzigen, kunnen mogelijk niet snel worden stopgezet.  **Transactiequery’s moeten per definitie volledig worden voltooid of hun wijzigingen volledig terugdraaien.**  Het kan even lang of langer duren om het werk dat door een transactiequery is voltooid, terug te draaien, als het uitvoeren van de oorspronkelijke opdracht van de query.  Als u bijvoorbeeld een query annuleert voor het verwijderen van rijen die al een uur wordt uitgevoerd, kan het systeem er een uur over doen om de verwijderde rijen terug te plaatsen.  Als u onderbreken of schalen uitvoert terwijl er transacties bezig zijn, kan het schalen of onderbreken lang lijken te duren omdat het schalen of onderbreken moet wachten op het terugdraaien van de transacties voordat het kan worden voortgezet.
-
-Zie ook [Inzicht in transacties][Understanding transactions], [Transacties optimaliseren][Optimizing transactions]
 
 ## <a name="maintain-statistics"></a>Statistieken bijhouden
 Anders dan SQL Server, die statistieken automatisch detecteert en creëert of bijwerkt in kolommen, vereist SQL Data Warehouse het handmatig bijhouden van statistieken.  Hoewel het plan is dit in de toekomst te veranderen, is het nu nog noodzakelijk dat u zelf uw statistieken bijhoudt om uw SQL Data Warehouse-plannen te optimaliseren.  De plannen die door de optimalisatie worden gemaakt, zijn maar zo goed als de beschikbare statistieken.  **Voorbeeldstatistieken maken voor elke kolom is een gemakkelijke manier om met statistieken aan de slag te gaan.**  Het is net zo belangrijk om uw statistieken bij te werken omdat er significante wijzigingen optreden in uw gegevens.  Een voorzichtige werkwijze is om uw statistieken dagelijks of na elke load bij te werken.  Het maken en bijwerken van statistieken kan ten koste gaan van prestaties en kosten. Als het te lang duurt om al uw statistieken bij te houden, kunt u overwegen selectiever te zijn in welke kolommen statistieken hebben of voor welke kolommen de statistieken regelmatig moeten worden bijgewerkt.  Zo wilt u datumkolommen, waar nieuwe gegevens kunnen zijn toegevoegd, misschien dagelijks bijwerken. **U haalt het meeste voordeel uit statistieken bij kolommen die onderdeel uitmaken van samenvoegingen, kolommen met het WHERE-component en kolommen in GROUP BY.**
@@ -138,7 +132,7 @@ Tenslotte willen we u vragen de pagina [Azure SQL Data Warehouse Feedback][Azure
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Rekenresources schalen]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
 [Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
 [Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
 [Troubleshooting]: ./sql-data-warehouse-troubleshoot.md

@@ -1,92 +1,92 @@
 ---
-title: Bestanden herstellen naar een virtuele machine met Azure Backup | Microsoft Docs
-description: Informatie over het bestandsniveau herstelacties uitvoeren op een Azure-VM met back-up en herstelservices.
-services: backup, virtual-machines
+title: Bestanden herstellen naar een VM met Azure Backup | Microsoft Docs
+description: Informatie over hoe u herstelacties op bestandsniveau uitvoert op een Azure-VM met Backup en Recovery Services.
+services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2017
+ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e1bbae56b70c50fcf691db47efd9dc587686e7da
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.openlocfilehash: 77084c5663f9e12347c243c4e78160657d7443b2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="restore-files-to-a-virtual-machine-in-azure"></a>Bestanden herstellen met een virtuele machine in Azure
-Azure Backup maakt herstelpunten die zijn opgeslagen in een geografisch redundante recovery kluizen. Wanneer u vanaf een herstelpunt herstelt, kunt u de hele virtuele machine of de afzonderlijke bestanden terugzetten. Dit artikel wordt uitgelegd hoe u kunt afzonderlijke bestanden terug te zetten. In deze zelfstudie leert u het volgende:
+# <a name="restore-files-to-a-virtual-machine-in-azure"></a>Bestanden herstellen naar een virtuele machine in Azure
+Azure Backup maakt herstelpunten die worden opgeslagen in geografisch redundante Recovery Services-kluizen. Wanneer u vanaf een herstelpunt herstelt, kunt u de hele VM of afzonderlijke bestanden herstellen. In dit artikel wordt uitgelegd hoe u afzonderlijke bestanden kunt herstellen. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Lijst en selecteer herstelpunten
-> * Verbinding maken met een herstelpunt voor een virtuele machine
+> * Herstelpunten in een lijst opnemen en selecteren
+> * Een herstelpunt met een VM verbinden
 > * Bestanden herstellen vanaf een herstelpunt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.18 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.18 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). 
 
 
 ## <a name="prerequisites"></a>Vereisten
-Deze zelfstudie vereist een Linux VM die is beveiligd met Azure Backup. Om te simuleren een bestanden per ongeluk verwijderen en het herstelproces, verwijdert u een pagina uit een webserver. Als u een Linux VM die wordt uitgevoerd een webserver en is beveiligd met Azure Backup moet, Zie [Back-up van een virtuele machine in Azure met de CLI](quick-backup-vm-cli.md).
+Deze zelfstudie vereist een Linux-VM die met Azure Backup is beschermd. U verwijdert een pagina van een webserver om een onbedoelde bestandsverwijdering en het daaropvolgende herstelproces te simuleren. Bekijk [Een back-up van een virtuele machine maken in Azure met de CLI](quick-backup-vm-cli.md) als u een Linux-VM nodig hebt die een webserver uitvoert en is beschermd met Azure Backup.
 
 
 ## <a name="backup-overview"></a>Overzicht van Backup
-Wanneer Azure een back-up begint, maakt de Backup-extensie op de virtuele machine een momentopname punt in tijd. De Backup-extensie is geïnstalleerd op de virtuele machine wanneer de eerste back-up wordt aangevraagd. Azure Backup kan ook een momentopname van de onderliggende opslag als de virtuele machine niet wordt uitgevoerd wanneer de back-up plaatsvindt.
+Wanneer Azure een back-up begint, maakt de back-upextensie op de VM een momentopname van een bepaald tijdstip. De back-upextensie wordt geïnstalleerd op de VM wanneer de eerste back-up wordt aangevraagd. Azure Backup kan ook een momentopname van de onderliggende opslag maken als de VM niet wordt uitgevoerd ten tijde van de back-up.
 
-Standaard heeft Azure Backup een bestand system consistente back-up. Zodra de Azure Backup maakt de momentopname, worden de gegevens worden overgedragen naar de Recovery Services-kluis. Als u wilt optimaliseren, Azure Backup identificeert en alleen de blokken met gegevens die zijn gewijzigd sinds de vorige back-up overdraagt.
+Standaard maakt Azure Backup een back-up die consistent is met een bestandssysteem. Nadat Azure Backup de momentopname heeft gemaakt, worden de gegevens overgedragen naar de Recovery Services-kluis. Voor maximale efficiëntie identificeert Azure Backup welke gegevensblokken sinds de vorige back-up zijn gewijzigd. Alleen deze worden vervolgens overgedragen.
 
-Wanneer de overdracht van gegevens voltooid is, wordt de momentopname is verwijderd en een herstelpunt wordt gemaakt.
+Wanneer de gegevensoverdracht is voltooid, wordt de momentopname verwijderd en wordt er een herstelpunt gemaakt.
 
 
-## <a name="delete-a-file-from-a-vm"></a>Een bestand verwijderen uit een virtuele machine
-Als u per ongeluk verwijdert of wijzigingen in een bestand aanbrengen, kunt u afzonderlijke bestanden terugzetten vanaf een herstelpunt. Dit proces kunt u bladeren in de bestanden die een back-up in een herstelpunt maken en terugzetten van alleen de bestanden die u nodig hebt. In dit voorbeeld wordt een bestand verwijderen uit een webserver ter illustratie van het herstelproces op bestandsniveau.
+## <a name="delete-a-file-from-a-vm"></a>Een bestand van een VM verwijderen
+Als u per ongeluk een bestand verwijdert of er wijzigingen in aanbrengt, kunt u afzonderlijke bestanden herstellen vanaf een herstelpunt. Hiervoor kunt u op een herstelpunt door de bestanden bladeren waarvan een back-up is gemaakt en alleen de bestanden voor herstel selecteren die u nodig hebt. In dit voorbeeld verwijderen we een bestand van een webserver om het herstelproces op bestandsniveau te demonstreren.
 
-1. Verkrijgen voor verbinding met uw virtuele machine, het IP-adres van uw virtuele machine met [az vm weergeven](/cli/azure/vm?view=azure-cli-latest#az_vm_show):
+1. Haal het IP-adres van uw VM op met [az vm show](/cli/azure/vm?view=azure-cli-latest#az_vm_show) om verbinding te maken met uw VM:
 
      ```azurecli-interactive
      az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
      ```
 
-2. Om te bevestigen dat de website momenteel werkt, open een webbrowser naar het openbare IP-adres van uw virtuele machine. Laat het browservenster geopend.
+2. Als u wilt bevestigen dat uw website momenteel werkt, opent u een webbrowser en voert u het openbare IP-adres van uw VM in. Laat het webbrowservenster geopend.
 
-    ![Standaard NGINX-webpagina](./media/tutorial-restore-files/nginx-working.png)
+    ![Standaard-NGINX-webpagina](./media/tutorial-restore-files/nginx-working.png)
 
-3. Verbinding maken met uw virtuele machine met SSH. Vervang *publicIpAddress* met het openbare IP-adres dat u hebt verkregen in een vorige opdracht:
+3. Maak verbinding met uw VM via SSH. Vervang *publicIpAddress* door het openbare IP-adres dat u hebt verkregen in een voorgaande opdracht:
 
     ```bash
     ssh publicIpAddress
     ```
 
-4. Verwijderen van de standaardpagina van de webserver op */var/www/html/index.nginx-debian.html* als volgt:
+4. Verwijder de standaardpagina van de webserver op */var/www/html/index.nginx-debian.html* op de volgende manier:
 
     ```bash
     sudo rm /var/www/html/index.nginx-debian.html
     ```
 
-5. Vernieuw de webpagina in uw webbrowser. De website niet langer de pagina wordt geladen zoals weergegeven in het volgende voorbeeld:
+5. Vernieuw de webpagina in uw webbrowser. De webpagina wordt niet meer geladen, zoals te zien is in het volgende voorbeeld:
 
-    ![NGINX-website niet meer standaardpagina wordt geladen](./media/tutorial-restore-files/nginx-broken.png)
+    ![NGINX-website laadt de standaardpagina niet meer](./media/tutorial-restore-files/nginx-broken.png)
 
-6. Sluit de SSH-sessie op de virtuele machine als volgt:
+6. Sluit de SSH-sessie op uw VM op de volgende manier:
 
     ```bash
     exit
     ```
 
 
-## <a name="generate-file-recovery-script"></a>Bestand herstel script genereren
-Azure Backup biedt uw om bestanden te herstellen, een script uit te voeren op de virtuele machine die verbinding het herstelpunt als een lokale schijf maakt. U kunt deze lokaal station bladeren, bestanden terugzetten op de virtuele machine zelf en Verbreek de verbinding met het herstelpunt. Azure Backup blijft back-up van uw gegevens op basis van het toegewezen beleid voor planning en te bewaren.
+## <a name="generate-file-recovery-script"></a>Bestandsherstelscript genereren
+Als u uw bestanden wilt herstellen, biedt Azure Backup een op uw VM uit te voeren script waarmee uw herstelpunt als een lokale schijf wordt verbonden. U kunt door de bestanden op deze lokale schijf bladeren, bestanden naar de VM zelf herstellen en vervolgens de verbinding met het herstelpunt verbreken. Azure Backup blijft back-ups maken van uw gegevens op basis van het toegewezen beleid voor planning en retentie.
 
-1. Lijst van herstelpunten voor de virtuele machine, gebruik [az back-recoverypoint lijst](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). In dit voorbeeld wordt de meest recente herstelpunt selecteren voor de virtuele machine met de naam *myVM* die wordt beveiligd *myRecoveryServicesVault*:
+1. Als u de herstelpunten voor uw VM in een lijst wilt opnemen, gebruikt u [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). In dit voorbeeld wordt het meest recente herstelpunt geselecteerd voor de virtuele machine met de naam *myVM*, die wordt beveiligd in *myRecoveryServicesVault*:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -98,9 +98,9 @@ Azure Backup biedt uw om bestanden te herstellen, een script uit te voeren op de
         --output tsv
     ```
 
-2. Gebruik om het script dat verbinding maakt of koppelt, het herstelpunt dat aan uw VM [az back-up terugzetten bestanden koppelpunt rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp). Het volgende voorbeeld wordt het script voor de virtuele machine met de naam opgehaald *myVM* die wordt beveiligd *myRecoveryServicesVault*.
+2. Gebruik [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) om het script op te halen waarmee het herstelpunt met de VM wordt verbonden. In het volgende voorbeeld wordt het script opgehaald voor de VM met de naam *myVM*, die wordt beveiligd in *myRecoveryServicesVault*.
 
-    Vervang *myRecoveryPointName* met de naam van het herstelpunt dat u hebt verkregen in de voorgaande opdracht:
+    Vervang *myRecoveryPointName* door de naam van het herstelpunt dat u hebt verkregen in de voorgaande opdracht:
 
     ```azurecli-interactive
     az backup restore files mount-rp \
@@ -111,43 +111,43 @@ Azure Backup biedt uw om bestanden te herstellen, een script uit te voeren op de
         --rp-name myRecoveryPointName
     ```
 
-    Het script wordt gedownload en een wachtwoord wordt weergegeven, zoals in het volgende voorbeeld:
+    Het script wordt gedownload en er wordt een wachtwoord weergegeven, zoals getoond in het volgende voorbeeld:
 
     ```
     File downloaded: myVM_we_1571974050985163527.sh. Use password c068a041ce12465
     ```
 
-3. Gebruiken om het script te zetten naar uw virtuele machine, Secure kopiëren (SCP). Geef de naam van het gedownloade script en vervang *publicIpAddress* met het openbare IP-adres van uw virtuele machine. Zorg ervoor dat u de afsluitende `:` aan het einde van het SCP opdracht als volgt:
+3. Gebruik Secure Copy (SCP) om het script over te dragen naar uw VM. Geef de naam van het gedownloade script op en vervang *publicIpAddress* door het openbare IP-adres van uw VM. Zorg ervoor dat u de afsluitende `:` aan het eind van de SCP-opdracht als volgt opneemt:
 
     ```bash
     scp myVM_we_1571974050985163527.sh 52.174.241.110:
     ```
 
 
-## <a name="restore-file-to-your-vm"></a>Bestand met uw virtuele machine herstellen
-U kunt nu verbinding maken met het herstelpunt en bestanden herstellen met het herstel script gekopieerd naar uw virtuele machine.
+## <a name="restore-file-to-your-vm"></a>Bestand herstellen naar uw VM
+Nu u het herstelscript hebt gekopieerd naar uw VM, kunt u de herstelpunten verbinden en bestanden herstellen.
 
-1. Verbinding maken met uw virtuele machine met SSH. Vervang *publicIpAddress* met het openbare IP-adres van uw VM als volgt:
+1. Maak verbinding met uw VM via SSH. Vervang *publicIPAddress* als volgt door het IP-adres van uw VM:
 
     ```bash
     ssh publicIpAddress
     ```
 
-2. Als u uw script om correct wordt uitgevoerd, toevoegen uitvoeringsmachtigingen met **type chmod**. Voer de naam van uw eigen script:
+2. Voeg machtigingen tot uitvoeren toe met **chmod**, zodat uw script correct wordt uitgevoerd. Geef de naam van uw eigen script op:
 
     ```bash
     chmod +x myVM_we_1571974050985163527.sh
     ```
 
-3. Voer het script voor het koppelen van het herstelpunt. Voer de naam van uw eigen script:
+3. Voer het script uit om het herstelpunt te koppelen. Geef de naam van uw eigen script op:
 
     ```bash
     ./myVM_we_1571974050985163527.sh
     ```
 
-    Als het script wordt uitgevoerd, wordt u gevraagd een wachtwoord voor toegang tot het herstelpunt op te geven. Voer het wachtwoord dat wordt weergegeven in de uitvoer van de vorige [az back-up terugzetten bestanden koppelpunt rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) opdracht dat het script herstel gegenereerd.
+    Terwijl het script wordt uitgevoerd, wordt u gevraagd om een wachtwoord op te geven voor toegang tot het herstelpunt. Geef het wachtwoord op dat wordt weergegeven in de vorige opdracht [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp), waarmee het herstelscript werd gegenereerd.
 
-    De uitvoer van het script hebt u het pad voor het herstelpunt. De volgende voorbeelduitvoer wordt weergegeven dat het herstelpunt dat is gekoppeld aan */home/azureuser/myVM-20170919213536/Volume1*:
+    U krijgt het pad voor het herstelpunt via de uitvoer van het script. Het volgende voorbeeld toont dat het herstelpunt is gekoppeld aan */home/azureuser/myVM-20170919213536/Volume1*:
 
     ```
     Microsoft Azure VM Backup - File Recovery
@@ -169,25 +169,25 @@ U kunt nu verbinding maken met het herstelpunt en bestanden herstellen met het h
     ************ Open File Explorer to browse for files. ************
     ```
 
-4. Gebruik **cp** kopiëren de NGINX-standaardwebpagina in het gekoppelde herstelpunt weer naar de locatie van het oorspronkelijke bestand. Vervang de */home/azureuser/myVM-20170919213536/Volume1* koppelpunt met uw eigen locatie:
+4. Gebruik **cp** om de standaardwebpagina van NGINX vanaf het gekoppelde herstelpunt naar de originele bestandslocatie te kopiëren. Vervang het koppelpunt */home/azureuser/myVM-20170919213536/Volume1* door uw eigen locatie:
 
     ```bash
     sudo cp /home/azureuser/myVM-20170919213536/Volume1/var/www/html/index.nginx-debian.html /var/www/html/
     ```
 
-6. Vernieuw de webpagina in uw webbrowser. De website nu wordt correct geïnstalleerd, zoals wordt weergegeven in het volgende voorbeeld:
+6. Vernieuw de webpagina in uw webbrowser. De website wordt weer correct geladen, zoals te zien is in het volgende voorbeeld:
 
-    ![NGINX-website nu wordt correct geïnstalleerd](./media/tutorial-restore-files/nginx-restored.png)
+    ![De NGINX-website wordt nu correct geladen](./media/tutorial-restore-files/nginx-restored.png)
 
-7. Sluit de SSH-sessie op de virtuele machine als volgt:
+7. Sluit de SSH-sessie op uw VM op de volgende manier:
 
     ```bash
     exit
     ```
 
-8. Ontkoppelen van het herstelpunt van uw virtuele machine met [az back-up terugzetten bestanden ontkoppelen rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_unmount_rp). Het volgende voorbeeld ontkoppelt van het herstelpunt van de virtuele machine met de naam *myVM* in *myRecoveryServicesVault*.
+8. Ontkoppel het herstelpunt van uw VM met [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_unmount_rp). In het volgende voorbeeld wordt het herstelpunt van de VM met de naam *myVM* in *myRecoveryServicesVault* ontkoppeld.
 
-    Vervang *myRecoveryPointName* met de naam van het herstelpunt dat u hebt verkregen in de vorige opdrachten:
+    Vervang *myRecoveryPointName* door de naam van het herstelpunt dat u hebt verkregen in de voorgaande opdracht:
     
     ```azurecli-interactive
     az backup restore files unmount-rp \
@@ -199,15 +199,15 @@ U kunt nu verbinding maken met het herstelpunt en bestanden herstellen met het h
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie maakt u een herstelpunt dat is verbonden met een VM en bestanden voor een webserver hersteld. U hebt geleerd hoe u:
+In deze zelfstudie hebt u een herstelpunt met een VM verbonden en voor een webserver bestanden hersteld. U hebt het volgende geleerd:
 
 > [!div class="checklist"]
-> * Lijst en selecteer herstelpunten
-> * Verbinding maken met een herstelpunt voor een virtuele machine
+> * Herstelpunten in een lijst opnemen en selecteren
+> * Een herstelpunt met een VM verbinden
 > * Bestanden herstellen vanaf een herstelpunt
 
-Ga naar de volgende zelfstudie voor meer informatie over hoe u back-up van Windows Server naar Azure.
+Ga naar de volgende zelfstudie voor meer informatie over hoe u een back-up van een Windows-server naar Azure maakt.
 
 > [!div class="nextstepaction"]
-> [Back-up van Windows Server naar Azure](tutorial-backup-windows-server-to-azure.md)
+> [Back-up maken van een Windows-server naar Azure](tutorial-backup-windows-server-to-azure.md)
 

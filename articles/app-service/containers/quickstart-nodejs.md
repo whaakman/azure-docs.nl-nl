@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 0013b3b1e95d733191aeafcffcda078a352d034f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 33889e391d3060f08294f81b35f180c1318d9f4c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Een Node.js-web-app maken in Azure App Service op Linux
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/03/2018
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-U kunt de stappen in deze zelfstudie volgen met behulp van een Mac-, Windows- of Linux-computer.
+U kunt de stappen in deze zelfstudie volgen met behulp van een Mac-, Windows- of Linux-computer. U kunt ook [de video](#video) bekijken waarin dit artikel wordt besproken.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -180,6 +180,10 @@ De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u algemene behee
 Het linkermenu bevat een aantal pagina's voor het configureren van uw app. 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+
+## <a name="video"></a>Video
+
+[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
 
 ## <a name="next-steps"></a>Volgende stappen
 

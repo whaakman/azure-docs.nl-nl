@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Een Azure Search-index in de portal maken, filteren en er een query op uitvoeren
 
@@ -46,7 +46,7 @@ Als u niet direct een service wilt inrichten, kunt u ook een zes minuten durende
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Open het servicedashboard van uw Azure Search-service. Als u de servicetegel niet hebt vastgemaakt aan het dashboard, kunt u de service op de volgende manier vinden: 
    
-   * Klik in de Jumpbar onder aan het linkernavigatiedeelvenster op **Meer services**.
+   * Klik in de snelbalk in het linkernavigatiedeelvenster op **Alle services**.
    * Typ in het zoekvak het woord *zoeken* voor een lijst met zoekservices voor uw abonnement. Als het goed is, wordt de service nu weergegeven in de lijst. 
 
 ## <a name="check-for-space"></a>Controleren of er voldoende ruimte is

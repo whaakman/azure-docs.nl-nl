@@ -13,26 +13,23 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/18/2018
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 639adb2fdc5a7d76c11397b5027199626a0a4016
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: e00ab06a26d60dd5beca11362df58f35812491d9
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Met Apache Kafka in HDInsight beginnen
 
-Informatie over het maken en gebruiken van een [Apache Kafka](https://kafka.apache.org)-cluster in Azure HDInsight. Kafka is een open-source, gedistribueerd streamingplatform dat beschikbaar is met HDInsight. Het wordt vaak gebruikt als een berichtenbroker, omdat het een functionaliteit biedt die vergelijkbaar is met een publicatie-/abonnementswachtrij voor berichten. Kafka wordt vaak samen met Apache Spark en Apache Storm gebruikt.
-
-> [!NOTE]
-> Er zijn momenteel twee versies van Kafka beschikbaar met HDInsight: 0.9.0 (HDInsight 3.4) en 0.10.0 (HDInsight 3.5 en 3.6). Voor de stappen in dit document wordt ervan uitgegaan dat u Kafka in HDInsight 3.6 gebruikt.
+Informatie over het maken en gebruiken van een [Apache Kafka](https://kafka.apache.org)-cluster in Azure HDInsight. Kafka is een open-source, gedistribueerd streamingplatform dat beschikbaar is met HDInsight. Het wordt vaak gebruikt als een berichtenbroker, omdat het een functionaliteit biedt die vergelijkbaar is met een publicatie-/abonnementswachtrij voor berichten. Kafka wordt vaak in combinatie met Apache Spark en Apache Storm gebruikt voor berichten, activiteitentracering, stroomaggregatie of gegevenstransformatie.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="create-a-kafka-cluster"></a>Een Kafka-cluster maken
 
-Gebruik de volgende stappen om een Kafka in HDInsight-cluster te maken:
+Gebruik de volgende stappen om een Kafka te maken in een HDInsight-cluster:
 
 1. In de [Azure Portal](https://portal.azure.com) selecteert u **+ Een resource maken**, **Gegevens en analyses** en vervolgens **HDInsight**.
    
@@ -40,7 +37,7 @@ Gebruik de volgende stappen om een Kafka in HDInsight-cluster te maken:
 
 2. Voer bij **Basisbeginselen** de volgende informatie in:
 
-    * **Clusternaam**: de naam van het HDInsight-cluster.
+    * **Clusternaam**: de naam van het HDInsight-cluster. Deze naam moet uniek zijn.
     * **Abonnement**: selecteer het abonnement dat u wilt gebruiken.
     * **Aanmeldingsgebruikersnaam** en -**wachtwoord** van cluster: de aanmeldingsgegevens voor toegang tot het cluster via HTTPS. U gebruikt deze referenties voor toegang tot services als de Ambari-webinterface of de REST-API.
     * **SSH-gebruikersnaam (Secure Shell)**: de aanmeldingsgegevens voor toegang tot het cluster via SSH. Het wachtwoord is standaard hetzelfde als het aanmeldingswachtwoord van het cluster.
@@ -77,7 +74,7 @@ Gebruik de volgende stappen om een Kafka in HDInsight-cluster te maken:
     ![De Kafka-clustergrootte instellen](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
     > [!IMPORTANT]
-    > De waarde voor de **schijven per werkknooppunt** bepaalt de schaalbaarheid van Kafka op HDInsight. Kafka in HDInsight maakt gebruik van de lokale schijf van de virtuele machines in het cluster. Omdat Kafka veel gebruikmaakt van invoer/uitvoer, wordt [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) gebruikt voor een hoge doorvoer en meer opslag per knooppunt. Het type beheerde schijf is __Standaard__ (HDD) of __Premium__ (SSD). Premium-schijven worden gebruikt met virtuele machines uit de DS- en GS-reeks. Alle andere VM-typen gebruiken standaardschijven.
+    > De waarde voor de **schijven per werkknooppunt** configureert de schaalbaarheid van Kafka in HDInsight. Kafka in HDInsight maakt gebruik van de lokale schijf van de virtuele machines in het cluster. Omdat Kafka veel gebruikmaakt van invoer/uitvoer, wordt [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) gebruikt voor een hoge doorvoer en meer opslag per knooppunt. Het type beheerde schijf is __Standaard__ (HDD) of __Premium__ (SSD). Premium-schijven worden gebruikt met virtuele machines uit de DS- en GS-reeks. Alle andere VM-typen gebruiken standaardschijven.
 
 8. Selecteer bij __Geavanceerde instellingen__ de optie __Volgende__ om door te gaan.
 
@@ -93,11 +90,9 @@ Gebruik de volgende stappen om een Kafka in HDInsight-cluster te maken:
 > [!IMPORTANT]
 > Wanneer u de volgende stappen uitvoert, moet u een SSH-client gebruiken. Zie het document [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-Gebruik SSH in uw client om verbinding te maken met het cluster:
+Als u verbinding met het cluster wilt maken via SSH, moet u de naam van het SSH-gebruikersaccount en de naam van uw cluster opgeven. Vervang `sshuser` en `clustername` in het volgende voorbeeld door uw account- en clusternaam:
 
-```ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net```
-
-Vervang **SSHUSER** door de SSH-gebruikersnaam die u hebt opgegeven tijdens het maken van het cluster. Vervang **CLUSTERNAME** door de naam van uw cluster.
+```ssh sshuser@clustername-ssh.azurehdinsight.net```
 
 Voer het wachtwoord van het SSH-account in wanneer hierom wordt gevraagd.
 
@@ -105,9 +100,9 @@ Zie [SSH-sleutels gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-uni
 
 ## <a id="getkafkainfo"></a>Informatie over Zookeeper- en brokerhosts ophalen
 
-Wanneer u met Kafka werkt, moet u twee hostwaarden weten: de *Zookeeper*-hosts en de *brokerhosts*. Deze hosts worden gebruikt met de Kafka-API en veel van de hulpprogramma's die bij Kafka worden meegeleverd.
+Als u met Kafka werkt, moet u de *Zookeeper*-hosts en de *broker*hosts kennen. Deze hosts worden gebruikt met de Kafka-API en veel van de hulpprogramma's die bij Kafka worden meegeleverd.
 
-Gebruik de volgende stappen om omgevingsvariabelen te maken die de hostinformatie bevatten. Deze omgevingsvariabelen worden in de stappen in dit document gebruikt.
+Gebruik de volgende stappen om de omgevingsvariabelen te maken die de hostinformatie bevatten:
 
 1. Wanneer er een SSH-verbinding is gemaakt met het cluster, gebruikt u de volgende opdracht om het hulpprogramma `jq` te installeren. Dit hulpprogramma wordt gebruikt om JSON-documenten te parseren en is handig bij het ophalen van informatie van de brokerhost:
    
@@ -115,36 +110,52 @@ Gebruik de volgende stappen om omgevingsvariabelen te maken die de hostinformati
     sudo apt -y install jq
     ```
 
-2. Gebruik de volgende opdrachten om de omgevingsvariabelen in te stellen met informatie die is verkregen van Ambari:
+2. Gebruik de volgende opdracht om een omgevingsvariabele in te stellen op de clusternaam:
 
     ```bash
-    CLUSTERNAME='your cluster name'
+    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    ```
+
+3. Gebruik de volgende opdracht om een omgevingsvariabele in te stellen met hostinformatie van Zookeeper:
+
+    ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
 
+    Geef desgevraagd het wachtwoord voor het account voor clusteraanmelding (beheerder) op.
+
+4. Gebruik de volgende opdracht om te controleren of de omgevingsvariabele juist is ingesteld:
+
+    ```bash
+     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
+    ```
+
+    Met deze opdracht wordt informatie geretourneerd die lijkt op de volgende tekst:
+
+    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
+
+5. Gebruik de volgende opdracht om een omgevingsvariabele in te stellen met brokerhostinformatie van Kafka:
+
+    ```bash
     export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    ```
 
-    echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
+    Geef desgevraagd het wachtwoord voor het account voor clusteraanmelding (beheerder) op.
+
+6. Gebruik de volgende opdracht om te controleren of de omgevingsvariabele juist is ingesteld:
+
+    ```bash   
     echo '$KAFKABROKERS='$KAFKABROKERS
     ```
 
-    > [!IMPORTANT]
-    > Stel `CLUSTERNAME=` in op de naam van het Kafka-cluster. Voer desgevraagd het wachtwoord voor het account voor clusteraanmelding (admin).
-
-    De inhoud van `$KAFKAZKHOSTS` kan er als volgt uitzien:
-   
-    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
-   
-    De inhoud van `$KAFKABROKERS` kan er als volgt uitzien:
+    Met deze opdracht wordt informatie geretourneerd die lijkt op de volgende tekst:
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
-
-    > [!NOTE]
-    > De opdracht `cut` wordt gebruikt om de lijst met hosts in te korten tot twee hostvermeldingen. U hoeft niet de volledige lijst met hosts op te geven bij het maken van een Kafka-consument of -producent.
    
-    > [!WARNING]
-    > Ga er niet van uit dat de informatie die uit deze sessie naar voren komt altijd accuraat is. Als u het cluster schaalt, worden er nieuwe brokers toegevoegd of verwijderd. Als er een fout optreedt en een knooppunt is vervangen, kan de hostnaam van het knooppunt veranderen.
-    >
-    > Haal de informatie over de Zookeeper- en brokerhosts kort voordat u deze gebruikt pas op, om er zeker van te zijn dat de gegevens geldig zijn.
+> [!WARNING]
+> Ga er niet van uit dat de informatie die uit deze sessie naar voren komt altijd accuraat is. Wanneer u het cluster schaalt, worden er nieuwe brokers toegevoegd of verwijderd. Als er een fout optreedt en een knooppunt is vervangen, kan de hostnaam van het knooppunt veranderen.
+>
+> Haal de informatie over de Zookeeper- en brokerhosts pas op kort voordat u ze gebruikt, om er zeker van te zijn dat de gegevens geldig zijn.
 
 ## <a name="create-a-topic"></a>Een onderwerp maken
 
@@ -154,19 +165,19 @@ Kafka slaat gegevensstromen op in categorieën, zogenaamde *onderwerpen*. Wannee
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
 ```
 
-Met deze opdracht brengt u een verbinding met Zookeeper tot stand met behulp van de hostinformatie die is opgeslagen in `$KAFKAZKHOSTS`. Maak vervolgens een Kafka-onderwerp met de naam **test**. U kunt controleren of het onderwerp is gemaakt door met het volgende script een lijst van de onderwerpen te genereren:
+Met deze opdracht brengt u een verbinding met Zookeeper tot stand met behulp van de hostinformatie die is opgeslagen in `$KAFKAZKHOSTS`. Vervolgens wordt er een Kafka-onderwerp gemaakt met de naam **test**. U kunt controleren of het onderwerp is gemaakt door met het volgende script een lijst van de onderwerpen te genereren:
 
 ```bash
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
 ```
 
-Met deze opdracht krijgt u een lijst van Kafka-onderwerpen, waaronder het onderwerp **test**.
+Met deze opdracht krijgt u een lijst van Kafka-onderwerpen over het cluster.
 
 ## <a name="produce-and-consume-records"></a>Records maken en gebruiken
 
 Kafka slaat *records* op in onderwerpen. Records worden geproduceerd door *producenten* en worden gebruikt door *consumenten*. Producenten maken records voor Kafka-*brokers*. Elk werkrolknooppunt in uw HDInsight-cluster is een Kafka-broker.
 
-Gebruik de volgende stappen om records op te slaan in het testonderwerp dat u eerder hebt gemaakt. Lees deze vervolgens met behulp van een consument:
+Gebruik de volgende stappen om records op te slaan in het testonderwerp dat u eerder hebt gemaakt. Lees deze vervolgens met behulp van een verbruiker:
 
 1. Gebruik tijdens de SSH-sessie een script dat bij Kafka is meegeleverd om records te schrijven naar het onderwerp:
    
@@ -174,9 +185,11 @@ Gebruik de volgende stappen om records op te slaan in het testonderwerp dat u ee
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test
     ```
    
-    Na deze opdracht keert u niet terug naar de prompt. In plaats daarvan typt u een paar tekstberichten en gebruikt u vervolgens **Ctrl + C** om verzending naar het onderwerp te stoppen. Elke regel wordt als een afzonderlijke record verzonden.
+    Na deze opdracht komt u aan bij een lege regel.
 
-2. Gebruik een script dat bij Kafka is meegeleverd om records in het onderwerp te lezen:
+2. Typ een tekstbericht op de lege regel en druk op Enter. Voer op deze manier enkele berichten in en gebruik vervolgens **Ctrl + C** om terug te keren naar de normale prompt. Elke regel wordt als afzonderlijke record naar het Kafka-onderwerp verzonden.
+
+3. Gebruik een script dat bij Kafka is meegeleverd om records in het onderwerp te lezen:
    
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
@@ -185,9 +198,9 @@ Gebruik de volgende stappen om records op te slaan in het testonderwerp dat u ee
     Met deze opdracht haalt u de records van het onderwerp op en geeft u deze weer. Met `--from-beginning` wordt de consument gevraagd om bij het begin van de stream te beginnen, zodat alle records worden opgehaald.
 
     > [!NOTE]
-    > Als u een oudere versie van Kafka gebruikt, moet u `--bootstrap-server $KAFKABROKERS` mogelijk vervangen door `--zookeeper $KAFKAZKHOSTS`.
+    > Vervang `--bootstrap-server $KAFKABROKERS` door `--zookeeper $KAFKAZKHOSTS` als u een oudere versie van Kafka gebruikt.
 
-3. Gebruik __Ctrl + C__ om de consument te stoppen.
+4. Gebruik __Ctrl + C__ om de consument te stoppen.
 
 U kunt ook programmatisch producenten en consumenten maken. Zie het document [Producer and Consumer API van Kafka met HDInsight](apache-kafka-producer-consumer-api.md) voor een voorbeeld van het gebruik van deze API.
 
@@ -198,19 +211,19 @@ Elke Azure-regio (locatie) heeft _foutdomeinen_. Een foutdomein is een logische 
 Raadpleeg het document [Beschikbaarheid van virtuele Linux-machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) voor informatie over het aantal foutdomeinen in een regio.
 
 > [!IMPORTANT]
-> Wij raden het gebruik aan van een Azure-regio die drie foutdomeinen bevat en van een replicatiefactor van 3.
+> Gebruik, indien mogelijk, een Azure-regio die drie foutdomeinen bevat en maak onderwerpen met een replicatiefactor van 3.
 
-Als u een regio met slechts twee foutdomeinen moet gebruiken, gebruik dan een replicatiefactor van 4 om de replica's gelijkmatig te verdelen over de twee foutdomeinen.
+Als u een regio met slechts twee foutdomeinen gebruikt, kies dan een replicatiefactor van 4 om de replica's gelijkmatig over de twee foutdomeinen te verdelen.
 
 ### <a name="kafka-and-fault-domains"></a>Kafka en foutdomeinen
 
 Kafka is niet bekend met foutdomeinen. Bij het maken van partitiereplica's voor onderwerpen worden replica's mogelijk niet goed gedistribueerd voor hoge beschikbaarheid. Gebruik het [partitieherverdelingsprogramma van Kafka](https://github.com/hdinsight/hdinsight-kafka-tools) voor gegarandeerde hoge beschikbaarheid. Dit hulpprogramma moet vanaf een SSH-sessie naar het hoofdknooppunt van het Kafka-cluster worden uitgevoerd.
 
-Om de hoogst mogelijke beschikbaarheid van uw Kafka-gegevens te waarborgen, moet u de partitiereplica's voor uw onderwerp op de volgende tijden opnieuw indelen:
+Om de hoogst mogelijke beschikbaarheid van uw Kafka-gegevens te waarborgen, moet u de partitiereplica's voor uw onderwerp opnieuw indelen wanneer:
 
-* wanneer een nieuw onderwerp of partitie wordt gemaakt
+* U een nieuw onderwerp of nieuwe partitie maakt
 
-* wanneer u een cluster opschaalt
+* U een cluster omhoog schaalt
 
 ## <a name="delete-the-cluster"></a>Het cluster verwijderen
 

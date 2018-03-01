@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 95934ce8be3570918f72ed7f8101a3599512abed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="getting-started"> </a>Ik gebruik Mobile Services. Welke voordelen heeft App Service voor mijn bestaande projecten?
 ## <a name="overview"></a>Overzicht
@@ -28,7 +28,7 @@ Uw bestaande Mobile Service-projecten zijn veilig en blijven ondersteund. Er zij
 * Nieuwe hostfuncties, waaronder WebJobs, aangepaste CNames en betere bewaking
 * Integratie met Traffic Manager
 * Verbinding met uw on-premises resources en VPN-netwerken met VNet naast hybride verbindingen
-* Bewaking, waarschuwingen en probleemoplossing voor uw app met NewRelic of AppInsights
+* Bewaking, waarschuwingen en probleemoplossing voor uw app met behulp van AppInsights
 * Uitgebreider spectrum van de onderliggende rekenresources en prijzen
 * Ingebouwde automatische schaling, taakverdeling en prestatiebewaking
 * Ingebouwde mogelijkheden voor fasering, terugdraaien en testen in productieomgeving
@@ -54,7 +54,7 @@ Met Mobile Services kunt u hybride verbindingen gebruiken voor toegang tot on-pr
 Met Mobile Services werden alle exemplaren van uw back-endcode op kleine virtuele machines uitgevoerd. Met *Azure App Service* hebt u veel meer keuze bij het kiezen van de grootte van de virtuele machines. Daarnaast kunt u snel omhoog of omlaag schalen om in te spelen op de inkomende belasting van klanten, gebaseerd op verschillende maatstaven voor prestaties.
 
 ## <a name="be-in-the-know"></a>Blijf op de hoogte
-U kunt in realtime op problemen reageren met bewaking en waarschuwingen, waarmee u en uw team automatisch op de hoogte worden gebracht van problemen. Integreer geavanceerde app-analyses met de bewakingsfunctionaliteit van New Relic en AppInsights, zodat u inzicht krijgt in de prestaties van uw mobiele app. Met *Azure App Service* kunt u nu waarschuwingen instellen op basis van verschillende metrische gegevens voor prestaties. Dit kunt u via programmacode of via Azure Portal doen.
+U kunt in realtime op problemen reageren met bewaking en waarschuwingen, waarmee u en uw team automatisch op de hoogte worden gebracht van problemen. Integreer geavanceerde app-analyses met de bewakingsfunctionaliteit van AppInsights, zodat u inzicht krijgt in de prestaties van uw mobiele app. Met *Azure App Service* kunt u nu waarschuwingen instellen op basis van verschillende metrische gegevens voor prestaties. Dit kunt u via programmacode of via Azure Portal doen.
 
 ## <a name="keep-your-assets-safe"></a>Houd uw activa veilig
 U kunt automatisch een back-up maken van uw back-end en database. Uw code en gegevens zijn veilig na noodgevallen en kunnen eenvoudig worden hersteld, zodat u uw bedrijf met vertrouwen kunt runnen.

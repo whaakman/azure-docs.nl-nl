@@ -8,11 +8,11 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Aangepaste gebeurtenissen maken en routeren met behulp van Azure Portal en Event Grid
 
@@ -43,7 +43,7 @@ Event Grid-onderwerpen zijn Azure-resources en moeten in een Azure-resourcegroep
 
 Een onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenissen kunt posten. 
 
-1. Selecteer **Meer services** en ga naar *Event Grid* om een onderwerp te maken voor de resourcegroep. Selecteer **Event Grid-onderwerpen** uit de beschikbare opties.
+1. Selecteer **Alle services** en ga naar *Event Grid* om een onderwerp te maken voor de resourcegroep. Selecteer **Event Grid-onderwerpen** uit de beschikbare opties.
 
    ![Event Grid-onderwerp maken](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -67,7 +67,7 @@ Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurt
 
 U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. 
 
-1. Selecteer opnieuw **Meer services** en ga naar *Event Grid* om een Event Grid-abonnement te maken. Selecteer **Event Grid-abonnementen** uit de beschikbare opties.
+1. Selecteer opnieuw **Alle services** en ga naar *Event Grid* om een Event Grid-abonnement te maken. Selecteer **Event Grid-abonnementen** uit de beschikbare opties.
 
    ![Event Grid-abonnement maken](./media/custom-event-quickstart-portal/create-subscription.png)
 

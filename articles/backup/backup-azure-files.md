@@ -1,0 +1,185 @@
+---
+title: Een back-up maken van Azure-bestanden in Azure
+description: In dit artikel wordt uitgelegd hoe u een back-up maakt van uw Azure-bestandsshares en ze herstelt. Ook worden beheertaken uitgelegd.
+services: backup
+keywords: Voeg geen sleutelwoorden toe en bewerk ze niet zonder overleg met uw SEO-expert.
+author: markgalioto
+ms.author: markgal
+ms.date: 2/21/2018
+ms.topic: tutorial
+ms.service: backup
+manager: carmonm
+ms.openlocfilehash: b9bf1582aa1c1b8878b8426f60a18282598eb2b9
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 02/22/2018
+---
+# <a name="back-up-azure-file-shares"></a>Een backup maken van Azure-bestandsshares
+
+In dit artikel wordt uitgelegd hoe u een back-up van uw [Azure-bestandsshares](../storage/files/storage-files-introduction.md) kunt maken.
+
+In deze handleiding leert u het volgende:
+> [!div class="checklist"]
+> * Een Recovery Services-kluis configureren om een back-up te maken van Azure-bestanden
+> * Een back-uptaak op aanvraag uitvoeren om een herstelpunt te maken
+> * Een of meer bestanden herstellen vanaf een herstelpunt
+> * Back-uptaken beheren
+> * De beveiliging voor Azure-bestanden stoppen
+> * Back-upgegevens verwijderen
+
+## <a name="prerequisites"></a>Vereisten
+Ga voordat u een back-up van een Azure-bestandsshare probeert te maken na dat deze aanwezig is in een van de [ondersteunde typen opslagaccounts](troubleshoot-azure-files.md#preview-boundaries). Zodra u dit hebt bevestigd, kunt u uw bestandsshares beveiligen.
+
+## <a name="configuring-azure-file-shares-backup"></a>Back-up maken van Azure-bestandsshares configureren
+
+Alle back-upgegevens worden opgeslagen in Recovery Services-kluizen. In deze zelfstudie wordt ervan uitgegaan dat u al een Azure-bestandsshare hebt gemaakt. Een back-up van uw Azure-bestandsshare maken:
+
+1. Maak een Recovery Services-kluis in dezelfde regio als waarin de bestandsshare zich bevindt. Als u al een kluis hebt, opent u de overzichtspagina van uw kluis en klikt u op **Back-up**.
+
+    ![Kies Azure-bestandsshare als back-updoel](./media/backup-file-shares/overview-backup-page.png)
+
+2. Kies in het menu Doel van de back-up bij **Waarvan wilt u een back-up maken?** de optie Azure-bestandsshare.
+
+    ![Kies Azure-bestandsshare als back-updoel](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
+
+3. Klik op **Back-up** om de Azure-bestandsshare naar de Recovery Services-kluis te configureren. 
+
+   ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/set-backup-goal.png)
+
+    Zodra de kluis is gekoppeld aan de Azure-bestandsshare, wordt het menu Back-up geopend en wordt u gevraagd een opslagaccount te selecteren. Het menu geeft alle ondersteunde opslagaccounts, die nog niet zijn gekoppeld aan een Recovery Services-kluis, weer in de regio waarin uw kluis zich bevindt.
+
+   ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/list-of-storage-accounts.png)
+
+4. Selecteer een account in de lijst met opslagaccounts en klik op **OK**. Azure zoekt naar het opslagaccount voor bestandsshares waarvan een back-up kan worden gemaakt. Als u uw bestandsshares recentelijk hebt toegevoegd en ze niet in de lijst worden weergegeven, kan het helpen om even te wachten.
+
+   ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/discover-file-shares.png)
+
+5. Selecteer in de lijst **Bestandsshares** een of meer bestandsshares waarvan u een back-up wilt maken en klik op **OK**.
+
+6. Nadat u de bestandsshares hebt geselecteerd, schakelt het menu Back-up over naar het **Back-upbeleid**. In dit menu selecteert u een bestaand back-upbeleid of maakt u een nieuwe. Vervolgens klikt u op **Back-up inschakelen**. 
+
+   ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/apply-backup-policy.png)
+
+    Wanneer er een back-upbeleid is ingesteld, wordt er een momentopname van de bestandsshares genomen op het geplande tijdstip en wordt het herstelpunt gedurende de gekozen periode bewaard.
+
+## <a name="create-an-on-demand-backup"></a>Een back-up op aanvraag maken
+Misschien wilt u zo nu en dan een momentopname van of herstelpunt voor een back-up maken buiten de tijden die zijn vastgelegd in het back-upbeleid. Een veelvoorkomend moment voor het genereren van een back-up op aanvraag, is vlak nadat u het back-upbeleid hebt geconfigureerd. Afhankelijk van de planning in het back-upbeleid, kan het uren of dagen duren totdat er een momentopname wordt gemaakt. Als u uw gegevens wilt beschermen totdat het back-upbeleid actief wordt, start u een back-up op aanvraag. Het is vaak vereist om een back-up op aanvraag te maken voordat u geplande wijzigingen in uw bestandsshares doorvoert. 
+
+### <a name="to-create-an-on-demand-backup"></a>Een back-up op aanvraag maken
+
+1. Open de Recovery Services-kluis waarin de herstelpunten van de bestandsshares staan en klik op **Back-upitems**. De lijst met typen back-upitems wordt weergegeven.
+
+   ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/list-of-backup-items.png)
+
+2. Selecteer **Azure Storage (Azure-bestanden)** in de lijst. De lijst met Azure-bestandsshares wordt weergegeven.
+
+   ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/list-of-azure-files-backup-items.png)
+
+3. Selecteer de gewenste bestandsshare uit de lijst met Azure-bestandsshares. Het menu Back-upitem wordt geopend voor de geselecteerde bestandsshare.
+
+   ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/backup-item-menu.png)
+
+4. Klik in het menu Back-upitem op **Nu back-up maken**. Omdat dit een back-uptaak op aanvraag is, is er geen bewaarbeleid gekoppeld aan het herstelpunt. Het dialoogvenster **Nu back-up maken** wordt geopend. Geef de laatste dag op die u van het herstelpunt wilt bewaren. 
+  
+   ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/backup-now-menu.png)
+
+## <a name="restore-from-backup-of-azure-file-share"></a>Herstellen vanuit back-up van Azure-bestandsshare
+Als u een volledige bestandsshare of afzonderlijke bestanden of mappen van een herstelpunt wilt herstellen, leest u over Back-upitem in het vorige gedeelte. Kies **Share herstellen** om een volledige bestandsshare vanaf een gewenst moment te herstellen. Selecteer in de lijst met herstelpunten die wordt weergegeven een herstelpunt dat uw huidige bestandsshare kan overschrijven of dat de bestandsshare naar een alternatieve bestandsshare in dezelfde regio kan herstellen.
+
+   ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/select-restore-location.png)
+
+## <a name="restore-individual-files-or-folders-from-backup-of-azure-file-shares"></a>Afzonderlijke bestanden of mappen terugzetten vanuit een back-up van Azure-bestandsshares
+Azure Backup biedt de mogelijkheid om naar een herstelpunt te bladeren binnen Azure Portal. Klik op de pagina Back-upitem op Bestandsherstel en kies uit de lijst met herstelpunten om een bestand of map te herstellen. Selecteer het Hersteldoel en klik op **Bestand selecteren** om door het herstelpunt te bladeren. Selecteer het bestand of de map en klik op **Herstellen**.
+
+   ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/restore-individual-files-folders.png)
+
+## <a name="manage-azure-file-share-backups"></a>Back-ups van Azure-bestandsshares beheren
+
+U kunt verschillende beheertaken voor back-ups van bestandsshares uitvoeren op de pagina **Back-uptaken**, met inbegrip van:
+- [Taken bewaken](backup-azure-files.md#monitor-jobs)
+- [Een nieuw beleid maken](backup-azure-files.md#create-a-new-policy)
+- [De beveiliging voor een bestandsshare stoppen](backup-azure-files.md#stop-protecting-an-azure-file-share)
+- [De beveiliging voor een bestandsshare hervatten](backup-azure-files.md#resume-protection-for-azure-file-share)
+- [Back-upgegevens verwijderen](backup-azure-files.md#delete-backup-data)
+
+### <a name="monitor-jobs"></a>Taken controleren
+
+U kunt de voortgang van alle taken bijhouden op de pagina **Back-uptaken**.
+
+De pagina **Back-uptaken** openen:
+
+- Open de Recovery Services-kluis die u wilt controleren en klik in het menu Recovery Services-kluis op **Taken** en vervolgens op **Back-uptaken**.
+   ![Selecteer de taak die u wilt controleren](./media/backup-file-shares/open-backup-jobs.png)
+
+    De lijst met back-uptaken en de status van deze taken wordt weergegeven.
+   ![Selecteer de taak die u wilt controleren](./media/backup-file-shares/backup-jobs-progress-list.png)
+
+### <a name="create-a-new-policy"></a>Een nieuw beleid maken
+
+U kunt vanuit **Back-upbeleid** van de Recovery Services-kluis een nieuw beleid maken voor het maken van back-ups van Azure-bestandsshares. Alle beleidsregels die worden gemaakt tijdens het configureren van Back-up maken voor bestandsshares, worden weergegeven met het type beleid Azure-bestandsshare.
+
+Het bestaande back-upbeleid weergeven:
+
+- Open de gewenste Recovery Services-kluis en klik in het menu Recovery Services-kluis op **Back-upbeleid**. Alle back-upbeleidsregels worden vermeld.
+
+   ![Selecteer de taak die u wilt controleren](./media/backup-file-shares/list-of-backup-policies.png)
+
+Een nieuw back-upbeleid maken:
+
+1. Klik in het menu Recovery Services-kluis op **Back-upbeleid**.
+2. Klik in de lijst met back-upbeleidsregels op **Toevoegen**.
+
+   ![Selecteer de taak die u wilt controleren](./media/backup-file-shares/new-backup-policy.png)
+
+3. Selecteer in het menu **Toevoegen** de optie **Azure-bestandsshare**. Het menu Back-upbeleid voor een Azure-bestandsshare wordt geopend. Geef de naam voor het beleid, de back-upfrequentie en de bewaartermijn voor de herstelpunten op. Klik op OK als u het beleid hebt gedefinieerd.
+
+   ![Selecteer de taak die u wilt controleren](./media/backup-file-shares/create-new-policy.png)
+
+### <a name="stop-protecting-an-azure-file-share"></a>De beveiliging van een Azure-bestandsshare stoppen
+
+Als u wilt stoppen met het beveiligen van een Azure-bestandsshare, wordt u gevraagd of u de herstelpunten wilt bewaren. Er zijn twee manieren om het beveiligen van Azure-bestandsshares te stoppen:
+
+- Alle toekomstige back-uptaken stoppen en alle herstelpunten verwijderen
+- Alle toekomstige back-uptaken stoppen maar de herstelpunten behouden
+
+Mogelijk zijn er kosten verbonden aan het blijven opslaan van de herstelpunten, aangezien de onderliggende momentopnamen die zijn gemaakt door Azure Backup worden behouden. Het voordeel van het bewaren van de herstelpunten is dat u de bestandsshare later kunt herstellen indien gewenst. Bekijk de prijsgegevens voor informatie over de kosten voor het behouden van de herstelpunten. Als u alle herstelpunten verwijdert, kunt u de bestandsshare niet terugzetten.
+
+De beveiliging van een Azure-bestandsshare stoppen:
+
+1. Open de Recovery Services-kluis waarin de herstelpunten van de bestandsshares staan en klik op **Back-upitems**. De lijst met typen back-upitems wordt weergegeven.
+
+   ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/list-of-backup-items.png) 
+
+2. In de lijst **Type back-upbeheer** selecteert u **Azure Storage (Azure-bestanden)**. De lijst met back-upitems voor (Azure Storage (Azure-bestanden)) wordt weergegeven.
+
+   ![Klik op het item om het extra menu te openen](./media/backup-file-shares/azure-file-share-backup-items.png) 
+
+3. Selecteer in de lijst met back-upitems (Azure Storage (Azure-bestanden)) het back-upitem dat u wilt stoppen.
+
+4. Klik in de Azure-bestandsshares op het menu **Meer** en selecteer **Back-up stoppen**. 
+
+   ![Klik op het item om het extra menu te openen](./media/backup-file-shares/stop-backup.png)
+
+5. Kies in het menu Back-up stoppen de optie **Behouden** of **Back-upgegevens verwijderen** en klik op **Back-up stoppen**.
+
+   ![Klik op het item om het extra menu te openen](./media/backup-file-shares/retain-data.png)
+
+### <a name="resume-protection-for-azure-file-share"></a>De beveiliging van een Azure-bestandsshare hervatten
+
+Als u de optie Back-upgegevens behouden hebt gekozen bij het stoppen van de beveiliging voor de bestandsshare, is het mogelijk om de beveiliging te hervatten. Als u de optie **Back-upgegevens verwijderen** hebt gekozen, kan de beveiliging voor de bestandsshare niet worden hervat.
+
+Als u de beveiliging voor de bestandsshare wilt hervatten, gaat u naar het back-upitem en klikt u op Back-up hervatten. Het back-upbeleid wordt geopend en u kunt een beleid kiezen voor het hervatten van de back-up.
+
+   ![Selecteer de taak die u wilt controleren](./media/backup-file-shares/resume-backup-job.png)
+
+### <a name="delete-backup-data"></a>Back-upgegevens verwijderen 
+
+U kunt de back-up van een bestandsshare verwijderen tijdens de taak Back-up stoppen of op elk gewenst moment nadat u de beveiliging hebt gestopt. Het kan zelfs handig zijn om een aantal dagen of weken te wachten voordat u de herstelpunten verwijdert. Wanneer u back-upgegevens verwijdert, kunt u niet specifieke herstelpunten kiezen om te verwijderen, in tegenstelling tot bij het herstellen van herstelpunten. Als uw back-gegevens verwijdert, verwijdert u alle herstelpunten die aan het item zijn gekoppeld.
+
+Bij de volgende procedure wordt ervan uitgegaan dat de back-uptaak voor de virtuele machine is gestopt. Nadat de back-uptaak is gestopt, zijn de opties Back-up hervatten en Back-upgegevens verwijderen beschikbaar in het dashboard Back-upitem. Klik op Back-upgegevens verwijderen en typ de naam van de bestandsshare om het verwijderen te bevestigen. Geef desgewenst een reden voor verwijdering of een opmerking op.
+
+## <a name="see-also"></a>Zie ook
+Voor meer informatie over Azure-bestandsshares, kunt u het volgende raadplegen:
+- [FAQ for Azure File share backup](backup-azure-files-faq.md) (Veelgestelde vragen over back-ups maken van Azure-bestandsshares)
+- [Troubleshoot Azure File share backup](troubleshoot-azure-files.md) (Problemen met back-ups maken van Azure-bestandsshares oplossen)
