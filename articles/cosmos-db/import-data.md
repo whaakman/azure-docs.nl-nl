@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 103f4200ea24c34c066a11c7b49676f51f252589
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 036683698c49b8acb8a83117ac823c90fef0b2b3
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Hulpprogramma voor gegevensmigratie
 
@@ -34,7 +34,7 @@ Welke API u gaat gebruiken met Azure Cosmos DB?
 * **[MongoDB API](mongodb-introduction.md)**  -hulpprogramma voor migratie van de gegevens van ondersteunt momenteel geen Azure Cosmos DB MongoDB-API als een bron of als een doelserver. Als u migreren van de gegevens in of buiten het MongoDB-API-verzamelingen in Azure Cosmos DB wilt, raadpleegt u [Azure Cosmos DB: het migreren van gegevens voor de MongoDB-API](mongodb-migrate.md) voor instructies. U kunt het hulpprogramma voor migratie van gegevens nog steeds gegevens van MongoDB exporteren naar Azure Cosmos DB SQL-API-verzamelingen voor gebruik met de SQL-API. 
 * **[Graph API](graph-introduction.md)**  -hulpprogramma voor migratie van de gegevens is niet een ondersteunde import-hulpprogramma voor Graph API accounts op dit moment. 
 
-Deze zelfstudie bevat de volgende taken:
+Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
 > * Het hulpprogramma voor gegevensmigratie installeren
@@ -61,12 +61,12 @@ Het hulpprogramma voor migratie van gegevens is een open-source-oplossing waarme
 Terwijl het hulpprogramma voor importeren, bevat een grafische gebruikersinterface (dtui.exe), kan het ook aangestuurd vanaf de opdrachtregel (dt.exe). Er is in feite een optie voor uitvoer van de bijbehorende opdracht na het instellen van een import via de gebruikersinterface. In tabelvorm brongegevens (bijvoorbeeld SQL Server- of CSV-bestanden) kan worden getransformeerd zodat hiërarchische relaties (subdocumenten) kunnen worden gemaakt tijdens het importeren. Houd lezen voor meer informatie over opties voor gegevensbron steekproef van opdrachtregels voor het importeren uit elke bron, doel-opties en importeren van de weer te geven resultaten.
 
 ## <a id="Install"></a>Installatie
-De broncode van de migratie-hulpprogramma is beschikbaar op GitHub in [deze opslagplaats](https://github.com/azure/azure-documentdb-datamigrationtool) en een gecompileerde versie is beschikbaar vanuit [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). U kunt compileren van de oplossing of gewoon downloaden en uitpakken van de gecompileerde versie naar een map van uw keuze. Voer vervolgens een:
+De broncode van de migratie-hulpprogramma is beschikbaar op GitHub in [deze opslagplaats](https://github.com/azure/azure-documentdb-datamigrationtool). U kunt downloaden en de oplossing lokaal compileren vervolgens uitvoert:
 
 * **Dtui.exe**: versie van de grafische interface van het hulpprogramma
 * **DT.exe**: opdrachtregelprogramma versie van het hulpprogramma
 
-## <a name="select-data-source"></a>Selecteer gegevensbron
+## <a name="select-data-source"></a>Gegevensbron selecteren
 
 Nadat u het hulpprogramma hebt geïnstalleerd, is het tijd om uw gegevens te importeren. Welk type gegevens wilt u gebruiken om te importeren?
 
@@ -77,7 +77,7 @@ Nadat u het hulpprogramma hebt geïnstalleerd, is het tijd om uw gegevens te imp
 * [CSV-bestanden](#CSV)
 * [Azure Table storage](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
-* [BLOB](#BlobImport)
+* [Blob](#BlobImport)
 * [Azure DB Cosmos-verzamelingen](#SQLSource)
 * [HBase](#HBaseSource)
 * [Azure DB Cosmos bulkimport](#SQLBulkImport)
@@ -196,7 +196,7 @@ Vergelijkbaar met de SQL-bron, het aantal geneste scheidingsteken-eigenschap kan
 
 Noteer de aliassen zoals DomainInfo.Domain_Name en RedirectInfo.Redirecting. Door op te geven van een geneste scheidingsteken van '.', maakt het hulpprogramma voor importeren DomainInfo en RedirectInfo subdocumenten tijdens het importeren. Hier volgt een voorbeeld van een resulterende document in Azure Cosmos DB:
 
-*{"DomainInfo": {'Domeinnaam': 'ACUS.GOV', 'Domain_Name_Address': 'http://www.ACUS.GOV'}, 'Federale instantie': ' beheerdersrechten Conferentie van de Verenigde Staten ', 'RedirectInfo': {'Omleiden': '0', 'Redirect_Destination': ' "}, 'id': '9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d'}*
+*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 Het hulpprogramma voor importeren probeert het afleiden van type-informatie voor zonder aanhalingstekens waarden in CSV-bestanden (tussen aanhalingstekens waarden worden altijd behandeld als tekenreeksen).  Typen worden geïdentificeerd in de volgende volgorde: getal, datum/tijd, Booleaanse waarde.  
 
