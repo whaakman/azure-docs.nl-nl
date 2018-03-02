@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/6/2017
 ms.author: sethm
-ms.openlocfilehash: 5391951c34498b3bd684cd2e223b8288d4040247
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-service-bus-topics"></a>Aan de slag met Service Bus-onderwerpen
 
@@ -52,7 +52,7 @@ Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gede
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Een onderwerp maken met de Azure-portal
 
 1. Meld u aan bij [Azure Portal][azure-portal].
-2. Klik in het navigatiedeelvenster links in de portal op **Service Bus** (als u **Service Bus** niet ziet, klik dan op **Meer services** of op **Alle resources**). Klik op de naamruimte waarin u het onderwerp wilt maken. 
+2. Klik in het navigatiedeelvenster links in de portal op **Service Bus** (als u **Service Bus** niet ziet, klik dan op **Alle services** of op **Alle resources**). Klik op de naamruimte waarin u het onderwerp wilt maken. 
 3. Het overzichtsvenster voor de naamruimte wordt geopend. Klik op **Onderwerpen**:
    
     ![Een onderwerp maken][createtopic1]

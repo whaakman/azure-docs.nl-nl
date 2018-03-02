@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8a1e0b3e56dab5500d60b0610cddccaf095c8d97
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 86ac3ec390c7aa9bc24a90ef2ee582f97f8b5407
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Beheer van de virtuele machine met Azure CLI
 
@@ -55,7 +55,7 @@ Voor het beheren van virtuele machine oplossingen, zijn er drie resourcespecifie
 
 In plaats van de rollen toewijzen aan individuele gebruikers, is het vaak eenvoudiger [een Azure Active Directory-groep maken](../../active-directory/active-directory-groups-create-azure-portal.md) voor gebruikers hoeven vergelijkbare acties te ondernemen. Vervolgens die groep toewijzen aan de juiste rol. Om te vereenvoudigen in dit artikel, moet u een Azure Active Directory-groep zonder leden maken. U kunt deze groep nog steeds toewijzen aan een rol voor een scope. 
 
-Het volgende voorbeeld wordt een Azure Active Directory-groep met de naam *VMDemoContributors* met een e-mail bijnaam van *vmDemoGroup*.
+Het volgende voorbeeld wordt een Azure Active Directory-groep met de naam *VMDemoContributors* met een e-mail bijnaam van *vmDemoGroup*. De mail-bijnaam fungeert als een alias voor de groep.
 
 ```azurecli-interactive
 adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)

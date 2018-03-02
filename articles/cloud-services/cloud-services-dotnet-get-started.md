@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: f0cdafdb88604b8874a245751246d219e8df3813
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
@@ -116,7 +116,7 @@ U voert de volgende stappen uit voor het uitvoeren van de toepassing in de cloud
 Een Azure-cloudservice is de omgeving waarin de toepassing wordt uitgevoerd.
 
 1. Open [Azure Portal](https://portal.azure.com) in uw browser.
-2. Klik op **Nieuw > Berekenen > Cloudservice**.
+2. Klik op **Een resource maken > Compute > Cloudservice**.
 
 3. Voer een URL-voorvoegsel in voor de cloudservice in het invoervak voor de DNS-naam.
 
@@ -135,7 +135,7 @@ Een Azure-cloudservice is de omgeving waarin de toepassing wordt uitgevoerd.
 ### <a name="create-an-azure-sql-database"></a>Een Azure SQL-database maken
 Wanneer de app wordt uitgevoerd in de cloud, gebruikt deze een cloudgebaseerde database.
 
-1. Klik in [Azure Portal](https://portal.azure.com) op **Nieuw > Databases > SQL-database**.
+1. Klik in [Azure Portal](https://portal.azure.com) op **Een resource maken > Databases > SQL Database**.
 2. Voer in het vak **Databasenaam** *contosoads* in.
 3. Klik in de **Resourcegroep** op **Bestaande gebruiken** en selecteer de resourcegroep die voor de cloudservice wordt gebruikt.
 4. Klik in de volgende afbeelding op **Server - vereiste instellingen configureren** en **Een nieuwe server maken**.
@@ -162,7 +162,7 @@ Een Azure-opslagaccount biedt resources voor het opslaan van wachtrij- en blobge
 
 In een echte toepassing maakt u meestal afzonderlijke accounts voor toepassingsgegevens versus logboekgegevens, en afzonderlijke accounts voor testgegevens versus productiegegevens. Voor deze zelfstudie gebruikt u slechts één account.
 
-1. Klik in [Azure Portal](https://portal.azure.com) op **Nieuw > Opslag > Opslagaccount - blob, bestand, tabel, wachtrij**.
+1. Klik in [Azure Portal](https://portal.azure.com) op **Een resource maken > Opslag > Opslagaccount - blob, bestand, tabel, wachtrij**.
 2. Voer in het vak **Naam** een URL-voorvoegsel in.
 
     Dit voorvoegsel wordt samen met de tekst onder het vak de unieke URL voor uw opslagaccount. Als het voorvoegsel dat u invoert, al door iemand anders wordt gebruikt, moet u een ander voorvoegsel kiezen.

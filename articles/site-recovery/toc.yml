@@ -24,13 +24,13 @@
         - name: Azure voorbereiden
           href: tutorial-prepare-azure.md
         - name: On-premises VMware voorbereiden
-          href: tutorial-prepare-on-premises-vmware.md
+          href: vmware-azure-tutorial-prepare-on-premises.md
         - name: Herstel na noodgeval instellen
-          href: tutorial-vmware-to-azure.md
+          href: vmware-azure-tutorial.md
         - name: Noodherstelanalyse uitvoeren
           href: tutorial-dr-drill-azure.md
         - name: Failover en failback uitvoeren
-          href: tutorial-vmware-to-azure-failover-failback.md
+          href: vmware-azure-tutorial-failover-failback.md
     - name: Virtuele Hyper-V-machines
       items:
         - name: Azure voorbereiden
@@ -50,9 +50,9 @@
         - name: Azure voorbereiden voor on-premises replicatie
           href: tutorial-prepare-azure.md
         - name: On-premises machines migreren naar Azure
-          href: tutorial-migrate-on-premises-to-azure.md
+          href: migrate-tutorial-on-premises-azure.md
         - name: AWS-exemplaren migreren naar Azure
-          href: tutorial-migrate-aws-to-azure.md
+          href: migrate-tutorial-aws-azure.md
         - name: Virtuele Azure-machines migreren naar een andere regio
           href: azure-to-azure-tutorial-migrate.md
 - name: Concepten
@@ -62,11 +62,11 @@
         - name: Azure naar Azure-architectuur
           href: azure-to-azure-architecture.md
         - name: VMware naar Azure-architectuur
-          href: concepts-vmware-to-azure-architecture.md
+          href: vmware-azure-architecture.md
         - name: Hyper-V naar Azure-architectuur
           href: hyper-v-azure-architecture.md
         - name: Fysieke naar Azure-architectuur
-          href: concepts-physical-to-azure-architecture.md
+          href: physical-azure-architecture.md
         - name: Hyper-V naar secundaire site-architectuur
           href: hyper-v-vmm-architecture.md
     - name: Ondersteuningsmatrix voor vereisten
@@ -114,11 +114,11 @@
         - name: Herstel na noodgeval voor virtuele Azure-machines na migratie naar Azure
           href: azure-to-azure-replicate-after-migration.md
         - name: Herstel na noodgeval voor fysieke servers naar Azure
-          href: tutorial-physical-to-azure.md
+          href: physical-azure-disaster-recovery.md
         - name: Herstel na noodgeval voor virtuele Hyper-V-machines naar een secundaire site
           href: hyper-v-vmm-disaster-recovery.md
         - name: Herstel na noodgeval voor virtuele VMware-machines en fysieke servers naar een secundaire site
-          href: tutorial-vmware-to-vmware.md
+          href: vmware-physical-secondary-disaster-recovery.md
         - name: Noodherstelanalyse uitvoeren in Azure
           href: site-recovery-test-failover-to-azure.md
         - name: Een oefening voor herstel na noodgeval uitvoeren voor virtuele Hyper-V-machines naar een secundaire site
@@ -236,7 +236,7 @@
         - name: Hyper-V-replicatie naar Azure instellen (zonder VMM) met behulp van PowerShell
           href: hyper-v-azure-powershell-resource-manager.md
         - name: Hyper-V-replicatie naar Azure instellen (met VMM) met behulp van PowerShell
-          href: site-recovery-vmm-to-azure-powershell-resource-manager.md
+          href: hyper-v-vmm-powershell-resource-manager.md
         - name: Hyper-V-replicatie naar een secundaire VMM-site instellen met behulp van PowerShell
           href: hyper-v-vmm-powershell-resource-manager.md
     - name: Workloads
@@ -290,7 +290,7 @@
         - name: Problemen met failover naar Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Problemen met opnieuw beveiligen en failback
-          href: troubleshoot-failback-reprotect.md
+          href: vmware-azure-troubleshoot-failback-reprotect.md
         - name: Azure Site Recovery bewaken
           href: site-recovery-monitor-and-troubleshoot.md
 - name: Naslaginformatie

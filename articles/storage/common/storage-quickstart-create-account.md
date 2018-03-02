@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: f9692156fa2c1eaf9d3a617d339cdbc210bf6dd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-storage-account"></a>Een opslagaccount maken
 
@@ -161,7 +161,7 @@ Neem de volgende regels in acht als u het opslagaccount een naam geeft:
 
 Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, volgt u deze stappen:
 
-1. Vouw in Azure Portal het menu links open om het menu met services te openen en kies **Meer services**. Schuif vervolgens omlaag naar **Opslag** en kies **Opslagaccounts**. Kies in het venster **Opslagaccounts** dat wordt weergegeven de optie **Toevoegen**.
+1. Vouw in Azure Portal het menu links open om het menu met services te openen en kies **Alle services**. Schuif vervolgens omlaag naar **Opslag** en kies **Opslagaccounts**. Kies in het venster **Opslagaccounts** dat wordt weergegeven de optie **Toevoegen**.
 2. Voer een naam in voor het opslagaccount.
 3. Stel het veld **Soort account** in op **StorageV2 (algemeen gebruik v2)**.
 4. Laat het veld **Replicatie** ingesteld op **Lokaal redundante opslag (LRS)**. Ook kunt u kiezen voor **Zone-redundante opslag (ZRS Preview)**, **Geografisch redundante opslag (GRS)** of **Geografisch redundante opslag met leestoegang (RA-GRS)**.

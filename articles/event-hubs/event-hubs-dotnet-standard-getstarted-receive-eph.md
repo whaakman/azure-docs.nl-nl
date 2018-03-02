@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Aan de slag met het ontvangen van berichten met de Event Processor Host in .NET Standard
 
@@ -42,7 +42,7 @@ In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naa
 ## <a name="create-an-azure-storage-account"></a>Een Azure Storage-account maken  
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).  
-2. Klik in het linkernavigatievenster van de portal achtereenvolgens op **Nieuw**, **Opslag** en **Opslagaccount**.  
+2. Klik in het linkernavigatievenster van de portal achtereenvolgens op **Een nieuwe resource maken**, **Opslag** en **Opslagaccount**.  
 3. Vul de velden in het opslagaccountvenster en klik vervolgens op **Maken**.
 
     ![Een opslagaccount maken][1]

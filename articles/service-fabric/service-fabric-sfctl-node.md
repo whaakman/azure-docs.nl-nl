@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-node"></a>sfctl knooppunt
+# <a name="sfctl-node"></a>sfctl node
 Beheren van de knooppunten die fungeren als een cluster wordt gevormd.
 
 ## <a name="commands"></a>Opdrachten
@@ -29,8 +29,8 @@ Beheren van de knooppunten die fungeren als een cluster wordt gevormd.
 | --- | --- |
 |    uitschakelen       | Een Service Fabric-clusterknooppunt met de opgegeven deactivering wordt intentie deactiveren.|
 |    inschakelen        | Activeren van een Service Fabric-clusterknooppunt is gedeactiveerd.|
-|    Status        | Hiermee haalt u de status van een Service Fabric-knooppunt.|
-|    info          | Hiermee haalt de lijst met knooppunten in het Service Fabric-cluster.|
+|    status        | Hiermee haalt u de status van een Service Fabric-knooppunt.|
+|    info          | Hiermee haalt de informatie over een specifiek knooppunt in het Service Fabric-cluster.|
 |    lijst          | Hiermee haalt de lijst met knooppunten in het Service Fabric-cluster.|
 |    laden          | Hiermee haalt u de informatie laden van een Service Fabric-knooppunt.|
 |    status verwijderen  | Service Fabric waarschuwt dat de permanente status op een knooppunt is permanent verwijderd of verloren.|
@@ -50,7 +50,7 @@ Een Service Fabric-clusterknooppunt met de opgegeven deactivering wordt intentie
 |Argument|Beschrijving|
 | --- | --- |
 | --knooppuntnaam [vereist]| De naam van het knooppunt.|
-| --intent voor deactivering | Het doel of de reden voor het deactiveren van het knooppunt beschreven. De mogelijke waarden zijn volgt. -Pause - geeft aan dat het knooppunt moet worden onderbroken. De waarde is 1. -Opnieuw opstarten - geeft aan dat het doel voor het knooppunt opnieuw moet worden gestart na een korte periode. De waarde is 2. -RemoveData - geeft aan dat de bedoeling is voor het knooppunt om gegevens te verwijderen. De waarde is 3. .|
+| --intent voor deactivering | Het doel of de reden voor het deactiveren van het knooppunt beschreven. |
 | --time-out -t       | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
@@ -109,9 +109,9 @@ Hiermee haalt u de status van een Service Fabric-knooppunt. EventsHealthStateFil
 | --uitgebreide                | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 ## <a name="sfctl-node-info"></a>sfctl knooppunt info
-Hiermee haalt de lijst met knooppunten in het Service Fabric-cluster.
+Hiermee haalt de informatie over een specifiek knooppunt in het Service Fabric-cluster.
 
-Hiermee haalt de informatie over een specifiek knooppunt in het Service Fabric-cluster. Het antwoord bevatten de naam, status-ID, status, bedrijfstijd en andere details over het knooppunt.
+Hiermee haalt u de informatie over een bepaald knooppunt in het Service Fabric-Cluster.The antwoord bevatten de naam, status, -id, status, bedrijfstijd en andere details over het knooppunt.
 
 ### <a name="arguments"></a>Argumenten
 
@@ -133,14 +133,14 @@ Hiermee haalt de informatie over een specifiek knooppunt in het Service Fabric-c
 ## <a name="sfctl-node-list"></a>lijst met sfctl knooppunten
 Hiermee haalt de lijst met knooppunten in het Service Fabric-cluster.
 
-Het eindpunt van de knooppunten retourneert informatie over de knooppunten in het Service Fabric-Cluster. Het antwoord bevat de naam, status-ID, status, bedrijfstijd en andere details over het knooppunt.
+Hiermee haalt de lijst met knooppunten in het Service Fabric-cluster. Het antwoord bevatten de naam, status, -id, status, bedrijfstijd en andere details over het knooppunt.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
 | --vervolgtoken| De token voortzetting-parameter wordt gebruikt voor het verkrijgen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in een enkele antwoordthread passen.      Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep, retourneert de API volgende reeks resultaten. Als er geen verdere resultaten, bevat klikt u vervolgens het vervolgtoken geen waarde. De waarde van deze parameter mag geen URL zijn gecodeerd.|
-| --knooppunt Statusfilter| Hiermee kunt u op de knooppunten op basis van de NodeStatus filteren. Alleen de knooppunten die zijn die overeenkomt met de opgegeven filterwaarde worden geretourneerd. De filterwaarde zijn. -standaard - waarde voor dit filter komt overeen met alle knooppunten die met de status excepts als onbekend of verwijderd. -alle - waarde voor dit filter komt overeen met alle knooppunten. Dit filter - up - waarde komt overeen met knooppunten die actief zijn. Dit filter - omlaag - waarde komt overeen met knooppunten die niet beschikbaar zijn. -inschakelen - dit filter waarde komt overeen met knooppunten die zijn ingeschakeld met de status als inschakelen. -uitschakelen - dit filter waarde komt overeen met knooppunten die zijn uitgeschakeld met de status als uitschakelen. -uitgeschakeld - dit filter waarde komt overeen met knooppunten die zijn uitgeschakeld. -Onbekende - waarde voor dit filter komt overeen met knooppunten met de status onbekend is. Een knooppunt worden onbekende status als Service Fabric geen gezaghebbende informatie over dat knooppunt. Dit kan gebeuren als het systeem gegevens over een knooppunt tijdens runtime verzamelt. -verwijderd - deze waarde komt overeen met Filterknooppunten waarvan u de status is verwijderd. Dit zijn de knooppunten die zijn verwijderd uit het cluster met behulp van de API RemoveNodeState. .      Standaard: standaard.|
+| --knooppunt Statusfilter| Hiermee kunt u op de knooppunten op basis van de NodeStatus filteren. Alleen de knooppunten die zijn die overeenkomt met de opgegeven filterwaarde worden geretourneerd. De filterwaarde zijn. Standaard: standaard.|
 | --time-out -t     | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
@@ -156,7 +156,7 @@ Het eindpunt van de knooppunten retourneert informatie over de knooppunten in he
 ## <a name="sfctl-node-load"></a>sfctl knooppunt laden
 Hiermee haalt u de informatie laden van een Service Fabric-knooppunt.
 
-Hiermee haalt u de informatie laden van een Service Fabric-knooppunt.
+Haalt de informatie laden van een Service Fabric-knooppunt van de metrische gegevens die load of capaciteit gedefinieerd.
 
 ### <a name="arguments"></a>Argumenten
 
@@ -203,7 +203,7 @@ Start opnieuw op het knooppunt van een Service Fabric-cluster die al is gestart.
 Start of stopt een clusterknooppunt.
 
 Start of stopt een clusterknooppunt.  Een clusterknooppunt is een proces, niet de OS-exemplaar zelf.
-In 'Start' voor de parameter NodeTransitionType doorgeven voor het starten van een knooppunt. Om te stoppen op een knooppunt, doorgeven in 'Stop' voor de parameter NodeTransitionType. Deze API wordt de bewerking - gestart wanneer de API-retourneert het knooppunt kan niet klaar bent met nog een overgang. Aanroepen GetNodeTransitionProgress met de dezelfde OperationId ophalen van de voortgang van de bewerking. .
+In 'Start' voor de parameter NodeTransitionType doorgeven voor het starten van een knooppunt. Om te stoppen op een knooppunt, doorgeven in 'Stop' voor de parameter NodeTransitionType. Deze API wordt de bewerking - gestart wanneer de API-retourneert het knooppunt kan niet klaar bent met nog een overgang. Aanroepen GetNodeTransitionProgress met de dezelfde OperationId ophalen van de voortgang van de bewerking. 
 
 ### <a name="arguments"></a>Argumenten
 
@@ -211,7 +211,7 @@ In 'Start' voor de parameter NodeTransitionType doorgeven voor het starten van e
 | --- | --- |
 | --knooppunt-exemplaar-id [vereist]| De exemplaar-ID voor het knooppunt van het doelknooppunt. Dit kan worden bepaald via GetNodeInfo API.|
 | --knooppuntnaam [vereist]| De naam van het knooppunt.|
-| ---overgang-knooppunttype [vereist]| Geeft het type van overgang om uit te voeren.                       NodeTransitionType.Start wordt gestart van een knooppunt gestopt.                       NodeTransitionType.Stop stopt een knooppunt of actief is. -Ongeldige: gereserveerd.  Niet doorgegeven aan de API. -Begin - overgang een gestopte knooppunt omhoog. -Stop - overgang een up-to-date knooppunt gestopt. .|
+| ---overgang-knooppunttype [vereist]| Geeft het type van overgang om uit te voeren.                       NodeTransitionType.Start wordt gestart van een knooppunt gestopt.                       NodeTransitionType. Stop stopt een knooppunt of actief is. |
 | --bewerking-id [vereist]| Een GUID die een aanroep van deze API identificeert.  Dit wordt doorgegeven in de bijbehorende GetProgress-API.|
 | --stop-duur-in-seconden [vereist]| De duur in seconden, dat het knooppunt is gestopt.  De minimumwaarde is 600, het maximum is 14400. Nadat deze tijd is verstreken, terugkomt het knooppunt automatisch.|
 | --time-out -t                      | Server time-out in seconden.  Standaard: 60.|

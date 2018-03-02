@@ -1,10 +1,11 @@
-- name: Door Azure beheerde toepassingen
+- name: Documentatie voor door Azure beheerde toepassingen
   href: index.yml
 - name: Overzicht
   items:
     - name: Over beheerde toepassingen
       href: overview.md
 - name: Snelstartgidsen
+  expanded: true
   items:
     - name: Een beheerde toepassing maken
       href: managed-apps-quickstart-cli.md
@@ -30,7 +31,7 @@
       href: update-managed-resources.md
     - name: Portal gebruiken om te publiceren
       href: publish-portal.md
-- name: Verwijzing
+- name: Naslaginformatie
   items:
     - name: Azure-CLI
       href: /cli/azure/managedapp

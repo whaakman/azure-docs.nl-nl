@@ -77,6 +77,10 @@
       items:
         - name: Kubernetes-dashboard gebruiken
           href: kubernetes-dashboard.md
+    - name: Problemen oplossen
+      items:
+        - name: Toegang van SSH-knooppunt
+          href: aks-ssh.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

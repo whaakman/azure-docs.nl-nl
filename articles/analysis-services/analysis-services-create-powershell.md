@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 02/14/2018
 ms.author: owend
 ms.custom: mvc
-ms.openlocfilehash: 99798af8cb0a2b13f2c3c3808222113656a5a388
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 083c5a9bb5c57f3287c259900e6a23d6f0a886de
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>Een Azure Analysis Services-server maken met behulp van PowerShell
 
@@ -30,8 +30,8 @@ Voor deze taak is Azure PowerShell-moduleversie 4.0 of hoger vereist. Voer ` Get
 > [!NOTE]
 > Het maken van een server kan zorgen voor een nieuwe factureerbare service. Zie [Prijzen van Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) voor meer informatie.
 
-## <a name="prerequisites"></a>Vereisten
-U hebt het volgende nodig om deze snelstartgids te voltooien:
+## <a name="before-you-begin"></a>Voordat u begint
+U hebt het volgende nodig om deze quickstart te voltooien:
 
 * **Azure-abonnement**: ga naar [gratis proefversie van Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) om een account te maken.
 * **Azure Active Directory**: uw abonnement moet worden gekoppeld aan een Azure Active Directory-tenant en u moet een account hebben in de betreffende map. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).

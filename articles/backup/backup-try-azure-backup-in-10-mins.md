@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb631eff77932b6bdcf858256c47c9d7381a58c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Eerste blik: een back-up maken van bestanden en mappen met Resource Manager-implementatie
 In dit artikel wordt uitgelegd hoe u een back-up maakt van bestanden en mappen op uw Windows Server (of Windows-computer) in Azure met behulp van Resource Manager-implementatie. Het artikel is bedoeld als handleiding waarmee u stapsgewijs de basis onder de knie krijgt. Als u met Azure Backup wilt leren werken, bent u hier op de goede plek.
@@ -33,7 +33,7 @@ Als u een back-up wilt maken van uw bestanden en mappen, moet u een Recovery Ser
 
 ### <a name="to-create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 1. Meld u met uw Azure-abonnement aan bij de [Azure Portal](https://portal.azure.com/) als u dat nog niet hebt gedaan.
-2. Klik in het menu Hub op **Meer services**, typ in de lijst met resources **Recovery Services** en klik vervolgens op **Recovery Services-kluizen**.
+2. Klik in het menu Hub op **Alle services**, typ in de lijst met resources **Recovery Services** en klik vervolgens op **Recovery Services-kluizen**.
 
     ![Een Recovery Services-kluis maken, stap 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

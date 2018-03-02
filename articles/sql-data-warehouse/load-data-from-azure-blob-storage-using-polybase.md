@@ -17,11 +17,11 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: a1f504f5bb728ce080e51678d44ed4eef4c3faa7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4bb9b4a01d3efb90486e34d2b0eb5cfeef66e50c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Zelfstudie: PolyBase gebruiken om gegevens vanuit Azure Blob Storage te laden naar Azure SQL Data Warehouse
 
@@ -54,7 +54,7 @@ Er wordt een Azure SQL-databasewarehouse gemaakt met een gedefinieerde set [comp
 
 Volg deze stappen om een leeg SQL Data Warehouse te maken. 
 
-1. Klik in de linkerbovenhoek van Azure Portal op de knop **Nieuw**.
+1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
 
 2. Selecteer op de pagina **Nieuw** de optie **Databases**, en selecteer onder **Aanbevolen** op de pagina **Nieuw** de optie **SQL Data Warehouse**.
 
@@ -91,7 +91,7 @@ Volg deze stappen om een leeg SQL Data Warehouse te maken.
     ![prestaties configureren](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Klik op **Toepassen**.
-9. Selecteer op de pagina SQL Data Warehouse een **sortering** voor de lege database. Gebruik voor deze zelfstudie de standaardwaarde. Zie [Sorteringen](/sql/t-sql/statements/collations.md) voor meer informatie over sorteringen.
+9. Selecteer op de pagina SQL Data Warehouse een **sortering** voor de lege database. Gebruik voor deze zelfstudie de standaardwaarde. Zie [Collations](/sql/t-sql/statements/collations.md) (Sorteringen) voor meer informatie over sorteringen
 
 11. Nu u het SQL Database-formulier hebt ingevuld, klikt u op **Maken** om de database in te richten. De inrichting duurt een paar minuten. 
 

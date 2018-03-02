@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 506781ac83e75d558badbd3a8842533e314a8dfa
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Problemen met Azure File-synchronisatie (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -145,15 +145,14 @@ Als de synchronisatie is mislukt op een server:
 <a id="replica-not-ready"></a>**Synchronisatie mislukt vanwege de volgende fout: '0x80c8300f - de replica is niet klaar voor het uitvoeren van de vereiste bewerking'**  
 Dit probleem wordt verwacht als u een cloudeindpunt maken en gebruiken van een Azure-bestandsshare die gegevens bevat. Wanneer de wijziging detectie-taak is voltooid op de Azure-bestandsshare (het kan tot 24 uur duren) uitgevoerd, moet synchronisatie starten correct werkt.
 
-<a id="broken-sync-files"></a>**Problemen met afzonderlijke bestanden die niet kunnen synchroniseren**  
-Als u afzonderlijke bestanden niet kunnen synchroniseren:
-1. Controleer de operationele en diagnostische-gebeurtenislogboeken op, zich onder Applications and Services\Microsoft\FileSync\Agent in Logboeken.
-2. Controleer of er zijn geen open ingangen in het bestand.
 
     > [!NOTE]
-    > Azure File-synchronisatie wordt periodiek VSS-momentopnamen bestanden met open ingangen synchroniseren.
+    > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
 We momenteel geen ondersteuning voor resource verplaatsen naar een ander abonnement of, verplaatsen naar een andere Azure AD-tenant.  Als het abonnement wordt verplaatst naar een andere tenant, wordt de Azure-bestandsshare niet toegankelijk voor de service op basis van de wijziging in eigendom. Als de tenant is gewijzigd, moet u de server-eindpunten en het cloudeindpunt te verwijderen (Zie Sync groepsbeheer sectie voor meer informatie het reinigen van de Azure-bestandsshare moet opnieuw worden gebruikt) en opnieuw maken van de groep voor synchronisatie.
+
+<a id="doesnt-have-enough-free-space"></a>**Deze computer beschikt niet over voldoende vrije ruimte-fout**  
+Als de portal ziet u de status 'Deze computer beschikt niet over voldoende vrije ruimte' kan het probleem kan zijn dat kleiner dan 1 GB vrije ruimte op het volume blijft.  Bijvoorbeeld, als er een volume 1,5 GB, synchronisatie alleen kan worden .5GB gebruiken als u dit probleem op Neem Vouw de grootte van het volume dat wordt gebruikt voor het servereindpunt.
 
 ## <a name="cloud-tiering"></a>Cloudopslaglagen 
 Er zijn twee paden op fouten in de cloud tiering:

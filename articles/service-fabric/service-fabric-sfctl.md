@@ -12,27 +12,28 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 23adc7fa6ee53d1c5edd10b2772f8825dbcef2a8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 7c8563539ca8507f05fa99fdeffbf511b1540a6a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl"></a>sfctl 
-Opdrachten voor het beheren van Service Fabric-clusters en entiteiten. Deze versie is compatibel met Service Fabric 6.0 runtime. Opdrachten het zelfstandig naamwoord-verb-patroon volgen, raadpleegt u de volgende subgroepen voor meer informatie.
+Opdrachten voor het beheren van Service Fabric-clusters en entiteiten. Deze versie is compatibel met Service Fabric 6.1 runtime. Opdrachten het zelfstandig naamwoord-verb-patroon volgen, raadpleegt u de volgende subgroepen voor meer informatie.
 
 ## <a name="subgroups"></a>Subgroepen
 |Subgroep|Beschrijving|
 | --- | --- |
-| [toepassing](service-fabric-sfctl-application.md)| Maken, verwijderen en beheren van toepassingen en die van toepassing.|
+| [Toepassing](service-fabric-sfctl-application.md)| Maken, verwijderen en beheren van toepassingen en die van toepassing.|
 | [chaos](service-fabric-sfctl-chaos.md)   | Starten, stoppen en te rapporteren voor de test chaos service.|
-| [cluster](service-fabric-sfctl-cluster.md) | Selecteer, beheren en gebruiken van Service Fabric-clusters.|
+| [Cluster](service-fabric-sfctl-cluster.md) | Selecteer, beheren en gebruiken van Service Fabric-clusters.|
 | [compose](service-fabric-sfctl-compose.md) | Maken, verwijderen en beheren van Docker Compose toepassingen.|
 | [is](service-fabric-sfctl-is.md)      | Vragen en opdrachten naar de service infrastructuur verzenden.|
 | [node](service-fabric-sfctl-node.md)    | Beheren van de knooppunten die fungeren als een cluster wordt gevormd.|
-| [partitie](service-fabric-sfctl-partition.md)  | Doorzoeken en beheren van partities voor elke service.|
+| [Partitie](service-fabric-sfctl-partition.md)  | Doorzoeken en beheren van partities voor elke service.|
+| eigenschap  | Store en query eigenschappen onder Service Fabric-namen.|
 | [rpm](service-fabric-sfctl-rpm.md)        | Vragen en opdrachten naar de herstel-service manager verzenden.|
 | [replica](service-fabric-sfctl-replica.md) | De replica's die deel uitmaken van servicepartities beheren.|
 | [service](service-fabric-sfctl-service.md) | Maken, verwijderen en beheren van de service, servicetypen en servicepakketten.|

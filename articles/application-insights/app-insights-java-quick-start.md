@@ -5,16 +5,16 @@ services: application-insights
 keywords: 
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/10/2017
+ms.date: 12/12/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 9246def86fa647213aa3ec12427d829c24fa8034
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Beginnen met controleren van de Java-webtoepassing
 
@@ -42,11 +42,11 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke toepassing met een internetverbinding, ongeacht of deze on-premises wordt uitgevoerd of in de cloud. Gebruik de volgende stappen om deze gegevens te bekijken.
 
-1. Selecteer **Nieuw** > **Controle + Beheer** > **Application Insights**.
+1. Selecteer **Een resource maken** > **Controle en Beheer** > **Application Insights**.
 
    ![Application Insights-resource toevoegen](./media/app-insights-java-quick-start/001-j.png)
 
-   Er wordt een configuratiescherm weergegeven. Gebruik de onderstaande tabel om de invoervelden in te vullen.
+   Er wordt een configuratiescherm weergegeven. Gebruik de volgende tabel om de invoervelden in te vullen.
 
     | Instellingen        | Waarde           | Beschrijving  |
    | ------------- |:-------------|:-----|

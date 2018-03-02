@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: acba1aff0af8d54fca44af62ab46e1fd1a9d607e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Uw SQL Server-database migreren naar Azure SQL Database
 
@@ -52,11 +52,11 @@ Een Azure SQL-database wordt gemaakt met een gedefinieerde set [reken- en opslag
 
 Volg deze stappen om een lege SQL-database te maken. 
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
 
 2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **Maken** onder **SQL-database** op de pagina **Nieuw**.
 
-   ![lege-database maken](./media/sql-database-design-first-database/create-empty-database.png)
+   ![lege database maken](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. Vul het formulier SQL Database in met de volgende informatie, zoals in de voorgaande afbeelding wordt weergegeven:   
 
@@ -65,7 +65,7 @@ Volg deze stappen om een lege SQL-database te maken.
    | **Databasenaam** | mySampleDatabase | Zie [Database-id's](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) voor geldige databasenamen. | 
    | **Abonnement** | Uw abonnement  | Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
    | **Resourcegroep** | myResourceGroup | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen. |
-   | **Bron selecteren** | Lege database | Hiermee wordt aangegeven dat er een lege database dient te worden gemaakt. |
+   | **Bron selecteren** | Lege database | Hiermee geeft u aan dat er een lege database moet worden gemaakt. |
 
 4. Klik op **Server** als u een nieuwe server voor de nieuwe database wilt maken en configureren. Vul het **nieuwe serverformulier** in met de volgende gegevens: 
 
@@ -267,7 +267,7 @@ U kunt de servicelaag, het prestatieniveau en het compatibiliteitsniveau wijzige
     ```
 
 ## <a name="next-steps"></a>Volgende stappen 
-In deze zelfstudie heeft u het volgende geleerd:
+In deze zelfstudie hebt u het volgende geleerd:
 
 > * Een lege Azure SQL-database maken in Azure Portal 
 > * Een firewall op serverniveau maken in Azure Portal 

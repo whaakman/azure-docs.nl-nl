@@ -1,72 +1,69 @@
 ---
-title: Controleren en problemen oplossen van een cloud-storage-toepassing in Azure | Microsoft Docs
-description: Gebruik diagnostische hulpprogramma's, metrische gegevens en waarschuwingen oplossen en bewaken van een cloudtoepassing.
+title: Een toepassing voor cloudopslag bewaken en problemen oplossen in Azure | Microsoft Docs
+description: Gebruik diagnostische hulpprogramma's, metrische gegevens en waarschuwingen voor het oplossen van problemen met een cloudtoepassing en deze te bewaken.
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: db88c331f79d83e0124519f8b6dbb34514b456dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Controleren en problemen oplossen van een cloud-storage-toepassing
+# <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Een toepassing voor cloudopslag bewaken en problemen oplossen
 
-Deze zelfstudie wordt vier en het laatste gedeelte van een serie. U informatie over het controleren en problemen oplossen van een cloud-storage-toepassing.
+Deze zelfstudie is deel vier en het laatste deel van een serie. U leert hoe u een toepassing voor cloudopslag kunt bewaken en problemen ermee kunt oplossen.
 
-In de vierde deel van de reeks leert u hoe:
+In deel vier van de serie leert u het volgende:
 
 > [!div class="checklist"]
-> * Inschakelen van logboekregistratie en metrische gegevens
-> * Waarschuwingen voor autorisatie fouten inschakelen
-> * Verkeer van de test uitgevoerd met onjuiste SAS-tokens
-> * Download en analyseren van Logboeken
+> * Logboekregistratie en metrische gegevens inschakelen
+> * Waarschuwingen voor autorisatiefouten inschakelen
+> * Testverkeer met onjuiste SAS-tokens uitvoeren
+> * Logboeken downloaden en analyseren
 
-[Azure storage analytics](../common/storage-analytics.md) biedt registreren en metrische gegevens voor een opslagaccount. Deze gegevens biedt inzicht in de status van uw opslagaccount. Voordat u de zichtbaarheid in uw storage-account zijn kunt, moet u het verzamelen van gegevens instellen. Dit proces omvat het inschakelen van logboekregistratie, metrische gegevens te configureren en inschakelen van waarschuwingen.
+[Azure Storage Analytics](../common/storage-analytics.md) biedt logboekregistratie en metrische gegevens voor een opslagaccount. Deze gegevens bieden inzicht in de status van uw opslagaccount. Voordat u inzicht in uw opslagaccount kunt krijgen, moet u het verzamelen van gegevens instellen. Dit proces omvat het inschakelen van logboekregistratie, het configureren van metrische gegevens en het inschakelen van waarschuwingen.
 
-Logboekregistratie en metrische gegevens van de storage-accounts worden ingeschakeld vanuit de **Diagnostics** tabblad in de Azure-portal. Er zijn twee soorten metrische gegevens. **Cumulatieve** metrische gegevens verzamelen percentages inkomend en uitgaand, beschikbaarheid, latentie en geslaagd. Deze metrische gegevens worden voor de blob, queue, table en Bestandsservices samengevoegd. **Per API** dezelfde set van metrische gegevens voor elke opslagbewerking in de API van Azure Storage-service worden verzameld. Opslag logboekregistratie kunt u de details van de records voor geslaagde en mislukte aanvragen in uw opslagaccount. Deze logboeken kunnen u de details van lezen, schrijven en verwijderen van bewerkingen op basis van uw Azure-tabellen, wachtrijen en blobs. Ze ook mogelijk om te zien van de redenen voor mislukte aanvragen zoals time-outs, beperking en autorisatie-fouten.
+Logboekregistratie en metrische gegevens van opslagaccounts worden ingeschakeld op het tabblad **Diagnostische gegevens** in Azure-portal. Er zijn twee soorten metrische gegevens. **Cumulatieve** metrische gegevens verzamelen inkomende/uitgaande gegevens, beschikbaarheid, latentie en succespercentages. Deze metrische gegevens worden voor de blob-, wachtrij- tabel- en bestandsservices geaggregeerd. Met **Per API** wordt dezelfde set metrische gegevens voor elke opslagbewerking verzameld in de Azure Storage-service-API. Met logboekregistratie voor opslag kunt u details vastleggen voor zowel geslaagde als mislukte aanvragen in uw opslagaccount. Deze logboeken stellen u in staat details te zien over lees-, schrijf en verwijderbewerkingen met betrekking tot uw Azure-tabellen, -wachtrijen en -blobs. Ze maken het ook mogelijk om te zien wat de oorzaken zijn van mislukte aanvragen zoals time-outs, aanvraagbeperkingen en autorisatiefouten.
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
 Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-## <a name="turn-on-logging-and-metrics"></a>Inschakelen van logboekregistratie en metrische gegevens
+## <a name="turn-on-logging-and-metrics"></a>Logboekregistratie en metrische gegevens inschakelen
 
-Selecteer in het menu links **resourcegroepen**, selecteer **myResourceGroup**, en selecteer vervolgens uw storage-account in de lijst met resources.
+Selecteer in het menu links **Resourcegroepen**, selecteer **myResourceGroup** en selecteer vervolgens uw opslagaccount in de lijst met resources.
 
-Onder **Diagnostics** ingesteld **Status** naar **op**. Zorg ervoor dat **Blob cumulatieve metrische gegevens**, **Blob per API metrische gegevens**, en **Blob-logboeken** zijn ingeschakeld.
+Stel onder **Diagnostische gegevens** de **status** in op **Aan**. Zorg ervoor dat **Cumulatieve metrische gegevens voor blob**, **Metrische gegevens voor blob per API** en **Blob-logboeken** zijn ingeschakeld.
 
-Wanneer voltooid, klikt u op **opslaan**
+Na het voltooien klikt u op **Opslaan**.
 
-![Deelvenster diagnostische gegevens](media/storage-monitor-troubleshoot-storage-application/figure1.png)
+![Het deelvenster Diagnostische gegevens](media/storage-monitor-troubleshoot-storage-application/figure1.png)
 
 ## <a name="enable-alerts"></a>Waarschuwingen inschakelen
 
-Waarschuwingen bieden een manier om e-beheerders of een webhook op basis van een inbreuk op een drempelwaarde metrische trigger. In dit voorbeeld, schakelt u een waarschuwing voor de `SASClientOtherError` metriek.
+Waarschuwingen bieden een manier waarbij beheerders e-mails ontvangen of dat er een webhook wordt geactiveerd als een metrisch gegeven een drempelwaarde overschrijdt. In dit voorbeeld, gaat u een waarschuwing voor het metrische gegeven `SASClientOtherError` inschakelen.
 
-### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Navigeer naar het opslagaccount in de Azure-portal
+### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Navigeren naar het opslagaccount in Azure Portal
 
-Selecteer in het menu links **resourcegroepen**, selecteer **myResourceGroup**, en selecteer vervolgens uw storage-account in de lijst met resources.
+Selecteer in het menu links **Resourcegroepen**, selecteer **myResourceGroup** en selecteer vervolgens uw opslagaccount in de lijst met resources.
 
-Onder de **bewaking** sectie **waarschuwing regels**.
+Selecteer onder de sectie **Controleren** de optie **Waarschuwingsregels**.
 
-Selecteer **+ waarschuwing toevoegen**onder **een waarschuwingsregel toevoegen**, vul de vereiste informatie. Kies `SASClientOtherError` van de **metriek** vervolgkeuzelijst.
+Selecteer **+ Waarschuwing toevoegen** onder **Een waarschuwingsregel toevoegen** en vul de vereiste gegevens in. Kies `SASClientOtherError` in de vervolgkeuzelijst **Metrisch gegeven**.
 
-![Deelvenster diagnostische gegevens](media/storage-monitor-troubleshoot-storage-application/figure2.png)
+![Het deelvenster Diagnostische gegevens](media/storage-monitor-troubleshoot-storage-application/figure2.png)
 
 ## <a name="simulate-an-error"></a>Een fout simuleren
 
-U kunt proberen om te simuleren een geldige waarschuwing, voor het aanvragen van een niet-bestaande blob uit uw storage-account. Om dit te doen, vervang de `<incorrect-blob-name>` waarde met een waarde die niet bestaat. Mislukte aanvragen voor blob het volgende codevoorbeeld een paar keer uitvoeren om te simuleren.
+Als u een geldige waarschuwing wilt simuleren, kunt u proberen om een niet-bestaande blob uit uw opslagaccount aan te vragen. Om dit te doen, vervangt u de waarde `<incorrect-blob-name>` met een waarde die niet bestaat. Voer de volgende voorbeeldcode een paar keer uit om mislukte blobaanvragen te simuleren.
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
@@ -81,49 +78,49 @@ sasToken=$(az storage blob generate-sas \
 curl https://<storage-account-name>.blob.core.windows.net/<container>/<incorrect-blob-name>?$sasToken
 ```
 
-De volgende afbeelding is een voorbeeld van de waarschuwing die is gebaseerd op de gesimuleerde fout die is uitgevoerd met het voorgaande voorbeeld.
+In de volgende afbeelding ziet u een voorbeeldwaarschuwing die is gebaseerd op de gesimuleerde mislukte aanvraag die in het vorige voorbeeld is uitgevoerd.
 
- ![Voorbeeld van de waarschuwing](media/storage-monitor-troubleshoot-storage-application/alert.png)
+ ![Voorbeeldwaarschuwing](media/storage-monitor-troubleshoot-storage-application/alert.png)
 
 ## <a name="download-and-view-logs"></a>Logboeken downloaden en weergeven
 
-Opslag Logboeken gegevens opslaan in een reeks blobs in een blobcontainer met de naam **$logs** in uw opslagaccount. Deze container wordt niet weergegeven als u alle blob-containers in uw account weergeven, maar u de inhoud zien kunt als u rechtstreeks toegang.
+In opslaglogboeken worden gegevens vastgelegd in een reeks blobs in een blobcontainer met de naam **$logs** in uw opslagaccount. Deze container wordt niet weergegeven als u alle blobcontainers in uw account weergeeft, maar u kunt de inhoud ervan zien als u de container rechtstreeks opent.
 
-In dit scenario gebruikt u [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) om te communiceren met uw Azure storage-account.
+In dit scenario gaat u [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) gebruiken om te communiceren met uw Azure-opslagaccount.
 
-### <a name="download-microsoft-message-analyzer"></a>Downloaden van Microsoft Message Analyzer
+### <a name="download-microsoft-message-analyzer"></a>Microsoft Message Analyzer downloaden
 
 Download [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) en installeer de toepassing.
 
-Start de toepassing en kies **bestand** > **Open** > **van andere bestandsbronnen**.
+Start de toepassing en kies **Bestand** > **Openen** > **Vanuit andere bestandsbronnen**.
 
-In de **bestand Selector** dialoogvenster Selecteer **+ Azure-verbinding toevoegen**. Voer in uw **opslagaccountnaam** en **accountsleutel** en klik op **OK**.
+Selecteer in het dialoogvenster **Bestandsselector** de optie **+ Azure-verbinding toevoegen**. Voer uw **opslagaccountnaam** en **accountsleutel** in en klik op **OK**.
 
-![Microsoft Message Analyzer - dialoogvenster voor Azure Storage-verbinding toevoegen](media/storage-monitor-troubleshoot-storage-application/figure3.png)
+![Microsoft Message Analyzer - dialoogvenster Azure-opslagverbinding toevoegen](media/storage-monitor-troubleshoot-storage-application/figure3.png)
 
-Nadat u verbonden bent, vouw de containers in de structuur van de opslag te bekijken de logboek-blobs. Selecteer de meest recente aanmelden en klik op **OK**.
+Nadat u verbonden bent, vouwt u de containers in de structuurweergave van de opslag uit om de blobs in de logboeken te kunnen zien. Selecteer het meest recente logboek en klik op **OK**.
 
-![Microsoft Message Analyzer - dialoogvenster voor Azure Storage-verbinding toevoegen](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Microsoft Message Analyzer - dialoogvenster Azure-opslagverbinding toevoegen](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
-Op de **nieuwe sessie** dialoogvenster, klikt u op **Start** om uw logboek weer te geven.
+In het dialoogvenster **Nieuwe sessie** klikt u op **Start** om het logboek weer te geven.
 
-Als het logboek wordt geopend, kunt u de opslag-gebeurtenissen bekijken. Als u in de volgende afbeelding zien kunt, er is een `SASClientOtherError` geactiveerd op het opslagaccount. Voor meer informatie over logboekregistratie van opslag, gaat u naar [Opslaganalyse](../common/storage-analytics.md).
+Zodra het logboek is geopend, kunt u de opslaggebeurtenissen bekijken. Zoals u in de volgende afbeelding kunt zien, is er een `SASClientOtherError` geactiveerd op het opslagaccount. Voor meer informatie over logboekregistratie van opslag, gaat u naar [Opslaganalyse](../common/storage-analytics.md).
 
-![Microsoft Message Analyzer - gebeurtenissen weergeven](media/storage-monitor-troubleshoot-storage-application/figure5.png)
+![Microsoft Message Analyzer - gebeurtenissen bekijken](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-[Opslagverkenner](https://azure.microsoft.com/features/storage-explorer/) is een ander hulpmiddel dat kan worden gebruikt om te communiceren met uw storage-accounts, met inbegrip van de **$logs** container en de logboeken die zijn opgenomen in deze.
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is een ander hulpmiddel dat kan worden gebruikt om te communiceren met uw opslagaccount, met inbegrip van de container **$logs** en de logboeken die er zich in bevinden.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deel vier en het laatste gedeelte van de reeks, hebt u geleerd hoe u kunt controleren en problemen oplossen van uw opslagaccount, zoals het:
+In het vierde en laatste deel van de serie, hebt u geleerd hoe u uw opslagaccount kunt controleren en hoe u problemen ermee kunt oplossen, zodat u het volgende kunt doen:
 
 > [!div class="checklist"]
-> * Inschakelen van logboekregistratie en metrische gegevens
-> * Waarschuwingen voor autorisatie fouten inschakelen
-> * Verkeer van de test uitgevoerd met onjuiste SAS-tokens
-> * Download en analyseren van Logboeken
+> * Logboekregistratie en metrische gegevens inschakelen
+> * Waarschuwingen voor autorisatiefouten inschakelen
+> * Testverkeer met onjuiste SAS-tokens uitvoeren
+> * Logboeken downloaden en analyseren
 
-Volg deze link om te zien van vooraf samengestelde opslag voorbeelden.
+Volg deze link om vooraf samengestelde opslagvoorbeelden te bekijken.
 
 > [!div class="nextstepaction"]
-> [Voorbeelden van Azure-opslag-script](storage-samples-blobs-cli.md)
+> [Voorbeelden van Azure Storage-scripts](storage-samples-blobs-cli.md)

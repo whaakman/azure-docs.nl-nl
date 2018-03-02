@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5160913b2f08a04f0a985d8ddadd6641a664b258
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Verbinding maken met gegevensbronnen on-premises vanuit logic apps met lokale gegevensgateway
 
@@ -75,7 +75,7 @@ Nadat u de gateway op een lokale computer installeert, maakt u uw data gateway a
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com "Azure Portal"). Zorg ervoor dat voor het gebruik van hetzelfde Azure werk of school e-mailadres gebruikt voor het installeren van de gateway.
 
-2. Kies in het Azure hoofdmenu **maken van een resource** > **Enterprise Integration** > **On-premises gegevensgateway**:
+2. Kies in het Azure hoofdmenu **maken van een resource** > **Enterprise Integration** > **On-premises gegevensgateway**.
 
    !['On-premises data gateway' vinden](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -101,15 +101,16 @@ Nadat u de gateway op een lokale computer installeert, maakt u uw data gateway a
     * **De naam van de installatie**: als uw gateway-installatie niet is geselecteerd, selecteert u de gateway die u eerder hebt geïnstalleerd. 
 
     Als u wilt de bron van de gateway toevoegen aan uw Azure-dashboard, kies **vastmaken aan dashboard**. 
-    Als u bent klaar, kiest u **maken**.
+    Wanneer u klaar bent, kiest u **Maken**.
 
     Bijvoorbeeld:
 
     ![Geef details op uw on-premises gegevensgateway maken](./media/logic-apps-gateway-connection/createblade.png)
 
-    Als u wilt vinden of weergeven van uw data gateway op elk gewenst moment, vanuit het Azure hoofdmenu, gaat u naar **meer Services** > **Enterprise Integration** > **gegevensgateways On-premises** .
+    Als u wilt zoeken of weergeven van uw data gateway op elk gewenst moment, vanuit het Azure hoofdmenu kiezen **alle services**. 
+    Voer in het zoekvak 'on-premises gegevensgateways' en kies vervolgens **On-premises gegevensgateways**.
 
-    ![Ga naar 'Meer services', 'Enterprise Integration', 'On-premises gegevensgateways'](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    !['On-premises gegevensgateways' vinden](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -124,7 +125,7 @@ Nu dat u hebt uw data gateway resource gemaakt en die uw Azure-abonnement is gek
 
 2. Toevoegen van een connector die ondersteuning biedt voor lokale verbindingen, zoals SQL Server.
 
-3. Na de aangegeven volgorde en selecteer **verbinden via lokale gegevensgateway**, Geef een unieke verbindingsnaam en de vereiste gegevens in en selecteert u de gateway-resource voor gegevens die u wilt gebruiken. Als u bent klaar, kiest u **maken**.
+3. Na de aangegeven volgorde en selecteer **verbinden via lokale gegevensgateway**, Geef een unieke verbindingsnaam en de vereiste gegevens in en selecteert u de gateway-resource voor gegevens die u wilt gebruiken. Wanneer u klaar bent, kiest u **Maken**.
 
    > [!TIP]
    > Een unieke verbindingsnaam kunt u gemakkelijk herkennen die verbinding later, vooral wanneer u meerdere verbindingen maken. Indien van toepassing, moet u ook de gekwalificeerde domeinnaam voor uw gebruikersnaam bevatten. 

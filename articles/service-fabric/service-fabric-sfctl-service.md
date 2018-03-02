@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5c1f485812918397b5b52e650611032c9058e3ee
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5b30d3732ff00e5bb79e2d58a9f0b3e5b29dedf8
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-service"></a>sfctl-service
+# <a name="sfctl-service"></a>sfctl service
 Maken, verwijderen en beheren van de service, servicetypen en servicepakketten.
 
 ## <a name="commands"></a>Opdrachten
@@ -34,6 +34,7 @@ Maken, verwijderen en beheren van de service, servicetypen en servicepakketten.
 |    geïmplementeerd type  | Hiermee haalt u de informatie over een opgegeven service-type van de toepassing geïmplementeerd op een knooppunt in een Service Fabric-cluster.|
 |    geïmplementeerd type lijst| Hiermee wordt de lijst met de informatie over de servicetypen van de toepassingen die zijn geïmplementeerd op een knooppunt in een Service Fabric-cluster opgehaald.|
 |    description    | Hiermee haalt u de beschrijving van een bestaande Service Fabric-service.|
+|get-container-logs| Hiermee haalt u de logboeken van de container voor de container geïmplementeerd op een Service Fabric-knooppunt.|
 |    status         | Hiermee wordt de status van de opgegeven Service Fabric-service opgehaald.|
 |    info           | Hiermee haalt u de informatie over de specifieke service die horen bij een Service Fabric-toepassing.|
 |    lijst           | Hiermee haalt u de informatie over alle services die horen bij de toepassing die is opgegeven door de toepassings-ID.|
@@ -56,7 +57,7 @@ De opgegeven Service Fabric-service maakt van de beschrijving.
 
 |Argument|Beschrijving|
 | --- | --- |
-| --app-id [vereist]| De identiteit van de bovenliggende toepassing. Dit wordt meestal de volledige-ID van de toepassing zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~' teken. Bijvoorbeeld, als de toepassingsnaam van de is 'fabric://myapp/app1', de toepassings-id zou zijn ' myapp ~ app1' in 6.0 + en ' myapp/app1' in eerdere versies.|
+| --app-id [vereist]| De identiteit van de bovenliggende toepassing. Dit wordt meestal de volledige-ID van de toepassing zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~' teken. Als de toepassingsnaam van de is bijvoorbeeld "fabric: / myapp/app1 ', zou de toepassings-id ' myapp ~ app1' in 6.0 + en ' myapp/app1' in eerdere versies.|
 | --de naam [vereist]| De naam van de service. Dit moet een onderliggend element van de toepassings-ID.           Dit is de volledige naam waaronder de `fabric:` URI. Bijvoorbeeld service `fabric:/A/B` onderliggend element is van toepassing `fabric:/A`.|
 | --servicetype [vereist]| Naam van het type van de service.|
 | --activering-modus     | De activering modus voor het servicepakket.|
@@ -104,7 +105,7 @@ Hiermee verwijdert u een bestaande Service Fabric-service. Een service moet word
 
 |Argument|Beschrijving|
 | --- | --- |
-| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is fabric://myapp/app1/svc1 ', de service-identiteit zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
+| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam fabric: / myapp/app1/svc1 ', de service-identiteit zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
 | --force-remove      | Verwijder een Service Fabric-toepassing of service geforceerd zonder tussenkomst van de reeks correct afsluiten. Deze parameter kan worden gebruikt geforceerd verwijderen van een toepassing of service voor welke verwijderen krijgt een time-out vanwege problemen met de code die voorkomt dat correcte sluit van replica's.|
 | --time-out -t        | Server time-out in seconden.  Standaard: 60.|
 
@@ -127,7 +128,7 @@ Hiermee haalt u de beschrijving van een bestaande Service Fabric-service. Een se
 
 |Argument|Beschrijving|
 | --- | --- |
-| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is 'fabric://myapp/app1/svc1', de service-identiteit zou zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
+| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is "fabric: / myapp/app1/svc1 ', de service-identiteit zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
 | --time-out -t        | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
@@ -143,13 +144,13 @@ Hiermee haalt u de beschrijving van een bestaande Service Fabric-service. Een se
 ## <a name="sfctl-service-health"></a>sfctl servicestatus
 Hiermee wordt de status van de opgegeven Service Fabric-service opgehaald.
 
-Hiermee haalt u de statusgegevens van de opgegeven service. EventsHealthStateFilter gebruiken voor het filteren van de verzameling van health-gebeurtenissen voor de service op basis van de status is gerapporteerd. Gebruik PartitionsHealthStateFilter voor het filteren van de verzameling van partities geretourneerd. Als u een service die niet in het archief health bestaat opgeeft, retourneert deze cmdlet een fout opgetreden. .
+Hiermee haalt u de statusgegevens van de opgegeven service. EventsHealthStateFilter gebruiken voor het filteren van de verzameling van health-gebeurtenissen voor de service op basis van de status is gerapporteerd. Gebruik PartitionsHealthStateFilter voor het filteren van de verzameling van partities geretourneerd. Als u een service die niet in het archief health bestaat opgeeft, retourneert deze cmdlet een fout opgetreden.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is 'fabric://myapp/app1/svc1', de service-identiteit zou zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
+| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is "fabric: / myapp/app1/svc1 ', de service-identiteit zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
 | --gebeurtenissen-health-status-filter | Hiermee kunt u filteren van de verzameling HealthEvent objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn geheel getal van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen die worden gebruikt voor het evalueren van de geaggregeerde status. Als niet wordt opgegeven, worden alle items geretourneerd. De statuswaarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan een combinatie van deze waarden die zijn verkregen met behulp van bitwise "OR"-operator worden. Bijvoorbeeld, als de opgegeven waarde is ingesteld op 6 vervolgens alle gebeurtenissen met HealthState waarde OK (2) en de waarschuwing (4) geretourneerd. -Standaard - standaardwaarde. Komt overeen met een HealthState. De waarde is nul. -None - filteren die niet overeenkomt met de waarde van een HealthState. Gebruikt om te kunnen geen resultaten geretourneerd bij een bepaalde verzameling van statussen. De waarde is 1. -Ok - Filter dat overeenkomt met invoer-met HealthState waarde Ok. De waarde is 2. -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4. -Fout - Filter dat overeenkomt met invoer met HealthState waarde fout. De waarde is 8. -All - Filter dat overeenkomt met invoer met de waarde van een HealthState. De waarde is 65535.|
 |--uitsluiten-health-statistieken     | Hiermee wordt aangegeven of de statistieken van de status moet worden geretourneerd als onderdeel van het queryresultaat. Standaard False. De statistieken tonen het aantal onderliggende items entiteiten in de status Ok, waarschuwing en fout.|
 | --partities-health-status-filter| U kunt in het resultaat van de zoekopdracht van de health-service op basis van hun status voor het filteren van de partities health status objecten geretourneerd. De mogelijke waarden voor deze parameter zijn geheel getal van een van de volgende statussen. Alleen de partities die overeenkomen met het filter worden geretourneerd. Alle partities worden gebruikt voor het evalueren van de geaggregeerde status. Als niet wordt opgegeven, worden alle items geretourneerd. De statuswaarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan een combinatie van deze waarden die zijn verkregen met behulp van bitwise "OR"-operator worden. Bijvoorbeeld, als de opgegeven waarde is '6' wordt de status van de partities met HealthState waarde OK (2) en de waarschuwing (4) zijn geretourneerd. -Standaard - standaardwaarde. Komt overeen met een HealthState.                  De waarde is nul. -None - filteren die niet overeenkomt met de waarde van een HealthState. Gebruikt om te kunnen geen resultaten geretourneerd bij een bepaalde verzameling van statussen. De waarde is 1. -Ok - Filter dat overeenkomt met invoer-met HealthState waarde Ok. De waarde is 2. -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4. -Fout - Filter dat overeenkomt met invoer met HealthState waarde fout. De waarde is 8. -All - Filter dat overeenkomt met invoer met de waarde van een HealthState. De waarde is 65535.|
@@ -174,8 +175,8 @@ Retourneert de informatie over de opgegeven service die horen bij de opgegeven S
 
 |Argument|Beschrijving|
 | --- | --- |
-| --toepassing-id [vereist]| De identiteit van de toepassing. Dit wordt meestal de volledige naam van de toepassing zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de toepassingsnaam van de is 'fabric://myapp/app1', de toepassings-id zou zijn ' myapp ~ app1 ' in 6.0 + en "myapp/app1" in eerdere versies.|
-| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is 'fabric://myapp/app1/svc1', de service-identiteit zou zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
+| --toepassing-id [vereist]| De identiteit van de toepassing. Dit wordt meestal de volledige naam van de toepassing zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Als de toepassingsnaam van de is bijvoorbeeld "fabric: / myapp/app1", zou de toepassings-id ' myapp ~ app1 ' in 6.0 + en "myapp/app1" in eerdere versies.|
+| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is "fabric: / myapp/app1/svc1 ', de service-identiteit zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
 | --time-out -t            | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
@@ -197,7 +198,7 @@ Retourneert de informatie over alle services die horen bij de toepassing die is 
 
 |Argument|Beschrijving|
 | --- | --- |
-| --toepassing-id [vereist]| De identiteit van de toepassing. Dit wordt meestal de volledige naam van de toepassing zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de toepassingsnaam van de is 'fabric://myapp/app1', de toepassings-id zou zijn ' myapp ~ app1 ' in 6.0 + en "myapp/app1" in eerdere versies.|
+| --toepassing-id [vereist]| De identiteit van de toepassing. Dit wordt meestal de volledige naam van de toepassing zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Als de toepassingsnaam van de is bijvoorbeeld "fabric: / myapp/app1", zou de toepassings-id ' myapp ~ app1 ' in 6.0 + en "myapp/app1" in eerdere versies.|
 | --vervolgtoken    | De token voortzetting-parameter wordt gebruikt voor het verkrijgen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in een enkele antwoordthread passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep, retourneert de API volgende reeks resultaten. Als er geen verdere resultaten, bevat klikt u vervolgens het vervolgtoken geen waarde. De waarde van deze parameter mag geen URL zijn gecodeerd.|
 | --service-type-name     | De naam van de service type is gebruikt voor het filteren van de services zoeken naar.|
 | --time-out -t            | Server time-out in seconden.  Standaard: 60.|
@@ -245,7 +246,7 @@ Hiermee wordt aangegeven met het Service Fabric-cluster dat deze proberen moet t
 
 |Argument|Beschrijving|
 | --- | --- |
-| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is fabric://myapp/app1/svc1 ', de service-identiteit zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
+| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam fabric: / myapp/app1/svc1 ', de service-identiteit zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
 | --time-out -t        | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
@@ -267,7 +268,7 @@ Een partitie van de Service Fabric-service om op te halen van de eindpunten van 
 
 |Argument|Beschrijving|
 | --- | --- |
-| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is 'fabric://myapp/app1/svc1', de service-identiteit zou zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
+| --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is "fabric: / myapp/app1/svc1 ', de service-identiteit zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
 | --partitie sleuteltype| Het sleuteltype voor de partitie. Deze parameter is vereist als het partitieschema voor de service Int64Range of Named zijn. De mogelijke waarden zijn volgt. -Geen (1) - geeft aan dat de parameter PartitionKeyValue niet is opgegeven. Dit is geldig voor partities met partitieschema als Singleton. Dit is de standaardwaarde. De waarde is 1. -Int64Range (2) - geeft aan dat de parameter PartitionKeyValue een partitiesleutel int64. Dit is geldig voor partities met partitieschema als Int64Range. De waarde is 2. -Namen (3) - geeft aan dat de parameter PartitionKeyValue een naam van de partitie. Dit is geldig voor partities met partitieschema als naam. De waarde is 3.|
 | --partitie sleutelwaarde  | De partitiesleutel. Dit is vereist als het partitieschema voor de service Int64Range of Named zijn is.|
 | --vorige gegevensbron-versie | De waarde in het veld versie van het antwoord dat u eerder hebt ontvangen. Dit is vereist als de gebruiker weet dat het resultaat die is verkregen eerder verlopen is.|
@@ -290,7 +291,7 @@ De opgegeven service met behulp van de updatebeschrijving van de opgegeven updat
 
 |Argument|Beschrijving|
 | --- | --- |
-| --[vereist]-service-id| De doelservice om bij te werken. Dit wordt meestal de volledige-ID van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is 'fabric://myapp/app1/svc1', de service-identiteit zou zijn ' myapp ~ app1 ~ svc1' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
+| --[vereist]-service-id| De doelservice om bij te werken. Dit wordt meestal de volledige-ID van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam van de is "fabric: / myapp/app1/svc1 ', de service-identiteit zijn ' myapp ~ app1 ~ svc1' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
 | --beperkingen         | De plaatsingsbeperkingen als een tekenreeks. Plaatsingsbeperkingen zijn boolean-expressies in de eigenschappen van het knooppunt en toestaan voor een service beperken tot bepaalde knooppunten op basis van de servicevereisten. Bijvoorbeeld, om een service op de knooppunten waar NodeType blauw is het volgende opgeven: ' NodeColor == blue '.|
 | --gecorreleerde-service  | Naam van de doelservice correleren met.|
 | --correlatie         | De service met een bestaande service met behulp van een affiniteit uitlijning correleren.|

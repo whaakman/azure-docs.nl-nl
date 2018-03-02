@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Exchange EDIFACT berichten voor enterprise-integratie met logic apps
 
@@ -32,65 +32,63 @@ Voordat u EDIFACT berichten voor Azure Logic Apps uitwisselen kunt, moet u een o
 
 Hier volgt de items die u nodig:
 
-* Een [integratie account](../logic-apps/logic-apps-enterprise-integration-accounts.md) die al is gedefinieerd en die zijn gekoppeld aan uw Azure-abonnement  
+* Een [integratie account](logic-apps-enterprise-integration-create-integration-account.md) die al is gedefinieerd en die zijn gekoppeld aan uw Azure-abonnement  
 * Ten minste twee [partners](logic-apps-enterprise-integration-partners.md) die al zijn gedefinieerd in uw account integratie
 
 > [!NOTE]
 > Wanneer u een overeenkomst maakt, moet het type licentieovereenkomst overeenkomen met de inhoud van de berichten die u ontvangt of verzendt naar en van de partner.
 
-Nadat u [maken van een account integratie](../logic-apps/logic-apps-enterprise-integration-accounts.md) en [partners toevoegen](logic-apps-enterprise-integration-partners.md), kunt u een overeenkomst EDIFACT maken met de volgende stappen.
+Nadat u [maken van een account integratie](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) en [partners toevoegen](logic-apps-enterprise-integration-partners.md), kunt u een overeenkomst EDIFACT maken met de volgende stappen.
 
 ## <a name="create-an-edifact-agreement"></a>Maken van een overeenkomst EDIFACT 
 
-1.  Meld u aan bij [Azure Portal](http://portal.azure.com "Azure Portal"). Selecteer in het menu links **alle services**.
+1. Meld u aan bij [Azure Portal](http://portal.azure.com "Azure Portal"). 
 
-    > [!TIP]
-    > Als er geen **alle services**, mogelijk moet u eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **weergeven in het menu**.
+2. Selecteer op het Azure hoofdmenu **alle services**. Voer in het zoekvak "-integratie" en selecteer vervolgens **integratieaccounts**.
 
-    ![Selecteer op het menu links, 'Alle services'](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+   ![Uw account integratie vinden](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
-2. Typ in het zoekvak '-integratie"voor uw filter. Selecteer in de lijst met resultaten **Integratieaccounts**.
+   > [!TIP]
+   > Als **alle services** niet wordt weergegeven, wordt u wellicht eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **tekstlabels weergeven**.
 
-    ![Filteren op "-integratie", selecteert u 'Integratieaccounts'](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
+3. Onder **Integratieaccounts**, selecteert u de integratie account waar u wilt maken van de overeenkomst.
 
-3. In de **Integratieaccounts** blade die wordt geopend, selecteert u de integratie-account waarin u wilt maken van de overeenkomst.
-Als er geen eventuele integratieaccounts [maken van een eerste](../logic-apps/logic-apps-enterprise-integration-accounts.md "alles over integratieaccounts").  
+   ![Integratie-account selecteren wanneer u de overeenkomst](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
-    ![Integratie-account selecteren wanneer u de overeenkomst](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+4. Kies **overeenkomsten**. Als u een tegel overeenkomsten geen hebt, eerst de tegel toevoegen.   
 
-4. Kies de **overeenkomsten** tegel. Als u een tegel overeenkomsten geen hebt, eerst de tegel toevoegen.   
+   ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
-    ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+5. Kies op de pagina overeenkomsten **toevoegen**.
 
-5. Kies in de blade van de overeenkomsten die wordt geopend, **toevoegen**.
-
-    ![Kies 'Add'](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+   ![Kies 'Add'](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
 6. Onder **toevoegen**, voer een **naam** voor de overeenkomst. Voor **type licentieovereenkomst**, selecteer **EDIFACT**. Selecteer de **Host Partner**, **Hostidentiteit**, **Gast Partner**, en **Gast identiteit** voor de overeenkomst.
 
-    ![Geef overeenkomstdetails](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+   ![Geef overeenkomstdetails](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-    | Eigenschap | Beschrijving |
-    | --- | --- |
-    | Naam |Naam van de overeenkomst |
-    | Type licentieovereenkomst | EDIFACT moet |
-    | Hostpartner |Een overeenkomst moet een host en de Gast-partner. De host-partner vertegenwoordigt de organisatie die de overeenkomst configureert. |
-    | Hostidentiteit |Een id voor de host-partner |
-    | Gastpartner |Een overeenkomst moet een host en de Gast-partner. De Gast-partner vertegenwoordigt de organisatie die bedrijven gebruiken met de partner host doet. |
-    | Gastidentiteit |Een id voor de Gast-partner |
-    | Ontvangstinstellingen |Deze eigenschappen zijn van toepassing op alle berichten ontvangen door een overeenkomst. |
-    | Verzendinstellingen |Deze eigenschappen zijn van toepassing op alle berichten is verzonden door een overeenkomst. |
+   | Eigenschap | Beschrijving |
+   | --- | --- |
+   | Naam |Naam van de overeenkomst |
+   | Type licentieovereenkomst | EDIFACT moet |
+   | Hostpartner |Een overeenkomst moet een host en de Gast-partner. De host-partner vertegenwoordigt de organisatie die de overeenkomst configureert. |
+   | Hostidentiteit |Een id voor de host-partner |
+   | Gastpartner |Een overeenkomst moet een host en de Gast-partner. De Gast-partner vertegenwoordigt de organisatie die bedrijven gebruiken met de partner host doet. |
+   | Gastidentiteit |Een id voor de Gast-partner |
+   | Ontvangstinstellingen |Deze eigenschappen zijn van toepassing op alle berichten ontvangen door een overeenkomst. |
+   | Verzendinstellingen |Deze eigenschappen zijn van toepassing op alle berichten is verzonden door een overeenkomst. |
+   ||| 
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Configureren hoe uw ingangen overeenkomst berichten ontvangen
 
 Nu dat u de eigenschappen van de overeenkomst hebt ingesteld, kunt u configureren hoe deze overeenkomst identificeert en binnenkomende berichten ontvangen van uw partner via deze overeenkomst worden verwerkt.
 
-1.  Onder **toevoegen**, selecteer **instellingen ontvangen**.
+1. Onder **toevoegen**, selecteer **instellingen ontvangen**.
 Configureer deze eigenschappen op basis van uw overeenkomst met de partner die u berichten worden uitgewisseld. Zie voor eigenschapbeschrijvingen, de tabellen in deze sectie.
 
-    **Ontvangen instellingen** is onderverdeeld in deze secties: id's, bevestiging, schema's, besturingselement getallen, validatie en interne instellingen.
+   **Ontvangen instellingen** is onderverdeeld in deze secties: id's, bevestiging, schema's, besturingselement getallen, validatie en interne instellingen.
 
-    !['Ontvangen instellingen' configureren](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+   !['Ontvangen instellingen' configureren](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
 2. Nadat u bent klaar, controleert u of uw instellingen opslaan door te kiezen **OK**.
 
@@ -211,7 +209,7 @@ Andere dan de tekenset, kunt u een andere set scheidingstekens moet worden gebru
 | Eigenschap | Beschrijving |
 | --- | --- |
 | UNB1.1 (systeem-id) |Selecteer de EDIFACT tekenset worden toegepast op het uitgaande uitwisselen. |
-| Schema |Selecteer een schema in de vervolgkeuzelijst. Nadat u elke rij hebt voltooid, wordt er automatisch een nieuwe rij toegevoegd. Voor het geselecteerde schema, de scheidingstekens set selecteren die u gebruiken wilt, op basis van de volgende beschrijvingen van het scheidingsteken. |
+| Schema |Selecteer een schema in de vervolgkeuzelijst. Nadat u elke rij hebt voltooid, wordt er automatisch een nieuwe rij toegevoegd. Voor het geselecteerde schema, de scheidingstekens set selecteren die u gebruiken wilt, op basis van de onderstaande scheidingsteken beschrijvingen. |
 | Invoertype |Selecteer een type invoer in de vervolgkeuzelijst. |
 | Scheidingsteken voor onderdelen |Afzonderlijke elementen van de samengestelde gegevensbron, voert u één teken. |
 | Scheidingsteken voor gegevenselementen |Afzonderlijke eenvoudige gegevenselementen in de elementen van de samengestelde gegevensbron, voert u één teken. |
@@ -240,13 +238,13 @@ Wanneer elke rij van de validatie is voltooid, wordt automatisch een andere toeg
 
 ## <a name="find-your-created-agreement"></a>De overeenkomst zoeken
 
-1.  Als u klaar bent met het instellen van alle uw overeenkomst-eigenschappen op de **toevoegen** blade kiezen **OK** maken van uw overeenkomst is voltooid en Ga terug naar de blade van het integratie-account.
+1.  Als u klaar bent met het instellen van alle uw overeenkomst-eigenschappen op de **toevoegen** pagina **OK** te maken van uw overeenkomst voltooien en keer terug naar uw account integratie.
 
     Nu uw toegevoegde overeenkomst wordt weergegeven in uw **overeenkomsten** lijst.
 
-2.  U kunt ook uw overeenkomsten weergeven in uw Accountoverzicht integratie. Kies op de blade van het integratie-account **overzicht**, selecteer vervolgens de **overeenkomsten** tegel. 
+2.  U kunt ook uw overeenkomsten weergeven in uw Accountoverzicht integratie. Kies in het menu van de account integratie **overzicht**, selecteer vervolgens de **overeenkomsten** tegel. 
 
-    ![Kies 'Overeenkomsten' tegel om weer te geven van alle overeenkomsten](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="view-swagger-file"></a>Swagger-bestand weergeven
 De Swagger-details voor de connector EDIFACT Zie [EDIFACT](/connectors/edifact/).

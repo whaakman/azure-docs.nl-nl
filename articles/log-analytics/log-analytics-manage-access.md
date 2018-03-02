@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-workspaces"></a>Werkruimten beheren
 
@@ -34,7 +34,7 @@ Het volgende is nodig om een werkruimte te maken:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Vaststellen hoeveel werkruimten u nodig hebt
 Een werkruimte is een Azure-resource die bestaat uit een container waarin gegevens worden verzameld, samengevoegd, geanalyseerd en gepresenteerd in Azure Portal.
 
-U kunt per Azure-abonnement beschikken over meerdere werkruimten en toegang hebben tot meer dan één werkruimte. Door het aantal werkruimten te minimaliseren, kunt u voor de meeste gegevens query's uitvoeren en de gegevens aan elkaar relateren, aangezien het niet mogelijk is om query's voor meerdere werkruimten uit te voeren. In deze sectie wordt beschreven wanneer het handig kan zijn om meer dan één werkruimte te maken.
+U kunt per Azure-abonnement beschikken over meerdere werkruimten en toegang hebben tot meer dan één werkruimte. Eerder kon u gegevens alleen analyseren vanuit de huidige werkruimte en dit beperkte de mogelijkheid een query uit te voeren in meerdere werkruimten die in uw abonnement zijn gedefinieerd. Nu kunt u een [query uitvoeren in meerdere werkruimten](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), zodat u een systeembreed overzicht van uw gegevens krijgt. In deze sectie wordt beschreven wanneer het handig kan zijn om meer dan één werkruimte te maken.
 
 Een werkruimte biedt momenteel het volgende:
 
@@ -62,10 +62,10 @@ U kunt gegevens van uw werkruimte in Azure Portal bekijken.
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Werkruimtegegevens weergeven in Azure Portal
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **Meer services** in de linkerbenedenhoek van Azure Portal.  Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Log Analytics**.  
-    ![Azure-hub](./media/log-analytics-manage-access/hub.png)  
-3. Selecteer een werkruimte op de blade Abonnementen in Log Analytics.
-4. De blade van de werkruimte geeft gegevens over de werkruimte en koppelingen voor meer informatie weer.  
+2. Klik op **Alle services**.  Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Log Analytics**.  
+    ![Schermafbeelding van het linkermenu van Azure](./media/log-analytics-manage-access/hub.png)  
+3. Selecteer een werkruimte op de pagina Abonnementen in Log Analytics.
+4. De pagina van de werkruimte geeft gegevens over de werkruimte en koppelingen voor meer informatie weer.  
     ![details van de werkruimte](./media/log-analytics-manage-access/workspace-details.png)  
 
 
@@ -95,7 +95,7 @@ De oude Log Analytics-gebruikersrollen beheren alleen de toegang tot activiteite
 
 Voor de volgende activiteiten zijn ook Azure-machtigingen vereist:
 
-| Actie                                                          | Azure-machtigingen nodig | Opmerkingen |
+| Bewerking                                                          | Azure-machtigingen nodig | Opmerkingen |
 |-----------------------------------------------------------------|--------------------------|-------|
 | Beheeroplossingen toevoegen en verwijderen                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | De prijscategorie wijzigen                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |

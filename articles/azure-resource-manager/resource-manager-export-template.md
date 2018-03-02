@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0af34a64cd3cc33519f2cc69653982e00e4c1e9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7ac553a3608df41548f845e27c545ff63886e37c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Een Azure Resource Manager-sjabloon uit bestaande resources exporteren
 In dit artikel wordt uitgelegd hoe u een Resource Manager-sjabloon exporteert uit bestaande resources in uw abonnement. Aan de hand van de gegenereerde sjabloon kunt u een beter begrip krijgen van de syntaxis van sjablonen.
@@ -26,38 +26,38 @@ In dit artikel wordt uitgelegd hoe u een Resource Manager-sjabloon exporteert ui
 Er zijn twee manieren om een sjabloon te exporteren:
 
 * U kunt de **daadwerkelijke sjabloon die u voor implementatie hebt gebruikt**, exporteren. De geëxporteerde sjabloon bevat alle parameters en variabelen precies zoals ze worden weergegeven in de oorspronkelijke sjabloon. Deze methode is handig als u resources via de portal hebt geïmplementeerd en u de sjabloon voor het maken van deze resources wilt zien. Deze sjabloon kan ongewijzigd worden gebruikt. 
-* U kunt een **gegenereerde sjabloon exporteren met de huidige status van de resourcegroep**. De geëxporteerde sjabloon is niet gebaseerd op een sjabloon die u voor de implementatie hebt gebruikt. In plaats daarvan wordt er een sjabloon gemaakt die een momentopname is van de resourcegroep. De geëxporteerde sjabloon heeft veel vastgelegde waarden en waarschijnlijk niet zoveel parameters als u doorgaans zou definiëren. Deze methode is nuttig wanneer u de resourcegroep na implementatie hebt gewijzigd. Deze sjabloon moet meestal worden aangepast voordat deze kan worden gebruikt.
+* U kunt een **gegenereerde sjabloon exporteren met de huidige status van de resourcegroep**. De geëxporteerde sjabloon is niet gebaseerd op een sjabloon die u voor de implementatie hebt gebruikt. In plaats daarvan wordt een sjabloon die een 'snapshot' of 'back-up' van de resourcegroep wordt gemaakt. De geëxporteerde sjabloon heeft veel vastgelegde waarden en waarschijnlijk niet zoveel parameters als u doorgaans zou definiëren. Gebruik deze optie om het implementeren van resources op de dezelfde resourcegroep. Als u wilt deze sjabloon voor een andere resourcegroep gebruikt, moet u wellicht aanzienlijk wijzigen.
 
-In dit onderwerp worden beide methoden via de portal beschreven.
+Dit artikel ziet beide benaderingen via de portal.
 
 ## <a name="deploy-resources"></a>Resources implementeren
-Laten we beginnen door resources te implementeren in Azure, zodat u die kunt exporteren als een sjabloon. Als u al een resourcegroep in uw abonnement hebt die u wilt exporteren naar een sjabloon hebt, kunt u deze sectie overslaan. In de rest van dit artikel wordt ervan uitgegaan dat u de web-app en SQL-database-oplossing uit deze sectie hebt geïmplementeerd. Als u een andere oplossing gebruikt, is de ervaring mogelijk iets anders, maar de stappen voor het exporteren van een sjabloon blijven hetzelfde. 
+Laten we beginnen door resources te implementeren in Azure, zodat u die kunt exporteren als een sjabloon. Als u al een resourcegroep in uw abonnement hebt die u wilt exporteren naar een sjabloon hebt, kunt u deze sectie overslaan. De rest van dit artikel wordt ervan uitgegaan dat u de SQL database-oplossing in deze sectie wordt weergegeven en web-app hebt geïmplementeerd. Als u een andere oplossing gebruikt, is de ervaring mogelijk iets anders, maar de stappen voor het exporteren van een sjabloon blijven hetzelfde. 
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer **maken van een resource**.
    
-      ![Nieuw selecteren](./media/resource-manager-export-template/new.png)
+      ![Selecteer Nieuw](./media/resource-manager-export-template/new.png)
 2. Zoek naar **web-app + SQL** en selecteer dit resultaat uit de beschikbare opties.
    
-      ![zoeken naar web-app + SQL](./media/resource-manager-export-template/webapp-sql.png)
+      ![web-app zoeken en SQL](./media/resource-manager-export-template/webapp-sql.png)
 
 3. Selecteer **Maken**.
 
-      ![Maken selecteren](./media/resource-manager-export-template/create.png)
+      ![Selecteer maken](./media/resource-manager-export-template/create.png)
 
 4. Geef de vereiste waarden op voor de web-app en SQL-database. Selecteer **Maken**.
 
-      ![waarden voor web-app en SQL-database opgeven](./media/resource-manager-export-template/provide-web-values.png)
+      ![web- en SQL-waarde opgeven](./media/resource-manager-export-template/provide-web-values.png)
 
 De implementatie kan een minuut duren. Als de implementatie is voltooid, ziet u de oplossing in uw abonnement.
 
 ## <a name="view-template-from-deployment-history"></a>Sjabloon weergeven vanuit implementatiegeschiedenis
-1. Ga naar de resourcegroepblade van uw nieuwe resourcegroep. U ziet dat het resultaat van de laatste implementatie op de blade wordt vermeld. Selecteer deze koppeling.
+1. Ga naar de resourcegroep voor uw nieuwe resourcegroep. U ziet dat de portal het resultaat van de laatste implementatie geeft. Selecteer deze koppeling.
    
-      ![resourcegroepblade](./media/resource-manager-export-template/select-deployment.png)
-2. U ziet nu de geschiedenis van de implementaties voor de groep. In uw geval wordt er op de blade waarschijnlijk slechts één implementatie vermeld. Selecteer deze implementatie.
+      ![Resourcegroep](./media/resource-manager-export-template/select-deployment.png)
+2. U ziet nu de geschiedenis van de implementaties voor de groep. In uw geval worden de portal waarschijnlijk slechts een implementatie. Selecteer deze implementatie.
    
      ![laatste implementatie](./media/resource-manager-export-template/select-history.png)
-3. In de blade wordt een samenvatting van de implementatie weergegeven. Deze samenvatting bevat de status van de implementatie en bewerkingen, en de waarden die u hebt opgegeven voor de parameters. Selecteer **Sjabloon weergeven** om de sjabloon te bekijken die u voor de implementatie hebt gebruikt.
+3. De portal geeft een samenvatting van de implementatie. Deze samenvatting bevat de status van de implementatie en bewerkingen, en de waarden die u hebt opgegeven voor de parameters. Selecteer **Sjabloon weergeven** om de sjabloon te bekijken die u voor de implementatie hebt gebruikt.
    
      ![implementatiesamenvatting bekijken](./media/resource-manager-export-template/view-template.png)
 4. Resource Manager haalt de volgende zeven bestanden voor u op:
@@ -70,17 +70,17 @@ De implementatie kan een minuut duren. Als de implementatie is voltooid, ziet u 
    5. **.NET**: een .NET-klasse die u kunt gebruiken om de sjabloon te implementeren.
    6. **Ruby**: een Ruby-klasse die u kunt gebruiken om de sjabloon te implementeren.
       
-      De bestanden zijn beschikbaar via de koppelingen op de blade. In de blade wordt standaard de sjabloon weergegeven.
+      De portal wordt standaard weergegeven van de sjabloon.
       
-       ![sjabloon weergeven](./media/resource-manager-export-template/see-template.png)
+       ![Sjabloon weergeven](./media/resource-manager-export-template/see-template.png)
       
 Deze sjabloon is de daadwerkelijke sjabloon die wordt gebruikt voor het maken van uw web-app en SQL-database. De sjabloon bevat parameters waarmee u tijdens de implementatie verschillende waarden kunt opgeven. Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over de structuur van een sjabloon.
 
 ## <a name="export-the-template-from-resource-group"></a>De sjabloon vanuit de resourcegroep exporteren
-Als u de resources handmatig hebt gewijzigd of resources hebt toegevoegd in meerdere implementaties, vertegenwoordigt een sjabloon die u ophaalt uit de implementatiegeschiedenis niet de huidige status van de resourcegroep. In deze sectie ziet u hoe u een sjabloon kunt exporteren die de huidige status van de resourcegroep voorstelt. 
+Als u hebt handmatig gewijzigd van uw resources of resources toegevoegd in meerdere implementaties, bij het ophalen van een sjabloon van de implementatiegeschiedenis van de niet worden opgenomen in de huidige status van de resourcegroep. In deze sectie ziet u hoe u een sjabloon kunt exporteren die de huidige status van de resourcegroep voorstelt. Het is bedoeld als een momentopname van de resourcegroep waarin u kunt implementeren naar dezelfde resourcegroep. Voor het gebruik van de geëxporteerde sjabloon voor andere oplossingen, moet u deze aanzienlijk wijzigen.
 
 > [!NOTE]
-> U kunt geen sjablonen voor een resourcegroep met meer dan 200 bronnen exporteren.
+> U kunt een sjabloon voor een resourcegroep die meer dan 200 bronnen heeft, niet exporteren.
 > 
 > 
 
@@ -95,31 +95,31 @@ Als u de resources handmatig hebt gewijzigd of resources hebt toegevoegd in meer
    
      Als u ervaring hebt met een JSON-editor, zoals [VS Code](https://code.visualstudio.com/) of [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), wilt u de sjabloon misschien liever lokaal downloaden en die editor gebruiken. Selecteer **Downloaden** als u lokaal wilt werken.
    
-      ![sjabloon downloaden](./media/resource-manager-export-template/download-template.png)
+      ![Een sjabloon downloaden](./media/resource-manager-export-template/download-template.png)
    
-     Als u geen JSON-editor hebt geïnstalleerd, wilt u de sjabloon misschien liever via de portal bewerken. Hieronder wordt ervan uitgegaan dat u de sjabloon hebt opgeslagen in uw bibliotheek in de portal. U brengt echter dezelfde syntaxiswijzigingen aan in de sjabloon, ongeacht of u lokaal met een JSON-editor werkt of via de portal. Selecteer **Toevoegen aan bibliotheek** als u via de portal wilt werken.
+     Als u niet worden ingesteld met een JSON-editor, kunt u liever bewerken van het sjabloon via de portal. De rest van dit artikel wordt ervan uitgegaan dat u de sjabloon hebt opgeslagen naar de bibliotheek in de portal. U brengt echter dezelfde syntaxiswijzigingen aan in de sjabloon, ongeacht of u lokaal met een JSON-editor werkt of via de portal. Selecteer **Toevoegen aan bibliotheek** als u via de portal wilt werken.
    
-      ![toevoegen aan bibliotheek](./media/resource-manager-export-template/add-to-library.png)
+      ![Toevoegen aan bibliotheek](./media/resource-manager-export-template/add-to-library.png)
    
-     Als u een sjabloon toevoegt aan de bibliotheek, geeft u de sjabloon een naam en een beschrijving. Selecteer vervolgens **Opslaan**.
+     Wanneer een sjabloon toe te voegen aan de bibliotheek, geeft u de sjabloon een naam en beschrijving. Selecteer vervolgens **Opslaan**.
    
-     ![sjabloonwaarden instellen](./media/resource-manager-export-template/save-library-template.png)
+     ![sjabloonwaarden](./media/resource-manager-export-template/save-library-template.png)
 4. Als u een sjabloon wilt weergeven die is opgeslagen in uw bibliotheek, selecteert u **Meer services**, typt u **sjablonen** om de resultaten te filteren, en selecteert u **Sjablonen**.
    
       ![sjablonen zoeken](./media/resource-manager-export-template/find-templates.png)
 5. Selecteer de sjabloon met de naam die u hebt opgeslagen.
    
-      ![sjabloon selecteren](./media/resource-manager-export-template/select-saved-template.png)
+      ![Sjabloon selecteren](./media/resource-manager-export-template/select-saved-template.png)
 
 ## <a name="customize-the-template"></a>De sjabloon aanpassen
 De geëxporteerde sjabloon werkt prima als u voor elke implementatie dezelfde web-app en SQL-database wilt maken. Resource Manager biedt echter opties die u in staat stellen sjablonen met veel meer flexibiliteit te implementeren. In dit artikel ziet u hoe u parameters toevoegt voor de naam van de databasebeheerder en het wachtwoord. U kunt deze benadering ook gebruiken om meer flexibiliteit toe te voegen voor andere waarden in de sjabloon.
 
 1. Selecteer **Bewerken** om de sjabloon aan te passen.
    
-     ![sjabloon weergeven](./media/resource-manager-export-template/select-edit.png)
+     ![Sjabloon weergeven](./media/resource-manager-export-template/select-edit.png)
 2. Selecteer de sjabloon.
    
-     ![sjabloon bewerken](./media/resource-manager-export-template/select-added-template.png)
+     ![Sjabloon bewerken](./media/resource-manager-export-template/select-added-template.png)
 3. Om de waarden te kunnen doorgeven die u misschien tijdens de implementatie wilt opgeven, voegt u de volgende twee parameters toe aan de sectie **parameters** in de volgende sjabloon:
 
    ```json
@@ -154,10 +154,10 @@ De geëxporteerde sjabloon werkt prima als u voor elke implementatie dezelfde we
 6. Selecteer **OK** wanneer u klaar bent om de sjabloon te bewerken.
 7. Klik op **Opslaan** om de wijzigingen in de sjabloon op te slaan.
    
-     ![sjabloon opslaan](./media/resource-manager-export-template/save-template.png)
+     ![Sjabloon opslaan](./media/resource-manager-export-template/save-template.png)
 8. Selecteer **Implementeren** om de bijgewerkte sjabloon opnieuw te implementeren.
    
-     ![sjabloon implementeren](./media/resource-manager-export-template/redeploy-template.png)
+     ![Sjabloon implementeren](./media/resource-manager-export-template/redeploy-template.png)
 9. Geef parameterwaarden op en selecteer een resourcegroep waarin u de resources wilt implementeren.
 
 
@@ -170,9 +170,8 @@ Niet alle resourcetypen ondersteunen de functie voor het exporteren van sjablone
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt geleerd hoe u een sjabloon kunt exporteren uit resources die u in de portal hebt gemaakt.
 
 * U kunt een sjabloon implementeren via [PowerShell](resource-group-template-deploy.md), [Azure CLI](resource-group-template-deploy-cli.md) of [REST API](resource-group-template-deploy-rest.md).
-* Zie [Azure PowerShell gebruiken met Azure Resource Manager](powershell-azure-resource-manager.md) voor het exporteren van een sjabloon via PowerShell.
-* Zie [De Azure CLI voor Mac, Linux en Windows gebruiken met Azure Resource Manager](xplat-cli-azure-resource-manager.md) voor het exporteren van een sjabloon via Azure CLI.
+* Zie voor het exporteren van een sjabloon via PowerShell [exporteren Azure Resource Manager-sjablonen met PowerShell](resource-manager-export-template-powershell.md).
+* Zie voor het exporteren van een sjabloon via Azure CLI [exporteren Azure Resource Manager-sjablonen met Azure CLI](resource-manager-export-template-cli.md).
 

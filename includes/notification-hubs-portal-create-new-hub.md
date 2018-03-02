@@ -2,7 +2,7 @@
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Selecteer **Nieuw** > **Web en mobiel** > **Notification Hub**.
+2. Selecteer **Een resource maken** > **Web en mobiel** > **Notification Hub**.
    
       ![Azure Portal - Een Notification Hub maken](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       

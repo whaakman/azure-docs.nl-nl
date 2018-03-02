@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: d9acb58791cb1412d5e67479ca6490e1548be2c8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d2131a9fbb8fcb77a00045924169420773893f91
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure-Dashboards via een programma maken
 
@@ -27,7 +27,7 @@ Dit document begeleidt bij het proces van het programmatisch maken en publiceren
 
 ## <a name="overview"></a>Overzicht
 
-Dashboards in Azure worden gedeeld [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) net als bij virtuele machines en opslagaccounts.  Daarom deze kunnen worden beheerd via een programma de [Azure Resource Manager REST API's](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), wordt de [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell-opdrachten](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0), en veel [ Azure-portal](https://portal.azure.com) functies Voortborduren deze API's voor het beheren van bronnen eenvoudiger.  
+Dashboards in Azure worden gedeeld [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) net als bij virtuele machines en opslagaccounts.  Daarom deze kunnen worden beheerd via een programma de [Azure Resource Manager REST API's](/rest/api/), wordt de [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell-opdrachten](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0), en veel [ Azure-portal](https://portal.azure.com) functies Voortborduren deze API's voor het beheren van bronnen eenvoudiger.  
 
 Elk van deze API's en hulpprogramma's voor biedt manieren om te maken, weergeven, ophalen, wijzigen en verwijderen van bronnen.  Aangezien dashboards bronnen, kunt u Kies uw favoriete API-hulpprogramma om te gebruiken.
 

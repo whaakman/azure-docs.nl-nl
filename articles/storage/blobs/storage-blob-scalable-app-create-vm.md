@@ -1,35 +1,33 @@
 ---
-title: Een virtuele machine en opslag voor een schaalbare toepassing maakt in Azure | Microsoft Docs
-description: Informatie over het implementeren van een virtuele machine moet worden gebruikt voor het uitvoeren van een schaalbare toepassing met behulp van Azure blob-opslag
+title: Een VM en een opslagaccount maken voor een schaalbare toepassing in Azure | Microsoft Docs
+description: Informatie over hoe u een VM implementeert die wordt gebruikt om een schaalbare toepassing uit te voeren met behulp van Azure Blob-opslag
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 0fd1cd93ca6faabcbe0007136fe427028e722733
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: aafb79a021b76b1347314815b1786a23f699be7a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Een virtuele machine en storage-account voor een schaalbare toepassing maken
+# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Een virtuele machine en een opslagaccount maken voor een schaalbare toepassing
 
-Deze zelfstudie maakt deel uit een reeks. Deze zelfstudie ziet dat u een toepassing implementeren die uploaden en downloaden van grote hoeveelheden willekeurige gegevens met Azure storage-account. Wanneer u klaar bent, hebt u een consoletoepassing die wordt uitgevoerd op een virtuele machine u uploaden en downloaden van grote hoeveelheden gegevens naar een opslagaccount.
+Deze zelfstudie is deel één van een serie. In deze zelfstudie leert u hoe u een toepassing kunt implementeren waarmee grote hoeveelheden willekeurige gegevens worden geüpload en gedownload met een Azure-opslagaccount. Wanneer u klaar bent, hebt u een consoletoepassing die wordt uitgevoerd op een virtuele machine waarmee u grote hoeveelheden gegevens downloadt van en uploadt naar een opslagaccount.
 
-Deel een van de reeks, leert u hoe:
+In deel 1 van de reeks leert u het volgende:
 
 > [!div class="checklist"]
 > * Een opslagaccount maken
 > * Een virtuele machine maken
-> * Een extensie voor aangepaste scripts configureren
+> * Een aangepaste scriptextensie configureren
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -47,9 +45,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-storage-account"></a>Een opslagaccount maken
  
-Het voorbeeld uploadt 50 grote bestanden naar een blobcontainer in Azure Storage-account. Een opslagaccount biedt een unieke naamruimte voor het opslaan en toegang tot uw Azure storage-gegevensobjecten. Een opslagaccount maken in de resourcegroep die u hebt gemaakt met behulp van de [nieuw AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount) opdracht.
+Met het voorbeeld worden 50 grote bestanden geüpload naar een blobcontainer in een Azure Storage-account. Een opslagaccount biedt een unieke naamruimte voor het opslaan en openen van uw Azure Storage-gegevensobjecten. Maak een opslagaccount in de resourcegroep die u hebt gemaakt met behulp van de opdracht [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount).
 
-In de volgende opdracht te vervangen door uw eigen globaal unieke naam op voor de Blob storage-account waarin u zien hoe de `<blob_storage_account>` tijdelijke aanduiding.
+Vervang in de volgende opdracht het Blob Storage-account in de tijdelijke aanduiding `<blob_storage_account>` door uw eigen unieke naam.
 
 ```powershell-interactive
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
@@ -104,17 +102,17 @@ Write-host "Your public IP address is $($pip.IpAddress)"
 
 ## <a name="deploy-configuration"></a>Configuratie implementeren
 
-Er zijn vereisten die moeten worden geïnstalleerd op de virtuele machine voor deze zelfstudie. De extensie voor aangepaste scripts wordt gebruikt voor het uitvoeren van een PowerShell-script dat de volgende taken:
+Voor deze zelfstudie moeten bepaalde onderdelen op de virtuele machine worden geïnstalleerd. De aangepaste scriptextensie wordt gebruikt om een PowerShell-script uit te voeren dat de volgende taken voltooit:
 
 > [!div class="checklist"]
-> * .NET core 2.0 installeren
+> * .NET Core 2.0 installeren
 > * Chocolatey installeren
-> * Installeer GIT
-> * Kloon de opslagplaats voorbeeld
+> * Git installeren
+> * De voorbeeldopslagplaats klonen
 > * NuGet-pakketten herstellen
-> * Hiermee maakt u 50 1 GB-bestanden met willekeurige gegevens
+> * 50 bestanden van 1 GB met willekeurige gegevens maken
 
-Voer de volgende cmdlet als configuratie van de virtuele machine wilt voltooien. Deze stap neemt 5 tot 15 minuten in beslag.
+Voer de volgende cmdlet uit om de configuratie van de virtuele machine te voltooien. Deze stap neemt 5 tot 15 minuten in beslag.
 
 ```azurepowershell-interactive
 # Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
@@ -128,14 +126,14 @@ Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deel 1 van de reeks, hebt u geleerd over het maken van een opslagaccount, het implementeren van een virtuele machine en het configureren van de virtuele machine met de vereiste vereisten zoals het:
+In deel één van de reeks hebt u geleerd hoe u een opslagaccount maakt, een virtuele machine implementeert en de virtuele machine configureert met de juiste vereisten. U hebt onder meer het volgende gedaan:
 
 > [!div class="checklist"]
 > * Een opslagaccount maken
 > * Een virtuele machine maken
-> * Een extensie voor aangepaste scripts configureren
+> * Een aangepaste scriptextensie configureren
 
-Ga naar deel twee van de reeks grote hoeveelheden gegevens uploaden naar een opslagaccount met behulp van de exponentiële opnieuw proberen en parallelle uitvoering.
+Ga naar deel twee van de reeks om grote hoeveelheden gegevens te uploaden naar een opslagaccount met behulp van exponentiële gelijktijdige uitvoering en opnieuw proberen.
 
 > [!div class="nextstepaction"]
-> [Uploaden van grote hoeveelheden grote bestanden naar een opslagaccount parallel](storage-blob-scalable-app-upload-files.md)
+> [Grote aantallen grote bestanden gelijktijdig uploaden naar een opslagaccount](storage-blob-scalable-app-upload-files.md)

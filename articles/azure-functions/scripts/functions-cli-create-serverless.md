@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-Script steekproef - maken van een functie-App voor uitvoering zonder server | Microsoft Docs
-description: Azure CLI-Script steekproef - maken van een functie-App voor uitvoering zonder server
+title: Azure CLI-voorbeeldscript - Een functie-app maken voor uitvoering zonder server | Microsoft Docs
+description: Azure CLI-voorbeeldscript - Een functie-app maken voor uitvoering zonder server
 services: functions
 documentationcenter: functions
 author: syntaxc4
@@ -16,42 +16,44 @@ ms.workload: web
 ms.date: 10/04/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 9436cafa775f2ad658c0c9901f7f8eae769c7052
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: f3e4ce63a8b418b68494262df8a771ac553ad22d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-app-for-serverless-execution"></a>Maken van een functie-App voor uitvoering zonder server
+# <a name="create-a-function-app-for-serverless-code-execution"></a>Een functie-app maken voor uitvoering van code zonder server
 
-Dit voorbeeldscript wordt gemaakt van een functie-App van Azure, dat een container voor uw functies is. De functie-App wordt gemaakt met de [verbruik plan](../functions-scale.md#consumption-plan), dit is ideaal voor workloads van gebeurtenisafhankelijke zonder server.
+Met dit voorbeeldscript voor Azure Functions wordt een functie-app gemaakt, wat een container voor uw functies is. De functie-app wordt gemaakt met behulp van het [verbruiksabonnement](../functions-scale.md#consumption-plan), wat ideaal voor is gebeurtenisgestuurde workloads zonder server.
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in dit artikel is vereist dat u de Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
-Dit script maakt een Azure-functie app met behulp van de [verbruik plan](../functions-scale.md#consumption-plan).
+Met dit script wordt een Azure Function-app gemaakt met behulp van het [verbruiksabonnement](../functions-scale.md#consumption-plan).
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a consumption plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht. Dit script maakt gebruik van de volgende opdrachten:
+Elke opdracht in de tabel is een koppeling naar specifieke documentatie over de opdracht. In dit script worden de volgende opdrachten gebruikt:
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [AZ groep maken](/cli/azure/group#az_group_create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ storage-account maken](/cli/azure/storage/account#az_storage_account_create) | Een Azure Storage-account maakt. |
-| [AZ functionapp maken](/cli/azure/functionapp#az_functionapp_create) | Hiermee maakt u een functie-app. |
+| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Hiermee wordt een Azure Storage-account gemaakt. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Hiermee maakt u een functie-app. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](/cli/azure/overview).
+Zie de [documentatie van Azure CLI](/cli/azure/overview) voor meer informatie over de Azure CLI.
 
-Aanvullende voorbeelden van Azure Functions CLI-script kunnen worden gevonden in de [documentatie van Azure Functions](../functions-cli-samples.md).
+Meer voorbeeldscripts voor de Azure Functions CLI zijn te vinden in de [Azure Functions-documentatie](../functions-cli-samples.md).

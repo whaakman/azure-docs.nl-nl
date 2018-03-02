@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 Log Analytics bevat informatie over de hoeveelheid gegevens die is verzameld, welke systemen de gegevens hebben verzonden en de verschillende typen gegevens die zijn verzonden.  Gebruik het dashboard **Gebruik van Log Analytics** om de hoeveelheid gegevens te zien die wordt verzonden naar de Log Analytics-service. Het dashboard laat zien hoeveel gegevens worden verzameld door elke oplossing en hoeveel gegevens uw computers verzenden.
@@ -44,13 +44,17 @@ Het **Log Analytics-gebruiksdashboard** bevat de volgende informatie:
 ![gebruiksdashboard](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Werken met gebruiksgegevens
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-3. Selecteer een werkruimte in de lijst met Log Analytics-werkruimten.
-4. Selecteer **Gebruik van Logboekanalyse** in de lijst in het linkerdeelvenster.
-5. Klik op het **Log Analytics-gebruiksdashboard** op **Tijd: afgelopen 24 uur** om het tijdsinterval te wijzigen.<br><br> ![tijdsinterval](./media/log-analytics-usage/time.png)<br><br>
-6. Bekijk de blades voor de gebruikscategorie waarin gebieden worden weergegeven waarin u bent geïnteresseerd. Kies een blade en klik vervolgens op een item op de blade om meer details weer te geven in [Zoeken in logboeken](log-analytics-log-searches.md).<br><br> ![voorbeeld van blade voor gegevensgebruik](./media/log-analytics-usage/blade.png)<br><br>
-7. Bekijk op het dashboard Zoeken in logboeken de resultaten die zijn geretourneerd na de zoekopdracht.<br><br> ![voorbeeld van gebruik van zoeken in logboeken](./media/log-analytics-usage/usage-log-search.png)
+1. Meld u met uw Azure-abonnement aan bij [Azure Portal](https://portal.azure.com) als u dit nog niet hebt gedaan.
+2. Klik op **Alle services** en typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Log Analytics**.  
+    ![Azure-hub](./media/log-analytics-usage/hub.png)
+3. Op het **Log Analytics**-dashboard wordt een lijst met uw werkruimten weergegeven. Selecteer een werkruimte.
+4. Klik op het dashboard *Werkruimte* op **Log Analytics-gebruik**.
+5. Klik op het **Log Analytics-gebruiksdashboard** op **Tijd: afgelopen 24 uur** om het tijdsinterval te wijzigen.  
+    ![tijdsinterval](./media/log-analytics-usage/time.png)
+6. Bekijk de blades voor de gebruikscategorie waarin gebieden worden weergegeven waarin u bent geïnteresseerd. Kies een blade en klik vervolgens op een item op de blade om meer details weer te geven in [Zoeken in logboeken](log-analytics-log-searches.md).  
+    ![voorbeeld van blade voor gegevensgebruik](./media/log-analytics-usage/blade.png)
+7. Bekijk op het dashboard Zoeken in logboeken de resultaten die zijn geretourneerd na de zoekopdracht.  
+    ![voorbeeld van gebruik van zoeken in logboeken](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Een waarschuwing instellen wanneer de gegevensverzameling groter is dan verwacht
 In deze sectie wordt beschreven hoe u een waarschuwing instelt als:

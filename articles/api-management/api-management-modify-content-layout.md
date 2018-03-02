@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.openlocfilehash: 708c803c36c182ed90e04731b12d4ade00ae7ffb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcf48ab8dd3b57ace70fa713074b13a992940002
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>De inhoud en opmaak van pagina’s bewerken in de ontwikkelaarsportal in Azure API Management
 Er zijn die manieren waarop u de ontwikkelaarsportal in Azure API Management kunt aanpassen:
 
 * [De inhoud van statische pagina's en pagina-indelingselementen bewerken][modify-content-layout] (uitgelegd in deze handleiding)
 * [De stijlen bijwerken die worden gebruikt voor pagina-elementen in de ontwikkelaarsportal][customize-styles]
-* [De sjablonen bewerken die worden gebruikt voor pagina's die worden gegenereerd door de portal][portal-templates] (bijvoorbeeld API-documenten, producten, gebruikersverificatie, enz.)
+* [De sjablonen bewerken die worden gebruikt voor pagina's die worden gegenereerd door de portal][portal-templates] (bijvoorbeeld API-documenten, producten, gebruikersverificatie, enzovoort.)
 
 ## <a name="page-structure"> </a>Structuur van pagina's in de ontwikkelaarsportal
 
@@ -37,41 +37,24 @@ Alle widgets kunnen worden bewerkt.
 * De belangrijkste inhoud die voor elke pagina anders is, staat in de widget Inhoud. Als u een pagina bewerkt, bewerkt u eigenlijk de inhoud van deze widget.
 * Alle elementen van pagina-indeling staan in de overige widgets. Als u wijzigingen aanbrengt aan deze widgets, worden die toegepast op alle pagina's. Deze widgets heten ook wel indelingswidgets.
 
-Voor de alledaagse paginabewerkingen bewerkt u meestal alleen de widget Inhoud. Er staat in deze widget meestal andere inhoud voor elke pagina.
+Voor de alledaagse paginabewerkingen bewerkt u meestal alleen de widget Inhoud, die op elke afzonderlijke pagina andere inhoud bevat.
 
 ## <a name="modify-layout-widget"> </a>De inhoud van een indelingswidget wijzigen
 
-Inhoud in de ontwikkelaarsportal wordt gewijzigd via de publicatieportal, die u kunt openen vanuit de Azure Portal. U opent deze door vanaf de servicewerkbalk van het API Management-exemplaar op **Publicatieportal** te klikken.
+De Developer-portal is toegankelijk via de Azure Portal. 
 
-![Publicatieportal][api-management-management-console]
-
-Als u de inhoud van deze widget wilt bewerken, klikt u op **Widgets** in het menu **Ontwikkelaarsportal** aan de linkerkant. In dit voorbeeld gaat u de inhoud van de widget Koptekst wijzigen. Selecteer de widget **Koptekst** in de lijst.
-
-![Widget Koptekst][api-management-widgets-header]
-
-De inhoud van de header kan worden bewerkt vanuit het veld **Hoofdtekst**. Wijzig de tekst naar wens en klik vervolgens op **Opslaan** onder aan de pagina.
+1. Klik op **Developer portal** op de werkbalk van uw API Management-exemplaar.
+2. Als u de inhoud van widgets wilt bewerken, klikt u op het pictogram met de twee verfkwasten van het portalmenu **Developer** aan de linkerkant. 
+3. Als u de inhoud van de koptekst wilt wijzigen, schuift u naar de sectie **Koptekst** in de lijst links.
+    
+    De widgets kunnen worden bewerkt vanuit de velden.
+4. Wanneer u klaar bent om uw wijzigingen te publiceren, klikt u op **Publiceren** onderaan de pagina.
 
 U zou nu de nieuwe header op elke pagina moeten zien binnen de ontwikkelaarsportal.
 
-> Als u de ontwikkelaarsportal wilt openen terwijl u zich in de publicatieportal bevindt, klikt u op **Ontwikkelaarsportal** in de bovenste balk.
-> 
-> 
-
-## <a name="edit-page-contents"> </a>De inhoud van een pagina bewerken
-
-Als u de lijst met alle bestaande inhoudspagina's wilt zien, klikt u op **Inhoud** in het menu **Ontwikkelaarsportal** in de publicatieportal.
-
-![Inhoud beheren][api-management-customization-manage-content]
-
-Klik op de pagina **Welkom** om te bewerken wat wordt weergegeven op de startpagina van de ontwikkelaarsportal. Breng de gewenste wijzigingen aan, bekijk er indien nodig een voorbeeld van en klik vervolgens op **Nu publiceren** om ze voor iedereen zichtbaar te maken.
-
-> Op de startpagina wordt een speciale indeling gebruikt waardoor bovenaan een banner kan worden weergegeven. Deze banner kan niet worden bewerkt in de sectie **Inhoud**. Als u deze banner wilt bewerken, klikt u op **Widgets** in het menu **Ontwikkelaarsportal**, selecteert u **Startpagina** in de vervolgkeuzelijst **Huidige laag** en opent u het item **Banner** onder de sectie **Aanbevolen**. De inhoud van deze widget kan net zoals andere pagina's worden bewerkt.
-> 
-> 
-
 ## <a name="next-steps"> </a>Volgende stappen
 * [De stijlen bijwerken die worden gebruikt voor pagina-elementen in de ontwikkelaarsportal][customize-styles]
-* [De sjablonen bewerken die worden gebruikt voor pagina's die worden gegenereerd door de portal][portal-templates] (bijvoorbeeld API-documenten, producten, gebruikersverificatie, enz.)
+* [De sjablonen bewerken die worden gebruikt voor pagina's die worden gegenereerd door de portal][portal-templates] (bijvoorbeeld API-documenten, producten, gebruikersverificatie, enzovoort.)
 
 [Structure of developer portal pages]: #page-structure
 [Modifying the contents of a layout widget]: #modify-layout-widget

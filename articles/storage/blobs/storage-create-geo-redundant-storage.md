@@ -2,23 +2,19 @@
 title: Toepassingsgegevens maximaal beschikbaar maken in Azure | Microsoft Docs
 description: Geografisch redundante opslag met leestoegang gebruiken om uw toepassingsgegevens maximaal beschikbaar te maken
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/23/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Uw toepassingsgegevens maximaal beschikbaar maken met Azure-opslag
 
@@ -64,7 +60,7 @@ Een opslagaccount biedt een unieke naamruimte voor het opslaan en openen van uw 
 
 Volg deze stappen om een account voor geografisch redundante opslag met leestoegang te maken:
 
-1. Selecteer de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Selecteer de knop **Een resource maken** in de linkerbovenhoek van Azure Portal.
 
 2. Selecteer **Opslag** op de pagina **Nieuw** en selecteer **Opslagaccount - Blob, File, Table, Queue** onder **Aanbevolen**.
 3. Vul het formulier voor het opslagaccount in met de informatie uit de volgende afbeelding en selecteer **Maken**:

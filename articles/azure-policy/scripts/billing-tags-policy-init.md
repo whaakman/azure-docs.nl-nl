@@ -1,6 +1,6 @@
 ---
-title: Azure beleid json-voorbeeld - facturering tags beleid initiatief | Microsoft Docs
-description: Deze json-Voorbeeldset beleid vereist opgegeven labelwaarden voor kosten center en de product-naam.
+title: Azure Policy-json-voorbeeld - Factureringstagbeleidinitiatief | Microsoft Docs
+description: Voor deze json-voorbeeldbeleidsset zijn gespecificeerde tagwaarden voor kostenplaats en productnaam vereist.
 services: azure-policy
 documentationcenter: 
 author: bandersmsft
@@ -15,15 +15,15 @@ ms.workload:
 ms.date: 10/30/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: decceb2acc11cc7b3457c6d9364d57ee9c252a4a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: d9f964ed6d2f04898b649194d0824cb7f3c31e2d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="billing-tags-policy-initiative"></a>Facturering labels beleid initiatief
+# <a name="billing-tags-policy-initiative"></a>Factureringstagbeleidinitiatief
 
-Deze beleidsset vereist opgegeven labelwaarden voor kosten center en de product-naam. Maakt gebruik van ingebouwde beleid wilt toepassen en afdwingen van de vereiste labels. Geeft u de vereiste waarden voor de labels.
+Voor deze beleidsset zijn gespecificeerde tagwaarden voor kostenplaats en productnaam vereist. Er wordt gebruikgemaakt van ingebouwde beleidsregels om vereiste tags toe te passen en af te dwingen. U geeft de vereiste waarden voor de tags op.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Deze beleidsset vereist opgegeven labelwaarden voor kosten center en de product-
 
 [!code-json[main](../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
 
-U kunt implementeren met behulp van deze sjabloon de [Azure-portal](#deploy-with-the-portal) of met [PowerShell](#deploy-with-powershell).
+U kunt deze sjabloon implementeren met behulp van de [Azure-portal](#deploy-with-the-portal) of met [PowerShell](#deploy-with-powershell).
 
 ## <a name="deploy-with-the-portal"></a>Implementeren met portal
 
@@ -50,14 +50,35 @@ $policyset= New-AzureRmPolicySetDefinition -Name "multiple-billing-tags" -Displa
 New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -costCenterValue <required value for Cost Center tag> -productNameValue <required value for product Name tag>  -Sku @{"Name"="A1";"Tier"="Standard"}
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Opschonen van de PowerShell-implementatie
+### <a name="clean-up-powershell-deployment"></a>PowerShell-implementatie opschonen
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
+## <a name="apply-tags-to-existing-resources"></a>Tags toepassen op bestaande resources
+
+Nadat u het beleid hebt toegewezen, kunt u een update van alle bestaande resources activeren om het tagbeleid dat u hebt toegevoegd, af te dwingen. Het volgende script behoudt andere tags die op de resources aanwezig waren:
+
+```powershell
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
+
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+
+foreach($r in $resources)
+{
+    try{
+        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+    }
+    catch{
+        Write-Host  $r.ResourceId + "can't be updated"
+    }
+}
+```
+
+
 ## <a name="next-steps"></a>Volgende stappen
 
-- Voorbeelden van de sjabloon extra Azure-beleid, lopen [sjablonen voor Azure beleid](../json-samples.md).
+- Meer Azure Policy-voorbeeldsjablonen zijn te vinden op [Sjablonen voor Azure Policy](../json-samples.md).

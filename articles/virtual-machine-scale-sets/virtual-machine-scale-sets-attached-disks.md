@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52ea7e35b941d5b1e45f39203757e4a3644cc9a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Virtuele-machineschaalsets in Azure en gekoppelde gegevensschijven
 [Virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) in Azure ondersteunen nu virtuele machines met gekoppelde gegevensschijven. Gegevensschijven kunnen worden gedefinieerd in het opslagprofiel voor schaalsets dat is gemaakt met Azure Managed Disks. Eerder waren de enige direct gekoppelde opslagopties met virtuele machines in schaalsets het station van het besturingssysteem en tijdelijke stations.
@@ -61,6 +61,59 @@ Een andere manier om een schaalset te maken met gekoppelde gegevensschijven, is 
 ```
 
 U kunt hier een volledig voorbeeld bekijken van een schaalset die klaar is om geïmplementeerd te worden met een gekoppelde schijf: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
+
+## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>Een Service Fabric-cluster maken met gekoppelde gegevensschijven
+Elk [knooppunttype](../service-fabric/service-fabric-cluster-nodetypes.md) in een [Service Fabric](/azure/service-fabric)-cluster dat wordt uitgevoerd in Azure, wordt ondersteund door een virtuele-machineschaalset.  U kunt met behulp van een Azure Resource Manager-sjabloon gegevensschijven koppelen aan de schaalsets die gezamenlijk het Service Fabric-cluster vormen. U kunt een [bestaande sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates) als uitgangspunt nemen. Neem in de sjabloon een sectie _dataDisks_ op in het _storageProfile_ van de _Microsoft.Compute/virtualMachineScaleSets_-resource(s) en implementeer de sjabloon. In het volgende voorbeeld wordt een gegevensschijf van 128 GB gekoppeld:
+
+```json
+"dataDisks": [
+    {
+    "diskSizeGB": 128,
+    "lun": 0,
+    "createOption": "Empty"
+    }
+]
+```
+
+U kunt automatisch partitioneren, formatteren en de gegevensschijven koppelen wanneer het cluster is geïmplementeerd.  Voeg een extensie voor aangepaste scripts toe aan het _extensionProfile_ van de _virtualMachineProfile_ van de schaalset(s).
+
+Als u de gegevensschijven automatisch wilt voorbereiden in een Windows-cluster, voegt u het volgende toe:
+
+```json
+{
+    "name": "customScript",    
+    "properties": {    
+        "publisher": "Microsoft.Compute",    
+        "type": "CustomScriptExtension",    
+        "typeHandlerVersion": "1.8",    
+        "autoUpgradeMinorVersion": true,    
+        "settings": {    
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.ps1"
+        ],
+        "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File prepare_vm_disks.ps1"
+        }
+    }
+}
+```
+Als u de gegevensschijven automatisch wilt voorbereiden in een Linux-cluster, voegt u het volgende toe:
+```json
+{
+    "name": "lapextension",
+    "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"
+        ],
+        "commandToExecute": "bash prepare_vm_disks.sh"
+        }
+    }
+}
+```
 
 ## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>Een gegevensschijf toevoegen aan een bestaande schaalset
 > [!NOTE]

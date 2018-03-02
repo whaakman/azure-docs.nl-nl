@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 5e9951132ebb46d1053fbf62528b43e82cc76d2e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>HDInsight verbinden met uw on-premises-netwerk
 
@@ -78,7 +78,7 @@ Maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/down
 
     ![Een virtuele Ubuntu-machine maken](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. Van de __basisbeginselen__ sectie, voer de volgende informatie:
+2. Geef in de sectie __Basisbeginselen__ de volgende gegevens op:
 
     * __Naam__: een beschrijvende naam die deze virtuele machine wordt aangeduid. Bijvoorbeeld: __DNSProxy__.
     * __Gebruikersnaam__: de naam van het SSH-account.
@@ -125,7 +125,7 @@ Maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/down
     >
     > * [Azure-Cloud-Shell](../cloud-shell/quickstart.md)
     > * [Bash op Ubuntu op Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
-    > * [GIT (https://git-scm.com/)](https://git-scm.com/)
+    > * [Git (https://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
 2. Gebruik de volgende opdrachten bij de SSH-sessie voor het installeren van Bind:

@@ -1,3 +1,5 @@
+# [Documentatie voor Virtual Network](index.md)
+
 # Overzicht
 ## [Virtuele netwerken](virtual-networks-overview.md)
 ## [Routering](virtual-networks-udr-overview.md)
@@ -8,7 +10,7 @@
 ## [Containernetwerken](container-networking.md)
 ## [Bedrijfscontinuïteit](virtual-network-disaster-recovery-guidance.md)
 ## [IP-adressering](virtual-network-ip-addresses-overview-arm.md)
-## [DDoS-beveiliging](ddos-protection-overview.md)
+## [DDoS Protection](ddos-protection-overview.md)
 ## [Veelgestelde vragen](virtual-networks-faq.md)
 ## Klassiek
 ### [IP-adressering](virtual-network-ip-addresses-overview-classic.md)
@@ -164,7 +166,7 @@
 ### Virtuele machines
 #### [Een VM verplaatsen naar een ander subnet](virtual-networks-move-vm-role-to-subnet.md)
 ### [Openbare IP-adressen](virtual-network-public-ip-address.md)
-### DDoS-beveiliging
+### DDoS Protection
 #### [Azure Portal](ddos-protection-manage-portal.md)
 #### [Azure PowerShell](ddos-protection-manage-ps.md)
 

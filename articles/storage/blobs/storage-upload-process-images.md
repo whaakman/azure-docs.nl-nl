@@ -3,22 +3,20 @@ title: Afbeeldingsgegevens uploaden in de cloud met Azure Storage | Microsoft Do
 description: Azure Blob Storage gebruiken me een web-app om toepassingsgegevens op te slaan
 services: storage
 documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eae23bed2792e41f73c22658d238e2b03beba17b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Afbeeldingsgegevens uploaden in de cloud met Azure Storage
 
@@ -67,11 +65,11 @@ az storage account create --name <blob_storage_account> \
  
 ## <a name="create-blob-storage-containers"></a>Blob Storage-containers maken
  
-De app gebruikt twee containers in het Blob Storage-account. Containers zijn vergelijkbaar met mappen en worden gebruikt voor het opslaan van blobs. In de container _images_ worden afbeeldingen in volledige resolutie opgeslagen. In een later deel van de reeks leert u hoe een Azure-functie-app verkleinde afbeeldingsminiaturen naar de container _Thumbs_ uploadt. 
+De app gebruikt twee containers in het Blob Storage-account. Containers zijn vergelijkbaar met mappen en worden gebruikt voor het opslaan van blobs. In de container _images_ worden afbeeldingen in volledige resolutie opgeslagen. In een later deel van de serie leert u hoe een Azure-functie-app verkleinde afbeeldingsminiaturen naar de container _thumbnails_ uploadt. 
 
 Haal de opslagaccountsleutel op met behulp van de opdracht [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Gebruik vervolgens deze sleutel om twee containers te maken met behulp van de opdracht [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
  
-In dit geval is `<blob_storage_account>` de naam van het Blob Storage-account dat u hebt gemaakt. De openbare toegang tot de _images_-containers wordt ingesteld op `off`, die tot de _thumbs_-containers op `container`. Dankzij de instelling voor de openbare toegang tot de `container` zijn de miniaturen zichtbaar voor personen die de webpagina bezoeken.
+In dit geval is `<blob_storage_account>` de naam van het Blob Storage-account dat u hebt gemaakt. De openbare toegang tot de _images_-containers wordt ingesteld op `off`, die tot de _thumbnails_-containers op `container`. Dankzij de instelling voor de openbare toegang tot de `container` zijn de miniaturen zichtbaar voor personen die de webpagina bezoeken.
  
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -82,7 +80,7 @@ blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 az storage container create -n images --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access off 
 
-az storage container create -n thumbs --account-name $blobStorageAccount \
+az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your blob storage account key..." 
@@ -135,7 +133,7 @@ In de volgende opdracht is `<blob_storage_account>` de naam van uw Blob Storage-
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
 --settings AzureStorageConfig__AccountName=<blob_storage_account> \
 AzureStorageConfig__ImageContainer=images  \
-AzureStorageConfig__ThumbnailContainer=thumbs \
+AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
@@ -196,15 +194,15 @@ Controleer of de afbeelding in de container wordt weergegeven.
 
 Als u de weergave van miniaturen wilt testen, uploadt u een afbeelding naar de miniaturencontainer, zodat u er zeker van bent dat de toepassing de miniaturencontainer kan lezen.
 
-Meld u aan bij [Azure Portal](https://portal.azure.com). In het linkermenu selecteert u **opslagaccounts** en vervolgens de naam van uw opslagaccount. Selecteer **Containers** onder **Blob-service** en selecteer de **thumbs**-container. Selecteer **Uploaden** om het deelvenster **Blob uploaden** te openen.
+Meld u aan bij [Azure Portal](https://portal.azure.com). In het linkermenu selecteert u **opslagaccounts** en vervolgens de naam van uw opslagaccount. Selecteer **Containers** onder **Blob-service** en selecteer de **thumbnails**-container. Selecteer **Uploaden** om het deelvenster **Blob uploaden** te openen.
 
 Kies een bestand met de bestandenkiezer en selecteer **Uploaden**.
 
-Ga terug naar de app om te controleren of de naar de **thumbs**-container geüploade afbeelding zichtbaar is.
+Ga terug naar de app om te controleren of de naar de **thumbnails**-container geüploade afbeelding zichtbaar is.
 
 ![Containerweergave van afbeeldingen](media/storage-upload-process-images/figure2.png)
 
-In de **thumbs**-container in Azure Portal selecteert u de geüploade afbeelding en vervolgens **Verwijderen** om de afbeelding te verwijderen. In deel 2 van de reeks automatiseert u het maken van miniatuurafbeeldingen, zodat u deze testafbeelding niet meer nodig hebt.
+In de **thumbnails**-container in Azure Portal selecteert u de geüploade afbeelding en vervolgens **Verwijderen** om de afbeelding te verwijderen. In deel 2 van de reeks automatiseert u het maken van miniatuurafbeeldingen, zodat u deze testafbeelding niet meer nodig hebt.
 
 CDN kan worden ingeschakeld om inhoud vanuit uw Azure Storage-account in de cache op te slaan. In deze zelfstudie wordt niet beschreven hoe u CDN inschakelt voor uw Azure-opslagaccount. Ga hiervoor naar [Een Azure Storage-account integreren met Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 

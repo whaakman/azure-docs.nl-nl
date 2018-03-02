@@ -1,4 +1,4 @@
-- name: Jenkins op Azure
+- name: Documentatie voor Jenkins op Azure
   href: index.yml
 - name: Overzicht
   items:

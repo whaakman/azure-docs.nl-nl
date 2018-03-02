@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Een Azure SQL-database verkennen met de indexeerfuncties van Azure Search
 
@@ -121,7 +121,7 @@ In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of da
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/). 
 
-2. Klik op **Nieuw** > **SQL-database** om een database, server en resourcegroep te maken. U kunt de standaardinstellingen en de laagste prijscategorie gebruiken. Eén voordeel van het maken van een server is dat u de gebruikersnaam en het wachtwoord van een beheerder kunt opgeven die in een latere stap nodig zijn om tabellen te maken en te laden.
+2. Klik op **Een resource maken** > **SQL Database** om een database, server en resourcegroep te maken. U kunt de standaardinstellingen en de laagste prijscategorie gebruiken. Eén voordeel van het maken van een server is dat u de gebruikersnaam en het wachtwoord van een beheerder kunt opgeven die in een latere stap nodig zijn om tabellen te maken en te laden.
 
    ![De pagina Nieuwe database](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 

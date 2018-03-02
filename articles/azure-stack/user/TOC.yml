@@ -43,6 +43,8 @@
               href: azure-stack-compute-overview.md
             - name: Overwegingen omtrent virtuele machines
               href: azure-stack-vm-considerations.md
+            - name: Formaten van virtuele machines
+              href: azure-stack-vm-sizes.md
             - name: VM-schijven beheren
               href: azure-stack-manage-vm-disks.md
         - name: Storage

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 29c74c2cc58e7cab1364b2fc2c74951440dea0ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Een internetgerichte load balancer maken met behulp van de Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Azure-CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Sjabloon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
@@ -57,7 +57,7 @@ Meer informatie over de load balancer-onderdelen in Azure Resource Manager vindt
 > In dit voorbeeld wordt ervan uitgegaan dat u een virtueel netwerk hebt met de naam **myVNet**. Bekijk [Virtueel netwerk maken](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) voor instructies. Er wordt ook verondersteld dat **myVNet** een subnet bevat met de naam **LB-Subnet-BE**, evenals twee virtuele machines met de naam **web1** en **web2** die zich respectievelijk binnen dezelfde beschikbaarheidsset met de naam **myAvailSet** in **myVNet** bevinden. Raadpleeg [deze koppeling](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor instructies voor het maken van virtuele machines.
 
 1. Navigeer via een browser naar Azure Portal: [http://portal.azure.com](http://portal.azure.com). Meld u vervolgens aan met uw Azure-account.
-2. Selecteer linksboven in het scherm **Nieuw** > **Netwerken** > **Load balancer**.
+2. Selecteer linksboven in het scherm de optie **Een resource maken** > **Netwerken** > **Load balancer.**
 3. Voer op de blade **Load balancer maken** een naam in voor de load balancer. Hier wordt deze **myLoadBalancer** genoemd.
 4. Selecteer onder **Type** de optie **Openbaar**.
 5. Maak onder **Openbaar IP-adres** een nieuw openbaar IP-adres met de naam **myPublicIP**.

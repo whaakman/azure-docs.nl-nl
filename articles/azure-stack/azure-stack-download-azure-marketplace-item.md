@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 3437bc9f164cbdc6c923498b978291ced6278744
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
@@ -109,7 +109,7 @@ Gebruik de volgende stappen voor het downloaden van de vereiste marketplace-item
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>De installatiekopie van het importeren en deze publiceren naar de Stack Azure marketplace
 
-1. Nadat u de installatiekopie en galerij downloaden, ze en de inhoud opslaan in de map AzureStack-hulpprogramma's-master om een verwisselbaar station en kopieer het naar de Stack van Azure-omgeving (u kunt deze kopiëren lokaal naar elke locatie, zoals: 'C:\MarketplaceImages').   
+1. Nadat u de installatiekopie en galerij downloaden, ze en de inhoud opslaan in de map AzureStack-hulpprogramma's-master om een verwisselbaar station en kopieer het naar de Stack van Azure-omgeving (u kunt deze kopiëren lokaal naar elke locatie, zoals: 'C:\MarketplaceImages').     
 
 2. Voordat u de installatiekopie importeert, moet u verbinden met de Azure-Stack-operator omgeving met behulp van de stappen in [Azure Stack-operator PowerShell-omgeving configureren](azure-stack-powershell-configure-admin.md).  
 

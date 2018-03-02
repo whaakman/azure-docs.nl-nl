@@ -258,6 +258,8 @@
               href: mongodb-robomongo.md
             - name: Mongoose gebruiken
               href: mongodb-mongoose.md
+            - name: Leesvoorkeur gebruiken
+              href: mongodb-readpreference.md
             - name: Ondersteuning voor MongoDB-functies
               href: mongodb-feature-support.md
             - name: Reeks zelfstudies voor Angular

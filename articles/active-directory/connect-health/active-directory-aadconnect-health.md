@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 9919e326613ce81db32f1d72a8cb5e3668992885
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f8082b632e9fef4aa5d46deb35e415f2b1c55dda
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Uw on-premises infrastructuur voor identiteiten en synchronisatieservices in de cloud controleren
 Azure Active Directory (Azure AD) Connect Health helpt u om inzicht te verkrijgen in uw on-premises infrastructuur voor identiteiten en de synchronisatieservices. Hiermee kunt u een betrouwbare verbinding met Office 365 en Microsoft Online Services onderhouden door bewakingsmogelijkheden te bieden voor uw belangrijkste identiteitsonderdelen, zoals Active Directory Federation Services-servers (AD FS), Azure AD Connect-servers (ook wel Sync Engine genoemd), Active Directory-domeincontrollers, enzovoort. Ook worden de belangrijkste gegevenspunten over deze onderdelen gemakkelijk toegankelijk gemaakt, zodat u statistieken over het gebruik en andere zaken kunt ophalen en u weloverwogen beslissingen kunt nemen.
@@ -110,7 +110,7 @@ Volg de volgende stappen om aan de slag te gaan met Azure AD Connect Health:
 In de portal voor Azure AD Connect Health kunt u waarschuwingen weergeven, de prestaties controleren en het gebruik analyseren. Via de URL https://aka.ms/aadconnecthealth gaat u naar de hoofdblade van Azure AD Connect Health. Een blade kunt u zien als een venster. Op de hoofdblade ziet u **Snel starten**, services in Azure AD Connect Health en extra configuratie-opties. Zie de volgende schermafbeelding en de korte uitleg die daarna wordt gegeven. Nadat u de agents hebt geïmplementeerd, identificeert de Health-service automatisch de services die met Azure AD Connect Health worden bewaakt.
 
 > [!NOTE]
-> Zie de [Veelgestelde vragen over Azure AD Connect](active-directory-aadconnect-health-faq.md) of de [Azure AD-pagina met prijzen](https://aka.ms/aadpricing) voor licentie-informatie.
+> Raadpleeg de [veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md) of de [Azure AD-pagina met prijzen](https://aka.ms/aadpricing) voor licentie-informatie.
     
 ![Portal voor Azure AD Connect Health](./media/active-directory-aadconnect-health/portal4.png)
 

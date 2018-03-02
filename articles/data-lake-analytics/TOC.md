@@ -1,3 +1,5 @@
+# [Documentatie voor Data Lake Analytics](index.md)
+
 # Overzicht
 ## [Wat is Data Lake Analytics?](data-lake-analytics-overview.md)
 

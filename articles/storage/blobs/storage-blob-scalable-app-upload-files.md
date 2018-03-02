@@ -1,48 +1,45 @@
 ---
-title: Uploaden van grote hoeveelheden willekeurige gegevens parallel naar Azure Storage | Microsoft Docs
-description: Informatie over het gebruik van de Azure SDK voor het uploaden van grote hoeveelheden willekeurige gegevens parallel met een Azure Storage-account
+title: Grote hoeveelheden willekeurige gegevens gelijktijdig uploaden naar Azure Storage | Microsoft Docs
+description: Informatie over het gebruik van de Azure SDK om grote hoeveelheden willekeurige gegevens gelijktijdig naar een Azure Storage-account te uploaden
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 98f3f69c6025d61caac20e13b573651854952432
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: 39a48007bdcd055df4529074a67b5b8a6db2d8b4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Uploaden van grote hoeveelheden willekeurige gegevens parallel naar Azure-opslag
+# <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Grote hoeveelheden willekeurige gegevens gelijktijdig uploaden naar Azure Storage
 
-Deze zelfstudie maakt deel uit twee van een serie. Deze zelfstudie ziet dat u een toepassing implementeren die grote hoeveelheden willekeurige gegevens naar een Azure storage-account uploadt.
+Deze zelfstudie is deel twee van een serie. Deze zelfstudie laat zien hoe u een toepassing kunt implementeren waarmee grote hoeveelheden willekeurige gegevens naar een Azure Storage-account kunnen worden geüpload.
 
-Deel 2 van de reeks, leert u hoe:
+In deel twee van de serie leert u het volgende:
 
 > [!div class="checklist"]
 > * De verbindingsreeks configureren
 > * De toepassing bouwen
 > * De toepassing uitvoeren
-> * Valideren van het aantal verbindingen
+> * Het aantal verbindingen valideren
 
-Azure blob-opslag biedt een schaalbare service voor het opslaan van gegevens. Om te controleren of uw toepassing als zodat mogelijk een goed begrip van hoe de blob-opslag werkt wordt aanbevolen. Kennis van de limieten voor Azure blobs is belangrijk, voor meer informatie over deze limieten gaat u naar: [blob-opslag-schaalbaarheidsdoelen](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+Azure Blob-opslag biedt een schaalbare service voor het opslaan van gegevens. Om er zeker van te kunnen zijn of uw toepassing optimaal presteert, is het raadzaam te weten hoe blob-opslag werkt. Het is belangrijk dat u kennis hebt van de limieten van Azure-blobs, raadpleeg daarom voor meer informatie over deze limieten [schaalbaarheidsdoelen van blob-opslag](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-[Partitie naming](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) is een andere belangrijke factor bij het ontwerpen van een maximaal presterende toepassing met behulp van blobs. Azure-opslag maakt gebruik van een bereik gebaseerde partitieschema op schaal en load balancing. Deze configuratie betekent dat bestanden met vergelijkbare naamconventies of voorvoegsels gaat u naar dezelfde partitie. Deze logica bevat de naam van de container waarin de bestanden zijn om te worden geüpload. In deze zelfstudie gebruikt u de bestanden die geen GUID's voor namen als goed als willekeurig gegenereerde inhoud. Ze worden vervolgens naar de vijf verschillende containers met willekeurige namen geüpload.
+[Naamgevingsregels voor partities](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) is een andere belangrijke factor bij het ontwerpen van een maximaal presterende toepassing met behulp van blobs. Azure-opslag maakt voor schalen en taakverdeling gebruik van een op bereiken gebaseerd partitieschema. Deze configuratie betekent dat bestanden met vergelijkbare naamconventies of voorvoegsels naar dezelfde partitie gaan. Deze logica bevat de naam van de container waar de bestanden naar worden geüpload. In deze zelfstudie gebruikt u de bestanden die GUID's voor namen en willekeurig gegenereerde inhoud bevatten. Deze worden vervolgens naar vijf verschillende containers met willekeurige namen geüpload.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het voltooien van deze zelfstudie, u moet de zelfstudie hebt voltooid vorige opslag: [maken van een virtuele machine en storage-account voor een schaalbare toepassing][previous-tutorial].
+Voor het voltooien van deze zelfstudie, moet u de vorige zelfstudie over opslag hebben voltooid: [Create a virtual machine and storage account for a scalable application][previous-tutorial] (Een virtuele machine en opslagaccount voor een schaalbare toepassing maken).
 
-## <a name="remote-into-your-virtual-machine"></a>Extern verbinding met uw virtuele machine
+## <a name="remote-into-your-virtual-machine"></a>Extern verbinding maken met uw virtuele machine
 
-Gebruik de volgende opdracht op uw lokale machine extern bureaublad-sessiehost maken met de virtuele machine. Het IP-adres vervangen door de publicIPAddress van uw virtuele machine. Wanneer u wordt gevraagd, typt u de referenties die u hebt gebruikt bij het maken van de virtuele machine.
+Gebruik de volgende opdracht op uw lokale machine om een sessie met een extern bureaublad te starten voor de virtuele machine. Vervang het IP-adres door het publicIPAddress van de virtuele machine. Wanneer u hierom wordt gevraagd, typt u de referenties die u hebt gebruikt bij het maken van de virtuele machine.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -50,36 +47,36 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="configure-the-connection-string"></a>De verbindingsreeks configureren
 
-Ga naar uw opslagaccount in de Azure-portal. Selecteer **toegangssleutels** onder **instellingen** in uw opslagaccount. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Aanmelden bij de virtuele machine die u in de vorige zelfstudie hebt gemaakt. Open een **opdrachtprompt** als beheerder en voer de `setx` opdracht met de `/m` switch, met deze opdracht slaat de omgevingsvariabele van een machine-instelling. De omgevingsvariabele is niet beschikbaar totdat u opnieuw laden de **opdrachtprompt**. Vervang  **\<storageConnectionString\>**  in het volgende voorbeeld:
+Ga in Azure Portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Meld u aan bij de virtuele machine die u tijdens de vorige zelfstudie hebt gemaakt. Open een **Opdrachtprompt** als beheerder en voer de opdracht `setx` uit met de `/m`-switch. Met deze opdracht wordt een omgevingsvariabele van een machine-instelling opgeslagen. De omgevingsvariabele wordt pas beschikbaar wanneer u de **Opdrachtprompt** opnieuw laadt. Vervang **\<storageConnectionString\>** in het volgende voorbeeld:
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m
 ```
 
-Wanneer u klaar bent, opent u een andere **opdrachtprompt**, gaat u naar `D:\git\storage-dotnet-perf-scale-app` en het type `dotnet build` de toepassing te bouwen.
+Wanneer u klaar bent, opent u een andere **Opdrachtprompt**, navigeert u naar `D:\git\storage-dotnet-perf-scale-app` en typt u `dotnet build` om de toepassing te bouwen.
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
 Navigeer naar `D:\git\storage-dotnet-perf-scale-app`.
 
-Type `dotnet run` de toepassing uit te voeren. De eerste keer dat u uitvoert `dotnet` wordt gevuld met uw cache lokale pakket sneller herstellen en offline toegang inschakelen. Deze opdracht om uit te voeren op een minuut in beslag en alleen eenmaal wordt uitgevoerd.
+Typ `dotnet run` om de toepassing uit te voeren. De eerste keer dat u `dotnet` uitvoert, wordt uw lokale pakketcache gevuld, waardoor de snelheid voor het terugzetten van back-ups verbetert en offlinetoegang mogelijk is. De uitvoering van deze opdracht duurt maximaal een minuut en is eenmalig.
 
 ```
 dotnet run
 ```
 
-De toepassing wordt gemaakt van vijf willekeurige naam containers en begint met het uploaden van de bestanden in de staging-map op het opslagaccount. De toepassing wordt de minimale threads ingesteld op 100 en de [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) tot 100 om ervoor te zorgen dat een groot aantal gelijktijdige verbindingen zijn toegestaan wanneer de toepassing wordt uitgevoerd.
+De toepassing maakt vijf containers met willekeurige namen en begint met het uploaden van de bestanden in de staging-map naar het opslagaccount. De toepassing stelt het minimumaantal threads in op 100 en de [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) op 100 om ervoor te zorgen dat een groot aantal gelijktijdige verbindingen zijn toegestaan wanneer de toepassing wordt uitgevoerd.
 
-Naast het instellen van de limietinstellingen threading en verbinding met de [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) voor de [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) methode zijn geconfigureerd voor gebruik van parallelle uitvoering en validatie van de MD5-hash uitschakelen. De bestanden zijn geüpload in blokken van 100 mb, deze configuratie biedt betere prestaties maar kostbaar als met een slecht uitvoeren netwerk alsof er een fout het hele 100 mb blok is wordt opnieuw geprobeerd.
+Naast het instellen van de limietinstellingen voor threads en verbindingen zijn de [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) voor de methode [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) geconfigureerd om gebruik te maken van parallelle uitvoering en om validatie van de MD5-hash uit te schakelen. De bestanden worden geüpload in blokken van 100 MB. Deze configuratie biedt betere prestaties maar kan duur zijn als er een slecht presterend netwerk wordt gebruikt, omdat, wanneer er zich een storing voordoet, het gehele blok van 100 MB opnieuw wordt geüpload.
 
 |Eigenschap|Waarde|Beschrijving|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| De instelling breekt de blob in blokken, wanneer u uploadt. Deze waarde moet 8 keer het aantal kernen voor de beste prestaties. |
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| waar| Deze eigenschap de controle van de MD5-hash van de inhoud die geüpload wordt uitgeschakeld. Het uitschakelen van de MD5-validatie produceert een snellere overdracht. Maar niet bevestigt de geldigheid of de integriteit van de bestanden worden overgebracht.   |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| onwaar| Deze eigenschap bepaalt als een MD5-hash wordt berekend en met het bestand opgeslagen.   |
-| [Het RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 2 seconden backoff bij 10 max nieuwe poging |Hiermee bepaalt u het beleid voor opnieuw proberen van aanvragen. Verbindingsfouten in dit voorbeeld worden geprobeerd een [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) beleid wordt geconfigureerd met een backoff 2 seconden en een maximale aantal nieuwe pogingen van 10. Deze instelling is belangrijk bij het ophalen van uw toepassing dicht bij roept de [blob-opslag-schaalbaarheidsdoelen](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| Met deze instelling wordt de blob in blokken opgesplitst bij het uploaden. Voor de beste prestaties, moet deze waarde acht keer het aantal kerngeheugens zijn. |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Met deze eigenschap wordt de controle uitgeschakeld van de MD5-hash van de inhoud die wordt geüpload. MD5-validatie zorgt voor een snellere overdracht. Maar hiermee wordt de geldigheid of de integriteit van de bestanden die worden overgebracht, niet bevestigd.   |
+|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Deze eigenschap bepaalt of een MD5-hash wordt berekend en samen met het bestand opgeslagen.   |
+| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| Twee seconden uitstel bij maximaal tien nieuwe pogingen |Hiermee bepaalt u het beleid voor het opnieuw proberen van aanvragen. Bij verbindingsfouten wordt opnieuw geprobeerd. In dit voorbeeld is een [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet)-beleid geconfigureerd met een uitstel van twee seconden en een maximumaantal nieuwe pogingen van 10. Deze instelling is belangrijk als de toepassing de [schaalbaarheidsdoelen van de blob-opslag ](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets) bijna heeft bereikt.  |
 
-De `UploadFilesAsync` taak in het volgende voorbeeld wordt weergegeven:
+De taak `UploadFilesAsync` wordt in het volgende voorbeeld weergegeven:
 
 ```csharp
 private static async Task UploadFilesAsync()
@@ -156,7 +153,7 @@ private static async Task UploadFilesAsync()
 }
 ```
 
-Het volgende voorbeeld wordt de uitvoer van een afgekapte toepassing uitgevoerd op een Windows-systeem.
+Het volgende voorbeeld bevat de afgekapte uitvoer van een toepassing die op een Windows-systeem wordt uitgevoerd.
 
 ```
 Created container https://mystorageaccount.blob.core.windows.net/9efa7ecb-2b24-49ff-8e5b-1d25e5481076
@@ -175,9 +172,9 @@ Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\5129b385-5781-43b
 Upload has been completed in 142.0429536 seconds. Press any key to continue
 ```
 
-### <a name="validate-the-connections"></a>Valideren van de verbindingen
+### <a name="validate-the-connections"></a>De verbindingen valideren
 
-Terwijl de bestanden zijn geüpload, kunt u controleren of het aantal gelijktijdige verbindingen naar uw opslagaccount. Open een **opdrachtprompt** en het type `netstat -a | find /c "blob:https"`. Deze opdracht geeft u het aantal verbindingen die momenteel zijn geopend met behulp van `netstat`. Het volgende voorbeeld ziet een vergelijkbare uitvoer naar wat u ziet bij het uitvoeren van de zelfstudie. Als u in het voorbeeld zien kunt, wordt met 800 verbindingen geopend waren toen de willekeurige bestanden uploaden naar het opslagaccount. Deze waarde wijzigt tijdens het uploaden wordt uitgevoerd. Door te uploaden in segmenten parallel blok, wordt de hoeveelheid tijd die nodig is om over te dragen van de inhoud aanzienlijk verminderd.
+Terwijl de bestanden worden geüpload, kunt u controleren hoeveel gelijktijdige verbindingen naar uw opslagaccount er zijn. Open een **opdrachtprompt** en typ `netstat -a | find /c "blob:https"`. Deze opdracht geeft u het aantal verbindingen die momenteel zijn geopend met behulp van `netstat`. Het volgende voorbeeld laat uitvoer zien die te vergelijken is met wat u ziet als u de zelfstudie zelf uitvoert. Zoals u in het voorbeeld kunt zien, waren er 800 verbindingen geopend toen de willekeurige bestanden naar het opslagaccount werden geüpload. Deze waarde wijzigt tijdens het uploaden. Door blokken in brokken gelijktijdig te uploaden, wordt de hoeveelheid tijd die nodig is om inhoud over te dragen, aanzienlijk lager.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -188,17 +185,17 @@ C:\>
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deel twee van de reeks, hebt u geleerd over het uploaden van grote hoeveelheden willekeurige gegevens naar een opslagaccount in combinatie, zoals het:
+In deel twee uit de serie bent u meer te weten gekomen over het gelijktijdig uploaden van grote hoeveelheden willekeurige gegevens naar een opslagaccount, om het volgende te kunnen doen:
 
 > [!div class="checklist"]
 > * De verbindingsreeks configureren
 > * De toepassing bouwen
 > * De toepassing uitvoeren
-> * Valideren van het aantal verbindingen
+> * Het aantal verbindingen valideren
 
-Ga naar deel 2 van de reeks te downloaden van grote hoeveelheden gegevens van een opslagaccount.
+Ga verder met deel drie van de serie als u grote hoeveelheden gegevens uit een opslagaccount wilt downloaden.
 
 > [!div class="nextstepaction"]
-> [Uploaden van grote hoeveelheden grote bestanden naar een opslagaccount parallel](storage-blob-scalable-app-download-files.md)
+> [Grote aantallen grote bestanden gelijktijdig uploaden naar een opslagaccount](storage-blob-scalable-app-download-files.md)
 
 [previous-tutorial]: storage-blob-scalable-app-create-vm.md

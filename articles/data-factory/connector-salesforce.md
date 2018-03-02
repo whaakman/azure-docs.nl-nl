@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 4b2561aa338707567b44237e668e9d6d1a01bfea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d48f1f3df7b626ec33b07b6275581821453f626
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - algemeen beschikbaar](v1/data-factory-salesforce-connector.md)
+> * [Versie 1: algemeen verkrijgbaar](v1/data-factory-salesforce-connector.md)
 > * [Versie 2 - Preview](connector-salesforce.md)
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van en naar Salesforce. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
@@ -187,6 +187,7 @@ Om gegevens te kopiëren van Salesforce, stelt u het brontype in de kopieerbewer
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **SalesforceSource**. | Ja |
 | query |Gebruik de aangepaste query om gegevens te lezen. U kunt een SQL-92-query of [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. Een voorbeeld is `select * from MyTable__c`. | Nee (als 'tableName' in de gegevensset is opgegeven) |
+| readBehavior | Geeft aan of query uitvoeren op de bestaande records, of alle records, inclusief de verwijderde query. Als niet wordt opgegeven, is het standaardgedrag voor het eerste. <br>Toegestane waarden: **query** (standaard), **queryAll**.  | Nee |
 
 > [!IMPORTANT]
 > Het gedeelte '__c' van **API-naam** nodig voor elk object dat aangepast is.
@@ -292,8 +293,8 @@ Om te vragen de voorlopig verwijderde records uit de Salesforce-Prullenbak, kunt
 
 Wanneer u de SOQL of SQL-query opgeeft, moet u aandacht schenken aan het verschil van datum/tijd-indeling. Bijvoorbeeld:
 
-* **Voorbeeld van SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **SQL-voorbeeld**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
+* **Voorbeeld van SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **SQL-voorbeeld**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
 
 ## <a name="data-type-mapping-for-salesforce"></a>Toewijzing voor de Salesforce-gegevenstype
 
@@ -304,8 +305,8 @@ Als u gegevens van Salesforce kopieert, worden de volgende toewijzingen van Sale
 | Automatische getal |Tekenreeks |
 | Selectievakje |Boole-waarde |
 | Valuta |Double |
-| Date |Datum en tijd |
-| Datum/tijd |Datum en tijd |
+| Date |DateTime |
+| Datum/tijd |DateTime |
 | E-mail |Tekenreeks |
 | Id |Tekenreeks |
 | Opzoekrelatie |Tekenreeks |

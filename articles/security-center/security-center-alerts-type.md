@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 02/21/2018
 ms.author: yurid
-ms.openlocfilehash: 959c0e8693f4bba49488bbe85e334599823ad0ed
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: a5c95fc7ddf78987d8a7b135d54f359eb5c49946
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Beveiligingswaarschuwingen in Azure Security Center
 Dit artikel helpt u te begrijpen welke verschillende typen beveiligingswaarschuwingen en bijbehorende inzichten er beschikbaar zijn in Azure Security Center. Lees [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md) voor meer informatie over het beheren van waarschuwingen en incidenten.
@@ -93,16 +93,11 @@ Security Center maakt gebruik van geavanceerde analyses om verdachte resources t
 * **Disabling and deleting IIS log files**: deze waarschuwing geeft aan dat IIS-logboekbestanden zijn uitgeschakeld en/of verwijderd, die vaak door aanvallers worden gebruikt om hun sporen te wissen.
 * **Suspicious file deletion**: deze waarschuwing geeft een verdachte verwijdering van bestanden aan, waarmee aanvallers bewijs van schadelijke binaire bestanden kunnen wissen.
 * **All file shadow copies have been deleted**: deze waarschuwing geeft aan dat schaduwkopieën zijn verwijderd.
-* **A history file has been cleared**: Deze waarschuwing geeft aan dat het logboekbestand van de opdrachtgeschiedenis is gewist. Dit bestand kan door een aanvaller worden gebruikt om sporen te wissen.
 * **Suspicious file cleanup commands**: deze waarschuwing geeft aan dat een combinatie van systeminfo-opdrachten is gebruikt om zelfopschonende activiteiten uit te voeren.  Hoewel *systeminfo.exe* een legitiem Windows-hulpprogramma is, is het niet gebruikelijk dat dit hulpprogramma tweemaal achter elkaar wordt uitgevoerd gevolgd door een wisopdracht, zoals in dit geval is gedaan.
 * **Suspicious account creation**: Deze waarschuwing geeft aan dat er een account is gemaakt dat veel overeenkomsten vertoont met een bestaand ingebouwd account met beheerdersbevoegdheden. Deze techniek kan door aanvallers worden gebruikt om een rogue-account te maken zonder te worden gedetecteerd.
-* **Suspicious login activity**: Deze waarschuwing geeft een ongebruikelijke aanmeldingsactiviteit aan, die kan duiden op een SMB-aanval (Server Message Block). Als de betreffende resource fungeert als een IIS-server, wordt deze waarschuwing mogelijk weergegeven vanwege een specifieke legitieme IIS-configuratie voor verificatie.
 * **Suspicious volume shadow copy activity**: Deze waarschuwing geeft aan dat de schaduwkopie op de resource is verwijderd. Volume Shadow Copy (VSC) is een belangrijk artefact waarin momentopnamen van de gegevens worden opgeslagen. Deze activiteit wordt meestal veroorzaakt door ransomware, maar dit kan ook een legitieme activiteit zijn.
 * **Windows registry persistence method**: Deze waarschuwing duidt op een poging om een uitvoerbaar bestand in het Windows-register te behouden. Deze techniek wordt vaak door malware gebruikt om een opstartsessie te overleven.
-* **Windows firewall was disabled**: deze waarschuwing geeft aan dat een Windows-firewall is uitgeschakeld.
 * **Suspicious new firewall rule**: deze waarschuwing geeft aan dat een nieuwe firewallregel is toegevoegd via *netsh.exe* om verkeer van een uitvoerbaar bestand op een verdachte locatie mogelijk te maken.
-* **New user was added to administrators group**: deze waarschuwing geeft aan dat een nieuwe gebruiker is toegevoegd aan de lokale beheerdersgroep.
-* **A new service was created**: deze waarschuwing geeft aan dat een nieuwe service is gemaakt.
 * **Suspicious XCOPY executions**: deze waarschuwing geeft een reeks XCOPY-uitvoeringen aan, wat erop kan duiden dat een van uw computers is geïnfecteerd en wordt gebruikt om malware te verspreiden.
 * **Suppression of legal notice displayed to users at logon**: Deze waarschuwing geeft een wijziging in de registersleutel aan die bepaalt of een juridische kennisgeving wordt weergegeven voor gebruikers wanneer ze zich aanmelden. Dit is een veelgebruikte activiteit van aanvallers nadat een host is geïnfecteerd.
 * **Detected anomalous mix of upper and lower case characters in command line**: Deze waarschuwing geeft aan dat er zowel hoofdletters als kleine letters zijn gebruikt in de opdrachtregel. Dit is een techniek die vaak door aanvallers wordt gebruikt om de hoofdlettergevoelige of hash-gebaseerde machineregel te ontlopen.
@@ -123,15 +118,10 @@ Security Center maakt gebruik van geavanceerde analyses om verdachte resources t
 * **Suspicious Set-ExecutionPolicy and WinRM changes**: deze waarschuwing geeft aan dat er wijzigingen in de configuratie zijn uitgevoerd die zijn gekoppeld aan het gebruik van de schadelijke ChinaChopper-webshell.
 * **Disabling of critical services**: deze waarschuwing geeft aan dat de opdracht net.exe stop is gebruikt om essentiële services als SharedAccess of Windows Security Center te stoppen.
 * **Suspicious use of FTP -s switch**: deze waarschuwing geeft het gebruik van de s-switch van ftp aan, die door malware kan worden gebruikt om verbinding te maken met een externe ftp-server en schadelijke binaire bestanden te downloaden.
-* **Preparation for document exfiltration via IIS backdoo**: deze waarschuwing geeft aan dat documenten worden verzameld en voorbereid op exfiltratie.
 * **Suspicious execution of VBScript.Encode command**: Deze waarschuwing geeft aan dat de opdracht *VBScript.Encode* is uitgevoerd, waarmee scripts worden omgezet in onleesbare tekst. Hierdoor is het voor gebruikers moeilijker om de code te onderzoeken.
 * **VBScript HTTP object allocation**: deze waarschuwing geeft aan dat er een VBScript-bestand is gemaakt vanaf een opdrachtprompt; dit kan worden gebruikt om schadelijke bestanden te downloaden.
 * **Sticky keys attack**: deze waarschuwing geeft aan dat een aanvaller een binair toegankelijkheidsbestand (bijvoorbeeld plaktoetsen, een schermtoetsenbord of verteller) ondermijnt om achterdeurtoegang mogelijk te maken.
 * **Petya ransomware indicators**: deze waarschuwing geeft aan dat de technieken die zijn gekoppeld aan Petya-ransomware zijn waargenomen.
-* **A kernel module was loaded**: deze waarschuwing geeft aan dat een kernelmodule is geladen.
-* **A kernel module was removed**: deze waarschuwing geeft aan dat een kernelmodule is verwijderd.
-* **Anomalous login to a machine**: deze waarschuwing geeft aan dat een gebruiker zich heeft aangemeld vanaf een ongebruikelijk IP-adres.
-* **A file was downloaded and executed**: deze waarschuwing geeft aan dat een bestand is gedownload naar de computer, er uitvoeringsbevoegdheden aan het bestand zijn toegekend en het bestand vervolgens is uitgevoerd.
 * **Attempt to disable AMSI**: deze waarschuwing wijst op een poging om de antimalware scaninterface (AMSI) uit te schakelen, waardoor de detectie van antimalware wordt uitgeschakeld.
 * **Ransomware indicators**: deze waarschuwing wijst op een verdachte activiteit die doorgaans is gekoppeld aan ransomware voor het vergrendelen van het scherm en coderingsransomware.
 * **Suspicious trace collection output file**: deze waarschuwing geeft aan dat een tracering (bijvoorbeeld van netwerkactiviteit) is opgehaald en uitgevoerd naar een ongebruikelijk bestandstype.
@@ -145,14 +135,8 @@ Security Center maakt gebruik van geavanceerde analyses om verdachte resources t
 * **Dynamic PS script construction**: Deze waarschuwing geeft aan dat een PowerShell-script dynamisch wordt samengesteld. Aanvallers gebruiken deze techniek om geleidelijk een script te maken om IDS-systemen te omzeilen.
 * **Metaploit indicators**: deze waarschuwing wijst op een activiteit die is gekoppeld aan het Metasploit-framework, dat een reeks mogelijkheden en hulpprogramma's voor aanvallers biedt.
 * **Suspicious account activity**: deze waarschuwing wijst op een poging om verbinding te maken met een computer door gebruik te maken van een account dat onlangs is aangetast.
-* **Possible suspicious scheduling tasks access**: deze waarschuwing geeft aan dat een Cron-taak is uitgevoerd, die door aanvallers kan worden gebruikt om schadelijke programma's volgens een gepland schema uit te voeren.
-* **Possible suspicious command history file access**: deze waarschuwing wijst op abnormale toegang tot het opdrachtengeschiedenisbestand.
 * **Account creation**: deze waarschuwing geeft aan dat een nieuw account op de computer is gemaakt.
-* **Change of bash setting has been**: deze waarschuwing geeft aan dat er toegang is verkregen tot een Bash-profielbestand, wat erop kan duiden dat een aanvaller schadelijke programma's volgens een gepland schema probeert uit te voeren.
-* **Suspicious sequence of failed sudo attempts**: deze waarschuwing wijst op een reeks mislukte sudo-opdrachten, wat vaak het geval is bij aanhoudende aanvalspogingen om privileges door niet-geautoriseerde gebruikers te escaleren.
-* **Suspicious successful sudo attempts**: deze waarschuwing wijst op een reeks mislukte sudo-opdrachten, gevolgd door een geslaagde sudo-poging, wat vaak het geval is bij aanhoudende aanvalspogingen om privileges door niet-geautoriseerde gebruikers te escaleren.
-* **A new user was added to the sudoers group**: deze waarschuwing geeft aan dat een gebruiker is toegevoegd aan de groep van sudo-gebruikers, waardoor de gebruikers opdrachten met hoge privileges kunnen uitvoeren.
-* **Network logon with plaintext credentials**: Deze waarschuwing geeft aan dat een aanmelding bij het netwerk is waargenomen waarbij het wachtwoord via het netwerk als leesbare tekst is verzonden. Dit is gebruikelijk voor aanmeldingen via een ASP-script met behulp van de ADVAPI of wanneer een gebruiker zich aanmeldt bij IIS met behulp van IIS-basisverificatie. Basisverificatie is niet de aanbevolen methode, tenzij de verificatie is verpakt in een versleutelingslaag als SSL (bijvoorbeeld door alleen gebruik te maken van HTTPS-verbindingen).
+
 
 ### <a name="crash-analysis"></a>Crashanalyse
 
@@ -206,6 +190,8 @@ Als er extra informatie beschikbaar is, wordt deze weergegeven in het beveiligin
 - Wissen van logboekgebeurtenissen
 - PNP-apparaat aangesloten vanaf onbekend apparaat
 - Waarschuwingen waarop geen actie kan worden uitgevoerd
+- Het maken van nieuwe accounts
+- Bestand gedecodeerd met het hulpprogramma certutil 
 
 ![Waarschuwing over ongebruikelijke toegang](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

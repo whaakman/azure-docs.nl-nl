@@ -1,3 +1,5 @@
+# [Documentatie voor Key Vault](index.md)
+
 # Overzicht
 ## [Wat is Key Vault?](key-vault-whatis.md)
 ## [Overzicht van services](https://azure.microsoft.com/services/key-vault/)
@@ -40,7 +42,7 @@
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
-## [Azure CLI](/cli/azure/keyvault)
+## [Azure-CLI](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js

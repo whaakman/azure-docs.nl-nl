@@ -1,6 +1,6 @@
 ---
-title: Problemen met Azure IoT-rand | Microsoft Docs
-description: Veelvoorkomende problemen oplossen en meer probleemoplossingsvaardigheden voor Azure IoT rand
+title: Problemen met Azure IoT Edge oplossen | Microsoft Docs
+description: Veelvoorkomende problemen oplossen en informatie over probleemoplossingsvaardigheden voor Azure IoT Edge
 services: iot-edge
 keywords: 
 author: kgremban
@@ -10,53 +10,53 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3f61f0bf8234e747ae38146d1a5ea030e3163fa3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 5de069eb35e88c1dce6dcfa5a1661e8ab87302b1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT rand
+# <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
-Als u problemen hebt met het Azure IoT rand uitvoert in uw omgeving, maken gebruik van dit artikel als richtlijn voor het oplossen van problemen en omzetten. 
+Als u problemen hebt met het uitvoeren van Azure IoT Edge in uw omgeving, kunt u dit artikel als richtlijn gebruiken voor het oplossen van problemen. 
 
 ## <a name="standard-diagnostic-steps"></a>Standaard diagnostische stappen 
 
-Wanneer u een probleem ondervindt, meer wilt weten over de status van uw IoT-randapparaat aan de hand van de container en de berichten die doorgeven naar en van het apparaat. Gebruik de opdrachten en hulpprogramma's in deze sectie om informatie te verzamelen. 
+Wanneer u een probleem ondervindt, kunt u meer informatie verzamelen over de status van uw Azure IoT Edge-apparaat aan de hand van de containerlogboeken en -berichten die naar en van het apparaat worden doorgegeven. Gebruik de opdrachten en hulpprogramma's in deze sectie om informatie te verzamelen. 
 
-* Bekijk de logboeken van de docker-containers voor het detecteren van problemen. Beginnen met uw geïmplementeerde containers en vervolgens kijken naar de containers die gezamenlijk de rand van de IoT-runtime: rand Agent en de Edge-Hub. De logboeken van de rand Agent bieden doorgaans info over de levenscyclus van elke container. De logboeken van de rand Hub bevatten informatie over messaging en routering. 
+* Bekijk de logboeken van de Docker-containers om problemen te detecteren. Begin met uw geïmplementeerde containers en kijk vervolgens naar de containers die gezamenlijk de IoT Edge-runtime vormen: Edge Agent en Edge Hub. De Edge Agent-logboeken bieden doorgaans informatie over de levenscyclus van elke container. De Edge Hub-logboeken bieden informatie over berichten en routering. 
 
    ```cmd
    docker logs <container name>
    ```
 
-* De berichten gaan via de Edge-Hub kunt weergeven en inzichten op Eigenschappen apparaatupdates met uitgebreide logboeken verzamelen van de runtime-containers.
+* Bekijk de berichten die via Edge Hub gaan en verzamel inzichten over updates van apparaateigenschappen met uitgebreide logboeken uit de runtimecontainers.
 
    ```cmd
    iotedgectl setup --runtime-log-level DEBUG
    ```
 
-* Als u problemen ondervindt, Controleer uw rand apparaat omgevingsvariabelen, zoals de apparaat-verbindingsreeks:
+* Als u verbindingsproblemen ondervindt, controleert u de omgevingsvariabelen van uw Edge-apparaat, zoals de apparaatverbindingsreeks:
 
    ```cmd
    docker exec edgeAgent printenv
    ```
 
-U kunt ook de berichten worden verzonden tussen IoT Hub en de rand van de IoT-apparaten controleren. Deze berichten weergeven met behulp van de [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) -extensie voor Visual Studio Code. Zie voor meer instructies [handig hulpmiddel bij het ontwikkelen met Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
+U kunt ook de berichten controleren die worden verzonden tussen IoT Hub en de IoT Edge-apparaten. Bekijk deze berichten met behulp van de [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)-extensie voor Visual Studio Code. Zie [Handig hulpprogramma bij het ontwikkelen met Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) voor meer richtlijnen.
 
-Na het onderzoeken van de logboeken en berichten voor meer informatie, kunt u ook proberen opnieuw starten van de rand van Azure IoT-runtime:
+Nadat u de logboeken en berichten hebt onderzocht voor meer informatie, kunt u ook proberen de Azure IoT Edge-runtime opnieuw te starten:
 
    ```cmd
    iotedgectl restart
    ```
 
-## <a name="edge-agent-stops-after-about-a-minute"></a>Rand Agent stoppen na ongeveer een minuut
+## <a name="edge-agent-stops-after-about-a-minute"></a>Edge Agent stopt na ongeveer een minuut
 
-De Edge-Agent wordt gestart en wordt uitgevoerd voor ongeveer een minuut en vervolgens wordt gestopt. De logboeken aangeven dat de Edge-Agent probeert verbinding maken met IoT Hub via AMQP en vervolgens ongeveer 30 seconden later probeert verbinding maken via de AMQP via websocket. Als dat mislukt, wordt de Edge-Agent wordt afgesloten. 
+De Edge Agent wordt gestart en wordt gedurende ongeveer een minuut uitgevoerd en vervolgens gestopt. De logboeken geven aan dat de Edge Agent verbinding probeert te maken met IoT Hub via AMQP en vervolgens ongeveer 30 seconden later verbinding probeert te maken met behulp van AMQP via websocket. Als dat mislukt, wordt de Edge Agent afgesloten. 
 
-Voorbeeld van de rand Agent logboeken:
+Voorbeeld van Edge Agent-logboeken:
 
-```
+```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
 2017-11-28 18:46:19 [INF] - Version - 1.0.7516610 (03c94f85d0833a861a43c669842f0817924911d5) 
 2017-11-28 18:46:19 [INF] - Edge agent attempting to connect to IoT Hub via AMQP... 
@@ -64,18 +64,18 @@ Voorbeeld van de rand Agent logboeken:
 ```
 
 ### <a name="root-cause"></a>Hoofdoorzaak
-Een netwerkconfiguratie op het netwerk host verhindert dat de Agent rand bereikt van het netwerk. De agent probeert eerst verbinding maken via AMQP (poort 5671). Als dit niet lukt, wordt geprobeerd websockets (poort 443).
+Een netwerkconfiguratie op het hostnetwerk verhindert dat de Edge Agent het netwerk bereikt. De agent probeert eerst verbinding maken via AMQP (poort 5671). Als dit niet lukt, probeert deze websockets (poort 443).
 
-De rand van de IoT-runtime stelt een netwerk voor elk van de modules communiceren op. Op Linux is dit netwerk een Brugnetwerk. In Windows wordt NAT bevinden. Dit probleem is vaker op Windows-apparaten met behulp van Windows-containers die gebruikmaken van de NAT-netwerk. 
+De IoT Edge-runtime stelt een netwerk in voor elk van de modules waarmee moet worden gecommuniceerd. In Linux is dit netwerk een brugnetwerk. In Windows wordt NAT gebruikt. Dit probleem komt vaker voor op Windows-apparaten die gebruikmaken van Windows-containers die het NAT-netwerk gebruiken. 
 
 ### <a name="resolution"></a>Oplossing
-Zorg ervoor dat er een route met het internet voor de IP-adressen toegewezen aan deze brug/NAT-netwerk. Soms een VPN-configuratie op de host heeft voorrang op de rand van de IoT-netwerk. 
+Zorg ervoor dat er een route naar internet is voor de IP-adressen die aan deze brug/dit NAT-netwerk zijn toegewezen. Soms heeft een VPN-configuratie op de host voorrang op het IoT Edge-netwerk. 
 
-## <a name="edge-hub-fails-to-start"></a>Rand Hub niet kan worden gestart
+## <a name="edge-hub-fails-to-start"></a>Edge Hub kan niet worden gestart
 
-De Edge-Hub niet wordt gestart, en afdrukken bestellen het volgende bericht aan de logboeken: 
+De Edge Hub wordt niet gestart en drukt het volgende bericht af naar de logboeken: 
 
-```
+```output
 One or more errors occurred. 
 (Docker API responded with status code=InternalServerError, response=
 {\"message\":\"driver failed programming external connectivity on endpoint edgeHub (6a82e5e994bab5187939049684fb64efe07606d2bb8a4cc5655b2a9bad5f8c80): 
@@ -83,19 +83,19 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 ```
 
 ### <a name="root-cause"></a>Hoofdoorzaak
-Poort 443 is afhankelijk van een ander proces op de hostmachine. De Hub rand toegewezen poorten 5671 en 443 voor gebruik in scenario's voor gateway. Deze poorttoewijzing mislukt als een ander proces al aan deze poort gebonden is. 
+Poort 443 is bezig met een ander proces op de hostmachine. De Edge Hub heeft poorten 5671 en 443 toegewezen voor gebruik in gatewayscenario's. Deze poorttoewijzing mislukt als er al een ander proces bezig is op deze poort. 
 
 ### <a name="resolution"></a>Oplossing
-Zoek en stoppen van het proces dat van poort 443 gebruikmaakt. Dit proces is meestal een webserver.
+Zoek en stop het proces dat poort 443 gebruikt. Dit proces is meestal een webserver.
 
-## <a name="edge-agent-cant-access-a-modules-image-403"></a>Rand Agent geen toegang tot de installatiekopie van een module (403)
-Een container niet kan worden uitgevoerd en de logboeken van de rand Agent een fout 403 weergeven. 
+## <a name="edge-agent-cant-access-a-modules-image-403"></a>Edge Agent heeft geen toegang tot de installatiekopie van een module (403)
+Een container kan niet worden uitgevoerd en in de logboeken van de Edge Agent wordt fout 403 weergegeven. 
 
 ### <a name="root-cause"></a>Hoofdoorzaak
-De Edge-Agent beschikt niet over machtigingen voor toegang tot de installatiekopie van een module. 
+De Edge Agent beschikt niet over machtigingen voor toegang tot de installatiekopie van een module. 
 
 ### <a name="resolution"></a>Oplossing
-Probeer die wordt uitgevoerd de `iotedgectl login` opdracht opnieuw.
+Probeer de opdracht `iotedgectl login` opnieuw uit te voeren.
 
 ## <a name="next-steps"></a>Volgende stappen
-Vindt u dat u een fout in de rand van de IoT-platform gevonden? Controleer [indienen van een probleem](https://github.com/Azure/iot-edge/issues) zodat we verder te verbeteren. 
+Denkt u dat u een fout op het IoT Edge-platform hebt gevonden? [Verzend een probleem](https://github.com/Azure/iot-edge/issues) zodat we het product verder kunnen blijven verbeteren. 

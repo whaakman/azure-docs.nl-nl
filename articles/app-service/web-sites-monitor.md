@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fdc4329806d416811352d0d4dbc8dd3bce25aa0b
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>How to: in Azure App Service-Apps bewaken
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) biedt ingebouwde bewaking functionaliteit in de [Azure-portal](https://portal.azure.com).
@@ -143,7 +143,7 @@ U kunt de status van de verschillende bekijken **quota** en **metrische gegevens
 **Quota's** vindt u onder Instellingen >**quota**. De UX kunt u bekijken: (1) de naam van de quota, (2) het interval opnieuw instellen, (3) de huidige limiet en (4) de huidige waarde.
 
 ![][metrics]
-**Metrische gegevens** toegang rechtstreeks vanaf de resourcepagina kan worden. U kunt ook de grafiek door aanpassen: (1) **klikt u op** op en selecteert u (2) **grafiek bewerken**.
+**Metrische gegevens** toegankelijk zijn rechtstreeks vanuit de resourcepagina. U kunt ook de grafiek door aanpassen: (1) **klikt u op** op en selecteert u (2) **grafiek bewerken**.
 Hier kunt u de (3) **tijdsbereik**, (4) **grafiektype**, en 5, **metrische gegevens** om weer te geven.  
 
 U kunt meer informatie over metrische gegevens hier: [service metrische gegevens controleren](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).

@@ -16,10 +16,10 @@ ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Alle onderwerpen voor Azure SQL Data Warehouse-service
 Dit onderwerp vindt u elk onderwerp die van toepassing rechtstreeks naar is de **SQL Data Warehouse** service van Azure. U kunt deze webpagina voor trefwoorden zoeken met behulp van **Ctrl + F**, om te zoeken naar onderwerpen die van belang huidige.
@@ -138,7 +138,7 @@ Deze sectie vindt u artikelen die onlangs zijn bijgewerkt, waarop de update is g
 | 71 |[SQL Data Warehouse gegevens integratiepartners](sql-data-warehouse-partner-data-integration.md) |Lijsten met partners van derden met oplossingen voor integratie die ondersteuning bieden voor Azure SQL Data Warehouse. |
 | 72 |[SQL Data Warehouse data management partners](sql-data-warehouse-partner-data-management.md) |Lijsten met gegevens van derden management partners met oplossingen die ondersteuning bieden voor SQL Data Warehouse. |
 
-## <a name="reference"></a>Naslaginformatie
+## <a name="reference"></a>Referentie
 | &nbsp; | Titel | Beschrijving |
 | ---:|:--- |:--- |
 | 73 |[Naslaginformatie voor SQL Data Warehouse](sql-data-warehouse-overview-reference.md) |Inhoud koppelingen met naslaginformatie voor SQL Data Warehouse. |

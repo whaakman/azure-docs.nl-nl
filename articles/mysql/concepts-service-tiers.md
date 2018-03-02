@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure-Database voor de MySQL-opties en prestaties: inzicht in wat er beschikbaar is in elke prijscategorie
 Wanneer u een Azure-Database voor de MySQL-server maakt, besluit u over drie belangrijkste keuzes voor het configureren van de resources die voor die server toegewezen. Deze keuzes invloed hebben op de prestaties en schaalbaarheid van de server.
@@ -45,8 +45,8 @@ Om te beslissen over een prijscategorie, eerst bepalen of uw werkbelasting een g
 | :------------------------ | :-------- | :----------- |
 | Maximale Compute-eenheden | 100 | 800 | 
 | Maximale totale opslagruimte | 1 TB | 1 TB | 
-| IOPS-garantie van opslag | N.v.t. | Ja | 
-| Maximale opslag IOP 's | N.v.t. | 3.000 | 
+| IOPS-garantie van opslag | N/A | Ja | 
+| Maximale opslag IOP 's | N/A | 3.000 | 
 | De back-up bewaarperiode database | 7 dagen | 35 dagen | 
 
 Tijdens de preview-periode u de prijscategorie niet wijzigen zodra de server is gemaakt. In de toekomst, is het mogelijk zijn om te upgraden of downgraden van een server uit één prijscategorie naar een andere laag.
@@ -72,12 +72,12 @@ Rekenuren voor dat eenheden zijn een meting van CPU-verwerking doorvoer die besc
 | **Prestatieniveau** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |
 | Maximale Compute-eenheden | 100 | 200 | 400 | 800 |
-| Opgenomen opslaggrootte en ingerichte IOP 's | 125 GB<br/> 375 IOP 'S | 125 GB<br/> 375 IOP 'S | 125 GB<br/> 375 IOP 'S | 125 GB<br/> 375 IOP 'S |
+| Opgenomen opslaggrootte en ingerichte IOP 's | 125 GB,<br/> 375 IOP 'S | 125 GB,<br/> 375 IOP 'S | 125 GB,<br/> 375 IOP 'S | 125 GB,<br/> 375 IOP 'S |
 | Grootte van de opslagruimte voor de maximale\* | 1 TB | 1 TB | 1 TB | 1 TB |
 | Server voor max. IOP's ingericht | 3000 IOP 'S | 3000 IOP 'S | 3000 IOP 'S | 3000 IOP 'S |
 | Server voor max. IOP's per GB ingericht | Vaste 3 IOP's per GB | Vaste 3 IOP's per GB | Vaste 3 IOP's per GB | Vaste 3 IOP's per GB |
 
-\*Grootte van de opslagruimte voor de maximale verwijst naar de maximum ingerichte opslagruimte voor uw server.
+\* Grootte van de opslagruimte voor de maximale verwijst naar de maximum ingerichte opslagruimte voor uw server.
 
 ## <a name="storage"></a>Storage 
 De opslagconfiguratie definieert de hoeveelheid beschikbare opslagcapaciteit voor een Azure-Database voor de MySQL-server. De opslag die wordt gebruikt door de service omvat de databasebestanden en transactielogboeken de MySQL-server-Logboeken. Houd rekening met de grootte van de opslag die nodig is voor het hosten van uw databases en de prestatie-eisen (IOPS) bij het selecteren van de opslagconfiguratie.
