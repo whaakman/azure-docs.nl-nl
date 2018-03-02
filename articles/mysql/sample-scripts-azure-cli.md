@@ -18,6 +18,14 @@ ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/28/2018
 =======
+<<<<<<< HEAD
+ms.date: 02/28/2018
+ms.openlocfilehash: 7124112ed9aba3627e8fe4ba240f261eb5807214
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 02/28/2018
+=======
 ms.date: 01/11/2018
 ms.openlocfilehash: c43bbbfaf98f1c35631f017bf256b38014a4fd4e
 ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
@@ -25,6 +33,7 @@ ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/01/2018
 >>>>>>> 3467239e5763c0fc59037dde14e587865466e9c3
+>>>>>>> 3a3dc70ab5df73c5fe2e1202d96b4d27516ed28b
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Azure CLI-voorbeelden voor Azure Database for MySQL 
 De volgende tabel bevat koppelingen naar Azure CLI-voorbeeldscripts voor Azure Database for MySQL.
