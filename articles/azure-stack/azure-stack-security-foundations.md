@@ -3,8 +3,8 @@ title: Azure-Stack beveiligingsmechanismen begrijpen | Microsoft Docs
 description: Als servicebeheerder meer informatie over de beveiligingsbesturingselementen toegepast op Azure-Stack
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 106fcf7b0edc095a52e82d58ad48a73084b65d1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure beveiligingspostuur van Stack-infrastructuur
 
@@ -31,10 +31,10 @@ In Azure-Stack zijn er twee houding beveiligingslagen die naast elkaar bestaan. 
 ## <a name="security-approach"></a>Beveiliging benadering
 Azure-Stack is ontworpen met een beveiligingspostuur als bescherming tegen actieve bedreigingen en is ontworpen om te voldoen aan de vereisten van de belangrijkste nalevingsstandaards. Als gevolg hiervan is de beveiligingsstatus van de Azure-Stack-infrastructuur gebaseerd op twee stijlen:
 
- - **Stel dat inbreuk.** Vanaf de veronderstelling dat het systeem al is geschonden, we richten op *detecteren en het beperken van de gevolgen van inbreuk* versus alleen probeert om aanvallen te voorkomen. 
- - **Standaard gehard.**  Aangezien de infrastructuur worden uitgevoerd op een goed gedefinieerde hardware en software, we *inschakelen, configureren en valideren van beveiligingsfuncties* die meestal naar links om klanten te implementeren.
+ - **Stel dat inbreuk.** Vanaf de veronderstelling dat het systeem al is geschonden, ligt de nadruk op *detecteren en het beperken van de gevolgen van inbreuk* versus alleen probeert om aanvallen te voorkomen. 
+ - **Standaard gehard.**  Aangezien de infrastructuur worden uitgevoerd op een goed gedefinieerde hardware en software, *inschakelen, configureren en valideren van beveiligingsfuncties* die worden van links naar klanten te implementeren.
 
-Omdat Azure-Stack is geleverd als een geïntegreerde systeem, wordt de beveiligingsstatus van de Azure-Stack-infrastructuur wordt gedefinieerd door Microsoft.  Net als in Azure zijn tenants verantwoordelijk voor het definiëren van de beveiligingsstatus van de tenantwerkbelastingen. Dit document bevat fundamentele kennis over de beveiligingsstatus van de Azure-Stack-infrastructuur.
+Omdat Azure-Stack is geleverd als een geïntegreerde systeem, wordt de beveiligingsstatus van de Azure-Stack-infrastructuur wordt gedefinieerd door Microsoft. Net als in Azure zijn tenants verantwoordelijk voor het definiëren van de beveiligingsstatus van de tenantwerkbelastingen. Dit document bevat fundamentele kennis over de beveiligingsstatus van de Azure-Stack-infrastructuur.
 
 ## <a name="data-at-rest-encryption"></a>Data-at-rest versleuteling
 Alle Azure-Stack-infrastructuur en tenant-gegevens in rust met Bitlocker is versleuteld. Deze versleuteling wordt beschermd tegen fysieke verlies of diefstal van Azure-Stack opslagonderdelen. 
@@ -54,7 +54,7 @@ De resterende geheimen die niet zijn voorzien van een groep beheerde serviceacco
 ## <a name="code-integrity"></a>Code-integriteit
 Azure-Stack wordt gebruikgemaakt van de meest recente versie van Windows Server 2016 beveiligingsfuncties. Een van beide is Windows Defender Device Guard, die toepassing whitelisting biedt en zorgt ervoor dat alleen code wordt uitgevoerd binnen de Azure-Stack-infrastructuur gemachtigde. 
 
-Geautoriseerde code is ondertekend door Microsoft of de OEM-partner en het is opgenomen in de lijst met toegestane software die is opgegeven in een beleid is gedefinieerd door Microsoft. Met andere woorden, kan alleen de software die is goedgekeurd voor uitvoering in de Azure-Stack-infrastructuur worden uitgevoerd. Elke poging om uit te voeren niet-geautoriseerde code worden geblokkeerd en wordt een controlestatusbericht gegenereerd.
+Geautoriseerde code is ondertekend door Microsoft of de OEM-partner en het is opgenomen in de lijst met toegestane software die is opgegeven in een beleid is gedefinieerd door Microsoft. Met andere woorden, kan alleen de software die is goedgekeurd voor uitvoering in de Azure-Stack-infrastructuur worden uitgevoerd. Elke poging om uit te voeren niet-geautoriseerde code is geblokkeerd en wordt een controlestatusbericht gegenereerd.
 
 Het beleid Device Guard voorkomt ook dat software of agenten van derden uitgevoerd in de Azure-Stack-infrastructuur.
 
@@ -71,7 +71,7 @@ Beheer in Azure-Stack wordt beheerd door het gebruik van drie toegangspunten, el
 3. Voor specifieke bewerkingen op laag niveau, bijvoorbeeld data center-integratie of ondersteuning voor scenario's, Azure Stack beschrijft een PowerShell-eindpunt aangeroepen [bevoegde eindpunt](azure-stack-privileged-endpoint.md). Dit eindpunt wordt alleen een goedgekeurde lijst set cmdlets en het wordt sterk gecontroleerd.
 
 ## <a name="network-controls"></a>Netwerk-besturingselementen
-Azure Stack-infrastructuur wordt geleverd met meerdere lagen van network Access Control List(ACL).  De ACL's te voorkomen dat onbevoegde toegang tot de infrastructuuronderdelen en infrastructuur voor communicatie met alleen de paden die vereist voor de werking ervan zijn te beperken. 
+Azure Stack-infrastructuur wordt geleverd met meerdere lagen van network Access Control List(ACL). De ACL's te voorkomen dat onbevoegde toegang tot de infrastructuuronderdelen en infrastructuur voor communicatie met alleen de paden die vereist voor de werking ervan zijn te beperken. 
 
 Netwerk-ACL's worden afgedwongen in drie lagen:
 1.  Bovenaan Rack-switches

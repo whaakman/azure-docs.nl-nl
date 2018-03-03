@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Vereisten voor de implementatie van Azure Stack
 
@@ -58,7 +58,7 @@ Voordat u implementeert [Azure Stack Development Kit](azure-stack-poc.md), zorg 
 * SAS SSD + SAS HDD
 * NVMe
 
-\*RAID-controllers zonder Pass Through-functionaliteit wordt het mediatype niet herkend. Deze controllers markeren zowel HDD als SSD als Niet-opgegeven. In dat geval wordt de SSD gebruikt als permanente opslag in plaats van het cachegeheugen van apparaten. Daarom kunt u de development kit op de SSD's implementeren.
+\* RAID-controllers zonder Pass Through-functionaliteit wordt het mediatype niet herkend. Deze controllers markeren zowel HDD als SSD als Niet-opgegeven. In dat geval wordt de SSD gebruikt als permanente opslag in plaats van het cachegeheugen van apparaten. Daarom kunt u de development kit op de SSD's implementeren.
 
 **Voorbeeld van HBA's**: LSI 9207-8i, LSI-9300-8i of LSI-9265-8i in de modus 'passeren'
 
@@ -122,9 +122,9 @@ Zorg ervoor dat er een DHCP-server beschikbaar is op het netwerk waarmee de NIC 
 ### <a name="internet-access"></a>Toegang tot het internet
 Stack Azure vereist toegang tot het Internet, rechtstreeks of via een transparentproxy. Azure-Stack biedt geen ondersteuning voor de configuratie van een webproxy waarmee toegang tot Internet. Zowel het host-IP- en het nieuwe IP-adres toegewezen aan de MAS-BGPNAT01 (door DHCP of statische IP-) moet mogelijk toegang tot Internet. Poorten 80 en 443 worden onder de graph.windows.net en login.microsoftonline.com domeinen gebruikt.
 
+V: is mogelijk uit te voeren ASDK op een Azure VM? A: Nee. Vanaf vandaag, wordt niet officieel ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Het implementatiepakket Azure Stack development kit downloaden](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Azure-Stack development kit implementeren](azure-stack-run-powershell-script.md)
-

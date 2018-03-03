@@ -3,29 +3,30 @@ title: Azure datacenter integratie Stack - eindpunten publiceren
 description: Informatie over het publiceren van Azure-Stack-eindpunten in uw datacenter
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8dec686b9ccf87009a23cedf6023f15b84a0f155
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure datacenter integratie Stack - eindpunten publiceren
-Azure Stack stelt u meerdere virtuele IP-adressen (VIP's) voor de functies van de infrastructuur. Deze VIP's worden toegewezen vanuit de openbare IP-adresgroep. Elke VIP is beveiligd met een toegangsbeheerlijst (ACL) in de software gedefinieerde netwerklaag. ACL's worden ook gebruikt voor de fysieke switches (blijven en BMC) voor het verder beperken van de oplossing. Een DNS-vermelding wordt voor elk eindpunt dat in de externe DNS-zone die is opgegeven tijdens de implementatie gemaakt.
+Azure Stack stelt u de virtuele IP-adressen (VIP's) voor de functies van de infrastructuur. Deze VIP's worden toegewezen vanuit de openbare IP-adresgroep. Elke VIP is beveiligd met een toegangsbeheerlijst (ACL) in de software gedefinieerde netwerklaag. ACL's worden ook gebruikt voor de fysieke switches (blijven en BMC) voor het verder beperken van de oplossing. Een DNS-vermelding wordt voor elk eindpunt dat in de externe DNS-zone die tijdens de implementatie opgegeven gemaakt.
 
 
 Het volgende architecturaal diagram toont de verschillende lagen en ACL's:
 
-![Architectuurdiagram](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Structurele afbeelding](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## <a name="ports-and-protocols-inbound"></a>Poorten en protocollen (inkomend)
 
-Hieronder vindt u de infrastructuur VIP's die vereist voor publicatie Stack Azure-eindpunten met externe netwerken zijn. De lijst ziet u alle eindpunt, de vereiste poort en protocol. Eindpunten die vereist zijn voor de extra resourceproviders, zoals de resourceprovider voor SQL en andere, vallen in de documentatie van bepaalde resource provider-implementatie.
+Een set van infrastructuur VIP's zijn vereist voor publishing Stack Azure-eindpunten met externe netwerken. De *eindpunt (VIP)* tabel ziet u alle eindpunt, de vereiste poort en protocol. Raadpleeg de documentatie specifieke resource provider-implementatie voor eindpunten waarvoor extra resourceproviders, zoals de SQL-resourceprovider.
 
 Interne infrastructuur VIP's worden niet weergegeven omdat ze niet vereist voor publishing Azure-Stack.
 
@@ -70,4 +71,5 @@ Azure-Stack ondersteunt alleen transparentproxy servers. In een implementatie wa
 
 
 ## <a name="next-steps"></a>Volgende stappen
+
 [Azure-Stack PKI-vereisten](azure-stack-pki-certs.md)

@@ -3,22 +3,21 @@ title: DNS-server in Azure Stack | Microsoft Docs
 description: DNS in Azure Stack
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: byronr
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: ac93b5eb4228cef373428b7b69932d5993d54fa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 394abe5295af4ed99e48d50b5886ac93af87e875
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dns-in-azure-stack"></a>DNS in Azure Stack
 
@@ -68,7 +67,7 @@ De volgende informatie geldt specifiek voor Azure Stack DNS en verschilt enigszi
 
 Azure-Stack DNS ondersteunt het gebruik van Azure Resource Manager-labels op DNS-zone-resources. Het ondersteunt geen labels op DNS-recordsets, hoewel als een alternatief 'metadata' wordt ondersteund op DNS-record zoals uitgelegd vervolgens ingesteld.
 
-**Metagegevens**
+**Metadata**
 
 Als alternatief voor de recordset labels ondersteunt Azure Stack DNS-recordsets met behulp van 'metadata' Aantekeningen maken. Metagegevens is vergelijkbaar met labels, kunt u naam-waardeparen koppelen aan elke recordset. Dit kan bijvoorbeeld zijn nuttig voor het vastleggen van het doel van elke recordset. In tegenstelling tot tags, metagegevens kan niet worden gebruikt voor een gefilterde weergave van uw Azure-factuur en kan niet worden opgegeven in een Azure Resource Manager-beleid.
 
@@ -84,7 +83,7 @@ Op het niveau van de REST-API van Azure Stack DNS-Etags opgegeven met behulp van
 
 | Koptekst | Gedrag|
 |--------|---------|
-| Geen   | PUT altijd is gelukt (geen Etag-controle)|
+| None   | PUT altijd is gelukt (geen Etag-controle)|
 | If-match| PUT slaagt alleen als de bron bestaat en Etag komt overeen met|
 | If-match *| PUT slaagt alleen als de bron bestaat|
 | If-none-match *| PUT slaagt alleen als resource niet bestaat|

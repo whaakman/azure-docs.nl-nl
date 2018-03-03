@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 06690d5251954b204b28928b3fe670669000aa7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 287bc04660664facbe99d2cb80ae6c92e41c4111
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Aanbiedingen in Azure Stack delegeren
 
@@ -58,7 +58,7 @@ De volgende secties wordt beschreven hoe u een gedelegeerde provider tot stand b
 
 ## <a name="set-up-roles"></a>Rollen instellen
 
-Als u wilt zien van een gedelegeerd provider op het werk, moet u extra Azure AD-accounts naast uw Azure-Stack operator-account. Als u deze niet hebt, maakt u de twee accounts. De accounts kunnen deel uitmaken van een Azure AD-gebruiker. We noemen deze de gedelegeerde provider en de gebruiker.
+Als u wilt zien van een gedelegeerd provider op het werk, moet u extra Azure AD-accounts naast uw Azure-Stack operator-account. Als u deze twee accounts niet hebt, maakt u ze. De accounts kunnen deel uitmaken van een Azure AD-gebruiker en worden aangeduid als de gedelegeerd provider en de gebruiker.
 
 | **Rol** | **Organisatie-rechten** |
 | --- | --- |
@@ -71,9 +71,9 @@ Als u wilt zien van een gedelegeerd provider op het werk, moet u extra Azure AD-
 2. Maken van de aanbieding waarmee gebruikers kunnen worden overgedragen providers:
    
    a.  [Maak een plan](azure-stack-create-plan.md).
-       Dit abonnement moet alleen de abonnementen service bevatten. In dit artikel gebruiken we een plan genaamd **PlanForDelegation**.
+       Dit abonnement moet alleen de abonnementen service bevatten. Dit artikel wordt een plan genaamd **PlanForDelegation**.
    
-   b.  [Maken van een aanbieding](azure-stack-create-offer.md) op basis van dit plan. In dit artikel gebruiken we een aanbieding aangeroepen **OfferToDP**.
+   b.  [Maken van een aanbieding](azure-stack-create-offer.md) op basis van dit plan. Dit artikel wordt een aanbieding aangeroepen **OfferToDP**.
    
    c.  Nadat het maken van de aanbieding voltooid is, de gedelegeerde provider toevoegen als een abonnee op deze aanbieding. Hiertoe **abonnementen** > **toevoegen** > **nieuwe Tenantabonnement**.
    
@@ -86,9 +86,9 @@ Als u wilt zien van een gedelegeerd provider op het werk, moet u extra Azure AD-
 
 ## <a name="azure-stack-operator-creates-the-delegated-offer"></a>Azure Stack-operator wordt gemaakt van de aanbieding voor gedelegeerd
 
-U hebt nu uw gedelegeerde provider vastgesteld. De volgende stap is het maken van het plan en bieden die u wilt overdragen en uw klanten worden gebruikt. Er is een goed idee om te definiëren van deze aanbieding precies zoals u de klanten om het te bekijken wilt omdat gedelegeerd provider niet kunt wijzigen van de plannen en quota's bevat.
+U hebt nu uw gedelegeerde provider vastgesteld. De volgende stap is het maken van het plan en bieden die u wilt overdragen en uw klanten worden gebruikt. Er is een goed idee om te definiëren van deze aanbieding precies zoals u de klanten om het te bekijken wilt omdat de gedelegeerde provider de plannen en quota's bevat niet wijzigen.
 
-1. Als operator Azure Stack [een plan maken](azure-stack-create-plan.md) en [een aanbieding](azure-stack-create-offer.md) op basis van deze. Voor dit artikel gebruiken we een aanbieding aangeroepen **DelegatedOffer.**
+1. Als operator Azure Stack [een plan maken](azure-stack-create-plan.md) en [een aanbieding](azure-stack-create-offer.md) op basis van deze. Dit artikel wordt een aanbieding aangeroepen **DelegatedOffer.**
    
    > [!NOTE]
    > Deze aanbieding heeft geen openbaar. Als u kiest, kunt u het openbare. In de meeste gevallen wilt u echter alleen gedelegeerd providers toegang hebben tot deze. Nadat u een persoonlijke aanbieding overdragen zoals beschreven in de volgende stappen, heeft de provider gedelegeerde toegang.
@@ -104,14 +104,14 @@ U hebt nu uw gedelegeerde provider vastgesteld. De volgende stap is het maken va
 
 ## <a name="delegated-provider-customizes-the-offer"></a>Gedelegeerde provider past de aanbieding
 
-Meld u bij de gebruikersportal als de gedelegeerd provider. Vervolgens maakt u een nieuwe aanbieding met behulp van de aanbieding voor gedelegeerd als sjabloon.
+Meld u aan bij de gebruikersportal als de gedelegeerd provider en maak vervolgens een nieuwe aanbieding met behulp van de aanbieding voor gedelegeerd als sjabloon.
 
 1. Selecteer **nieuwe** > **Tenant biedt + plannen** > **bieden**.
 
     ![Een nieuwe aanbieding maken](media/azure-stack-delegated-provider/image5.png)
 
 
-1. Een naam toewijzen aan de aanbieding. Hier kiest **ResellerOffer**. Selecteer de gedelegeerde aanbieding waarop moet worden gebaseerd en selecteer vervolgens **maken**.
+1. Een naam toewijzen aan de aanbieding. Dit artikel wordt **ResellerOffer**. Selecteer de gedelegeerde aanbieding waarop moet worden gebaseerd en selecteer vervolgens **maken**.
    
    ![Wijs een naam](media/azure-stack-delegated-provider/image6.png)
 
@@ -122,7 +122,7 @@ Meld u bij de gebruikersportal als de gedelegeerd provider. Vervolgens maakt u e
 
 2. De gedelegeerde provider beschrijft deze aanbiedingen via hun eigen portal URL. Deze aanbiedingen zijn zichtbaar alleen via de portal gedelegeerd. Om te zoeken en wijzig deze URL:
    
-    a.  Selecteer **Bladeren** > **meer services** >  **abonnementen**. Selecteer vervolgens het gedelegeerde provider-abonnement. In ons geval heeft **DPSubscription** > **eigenschappen**.
+    a.  Selecteer **Bladeren** > **meer services** > **abonnementen**. Selecteer vervolgens het gedelegeerde provider-abonnement. Bijvoorbeeld: **DPSubscription** > **eigenschappen**.
    
     b.  Kopiëren van de portal URL naar een afzonderlijke locatie, zoals Kladblok.
    
@@ -134,7 +134,7 @@ Meld u bij de gebruikersportal als de gedelegeerd provider. Vervolgens maakt u e
 1. In een nieuw browservenster en gaat u naar de portal gedelegeerd URL die u hebt opgeslagen in de vorige stap. Meld u aan de portal aan als een gebruiker. 
    
    >[!NOTE]
-   > De gedelegeerde portal gebruiken voor deze stap. De gedelegeerde aanbiedingen zijn anders niet zichtbaar.
+   >De gedelegeerde aanbiedingen zijn niet zichtbaar, tenzij u de gedelegeerde portal gebruiken. 
 
 2. Selecteer in het dashboard **Neem een abonnement op**. U ziet dat alleen de gedelegeerde aanbiedingen die zijn gemaakt door de gedelegeerde provider worden gepresenteerd aan de gebruiker:
 

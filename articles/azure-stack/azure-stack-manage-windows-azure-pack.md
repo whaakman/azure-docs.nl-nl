@@ -3,8 +3,8 @@ title: Beheren van Windows Azure Pack virtuele machines van Azure-Stack | Micros
 description: Informatie over het beheren van Windows Azure Pack (WAP) virtuele machines van de gebruikersportal in Azure-Stack.
 services: azure-stack
 documentationcenter: 
-author: walterov
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: walterov
-ms.openlocfilehash: b07a18055d149e20cd605a892063eccecf3df8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: a7e4896c84938b392a86f4d9609c4932324c785d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Windows Azure Pack virtuele machines van Azure-Stack beheren
 
@@ -96,8 +96,8 @@ Om in te schakelen met meerdere cloud-modus, moet u het script toevoegen AzurePa
 |  Parameter | Beschrijving | Voorbeeld |   
 | -------- | ------------- | ------- |  
 | AzurePackClouds | URI's van de Windows Azure Pack-Connectors. Deze URI's moet overeenkomen met de Windows Azure Pack tenant portals. | @{CloudName = 'AzurePack1'; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = 'AzurePack2'; CloudEndpoint = "https://waptenantportal2:40005"}<br><br>  (Standaard is de poortwaarde 40005.) |  
-| AzureStackCloudName | Label voor de lokale Azure-Stack-cloud.| 'AzureStack' |
-| DisableMultiCloud | Overschakelen naar de modus met meerdere cloud uitschakelen.| N.v.t. |
+| AzureStackCloudName | Label voor de lokale Azure-Stack-cloud.| "AzureStack" |
+| DisableMultiCloud | Overschakelen naar de modus met meerdere cloud uitschakelen.| N/A |
 | | |
 
 U kunt het script toevoegen AzurePackConnector.ps1 uitvoeren onmiddellijk na de implementatie of hoger. Het script uitgevoerd onmiddellijk na de implementatie, gebruiken dezelfde Windows PowerShell-sessie waarop Azure Stack-implementatie is voltooid. Anders kunt u een nieuwe Windows PowerShell-sessie als administrator (aangemeld als het account azurestackadmin) openen.
@@ -165,9 +165,9 @@ Gebruik voor deze preview-versie, de Windows Azure Pack-Connector in een testomg
 
        * MgmtSvc-Connector
 
-       * MgmtSvc ConnectorExtension
+       * MgmtSvc-ConnectorExtension
 
-       * MgmtSvc ConnectorController
+       * MgmtSvc-ConnectorController
 
     e. Uit dezelfde **c:\temp\wapconnector\setup\scripts** map de **configureren Certificates.ps1** script om certificaten te installeren. Standaard wordt hetzelfde certificaat die beschikbaar is voor de site Tenantportal in Windows Azure Pack gebruikt. Zorg ervoor dat dit een geldig certificaat (vertrouwd door de virtuele machine van Azure Stack AzS-WASP01 en elke clientcomputer die toegang heeft tot de Stack van Azure-portal). Communicatie anders werkt niet. (U kunt ook expliciet doorgeven vingerafdruk van het certificaat als een parameter met behulp van de vingerafdruk van het parameter-.)
 
@@ -183,7 +183,7 @@ Gebruik voor deze preview-versie, de Windows Azure Pack-Connector in een testomg
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | De Windows Azure Pack tenantportal FQDN-naam. | tenant.contoso.com | 
     | TenantAPIFQDN | De Windows Azure Pack Tenant-API FQDN-naam. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | De Azure-Stack-gebruikersportal FQDN-naam. | Portal.local.azurestack.external |
+    | AzureStackPortalFQDN | De Azure-Stack-gebruikersportal FQDN-naam. | portal.local.azurestack.external |
     | | |
     
      ```powershell
@@ -216,7 +216,7 @@ Gebruik voor deze preview-versie, de Windows Azure Pack-Connector in een testomg
 
     | Parameter | Beschrijving | Voorbeeld |
     | --------- | ------------| ------- |
-   | SQL Server | De naam van de SQL-Server die de database Microsoft.MgmtSvc.Store bevat. Deze parameter is vereist. | SQL Server | 
+   | SqlServer | De naam van de SQL-Server die de database Microsoft.MgmtSvc.Store bevat. Deze parameter is vereist. | SQLServer | 
    | DataFile | Het uitvoerbestand dat tijdens de configuratie van de Azure-Stack meerdere cloud-modus eerder werd gegenereerd. Deze parameter is vereist. | AzurePack-06-27-15-50.txt | 
    | PromptForSqlCredential | Hiermee wordt aangegeven dat het script moet worden gevraagd interactief voor de referentie van een SQL-verificatie te gebruiken bij het verbinden met de SQL Server-exemplaar. De opgegeven referentie moet voldoende rechten hebt voor het verwijderen van de databases, schema's en gebruikersaanmeldingen verwijderen. Als niets wordt opgegeven, het script wordt ervan uitgegaan dat huidige context van de gebruiker toegang heeft. | Er is geen waarde nodig. |
    |  |  |
