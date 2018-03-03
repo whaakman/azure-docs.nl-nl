@@ -2,16 +2,17 @@
 title: Inleiding tot Azure-Stack virtuele machines
 description: Meer informatie over Azure-Stack virtuele machines
 services: azure-stack
-author: anjayajodha
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Inleiding tot Azure-Stack virtuele machines
 
@@ -105,7 +106,7 @@ De volgende tabel bevat informatie om u te helpen beginnen met het opstellen van
 |Methode|Artikel|
 |---------|---------|
 |Azure Stack-portal|Een virtuele Windows-machine maken met de Stack van Azure-portal<br>[Maken van een virtuele Linux-machine met behulp van de Stack van Azure-portal](azure-stack-quick-linux-portal.md)|
-|Sjablonen|Azure-Stack Quick Start-sjablonen bevinden zich op:<br> [https://github.com/Azure/AzureStack-QuickStart-templates](https://github.com/Azure/AzureStack-QuickStart-Templates)|
+|Sjablonen|Azure-Stack Quick Start-sjablonen bevinden zich op:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates)|
 |PowerShell|[Een virtuele Windows-machine maken met behulp van PowerShell in Azure-Stack](azure-stack-quick-create-vm-windows-powershell.md)<br>[Een virtuele Linux-machine maken met behulp van PowerShell in Azure-Stack](azure-stack-quick-create-vm-linux-powershell.md)|
 |CLI|[Een virtuele Windows-machine maken met CLI in Azure-Stack](azure-stack-quick-create-vm-windows-cli.md)<br>[Een virtuele Linux-machine maken met CLI in Azure-Stack](azure-stack-quick-create-vm-linux-cli.md)|
 

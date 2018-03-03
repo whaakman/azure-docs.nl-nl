@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 0f3e28f7726afab02211902b5ba2e478ae8065df
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7f2ec78da38f3c97fde810fb8fc965cfbb6fda08
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Architectuur van de identiteit voor Azure-Stack
 Voordat u een id-provider te gebruiken met Azure-Stack kiest, begrijpt u belangrijke verschillen tussen de opties van Azure Active Directory (Azure AD) en Active Directory Federated Services (AD FS). 
@@ -86,7 +86,7 @@ Met deze topologie:
 
   Om te kunnen communiceren met uw AD, moet de Graph API gebruikersreferenties van uw AD die alleen-lezen-machtiging hebben uw AD. 
   - De ingebouwde AD FS is gebaseerd op de Server 2016. 
-  - Uw AD FS en AD moet worden gebaseerd op de Server 2012 of lager. 
+  - Uw AD FS en AD moet worden gebaseerd op Server 2012 of later.  
   
   Tussen uw AD en de ingebouwde AD FS interacties worden niet beperkt tot het OpenID Connect en elk protocol voor wederzijds ondersteunde kunnen gebruiken.  
   - Gebruikersaccounts worden gemaakt en beheerd in uw on-premises AD.

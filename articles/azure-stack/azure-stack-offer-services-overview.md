@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 7a0fe4e02cf7a5feee90c3a0bf5596b44d5f9038
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e2b98391bab5806b59d8a16ec7dc24295a0d224
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Overzicht van services in Azure-Stack van aanbieding
 
@@ -44,5 +44,5 @@ Houd rekening met de volgende punten wanneer u van plan bent uw aanbiedingen:
 **Providers overgedragen**: verleent u anderen aanbiedingen maken in uw omgeving. Bijvoorbeeld, als u een serviceprovider bent, kunt u [delegeren](azure-stack-delegated-provider.md) deze mogelijkheid tot uw leverancier. Of als u een organisatie, kunt u delegeren aan andere afdelingen/dochterondernemingen.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Meer informatie over aanbiedingen, plannen, quota en abonnementen](azure-stack-plan-offer-quota-overview.md)
+[Maken van een aanbieding in Azure-Stack](azure-stack-create-offer.md)
 

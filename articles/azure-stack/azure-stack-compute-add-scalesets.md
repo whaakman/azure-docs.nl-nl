@@ -8,15 +8,15 @@ editor:
 ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb8ac5435b7a5c6deb9d4571696c79b2ed15c93a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Virtuele-machineschaalsets beschikbaar maken in Azure-Stack
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/21/2018
 
 Virtuele-machineschaalsets zijn een Azure-Stack compute-resource. U kunt deze gebruiken om te implementeren en beheren van een reeks identieke virtuele machines. Alle virtuele machines geconfigureerd dezelfde zijn,-schaalsets niet vooraf inrichten van virtuele machines vereist. Het is gemakkelijker te bouwen van grootschalige services die zijn gericht op big compute, big data en beperkte workloads.
 
-In dit onderwerp leidt u door het proces schaalsets beschikbaar te maken in de Stack Azure Marketplace. Nadat u deze procedure hebt voltooid, kan uw gebruikers kunnen toevoegen virtuele-machineschaalset wordt ingesteld op hun abonnementen.
+In dit artikel begeleidt u bij het proces schaalsets beschikbaar te maken in de Stack Azure Marketplace. Nadat u deze procedure hebt voltooid, kan uw gebruikers kunnen toevoegen virtuele-machineschaalset wordt ingesteld op hun abonnementen.
 
 Virtuele-machineschaalsets op Azure-Stack lijken op virtuele-machineschaalsets in Azure. Zie voor meer informatie de volgende video's:
 * [Mark Russinovich vertelt over Azure-schaalsets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
@@ -81,7 +81,7 @@ Als u wilt verwijderen van een virtuele machine schalen set galerij-item, voer d
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> Het galerie-item kan niet direct worden verwijderd. Wellicht moet u de portal verschillende keren vernieuwen voordat het wordt verwijderd uit de Marketplace.
+> Het galerie-item kan niet direct worden verwijderd. Moet u nachttoeslagen de portal verschillende keren vernieuwen voordat het item wordt verwijderd uit de Marketplace.
 
 
 ## <a name="next-steps"></a>Volgende stappen

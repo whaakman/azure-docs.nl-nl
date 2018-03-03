@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 89571468e7f74f45bc1b679737f634fa0c76fa07
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c42aaabd27afeb9e7fdd0b9add3de62a2d00eeaf
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een Azure-Stack omgeving zonder verbinding beveiligd met AD FS
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
@@ -83,7 +83,7 @@ Voor het App Service implementeren in een omgeving zonder verbinding, moet u eer
 
     ![App Service-installatie](media/azure-stack-app-service-deploy/image03.png)
 
-8. Geef de gegevens voor de bestandsshare en klik vervolgens op **volgende**. Het adres van de bestandsshare moet gebruiken de volledig gekwalificeerde domeinnaam van uw bestandsserver, bijvoorbeeld \\\appservicefileserver.local.cloudapp.azurestack.external\websites of het IP-adres, bijvoorbeeld \\\10.0.0.1\websites.
+8. Geef de gegevens voor de bestandsshare en klik vervolgens op **volgende**. Het adres van de bestandsshare moet de volledig gekwalificeerde domeinnaam van de bestandsserver of het IP-adres gebruiken. Bijvoorbeeld: \\\appservicefileserver.local.cloudapp.azurestack.external\websites, of \\\10.0.0.1\websites.
 
     ![App Service-installatie](media/azure-stack-app-service-deploy/image04.png)
 

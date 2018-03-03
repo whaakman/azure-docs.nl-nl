@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 310bea356ac611a92d9e3899da5d4fb19c50e94e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 277ed277b14886d386e097e0ce4bef8add5d4ba1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-deployment-sources"></a>Implementatiebronnen configureren
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 App-Service op Azure-Stack ondersteunt implementatie van meerdere Resourcebeheerproviders op aanvraag. Deze functie kunt direct implementeren vanaf hun source control-opslagplaatsen voor ontwikkelaars van toepassingen. Als gebruikers verbinding maken met hun opslagplaatsen-App Service configureren, moet eerst de integratie tussen op Azure-Stack-App Service en de broncodebeheerprovider configureren in een cloud-operator.  
 
-De Resourcebeheerproviders wordt ondersteund, naast de lokale Git zijn:
+Naast lokale Git, worden de volgende Resourcebeheerproviders ondersteund:
 
 * GitHub
 * BitBucket
@@ -56,7 +56,7 @@ Er moet een GitHub-account om deze taak te voltooien. Mogelijk wilt een account 
 7.  In een nieuw browsertabblad of venster aanmelden bij de Azure-Stack-beheerportal (https://adminportal.local.azurestack.external) als de servicebeheerder.
 8.  Blader naar **Resourceproviders** en selecteer de **beheer-App Service Resource Provider**.
 9. Klik op **bron configuratie**.
-10. Kopieer en plak de **Client-Id** en **Clientgeheim** dialoogvensters in de bijbehorende invoer voor GitHub.
+10. Kopieer en plak de **Client-ID** en **Clientgeheim** dialoogvensters in de bijbehorende invoer voor GitHub.
 11. Klik op **Opslaan**.
 
 ## <a name="configure-bitbucket"></a>BitBucket configureren
@@ -79,7 +79,7 @@ Er moet een BitBucket-account om deze taak te voltooien. Mogelijk wilt een accou
 9.  In een nieuw browsertabblad of venster aanmelden bij de Azure-Stack-beheerportal (https://adminportal.local.azurestack.external) als de servicebeheerder.
 10.  Blader naar **Resourceproviders** en selecteer de **beheer-App Service Resource Provider**.
 11. Klik op **bron configuratie**.
-12. Kopieer en plak de **sleutel** in de **Client-Id** invoervak en **geheim** in de **Clientgeheim** invoervak voor BitBucket.
+12. Kopieer en plak de **sleutel** in de **Client-ID** invoervak en **geheim** in de **Clientgeheim** invoervak voor BitBucket.
 13. Klik op **Opslaan**.
 
 
@@ -94,7 +94,8 @@ U moet Microsoft-Account hebt gekoppeld aan een OneDrive-account om deze taak te
 2. Onder **mijn toepassingen**, klikt u op **een app toevoegen**.
 ![OneDrive-toepassingen][10]
 3. Voer een **naam** voor de nieuwe registratie van de toepassing invoeren **App-Service op Azure-Stack**, en klik op **toepassing maken**
-4. Het volgende scherm worden de eigenschappen van uw nieuwe toepassing. Record de **toepassings-Id**. ![Toepassingseigenschappen OneDrive][11]
+4. Het volgende scherm worden de eigenschappen van uw nieuwe toepassing. Record de **toepassings-ID**.
+![Toepassingseigenschappen OneDrive][11]
 5. Onder **toepassing geheimen**, klikt u op **nieuw wachtwoord genereren**. Maak een notitie van **nieuw wachtwoord gegenereerd**. Dit is uw toepassingsgeheim en kan niet worden opgehaald nadat u op **OK** in deze fase.
 6. Onder **Platforms** klikt u op **toevoegen Platform** en selecteer **Web**.
 7. Voer de **omleidings-URI**.  In een implementatie van de Azure-Stack standaard de omleidings-URI is in de https://portal.local.azurestack.external/tokenauthorize formulier als u werkt met onder een ander domein substitute uw domein voor azurestack.local ![OneDrive-toepassing - toevoegen Webplatform][12]
@@ -106,7 +107,7 @@ U moet Microsoft-Account hebt gekoppeld aan een OneDrive-account om deze taak te
 10.  In een nieuw browsertabblad of venster aanmelden bij de Azure-Stack-beheerportal (https://adminportal.local.azurestack.external) als de servicebeheerder.
 11.  Blader naar **Resourceproviders** en selecteer de **beheer-App Service Resource Provider**.
 12. Klik op **bron configuratie**.
-13. Kopieer en plak de **toepassings-Id** in de **Client-Id** invoervak en **wachtwoord** in de **Clientgeheim** invoervak voor OneDrive.
+13. Kopieer en plak de **toepassings-ID** in de **Client-ID** invoervak en **wachtwoord** in de **Clientgeheim** invoervak voor OneDrive.
 14. Klik op **Opslaan**.
 
 ## <a name="configure-dropbox"></a>DropBox configureren
@@ -130,7 +131,7 @@ U moet Microsoft-Account hebt gekoppeld aan een OneDrive-account om deze taak te
 9.  In een nieuw browsertabblad of venster aanmelden bij de Azure-Stack-beheerportal (https://adminportal.local.azurestack.external) als de servicebeheerder.
 10.  Blader naar **Resourceproviders** en selecteer de **beheer-App Service Resource Provider**.
 11. Klik op **bron configuratie**.
-12. Kopieer en plak de **Toepassingssleutel** in de **Client-Id** invoervak en **App geheim** in de **Clientgeheim** invoervak voor DropBox.
+12. Kopieer en plak de **Toepassingssleutel** in de **Client-ID** invoervak en **App geheim** in de **Clientgeheim** invoervak voor DropBox.
 13. Klik op **Opslaan**.
 
 

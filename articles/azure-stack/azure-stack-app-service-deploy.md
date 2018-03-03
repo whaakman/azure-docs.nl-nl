@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: d4394463be02d067b8228099acd30a0421ce4be9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570ef0b782e073220af8bc7299cc4ad388d47136
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Een App Service-resourceprovider toevoegen aan Azure-Stack
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
@@ -70,7 +70,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![App Service-installatie](media/azure-stack-app-service-deploy/image03.png)
 
-7. Geef de gegevens voor de bestandsshare en klik vervolgens op **volgende**. Het adres van de bestandsshare moet gebruiken de volledig gekwalificeerde domeinnaam van uw bestandsserver, bijvoorbeeld \\\appservicefileserver.local.cloudapp.azurestack.external\websites of het IP-adres, bijvoorbeeld \\\10.0.0.1\websites.
+7. Geef de gegevens voor de bestandsshare en klik vervolgens op **volgende**. Het adres van de bestandsshare moet de volledig gekwalificeerde domeinnaam van uw bestandsserver of het IP-adres gebruiken. Bijvoorbeeld: \\\appservicefileserver.local.cloudapp.azurestack.external\websites, of \\\10.0.0.1\websites.
 
     ![App Service-installatie](media/azure-stack-app-service-deploy/image04.png)
 
@@ -83,7 +83,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![App Service-installatie](media/azure-stack-app-service-deploy/image05.png)
 
-9. Elk van de drie vakken bestand van het certificaat, klikt u op **Bladeren** en navigeer naar het gewenste certificaatbestand. U moet het wachtwoord opgeven voor elk certificaat. Deze certificaten zijn degene die u hebt gemaakt in de [maken vereiste certificaten stap](azure-stack-app-service-deploy.md#create-the-required-certificates). Klik op **volgende** na het invoeren van alle informatie.
+9. Elk van de drie vakken bestand van het certificaat, klikt u op **Bladeren** en navigeer naar het gewenste certificaatbestand. U kunt het wachtwoord opgeven voor elk certificaat. Deze certificaten zijn degene die u hebt gemaakt in de [maken vereiste certificaten stap](azure-stack-app-service-deploy.md#create-the-required-certificates). Klik op **volgende** na het invoeren van alle informatie.
 
     | Box | Voorbeeld van de naam van een certificaat |
     | --- | --- |
@@ -99,7 +99,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![App Service-installatie](media/azure-stack-app-service-deploy/image07.png)    
 
-11. Bekijk de rolinstantie en SKU-opties. De standaardwaarden worden ingevuld met het minimum aantal exemplaar en de minimale SKU voor elke rol in de implementatie van een ASDK. Een overzicht van de vereisten voor vCPU en het geheugen is opgegeven bij het plannen van uw implementatie. Nadat u uw selecties maken, klikt u op **volgende**.
+11. Bekijk de rolinstantie en SKU-opties. De standaardinstellingen te vullen met het minimum aantal exemplaar en de minimale SKU voor elke rol in de implementatie van een ASDK. Een overzicht van de vereisten voor vCPU en het geheugen is opgegeven bij het plannen van uw implementatie. Nadat u uw selecties maken, klikt u op **volgende**.
 
     > [!NOTE]
     > Voor implementaties in de instructies in het volgende [planning van capaciteit voor Azure App Service-serverfuncties in Azure-Stack](azure-stack-app-service-capacity-planning.md).
