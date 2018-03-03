@@ -9,21 +9,21 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 5ebc44d0ef6200baeacf4f1f8c4371e2d1eed9db
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cdfb5458b020e9d3a3f33cecbeb0ee7b9a48909d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="linkedin-integration-for-office-applications"></a>LinkedIn-integratie voor Office-toepassingen
 In dit artikel wordt uitgelegd hoe u Beperk de gebruikers aan wie LinkedIn integratie u in Azure Active Directory (Azure AD vindt). LinkedIn-integratie is standaard ingeschakeld wanneer deze is toegevoegd aan uw tenant, waarmee gebruikers toegang krijgen tot openbare LinkedIn gegevens binnen enkele van hun Microsoft-apps. Elke gebruiker kan afzonderlijk naar hun werk of school-account koppelen aan hun account LinkedIn kiezen.
 
 > [!IMPORTANT]
-> LinkedIn-integratie wordt niet geïmplementeerd op alle Azure AD-tenants op hetzelfde moment. Nadat deze is geïmplementeerd voor uw Azure-tenant, worden LinkedIn-integratie is standaard ingeschakeld. LinkedIn-integratie is niet beschikbaar voor Ga-local, soevereine en government tenants. 
+> LinkedIn-integratie wordt niet geïmplementeerd op alle Azure AD-tenants op hetzelfde moment. Nadat deze is geïmplementeerd voor uw Azure-tenant, worden LinkedIn-integratie is standaard ingeschakeld. LinkedIn-integratie is niet beschikbaar voor Ga-local, soevereine en government tenants. Zie voor een actuele weergave van de implementatie-informatie, de [Office 365 Roadmap](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) pagina.
 
 ## <a name="linkedin-integration-from-the-user-perspective"></a>Integratie van LinkedIn vanuit het gebruikersperspectief
 Wanneer gebruikers in uw organisatie verbinding maken met hun LinkedIn met hun werk- of schoolaccount, [ze LinkedIn om gegevens te leveren toestaan](https://www.linkedin.com/help/linkedin/answer/84077) moet worden gebruikt in de Microsoft-apps en services die voorziet in uw organisatie. [Gebruikers kunnen accounts verbreken](https://www.linkedin.com/help/linkedin/answer/85097), waarbij de machtiging voor LinkedIn gegevens delen met Microsoft worden verwijderd. LinkedIn-integratie gebruikt openbaar LinkedIn-profielinformatie. [Gebruikers kunnen beheren hoe hun eigen LinkedIn-profiel wordt bekeken](https://www.linkedin.com/help/linkedin/answer/83) LinkedIn privacy-instellingen, met inbegrip van of het profiel kan worden weergegeven in de Microsoft-apps gebruiken.
@@ -37,8 +37,8 @@ LinkedIn-integratie voor ondernemingen is standaard ingeschakeld in Azure AD. Do
 ### <a name="enable-or-disable-linkedin-integration-for-your-organization-in-the-azure-portal"></a>In- of uitschakelen van LinkedIn-integratie voor uw organisatie in de Azure portal
 
 1. Aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/) met een account met globale beheerdersrechten voor de Azure AD-tenant.
-2. Selecteer **gebruikers en groepen**.
-3. Op de **gebruikers en groepen** blade Selecteer **gebruikersinstellingen**.
+2. Selecteer **gebruikers**.
+3. Op de **gebruikers** blade Selecteer **gebruikersinstellingen**.
 4. Onder **LinkedIn integratie**, selecteer **Ja** of **Nee** of LinkedIn integratie uit te schakelen.
    ![LinkedIn-integratie inschakelen](./media/linkedin-integration/LinkedIn-integration.PNG)
 

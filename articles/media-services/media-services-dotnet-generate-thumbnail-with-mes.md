@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 02bbeafd9cd8ca93f22cf9e1a2c107e01c082ba3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Miniatuurweergaven genereren met Media Encoder Standard met .NET
 
@@ -34,6 +34,7 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
 
 ### <a name="json-preset"></a>JSON-definitie
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -58,9 +59,11 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
         }
       ]
     }
+```
     
 ### <a name="xml-preset"></a>XML-definitie
 
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -79,6 +82,7 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-series-of-jpeg-images-preset"></a>Voorbeeld van een 'reeks JPEG-afbeeldingen'-definitie
 
@@ -86,6 +90,7 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
 
 ### <a name="json-preset"></a>JSON-definitie
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -113,9 +118,11 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>XML-definitie
     
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -135,6 +142,7 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Voorbeeld van een 'één installatiekopie op een tijdstempel voor een specifieke'-definitie
 
@@ -142,6 +150,7 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
 
 ### <a name="json-preset"></a>JSON-definitie
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -169,9 +178,10 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
         }
       ]
     }
-    
+```
+
 ### <a name="xml-preset"></a>XML-definitie
-    
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -191,7 +201,8 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
         </Output>
       </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Voorbeeld van een 'miniaturen met verschillende resoluties'-definitie
 
 De volgende voorinstelling kan worden gebruikt voor het genereren van miniaturen met verschillende resoluties in één taak. In het voorbeeld posities 5% 15%,..., 95% van de invoer tijdlijn het coderingsprogramma twee installatiekopieën: één voor 100% van de invoer beeldschermresolutie en andere op 50% gegenereerd.
@@ -200,6 +211,7 @@ Let op het gebruik van macro {resolutie} in de bestandsnaam; Hiermee wordt aange
 
 ### <a name="json-preset"></a>JSON-definitie
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -234,9 +246,10 @@ Let op het gebruik van macro {resolutie} in de bestandsnaam; Hiermee wordt aange
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>XML-definitie
-
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
     <Encoding>
@@ -261,7 +274,8 @@ Let op het gebruik van macro {resolutie} in de bestandsnaam; Hiermee wordt aange
       </Output>
     </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-generating-a-thumbnail-while-encoding"></a>Voorbeeld van het genereren van een miniatuur tijdens het coderen
 
 Terwijl alle van de bovenstaande voorbeelden hebt besproken hoe u een codering taak die levert afbeeldingen alleen kunt indienen, kunt u ook combineren video en audio-codering met miniaturen generatie. De volgende JSON- en XML-definitie vertellen **Media Encoder Standard** een miniatuur genereren tijdens de codering.
@@ -269,6 +283,7 @@ Terwijl alle van de bovenstaande voorbeelden hebt besproken hoe u een codering t
 ### <a id="json"></a>JSON-definitie
 Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt269962.aspx) artikel.
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -328,10 +343,12 @@ Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt
         }
       ]
     }
+```
 
 ### <a id="xml"></a>XML-definitie
 Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt269962.aspx) artikel.
-    
+
+```csharp
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -381,6 +398,7 @@ Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt
         </Output>
       </Outputs>
     </Preset>   
+```
 
 ## <a id="code_sample"></a>Video coderen en genereren van miniaturen met .NET
 
@@ -400,7 +418,7 @@ Het volgende codevoorbeeld maakt gebruik van Media Services .NET SDK naar de vol
 
 Zie de [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md) artikel voor instructies over het instellen van uw Developer-omgeving.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

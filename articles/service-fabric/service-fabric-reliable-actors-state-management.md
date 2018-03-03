@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fae68c9fb40951e3f7a6fce67d75872cecfc52bd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f196b2e54efc5ecbbd93e48e1f115edb99e5c858
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="reliable-actors-state-management"></a>Statusbeheer voor betrouwbare Actors
-Reliable Actors zijn single thread-objecten die zowel de logica en de status kunnen inkapselen. Omdat actoren op Reliable Services worden uitgevoerd, kunnen ze status betrouwbaar onderhouden met behulp van dezelfde persistentie en replicatiemechanismen die gebruikmaakt van Reliable Services. Op deze manier actoren niet hun status na fouten bij het opnieuw te activeren nadat garbagecollection of wanneer ze worden verplaatst tussen knooppunten in een cluster als gevolg van resource netwerktaakverdeling of upgrades verliezen.
+Reliable Actors zijn single thread-objecten die zowel de logica en de status kunnen inkapselen. Omdat actoren op Reliable Services worden uitgevoerd, kunnen ze status betrouwbaar onderhouden met behulp van dezelfde persistentie en replicatiemechanismen. Op deze manier actoren niet hun status na fouten bij het opnieuw te activeren nadat garbagecollection of wanneer ze worden verplaatst tussen knooppunten in een cluster als gevolg van resource netwerktaakverdeling of upgrades verliezen.
 
 ## <a name="state-persistence-and-replication"></a>Status persistentie en replicatie
 Alle Reliable Actors worden beschouwd als *stateful* omdat elk exemplaar actor wordt toegewezen aan een unieke ID. Dit betekent dat herhaalde aanroepen naar dezelfde actor-ID worden doorgestuurd naar hetzelfde actor-exemplaar. In een stateless systeem daarentegen zijn clientaanroepen niet gegarandeerd elke keer naar dezelfde server worden doorgestuurd. Actorservices zijn daarom altijd stateful services.
 
 Hoewel actoren worden beschouwd als stateful die betekent niet dat ze betrouwbaar status moeten bevatten. Actoren kunnen het niveau van de status persistentie en replicatie op basis van hun gegevens opslagvereisten:
 
-* **Status persistent**: status is opgeslagen op schijf en is gerepliceerd naar 3 of meer replica's. Dit is de meest duurzame status opslagoptie waar status via het volledige cluster storing kunt behouden.
-* **Vluchtige status**: status is gerepliceerd naar 3 of meer replica's en alleen in het geheugen worden bewaard. Dit biedt veerkracht tegen storingen van knooppunt en actor-fout en tijdens upgrades en resource netwerktaakverdeling. De status is echter niet persistent naar schijf. Dus als alle replica's verloren gaan in één keer, de status is verloren gegaan ook.
-* **Er is geen permanente status**: status is geen gerepliceerde of geschreven naar schijf. Dit niveau is voor actoren die gewoon niet hoeft te onderhouden, de status op betrouwbare wijze.
+* **Status persistent**: status is opgeslagen op schijf en is gerepliceerd naar drie of meer replica's. Permanente status is de meest duurzame status opslagoptie waar status via het volledige cluster storing kunt behouden.
+* **Vluchtige status**: status wordt gerepliceerd met drie of meer replica's en alleen in het geheugen worden bewaard. Vluchtige status biedt veerkracht tegen storingen van knooppunt en actor-fout en tijdens upgrades en resource netwerktaakverdeling. De status is echter niet persistent naar schijf. Dus als alle replica's verloren gaan in één keer, de status is verloren gegaan ook.
+* **Er is geen permanente status**: status niet wordt gerepliceerd of geschreven naar de schijf voor actoren die niet hoeven te onderhouden, de status op betrouwbare wijze alleen worden gebruikt.
 
 Verschillende niveaus van persistentie is gewoon een andere *state-provider* en *replicatie* configuratie van uw service. Wel of niet de status wordt geschreven naar schijf is afhankelijk van de state-provider--het onderdeel in een betrouwbare service die de status opslaat. Replicatie is afhankelijk van hoeveel replica's een service wordt geïmplementeerd met. Net als bij Reliable Services kunnen de state-provider- en het aantal replica's gemakkelijk handmatig wilt instellen. Het framework actor biedt een kenmerk dat, wanneer op een actor gebruikt, selecteert automatisch een standaard state-provider en genereert automatisch de instellingen voor het aantal replica's om te zorgen voor een van deze drie persistentie-instellingen. Het kenmerk StatePersistence wordt niet overgenomen door een afgeleide klasse, elk type Actor het niveau StatePersistence moet opgeven.
 
@@ -111,7 +111,7 @@ Status manager sleutels moeten tekenreeksen zijn. Waarden zijn algemeen en kunne
 
 De status manager beschrijft algemene woordenlijst methoden voor het beheren van status, vergelijkbaar met die in betrouwbare bibliotheek gevonden.
 
-### <a name="accessing-state"></a>Toegang tot de status
+## <a name="accessing-state"></a>Toegang tot de status
 Status kan worden benaderd via de status manager sleutel. De status manager methoden zijn alle asynchrone omdat ze schijf-i/o vereisen mogelijk wanneer actoren nog status persistent hebt gemaakt. Na de eerste toegang status objecten in cache zijn opgeslagen in het geheugen. Herhaal toegang operations-objecten rechtstreeks uit het geheugen en retourneren synchroon zonder schijf i/o- of asynchrone context-switching overhead. Een object met de status is verwijderd uit de cache in de volgende gevallen:
 
 * Een actormethode genereert een onverwerkte uitzondering nadat het ophalen van een object van de status manager.
@@ -193,7 +193,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-### <a name="saving-state"></a>Status opslaan
+## <a name="saving-state"></a>Status opslaan
 De methoden voor het ophalen van status manager een verwijzing retourneren naar een object in het lokale geheugen. Wijzigen van dit object in het lokale geheugen alleen leidt niet tot deze blijvend worden opgeslagen. Wanneer een object is opgehaald van de status manager en gewijzigd, moet opnieuw in de status manager worden blijvend opgeslagen worden ingevoegd.
 
 U kunt de status invoegen met behulp van een onvoorwaardelijke *ingesteld*, dit is het equivalent van de `dictionary["key"] = value` syntaxis:
@@ -328,7 +328,7 @@ interface MyActor {
 }
 ```
 
-### <a name="removing-state"></a>Status verwijderen
+## <a name="removing-state"></a>Status verwijderen
 U kunt de status permanent verwijderen uit een actor status manager door het aanroepen van de *verwijderen* methode. Deze methode genereert `KeyNotFoundException`(C#) of `NoSuchElementException`(Java) als er wordt geprobeerd om te verwijderen van een sleutel die niet bestaat.
 
 ```csharp
@@ -404,6 +404,17 @@ class MyActorImpl extends FabricActor implements  MyActor
     }
 }
 ```
+
+## <a name="best-practices"></a>Aanbevolen procedures
+Hier volgen enkele aanbevolen procedures en tips voor probleemoplossing voor het beheren van de actorstatus.
+
+### <a name="make-the-actor-state-as-granular-as-possible"></a>Als gedetailleerde mogelijk maken van de actorstatus
+Dit is essentieel voor de prestaties en gebruik van bronnen van uw toepassing. Wanneer er schrijven/bijwerken met de 'benoemde status' van een acteur, wordt de hele waarde die overeenkomt met die 'benoemde status' geserialiseerd en verzonden via het netwerk naar de secundaire replica's.  De secundaire replica's schrijven naar de lokale schijf en de antwoord terug naar de primaire replica. Wanneer de primaire bevestigingen van een quorum van secundaire replica's ontvangt, worden de status naar de lokale schijf geschreven. Stel de waarde is een klasse die 20 leden en een grootte van 1 MB is. Zelfs als u een van de klasseleden van alleen gewijzigd formaat van 1 KB, einde van de kosten van serialisatie en netwerk- en schrijfbewerkingen betaalt voor de volledige 1 MB. Op dezelfde manier als de waarde is een verzameling (zoals een lijst, de matrix of de woordenlijst), betaalt u de kosten voor de volledige verzameling zelfs als u een van de leden wijzigen. De StateManager-interface van de klasse actor is vergelijkbaar met een woordenlijst. U moet altijd een model van de structuur van de gegevens die van de actorstatus boven op deze woordenlijst.
+ 
+### <a name="correctly-manage-the-actors-life-cycle"></a>De actor-levenscyclus correct beheren
+U hebt wissen beleid over het beheren van de grootte van de status in elke partitie van een actor-service. Uw actor-service moet een vast aantal actoren hebben en een veel mogelijk blijven gebruiken. Als u nieuwe actoren continu maakt, moet u ze verwijderen als ze klaar bent met hun werk. Het framework actor slaat bepaalde metagegevens over elke actor dat zich voordoet. Als de status van een acteur, verwijdert metagegevens over die actor niet verwijderd. U moet de actor verwijderen (Zie [verwijderd actoren en hun status](service-fabric-reliable-actors-lifecycle.md#deleting-actors-and-their-state)) te verwijderen van alle informatie over deze opgeslagen in het systeem. Als een extra controle, moet u een query de actor-service (Zie [inventariseren actoren](service-fabric-reliable-actors-platform.md)) en om te controleren of de nummer actoren binnen het verwachte bereik.
+ 
+Als u ooit ziet dat bestandsgrootte van de database van een Service Actor buiten de verwachte grootte toeneemt, ervoor zorgen dat u de voorgaande richtlijnen volgt. Als u deze richtlijnen volgen en nog steeds database problemen met de grootte van bestanden, moet u [een ondersteuningsticket opent](service-fabric-support.md) met het productteam om hulp te krijgen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

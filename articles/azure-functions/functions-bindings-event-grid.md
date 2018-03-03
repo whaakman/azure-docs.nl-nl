@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: e1d623c831a912598db72ccd0242cf827c88ee6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gebeurtenis raster trigger voor Azure Functions
 
@@ -150,7 +150,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 | **type** | Vereist - moet worden ingesteld op `eventGridTrigger`. |
 | **direction** | Vereist - moet worden ingesteld op `in`. |
-| **naam** | Vereist: de naam van de variabele in functiecode gebruikt voor de parameter die gegevens van de gebeurtenis ontvangt. |
+| **Naam** | Vereist: de naam van de variabele in functiecode gebruikt voor de parameter die gegevens van de gebeurtenis ontvangt. |
 
 ## <a name="usage"></a>Gebruik
 
@@ -318,7 +318,7 @@ Gebruik een hulpprogramma zoals [Postman](https://www.getpostman.com/) of [curl]
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-De `functionName` parameter moet de naam van de methode, niet de naam is opgegeven in de `FunctionName` kenmerk. Om deze reden als er meerdere functies in een project moeten unieke methodenamen hebben (niet alle benoemde `Run`) testen voor lokale gebeurtenis raster triggers.
+De `functionName` parameter moet de naam die is opgegeven in de `FunctionName` kenmerk.
 
 De volgende schermafbeeldingen de kopteksten weergeven en aanvraagtekst in Postman:
 
@@ -379,7 +379,7 @@ Maken van een gebeurtenis raster-abonnement van het type dat u wilt testen en wi
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-De `functionName` parameter moet de naam van de methode, niet de naam is opgegeven in de `FunctionName` kenmerk. Om deze reden als er meerdere functies in een project moeten unieke methodenamen hebben (niet alle benoemde `Run`) testen voor lokale gebeurtenis raster triggers.
+De `functionName` parameter moet de naam die is opgegeven in de `FunctionName` kenmerk.
 
 Hier volgt een voorbeeld met de Azure CLI:
 

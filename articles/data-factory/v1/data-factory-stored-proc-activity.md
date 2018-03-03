@@ -3,7 +3,7 @@ title: SQL Server opgeslagen Procedure-activiteit
 description: Meer informatie over hoe u de SQL Server opgeslagen Procedure activiteit kunt gebruiken om aan te roepen, een opgeslagen procedure in een Azure SQL Database of een Azure SQL Data Warehouse van een Data Factory-pijplijn.
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: be0bdf771327e57a75a4f95b513f9e80aeaef5a4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f6da8c18c1ac8fbcea217f41c34d50a86b001b11
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server opgeslagen Procedure-activiteit
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -93,12 +93,12 @@ De volgende procedure maakt gebruik van de activiteit opgeslagen Procedure in ee
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik op **nieuw** Klik op het menu links op **Intelligence en analyse**, en klik op **Data Factory**.
 
-    ![Nieuwe gegevensfactory](media/data-factory-stored-proc-activity/new-data-factory.png)    
+    ![Nieuwe data factory](media/data-factory-stored-proc-activity/new-data-factory.png)    
 3. In de **nieuwe gegevensfactory** blade Voer **SProcDF** voor de naam. Azure Data Factory-namen zijn **globaal unieke**. U moet het voorvoegsel van de naam van de gegevensfactory met de naam van uw de geslaagde maken van de fabriek inschakelen.
 
-   ![Nieuwe gegevensfactory](media/data-factory-stored-proc-activity/new-data-factory-blade.png)         
+   ![Nieuwe data factory](media/data-factory-stored-proc-activity/new-data-factory-blade.png)         
 4. Selecteer uw **Azure-abonnement**.
-5. Voor **resourcegroep**, voer een van de volgende stappen uit:
+5. Voer een van de volgende stappen uit voor **Resourcegroep**:
    1. Klik op **nieuw** en voer een naam voor de resourcegroep.
    2. Klik op **gebruik bestaande** en selecteer een bestaande resourcegroep.  
 6. Selecteer de **locatie** voor de gegevensfactory.
@@ -212,7 +212,7 @@ U ziet de volgende eigenschappen:
     ![Tegel diagram](media/data-factory-stored-proc-activity/data-factory-slices.png)
 4. Wanneer een segment is in **gereed** staat, voer een `select * from sampletable` -query op de Azure SQL database om te controleren dat de gegevens is ingevoegd in de tabel door de opgeslagen procedure.
 
-   ![uitvoergegevens](./media/data-factory-stored-proc-activity/output.png)
+   ![Uitvoergegevens](./media/data-factory-stored-proc-activity/output.png)
 
    Zie [bewaken van de pijplijn](data-factory-monitor-manage-pipelines.md) voor gedetailleerde informatie over het Azure Data Factory-pijplijnen bewaken.  
 

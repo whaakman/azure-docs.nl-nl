@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2bcb012eef84faa7c1e13ed22e88e45e4300ed54
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 979c88b72aba6e054bc507e22f48cae1441957cb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>Azure Media Services-inhoud met .NET publiceren
 > [!div class="op_single_selector"]
@@ -54,9 +54,10 @@ Voor het maken van de streaming OnDemand-locator en URL's ophalen, moet u het vo
 >[!NOTE]
 >Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). Gebruik dezelfde beleids-ID als u altijd dezelfde dagen werkt / toegangsmachtigingen. Bijvoorbeeld: beleid voor locators die zijn bedoeld om te blijven aanwezig gedurende een lange periode (niet-upload policies). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
 
-### <a name="use-media-services-net-sdk"></a>Mediaservices .NET SDK gebruiken
+### <a name="use-media-services-net-sdk"></a>Use Media Services .NET SDK
 Streaming-URL's samenstellen 
 
+```csharp
     private static void BuildStreamingURLs(IAsset asset)
     {
 
@@ -93,6 +94,7 @@ Streaming-URL's samenstellen
         Console.WriteLine(urlForClientStreaming + "(format=mpd-time-csf)"); 
         Console.WriteLine();
     }
+```
 
 De uitvoer:
 
@@ -111,6 +113,7 @@ De uitvoer:
 
 Progressieve download-URL's samenstellen 
 
+```csharp
     private static void BuildProgressiveDownloadURLs(IAsset asset)
     {
         // Create a 30-day readonly access policy. 
@@ -138,7 +141,7 @@ Progressieve download-URL's samenstellen
         foreach (var pd in mp4AssetFiles)
             Console.WriteLine(originLocator.Path + pd.Name);
     }
-
+```
 De uitvoer:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
@@ -150,7 +153,7 @@ De uitvoer:
 
 ### <a name="use-media-services-net-sdk-extensions"></a>Media Services .NET SDK Extensions gebruiken
 De volgende code .NET SDK extensions methoden aangeroepen die een locator te maken en het genereren van de Smooth Streaming, HLS en MPEG-DASH-URL's voor adaptief streamen.
-
+```csharp
     // Create a loctor.
     _context.Locators.Create(
         LocatorType.OnDemandOrigin,
@@ -166,7 +169,7 @@ De volgende code .NET SDK extensions methoden aangeroepen die een locator te mak
     Console.WriteLine(smoothStreamingUri);
     Console.WriteLine(hlsUri);
     Console.WriteLine(mpegDashUri);
-
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

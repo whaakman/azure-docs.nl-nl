@@ -3,7 +3,7 @@ title: Controle en rapportage van een gebruiker met Azure Active Directory B2B-s
 description: Eigenschappen van de Gast-gebruikers kunnen worden geconfigureerd in Azure Active Directory B2B-samenwerking
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
-ms.author: sasubram
-ms.openlocfilehash: 315cc3bcab1909b385b98138c971b2c7d405da2b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 38ae8f5f1a8f4292eaf617c15c6a59a48dd348c5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Controle en rapportage van een gebruiker B2B-samenwerking
 Met gastgebruikers hebt u controlemogelijkheden net als bij met de gebruikers lid. Hier volgt een voorbeeld van de uitnodiging en inwisseling historie van genodigde Sam Oogle:

@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 2/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f0a674daab177d71658c546fa4719892a33ed869
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c25a0171bd412050a7c94e9b077436cd1ebe893b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>HTTPS-inkomend op Azure Containerservice (AKS)
 
 Een domeincontroller inkomend is een onderdeel van de software die biedt reverse proxy worden geconfigureerd voor verkeersroutering en TLS beëindiging voor Kubernetes services. Kubernetes inkomend bronnen worden gebruikt voor het configureren van de regels van toegangsroutes en routes voor afzonderlijke Kubernetes services. Een domeincontroller inkomend en inkomend regels gebruikt, kan één externe adres voor het routeren van verkeer naar meerdere services in een cluster Kubernetes worden gebruikt.
 
-Dit document wordt begeleid bij de Voorbeeldimplementatie van een van de [NGIX inkomend controller] [ nginx-ingress] in een Azure Container Service (AKS)-cluster. Bovendien de [KUBE Bouwstenen] [ kube-lego] project wordt gebruikt om automatisch te genereren en configureer [we versleutelen] [ lets-encrypt] certificaten. Ten slotte worden verschillende toepassingen uitgevoerd in het cluster AKS, die toegankelijk via één adres is.
+Dit document wordt begeleid bij de Voorbeeldimplementatie van een van de [NGINX inkomend controller] [ nginx-ingress] in een Azure Container Service (AKS)-cluster. Bovendien de [KUBE Bouwstenen] [ kube-lego] project wordt gebruikt om automatisch te genereren en configureer [we versleutelen] [ lets-encrypt] certificaten. Ten slotte worden verschillende toepassingen uitgevoerd in het cluster AKS, die toegankelijk via één adres is.
 
 ## <a name="install-an-ingress-controller"></a>Een domeincontroller inkomend installeren
 
@@ -58,8 +58,8 @@ IP="52.224.125.195"
 DNSNAME="demo-aks-ingress"
 
 # Get resource group and public ip name
-RESOURCEGROUP=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[resourceGroup]" --output tsv)
-PIPNAME=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[name]" --output tsv)
+RESOURCEGROUP=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[resourceGroup]" --output tsv)
+PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[name]" --output tsv)
 
 # Update public ip address with dns name
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
@@ -68,7 +68,7 @@ az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --d
 Indien nodig, voer de volgende opdracht voor het ophalen van de FQDN-naam. De IP-adres-waarde met die van uw domeincontroller inkomend bijwerken.
 
 ```azurecli
-az network public-ip list --query "[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
+az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
 ```
 
 De domeincontroller inkomend is nu toegankelijk zijn via de FQDN-naam.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2f2ebb1dcc8bed86348389d6a5a7c274194efde0
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - waarschuwingen oplossen
 Dit artikel bevat richtlijnen voor probleemoplossing voor de waarschuwingen die op uw beheerde domein optreden kunnen.
@@ -34,6 +34,13 @@ Kies de stappen voor probleemoplossing die met overeenkomen of waarschuwing-ID o
 | AADDS102 | *Een Service-Principal die is vereist voor Azure AD Domain Services naar behoren is verwijderd van uw Azure AD-directory. Deze configuratie heeft impact op de mogelijkheid van Microsoft als u wilt bewaken, beheren, patch en synchroniseren van uw beheerde domein.* | [Service-Principal ontbreekt](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *Het IP-adresbereik voor het virtuele netwerk waarin u Azure AD Domain Services hebt ingeschakeld is in een openbare IP-adresbereik. Azure AD Domain Services moeten zijn ingeschakeld in een virtueel netwerk met een persoonlijke IP-adresbereik. Deze configuratie heeft impact op de mogelijkheid van Microsoft als u wilt bewaken, beheren, patch en synchroniseren van uw beheerde domein.* | [Adres bevindt zich in een openbare IP-adresbereik](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft kan niet tot de domeincontrollers voor dit beheerde domein. Dit kan gebeuren als een netwerkbeveiligingsgroep (NSG) geconfigureerd op uw virtuele netwerk blokkeert de toegang tot het beheerde domein. Een andere mogelijke oorzaak is als er een gebruiker gedefinieerde route blokken binnenkomend verkeer van het internet.* | [Network Error](active-directory-ds-troubleshoot-nsg.md) |
+| AADDS500 | *Het beheerde domein voor het laatst is gesynchroniseerd met Azure AD op {0}. Gebruikers mogelijk niet aanmelden bij het beheerde domein of groepslidmaatschappen mogelijk niet gesynchroniseerd met Azure AD.* | [Synchronisatie nog niet is opgetreden in een tijdje](#aadds500-synchronization-has-not-completed-in-a-while) |
+| AADDS501 | *Het beheerde domein laatste back-up op XX.* | [Een back-up nog niet is gemaakt in een tijdje](#aadds501-a-backup-has-not-been-taken-in-a-while) |
+| AADDS502 | *Het beveiligde LDAP-certificaat voor het beheerde domein verloopt op XX.* | [Beveiligde LDAP-certificaat verloopt](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS503 | *Het beheerde domein is onderbroken omdat de Azure-abonnement gekoppeld aan het domein niet actief is.* | [Opschorten vanwege een uitgeschakeld abonnement](#aadds503-suspension-due-to-disabled-subscription) |
+| AADDS504 | *Het beheerde domein is onderbroken vanwege een ongeldige configuratie. De service is kan beheren, patch, of het bijwerken van de domeincontrollers voor uw beheerde domein gedurende een lange periode.* | [Opschorten vanwege een ongeldige configuratie](#aadds504-suspension-due-to-an-invalid-configuration) |
+
+
 
 ## <a name="aadds100-missing-directory"></a>AADDS100: Directory ontbreekt
 **Waarschuwing:**
@@ -75,7 +82,7 @@ Volg deze stappen voor het herstellen van uw service:
 
 Lees voordat u begint, de **persoonlijke IP v4-adresruimte** in sectie [in dit artikel](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
-In het virtuele netwerk mag machines aanvragen maken voor Azure-resources die zich in hetzelfde IP-adresbereik als die zijn geconfigureerd voor het subnet. Echter aangezien het virtuele netwerk is geconfigureerd voor dit bereik, deze aanvragen wordt gerouteerd binnen het virtuele netwerk en niet de beoogde webbronnen wordt bereikt. Dit kan leiden tot onverwachte fouten met Azure AD Domain Services.
+In het virtuele netwerk mag machines aanvragen maken voor Azure-resources die zich in hetzelfde IP-adresbereik als die zijn geconfigureerd voor het subnet. Echter aangezien het virtuele netwerk is geconfigureerd voor dit bereik, deze aanvragen wordt gerouteerd binnen het virtuele netwerk en niet de beoogde webbronnen wordt bereikt. Deze configuratie kan leiden tot onverwachte fouten met Azure AD Domain Services.
 
 **Als u het IP-adresbereik op internet die in het virtuele netwerk is geconfigureerd, kunt u deze waarschuwing negeren. Echter, Azure AD Domain Services kunnen niet opslaan in de [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] met deze configuratie omdat dit tot onverwachte fouten leiden kan.**
 
@@ -93,6 +100,47 @@ In het virtuele netwerk mag machines aanvragen maken voor Azure-resources die zi
 4. Lid van domein uw virtuele machines naar het nieuwe domein, gaat u als volgt [in deze handleiding](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Controleer uw domein health in twee uur zodat de waarschuwing is opgelost.
 
+## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: Synchronisatie is niet voltooid in een tijdje
+
+**Waarschuwing:**
+
+*Het beheerde domein voor het laatst is gesynchroniseerd met Azure AD op {0}. Gebruikers mogelijk niet aanmelden bij het beheerde domein of groepslidmaatschappen mogelijk niet gesynchroniseerd met Azure AD.*
+
+**Herstel:**
+
+[Controleer de status van uw domein](active-directory-ds-check-health.md) voor alle waarschuwingen die kunnen wijzen op problemen in uw configuratie van uw beheerde domein. Problemen met de configuratie kunnen soms van Microsoft mogelijkheid om te synchroniseren van uw beheerde domein blokkeren. Als u zich kunt los alle waarschuwingen, wacht u back twee uren en controleer-om te zien als de synchronisatie is voltooid.
+
+
+## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: Een back-up niet is gemaakt in een tijdje
+
+**Waarschuwing:**
+
+*Het beheerde domein laatste back-up op XX.*
+
+**Herstel:**
+
+[Controleer de status van uw domein](active-directory-ds-check-health.md) voor alle waarschuwingen die kunnen wijzen op problemen in uw configuratie van uw beheerde domein. Problemen met de configuratie kunnen soms van Microsoft mogelijkheid om te synchroniseren van uw beheerde domein blokkeren. Als u zich kunt los alle waarschuwingen, wacht u back twee uren en controleer-om te zien als de synchronisatie is voltooid.
+
+
+## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Opschorten vanwege een uitgeschakeld abonnement
+
+**Waarschuwing:**
+
+*Het beheerde domein is onderbroken omdat de Azure-abonnement gekoppeld aan het domein niet actief is.*
+
+**Herstel:**
+
+Om uw service te herstellen [vernieuwen van uw Azure-abonnement](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) die zijn gekoppeld aan uw beheerde domein.
+
+## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Opschorten vanwege een ongeldige configuratie
+
+**Waarschuwing:**
+
+*Het beheerde domein is onderbroken vanwege een ongeldige configuratie. De service is kan beheren, patch, of het bijwerken van de domeincontrollers voor uw beheerde domein gedurende een lange periode.*
+
+**Herstel:**
+
+[Controleer de status van uw domein](active-directory-ds-check-health.md) voor alle waarschuwingen die kunnen wijzen op problemen in uw configuratie van uw beheerde domein. Als u een van deze waarschuwingen oplossen kunt, doen. Nadat de contact op met ondersteuning om uw abonnement opnieuw inschakelen.
 
 ## <a name="contact-us"></a>Contact opnemen
 Neem contact op met de Azure Active Directory Domain Services-productteam voor [feedback delen of voor ondersteuning](active-directory-ds-contact-us.md).

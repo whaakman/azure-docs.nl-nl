@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
 Nu beschikbaar: Azure Cosmos DB [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner). Meer informatie [schatting van de doorvoer moet](request-units.md#estimating-throughput-needs).
@@ -92,6 +92,10 @@ await client.ReplaceOfferAsync(offer);
 ```
 
 Er zijn geen gevolgen voor de beschikbaarheid van de container wanneer u de doorvoer wijzigt. De nieuwe gereserveerde doorvoer is doorgaans effectieve binnen enkele seconden op de toepassing van de nieuwe doorvoer.
+
+## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolatie van doorvoer in globaal gedistribueerde databases
+
+Wanneer de database hebt met meer dan één regio worden gerepliceerd, biedt Azure Cosmos DB doorvoer isolatie om ervoor te zorgen dat RU gebruik in één regio is geen invloed heeft RU gebruik in een andere regio. Bijvoorbeeld, als u gegevens naar één regio schrijven en gegevens uit een andere regio lezen, rekening de RUs gebruikt voor het uitvoeren van de schrijfbewerking in een regio geen weg van de RUs gebruikt voor de leesbewerking in regio die b. RUs zijn niet gesplitst in de regio's die u hebt geïmplementeerd. Elke regio waarin de database wordt gerepliceerd heeft de volledige hoeveelheid RUs ingericht. Zie voor meer informatie over globale replicatie [het distribueren van gegevens met Azure Cosmos DB globaal](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Overwegingen voor aanvraag-eenheid
 Bij het bepalen van het aantal aanvraageenheden moet worden gereserveerd voor uw Azure DB die Cosmos-container, is het belangrijk dat u rekening met de volgende variabelen:
@@ -209,7 +213,7 @@ Bijvoorbeeld:
 6. Berekenen van de vereiste aanvraageenheden gezien het geschatte aantal bewerkingen die u verwacht te per seconde worden uitgevoerd.
 
 ## <a id="GetLastRequestStatistics"></a>API voor van MongoDB GetLastRequestStatistics opdracht gebruiken
-API voor MongoDB biedt ondersteuning voor een aangepaste opdracht *getLastRequestStatistics*, voor het ophalen van de kosten van de aanvraag voor opgegeven bewerkingen.
+De MongoDB-API biedt ondersteuning voor een aangepaste opdracht *getLastRequestStatistics*, voor het ophalen van de kosten van de aanvraag voor opgegeven bewerkingen.
 
 Bijvoorbeeld, in de Mongo-Shell uitvoeren van de bewerking die u wilt controleren of de kosten van de aanvraag voor.
 ```
@@ -235,10 +239,10 @@ Met deze in gedachten, één methode voor het schatten van de hoeveelheid gerese
 > 
 > 
 
-## <a name="use-api-for-mongodbs-portal-metrics"></a>API gebruiken voor de portal metrieken van MongoDB
-De eenvoudigste manier om een goede schatting van de aanvraag eenheid kosten voor uw API voor ophalen MongoDB-database is het gebruik van de [Azure-portal](https://portal.azure.com) metrische gegevens. Met de *aantal aanvragen* en *aanvraag kosten* grafieken, krijgt u een schatting van het aantal aanvraageenheden elke bewerking verbruikt en het aantal aanvraageenheden die ze gebruiken ten opzichte van elkaar.
+## <a name="use-mongodb-api-portal-metrics"></a>Gebruik van MongoDB API portal metrische gegevens
+De eenvoudigste manier om een goede schatting van de aanvraag ophalen eenheid kosten voor de MongoDB-API-database is het gebruik van de [Azure-portal](https://portal.azure.com) metrische gegevens. Met de *aantal aanvragen* en *aanvraag kosten* grafieken, krijgt u een schatting van het aantal aanvraageenheden elke bewerking verbruikt en het aantal aanvraageenheden die ze gebruiken ten opzichte van elkaar.
 
-![API voor MongoDB portal metrische gegevens][6]
+![MongoDB API portal metrische gegevens][6]
 
 ## <a name="a-request-unit-estimation-example"></a>Een voorbeeld van een aanvraag eenheid schatting
 Houd rekening met het volgende ~ 1 KB-document:
@@ -343,8 +347,8 @@ Als u gebruikmaakt van de Client-SDK voor .NET en LINQ-query's en vervolgens de 
 
 Als er meer dan één client cumulatief werken boven het percentage aanvragen het standaardgedrag voor opnieuw proberen niet toereikend zijn en de client genereert een DocumentClientException met statuscode 429 tot de toepassing. In dergelijke gevallen overweegt u verwerken gedrag voor het opnieuw en logica in uw toepassing fout routines voor het afhandelen of een uitbreiding van de gereserveerde doorvoer voor de container.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> Gereserveerde doorvoerlimieten in API overschrijden voor MongoDB
-Toepassingen die groter is dan de ingerichte aanvraageenheden voor een verzameling wordt pas de frequentie waarmee het niveau van de gereserveerde worden beperkt. Wanneer er een vertraging optreedt, de back-end optie preventief beëindigd wanneer de aanvraag met een *16500* foutcode - *te veel aanvragen*. Standaard-API voor MongoDB wordt automatisch opnieuw maximaal 10 keer voordat er een *te veel aanvragen* foutcode. Als er veel *te veel aanvragen* foutcodes, kunt u ook beide toe te voegen gedrag voor het opnieuw in routines voor foutafhandeling van uw toepassing of [waardoor de gereserveerde doorvoer voor de verzameling](set-throughput.md).
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Overschrijding van gereserveerde doorvoer grenzen in de MongoDB-API
+Toepassingen die groter is dan de ingerichte aanvraageenheden voor een verzameling wordt pas de frequentie waarmee het niveau van de gereserveerde worden beperkt. Wanneer er een vertraging optreedt, de back-end optie preventief beëindigd wanneer de aanvraag met een *16500* foutcode - *te veel aanvragen*. Standaard de MongoDB-API wordt automatisch opnieuw geprobeerd maximaal 10 keer voordat er een *te veel aanvragen* foutcode. Als er veel *te veel aanvragen* foutcodes, kunt u ook beide toe te voegen gedrag voor het opnieuw in routines voor foutafhandeling van uw toepassing of [waardoor de gereserveerde doorvoer voor de verzameling](set-throughput.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees deze informatiebronnen voor meer informatie over gereserveerde doorvoer met Azure Cosmos DB databases:

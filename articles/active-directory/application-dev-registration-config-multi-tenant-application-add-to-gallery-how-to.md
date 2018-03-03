@@ -1,6 +1,6 @@
 ---
-title: Het toevoegen van een toepassing met meerdere tenants naar de galerie van Azure AD-toepassing | Microsoft Docs
-description: Legt uit hoe u kunt uw aangepaste ontwikkelde multitenant toepassing weergeven in de Azure AD-Toepassingsgalerie
+title: Een multitenant toepassing toevoegen aan de galerie van Azure AD-toepassing | Microsoft Docs
+description: Legt uit hoe u uw aangepaste ontwikkelde multitenant toepassing in de galerie van Azure AD-toepassing kunt weergeven.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,37 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f29f7cbf118d4d70c1ea2cca174ff0cf0ba9bd14
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 82f7abbe5814f9b154b6888d5b599e7706eb879b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="how-to-add-a-multi-tenant-application-to-the-azure-ad-application-gallery"></a>Het toevoegen van een multitenant-toepassing naar de Azure AD-toepassingsgalerie
+# <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Een multitenant toepassing toevoegen aan de Azure AD-toepassingsgalerie
 
-## <a name="what-is-the-azure-ad-application-gallery"></a>Wat is de Azure AD-Toepassingsgalerie?
+## <a name="what-is-the-azure-ad-application-gallery"></a>Wat is de Azure AD-toepassingsgalerie?
 
-Azure AD is een cloud-gebaseerde Identity-service. [App-galerie van Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/) is een algemene store waar alle connectors van de toepassing voor eenmalige aanmelding en gebruikersaanvragen worden gepubliceerd. Onze wederzijdse klanten die van Azure AD als id-provider gebruikmaken zoekt naar verschillende SaaS-toepassing connectors, die hier worden gepubliceerd. IT-beheerder voegt de connector uit de app-galerie en configureert en gebruikt voor eenmalige aanmelding en de inrichting. Azure AD ondersteunt alle belangrijke federation-protocollen, zoals SAML 2.0, OpenID Connect, OAuth en WS-Fed voor eenmalige aanmelding. 
+Azure Active Directory (Azure AD) is een cloud-gebaseerde identity-service. De [Azure AD-toepassingsgalerie](https://azure.microsoft.com/marketplace/active-directory/all/) is in de Azure Marketplace appstore, waar alle toepassing connectors voor eenmalige aanmelding en gebruikersaanvragen worden gepubliceerd. Klanten die gebruikmaken van Azure AD als id-provider vinden voor de verschillende SaaS-toepassing connectors hier gepubliceerd. IT-beheerders connectors van de app-galerie toevoegen en vervolgens configureren en gebruiken van de connectors voor eenmalige aanmelding en de inrichting. Azure AD ondersteunt alle belangrijke federation-protocollen, zoals SAML 2.0, OpenID Connect, OAuth en WS-Fed voor eenmalige aanmelding. 
 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Als uw toepassing biedt ondersteuning voor SAML- of OpenIDConnect
-Als u een multitenant-toepassing die u wilt weergeven in de Azure AD-Toepassingsgalerie hebt, moet u eerst controleren of uw toepassing een van de volgende eenmalige aanmelding technologieën ondersteunt:
+Als u een multitenant-toepassing die u wilt weergegeven in de galerie van Azure AD-toepassing hebt, moet u eerst controleren of uw toepassing een van de volgende eenmalige aanmelding technologieën ondersteunt:
 
-1. **OpenID Connect** : de multitenant-toepassing in Azure AD maken en implementeren van [Azure AD toestemming framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) voor uw toepassing. Het aanmeldingsverzoek naar algemene eindpunt verzenden zodat elke klant toestemming voor de toepassing kunt bieden. U kunt de klanttoegang op basis van de tenant-ID en van de gebruiker UPN in het token ontvangen en beheren. Verzend de toepassing zoals vermeld in dit [artikel](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **OpenID Connect**: als u uw app vermeld, de multitenant-toepassing in Azure AD maken en implementeren van de [Azure AD toestemming framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) voor uw toepassing. Het aanmeldingsverzoek verzenden naar een gemeenschappelijk eindpunt zodat elke klant toestemming voor de toepassing kunt bieden. U kunt de toegang van een gebruiker op basis van de tenant-ID en de gebruiker UPN in het token wordt ontvangen. De aanvraag indienen met behulp van het proces beschreven in [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-2. **SAML** : als uw toepassing SAML 2.0 ondersteunt en we kunnen uw toepassing in de galerie vermelden en de instructies worden vermeld [hier](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing)
-
-Als uw toepassing ondersteuning biedt voor een van deze modi voor eenmalige aanmelding en u wilt uw toepassing met meerdere tenants in de Azure AD-Toepassingsgalerie weergeven, kunt u de stappen die worden vermeld [dit](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing) artikel. 
+- **SAML**: als uw toepassing SAML 2.0 ondersteunt, de app kan worden weergegeven in de galerie. Volg de instructies in [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Als uw toepassing biedt geen ondersteuning voor SAML of OpenIDConnect
-Zelfs als uw toepassing biedt geen ondersteuning voor een van deze modi, kunnen we het nog steeds integreren in onze galerie met onze wachtwoord Single Sign-on-technologie.
+Toepassingen die geen ondersteuning voor SAML- of OpenIDConnect bieden kunnen nog steeds worden geïntegreerd in de app-galerie via één wachtwoord aanmelding technologie.
 
-**Wachtwoord SSO** : Maak een webtoepassing met een HTML-aanmeldingspagina configureren [op basis van wachtwoorden eenmalige aanmelding](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis). Op basis van wachtwoorden SSO, ook bekend als wachtwoord vaulting, kunt u voor het beheren van toegang voor gebruikers en wachtwoorden tot webtoepassingen die geen ondersteuning voor identiteitsfederatie. Het is ook nuttig voor scenario's waarin meerdere gebruikers één account moeten, zoals delen op uw organisatie sociale media app accounts. 
+Wachtwoord eenmalige aanmelding, ook wel wachtwoordkluizen, kunt u gebruikerstoegang en wachtwoorden tot webtoepassingen die geen ondersteuning voor identiteitsfederatie beheren. Het is ook nuttig voor scenario's waarin meerdere gebruikers moeten één account, zoals delen op uw organisatie sociale media app accounts. 
 
-Als u wilt weergeven van uw toepassing met deze technologie vervolgens verzend de aanvraag zoals beschreven in [dit](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing) artikel.
+Als u wilt dat uw toepassing met deze technologie weergeven:
+1. Maak een webtoepassing met een HTML-aanmeldingspagina configureren [eenmalige aanmelding wachtwoord](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis). 
+2. De aanvraag indient zoals beschreven in [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="escalations"></a>Escalaties
 
-Voor elke escalaties neerzetten een e-mail naar [SSO van Azure AD-integratie Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) en we u zo snel beperking Zo snel mogelijk.
+Voor elke escalaties e-mailbericht verzendt [SSO van Azure AD-integratie Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) en je krijgt u zo snel mogelijk.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Hoe u uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)
+Meer informatie over hoe [uw toepassing vermelden in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).

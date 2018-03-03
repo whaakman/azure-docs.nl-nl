@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 851981b291115ba31dc40535f8bcc71cdb475717
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f81153f4fb51e474e0f8cc1e26ad866079a88ca7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-job-progress-using-net"></a>De voortgang van de taak bewaken met .NET
 > [!div class="op_single_selector"]
@@ -33,6 +33,7 @@ Wanneer u taken uitvoert, moet u vaak een manier om de voortgang van de taak vol
 ## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Gebeurtenis-handler om de voortgang taak StateChanged definiëren
 Het volgende voorbeeld definieert de StateChanged gebeurtenis-handler. Deze gebeurtenis-handler houdt de voortgang van de taak en bevat informatie over bijgewerkte status, afhankelijk van de status. De code definieert ook de methode LogJobStop. Deze Help-methode logboeken foutgegevens.
 
+```csharp
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
     {
         Console.WriteLine("Job state changed event:");
@@ -107,7 +108,7 @@ Het volgende voorbeeld definieert de StateChanged gebeurtenis-handler. Deze gebe
     {
         return jobID.Replace(":", "_");
     }
-
+```
 
 
 ## <a name="next-step"></a>Volgende stap

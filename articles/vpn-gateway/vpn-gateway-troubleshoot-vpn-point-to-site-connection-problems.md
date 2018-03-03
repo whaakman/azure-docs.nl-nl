@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Voor probleemoplossing: Problemen met de Azure-punt-naar-site-verbinding
 
@@ -40,7 +40,9 @@ Dit probleem treedt op als het clientcertificaat ontbreekt in **Certificaten - H
 
 U lost dit probleem, de volgende stappen uit:
 
-1. Zorg ervoor dat de volgende certificaten in de juiste locatie:
+1. Open Certificaatbeheer: klik op **Start**, type **computercertificaten beheren**, en klik vervolgens op **computercertificaten beheren** in de zoekresultaten.
+
+2. Zorg ervoor dat de volgende certificaten in de juiste locatie:
 
     | Certificaat | Locatie |
     | ------------- | ------------- |
@@ -48,7 +50,7 @@ U lost dit probleem, de volgende stappen uit:
     | Azuregateway-*GUID*.cloudapp.net  | Huidige User\Trusted basiscertificeringsinstanties|
     | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Lokale Computer\Trusted Root Certification Authorities|
 
-2. Ga naar gebruikers\<UserName > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, handmatig het certificaat (*.cer-bestand) op de gebruiker en archief van de computer installeren.
+3. Ga naar gebruikers\<UserName > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, handmatig het certificaat (*.cer-bestand) op de gebruiker en archief van de computer installeren.
 
 Zie voor meer informatie over het installeren van het clientcertificaat [genereren en exporteren van certificaten voor punt-naar-site-verbindingen](vpn-gateway-certificates-point-to-site.md).
 
@@ -335,7 +337,7 @@ Het NIC-stuurprogramma is verouderd.
 Het NIC-stuurprogramma-update:
 
 1. Klik op **Start**, type **Apparaatbeheer**, en selecteer het in de lijst met resultaten. Als u wordt gevraagd om een beheerderswachtwoord of een bevestiging, typt u het wachtwoord of geeft u de bevestiging.
-2. In de ** netwerkadapters ** categorieën, vinden de NIC die u wilt bijwerken.  
+2. In de **netwerkadapters** categorieën, vinden de NIC die u wilt bijwerken.  
 3. Dubbelklik op de naam van het apparaat, selecteert u **stuurprogramma bijwerken**, selecteer **zoeken voor bijgewerkte stuurprogramma's automatisch**.
 4. Als u een nieuw stuurprogramma kan niet door Windows wordt gedetecteerd, kunt u kijkt u voor één op de website van de fabrikant en volg de instructies.
 5. Start de computer opnieuw op en probeer opnieuw verbinding te maken.

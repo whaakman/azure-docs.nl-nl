@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: c2728545aeb202bdd216e00fd4a7e464e483b1da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Azure-abonnementen en accounts met Azure kosten Management activeren
 
@@ -56,7 +56,7 @@ Wanneer u een account update een abonnement toevoegt, kunt u Azure kosten Manage
 
 ### <a name="update-a-subscription"></a>Een abonnement bijwerken
 
-1. Als u wilt bijwerken een _niet-geactiveerde_ abonnement dat al voorkomt in Azure kostenbeheer in beheer van Accounts, klikt u op het symbool bewerken Pen rechts van de _tenant-GUID_.
+1. Als u wilt bijwerken een _niet-geactiveerde_ abonnement dat al voorkomt in Azure kostenbeheer in beheer van Accounts, klikt u op het symbool bewerken Pen rechts van de bovenliggende _tenant-GUID_. Abonnementen zijn gegroepeerd onder een bovenliggende-tenant, dus Vermijd abonnementen afzonderlijk activeren.
     ![Abonnementen opnieuw detecteren](./media/activate-subs-accounts/existing-sub.png)
 2. Indien nodig, de Tenant-ID invoeren. Als u uw Tenant-ID niet weet, gebruikt u de volgende stappen uit te vinden:
     1. Meld u aan bij de [Azure-portal](https://portal.azure.com).

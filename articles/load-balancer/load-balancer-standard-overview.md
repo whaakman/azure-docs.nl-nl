@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Overzicht van Azure Load Balancer-standaard (preview)
 
@@ -302,9 +302,11 @@ Er zijn geen veranderlijke SKU's. Volg de stappen in deze sectie voor het verpla
 
 1. Maak een nieuwe standaard resource (Load Balancer en openbare IP-adressen, indien nodig). Maak uw regels en definities-test.
 
-2. De basis-SKU-resources (Load Balancer en openbare IP-adressen, indien van toepassing) verwijderen van alle VM-instanties. Zorg ervoor dat alle VM-instanties van een beschikbaarheidsset ook verwijderd.
+2. Maken van nieuwe of bestaande NSG op NIC of subnet bijwerken naar geaccepteerde taakverdelingsverkeer, test, evenals andere verkeer die u wilt toestaan.
 
-3. Alle exemplaren van de VM koppelen aan de nieuwe standaard SKU-resources.
+3. De basis-SKU-resources (Load Balancer en openbare IP-adressen, indien van toepassing) verwijderen van alle VM-instanties. Zorg ervoor dat alle VM-instanties van een beschikbaarheidsset ook verwijderd.
+
+4. Alle exemplaren van de VM koppelen aan de nieuwe standaard SKU-resources.
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migreren van standaard naar de basis-SKU
 
@@ -464,6 +466,7 @@ De volgende beperkingen toepassen op het moment van preview en nog worden gewijz
 - In de context van beschikbaarheid Zones, kan niet een zonal openbare IP-adres van een zone worden verplaatst naar een andere.
 - [Waarschuwingen van Azure controleren](../monitoring-and-diagnostics/monitoring-overview-alerts.md) worden niet ondersteund op dit moment.
 - Portal biedt nog geen ondersteuning voor de uitgebreide preview regio's.  Gebruik clienthulpprogramma's, zoals sjablonen, Azure CLI 2.0 of PowerShell als tijdelijke oplossing.
+- Verplaats de abonnement-bewerkingen worden niet ondersteund.
 
 
 ## <a name="next-steps"></a>Volgende stappen

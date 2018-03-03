@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: d8e740e969f68c85842f42c109328423da1b4414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc7748c3058cd2aca907e3bc564b2ad18090db28
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Procedure: een Asset door Download leveren
-In dit onderwerp wordt beschreven opties voor het leveren van media-elementen met Media Services wordt geüpload. U kunt inhoud in Media Services leveren in talloze scenario's van toepassing. U kunt downloaden van media-elementen of toegang tot deze met behulp van een locator. U kunt media-inhoud verzenden naar een andere toepassing of een andere provider van de inhoud. U kunt ook inhoud met behulp van een inhoud Delivery Network (CDN) voor betere prestaties en schaalbaarheid leveren.
+Dit artikel worden de opties voor het leveren van media-elementen met Media Services wordt geüpload. U kunt inhoud in Media Services leveren in talloze scenario's van toepassing. Nadat de codering, downloaden van de gegenereerde media-elementen of toegang tot deze met behulp van een streaming-locator. U kunt ook inhoud met behulp van een inhoud Delivery Network (CDN) voor betere prestaties en schaalbaarheid leveren.
 
 In dit voorbeeld laat zien hoe media activa downloaden van Media Services op uw lokale computer. De code vraagt de taken die zijn gekoppeld aan het Media Services-account door de taak-ID en toegang tot de **OutputMediaAssets** verzameling (dit is de set van een of meer uitvoer media-elementen die het resultaat is van een taak wordt uitgevoerd). Dit voorbeeld wordt het downloaden van media-elementen voor uitvoer van een taak, maar u kunt dezelfde aanpak voor het downloaden van andere assets toepassen.
 
 >[!NOTE]
->Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
+>Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). Gebruik dezelfde beleids-ID als u altijd dezelfde dagen werkt / toegangsmachtigingen, bijvoorbeeld: beleid voor locators die zijn bedoeld om te blijven aanwezig gedurende een lange periode (niet-upload policies). Raadpleeg [dit artikel](media-services-dotnet-manage-entities.md#limit-access-policies) voor meer informatie.
 
+```csharp
     // Download the output asset of the specified job to a local folder.
     static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
     {
@@ -76,7 +77,7 @@ In dit voorbeeld laat zien hoe media activa downloaden van Media Services op uw 
     {
         Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
     }
-
+```
 
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten

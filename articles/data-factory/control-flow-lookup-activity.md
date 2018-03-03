@@ -5,19 +5,19 @@ services: data-factory
 documentationcenter: 
 author: sharonlo101
 manager: jhubbard
-editor: shlo
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
-ms.openlocfilehash: 02e4d7cd062364cae2edad0c76e3a009bb6c1bda
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: shlo
+ms.openlocfilehash: 2f551e97b833460c7c4ccd276b0df1dae562c03b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>De activiteit opzoeken in Azure Data Factory
 U kunt lookup-activiteit gebruiken om te lezen of het opzoeken van een record, de tabelnaam of de waarde van een externe bron. Er kan naar deze uitvoer worden verwezen door volgende activiteiten. 
@@ -62,9 +62,9 @@ Het maximum aantal rijen dat wordt geretourneerd door de activiteit opzoeken is 
 ## <a name="type-properties"></a>Type-eigenschappen
 Naam | Beschrijving | Type | Vereist?
 ---- | ----------- | ---- | --------
-dataset | Biedt de dataset-verwijzing voor de zoekopdracht. Op dit moment wordt zijn de gegevensset ondersteunde typen:<ul><li>`AzureBlobDataset`voor [Azure Blob storage](connector-azure-blob-storage.md#dataset-properties) als bron</li><li>`FileShareDataset`voor [bestandssysteem](connector-file-system.md#dataset-properties) als bron</li><li>`AzureSqlTableDataset`voor [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) of [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) als bron</li><li>`SqlServerTable`voor [SQL Server](connector-sql-server.md#dataset-properties) als bron</li><li>`AzureTableDataset`voor [Azure Table storage](connector-azure-table-storage.md#dataset-properties) als bron</li> | Sleutel-waardepaar | Ja
+dataset | Biedt de dataset-verwijzing voor de zoekopdracht. Op dit moment wordt zijn de gegevensset ondersteunde typen:<ul><li>`AzureBlobDataset` voor [Azure Blob storage](connector-azure-blob-storage.md#dataset-properties) als bron</li><li>`FileShareDataset` voor [bestandssysteem](connector-file-system.md#dataset-properties) als bron</li><li>`AzureSqlTableDataset` voor [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) of [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) als bron</li><li>`SqlServerTable` voor [SQL Server](connector-sql-server.md#dataset-properties) als bron</li><li>`AzureTableDataset` voor [Azure Table storage](connector-azure-table-storage.md#dataset-properties) als bron</li> | Sleutel-waardepaar | Ja
 bron | Bevat Broneigenschappen van gegevensset-specifieke, hetzelfde zijn als de bron voor kopiëren-activiteit. Details van de sectie 'activiteitseigenschappen kopiëren' in elke bijbehorende connector artikel ophalen. | Sleutel-waardepaar | Ja
-firstRowOnly | Geeft aan of alleen de eerste rij of alle rijen retourneren. | Boole-waarde | Nee. Standaard is `true`.
+firstRowOnly | Geeft aan of alleen de eerste rij of alle rijen retourneren. | Boole-waarde | Nee. De standaardwaarde is `true`.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Gebruik het resultaat van de activiteit opzoeken in een volgende activiteit
 

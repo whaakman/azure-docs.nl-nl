@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: a9c7c5dbbc50ccf8c5383be28e96dfb82af48559
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 3ed607d80e6d40a9a466c5277eca636203c13ec2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Pushmeldingen toevoegen aan uw Xamarin.Forms-app
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -152,6 +152,7 @@ U kunt met de back-end geconfigureerd met het FCM onderdelen en codes toevoegen 
         using Android.App;
         using Android.Content;
         using Android.Media;
+        using Android.Support.V7.App;
         using Android.Util;
         using Firebase.Messaging;
 
@@ -182,7 +183,7 @@ U kunt met de back-end geconfigureerd met het FCM onderdelen en codes toevoegen 
                 intent.AddFlags(ActivityFlags.ClearTop);
                 var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-                var notificationBuilder = new Notification.Builder(this)
+                var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
                     .SetContentTitle("New Todo Item")
                     .SetContentText(messageBody)
@@ -202,7 +203,7 @@ U bent nu klaar test pushmeldingen in de app uitgevoerd op een Android-apparaat 
 ### <a name="test-push-notifications-in-your-android-app"></a>Pushmeldingen testen in uw Android-app
 De eerste twee stappen zijn vereist, alleen wanneer u op een emulator test.
 
-1. Zorg ervoor dat u implementeert voor of foutopsporing op een virtueel apparaat met Google APIs ingesteld als doel, zoals hieronder wordt weergegeven in de Android Virtual Device manager.
+1. Zorg ervoor dat u implementeert voor of foutopsporing op een apparaat of emulator die is geconfigureerd met Google Play Services. U kunt dit controleren door te controleren dat de **afspelen** apps zijn geïnstalleerd op het apparaat of emulator.
 2. Een Google-account toevoegen aan de Android-apparaat door te klikken op **Apps** > **instellingen** > **account toevoegen**. Volg de aanwijzingen een bestaande Google-account toevoegen aan het apparaat, of een nieuwe maken.
 3. In Visual Studio of Xamarin Studio, met de rechtermuisknop op de **Droid** project en klik op **instellen als opstartproject**.
 4. Klik op **uitvoeren** bouw het project en de app op uw Android-apparaat of emulator te starten.

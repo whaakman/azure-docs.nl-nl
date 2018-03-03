@@ -13,6 +13,6 @@ Geheimen, Opslagaccountsleutels beheerd en kluis transacties:
 | Alle transacties |2000 |
 |
 
-Zie [Azure Key Vault richtlijnen beperking](../key-vault/key-vault-ovw-throttling.md) voor informatie over het afhandelen van beperking wanneer deze limiet is overschreden.
+Zie [Azure Key Vault richtlijnen beperking](../articles/key-vault/key-vault-ovw-throttling.md) voor informatie over het afhandelen van beperking wanneer deze limiet is overschreden.
 
 <sup>1</sup> er is een abonnement wide limiet voor alle transactietypen die 5 x per sleutelkluis limiet is. Bijvoorbeeld HSM - andere transacties per abonnement zijn beperkt tot 5000 transacties in 10 seconden per abonnement.

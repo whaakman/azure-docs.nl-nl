@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Problemen met implementatie oplossen met Azure Containerexemplaren
 
@@ -91,6 +91,10 @@ De uitvoer bevat de basiseigenschappen van de container, samen met de implementa
 ## <a name="common-deployment-issues"></a>Algemene problemen bij de implementatie
 
 Er zijn een aantal veelvoorkomende problemen die account voor de meeste fouten in de implementatie.
+
+## <a name="image-version-not-supported"></a>Afbeeldingversie wordt niet ondersteund
+
+Als een installatiekopie is opgegeven dat de exemplaren van Azure-Container kan niet ondersteunen, een fout wordt geretourneerd van formulier `ImageVersionNotSupported`. De waarde van de fout wordt weergegeven `The version of image '{0}' is not supported.`. Deze fout momenteel van toepassing op Windows 1709-installatiekopieën te verhelpen gebruik een TNS Windows-installatiekopie. Ondersteuning voor Windows 1709 installatiekopieën wordt uitgevoerd.
 
 ## <a name="unable-to-pull-image"></a>Kan geen pull-afbeelding
 

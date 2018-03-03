@@ -13,36 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: b11d80d1837d6474c7ee88f173de43e00fbb6cd5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: HT
+ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Het beveiligen van een Web-API-back-end met Azure Active Directory en API Management
-De volgende video ziet u hoe het bouwen van een Web-API-back-end en beveiligen met behulp van OAuth 2.0-protocol met Azure Active Directory en API Management.  Dit artikel bevat een overzicht en aanvullende informatie voor de stappen in de video. Deze 24 minuut video ziet u hoe aan:
 
-* Een Web-API-back-end bouwen en beveilig deze met AAD - begint bij 1:30
-* De API in API Management - 7:10 vanaf importeren
-* De portal voor ontwikkelaars voor het aanroepen van de API - vanaf 9:09 configureren
-* Configureer een bureaubladtoepassing het API - vanaf 18:08 aan te roepen
-* Configureer een beleid voor de validatie van JWT vooraf om aanvragen te verifiëren - 20:47 vanaf
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
+Dit onderwerp leest hoe het bouwen van een Web-API-back-end en beveiligen met behulp van OAuth 2.0-protocol met Azure Active Directory en API Management.  
 
 ## <a name="create-an-azure-ad-directory"></a>Een Azure AD-directory maken
-Als u wilt beveiligen van uw Web-API back-end met Azure Active Directory moet u eerst een AAD-tenant hebben. In deze video van een tenant met de naam **APIMDemo** wordt gebruikt. Voor het maken van een AAD-tenant, aanmelding bij de [klassieke Azure-Portal](https://manage.windowsazure.com) en klik op **nieuw**->**App Services**->**Active Directory**  -> **Directory**->**aangepast maken**. 
+Als u wilt beveiligen van uw Web-API back-end met Azure Active Directory moet u eerst een AAD-tenant hebben. Voor het maken van een AAD-tenant, aanmelding bij de [klassieke Azure-Portal](https://manage.windowsazure.com) en klik op **nieuw**->**App Services**->**Active Directory**  -> **Directory**->**aangepast maken**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-In dit voorbeeld wordt een map met de naam **APIMDemo** wordt gemaakt met een standaarddomein met de naam **DemoAPIM.onmicrosoft.com**. Deze map wordt gebruikt in de video.
+In dit voorbeeld wordt een map met de naam **APIMDemo** wordt gemaakt met een standaarddomein met de naam **DemoAPIM.onmicrosoft.com**. 
 
 ![Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Een Web-API-service worden beveiligd door Azure Active Directory maken
-In deze stap wordt een Web-API-back-end gemaakt met behulp van Visual Studio 2013. In deze stap van de video begint bij 1:30. Voor het maken van back-end-Web API-project in Visual Studio klikt u op **bestand**->**nieuw**->**Project**, en kies **ASP.NET-webtoepassing Toepassing** van de **Web** lijst met sjablonen. In deze video het project de naam **APIMAADDemo**. Klik op **OK** om het project aan te maken. 
+In deze stap wordt een Web-API-back-end gemaakt met behulp van Visual Studio 2013. Voor het maken van back-end-Web API-project in Visual Studio klikt u op **bestand**->**nieuw**->**Project**, en kies **ASP.NET-webtoepassing Toepassing** van de **Web** lijst met sjablonen. 
 
 ![Visual Studio][api-management-new-web-app]
 
@@ -75,7 +66,6 @@ In dit voorbeeld wordt een nieuwe **App Service-abonnement** met de naam **APIMA
 Klik op **OK** voor het configureren van de Web-App en het project maken.
 
 ## <a name="add-the-code-to-the-web-api-project"></a>Voeg de code toe aan de Web-API-project
-De code van de volgende stap in de video wordt toegevoegd aan de Web-API-project. Deze stap 4:35 wordt gestart.
 
 De Web-API in dit voorbeeld implementeert een basisrekenmachine-service met behulp van een model en een domeincontroller. Als u wilt toevoegen in het model voor de service, met de rechtermuisknop op **modellen** in **Solution Explorer** en kies **toevoegen**, **klasse**. Naam van de klasse `CalcInput` en klik op **toevoegen**.
 
@@ -161,14 +151,13 @@ public class CalcController : ApiController
 Druk op **F6** te controleren of de oplossing.
 
 ## <a name="publish-the-project-to-azure"></a>Het project naar Azure publiceren
-In deze stap van de Visual Studio is project gepubliceerd naar Azure. In deze stap van de video begint bij 5:45.
 
 Voor het publiceren van het project naar Azure, met de rechtermuisknop op de **APIMAADDemo** in Visual Studio-project en kies **publiceren**. Behoud de standaardinstellingen de **webpublicatie** dialoogvenster en klik op **publiceren**.
 
 ![Web publiceren][api-management-web-publish]
 
 ## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>Machtigingen toekennen voor de servicetoepassing voor back-end van Azure AD
-Een nieuwe aanvraag om de back-endservice wordt gemaakt in uw Azure AD-directory als onderdeel van het configureren en publiceren van uw Web-API-project. In deze stap van de video, beginnend bij 6:13 worden machtigingen verleend aan de Web-API-back-end.
+Een nieuwe aanvraag om de back-endservice wordt gemaakt in uw Azure AD-directory als onderdeel van het configureren en publiceren van uw Web-API-project.
 
 ![Toepassing][api-management-aad-backend-app]
 
@@ -352,7 +341,7 @@ Voer de volgende stappen uit voor het configureren van de Rekenmachine-API.
 Zodra de API is geïmporteerd, wordt de overzichtspagina voor de API weergegeven in de publicatieportal.
 
 ## <a name="call-the-api-unsuccessfully-from-the-developer-portal"></a>De API succes aanroepen vanuit de portal voor ontwikkelaars
-Op dit moment de API is geïmporteerd in API Management, maar kan nog worden aangeroepen met succes vanuit de ontwikkelaarsportal omdat de back-endservice is beveiligd met Azure AD-verificatie. Dit wordt geïllustreerd in de video vanaf 7:40 met behulp van de volgende stappen uit.
+Op dit moment de API is geïmporteerd in API Management, maar kan nog worden aangeroepen met succes vanuit de ontwikkelaarsportal omdat de back-endservice is beveiligd met Azure AD-verificatie. 
 
 Klik op **ontwikkelaarsportal** uit de rechts bovenaan kant van de publicatieportal.
 
@@ -373,9 +362,9 @@ Klik op **verzenden** en noteer de antwoordstatus van **401 niet geautoriseerd**
 De aanvraag is niet geautoriseerd, omdat de back-end API is beveiligd door Azure Active Directory. Voordat het is de API aanroept de ontwikkelaar moet de portal worden geconfigureerd voor het autoriseren van ontwikkelaars met behulp van OAuth 2.0. Dit proces wordt beschreven in de volgende secties.
 
 ## <a name="register-the-developer-portal-as-an-aad-application"></a>De portal voor ontwikkelaars registreren als een AAD-toepassing
-De eerste stap bij het configureren van de portal voor ontwikkelaars om te verifiëren met behulp van OAuth 2.0 ontwikkelaars is de portal voor ontwikkelaars registreren als een AAD-toepassing. Dit wordt geïllustreerd 8:27 in de video wordt gestart.
+De eerste stap bij het configureren van de portal voor ontwikkelaars om te verifiëren met behulp van OAuth 2.0 ontwikkelaars is de portal voor ontwikkelaars registreren als een AAD-toepassing. 
 
-Navigeer naar de Azure AD-tenant van de eerste stap in deze video In dit voorbeeld **APIMDemo** en navigeer naar de **toepassingen** tabblad.
+Navigeer naar de Azure AD-tenant. In dit voorbeeld selecteren **APIMDemo** en navigeer naar de **toepassingen** tabblad.
 
 ![Nieuwe toepassing][api-management-aad-new-application-devportal]
 
@@ -394,7 +383,7 @@ Voor **App-Id-URL** Voer de URL van uw API Management-service en het toevoegen v
 ![Nieuwe toepassing][api-management-aad-new-application-devportal-2]
 
 ## <a name="configure-an-api-management-oauth-20-authorization-server"></a>Een API Management OAuth 2.0-autorisatie-server configureren
-De volgende stap is het configureren van een OAuth 2.0-autorisatie-server in API Management. Deze stap wordt geïllustreerd in de video op 9:43 wordt gestart.
+De volgende stap is het configureren van een OAuth 2.0-autorisatie-server in API Management. 
 
 Klik op **beveiliging** in het menu API Management aan de linkerkant, klikt u op **OAuth 2.0**, en klik vervolgens op **toevoegen autorisatie** server.
 
@@ -466,7 +455,7 @@ Klik op **gedelegeerde machtigingen** voor **APIMAADDemo** en schakel het select
 ![Machtigingen toevoegen][api-management-aad-add-delegated-permissions]
 
 ## <a name="enable-oauth-20-user-authorization-for-the-calculator-api"></a>Inschakelen van OAuth 2.0-gebruikersautorisatie voor de basisrekenmachine-API
-Nu dat het OAuth 2.0-server is geconfigureerd, kunt u deze kunt opgeven in de beveiligingsinstellingen voor uw API. Deze stap wordt geïllustreerd in de video vanaf 14:30.
+Nu dat het OAuth 2.0-server is geconfigureerd, kunt u deze kunt opgeven in de beveiligingsinstellingen voor uw API. 
 
 Klik op **API's** in het menu aan de linkerkant en klik op **Rekenmachine** weergeven en configureren van de instellingen ervan.
 
@@ -477,7 +466,7 @@ Navigeer naar de **beveiliging** tabblad controle de **OAuth 2.0** selectievakje
 ![Rekenmachine-API][api-management-enable-aad-calculator]
 
 ## <a name="successfully-call-the-calculator-api-from-the-developer-portal"></a>Is de basisrekenmachine-API aanroepen vanuit de portal voor ontwikkelaars
-Nu dat het OAuth 2.0-autorisatie is geconfigureerd op de API, kunnen bewerkingen met succes worden aangeroepen vanuit het developer center. Deze stap wordt geïllustreerd in de video om 15:00 uur wordt gestart.
+Nu dat het OAuth 2.0-autorisatie is geconfigureerd op de API, kunnen bewerkingen met succes worden aangeroepen vanuit het developer center. 
 
 Ga terug naar de **twee gehele getallen toevoegen** bewerking van de Rekenmachine-service in de portal voor ontwikkelaars en klik op **Try it**. Let op het nieuwe item in de **autorisatie** sectie overeenkomt met de autorisatie-server die u zojuist hebt toegevoegd.
 
@@ -492,10 +481,12 @@ Klik op **verzenden** en noteer de **antwoordstatus** van **200 OK** en de resul
 ![Rekenmachine-API][api-management-devportal-response]
 
 ## <a name="configure-a-desktop-application-to-call-the-api"></a>Configureer een bureaubladtoepassing de API aan te roepen
-De volgende procedure in de video begint bij 16:30 en configureert u een eenvoudige bureaubladtoepassing de API aan te roepen. De eerste stap is het registreren van de bureaubladtoepassing in Azure AD en toegang geven tot de map en de back-endservice. 18:25 is er een demonstratie van de bureaubladtoepassing een bewerking op de Rekenmachine-API aanroepen.
+
+Configureer een eenvoudige bureaubladtoepassing de API aan te roepen. De eerste stap is het registreren van de bureaubladtoepassing in Azure AD en toegang geven tot de map en de back-endservice. 
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configureer een beleid voor de validatie van JWT vooraf om aanvragen te verifiëren
-De laatste procedure in de video begint bij 20:48 en leest u hoe u de [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid voor het autoriseren vooraf aanvragen door het valideren van de toegangstokens voor elke inkomende aanvraag. Als de aanvraag is niet gevalideerd door het valideren van JWT-beleid, wordt de aanvraag wordt geblokkeerd door de API Management en niet wordt doorgestuurd naar de back-end.
+
+Gebruik de [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid voor het autoriseren vooraf aanvragen door het valideren van de toegangstokens voor elke inkomende aanvraag. Als de aanvraag is niet gevalideerd door het valideren van JWT-beleid, wordt de aanvraag wordt geblokkeerd door de API Management en niet wordt doorgestuurd naar de back-end.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -508,7 +499,7 @@ De laatste procedure in de video begint bij 20:48 en leest u hoe u de [JWT valid
 </validate-jwt>
 ```
 
-Zie voor een andere demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API Management-functies](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en vooruit tot 13:50. Snel doorsturen naar 15:00 voor een overzicht van het beleid dat is geconfigureerd in de beleidseditor en vervolgens naar 18:50 voor een demonstratie van een bewerking aanroepen vanuit de ontwikkelaarsportal zowel met als zonder de vereiste verificatietoken.
+Zie voor meer informatie [Cloud hebben betrekking op aflevering 177: meer API Management-functies](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en vooruit tot 13:50. Snel doorsturen naar 15:00 voor een overzicht van het beleid dat is geconfigureerd in de beleidseditor en vervolgens naar 18:50 voor een demonstratie van een bewerking aanroepen vanuit de ontwikkelaarsportal zowel met als zonder de vereiste verificatietoken.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Bekijk meer [video's](https://azure.microsoft.com/documentation/videos/index/?services=api-management) over API Management.

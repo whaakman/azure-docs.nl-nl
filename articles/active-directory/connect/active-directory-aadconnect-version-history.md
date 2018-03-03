@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen zijn van toepassing op alle doelgroepen.
-' In dit artikel is bedoeld om u te helpen u de versies die zijn uitgebracht en om te begrijpen of u wilt bijwerken naar de nieuwste versie of niet.
+
+Dit artikel is bedoeld om u te helpen u de versies die zijn uitgebracht en om te begrijpen of u wilt bijwerken naar de nieuwste versie of niet.
 
 Dit is een lijst met verwante onderwerpen:
 
@@ -36,14 +37,12 @@ Vereiste machtigingen | Zie voor de vereiste machtigingen voor een update van to
 Download | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="117490"></a>1.1.749.0
-Status: Beschikbaar voor klanten selecteren
-
+Status: Uitgegeven Schakel klanten die deze release is gedistribueerd naar een kleine en willekeurige sectie van AADConnect tenants waarop automatische clientupdate is ingeschakeld. We zullen deze groep van tenants uitvouwen in de komende weken tot 100 procent van onze klanten automatische clientupdate hebben ontvangen deze release. De build voor algemene downloaden op de bovenstaande koppeling - hierna boekt momenteel geplande voor mid van maart 2018.
 >[!NOTE]
 >Wanneer de upgrade naar deze nieuwe versie is voltooid, wordt deze automatisch een volledige synchronisatie en de volledige import voor de Azure AD-connector en een volledige synchronisatie voor de AD-connector activeren. Omdat dit enige tijd, afhankelijk van de grootte van uw Azure AD Connect-omgeving duren kan, zorg ervoor dat u de benodigde stappen voor de ondersteuning van dit of houd uit op het upgraden van totdat u handige even de tijd om dit te doen hebt gevonden hebt genomen.
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 #### <a name="fixed-issues"></a>Opgeloste problemen
-* Tijdvenster los op de achtergrond taken voor het filteren van partitie pagina wanneer
 * Los op achtergrondtaken voor partitie filteren pagina tijdvenster wanneer u overschakelt naar de volgende pagina.
 
 * Een fout die toegangsfout tijdens de aangepaste actie ConfigDB veroorzaakt vast
@@ -59,7 +58,7 @@ Status: Beschikbaar voor klanten selecteren
 
 #### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
 
-* Privacyinstellingen voor de datum van de algemene beveiliging regulering (GDPR) toe te voegen.  Voor GDPR zijn we vereist om aan te geven de typen van klantgegevens die worden gedeeld met Microsoft (telemetrie, status, enz.) bevatten koppelingen naar gedetailleerde online documentatie en bieden een manier voor onze klanten om hun voorkeuren wijzigen.  Dit selectievakje in voegt het volgende:
+* Privacyinstellingen voor de gegevens van de algemene beveiliging regulering (GDPR) toe te voegen.  Voor GDPR zijn we vereist om aan te geven de typen van klantgegevens die worden gedeeld met Microsoft (telemetrie, status, enz.) bevatten koppelingen naar gedetailleerde online documentatie en bieden een manier voor onze klanten om hun voorkeuren wijzigen.  Dit selectievakje in voegt het volgende:
 
 
     - Delen van gegevens en privacy-melding op het opschonen installeren EULA-pagina.

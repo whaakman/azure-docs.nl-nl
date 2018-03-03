@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 362773bbefa754fc90aa4dbd471889245b4b6cf5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configureren van telemetrie van Azure Media Services met .NET
 
@@ -42,19 +42,23 @@ De volgende stappen zijn nodig om telemetrie inschakelen:
 - De referenties van het opslagaccount dat is gekoppeld aan het Media Services-account ophalen. 
 - Maak een Meldingseindpunt met **EndPointType** ingesteld op **AzureTable** en endPointAddress die verwijst naar de tabel opslag.
 
+```csharp
         INotificationEndPoint notificationEndPoint = 
                       _context.NotificationEndPoints.Create("monitoring", 
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
+```
 
 - Maak een controleconfiguratie instellen voor de services die u wilt bewaken. Bewaking niet meer dan één configuratie-instelling is toegestaan. 
-  
+
+```csharp
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
             {
                 new ComponentMonitoringSetting(MonitoringComponent.Channel, MonitoringLevel.Normal),
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
+```
 
 ## <a name="consuming-telemetry-information"></a>Telemetrie-informatie gebruiken
 
@@ -66,13 +70,15 @@ Zie voor informatie over consumerende telemetrie [dit](media-services-telemetry-
 
 2. Voeg het volgende element aan **appSettings** gedefinieerd in het bestand app.config:
 
-    <add key="StorageAccountName" value="storage_name" />
+    ```xml
+        <add key="StorageAccountName" value="storage_name" />
+    ```
  
 ## <a name="example"></a>Voorbeeld  
     
 Het volgende voorbeeld ziet het inschakelen van telemetrie voor de opgegeven AMS-account en de metrische gegevens met Azure Media Services .NET SDK een query.  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5741a484dcda05e3143b5f896ddee2e8591dabee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a16745fc21d03f81ca6140ace54f84468749364
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Face en Emotion met Azure Media Analytics detecteren
 ## <a name="overview"></a>Overzicht
@@ -64,12 +64,14 @@ Face-detectie maakt gebruik van technieken van fragmentatie (waar de metagegeven
 ### <a name="task-configuration-preset"></a>Taken configureren (standaardoptie)
 Bij het maken van een taak met **Azure Media Face detectie**, moet u een configuratie-definitie opgeven. De volgende configuratie-definitie is slechts voor face detection.
 
+```json
     {
       "version":"1.0",
       "options":{
           "TrackingMode": "Fast"
       }
     }
+```
 
 #### <a name="attribute-descriptions"></a>Beschrijvingen van kenmerken
 | Naam van kenmerk | Beschrijving |
@@ -79,6 +81,7 @@ Bij het maken van een taak met **Azure Media Face detectie**, moet u een configu
 ### <a name="json-output"></a>JSON-uitvoer
 Het volgende voorbeeld van JSON-uitvoer is afgebroken.
 
+```json
     {
     "version": 1,
     "timescale": 30000,
@@ -123,8 +126,8 @@ Het volgende voorbeeld van JSON-uitvoer is afgebroken.
                 "height": 0.151389
             }
             ],
+```
 
-        . . . 
 
 ## <a name="emotion-detection-input-and-output-example"></a>Emotiedetectie invoer en uitvoer voorbeeld
 ### <a name="input-video"></a>Invoervideo
@@ -133,6 +136,7 @@ Het volgende voorbeeld van JSON-uitvoer is afgebroken.
 ### <a name="task-configuration-preset"></a>Taken configureren (standaardoptie)
 Bij het maken van een taak met **Azure Media Face detectie**, moet u een configuratie-definitie opgeven. De volgende configuratie voorinstelling geeft als u wilt maken op basis van de emotiedetectie JSON.
 
+```json
     {
       "version": "1.0",
       "options": {
@@ -141,6 +145,7 @@ Bij het maken van een taak met **Azure Media Face detectie**, moet u een configu
         "aggregateEmotionIntervalMs": "342"
       }
     }
+```
 
 
 #### <a name="attribute-descriptions"></a>Beschrijvingen van kenmerken
@@ -161,6 +166,7 @@ Hieronder worden aanbevolen waarden voor de cumulatieve venster en interval-inst
 ### <a name="json-output"></a>JSON-uitvoer
 JSON-uitvoer voor cumulatieve emotion (afgekapt):
 
+```json
     {
      "version": 1,
      "timescale": 30000,
@@ -311,6 +317,7 @@ JSON-uitvoer voor cumulatieve emotion (afgekapt):
                  "anger": 0,
                  "disgust": 0,
                  "fear": 0,
+```
 
 ## <a name="limitations"></a>Beperkingen
 * De ondersteunde video-invoerindelingen zijn MP4 MOV en WMV.
@@ -324,10 +331,12 @@ De volgende programma toont hoe:
 
 1. Maak een asset en upload een mediabestand naar de asset.
 2. Een taak met een face detection-taak op basis van een configuratiebestand met de volgende json-definitie maken: 
-   
-        {
-            "version": "1.0"
-        }
+
+    ```json
+            {
+                "version": "1.0"
+            }
+    ```
 3. De uitvoer JSON-bestanden downloaden. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
@@ -336,7 +345,7 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
 #### <a name="example"></a>Voorbeeld
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

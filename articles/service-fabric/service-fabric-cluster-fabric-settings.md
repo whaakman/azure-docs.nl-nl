@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en het beleid voor Fabric-Upgrade aanpassen
 Dit document wordt uitgelegd hoe de verschillende fabric-instellingen aanpassen en de fabric-upgrade beleid voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met een Azure Resource Manager-sjabloon.
@@ -31,7 +31,7 @@ Dit document wordt uitgelegd hoe de verschillende fabric-instellingen aanpassen 
 De volgende stappen uit te laten zien hoe u een nieuwe instelling toevoegen *MaxDiskQuotaInMB* naar de *Diagnostics* sectie.
 
 1. Ga naar https://resources.azure.com
-2. Navigeer naar uw abonnement door het uitbreiden van **abonnementen** -> **resourcegroepen** -> **Microsoft.ServiceFabric**  ->   **\<Uw Clusternaam >**
+2. Navigeer naar uw abonnement door het uitbreiden van **abonnementen** -> **\<uw abonnement >** -> **resourceGroups**  ->   **\<Uw resourcegroep >** -> **providers** -> **Microsoft.ServiceFabric**  ->  **clusters** -> **\<uw Cluster-naam >**
 3. Selecteer in de rechterbovenhoek, **lezen/schrijven.**
 4. Selecteer **bewerken** en werk de `fabricSettings` JSON-element en een nieuw element toevoegen:
 
@@ -117,7 +117,7 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | --- | --- | --- | --- |
 | NodeAddresses |tekenreeks, standaardwaarde is "" |Statisch|Een verzameling van adressen (verbindingsreeksen) op verschillende knooppunten die kunnen worden gebruikt om te communiceren met de de Naming Service. In eerste instantie verbindt de Client een van de adressen willekeurig selecteren. Als meer dan een verbindingsreeks wordt verstrekt en een verbinding is mislukt vanwege een communicatie- of time-outfout; de Client-switches sequentieel het volgende adres gebruiken. Zie de naamgeving van het adres van de sectie voor meer informatie over de semantiek voor nieuwe pogingen opnieuw. |
 | ConnectionInitializationTimeout |Tijd in seconden, de standaardwaarde is 2 |Dynamisch|Geef de interval in seconden. Time-outinterval voor elke keer client verbinding probeert te openen van een verbinding met de gateway. |
-| Partitionlocationcachelimit op |Int, de standaardwaarde is 100000 |Statisch|Het aantal partities in de cache opgeslagen voor de omzetting van de service (ingesteld op 0 in voor onbeperkt). |
+| PartitionLocationCacheLimit |Int, de standaardwaarde is 100000 |Statisch|Het aantal partities in de cache opgeslagen voor de omzetting van de service (ingesteld op 0 in voor onbeperkt). |
 | ServiceChangePollInterval |Tijd in seconden, de standaardwaarde is 120 |Dynamisch|Geef de interval in seconden. Het interval tussen opeenvolgende polls voor service van de client in de gateway voor geregistreerde service wijziging meldingen retouraanroepen verandert. |
 | KeepAliveIntervalInSeconds |Int, de standaardwaarde is 20 |Statisch|Het interval waarmee het transport FabricClient keepalive-berichten naar de gateway verzendt. Voor 0; keepAlive is uitgeschakeld. Moet een positieve waarde zijn. |
 | HealthOperationTimeout |Tijd in seconden, de standaardwaarde is 120 |Dynamisch|Geef de interval in seconden. De time-out voor een rapportbericht verzonden naar de Health Manager. |
@@ -243,28 +243,28 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | --- | --- | --- | --- |
 | RunAsAccountName |tekenreeks, standaardwaarde is "" |Dynamisch|Geeft de naam van Run as-account. Dit is alleen nodig voor account 'DomainUser' of 'ManagedServiceAccount' type. Geldige waarden zijn 'domein\gebruiker' of 'user@domain'. |
 |RunAsAccountType|tekenreeks, standaardwaarde is "" |Dynamisch|Geeft het type Run as-account. Dit is nodig voor alle geldige waarden voor RunAs-sectie ' DomainUser/NetworkService/ManagedServiceAccount/LocalSystem' zijn.|
-|Wachtwoord|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
+|RunAsPassword|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
 
 ### <a name="section-name-runasfabric"></a>Sectienaam: RunAs_Fabric
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 | RunAsAccountName |tekenreeks, standaardwaarde is "" |Dynamisch|Geeft de naam van Run as-account. Dit is alleen nodig voor account 'DomainUser' of 'ManagedServiceAccount' type. Geldige waarden zijn 'domein\gebruiker' of 'user@domain'. |
 |RunAsAccountType|tekenreeks, standaardwaarde is "" |Dynamisch|Geeft het type Run as-account. Dit is nodig voor alle geldige waarden voor RunAs-sectie ' Lokalegebruiker/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem' zijn. |
-|Wachtwoord|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
+|RunAsPassword|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
 
 ### <a name="section-name-runashttpgateway"></a>Sectienaam: RunAs_HttpGateway
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 | RunAsAccountName |tekenreeks, standaardwaarde is "" |Dynamisch|Geeft de naam van Run as-account. Dit is alleen nodig voor account 'DomainUser' of 'ManagedServiceAccount' type. Geldige waarden zijn 'domein\gebruiker' of 'user@domain'. |
 |RunAsAccountType|tekenreeks, standaardwaarde is "" |Dynamisch|Geeft het type Run as-account. Dit is nodig voor alle geldige waarden voor RunAs-sectie ' Lokalegebruiker/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem' zijn. |
-|Wachtwoord|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
+|RunAsPassword|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
 
 ### <a name="section-name-runasdca"></a>Sectienaam: RunAs_DCA
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 | RunAsAccountName |tekenreeks, standaardwaarde is "" |Dynamisch|Geeft de naam van Run as-account. Dit is alleen nodig voor account 'DomainUser' of 'ManagedServiceAccount' type. Geldige waarden zijn 'domein\gebruiker' of 'user@domain'. |
 |RunAsAccountType|tekenreeks, standaardwaarde is "" |Dynamisch|Geeft het type Run as-account. Dit is nodig voor alle geldige waarden voor RunAs-sectie ' Lokalegebruiker/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem' zijn. |
-|Wachtwoord|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
+|RunAsPassword|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
 
 ### <a name="section-name-httpgateway"></a>Sectienaam: HttpGateway
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
@@ -299,7 +299,7 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 |GatewayX509CertificateFindValue | tekenreeks, standaardwaarde is "" |Dynamisch| Zoeken filterwaarde voor het vinden van het certificaat voor HTTP-app-gateway. Dit certificaat is geconfigureerd op het https-eindpunt en kan ook worden gebruikt om te controleren of de identiteit van de app als nodig is voor de services. FindValue wordt opgezocht eerste; en als dat niet bestaat; FindValueSecondary wordt opgezocht. |
 |GatewayX509CertificateFindValueSecondary | tekenreeks, standaardwaarde is "" |Dynamisch|Zoeken filterwaarde voor het vinden van het certificaat voor HTTP-app-gateway. Dit certificaat is geconfigureerd op het https-eindpunt en kan ook worden gebruikt om te controleren of de identiteit van de app als nodig is voor de services. FindValue wordt opgezocht eerste; en als dat niet bestaat; FindValueSecondary wordt opgezocht.|
 |HttpRequestConnectTimeout|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(5)|Dynamisch|Geef de interval in seconden.  Geeft de time-out voor verbinding maken voor de http-aanvragen worden verzonden vanaf de HTTP-app-gateway.  |
-|RemoveServiceResponseHeaders|tekenreeks, default is L "datum. Server'|Statisch|Puntkomma / door komma's gescheiden lijst van antwoordheaders die wordt verwijderd uit het antwoord van de service; voordat deze worden doorgestuurd naar de client. Als deze optie is ingesteld op een lege tekenreeks; Geeft de headers die zijn geretourneerd door de service-is. Internet Explorer de datum en de Server niet overschrijven |
+|RemoveServiceResponseHeaders|tekenreeks, default is L "datum. Server'|Statisch|Puntkomma / door komma's gescheiden lijst van antwoordheaders die wordt verwijderd uit het antwoord van de service; voordat deze worden doorgestuurd naar de client. Als deze optie is ingesteld op een lege tekenreeks; Geeft de headers die zijn geretourneerd door de service-is. i.e de datum en de Server niet overschrijven |
 |ApplicationCertificateValidationPolicy|tekenreeks, default is L 'None'|Statisch| ApplicationCertificateValidationPolicy: Geen: servercertificaat; wordt niet gevalideerd de aanvraag mislukt. ServiceCertificateThumbprints: Raadpleeg config ServiceCertificateThumbprints voor de door komma's gescheiden lijst met vingerafdrukken van externe certificaten die de omgekeerde proxy kan vertrouwen. ServiceCommonNameAndIssuer: Raadpleeg config ServiceCommonNameAndIssuer voor de vingerafdruk van het onderwerp en de verlener van externe certificaten die de omgekeerde proxy kan vertrouwen. |
 |ServiceCertificateThumbprints|tekenreeks, default is L""|Dynamisch| |
 |CrlCheckingFlag|uint, standaard is 0x40000000 |Dynamisch| De vlaggen voor de toepassing/service validatie van certificaatketen; bijvoorbeeld CRL-controle 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY wijzigt in 0 schakelt CRL controleren of volledige lijst met ondersteunde waarden wordt beschreven door dwFlags van CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078 (v=vs.85).aspx  |
@@ -385,6 +385,7 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 |CommonName2Ntlmx509StoreLocation|tekenreeks, default is L 'LocalMachine'| Statisch|De archieflocatie van de X509 certificaat gebruikt voor het genereren van HMAC op de CommonName2NtlmPasswordSecret bij gebruik van NTLM-verificatie |
 |CommonName2Ntlmx509StoreName|tekenreeks, default is L "Mijn"|Statisch| De naam van het archief van de X509 certificaat gebruikt voor het genereren van HMAC op de CommonName2NtlmPasswordSecret bij gebruik van NTLM-verificatie |
 |CommonName2Ntlmx509CommonName|tekenreeks, default is L""|Statisch|De algemene naam van de X509 certificaat gebruikt voor het genereren van HMAC op de CommonName2NtlmPasswordSecret bij gebruik van NTLM-verificatie |
+|GenerateV1CommonNameAccount| BOOL, standaard is ingesteld op TRUE|Statisch|Geeft aan of voor het genereren van een account met de gebruiker de naam van V1 generatie algoritme. Beginnen met het Service Fabric versie 6.1; een account met v2-generatie wordt altijd gemaakt. De V1-account is nodig voor upgrades van/naar versies die bieden geen ondersteuning voor generatie V2 (ouder dan 6.1 of hoger).|
 
 ### <a name="section-name-imagestoreservice"></a>Sectienaam: ImageStoreService
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
@@ -799,5 +800,5 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 ## <a name="next-steps"></a>Volgende stappen
 Lees deze artikelen voor meer informatie over het Clusterbeheer:
 
-[Toevoegen, overschakelen, certificaten uit uw Azure-cluster verwijderen](service-fabric-cluster-security-update-certs-azure.md) 
+[Toevoegen, overschakelen, certificaten uit uw Azure-cluster verwijderen ](service-fabric-cluster-security-update-certs-azure.md) 
 

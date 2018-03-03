@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: bd09e2a21c25097fa4b378cb2dbe2787edbb1967
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 4139e3675e2202cc42b6b8d7ff7562e9c9d693bb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Metrische telemetrie: Application Insights-gegevensmodel
 
@@ -31,7 +31,7 @@ Metrische gegevens voor systeem- en prestatiemeteritems:
 | **.NET-naam**             | **Platform agnostisch naam** | **De naam van de REST-API** | **Beschrijving**
 | ------------------------- | -------------------------- | ----------------- | ---------------- 
 | `\Processor(_Total)\% Processor Time` | Werk in uitvoering... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | totale aantal CPU
-| `\Memory\Available Bytes`                 | Werk in uitvoering... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | geheugen beschikbaar op de schijf
+| `\Memory\Available Bytes`                 | Werk in uitvoering... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Geeft de hoeveelheid fysiek geheugen in bytes, beschikbaar is voor processen die worden uitgevoerd op de computer. Dit wordt berekend door de hoeveelheid schijfruimte op de lijsten zeroed, gratis en stand-by-geheugen op te tellen. Beschikbaar geheugen is gereed voor gebruik; Zeroed geheugen bestaat uit de pagina's van geheugen gevuld met nullen om te voorkomen dat latere processen gegevens die worden gebruikt door een eerder proces. stand-by-geheugen is geheugen dat is verwijderd uit de werkset van een proces (het fysieke geheugen) onderweg naar schijf, maar is nog steeds beschikbaar te worden teruggehaald. Zie [geheugenobject](https://msdn.microsoft.com/library/ms804008.aspx)
 | `\Process(??APP_WIN32_PROC??)\% Processor Time` | Werk in uitvoering... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | CPU van het proces voor het hosten van de toepassing
 | `\Process(??APP_WIN32_PROC??)\Private Bytes`      | Werk in uitvoering... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | geheugen dat wordt gebruikt door het proces voor het hosten van de toepassing
 | `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Werk in uitvoering... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | het aantal i/o-bewerkingen wordt uitgevoerd door het proces voor het hosten van de toepassing
@@ -52,7 +52,7 @@ Enkelvoudige waarde voor de meting. De som van de afzonderlijke metingen voor de
 
 Metrische gewicht van de cumulatieve metrische gegevens. Mag niet worden ingesteld voor een meting.
 
-## <a name="min"></a>Min
+## <a name="min"></a>Min.
 
 De minimumwaarde van de cumulatieve metrische gegevens. Mag niet worden ingesteld voor een meting.
 

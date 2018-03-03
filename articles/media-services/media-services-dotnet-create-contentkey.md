@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 3280a6fcde59bae360da7cb9fea4bb649f984e43
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8700370dfb577cca95327caa923e2ef893165735
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-contentkeys-with-net"></a>ContentKeys maken met .NET
 > [!div class="op_single_selector"]
@@ -43,6 +43,7 @@ Versleutelde activa hebben moeten worden gekoppeld aan **ContentKey**s. In dit a
 ## <a name="contentkeytype"></a>ContentKeyType
 Een van de waarden moeten in te stellen wanneer een inhoud maken sleutel is het inhoudstype key. Kies een van de volgende waarden. 
 
+```csharp
     public enum ContentKeyType
     {
         /// <summary>
@@ -66,10 +67,12 @@ Een van de waarden moeten in te stellen wanneer een inhoud maken sleutel is het 
         /// </summary>
         EnvelopeEncryption = 4
     }
+```
 
 ## <a id="envelope_contentkey"></a>Het type envelop ContentKey maken
 Het volgende codefragment maakt een inhoudssleutel van het type envelop versleuteling. Vervolgens wordt de sleutel gekoppeld aan de opgegeven asset.
 
+```csharp
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
     {
         // Create envelope encryption content key
@@ -98,15 +101,16 @@ Het volgende codefragment maakt een inhoudssleutel van het type envelop versleut
         return randomBytes;
     }
 
-Aanroep
+call
 
     IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
-
+```
 
 
 ## <a id="common_contentkey"></a>Het algemene type ContentKey maken
 Het volgende codefragment maakt een inhoudssleutel van het algemene versleutelingstype. Vervolgens wordt de sleutel gekoppeld aan de opgegeven asset.
 
+```csharp
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
     {
         // Create common encryption content key
@@ -137,10 +141,10 @@ Het volgende codefragment maakt een inhoudssleutel van het algemene versleutelin
 
         return returnValue;
     }
-Aanroep
+call
 
     IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
-
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b0391bb627ab899960d38b4eaf4478a6cdb8bd0b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3354b0122b9025c5da2fb55439620a56c6c985d9
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Aanpassen Media Encoder Standard voorinstellingen
 
@@ -28,7 +28,7 @@ In dit artikel laat zien hoe uitvoeren van geavanceerde codering met Media Encod
 
 Dit artikel ziet u het aanpassen van een vooraf ingestelde door middel van de [standaardinstelling H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) definitie en het aantal lagen te verminderen. De [Media Encoder Standard aanpassen voorinstellingen](media-services-advanced-encoding-with-mes.md) artikel wordt gedemonstreerd aangepaste standaardinstellingen die kunnen worden gebruikt voor geavanceerde codering taken uitvoeren.
 
-## <a id="customizing_presets"></a>Een definitie MES aanpassen
+## <a id="customizing_presets"></a> Een definitie MES aanpassen
 
 ### <a name="original-preset"></a>Oorspronkelijke definitie
 
@@ -38,7 +38,7 @@ Opslaan van de JSON die is gedefinieerd in de [standaardinstelling H264 Multiple
 
 Open de **CustomPreset_JSON.json** bestands- en verwijderen van de eerste drie lagen uit **H264Layers** zodat uw bestand uitziet.
 
-    
+```json 
     {  
       "Version": 1.0,  
       "Codecs": [  
@@ -107,7 +107,7 @@ Open de **CustomPreset_JSON.json** bestands- en verwijderen van de eerste drie l
         }  
       ]  
     }  
-    
+```
 
 ## <a id="encoding_with_dotnet"></a>Codering met mediaservices .NET SDK
 
@@ -132,7 +132,7 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
 #### <a name="example"></a>Voorbeeld   
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Functies in de engine Azure CDN-regels
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare functies voor Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
 
-Het derde deel van een regel is de functie. Een functie bepaalt het type actie dat wordt toegepast op het type aangeduid met een set voorwaarden overeen met aanvraag.
+Het derde deel van een regel is de functie. Een functie bepaalt het type actie dat wordt toegepast op het aanvraagtype geïdentificeerd door een set voorwaarden van de overeenkomst.
 
 ## <a name="access-features"></a>Access-functies
 
@@ -49,21 +49,21 @@ Naam | Doel
 [Bandbreedtebeperking](#bandwidth-throttling) | Beperkt de bandbreedte voor de respons van de edge-servers.
 [De Bypass-Cache](#bypass-cache) | Hiermee wordt bepaald of de aanvraag moet overslaan.
 [Cache-Control Header behandeling](#cache-control-header-treatment) | Hiermee bepaalt u het genereren van `Cache-Control` headers door de edge-server als onderdeel van de externe maximumleeftijd actief is.
-[Cache-sleutel queryreeks](#cache-key-query-string) | Hiermee wordt bepaald of de cache-sleutel wordt opnemen of uitsluiten van queryreeksparameters die zijn gekoppeld aan een aanvraag.
+[Cache-sleutel queryreeks](#cache-key-query-string) | Hiermee wordt bepaald of de cachesleutel opnemen en uitsluiten van queryreeksparameters die zijn gekoppeld aan een aanvraag.
 [Cache-sleutel opnieuw schrijven](#cache-key-rewrite) | Herschrijft de cache-sleutel die is gekoppeld aan een aanvraag.
 [Voltooien van de opvulling van de Cache](#complete-cache-fill) | Hiermee bepaalt u wat er gebeurt wanneer een aanvraag resulteert in een gedeeltelijke Cachemisser op een edge-server.
-[Bestandstypen comprimeren](#compress-file-types) | Hiermee definieert u de bestandsindelingen die zal worden gecomprimeerd op de server.
-[Standaard interne-maximumleeftijd](#default-internal-max-age) | Het standaardinterval voor de maximale leeftijd voor edge-server naar de oorsprong server cache hervalidatie bepaalt.
+[Bestandstypen comprimeren](#compress-file-types) | Hiermee definieert u de bestandsindelingen voor de bestanden die zijn gecomprimeerd op de server.
+[Default Internal Max-Age](#default-internal-max-age) | Het standaardinterval voor de maximale leeftijd voor edge-server naar de oorsprong server cache hervalidatie bepaalt.
 [Koptekst behandeling verloopt](#expires-header-treatment) | Hiermee bepaalt u het genereren van `Expires` headers door een edge-server als de functie externe maximumleeftijd actief is.
-[Externe maximumleeftijd](#external-max-age) | Bepaalt de maximumleeftijd interval voor de browser edge-server opnieuw valideren.
-[Interne maximumleeftijd forceren](#force-internal-max-age) | De maximale leeftijd interval voor edge-server naar de oorsprong server cache hervalidatie bepaald.
+[External Max-Age](#external-max-age) | Bepaalt de maximumleeftijd interval voor de browser edge-server opnieuw valideren.
+[Force Internal Max-Age](#force-internal-max-age) | De maximale leeftijd interval voor edge-server naar de oorsprong server cache hervalidatie bepaald.
 [H.264-ondersteuning (http-progressief downloaden)](#h264-support-http-progressive-download) | Bepaalt de soorten H.264 bestandsindelingen die kunnen worden gebruikt om inhoud streamen.
-[EEr No-Cache-aanvraag](#honor-no-cache-request) | Hiermee wordt bepaald of Nee-cache-aanvragen van een HTTP-client zal worden doorgestuurd naar de oorspronkelijke server.
+[EEr No-Cache-aanvraag](#honor-no-cache-request) | Hiermee wordt bepaald of een HTTP-client Nee-cache-aanvragen worden doorgestuurd naar de oorspronkelijke server.
 [Negeren oorsprong No-Cache](#ignore-origin-no-cache) | Hiermee wordt bepaald of de CDN bepaalde richtlijnen geleverd van een bronserver negeert.
 [Ongeldig bereiken negeren](#ignore-unsatisfiable-ranges) | Bepaalt de reactie die aan clients worden geretourneerd wanneer een aanvraag statuscode 416 aangevraagd bereik niet geldig genereert.
-[Interne Max-verouderd](#internal-max-stale) | Bepaalt hoe lang voorbij de verlooptijd van de normale een activum in de cache kan worden geleverd vanuit een edge-server wanneer de edge-server niet kan valideren van de cache asset met de bronserver.
+[Internal Max-Stale](#internal-max-stale) | Bepaalt hoe lang voorbij de verlooptijd van de normale een activum in de cache kan worden geleverd vanuit een edge-server wanneer de edge-server niet kan valideren van de cache asset met de bronserver.
 [Gedeeltelijke Cache delen](#partial-cache-sharing) | Hiermee wordt bepaald of een aanvraag deels in cache opgeslagen inhoud kan genereren.
-[De inhoud in cache prevalidate](#prevalidate-cached-content) | Hiermee wordt bepaald of de inhoud in cache in aanmerking komen voor vroege hervalidatie voordat de TTL verloopt.
+[De inhoud in cache prevalidate](#prevalidate-cached-content) | Hiermee wordt bepaald of de inhoud in cache in aanmerking komen voor vroege opnieuw te worden gevalideerd voordat de TTL verloopt.
 [Vernieuwen van nul bytes cachebestanden](#refresh-zero-byte-cache-files) | Hiermee wordt bepaald hoe van de client van een HTTP-aanvraag voor een asset 0-byte-cache wordt verwerkt door de edge-servers.
 [Statuscodes voor caching geschikte instellen](#set-cacheable-status-codes) | Definieert de set van statuscodes die tot de inhoud in cache leiden kunnen.
 [Verouderde Contentlevering bij fout](#stale-content-delivery-on-error) | Bepaalt of verlopen in de cache inhoud wordt geleverd als een fout optreedt tijdens de hervalidatie van de cache of bij het ophalen van de aangevraagde inhoud op de bronserver van de klant.
@@ -83,7 +83,7 @@ Deze functies zijn ontworpen om toevoegen, wijzigen of verwijderen van headers v
 
 Naam | Doel
 -----|--------
-[Leeftijd antwoordheader](#age-response-header) | Hiermee wordt bepaald of een antwoordheader leeftijd wordt opgenomen in het antwoord verzonden naar de aanvrager.
+[Leeftijd antwoordheader](#age-response-header) | Hiermee wordt bepaald of een antwoordheader leeftijd is opgenomen in het antwoord verzonden naar de aanvrager.
 [Fouten opsporen in Cache antwoordheaders](#debug-cache-response-headers) | Hiermee wordt bepaald of een antwoord antwoordheader van de X-EC-Debug die informatie over het cachebeleid voor de aangevraagde asset bevat kan bevatten.
 [De aanvraagheader Client wijzigen](#modify-client-request-header) | Overschreven, wordt toegevoegd of verwijderd van een koptekst van een aanvraag.
 [Client-antwoordheader wijzigen](#modify-client-response-header) | Overschreven, wordt toegevoegd of verwijderd van een koptekst van een antwoord.
@@ -96,7 +96,7 @@ Deze functies zijn ontworpen om aan te passen de gegevens die zijn opgeslagen in
 
 Naam | Doel
 -----|--------
-[Aangepast logboekveld 1](#custom-log-field-1) | Bepaalt de indeling en de inhoud die wordt toegewezen aan het aangepaste logboekveld in een onbewerkte logboekbestand.
+[Aangepast logboekveld 1](#custom-log-field-1) | Bepaalt de indeling en de inhoud die is toegewezen aan het aangepaste logboekveld in een onbewerkte logboekbestand.
 [Queryreeks logboek](#log-query-string) | Hiermee wordt bepaald of een queryreeks samen met de URL in Logboeken worden opgeslagen.
 
 
@@ -151,7 +151,7 @@ Deze functies zijn ontworpen om te bepalen hoe de CDN communiceert met een brons
 Naam | Doel
 -----|--------
 [Maximum aantal keepalive-aanvragen](#maximum-keep-alive-requests) | Definieert het maximum aantal aanvragen voor een Keep-Alive verbinding wordt gesloten.
-[Speciale proxy-kopteksten](#proxy-special-headers) | Definieert de set van CDN-specifieke aanvraagheaders die uit een edge-server, worden doorgestuurd naar een bronserver.
+[Speciale proxy-kopteksten](#proxy-special-headers) | Definieert de set van CDN-specifieke aanvraagheaders die uit een edge-server worden doorgestuurd naar een bronserver.
 
 
 ## <a name="specialty-features"></a>Speciale functies
@@ -195,14 +195,14 @@ Uitgeschakeld | De antwoordheader van de leeftijd is uitgesloten van het antwoor
 
 ---
 ### <a name="bandwidth-parameters"></a>Bandbreedte-Parameters
-**Doel:** bepaalt of parameters (bijvoorbeeld ec_rate en ec_prebuf) voor bandbreedteregeling actief zijn.
+**Doel:** bepaalt of bandbreedte bandbreedteregeling parameters (bijvoorbeeld ec_rate en ec_prebuf) actief zijn.
 
-Bandbreedte, snelheidsbeperking parameters kunt u bepalen of de overdrachtssnelheid van gegevens voor de aanvraag van een client beperkt tot een aangepaste tarief wordt.
+Bandbreedte, snelheidsbeperking parameters kunt u bepalen of de overdrachtssnelheid van gegevens voor de aanvraag van een client zijn beperkt tot een aangepaste frequentie.
 
 Waarde|Resultaat
 --|--
 Ingeschakeld|Kan de edge-servers en bandbreedte, snelheidsbeperking aanvragen.
-Uitgeschakeld|Zorgt ervoor dat de edge-servers voor het negeren van bandbreedte, snelheidsbeperking parameters. De gevraagde inhoud normaal kan worden geleverd (dat wil zeggen, zonder bandbreedtebeperking).
+Uitgeschakeld|Zorgt ervoor dat de edge-servers voor het negeren van bandbreedte, snelheidsbeperking parameters. De gevraagde inhoud normaal gesproken wordt geleverd (dat wil zeggen, zonder bandbreedtebeperking).
 
 **Standaardgedrag:** ingeschakeld.
  
@@ -269,7 +269,7 @@ Belangrijke informatie:
 ### <a name="cacheable-request-body-size"></a>Grootte van standaardberichthoofdtekst voor caching geschikte aanvraag
 **Doel:** definieert de drempelwaarde voor het bepalen of een POST-antwoord in cache.
 
-Deze drempelwaarde wordt bepaald door het opgeven van een maximale aanvraag hoofdtekst grootte. Wordt niet in cache opgeslagen dat aanvragen met een grotere aanvraagtekst.
+Deze drempelwaarde wordt bepaald door het opgeven van een maximale aanvraag hoofdtekst grootte. Dat aanvragen met een grotere aanvraagtekst niet in cache zijn opgeslagen.
 
 Belangrijke informatie:
 
@@ -296,7 +296,7 @@ De eenvoudigste manier om dit type configuratie is de externe maximumleeftijd en
 Waarde|Resultaat
 --|--
 Overschrijven|Zorgt ervoor dat de volgende acties uitgevoerd:<br/> -Overschrijft de `Cache-Control` header die worden gegenereerd door de bronserver. <br/>-Voegt de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd aan het antwoord.
-Doorgeven|Zorgt ervoor dat de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd nooit wordt toegevoegd aan het antwoord. <br/> Als de bronserver produceert een `Cache-Control` -kop, dit wordt doorgegeven via voor de eindgebruiker. <br/> Als de bronserver geen produceert een `Cache-Control` header, wordt deze optie kan ertoe leiden dat de response-header bevat geen een `Cache-Control` header.
+Pass Through|Zorgt ervoor dat de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd nooit wordt toegevoegd aan het antwoord. <br/> Als de bronserver produceert een `Cache-Control` -kop, dit wordt doorgegeven via voor de eindgebruiker. <br/> Als de bronserver geen produceert een `Cache-Control` header, wordt deze optie kan ertoe leiden dat de response-header bevat geen een `Cache-Control` header.
 Indien deze ontbreken toevoegen|Als een `Cache-Control` header is niet ontvangen op de bronserver en vervolgens deze optie wordt de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd. Deze optie is handig om ervoor te zorgen dat alle activa zijn toegewezen een `Cache-Control` header.
 Verwijderen| Deze optie zorgt ervoor dat een `Cache-Control` header is niet opgenomen in de header-reactie. Als een `Cache-Control` header is al toegewezen en vervolgens wordt deze verwijderd uit de header-reactie.
 
@@ -308,23 +308,23 @@ Verwijderen| Deze optie zorgt ervoor dat een `Cache-Control` header is niet opge
 
 ---
 ### <a name="cache-key-query-string"></a>Cache-sleutel queryreeks
-**Doel:** bepaalt of de cache-sleutel wordt opnemen of uitsluiten van queryreeksparameters die zijn gekoppeld aan een aanvraag.
+**Doel:** bepaalt of de cache-sleutel bevat of queryreeksparameters die zijn gekoppeld aan een aanvraag sluit.
 
 Belangrijke informatie:
 
-- Geef een of meer query tekenreeks parameter namen. Elke parameternaam moet worden gescheiden met een spatie.
-- Deze functie bepaalt of queryreeksparameters worden opgenomen of van de cache-sleutel uitgesloten. Aanvullende informatie is beschikbaar voor elk van de onderstaande opties.
+- Geef een of meer query tekenreeks parameter namen. Deliminate elke parameternaam met een spatie.
+- Deze functie bepaalt of queryreeksparameters worden opgenomen of van de cache-sleutel uitgesloten. Aanvullende informatie is beschikbaar voor elke optie in de volgende tabel.
 
 Type|Beschrijving
 --|--
  Opnemen|  Geeft aan dat elke opgegeven parameter in de cache-sleutel moet worden opgenomen. Een unieke cache-sleutel wordt gegenereerd voor elke aanvraag met een unieke waarde voor een queryreeksparameter gedefinieerd in deze functie. 
- Alle  |Hiermee wordt aangegeven dat een unieke cache-sleutel wordt gemaakt voor elke aanvraag naar een activum met een unieke queryreeks. Dit type configuratie wordt meestal niet aanbevolen omdat dit ertoe dat een klein percentage treffers in cache leiden kan. Dit verhoogt de belasting op de bronserver, omdat dat meer aanvragen kunnen worden. Deze configuratie dupliceert het cachegedrag bekend als 'unieke-cache' op de pagina queryreeks opslaan in cache. 
- Uitsluiten | Geeft aan dat alleen de opgegeven parameters worden niet in de cache-sleutel. Alle andere queryreeksparameters worden opgenomen in de cache-sleutel. 
- Sluit alle  |Hiermee wordt aangegeven dat alle queryreeksparameters zullen worden uitgesloten van de cache-sleutel. Deze configuratie een duplicaat van de standaard cachegedrag, staat bekend als 'standard-cache' op de pagina queryreeks opslaan in cache. 
+ Alle  |Hiermee wordt aangegeven dat een unieke cache-sleutel is gemaakt voor elke aanvraag naar een activum met een unieke queryreeks. Dit type configuratie wordt meestal niet aanbevolen omdat dit tot een laag percentage treffers in cache leiden kan. Een klein aantal treffers in cache verhoogt de belasting van de bronserver, omdat deze meer aanvragen moet dienen. Deze configuratie dupliceert het cachegedrag bekend als 'unieke-cache' op de pagina queryreeks opslaan in cache. 
+ Uitsluiten | Geeft aan dat alleen de opgegeven parameters is uitgesloten van de cache-sleutel. Alle andere queryreeksparameters zijn opgenomen in de cache-sleutel. 
+ Sluit alle  |Hiermee wordt aangegeven dat alle queryreeksparameters zijn uitgesloten van de cache-sleutel. Deze configuratie een duplicaat van de 'standaard '-cache standaard cachegedrag op de pagina queryreeks opslaan in cache.  
 
-De kracht van HTTP-Engine voor regels kunt u voor het aanpassen van de manier waarop de query opslaan in cache is geïmplementeerd. U kunt bijvoorbeeld opgeven dat query opslaan in cache alleen op bepaalde locaties of bestandstypen worden uitgevoerd.
+De regelengine voor kunt u voor het aanpassen van de manier waarop de query opslaan in cache is geïmplementeerd. U kunt bijvoorbeeld opgeven dat query opslaan in cache alleen op bepaalde locaties of bestandstypen wordt uitgevoerd.
 
-Als u dupliceren van de queryreeks cachegedrag bekend als 'no-cache' op de pagina queryreeks in cache opslaan wilt, moet u een regel maken waarmee een overeenkomst URL Query jokertekens voorwaarde en een Bypass-Cache-functie bevat. De URL-Query jokertekens overeen voorwaarde moet worden ingesteld op een sterretje (*).
+Als u wilt de queryreeks van 'no-cache' cachegedrag op de pagina queryreeks Caching dupliceren, maakt u een regel met een URL-Query jokertekens overeen voorwaarde en een Bypass-Cache-functie. Stel de overeenkomst jokerteken voor URL-Query op een sterretje (*).
 
 #### <a name="sample-scenarios"></a>Voorbeeldscenario 's
 
@@ -383,13 +383,13 @@ Dit type configuratie genereert de volgende query tekenreeks parameter cache-sle
 ### <a name="cache-key-rewrite"></a>Cache-sleutel opnieuw schrijven
 **Doel:** herschrijft de cache-sleutel die is gekoppeld aan een aanvraag.
 
-Een cache-sleutel is het relatieve pad dat een asset voor de doeleinden van in het cachegeheugen identificeert. Met andere woorden, de servers controleren op de versie van een cache van een activum volgens het bijbehorende pad zoals gedefinieerd door de cachesleutel.
+Een cache-sleutel is het relatieve pad dat een asset voor de doeleinden van in het cachegeheugen identificeert. De servers controleren met andere woorden, de versie van een cache van een activum volgens het bijbehorende pad zoals gedefinieerd door de cachesleutel.
 
 Deze functie configureren met het definiëren van de volgende opties:
 
 Optie|Beschrijving
 --|--
-Oorspronkelijke pad| Definieer het relatieve pad naar de soorten waarvan Cachesleutel herschreven aanvragen. Een relatief pad worden gedefinieerd met een base oorsprongpad selecteren en vervolgens een reguliere-expressiepatroon te definiëren.
+Oorspronkelijke pad| Definieer het relatieve pad naar de soorten waarvan Cachesleutel wordt herschreven aanvragen. Een relatief pad worden gedefinieerd met een base oorsprongpad selecteren en vervolgens een reguliere-expressiepatroon te definiëren.
 Nieuwe pad|Definieer het relatieve pad voor de nieuwe cache-sleutel. Een relatief pad worden gedefinieerd met een base oorsprongpad selecteren en vervolgens een reguliere-expressiepatroon te definiëren. Deze relatieve pad kan dynamisch worden samengesteld door het gebruik van HTTP-variabelen
 **Standaardgedrag:** Cachesleutel van een aanvraag wordt bepaald door de aanvraag-URI.
 
@@ -422,7 +422,7 @@ Een gedeeltelijke Cachemisser beschrijft de status van de cache voor een asset d
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
 --->
-Een gedeeltelijke Cachemisser treedt meestal op nadat een gebruiker een download annuleert of voor bedrijfsmiddelen die uitsluitend worden aangevraagd met behulp van HTTP-aanvragen voor bereik. Deze functie is vooral handig voor grote activa waar gebruikers wordt niet doorgaans worden gedownload van begin tot eind (bijvoorbeeld video's). Als gevolg hiervan is deze functie standaard ingeschakeld op het grote HTTP-platform. Het is uitgeschakeld op alle andere platforms.
+Een gedeeltelijke Cachemisser treedt meestal op nadat een gebruiker een download annuleert of voor bedrijfsmiddelen die uitsluitend worden aangevraagd met behulp van HTTP-aanvragen voor bereik. Deze functie is vooral handig voor grote activa die meestal niet van begin tot eind (bijvoorbeeld video's) worden gedownload. Als gevolg hiervan is deze functie standaard ingeschakeld op het grote HTTP-platform. Het is uitgeschakeld op alle andere platforms.
 
 Houd de standaardconfiguratie voor het HTTP-grote platform, omdat deze de belasting van de bronserver voor uw klant wordt en verhoogt de snelheid waarmee uw klanten uw inhoud downloaden.
 
@@ -431,7 +431,7 @@ Vanwege de manier die in cache van welke instellingen worden bijgehouden, deze f
 Waarde|Resultaat
 --|--
 Ingeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om af te dwingen de edge-server voor het initiëren van een op de achtergrond ophalen van de activa op de bronserver. Waarna de asset worden weergegeven in lokale cache van de edge-server.
-Uitgeschakeld|Hiermee voorkomt dat een edge-server uitvoeren van een op de achtergrond ophalen voor de asset. Dit betekent dat de volgende aanvraag voor de activa van die regio, wordt een edge-server om aan te vragen deze op de bronserver van de klant.
+Uitgeschakeld|Hiermee voorkomt dat een edge-server uitvoeren van een op de achtergrond ophalen voor de asset. Het resultaat is een edge-server om aan te vragen deze op de bronserver klant zorgt ervoor dat de volgende aanvraag voor de activa van die regio.
 
 **Standaardgedrag:** ingeschakeld.
 
@@ -441,7 +441,7 @@ Uitgeschakeld|Hiermee voorkomt dat een edge-server uitvoeren van een op de achte
 
 ---
 ### <a name="compress-file-types"></a>Bestandstypen comprimeren
-**Doel:** worden de bestandsindelingen die zal worden gecomprimeerd gedefinieerd op de server.
+**Doel:** worden de bestandsindelingen voor de bestanden die zijn gecomprimeerd gedefinieerd op de server.
 
 Een bestandsindeling kan worden opgegeven met de Internet-mediatype (bijvoorbeeld Content-Type). Internet-mediatype is platformonafhankelijk metagegevens waarmee de servers voor het identificeren van de bestandsindeling van een bepaald actief. Hieronder vindt u een lijst met algemene typen voor Internet-media.
 
@@ -450,15 +450,15 @@ Internet-mediatype|Beschrijving
 text/plain|Bestanden met tekst zonder opmaak
 text/html| HTML-bestanden
 text/css|Cascading stylesheets (CSS)
-x-toepassing-javascript|Javascript
+application/x-javascript|Javascript
 toepassing/javascript|Javascript
 Belangrijke informatie:
 
 - Geef meerdere mediatypen voor Internet door die begrenst elkaar met een spatie. 
-- Deze functie worden alleen gecomprimeerd voor activa waarvan de grootte minder dan 1 MB is. Grotere activa worden niet door de servers gecomprimeerd.
-- Bepaalde typen inhoud, zoals afbeeldingen, video en audio-media-elementen (bijvoorbeeld, JPG, MP3, MP4, enzovoort), zijn al gecomprimeerd. Aanvullende compressie op deze typen elementen zal de bestandsgrootte niet aanzienlijk afnemen. Daarom wordt aanbevolen dat u niet de mogelijkheid compressie op deze typen van activa.
+- Deze functie worden alleen gecomprimeerd activa waarvan de grootte minder dan 1 MB is. Grotere activa zijn niet door de servers gecomprimeerd.
+- Bepaalde typen inhoud, zoals afbeeldingen, video en audio-media-elementen (bijvoorbeeld, JPG, MP3, MP4, enzovoort), zijn al gecomprimeerd. Omdat u extra compressie op deze typen elementen geen aanzienlijk afbreuk doen bestandsgrootte, wordt het aanbevolen dat u niet de mogelijkheid compressie op deze.
 - Jokertekens zoals sterretjes, worden niet ondersteund.
-- Voordat u deze functie naar een regel toevoegt, zorg ervoor dat u stelt u de optie compressie uitgeschakeld op de pagina compressie voor het platform waarop deze regel moet worden toegepast.
+- Voordat u deze functie naar een regel toevoegt, zorg ervoor dat u stelt u de optie compressie uitgeschakeld op de pagina compressie voor het platform waarop deze regel wordt toegepast.
 
 [Terug naar boven](#azure-cdn-rules-engine-features)
 
@@ -470,21 +470,21 @@ Belangrijke informatie:
 
 Dit aangepaste veld kunt u bepalen welke headerwaarden aanvraag en -antwoord in de logboekbestanden worden opgeslagen.
 
-Standaard wordt het aangepaste logboekveld 'x-ec_custom-1.' genoemd. De naam van dit veld kan echter worden aangepast via de pagina onbewerkte logboekinstellingen.
+Standaard wordt het aangepaste logboekveld 'x-ec_custom-1.' genoemd. De naam van dit veld kan worden aangepast via de pagina onbewerkte logboekinstellingen.
 
-De opmaak die u gebruiken moet om op te geven van de aanvraag- en reactieheaders is onder gedefinieerd.
+De indeling voor het opgeven van de aanvraag- en reactieheaders wordt als volgt gedefinieerd:
 
 Header-Type|Indeling|Voorbeelden
 -|-|-
-Aanvraag-Header|%{[RequestHeader]()}[ik]() | % {Accepteren codering} ik <br/> {Verwijzende site} ik <br/> % {Autorisatie} i
-Antwoordkoptekst|%{[ResponseHeader]()}[o]()| % {Leeftijd} o <br/> % {Content-Type} o <br/> % {Cookie} o
+Aanvraag-Header|%{[RequestHeader]()}[ik]() | %{Accept-Encoding}i <br/> {Referer}i <br/> % {Autorisatie} i
+Antwoordkoptekst|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Belangrijke informatie:
 
 - Een veld van het aangepaste logboek kan bestaan uit een combinatie van header-velden en tekst zonder opmaak.
-- Geldige tekens voor dit veld zijn onder andere: alfanumerieke (0-9, a-z en A-Z), streepjes, dubbele punten, puntkomma's, enkele aanhalingstekens, komma's, punten, onderstrepingstekens, gelijk tekens, haakjes, haakjes en spaties. Het percentagesymbool en de accolades zijn alleen toegestaan als gebruikt voor het opgeven van een headerveld.
+- Geldige tekens voor dit veld als volgt zijn: alfanumerieke (0-9, a-z en A-Z), streepjes, dubbele punten, puntkomma's, enkele aanhalingstekens, komma's, punten, onderstrepingstekens, gelijk tekens, haakjes, haakjes en spaties. Het percentagesymbool en de accolades zijn alleen toegestaan als gebruikt voor het opgeven van een headerveld.
 - De spelling voor elk veld van de opgegeven header moet overeenkomen met de naam van de gewenste aanvraag/antwoord-header.
-- Als u meerdere headers opgeeft wilt, wordt aanbevolen dat u een scheidingsteken om aan te geven van elke koptekst. U kunt bijvoorbeeld een afkorting voor elke koptekst. Hieronder vindt u voorbeeldsyntaxis.
+- Als u meerdere headers opgeven wilt, gebruikt u een scheidingsteken om aan te geven van elke koptekst. U kunt bijvoorbeeld een afkorting voor elke header:
     - AE: % {accepteren codering} i A: % {autorisatie} i CT: % {Content-Type} o 
 
 **Standaardwaarde:** -
@@ -495,7 +495,7 @@ Belangrijke informatie:
 
 ---
 ### <a name="debug-cache-response-headers"></a>Fouten opsporen in Cache antwoordheaders
-**Doel:** bepaalt of een antwoord antwoordheader van de X-EC-Debug die informatie over het cachebeleid voor de aangevraagde asset bevat kan bevatten.
+**Doel:** bepaalt of een antwoord antwoordheader van de X-EC-Debug die informatie over het cachebeleid voor de aangevraagde asset bevat kunt opnemen.
 
 Fouten opsporen in cacheantwoord headers worden opgenomen in het antwoord wanneer het volgende waar zijn:
 
@@ -537,7 +537,7 @@ Belangrijke informatie:
 
 - Instellen van de tijdseenheid 'Uit' toewijst een interne maximumleeftijd standaardinterval van 7 dagen voor aanvragen die niet zijn toegewezen aan een indicatie van de maximale leeftijd in hun `Cache-Control` of `Expires` header.
 - Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
-    - Rand 
+    - Edge 
     - CNAME
     - Aanvraag-Header Literal
     - Aanvraag-Header jokertekens
@@ -578,7 +578,7 @@ De eenvoudigste manier om dit type configuratie is de externe maximumleeftijd en
 Waarde|Resultaat
 --|--
 Overschrijven|Zorgt ervoor dat de volgende acties wordt uitgevoerd:<br/>-Overschrijft de `Expires` header die worden gegenereerd door de bronserver.<br/>-Voegt de `Expires` header geproduceerd door de functie externe maximumleeftijd aan het antwoord.
-Doorgeven|Zorgt ervoor dat de `Expires` header geproduceerd door de functie externe maximumleeftijd nooit wordt toegevoegd aan het antwoord. <br/> Als de bronserver produceert een `Expires` -kop, worden doorgegeven aan de eindgebruiker. <br/>Als de bronserver geen produceert een `Expires` header, wordt deze optie kan ertoe leiden dat de response-header bevat geen een `Expires` header.
+Pass Through|Zorgt ervoor dat de `Expires` header geproduceerd door de functie externe maximumleeftijd nooit wordt toegevoegd aan het antwoord. <br/> Als de bronserver produceert een `Expires` -kop, worden doorgegeven aan de eindgebruiker. <br/>Als de bronserver geen produceert een `Expires` header, wordt deze optie kan ertoe leiden dat de response-header bevat geen een `Expires` header.
 Indien deze ontbreken toevoegen| Als een `Expires` header is niet ontvangen op de bronserver en vervolgens deze optie wordt de `Expires` header geproduceerd door de functie externe maximumleeftijd. Deze optie is handig om ervoor te zorgen dat alle activa zal worden toegewezen een `Expires` header.
 Verwijderen| Zorgt ervoor dat een `Expires` header is niet opgenomen in de header-reactie. Als een `Expires` header is al toegewezen en vervolgens wordt deze verwijderd uit de header-reactie.
 
@@ -627,7 +627,7 @@ Uitgeschakeld|Geen zal aanvragen worden omgeleid.
 </br>
 
 ---
-### <a name="force-internal-max-age"></a>Interne maximumleeftijd forceren
+### <a name="force-internal-max-age"></a>Force Internal Max-Age
 **Doel:** de maximumleeftijd interval voor edge-server naar de oorsprong server cache hervalidatie bepaald. Met andere woorden, de hoeveelheid tijd dat wordt gewacht voordat een edge-server controleren kunt of een in cache asset overeenkomt met de asset die zijn opgeslagen op de bronserver.
 
 Belangrijke informatie:
@@ -641,7 +641,7 @@ Belangrijke informatie:
 
 - Als de tijdseenheid 'Uit', wordt deze functie uitgeschakeld. Een interne maximumleeftijd interval wordt niet worden toegewezen aan de aangevraagde activa. Als de oorspronkelijke header geen instructies cache bevat, wordt de asset overeenkomstig de actieve instelling in de functie standaard interne-maximumleeftijd worden opgeslagen.
 - Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
-    - Rand 
+    - Edge 
     - CNAME
     - Aanvraag-Header Literal
     - Aanvraag-Header jokertekens
@@ -706,7 +706,7 @@ Belangrijke informatie:
 - Het aantal geldige statuscodes voor met deze functie: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, en 505.
 - Deze functie uitschakelen door deze op een lege waarde.
 - Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
-    - Rand 
+    - Edge 
     - CNAME
     - Aanvraag-Header Literal
     - Aanvraag-Header jokertekens
@@ -757,7 +757,7 @@ Belangrijke informatie:
 
 - Instellen van de tijdseenheid 'Uit', wordt deze functie uitschakelen. Een element in de cache kan niet buiten de normale verlooptijd worden geleverd.
 - Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
-    - Rand 
+    - Edge 
     - CNAME
     - Aanvraag-Header Literal
     - Aanvraag-Header jokertekens
@@ -870,10 +870,10 @@ Belangrijke informatie:
     - Accepteer codering
     - leeftijd
     - verbinding
-    - codering van inhoud
-    - lengte van inhoud
-    - inhoud bereik
-    - Datum
+    - content-encoding
+    - content-length
+    - content-range
+    - datum
     - server
     - aanhangwagen
     - Transfer-encoding
@@ -981,7 +981,7 @@ Belangrijke informatie:
 
 De optie Header-naam definieert de naam van de aangepaste aanvraagheaders waar de client-IP-adres wordt opgeslagen.
 
-Met deze functie kunt u een klant bronserver om erachter te komen client-IP-adressen via een aangepaste aanvraagheader. Als de aanvraag is geleverd vanuit cache, wordt er niet de oorspronkelijke server van de client-IP-adres worden geïnformeerd. Daarom is het aanbevolen dat deze functie worden gebruikt met ADN of activa dat wordt niet in cache worden opgeslagen.
+Met deze functie kunt u een klant bronserver om erachter te komen client-IP-adressen via een aangepaste aanvraagheader. Als de aanvraag is geleverd vanuit cache, wordt er niet de oorspronkelijke server van de client-IP-adres worden geïnformeerd. Daarom is het raadzaam dat deze functie worden gebruikt bij de activa die niet zijn opgeslagen in de cache.
 
 Zorg ervoor dat de opgegeven header-naam komt niet overeen met een van de volgende namen:
 
@@ -1063,7 +1063,7 @@ Antwoordcode|De naam van de reactie|Beschrijving
 307|Tijdelijke omleiding|Deze statuscode wordt niet-geautoriseerde gebruikers omgeleid naar de URL die is opgegeven in de locatie-header.
 401|Niet geautoriseerd|Deze statuscode combineren met de reactie WWW-Authenticate-header, kunt u een gebruiker voor de verificatie wordt gevraagd.
 403|Verboden|Dit is de standaard 403 verboden statusbericht dat een onbevoegde gebruiker ziet wanneer u probeert te krijgen tot beveiligde inhoud.
-404|Bestand is niet gevonden|Deze statuscode geeft aan dat de HTTP-client kan communiceren met de server is, maar de aangevraagde inhoud is niet gevonden.
+404|Het bestand is niet gevonden|Deze statuscode geeft aan dat de HTTP-client kan communiceren met de server is, maar de aangevraagde inhoud is niet gevonden.
 
 #### <a name="url-redirection"></a>URL-omleiding
 
@@ -1079,7 +1079,7 @@ URL-doorverwijzing is alleen van toepassing voor 3xx responscodes.
 
 De optie optioneel Header-waarde ondersteunt alfanumerieke tekens, aanhalingstekens en spaties.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Verificatie
 
 Deze functie biedt ondersteuning voor de mogelijkheid om op te nemen van de WWW-Authenticate-header bij het reageren op een ongeautoriseerde aanvraag voor inhoud die is beveiligd door verificatie op basis van tokens. Als de WWW-Authenticate-header is ingesteld op 'basic' in de configuratie en vervolgens de niet-geautoriseerde gebruiker wordt gevraagd om referenties.
 
@@ -1152,13 +1152,13 @@ Bron & patroon| Deze instellingen geven aan een aanvraag-URI-patroon waarmee het
 Doel| Definieer de URL waarnaar de bovenstaande aanvragen worden omgeleid. <br/> Dynamisch maken gebruik van deze URL: <br/> -Een reguliere-expressiepatroon <br/>-HTTP variabelen <br/> Vervang de waarden die zijn vastgelegd in het patroon van de bron in het doel-patroon met $ _n_  waar  _n_  wordt een waarde aangeduid met de volgorde waarin deze is vastgelegd. $1 vertegenwoordigt bijvoorbeeld de eerste waarde die is vastgelegd in het patroon van de bron, terwijl $2 de tweede waarde vertegenwoordigt. <br/> 
 Het is raadzaam een absolute URL gebruiken. Het gebruik van een relatieve URL kan CDN URL's omleiden naar een ongeldig pad.
 
-**Voorbeeldscenario**
+**Sample Scenario**
 
 In dit voorbeeld laat zien hoe een edge CNAME-URL die wordt omgezet naar dit basis-URL in CDN omleiden: http://marketing.azureedge.net/brochures
 
 In aanmerking komende aanvragen worden omgeleid naar deze base rand CNAME-URL: http://cdn.mydomain.com/resources
 
-Deze URL-omleiding kan worden bereikt via de volgende configuratie:![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Belangrijke punten:**
 
@@ -1194,19 +1194,19 @@ Optie|Beschrijving
  Doel  |Definieer de relatieve URL waarnaar de bovenstaande aanvragen worden herschreven door: <br/>    1. Als u een punt voor toegang tot inhoud die een bronserver identificeert. <br/>    2. Het definiëren van een relatief pad met: <br/>        -Een reguliere-expressiepatroon <br/>        -HTTP variabelen <br/> <br/> Vervang de waarden die zijn vastgelegd in het patroon van de bron in het doel-patroon met $ _n_  waar  _n_  wordt een waarde aangeduid met de volgorde waarin deze is vastgelegd. $1 vertegenwoordigt bijvoorbeeld de eerste waarde die is vastgelegd in het patroon van de bron, terwijl $2 de tweede waarde vertegenwoordigt. 
  Deze functie kunt de edge-servers en de URL herschrijven zonder dat u een traditionele omleiding uitvoert. Dit betekent dat de aanvrager de dezelfde antwoordcode ontvangt alsof de herschreven URL hadden aangevraagd.
 
-**Voorbeeldscenario 1**
+**Sample Scenario 1**
 
 In dit voorbeeld laat zien hoe een edge CNAME-URL die wordt omgezet naar dit basis-URL in CDN omleiden: http://marketing.azureedge.net/brochures/
 
 In aanmerking komende aanvragen worden omgeleid naar deze base rand CNAME-URL: http://MyOrigin.azureedge.net/resources/
 
-Deze URL-omleiding kan worden bereikt via de volgende configuratie:![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
-**Voorbeeldscenario 2**
+**Sample Scenario 2**
 
 Dit voorbeeld wordt het omleiden van een edge CNAME URL uit hoofdletters in kleine letters reguliere expressies gebruiken.
 
-Deze URL-omleiding kan worden bereikt via de volgende configuratie:![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Belangrijke punten:**
@@ -1248,8 +1248,8 @@ Deze functie bevat die overeenkomt met de criteria die moeten worden voldaan voo
 </br>
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Regels Engine verwijzing](cdn-rules-engine-reference.md)
-* [Regels Engine voorwaardelijke expressies](cdn-rules-engine-reference-conditional-expressions.md)
+* [Regels engine verwijzing](cdn-rules-engine-reference.md)
+* [Regels engine voorwaardelijke expressies](cdn-rules-engine-reference-conditional-expressions.md)
 * [De overeenkomst motor regels](cdn-rules-engine-reference-match-conditions.md)
-* [Standaardgedrag HTTP met de regelengine van](cdn-rules-engine.md)
+* [HTTP-instelling met de regelengine van wijzigen](cdn-rules-engine.md)
 * [Overzicht van Azure CDN](cdn-overview.md)

@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 271d02bf5793ccb4ca8cbc4eeb8a6c5cfdd74f03
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d226b8f8b3252fe82cd5077d235f301cfaa83654
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Inleiding tot de statuscontrole Service Fabric
 Azure Service Fabric introduceert een statusmodel waarmee de uitgebreide, flexibele en uitbreidbare statusevaluatie en rapportage. Het model kunt near-realtime bewaking van de status van het cluster en de services die erin worden uitgevoerd. Kunt u eenvoudig verkrijgen van informatie en corrigeer eventuele problemen voordat ze trapsgewijs en grote storingen veroorzaken. In het typische model services verzenden rapporten op basis van hun lokale weergaven en dat er gegevens worden samengevoegd om op te geven van een algemene-clusterniveau weergeven.
 
 Dit model uitgebreide health service Fabric-onderdelen gebruiken voor het rapporteren van hun huidige status. U kunt hetzelfde mechanisme rapport status van uw toepassingen. Als u investeert in de status van hoge kwaliteit rapportage die uw aangepaste voorwaarden worden vastgelegd, kunt u detecteren en veel gemakkelijker problemen oplossen voor uw toepassing uitgevoerd.
 
-De volgende video voor Microsoft Virtual Academy beschrijft ook het statusmodel van de Service Fabric en hoe deze wordt gebruikt:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+De volgende video voor Microsoft Virtual Academy beschrijft ook het statusmodel van de Service Fabric en hoe deze wordt gebruikt: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -96,7 +96,7 @@ Het statusbeleid cluster bevat:
 * [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Hiermee geeft u op of op dezelfde manier behandelen waarschuwing health als fouten tijdens de statusevaluatie. Standaard: false.
 * [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Hiermee geeft u het maximumpercentage verdragen van toepassingen die beschadigd worden kunnen voordat het cluster wordt beschouwd als fout.
 * [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Hiermee geeft u het maximumpercentage verdragen van knooppunten die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. In grote clusters sommige knooppunten zijn altijd niet actief of out-reparaties, zodat dit percentage moet worden geconfigureerd voor die tolereren.
-* [Applicationtypehealthpolicymap; deze](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). De toepassing type health beleid kaart kan worden gebruikt tijdens de evaluatie van de cluster-status te beschrijven van speciale toepassingstypen. Standaard worden alle toepassingen in een pool geplaatst en geëvalueerd, MaxPercentUnhealthyApplications. Als sommige toepassingtypen anders moeten worden behandeld, kunnen ze worden uitgevoerd buiten de globale groep. Ze worden geëvalueerd op basis van de percentages die zijn gekoppeld aan de naam van het toepassingstype in de kaart. Bijvoorbeeld in een cluster zijn er duizenden toepassingen met verschillende typen en enkele exemplaren van een besturingselement toepassing van een speciale toepassingstype. De toepassingen van het besturingselement moet nooit fout. U kunt globale MaxPercentUnhealthyApplications tot 20% tolereren in sommige gevallen, maar voor het type 'ControlApplicationType' de MaxPercentUnhealthyApplications ingesteld op 0 opgeven. Op deze manier als sommige van de vele toepassingen niet in orde zijn, maar onder de globale slecht percentage, zou het cluster worden geëvalueerd voor de waarschuwing. Upgraden van cluster is niet van invloed op een waarschuwingsstatus of andere bewaking geactiveerd op basis van de status fout. Maar zelfs één besturingselement toepassing in fout zouden cluster slechte, die terugdraaifase activeert of het upgraden van het cluster, afhankelijk van de configuratie van de upgrade wordt onderbroken.
+* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). De toepassing type health beleid kaart kan worden gebruikt tijdens de evaluatie van de cluster-status te beschrijven van speciale toepassingstypen. Standaard worden alle toepassingen in een pool geplaatst en geëvalueerd, MaxPercentUnhealthyApplications. Als sommige toepassingtypen anders moeten worden behandeld, kunnen ze worden uitgevoerd buiten de globale groep. Ze worden geëvalueerd op basis van de percentages die zijn gekoppeld aan de naam van het toepassingstype in de kaart. Bijvoorbeeld in een cluster zijn er duizenden toepassingen met verschillende typen en enkele exemplaren van een besturingselement toepassing van een speciale toepassingstype. De toepassingen van het besturingselement moet nooit fout. U kunt globale MaxPercentUnhealthyApplications tot 20% tolereren in sommige gevallen, maar voor het type 'ControlApplicationType' de MaxPercentUnhealthyApplications ingesteld op 0 opgeven. Op deze manier als sommige van de vele toepassingen niet in orde zijn, maar onder de globale slecht percentage, zou het cluster worden geëvalueerd voor de waarschuwing. Upgraden van cluster is niet van invloed op een waarschuwingsstatus of andere bewaking geactiveerd op basis van de status fout. Maar zelfs één besturingselement toepassing in fout zouden cluster slechte, die terugdraaifase activeert of het upgraden van het cluster, afhankelijk van de configuratie van de upgrade wordt onderbroken.
   Voor de toepassingstypen gedefinieerd in de kaart, worden alle exemplaren van een toepassing genomen buiten de algemene groep van toepassingen. Ze worden geëvalueerd op basis van het totale aantal aanvragen van het toepassingstype, met behulp van de specifieke MaxPercentUnhealthyApplications van de kaart. De rest van de toepassingen blijven in de algemene groep en met MaxPercentUnhealthyApplications worden geëvalueerd.
 
 Het volgende voorbeeld is een fragment uit een clustermanifest van de. Als u wilt definiëren vermeldingen in de toepassing type-kaart, het voorvoegsel dat de parameternaam van de met 'ApplicationTypeMaxPercentUnhealthyApplications-', gevolgd door de naam van het toepassingstype.
@@ -119,7 +119,7 @@ De configureerbare beleidsregels zijn:
 * [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Hiermee geeft u op of op dezelfde manier behandelen waarschuwing health als fouten tijdens de statusevaluatie. Standaard: false.
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Hiermee geeft u het maximale percentage verdragen geïmplementeerde toepassingen die beschadigd worden kunnen voordat de toepassing wordt beschouwd als fout. Dit percentage wordt berekend door het aantal beschadigde geïmplementeerde toepassingen delen via het aantal knooppunten dat de toepassingen die momenteel zijn geïmplementeerd op in het cluster. De berekening rondt af naar boven op een storing op een klein aantal knooppunten tolereren. Percentage standaard: nul.
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Hiermee geeft u het standaard service type statusbeleid, die het statusbeleid standaard voor alle servicetypen in de toepassing vervangt.
-* [Servicetypehealthpolicymap; deze](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Geeft een overzicht van service statusbeleid per servicetype. Deze beleidsregels vervangen door de service type health standaardbeleidsregels voor elk type opgegeven service. Bijvoorbeeld, als een toepassing een servicetype staatloze gateway en een servicetype stateful-engine heeft, kunt u het statusbeleid voor de evaluatie anders. Wanneer u beleid per servicetype opgeeft, krijgt u gedetailleerde controle over de status van de service.
+* [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Geeft een overzicht van service statusbeleid per servicetype. Deze beleidsregels vervangen door de service type health standaardbeleidsregels voor elk type opgegeven service. Bijvoorbeeld, als een toepassing een servicetype staatloze gateway en een servicetype stateful-engine heeft, kunt u het statusbeleid voor de evaluatie anders. Wanneer u beleid per servicetype opgeeft, krijgt u gedetailleerde controle over de status van de service.
 
 ### <a name="service-type-health-policy"></a>Statusbeleid voor service type
 De [service type statusbeleid](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy) geeft aan hoe evalueren en samenvoegen van de services en de onderliggende services. Het beleid bevat:
@@ -200,9 +200,9 @@ De [statusrapporten](https://docs.microsoft.com/dotnet/api/system.fabric.health.
 * **Entiteit-id**. Identificeert de entiteit waarop het rapport wordt toegepast. Het verschil op basis van de [entiteitstype](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
   * Het cluster. Geen.
-  * Knooppunt. Naam van knooppunt (tekenreeks).
+  * Node. Naam van knooppunt (tekenreeks).
   * de toepassing. Toepassingsnaam (URI). Vertegenwoordigt de naam van het toepassingsexemplaar geïmplementeerd in het cluster.
-  * De service. Service-naam (URI). Vertegenwoordigt de naam van het service-exemplaar dat is geïmplementeerd in het cluster.
+  * Service. Service-naam (URI). Vertegenwoordigt de naam van het service-exemplaar dat is geïmplementeerd in het cluster.
   * Partitie. Partitie-ID (GUID). Hiermee geeft u de unieke id van partitie.
   * De replica. De stateful-replica-ID of de staatloze service-exemplaar-ID (INT64).
   * DeployedApplication. Toepassingsnaam (URI) en de naam van het knooppunt (tekenreeks).

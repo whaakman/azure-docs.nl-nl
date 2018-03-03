@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3163454213db0afb94e668e4c56924d7833d769
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse Media-bestanden met Azure Media Hyperlapse
 Azure Media Hyperlapse is een Media Processor (MP) die u smooth video's verstreken tijd van eerste persoon of actie camera inhoud maakt.  De cloud-gebaseerd op hetzelfde niveau naar [van Microsoft Research bureaublad Hyperlapse Pro en Hyperlapse mobiele telefoon](http://aka.ms/hyperlapse), Microsoft Hyperlapse voor Azure Media Services maakt gebruik van de grote schaal van de verwerking van Azure Media Services Media platform horizontaal schalen en parallelize bulksgewijs Hyperlapse verwerken.
@@ -47,7 +47,7 @@ Nadat de inhoud van uw Media Services-account is, moet u uw configuratie-definit
 Hier volgt een voorbeeld van een configuratiebestand overeenstemmende in XML en JSON:
 
 **XML-definitie:**
-
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
@@ -57,9 +57,10 @@ Hier volgt een voorbeeld van een configuratiebestand overeenstemmende in XML en 
             <Speed>12</Speed>
         </Options>
     </Preset>
+```
 
 **JSON-definitie:**
-
+```json
     {
         "Version":1.0,
         "Sources": [
@@ -73,8 +74,9 @@ Hier volgt een voorbeeld van een configuratiebestand overeenstemmende in XML en 
             "Stabilize":false
         }
     }
+```
 
-### <a id="sample_code"></a>Microsoft Hyperlapse met de AMS .NET SDK
+### <a id="sample_code"></a> Microsoft Hyperlapse met de AMS .NET SDK
 De volgende methode uploadt een mediabestand als een actief en maakt een taak met de Azure Media Hyperlapse Media-Processor.
 
 > [!NOTE]
@@ -85,6 +87,7 @@ De volgende methode uploadt een mediabestand als een actief en maakt een taak me
 > 
 > 
 
+```csharp
         static bool RunHyperlapseJob(string input, string output, string hyperConfig)
         {
             // create asset with input file
@@ -197,6 +200,7 @@ De volgende methode uploadt een mediabestand als een actief en maakt een taak me
 
         return processor;
     }
+```
 
 ### <a id="file_types"></a>Ondersteunde bestandstypen
 * MP4

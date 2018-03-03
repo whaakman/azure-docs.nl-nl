@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
 ms.author: daveba
-ms.openlocfilehash: be80065f83e8c80e7c1d6ab383cea04e0d2679a0
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 90a7ec3059b6905e4aa660f538c299f3e8dedaae
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Een beheerde Service identiteit (MSI) toegang toewijzen aan een resource met Azure CLI
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Wanneer u een Azure-resource hebt geconfigureerd met een MSI-bestand, kunt u de MSI-toegang geven tot een andere resource, net als elke beveiligings-principal. In dit voorbeeld ziet u hoe een virtuele machine van Azure van MSI toegang te verlenen tot een Azure storage-account met Azure CLI.
+Wanneer u een Azure-resource hebt geconfigureerd met een MSI-bestand, kunt u de MSI-toegang geven tot een andere resource, net als elke beveiligings-principal. Dit voorbeeld ziet u hoe u Azure een virtuele machine of virtuele-machineschaalset van MSI toegang geven tot een Azure storage-account met Azure CLI.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -39,21 +39,26 @@ De CLI script als voorbeelden wilt uitvoeren, hebt u drie opties:
 
 ## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Gebruikmaken van RBAC de MSI-toegang toewijzen aan een andere bron
 
-Nadat u MSI hebt ingeschakeld op een Azure-resource [zoals een Azure VM](msi-qs-configure-cli-windows-vm.md): 
+Nadat u hebt MSI ingeschakeld op een Azure-resource, zoals een [virtuele machine van Azure](msi-qs-configure-cli-windows-vm.md) of [Azure virtuele-machineschaalset](msi-qs-configure-cli-windows-vmss.md): 
 
-1. Als u de Azure CLI in een lokale console, eerst aanmelden bij het gebruik van Azure [az aanmelding](/cli/azure/#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waarmee u wilt implementeren, de virtuele machine:
+1. Als u de Azure CLI in een lokale console, eerst aanmelden bij het gebruik van Azure [az aanmelding](/cli/azure/#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waarmee u wilt de schaalaanpassingsset virtuele machine of virtuele machine implementeren:
 
    ```azurecli-interactive
    az login
    ```
 
-2. In dit voorbeeld geeft wordt een virtuele machine van Azure toegang tot een opslagaccount. Eerst gebruiken we [az resourcelijst](/cli/azure/resource/#az_resource_list) ophalen van de service-principal voor de virtuele machine met de naam 'myVM', die is gemaakt bij MSI op de virtuele machine is ingeschakeld:
+2. In dit voorbeeld geeft wordt een virtuele machine van Azure toegang tot een opslagaccount. Eerst gebruiken we [az resourcelijst](/cli/azure/resource/#az_resource_list) ophalen van de service-principal voor de virtuele machine met de naam 'myVM':
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
    ```
+   Voor een virtuele machine van Azure scale set, de opdracht is hetzelfde, behalve hier, kunt u kunt de service-principal voor de virtuele-machineschaalset weergeven met de naam 'DevTestVMSS':
+   
+   ```azurecli-interactive
+   spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)
+   ```
 
-3. Wanneer we de service-principal-ID hebt, gebruiken we [az roltoewijzing maken](/cli/azure/role/assignment#az_role_assignment_create) geven van de virtuele machine 'Lezer' toegang tot een opslagaccount 'myStorageAcct' genoemd:
+3. Zodra u de service-principal-ID hebt, gebruikt u [az roltoewijzing maken](/cli/azure/role/assignment#az_role_assignment_create) ingesteld zodat de virtuele machine of virtuele-machineschaalset 'Lezer' toegang tot een opslagaccount 'myStorageAcct' genoemd:
 
    ```azurecli-interactive
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct
@@ -61,17 +66,18 @@ Nadat u MSI hebt ingeschakeld op een Azure-resource [zoals een Azure VM](msi-qs-
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Als het MSI-bestand voor de resource niet in de lijst met beschikbare identiteiten weergegeven wordt, moet u controleren of het MSI-bestand juist is ingeschakeld. In ons geval we kunt teruggaan naar de Azure VM in de [Azure-portal](https://portal.azure.com) en:
+Als het MSI-bestand voor de resource niet in de lijst met beschikbare identiteiten weergegeven wordt, moet u controleren of het MSI-bestand juist is ingeschakeld. In ons geval we kunt teruggaan naar de Azure virtuele machine of virtuele-machineschaalset ingesteld in de [Azure-portal](https://portal.azure.com) en:
 
 - Bekijk de pagina 'Configuration' en zorg ervoor dat MSI ingeschakeld = "Yes".
-- Bekijk de pagina 'Extensies' en zorg ervoor dat de MSI-extensie die is geïmplementeerd.
+- Bekijk de pagina 'Extensies' en zorg ervoor dat de MSI-extensie geïmplementeerd (**extensies** pagina is niet beschikbaar voor een Azure virtuele-machineschaalset).
 
 Als een onjuist is, moet u wellicht de MSI van uw resources opnieuw te implementeren of problemen met de implementatie is mislukt.
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 
 - Zie voor een overzicht van MSI [overzicht van de Service-identiteit beheerd](msi-overview.md).
-- Zie voor het inschakelen van MSI op een Azure VM [configureren van een Azure VM beheerde Service identiteit (MSI) met Azure CLI](msi-qs-configure-cli-windows-vm.md).
+- Zie voor meer informatie over het inschakelen van MSI op een virtuele machine van Azure [configureren van een Azure VM beheerde Service identiteit (MSI) met Azure CLI](msi-qs-configure-cli-windows-vm.md).
+- Zie voor meer informatie over het inschakelen van MSI op een virtuele machine van Azure scale set [een Azure virtuele Machine Scale ingesteld beheerde Service identiteit (MSI) met de Azure portal configureren](msi-qs-configure-portal-windows-vmss.md)
 
 Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze content vorm.
 

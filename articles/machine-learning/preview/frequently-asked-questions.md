@@ -5,16 +5,16 @@ services: machine-learning
 author: serinakaye
 ms.author: serinak
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 94c6576f92b5a004e0fd509c1dc6e091c294658a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ef1486bb65da7ca49e2d03273a47a3a3ee05150e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning Veelgestelde vragen
 
@@ -23,14 +23,6 @@ ms.lasthandoff: 12/18/2017
 **Wat is Azure Machine Learning?**
 
 Azure Machine Learning is een volledig beheerde Azure-service waarmee u kunt maken, testen, beheren en implementeren van machine learning en AI-modellen. Onze nieuwe services en de downloadbare toepassing bieden een code first-aanpak die gebruikmaakt van de cloud, on-premises en rand bieden de trein, implementeren, beheren en bewaken van modellen met energiebeheer, de snelheid en flexibiliteit. Azure Machine Learning Studio biedt ook een browser, visuele slepen en neerzetten ontwerpomgeving waar geen codering vereist is. 
-
-**Hoe ga ik aan de slag met de preview?**
-
-De eenvoudigste manier om te beginnen is aan te melden voor de Service experimenteren in Azure. Vanuit de portal kunt u ook onze gratis toepassing van de Workbench downloaden of zich aanmeldt voor een Model-Management-account. U kunt bovendien Ga naar onze documentatiesite voor artikelen, video's, demo code en meer. 
-
-**Ik heb geen een Azure-abonnement. Kan ik de nieuwe services nog steeds proberen?**
-
-Onze nieuwe services vereist als onderdeel van de portfolio van Microsoft Azure, een Azure-abonnement. Daarnaast moet er voldoende machtigingen voor het maken van de activa zoals resourcegroepen, virtuele Machines, enzovoort. 
 
 **In welke regio's zijn dat de nieuwe services beschikbaar zijn?**
 
@@ -52,7 +44,7 @@ Wordt ondersteund Python alleen. We werken R-integratie en is deze beschikbaar b
 
 **Hoe Azure Machine Learning hebben betrekking op Microsoft Machine Learning voor Spark?**
 
-A: MMLSpark biedt grondige learning en data wetenschappelijke tools voor Apache Spark, met nadruk op de productiviteit, eenvoudig te experimenteren en van geavanceerde algoritmen. MMLSpark biedt integratie van Spark Machine Learning pijplijnen met de Microsoft cognitieve Toolkit en OpenCV. U kunt krachtige, zeer schaalbare voorspellende en analytische modellen voor tekst en de installatiekopie van gegevens maken. MMLSpark is beschikbaar voor een open source-licentie en is opgenomen in de Workbench AML als een set van verbruikbare modellen en algoritmen. Ga naar onze productdocumentatie voor meer informatie over MMLSpark. 
+MMLSpark biedt grondige learning en data wetenschappelijke tools voor Apache Spark, met nadruk op de productiviteit, eenvoudig te experimenteren en van geavanceerde algoritmen. MMLSpark biedt integratie van Spark Machine Learning pijplijnen met de Microsoft cognitieve Toolkit en OpenCV. U kunt krachtige, zeer schaalbare voorspellende en analytische modellen voor tekst en de installatiekopie van gegevens maken. MMLSpark is beschikbaar voor een open source-licentie en is opgenomen in de Workbench AML als een set van verbruikbare modellen en algoritmen. Ga naar onze productdocumentatie voor meer informatie over MMLSpark. 
 
 **Welke versies van Spark worden ondersteund door de nieuwe hulpprogramma's en services? Bovenste gedeelte**
 
@@ -135,7 +127,7 @@ Nee. Azure Machine Learning-Workbench is een gratis toepassing. U kunt deze toep
 
 **Opdrachtregelprogramma mogelijkheden ondersteund?**
 
-A: Ja, biedt Azure Machine Learning een volledige CLI-interface. De Machine Learning CLI is standaard geïnstalleerd met de Azure Machine Learning-Workbench. Het is ook beschikbaar als onderdeel van de Gegevenswetenschap Linux virtuele machine in Azure en zal worden geïntegreerd in de [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+Ja, biedt Azure Machine Learning een volledige CLI-interface. De Machine Learning CLI is standaard geïnstalleerd met de Azure Machine Learning-Workbench. Het is ook beschikbaar als onderdeel van de Gegevenswetenschap Linux virtuele machine in Azure en zal worden geïntegreerd in de [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 
 
 **Kan ik Jupyter-Notebooks gebruiken met Workbench?**
@@ -144,7 +136,7 @@ Ja. U kunt Jupyter-notebooks uitvoeren in de Workbench met Workbench de clientto
 
 **Welke kernels voor Jupyter-Notebook worden ondersteund?**
 
-A: de huidige versie van Jupyter opgenomen in de Workbench wordt gestart van een Python-3-kernel en een extra kernel voor elk bestand 'runconfig' in de map aml_config. Ondersteunde configuraties zijn onder andere:
+De huidige versie van Jupyter opgenomen in de Workbench wordt gestart van een Python-3-kernel en een extra kernel voor elk bestand 'runconfig' in de map aml_config. Ondersteunde configuraties zijn onder andere:
 - Lokale Python
 - Python in lokale of externe Docker
 
@@ -176,7 +168,7 @@ Voor de openbare preview ondersteunt Workbench "Afgeleid kolom door bijvoorbeeld
 
 **Zijn er maximale grootte van gegevens door Azure Machine Learning Workbench, experimenteren of Model Management afgedwongen?**
 
-A: de nieuwe services leggen Nee, geen gegevens beperkingen. Er zijn echter beperkingen die zijn geïntroduceerd in de omgeving waarin u uw gegevens voorbereiden, model training, experimenteren of implementatie wilt uitvoeren. Bijvoorbeeld, als u voor een lokale omgeving voor training ontwikkelt, u beperkt door de beschikbare ruimte op de harde schijf. U kunt ook als u voor HDInsight ontwikkelt, u worden beperkt door een gekoppelde grootte of compute-beperkingen. 
+De nieuwe services leggen Nee, geen gegevens beperkingen. Er zijn echter beperkingen die zijn geïntroduceerd in de omgeving waarin u uw gegevens voorbereiden, model training, experimenteren of implementatie wilt uitvoeren. Bijvoorbeeld, als u voor een lokale omgeving voor training ontwikkelt, u beperkt door de beschikbare ruimte op de harde schijf. U kunt ook als u voor HDInsight ontwikkelt, u worden beperkt door een gekoppelde grootte of compute-beperkingen. 
 
 ## <a name="algorithms-and-libraries"></a>Algoritmen en bibliotheken
 
@@ -187,45 +179,3 @@ Onze preview producten en services omvatten het beste van de open-source-communi
 **Hoe Azure Machine Learning gerelateerd aan de Microsoft cognitieve Toolkit?**
 
 De [Microsoft cognitieve Toolkit](https://www.microsoft.com/cognitive-toolkit/) is een veel frameworks die worden ondersteund door onze nieuwe hulpprogramma's en services. De cognitieve Toolkit is een uniform deep-learning-toolkit waarmee u kunt gebruiken en het combineren van populaire machine learning-modellen Feed doorsturen Deep Neural Networks, Convolutional netten, inclusief Sequence naar Sequence en terugkerende netwerken. Voor meer informatie over Microsoft cognitieve Toolkit, gaat u naar onze [productdocumentatie](https://docs.microsoft.com/cognitive-toolkit/). 
-
-## <a name="pricing-and-billing"></a>Prijzen en facturering
-
-**Bent u in rekening gebracht voor Azure Machine Learning tijdens de preview?** 
-
-A: het Azure Machine Learning Workbench toepassing beschikbaar is gratis Azure-abonnees. De Service experimenteren en het Modelbeheer bieden gratis lagen, naast betaald lagen, die beschikbaar zijn op een korting tijdens de openbare Preview.
-
-**Ik gefactureerd op basis van hoeveel experimenten ik uitvoeren?**
-
-Nee, u kunt met de Experimenten-service net zoveel experimenten uitvoeren als u wilt. De kosten zijn uitsluitend gebaseerd op het aantal gebruikers. Rekenbronnen voor experimenten worden afzonderlijk in rekening gebracht.  We raden u aan het uitvoeren van meerdere experimenten voor het beste model voor uw oplossing aankomen. 
-
-**Ik in rekening gebracht op basis van hoe vaak mijn web-services wordt heet?**
-
-Nee. Web-services kunnen zo vaak als nodig zijn, zonder gevolgen facturering Model Management worden aangeroepen. U hebt de volledige controle om uw implementaties te schalen om te voldoen aan de vereisten van uw toepassingen.
-
-**Hoe kan ik het aantal eenheden dat ik hebt aangeschaft in de Azure Machine Learning-Model Management schalen?**
-
-Kunt u het aantal eenheden, omhoog of omlaag, met behulp van de Azure-portal of de CLI. 
-
-**Hoe wordt mijn factuur eruit?**
-
-Facturen worden dagelijks geproduceerd. Voor facturatiedoeleinden begint een dag om middernacht (UTC). Facturen worden maandelijks gegenereerd. Afzonderlijke kosten verbonden zijn voor Azure-services die worden gebruikt in combinatie met Azure Machine Learning. Kosten kunnen bevatten, maar zijn niet beperkt tot: 
-- COMPUTE-kosten
-- HDInsight
-- Azure Container Service
-- Azure Container Registry 
-- Azure Blob Storage
-- Application Insights
-- Azure Key Vault
-- Visual Studio Team Services
-- Azure Event Hub
-- Azure Stream Analytics voor meer informatie of als een rekening voorbeeld wilt bekijken, gaat u naar onze pagina met prijzen. 
-
-## <a name="support-and-training"></a>Ondersteuning en training
-
-**Waar kan ik training krijgen voor Azure Machine Learning?**
-
-Het [Azure Machine Learning-documentatiecentrum](./overview-what-is-azure-ml.md) bevat video’s voor zelfstudie en handleidingen. Deze stapsgewijze instructies vindt de services en de levenscyclus van de gegevens wetenschappelijke toegelicht. We voegen regelmatig nieuw materiaal toe aan Machine Learning Center. U kunt aanvragen versturen voor extra materiaal op het forum met feedback van gebruikers.
-
-**Waar kan ik ondersteuning krijgen voor Azure Machine Learning?**
-
-Voor technische ondersteuning, Ga voor de ondersteuning van Azure en selecteer van Machine Learning. Azure Machine Learning heeft ook een actieve community op [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) gemarkeerd met "Azure-Machine-Learning' wordt bewaakt door het team.  Suggesties en functie-aanvragen kunnen worden ingediend bij de [Azure Machine Learning Feedback](https://feedback.azure.com/forums/257792-machine-learning) site. 

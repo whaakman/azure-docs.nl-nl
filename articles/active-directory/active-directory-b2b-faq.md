@@ -3,7 +3,7 @@ title: Azure Active Directory B2B-samenwerking Veelgestelde vragen | Microsoft D
 description: Vind antwoorden op veelgestelde vragen over Azure Active Directory B2B-samenwerking.
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,20 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 01/08/2018
-ms.author: sasubram
+ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 4c43082281cbc95ae75b65a2aefadbbab6d7cd30
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 21511b37eba2cd2e87d8720f3e9cfe453b50d88c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
 
 Deze Veelgestelde vragen over Azure Active Directory (Azure AD) business-to-business (B2B) samenwerking worden regelmatig bijgewerkt met nieuwe onderwerpen.
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Kunnen we onze aanmeldingspagina aanpassen zodat u meer intuïtieve van onze gastgebruikers B2B-samenwerking?
-Absoluut! Zie onze [blogbericht over deze functie](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Zie voor meer informatie over het aanpassen van de aanmeldingspagina van uw organisatie [huisstijl om aan te melden en de Toegangsvensterpagina's toevoegen](customize-branding.md).
+Absolutely! Zie onze [blogbericht over deze functie](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Zie voor meer informatie over het aanpassen van de aanmeldingspagina van uw organisatie [huisstijl om aan te melden en de Toegangsvensterpagina's toevoegen](customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>B2B-samenwerking gebruikers toegang tot SharePoint Online en OneDrive?
 Ja. De mogelijkheid om te zoeken naar bestaande gastgebruikers in SharePoint Online met behulp van de personen selecteren is echter **uit** standaard. U schakelt de optie om te zoeken naar bestaande gastgebruikers stellen **ShowPeoplePickerSuggestionsForGuestUsers** naar **op**. U kunt deze instelling inschakelen op het niveau van de tenant of op het niveau van de site. U kunt deze instelling wijzigen met behulp van de Set SPOTenant en Set-SPOSite-cmdlets. Met deze cmdlets kunnen leden alle bestaande gastgebruikers zoeken in de map. Wijzigingen in het tenantbereik is niet van invloed op SharePoint Online-sites die al zijn ingericht.

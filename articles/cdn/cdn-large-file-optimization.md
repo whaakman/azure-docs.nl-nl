@@ -1,5 +1,5 @@
 ---
-title: Optimalisatie van grote bestanden downloaden via het Azure Content Delivery Network
+title: Optimalisatie van grote bestanden downloaden via Azure CDN
 description: Optimalisatie van downloads van grote bestanden beschreven in de diepte
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e6266fdaaac6a1a1a5d3a5595c10f79fd9f01a7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Optimalisatie van grote bestanden downloaden via het Azure Content Delivery Network
+# <a name="large-file-download-optimization-via-azure-cdn"></a>Optimalisatie van grote bestanden downloaden via Azure CDN
 
 Grootte van inhoud via het Internet worden geleverd blijven groeien vanwege de uitgebreide functionaliteit, verbeterde afbeeldingen en uitgebreide media-inhoud. Deze groei wordt aangedreven door vele factoren: breedband binnendringen, grotere goedkope opslagapparaten, wijdverbreid toename van hoogwaardige video- en Internet verbonden apparaten (IoT). Een snelle en efficiënte bezorgingsmechanisme voor grote bestanden is essentieel voor een consumer smooth en uitmuntende ervaring.
 
@@ -38,7 +38,7 @@ U kunt uw CDN-eindpunt voor het optimaliseren van leveringsmethode voor grote be
 
 1. Een nieuw eindpunt toevoegen aan de **CDN-profiel** pagina **eindpunt**.
 
-    ![Nieuwe endpoint](./media/cdn-large-file-optimization/01_Adding.png)  
+    ![Nieuw eindpunt](./media/cdn-large-file-optimization/01_Adding.png)  
  
 2. In de **geoptimaliseerd voor** vervolgkeuzelijst, selecteer **downloaden van grote bestanden**.
 
@@ -70,7 +70,7 @@ Optimalisatie van grote bestanden maakt gebruik van verschillende standaardtijde
 |    | Algemene webtoepassingen | Optimalisatie van grote bestanden 
 --- | --- | --- 
 Opslaan in cache: positief <br> HTTP 200, 203, 300, <br> 301, 302 en 410 | 7 dagen |1 dag  
-Opslaan in cache: negatieve <br> HTTP 204 305 404, <br> en 405 | Geen | 1 seconde 
+Opslaan in cache: negatieve <br> HTTP 204, 305, 404, <br> en 405 | Geen | 1 seconde 
 
 ### <a name="deal-with-origin-failure"></a>Omgaan met fouten in de oorsprong
 

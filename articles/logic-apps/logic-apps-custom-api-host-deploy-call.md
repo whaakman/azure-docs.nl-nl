@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: 3df59ec172b037daaeed9e3eb69ffb990d70d8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a240bf5b7ed5e7780b90f438d2e336ee79f0b3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Implementeren en het aanroepen van aangepaste API's vanuit logic app-werkstromen
 
@@ -35,17 +35,17 @@ Voordat u uw aangepaste API vanuit een logische app aanroepen kunt, moet u uw AP
 
 2. In het app-menu dat verschijnt, klikt u onder **API**, kies **API-definitie**. Stel de **locatie voor API-definitie** naar de URL voor uw OpenAPI swagger.json-bestand.
 
-   Normaal gesproken de URL wordt weergegeven in deze indeling:`https://{name}.azurewebsites.net/swagger/docs/v1)`
+   Normaal gesproken de URL wordt weergegeven in deze indeling: `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
    ![Koppeling naar OpenAPI-bestand voor uw aangepaste API](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. Onder **API**, kies **CORS**. Stel het CORS-beleid voor **toegestane oorsprongen** naar  **'*'** (alle toestaan).
+3. Onder **API**, kies **CORS**. Stel het CORS-beleid voor **toegestane oorsprongen** naar **' *'** (alle toestaan).
 
    Deze instelling kan aanvragen van Logic App-ontwerper.
 
    ![Aanvragen van Logic App-ontwerper verlenen aan uw aangepaste API gebruiken](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
-Zie voor meer informatie [bouwen van een Node.js-RESTful-API](../app-service/app-service-web-tutorial-rest-api.md).
+Zie voor meer informatie [Host een RESTful-API met CORS in Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 ## <a name="call-your-custom-api-from-logic-app-workflows"></a>Uw aangepaste API aanroepen vanuit logic app-werkstromen
 

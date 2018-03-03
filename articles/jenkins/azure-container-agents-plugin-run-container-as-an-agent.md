@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Bouw een project in Azure met behulp van Jenkins en exemplaren van Azure-Container
 
@@ -233,7 +233,7 @@ Nadat de Azure-Container Agents-invoegtoepassing is geïnstalleerd, helpt in dez
 
     - **Naam** -Voer `ACI-container`.
     - **Labels** -Voer `ACI-container`.
-    - **Afbeelding van docker** -invoeren`cloudbees/jnlp-slave-with-java-build-tools`
+    - **Afbeelding van docker** -invoeren `cloudbees/jnlp-slave-with-java-build-tools`
 
     ![De eigenschappen van de installatiekopie van het exemplaar van Azure Container definiëren](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-image-properties.png)
 
@@ -318,8 +318,8 @@ Het is nu tijd om uw project te bouwen. Deze sectie wordt uitgelegd hoe u een pr
 ## <a name="clean-up-azure-resources"></a>Azure-resources opschonen
 
 In deze zelfstudie maakt u bronnen die zich bevinden binnen twee Azure-resourcegroepen gemaakt: 
-    - `JenkinsResourceGroup`-Bevat de Azure-resources voor de Jenkins-server.
-    - `JenkinsAciResourceGroup`-De Azure-resources voor de agent Jenkins bevat.
+    - `JenkinsResourceGroup` -Bevat de Azure-resources voor de Jenkins-server.
+    - `JenkinsAciResourceGroup` -De Azure-resources voor de agent Jenkins bevat.
     
 Als u niet langer gebruiken een van de resources in een Azure-resourcegroep wilt, kunt u verwijderen resource groep met de `az group delete` opdracht als volgt (vervangt de &lt;resourceGroup > aanduiding voor items met de naam van de resourcegroep die u wilt verwijderen):
 

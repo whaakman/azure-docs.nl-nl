@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f99fe340b6cfebaafb04af9dba8abf9cb0f09a2b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 999f2cef7d70c4f1b45076300312664defdeb3f5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Azure Functions met mediaservices te ontwikkelen
 
@@ -63,11 +63,11 @@ Als de functie-app is geïmplementeerd, kunt u het vinden onder **App Services**
 2. Kies de **C#** taal en **gegevensverwerking** scenario.
 3. Kies **BlobTrigger** sjabloon. Deze functie wordt geactiveerd wanneer een blob is geüpload naar de **invoer** container. De **invoer** naam is opgegeven in de **pad**, in de volgende stap.
 
-    ![Bestanden](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![bestanden weergeven](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Als u hebt geselecteerd **BlobTrigger**, sommige besturingselementen meer weergegeven op de pagina.
 
-    ![Bestanden](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![bestanden weergeven](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Klik op **Create**. 
 
@@ -75,9 +75,9 @@ Als de functie-app is geïmplementeerd, kunt u het vinden onder **App Services**
 
 Uw Azure-functie is gekoppeld aan het codebestanden en andere bestanden die in deze sectie worden beschreven. Wanneer u de Azure-portal kunt maken van een functie **function.json** en **run.csx** voor u gemaakt. U wilt toevoegen of uploaden een **project.json** bestand. De rest van deze sectie geeft een korte uitleg van elk bestand en bevat de definities.
 
-![Bestanden](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![bestanden weergeven](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
-### <a name="functionjson"></a>Function.JSON
+### <a name="functionjson"></a>function.json
 
 Het bestand function.json definieert de functiebindingen en andere configuratie-instellingen. De runtime maakt gebruik van dit bestand om te bepalen welke gebeurtenissen u wilt bewaken en het doorgeven van gegevens in en gegevens retourneren van een functie wordt uitgevoerd. Zie voor meer informatie [HTTP- en webhook bindingen van Azure functions](../azure-functions/functions-reference.md#function-code).
 
@@ -86,7 +86,7 @@ Het bestand function.json definieert de functiebindingen en andere configuratie-
 
 Vervang de inhoud van het bestaande function.json-bestand met de volgende code:
 
-```
+```json
 {
   "bindings": [
     {
@@ -101,13 +101,13 @@ Vervang de inhoud van het bestaande function.json-bestand met de volgende code:
 }
 ```
 
-### <a name="projectjson"></a>Project.JSON
+### <a name="projectjson"></a>project.json
 
 Het bestand project.json bevat afhankelijkheden. Hier volgt een voorbeeld van **project.json** bestand met de vereiste .NET Azure Media Services-pakketten vanuit Nuget. Houd er rekening mee dat de versienummers met de meest recente updates op de pakketten, wijzigen zodat de meest recente versies dient u te bevestigen. 
 
 De volgende definitie toevoegen aan project.json. 
 
-```
+```json
 {
   "frameworks": {
     "net46":{
@@ -123,7 +123,7 @@ De volgende definitie toevoegen aan project.json.
 
 ```
     
-### <a name="runcsx"></a>Run.csx
+### <a name="runcsx"></a>run.csx
 
 Dit is de C#-code voor de functie.  De functie zoals hieronder gedefinieerd, monitors een storage-account-container met de naam **invoer** (die is opgegeven in het pad) voor nieuwe MP4-bestanden. Wanneer een bestand wordt verwijderd in de storage-container, wordt de functie uitgevoerd in de blob-trigger.
     
@@ -136,7 +136,7 @@ In het scenario praktijk wilt u waarschijnlijk taak voortgang volgen en vervolge
 
 Vervang de inhoud van het bestaande run.csx-bestand met de volgende code: wanneer u klaar bent voor het definiëren van de functie klikt u op **opslaan en uitvoeren**.
 
-```
+```csharp
 #r "Microsoft.WindowsAzure.Storage"
 #r "Newtonsoft.Json"
 #r "System.Web"

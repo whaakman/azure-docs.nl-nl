@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b5440cf9afb9bda9baab4254860d6f499b1d4a1f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Invoegen van advertenties aan de clientzijde
-In dit onderwerp bevat informatie over het invoegen van verschillende typen advertenties aan de clientzijde.
+In dit artikel bevat informatie over het invoegen van verschillende typen advertenties aan de clientzijde.
 
 Zie voor meer informatie over gesloten ondertiteling en ad-ondersteuning in Live streaming video's [ondersteund gesloten ondertiteling en Ad invoegen standaarden](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
 
@@ -39,7 +39,7 @@ Azure Media Services biedt ondersteuning voor het invoegen van ad via de Windows
 
 Advertenties kunnen op elk punt in de tijdlijn van de belangrijkste video worden geplaatst. U moet de speler hoogte wanneer af te spelen, de advertentie en welke advertenties af te spelen. Dit wordt gedaan met behulp van een reeks standaard XML-bestanden: Video Ad-Service-sjabloon (VAST), digitale Video meerdere Ad afspeellijst (VMAP), Media abstracte sequentiëren sjabloon (b) en digitale Video Player Ad Interface Definition (VPAID). GROTE bestanden opgeven welke advertenties om weer te geven. VMAP bestanden opgeven wanneer verschillende advertenties afspelen en ENORME XML bevatten. B bestanden vormen een andere reeks advertenties die tevens VAST XML kan bevatten. VPAID bestanden definiëren een interface tussen de video speler en de advertentie- of Active Directory-server.
 
-Elke player-framework werkt er anders en elk worden behandeld in een eigen onderwerp. In dit onderwerp beschrijft de basic mechanismen gebruikt voor het invoegen van advertenties. Ads aanvragen-speler toepassingen bij een ad-server. De ad-server kan reageren op een aantal verschillende manieren:
+Elke player-framework werkt er anders en elk in een eigen artikel aan bod. In dit artikel beschrijft de basic mechanismen gebruikt voor het invoegen van advertenties. Ads aanvragen-speler toepassingen bij een ad-server. De ad-server kan reageren op een aantal verschillende manieren:
 
 * Een groot bestand geretourneerd
 * Retourneren van een bestand VMAP (met ingesloten VAST)
@@ -49,6 +49,7 @@ Elke player-framework werkt er anders en elk worden behandeld in een eigen onder
 ### <a name="using-a-video-ad-service-template-vast-file"></a>Met behulp van een Video Ad-Service (VAST) sjabloonbestand
 Een groot bestand geeft aan welke ad of de advertenties. De volgende XML-code is een voorbeeld van een groot bestand voor een lineaire ad:
 
+```xml
     <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="115571748">
         <InLine>
@@ -90,11 +91,13 @@ Een groot bestand geeft aan welke ad of de advertenties. De volgende XML-code is
         </InLine>
       </Ad>
     </VAST>
+```
 
-De lineaire ad wordt beschreven in de <**lineair**> element. Hiermee wordt de duur van de ad, het bijhouden van gebeurtenissen, klikt u op via op bijhouden en een aantal **MediaFile** elementen. Bijhouden van gebeurtenissen zijn opgegeven in de <**TrackingEvents**> element en het toestaan van een ad-server om bij te houden van diverse gebeurtenissen die zich voordoen tijdens het bekijken van de ad. In dit geval het begin wordt het middelpunt, voltooid, en vouw gebeurtenissen worden bijgehouden. De begingebeurtenis treedt op wanneer de advertentie wordt weergegeven. Het middelpunt gebeurtenis treedt op wanneer ten minste 50% van de ad-tijdlijn is weergegeven. De gebeurtenis treedt op wanneer de ad is uitgevoerd met het einde. De uit te breiden gebeurtenis treedt op wanneer de gebruiker de video speler naar volledig scherm breidt. Clickthroughs worden aangeduid met een <**ClickThrough**>-element in een <**VideoClicks**> element en Hiermee geeft u een URI aan een resource moet worden weergegeven wanneer de gebruiker op de ad klikt. ClickTracking is opgegeven in een <**ClickTracking**>-element, ook in de <**VideoClicks**> element en Hiermee geeft u een resource bijhouden voor Windows media player om aan te vragen wanneer de gebruiker op de ad klikt. De <**MediaFile**> elementen informatie opgeven over een specifieke codering van een ad. Wanneer er meer dan één <**MediaFile**>-element-speler kunt ervoor kiezen de beste codering voor het platform. 
+De lineaire ad wordt beschreven in de <**lineair**> element. Hiermee wordt de duur van de ad, het bijhouden van gebeurtenissen, klikt u op via op bijhouden en een aantal **MediaFile** elementen. Bijhouden van gebeurtenissen zijn opgegeven in de <**TrackingEvents**> element en het toestaan van een ad-server om bij te houden van diverse gebeurtenissen die zich voordoen tijdens het bekijken van de ad. In dit geval het begin wordt het middelpunt, voltooid, en vouw gebeurtenissen worden bijgehouden. De begingebeurtenis treedt op wanneer de advertentie wordt weergegeven. Het middelpunt gebeurtenis treedt op wanneer ten minste 50% van de ad-tijdlijn is weergegeven. De gebeurtenis treedt op wanneer de ad is uitgevoerd met het einde. De uit te breiden gebeurtenis treedt op wanneer de gebruiker de video speler naar volledig scherm breidt. Clickthroughs worden aangeduid met een <**ClickThrough**>-element in een <**VideoClicks**> element en Hiermee geeft u een URI aan een resource moet worden weergegeven wanneer de gebruiker op de ad klikt. ClickTracking is opgegeven in een <**ClickTracking**>-element, ook in de <**VideoClicks**> element en Hiermee geeft u een resource bijhouden voor Windows media player om aan te vragen wanneer de gebruiker op de ad klikt . De <**MediaFile**> elementen informatie opgeven over een specifieke codering van een ad. Wanneer er meer dan één <**MediaFile**>-element-speler kunt ervoor kiezen de beste codering voor het platform. 
 
 Lineaire advertenties kunnen worden weergegeven in een bepaalde volgorde. U doet dit door toevoegen extra <Ad> elementen op de VAST bestand en de volgorde die met het kenmerk reeks opgeven. Het volgende voorbeeld illustreert dit:
 
+```xml
     <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="1" sequence="0">
         <InLine>
@@ -137,9 +140,11 @@ Lineaire advertenties kunnen worden weergegeven in een bepaalde volgorde. U doet
         </InLine>
       </Ad>
     </VAST>
+```
 
 Niet-lineaire advertenties zijn opgegeven in een <Creative> ook element. Het volgende voorbeeld wordt een <Creative> element dat een niet-lineaire ad beschrijft.
 
+```xml
     <Creative id="video" sequence="1" AdID="">
       <NonLinearAds>
         <NonLinear width="216" height="121" minSuggestedDuration="00:00:15">
@@ -152,7 +157,7 @@ Niet-lineaire advertenties zijn opgegeven in een <Creative> ook element. Het vol
          </TrackingEvents>
        </NonLinearAds>
     </Creative>
-
+```
 
 De <**NonLinearAds**>-element kan bevatten een of meer <**NonLinear**>-elementen, elk met een niet-lineaire ad kunt beschrijven. De <**NonLinear**> element geeft de bron voor de niet-lineaire ad. De bron kan bestaan uit een <**StaticResouce**>, een <**IFrameResource**>, of een <**HTMLResouce**>. <**StaticResource**> Beschrijving van een niet-HTML-bron en definieert een creativeType-kenmerk geeft aan hoe de resource wordt weergegeven:
 
@@ -169,6 +174,7 @@ Aanvullende advertenties zijn gedefinieerd binnen een <CompanionAds> element. De
 ### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>Met behulp van een digitale Video meerdere Ad afspeellijst (VMAP)-bestand
 Een bestand VMAP kunt u opgeven wanneer ad onderbrekingen optreden, hoe lang elk einde is, hoeveel advertenties worden weergegeven binnen een einde en welke typen advertenties kunnen worden weergegeven tijdens een pauze. Het volgende in een voorbeeldbestand VMAP die een pauze van één ad definieert:
 
+```xml
     <vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
       <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
         <vmap:AdSource allowMultipleAds="true" followRedirects="true" id="1">
@@ -215,6 +221,7 @@ Een bestand VMAP kunt u opgeven wanneer ad onderbrekingen optreden, hoe lang elk
         </vmap:TrackingEvents>
       </vmap:AdBreak>
     </vmap:VMAP>
+```
 
 Een bestand VMAP begint met een <VMAP> element een of meer bevat <AdBreak> elementen, die elk een ad-einde definiëren. Elk ad-einde geeft een type einde, break-ID en time-offset. Geeft het type ad die kan worden afgespeeld tijdens het einde van het kenmerk breakType: lineaire, niet-lineaire, of weer te geven. Advertenties kaart worden weergegeven voor de ENORME companion advertenties. Meer dan één ad-type kan worden opgegeven in een lijst met gescheiden door komma's (zonder spaties). De breakID is een optionele id voor de advertentie. De timeOffset aangeeft wanneer de advertentie moet worden weergegeven. Deze kan worden opgegeven in een van de volgende manieren:
 
@@ -223,7 +230,7 @@ Een bestand VMAP begint met een <VMAP> element een of meer bevat <AdBreak> eleme
 3. Beginnen of eindigen – geeft aan dat een advertentie moet worden weergegeven vóór of na de video is weergegeven.
 4. Plaats – Hiermee geeft u de volgorde van de ad-einden wanneer de timing van de ad-einden onbekend, zoals live streamen is. De volgorde van elk ad-einde is opgegeven in de indeling van de #n waarbij n staat voor een geheel getal 1 of hoger. 1 geeft aan dat de advertentie moet worden afgespeeld op de eerste kans 2 geeft aan dat de advertentie moet worden afgespeeld op de tweede mogelijkheid enzovoort.
 
-In de <**AdBreak**> element er zijn <**AdSource**> element. De <**AdSource**>-element bevat de volgende kenmerken:
+Binnen de <AdBreak> element, kan er een <**AdSource**> element. De <**AdSource**>-element bevat de volgende kenmerken:
 
 1. -ID: Hiermee geeft u een id voor de ad-bron
 2. allowMultipleAds – een Booleaanse waarde die aangeeft of meerdere advertenties kunnen worden weergegeven tijdens het ad-einde
@@ -231,11 +238,11 @@ In de <**AdBreak**> element er zijn <**AdSource**> element. De <**AdSource**>-el
 
 De <**AdSource**>-element Windows media player heeft een antwoord van de ad inline of een verwijzing naar een ad-antwoord. Dit kan een van de volgende elementen bevatten:
 
-* <VASTAdData>geeft dat een ENORME ad-antwoord is ingesloten in het bestand VMAP
-* <AdTagURI>een URI die verwijst naar een ad-antwoord van een ander systeem
-* <CustomAdData>-een willekeurige tekenreeks die respresents een niet-VAST antwoord
+* <VASTAdData> geeft dat een ENORME ad-antwoord is ingesloten in het bestand VMAP
+* <AdTagURI> een URI die verwijst naar een ad-antwoord van een ander systeem
+* <CustomAdData> -een willekeurige tekenreeks die een niet-VAST reactie vertegenwoordigt
 
-In dit voorbeeld wordt een in-line ad-antwoord opgegeven met een <VASTAdData> element dat een ENORME ad-antwoord bevat. Zie voor meer informatie over de andere elementen [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
+In dit voorbeeld wordt een in-line ad-antwoord wordt opgegeven met een <VASTAdData> element dat een ENORME ad-antwoord bevat. Zie voor meer informatie over de andere elementen [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
 De <**AdBreak**>-element kan ook bevatten <**TrackingEvents**> element. De <**TrackingEvents**>-element kunt u het begin of einde van een ad-einde of of een fout opgetreden tijdens het ad-einde bijhouden. De <**TrackingEvents**>-element bevat een of meer <**bijhouden**>-elementen, die elk een gebeurtenis bijhouden en bijgehouden URI bevat. De mogelijke bijhouden gebeurtenissen zijn:
 
@@ -245,6 +252,7 @@ De <**AdBreak**>-element kan ook bevatten <**TrackingEvents**> element. De <**Tr
 
 Het volgende voorbeeld ziet een bestand VMAP waarmee gebeurtenissen bijhouden
 
+```xml
     <vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
       <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
         <vmap:AdSource allowMultipleAds="true" followRedirects="true" id="1">
@@ -265,12 +273,14 @@ Het volgende voorbeeld ziet een bestand VMAP waarmee gebeurtenissen bijhouden
         </vmap:TrackingEvents>
       </vmap:AdBreak>
     </vmap:VMAP>
+```
 
 Voor meer informatie over de <**TrackingEvents**>-element en de onderliggende items, Zie http://iab.org/VMAP.pdf
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>Met behulp van een Media Abstract sequentiëren sjabloonbestand (b)
 Een bestand b kunt u opgeven triggers die bepalen wanneer een advertentie wordt weergegeven. Hier volgt een voorbeeld van de b-bestand met triggers voor een pre-album ad, een tussentijdse roll ad en een advertentie na doorvoeren.
 
+```xml
     <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <triggers>
         <trigger id="preroll" description="preroll every item"  >
@@ -311,12 +321,12 @@ Een bestand b kunt u opgeven triggers die bepalen wanneer een advertentie wordt 
         </trigger>
       </triggers>
     </MAST>
-
+```
 
 
 Een bestand b begint met een **b** element met een **triggers** element. De <triggers> element bevat een of meer **trigger** elementen die bepalen wanneer een advertentie moet worden afgespeeld. 
 
-De **trigger** element bevat een **startConditions** element die opgeven wanneer een advertentie moet beginnen met het af te spelen. De **startConditions** element bevat een of meer <condition> elementen. Wanneer elke <condition> resulteert in waar een trigger wordt gestart of ingetrokken, afhankelijk van of u de <condition> is opgenomen in een **startConditions** of **endConditions** element respectievelijk. Wanneer meerdere <condition> elementen aanwezig zijn, worden deze behandeld als een impliciete OR, elke voorwaarde evalueren als waar, wordt de trigger initiëren. <condition>elementen kunnen worden genest. Als onderliggende <condition> elementen zijn vooraf ingesteld, worden deze behandeld als een impliciete AND, alle voorwaarden moeten resulteren in waar voor de trigger initiëren. De <condition> element bevat de volgende kenmerken die de voorwaarde definiëren: 
+De **trigger** element bevat een **startConditions** element die opgeven wanneer een advertentie moet beginnen met het af te spelen. De **startConditions** element bevat een of meer <condition> elementen. Wanneer elke <condition> resulteert in waar een trigger wordt gestart of ingetrokken, afhankelijk van of u de <condition> is opgenomen in een **startConditions** of **endConditions** element respectievelijk. Wanneer meerdere <condition> elementen aanwezig zijn, worden deze behandeld als een impliciete OR, elke voorwaarde evalueren als waar, wordt de trigger initiëren. <condition> elementen kunnen worden genest. Als onderliggende <condition> elementen zijn vooraf ingesteld, worden deze behandeld als een impliciete AND, alle voorwaarden moeten resulteren in waar voor de trigger initiëren. De <condition> element bevat de volgende kenmerken die de voorwaarde definiëren: 
 
 1. **type** – Hiermee wordt het type voorwaarde, gebeurtenis of eigenschap
 2. **naam** : de naam van de eigenschap of gebeurtenis moet worden gebruikt tijdens de evaluatie
@@ -325,6 +335,7 @@ De **trigger** element bevat een **startConditions** element die opgeven wanneer
 
 **endConditions** bevat ook <condition> elementen. Wanneer een voorwaarde wordt geëvalueerd op waar de trigger wordt opnieuw ingesteld. De <trigger> element bevat ook een <sources> element een of meer bevat <source> elementen. De <source> elementen de URI voor het ad-antwoord en het type ad reactie definiëren. In dit voorbeeld wordt een URI aan een ENORME antwoord gegeven. 
 
+```xml
     <trigger id="postroll" description="postroll"  >
       <startConditions>
         <condition/>
@@ -335,27 +346,28 @@ De **trigger** element bevat een **startConditions** element die opgeven wanneer
         </source>
       </sources>
     </trigger>
-
+```
 
 ### <a name="using-video-player-ad-interface-definition-vpaid"></a>Met behulp van Video Player-Ad-Interface Definition (VPAID)
-VPAID is een API voor het inschakelen van uitvoerbare ad eenheden om te communiceren met een video-speler. Hiermee worden interactieve ad-ervaringen. De gebruiker kan communiceren met de ad en de advertentie acties die door de viewer kan reageren. Zo kan een ad knoppen waarmee de gebruiker om weer te geven voor meer informatie of een langer versie van de ad weergeven. De video speler moet de API VPAID ondersteunen en de API moet worden geïmplementeerd door de uitvoerbare ad. Wanneer een speler vraagt dat een advertentie van een ad-server de server reageert met een ENORME antwoord dat een advertentie VPAID bevat.
+VPAID is een API voor het inschakelen van uitvoerbare ad eenheden om te communiceren met een video-speler. Hiermee worden interactieve ad-ervaringen. De gebruiker kan communiceren met de ad en de advertentie acties die door de viewer kan reageren. Een ad kan bijvoorbeeld knoppen waarmee de gebruiker om weer te geven voor meer informatie of een langere versie van de advertentie weergeven. De video speler moet de API VPAID ondersteunen en de API moet worden geïmplementeerd door de uitvoerbare ad. Wanneer een speler vraagt dat een advertentie van een ad-server de server reageert met een ENORME antwoord dat een advertentie VPAID bevat.
 
 Een uitvoerbaar ad wordt gemaakt in de code die moet worden uitgevoerd in een runtime-omgeving, zoals Adobe Flash™ of JavaScript die kan worden uitgevoerd in een webbrowser. Wanneer een ad-server retourneert een ENORME antwoord met een ad VPAID, wordt de waarde van de apiFramework kenmerk in de <MediaFile> element moet 'VPAID'. Dit kenmerk geeft aan dat de ingesloten ad een VPAID uitvoerbare ad. Het typekenmerk moet worden ingesteld op het MIME-type van het uitvoerbare bestand, zoals ' application/x-shockwave-flash' of ' application/x-javascript'. Het volgende XML-codefragment bevat de <MediaFile> element uit een ENORME antwoord met een VPAID uitvoerbare ad. 
 
+```xml
     <MediaFiles>
        <MediaFile id="1" delivery="progressive" type=”application/x-shockwaveflash”
                   width=”640” height=”480” apiFramework=”VPAID”>
            <!-- CDATA wrapped URI to executable ad -->
        </MediaFile>
     </MediaFiles>
-
+```
 
 Een uitvoerbaar ad kan worden geïnitialiseerd met behulp van de <AdParameters> element in de <Linear> of <NonLinear> elementen in een antwoord VAST. Voor meer informatie over de <AdParameters> element, Zie [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). Zie voor meer informatie over de API VPAID [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>Implementatie van een Windows- of Windows Phone 8-speler met Ad-ondersteuning
 Het Microsoft-Media-Platform: Player Framework voor Windows 8 en Windows Phone 8 bevat een verzameling voorbeeldtoepassingen die wordt beschreven hoe u met het implementeren van een video player-toepassing met behulp van het framework. U kunt downloaden de Player-Framework en de voorbeelden van [Player Framework voor Windows 8 en Windows Phone 8](https://playerframework.codeplex.com).
 
-Wanneer u de oplossing Microsoft.PlayerFramework.Xaml.Samples opent ziet u een aantal mappen in het project. De reclame-map bevat de voorbeeldcode die relevant zijn voor het maken van een video-speler met ad-ondersteuning. In de reclame is map een aantal XAML/cs bestanden die laten zien hoe advertenties invoegen in een andere manier. De volgende lijst beschrijft elke:
+Wanneer u de oplossing Microsoft.PlayerFramework.Xaml.Samples opent, ziet u een aantal mappen in het project. De reclame-map bevat de voorbeeldcode die relevant zijn voor het maken van een video-speler met ad-ondersteuning. In de reclame is map een aantal XAML/cs bestanden die laten zien hoe advertenties invoegen in een andere manier. De volgende lijst beschrijft elke:
 
 * AdPodPage.xaml laat zien hoe een schil ad weergeven.
 * AdSchedulingPage.xaml laat zien hoe advertenties plannen.
@@ -370,8 +382,9 @@ Wanneer u de oplossing Microsoft.PlayerFramework.Xaml.Samples opent ziet u een a
 Elk van deze voorbeelden maakt gebruik van de Media Player-klasse die is gedefinieerd door het player-framework. De meeste voorbeelden gebruiken invoegtoepassingen die ondersteuning voor verschillende indelingen met ad-antwoord toevoegen. Het voorbeeld ProgrammaticAdPage communiceert via een programma met een exemplaar van de Media Player.
 
 ### <a name="adpodpage-sample"></a>Voorbeeld van AdPodPage
-Dit voorbeeld gebruikt de AdSchedulerPlugin om te bepalen bij het weergeven van een advertentie. In dit voorbeeld wordt een aankondiging halverwege roll gepland wordt afgespeeld na 5 seconden. De ad-schil (een groep van advertenties in volgorde) is opgegeven in een ENORME bestand geretourneerd van een ad-server. De URI naar de ENORME bestand is opgegeven in de <RemoteAdSource> element.
+Dit voorbeeld gebruikt de AdSchedulerPlugin om te bepalen bij het weergeven van een advertentie. In dit voorbeeld wordt een aankondiging halverwege roll gepland na vijf seconden worden afgespeeld. De ad-schil (een groep van advertenties in volgorde) is opgegeven in een ENORME bestand geretourneerd van een ad-server. De URI naar de ENORME bestand is opgegeven in de <RemoteAdSource> element.
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 
         <mmppf:MediaPlayer.Plugins>
@@ -389,12 +402,14 @@ Dit voorbeeld gebruikt de AdSchedulerPlugin om te bepalen bij het weergeven van 
             <ads:AdHandlerPlugin/>
         </mmppf:MediaPlayer.Plugins>
     </mmppf:MediaPlayer>
+```
 
 Zie voor meer informatie over de AdSchedulerPlugin [reclame in het kader Player op Windows 8 en Windows Phone 8](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
 
 ### <a name="adschedulingpage"></a>AdSchedulingPage
 Dit voorbeeld gebruikt ook de AdSchedulerPlugin. Hiermee plant u drie advertenties, een vooraf roll ad, een tussentijdse roll ad en een advertentie na doorvoeren. De URI moet de VAST voor elke advertentie is opgegeven in een <RemoteAdSource> element.
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:AdSchedulerPlugin>
@@ -423,35 +438,41 @@ Dit voorbeeld gebruikt ook de AdSchedulerPlugin. Hiermee plant u drie advertenti
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
-
+```
 
 ### <a name="freewheelpage"></a>FreeWheelPage
-Dit voorbeeld gebruikt de FreeWheelPlugin waarin een kenmerk van de gegevensbron die een URI die verwijst naar een bestand SmartXML waarmee ad inhoud, evenals gegevens over de planning ad aangeeft.
+Dit voorbeeld gebruikt de FreeWheelPlugin waarmee een bronkenmerk waarmee een URI die verwijst naar een bestand SmartXML waarmee ad inhoud, evenals ad gegevens over de planning.
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:FreeWheelPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/freewheel.xml"/>
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
+```
 
 ### <a name="mastpage"></a>MastPage
 Dit voorbeeld gebruikt de MastSchedulerPlugin waarmee u een b-bestand te gebruiken. Het bronkenmerk geeft de locatie van de b-bestand.
-
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:MastSchedulerPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/mast.xml" />
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
+```
 
 ### <a name="programmaticadpage"></a>ProgrammaticAdPage
 Dit voorbeeld communiceert via een programma met de Media Player. Het bestand ProgrammaticAdPage.xaml instantieert de Media Player:
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4"/>
+```
 
 Het bestand ProgrammaticAdPage.xaml.cs maakt een AdHandlerPlugin voegt een TimelineMarker om op te geven wanneer een advertentie moet worden weergegeven en worden vervolgens toegevoegd een handler voor de gebeurtenis MarkerReached die een RemoteAdSource opgeven van een URI naar een groot bestand wordt geladen en de advertentie wordt afgespeeld.
 
+```csharp
     public sealed partial class ProgrammaticAdPage : Microsoft.PlayerFramework.Samples.Common.LayoutAwarePage
         {
             AdHandlerPlugin adHandler;
@@ -479,10 +500,12 @@ Het bestand ProgrammaticAdPage.xaml.cs maakt een AdHandlerPlugin voegt een Timel
                     catch { /* ignore */ }
                 }
             }
+```
 
 ### <a name="scheduleclippage"></a>ScheduleClipPage
 Dit voorbeeld gebruikt de AdSchedulerPlugin een advertentie halverwege roll plannen door op te geven van een WMV-bestand met de ad.
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.cloudapp.net/html5/media/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:AdSchedulerPlugin>
@@ -503,10 +526,12 @@ Dit voorbeeld gebruikt de AdSchedulerPlugin een advertentie halverwege roll plan
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
+```
 
 ### <a name="vastlinearcompanionpage"></a>VastLinearCompanionPage
 Dit voorbeeld ziet u hoe de AdSchedulerPlugin gebruiken voor het plannen van een lineaire ad halverwege rollen met een aanvullende ad. De <RemoteAdSource> element geeft de locatie van het bestand VAST.
 
+```xml
     <mmppf:MediaPlayer Grid.Row="1"  x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:AdSchedulerPlugin>
@@ -523,10 +548,12 @@ Dit voorbeeld ziet u hoe de AdSchedulerPlugin gebruiken voor het plannen van een
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
+```
 
 ### <a name="vastlinearnonlinearpage"></a>VastLinearNonLinearPage
 Dit voorbeeld gebruikt de AdSchedulerPlugin een lineaire plannen en een niet-lineaire ad. De meeste bestandslocatie is opgegeven met de <RemoteAdSource> element.
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:AdSchedulerPlugin>
@@ -543,16 +570,19 @@ Dit voorbeeld gebruikt de AdSchedulerPlugin een lineaire plannen en een niet-lin
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
+```
 
 ### <a name="vmappage"></a>VMAPPage
-Deze voorbeelden maakt gebruik van de VmapSchedulerPlugin advertenties met behulp van een bestand VMAP plannen. De URI naar het bestand VMAP is opgegeven in het bronkenmerk van de <VmapSchedulerPlugin> element.
+Dit voorbeeld gebruikt de VmapSchedulerPlugin advertenties met behulp van een bestand VMAP plannen. De URI naar het bestand VMAP is opgegeven in het bronkenmerk van de <VmapSchedulerPlugin> element.
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:VmapSchedulerPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/vmap.xml"/>
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
+```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implementatie van een iOS-Video Player met Ad-ondersteuning
 Het Microsoft-Media-Platform: Player Framework voor iOS bevat een verzameling van de voorbeeldtoepassingen die wordt beschreven hoe u met het implementeren van een video player-toepassing met behulp van het framework. U kunt downloaden de Player-Framework en de voorbeelden van [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). De github-pagina heeft een koppeling naar een Wiki met aanvullende informatie van het framework player en een inleiding tot het player-voorbeeld: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
@@ -560,6 +590,7 @@ Het Microsoft-Media-Platform: Player Framework voor iOS bevat een verzameling va
 ### <a name="scheduling-ads-with-vmap"></a>Advertenties met VMAP plannen
 Het volgende voorbeeld laat zien hoe advertenties met behulp van een bestand VMAP plannen.
 
+```csharp
     // How to schedule an Ad using VMAP.
     //First download the VMAP manifest
 
@@ -575,10 +606,13 @@ Het volgende voorbeeld laat zien hoe advertenties met behulp van een bestand VMA
                     [self logFrameworkError];
                 }          
             }
+```
 
 ### <a name="scheduling-ads-with-vast"></a>Advertenties met VAST plannen
 Het volgende voorbeeld laat zien hoe een late binding VAST ad plannen.
 
+
+```csharp
     //Example:3 How to schedule a late binding VAST ad.
     // set the start time for the ad
     adLinearTime.startTime = 13;
@@ -603,9 +637,21 @@ Het volgende voorbeeld laat zien hoe een late binding VAST ad plannen.
     {
         [self logFrameworkError];
     }
+```
 
    Het volgende voorbeeld laat zien hoe een vroege binding VAST ad plannen.
-Voorbeeld: 4 planning een vroege binding VAST ad //Download de VAST bestand indien (! [ framework.adResolver downloadManifest: & manifest withURL: [NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]]) {[self logFrameworkError];} else {adLinearTime.startTime = 7; adLinearTime.duration = 0;
+
+```csharp
+    //Example:4 Schedule an early binding VAST ad
+    //Download the VAST file
+    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]])
+    {
+        [self logFrameworkError];
+    }
+    else
+    {
+        adLinearTime.startTime = 7;
+        adLinearTime.duration = 0;
 
         // Create AdInfo instance
         AdInfo *vastAdInfo2 = [[[AdInfo alloc] init] autorelease];
@@ -620,9 +666,11 @@ Voorbeeld: 4 planning een vroege binding VAST ad //Download de VAST bestand indi
             [self logFrameworkError];
         }
     }
+```
 
 Het volgende voorbeeld toont het invoegen van een ad dat gebruikmaakt van ruwe knippen bewerkt (Dwingen)
 
+```csharp
     //Example:1 How to use RCE.
     // specify manifest for ad content
     NSString *secondContent=@"http://wamsblureg001orig-hs.cloudapp.net/6651424c-a9d1-419b-895c-6993f0f48a26/The%20making%20of%20Microsoft%20Surface-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
@@ -636,9 +684,11 @@ Het volgende voorbeeld toont het invoegen van een ad dat gebruikmaakt van ruwe k
     {
         [self logFrameworkError];
     }
+```
 
 Het volgende voorbeeld laat zien hoe een schil ad plannen.
 
+```csharp
     //Example:5 Schedule an ad Pod.
     // Set start time for ad
     adLinearTime.startTime = 23;
@@ -664,9 +714,11 @@ Het volgende voorbeeld laat zien hoe een schil ad plannen.
     {
         [self logFrameworkError];
     }
+```
 
 Het volgende voorbeeld laat zien hoe een niet-tijdelijke halverwege roll ad plannen. Een niet-tijdelijke ad alleen afgespeeld wanneer ongeacht eventuele zoeken de viewer wordt uitgevoerd.
 
+```csharp
     //Example:6 Schedule a single non sticky mid roll Ad
     // specify URL to content
     NSString *oneTimeAd=@"http://wamsblureg001orig-hs.cloudapp.net/5389c0c5-340f-48d7-90bc-0aab664e5f02/Windows%208_%20You%20and%20Me%20Together-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
@@ -691,9 +743,11 @@ Het volgende voorbeeld laat zien hoe een niet-tijdelijke halverwege roll ad plan
     {
         [self logFrameworkError];
     }
+```
 
-Het volgende voorbeeld laat zien hoe een tijdelijke halverwege roll ad plannen. Een tijdelijke ad weergegeven telkens wanneer die het opgegeven punt op de video tijdlijn is bereikt.
+Het volgende voorbeeld laat zien hoe een tijdelijke halverwege roll ad plannen. Een tijdelijke ad wordt altijd weergegeven wanneer die het opgegeven punt op de video tijdlijn is bereikt.
 
+```csharp
     //Example:7 Schedule a single sticky mid roll Ad
     NSString *stickyAd=@"http://wamsblureg001orig-hs.cloudapp.net/2e4e7d1f-b72a-4994-a406-810c796fc4fc/The%20Surface%20Movement-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
     // create AdInfo instance
@@ -715,10 +769,11 @@ Het volgende voorbeeld laat zien hoe een tijdelijke halverwege roll ad plannen. 
     {
         [self logFrameworkError];
     }
-
+```
 
 Het volgende voorbeeld laat zien hoe een advertentie na roll plannen.
 
+```csharp
     //Example:8 Schedule Post Roll Ad
     NSString *postAdURLString=@"http://wamsblureg001orig-hs.cloudapp.net/aa152d7f-3c54-487b-ba07-a58e0e33280b/wp-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
     // create AdInfo instance
@@ -736,9 +791,11 @@ Het volgende voorbeeld laat zien hoe een advertentie na roll plannen.
     {
         [self logFrameworkError];
     }
+```
 
 Het volgende voorbeeld toont hoe u een vooraf roll ad plant.
 
+```csharp
     //Example:9 Schedule Pre Roll Ad
     NSString *adURLString = @"http://wamsblureg001orig-hs.cloudapp.net/2e4e7d1f-b72a-4994-a406-810c796fc4fc/The%20Surface%20Movement-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
     AdInfo *adInfo = [[[AdInfo alloc] init] autorelease];
@@ -756,9 +813,11 @@ Het volgende voorbeeld toont hoe u een vooraf roll ad plant.
     {
         [self logFrameworkError];
     }
+```
 
 Het volgende voorbeeld laat zien hoe een advertentie halverwege roll overlay plannen.
 
+```csharp
     // Example10: Schedule a Mid Roll overlay Ad
     NSString *adURLString = @"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/asset-e47b43fd-05dc-4587-ac87-5916439ad07f/Windows%208_%20Cliffjumpers.mp4?st=2012-11-28T16%3A31%3A57Z&se=2014-11-28T16%3A31%3A57Z&sr=c&si=2a6dbb1e-f906-4187-a3d3-7e517192cbd0&sig=qrXYZBekqlbbYKqwovxzaVZNLv9cgyINgMazSCbdrfU%3D";
     //Create AdInfo instance
@@ -780,7 +839,7 @@ Het volgende voorbeeld laat zien hoe een advertentie halverwege roll overlay pla
     {
         [self logFrameworkError];
     }
-
+```
 
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2ab743cadf91be05e1d2b2edf3143d8c14ae2bdb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91f117c3b1b166a069b93c238380140f19e49280
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Beveiligen van uw inhoud met Apple FairPlay of Microsoft PlayReady HLS
 Azure Media Services kunt u uw inhoud HTTP Live Streaming (HLS) dynamisch versleutelen met behulp van de volgende indelingen:  
@@ -25,7 +25,7 @@ Azure Media Services kunt u uw inhoud HTTP Live Streaming (HLS) dynamisch versle
 * **De lege sleutel envelop voor AES-128**
 
     De volledige chunk is versleuteld met behulp van de **AES-128 CBC** modus. De ontsleuteling van de stroom wordt ondersteund door iOS en OS X-speler systeemeigen. Zie voor meer informatie [dynamische versleuteling met behulp van AES-128 en sleutellevering service](media-services-protect-with-aes128.md).
-* **FairPlay van Apple**
+* **Apple FairPlay**
 
     De afzonderlijke video en audio-voorbeelden zijn versleuteld met behulp van de **AES-128 CBC** modus. **FairPlay Streaming** (FPS) is geïntegreerd in de besturingssystemen van apparaten, met systeemeigen ondersteuning op iOS- en Apple TV. Safari op OS X kunt FPS met behulp van de interfaceondersteuning versleuteld Media extensies (EME).
 * **Microsoft PlayReady**
@@ -64,7 +64,7 @@ De volgende zaken moeten worden ingesteld op Media Services sleutellevering kant
         Ga naar de map waarin het certificaat FairPlay en andere bestanden die door Apple worden geleverd zijn.
     2. Voer de volgende opdracht uit via de opdrachtregel. Dit converteert het cer-bestand naar een .pem-bestand.
 
-        'C:\OpenSSL-Win32\bin\openssl.exe' x509-informeren der-in FairPlay.cer-out FairPlay out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
     3. Voer de volgende opdracht uit via de opdrachtregel. Dit converteert het .pem-bestand naar een pfx-bestand met de persoonlijke sleutel. Het wachtwoord voor het pfx-bestand wordt vervolgens door OpenSSL gevraagd.
 
         'C:\OpenSSL-Win32\bin\openssl.exe' pkcs12-Exporteer - FairPlay out.pfx-inkey privatekey.pem-in FairPlay out.pem - passin file:privatekey-pem-pass.txt
@@ -90,8 +90,8 @@ De volgende clients ondersteunen HLS met **AES-128 CBC** versleuteling: Safari o
 Hieronder vindt u algemene stappen voor het beveiligen van uw assets met FairPlay met behulp van de Media Services-service voor het leveren van licenties en met behulp van dynamische versleuteling.
 
 1. Maak een asset en upload bestanden in de asset.
-2. Codeer de asset met het bestand naar de adaptive bitrate die MP4-set.
-3. Maak een inhoudssleutel en deze koppelen aan de gecodeerde asset.  
+2. Codeer de asset die het bestand bevat naar de Adaptive Bitrate MP4-set.
+3. Maak een inhoudssleutel en koppel deze aan de gecodeerde asset.  
 4. Configureer het autorisatiebeleid voor de inhoudssleutel. Het volgende opgeven:
 
    * De leveringsmethode (in dit geval FairPlay).
@@ -116,7 +116,7 @@ Hieronder vindt u algemene stappen voor het beveiligen van uw assets met FairPla
      > * Een andere IAssetDeliveryPolicy FairPlay voor HLS configureren
      >
      >
-6. Maak een OnDemand-locator om een streaming-URL.
+6. Maak een OnDemand-locator om een streaming-URL te verkrijgen.
 
 ## <a name="use-fairplay-key-delivery-by-player-apps"></a>FairPlay-sleutellevering door player apps gebruiken
 U kunt player apps ontwikkelen met behulp van de iOS-SDK. U hebt om te kunnen FairPlay inhoud af te spelen, voor het implementeren van de licentie voor exchange-protocol. Dit protocol is niet opgegeven door Apple. Het is tot elke app het sleutellevering aanvragen verzenden. De Media Services FairPlay sleutellevering service verwacht dat de SPC bij als een www-form-url gecodeerde post bericht in de volgende notatie:
@@ -128,7 +128,7 @@ U kunt player apps ontwikkelen met behulp van de iOS-SDK. U hebt om te kunnen Fa
 >
 >
 
-## <a name="streaming-urls"></a>Streaming-URL 's
+## <a name="streaming-urls"></a>Streaming-URL's
 Als uw asset is versleuteld met meer dan één DRM, moet u een tag versleuteling in de streaming-URL: (format = 'm3u8-aapl', versleuteling = 'xxx').
 
 Het volgende letten:
@@ -146,8 +146,10 @@ Het volgende letten:
 1. Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
 2. Voeg de volgende elementen toe aan **appSettings** dat in het bestand app.config is gedefinieerd:
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ## <a name="example"></a>Voorbeeld
 
@@ -156,11 +158,11 @@ Het volgende voorbeeld demonstreert de mogelijkheid om Media Services gebruiken 
 Overschrijf de code in uw Program.cs-bestand met de code die wordt weergegeven in deze sectie.
 
 >[!NOTE]
->Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Zie voor meer informatie [dit](media-services-dotnet-manage-entities.md#limit-access-policies) artikel.
+>Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit artikel](media-services-dotnet-manage-entities.md#limit-access-policies) voor meer informatie.
 
 Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen waar uw invoerbestanden zich bevinden.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

@@ -3,7 +3,7 @@ title: Bewaken en beheren van pijplijnen met behulp van de Azure-portal en Power
 description: Informatie over het gebruik van de Azure-portal en Azure PowerShell om te controleren en beheren van de Azure data factory's en pijplijnen die u hebt gemaakt.
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d9e7b1d020a99e939ea01c43c7e5e935188b212e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b361ca67ebece9ba1ced1010835eb90586dd7359
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Bewaken en beheren van Azure Data Factory-pijplijnen met behulp van de Azure-portal en PowerShell
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Deze sectie beschrijft ook hoe een gegevensset-segment van de ene staat status v
 
    U ziet de startpagina van de gegevensfactory.
 
-   ![Blade gegevensfactory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
+   ![Blade Data factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### <a name="diagram-view-of-your-data-factory"></a>Diagramweergave van uw data factory
 De **Diagram** weergave van een data factory biedt één glas bewaken en beheren van de gegevensfactory en de activa. Om te zien de **Diagram** van uw gegevensfactory weergeven, klikt u op **Diagram** op de startpagina voor de data factory.
@@ -134,10 +134,10 @@ De gegevensset segmenten in de gegevensfactory, kunnen een van de volgende statu
 <td>Gereed</td><td>-</td><td>Het segment is gereed voor gebruik.</td>
 </tr>
 <tr>
-<td>Overgeslagen</td><td>Geen</td><td>Het segment wordt niet verwerkt.</td>
+<td>Overgeslagen</td><td>None</td><td>Het segment wordt niet verwerkt.</td>
 </tr>
 <tr>
-<td>Geen</td><td>-</td><td>Een segment wordt gebruikt voor te komen met een andere status, maar is teruggezet.</td>
+<td>None</td><td>-</td><td>Een segment wordt gebruikt voor te komen met een andere status, maar is teruggezet.</td>
 </tr>
 </table>
 
@@ -368,7 +368,7 @@ De volgende tabel bevat de lijst met beschikbare bewerkingen en statussen (en su
 
 | Bewerkingsnaam | Status | Substatus |
 | --- | --- | --- |
-| RunStarted |Gestart |Starting |
+| RunStarted |Gestart |Starten |
 | RunFinished |Kan niet / is voltooid |FailedResourceAllocation<br/><br/>Geslaagd<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/>< geannuleerd<br/><br/>FailedValidation<br/><br/>Afgebroken |
 | OnDemandClusterCreateStarted |Gestart | |
 | OnDemandClusterCreateSuccessful |Geslaagd | |

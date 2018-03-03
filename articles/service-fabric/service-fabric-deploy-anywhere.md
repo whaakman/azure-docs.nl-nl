@@ -3,7 +3,7 @@ title: Azure Service Fabric-clusters maken in Windows Server- en Linux | Microso
 description: Service Fabric-clusters worden uitgevoerd op Windows Server- en Linux-, wat betekent dat u zult implementeren- en overal host Service Fabric-toepassingen kunt u Windows Server of Linux uitvoeren.
 services: service-fabric
 documentationcenter: .net
-author: Chackdan
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/19/2017
-ms.author: chackdan
-ms.openlocfilehash: e3cfad19e42af24edd68befd7b1eac8cef41a1d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: dekapur
+ms.openlocfilehash: 63b7bfa5ca357470f5ed36a4cdf943cee779f0fc
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Service Fabric-clusters op Windows Server of Linux maken
 Een Azure Service Fabric-cluster is een set netwerk verbonden virtuele of fysieke machines waarin uw microservices worden geïmplementeerd en beheerd. Een machine of virtuele machine die deel uitmaakt van een cluster wordt een clusterknooppunt genoemd. Clusters kunnen worden geschaald naar duizenden knooppunten. Als u nieuwe knooppunten aan het cluster toevoegt, rebalances Service Fabric de service partitie replica's en exemplaren op tussen het toegenomen aantal knooppunten. De algemene verbetert de prestaties van toepassingen en verkleint u conflicten over toegang tot het geheugen. Als de knooppunten in het cluster niet efficiënt worden gebruikt, kunt u het aantal knooppunten in het cluster verminderen. Service Fabric rebalances opnieuw de replica's en exemplaren op tussen het kleinere aantal knooppunten beter te benutten van de hardware op elk knooppunt.
@@ -33,7 +33,12 @@ U staat op clusters maken op virtuele machines die deze besturingssystemen wordt
 
 * Windows Server 2012 R2
 * Windows Server 2016 
-* Linux Ubuntu 16.04  
+* Windows Server 1709
+* Linux Ubuntu 16.04
+
+> [!NOTE]
+> Als u besluit Service Fabric op Windows Server 1709 implementeren, houd er rekening mee dat (1) het is niet een lange termijn servicing branch gebruikt, zodat u versies in de toekomst te verplaatsen, en (2) als u containers implementeren, werken containers die zijn gebaseerd op Windows Server 2016 niet op Windows Server  1709, en vice versa (u moet ze voor het implementeren van deze opnieuw maken).
+>
 
 ## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>Zelfstandige Service Fabric-clusters lokale maken of bij een cloudprovider
 Service Fabric bevat een installatiepakket voor u zelfstandige Service Fabric-clusters lokale maken of op elke cloudprovider.

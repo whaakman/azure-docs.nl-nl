@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 565497bd5a35e3c4d69d29512307cf3ca2364bdd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b714fcf001a6830cffe4df8c152dab40834c7c4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Geavanceerde werkstroom voor Media Encoder Premium zelfstudies
 ## <a name="overview"></a>Overzicht
 Dit document bevat scenario's die laten zien hoe u werkstromen met aanpassen **Workflow Designer**. U vindt de daadwerkelijke Werkstroombestanden [hier](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
-## <a name="toc"></a>INHOUDSOPGAVE
+## <a name="toc"></a>TOC
 De volgende onderwerpen komen aan bod:
 
 * [MXF naar een single-bitrate MP4-codering](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
@@ -41,7 +41,7 @@ De volgende onderwerpen komen aan bod:
   * [Toevoegen van een of meer extra MP4-uitvoer](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_more_outputs)
   * [De bestandsnamen van de uitvoer configureren](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_conf_output_names)
   * [Toevoegen van een afzonderlijke-nummer](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
-  * [Toevoegen van de. ISM SMIL-bestand](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
+  * [De 'Console' SMIL-bestand toe te voegen](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
 * [MXF in multibitrate MP4 - verbeterde blauwdruk codering](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
   * [Overzicht van de werkstroom te verbeteren](#workflow-overview-to-enhance)
   * [Naamgevingsregels voor bestanden](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
@@ -67,12 +67,12 @@ De volgende onderwerpen komen aan bod:
   * [De eigenschap van een ClippingEnabled gemak toe te voegen](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
 
 ## <a id="MXF_to_MP4"></a>MXF naar een single-bitrate MP4-codering
-In dit scenario maakt u een single bitrate. MP4-bestand met AAC HE gecodeerde audio van een. Het invoerbestand MXF.
+Deze sectie wordt gedemonstreerd hoe u maakt een single bitrate. MP4-bestand met AAC HE gecodeerde audio van een. Het invoerbestand MXF.
 
 ### <a id="MXF_to_MP4_start_new"></a>Een nieuwe werkstroom starten
-Workflow Designer openen en selecteer 'File '-' nieuwe werkruimte'-' transcoderen blauwdruk'
+Workflow Designer openen en selecteer Bestand > nieuwe werkruimte > transcoderen blauwdruk
 
-De nieuwe werkstroom wordt 3 elementen weergeven:
+De nieuwe werkstroom ziet u drie elementen:
 
 * Primaire bronbestand
 * Clip XML-lijst
@@ -83,35 +83,35 @@ De nieuwe werkstroom wordt 3 elementen weergeven:
 *Nieuwe codering werkstroom*
 
 ### <a id="MXF_to_MP4_with_file_input"></a>Met behulp van de invoer van Media-bestand
-Om te kunnen accepteren onze invoer mediabestand, begint een met het Media bestand invoer onderdelen toevoegen. Een onderdeel toevoegen aan de werkstroom, zoekt in het zoekvak opslagplaats en sleep de gewenste vermelding naar het deelvenster ontwerpen. Dit doen voor de invoer Media-bestand en het onderdeel primaire bronbestand verbinding met de bestandsnaam invoer pincode van de invoer Media-bestand.
+Om het mediabestand voor invoer accepteert, wordt een gestart met het toevoegen van een Media bestand invoer onderdeel. Een onderdeel toevoegen aan de werkstroom, zoekt in het zoekvak opslagplaats en sleep de gewenste vermelding naar het deelvenster ontwerpen. De herhalen voor de invoer Media-bestand en het onderdeel primaire bronbestand verbinding met de bestandsnaam invoer pincode van de invoer Media-bestand.
 
 ![Verbonden mediabestand invoer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-input.png)
 
 *Verbonden mediabestand invoer*
 
-Voordat we veel anders doen kunt, moet we eerst om aan te geven voor de workflow designer wat we willen graag voor het ontwerpen van de werkstroom met voorbeeldbestand. Om dit te doen, klikt u op de achtergrond van de ontwerpfunctie deelvenster en zoekt u naar de primaire bronbestand-eigenschap in het deelvenster met de rechter-eigenschap. Klik op het mappictogram en selecteer de gewenste bestand voor het testen van de werkstroom met. Zodra dit is gebeurd, wordt het onderdeel Media bestandsinvoer inspecteren van het bestand en bijbehorende pincodes uitvoer naar aanleiding van het bestand dat wordt geïnspecteerd vullen.
+In eerste instantie een juiste voorbeeldbestand moet worden gebruikt bij het ontwerpen van een aangepaste werkstroom identificeren. Om dit te doen, klikt u op de achtergrond van de ontwerpfunctie deelvenster en zoekt u naar de primaire bronbestand-eigenschap in het deelvenster met de rechter-eigenschap. Klik op het mappictogram en selecteer de gewenste bestand voor het testen van de werkstroom. Het onderdeel Media bestandsinvoer inspecteert van het bestand en bijbehorende pincodes uitvoer naar aanleiding van de details van het voorbeeldbestand dat deze geïnspecteerd gevuld.
 
 ![Invoer van mediabestand ingevuld](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-populated-media-file-input.png)
 
 *Invoer van mediabestand ingevuld*
 
-Terwijl u hiermee met welke invoer willen we werken, niet duidelijk nog waarin de uitvoer van de gecodeerde moet gaat u naar. Vergelijkbaar met hoe de primaire bronbestand is geconfigureerd, de uitvoer map variabele eigenschap, net onder nu configureren.
+Nu dat de invoer is ingevuld, wordt de volgende stap is om in te stellen coderingsinstellingen uitvoer. Vergelijkbaar met hoe de primaire bronbestand is geconfigureerd, de uitvoer map variabele eigenschap, net onder nu configureren.
 
 ![Geconfigureerde invoer en uitvoer eigenschappen](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-configured-io-properties.png)
 
 *Geconfigureerde invoer en uitvoer eigenschappen*
 
 ### <a id="MXF_to_MP4_streams"></a>Streaming media te bekijken
-Vaak is het gewenste weten hoe de stroom lijkt erop dat stromen via de werkstroom. Om te controleren op een stroom op elk gewenst moment in de werkstroom, klik op een uitvoer- of invoer van de pincode op een van deze onderdelen. In dit geval probeert te klikken op de pincode van de uitvoer niet-gecomprimeerde Video van onze invoer Media-bestand. Een dialoogvenster wordt geopend waarmee de uitgaande video controleren.
+Vaak is het gewenste weten hoe de stroom eruit als deze via de werkstroom loopt. Om te controleren op een stroom op elk gewenst moment in de werkstroom, klik op een uitvoer- of invoer van de pincode op een van deze onderdelen. In dit geval probeert te klikken op de pincode van de uitvoer niet-gecomprimeerde Video uit de invoer van Media-bestand. Een dialoogvenster wordt geopend waarmee de uitgaande video controleren.
 
 ![De pincode van de uitvoer niet-gecomprimeerde Video bekijken](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-inspecting-uncompressed-video-output.png)
 
 *De pincode van de uitvoer niet-gecomprimeerde Video bekijken*
 
-In ons geval vertelt ons bijvoorbeeld dat we je omgaan met een invoer 1920 x 1080 op 24 frames per seconde in 4:2:2 steekproeven voor een video van bijna 2 minuten.
+In dit geval wordt een melding weergegeven dat de video een 1920 x 1080 invoer op 24 frames per seconde in 4 bevat: 2:2 steekproeven voor een video van bijna 2 minuten.
 
 ### <a id="MXF_to_MP4_file_generation"></a>Toevoegen van een video encoder voor. MP4-bestand genereren
-Houd er rekening mee dat nu, een niet-gecomprimeerde Video's en meerdere niet-gecomprimeerde Audio-uitvoer pincodes zijn beschikbaar voor gebruik van onze invoer Media-bestand. De binnenkomende video codeert, moet een codering onderdeel - in dit geval voor het genereren van. MP4-bestanden.
+Nu een niet-gecomprimeerde Video's en meerdere niet-gecomprimeerde Audio-uitvoer pincodes zijn beschikbaar voor gebruik op de Media bestand-invoer. Om de binnenkomende video coderen, moet een onderdeel van de codering worden toegevoegd aan de werkstroom - in dit geval voor het genereren van. MP4-bestanden.
 
 Als u wilt coderen van de video-stream naar H.264 toevoegen het onderdeel AVC Video Encoder naar het ontwerpoppervlak. Dit onderdeel wordt een decomprimeren videostream als invoer en biedt een gecomprimeerde AVC-videostream op de pincode van de uitvoer.
 
@@ -121,31 +121,31 @@ Als u wilt coderen van de video-stream naar H.264 toevoegen het onderdeel AVC Vi
 
 De eigenschappen kunt u bepalen hoe de codering precies wordt uitgevoerd. We hebben een overzicht van enkele van de belangrijkste instellingen:
 
-* Uitvoer breedte en hoogte van de uitvoer: deze bepalen de resolutie van de gecodeerde video. In ons geval gaan we met 640 x 360
-* Framesnelheid: als de waarde passthrough deze dan alleen neemt de framesnelheid bron is het mogelijk is dit echter negeren. Houd er rekening mee dat dergelijke framesnelheid conversie is niet beweging-gecompenseerd.
-* Profiel en het niveau: deze bepalen de AVC-profiel en het niveau. U gemakkelijk kunt meer informatie over de verschillende niveaus en -profielen, klikt u op het vraagteken voor het onderdeel AVC Video Encoder en de help-pagina wordt meer details over elk van de niveaus weergeven. Voor onze voorbeeld we kiezen Main-profiel op niveau 3.2 (de standaardinstelling).
-* Beoordeel besturingselement modus en Bitrate (kbps): in ons scenario we kiezen voor een constante uitvoer voor 1200 kbps bitrate (CBR)
-* Video-indeling: dit is over de VUI (Video bruikbaarheid informatie) die in de stroom H.264 (side-informatie die mogelijk gebruikt door een decoder voor het verbeteren van de weergave, maar niet essentieel is voor het correct worden ontsleuteld) opgehaald geschreven:
+* Uitvoer breedte en hoogte van de uitvoer: Hiermee bepaalt u de resolutie van de gecodeerde video. In dit geval is 640 x 360 een goede instelling.
+* Framesnelheid: als de waarde passthrough deze dan alleen neemt de framesnelheid bron is het mogelijk is dit echter negeren. De conversie van dergelijke framesnelheid is niet beweging-gecompenseerd.
+* Profiel en het niveau: bepaalt het AVC-profiel en niveau. U gemakkelijk kunt meer informatie over de verschillende niveaus en -profielen, klikt u op het vraagteken voor het onderdeel AVC Video Encoder en de help-pagina wordt meer details over elk van de niveaus weergeven. Voor dit voorbeeld gebruik u Main-profiel op niveau 3.2 (de standaardinstelling).
+* Beoordeel besturingselement modus en Bitrate (kbps): in dit scenario kiezen voor een constante uitvoer voor 1200 kbps bitrate (CBR)
+* Video-indeling: bevat informatie over de VUI (Video bruikbaarheid informatie) die in de stroom H.264 (side-informatie die mogelijk gebruikt door een decoder voor het verbeteren van de weergave, maar niet essentieel is voor het correct worden ontsleuteld) opgehaald geschreven:
 * NTSC (standaard voor VS of Japan, met behulp van 30 fps)
 * PAL (standaard voor Europa, met behulp van 25 fps)
-* Modus van de grootte GOP: geconfigureerd vaste GOP grootte voor onze toepassing met een Interval van twee seconden van de sleutel met GOPs gesloten. Dit zorgt ervoor compatibiliteit met dynamische pakketten Azure Media Services biedt.
+* GOP grootte modus: vaste grootte van GOP instellen voor onze toepassing met een Interval van twee seconden van de sleutel met GOPs gesloten. De instelling van 2 seconden zorgt ervoor dat de compatibiliteit met dynamische pakketten Azure Media Services biedt.
 
-Voor de feed onze AVC-codering, verbinding maken met de pincode niet-gecomprimeerde Video-uitvoer van het onderdeel Media bestand invoer voor de invoer niet-gecomprimeerde Video-pincode van het coderingsprogramma AVC.
+Als u wilt het coderingsprogramma AVC-kanaal verbinding maken met de pincode niet-gecomprimeerde Video-uitvoer van het onderdeel Media bestand invoer voor de invoer niet-gecomprimeerde Video-pincode van het coderingsprogramma AVC.
 
 ![Verbonden AVC-codering](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-avc-encoder.png)
 
 *Verbonden AVC Main-codering*
 
 ### <a id="MXF_to_MP4_audio"></a>De audiostroom codering
-Op dit moment hebben we video gecodeerd, maar de oorspronkelijke, niet-gecomprimeerde audiostroom nog moet worden gecomprimeerd. Voor dit gaan we AAC codering door het onderdeel AAC codering (Dolby). Deze toevoegen aan de werkstroom.
+Op dit punt wordt moet de oorspronkelijke, niet-gecomprimeerde audiostroom nog worden gecomprimeerd. Voor de compressie van de audiostroom een onderdeel AAC codering (Dolby) te voegen aan de werkstroom.
 
 ![Niet-verbonden AVC-codering](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-aac-encoder.png)
 
 *Niet-verbonden AAC codering*
 
-Er is een incompatibiliteit: Er is slechts één niet-gecomprimeerde audio-invoer pincode vanuit het coderingsprogramma AAC terwijl meer dan waarschijnlijk Media bestand invoer twee verschillende niet-gecomprimeerde audiostroom beschikbaar heeft: één voor het linkerdeelvenster audio kanaal en één voor het recht. (Als u bent omgaan met rond geluid, dat is 6 kanalen.) Het is dus niet mogelijk rechtstreeks verbinding maken de audio van de invoerbron van Media-bestand in de AAC audio-encoder. Het onderdeel AAC verwacht een zogenaamde 'interleaved' audiostroom: één stream met de linker- en de juiste kanalen interleaved met elkaar. Wanneer we weten uit onze bronbestand media wat zijn welke audio-nummers in welke positie in de bron kan er dergelijke interleaved audiostroom met de posities correct toegewezen spreker voor links of rechts gegenereerd.
+Er is een incompatibiliteit: Er is slechts één niet-gecomprimeerde audio-invoer pincode vanuit het coderingsprogramma AAC terwijl meer dan waarschijnlijk Media bestand invoer twee verschillende niet-gecomprimeerde audio stromen beschikbaar heeft: één voor het linkerdeelvenster audio kanaal en één voor het recht. (Als u bent omgaan met rond geluid, dat is zes kanalen.) Het is dus niet mogelijk rechtstreeks verbinding maken de audio van de invoerbron van Media-bestand in de AAC audio-encoder. Het onderdeel AAC verwacht een zogenaamde 'interleaved' audiostroom: één stream met de linker- en de juiste kanalen interleaved met elkaar. Eenmaal we weten van onze bronbestand media of audio-nummers in welke positie in de bron zijn, kunnen we dergelijke interleaved audiostroom met de posities correct toegewezen spreker voor links of rechts genereren.
 
-Een wilt eerst een interleaved stroom gegenereerd op basis van de vereiste bron audio-kanalen. Het onderdeel Audio Stream Interleaver verwerken dit voor ons. Toe te voegen aan de werkstroom en verbinding maken met de audio-uitvoer van de invoer van Media-bestand in de App.
+Eerst wil een een interleaved stroom genereren van de vereiste bron audio-kanalen. Het onderdeel Audio Stream Interleaver verwerkt dit voor ons. Toe te voegen aan de werkstroom en verbinding maken met de audio-uitvoer van de invoer van Media-bestand in de App.
 
 ![Verbonden audiostroom Interleaver](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-audio-stream-interleaver.png)
 
@@ -157,7 +157,7 @@ Nu dat we een interleaved audiostroom hebben, opgeven er nog steeds niet waar de
 
 *Toevoegen van een spreker positie wel statusrapporten*
 
-Configureer spreker positie wel statusrapporten voor gebruik met een aansluiting invoerstroom via een Encoder vooraf ingestelde Filter 'Custom' en het kanaal voorinstelling "2.0 (L, R)" genoemd. (Hierbij worden toegewezen de positie links spreker aan kanaal 1 en de juiste spreker positie aan 2-kanaal.)
+Spreker positie wel statusrapporten voor gebruik met een aansluiting invoerstroom configureren via een Encoder vooraf ingestelde Filter van 'Custom' en het kanaal voorinstelling met de naam '2.0 (L, R)'. (Dit toegewezen de positie links spreker aan kanaal 1 en de juiste spreker positie aan 2-kanaal.)
 
 De uitvoer van de spreker positie wel statusrapporten verbinding met de invoer van de Encoder AAC. Vervolgens geeft u het coderingsprogramma AAC voor gebruik met een '2.0 (L, R)' kanaal vooraf ingesteld, zodat deze te gaan met stereogeluid als invoer.
 
@@ -175,15 +175,15 @@ Bij het schrijven van een bestand voor uitvoer, wordt het onderdeel uitvoer in e
 
 *Verbonden uitvoer in een bestand*
 
-De bestandsnaam die wordt gebruikt, wordt bepaald door de eigenschap van het bestand. Die eigenschap kan zijn vastgelegd op een opgegeven waarde, wordt waarschijnlijk een wilt deze in te stellen via een expressie in plaats daarvan.
+De bestandsnaam die wordt gebruikt, wordt bepaald door de eigenschap van het bestand. Die eigenschap kan zijn vastgelegd op een opgegeven waarde, wordt waarschijnlijk een wil in plaats daarvan via een expressie instellen.
 
-De werkstroom automatisch bepalen de uitvoer van de eigenschap name van een expressie-bestand, klikt u op de buton naast de naam van het bestand (naast het pictogram van de map). Selecteer vervolgens 'Expression' in de vervolgkeuzelijst. Er verschijnt nu de expressie-editor. Schakel eerst de inhoud van de editor.
+De werkstroom automatisch bepalen de uitvoer van de eigenschap name van een expressie bestand, klik op de knop naast de naam van het bestand (naast het pictogram van de map). Selecteer in de vervolgkeuzelijst 'Expressie'. Hiermee wordt de expressie-editor. Schakel eerst de inhoud van de editor.
 
 ![Lege expressie-Editor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-empty-expression-editor.png)
 
 *Lege expressie-Editor*
 
-De expressie-editor kan geen letterlijke waarde, gecombineerd met een of meer variabelen invoeren. Variabelen beginnen met een dollarteken. Als u de sleutel $ raakt, wordt de editor voor een vervolgkeuzelijst met een keuze van de beschikbare variabelen weergegeven. In ons geval gebruikt u een combinatie van de map uitvoervariabele en de variabele base invoerbestand naam:
+De expressie-editor kunt u geen letterlijke waarde, gecombineerd met een of meer variabelen invoeren. Variabelen beginnen met een dollarteken. Als u de sleutel $ raakt, ziet u een vervolgkeuzelijst met een keuze van de beschikbare variabelen in de editor. In ons geval gebruikt u een combinatie van de map uitvoervariabele en de variabele base invoerbestand naam:
 
     ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
 
@@ -196,14 +196,14 @@ De expressie-editor kan geen letterlijke waarde, gecombineerd met een of meer va
 >
 >
 
-Als u de expressie te raken ok bevestigt, wordt het eigenschappenvenster bekijken wat op dit moment waarde van het bestand eigenschap wordt omgezet.
+Als u de expressie te raken ok bevestigt, voorbeeld van het eigenschappenvenster welke op dit moment waarde van het bestand eigenschap wordt omgezet.
 
 ![Expressie voor uitvoer dir wordt opgelost](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-expression-resolves-output-dir.png)
 
 *Expressie voor uitvoer dir wordt opgelost*
 
 ### <a id="MXF_to_MP4_asset_from_output"></a>Een Media Services-activum maken van het bestand voor uitvoer
-Terwijl we een MP4-bestand voor uitvoer geschreven hebben, moet er nog steeds om aan te geven dat dit bestand hoort op de uitvoerasset die mediaservices wordt gegenereerd als gevolg van deze werkstroom wordt uitgevoerd. Hiertoe wordt het knooppunt Uitvoerasset bestand op het canvas werkstroom gebruikt. Alle binnenkomende bestanden in dit knooppunt maakt deel uit van het resulterende Azure Media Services actief zijn.
+Terwijl we een MP4-bestand voor uitvoer geschreven hebben, moet er nog steeds om aan te geven dat dit bestand hoort op de uitvoerasset welke mediaservices wordt gegenereerd als gevolg van deze werkstroom wordt uitgevoerd. Hiertoe wordt het knooppunt Uitvoerasset bestand op het canvas werkstroom gebruikt. Alle binnenkomende bestanden in dit knooppunt maken deel uit van de resulterende Azure Media Services-asset.
 
 Verbinding met het maken van het onderdeel uitvoer in een bestand met het onderdeel Uitvoerasset bestand voor het voltooien van de werkstroom.
 
@@ -224,7 +224,7 @@ Wanneer een multi-bitrate asset uitvoer vereist is voor gebruik in combinatie me
 *Werkstroom starten*
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_more_outputs"></a>Toevoegen van een of meer extra MP4-uitvoer
-Alle MP4-bestanden in onze resulterende Azure Media Services actief wordt ondersteuning voor een andere bitrate en resolutie. Stel een of meer MP4 uitvoerbestanden toevoegen aan de werkstroom.
+Elke MP4-bestand in onze resulterende asset met Azure Media Services ondersteunt een andere bitrate en resolutie. Stel een of meer MP4 uitvoerbestanden toevoegen aan de werkstroom.
 
 Om ervoor te zorgen dat we hebben onze video encoders gemaakt met dezelfde instellingen, het gemakkelijkst de al bestaande AVC Video Encoder dupliceren en configureren van een andere combinatie van resolutie en bitrate (we toevoegen van een van de 960 x 540 op 25 frames per seconde met 2,5 Mbps ). Als u wilt de bestaande encoder dupliceren, kopie plakt u deze op het ontwerpoppervlak.
 
@@ -240,9 +240,9 @@ Opgegeven willen we gebruiken de resulterende asset samen met Azure Media Servic
 
 * Als u de modus GOP formaat op vaste GOP grootte en
 * het Interval van de Frame-sleutel op twee seconden.
-* ook ingesteld worden gesloten GOP om alle GOP ervoor te zorgen dat het GOP IDR besturingselement permanent op hun eigen zonder afhankelijkheden
+* ook ingesteld worden gesloten GOP om alle GOPs ervoor te zorgen dat het GOP IDR besturingselement permanent op hun eigen zonder afhankelijkheden
 
-Als u onze workflow handig om te begrijpen, wijzig de naam de eerste AVC-encoder en ' AVC-Video Encoder 640 x 360 1200kbps ' en de tweede AVC-encoder ' AVC-Video Encoder 960 x 540 2500 kbps '.
+Wijzigen zodat deze werkstroom gemakkelijker te begrijpen, de eerste AVC-encoder naar ' AVC-Video Encoder 640 x 360 1200 kbps ' en de tweede AVC-encoder ' AVC-Video Encoder 960 x 540 2500 kbps. "
 
 Een tweede ISO MPEG-4 Multiplexer en de uitvoer van een tweede bestand toevoegen. De multiplexer verbinding met de nieuwe AVC-encoder en zorg ervoor dat de uitvoer naar de uitvoer van het bestand wordt geleid. Sluit ook de AAC audio encoder uitvoer naar de nieuwe multiplexer van invoer. De uitvoer van het bestand kunnen op zijn beurt vervolgens worden verbonden met het knooppunt Uitvoerasset bestand toe te voegen aan de Media Services-Asset die wordt gemaakt.
 
@@ -265,7 +265,7 @@ Uitvoer benoemen kan worden beheerd via de expressies in de ontwerpfunctie. Open
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
 
-Dit betekent dat onze filename wordt bepaald door twee variabelen: de uitvoermap om in te schrijven en base naam van het bronbestand. De systeemprestatiemeteritems als een eigenschap in de hoofdmap van de werkstroom en de laatste wordt bepaald door het inkomende bestand. Houd er rekening mee dat de uitvoermap die u gebruikt voor het lokale testen; Deze eigenschap wordt overschreven door de werkstroom-engine wanneer de werkstroom wordt uitgevoerd door de cloud-gebaseerde Mediaprocessor in Azure Media Services.
+Dit betekent dat onze filename wordt bepaald door twee variabelen: de uitvoermap om in te schrijven en base naam van het bronbestand. De systeemprestatiemeteritems als een eigenschap in de hoofdmap van de werkstroom en de laatste wordt bepaald door het inkomende bestand. De uitvoermap wordt gebruikt voor het lokale testen; Deze eigenschap wordt overschreven door de werkstroom-engine wanneer de werkstroom wordt uitgevoerd door de cloud-gebaseerde Mediaprocessor in Azure Media Services.
 Als u ons uitvoerbestanden geven een consistente uitvoer naamgeving, wijzigen voor de eerste expressie voor de naamgeving van bestanden:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
@@ -294,6 +294,7 @@ Maken van een derde onderdeel van de uitvoer in een bestand voor het uitvoeren v
 ### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Toevoegen van de. ISM SMIL-bestand
 Voor de dynamische pakketten werkt in combinatie met zowel MP4-bestanden (als de MP4 alleen audio) in onze asset Media Services, moet er ook een manifestbestand (ook wel een 'SMIL'-bestand: Synchronized Multimedia Integration Language). Dit bestand geeft u aan Azure Media Services welke MP4-bestanden zijn beschikbaar voor dynamische pakketten en welke van die in overweging moet nemen voor de audio-streaming. Een typische manifestbestand voor een set MP4 van met een enkele audiostroom ziet er als volgt:
 
+```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
     <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
       <head>
@@ -308,6 +309,7 @@ Voor de dynamische pakketten werkt in combinatie met zowel MP4-bestanden (als de
         </switch>
       </body>
     </smil>
+```
 
 De ISM-bestand bevat binnen een switch-instructie een verwijzing naar elk van de afzonderlijke video MP4-bestanden en naast ook een (of meer) audiobestand verwijzingen naar een MP4 alleen met de audio.
 
@@ -326,15 +328,15 @@ Onze klaar workflow lijkt op het onderstaande:
 ## <a id="MXF_to__multibitrate_MP4"></a>MXF in multibitrate MP4 - verbeterde blauwdruk codering
 In de [vorige werkstroom procedure](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging) we hebt gezien hoe een enkel MXF invoer actief kan worden geconverteerd naar een uitvoerasset met multi-bitrate MP4-bestanden, een alleen-audio MP4-bestand en een manifestbestand voor gebruik in combinatie met Azure Media Services dynamische pakketten.
 
-In dit scenario wordt weergegeven hoe sommige van de aspecten kunnen worden verbeterd en eenvoudiger gemaakt.
+Dit overzicht toont hoe sommige van de aspecten kunnen worden verbeterd en eenvoudiger gemaakt.
 
 ### <a id="MXF_to_multibitrate_MP4_overview"></a>Overzicht van de werkstroom te verbeteren
 ![Werkstroom voor het verbeteren van Multibitrate MP4](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-enhance.png)
 
 *Werkstroom voor het verbeteren van Multibitrate MP4*
 
-### <a id="MXF_to__multibitrate_MP4_file_naming"></a>Naamgevingsregels voor bestanden
-In de vorige werkstroom we een eenvoudige expressie als basis voor het genereren van bestandsnamen uitvoer opgegeven. Hebben we sommige duplicatie echter: alle van de opgegeven dergelijke expressie van de onderdelen van afzonderlijke uitvoer-bestand.
+### <a id="MXF_to__multibitrate_MP4_file_naming">Naamgevingsregels voor bestanden</a>
+In de vorige werkstroom we een eenvoudige expressie als basis voor het genereren van bestandsnamen uitvoer opgegeven. We enkele duplicatie al hebben: alle onderdelen voor afzonderlijke uitvoer-bestand opgegeven dergelijke expressie.
 
 Bijvoorbeeld: onze bestand output-component voor het eerste videobestand wordt geconfigureerd met deze expressie:
 
@@ -344,7 +346,7 @@ Wij hebben een expressie zoals terwijl voor de tweede de uitvoer van de video:
 
     ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
 
-Zou niet het schonere minder fout foutgevoelige en gemakkelijker als we kan Verwijder enkele van deze duplicaten en dingen in plaats daarvan meer configureerbaar maken? Gelukkig kunnen we: de ontwerpfunctie expressie mogelijkheden in combinatie met de mogelijkheid te maken van aangepaste eigenschappen in de hoofdmap van de werkstroom Geef ons een extra beveiligingslaag gemak.
+Zou het niet schonere minder foutgevoelig en het handiger zijn als we kan Verwijder enkele van deze duplicaten en dingen in plaats daarvan meer configureerbaar maken? Gelukkig kunnen we: de ontwerpfunctie expressie functies in combinatie met de mogelijkheid te maken van aangepaste eigenschappen in de hoofdmap van de werkstroom een extra beveiligingslaag gemak bieden.
 
 Stel, dat we je filename configuratie-station van de bitsnelheden van de afzonderlijke MP4-bestanden. Deze bitsnelheden die hebt streven we ernaar te configureren op één centrale plaats (in de hoofdmap van de grafiek) van waar ze moeten toegankelijk zijn voor het configureren en station bestandsnaam wordt gegenereerd. U doet dit door begin met het publiceren van de eigenschap bitrate van beide AVC coderingsprogramma's naar de hoofdmap van de werkstroom, zodat deze toegankelijk is vanaf zowel de basis ook vanuit de AVC coderingsprogramma's. (Zelfs als in twee verschillende plaatsen weergegeven, er is slechts één onderliggende waarde.)
 
@@ -382,10 +384,10 @@ De groep 'Bitsnelheden Streaming' we met onze-nummer bitrate ook erop publiceren
 
 *Resulterende video en audio-eigenschappen in de hoofdmap van*
 
-Houd er rekening mee dat als u een van deze drie wijzigt ook opnieuw configureert waarden en Hiermee wijzigt u de waarden op de betreffende onderdelen die zijn gekoppeld aan (en indien gepubliceerd vanuit).
+Het wijzigen van deze drie waarden ook configureren en Hiermee wijzigt u de waarden op de betreffende onderdelen die zijn gekoppeld aan (en indien gepubliceerd vanuit).
 
 ### <a id="MXF_to__multibitrate_MP4_output_files"></a>Uitvoerbestand namen zijn afhankelijk van de gepubliceerde eigenschapswaarden hebt gegenereerd
-In plaats van hardcoderen onze gegenereerde bestandsnamen we kunnen nu wijzigen onze expressie filename op elk van de onderdelen van de uitvoer in een bestand te vertrouwen op de bitrate-eigenschappen die we zojuist hebt gepubliceerd in de hoofdmap van de grafiek. Beginnen met onze eerste uitvoer in een bestand, de eigenschap van het bestand niet vinden en bewerken van de expressie als volgt:
+In plaats van hardcoderen onze gegenereerde bestandsnamen we kunnen nu wijzigen onze expressie filename op elk van de onderdelen van de uitvoer in een bestand te vertrouwen op de eigenschappen van de bitrate die wordt gepubliceerd in de hoofdmap van de grafiek. Beginnen met onze eerste uitvoer in een bestand, de eigenschap van het bestand niet vinden en bewerken van de expressie als volgt:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
 
@@ -418,7 +420,7 @@ Het hart van onze miniaturen generatie worden het onderdeel JPG-Encoder kunnen u
 
 ![JPG-codering](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-jpg-encoder.png)
 
-*JPG-codering*
+*JPG Encoder*
 
 We kan geen onze stroom niet-gecomprimeerde Video echter rechtstreeks verbinding uit de invoer van Media-bestand in het coderingsprogramma JPG. Deze verwacht in plaats daarvan afzonderlijke frames worden verstrekt. Dit we kunt doen via het onderdeel Video Frame-Gate.
 
@@ -441,7 +443,7 @@ Terwijl het logisch dat beide pincodes niet-gecomprimeerde Video van de frame-ga
 
 *Invoerkleur ruimte fout*
 
-Dit komt doordat de manier waarop in welke kleur informatie wordt weergegeven in de oorspronkelijke onbewerkte niet-gecomprimeerde videostream, afkomstig zijn van onze MXF wijkt af van wat de JPG-Encoder verwacht. Meer specifiek, wordt een zogenaamde 'kleur ruimte' van 'RGB-' of 'Grijswaarden' verwacht stromen. Dit betekent dat binnenkomende videostream van de Video Frame-Gate moet een conversie met betrekking tot de kleurenruimte als eerste toegepast.
+Dit komt doordat de manier waarop waarin kleur informatie wordt weergegeven in de oorspronkelijke onbewerkte niet-gecomprimeerde videostream, afkomstig zijn van onze MXF wijkt af van wat de JPG-Encoder verwacht. Meer specifiek, wordt een zogenaamde 'kleur ruimte' van 'RGB-' of 'Grijswaarden' verwacht stromen. Dit betekent dat binnenkomende videostream van de Video Frame-Gate moet zijn van een conversie met betrekking tot de kleurenruimte als eerste toegepast.
 
 Sleep naar de werkstroom de kleur ruimte Converter - Intel en verbinden met onze frame-gate.
 
@@ -452,7 +454,7 @@ Sleep naar de werkstroom de kleur ruimte Converter - Intel en verbinden met onze
 Kies in het eigenschappenvenster de BGR 24-vermelding in de lijst met vooraf ingestelde.
 
 ### <a id="thumbnails_to__multibitrate_MP4_writing_thumbnails"></a>Schrijven van de miniatuurweergaven
-Verschillende op onze MP4-video, het onderdeel JPG-codering wordt uitvoerbestand meer dan één. Om door te gaan met dit, een onderdeel van de schrijver Scene zoeken JPG-bestand kan worden gebruikt: automatisch uitvoeren van de binnenkomende JPG miniaturen en de geschreven, elke bestandsnaam wordt voorafgegaan door een ander nummer. (Het getal dat het aantal seconden/eenheden in de stroom die de miniatuur is afkomstig van meestal aangeeft.)
+Verschillende op onze MP4-video, het onderdeel JPG coderingsprogramma levert meer dan één bestand. Om door te gaan met dit, een onderdeel van de schrijver Scene zoeken JPG-bestand kan worden gebruikt: het duurt de binnenkomende JPG miniaturen en schrijft deze, elke bestandsnaam wordt voorafgegaan door een ander nummer. (Het getal dat het aantal seconden/eenheden in de stroom die de miniatuur is afkomstig van meestal aangeeft.)
 
 ![Introductie van de schrijver Scene zoeken JPG-bestand](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer.png)
 
@@ -464,7 +466,7 @@ en de eigenschap Filename voorvoegsel met:
 
     ${ROOT_sourceFileBaseName}_thumb_
 
-Het voorvoegsel wordt bepaald hoe de miniatuur bestanden worden wordt genoemd. Ze wordt voorafgegaan door een getal dat aangeeft van de miniatuur positie in de stroom.
+Het voorvoegsel op dat bepaalt hoe de miniatuur bestanden worden wordt genoemd. Ze worden voorafgegaan door een getal dat aangeeft van de miniatuur positie in de stroom.
 
 ![Eigenschappen van de zoekopdracht JPG-bestand Writer Scene](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer-properties.png)
 
@@ -485,16 +487,16 @@ Klik op het weinig red "E" pictogram in de rechterbovenhoek hoek van het onderde
 
 *Kleur ruimte Converter foutberichtvenster*
 
-Het blijkt, zoals u kunt zien, dat de kleurruimte van de standaard voor de kleur ruimte converter binnenkomende moet rec601 voor onze aangevraagde conversie van YUV naar RGB heeft. Onze stroom wordt niet blijkbaar van rec601 aangegeven. (Rec 601 is een standaard voor het coderen van elkaar kruisende analoge video signalen in digitale video vorm. Hiermee wordt een actieve regio die betrekking hebben op 720 helderheid voorbeelden en 360 chrominantie voorbeelden per regel. De kleur system codering wordt ook wel YCbCr 4:2:2.)
+Het blijkt, zoals u kunt zien, dat de kleurruimte van de standaard voor de kleur ruimte converter binnenkomende moet rec601 voor onze aangevraagde conversie van YUV naar RGB heeft. Onze stroom wordt niet blijkbaar de rec601 aangegeven. (Rec 601 is een standaard voor het coderen van elkaar kruisende analoge video signalen in digitale video vorm. Hiermee wordt een actieve regio die betrekking hebben op 720 helderheid voorbeelden en 360 chrominantie voorbeelden per regel. De kleur system codering wordt ook wel YCbCr 4:2:2.)
 
-U kunt dit verhelpen, geven we op de metagegevens van onze stroom die we je rec601 inhoud betreft. We gebruiken een Video gegevens Type Updater onderdeel, die we hebt gebracht tussen onze onbewerkte bron- en de component ruimte conversie om dit te doen. Dit type gegevens updater kunt u de handmatige update van bepaalde video gegevens type-eigenschappen. Configureren om aan te geven een kleur ruimte Standard van 'Rec 601'. Hierdoor wordt de Video gegevens Type Updater voor het taggen van de stroom met de 'Rec 601' kleurruimte als er geen kleurruimte nog gedefinieerd is. (Niet overschrijft alle bestaande metagegevens, tenzij u het selectievakje onderdrukking is ingeschakeld.)
+U kunt dit verhelpen, geven we op de metagegevens van onze stroom die we je rec601 inhoud betreft. We gebruiken een Video gegevens Type Updater onderdeel, die we hebt gebracht tussen onze onbewerkte bron- en de component ruimte conversie om dit te doen. Dit type gegevens updater kunt u de handmatige update van bepaalde video gegevens type-eigenschappen. Configureren om aan te geven een kleur ruimte Standard van 'Rec 601'. Dit zorgt ervoor dat de Video gegevens Type Updater voor het taggen van de stroom met de 'Rec 601' kleurruimte als er geen kleurruimte nog gedefinieerd is. (Niet overschrijft alle bestaande metagegevens, tenzij u het selectievakje onderdrukking is ingeschakeld.)
 
 ![Kleur ruimte standaard op het Type gegevens Updater bijwerken](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-update-color-space-standard-on-data-type.png)
 
 *Kleur ruimte standaard op het Type gegevens Updater bijwerken*
 
 ### <a id="thumbnails_to__multibitrate_MP4_finish"></a>Werkstroom is voltooid
-Nu ons onze werkstroom is voltooid, doet u een andere test uitvoeren om het doorgeven te bekijken.
+Nu dat de werkstroom is voltooid, voert u een andere test uitvoeren om te zien dit wordt doorgegeven.
 
 ![Voltooide werkstroom voor meerdere mp4-uitvoer met miniaturen](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-for-multi-mp4-thumbnails.png)
 
@@ -509,7 +511,7 @@ Een werkstroom die wordt gegenereerd vanaf [een multibitrate MP4-uitvoer van een
 *Werkstroom om toe te voegen bijsnijden te starten*
 
 ### <a id="time_based_trim_use_stream_trimmer"></a>Met behulp van de stroom Trimmer
-De component stroom Trimmer kunt wissen van het begin en einde van de invoerstroom op timing informatie (seconden, minuten,...). De trimmer biedt geen ondersteuning voor op basis van het frame-opmaak.
+Het onderdeel stroom Trimmer kunt u het begin en einde van een basis op informatie (seconden, minuten,...) tijdsinstellingen invoerstroom trim. De trimmer biedt geen ondersteuning voor op basis van het frame-opmaak.
 
 ![Stroom Trimmer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-stream-trimmer.png)
 
@@ -523,7 +525,7 @@ In plaats van rechtstreeks de AVC coderingsprogramma's en spreker positie wel st
 
 Laten we de trimmer zodanig configureren dat we alleen video en audio tussen 15 en 60 seconden in de video wordt verwerkt.
 
-Ga naar de eigenschappen van de Video stroom Trimmer en zowel de begintijd (15s) en de eigenschappen van de eindtijd (60s) configureren. Zorg ervoor dat zowel onze trimmer audio en video altijd naar dezelfde begin- en eindwaarde zijn geconfigureerd, komen we deze naar de hoofdmap van de werkstroom.
+Ga naar de eigenschappen van de Video stroom Trimmer en configureren van beide begintijd (15 s)- en eindtijd (60 s) eigenschappen. Om ervoor te zorgen dat zowel onze trimmer audio en video zijn altijd ingesteld op dezelfde begin- en eindwaarde publiceren die naar de hoofdmap van de werkstroom.
 
 ![Start tijdeigenschap van stroom Trimmer publiceren](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-start-time-from-stream-trimmer.png)
 
@@ -537,7 +539,7 @@ Ga naar de eigenschappen van de Video stroom Trimmer en zowel de begintijd (15s)
 
 *Dialoogvenster Eigenschappen voor de eindtijd publiceren*
 
-Als we nu de hoofdmap van de werkstroom controleren, wordt er door beide eigenschappen netjes weergegeven en kunnen worden geconfigureerd vanaf daar zijn.
+Als we nu de hoofdmap van de werkstroom controleren, zijn beide eigenschappen netjes weergegeven en kunnen worden geconfigureerd vanaf daar.
 
 ![Gepubliceerde eigenschappen die beschikbaar zijn in de hoofdmap van](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-published-properties-available-on-root.png)
 
@@ -595,10 +597,11 @@ Een lokale testuitvoering nu uitvoeren. Controleer na het uitvoeren (via het tab
 
 *Hello world logboekuitvoer*
 
-Het knooppuntobject we de logboek-methode aanroept, verwijst naar onze huidige 'knooppunt' of het onderdeel dat we je scripting in. Elk onderdeel heeft als zodanig kunnen uitvoer logboekgegevens, beschikbaar via het tabblad systeem. In dit geval uitvoer we van de letterlijke tekenreeks "Hallo wereld". Belangrijk te begrijpen hier dat dit als een foutopsporing waardevol hulpmiddel bewijzen te, zonder dat u inzicht in wat het script daadwerkelijk doen.
+Het knooppuntobject we de logboek-methode aanroept, verwijst naar onze huidige 'knooppunt' of het onderdeel dat we je scripting in. Elk onderdeel heeft als zodanig kunnen uitvoer logboekgegevens, beschikbaar via het tabblad systeem. In dit geval uitvoer we de letterlijke tekenreeks "Hallo wereld". Belangrijk te begrijpen hier dat dit als een foutopsporing waardevol hulpmiddel bewijzen te, zonder dat u inzicht in wat het script daadwerkelijk doen.
 
 Van in onze scriptomgeving hebben we ook toegang tot de eigenschappen van andere onderdelen. Probeer dit:
 
+```java
     //inspect current node:
     def nodepath = node.getNodePath();
     node.log("this node path: " + nodepath);
@@ -612,8 +615,9 @@ Van in onze scriptomgeving hebben we ook toegang tot de eigenschappen van andere
     def sourceFileExt = parentnode.getPropertyAsString( "sourceFileExtension", null );
     def sourceFileName = parentnode.getPropertyAsString("sourceFileBaseName", null);
     node.log("source file name with extension " + sourceFileExt + " is: " + sourceFileName);
+```
 
-Onze logboekvenster beschrijven we het volgende:
+Onze logboekvenster zien we het volgende:
 
 ![De uitvoer voor toegang tot de Knooppuntpaden](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-output2.png)
 
@@ -628,15 +632,15 @@ Een werkstroom die wordt gegenereerd vanaf [een multibitrate MP4-uitvoer van een
 *Workflow om toe te voegen bijsnijden naar*
 
 ### <a id="frame_based_trim_clip_list"></a>Met behulp van de lijst Clip XML
-In alle vorige werkstroom zelfstudies gebruikt we het onderdeel Media bestand invoer als onze video-invoerbron. Voor dit specifieke scenario echter worden gebruikt het brononderdeel Clip lijst in plaats daarvan. Houd er rekening mee dat dit mag geen de beste manier van werken; de bron van de lijst Clip alleen gebruiken wanneer er een echte reden om dit te doen (zoals de hieronder geval waar we doorvoeren gebruikmaakt van de mogelijkheden van clip lijst bijsnijden).
+In alle vorige werkstroom zelfstudies gebruikt we het onderdeel Media bestand invoer als onze video-invoerbron. Voor dit specifieke scenario echter worden gebruikt het brononderdeel Clip lijst in plaats daarvan. Dit mag niet de gewenste manier van werken; de bron van de lijst Clip alleen gebruiken wanneer er een echte reden om dit te doen (zoals in het volgende geval waar we doorvoeren gebruikmaakt van de mogelijkheden van clip lijst bijsnijden).
 
-Sleep het brononderdeel Clip lijst naar het ontwerpoppervlak van onze invoer Media-bestand naar de bron van de lijst Clip wilt overschakelen, en de pincode Clip lijst XML-verbinding met het Clip lijst XML-knooppunt van de workflow designer. Dit moet de bron van de lijst Clip met uitvoer pincodes, vullen volgens onze invoervideo. Nu verbinding maken met de niet-gecomprimeerde Video en Audio van niet-gecomprimeerde pincodes van de de bron van de lijst Clip naar de respectieve AVC coderingsprogramma's en Audio-stroom Interleaver. Nu de invoer van Media bestand verwijderen.
+Sleep het brononderdeel Clip lijst naar het ontwerpoppervlak van onze invoer Media-bestand naar de bron van de lijst Clip wilt overschakelen, en de pincode Clip lijst XML-verbinding met het Clip lijst XML-knooppunt van de workflow designer. Hierdoor wordt de bron van de lijst Clip met uitvoer pincodes, gevuld volgens onze invoervideo. Nu verbinding maken met de niet-gecomprimeerde Video's en niet-gecomprimeerde Audio pincodes van de bron van de lijst Clip naar de respectieve AVC coderingsprogramma's en Audio-stroom Interleaver. Nu de invoer van Media bestand verwijderen.
 
 ![De invoer van Media-bestand vervangen met de bron van de lijst Clip](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-replaced-media-file-with-clip-source.png)
 
 *De invoer van Media-bestand vervangen met de bron van de lijst Clip*
 
-Het brononderdeel Clip lijst wordt als invoer een 'Clip lijst XML'. Wanneer u het bronbestand te testen met lokaal selecteert, is deze clip lijst xml automatisch ingevuld voor u.
+Het brononderdeel Clip lijst neemt als invoer een 'Clip lijst XML." Wanneer u het bronbestand te testen met lokaal selecteert, is deze clip lijst xml automatisch ingevuld voor u.
 
 ![Automatisch ingevuld Clip lijst XML-eigenschap](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-auto-populated-clip-list-xml-property.png)
 
@@ -656,9 +660,9 @@ Dit komt echter niet overeen met de mogelijkheden van de xml van de lijst clip. 
 
 Als u de XML-lijst clip als volgt hierboven wijzigen en uitvoeren van een lokale test uitvoeren, ziet u de video correct zijn afgekapt tussen 10 en 20 seconden in de video.
 
-In tegenstelling tot wat er gebeurt als u echter een lokale uitvoering doen, zou deze zeer dezelfde cliplist xml niet hetzelfde effect als toegepast in een werkstroom die wordt uitgevoerd in Azure Media Services hebben. Wanneer Azure Premium-codering wordt gestart, wordt de xml cliplist gegenereerd telkens opnieuw op basis van het bestand voor invoer dat de coderingstaak is opgegeven. Dit betekent dat eventuele wijzigingen die we op de xml doen helaas zou worden overschreven.
+In tegenstelling tot wat er gebeurt als u echter een lokale uitvoering doen, zou deze dezelfde cliplist-xml niet hetzelfde effect als toegepast in een werkstroom die wordt uitgevoerd in Azure Media Services hebben. Wanneer Azure Premium-codering wordt gestart, wordt de xml cliplist gegenereerd telkens opnieuw op basis van het bestand voor invoer dat de coderingstaak is opgegeven. Dit betekent dat eventuele wijzigingen die we op de xml doen helaas zou worden overschreven.
 
-Om de cliplist xml wordt gewist wanneer een codeertaak wordt gestart, we kan opnieuw worden gegenereerd deze onderweg direct na het begin van de werkstroom. Deze aangepaste acties kunnen worden uitgevoerd via wat een 'in een script vastgelegd onderdeel' wordt genoemd. Zie voor meer informatie [introductie van het onderdeel in een script vastgelegd](media-services-media-encoder-premium-workflow-tutorials.md#scripting).
+Om de cliplist xml wordt gewist wanneer een codeertaak wordt gestart, we kunt opnieuw genereren onderweg direct na het begin van de werkstroom. Deze aangepaste acties kunnen worden uitgevoerd via een zogenaamd 'Systeemscript onderdeel'. Zie voor meer informatie [introductie van het onderdeel in een script vastgelegd](media-services-media-encoder-premium-workflow-tutorials.md#scripting).
 
 Sleep een onderdeel in een script vastgelegd naar het ontwerpoppervlak en wijzig deze in 'SetClipListXML'.
 
@@ -666,24 +670,26 @@ Sleep een onderdeel in een script vastgelegd naar het ontwerpoppervlak en wijzig
 
 *Script onderdelen toevoegen*
 
-Wanneer u de eigenschappen van het onderdeel in een script vastgelegd inspecteert, wordt de vier verschillende scripttypen worden weergegeven, elke configureerbare naar een ander script.
+Wanneer u de eigenschappen van het onderdeel in een script vastgelegd inspecteert, wordt de vier verschillende scripttypen zijn weergegeven, elke configureerbare naar een ander script.
 
 ![Eigenschappen van scripts](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scripted-comp-properties.png)
 
 *Eigenschappen van scripts*
 
 ### <a id="frame_based_trim_modify_clip_list"></a>De lijst clip van een onderdeel in een script vastgelegd wijzigen
-Voordat we de cliplist XML-code die wordt gegenereerd tijdens het opstarten van de werkstroom opnieuw schrijven kunt, moet we toegang hebben tot de eigenschap cliplist-xml en inhoud. We kunnen dit doen als volgt:
+Voordat we de cliplist XML-code die wordt gegenereerd tijdens het opstarten van de werkstroom opnieuw kunt schrijven kunnen, moet we toegang hebben tot de eigenschap cliplist-xml en inhoud. We kunnen dit doen als volgt:
 
+```java
     // get cliplist xml:
     def clipListXML = node.getProperty("../clipListXml");
     node.log("clip list xml coming in: " + clipListXML);
+```
 
 ![Binnenkomende clip lijst aan te melden](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-incoming-clip-list-logged.png)
 
 *Binnenkomende clip lijst aan te melden*
 
-Er moet eerst een manier om te bepalen van welke dat tot dat moment willen we de video knippen. Om dit handige aan de gebruiker minder technische van de werkstroom, twee eigenschappen te publiceren naar de hoofdmap van de grafiek. U doet dit door het ontwerpoppervlak Klik met de rechtermuisknop en selecteer 'Eigenschap toevoegen':
+Er moet eerst een manier om te bepalen van welke dat tot en met welke punt willen we de video knippen. Om dit handige aan de gebruiker minder technische van de werkstroom, twee eigenschappen te publiceren naar de hoofdmap van de grafiek. U doet dit door met de rechtermuisknop op het ontwerpoppervlak en selecteer 'Eigenschap toevoegen':
 
 * Eerste eigenschap: 'ClippingTimeStart' van het type: 'TIJDCODE'
 * Tweede eigenschap: 'ClippingTimeEnd' van het type: 'TIJDCODE'
@@ -704,12 +710,14 @@ Beide eigenschappen om een geschikte waarde te configureren:
 
 Nu uit in onze script we hebben toegang tot beide eigenschappen, als volgt:
 
+```java
     // get start and end of clipping:
     def clipstart = node.getProperty("../ClippingTimeStart").toString();
     def clipend = node.getProperty("../ClippingTimeEnd").toString();
 
     node.log("clipping start: " + clipstart);
     node.log("clipping end: " + clipend);
+```
 
 ![Venster van het logboek met begin en einde van knippen](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-show-start-end-clip.png)
 
@@ -717,6 +725,7 @@ Nu uit in onze script we hebben toegang tot beide eigenschappen, als volgt:
 
 Laten we de tekenreeksen tijdcode parseren naar een handiger om te gebruiken met behulp van een eenvoudige reguliere expressie:
 
+```java
     //parse the start timing:
     def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart);
     startregresult.matches();
@@ -732,6 +741,7 @@ Laten we de tekenreeksen tijdcode parseren naar een handiger om te gebruiken met
     node.log("timecode end is: " + endtimecode);
     def endframerate = endregresult.group(2);
     node.log("framerate end is: " + endframerate);
+```
 
 ![Het venster met de uitvoer van de geparseerde tijdcode](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-output-parsed-timecode.png)
 
@@ -749,12 +759,13 @@ Dit is gedaan door de normale tekenreeks bestandsbewerkingen. De resulterende ge
 
 *De resulterende clip lijst logboekregistratie*
 
-Voer een testuitvoering om te zien hoe de video en audio-stromen hebben is afgekapt. Als u meer dan één testuitvoering met verschillende waarden voor de punten bijsnijden doet, ziet u dat deze wordt geen rekening worden gehouden echter! De reden hiervoor is dat de ontwerpfunctie, in tegenstelling tot de Azure-runtime niet de xml cliplist elke uitvoeren overschrijven. Dit betekent dat alleen de eerste keer u hebt ingesteld de in- en out verwijst, de xml wordt te transformeren, alle andere tijden, onze component guard (als (clipListXML.indexOf ('<trim>') == van -1)) verhindert dat de werkstroom voor het toevoegen van een ander trim element wanneer Er is al aanwezig.
+Voer een testuitvoering om te zien hoe de video en audio-stromen hebben is afgekapt. Als u meer dan één testuitvoering met verschillende waarden voor de punten bijsnijden doet, ziet u dat deze wordt geen rekening worden gehouden echter! De reden hiervoor is dat de ontwerpfunctie, in tegenstelling tot de Azure-runtime niet de xml cliplist elke uitvoeren overschrijven. Dit betekent dat alleen de eerste keer dat u hebt ingesteld de in- en out verwijst, de xml wordt te transformeren, alle andere tijden, onze component guard (als (clipListXML.indexOf ('<trim>') == van -1)) wordt voorkomen dat de werkstroom van het toevoegen van een ander trim element wanneer er al een aanwezig.
 
 Om ervoor onze workflow handige lokaal testen, toevoegen we best house-keeping code die inspecteert als een beperkende element aanwezig was. Als dit het geval is, kunnen we het verwijderen voordat u doorgaat met het wijzigen van de xml met de nieuwe waarden. In plaats van gewone tekenreeksmanipulatie, is het waarschijnlijk veiliger om dit te doen via echte xml-objectmodel parseren.
 
 Voordat we deze code toebehoort echter toevoegen kunt, moet er een aantal importinstructies eerst toevoegen aan het begin van het script:
 
+```java
     import javax.xml.parsers.*;
     import org.xml.sax.*;
     import org.w3c.dom.*;
@@ -763,9 +774,11 @@ Voordat we deze code toebehoort echter toevoegen kunt, moet er een aantal import
     import javax.xml.transform.*;
     import javax.xml.transform.stream.*;
     import javax.xml.transform.dom.*;
+```
 
 Hierna kunnen we de vereiste reinigingstape code toevoegen:
 
+```java
     //for local testing: delete any pre-existing trim elements from the clip list xml by parsing the xml into a DOM:
     DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
     DocumentBuilder builder=factory.newDocumentBuilder();
@@ -797,6 +810,7 @@ Hierna kunnen we de vereiste reinigingstape code toevoegen:
     DOMSource source = new DOMSource(dom);
     transformer.transform(source, result);
     clipListXML = result.getWriter().toString();
+```
 
 Deze code gaat net boven het punt waarop we de beperkende elementen aan de cliplist-xml toevoegen.
 
@@ -805,7 +819,7 @@ We kunnen op dit moment worden uitgevoerd en onze werkstroom zoals net als we wi
 ### <a id="frame_based_trim_clippingenabled_prop"></a>De eigenschap van een ClippingEnabled gemak toe te voegen
 Als u niet altijd bijsnijden wilt uitgevoerd, gaan we voltooien uit onze werkstroom door een handige Booleaanse vlag die aangeeft of we inschakelen knippen willen / knipsel toe te voegen.
 
-Publiceren voordat, net zoals een nieuwe eigenschap aan de hoofdmap van onze werkstroom aangeroepen 'ClippingEnabled' type 'Boolean'.
+Publiceren als voorheen een nieuwe eigenschap aan de hoofdmap van onze werkstroom aangeroepen 'ClippingEnabled' van het type 'BOOLEAN'.
 
 ![Een eigenschap voor het inschakelen van knipsel gepubliceerd](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-enable-clip.png)
 
@@ -813,6 +827,7 @@ Publiceren voordat, net zoals een nieuwe eigenschap aan de hoofdmap van onze wer
 
 Met de onderstaande eenvoudige guard component, kunnen we controleren of bijsnijden vereist is en besluit als onze lijst clip als zodanig worden gewijzigd moet of niet.
 
+```java
     //check if clipping is required:
     def clippingrequired = node.getProperty("../ClippingEnabled");
     node.log("clipping required: " + clippingrequired.toString());
@@ -822,9 +837,11 @@ Met de onderstaande eenvoudige guard component, kunnen we controleren of bijsnij
         node.log("no clipping required");
         return;
     }
-
+```
 
 ### <a id="code"></a>Volledige code
+
+```java
     import javax.xml.parsers.*;
     import org.xml.sax.*;
     import org.w3c.dom.*;
@@ -918,7 +935,7 @@ Met de onderstaande eenvoudige guard component, kunnen we controleren of bijsnij
         node.log( "clip list going out: \n" +clipListXML );
         node.setProperty("../clipListXml",clipListXML);
     }
-
+```
 
 ## <a name="also-see"></a>Zie ook
 [Inleiding tot Premium codering in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)

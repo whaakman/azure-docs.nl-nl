@@ -1,54 +1,81 @@
 ---
-title: Het herstellen van een Server in Azure-Database voor MySQL | Microsoft Docs
+title: Het herstellen van een Server in Azure-Database voor MySQL
 description: Dit artikel wordt beschreven hoe u een server in Azure-Database herstelt voor MySQL met de Azure portal.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 6c1c0f8a0c0e59661b70b787b551b8cfdb024cda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: 5bef3f11d0b546fbd6b1161b20d7dfb81e975f99
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Het back-up en herstellen van een server in Azure-Database voor MySQL met behulp van de Azure-portal
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Het back-up en herstellen van een server in Azure-Database voor MySQL met de Azure portal
 
 ## <a name="backup-happens-automatically"></a>Back-up automatisch wordt uitgevoerd
-Wanneer u Azure-Database voor MySQL, wordt de database-service automatisch een back-up van de service om de vijf minuten. 
+Azure-Database voor de MySQL-servers zijn back-up periodiek Restore-functies inschakelen. Gebruik van deze functie kunt u de server en alle bijbehorende databases herstellen naar een eerdere point-in-time, op een nieuwe server.
 
-De back-ups zijn beschikbaar voor de zeven dagen bij gebruik van Basisstaffel en 35 dagen bij gebruik van de Standard-laag. Zie voor meer informatie [Azure Database voor de Servicelagen MySQL](concepts-service-tiers.md)
+## <a name="prerequisites"></a>Vereisten
+Voor het voltooien van deze handleiding instructies, hebt u het volgende nodig:
+- Een [Azure-Database voor MySQL-server en database](quickstart-create-mysql-server-database-using-azure-portal.md)
 
-Met deze functie voor automatische back-up kan u de server en alle bijbehorende databases herstellen naar een nieuwe server aan een eerder punt in tijd.
+## <a name="set-backup-configuration"></a>Back-upconfiguratie instellen
 
-## <a name="restore-in-the-azure-portal"></a>Herstellen in de Azure portal
-Azure MySQL-Database kunt u de server herstellen naar een bepaald punt in tijd en in op een nieuwe kopie van de server. U kunt deze nieuwe server gebruiken om uw gegevens te herstellen. 
+Maken van de keuze tussen uw server configureren voor lokaal redundante back-ups of geografisch redundante back-ups maken van de server, in de **prijscategorie** venster.
 
-Bijvoorbeeld, als een tabel per ongeluk is verwijderd op twaalf uur 's middags vandaag kan u herstellen naar een tijd net vóór twaalf uur 's middags en de ontbrekende tabel en gegevens ophalen van de nieuwe kopie van de server.
+> [!NOTE]
+> Nadat een server is gemaakt, wordt het soort redundantie dat zo is, kan geografisch redundante tegenover lokaal redundant kan niet worden overgeschakeld.
+>
 
-De volgende stappen uit voor het herstellen van de voorbeeldserver naar een bepaald punt in tijd:
+Tijdens het maken van een server via de Azure-portal, de **prijscategorie** venster is waar u een selecteren **lokaal redundante** of **geografisch redundante** back-ups voor uw server. Dit venster is ook waar u selecteert de **bewaarperiode back-up** : hoe lang (in dagen) u wilt dat de server back-ups voor opgeslagen.
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/)
+   ![Prijscategorie - back-redundantie kiezen](./media/howto-restore-server-portal/pricing-tier.png)
 
-2. Ga naar uw Azure-Database voor de MySQL-server. Selecteer in het linkerdeelvenster **alle resources**, en selecteer vervolgens uw server uit de lijst.
+Zie voor meer informatie over het instellen van deze waarden tijdens het maken, de [Azure Database voor MySQL server Quick Start](quickstart-create-mysql-server-database-using-azure-portal.md).
 
-3.  Klik boven aan de overzichtsblade van server **herstellen** op de werkbalk. De Restore-blade wordt geopend.
-![Klik op de knop herstellen](./media/howto-restore-server-portal/click-restore-button.png)
+De back-up bewaarperiode kan worden gewijzigd op een server via de volgende stappen uit:
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
+2. Selecteer uw Azure-Database voor de MySQL-server. Hiermee opent u deze actie de **overzicht** pagina.
+3. Selecteer **prijscategorie** in het menu onder **instellingen**. Met behulp van de schuifregelaar kunt u de **back-up bewaarperiode** aan uw voorkeur tussen 7 en 35 dagen.
+In de onderstaande schermafbeelding is het verhoogd tot 34 dagen.
+![Back-up bewaarperiode verhoogd](./media/howto-restore-server-portal/3-increase-backup-days.png)
 
-4. Vul het formulier terugzetten met de vereiste informatie in:
+4. Klik op **OK** de wijziging te bevestigen.
 
-- **Herstelpunt (UTC)**: met de objectkiezer datum en tijd kiezen, selecteer een punt in tijd om naar te herstellen. De opgegeven tijd is in UTC-notatie, dus u waarschijnlijk moet worden de lokale tijd geconverteerd naar UTC.
-- **Herstellen naar de nieuwe server**: Geef een nieuwe naam van de server om de bestaande server naar te herstellen.
-- **Locatie**: de keuze regio automatisch gevuld met de server bron regio en kan niet worden gewijzigd.
-- **Prijscategorie**: de prijscategorie gekozen voor de laag wordt automatisch gevuld met de dezelfde prijscategorie als de bronserver en kan hier worden gewijzigd. 
-![PITR terugzetten](./media/howto-restore-server-portal/pitr-restore.png)
+De back-up bewaarperiode bepaalt hoe ver terug in tijd die een punt in tijd terugzetbewerking kan worden opgehaald, omdat deze gebaseerd op de back-ups beschikbaar. Punt in tijd restore wordt verder beschreven in de volgende sectie. 
 
-5. Klik op **OK** de server te herstellen naar het opgegeven punt in tijd. 
+## <a name="point-in-time-restore-in-the-azure-portal"></a>Punt in tijd terugzetten in de Azure portal
+Azure MySQL-Database kunt u de server terugzetten naar punt in tijd en in op een nieuwe kopie van de server. U kunt deze nieuwe server gebruiken om uw gegevens te herstellen of uw clienttoepassingen die verwijzen naar deze nieuwe server hebt.
 
-6. Nadat het herstel is voltooid, zoekt u de nieuwe server die is gemaakt en controleer vervolgens of de databases zijn teruggezet zoals verwacht.
+Bijvoorbeeld, als een tabel per ongeluk is kan verwijderd op twaalf uur 's middags vandaag de dag u herstellen en de tijd net vóór twaalf uur 's middags en ophalen van de ontbrekende tabel en de gegevens van die nieuwe kopie van de server. Punt in tijd terugzetten is op de server niveau, niet op het databaseniveau van de.
+
+De volgende stappen uit herstellen de voorbeeldserver naar een punt in tijd:
+1. Selecteer uw Azure-Database voor de MySQL-server in de Azure-portal. 
+
+2. Op de werkbalk van de server **overzicht** pagina **herstellen**.
+
+   ![Azure-Database voor herstel van MySQL - overzicht - knop](./media/howto-restore-server-portal/2-server.png)
+
+3. Vul het formulier terugzetten met de vereiste informatie in:
+
+   ![Azure-Database voor de MySQL - informatie terugzetten ](./media/howto-restore-server-portal/3-restore.png)
+  - **Herstelpunt**: Selecteer de point-in-time-u wilt herstellen.
+  - **Doelserver**: Geef een naam op voor de nieuwe server.
+  - **Locatie**: U kunt de regio niet selecteren. Het is standaard hetzelfde als de bronserver.
+  - **Prijscategorie**: U kunt deze parameters niet wijzigen bij het uitvoeren van een punt in tijd te herstellen. Deze is hetzelfde als de bronserver. 
+
+4. Klik op **OK** om de server om te zetten naar een punt in tijd te herstellen. 
+
+5. Nadat het herstel is voltooid, zoek de nieuwe server die wordt gemaakt om te controleren of dat de gegevens is hersteld, zoals verwacht.
+
+>[!Note]
+>De nieuwe server gemaakt door herstel punt in tijd heeft als het dezelfde server admin-aanmeldingsnaam en wachtwoord dat geldig voor de bestaande server op het punt in tijd is hebt gekozen. U kunt het wachtwoord wijzigen van de nieuwe server **overzicht** pagina.
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Verbindingsbibliotheken voor Azure-Database voor MySQL](concepts-connection-libraries.md).
+- Meer informatie over de service [back-ups](concepts-backup.md).
+- Meer informatie over [bedrijfscontinuïteit](concepts-business-continuity.md) opties.

@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Eigendom van een Azure-abonnement overdragen aan een ander account
 
@@ -29,7 +29,7 @@ Uw abonnement overbrengen naar een andere gebruiker in het midden van het Accoun
 
 > [!IMPORTANT]
 > 
-> Momenteel niet ondersteund abonnementsoverdracht voor gratis proefversie of [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) abonnementen. Zie voor een tijdelijke oplossing [resources verplaatsen naar de nieuwe resourcegroep of abonnement](../azure-resource-manager/resource-group-move-resources.md).
+> Als u overdraagt van een abonnement op een nieuwe Azure AD-tenant, worden alle roltoewijzingen in [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-what-is.md) permanent worden verwijderd uit de bron-tenant en worden niet gemigreerd naar de doel-tenant.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Het eigendom overdraagt van een Azure-abonnement
 
@@ -49,7 +49,12 @@ Uw abonnement overbrengen naar een andere gebruiker in het midden van het Accoun
    ![Tabblad account voor Azure-abonnementen](./media/billing-subscription-transfer/image1.png)
 1. Geef de ontvanger op.
 
+   > [!IMPORTANT]
+   > 
+   > Als u overdraagt van een abonnement op een nieuwe Azure AD-tenant, worden alle roltoewijzingen in [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-what-is.md) permanent worden verwijderd uit de bron-tenant en worden niet gemigreerd naar de doel-tenant.
+
    ![Dialoogvenster overdracht-abonnement](./media/billing-subscription-transfer/image2.PNG)
+
 1. De ontvanger ontvangt automatisch een e-mail met een acceptatielink.
 
    ![Abonnement overdracht e-mailbericht naar ontvanger](./media/billing-subscription-transfer/image3.png)
@@ -58,7 +63,7 @@ Uw abonnement overbrengen naar een andere gebruiker in het midden van het Accoun
    ![Eerste abonnement overdracht webpagina](./media/billing-subscription-transfer/image4.png)
 
    ![Tweede abonnement overdracht webpagina 's](./media/billing-subscription-transfer/image5.png)
-1. Geslaagd Het abonnement worden nu overgedragen.
+1. Gelukt! Het abonnement worden nu overgedragen.
 
 <a id="EA"></a>
 
@@ -80,27 +85,27 @@ De Enterprise-beheerder kan het eigendom overdraagt van abonnementen binnen een 
 
 ## <a name="whats-supported"></a>Wat wordt ondersteund:
 
-Eigen beheer abonnementsoverdracht is beschikbaar voor de aanbiedingen of typen abonnementen die worden vermeld in de volgende tabel. Voor het overdragen van andere abonnementen, zoals [managers](https://azure.microsoft.com/offers/ms-azr-0036p/) of plannen, ondersteuning [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Eigen beheer abonnementsoverdracht is beschikbaar voor de aanbiedingen of typen abonnementen die worden vermeld in de volgende tabel. Momenteel kunt u een gratis proefversie niet overbrengen of [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) abonnementen. Zie voor een tijdelijke oplossing [resources verplaatsen naar de nieuwe resourcegroep of abonnement](../azure-resource-manager/resource-group-move-resources.md). Om over te dragen andere abonnementen, zoals [managers](https://azure.microsoft.com/offers/ms-azr-0036p/) of plannen, ondersteuning [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | Naam van aanbieding:                                                                             | Nummer van de aanbieding |
 |----------------------------------------------------------------------------------------|--------------|
-| [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR - 0017P        |
-| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR - 0025P        |
-| [MSDN-Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR - 0062P        |
-| [Betalen naar gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR - 0003P        |
-| [Betalen naar gebruik ontwikkelen en testen](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR - 0023P        |
-| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR - 0063P        |
-| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR - 0064P        |
-| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR - 0059P        |
-| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR - 0060P        |
+| [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
+| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
+| [MSDN-Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
+| [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
+| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
+| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
+| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
+| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
 
-\*[Via EA-portal](#EA)
+\* [Via de portal EA](#EA)
 
 <a id="faq"></a>
 
 ## <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
 
-### <a name="whoisaa"></a>Wie de accountbeheerder van het abonnement is?
+### <a name="whoisaa"></a> Wie de accountbeheerder van het abonnement is?
 
 De accountbeheerder is de persoon die zich heeft aangemeld of het Azure-abonnement hebt aangeschaft. Ze bevoegd zijn voor toegang tot de [Accountcentrum](https://account.azure.com/Subscriptions) en uitvoeren van verschillende beheertaken, zoals het maken van abonnementen, abonnementen annuleren, de facturering voor een abonnement te wijzigen of wijzigen van de servicebeheerder. Als u niet zeker weet wie de accountbeheerder is voor een abonnement, gebruikt u de volgende stappen uit om erachter te komen.
 
@@ -112,7 +117,7 @@ De accountbeheerder is de persoon die zich heeft aangemeld of het Azure-abonneme
 
 Al uw resources, zoals virtuele machines, schijven en websites overdracht naar de nieuwe eigenaar. Echter [beheerdersrollen](billing-add-change-azure-subscription-administrator.md) en [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md) beleidsregels die u hebt ingesteld, worden niet overgedragen op andere mappen. Bovendien [app registraties](../active-directory//develop/active-directory-integrating-applications.md) en andere services tenantspecifieke langs niet overdragen.
 
-### <a id="no-button"></a>Waarom zie ik niet de knop 'Abonnement overdragen'?
+### <a id="no-button"></a> Waarom zie ik niet de knop 'Abonnement overdragen'?
 
 Eigen beheer abonnementsoverdracht is helaas niet beschikbaar voor uw aanbieding of land. Om over te dragen van uw abonnement, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
