@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Live streamen met on-premises-coderingsprogramma's die multi-bitrate streams maken
 ## <a name="overview"></a>Overzicht
@@ -135,7 +135,7 @@ U kunt de IP-adressen die zijn toegestaan voor het publiceren van video naar dit
 
 Als er geen IP-adressen zijn opgegeven en er geen regeldefinitie bestaat, is geen IP-adres toegestaan. Als u IP-adres(sen) wilt toestaan, maakt u een regel en stelt u 0.0.0.0/0 in.
 
-### <a name="channel-preview"></a>Kanaal preview
+### <a name="channel-preview"></a>Kanaalvoorbeeld
 #### <a name="preview-urls"></a>Voorbeeld-URL 's
 Kanalen bieden een preview-eindpunt (preview URL) die u gebruikt om te bekijken en valideren van uw stream voor verdere verwerking en levering.
 
@@ -171,19 +171,19 @@ Zelfs na het stoppen en verwijderen van het programma, kunnen gebruikers de gear
 ## <a id="states"></a>Kanaal statussen en facturering
 Mogelijke waarden voor de huidige status van een kanaal zijn:
 
-* **Gestopt**: dit is de beginstatus van het kanaal na het maken ervan. De kanaaleigenschappen kunnen worden bijgewerkt in deze toestand is, maar streaming is niet toegestaan.
+* **Gestopt**: dit is de beginstatus van het kanaal na het maken ervan. In deze status kunnen de eigenschappen van het kanaal worden bijgewerkt, maar is streaming niet toegestaan.
 * **Starten van**: het kanaal wordt gestart. In deze status zijn streaming en updates niet toegestaan. Als een fout optreedt, wordt het kanaal de **gestopt** status.
 * **Met**: het kanaal live gegevensstromen kan verwerken.
 * **Stoppen van**: het kanaal is wordt gestopt. In deze status zijn streaming en updates niet toegestaan.
 * **Verwijderen van**: het kanaal wordt verwijderd. In deze status zijn streaming en updates niet toegestaan.
 
-De volgende tabel ziet hoe kanaal toewijzen aan de facturering modus staat.
+In de volgende tabel wordt het verband tussen de verschillende kanaalstatussen en de facturering weergegeven.
 
-| Kanaalstatus | Portal indicatoren van de gebruikersinterface | In rekening gebracht? |
+| Kanaalstatus | Portal UI-indicatoren | In rekening gebracht? |
 | --- | --- | --- | --- |
 | **Starten** |**Starten** |Nee (overgangsstatus) |
-| **Uitgevoerd** |**Gereed** (Er zijn geen actieve programma)<p><p>of<p>**Streaming** (ten minste één actieve programma) |Ja |
-| **Stoppen** |**Stoppen** |Nee (overgangsstatus) |
+| **Running** |**Gereed** (Er zijn geen actieve programma)<p><p>of<p>**Streaming** (ten minste één actieve programma) |Ja |
+| **Stopping** |**Stopping** |Nee (overgangsstatus) |
 | **Gestopt** |**Gestopt** |Nee |
 
 ## <a id="cc_and_ads"></a>Gesloten ondertiteling en ad invoegen
@@ -193,7 +193,7 @@ De volgende tabel ziet u ondersteunde standaarden voor gesloten ondertiteling en
 | --- | --- |
 | CEA 708 en EIA 608 (708/608) |CEA 708 en EIA 608 zijn gesloten ondertiteling standaarden voor de Verenigde Staten en Canada.<p><p>Op dit moment wordt ondertiteling alleen ondersteund als uitgevoerd in de gecodeerde invoerstroom. U moet een live media encoder die 608 of 708 bijschriften kunt invoegen in de gecodeerde stroom die wordt verzonden met Media Services gebruiken. De inhoud met ingevoegde bijschriften biedt Media Services voor uw gebruikers. |
 | TTML binnen .ismt (tekst houdt Smooth Streaming) |Media Services dynamische pakketten kan uw clients om inhoud te streamen in een van de volgende indelingen: DASH, HLS of Smooth Streaming. Echter, als u wilt opnemen gefragmenteerd MP4 (Smooth Streaming) met bijschriften binnen .ismt (tekst houdt Smooth Streaming), kunt u de stroom leveren aan clients alleen Smooth Streaming. |
-| SCTE 35 |SCTE 35 is een digitale signalering systeem die wordt gebruikt voor de hint reclame invoegen. Het signaal downstream ontvangers gebruiken voor het splitsen van reclame naar de stroom voor de toegewezen tijd. SCTE 35 moet worden verzonden als een sparse bijhouden in de invoerstroom.<p><p>Op dit moment de enige ondersteunde invoerstroom opmaken dat uitvoert ad signalen is gefragmenteerd MP4 (Smooth Streaming). De enige ondersteunde uitvoer indeling is ook Smooth Streaming. |
+| SCTE-35 |SCTE 35 is een digitale signalering systeem die wordt gebruikt voor de hint reclame invoegen. Het signaal downstream ontvangers gebruiken voor het splitsen van reclame naar de stroom voor de toegewezen tijd. SCTE 35 moet worden verzonden als een sparse bijhouden in de invoerstroom.<p><p>Op dit moment de enige ondersteunde invoerstroom opmaken dat uitvoert ad signalen is gefragmenteerd MP4 (Smooth Streaming). De enige ondersteunde uitvoer indeling is ook Smooth Streaming. |
 
 ## <a id="considerations"></a>Overwegingen
 Als u een on-premises live codering verzendt een multi-bitrate stream naar een kanaal gebruikt, past u de volgende beperkingen:
@@ -209,6 +209,10 @@ Als u een on-premises live codering verzendt een multi-bitrate stream naar een k
 Hier volgen andere overwegingen voor het werken met kanalen en verwante onderdelen:
 
 * Telkens wanneer u de configuratie van het live coderingsprogramma, Roep de **opnieuw** methode voor het kanaal. Voordat u het kanaal opnieuw instelt, moet u stop het programma. Nadat u het kanaal opnieuw instelt, start het programma opnieuw.
+
+  > [!NOTE]
+  > Wanneer u het programma opnieuw start, moet u deze koppelen aan een nieuwe asset en een nieuwe locator maken. 
+  
 * Een kanaal kan worden gestopt, alleen wanneer deze zich in de **met** status en alle programma's op het kanaal zijn gestopt.
 * Standaard kunt u slechts vijf kanalen toevoegen aan uw Media Services-account. Zie voor meer informatie [quota's en beperkingen](media-services-quotas-and-limitations.md).
 * U wordt gefactureerd wanneer het kanaal in de **met** status. Zie voor meer informatie de [Channel statussen en facturering](media-services-live-streaming-with-onprem-encoders.md#states) sectie.

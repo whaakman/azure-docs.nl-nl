@@ -3,7 +3,7 @@ title: Bewaken en beheren van gegevenspijplijnen - Azure | Microsoft Docs
 description: Informatie over het gebruik van de bewaking en beheer-app bewaken en beheren van Azure data factory's en pijplijnen.
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4d4371b1372a7ed492faacf16813ae3e3f4c4697
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Bewaken en beheren van Azure Data Factory-pijplijnen met behulp van de app voor bewaking en beheer
 > [!div class="op_single_selector"]
@@ -150,10 +150,10 @@ Aan de onderkant van de diagramweergave ziet u deze knoppen: inzoomen, uitzoomen
 
 ![Diagram van weergave zoomopdrachten](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
-### <a name="activity-windows-list"></a>Lijst met Windows
+### <a name="activity-windows-list"></a>Lijst Activiteitsvensters
 De activiteit Windows lijst onderaan in het middelste deelvenster geeft alle activiteitsvensters voor de gegevensset die u hebt geselecteerd in de Resource Explorer of de diagramweergave. Standaard wordt de lijst is in aflopende volgorde, wat betekent dat u het venster van de meest recente activiteit boven ziet.
 
-![Lijst met Windows](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
+![Lijst Activiteitsvensters](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
 Deze lijst niet automatisch vernieuwd, zodat de knop Vernieuwen op de werkbalk gebruiken dit handmatig vernieuwen.  
 
@@ -324,7 +324,7 @@ De volgende tabel bevat de lijst met beschikbare gebeurtenissen en status (en su
 
 | De naam van gebeurtenis | Status | Substatus |
 | --- | --- | --- |
-| Activiteit die wordt uitgevoerd gestart |Gestart |Starting |
+| Activiteit die wordt uitgevoerd gestart |Gestart |Starten |
 | Activiteit die wordt uitgevoerd is voltooid |Geslaagd |Geslaagd |
 | Activiteit die wordt uitgevoerd is voltooid |Mislukt |Fout in de Resource-toewijzing<br/><br/>Mislukte uitvoering<br/><br/>Time-out opgetreden<br/><br/>De validatie is mislukt<br/><br/>Afgebroken |
 | On-Demand HDI-Cluster maken gestart |Gestart |-|

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 836d56012afa9e5d5bdec35d85c37dd4b0b788ce
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: cdd1015f63e80b7ec51565c18f3440ce1828fb03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Wijzigen van een virtuele-machineschaalset
 Dit artikel wordt beschreven hoe u een bestaande schaalset met wijzigt. Dit omvat het wijzigen van de configuratie van de schaal is ingesteld, het wijzigen van de configuratie van de toepassingen die worden uitgevoerd op de schaal is ingesteld, het beheren van de beschikbaarheid en meer.
@@ -255,7 +255,7 @@ U kunt ook de [Azure SDK's](https://azure.microsoft.com/downloads/) een handmati
 > Service Fabric-clusters automatische modus kunnen alleen worden gebruikt, maar de update wordt anders afgehandeld. Zie voor meer informatie over service fabric-updates [de documentatie van de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
 
 >[!NOTE]
-> Er is een soort wijziging aan de globale scale seteigenschappen die niet aan het Upgradebeleid voldoet. Deze wijzigingen zijn ingesteld tot de schaal Besturingssysteemprofiel (bijvoorbeeld admin-gebruikersnaam en wachtwoord). Deze wijzigingen zijn alleen van toepassing op virtuele machines die zijn gemaakt nadat de wijziging in de schaal model instelt. Voor het maken van bestaande virtuele machines up-to-date, moet u een 'terugzetten van de installatiekopie' van elke bestaande VM te doen. U kunt deze terugzetten van de installatiekopie via doen:
+> Er is een soort wijziging aan de globale scale seteigenschappen die niet aan het Upgradebeleid voldoet. Deze wijzigingen zijn ingesteld tot de schaal Besturingssysteemprofiel (bijvoorbeeld admin-gebruikersnaam en wachtwoord). Deze eigenschappen kunnen alleen worden gewijzigd in API-versie 2017-12-01 of hoger. Deze wijzigingen zijn alleen van toepassing op virtuele machines die zijn gemaakt nadat de wijziging in de schaal model instelt. Voor het maken van bestaande virtuele machines up-to-date, moet u een 'terugzetten van de installatiekopie' van elke bestaande VM te doen. U kunt deze terugzetten van de installatiekopie via doen:
 
 REST-API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (Zie voor meer informatie de [REST API-documentatie](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
 

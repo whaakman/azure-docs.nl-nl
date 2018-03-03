@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 47a4f6a56c1e5a47f70bb6d6ba2dd980346653ad
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 543d0ec5d0c94b793b1e825d44356039b366908a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Gegevens kopiëren van HBase met behulp van Azure Data Factory 
 
@@ -45,7 +45,7 @@ De volgende eigenschappen worden ondersteund voor HBase gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **HBase** | Ja |
-| host | Het IP-adres of de hostnaam naam van de HBase-server. (i.e. 192.168.222.160)  | Ja |
+| host | Het IP-adres of de hostnaam naam van de HBase-server. (i.e. 192.168.222.160, [clustername].azurehdinsight.net)  | Ja |
 | poort | De TCP-poort die de HBase-exemplaar gebruikt om te luisteren naar verbindingen van clients. De standaardwaarde is 9090.  | Nee |
 | httpPath | De gedeeltelijke URL overeenkomt met de HBase-server. (dat wil zeggen /gateway/sandbox/hbase/version)  | Nee |
 | authenticationType | Het verificatiemechanisme gebruiken om te verbinden met de HBase-server. <br/>Toegestane waarden zijn: **anoniem**, **Basic** | Ja |
@@ -57,7 +57,7 @@ De volgende eigenschappen worden ondersteund voor HBase gekoppelde service:
 | allowSelfSignedServerCert | Hiermee bepaalt u of zelfondertekende certificaten van de server. De standaardwaarde is ingesteld op false.  | Nee |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Self-hosted integratie Runtime of Azure integratie Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
-**Voorbeeld:**
+**Voorbeeld voor HDInsights HBase:**
 
 ```json
 {
@@ -65,9 +65,36 @@ De volgende eigenschappen worden ondersteund voor HBase gekoppelde service:
     "properties": {
         "type": "HBase",
         "typeProperties": {
-            "host" : "<host>",
+            "host" : "<cluster name>.azurehdinsight.net",
+            "port" : "443",
+            "httpPath" : "<e.g. hbaserest>",
+            "authenticationType" : "Basic",
+            "username" : "<username>",
+            "password": {
+                 "type": "SecureString",
+                 "value": "<password>"
+            },
+            "enableSsl" : true
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Voorbeeld voor algemene HBase:**
+
+```json
+{
+    "name": "HBaseLinkedService",
+    "properties": {
+        "type": "HBase",
+        "typeProperties": {
+            "host" : "<host e.g. 192.168.222.160>",
             "port" : "<port>",
-            "httpPath" : "/gateway/sandbox/hbase/version",
+            "httpPath" : "<e.g. /gateway/sandbox/hbase/version>",
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {

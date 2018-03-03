@@ -1,5 +1,5 @@
 ---
-title: Azure Functions bewaken
+title: Azure Functions controleren
 description: Informatie over het gebruik van Azure Application Insights met Azure Functions voor het bewaken van de functie wordt uitgevoerd.
 services: functions
 author: tdykstra
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="monitor-azure-functions"></a>Azure Functions bewaken
+# <a name="monitor-azure-functions"></a>Azure Functions controleren
 
 ## <a name="overview"></a>Overzicht 
 
@@ -161,7 +161,7 @@ Het logboek van Azure functions bevat ook een *Meld niveau* met elke logboek. [L
 |Waarschuwing     | 3 |
 |Fout       | 4 |
 |Kritiek    | 5 |
-|Geen        | 6 |
+|None        | 6 |
 
 Meld u niveau `None` in de volgende sectie wordt uitgelegd. 
 
@@ -354,6 +354,7 @@ Hier volgt een voorbeeld van C#-code die gebruikmaakt van de [aangepaste telemet
 using System;
 using System.Net;
 using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Azure.WebJobs;
 using System.Net.Http;
@@ -370,7 +371,7 @@ namespace functionapp0915
             System.Environment.GetEnvironmentVariable(
                 "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
 
-        private static TelemetryClient telemetry = 
+        private static TelemetryClient telemetryClient = 
             new TelemetryClient() { InstrumentationKey = key };
 
         [FunctionName("HttpTrigger2")]
@@ -391,35 +392,51 @@ namespace functionapp0915
 
             // Set name to query string or body data
             name = name ?? data?.name;
-
-            telemetry.Context.Operation.Id = context.InvocationId.ToString();
-            telemetry.Context.Operation.Name = "cs-http";
-            if (!String.IsNullOrEmpty(name))
-            {
-                telemetry.Context.User.Id = name;
-            }
-            telemetry.TrackEvent("Function called");
-            telemetry.TrackMetric("Test Metric", DateTime.Now.Millisecond);
-            telemetry.TrackDependency("Test Dependency", 
-                "swapi.co/api/planets/1/", 
-                start, DateTime.UtcNow - start, true);
-
+         
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            UpdateTelemetryContext(evt.Context, context, name);
+            telemetryClient.TrackEvent(evt);
+            
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            UpdateTelemetryContext(metric.Context, context, name);
+            telemetryClient.TrackMetric(metric);
+            
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+                {
+                    Name = "GET api/planets/1/",
+                    Target = "swapi.co",
+                    Data = "https://swapi.co/api/planets/1/",
+                    Timestamp = start,
+                    Duration = DateTime.UtcNow - start,
+                    Success = true
+                };
+            UpdateTelemetryContext(dependency.Context, context, name);
+            telemetryClient.TrackDependency(dependency);
+            
             return name == null
                 ? req.CreateResponse(HttpStatusCode.BadRequest, 
                     "Please pass a name on the query string or in the request body")
                 : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
-    }
+        
+        // This correllates all telemetry with the current Function invocation
+        private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
+        {
+            context.Operation.Id = functionContext.InvocationId.ToString();
+            context.Operation.ParentId = functionContext.InvocationId.ToString();
+            context.Operation.Name = functionContext.FunctionName;
+            context.User.Id = userName;
+        }
+    }    
 }
 ```
 
 Niet oproepen `TrackRequest` of `StartOperation<RequestTelemetry>`omdat ziet u dubbele aanvragen voor een functie-aanroep.  De runtime van Functions aanvragen automatisch worden bijgehouden.
 
-Stel `telemetry.Context.Operation.Id` -ID telkens wanneer de functie wordt gestart voor het aanroepen. Hierdoor kunnen alle telemetrie-items voor een bepaalde functie-aanroep correleren.
-
-```cs
-telemetry.Context.Operation.Id = context.InvocationId.ToString();
-```
+Stelt niet `telemetryClient.Context.Operation.Id`. Dit is een algemene instelling en onjuiste correllation veroorzaakt wanneer er veel functies tegelijk worden uitgevoerd. In plaats daarvan maakt een nieuw exemplaar van de telemetrie (`DependencyTelemetry`, `EventTelemetry`) en wijzig de `Context` eigenschap. Geeft in het exemplaar van telemetrie naar de bijbehorende `Track` methode op `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Dit zorgt ervoor dat de telemetrie die over de juiste correllation details voor de huidige functieaanroep.
 
 ## <a name="custom-telemetry-in-javascript-functions"></a>Aangepaste telemetrie in JavaScript-functies
 
@@ -503,6 +520,10 @@ PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
 Zie voor meer informatie [hoe logboeken stream](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
+
+### <a name="viewing-log-files-locally"></a>Lokaal naar logboekbestanden weergeven
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

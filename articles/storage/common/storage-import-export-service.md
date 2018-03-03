@@ -3,22 +3,16 @@ title: Gebruik Azure Import/Export voor het overbrengen van gegevens van en naar
 description: Informatie over het maken van importeren en exporteren van taken in de Azure-portal voor het overbrengen van gegevens van en naar Azure Storage.
 author: muralikk
 manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 668f53f2-f5a4-48b5-9369-88ec5ea05eb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>De Microsoft Azure Import/Export-service gebruiken om gegevens overdragen naar Azure Storage
 In dit artikel bieden we Stapsgewijze instructies over het gebruik van Azure Import/Export-service veilig grote hoeveelheden gegevens overdragen naar Azure Blob storage en Azure-bestanden door de back-upfunctie schijven naar een Azure-Datacenter. Deze service kan ook worden gebruikt gegevens overdragen naar Azure storage naar harde schijven en verzenden naar uw on-premises-sites. Gegevens uit een enkele interne SATA harde schijf kunnen worden geïmporteerd naar Azure Blob storage of Azure-bestanden. 
@@ -31,25 +25,34 @@ In dit artikel bieden we Stapsgewijze instructies over het gebruik van Azure Imp
 Volg de onderstaande stappen te volgen als de gegevens op de schijf moet worden geïmporteerd in Azure Storage.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Stap 1: Voorbereiden van de schijf (s) met hulpprogramma WAImportExport en wijzigingslogboek bestand/s genereren.
 
-1.  Identificeer de gegevens moeten worden geïmporteerd in Azure Storage. Dit kan mappen en bestanden op een lokale server of een netwerkshare zelfstandig zijn.
+1.  Identificeer de gegevens moeten worden geïmporteerd in Azure Storage. U kunt mappen en bestanden op een lokale server of een netwerkshare zelfstandige importeren.
 2.  Afhankelijk van de totale grootte van de gegevens, schaft u het vereiste aantal 2,5 inch SSD of 2,5-inch of 3.5" SATA II of III harde schijven.
 3.  Koppelen van de harde schijven die rechtstreeks met SATA of met externe USB-adapters aan een windows-machine.
-4.  Maak één NTFS-volume op elke harde schijf en een stationsletter toewijzen aan het volume. Er is geen quorumbron:.
-5.  Schakel bits BitLocker-versleuteling op het NTFS-volume voor het inschakelen van versleuteling op de windows-machine. Volg de instructies op https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
-6.  Volledig gegevens kopiëren naar de versleutelde één NTFS-volumes op schijven met kopiëren & plakken of slepen en neerzetten of Robocopy of een dergelijk hulpmiddel.
+1.  Maak één NTFS-volume op elke harde schijf en een stationsletter toewijzen aan het volume. Er is geen quorumbron:.
+2.  Schakel bits BitLocker-versleuteling op het NTFS-volume voor het inschakelen van versleuteling op de windows-machine. Volg de instructies op https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+3.  Volledig gegevens kopiëren naar de versleutelde één NTFS-volumes op schijven met kopiëren & plakken of slepen en neerzetten of Robocopy of een dergelijk hulpmiddel.
 7.  WAImportExport V1 van https://www.microsoft.com/en-us/download/details.aspx?id=42659 downloaden
 8.  Uitpakken naar de map standaard waimportexportv1. Bijvoorbeeld: C:\WaImportExportV1  
 9.  Als Administrator uitvoeren en open een PowerShell of de opdrachtregel en wijzig map in de uitgepakte map. Bijvoorbeeld cd C:\WaImportExportV1
-10. Kopieer de volgende opdrachtregel naar een Kladblok en bewerken voor het maken van een opdrachtregel.
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
+10. Kopieer de volgende opdrachtregel naar een teksteditor en bewerken voor het maken van een opdrachtregel:
+
+    ```
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ```
     
-    /j: de naam van een bestand journaalbestand met extensie .jrn genoemd. Een journal-bestand wordt gegenereerd per schijf en daarom wordt het aanbevolen het serienummer van de schijf gebruiken als de naam van het journaal.
-    /SK: sleutel voor azure Storage-Account. / t: Stationsletter van de schijf moeten worden verzonden. Bijvoorbeeld, D /bk: de sleutel is bits referentiekluis van het station /srcdir: stationsletter van de schijf moeten worden verzonden, gevolgd door: \. Bijvoorbeeld: D:\
-    /dstdir: de naam van Azure Storage-Container waarnaar de gegevens zijn om te worden geïmporteerd.
-    /skipwrite 
-    
-11. Herhaal stap 10 voor elk van de schijf die moet worden verzonden.
-12. Een journal-bestand met de naam die is opgegeven met de parameter /j: wordt gemaakt voor elke run van de opdrachtregel.
+    Deze opdrachtregel-opties worden in de volgende tabel beschreven:
+
+    |Optie  |Beschrijving  |
+    |---------|---------|
+    |/j:     |De naam van het bestand wijzigingslogboek, klikt u met de extensie .jrn. Een journal-bestand wordt gegenereerd per station. Gebruik het serienummer van de schijf als de naam van het bestand wordt aanbevolen.         |
+    |/SK:     |De sleutel van de Azure Storage-account.         |
+    |/ t:     |De stationsletter van de schijf moeten worden verzonden. Bijvoorbeeld station `D`.         |
+    |/bk:     |De BitLocker-sleutel voor het station.         |
+    |/srcdir:     |De stationsletter van de schijf moeten worden verzonden, gevolgd door `:\`. Bijvoorbeeld `D:\`.         |
+    |/dstdir:     |De naam van de doelcontainer in Azure Storage         |
+
+1. Herhaal stap 10 voor elk van de schijf die moet worden verzonden.
+2. Een journal-bestand met de naam die is opgegeven met de parameter /j: wordt gemaakt voor elke run van de opdrachtregel.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>Stap 2: Maak een Import-taak op Azure-Portal.
 
@@ -88,6 +91,11 @@ In deze sectie wordt de vereiste onderdelen voor het gebruik van deze service we
 
 ### <a name="storage-account"></a>Storage-account
 Er moet een bestaande Azure-abonnement en een of meer opslagaccounts de Import/Export-service gebruiken. Azure Import/Export biedt alleen ondersteuning voor klassieke, Blob Storage-accounts en opslagaccounts voor algemeen gebruik v1. Elke taak kan worden gebruikt voor gegevensoverdracht naar of van slechts één opslagaccount. Een enkel voor importeren/exporteren-taak kan niet met andere woorden, meerdere opslagaccounts overbruggen. Zie voor meer informatie over het maken van een nieuw opslagaccount [het maken van een Opslagaccount](storage-create-storage-account.md#create-a-storage-account).
+
+> [!IMPORTANT] 
+> Storage-accounts biedt geen ondersteuning voor de service Azure Import exporteren waar de [Virtual Network Service-eindpunten](../../virtual-network/virtual-network-service-endpoints-overview.md) functie is ingeschakeld. 
+> 
+> 
 
 ### <a name="data-types"></a>Gegevenstypen
 U kunt Azure Import/Export-service gebruiken om gegevens te kopiëren **blok** blobs, **pagina** blobs, of **bestanden**. Als u daarentegen, kunt u alleen exporteren **blok** blobs, **pagina** blobs of **Append** blobs uit Azure-opslag met deze service. De service ondersteunt alleen importeren van de Azure-bestanden in de Azure-opslag. Exporteren van Azure Files is momenteel niet ondersteund.
@@ -177,7 +185,7 @@ Back-upfunctie locaties ondersteund:
 * VS (overheid) - Iowa
 * US DoD - oost
 * US DoD - centraal
-* China - oost
+* China East
 * China - noord
 * Verenigd Koninkrijk Zuid
 * Duitsland - centraal

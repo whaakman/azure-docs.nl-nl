@@ -3,7 +3,7 @@ title: Het oplossen van Azure Active Directory B2B-samenwerking | Microsoft Docs
 description: Oplossingen voor bekende problemen met Azure Active Directory B2B-samenwerking
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
-ms.author: sasubram
-ms.openlocfilehash: 6773aeb6f8470bb8d35764d579681b4167e5175d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 588e154d35fda539ac6ee8803ed96e6cd9a3d1df
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Het oplossen van Azure Active Directory B2B-samenwerking
 
@@ -70,7 +71,7 @@ Externe gebruikers kunnen worden toegevoegd, uitsluitend voor 'toegewezen' of '-
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Mijn externe gebruiker heeft geen ontvangen een e-mailbericht te gebruiken
 
-De genodigden moet controleren met hun ISP of spam filter om ervoor te zorgen dat het volgende adres is toegestaan:Invites@microsoft.com
+De genodigden moet controleren met hun ISP of spam filter om ervoor te zorgen dat het volgende adres is toegestaan: Invites@microsoft.com
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Ik zoals u ziet dat het aangepaste bericht geen deel uit van de Uitnodigingsberichten op tijdstippen krijgt
 

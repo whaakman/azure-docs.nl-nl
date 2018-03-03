@@ -4,20 +4,20 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 02/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 67d95b48520cd990428447dc775d9af22528c0f0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Zelfstudie: Azure Active Directory-integratie met Slack
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-slack-tutorial/tutorial_slack_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.slack.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.slack.com`
 
-    b. In de **id** textbox, typ de URL:`https://slack.com`
+    b. In de **id** textbox, typ de URL: `https://slack.com`
 
     > [!NOTE] 
     > De waarde is geen echte. U moet de waarde wordt bijgewerkt met de werkelijke aanmelding op de URL. Neem contact op met [toegestane ondersteuningsteam](https://slack.com/help/contact) de waarde op te halen
@@ -121,14 +121,17 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
+    > [!NOTE] 
+    > Als de gebruiker heeft **e-mailadres** toegewezen met de Office365 wordt alleen het worden ingevuld, anders de **e-mailadres** claim worden niet weergegeven in het SAML-Token.
+
 5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster Selecteer **user.mail** als **gebruikers-id** en voor elke rij in de onderstaande tabel wordt weergegeven, voert u de volgende stappen uit:
     
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | --- | --- |
-    | Voornaam | User.givenName |
-    | Achternaam | User.surname |
+    | first_name | user.givenname |
+    | last_name | User.surname |
     | User.Email | User.mail |  
-    | User.Username | User.userPrincipalName |
+    | User.Username | user.userprincipalname |
 
     a. Klik op **kenmerk** openen **kenmerk bewerken** dialoogvenster vak en voer de volgende stappen uit:
 
@@ -137,8 +140,10 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     a. In de **naam** textbox, typ de naam van het kenmerk wordt weergegeven voor die rij.
     
     b. Van de **waarde** , selecteert u de waarde van het kenmerk wordt weergegeven voor die rij.
+
+    c. Laat de **Namespace** leeg.
     
-    c. Klik op **OK**
+    d. Klik op **OK**
 
 6. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
 
@@ -262,7 +267,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Wanneer u klikt op de toegestane tegel in het deelvenster toegang u moet ophalen automatisch aangemeld bij uw toegestane toepassing.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

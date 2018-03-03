@@ -3,9 +3,9 @@ title: "Data Factory-Wizard Azure kopiëren | Microsoft Docs"
 description: "Meer informatie over het gebruik van de Data Factory-Wizard voor kopiëren van Azure om gegevens van ondersteunde gegevensbronnen te put kopiëren."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: 
+editor: 
 ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d9f3fea0db5a08fc91d9e4dc525b48575c512634
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: aeed2b2413f14b60d018ebd4f09293d6c41554d2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory-Wizard kopiëren
 > [!NOTE]
@@ -44,7 +44,7 @@ De wizard is ontworpen met big data in gedachten vanaf het begin, met ondersteun
 ## <a name="automatic-data-preview"></a>Voorbeeld van automatische gegevens
 Onderdeel van de gegevens van de geselecteerde gegevensbron kunt u bekijken om te valideren of de gegevens wilt kopiëren. Als de brongegevens zich in een tekstbestand, parseert de Wizard kopiëren bovendien het tekstbestand voor meer informatie over de rij en kolom scheidingstekens en het schema automatisch.
 
-![Bestandsindelingsinstellingen](./media/data-factory-copy-wizard/file-format-settings.png)
+![Pagina Instellingen bestandsindelingen](./media/data-factory-copy-wizard/file-format-settings.png)
 
 ## <a name="schema-capture-and-mapping"></a>Schema vastleggen en toewijzing
 Het schema van de invoergegevens mogelijk niet overeen met het schema van uitvoergegevens in sommige gevallen. In dit scenario moet u de kolommen van het schema van de gegevensbron aan kolommen van het doelschema toewijzen.

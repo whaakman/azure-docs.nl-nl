@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 73d2f7135e85b829b1ecbd9eb0264024df36244a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redigeren vlakken met Azure Media Analytics
 ## <a name="overview"></a>Overzicht
@@ -52,11 +52,12 @@ De **analyseren** op te geven van de werkstroom twee keer een video-invoer en ge
 | --- | --- | --- |
 | Invoer asset |foo.bar |Video in WMV, MPV of MP4-indeling |
 | Invoer config |De configuratie van definitie |{{'version':'1.0 ","opties": {'mode': 'analyseren'}} |
-| Uitvoerasset |foo_annotations.JSON |De gegevens van de aantekening van face locaties in JSON-indeling. Dit kan worden bewerkt door de gebruiker te wijzigen van de vakken voor begrenzingsvak vervagen. Zie onderstaand voorbeeld. |
+| Uitvoerasset |foo_annotations.json |De gegevens van de aantekening van face locaties in JSON-indeling. Dit kan worden bewerkt door de gebruiker te wijzigen van de vakken voor begrenzingsvak vervagen. Zie onderstaand voorbeeld. |
 | Uitvoerasset |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Een bijgesneden jpg van elke gedetecteerd gezicht, waarbij het nummer geeft aan de labelId van het oppervlak |
 
 #### <a name="output-example"></a>Voorbeeld van uitvoer:
 
+```json
     {
       "version": 1,
       "timescale": 24000,
@@ -103,6 +104,7 @@ De **analyseren** op te geven van de werkstroom twee keer een video-invoer en ge
             ],
 
     … truncated
+```
 
 ### <a name="redact-mode"></a>Modus Redigeren
 De tweede stap van de werkstroom wordt een groter aantal invoerwaarden die moeten worden samengevoegd in één element.
@@ -114,7 +116,7 @@ De uitvoer van de Geef analyseren omvat niet de oorspronkelijke video. De video 
 | Fase | Bestandsnaam | Opmerkingen |
 | --- | --- | --- |
 | Invoer asset |foo.bar |Video WMV, MPV of MP4-indeling. Hetzelfde als in stap 1 video. |
-| Invoer asset |foo_annotations.JSON |metagegevensbestand aantekeningen uit stap 1, optionele wijzigingen. |
+| Invoer asset |foo_annotations.json |metagegevensbestand aantekeningen uit stap 1, optionele wijzigingen. |
 | Invoer asset |foo_IDList.txt (optioneel) |Optionele nieuwe regel gescheiden lijst van gezicht Redigeren-id. Als dit leeg laat, vervaging dit alle vlakken. |
 | Invoer config |De configuratie van definitie |{{'version':'1.0 ","opties": {'mode': 'Redigeren'}} |
 | Uitvoerasset |foo_redacted.mp4 |Video met zorgt voor een vervaging toegepast op basis van aantekeningen |
@@ -138,7 +140,9 @@ Hier vindt u voorbeelden van de onderstaande vervaging-typen.
 
 ### <a name="example-json"></a>Voorbeeld JSON:
 
+```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+```
 
 #### <a name="low"></a>Laag
 
@@ -172,8 +176,16 @@ De volgende programma toont hoe:
 
 1. Maak een asset en upload een mediabestand naar de asset.
 2. Een taak met een face redactie taak op basis van een configuratiebestand met de volgende json-definitie maken: 
-   
-        {'version':'1.0', 'options': {'mode':'combined'}}
+
+    ```json
+            {
+                'version':'1.0',
+                'options': {
+                    'mode':'combined'
+                }
+            }
+    ```
+
 3. De uitvoer JSON-bestanden downloaden. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
@@ -182,7 +194,7 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
 #### <a name="example"></a>Voorbeeld
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

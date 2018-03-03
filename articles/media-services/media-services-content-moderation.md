@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: sajagtap
-ms.openlocfilehash: 43e22e553b5243d6edc413c7a667089793f95396
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1b473a6aef87e5f4c75be2becbf814ecaaab6f3a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure Media-inhoud beheerder gebruiken voor het detecteren van mogelijke inhoud voor volwassenen en mooie
 
@@ -61,13 +61,13 @@ De JSON-uitvoer bevat de volgende elementen:
 | start |De begintijd van de eerste gebeurtenis in "tikken." |
 | Duur |De lengte van het fragment, in "tikken." |
 | interval |Het interval van elke gebeurtenisvermelding in het fragment, in "tikken." |
-| [gebeurtenissen](#events-json-elements) |Elke gebeurtenis geeft een illustratie en elke clip keyframes gedetecteerd en bijgehouden in die tijd bevat. Er is een matrix van gebeurtenissen. De buitenste matrix vertegenwoordigt een tijdsinterval. De interne matrix bestaat uit 0 of meer gebeurtenissen die hebben plaatsgevonden op dat moment.|
+| [Gebeurtenissen](#events-json-elements) |Elke gebeurtenis geeft een illustratie en elke clip keyframes gedetecteerd en bijgehouden in die tijd bevat. Er is een matrix van gebeurtenissen. De buitenste matrix vertegenwoordigt een tijdsinterval. De interne matrix bestaat uit 0 of meer gebeurtenissen die hebben plaatsgevonden op dat moment.|
 
 ### <a name="events-json-elements"></a>JSON-elementen met gebeurtenissen
 
 |Element|Beschrijving|
 |---|---|
-| reviewRecommended | `true`of `false` , afhankelijk van of de **adultScore** of **racyScore** interne drempelwaarden overschrijden. |
+| reviewRecommended | `true` of `false` , afhankelijk van of de **adultScore** of **racyScore** interne drempelwaarden overschrijden. |
 | adultScore | Score vertrouwen voor mogelijke inhoud voor volwassenen, op een schaal van 0,00 en 0,99. |
 | racyScore | Score vertrouwen voor mogelijke mooie inhoud, klikt u op een schaal van 0,00 en 0,99. |
 | index | index van het frame op een schaal van het eerste frame index op de laatste frame-index. |
@@ -90,6 +90,7 @@ Het volgende codevoorbeeld voor .NET gebruikt Media Services .NET SDK voor het u
 Zie de [video Quick Start inhoud beheerder](../cognitive-services/Content-Moderator/video-moderation-api.md) voor de volledige broncode en het Visual Studio-project.
 
 
+```csharp
     /// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
     /// </summary>
@@ -155,14 +156,14 @@ Zie de [video Quick Start inhoud beheerder](../cognitive-services/Content-Modera
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
     }
 
-Bekijk voor de volledige broncode en het Visual Studio-project, de [inhoud beheerder video Quick Start](../cognitive-services/Content-Moderator/video-moderation-api.md).
+For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
 
-### <a name="json-output"></a>JSON-uitvoer
+### JSON output
 
-Het volgende voorbeeld van een inhoud beheerder JSON-uitvoer is afgebroken.
+The following example of a Content Moderator JSON output was truncated.
 
 > [!NOTE]
-> Locatie van een keyframe (in seconden) = de tijdstempel/tijdschaal
+> Location of a keyframe in seconds = timestamp/timescale
 
     {
     "version": 2,
@@ -213,7 +214,7 @@ Het volgende voorbeeld van een inhoud beheerder JSON-uitvoer is afgebroken.
     }
     ]
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

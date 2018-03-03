@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 2c8157e27c608ed08b4bd3c790c232d968ed7109
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c924640feffea4cbe0372cabc937656d2ec41c7d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Gegevens kopiëren van MongoDB met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -153,7 +153,7 @@ Om gegevens te kopiëren van MongoDB, stelt u het brontype in de kopieerbewerkin
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "MongoDbSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -165,7 +165,7 @@ Om gegevens te kopiëren van MongoDB, stelt u het brontype in de kopieerbewerkin
 ```
 
 > [!TIP]
-> Geef bij de SQL-query, let u op de datum/tijd-indeling. Bijvoorbeeld: `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', <datetime parameter>, <datetime parameter>)`
+> Geef bij de SQL-query, let u op de datum/tijd-indeling. Bijvoorbeeld: `SELECT * FROM Account WHERE LastModifiedDate >= {{ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')}'}} AND LastModifiedDate < {{ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}'}}`
 
 ## <a name="schema-by-data-factory"></a>Schema door Data Factory
 
@@ -179,7 +179,7 @@ Bij het kopiëren van gegevens van MongoDB, worden de volgende toewijzingen van 
 |:--- |:--- |
 | Binair bestand |Byte[] |
 | Boole-waarde |Boole-waarde |
-| Date |Datum en tijd |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |

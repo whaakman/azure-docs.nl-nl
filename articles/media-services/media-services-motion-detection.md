@@ -13,17 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: dd422308ed728ed4e8bc35daee3bd50f0f02aaac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c391101c82868eb3c9cc92dc55c920fdbd5f4e8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Bewegingen met Azure Media Analytics detecteren
 ## <a name="overview"></a>Overzicht
 De **Azure Media beweging detectie** Mediaprocessor (MP) kunt u secties van belang zijn binnen een video anders lang en probleemloze efficiënt te identificeren. Bewegingsdetectie kan worden gebruikt voor statische camerabeelden identificeren secties van de video waar beweging optreedt. Er wordt een JSON-bestand met een metagegevens met tijdstempels en het selectiegebied waarop de gebeurtenis heeft plaatsgevonden gegenereerd.
 
-Deze technologie is gericht op beveiliging video-kanalen, kunnen beweging categoriseren in relevante gebeurtenissen en fout-positieven zoals schaduwen en licht wijzigingen. Hiermee kunt u voor het genereren van beveiligingswaarschuwingen van de camera feeds zonder kunnen momenten van belang extraheren van zeer lange toezicht video's met oneindige irrelevante gebeurtenissen, spam.
+Deze technologie is gericht op beveiliging video-kanalen, kunnen beweging categoriseren in relevante gebeurtenissen en fout-positieven zoals schaduwen en licht wijzigingen. Hiermee kunt u voor het genereren van beveiligingswaarschuwingen van de camera feeds zonder kunnen momenten van belang ophalen uit lange toezicht video's met oneindige irrelevante gebeurtenissen, spam.
 
 De **Azure Media beweging detectie** MP is momenteel in Preview.
 
@@ -40,13 +40,15 @@ U kunt de volgende parameters:
 
 | Naam | Opties | Beschrijving | Standaard |
 | --- | --- | --- | --- |
-| sensitivityLevel |Tekenreeks: 'laag', 'Gemiddeld', 'hoog' |Hiermee stelt u het gevoeligheidsniveau op welke bewegingen wordt gerapporteerd. Pas dit als het aantal fout-positieven wilt aanpassen. |'Gemiddeld' |
-| frameSamplingValue |Positief geheel getal |Hiermee stelt u de frequentie aan welk algoritme wordt uitgevoerd. elk frame gelijk aan-1, 2 betekent dat elke 2e frame, enzovoort. |1 |
+| sensitivityLevel |Tekenreeks: 'laag', 'Gemiddeld', 'hoog' |Hiermee stelt de gevoeligheid niveau op welke bewegingen worden gerapporteerd. Pas dit als het aantal fout-positieven wilt aanpassen. |'Gemiddeld' |
+| frameSamplingValue |Positief geheel getal |Hiermee stelt u de frequentie aan welk algoritme wordt uitgevoerd. elk frame gelijk aan-1, 2 betekent dat elke tweede frame, enzovoort. |1 |
 | detectLightChange |Boolean-waarde: 'true', 'onwaar' |Hiermee wordt ingesteld of lichte wijzigingen in de resultaten worden gemeld |'False' |
-| mergeTimeThreshold |Tijd voor xs:: Mm: ss<br/>Voorbeeld: 00:00:03 |Hiermee geeft u de periode tussen beweging gebeurtenissen waarbij 2 gebeurtenissen wordt gecombineerd en gerapporteerd als 1. |00:00:00 |
+| mergeTimeThreshold |Tijd voor xs:: Mm: ss<br/>Voorbeeld: 00:00:03 |Hiermee geeft u de periode tussen beweging gebeurtenissen waarbij 2 gebeurtenissen zijn worden gecombineerd en worden gerapporteerd als 1. |00:00:00 |
 | detectionZones |Een matrix van zones voor detectie:<br/>-Zone detectie is een matrix met punten 3 of meer<br/>-Punt is een x en y coördinaat tussen 0 en 1. |Hierin wordt beschreven in de lijst met detectie van veelhoekige zones moet worden gebruikt.<br/>Resultaten met de zones worden gerapporteerd als een ID, met de eerste afbeelding wordt 'id': 0 |Enkele zone, dat wordt ingegaan op het gehele frame. |
 
 ### <a name="json-example"></a>JSON-voorbeeld
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -74,10 +76,10 @@ U kunt de volgende parameters:
         ]
       }
     }
-
+```
 
 ## <a name="motion-detector-output-files"></a>Beweging detectie uitvoerbestanden
-Een motion detection-taak retourneren een JSON-bestand in de uitvoerasset waarin de beweging waarschuwingen en hun categorieën, binnen de video worden beschreven. Het bestand bevat informatie over de tijd en de duur van gedetecteerd in de video motion.
+Een motion detection-taak retourneert een JSON-bestand in de uitvoerasset waarin de beweging waarschuwingen en hun categorieën, binnen de video worden beschreven. Het bestand bevat informatie over de tijd en de duur van gedetecteerd in de video motion.
 
 De beweging detectie-API biedt indicatoren zodra er objecten in beweging in een vaste achtergrond video (bijvoorbeeld een toezicht video zijn). De detectie van de beweging wordt te verminderen gegeven, zoals licht en wijzigingen van de schaduw getraind. Huidige beperkingen van de algoritmen zijn nacht visie video's, semi-transparante objecten en kleine objecten.
 
@@ -93,7 +95,7 @@ De volgende tabel beschrijft de elementen van de JSON-bestand voor uitvoer.
 | --- | --- |
 | Versie |Dit verwijst naar de versie van de Video-API. De huidige versie is 2. |
 | Tijdschaal |'Maatstreepjes' per seconde van de video. |
-| Offset |De time-offset voor tijdstempels in 'maatstreepjes'. Versie 1.0 van Video-API's, zal dit altijd 0 zijn. In de toekomst scenario's die wordt ondersteund, deze waarde kan worden gewijzigd. |
+| Offset |De time-offset voor tijdstempels in "tikken." Versie 1.0 van Video-API's, zal dit altijd 0 zijn. In de toekomst scenario's die wordt ondersteund, deze waarde kan worden gewijzigd. |
 | framesnelheid |Frames per seconde van de video. |
 | Breedte, hoogte |Verwijst naar de breedte en hoogte van de video in pixels. |
 | Starten |De tijdstempel begin in 'maatstreepjes'. |
@@ -107,8 +109,9 @@ De volgende tabel beschrijft de elementen van de JSON-bestand voor uitvoer.
 | []-Haken |Elke accolade vertegenwoordigt één interval in de gebeurtenis. Lege haakjes voor dat interval betekent dat er geen beweging is gedetecteerd. |
 | Locaties |Deze nieuwe vermelding onder gebeurtenissen vindt u de locatie waar de beweging zich heeft voorgedaan. Dit is een meer specifiek zijn dan de zones van de detectie. |
 
-Hier volgt een voorbeeld van een JSON-uitvoer
+Het volgende JSON-voorbeeld ziet u de uitvoer:
 
+```json
     {
       "version": 2,
       "timescale": 23976,
@@ -150,8 +153,8 @@ Hier volgt een voorbeeld van een JSON-uitvoer
                 "regionId": 0
               }
             ],
+```
 
-    …
 ## <a name="limitations"></a>Beperkingen
 * De ondersteunde video-invoerindelingen zijn MP4 MOV en WMV.
 * Bewegingsdetectie is geoptimaliseerd voor stilstaan achtergrond video's. De algoritme is gericht op het verminderen van gegeven, zoals licht wijzigingen en schaduwen.
@@ -164,33 +167,36 @@ De volgende programma toont hoe:
 1. Maak een asset en upload een mediabestand naar de asset.
 2. Een taak met een video motion detection-taak op basis van een configuratiebestand met de volgende json-definitie maken: 
    
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
+
 3. De uitvoer JSON-bestanden downloaden. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
@@ -199,7 +205,7 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
 #### <a name="example"></a>Voorbeeld
 
-```
+```csharp
 
 using System;
 using System.Configuration;

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 19760b743e7cdcba3e30503090b61243911441ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 532306427ba13aca70c50d47a33bb7edeac71720
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="media-services-development-with-net"></a>Het ontwikkelen van Media Services met .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -41,7 +41,7 @@ Deze sectie wordt beschreven hoe u **NuGet** Media Services .NET SDK extensions 
 U kunt ook de meest recente Media Services .NET SDK bits ophalen vanuit GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) of [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), de oplossing bouwen en de verwijzingen naar de client-project toevoegen. De vereiste afhankelijkheden ophalen gedownload en uitgepakt automatisch.
 
 1. Maak in Visual Studio een nieuwe C#-consoletoepassing. Voer de **naam**, **locatie**, en **oplossingsnaam**, en klik op OK.
-2. De oplossing bouwen.
+2. Bouw de oplossing.
 3. Gebruik **NuGet** installeren en toevoegen **Azure Media Services .NET SDK Extensions** (**windowsazure.mediaservices.extensions**). Als u dit pakket installeert, wordt ook de **Media Services .NET SDK** geïnstalleerd en worden alle andere vereiste afhankelijkheden toegevoegd.
    
     Zorg ervoor dat u de nieuwste versie van NuGet geïnstalleerd. Zie voor meer informatie en installatie-instructies, [NuGet](http://nuget.codeplex.com/).
@@ -62,66 +62,73 @@ U kunt ook de meest recente Media Services .NET SDK bits ophalen vanuit GitHub (
     3. Onder de .NET framework-assembly's vinden en selecteer de System.Configuration-assembly en druk op **OK**.
 6. Open het bestand App.config en voeg een **appSettings** sectie naar het bestand. Stel de waarden die nodig zijn voor het verbinding maken met het Media Services-API. Zie voor meer informatie [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
-Stel de waarden die nodig zijn om te verbinden via de **Service-principal** verificatiemethode.  
+    Stel de waarden die nodig zijn om te verbinden via de **Service-principal** verificatiemethode.
 
-        <configuration>
-        ...
-            <appSettings>
-                <add key="AMSAADTenantDomain" value="tenant"/>
-                <add key="AMSRESTAPIEndpoint" value="endpoint"/>
-                <add key="AMSClientId" value="id"/>
-                <add key="AMSClientSecret" value="secret"/>
-            </appSettings>
-        </configuration>
+        ```csharp
+                <configuration>
+                ...
+                    <appSettings>
+                        <add key="AMSAADTenantDomain" value="tenant"/>
+                        <add key="AMSRESTAPIEndpoint" value="endpoint"/>
+                        <add key="AMSClientId" value="id"/>
+                        <add key="AMSClientSecret" value="secret"/>
+                    </appSettings>
+                </configuration>
+        ```
+
 7. Voeg de **System.Configuration** verwijzing in naar uw project.
-7. Overschrijf de bestaande **met** instructies aan het begin van het bestand Program.cs met de volgende code:
-           
-        using System;
-        using System.Configuration;
-        using System.IO;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System.Threading;
-        using System.Collections.Generic;
-        using System.Linq;
+8. Overschrijf de bestaande **met** instructies aan het begin van het bestand Program.cs met de volgende code:
 
-U bent nu klaar om te beginnen met het ontwikkelen van een Media Services-toepassing.    
+    ```csharp      
+            using System;
+            using System.Configuration;
+            using System.IO;
+            using Microsoft.WindowsAzure.MediaServices.Client;
+            using System.Threading;
+            using System.Collections.Generic;
+            using System.Linq;
+    ```
+
+    U bent nu klaar om te beginnen met het ontwikkelen van een Media Services-toepassing.    
 
 ## <a name="example"></a>Voorbeeld
 
 Hier volgt een voorbeeld van een kleine die verbinding maakt met de AMS-API en een lijst met alle beschikbare Media-Processors.
-    
-    class Program
-    {
-        // Read values from the App.config file.
 
-        private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
-        private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
-        private static readonly string _AMSClientId =
-            ConfigurationManager.AppSettings["AMSClientId"];
-        private static readonly string _AMSClientSecret =
-            ConfigurationManager.AppSettings["AMSClientSecret"];
-    
-        private static CloudMediaContext _context = null;
-        static void Main(string[] args)
+```csharp
+        class Program
         {
-            AzureAdTokenCredentials tokenCredentials = 
-                new AzureAdTokenCredentials(_AADTenantDomain,
-                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                    AzureEnvironments.AzureCloudEnvironment);
+            // Read values from the App.config file.
 
-            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-
-            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-    
-            // List all available Media Processors
-            foreach (var mp in _context.MediaProcessors)
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
+        
+            private static CloudMediaContext _context = null;
+            static void Main(string[] args)
             {
-                Console.WriteLine(mp.Name);
+                AzureAdTokenCredentials tokenCredentials = 
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+        
+                // List all available Media Processors
+                foreach (var mp in _context.MediaProcessors)
+                {
+                    Console.WriteLine(mp.Name);
+                }
+        
             }
-    
-        }
+ ```
 
 ##<a name="next-steps"></a>Volgende stappen
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 739e80633f828e8c14f024dc22971e7d8858cf78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 03b9de7374880cdb2741821edae246bffaf3f921
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Azure Media Analytics gebruiken voor het converteren van tekstinhoud in videobestanden in digitale tekst
 ## <a name="overview"></a>Overzicht
@@ -51,6 +51,7 @@ Taken configureren (standaardoptie). Bij het maken van een taak met **Azure Medi
 
 #### <a name="json-preset-example"></a>Vooraf gedefinieerde JSON-voorbeeld
 
+```json
     {
         "Version":1.0, 
         "Options": 
@@ -69,8 +70,11 @@ Taken configureren (standaardoptie). Bij het maken van een taak met **Azure Medi
              ]
         }
     }
+```
 
 #### <a name="xml-preset-example"></a>Vooraf gedefinieerde XML-voorbeeld
+
+```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
@@ -88,6 +92,7 @@ Taken configureren (standaardoptie). Bij het maken van een taak met **Azure Medi
        <TextOrientation>Up</TextOrientation>
       </Options>
     </VideoOcrPreset>
+```
 
 ## <a name="ocr-output-files"></a>De uitvoerbestanden OCR
 De uitvoer van de processor van de media OCR is een JSON-bestand.
@@ -118,6 +123,7 @@ De uitvoer bevat de volgende kenmerken:
 ### <a name="json-output-example"></a>Voorbeeld van JSON-uitvoer
 Het volgende Uitvoervoorbeeld bevat de algemene video informatie en verschillende video fragmenten. In elke video fragment bevat elke regio die wordt gedetecteerd door OCR MP met de taal en de richting van tekst. De regio bevat ook elke regel woord in deze regio met de regel tekst, de positie van de regel en elke word-informatie (word-inhoud, positie en vertrouwen) in deze regel. Hier volgt een voorbeeld en ik bepaalde inline opmerkingen plaatsen.
 
+```json
     {
         "version": 1, 
         "timescale": 90000, 
@@ -170,6 +176,7 @@ Het volgende Uitvoervoorbeeld bevat de algemene video informatie en verschillend
             }
         ]
     }
+```
 
 ## <a name="net-sample-code"></a>Voorbeeldcode voor .NET
 
@@ -185,7 +192,7 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
 #### <a name="example"></a>Voorbeeld
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

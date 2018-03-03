@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-visualization"></a>Visualisatie van afhankelijkheden
 
@@ -34,6 +34,19 @@ Azure maakt gebruik van migreren de [Serviceoverzicht](../operations-management-
 Voor het gebruik van afhankelijkheid visualisatie die u wilt downloaden en installeren van agents op elke on-premises machine die u wilt analyseren.  
 
 ## <a name="do-i-need-to-pay-for-it"></a>Heb ik nodig voor het betalen?
+
+Azure Migrate is zonder extra kosten beschikbaar. Gebruik van de functies van de visualisatie afhankelijkheid in Azure migreren vereist Serviceoverzicht. Bij het maken van een project voor het migreren van Azure creëert Azure migreren automatisch een nieuwe werkruimte voor logboekanalyse namens jou.
+
+> [!NOTE]
+> De afhankelijkheid visualisatie-functie gebruikt Serviceoverzicht via een werkruimte voor logboekanalyse. Sinds 28 februari 2018 is met de aankondiging van Azure migreren algemeen beschikbaar is, de functie nu beschikbaar zijn zonder extra kosten. U moet een nieuw project te maken van de werkruimte gratis gebruik gebruiken. Bestaande werkruimten voordat algemene availaibility zijn nog steeds chargable, daarom wordt aanbevolen om te verplaatsen naar een nieuw project.
+
+1. Gebruik van elke oplossing dan Serviceoverzicht binnen deze werkruimte voor logboekanalyse zal worden standaard logboekanalyse kosten in rekening. 
+2. Ter ondersteuning van migratiescenario's zonder extra kosten, zal de oplossing Serviceoverzicht niet worden geen kosten berekend voor de eerste 180 dagen na het maken van het project Azure migreren, waarna u standaard kosten gelden.
+3. Alleen de werkruimte gemaakt als onderdeel van het project maken, zijn beschikbaar voor gebruik.
+
+Wanneer u agents naar de werkruimte registreert, gebruiken de ID en de sleutel komt overeen met het project op de pagina installatie agent stappen. U kunt geen gebruik van een bestaande werkruimte of koppelen aan het project Azure migreren.
+
+Wanneer het project voor het migreren van Azure wordt verwijderd, wordt de werkruimte niet samen met het verwijderd. Het verwijderen van het project posten, het gebruik van het Serviceoverzicht niet worden vrijgegeven en elk knooppunt wordt in rekening gebracht volgens de betaalde laag van de werkruimte voor logboekanalyse.
 
 Meer informatie over prijzen voor Azure Migrate vindt u [hier](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 

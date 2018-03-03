@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f40c9364d02929fe5bb193b4e8eb0a0157d34d2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure Media Video miniaturen gebruiken voor het maken van een samenvatting van de Video
 ## <a name="overview"></a>Overzicht
@@ -44,7 +44,11 @@ Hier volgen enkele voorbeelden van hoe de Azure Media Video Thumbnails media-pro
 ## <a name="task-configuration-preset"></a>Taken configureren (standaardoptie)
 Bij het maken van een video miniaturen taak met **Azure Media Video miniaturen**, moet u een configuratie-definitie opgeven. Het bovenstaande voorbeeld van de miniatuur is gemaakt met de volgende JSON-basisconfiguratie:
 
-    {"version":"1.0"}
+```json
+    {
+        "version":"1.0"
+    }
+```
 
 Op dit moment kunt u de volgende parameters:
 
@@ -63,6 +67,7 @@ De volgende tabel beschrijft de standaardduur wanneer **maxMotionThumbnailInSecs
 
 De volgende JSON stelt beschikbare parameters.
 
+```json
     {
         "version": "1.0",
         "options": {
@@ -71,6 +76,7 @@ De volgende JSON stelt beschikbare parameters.
             "fadeInFadeOut": "true"
         }
     }
+```
 
 ## <a name="net-sample-code"></a>Voorbeeldcode voor .NET
 
@@ -78,15 +84,18 @@ De volgende programma toont hoe:
 
 1. Maak een asset en upload een mediabestand naar de asset.
 2. Maakt een taak met een video miniaturen taak op basis van een configuratiebestand met de volgende json-definitie: 
-   
-        {                
-            "version": "1.0",
-            "options": {
-                "outputAudio": "true",
-                "maxMotionThumbnailDurationInSecs": "30",
-                "fadeInFadeOut": "false"
+    
+    ```json
+            {                
+                "version": "1.0",
+                "options": {
+                    "outputAudio": "true",
+                    "maxMotionThumbnailDurationInSecs": "30",
+                    "fadeInFadeOut": "false"
+                }
             }
-        }
+    ```
+
 3. De uitvoerbestanden downloadt. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
@@ -95,6 +104,7 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
 #### <a name="example"></a>Voorbeeld
 
+```csharp
     using System;
     using System.Configuration;
     using System.IO;
@@ -262,6 +272,7 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
         }
     }
+```
 
 ### <a name="video-thumbnail-output"></a>Miniaturen video-uitvoer
 [Miniaturen video-uitvoer](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)

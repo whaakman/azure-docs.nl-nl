@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 88d80271e744d6f00afd1ff1c3df29180565b59e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1cd429ed8252573f8e8c3ed11d6c841cba855b52
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Aangepaste statusrapporten van Service Fabric toevoegen
 Azure Service Fabric introduceert een [statusmodel](service-fabric-health-introduction.md) ontworpen om te markeren slecht cluster en de voorwaarden van toepassing op specifieke entiteiten. Maakt gebruik van het statusmodel **health rapporteurs** (onderdelen van het systeem en watchdogs). Het doel is snel en gemakkelijk diagnose en herstel. Schrijvers van de service moeten om na te denken over status vooraf. Een voorwaarde die van invloed kan status moet worden gerapporteerd, vooral als deze vlag problemen dicht bij de hoofdmap kan helpen. Statusgegevens bespaart tijd en moeite op onderzoek naar en foutopsporing. Het nut vooral duidelijk is wanneer de service actief op de gewenste schaal in de cloud is (particulier of Azure).
@@ -214,7 +214,7 @@ public static void SendReport(object obj)
 ```
 
 ### <a name="powershell"></a>PowerShell
-Verzenden van statusrapporten met  **verzenden ServiceFabric*EntityType*HealthReport **.
+Verzenden van statusrapporten met **verzenden ServiceFabric*EntityType*HealthReport**.
 
 Het volgende voorbeeld ziet periodieke rapportage over CPU-waarden op een knooppunt. De rapporten elke 30 seconden moeten worden verzonden en hebben een levensduur van twee minuten. Als ze zijn verlopen, heeft de Rapportagefout problemen, zodat het knooppunt wordt geëvalueerd op fout. Wanneer de CPU hoger dan een drempelwaarde is, wordt in het rapport een status van de waarschuwing heeft. Wanneer de CPU boven een drempelwaarde komt meer dan de geconfigureerde tijd blijft, wordt als een fout gerapporteerd. Anders wordt verzendt de Rapportagefout een status OK.
 

@@ -13,82 +13,95 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Gegevensbronnen die worden ondersteund in Azure Analysis Services
-Azure Analysis Services-servers ondersteunen verbinding te maken met gegevensbronnen in de cloud en on-premises in uw organisatie. Extra ondersteunde gegevensbronnen worden altijd toegevoegd. Terugkomen vaak. 
 
-De volgende gegevensbronnen worden momenteel ondersteund:
+Gegevensbronnen en weergegeven in de gegevens opvragen of de Wizard importeren in Visual Studio-connectors worden weergegeven voor zowel Azure Analysis Services en SQL Server Analysis Services. Echter niet alle gegevensbronnen en weergegeven connectors worden ondersteund in Azure Analysis Services. De soorten gegevensbronnen die kunt u afhankelijk van veel factoren, zoals het model compatibiliteitsniveau, beschikbare gegevens connectors verificatietype, providers en On-premises gateway gegevensondersteuning. 
 
-| Cloud  |
-|---|
-| Azure Blob Storage*  |
-| Azure SQL Database  |
-| Azure Data Warehouse |
+## <a name="azure-data-sources"></a>Azure-gegevensbronnen
 
+|Gegevensbron  |In het geheugen  |DirectQuery  |
+|---------|---------|---------|
+|Azure SQL Database     |   Ja      |    Ja      |
+|Azure SQL Data Warehouse     |   Ja      |   Ja       |
+|Azure Blob Storage*     |   Ja       |    Nee      |
+|Azure Table Storage *    |   Ja       |    Nee      |
+|Azure Cosmos DB (Beta)*     |  Ja        |  Nee        |
+|Azure Data Lake Store*     |   Ja       |    Nee      |
+|Azure HDInsight HDFS*     |     Ja     |   Nee       |
+|Azure HDInsight Spark (bèta) *     |   Ja       |   Nee       |
+|Azure-Database voor MySQL (Preview) *     |   Ja       |   Nee      |
+|Azure-Database voor PostgreSQL (Preview) *     | Ja         |  Nee       |
+||||
 
-| On-premises  |   |   |   |
-|---|---|---|---|
-| Access-Database  | Map * | Oracle Database  | Teradata Database |
-| Active Directory*  | JSON-document *  | Postgre SQL Database *  |XML-tabel * |
-| Analysis Services  | Regels uit binair *  | SAP HANA*  |
-| Analytics Platform System  | MySQL-database  | SAP Business Warehouse *  | |
-| Dynamics CRM *  | OData-Feed *  | SharePoint*  |
-| Excel-werkmap  | ODBC-query  | SQL Database  |
-| Exchange*  | OLE DB  | Sybase-database  |
+\* 1400-modellen in tabelvorm alleen.
 
-\* 1400-modellen in tabelvorm alleen. 
+**Provider**   
+In het geheugen en DirectQuery-modellen die verbinding maken met Azure-gegevensbronnen gebruiken .NET Framework Data Provider voor SQL Server.
 
-> [!IMPORTANT]
-> Verbinding maken met on-premises gegevensbronnen vereisen een [On-premises gegevensgateway](analysis-services-gateway.md) geïnstalleerd op een computer in uw omgeving.
+## <a name="on-premises-data-sources"></a>On-premises gegevensbronnen
 
-## <a name="data-providers"></a>Gegevensproviders
+Verbinding maken met lokale gegevensbronnen uit en AS Azure-server moet een On-premises gateway. Wanneer u een gateway, zijn 64-bits providers vereist.
 
-Gegevensmodellen in Azure Analysis Services moet mogelijk verschillende gegevensproviders bij het verbinden met bepaalde gegevensbronnen. In sommige gevallen kunnen verbinding maken met gegevensbronnen met behulp van systeemeigen providers zoals SQL Server Native Client (SQLNCLI11) modellen in tabelvorm een fout geretourneerd.
+### <a name="in-memory-and-directquery"></a>In het geheugen- en DirectQuery
 
-Gegevensbron voor gegevensmodellen die verbinding met een cloudgegevens maken zoals Azure SQL Database, als u native providers dan SQLOLEDB gebruikt, ziet u mogelijk foutbericht: **'Voor de provider 'SQLNCLI11.1' is niet geregistreerd.'** Of, als u een verbinding te maken met on-premises gegevensbronnen, DirectQuery-model hebt als u native providers u foutbericht weergegeven: **"Fout bij het maken van de OLE DB-rijenset. Onjuiste syntaxis bij 'LIMIET' '**.
-
-De volgende datasource-providers worden ondersteund voor in het geheugen of de DirectQuery-modellen voor gegevens bij het verbinden met gegevensbronnen in de cloud of on-premises:
-
-### <a name="cloud"></a>Cloud
-| **Datasource** | **In het geheugen** | **DirectQuery** |
+|Gegevensbron | In het geheugen-provider | DirectQuery-provider |
 |  --- | --- | --- |
-| Azure SQL Data Warehouse |.NET framework Data Provider voor SQL Server |.NET framework Data Provider voor SQL Server |
-| Azure SQL Database |.NET framework Data Provider voor SQL Server |.NET framework Data Provider voor SQL Server | |
+| SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB-Provider voor SQL Server, .NET Framework Data Provider voor SQL Server | .NET framework Data Provider voor SQL Server |
+| SQL Server Data Warehouse |SQL Server Native Client 11.0, Microsoft OLE DB-Provider voor SQL Server, .NET Framework Data Provider voor SQL Server | .NET framework Data Provider voor SQL Server |
+| Oracle |Microsoft OLE DB-Provider voor Oracle, Oracle-gegevensprovider voor .NET |Oracle-gegevensprovider voor .NET | |
+| Teradata |OLE DB-Provider voor Teradata, Teradata-gegevensprovider voor .NET |Teradata-gegevensprovider voor .NET | |
+| | | |
 
-### <a name="on-premises-via-gateway"></a>On-premises (via de Gateway)
-|**Datasource** | **In het geheugen** | **DirectQuery** |
-|  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0 |.NET framework Data Provider voor SQL Server |
-| SQL Server |Microsoft OLE DB-Provider voor SQL Server |.NET framework Data Provider voor SQL Server | |
-| SQL Server |.NET framework Data Provider voor SQL Server |.NET framework Data Provider voor SQL Server | |
-| Oracle |Microsoft OLE DB-Provider voor Oracle |Oracle-gegevensprovider voor .NET | |
-| Oracle |Oracle-gegevensprovider voor .NET |Oracle-gegevensprovider voor .NET | |
-| Teradata |OLE DB-Provider voor Teradata |Teradata-gegevensprovider voor .NET | |
-| Teradata |Teradata-gegevensprovider voor .NET |Teradata-gegevensprovider voor .NET | |
-| Analytics Platform System |.NET framework Data Provider voor SQL Server |.NET framework Data Provider voor SQL Server | |
+### <a name="in-memory-only"></a>In het geheugen alleen
 
-> [!NOTE]
-> Zorg ervoor dat op 64-bits providers zijn geïnstalleerd bij gebruik van On-premises gateway.
-> 
-> 
+|Gegevensbron  |  
+|---------|---------|
+|Access-Database     |  
+|Active Directory*     |  
+|Analysis Services     |  
+|Analytics Platform System     |  
+|Dynamics CRM *     |  
+|Excel-werkmap     |  
+|Exchange*     |  
+|Map *     | 
+|JSON-document *     |  
+|Regels uit binair *     | 
+|MySQL-database     | 
+|OData-Feed *     |  
+|ODBC-query     | 
+|OLE DB     |   
+|Postgre SQL Database *    | 
+|SAP HANA*    |  
+|SAP Business Warehouse *    |  
+|SharePoint*     |   
+|Sybase-database     |  
+|XML-tabel *    |  
+|||
+ 
+\* 1400-modellen in tabelvorm alleen.
+
+## <a name="specifying-a-different-provider"></a>Geef een andere provider
+
+Gegevensmodellen in Azure Analysis Services moet mogelijk verschillende gegevensproviders bij het verbinden met bepaalde gegevensbronnen. In sommige gevallen kunnen verbinding maken met gegevensbronnen met behulp van systeemeigen providers zoals SQL Server Native Client (SQLNCLI11) modellen in tabelvorm een fout geretourneerd. Als u native providers dan SQLOLEDB, ziet u mogelijk foutbericht: **de provider 'SQLNCLI11.1' is niet geregistreerd**. Of, als u een verbinding te maken met on-premises gegevensbronnen DirectQuery-model hebt en u systeemeigen providers gebruiken, ziet u mogelijk foutbericht: **fout bij het maken van de OLE DB-rijenset. Onjuiste syntaxis bij 'LIMIET'**.
 
 Wanneer een lokale SQL Server Analysis Services model in tabelvorm migreert naar Azure Analysis Services, is het mogelijk nodig om te wijzigen van de provider.
 
-**De provider van een gegevensbron opgeven**
+**Om op te geven van een provider**
 
 1. In SSDT > **Tabellaire Model Explorer** > **gegevensbronnen**, met de rechtermuisknop op een gegevensbronverbinding en klik vervolgens op **gegevensbron bewerken**.
 2. In **verbinding bewerken**, klikt u op **Geavanceerd** om de geavanceerde eigenschappen-venster te openen.
 3. In **geavanceerde eigenschappen instellen** > **Providers**, selecteer vervolgens de juiste provider.
 
 ## <a name="impersonation"></a>Imitatie
-In sommige gevallen is het mogelijk nodig om op te geven van een andere imitatieaccount. Imitatieaccount kan worden opgegeven in SSDT of SSMS.
+In sommige gevallen is het mogelijk nodig om op te geven van een andere imitatieaccount. Imitatieaccount kan worden opgegeven in Visual Studio (SSDT) of SSMS.
 
 Voor on-premises gegevensbronnen:
 
@@ -100,6 +113,6 @@ Voor cloud-gegevensbronnen:
 * Als SQL-verificatie wordt gebruikt, moet de imitatie-serviceaccount.
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u de on-premises gegevensbronnen hebt, moet u voor het installeren van de [On-premises gateway](analysis-services-gateway.md).   
-Zie voor meer informatie over het beheren van uw server in SSDT of SSMS, [beheren van uw server](analysis-services-manage.md).
+[Lokale gateway](analysis-services-gateway.md)   
+[Beheren van uw server](analysis-services-manage.md)   
 

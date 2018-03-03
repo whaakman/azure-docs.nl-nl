@@ -1,239 +1,161 @@
 ---
-title: Een Azure-netwerk maken met meerdere subnetten | Microsoft Docs
-description: Informatie over het maken van een virtueel netwerk met meerdere subnetten in Azure.
+title: Een virtueel Azure-netwerk maken met meerdere subnetten - Portal | Microsoft Docs
+description: Informatie over het maken van een virtueel netwerk met meerdere subnetten met de Azure portal.
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
-ms.assetid: 4ad679a4-a959-4e48-a317-d9f5655a442b
+ms.assetid: 
 ms.service: virtual-network
-ms.devlang: NA
-ms.topic: article
+ms.devlang: na
+ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f82a95ec9543b2d53ef28bf7f15315e23cf4893a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 201da4e6ec86a6c2a79a9e948245c0d83708c3f9
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-a-virtual-network-with-multiple-subnets"></a>Een virtueel netwerk maken met meerdere subnetten
+# <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Een virtueel netwerk maken met meerdere subnetten met de Azure portal
 
-Informatie over het maken van een eenvoudige Azure-netwerk met afzonderlijke openbare en particuliere subnetten in deze zelfstudie. Resources in virtuele netwerken kunnen communiceren met elkaar en met resources in andere netwerken die zijn verbonden met een virtueel netwerk. U kunt Azure-resources, zoals virtuele machines, App Service-omgevingen, virtuele-machineschaalsets, Azure HDInsight en cloudservices in de dezelfde of verschillende subnetten binnen een virtueel netwerk maken. Maken van resources in verschillende subnetten kunt u om netwerkverkeer te filteren en afmelden van subnetten onafhankelijk van elkaar met [netwerkbeveiligingsgroepen](virtual-networks-create-nsg-arm-pportal.md), en zo de [routeren van verkeer tussen subnetten](virtual-network-create-udr-arm-ps.md) via netwerk virtuele apparaten, zoals een firewall, als u wilt. 
+Een virtueel netwerk kunt verschillende soorten Azure-resources met het Internet en privé met elkaar communiceren. Meerdere subnetten in een virtueel netwerk maken, kunt u bij het segmenteren van uw netwerk, zodat u kunt filteren of het besturingselement de verkeersstroom tussen subnetten. In dit artikel leert u hoe:
 
-De volgende secties vindt u stappen die u nemen kunt voor een virtueel netwerk maken met behulp van de [Azure-portal](#portal), de Azure-opdrachtregelinterface ([Azure CLI](#azure-cli)), [Azure PowerShell](#powershell), en een [Azure Resource Manager-sjabloon](#resource-manager-template). Het resultaat is hetzelfde, ongeacht welk hulpmiddel u gebruikt voor het maken van het virtuele netwerk. Klik op de koppeling van een hulpprogramma naar die sectie van de zelfstudie. Meer informatie over alle [virtueel netwerk](virtual-network-manage-network.md) en [subnet](virtual-network-manage-subnet.md) instellingen.
+> [!div class="checklist"]
+> * Een virtueel netwerk maken
+> * Een subnet maken
+> * Testen van netwerkcommunicatie tussen virtuele machines
 
-Dit artikel bevat stappen voor het maken van een virtueel netwerk via het Resource Manager-implementatiemodel het implementatiemodel dat wordt u aangeraden is bij het maken van nieuwe virtuele netwerken. Als u een virtueel netwerk (klassiek) maken moet, Zie [een virtueel netwerk (klassiek) maken](create-virtual-network-classic.md). Als u niet bekend met Azure implementatiemodellen bent, Zie [begrijpen Azure-implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="portal"></a>Azure-portal
+## <a name="log-in-to-azure"></a>Meld u aan bij Azure. 
 
-1. In een internetbrowser, gaat u naar de [Azure-portal](https://portal.azure.com). Meld u aan met uw [Azure-account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Als u nog geen Azure-account hebt, kunt u zich registreren voor een [gratis proefversie](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. Klik in de portal op **+ nieuw** > **Networking** > **virtueel netwerk**.
-3. Op de **virtueel netwerk maken** blade, voer de volgende waarden en klik vervolgens op **maken**:
+Meld u via http://portal.azure.com aan bij Azure Portal.
 
-    |Instelling|Waarde|
-    |---|---|
-    |Naam|myVnet|
-    |Adresruimte|10.0.0.0/16|
-    |Subnetnaam|Openbaar|
-    |Subnetadresbereik|10.0.0.0/24|
-    |Resourcegroep|Laat **nieuw** geselecteerd en voer vervolgens **myResourceGroup**.|
-    |Abonnement en de locatie|Selecteer uw abonnement en locatie.
+## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-    Als u geen ervaring met Azure, meer informatie over [resourcegroepen](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [abonnementen](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), en [locaties](https://azure.microsoft.com/regions) (ook wel *regio's*).
-4. U kunt slechts één subnet in de portal maken wanneer u een virtueel netwerk maken. In deze zelfstudie maakt u een tweede subnet nadat u het virtuele netwerk hebt gemaakt. U kunt later maken met Internet toegankelijke bronnen in de **openbare** subnet. U bronnen die niet toegankelijk is vanaf het Internet in ook mogelijk maakt de **persoonlijke** subnet. Het tweede subnet maken in de **zoeken bronnen** vak boven aan de pagina **myVnet**. Klik in de zoekresultaten op **myVnet**. Als u meerdere virtuele netwerken met dezelfde naam in uw abonnement hebt, controleert u de brongroepen die worden vermeld in elk virtueel netwerk. Zorg ervoor dat u klikt u op de **myVnet** zoekresultaat die de resourcegroep **myResourceGroup**.
-5. Op de **myVnet** blade onder **instellingen**, klikt u op **subnetten**.
-6. Op de **myVnet - subnetten** blade, klikt u op **+ Subnet**.
-7. Op de **subnet toevoegen** blade voor **naam**, voer **persoonlijke**. Voor **-adresbereik**, voer **10.0.1.0/24**.  Klik op **OK**.
-8. Op de **myVnet - subnetten** blade bekijken van de subnetten. U ziet de **openbare** en **persoonlijke** subnetten die u hebt gemaakt.
-9. **Optioneel:** Voltooi aanvullende zelfstudies die worden vermeld onder [Vervolgstappen](#next-steps) om netwerkverkeer te filteren en afmelden van elk subnet met netwerkbeveiligingsgroepen om verkeer te leiden tussen subnetten door middel van een virtueel netwerkapparaat , of het virtuele netwerk verbinding met andere virtuele netwerken of on-premises netwerken.
-10. **Optioneel:** verwijderen van de resources die u in deze zelfstudie maakt via de stappen in [resources verwijderen](#delete-portal).
+1. Selecteer **+ maken van een resource** op het bovenste linkerbovenhoek van de Azure-portal.
+2. Selecteer **Networking**, en selecteer vervolgens **virtueel netwerk**.
+3. Zoals u in de volgende afbeelding, voer *myVirtualNetwork* voor **naam**, **myResourceGroup** voor **resourcegroep**, *Openbare* voor Subnet **naam**, 10.0.0.0/24 voor Subnet **-adresbereik**, selecteer een **locatie** en uw  **Abonnement**, accepteer de standaardinstellingen van de resterende en selecteer vervolgens **maken**:
 
-## <a name="azure-cli"></a>Azure CLI
+    ![Een virtueel netwerk maken](./media/virtual-networks-create-vnet-arm-pportal/create-virtual-network.png)
 
-Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, Linux of Mac OS uitvoeren. Er zijn echter scripting verschillen tussen de houders van het besturingssysteem. Het script in de volgende stappen worden uitgevoerd in een Bash-shell. 
+    De **adresruimte** en **-adresbereik** zijn opgegeven in CIDR-notatie. De opgegeven **adresruimte** bevat het IP-adressen 10.0.0.0-10.0.255.254. De **adresbereik** voor een subnet opgegeven, moet binnen het **adresruimte** gedefinieerd voor het virtuele netwerk. Azure DHCP IP-adressen worden toegewezen uit het adresbereik van een subnet naar bronnen die zijn geïmplementeerd in een subnet. Azure alleen de 10.0.0.4-10.0.0.254 adressen worden toegewezen aan resources die zijn geïmplementeerd in de **openbare** subnet, omdat de eerste vier adressen zijn gereserveerd Azure (10.0.0.0-10.0.0.3 voor het subnet van de in dit voorbeeld) en de laatste adres () 10.0.0.255 voor het subnet van de in dit voorbeeld) in elk subnet.
 
-1. [Installeren en configureren van de Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Zorg ervoor dat u hebt de meest recente versie van de Azure CLI geïnstalleerd. Typ voor hulp bij CLI-opdrachten, `az <command> --help`. In plaats van de CLI en de vereisten installeert, kunt u de Azure-Cloud-Shell. De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. De Shell Cloud heeft de Azure CLI vooraf is geïnstalleerd en geconfigureerd voor gebruik met uw account. Met de Cloud-Shell, klikt u op de Cloud-Shell (**> _**) knop aan de bovenkant van de [portal](https://portal.azure.com) of klik op de *Try it* knop in de stappen volgen. 
-2. Als de CLI lokaal uitgevoerd, meld u aan bij Azure met de `az login` opdracht. Als de Cloud-Shell, bent u al aangemeld.
-3. Bekijk het volgende script en bijbehorende opmerkingen. Kopieer het script in uw browser en plak deze in de CLI-sessie:
+## <a name="create-a-subnet"></a>Een subnet maken
 
-    ```azurecli-interactive
-    #!/bin/bash
+1. In de **zoeken in resources, services en -documenten** vak aan de bovenkant van de portal, begint te typen *myVirtualNetwork*. Wanneer **myVirtualNetwork** wordt weergegeven in de zoekresultaten, selecteer deze.
+2. Selecteer **subnetten** en selecteer vervolgens **+ Subnet**, zoals wordt weergegeven in de volgende afbeelding:
+
+     ![Een subnet toevoegen](./media/virtual-networks-create-vnet-arm-pportal/add-subnet.png)
+
+3. In de **subnet toevoegen** dat verschijnt, voer *persoonlijke* voor **naam**, voer *10.0.1.0/24* voor **-adresbereik**, en selecteer vervolgens **OK**. 
+
+Voordat u deze implementeert in Azure virtuele netwerken en subnetten voor gebruik in productieomgevingen, het is raadzaam dat u zorgvuldig vertrouwd raken met de adresruimte [overwegingen](virtual-network-manage-network.md#create-a-virtual-network) en [virtueel netwerk limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Zodra resources zijn geïmplementeerd in subnetten, kunnen sommige virtueel netwerk en subnet wijzigingen, zoals het wijzigen van-adresbereiken opnieuw distribueren van bestaande Azure-resources geïmplementeerd in subnetten vereisen.
+
+## <a name="test-network-communication"></a>Test de netwerkcommunicatie
+
+Een virtueel netwerk kunt verschillende soorten Azure-resources met het Internet en privé met elkaar communiceren. Een type resource dat u in een virtueel netwerk implementeren kunt is een virtuele machine. Twee virtuele machines maken in het virtuele netwerk, zodat u de netwerkcommunicatie tussen deze en het Internet in een later stadium testen kunt.
+
+### <a name="create-virtual-machines"></a>Virtuele machines maken
+
+1. Selecteer **+ maken van een resource** op het bovenste linkerbovenhoek van de Azure-portal.
+2. Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. U kunt een ander besturingssysteem selecteren, maar de resterende stappen wordt ervan uitgegaan dat u hebt geselecteerd **Windows Server 2016 Datacenter**. 
+3. Selecteer of typ de volgende informatie voor **basisbeginselen**, selecteer daarna **OK**:
+    - **Name**: *myVmWeb*
+    - **Resourcegroep**: Selecteer **gebruik bestaande** en selecteer vervolgens *myResourceGroup*.
+    - **Locatie**: Selecteer *VS-Oost*.
+
+    De **gebruikersnaam** en **wachtwoord** u invoeren in een latere stap worden gebruikt. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). De **locatie** en **abonnement** geselecteerd moet hetzelfde zijn als de locatie en het virtuele netwerk is in-abonnement. Dit is niet vereist dat u dezelfde resourcegroep die in het virtuele netwerk is gemaakt, maar dezelfde resourcegroep is geselecteerd voor deze zelfstudie selecteert.
+4. Selecteer een VM-grootte onder **een grootte kiezen**.
+5. Selecteer of typ de volgende informatie voor **instellingen**, selecteer daarna **OK**:
+    - **Virtueel netwerk**: Zorg ervoor dat **myVirtualNetwork** is geselecteerd. Zo niet, selecteer **virtueel netwerk** en selecteer vervolgens **myVirtualNetwork** onder **virtueel netwerk kiezen**.
+    - **Subnet**: Zorg ervoor dat **openbare** is geselecteerd. Zo niet, selecteer **Subnet** en selecteer vervolgens **openbare** onder **Kies subnet**, zoals wordt weergegeven in de volgende afbeelding:
     
-    # Create a resource group.
-    az group create \
-      --name myResourceGroup \
-      --location eastus
-    
-    # Create a virtual network with one subnet named Public.
-    az network vnet create \
-      --name myVnet \
-      --resource-group myResourceGroup \
-      --subnet-name Public
-    
-    # Create an additional subnet named Private in the virtual network.
-    az network vnet subnet create \
-      --name Private \
-      --address-prefix 10.0.1.0/24 \
-      --vnet-name myVnet \
-      --resource-group myResourceGroup
+        ![Instellingen voor virtuele machines](./media/virtual-networks-create-vnet-arm-pportal/virtual-machine-settings.png)
+ 
+6. Onder **maken** in de **samenvatting**, selecteer **maken** implementatie van virtuele machine te starten.
+7. Stap 1-6 opnieuw uitvoeren, maar voert *myVmMgmt* voor de **naam** van de virtuele machine en selecteer **persoonlijke** voor de **Subnet**.
+
+De virtuele machines maken in een paar minuten duren. Ga niet verder met de resterende stappen totdat beide virtuele machines worden gemaakt.
+
+### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Communiceren tussen virtuele machines en met het internet
+
+1. In de *Search* vak aan de bovenkant van de portal, begint te typen *myVmMgmt*. Wanneer **myVmMgmt** wordt weergegeven in de zoekresultaten, selecteer deze.
+2. Een extern bureaublad verbinding maken met de *myVmMgmt* virtuele machine door het selecteren van **Connect**, zoals wordt weergegeven in de volgende afbeelding:
+
+    ![Verbinding maken met de virtuele machine](./media/virtual-networks-create-vnet-arm-pportal/connect-to-virtual-machine.png)  
+
+3. Voor verbinding met de virtuele machine, het gedownloade RDP-bestand te openen. Als u wordt gevraagd, selecteert u **Connect**.
+4. Geef de gebruikersnaam en wachtwoord die u hebt opgegeven bij het maken van de virtuele machine (mogelijk moet u selecteren **meer opties**, vervolgens **gebruik een ander account**, om op te geven de referenties die u hebt ingevoerd wanneer u de virtuele machine gemaakt), selecteer vervolgens **OK**.
+5. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Selecteer **Ja** om door te gaan met de verbinding.
+6. In een later stadium ping wordt gebruikt om te communiceren met de *myVmMgmt* virtuele machine van de *myVmWeb* virtuele machine. Ping maakt gebruik van ICMP dat via de Windows Firewall standaard is geweigerd. ICMP inschakelen via de Windows firewall met de volgende opdracht vanaf een opdrachtprompt:
+
     ```
-    
-4. Wanneer het script is voltooid wordt uitgevoerd, Controleer de subnetten voor het virtuele netwerk. Kopieer de volgende opdracht en plak deze in de CLI-sessie:
-
-    ```azurecli
-    az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
+    netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
     ```
 
-5. **Optioneel:** Voltooi aanvullende zelfstudies die worden vermeld onder [Vervolgstappen](#next-steps) om netwerkverkeer te filteren en afmelden van elk subnet met netwerkbeveiligingsgroepen om verkeer te leiden tussen subnetten door middel van een virtueel netwerkapparaat , of het virtuele netwerk verbinding met andere virtuele netwerken of on-premises netwerken.
-6. **Optionele**: verwijderen van de resources die u in deze zelfstudie maakt via de stappen in [resources verwijderen](#delete-cli).
+    Hoewel ping in dit artikel wordt gebruikt, wordt zodat ICMP via de Windows Firewall voor productie-implementaties niet aanbevolen.
+7. Uit veiligheidsoverwegingen is het gebruikelijk om het aantal virtuele machines die worden op afstand verbinding met een virtueel netwerk gemaakt kunnen te beperken. In deze zelfstudie de *myVmMgmt* virtuele machine wordt gebruikt voor het beheren van de *myVmWeb* virtuele machine in het virtuele netwerk. Met extern bureaublad naar de *myVmWeb* virtuele machine van de *myVmMgmt* virtuele machine, voer de volgende opdracht uit vanaf de opdrachtprompt:
 
-## <a name="powershell"></a>PowerShell
+    ``` 
+    mstsc /v:myVmWeb
+    ```
+8. Om te communiceren met de *myVmMgmt* virtuele machine van de *myVmWeb* virtuele machine, voer de volgende opdracht uit vanaf de opdrachtprompt:
 
-1. Installeer de meest recente versie van de PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/)-module. Zie [Overzicht van Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) als u nog geen ervaring hebt met Azure PowerShell.
-2. In een PowerShell-sessie, moet u zich aanmelden bij Azure met uw [Azure-account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) met behulp van de `login-azurermaccount` opdracht.
+    ```
+    ping myvmmgmt
+    ```
 
-3. Bekijk het volgende script en bijbehorende opmerkingen. Kopieer het script in uw browser en plak deze in uw PowerShell-sessie:
+    De uitvoer is vergelijkbaar met de volgende voorbeelduitvoer wordt:
+    
+    ```
+    Pinging myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net [10.0.1.4] with 32 bytes of data:
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    
+    Ping statistics for 10.0.1.4:
+        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    Approximate round trip times in milli-seconds:
+        Minimum = 0ms, Maximum = 0ms, Average = 0ms
+    ```
+      
+    Kunt u zien dat het adres van de *myVmMgmt* virtuele machine is 10.0.1.4. 10.0.1.4 is het eerste beschikbare IP-adres in het adresbereik van de *persoonlijke* subnet dat u hebt geïmplementeerd de *myVmMgmt* virtuele machine in de vorige stap.  U ziet dat de volledig gekwalificeerde domeinnaam van de virtuele machine *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Hoewel de *dar5p44cif3ulfq00wxznl3i3f* gedeelte van de domeinnaam is verschillend voor de virtuele machine, de resterende gedeelten van de domeinnaam zijn hetzelfde. Alle virtuele machines in Azure gebruiken de standaard Azure DNS-service. Alle virtuele machines binnen een virtueel netwerk, kunnen de namen van alle andere virtuele machines in hetzelfde virtuele netwerk met behulp van Azure standaard DNS-service omzetten. In plaats van Azure standaard DNS-service, kunt u uw eigen DNS-server of de mogelijkheid persoonlijke domein van de Azure DNS-service. Zie voor meer informatie [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) of [Azure DNS gebruiken voor persoonlijke domeinen](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+9. Internet Information Services (IIS) voor Windows Server installeren op de *myVmWeb* virtuele machine, voer de volgende opdracht vanuit een PowerShell-sessie:
 
     ```powershell
-    # Create a resource group.
-    New-AzureRmResourceGroup `
-      -Name myResourceGroup `
-      -Location eastus
-    
-    # Create the public and private subnets.
-    $Subnet1 = New-AzureRmVirtualNetworkSubnetConfig `
-      -Name Public `
-      -AddressPrefix 10.0.0.0/24
-    $Subnet2 = New-AzureRmVirtualNetworkSubnetConfig `
-      -Name Private `
-      -AddressPrefix 10.0.1.0/24
-    
-    # Create a virtual network.
-    $Vnet=New-AzureRmVirtualNetwork `
-      -ResourceGroupName myResourceGroup `
-      -Location eastus `
-      -Name myVnet `
-      -AddressPrefix 10.0.0.0/16 `
-      -Subnet $Subnet1,$Subnet2
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     ```
 
-4. Kopieer de volgende opdracht om te controleren van de subnetten voor het virtuele netwerk, en plak deze in uw PowerShell-sessie:
+10. Nadat de installatie van IIS voltooid is, Verbreek de verbinding met de *myVmWeb* extern bureaublad-sessiehost, waarbij u in de *myVmMgmt* extern bureaublad-sessiehost. Open een webbrowser en Ga naar http://myvmweb. U ziet de pagina Welkom IIS.
+11. Verbreek de verbinding met de *myVmMgmt* extern bureaublad-sessiehost.
+12. Poging om de IIS-welkomstpagina van uw eigen computer weer te geven. Wanneer Azure gemaakt de *myVmWeb* virtuele machine, een openbare IP-adres-resource met de naam *myVmWeb* ook is gemaakt en toegewezen aan de virtuele machine. U kunt zien dat 52.170.5.92 is toegewezen aan de *myVmMgmt* virtuele machine in de afbeelding in stap 2. Vinden van het openbare IP-adres is toegewezen aan de *myVmWeb* virtuele machine, zoekt u *myVmWeb* in het zoekvak, selecteert u vervolgens wanneer deze wordt weergegeven in de zoekresultaten. 
 
-    ```powershell
-    $Vnet.subnets | Format-Table Name, AddressPrefix
-    ```
+    Hoewel een virtuele machine is niet vereist voor het openbare IP-adres toegewezen, wijst Azure een openbaar IP-adres toe aan elke virtuele machine die u, standaard maakt. Om te communiceren via Internet met een virtuele machine, moet een openbaar IP-adres worden toegewezen aan de virtuele machine. Alle virtuele machines kunnen communiceren met het Internet, uitgaande of er een openbaar IP-adres is toegewezen aan de virtuele machine. Zie voor meer informatie over uitgaande Internet-verbindingen in Azure, [uitgaande verbindingen in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-5. **Optioneel:** Voltooi aanvullende zelfstudies die worden vermeld onder [Vervolgstappen](#next-steps) om netwerkverkeer te filteren en afmelden van elk subnet met netwerkbeveiligingsgroepen om verkeer te leiden tussen subnetten door middel van een virtueel netwerkapparaat , of het virtuele netwerk verbinding met andere virtuele netwerken of on-premises netwerken.
-6. **Optionele**: verwijderen van de resources die u in deze zelfstudie maakt via de stappen in [resources verwijderen](#delete-powershell).
+    Blader op uw eigen computer naar het openbare IP-adres van de *myVmWeb* virtuele machine. De poging om weer te geven van de IIS-welkomstpagina van uw eigen computer is mislukt. De poging is mislukt omdat wanneer de virtuele machines zijn geïmplementeerd, Azure standaard een netwerkbeveiligingsgroep voor elke virtuele machine gemaakt. 
 
-## <a name="resource-manager-template"></a>Resource Manager-sjabloon
+    Een netwerkbeveiligingsgroep bevat beveiligingsregels voor verbindingen toestaan of weigeren van binnenkomende en uitgaande netwerkverkeer op poort en IP-adres. De standaard netwerkbeveiligingsgroep die Azure gemaakt kan communicatie via alle poorten tussen resources in hetzelfde virtuele netwerk. Voor Windows virtuele machines, de standaard netwerkbeveiligingsgroep weigert alle binnenkomend verkeer van Internet via alle poorten, TCP-poort 3389 (RDP) accepteren. Als gevolg hiervan standaard kunt u ook RDP rechtstreeks naar de *myVmWeb* virtuele machine van het Internet, zelfs als u wilt niet poort 3389 openen met een webserver. Omdat websurfen via poort 80 communiceert, wordt de communicatie van het Internet mislukt omdat er is geen regel in de standaard netwerkbeveiligingsgroep verkeer toestaat via poort 80.
 
-U kunt een virtueel netwerk implementeren met behulp van een Azure Resource Manager-sjabloon. Zie voor meer informatie over sjablonen, [wat is er Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment). Zie voor toegang tot de sjabloon en voor meer informatie over de parameters de [een virtueel netwerk maken met twee subnetten](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) sjabloon. U kunt de sjabloon implementeren met behulp van de [portal](#template-portal), [Azure CLI](#template-cli), of [PowerShell](#template-powershell).
+## <a name="clean-up-resources"></a>Resources opschonen
 
-Optionele stappen nadat u de sjabloon implementeert:
+Wanneer deze niet langer nodig is, verwijdert u de resourcegroep en alle resources die deze bevat: 
 
-1. Voltooi aanvullende zelfstudies die worden vermeld onder [Vervolgstappen](#next-steps) voor het filteren van netwerkverkeer naar en vanuit elk subnet met netwerkbeveiligingsgroepen om verkeer te leiden tussen subnetten via een virtueel netwerkapparaat of de virtuele verbinding netwerk met andere virtuele netwerken of on-premises netwerken.
-2. Verwijderen van de resources die u in deze zelfstudie maakt via de stappen in een subsecties van [resources verwijderen](#delete).
-
-### <a name="template-portal"></a>Azure-portal
-
-1. Open in uw browser de [sjabloonpagina](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
-2. Klik op de **implementeren in Azure** knop. Als u niet al bent aangemeld bij Azure, moet u zich aanmelden op het scherm Azure portal-aanmelding die wordt weergegeven.
-3. Aanmelden bij de portal met behulp van uw [Azure-account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Als u nog geen Azure-account hebt, kunt u zich registreren voor een [gratis proefversie](https://azure.microsoft.com/offers/ms-azr-0044p).
-4. Voer de volgende waarden voor de parameters:
-
-    |Parameter|Waarde|
-    |---|---|
-    |Abonnement|Selecteer uw abonnement|
-    |Resourcegroep|myResourceGroup|
-    |Locatie|Een locatie selecteren|
-    |Vnet-naam|myVnet|
-    |Vnet-adresvoorvoegsel|10.0.0.0/16|
-    |Subnet1Prefix|10.0.0.0/24|
-    |Subnet1Name|Openbaar|
-    |Subnet2Prefix|10.0.1.0/24|
-    |Subnet2Name|Privé|
-
-5. Ga akkoord met de voorwaarden en bepalingen en klik vervolgens op **aankoop** voor het implementeren van het virtuele netwerk.
-
-### <a name="template-cli"></a>Azure CLI
-
-1. [Installeren en configureren van de Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Zorg ervoor dat u hebt de meest recente versie van de Azure CLI geïnstalleerd. Typ voor hulp bij CLI-opdrachten, `az <command> --help`. In plaats van de CLI en de vereisten installeert, kunt u de Azure-Cloud-Shell. De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. De Shell Cloud heeft de Azure CLI vooraf is geïnstalleerd en geconfigureerd voor gebruik met uw account. Met de Cloud-Shell, klikt u op de Shell Cloud **> _** knop aan de bovenkant van de [portal](https://portal.azure.com), of klik op de **Try it** knop in de stappen volgen. 
-2. Als de CLI lokaal uitgevoerd, meld u aan bij Azure met de `az login` opdracht. Als de Cloud-Shell, bent u al aangemeld.
-3. Kopieer de volgende opdracht en plak deze in uw sessie CLI voor het maken van een resourcegroep voor het virtuele netwerk:
-
-    ```azurecli-interactive
-    az group create --name myResourceGroup --location eastus
-    ```
-    
-4. U kunt de sjabloon implementeren met behulp van een van de volgende parameters opties:
-    - **Standaard parameterwaarden**. Voer de volgende opdracht in:
-    
-        ```azurecli-interactive
-        az group deployment create --resource-group myResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
-        ```
-    - **Aangepaste parameterwaarden**. Download en de sjabloon aanpassen voordat u de sjabloon implementeert. Ook kunt de sjabloon implementeren met behulp van de parameters op de opdrachtregel of de sjabloon met een afzonderlijke parameterbestand implementeren. De sjabloon en parameters om bestanden te downloaden, klikt u op de **bladeren op GitHub** knop op de [een virtueel netwerk maken met twee subnetten](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) sjabloonpagina. Klik in GitHub op de **azuredeploy.parameters.json** of **azuredeploy.json** bestand. Klik vervolgens op de **Raw** knop om het bestand weer te geven. Kopieer de inhoud van het bestand in uw browser. De inhoud opslaan naar een bestand op uw computer. U kunt de parameterwaarden in de sjabloon wijzigt of de sjabloon met een afzonderlijke parameterbestand implementeren.  
-
-    Typ voor meer informatie over het implementeren van sjablonen met behulp van deze methoden `az group deployment create --help`.
-
-### <a name="template-powershell"></a>PowerShell
-
-1. Installeer de meest recente versie van de PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/)-module. Zie [Overzicht van Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) als u nog geen ervaring hebt met Azure PowerShell.
-2. In een PowerShell-sessie aan te melden met uw [Azure-account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account), voer `login-azurermaccount`.
-3. Voer de volgende opdracht voor het maken van een resourcegroep voor het virtuele netwerk:
-
-    ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
-    ```
-    
-4. U kunt de sjabloon implementeren met behulp van een van de volgende parameters opties:
-    - **Standaard parameterwaarden**. Voer de volgende opdracht in:
-    
-        ```powershell
-        New-AzureRmResourceGroupDeployment -Name VnetTutorial -ResourceGroupName myResourceGroup -TemplateUri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json
-        ```
-        
-    - **Aangepaste parameterwaarden**. Download en de sjabloon aanpassen voordat u deze implementeert. Ook kunt de sjabloon implementeren met behulp van de parameters op de opdrachtregel of de sjabloon met een afzonderlijke parameterbestand implementeren. De sjabloon en parameters om bestanden te downloaden, klikt u op de **bladeren op GitHub** knop op de [een virtueel netwerk maken met twee subnetten](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) sjabloonpagina. Klik in GitHub op de **azuredeploy.parameters.json** of **azuredeploy.json** bestand. Klik vervolgens op de **Raw** knop om het bestand weer te geven. Kopieer de inhoud van het bestand in uw browser. De inhoud opslaan naar een bestand op uw computer. U kunt de parameterwaarden in de sjabloon wijzigt of de sjabloon met een afzonderlijke parameterbestand implementeren.  
-
-    Typ voor meer informatie over het implementeren van sjablonen met behulp van deze methoden `Get-Help New-AzureRmResourceGroupDeployment`. 
-
-## <a name="delete"></a>Resources verwijderen
-
-Als u deze zelfstudie hebt voltooid, is het raadzaam de resources verwijderen die u hebt gemaakt, zodat u geen gebruik kosten. Verwijderen van een resourcegroep, verwijdert tevens alle bronnen die zich in de resourcegroep.
-
-### <a name="delete-portal"></a>Azure-portal
-
-1. Voer in het zoekvak portal **myResourceGroup**. Klik in de zoekresultaten op **myResourceGroup**.
-2. Op de **myResourceGroup** blade, klikt u op de **verwijderen** pictogram.
-3. Het verwijderen te bevestigen, in de **TYPE de naam van een RESOURCEGROEP** Voer **myResourceGroup**, en klik vervolgens op **verwijderen**.
-
-### <a name="delete-cli"></a>Azure CLI
-
-Voer de volgende opdracht in een sessie CLI:
-
-```azurecli-interactive
-az group delete --name myResourceGroup --yes
-```
-
-### <a name="delete-powershell"></a>PowerShell
-
-Voer de volgende opdracht in een PowerShell-sessie:
-
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
-```
+1. Voer *myResourceGroup* in de **Search** vak aan de bovenkant van de portal. Wanneer er **myResourceGroup** selecteren in de zoekresultaten.
+2. Selecteer **Resourcegroep verwijderen**.
+3. Voer *myResourceGroup* voor **TYPE de naam van RESOURCEGROEP:** en selecteer **verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over alle virtueel netwerk en subnetinstellingen, [virtuele netwerken beheren](virtual-network-manage-network.md#view-vnet) en [beheren van virtueel netwerksubnetten](virtual-network-manage-subnet.md#create-subnet). U beschikt over verschillende opties voor het gebruik van virtuele netwerken en subnetten in een productieomgeving om te voldoen aan verschillende vereisten.
-- Van binnenkomende en uitgaande subnetverkeer filteren op maken en toepassen van [netwerkbeveiligingsgroepen](virtual-networks-nsg.md) aan subnetten.
-- Verkeer tussen subnetten door middel van een virtueel netwerkapparaat, door het maken van routeren [gebruiker gedefinieerde routes](virtual-network-create-udr-arm-ps.md) en de routes van toepassing op elk subnet.
-- Maak een [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of een [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuele machine in een bestaand virtueel netwerk.
-- Verbinding maken met twee virtuele netwerken door het maken van een [virtueel netwerk peering](virtual-network-peering-overview.md) tussen de virtuele netwerken.
-- Het virtuele netwerk verbinding met een on-premises netwerk via een [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuit.
+In deze zelfstudie hebt u geleerd hoe u een virtueel netwerk met meerdere subnetten te implementeren. U hebt ook geleerd wanneer u een virtuele Windows-computer maakt, Azure een netwerkinterface maakt dat wordt gekoppeld aan de virtuele machine en wordt gemaakt van een netwerkbeveiligingsgroep waarmee alleen verkeer via poort 3389 van Internet. Ga naar de volgende zelfstudie voor informatie over het filteren van netwerkverkeer naar subnetten in plaats van afzonderlijke virtuele machines.
+
+> [!div class="nextstepaction"]
+> [Filteren van netwerkverkeer naar subnetten](./virtual-networks-create-nsg-arm-pportal.md)

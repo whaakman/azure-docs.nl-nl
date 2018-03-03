@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: bc7d98851e8d84d7db8586138608220c838ca776
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Breng uw resources met Azure-beheergroepen 
 
-Als u meerdere abonnementen hebt, kunt u deze indelen in containers, genaamd 'beheergroepen' voor het beheren van toegang, beleid en naleving voor uw abonnementen. Deze containers, krijgt u bedrijfsniveau management op grote schaal ongeacht welk soort abonnementen die u mogelijk hebt.  
+Als u meerdere abonnementen hebt, kunt u deze indelen in containers, genaamd 'beheergroepen' voor het beheren van toegang, beleid en naleving voor uw abonnementen. Beheergroepen krijgt u bedrijfsniveau management op grote schaal ongeacht welk soort abonnementen die u mogelijk hebt.  
 
 De functie management group is beschikbaar in een openbare preview. Aan de slag met beheer van groepen, meld u aan bij de [Azure-portal](https://portal.azure.com) en zoek naar **beheergroepen** in de **alle Services** sectie. 
 
@@ -70,7 +70,7 @@ Tijdens een [ingebouwde RBAC-rol](../active-directory/role-based-access-control-
 Zie voor meer informatie over beheergroepen: 
 - [Beheergroepen te organiseren Azure-resources maken](management-groups-create.md)
 - [Wijzigen, verwijderen of beheren van uw beheergroepen](management-groups-manage.md)
-- [Installeer de Azure Powershell-module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
+- [Installeer de Azure PowerShell-module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Bekijk de REST-API-specificaties](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
 - [De uitbreiding voor de Azure CLI installeren](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
 

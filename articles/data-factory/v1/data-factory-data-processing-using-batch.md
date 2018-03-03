@@ -3,7 +3,7 @@ title: Grote gegevenssets verwerken met behulp van Data Factory en Batch | Micro
 description: Beschrijft hoe het verwerken van grote hoeveelheden gegevens in een Azure Data Factory-pijplijn met behulp van de parallelle verwerking van de mogelijkheden van Azure Batch.
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af2c12cac5846ae1c4bc693bacaf72ab327fb87f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3b886babe07a0bd1fa725286b5471055fc626dc1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grote gegevenssets proces met behulp van Data Factory en Batch
 > [!NOTE]
-> In dit artikel is van toepassing op versie 1 van Azure Data Factory, die in het algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [aangepaste activiteiten in de Data Factory versie 2](../transform-data-using-dotnet-custom-activity.md).
+> Dit artikel is van toepassing op versie 1 van Azure Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [aangepaste activiteiten in de Data Factory versie 2](../transform-data-using-dotnet-custom-activity.md).
 
 In dit artikel beschrijft een architectuur van een Voorbeeldoplossing die wordt verplaatst en grootschalige gegevenssets in een automatische en geplande wijze verwerkt. Het bevat ook een end-to-end-stappen voor de oplossing implementeert met behulp van Data Factory en Azure Batch.
 
@@ -130,7 +130,7 @@ U gebruikt [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/
 
    ![Structuur van mappen en submappen](./media/data-factory-data-processing-using-batch/image3.png)
 
-   `Inputfolder`en `outputfolder` zijn op het hoogste niveau van de mappen in `mycontainer`. De `inputfolder` map bevat submappen met de datum / tijd stempels (jjjj-MM-DD-UU).
+   `Inputfolder` en `outputfolder` zijn op het hoogste niveau van de mappen in `mycontainer`. De `inputfolder` map bevat submappen met de datum / tijd stempels (jjjj-MM-DD-UU).
 
    Als u Opslagverkenner in de volgende stap gebruikt, uploadt u bestanden met de volgende namen: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt`, enzovoort. Deze stap maakt automatisch de mappen.
 
@@ -556,9 +556,9 @@ Gekoppelde services worden gegevensarchieven of compute-services aan een gegeven
 
    ![Nieuwe gegevensopslag](./media/data-factory-data-processing-using-batch/image7.png)
 
-3. Vervang **accountnaam** met de naam van uw opslagaccount. Vervang **accountsleutel** door de toegangssleutel van het opslagaccount. Zie voor meer informatie over het ophalen van uw toegangssleutel voor opslag, [weergeven, kopiëren en opnieuw genereren opslag toegangssleutels](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Vervang de **accountnaam** door de naam van uw opslagaccount. Vervang de **accountsleutel** met de toegangssleutel van uw opslagaccount. Zie voor meer informatie over het ophalen van uw toegangssleutel voor opslag, [weergeven, kopiëren en opnieuw genereren opslag toegangssleutels](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-4. Selecteer **implementeren** op de opdrachtbalk om de gekoppelde service te implementeren.
+4. Selecteer in de opdrachtbalk **Implementeren** om de gekoppelde service te implementeren.
 
    ![Implementeren](./media/data-factory-data-processing-using-batch/image8.png)
 
@@ -593,12 +593,12 @@ In deze stap maakt u een gekoppelde service voor uw Batch-account dat wordt gebr
    
    e. Geef **StorageLinkedService** voor de **linkedServiceName** eigenschap. U kunt deze gekoppelde service gemaakt in de vorige stap. Deze opslag wordt gebruikt als een faseringsgebied voor bestanden en de logboeken.
 
-3. Selecteer **implementeren** op de opdrachtbalk om de gekoppelde service te implementeren.
+3. Selecteer in de opdrachtbalk **Implementeren** om de gekoppelde service te implementeren.
 
 #### <a name="step-3-create-datasets"></a>Stap 3: Gegevenssets maken
 In deze stap maakt u gegevenssets vertegenwoordigen de invoer-en uitvoergegevens.
 
-#### <a name="create-the-input-dataset"></a>Invoergegevensset maken
+#### <a name="create-the-input-dataset"></a>De invoergegevensset maken
 1. In de Data Factory-Editor, selecteer de **nieuwe gegevensset** op de werkbalk. Selecteer **Azure Blob storage** uit de vervolgkeuzelijst.
 
 2. Vervang de JSON-script in het rechterdeelvenster met de volgende JSON-fragment:
@@ -803,7 +803,7 @@ In deze stap maakt maken u een pijplijn met één activiteit, de aangepaste acti
     - De **isPaused** eigenschap is standaard ingesteld op false. De pijplijn wordt onmiddellijk uitgevoerd in dit voorbeeld omdat de segmenten te in het verleden starten. U kunt deze eigenschap instellen op **true** onderbreken van de pijplijn en weer in set **false** om opnieuw te starten.
     -   De **start** en **end** tijden zijn vijf uur uit elkaar liggen. Segmenten worden elk uur, geproduceerd zodat vijf segmenten worden geproduceerd door de pijplijn.
 
-3. Selecteer **implementeren** op de opdrachtbalk om de pijplijn te implementeren.
+3. Selecteer in de opdrachtbalk **Implementeren** om de pijplijn te implementeren.
 
 #### <a name="step-5-test-the-pipeline"></a>Stap 5: De pijplijn testen
 In deze stap kunt u de pijplijn testen door het verwijderen van bestanden in de invoer-mappen. Begin met het testen van de pijplijn met een bestand voor elke map invoer.

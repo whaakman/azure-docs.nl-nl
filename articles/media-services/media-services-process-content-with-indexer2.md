@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 075daadae42340dfc9c7510a8010e337210e6e01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c78a4d2d3a1b0f84d488e7358c875c9708ac6107
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexeren van Media-bestanden met Azure Media Indexer 2 Preview
 ## <a name="overview"></a>Overzicht
@@ -56,6 +56,7 @@ Wanneer een taak maken van een indexering met **Azure Media Indexer 2 Preview**,
 
 De volgende JSON stelt beschikbare parameters.
 
+```json
     {
       "version":"1.0",
       "Features":
@@ -69,6 +70,7 @@ De volgende JSON stelt beschikbare parameters.
            "Type":"SpReco"
         }]
     }
+```
 
 ## <a name="supported-languages"></a>Ondersteunde talen
 Azure Media Indexer 2 Preview ondersteunt spraak-naar-tekst voor de volgende talen (bij het opgeven van de taalnaam in de taakconfiguratie, 4 tekens code Gebruik haakjes zoals hieronder wordt weergegeven):
@@ -96,20 +98,23 @@ De volgende programma toont hoe:
 
 1. Maak een asset en upload een mediabestand naar de asset.
 2. Maakt een taak met een indexering taak op basis van een configuratiebestand met de volgende json-definitie:
-   
-        {
-          "version":"1.0",
-          "Features":
-            [
-               {
-               "Options": {
-                    "Formats":["WebVtt","ttml"],
-                    "Language":"enUs",
-                    "Type":"RecoOptions"
-               },
-               "Type":"SpReco"
-            }]
-        }
+
+    ```json
+            {
+            "version":"1.0",
+            "Features":
+                [
+                {
+                "Options": {
+                        "Formats":["WebVtt","ttml"],
+                        "Language":"enUs",
+                        "Type":"RecoOptions"
+                },
+                "Type":"SpReco"
+                }]
+            }
+    ```
+    
 3. Download de uitvoerbestanden op. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
@@ -118,7 +123,7 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
 #### <a name="example"></a>Voorbeeld
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

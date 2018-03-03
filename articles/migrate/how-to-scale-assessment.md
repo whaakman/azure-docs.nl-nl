@@ -6,13 +6,13 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ab66bc9c90950070e69c2486bf09b7664b1c9ad2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="discover-and-assess-a-large-vmware-environment"></a>Detecteren en beoordelen van een grote VMware-omgeving
+# <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
 In dit artikel wordt beschreven hoe vast te stellen van grote aantallen on-premises virtuele machines (VM's) met behulp van [Azure migreren](migrate-overview.md). Azure migreren beoordeelt machines om te controleren of ze geschikt voor migratie naar Azure zijn. De service biedt sizing en kosten schattingen voor het uitvoeren van de machines in Azure.
 
@@ -30,15 +30,17 @@ Plan uw detecties en beoordelingen op basis van de volgende beperkingen:
 | **Entiteit** | **Limiet voor computer** |
 | ---------- | ----------------- |
 | Project    | 1,500              | 
-| Detectie  | 1000              |
-| Evaluatie | 400               |
+| Detectie  | 1,500              |
+| Evaluatie | 1,500               |
 
-- Als u minder dan 400 machines detecteren en te beoordelen hebt, moet u een project en een enkele detectie. Afhankelijk van uw vereisten kunt u alle machines in een enkel beoordeling te beoordelen of de machines splitsen in meerdere beoordelingen. 
-- Als er 400-1000 computers te detecteren, moet u een project met een enkele detectie. Maar moet u meerdere beoordelingen om deze machines vast te stellen omdat een één-evaluatie kan maximaal 400 machines bevatten.
-- Als u 1,001-1500 machines hebt, moet u een project met twee detecties erin.
-- Als u meer dan 1500 machines hebt, moet u meerdere projecten maken en uitvoeren van meerdere detecties volgens uw vereisten. Bijvoorbeeld:
-    - Als u 3000 machines hebt, kunt u twee projecten met detecties van twee of drie projecten met een enkele detectie instellen.
-    - Als u 5000 machines hebt, kunt u vier projecten instellen: drie met een detectie van 1500 machines en één met een detectie van 500 machines. U kunt ook vijf projecten met een enkele detectie in elk criterium instellen. 
+<!-- 
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
+- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
+    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## <a name="plan-multiple-discoveries"></a>Meerdere detecties plannen
 

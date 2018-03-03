@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: dce848d75e2ce89e8e6003108f1cd5371cbb0f31
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Afdwingen van een naamgevingscontainer beleid voor Office 365-groepen in Azure Active Directory (preview)
 
@@ -100,7 +100,9 @@ Als u over het openen van een niet-vertrouwde opslagplaats wordt gevraagd, typt 
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-In de **aanmelden bij uw Account** scherm dat wordt geopend, Voer uw beheerdersaccount en het wachtwoord dat u verbinding maken met uw service en selecteer **aanmelden**.
+  In de **aanmelden bij uw Account** scherm dat wordt geopend, Voer uw beheerdersaccount en het wachtwoord dat u verbinding maken met uw service en selecteer **aanmelden**.
+
+3. Volg de stappen in [Azure Active Directory-cmdlets voor het configureren van groepsbeleidsinstellingen](active-directory-accessmanagement-groups-settings-cmdlets.md) groepsinstellingen maken voor deze tenant.
 
 ### <a name="view-the-current-settings"></a>De huidige instellingen weergeven
 
@@ -140,9 +142,9 @@ Dat is alles. U hebt uw naming beleid en de geblokkeerde woorden toegevoegd.
 
 ## <a name="export-or-import-the-list-of-custom-blocked-words"></a>De lijst met aangepaste geblokkeerde woorden importeren of exporteren
 
-Zie voor meer informatie het artikel [Azure Active Directory-cmdlets voor het configureren van instellingen](active-directory-accessmanagement-groups-settings-cmdlets.md)
+Zie voor meer informatie het artikel [Azure Active Directory-cmdlets voor het configureren van groepsbeleidsinstellingen](active-directory-accessmanagement-groups-settings-cmdlets.md).
 
-Hier volgt een voorbeeld van PowerShell-script voor het exporteren van meerdere geblokkeerde woorden:
+Hier volgt een voorbeeld van een PowerShell-script meerdere geblokkeerde woorden exporteren:
 
 ````
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 

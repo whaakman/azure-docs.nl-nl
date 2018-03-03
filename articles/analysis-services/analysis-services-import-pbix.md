@@ -15,18 +15,21 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: owend
-ms.openlocfilehash: 43eab587a1e5209069a248f1e2e1f57af158a2b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e0be0c69b501d7e93c65bcf23d4dd1b6bfa89caf
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Een Power BI Desktop-bestand importeren
 
-U kunt een nieuw model maken in Azure als door het importeren van een Power BI Desktop-bestand (pbix). Metagegevens van het model en gegevens in de cache datasource-verbindingen worden geïmporteerd. Rapporten en visualisaties zijn niet geïmporteerd. In de server kunnen wijzigingen in het gegevensmodel één keer worden gemaakt door bijwerken en de pbix opnieuw te importeren met behulp van de functie web designer (preview) in de portal of met behulp van SQL Server Management Studio (SSMS). Geïmporteerde modellen kunnen niet worden geopend of geëxporteerd naar Visual Studio.
+U kunt een nieuw model maken in Azure als door het importeren van een Power BI Desktop-bestand (pbix). Metagegevens van het model en gegevens in de cache datasource-verbindingen worden geïmporteerd. Rapporten en visualisaties zijn niet geïmporteerd.
 
-> [!NOTE]
-> Als uw model pbix met on-premises gegevensbronnen verbindt, een [lokale gateway](analysis-services-gateway.md) moet worden geconfigureerd voor uw server.
+**Beperkingen**   
+- Het model pbix moet verbinding maken met [ondersteunde gegevensbronnen voor Analysis Services](analysis-services-datasource.md) alleen. 
+- De pbix-model kan niet live hebben of DirectQuery-verbindingen. 
+- Als het model pbix met on-premises gegevensbronnen verbindt, een [On-premises gegevensgateway](analysis-services-gateway.md) moet worden geconfigureerd voor de Analysis Services-server.
+- Importeren mislukt mogelijk als de pbix-gegevensmodel niet ondersteund in Analysis Services-metagegevens bevat.
 
 ## <a name="to-import-from-pbix"></a>Om te importeren uit pbix
 

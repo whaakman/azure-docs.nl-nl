@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Het beheren van een functie-app in de Azure portal 
 
@@ -47,7 +47,7 @@ Functie apps in uitgevoerd en worden beheerd, door de Azure App Service-platform
 
 De rest van dit onderwerp richt zich op de volgende App Service-functies in de Azure-portal die handig voor functies zijn:
 
-+ [App Service-editor](#editor)
++ [App Service editor](#editor)
 + [Toepassingsinstellingen](#settings) 
 + [Console](#console)
 + [Geavanceerde tools (Kudu)](#kudu)
@@ -58,7 +58,7 @@ De rest van dit onderwerp richt zich op de volgende App Service-functies in de A
 
 Zie voor meer informatie over het werken met App Service-instellingen, [Azure App Service-instellingen configureren](../app-service/web-sites-configure.md).
 
-### <a name="editor"></a>App Service-Editor
+### <a name="editor"></a>App Service Editor
 
 | | |
 |-|-|
@@ -66,13 +66,13 @@ Zie voor meer informatie over het werken met App Service-instellingen, [Azure Ap
 
 ![De App Service-editor](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="settings"></a>Toepassingsinstellingen
+### <a name="settings">Toepassingsinstellingen</a>
 
 | | |
 |-|-|
 | ![Toepassingsinstellingen voor functie-app.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | De App Service **toepassingsinstellingen** blade is waar u configureren en beheren van de framework-versies, foutopsporing op afstand, app-instellingen en verbindingsreeksen. Wanneer u de functie-app met andere Azure en services van derden integreren, kunt u deze instellingen hier wijzigen. Als u wilt verwijderen van een instelling, schuif naar rechts en selecteer de **X** pictogram aan de rechterkant van de regel (niet weergegeven in de volgende afbeelding).
 
-![Configureer toepassingsinstellingen](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
+![Toepassingsinstellingen configureren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
 ### <a name="console"></a>Console
 
@@ -82,11 +82,11 @@ Zie voor meer informatie over het werken met App Service-instellingen, [Azure Ap
 
 ![De functie app-console](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
-### <a name="kudu"></a>Geavanceerde tools (Kudu)
+### <a name="kudu">Geavanceerde tools (Kudu)</a>
 
 | | |
 |-|-|
-| ![Functie-app Kudu in de Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | De geavanceerde hulpprogramma's voor App Service (ook wel bekend als Kudu) bieden toegang tot geavanceerde beheerfuncties van uw app in de functie. U beheert van kudu bovendien, systeemgegevens, app-instellingen, omgevingsvariabelen, site-uitbreidingen, HTTP-headers en servervariabelen. U kunt ook starten **Kudu** door te bladeren naar het eindpunt SCM voor uw app in de functie, zoals`https://<myfunctionapp>.scm.azurewebsites.net/` |
+| ![Functie-app Kudu in de Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | De geavanceerde hulpprogramma's voor App Service (ook wel bekend als Kudu) bieden toegang tot geavanceerde beheerfuncties van uw app in de functie. U beheert van kudu bovendien, systeemgegevens, app-instellingen, omgevingsvariabelen, site-uitbreidingen, HTTP-headers en servervariabelen. U kunt ook starten **Kudu** door te bladeren naar het eindpunt SCM voor uw app in de functie, zoals `https://<myfunctionapp>.scm.azurewebsites.net/` |
 
 ![Kudu configureren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
@@ -115,11 +115,11 @@ Zie voor meer informatie over het werken met App Service-instellingen, [Azure Ap
 ![Verificatie voor een functie-app configureren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 
-### <a name="swagger"></a>API-definitie
+### <a name="swagger">API-definitie</a>
 
 | | |
 |-|-|
-| ![De functie app API swagger-definitie in de Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functies biedt ondersteuning voor Swagger wilt toestaan dat clients eenvoudiger uw HTTP-geactiveerde functies gebruiken. Bezoek voor meer informatie over het maken van API-definities met Swagger [aan de slag met API-Apps en Swagger in Azure](../app-service/app-service-web-tutorial-rest-api.md). U kunt ook functies proxy's gebruiken voor het definiëren van een één API-gebied voor meerdere functies. Zie voor meer informatie [werken met Azure Functions-proxy's](functions-proxies.md). |
+| ![De functie app API swagger-definitie in de Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functies biedt ondersteuning voor Swagger wilt toestaan dat clients eenvoudiger uw HTTP-geactiveerde functies gebruiken. Bezoek voor meer informatie over het maken van API-definities met Swagger [Host een RESTful-API met CORS in Azure App Service](../app-service/app-service-web-tutorial-rest-api.md). U kunt ook functies proxy's gebruiken voor het definiëren van een één API-gebied voor meerdere functies. Zie voor meer informatie [werken met Azure Functions-proxy's](functions-proxies.md). |
 
 ![API voor functie-App configureren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 

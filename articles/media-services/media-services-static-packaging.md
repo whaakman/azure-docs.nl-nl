@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 33fb0a18ea3e5bfec044a216c8e6a78942e3af40
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: de6cbf954f175777407432845ece24ac49198e46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Met behulp van Azure Media Packager statische verpakking taken uitvoeren
 > [!NOTE]
@@ -58,6 +58,7 @@ In deze sectie wordt beschreven hoe de van validatietaak verwerken. Ook ziet u h
 
 Als u wilt uw MP4-bestanden met Media Services Packager valideren, moet u uw eigen manifest (ISM)-bestand maken en samen met de bronbestanden te uploaden naar de Media Services-account. Hieronder wordt een voorbeeld van het bestand ISM geproduceerd door de Media Encoder Standard. De bestandsnamen zijn hoofdlettergevoelig. Controleer ook of dat de tekst in de ISM-bestand is gecodeerd met UTF-8.
 
+```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
     <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
       <head>
@@ -76,11 +77,13 @@ Als u wilt uw MP4-bestanden met Media Services Packager valideren, moet u uw eig
         </switch>
       </body>
     </smil>
+```
 
 Zodra u hebt kan de adaptive bitrate die MP4-set profiteren van dynamische pakketten. Dynamische pakketten kunt u in het opgegeven protocol-streams leveren zonder verdere verpakken. Zie voor meer informatie [dynamische pakketten](media-services-dynamic-packaging-overview.md).
 
 Het volgende codevoorbeeld maakt gebruik van Azure Media Services .NET SDK Extensions.  Zorg ervoor dat de code voor het verwijzen naar de map waar uw invoer MP4-bestanden en ISM-bestand zich bevinden. En ook op waar het bestand MediaPackager_ValidateTask.xml zich bevindt. Dit XML-bestand is gedefinieerd in [taak vooraf voor Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) artikel.
 
+```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
     using System;
     using System.Collections.Generic;
@@ -244,6 +247,7 @@ Het volgende codevoorbeeld maakt gebruik van Azure Media Services .NET SDK Exten
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-your-smooth-and-mpeg-dash-with-playready"></a>Met behulp van statische versleuteling voor het beveiligen van uw Smooth en MPEG DASH met PlayReady
 Als u beveiligen van uw inhoud met PlayReady wilt, hebt u een keuze uit met behulp van [dynamische versleuteling](media-services-protect-with-playready-widevine.md) (de aanbevolen optie) of statische versleuteling (zoals beschreven in deze sectie).
@@ -263,6 +267,7 @@ En ook waarin de bestanden MediaPackager_MP4ToSmooth.xml en MediaEncryptor_PlayR
 
 In het voorbeeld definieert de UpdatePlayReadyConfigurationXMLFile-methode die u kunt het bestand MediaEncryptor_PlayReadyProtection.xml dynamisch worden bijgewerkt. Als u de belangrijkste seed beschikbaar hebt, kunt u de methode CommonEncryption.GeneratePlayReadyContentKey voor het genereren van de inhoudssleutel op basis van de keySeedValue en KeyId waarden.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -694,6 +699,7 @@ In het voorbeeld definieert de UpdatePlayReadyConfigurationXMLFile-methode die u
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>Met behulp van statische versleuteling HLSv3 met AES-128 beveiligen
 Als u versleutelen van uw HLS met AES-128 wilt, hebt u een keuze van het gebruik van dynamische versleuteling (de aanbevolen optie) of statische versleuteling (zoals weergegeven in deze sectie). Als u dynamische versleuteling wilt gebruiken, Zie [met behulp van dynamische AES-128-versleuteling en de Service voor het leveren van sleutel](media-services-protect-with-aes128.md).
@@ -707,6 +713,7 @@ Als u versleutelen van uw HLS met AES-128 wilt, hebt u een keuze van het gebruik
 
 In het voorbeeld in deze sectie codeert een tussentijds bestand (in dit geval MP4) in multibitrate MP4-bestanden en vervolgens MP4s worden verpakt in Smooth Streaming. Deze vervolgens pakketten Smooth Streaming in Live Streaming HLS (HTTP) versleuteld met Advanced Encryption Standard (AES) stroom 128-bits versleuteling. Zorg ervoor dat het bijwerken van de volgende code naar het beheerpunt naar de map waarin uw invoer MP4-bestand zich bevindt. En ook op waar de configuratiebestanden MediaPackager_MP4ToSmooth.xml en MediaPackager_SmoothToHLS.xml zich bevinden. U vindt de definitie voor deze bestanden in de [taak vooraf voor Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) artikel.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -975,6 +982,7 @@ In het voorbeeld in deze sectie codeert een tussentijds bestand (in dit geval MP
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-playready"></a>Met behulp van statische versleuteling HLSv3 met PlayReady beveiligen
 Als u beveiligen van uw inhoud met PlayReady wilt, hebt u een keuze uit met behulp van [dynamische versleuteling](media-services-protect-with-playready-widevine.md) (de aanbevolen optie) of statische versleuteling (zoals beschreven in deze sectie).
@@ -990,6 +998,7 @@ Media Services biedt nu een service voor het leveren van Microsoft PlayReady-lic
 
 Zorg ervoor dat het bijwerken van de volgende code naar het beheerpunt naar de map waarin uw invoer MP4-bestand zich bevindt. En ook waar uw MediaPackager_MP4ToSmooth.xml MediaPackager_SmoothToHLS.xml en MediaEncryptor_PlayReadyProtection.xml bestanden zich bevinden. MediaPackager_MP4ToSmooth.xml en MediaPackager_SmoothToHLS.xml zijn gedefinieerd in [taak vooraf voor Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) en MediaEncryptor_PlayReadyProtection.xml wordt gedefinieerd in de [taak definitie voor Azure Media Codeerder](http://msdn.microsoft.com/library/azure/hh973610.aspx) artikel.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -1452,6 +1461,7 @@ Zorg ervoor dat het bijwerken van de volgende code naar het beheerpunt naar de m
 
         }
     }
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

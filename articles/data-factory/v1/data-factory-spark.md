@@ -3,9 +3,9 @@ title: Aanroepen van Spark-programma's van Azure Data Factory | Microsoft Docs
 description: Informatie over het aanroepen van Spark-programma's van een Azure data factory met behulp van de MapReduce-activiteit.
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f03c3b6e275c0bc97df9e687a20acf45956664d2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Spark-programma's van Azure Data Factory-pijplijnen aanroepen
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/23/2018
 > * [.NET aangepaste activiteit](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> In dit artikel is van toepassing op versie 1 van Azure Data Factory, die in het algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [gegevens transformeren met behulp van de activiteit Apache Spark in Data Factory versie 2](../transform-data-using-spark.md).
+> Dit artikel is van toepassing op versie 1 van Azure Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [gegevens transformeren met behulp van de activiteit Apache Spark in Data Factory versie 2](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Inleiding
 De Spark-activiteit is een van de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) ondersteund door Data Factory. Deze activiteit wordt het opgegeven Spark-programma uitgevoerd op uw Spark-cluster in Azure HDInsight. 
@@ -64,31 +64,31 @@ Hier volgen de gebruikelijke stappen voor het maken van een data factory-pijplij
 4. Uploaden **test.py** naar de **pyFiles** map in de **adfspark** container in de blob-opslag. Maak de container en de map als deze nog niet bestaan.
 
 ### <a name="create-a-data-factory"></a>Een gegevensfactory maken
-Volg deze stappen voor het maken van een data factory:
+Volg deze stappen om een data factory te maken:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-2. Selecteer **nieuwe** > **gegevens en analyse** > **Gegevensfactory**.
+2. Selecteer **Nieuw** > **Gegevens en analyses** > **Data Factory**.
 
 3. Op de **nieuwe gegevensfactory** blade onder **naam**, voer **SparkDF**.
 
    > [!IMPORTANT]
    > De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u ziet de fout 'naam gegevensfactory SparkDF is niet beschikbaar', moet u de naam van de gegevensfactory wijzigen. Bijvoorbeeld, gebruik yournameSparkDFdate en opnieuw maken van de gegevensfactory. Zie voor meer informatie over naamgevingsregels [Data Factory: naamgevingsregels](data-factory-naming-rules.md).
 
-4. Onder **abonnement**, selecteer de Azure-abonnement waar u de gegevensfactory wilt maken.
+4. Selecteer onder **Abonnement** het Azure-abonnement waarvoor u de data factory wilt maken.
 
 5. Selecteer een bestaande resourcegroep of maak een Azure-resourcegroep.
 
-6. Selecteer de **vastmaken aan dashboard** selectievakje.
+6. Schakel het selectievakje bij **Vastmaken aan dashboard** in.
 
 7. Selecteer **Maken**.
 
    > [!IMPORTANT]
-   > Data Factory als exemplaren wilt maken, moet u lid zijn van de [Data Factory Inzender](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) rol op het niveau van de groep bronabonnement/resourcegroep.
+   > Als u Data Factory-exemplaren wilt maken, moet u lid zijn van de rol [Inzender Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) op abonnements-/resourcegroepniveau.
 
 8. Wanneer deze is gemaakt in het dashboard van de Azure-portal ziet u de gegevensfactory.
 
-9. Nadat de gegevensfactory is gemaakt, ziet u de **gegevensfactory** pagina, waarin u de inhoud van de gegevensfactory. Als er geen de **gegevensfactory** pagina, selecteert u de tegel voor uw gegevensfactory op het dashboard.
+9. Nadat de data factory is gemaakt, ziet u de pagina **Data factory**. Hier wordt de inhoud van de data factory weergegeven. Als er geen de **gegevensfactory** pagina, selecteert u de tegel voor uw gegevensfactory op het dashboard.
 
     ![Blade Gegevensfactory](./media/data-factory-spark/data-factory-blade.png)
 
@@ -96,11 +96,11 @@ Volg deze stappen voor het maken van een data factory:
 In deze stap maakt maken u twee gekoppelde services. Een service koppelt uw Spark-cluster aan uw gegevensfactory en de andere services uw opslag is gekoppeld aan uw gegevensfactory. 
 
 #### <a name="create-a-storage-linked-service"></a>Een gekoppelde Storage-service maken
-In deze stap kunt u uw storage-account koppelen aan uw gegevensfactory. Een gegevensset die u in een stap verderop in dit overzicht maakt verwijst naar deze gekoppelde service. De gekoppelde HDInsight-service die u in de volgende stap definieert verwijst te naar deze gekoppelde service. 
+In deze stap koppelt u uw opslagaccount aan uw data factory. Een gegevensset die u in een stap verderop in dit overzicht maakt verwijst naar deze gekoppelde service. De gekoppelde HDInsight-service die u in de volgende stap definieert verwijst te naar deze gekoppelde service. 
 
 1. Op de **gegevensfactory** blade Selecteer **auteur en implementeren van**. De Data Factory-Editor wordt weergegeven.
 
-2. Selecteer **nieuwe gegevensopslag**, en kies **Azure Storage**.
+2. Selecteer **Nieuwe gegevensopslag** en kies **Azure Storage**.
 
    ![Nieuwe gegevensopslag](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
 
@@ -108,11 +108,11 @@ In deze stap kunt u uw storage-account koppelen aan uw gegevensfactory. Een gege
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. Vervang **accountnaam** en **accountsleutel** met de naam en toegangssleutel van uw opslagaccount. Zie voor meer informatie over het ophalen van uw toegangssleutel voor opslag, weergeven, kopiëren en opnieuw genereren van de toegangssleutels voor opslag in [uw opslagaccount beheren](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+4. Vervang **accountnaam** en **accountsleutel** met de naam en toegangssleutel van uw opslagaccount. Raadpleeg de informatie over het weergeven, kopiëren en opnieuw genereren van toegangssleutels voor opslag in [Uw opslagaccount beheren](../../storage/common/storage-create-storage-account.md#manage-your-storage-account) als u meer wilt weten over het verkrijgen van uw toegangssleutel voor opslag.
 
-5. Selecteer voor het implementeren van de gekoppelde service **implementeren** op de opdrachtbalk. Nadat de gekoppelde service met succes is geïmplementeerd, verdwijnt het venster Draft-1. U ziet **AzureStorageLinkedService** in de structuurweergave links.
+5. Selecteer voor het implementeren van de gekoppelde service **implementeren** op de opdrachtbalk. Nadat de gekoppelde service is geïmplementeerd, verdwijnt het venster Draft-1. U ziet **AzureStorageLinkedService** in de structuurweergave links.
 
-#### <a name="create-an-hdinsight-linked-service"></a>Maak een gekoppelde HDInsight-service
+#### <a name="create-an-hdinsight-linked-service"></a>Een gekoppelde HDInsight-service maken
 In deze stap maakt u een gekoppelde HDInsight-service als u wilt uw HDInsight Spark-cluster koppelen aan de gegevensfactory. Het HDInsight-cluster wordt gebruikt voor het programma Spark is opgegeven in de Spark-activiteit van de pijplijn in dit voorbeeld uitvoert. 
 
 1. Selecteer in de Data Factory-Editor, **meer** > **nieuwe berekening** > **HDInsight-cluster**.
@@ -155,7 +155,7 @@ In deze stap maakt u een gekoppelde HDInsight-service als u wilt uw HDInsight Sp
 ### <a name="create-the-output-dataset"></a>De uitvoergegevensset maken
 De uitvoergegevensset is wat het schema (elk uur, dagelijks)-schijven. U moet daarom een uitvoergegevensset voor de activiteit Spark in de pijplijn opgeven, zelfs als de activiteit heeft geen uitvoer wordt geproduceerd. Het opgeven van een invoergegevensset voor de activiteit is optioneel.
 
-1. Selecteer in de Data Factory-Editor, **meer** > **nieuwe gegevensset** > **Azure Blob storage**.
+1. Selecteer in de Data Factory Editor **Meer** > **Nieuwe gegevensset** > **Azure Blob-opslag**.
 
 2. Kopieer het onderstaande codefragment en plak het in het venster Draft-1. Het JSON-fragment een gegevensset met de naam definieert **OutputDataset**. Bovendien u opgeven dat de resultaten worden opgeslagen in de blob-container aangeroepen **adfspark** en de map met de naam **pyFiles/uitvoer**. Zoals eerder vermeld, is deze gegevensset een dummy-gegevensset. De Spark-programma in dit voorbeeld levert geen uitvoer. De **beschikbaarheid** sectie geeft aan dat de uitvoergegevensset die dagelijks wordt geproduceerd. 
 
@@ -184,9 +184,9 @@ De uitvoergegevensset is wat het schema (elk uur, dagelijks)-schijven. U moet da
 
 
 ### <a name="create-a-pipeline"></a>Een pijplijn maken
-In deze stap maakt u een pijplijn met een HDInsightSpark-activiteit. De uitvoergegevensset is momenteel wat de planning, stations, dus u een uitvoergegevensset maken moet, zelfs als de activiteit heeft geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan. Daarom is geen invoergegevensset opgegeven in dit voorbeeld.
+In deze stap maakt u een pijplijn met een HDInsightSpark-activiteit. Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan. Daarom is geen invoergegevensset opgegeven in dit voorbeeld.
 
-1. Selecteer in de Data Factory-Editor, **meer** > **nieuwe pijplijn**.
+1. Selecteer in de Data Factory Editor **Meer** > **Nieuwe pijplijn**.
 
 2. Het script in het venster Draft-1 vervangen door het volgende script:
 
@@ -350,7 +350,7 @@ Maak de volgende mapstructuur in blob storage waarnaar wordt verwezen door de ge
 | Pad | Beschrijving | Vereist | Type |
 | ---- | ----------- | -------- | ---- |
 | . | Pad naar de hoofdmap van de taak Spark in gekoppelde storage-service. | Ja | Map |
-| &lt;de gebruiker gedefinieerde&gt; | Het pad dat naar het bestand met vermelding van de taak Spark verwijst. | Ja | File |
+| &lt;De gebruiker gedefinieerde &gt; | Het pad dat naar het bestand met vermelding van de taak Spark verwijst. | Ja | File |
 | . / jars | Alle bestanden onder deze map worden geüpload en op de Java-klassenpad van het cluster geplaatst. | Nee | Map |
 | . / pyFiles | Alle bestanden onder deze map worden geüpload en op de PYTHONPATH van het cluster geplaatst. | Nee | Map |
 | . / bestanden | Alle bestanden onder deze map worden geüpload en de werkmap executor geplaatst. | Nee | Map |

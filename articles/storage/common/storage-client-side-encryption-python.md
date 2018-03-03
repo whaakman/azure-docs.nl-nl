@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: bf6696cfdfe9fc18dd2f000162a4e787a7ca6e21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c925b41d1654bd5c9b40438c4b6b9f402ec4bac2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Versleuteling van de Client-Side met behulp van Python voor opslag op Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -106,6 +106,10 @@ Als een batch is gemaakt als een context manager via de tableservice batch()-met
 Houd er rekening mee dat entiteiten worden gecodeerd als ze worden ingevoegd in de batch met behulp van de batch-versleutelingsbeleid (entiteiten worden niet versleuteld op het moment van het doorvoeren van de batch met behulp van de tableservice versleutelingsbeleid).
 
 ### <a name="queries"></a>Query's
+> [!NOTE]
+> Omdat de entiteiten te versleutelen, kunt u query's die filteren niet uitvoeren op een gecodeerde eigenschap.  Als u probeert, worden niet goed, omdat de service zou worden probeert om versleutelde gegevens met niet-versleutelde gegevens te vergelijken.
+> 
+>
 Om de querybewerkingen uitvoeren, moet u een sleutel-omzetter kan omzetten van de sleutels in de resultatenset. Als een entiteit die is opgenomen in het resultaat van de query kan niet worden omgezet naar een provider, de clientbibliotheek genereert een fout opgetreden. Voor elke query die wordt uitgevoerd van server side projecties, de clientbibliotheek van de eigenschappen van de metagegevens speciale versleuteling wordt toegevoegd (\_ClientEncryptionMetadata1 en \_ClientEncryptionMetadata2) standaard aan de geselecteerde kolommen.
 
 > [!IMPORTANT]

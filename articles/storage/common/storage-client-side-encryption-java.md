@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: 9f9ed8043d3671beacb9fabeb9e96604a8f065ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f3814ac2dbc8b74cef8f5fcb0540b7509efa0d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Client-Side-versleuteling en Azure Sleutelkluis met Java voor Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -59,7 +59,7 @@ Tijdens het versleutelen, wordt de clientbibliotheek genereren van een willekeur
 > 
 > 
 
-Bij het ophalen van de inhoud van het gebruik van de hele blob downloaden van een versleutelde blob omvat de  **downloaden*/openInputStream** gemak methoden. De verpakte CEK is al en worden gebruikt in combinatie met de IV (opgeslagen als blobmetagegevens in dit geval) de ontsleutelde gegevens retourneren aan de gebruikers.
+Bij het ophalen van de inhoud van het gebruik van de hele blob downloaden van een versleutelde blob omvat de **downloaden * / openInputStream** gemak methoden. De verpakte CEK is al en worden gebruikt in combinatie met de IV (opgeslagen als blobmetagegevens in dit geval) de ontsleutelde gegevens retourneren aan de gebruikers.
 
 Downloaden van een willekeurig bereik (**downloadRange*** methoden) in de versleutelde blob omvat het aanpassen van het bereik dat is opgegeven door gebruikers om op te halen van een kleine hoeveelheid aanvullende gegevens die kunnen worden gebruikt voor het ontsleutelen van is de gevraagde het bereik.  
 
@@ -99,10 +99,14 @@ Tabel gegevensversleuteling werkt als volgt:
 In de batchbewerkingen, wordt de dezelfde KEK gebruikt in een rij in de desbetreffende batchbewerking omdat de clientbibliotheek slechts staat één options-object (en daarom een beleid/KEK) per batchbewerking. Echter, de clientbibliotheek wordt intern Genereer een nieuwe willekeurige IV en willekeurige CEK per rij in de batch. Gebruikers kunnen ook voor kiezen voor het versleutelen van de verschillende eigenschappen voor elke bewerking in de batch door dit gedrag definiëren in de conflictoplosser voor versleuteling.
 
 ### <a name="queries"></a>Query's
+> [!NOTE]
+> Omdat de entiteiten te versleutelen, kunt u query's die filteren niet uitvoeren op een gecodeerde eigenschap.  Als u probeert, worden niet goed, omdat de service zou worden probeert om versleutelde gegevens met niet-versleutelde gegevens te vergelijken.
+> 
+>
 Om de querybewerkingen uitvoeren, moet u een sleutel-omzetter kan omzetten van de sleutels in de resultatenset. Als een entiteit die is opgenomen in het resultaat van de query kan niet worden omgezet naar een provider, de clientbibliotheek genereert een fout opgetreden. Voor elke query die server side projecties uitvoert, wordt de clientbibliotheek van de eigenschappen van de metagegevens speciale codering (_ClientEncryptionMetadata1 en _ClientEncryptionMetadata2) standaard toegevoegd aan de geselecteerde kolommen.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
-Met Azure Key Vault kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt. Met Azure Sleutelkluis gebruikers kunnen sleutels en geheimen versleutelen (zoals verificatiesleutels, opslagaccountsleutels, gegevensversleutelingssleutels. PFX-bestanden en wachtwoorden) met behulp van de sleutels die worden beveiligd door hardware security modules (HSM's). Zie voor meer informatie [wat is Azure Sleutelkluis?](../../key-vault/key-vault-whatis.md).
+Met Azure Sleutelkluis kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt. Met Azure Sleutelkluis gebruikers kunnen sleutels en geheimen versleutelen (zoals verificatiesleutels, opslagaccountsleutels, gegevensversleutelingssleutels. PFX-bestanden en wachtwoorden) met behulp van de sleutels die worden beveiligd door hardware security modules (HSM's). Zie voor meer informatie [wat is Azure Sleutelkluis?](../../key-vault/key-vault-whatis.md).
 
 De opslagclientbibliotheek maakt gebruik van de Sleutelkluis-kernbibliotheek om te voorzien van een gemeenschappelijk framework in Azure voor het beheren van sleutels. Gebruikers krijgen ook extra voordeel van het gebruik van de extensies Sleutelkluis bibliotheek. De bibliotheek extensies biedt nuttige functionaliteit om eenvoudig en naadloze Symmetric/RSA lokale en cloud sleutel providers en met aggregatie en opslaan in cache.
 

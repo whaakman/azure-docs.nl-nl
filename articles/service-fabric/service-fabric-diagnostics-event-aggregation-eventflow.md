@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fd4c28c2317356cbc6e3fd4d46a10509c029d530
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Gebeurtenis-aggregatie en verzameling op basis van EventFlow
 
@@ -32,12 +32,12 @@ EventFlow binaire bestanden zijn beschikbaar als een reeks NuGet-pakketten. Even
 
 U ziet een lijst met verschillende pakketten die worden weergegeven, met labels met 'Invoer' en 'Levert'. EventFlow ondersteunt verschillende andere logboekregistratie providers en analyzers. De service die als host fungeert voor EventFlow moet de juiste pakketten, afhankelijk van de bron en bestemming voor de toepassingslogboeken bevatten. Naast het core ServiceFabric pakket, moet u ook minimaal één invoer en uitvoer geconfigureerd. U kunt bijvoorbeeld de volgende pakketten toevoegen aan verzonden EventSource gebeurtenissen naar Application Insights:
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource`voor het vastleggen van gegevens uit de serviceklasse EventSource, en standard EventSources zoals *ServiceFabric-Microsoft-Services* en *Microsoft-ServiceFabric-Actors*)
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`(we gaan de logboeken verzenden naar een Azure Application Insights-resource)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` voor het vastleggen van gegevens uit de serviceklasse EventSource, en standard EventSources zoals *ServiceFabric-Microsoft-Services* en *Microsoft-ServiceFabric-Actors*)
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (we gaan de logboeken verzenden naar een Azure Application Insights-resource)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`(Hiermee initialisatie van de pijplijn EventFlow van de configuratie van de Service Fabric-service en eventuele problemen met het verzenden van diagnostische gegevens als Service Fabric-statusrapporten rapporten)
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Input.EventSource`pakket is de service-project toe te passen van .NET Framework 4.6 of hoger vereist. Zorg ervoor dat u het juiste doel-framework in Projecteigenschappen instellen voordat u dit pakket installeert.
+>`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` pakket is de service-project toe te passen van .NET Framework 4.6 of hoger vereist. Zorg ervoor dat u het juiste doel-framework in Projecteigenschappen instellen voordat u dit pakket installeert.
 
 Nadat alle pakketten zijn geïnstalleerd, wordt de volgende stap is het configureren en inschakelen van EventFlow in de service.
 
@@ -147,7 +147,7 @@ EventFlow ondersteunt het gebruik van Service Fabric-instellingen en parameters 
 servicefabric:/<section-name>/<setting-name>
 ```
 
-`<section-name>`de naam van de configuratiesectie Service Fabric en `<setting-name>` is de configuratieinstelling de waarde die wordt gebruikt voor het configureren van een instelling EventFlow op te geven. Om te lezen over hoe u dit doet, gaat u naar [ondersteuning voor Service Fabric-instellingen en parameters voor de toepassing](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
+`<section-name>` de naam van de configuratiesectie Service Fabric en `<setting-name>` is de configuratieinstelling de waarde die wordt gebruikt voor het configureren van een instelling EventFlow op te geven. Om te lezen over hoe u dit doet, gaat u naar [ondersteuning voor Service Fabric-instellingen en parameters voor de toepassing](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
 
 ## <a name="verification"></a>Verificatie
 

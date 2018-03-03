@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 9267a7d2b27930fbcd0aa70ec9e2ddc62b6b0b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Referenties van het computercertificaat voor de verificatie van de toepassing
 
-Azure Active Directory kunt een toepassing een eigen referenties gebruiken voor verificatie, bijvoorbeeld in de OAuth 2.0-Client referenties Grant-stroom en de On-namens-stroom.
+Azure Active Directory kan een toepassing een eigen referenties gebruikt voor verificatie, bijvoorbeeld in de stroom OAuth 2.0-Client referenties Grant ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) en de On-namens-stroom ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Een vorm van de referentie die kan worden gebruikt is een JSON Web Token(JWT) assertion ondertekend met een certificaat waartoe de toepassing.
 
 ## <a name="format-of-the-assertion"></a>Indeling van de verklaring
@@ -41,7 +41,7 @@ Als u wilt de verklaring compute, wilt u waarschijnlijk een van de vele [JSON We
 
 | Parameter |  Opmerking |
 | --- | --- | --- |
-| `aud` | Doelgroep: **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
+| `aud` | : Doelgroep **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token** |
 | `exp` | Vervaldatum: de datum waarop het token verloopt. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de geldigheid van het token is verlopen.|
 | `iss` | Uitgever: moet de client_id (toepassings-Id van de client-service) |
 | `jti` | GUID: de JWT-ID |

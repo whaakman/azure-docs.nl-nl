@@ -1,24 +1,24 @@
 ---
-title: Kostenrapporten in Azure kosten Management begrijpen | Microsoft Docs
-description: In dit artikel helpt u begrijpen basisstructuur Cloudyn-rapporten en -functies.
+title: Kosten-rapporten in Azure kosten Management begrijpen | Microsoft Docs
+description: In dit artikel helpt u begrijpen Cloudyn kosten management rapporten basisstructuur en functies.
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="understanding-cost-reports"></a>Inzicht krijgen in kostenrapporten
+# <a name="understanding-cost-management-reports"></a>Understanding kosten-rapporten
 
-In dit artikel helpt u begrijpen basisstructuur Cloudyn-rapporten en -functies. De meeste Cloudyn rapporten zijn intuïtieve en een uniform uiterlijk hebben. Nadat u dit artikel hebt gelezen, zijn klaar voor gebruik van alle rapporten. Veel standaard functies zijn beschikbaar in de verschillende rapporten, zodat u kunt de rapporten met gemak navigeren. Rapporten kunnen worden aangepast en u kunt kiezen uit diverse opties voor het berekenen en de resultaten weer te geven.
+In dit artikel helpt u begrijpen Cloudyn kosten management rapporten basisstructuur en functies. De meeste Cloudyn rapporten zijn intuïtieve en een uniform uiterlijk hebben. Nadat u dit artikel hebt gelezen, zijn klaar voor gebruik van alle kosten-rapporten. Veel standaard functies zijn beschikbaar in de verschillende rapporten, zodat u kunt de rapporten met gemak navigeren. Rapporten kunnen worden aangepast en u kunt kiezen uit diverse opties voor het berekenen en de resultaten weer te geven.
 
 ## <a name="report-fields-and-options"></a>Rapportvelden en opties
 
@@ -118,7 +118,7 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
 
     De optie weergeven/verbergen heeft geen invloed in rapporten.
 
-12.   **Weergave-indelingen**
+12.   **weergave-indelingen**
 
     Gebruik de weergave-indelingen verschillende grafiek of tabel weergaven selecteren.
 
@@ -131,6 +131,27 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
 14. **Acties**
 
     Gebruik acties wilt opslaan, exporteren of het rapport plant.
+
+## <a name="save-and-schedule-reports"></a>Opslaan en rapporten plannen
+
+Nadat u een rapport maakt, kunt u deze opslaan voor toekomstig gebruik. Opgeslagen rapporten zijn beschikbaar in **My Tools** > **mijn rapporten**. Als u wijzigingen in een bestaand rapport aanbrengen en dit opslaat, wordt het rapport wordt opgeslagen als een nieuwe versie. Of kunt u deze opslaan als een nieuw rapport.
+
+### <a name="save-a-report-to-the-cloudyn-portal"></a>Een rapport opslaan in de portal Cloudyn
+
+Wanneer u rapporten weergeeft, klikt u op **acties** en selecteer vervolgens **opslaan in Mijn rapporten**. Het rapport een naam en voeg vervolgens een zelf-URL of de automatisch gemaakte URL gebruiken. U kunt eventueel **delen** het rapport openbaar met anderen in uw organisatie of u kunt delen op uw entiteit. Als u het rapport niet deelt, blijft deze persoonlijk en kunt u alleen weergeven. Sla het rapport.
+
+
+### <a name="save-a-report-to-cloud-provider-storage"></a>Een rapport in de cloud provider opslag opslaan
+
+Om een rapport opslaan in uw cloudserviceprovider, moet u al hebt geconfigureerd een opslagaccount. Wanneer u rapporten weergeeft, klikt u op **acties** en selecteer vervolgens **rapport plant**. Het rapport een naam en voeg vervolgens een zelf-URL of de automatisch gemaakte URL gebruiken. Selecteer **opslaan naar opslag** en selecteer het opslagaccount of toevoegen van een nieuwe account. Voer een voorvoegsel dat wordt toegevoegd aan de naam van het rapport. Selecteer een CSV- of JSON-indeling en sla het rapport.
+
+### <a name="schedule-a-report"></a>Een rapport plannen
+
+U kunt rapporten uitvoeren met regelmatige tussenpozen en u kunt ze verzonden naar een ontvanger lijst of cloud serviceprovider storage-account. Wanneer u rapporten weergeeft, klikt u op **acties** en selecteer vervolgens **rapport plant**. U kunt het rapport verzenden via e-mail en opslaan in een opslagaccount. Onder **planning**, selecteert u het interval (dagelijks, wekelijks of maandelijks). Selecteer de dag of datums om uit te leveren en selecteer de tijd voor een wekelijkse en maandelijkse. Sla het geplande rapport op. Als u de indeling van de Excel-rapport selecteert, wordt het rapport als bijlage verzonden. Wanneer u inhoud e-mailadresnotatie selecteert, worden de rapportresultaten die worden weergegeven in de grafiekopmaak geleverd als een grafiek.
+
+### <a name="export-a-report-as-a-csv-file"></a>Een rapport exporteren als een CSV-bestand
+
+Wanneer u rapporten weergeeft, klikt u op **acties** en selecteer vervolgens **alle rapportgegevens exporteren**. Een pop-upvenster wordt weergegeven en een CSV-bestand wordt gedownload.
 
 ## <a name="next-steps"></a>Volgende stappen
 

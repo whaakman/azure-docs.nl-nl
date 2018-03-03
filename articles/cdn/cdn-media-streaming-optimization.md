@@ -1,5 +1,5 @@
 ---
-title: Optimalisatie via het Azure Content Delivery Network streaming media
+title: Mediastreaming optimalisatie via Azure CDN
 description: Optimaliseren voor de levering van smooth streaming media-bestanden
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c42f54a99a85377ebe4df6959237f906d37591b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Optimalisatie via het Azure Content Delivery Network streaming media 
+# <a name="media-streaming-optimization-via-azure-cdn"></a>Mediastreaming optimalisatie via Azure CDN 
  
 Gebruik van hoogwaardige video neemt op het Internet, wat voor efficiënte levering van grote bestanden moeilijkheden. Klanten verwachten smooth afspelen van video op aanvraag of live video activa op tal van netwerken en clients over de hele wereld. Een snelle en efficiënte bezorgingsmechanisme voor media streaming-bestanden is essentieel voor een consumer smooth en uitmuntende ervaring.  
 
@@ -38,7 +38,7 @@ U kunt uw eindpunt content delivery network (CDN) voor het optimaliseren van lev
 
 1. Een nieuw eindpunt toevoegen aan de **CDN-profiel** pagina **eindpunt**.
   
-    ![Nieuwe endpoint](./media/cdn-media-streaming-optimization/01_Adding.png)
+    ![Nieuw eindpunt](./media/cdn-media-streaming-optimization/01_Adding.png)
 
 2. In de **geoptimaliseerd voor** vervolgkeuzelijst, selecteer **Video op aanvraag mediastreaming** voor video-on-demand activa. Als u een combinatie van live en video-on-demand streaming doen, selecteert u **algemene mediastreaming**.
 
@@ -60,10 +60,10 @@ Als Azure Content Delivery Network van Akamai detecteert dat de asset een stream
 De korte tijd van de negatieve cache is nuttig voor de oorsprong offload wanneer veel gebruikers vragen een fragment dat nog niet bestaat. Een voorbeeld is een live stream waar de pakketten zijn niet beschikbaar vanuit de oorsprong die seconde. Het meer cachebewerkingen interval helpt ook bij het aanvragen van de oorsprong offload omdat video-inhoud doorgaans niet is gewijzigd.
  
 
-|   | Algemene webtoepassingen levering | Algemene mediastreaming | Video-on-demand mediastreaming  
+|   | Algemene webweergave | Algemene mediastreaming | Video-on-demand mediastreaming  
 --- | --- | --- | ---
 Opslaan in cache: positief <br> HTTP 200, 203, 300, <br> 301, 302 en 410 | 7 dagen |365 dagen | 365 dagen   
-Opslaan in cache: negatieve <br> HTTP 204 305 404, <br> en 405 | Geen | 1 seconde | 1 seconde
+Opslaan in cache: negatieve <br> HTTP 204, 305, 404, <br> en 405 | None | 1 seconde | 1 seconde
  
 ### <a name="deal-with-origin-failure"></a>Omgaan met fouten in de oorsprong  
 
@@ -80,8 +80,8 @@ De volgende tabel bevat de set criteria te zijn voor de optimalisatie van medias
 Ondersteunde typen streaming | Bestandsextensies  
 --- | ---  
 Apple HLS | m3u8, m3u, m3ub, key, ts, aac
-Adobe harde schijven | f4m, f4x, drmmeta, bootstrap, f4f,<br>URL totaal aantal segmenten-structuur <br> (die overeenkomen met de reguliere expressie: ^(/.*)Seq(\d+)-Frag(\d+)
-STREEPJE | MPD, streepjes, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
+Adobe HDS | f4m, f4x, drmmeta, bootstrap, f4f,<br>URL totaal aantal segmenten-structuur <br> (die overeenkomen met de reguliere expressie: ^(/.*)Seq(\d+)-Frag(\d+)
+DASH | MPD, streepjes, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
 Smooth streaming | / manifest /, QualityLevels/fragmenten /
   
 

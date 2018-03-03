@@ -3,21 +3,21 @@ title: Controleren van de runtime integratie in Azure Data Factory | Microsoft D
 description: Informatie over het bewaken van verschillende soorten integratie runtime in Azure Data Factory.
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: 
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
-ms.author: spelluru
-ms.openlocfilehash: b243115eef7e59279fbb1df2a3e3c288477a5b8c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: douglasl
+ms.openlocfilehash: 74a4ad6438f9e66331f76e87d20d1eb8b29e8451
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor een runtime integratie in Azure Data Factory  
 **Integratie runtime** is de beheerinfrastructuur gebruikt door Azure Data Factory voor verschillende mogelijkheden voor de integratie van gegevens in verschillende netwerkomgevingen. Er zijn drie soorten integratie runtimes die worden aangeboden door de Data Factory:
@@ -180,7 +180,7 @@ Azure-SSIS-integratie runtime is een volledig beheerde cluster van Azure virtuel
 
 | Status | Beschrijving |
 | ------ | ----------- | 
-| Starting | Dit knooppunt wordt voorbereid. |
+| Starten | Dit knooppunt wordt voorbereid. |
 | Beschikbaar | Dit knooppunt is gereed voor u SSIS-pakketten implementeren/uitvoeren. |
 | Recyclen | Dit knooppunt is wordt hersteld/opnieuw te starten. |
 | Niet beschikbaar | Dit knooppunt is niet gereed voor u SSIS-pakketten implementeren/uitvoeren en heeft bruikbare fouten/problemen die kunnen worden opgelost. |
@@ -190,10 +190,10 @@ Azure-SSIS-integratie runtime is een volledig beheerde cluster van Azure virtuel
 | Algemene status | Beschrijving | 
 | -------------- | ----------- | 
 | Oorspronkelijk | De knooppunten van de runtime van uw Azure-SSIS-integratie is niet toegewezen/voorbereid. | 
-| Starting | De knooppunten van de runtime van uw Azure-SSIS-integratie worden toegewezen/voorbereid en facturering is gestart. |
+| Starten | De knooppunten van de runtime van uw Azure-SSIS-integratie worden toegewezen/voorbereid en facturering is gestart. |
 | Gestart | De knooppunten van de runtime van uw Azure-SSIS-integratie zijn toegewezen/voorbereid en ze gereed zijn voor u SSIS-pakketten implementeren/uitvoeren. |
-| Stopping  | De knooppunten van de runtime van uw Azure-SSIS-integratie zijn wordt vrijgegeven. |
-| Stopped | De knooppunten van de runtime van uw Azure-SSIS-integratie zijn vrijgegeven en facturering is gestopt. |
+| Stoppen  | De knooppunten van de runtime van uw Azure-SSIS-integratie zijn wordt vrijgegeven. |
+| Gestopt | De knooppunten van de runtime van uw Azure-SSIS-integratie zijn vrijgegeven en facturering is gestopt. |
 
 Zie de volgende artikelen voor meer informatie over Azure-SSIS-integratie runtime:
 

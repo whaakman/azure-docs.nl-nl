@@ -1,183 +1,215 @@
 ---
-title: Maak een virtueel netwerk - Azure PowerShell | Microsoft Docs
-description: Informatie over het maken van een virtueel netwerk met behulp van PowerShell.
+title: Een virtueel Azure-netwerk maken met meerdere subnetten - PowerShell | Microsoft Docs
+description: Informatie over het maken van een virtueel netwerk met meerdere subnetten met behulp van PowerShell.
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
-ms.assetid: a31f4f12-54ee-4339-b968-1a8097ca77d3
+ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 03/01/2018
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7072ddf51570d46578111e2e392e3cbea53f2aa
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.custom: 
+ms.openlocfilehash: f550af298b37afa388b6fd860578863738510a5e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-a-virtual-network-using-powershell"></a>Maak een virtueel netwerk met behulp van PowerShell
+# <a name="create-a-virtual-network-with-multiple-subnets-using-powershell"></a>Een virtueel netwerk maken met meerdere subnetten met behulp van PowerShell
 
-[!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
+Een virtueel netwerk kunt verschillende soorten Azure-resources met het Internet en privé met elkaar communiceren. Meerdere subnetten in een virtueel netwerk maken, kunt u bij het segmenteren van uw netwerk, zodat u kunt filteren of het besturingselement de verkeersstroom tussen subnetten. In dit artikel leert u hoe:
 
-Azure heeft twee implementatiemodellen: Azure Resource Manager en klassiek. Microsoft raadt aan resources te maken via het Resource Manager-implementatiemodel. Lees het artikel [Azure-implementatiemodellen begrijpen](../azure-resource-manager/resource-manager-deployment-model.md) voor meer informatie over de verschillen tussen de twee modellen.
- 
-Dit artikel wordt uitgelegd hoe u een VNet met het implementatiemodel van Resource Manager met behulp van PowerShell maakt. U kunt via Resource Manager ook een VNet maken met andere hulpprogramma's. Bovendien kunt u een VNet maken via het klassieke implementatiemodel door in de volgende lijst een andere optie te selecteren:
+> [!div class="checklist"]
+> * Een virtueel netwerk maken
+> * Een subnet maken
+> * Testen van netwerkcommunicatie tussen virtuele machines
 
-> [!div class="op_single_selector"]
-> * [Portal](virtual-networks-create-vnet-arm-pportal.md)
-> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-> * [CLI](virtual-networks-create-vnet-arm-cli.md)
-> * [Sjabloon](virtual-networks-create-vnet-arm-template-click.md)
-> * [Portal (klassiek)](virtual-networks-create-vnet-classic-pportal.md)
-> * [PowerShell (klassiek)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-> * [CLI (klassiek)](virtual-networks-create-vnet-classic-cli.md)
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+
+Als u wilt installeren en gebruiken van PowerShell lokaal, wordt in deze zelfstudie Azure PowerShell moduleversie 3,6 of hoger vereist. Voer ` Get-Module -ListAvailable AzureRM` de geïnstalleerde versie vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Voor het maken van een virtueel netwerk met behulp van PowerShell, moet u de volgende stappen uitvoeren:
+Maak een resourcegroep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *EastUS* locatie.
 
-1. Installeren en configureren van Azure PowerShell met de stappen in de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel.
+```azurepowershell-interactive
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
+```
 
-2. Maak indien nodig een resourcegroep aan, zoals hieronder wordt weergegeven. Voor dit scenario maakt u een resourcegroep met de naam *TestRG*. Zie [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
+Maak een virtueel netwerk met [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). Het volgende voorbeeld wordt een virtueel netwerk met de naam *myVirtualNetwork* met het adresvoorvoegsel *10.0.0.0/16*.
 
-    ```powershell   
-    New-AzureRmResourceGroup -Name TestRG -Location centralus
-    ```
+```azurepowershell-interactive
+$virtualNetwork = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroup `
+  -Location EastUS `
+  -Name myVirtualNetwork `
+  -AddressPrefix 10.0.0.0/16
+```
 
-    Verwachte uitvoer:
+De **AddressPrefix** is opgegeven in CIDR-notatie. Het opgegeven adresvoorvoegsel bevat het IP-adressen 10.0.0.0-10.0.255.254.
 
-        ResourceGroupName : TestRG
-        Location          : centralus
-        ProvisioningState : Succeeded
-        Tags              :
-        ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG    
-3. Maak een nieuw VNet met de naam *TestVNet*:
+## <a name="create-a-subnet"></a>Een subnet maken
 
-    ```powershell
-    New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
-    -AddressPrefix 192.168.0.0/16 -Location centralus
-    ```
+Een subnet wordt gemaakt door eerst de configuratie van een subnet maken en vervolgens het virtuele netwerk bij te werken met de subnetconfiguratie. Maken van een subnetconfiguratie met [nieuw AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Het volgende voorbeeld maakt u twee subnetconfiguraties voor *openbare* en *persoonlijke* subnetten:
 
-    Verwachte uitvoer:
+```azurepowershell-interactive
+$subnetConfigPublic = Add-AzureRmVirtualNetworkSubnetConfig `
+  -Name Public `
+  -AddressPrefix 10.0.0.0/24 `
+  -VirtualNetwork $virtualNetwork
 
-        Name                  : TestVNet
-        ResourceGroupName     : TestRG
-        Location              : centralus
-        Id                    : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                   : W/"[Id]"
-        ProvisioningState          : Succeeded
-        Tags                       : 
-        AddressSpace               : {
-                                   "AddressPrefixes": [
-                                     "192.168.0.0/16"
-                                   ]
-                                  }
-        DhcpOptions                : {}
-        Subnets                    : []
-        VirtualNetworkPeerings     : []
-4. Het object van het virtuele netwerk in een variabele opslaan:
+$subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
+  -Name Private `
+  -AddressPrefix 10.0.1.0/24 `
+  -VirtualNetwork $virtualNetwork
+```
 
-    ```powershell
-    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-    ```
+De **AddressPrefix** opgegeven voor een subnet binnen het adresvoorvoegsel gedefinieerd voor het virtuele netwerk moet. Azure DHCP IP-adressen worden toegewezen vanuit een adresvoorvoegsel subnet naar bronnen die zijn geïmplementeerd in een subnet. Azure alleen de 10.0.0.4-10.0.0.254 adressen worden toegewezen aan resources die zijn geïmplementeerd in de **openbare** subnet, omdat de eerste vier adressen zijn gereserveerd Azure (10.0.0.0-10.0.0.3 voor het subnet van de in dit voorbeeld) en de laatste adres () 10.0.0.255 voor het subnet van de in dit voorbeeld) in elk subnet.
 
-   > [!TIP]
-   > U kunt stappen 3 en 4 combineren door het uitvoeren van `$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus`.
-   > 
+De subnetconfiguraties schrijven naar het virtuele netwerk met [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), waarvan de subnetten maakt in het virtuele netwerk:
 
-5. Voeg een subnet toe aan de nieuwe VNet-variabele:
+```azurepowershell-interactive
+$virtualNetwork | Set-AzureRmVirtualNetwork
+```
 
-    ```powershell
-    Add-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd `
-    -VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
-    ```
+Voordat u deze implementeert in Azure virtuele netwerken en subnetten voor gebruik in productieomgevingen, het is raadzaam dat u zorgvuldig vertrouwd raken met de adresruimte [overwegingen](virtual-network-manage-network.md#create-a-virtual-network) en [virtueel netwerk limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Zodra resources zijn geïmplementeerd in subnetten, kunnen sommige virtueel netwerk en subnet wijzigingen, zoals het wijzigen van-adresbereiken opnieuw distribueren van bestaande Azure-resources geïmplementeerd in subnetten vereisen.
 
-    Verwachte uitvoer:
-   
-        Name                  : TestVNet
-        ResourceGroupName     : TestRG
-        Location              : centralus
-        Id                    : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                  : W/"[Id]"
-        ProvisioningState     : Succeeded
-        Tags                  :
-        AddressSpace          : {
-                                  "AddressPrefixes": [
-                                    "192.168.0.0/16"
-                                  ]
-                                }
-        DhcpOptions           : {}
-        Subnets             : [
-                                  {
-                                    "Name": "FrontEnd",
-                                    "AddressPrefix": "192.168.1.0/24"
-                                  }
-                                ]
-        VirtualNetworkPeerings     : []
+## <a name="test-network-communication"></a>Test de netwerkcommunicatie
 
-6. Herhaal stap 5 hierboven voor elk subnet dat u wilt aanmaken. De volgende opdracht maakt u de *back-end* subnet voor het scenario:
+Een virtueel netwerk kunt verschillende soorten Azure-resources met het Internet en privé met elkaar communiceren. Een type resource dat u in een virtueel netwerk implementeren kunt is een virtuele machine. Twee virtuele machines maken in het virtuele netwerk, zodat u de netwerkcommunicatie tussen deze en het Internet in een later stadium testen kunt. 
 
-    ```powershell
-    Add-AzureRmVirtualNetworkSubnetConfig -Name BackEnd `
-    -VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
-    ```
+### <a name="create-virtual-machines"></a>Virtuele machines maken
 
-7. Hoewel u subnetten aanmaakt, bestaan ze momenteel alleen in de lokale variabele die wordt gebruikt om het VNet op te halen dat u in stap 4 hierboven hebt aangemaakt. Sla de wijzigingen naar Azure moet u de volgende opdracht uitvoeren:
+Maak een virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Het volgende voorbeeld wordt een virtuele machine met de naam *myVmWeb* in de *openbare* subnet van de *myVirtualNetwork* virtueel netwerk. De `-AsJob` optie maakt de virtuele machine op de achtergrond, zodat u kunt doorgaan met de volgende stap. Wanneer u wordt gevraagd, typt u de gebruikersnaam en wachtwoord die u wilt aanmelden bij de virtuele machine met.
 
-    ```powershell
-    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-    ```
-   
-    Verwachte uitvoer:
-   
-        Name                  : TestVNet
-        ResourceGroupName     : TestRG
-        Location              : centralus
-        Id                    : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                  : W/"[Id]"
-        ProvisioningState     : Succeeded
-        Tags                  :
-        AddressSpace          : {
-                                  "AddressPrefixes": [
-                                    "192.168.0.0/16"
-                                  ]
-                                }
-        DhcpOptions           : {
-                                  "DnsServers": []
-                                }
-        Subnets               : [
-                                  {
-                                    "Name": "FrontEnd",
-                                    "Etag": "W/\"[Id]\"",
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                                    "AddressPrefix": "192.168.1.0/24",
-                                    "IpConfigurations": [],
-                                    "ProvisioningState": "Succeeded"
-                                  },
-                                  {
-                                    "Name": "BackEnd",
-                                    "Etag": "W/\"[Id]\"",
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-                                    "AddressPrefix": "192.168.2.0/24",
-                                    "IpConfigurations": [],
-                                    "ProvisioningState": "Succeeded"
-                                  }
-                                ]
-        VirtualNetworkPeerings : []
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Location "East US" `
+    -VirtualNetworkName "myVirtualNetwork" `
+    -SubnetName "Public" `
+    -ImageName "Win2016Datacenter" `
+    -Name "myVmWeb" `
+    -AsJob
+```
+
+10.0.0.4 Azure automatisch toegewezen als de persoonlijke IP-adres van de virtuele machine omdat 10.0.0.4 is het eerste beschikbare IP-adres in de *openbare* subnet. 
+
+Maken van een virtuele machine in de *persoonlijke* subnet.
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Location "East US" `
+    -VirtualNetworkName "myVirtualNetwork" `
+    -SubnetName "Private" `
+    -ImageName "Win2016Datacenter" `
+    -Name "myVmMgmt"
+```
+
+De virtuele machine duurt een paar minuten maken. Hoewel het niet in de uitvoer van de geretourneerde Azure toegewezen 10.0.1.4 als het privé IP-adres van de virtuele machine omdat 10.0.1.4 is het eerste beschikbare IP-adres in de *persoonlijke* subnet van *myVirtualNetwork*. 
+
+Ga niet verder met de resterende stappen totdat de virtuele machine wordt gemaakt en PowerShell retourneert de uitvoer.
+
+### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Communiceren tussen virtuele machines en met het internet
+
+U kunt verbinding maken met het openbare IP-adres van een virtuele machine vanaf het Internet. Wanneer Azure gemaakt de *myVmMgmt* virtuele machine, een openbare IP-adres met de naam *myVmMgmt* ook is gemaakt en toegewezen aan de virtuele machine. Hoewel een virtuele machine is niet vereist voor het openbare IP-adres toegewezen, wijst Azure een openbaar IP-adres toe aan elke virtuele machine die u, standaard maakt. Om te communiceren via Internet met een virtuele machine, moet een openbaar IP-adres worden toegewezen aan de virtuele machine. Alle virtuele machines kunnen communiceren met het Internet, uitgaande of er een openbaar IP-adres is toegewezen aan de virtuele machine. Zie voor meer informatie over uitgaande Internet-verbindingen in Azure, [uitgaande verbindingen in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+
+Gebruik [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) te retourneren van het openbare IP-adres van een virtuele machine. Het volgende voorbeeld wordt het openbare IP-adres van de *myVmMgmt* virtuele machine:
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress `
+  -Name myVmMgmt `
+  -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+Gebruik de volgende opdracht voor het maken van een sessie voor extern bureaublad met de *myVmMgmt* virtuele machine van de lokale computer. Vervang `<publicIpAddress>` geretourneerd met het IP-adres van de vorige opdracht.
+
+```
+mstsc /v:<publicIpAddress>
+```
+
+Een Remote Desktop Protocol (RDP)-bestand is gemaakt, naar de computer gedownload en geopend. Geef de gebruikersnaam en wachtwoord die u hebt opgegeven bij het maken van de virtuele machine (mogelijk moet u selecteren **meer opties**, vervolgens **gebruik een ander account**, om op te geven de referenties die u hebt ingevoerd wanneer u de virtuele machine gemaakt), en klik vervolgens op **OK**. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Klik op **Ja** of **Doorgaan** om door te gaan met de verbinding. 
+
+In een later stadium ping wordt gebruikt om te communiceren met de *myVmMgmt* virtuele machine van de *myVmWeb* virtuele machine. Ping maakt gebruik van ICMP dat via de Windows Firewall standaard is geweigerd. ICMP inschakelen via de Windows firewall met de volgende opdracht vanaf een opdrachtprompt:
+
+```
+netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+```
+
+Hoewel ping in dit artikel wordt gebruikt, wordt zodat ICMP via de Windows Firewall voor productie-implementaties niet aanbevolen.
+
+Uit veiligheidsoverwegingen is het gebruikelijk om het aantal virtuele machines die worden op afstand verbinding met een virtueel netwerk gemaakt kunnen te beperken. In deze zelfstudie de *myVmMgmt* virtuele machine wordt gebruikt voor het beheren van de *myVmWeb* virtuele machine in het virtuele netwerk. Gebruik de volgende opdracht met extern bureaublad naar de *myVmWeb* virtuele machine van de *myVmMgmt* virtuele machine:
+
+``` 
+mstsc /v:myVmWeb
+```
+
+Om te communiceren met de *myVmMgmt* virtuele machine van de *myVmWeb* virtuele machine, voer de volgende opdracht uit vanaf de opdrachtprompt:
+
+```
+ping myvmmgmt
+```
+
+De uitvoer is vergelijkbaar met de volgende voorbeelduitvoer wordt:
+    
+```
+Pinging myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net [10.0.1.4] with 32 bytes of data:
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    
+Ping statistics for 10.0.1.4:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+```
+      
+Kunt u zien dat het adres van de *myVmMgmt* virtuele machine is 10.0.1.4. 10.0.1.4 is het eerste beschikbare IP-adres in het adresbereik van de *persoonlijke* subnet dat u hebt geïmplementeerd de *myVmMgmt* virtuele machine in de vorige stap.  U ziet dat de volledig gekwalificeerde domeinnaam van de virtuele machine *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Hoewel de *dar5p44cif3ulfq00wxznl3i3f* gedeelte van de domeinnaam is verschillend voor de virtuele machine, de resterende gedeelten van de domeinnaam zijn hetzelfde. Alle virtuele machines in Azure gebruiken de standaard Azure DNS-service. Alle virtuele machines binnen een virtueel netwerk, kunnen de namen van alle andere virtuele machines in hetzelfde virtuele netwerk met behulp van Azure standaard DNS-service omzetten. In plaats van Azure standaard DNS-service, kunt u uw eigen DNS-server of de mogelijkheid persoonlijke domein van de Azure DNS-service. Zie voor meer informatie [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) of [Azure DNS gebruiken voor persoonlijke domeinen](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Internet Information Services (IIS) voor Windows Server installeren op de *myVmWeb* virtuele machine, voer de volgende opdracht vanuit een PowerShell-sessie:
+
+```powershell
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+```
+
+Nadat de installatie van IIS voltooid is, Verbreek de verbinding met de *myVmWeb* extern bureaublad-sessiehost, waarbij u in de *myVmMgmt* extern bureaublad-sessiehost. Open een webbrowser en Ga naar http://myvmweb. U ziet de pagina Welkom IIS.
+
+Verbreek de verbinding met de *myVmMgmt* extern bureaublad-sessiehost.
+
+Ophalen van het openbare adres Azure toegewezen aan de *myVmWeb* virtuele machine:
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress `
+  -Name myVmWeb `
+  -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+Blader op uw eigen computer naar het openbare IP-adres van de *myVmWeb* virtuele machine. De poging om weer te geven van de IIS-welkomstpagina van uw eigen computer is mislukt. De poging is mislukt omdat wanneer de virtuele machines zijn geïmplementeerd, Azure standaard een netwerkbeveiligingsgroep voor elke virtuele machine gemaakt. 
+
+Een netwerkbeveiligingsgroep bevat beveiligingsregels voor verbindingen toestaan of weigeren van binnenkomende en uitgaande netwerkverkeer op poort en IP-adres. De standaard netwerkbeveiligingsgroep die Azure gemaakt kan communicatie via alle poorten tussen resources in hetzelfde virtuele netwerk. Voor Windows virtuele machines, de standaard netwerkbeveiligingsgroep weigert alle binnenkomend verkeer van Internet via alle poorten, TCP-poort 3389 (RDP) accepteren. Als gevolg hiervan standaard kunt u ook RDP rechtstreeks naar de *myVmWeb* virtuele machine van het Internet, zelfs als u wilt niet poort 3389 openen met een webserver. Omdat websurfen via poort 80 communiceert, wordt de communicatie van het Internet mislukt omdat er is geen regel in de standaard netwerkbeveiligingsgroep verkeer toestaat via poort 80.
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Wanneer deze niet langer nodig is, gebruik [Remove-AzureRmResourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) verwijderen van de resourcegroep en alle resources bevat.
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Leer hoe u de volgende verbindingen maakt:
+In deze zelfstudie hebt u geleerd hoe u een virtueel netwerk met meerdere subnetten te implementeren. U hebt ook geleerd wanneer u een virtuele Windows-computer maakt, Azure een netwerkinterface maakt dat wordt gekoppeld aan de virtuele machine en wordt gemaakt van een netwerkbeveiligingsgroep waarmee alleen verkeer via poort 3389 van Internet. Ga naar de volgende zelfstudie voor informatie over het filteren van netwerkverkeer naar subnetten in plaats van afzonderlijke virtuele machines.
 
-- Een virtuele machine (VM) met een virtueel netwerk door het lezen van de [maken van een virtuele machine van Windows](../virtual-machines/virtual-machines-windows-ps-create.md) artikel. In plaats van een VNet en subnet te maken via de stappen die in de artikelen worden beschreven, kunt u ook een bestaand VNet en subnet selecteren waarmee u een VM wilt verbinden.
-- Verbinding van het virtuele netwerk met andere virtuele netwerken: lees het artikel [VNets verbinden](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
-- Verbinding van het virtuele netwerk met een on-premises netwerk via een site-naar-site virtueel particulier netwerk (VPN) of een ExpressRoute-circuit. Lees hiervoor de artikelen [Een VNet verbinden met een on-premises netwerk via een site-naar-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) en [Een VNet koppelen aan een ExpressRoute-circuit](../expressroute/expressroute-howto-linkvnet-arm.md).
+> [!div class="nextstepaction"]
+> [Filteren van netwerkverkeer naar subnetten](./virtual-networks-create-nsg-arm-ps.md)
