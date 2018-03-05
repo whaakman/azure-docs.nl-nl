@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/02/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 03682e7f5867360cc3d854f0dff2bc5d1c1c9619
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Vereisten voor de implementatie van Azure Stack
 
 *Van toepassing op: Azure stapelen Development Kit*
 
-Voordat u implementeert [Azure Stack Development Kit](azure-stack-poc.md), zorg ervoor dat uw computer voldoet aan de volgende vereisten:
+Voordat u implementeert de [Azure Stack Development Kit (ASDK)](azure-stack-poc.md), zorg ervoor dat de hostcomputer van development kit voldoet aan de vereisten die in dit artikel wordt beschreven.
 
+> [!NOTE]
+> De ASDK moet worden geïnstalleerd op een fysieke computer. De ASDK installeren op een Azure VM wordt niet ondersteund.
 
 ## <a name="hardware"></a>Hardware
 | Onderdeel | Minimum | Aanbevolen |
@@ -122,7 +124,6 @@ Zorg ervoor dat er een DHCP-server beschikbaar is op het netwerk waarmee de NIC 
 ### <a name="internet-access"></a>Toegang tot het internet
 Stack Azure vereist toegang tot het Internet, rechtstreeks of via een transparentproxy. Azure-Stack biedt geen ondersteuning voor de configuratie van een webproxy waarmee toegang tot Internet. Zowel het host-IP- en het nieuwe IP-adres toegewezen aan de MAS-BGPNAT01 (door DHCP of statische IP-) moet mogelijk toegang tot Internet. Poorten 80 en 443 worden onder de graph.windows.net en login.microsoftonline.com domeinen gebruikt.
 
-V: is mogelijk uit te voeren ASDK op een Azure VM? A: Nee. Vanaf vandaag, wordt niet officieel ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Het implementatiepakket Azure Stack development kit downloaden](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
