@@ -22,6 +22,7 @@
 ## [De status van een beheerd domein controleren](active-directory-ds-check-health.md)
 ## [Azure AD Domain Services gebruiken in Azure CSP-abonnementen](active-directory-ds-csp.md)
 ## [Azure AD Domain Services inschakelen met behulp van PowerShell](active-directory-ds-enable-using-powershell.md)
+## [De status van uw domein controleren](active-directory-ds-check-health.md)
 ## Een beheerd domein koppelen
 ### [Windows Server-VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Windows Server-VM op basis van sjabloon](active-directory-ds-join-windows-vm-template.md)
@@ -32,7 +33,6 @@
 ## Een beheerd domein beheren
 ### [Een beheerd domein beheren](active-directory-ds-admin-guide-administer-domain.md)
 ### [DNS beheren in een beheerd domein](active-directory-ds-admin-guide-administer-dns.md)
-
 ### Secure LDAP configureren voor een beheerd domein
 #### [Taak 1: Een certificaat voor Secure LDAP verkrijgen](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Taak 2: het certificaat voor Secure LDAP exporteren](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
