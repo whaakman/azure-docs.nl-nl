@@ -33,7 +33,7 @@
 ### [Verbinden met Power BI](analysis-services-connect-pbi.md)
 ### [Een ODC-bestand maken](analysis-services-odc.md)
 ## Zelfstudies
-### [1 - Een voorbeeldmodel maken](analysis-services-create-sample-model.md)
+### [1 - Een voorbeeldmodel toevoegen](analysis-services-create-sample-model.md)
 ### [Gegevensmodellering: zelfstudie Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 #### [1: Een project voor een tabellair model maken](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 #### [2 - Gegevens ophalen](tutorials/aas-lesson-2-get-data.md)

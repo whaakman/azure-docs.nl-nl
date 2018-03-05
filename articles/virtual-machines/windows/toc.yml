@@ -100,6 +100,8 @@
           href: disk-scalability-targets.md
         - name: Back-up en herstel na noodgeval voor schijven
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Problemen met gekoppelde VHD's oplossen
+          href: troubleshoot-vhds.md
     - name: Netwerken
       href: network-overview.md
     - name: Toepassingen automatisch schalen
