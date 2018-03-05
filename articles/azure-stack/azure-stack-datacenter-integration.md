@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 03/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Aandachtspunten voor Datacenter-integratie voor Azure-Stack geïntegreerd systemen
 Als u geïnteresseerd in een Azure-Stack geïntegreerd systeem bent, moet u enkele van de belangrijke planningsoverwegingen rond de implementatie en hoe het systeem in uw datacenter past begrijpen. Dit artikel bevat een overzicht van deze overwegingen bij de infrastructuur van belangrijke beslissingen voor uw Azure-Stack-systeem met meerdere knooppunten. Een goed begrip van deze overwegingen helpt bij het werken met uw hardwareleverancier OEM als ze Azure Stack op uw datacenter implementeren.  
@@ -30,6 +30,15 @@ Als u geïnteresseerd in een Azure-Stack geïntegreerd systeem bent, moet u enke
 U moet voor het implementeren van Azure-Stack planningsinformatie bieden aan uw solution provider voordat implementatie begint te helpen bij het proces gaat soepel en snel. Deze informatie nodig bereiken over netwerken-, beveiligings- en identiteitsgegevens met veel belangrijke beslissingen waarvoor kennis van veel verschillende gebieden en besluitvormers. U moet daarom ophalen van de mensen van meerdere teams in uw organisatie om ervoor te zorgen dat u alle vereiste informatie bij de hand hebt voordat de implementatie begint. Kunt u contact opnemen met uw hardwareleverancier bij het verzamelen van deze informatie zoals ze advies die nuttig zijn hebben wellicht voor uw beslissingen.
 
 Tijdens het onderzoeken en de vereiste gegevens verzamelen, moet u mogelijk enkele vóór implementatie configuratiewijzigingen aanbrengen in uw netwerkomgeving. Dit omvat het reserveren van IP-adresruimten voor de Azure-Stack-oplossing, uw routers, switches en firewalls om voor te bereiden voor de verbinding met de nieuwe Azure-Stack oplossing switches configureren. Zorg ervoor dat u hebt het onderwerp gebied expert die maximaal helpt u bij de planning.
+
+## <a name="capacity-planning-considerations"></a>Overwegingen bij capaciteitsplanning
+Bij het evalueren van een Azure-Stack-oplossing voor overname moeten configuratiemogelijkheden hardware worden gemaakt die een directe invloed hebben op de totale capaciteit van de Azure-Stack-oplossing. Het gaat hierbij om klassieke keuzes CPU, geheugen dichtheid, opslagconfiguratie en de algehele oplossing voor scale (bijvoorbeeld het aantal servers). De eenvoudige rekenkundige van deze onderdelen bruikbare capaciteit bepalen in tegenstelling tot een traditionele virtualisatieoplossing is niet van toepassing. De eerste reden is dat Azure-Stack is ontworpen voor het hosten van de infrastructuur of management componenten binnen de oplossing zelf. De tweede reden is dat enkele van de capaciteit van de oplossing is gereserveerd ter ondersteuning van tolerantie; het bijwerken van de oplossing software op een manier die onderbreking van de tenantwerkbelastingen minimaliseert. 
+
+De [Azure Stack capaciteit planner werkblad](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) helpt u geïnformeerd beslissingen te nemen met betrekking tot het plannen van capaciteit op twee manieren: ofwel de door een hardware-aanbieding selecteren en aanpassen aan een combinatie van bronnen of probeert door te definiëren de werkbelasting die Azure-Stack is bedoeld om uit te voeren om weer te geven van de beschikbare hardware-SKU's dat kan worden ondersteund. Ten slotte is het werkblad bedoeld als richtlijn bij het nemen van besluiten betrekking op Azure-Stack planning en configuratie hebben. 
+
+Het werkblad is niet bedoeld om te worden vervangen voor uw eigen onderzoek en analyse.  Microsoft geeft geen enkele expliciete of impliciete met betrekking tot de informatie in het werkblad.
+
+
 
 ## <a name="management-considerations"></a>Beheeroverwegingen
 Azure-Stack is een verzegeld systeem waar de infrastructuur is vergrendeld zowel vanuit een machtigingen en netwerk-perspectief. Netwerk toegangsbeheerlijsten (ACL's) worden toegepast voor het blokkeren van inkomend verkeer van alle niet-geautoriseerde en alle onnodige communicatie tussen onderdelen van de infrastructuur. Dit maakt het moeilijk voor onbevoegde gebruikers toegang tot het systeem.
