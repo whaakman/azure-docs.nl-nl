@@ -4,10 +4,9 @@
 ## [Bash - Snelstartgids](quickstart.md)
 ## [PowerShell - Snelstartgids](quickstart-powershell.md)
 
-# Concepten
+# Functies en hulpprogramma's
 ## [Bash - Functies en hulpprogramma's](features.md)
 ## [Powershell - Functies en hulpprogramma's](features-powershell.md)
-## [Beperkingen](limitations.md)
 
 # Uitleg
 ## [Bash - Permanente opslag](persisting-shell-storage.md)
@@ -20,7 +19,7 @@
 
 # [Cloud Shell insluiten](embed-cloud-shell.md)
 
-# [Problemen oplossen](troubleshooting.md)
+# [Probleemoplossing en beperkingen](troubleshooting.md)
 
 # Naslaginformatie
 ## [Azure-CLI](/cli/azure)

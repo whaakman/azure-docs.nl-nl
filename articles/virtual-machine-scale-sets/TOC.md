@@ -14,6 +14,7 @@
 # Procedures
 ## Plannen en ontwerpen
 ### [Overwegingen bij het ontwerpen](virtual-machine-scale-sets-design-overview.md)
+### [Exemplaar-id's begrijpen](virtual-machine-scale-sets-instance-ids.md)
 
 ## Een sjabloon maken
 ### [Meer informatie over schaalsetsjablonen](virtual-machine-scale-sets-mvss-start.md)

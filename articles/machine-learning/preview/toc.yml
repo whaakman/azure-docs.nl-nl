@@ -194,25 +194,15 @@
   items:
     - name: Veelgestelde vragen
       href: frequently-asked-questions.md
-    - name: Bekende problemen en probleemoplossing
+    - name: Problemen en probleemoplossing
       href: known-issues-and-troubleshooting-guide.md
-    - name: Documentatie voor Team Data Science Process
-      href: ../team-data-science-process/overview.md
-    - name: Documentatie voor Data Science VM
-      href: ../data-science-virtual-machine/overview.md
+    - name: Ondersteuning en training
+      href: support-for-aml-services.md
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
-    - name: Video's
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
-    - name: Feedbackforum
-      href: 'https://feedback.azure.com/forums/257792-machine-learning'
+      href: aml-services-pricing.md
     - name: Beschikbaarheid in regio’s
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Ondersteuningsopties
-      href: 'https://azure.microsoft.com/support/options/'
+    - name: Team Data Science Process
+      href: ../team-data-science-process/overview.md
