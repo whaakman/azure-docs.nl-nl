@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/04/2018
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 5550dc2ffc53c6ccd30ecb4901ec98c4d38e366b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 908a1130171cc091b4d95d4532cc3bb95edb44f9
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Schrijven naar HDFS van Apache Storm op HDInsight
 
@@ -40,11 +40,11 @@ Als u wilt compileren dit project, moet u de volgende configuratie voor uw ontwi
 
 De volgende omgevingsvariabelen kunnen worden ingesteld wanneer u Java en de JDK op uw ontwikkelwerkstation installeert. Echter, moet u controleren of ze bestaan en dat ze de juiste waarden voor uw systeem bevatten.
 
-* `JAVA_HOME`-moet verwijzen naar de map waar de JDK die is geïnstalleerd.
-* `PATH`-moet bevatten de volgende paden:
+* `JAVA_HOME` -moet verwijzen naar de map waar de JDK die is geïnstalleerd.
+* `PATH` -moet bevatten de volgende paden:
   
-    * `JAVA_HOME`(of equivalente paden).
-    * `JAVA_HOME\bin`(of equivalente paden).
+    * `JAVA_HOME` (of equivalente paden).
+    * `JAVA_HOME\bin` (of equivalente paden).
     * De map waar Maven is geïnstalleerd.
 
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>De HdfsBolt gebruiken met HDInsight
@@ -140,7 +140,7 @@ Zie voor meer informatie over het framework lichtstroom [https://storm.apache.or
 
 Storm op HDInsight omvat standaard niet de onderdelen die HdfsBolt gebruikt om te communiceren met Azure Storage of de Data Lake Store in klassenpad van Storm. Gebruik de volgende scriptactie toevoegen van deze onderdelen de `extlib` map voor Storm op het cluster:
 
-* Script-URI:`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
+* Script-URI: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * Knooppunten moeten worden toegepast op: Nimbus, Supervisor
 * Parameters: geen
 
@@ -160,7 +160,7 @@ Zie voor meer informatie over het gebruik van dit script met uw cluster de [aanp
 
 1. Gebruik de volgende opdracht in de topologie kopiëren naar het HDInsight-cluster. Vervang **gebruiker** met de SSH-gebruikersnaam die u hebt gebruikt bij het maken van het cluster. Vervang **CLUSTERNAME** door de naam van uw cluster.
    
-        scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs1.0-SNAPSHOT.jar
+        scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs-1.0-SNAPSHOT.jar
    
     Voer desgevraagd het wachtwoord dat wordt gebruikt bij het maken van de SSH-gebruiker voor het cluster. Als u een openbare sleutel in plaats van een wachtwoord gebruikt, moet u mogelijk gebruik van de `-i` -parameter voor het pad naar de overeenkomende persoonlijke sleutel opgeven.
    

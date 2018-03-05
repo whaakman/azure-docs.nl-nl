@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption for Windows and Linux IaaS VM 's
 Microsoft Azure is sterk doorgevoerd om ervoor te zorgen voor uw privacy van gegevens, onafhankelijkheid van gegevens en schakelt u de controle uw Azure gegevens via een bereik van gehoste technologieën geavanceerde voor het versleutelen, beheren en beheren van versleutelingssleutels besturingselement & audit toegang van gegevens. Dit biedt Azure-klanten de flexibiliteit om te kiezen welke oplossing het beste voldoet aan de behoeften van hun bedrijf. In dit artikel vindt we u een nieuwe technologieoplossing 'Azure Disk Encryption for Windows and Linux IaaS VM van' om te helpen beveiligen en bescherming van uw gegevens om te voldoen aan de beveiliging van de organisatie en de naleving verplichtingen. Het artikel biedt gedetailleerde richtlijnen over het gebruik van de Azure disk encryption functies met inbegrip van de ondersteunde scenario's en de gebruiker optreedt.
@@ -141,34 +141,7 @@ Voordat u Azure Disk Encryption op Azure IaaS VM's inschakelen voor de ondersteu
 > [!NOTE]
 > Voor Windows Server 2008 R2, moet u .NET Framework 4.5 is geïnstalleerd voordat u Azure-versleuteling inschakelen hebben. U kunt deze installeren via Windows Update door de optionele update Microsoft .NET Framework 4.5.2 voor Windows Server 2008 R2 x64 64-systemen te installeren ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption wordt ondersteund op de volgende galerie van Azure op basis van Linux-server distributies en versies:
-
-| Linux-distributie | Versie | Type van het volume voor de versleuteling wordt ondersteund|
-| --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | Besturingssysteem en schijf |
-| Ubuntu | 14.04.5-DAILY-LTS | Besturingssysteem en schijf |
-| Ubuntu | 12.10 | Gegevensschijf |
-| Ubuntu | 12.04 | Gegevensschijf |
-| RHEL | 7.4 | Besturingssysteem en schijf |
-| RHEL | 7.3 | Besturingssysteem en schijf |
-| RHEL | LVM 7.3 | Besturingssysteem en schijf |
-| RHEL | 7.2 | Besturingssysteem en schijf |
-| RHEL | 6.8 | Besturingssysteem en schijf |
-| RHEL | 6.7 | Gegevensschijf |
-| CentOS | 7.3 | Besturingssysteem en schijf |
-| CentOS | 7.2n | Besturingssysteem en schijf |
-| CentOS | 6.8 | Besturingssysteem en schijf |
-| CentOS | 7.1 | Gegevensschijf |
-| CentOS | 7.0 | Gegevensschijf |
-| CentOS | 6.7 | Gegevensschijf |
-| CentOS | 6.6 | Gegevensschijf |
-| CentOS | 6.5 | Gegevensschijf |
-| openSUSE | 13.2 | Gegevensschijf |
-| SLES | 12 SP1 | Gegevensschijf |
-| SLES | 12-SP1 (Premium) | Gegevensschijf |
-| SLES | HPC 12 | Gegevensschijf |
-| SLES | 11-SP4 (Premium) | Gegevensschijf |
-| SLES | 11 SP4 | Gegevensschijf |
+* Azure Disk Encryption wordt alleen ondersteund op specifieke Azure-galerie op basis van Linux-server distributies en versies.  Raadpleeg voor de lijst met ondersteunde versies en de [Veelgestelde vragen over Azure schijf versleuteling](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk Encryption is vereist dat uw sleutelkluis en de virtuele machines zich in de dezelfde Azure-regio en het abonnement bevinden.
 
@@ -792,7 +765,7 @@ Gebruik de volgende opdracht voor Windows Server 2008 R2:
 
     ServerManagerCmd -install BitLockers
 
-#### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Het volume met het besturingssysteem voorbereiden voor BitLocker met behulp van`bdehdcfg`
+#### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Het volume met het besturingssysteem voorbereiden voor BitLocker met behulp van `bdehdcfg`
 Voor het comprimeren van de partitie van het besturingssysteem en de machine voorbereiden voor BitLocker, voert u de volgende opdracht uit:
 
     bdehdcfg -target c: shrink -quiet
@@ -1284,9 +1257,6 @@ Wanneer u de OS-schijf koppelen, `$KeyEncryptionKey` en `$secretUrl`. De URL is 
             -DiskEncryptionKeyUrl $SecretUrl `
             -KeyEncryptionKeyVaultId $KeyVault.ResourceId `
             -KeyEncryptionKeyURL $KeyEncryptionKey.Id
-
-## <a name="download-this-guide"></a>Download deze handleiding
-U kunt deze handleiding uit downloaden de [TechNet-galerie](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 
 ## <a name="for-more-information"></a>Voor meer informatie
 [Verken Azure Disk Encryption met Azure PowerShell - deel 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  

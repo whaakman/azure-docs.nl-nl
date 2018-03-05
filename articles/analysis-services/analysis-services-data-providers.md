@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: e5159f8c6e8c271230151f71bf3057d07fc75c21
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5c847f5cd02503b708db8a0a0211b5d403df0943
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Clientbibliotheken voor het verbinden met Azure Analysis Services
 
@@ -27,23 +27,21 @@ Clientbibliotheken zijn nodig voor client-toepassingen en hulpprogramma's die ve
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Download de meest recente clientbibliotheken (Windows Installer)  
 
-|Downloaden  |Versie  | 
+|Downloaden  |Productversie  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.300.129.01      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.300.129.01      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.208      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.208      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2     |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO en ADOMD (NuGet-pakketten)
 
 Analysis Services Management Objects (AMO) en ADOMD clientbibliotheken zijn beschikbaar als een installeerbare pakketten uit [NuGet.org](https://www.nuget.org/). Het raadzaam dat u migreert naar NuGet-verwijzingen in plaats van Windows Installer. 
 
-|Pakket  |Versie  | 
+|Pakket  | Productversie  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2      |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2      |
-
-
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2.0      |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2.0      |
 
 NuGet-pakket assembly's AssemblyVersion Volg semantische versiebeheer: belangrijke. SECUNDAIRE. PATCH. NuGet-verwijzingen laden de verwachte versie, zelfs als er een andere versie in de GAC (die voortvloeien uit MSI-installatie). PATCH wordt voor elke release verhoogd. AMO en ADOMD versies bewaard in de synchronisatie.
 

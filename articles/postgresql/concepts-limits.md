@@ -1,66 +1,71 @@
 ---
-title: Beperkingen in Azure-Database voor PostgreSQL | Microsoft Docs
-description: Beschrijft de beperkingen in Azure-Database voor PostgreSQL.
+title: Beperkingen in Azure-Database voor PostgreSQL
+description: Dit artikel wordt beschreven beperkingen in Azure-Database voor PostgreSQL, zoals het aantal verbinding en opties voor opslag-engine.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
-ms.custom: mvc
 ms.topic: article
-ms.date: 12/04/2017
-ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.date: 02/28/2018
+ms.openlocfilehash: ba05308039e9743dd207333476e61a45c0ca166a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Beperkingen in Azure-Database voor PostgreSQL
 De Azure-Database voor PostgreSQL-service is in de openbare preview. De volgende secties beschrijven de capaciteit en functionele limieten in de database-service.
 
-## <a name="service-tier-maximums"></a>Service Tier maximumwaarden
-Azure PostgreSQL-Database heeft meerdere Servicelagen die u kiezen kunt uit bij het maken van een server. Zie voor meer informatie [begrijpen wat er beschikbaar is in elke servicelaag](concepts-service-tiers.md).  
+## <a name="pricing-tier-maximums"></a>Laag maximumwaarden prijzen
+Azure PostgreSQL-Database heeft meerdere Prijscategorieën die u bij het maken van een server kiezen kunt uit. Zie voor meer informatie [prijscategorieën in Azure-Database voor PostgreSQL](concepts-pricing-tiers.md).  
 
-Er is een maximum aantal verbindingen, compute-eenheden en opslag in elke servicelaag tijdens de preview service als volgt: 
+Er is een maximum aantal verbindingen, compute-eenheden en opslag in elke prijscategorie als volgt: 
 
-| | |
-| :------------------------- | :---------------- |
-| **Maximum aantal verbindingen**        |                   |
-| Basic 50 Compute-eenheden     | 55-verbindingen    |
-| Basic 100 Compute-eenheden    | 105 verbindingen   |
-| Standaard 100 Compute-eenheden | 150 verbindingen   |
-| Standaard 200 Compute-eenheden | 250 verbindingen   |
-| Standaard 400 Compute-eenheden | 480 verbindingen   |
-| Standaard 800 Compute-eenheden | 950 verbindingen   |
-| **Maximale Compute-eenheden**      |                   |
-| Basisservicelaag         | 100 compute-eenheden |
-| Standaardservicelaag      | 800 compute-eenheden |
-| **Maximale opslag**            |                   |
-| Basisservicelaag         | 1 TB              |
-| Standaardservicelaag      | 1 TB              |
+|Prijscategorie| COMPUTE generatie| vCore(s)| Maximum aantal verbindingen |
+|---|---|---|---|
+|Basic| Gen 4| 1| 50 |
+|Basic| Gen 4| 2| 100 |
+|Basic| Gen 5| 1| 50 |
+|Basic| Gen 5| 2| 100 |
+|Algemeen doel| Gen 4| 2| 150|
+|Algemeen doel| Gen 4| 4| 250|
+|Algemeen doel| Gen 4| 8| 480|
+|Algemeen doel| Gen 4| 16| 950|
+|Algemeen doel| Gen 4| 32| 1500|
+|Algemeen doel| Gen 5| 2| 150|
+|Algemeen doel| Gen 5| 4| 250|
+|Algemeen doel| Gen 5| 8| 480|
+|Algemeen doel| Gen 5| 16| 950|
+|Algemeen doel| Gen 5| 32| 1500|
+|Geoptimaliseerd geheugen| Gen 5| 2| 150|
+|Geoptimaliseerd geheugen| Gen 5| 4| 250|
+|Geoptimaliseerd geheugen| Gen 5| 8| 480|
+|Geoptimaliseerd geheugen| Gen 5| 16| 950|
+|Geoptimaliseerd geheugen| Gen 5| 32| 1900|
 
-Het Azure systeem vereist vijf verbindingen voor het bewaken van de Azure-Database voor PostgreSQL-server. Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
+Wanneer er verbindingen de limiet overschrijdt, wordt de volgende fout:
 > Onherstelbare fout: er al te veel clients
 
+Het Azure systeem vereist vijf verbindingen voor het bewaken van de Azure-Database voor PostgreSQL-server. 
 
-## <a name="preview-functional-limitations"></a>Functionele beperkingen Preview
+## <a name="functional-limitations"></a>Functionele beperkingen
 ### <a name="scale-operations"></a>Schaalbewerkingen
-1.  Dynamische schaalbaarheid van servers in Servicelagen is momenteel niet ondersteund. Dat wil zeggen, schakelen tussen servicecategorieën Basic en Standard.
-2.  Dynamische toename mogelijk op aanvraag van opslag op vooraf gemaakte server is momenteel niet ondersteund.
-3.  Verkleinen storage server wordt niet ondersteund.
+1.  Dynamische schaalbaarheid van servers in de prijscategorie is momenteel niet ondersteund. Dat wil zeggen, overschakelen tussen lagen Basic, algemeen of geoptimaliseerd voor geheugen.
+2.  Verkleinen storage server is momenteel niet ondersteund.
 
 ### <a name="server-version-upgrades"></a>Server-versie-upgrades
 - Automatische migratie tussen versies van de primaire database-engine is momenteel niet ondersteund.
 
 ### <a name="subscription-management"></a>Abonnementsbeheer
-- Dynamisch vooraf gemaakte servers verplaatsen tussen abonnement en resourcegroep is momenteel niet ondersteund.
+- Dynamisch servers verplaatsen tussen abonnementen en resourcegroepen is momenteel niet ondersteund.
 
-### <a name="point-in-time-restore"></a>Een punt in de tijd herstellen
-1.  Herstellen naar andere servicelaag en/of Compute-eenheden en de opslaggrootte is niet toegestaan.
-2.  Herstellen van een uitgevallen server wordt niet ondersteund.
+### <a name="point-in-time-restore-pitr"></a>Punt-in-time-herstel (PITR)
+1.  Wanneer u de functie PITR gebruikt, wordt de nieuwe server gemaakt met dezelfde configuratie als de server die is gebaseerd op.
+2.  Herstellen van een verwijderde server wordt niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Begrijpen [wat is beschikbaar in elke prijscategorie](concepts-service-tiers.md)
-- Begrijpen [ondersteunde versies van PostgreSQL-Database](concepts-supported-versions.md)
-- Bekijk [Back-up en herstellen van een server in Azure-Database voor PostgreSQL met de Azure portal](howto-restore-server-portal.md)
+- Begrijpen [wat is beschikbaar in elke prijscategorie](concepts-pricing-tiers.md)
+- Meer informatie over [ondersteunde versies van PostgreSQL-Database](concepts-supported-versions.md)
+- Bekijk [back-up en herstellen van een server in Azure-Database voor PostgreSQL met de Azure portal](howto-restore-server-portal.md)

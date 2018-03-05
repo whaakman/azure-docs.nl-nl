@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: wielriac
-ms.openlocfilehash: 3834fea5961a9c69243bb8e852631585c26a103f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 56e8c4c9f7ab9b40a210f284960f959a437a4e20
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Unieke kenmerken van de Azure-pagina-Blobs
 
@@ -117,7 +117,7 @@ foreach (PageRange range in pageRanges)
 #### <a name="leasing-a-page-blob"></a>Overdracht van een pagina-Blob
 De Lease Blob-bewerking wordt tot stand gebracht en een vergrendeling voor een blob beheert voor schrijven en verwijderen van bewerkingen. Deze bewerking is nuttig in scenario's waarbij een pagina-blob van meerdere clients om ervoor te zorgen slechts één client tegelijk kunt schrijven naar de blob wordt geopend. Azure-schijven, bijvoorbeeld: maakt gebruik van dit lease-mechanisme om te controleren of de schijf wordt alleen beheerd door een enkele virtuele machine. De duur van de vergrendeling kan 15 tot 60 seconden, of kunt oneindige. Zie de documentatie van [hier](/rest/api/storageservices/lease-blob) voor meer informatie.
 
-> Gebruik de volgende koppeling om op te halen [codevoorbeelden](/resources/samples/?service=storage&term=blob&sort=0) voor veel toepassingsscenario's. 
+> Gebruik de volgende koppeling om op te halen [codevoorbeelden](/resources/samples/?service=storage&term=blob&sort=0 ) voor veel toepassingsscenario's. 
 
 Naast uitgebreide REST-API's bieden pagina-blobs ook gedeelde toegang, duurzaamheid en verbeterde beveiliging. Deze voordelen nader beschreven in de volgende alinea's wordt uitgelegd. 
 

@@ -1,19 +1,19 @@
 ---
-title: Parameters van de server in Azure-Database configureren voor PostgreSQL via Azure portal | Microsoft Docs
+title: Parameters van de server in Azure-Database configureren voor PostgreSQL via Azure portal
 description: In dit artikel wordt beschreven hoe de parameters van de server in Azure-Database configureren voor PostgreSQL via de Azure portal.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/08/2017
-ms.openlocfilehash: 9e8262fbfcde2e69a656e356a7ab241f2d5043ad
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 02/28/2018
+ms.openlocfilehash: 6d43cac79c19e117385549b1678a464dc5731bd7
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-server-parameters-in-azure-portal"></a>Parameters van de server configureren in Azure-portal
 U kunt lijst, weergeven en bijwerken van configuratieparameters voor een Azure-Database voor PostgreSQL-server via de Azure-portal.
@@ -37,7 +37,7 @@ Om deze procedures handleiding die u moet doorlopen:
 ![informatieknop](./media/howto-configure-server-parameters-in-portal/4-information-button.png)
 
 6. Indien nodig, gebruiken de **zoekvak** beperken voor een specifieke parameter. De zoekopdracht is op de naam en beschrijving van de parameters.
-![Zoekresultaten](./media/howto-configure-server-parameters-in-portal/5-search.png)
+![zoekresultaten](./media/howto-configure-server-parameters-in-portal/5-search.png)
 
 7. Wijzig de parameterwaarden die u wilt aanpassen. Alle wijzigingen die u in een sessie aanbrengt worden in paars gemarkeerd. Wanneer u de waarden hebt gewijzigd, kunt u selecteren **opslaan**. U kunt **negeren** uw wijzigingen.
 ![Opslaan of wijzigingen negeren](./media/howto-configure-server-parameters-in-portal/6-save-and-discard-buttons.png)

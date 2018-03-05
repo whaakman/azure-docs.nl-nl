@@ -1,25 +1,25 @@
 ---
-title: Verbinding maken met toepassingen met Azure-Database voor MySQL | Microsoft Docs
+title: Verbinding maken met toepassingen met Azure-Database voor MySQL
 description: Dit document worden de momenteel ondersteunde verbindingsreeksen voor toepassingen om te verbinden met Azure-Database voor MySQL, met inbegrip van ADO.NET (C#), JDBC, Node.js, ODBC-, PHP, Python en Ruby.
 services: mysql
 author: mswutao
 ms.author: wuta
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: c9fe0a892bd5e81d2b33987b6ca55ec753550a01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: e7b200fd1de79f0bca680bdedc34fa376cf07d68
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Verbinding maken tussen toepassingen met Azure-Database voor MySQL
 Dit onderwerp worden de verbindingstypen tekenreeks die worden ondersteund door Azure Database voor MySQL, samen met sjablonen en voorbeelden. Mogelijk hebt u verschillende parameters en instellingen in de verbindingsreeks.
 
 - Als u het certificaat, Zie [SSL configureren](./howto-configure-ssl.md).
-- {your_host} = <servername>. mysql.database.azure.com
+- {your_host} = <servername>.mysql.database.azure.com
 - {your_user}@{servername} = userID indeling voor verificatie correct.  Als u alleen de gebruikers-id gebruikt, mislukt de verificatie.
 
 ## <a name="adonet"></a>ADO.NET
@@ -27,10 +27,10 @@ Dit onderwerp worden de verbindingstypen tekenreeks die worden ondersteund door 
 Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password};[SslMode=Required;]
 ```
 
-In dit voorbeeld wordt de servernaam van de is `myserver4demo`, de databasenaam van de is `wpdb`, de gebruikersnaam is `WPAdmin`, en het wachtwoord is `mypassword!2`. Als gevolg hiervan moet de verbindingsreeks:
+In dit voorbeeld wordt de servernaam van de is `mydemoserver`, de databasenaam van de is `wpdb`, de gebruikersnaam is `WPAdmin`, en het wachtwoord is `mypassword!2`. Als gevolg hiervan moet de verbindingsreeks:
 
 ```ado.net
-Server= "myserver4demo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@myserver4demo"; Pwd="mypassword!2"; SslMode=Required;
+Server= "mydemoserver.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@mydemoserver"; Pwd="mypassword!2"; SslMode=Required;
 ```
 
 ## <a name="jdbc"></a>JDBC

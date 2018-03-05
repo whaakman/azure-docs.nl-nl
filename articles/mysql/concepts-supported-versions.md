@@ -1,22 +1,22 @@
 ---
-title: Ondersteunde versies in Azure-Database voor MySQL | Microsoft Docs
+title: Ondersteunde versies in Azure voor MySQL-Database
 description: Beschrijft de ondersteunde versies in Azure-Database voor MySQL.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: dc9f98218a95f1f24a45f208b0da7b945f4c9663
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 02/28/2018
+ms.openlocfilehash: 1ee0326148be08d6bb151acad5f8e472b25a2a8b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Ondersteunde Azure-Database voor MySQL server-versies
-Azure MySQL-Database is ontwikkeld van MySQL Community Edition [MySQL Community Edition](https://www.mysql.com/products/community/), de InnoDB-engine.  Azure MySQL-Database ondersteunt momenteel de volgende versies:
+Azure MySQL-Database is ontwikkeld van [MySQL Community Edition](https://www.mysql.com/products/community/), de InnoDB-engine.  Azure MySQL-Database ondersteunt momenteel de volgende versies:
 
 ## <a name="mysql-version-5635"></a>MySQL-versie 5.6.35
 Raadpleeg de MySQL [documentatie] (https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-35.html) voor meer informatie over verbeteringen en oplossingen in MySQL 5.6.35.
@@ -25,8 +25,8 @@ Raadpleeg de MySQL [documentatie] (https://dev.mysql.com/doc/relnotes/mysql/5.6/
 Raadpleeg de MySQL [documentatie] (https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-18.html) voor meer informatie over verbeteringen en oplossingen in MySQL 5.7.18.
 
 ## <a name="managing-updates-and-upgrades"></a>Het beheer van updates en upgrades
-Azure MySQL-Database beheert automatisch patchen voor secundaire versie-updates. Op dit moment in de openbare preview hoofdversie upgrade wordt niet ondersteund. Bijvoorbeeld, wordt een upgrade van MySQL 5.6 naar MySQL 5.7 niet ondersteund.
+Azure MySQL-Database beheert automatisch patchen voor secundaire versie-updates. Primaire versie-upgrades, bijvoorbeeld een upgrade van MySQL 5.6 naar MySQL 5.7, worden niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor informatie over specifieke resource quota's en beperkingen op basis van uw **servicelaag**, Zie [Servicelagen](./concepts-service-tiers.md)
+Voor informatie over specifieke resource quota's en beperkingen op basis van uw **servicelaag**, Zie [Servicelagen](./concepts-pricing-tiers.md)

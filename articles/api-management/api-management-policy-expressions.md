@@ -14,34 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a5bcd03e71a69928fa1e02a5286801c4933d17ef
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="api-management-policy-expressions"></a>Expressies voor API Management-beleid
-De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot de opgegeven impliciet [context](api-management-policy-expressions.md#ContextVariables) variabele en een toegestane [subset](api-management-policy-expressions.md#CLRTypes) van .NET Framework-typen.  
-  
-> [!TIP]
->  Zie voor meer informatie over beleidsexpressies de [Beleidsexpressies](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) video.  
->   
->  Zie voor demonstraties van het configureren van beleidsregels met behulp van beleidsexpressies [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). In deze video bevat de volgende expressie demonstraties voor beleid:  
->   
->  -   10:30 - Zie contextinformatie met uw back endservice op te geven. Gebruik de [querytekenreeksparameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) en [ingesteld HTTP-header](api-management-transformation-policies.md#SetHTTPheader) beleid om deze informatie te geven. Bij 12:10 is er een demo voor het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u deze beleidsregels op kantoor kunt zien.  
-> -   Informatie over het gebruiken van 13:50 - de [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid vooraf toegang verlenen aan bewerkingen op basis van claims token. Snel door te sturen naar 15:00 om te zien hoe de beleidsregels zijn geconfigureerd in de beleidseditor. Zie een demonstratie van een bewerking aanroepen vanuit de ontwikkelaarsportal zowel met en zonder de vereiste verificatietoken op 18:50.  
-> -   21:00 - gebruik een [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) trace om te zien hoe beleid wordt geëvalueerd en de resultaten van deze evaluatie.  
-> -   25:25 - informatie over het gebruiken van expressies met de [ophalen uit de cache](api-management-caching-policies.md#GetFromCache) en [Store aan cache](api-management-caching-policies.md#StoreToCache) beleid om caching van API Management-antwoord te configureren. Stel een duur die overeenkomt met het antwoord in cache plaatsen van de back-endservice zoals opgegeven door de back-service `Cache-Control` richtlijn.  
-> -   34:30 - informatie over het uitvoeren van webinhoud te filteren. Gegevenselementen verwijderen uit het antwoord van de back-end via de [transportbesturing](api-management-advanced-policies.md#choose) en [instantie ingesteld](api-management-transformation-policies.md#SetBody) beleid. Start op 31:50 voor een overzicht van [de donker Sky Forecast API](https://developer.forecast.io/) gebruikt voor deze demonstratie.  
-> -   Zie voor het downloaden van de beleid-instructies in deze video gebruikt de [api-management-voorbeelden/beleid](https://github.com/Azure/api-management-samples/tree/master/policies) github-opslagplaats.  
+Dit artikel wordt beschreven beleid expressies syntaxis is C# 6.0. Elke expressie toegang heeft tot de opgegeven impliciet [context](api-management-policy-expressions.md#ContextVariables) variabele en een toegestane [subset](api-management-policy-expressions.md#CLRTypes) van .NET Framework-typen.  
+
+Voor meer informatie:
+
+- Zie how to contextinformatie met uw back endservice op te geven. Gebruik de [querytekenreeksparameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) en [ingesteld HTTP-header](api-management-transformation-policies.md#SetHTTPheader) beleid om deze informatie te geven.
+- Zie how to use de [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid vooraf toegang verlenen aan bewerkingen op basis van claims token.   
+- Zie how to use een [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) trace om te zien hoe beleid wordt geëvalueerd en de resultaten van deze evaluatie.  
+- Informatie over het gebruiken van expressies met de [ophalen uit de cache](api-management-caching-policies.md#GetFromCache) en [Store aan cache](api-management-caching-policies.md#StoreToCache) beleid om caching van API Management-antwoord te configureren. Stel een duur die overeenkomt met het antwoord in cache plaatsen van de back-endservice zoals opgegeven door de back-service `Cache-Control` richtlijn.  
+- Zie het uitvoeren van webinhoud te filteren. Gegevenselementen verwijderen uit het antwoord van de back-end via de [transportbesturing](api-management-advanced-policies.md#choose) en [instantie ingesteld](api-management-transformation-policies.md#SetBody) beleid. 
+- Zie voor het downloaden van de beleidsverklaringen de [api-management-voorbeelden/beleid](https://github.com/Azure/api-management-samples/tree/master/policies) github-opslagplaats.  
   
   
-##  <a name="Syntax"></a>Syntaxis  
+##  <a name="Syntax"></a> Syntaxis  
  Één instructie expressies zijn ingesloten in `@(expression)`, waarbij `expression` is een goed ingedeelde C#-expressie-instructie.  
   
  Meerdere instructies expressies zijn ingesloten in `@{expression}`. Alle codepaden binnen meerdere instructies expressies moeten eindigen met een `return` instructie.  
   
-##  <a name="PolicyExpressionsExamples"></a>Voorbeelden  
+##  <a name="PolicyExpressionsExamples"></a> Voorbeelden  
   
 ```  
 @(true)  
@@ -67,13 +64,13 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 }  
 ```  
   
-##  <a name="PolicyExpressionsUsage"></a>Gebruik  
+##  <a name="PolicyExpressionsUsage"></a> Gebruik  
  Expressies kunnen worden gebruikt als kenmerkwaarden of tekstwaarden in een API Management [beleid](api-management-policies.md) (tenzij de naslaginformatie over beleid iets anders aangeeft).  
   
 > [!IMPORTANT]
 >  Wanneer u beleidsexpressies gebruikt, is dit alleen beperkt verificatie van de beleidsexpressies als het beleid is gedefinieerd. Expressies worden uitgevoerd door de gateway tijdens runtime, eventuele uitzonderingen die worden gegenereerd door beleid expressies resulteren in een runtime-fout.  
   
-##  <a name="CLRTypes"></a>.NET framework-typen die zijn toegestaan in beleidsexpressies voor  
+##  <a name="CLRTypes"></a> .NET framework-typen die zijn toegestaan in beleidsexpressies voor  
  De volgende tabel bevat de typen .NET Framework en hun leden die zijn toegestaan in beleidsexpressies voor.  
   
 |CLR-type|Ondersteunde methoden|  
@@ -167,7 +164,7 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 |System.Xml.Linq.XText|Alle methoden worden ondersteund|  
 |System.Xml.XmlNodeType|Alle|  
   
-##  <a name="ContextVariables"></a>Context variabele  
+##  <a name="ContextVariables"></a> Context variabele  
  Een variabele met de naam `context` impliciet beschikbaar is in elk beleid [expressie](api-management-policy-expressions.md#Syntax). De leden bevatten informatie die relevant zijn voor de `\request`. Alle van de `context` leden zijn alleen-lezen.  
   
 |Context variabele|Methoden, eigenschappen en parameterwaarden toegestaan|  
@@ -206,10 +203,7 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 |byte [] ontsleutelen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|invoer - ineens tekst die moet worden gedecodeerd<br /><br />Alg - versleutelingsalgoritme<br /><br />Retourneert tekst zonder opmaak.|
 |byte [] ontsleutelen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, sleutel: byte [], iv:byte[])|invoer - invoer - ineens tekst die moet worden gedecodeerd<br /><br />Alg - versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Retourneert tekst zonder opmaak.|
 
-## <a name="video"></a>Video
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
->
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie, werken met beleid:

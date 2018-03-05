@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/10/2018
+ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 4b64331a4f25ce0cc01b2ee9f32633ab035e3131
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 3c34a3851dbb5c5258b3dc0cf35a510f62cbe14e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>De instelling ImageStoreConnectionString begrijpen
 
@@ -42,7 +42,9 @@ Het type provider dat wordt gebruikt in productie is de Image Store-Service een 
 
 Hosting-archief van de installatiekopie in een systeemservice binnen het cluster zelf, hoeft u externe afhankelijkheden voor de opslagplaats van het pakket en geeft ons meer controle over de plaats van opslag. Toekomstige verbeteringen rond de Image Store, zullen de Image Store-provider eerst als dit niet uitsluitend als doel. De verbindingsreeks voor de provider Image Store-Service geen unieke informatie omdat de client al met het doelcluster verbonden is. De client moet alleen te weten dat de protocollen die gericht is op de service moeten worden gebruikt.
 
-De File System-provider wordt gebruikt in plaats van de Image Store-Service voor lokale 1-box-clusters tijdens het ontwikkelen voor het cluster iets sneller bootstrap. Het verschil is normaal gesproken een kleine, maar het is een nuttig optimalisatie voor de meeste mensen tijdens de ontwikkeling. Het is mogelijk een lokaal cluster een vak met de andere provider opslagtypen ook implementeren, maar meestal is er geen reden om dit te doen omdat u de werkstroom ontwikkelen en testen blijft hetzelfde, ongeacht de provider. Dan dit gebruik bestaan de bestandssysteem en Azure Storage providers alleen voor ondersteuning.
+De File System-provider wordt gebruikt in plaats van de Image Store-Service voor lokale 1-box-clusters tijdens het ontwikkelen voor het cluster iets sneller bootstrap. Het verschil is normaal gesproken een kleine, maar het is een nuttig optimalisatie voor de meeste mensen tijdens de ontwikkeling. Het is mogelijk een lokaal cluster een vak met de andere provider opslagtypen ook implementeren, maar meestal is er geen reden om dit te doen omdat u de werkstroom ontwikkelen en testen blijft hetzelfde, ongeacht de provider. De Azure Storage-provider is alleen beschikbaar voor de ondersteuning van de oude clusters geïmplementeerd voordat de Image Store-Service provider werd geïntroduceerd.
+
+Bovendien noch de provider bestandssysteem noch de Azure Storage-provider moet worden gebruikt als een methode voor het delen van een Image Store tussen clusters met meerdere - dit leidt tot beschadiging van de clusterconfiguratiegegevens als elk cluster conflicterende gegevens naar schrijven kunt de Image Store. Als u wilt ingerichte toepassingspakketten tussen clusters met meerdere delen, gebruik [sfpkg] [ 12] bestanden in plaats daarvan die kunnen worden geüpload naar een externe winkel met het downloaden van een URI.
 
 Dus terwijl de ImageStoreConnectionString kan worden geconfigureerd, wordt meestal NET gebruikt de standaardinstelling. Bij het publiceren naar Azure met Visual Studio, wordt de parameter automatisch voor u ingesteld dienovereenkomstig. De verbindingsreeks is voor programmatische implementatie voor clusters die worden gehost in Azure, altijd 'fabric: Installatiekopieopslag'. Hoewel bij twijfel kan de waarde altijd worden gecontroleerd door bij het ophalen van het clustermanifest door [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), of [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Zowel on-premises test en productieclusters moeten altijd worden geconfigureerd voor gebruik van de Image Store-Service-provider.
 
@@ -55,4 +57,4 @@ Dus terwijl de ImageStoreConnectionString kan worden geconfigureerd, wordt meest
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-
+[12]: service-fabric-package-apps.md#create-an-sfpkg

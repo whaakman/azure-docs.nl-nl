@@ -1,19 +1,19 @@
 ---
-title: Migreer uw MySQL-database met behulp van de dump en MySQL in Azure-Database herstellen | Microsoft Docs
+title: Migreer uw MySQL-database met behulp van de dump en MySQL in Azure-Database herstellen
 description: Dit artikel wordt uitgelegd twee algemene manieren om te back-up en herstellen van databases in uw Azure-Database voor MySQL, met de hulpprogramma's zoals mysqldump, MySQL Workbench en PHPMyAdmin.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: e962fd65244ceebfc7544dc5a1d1956dad811fea
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 0c5a6b6d971d434a52bf80da6b34d7f6949589bc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Uw MySQL-database migreren naar Azure-Database voor MySQL met behulp van de dump en terugzetten
 Dit artikel wordt uitgelegd twee algemene manieren om te back-up en MySQL-databases in uw Azure-Database herstellen
@@ -91,7 +91,7 @@ Om verbinding te maken, door de verbindingsgegevens op de pagina eigenschappen i
 ![De verbindingsgegevens niet vinden in de Azure-portal](./media/concepts-migrate-dump-restore/1_server-properties-name-login.png)
 
 Voeg de verbindingsinformatie in uw MySQL-Workbench.
-![MySQL-Workbench verbindingsreeks](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
+![MySQL Workbench Connection String](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
 
 ## <a name="restore-your-mysql-database-using-command-line-or-mysql-workbench"></a>Uw MySQL-database met een opdrachtregel of MySQL Workbench herstellen
@@ -101,7 +101,7 @@ mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 In dit voorbeeld wordt de gegevens in de zojuist gemaakte database op de doel-Azure-Database voor de MySQL-server te herstellen.
 ```bash
-$ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p testdb < testdb_backup.sql
+$ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
 
 ## <a name="export-using-phpmyadmin"></a>Exporteren met behulp van PHPMyAdmin

@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: afa5c6a07432456d703020c0b8c5c3606478b8fe
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Het beveiligen van back-end-services met behulp van client certificaatverificatie in Azure API Management
 API Management biedt de mogelijkheid voor het beveiligen van toegang tot de back-end-service van een API met behulp van clientcertificaten. Deze handleiding wordt beschreven hoe u voor het beheren van certificaten in de publicatieportal van API en het configureren van een API voor het gebruik van een certificaat voor toegang tot de back-end-service.
 
 Zie voor meer informatie over het beheren van certificaten met behulp van API Management REST API [Azure API Management REST API certificaat entiteit][Azure API Management REST API Certificate entity].
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"> </a>Vereisten
 Deze handleiding laat zien hoe uw API Management-service-exemplaar voor het gebruik van verificatie van clientcertificaten voor toegang tot de back-end-service voor een API te configureren. Voordat u de stappen in dit onderwerp, hebt u uw back-end-service die is geconfigureerd voor verificatie van clientcertificaten ([certificaatverificatie in Azure WebSites configureren Raadpleeg dit artikel] [ to configure certificate authentication in Azure WebSites refer to this article]), en hebben toegang tot het certificaat en het wachtwoord voor het certificaat voor het uploaden van in de publicatieportal van API Management.
 
-## <a name="step1"></a>Een certificaat uploaden
+## <a name="step1"> </a>Een certificaat uploaden
 Als u aan de slag wilt gaan, klikt u op **Publicatieportal** in Azure Portal voor uw API Management-service. Hiermee gaat u naar de publicatieportal van API Management.
 
 ![API-publicatieportal][api-management-management-console]
@@ -58,7 +58,7 @@ Klik op **uploaden** om het certificaat te uploaden.
 > 
 > 
 
-![Certificaat geüpload][api-management-certificate-uploaded]
+![Het certificaat is geüpload][api-management-certificate-uploaded]
 
 Zodra het certificaat is geüpload, wordt deze weergegeven op de **clientcertificaten** tabblad. Als er meerdere certificaten, moet u een notitie van het onderwerp of de laatste vier tekens van de vingerafdruk die worden gebruikt voor het certificaat te selecteren bij het configureren van een API voor het gebruik van certificaten, zoals beschreven in de volgende [configureren van een API gebruiken een clientcertificaat voor gatewayverificatie] [ Configure an API to use a client certificate for gateway authentication] sectie.
 
@@ -66,7 +66,7 @@ Zodra het certificaat is geüpload, wordt deze weergegeven op de **clientcertifi
 > 
 > 
 
-## <a name="step1a"></a>Een clientcertificaat verwijderen
+## <a name="step1a"> </a>Een clientcertificaat verwijderen
 Als u wilt een certificaat wilt verwijderen, klikt u op **verwijderen** naast het gewenste certificaat.
 
 ![Certificaat verwijderen][api-management-certificate-delete]
@@ -79,7 +79,7 @@ Als het certificaat gebruikt door een API wordt en vervolgens een waarschuwing w
 
 ![De verwijdering bevestigen][api-management-confirm-delete-policy]
 
-## <a name="step2"></a>Een API voor het gebruik van een certificaat voor gatewayverificatie configureren
+## <a name="step2"> </a>Een API voor het gebruik van een certificaat voor gatewayverificatie configureren
 Klik op **API's** van de **API Management** menu aan de linkerkant op de naam van de gewenste API en klik op de **beveiliging** tabblad.
 
 ![API-beveiliging][api-management-api-security]
@@ -114,13 +114,6 @@ Als u zelfondertekende certificaten gebruikt, moet u API Management om te commun
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
-
-## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over andere manieren voor het beveiligen van uw back-endservice zoals HTTP basic of gedeelde geheime-verificatie, de volgende video.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
 [api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png

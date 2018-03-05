@@ -1,43 +1,49 @@
 ---
-title: Beperkingen in Azure-Database voor MySQL | Microsoft Docs
-description: Preview-beperkingen in Azure-Database voor MySQL beschrijft.
+title: Beperkingen in Azure-Database voor MySQL
+description: Dit artikel wordt beschreven beperkingen in Azure-Database voor MySQL, zoals het aantal verbinding en opties voor opslag-engine.
 services: mysql
-author: jasonh
-ms.author: kamathsun
-manager: jhubbard
+author: kamathsun
+ms.author: sukamat
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/11/2018
-ms.openlocfilehash: f0f9a10f987f19d8ae77a07038cffe23446856fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.date: 02/28/2018
+ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Beperkingen in Azure-Database voor MySQL
 De Azure-Database voor de MySQL-service is in de openbare preview. De volgende secties beschrijven capaciteit, ondersteuning voor opslag-engine, ondersteuning van bevoegdheden, gegevensondersteuning manipulatie instructie en functionele limieten in de database-service. Zie ook [algemene beperkingen](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) van toepassing op de MySQL-database-engine.
 
 ## <a name="service-tier-maximums"></a>Service tier maximumwaarden
-Azure MySQL-Database heeft meerdere Servicelagen kiezen bij het maken van een server. Zie voor meer informatie [begrijpen wat er beschikbaar is in elke servicelaag](concepts-service-tiers.md).  
+Azure MySQL-Database heeft meerdere Servicelagen kiezen bij het maken van een server. Zie voor meer informatie [Azure Database voor MySQL Prijscategorieën](concepts-pricing-tiers.md).  
 
 Er is een maximum aantal verbindingen, Compute-eenheden en opslag in elke servicelaag tijdens de preview, als volgt: 
 
-|                            |                   |
-| :------------------------- | :---------------- |
-| **Maximum aantal verbindingen**        |                   |
-| Basic 50 Compute-eenheden     | 50-verbindingen    |
-| Basic 100 Compute-eenheden    | 100 verbindingen   |
-| Standaard 100 Compute-eenheden | 200-verbindingen   |
-| Standaard 200 Compute-eenheden | 400-verbindingen   |
-| Standaard 400 Compute-eenheden | 800 verbindingen   |
-| Standaard 800 Compute-eenheden | 1600-verbindingen  |
-| **Maximale Compute-eenheden**      |                   |
-| Basisservicelaag         | 100 compute-eenheden |
-| Standaardservicelaag      | 800 compute-eenheden |
-| **Maximale opslag**            |                   |
-| Basisservicelaag         | 1 TB              |
-| Standaardservicelaag      | 1 TB              |
+|**Prijscategorie**| **COMPUTE generatie**|**vCore(s)**| **Max Connections**|
+|---|---|---|---|
+|Basic| Gen 4| 1| 50|
+|Basic| Gen 4| 2| 100|
+|Basic| Gen 5| 1| 50|
+|Basic| Gen 5| 2| 100|
+|Algemeen doel| Gen 4| 2| 200|
+|Algemeen doel| Gen 4| 4| 400|
+|Algemeen doel| Gen 4| 8| 800|
+|Algemeen doel| Gen 4| 16| 1600|
+|Algemeen doel| Gen 4| 32| 3200|
+|Algemeen doel| Gen 5| 2| 200|
+|Algemeen doel| Gen 5| 4| 400|
+|Algemeen doel| Gen 5| 8| 800|
+|Algemeen doel| Gen 5| 16| 1600|
+|Algemeen doel| Gen 5| 32| 3200|
+|Geoptimaliseerd geheugen| Gen 5| 2| 600|
+|Geoptimaliseerd geheugen| Gen 5| 4| 1250|
+|Geoptimaliseerd geheugen| Gen 5| 8| 2500|
+|Geoptimaliseerd geheugen| Gen 5| 16| 5000|
+|Geoptimaliseerd geheugen| Gen 5| 32| 10.000| 
 
 Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 > FOUT (08004) 1040: Te veel verbindingen
@@ -46,7 +52,7 @@ Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 
 ### <a name="supported"></a>Ondersteund
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
-- [GEHEUGEN](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+- [MEMORY](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
 ### <a name="unsupported"></a>Niet-ondersteund
 - [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
@@ -57,8 +63,8 @@ Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 ## <a name="privilege-support"></a>Ondersteuning van bevoegdheden
 
 ### <a name="unsupported"></a>Niet-ondersteund
-- DBA rol veel server parameters en instellingen kunnen per ongeluk serverprestaties slechter of ACID-eigenschappen van het DBMS dat. Als zodanig voor het onderhouden van onze service integriteit en SLA op het productniveau van een blootstellen we niet de rol DBA aan klanten. De standaard-gebruikersaccount is samengesteld wanneer een nieuwe database-exemplaar wordt gemaakt, kan klanten de meeste DDL en DML-instructies in het beheerde database-exemplaar uitvoeren. 
-- SUPER bevoegdheid op dezelfde manier [SUPER bevoegdheid](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) wordt ook beperkt.
+- DBA rol: veel parameters van de server en -instellingen kunnen per ongeluk serverprestaties slechter of ACID-eigenschappen van het DBMS uitsluiten. Als zodanig om te blijven de integriteit van de service en de SLA op het productniveau van een, wordt deze service niet weergegeven de DBA-rol. De standaard-gebruikersaccount is samengesteld wanneer een nieuwe database-exemplaar wordt gemaakt, kan die gebruiker voor het grootste deel van de DDL- en DML-instructies in het beheerde database-exemplaar. 
+- SUPER bevoegdheden: op dezelfde manier [SUPER bevoegdheid](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) wordt ook beperkt.
 
 ## <a name="data-manipulation-statement-support"></a>Ondersteuning voor gegevens manipulatie-instructie
 
@@ -71,8 +77,7 @@ Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 ## <a name="preview-functional-limitations"></a>Functionele beperkingen Preview
 
 ### <a name="scale-operations"></a>Schaalbewerkingen
-- Dynamische schaalbaarheid van servers in Servicelagen is momenteel niet ondersteund. Dat wil zeggen, schakelen tussen servicecategorieën Basic en Standard.
-- Dynamische toename mogelijk op aanvraag van opslag op vooraf gemaakte server is momenteel niet ondersteund.
+- Dynamische schaalbaarheid van servers in de prijscategorie is momenteel niet ondersteund. Dat wil zeggen, schakelen tussen Basic, algemeen gebruik en geoptimaliseerd voor geheugen Prijscategorieën.
 - Verkleinen storage server wordt niet ondersteund.
 
 ### <a name="server-version-upgrades"></a>Server-versie-upgrades
@@ -91,5 +96,5 @@ Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 - MySQL-serverexemplaar wordt de verkeerde serverversie nadat de verbinding tot stand is gebracht. Als u de juiste server exemplaar versiebeheer, gebruikt u Selecteer version(); de opdracht bij de MySQL-prompt.
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Wat is beschikbaar in elke servicelaag](concepts-service-tiers.md)
+- [Wat is beschikbaar in elke servicelaag](concepts-pricing-tiers.md)
 - [Ondersteunde versies van de MySQL-database](concepts-supported-versions.md)

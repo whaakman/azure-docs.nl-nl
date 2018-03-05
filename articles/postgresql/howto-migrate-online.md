@@ -1,19 +1,19 @@
 ---
-title: Minimale downtime migratie naar Azure-Database voor PostgreSQL | Microsoft Docs
+title: Minimale downtime migratie naar Azure-Database voor PostgreSQL
 description: Dit artikel wordt beschreven hoe u een minimale downtime migratie uitvoert door een PostgreSQL-database in te pakken op een bestand, de PostgreSQL-database terugzetten vanuit een archiefbestand door pg_dump in Azure-Database gemaakt voor PostgreSQL en instellen van de eerste keer wordt geladen en continue synchroniseren van gegevens uit de brondatabase met de doeldatabase met behulp van Attunity repliceren voor Microsoft Migrations.
 services: postgresql
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 01/04/2018
-ms.openlocfilehash: efbd4f227880875c11e2c43c84716dfc49c5717d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: 48cf460405ae3985553f9bff29f4fd7abb008196
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Minimale downtime migratie naar Azure-Database voor PostgreSQL
 U kunt uw bestaande PostgreSQL-database migreren naar Azure-Database voor PostgreSQL door Attunity repliceren voor Microsoft Migrations. Attunity repliceren is een gezamenlijke aanbieding van Attunity en Microsoft. Samen met de Azure-databaseservice migratie is het opgenomen zonder extra kosten voor klanten van Microsoft. 

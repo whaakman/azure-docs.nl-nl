@@ -1,19 +1,19 @@
 ---
-title: Gebruikers maken in Azure-Database voor de MySQL-server | Microsoft Docs
+title: Gebruikers maken in Azure-Database voor de MySQL-server
 description: Dit artikel wordt beschreven hoe u nieuwe gebruikersaccounts voor interactie met een Azure-Database voor de MySQL-server kunt maken.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: 8adb74e11570ac60ad3b898b737cff4699f2bbf1
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 9fd592efe48adefc6aca7a6caea24f546da23fa5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Gebruikers maken in Azure-Database voor de MySQL-server 
 Dit artikel wordt beschreven hoe u gebruikers in een Azure-Database voor de MySQL-server kunt maken.
@@ -80,7 +80,7 @@ Zodra de Azure-Database voor de MySQL-server is gemaakt, kunt u de eerste gebrui
 5. Aanmelden bij de server, de aangewezen-database met de nieuwe gebruikersnaam en wachtwoord opgeven. Dit voorbeeld toont de mysql-opdrachtregel. Met deze opdracht wordt u gevraagd om het wachtwoord voor de gebruikersnaam. Vervang uw eigen servernaam, databasenaam en gebruikersnaam.
 
    ```azurecli-interactive
-   mysql --host myserver4demo.mysql.database.azure.com --database testdb --user db_user@myserver4demo -p
+   mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 
 ## <a name="next-steps"></a>Volgende stappen

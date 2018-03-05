@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 697196f725f0cb8ad3054bd8336b588c17dddc3d
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: HT
+ms.openlocfilehash: 77c8a6a5e384d27dca2582cc0fedc2bd23c0592e
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-hub-device-provisioning-service"></a>Verbinding maken met Azure IoT Hub apparaat-Service inricht met MXChip IoT DevKit
 
@@ -26,6 +26,8 @@ In dit artikel wordt beschreven hoe DevKit configureren zodat automatisch wordt 
 * Unieke apparaat geheim Regulatie gebruikt voor het genereren van het X.509-certificaat
 * Afzonderlijke apparaat inschrijven
 * Controleer of dat het apparaat is geregistreerd
+
+De [MXChip IoT DevKit](https://aka.ms/iot-devkit) is een Arduino alles in één mededelingenbord compatibel is met de randapparaten uitgebreide en sensoren. U kunt ontwikkelen via [Visual Studio Code-uitbreiding voor Arduino](https://aka.ms/arduino). En beschikt u over een groeiende [projecten catalogus](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) om u te begeleiden prototype Internet der dingen (IoT) oplossingen die van Microsoft Azure-services gebruikmaken.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

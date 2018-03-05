@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: rayne
-ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Plannen van capaciteit en de schaalbaarheid van VMware-replicatie met Azure Site Recovery
 
@@ -20,7 +20,7 @@ Gebruik dit artikel bij het plannen van capaciteit en de schaling bij het lokale
 
 ## <a name="how-do-i-start-capacity-planning"></a>Hoe start capaciteitsplanning?
 
-Informatie verzamelen over uw replicatieomgeving door het uitvoeren van de [Azure Site Recovery implementatie Planner](https://aka.ms/asr-deployment-planner-doc) voor VMware-replicatie. [Meer informatie](site-recovery-deployment-planner.md) over dit hulpprogramma. U kunt informatie verzamelen over compatibele en niet-compatibele virtuele machines, schijven per virtuele machine, en gegevens verloop per schijf. Het hulpprogramma vallen ook netwerkbandbreedte en de Azure-infrastructuur die nodig zijn voor een geslaagde failover voor replicatie en test.
+Informatie verzamelen over uw replicatieomgeving door het uitvoeren van de [Azure Site Recovery implementatie Planner](https://aka.ms/asr-deployment-planner-doc) voor VMware-replicatie. [Meer informatie](site-recovery-deployment-planner.md) over dit hulpprogramma. U kunt informatie verzamelen over compatibele en niet-compatibele virtuele machines, schijven per virtuele machine, en gegevens verloop per schijf. Het hulpprogramma behandelt ook de netwerkbandbreedtevereisten en de Azure-infrastructuur die nodig is voor een succesvolle replicatie en testfailover.
 
 ## <a name="capacity-considerations"></a>Overwegingen voor capaciteitsplanning
 
@@ -85,7 +85,7 @@ Nadat u hebt gebruikt de [het hulpprogramma implementatie Planner](site-recovery
 2. Klik in de module op **Eigenschappen wijzigen**.
 
     ![Schermopname van Azure Backup MMC-module optie Eigenschappen wijzigen](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. Op de **bandbreedtebeperking** tabblad **inschakelen voor gebruik van internetbandbreedte voor back-upbewerkingen**. Stel de limieten voor het werk en niet-werk uren. Het geldige bereik ligt tussen 512 Kbps en 102 Mbps.
+3. Op de **bandbreedtebeperking** tabblad **inschakelen voor gebruik van internetbandbreedte voor back-upbewerkingen**. Stel de limieten voor het werk en niet-werk uren. Ongeldig bereik liggen tussen 512 Kbps en 1023 Mbps per seconde.
 
     ![Schermopname van Azure back-up eigenschappenvenster](./media/site-recovery-vmware-to-azure/throttle2.png)
 

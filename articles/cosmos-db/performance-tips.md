@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 2e49613cf37fa625efc7859802db86780dcb128a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2b822794cbafa037d4ab3cb23d2a885914c83607
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -97,7 +97,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     De Azure Cosmos DB SDK's zijn voortdurend wordt verbeterd, zodat de beste prestaties bieden. Zie de [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) pagina's om te bepalen van de meest recente SDK en verbeteringen controleren.
 2. **Een singleton Azure DB die Cosmos-client gedurende de levensduur van uw toepassing gebruiken**
 
-    Efach DocumentClient exemplaar is van thread-veilige en efficiënte Verbindingsbeheer en adrescaching in directe modus wordt uitgevoerd. Zodat efficiënt Verbindingsbeheer en betere prestaties door DocumentClient verdient het gebruik van één exemplaar van de DocumentClient per AppDomain gedurende de levensduur van de toepassing.
+    Elke DocumentClient-exemplaar is van thread-veilige en efficiënte Verbindingsbeheer en adrescaching in directe modus wordt uitgevoerd. Zodat efficiënt Verbindingsbeheer en betere prestaties door DocumentClient verdient het gebruik van één exemplaar van de DocumentClient per AppDomain gedurende de levensduur van de toepassing.
 
    <a id="max-connection"></a>
 3. **System.Net MaxConnections per host verhogen als u de Gateway-modus**

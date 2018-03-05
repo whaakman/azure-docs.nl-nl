@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: d7dd35a8382f4a99ababbe804c5c71b29148c44a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8f347827c640729112e2e8f4c11288b6bcb176ea
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Virtuele netwerken in verschillende Azure-regio's toewijzen
 
@@ -70,7 +70,7 @@ Als u netwerktoewijzing al heeft plaatsgevonden, kunt u het virtuele netwerk nie
 
 
 ## <a name="subnet-selection"></a>Selectie van subnet
-Het subnet van de virtuele doelmachine is geselecteerd op basis van de naam van het subnet van de virtuele bronmachine. Als een subnet met dezelfde naam als de virtuele bronmachine beschikbaar in het doelnetwerk is, wordt dat subnet ingesteld voor de virtuele doelmachine. Als een subnet met dezelfde naam niet in het doelnetwerk bestaat, wordt het alfabetisch eerste subnet ingesteld als het doelsubnet. 
+Het subnet van de virtuele doelmachine is geselecteerd op basis van de naam van het subnet van de virtuele bronmachine. Als een subnet met dezelfde naam als de virtuele bronmachine beschikbaar in het doelnetwerk is, wordt dat subnet ingesteld voor de virtuele doelmachine. Als een subnet met dezelfde naam niet in het doelnetwerk bestaat, wordt het alfabetisch eerste subnet ingesteld als het doelsubnet.
 
 Voor het wijzigen van het subnet, gaat u naar de **berekening en netwerk** instellingen voor de virtuele machine.
 

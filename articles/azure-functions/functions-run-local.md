@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
-ms.translationtype: MT
+ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Code en Azure Functions lokaal testen
 
@@ -105,6 +105,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Gebruik voor het maken van het project zonder een lokale Git-opslagplaats de `--no-source-control [-n]` optie.
+
+## <a name="register-extensions"></a>Extensies registreren
+
+In versie 2.x van de Azure Functions-runtime, moet u expliciet registreren de [binding extensies](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) die u in de functie-app gebruiken. 
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+Zie voor meer informatie [Azure Functions triggers en bindingen concepten](functions-triggers-bindings.md#register-binding-extensions).
 
 ## <a name="local-settings-file"></a>Lokale instellingenbestand
 
@@ -311,6 +319,10 @@ Voer bijvoorbeeld de volgende opdracht om een HTTP-geactiveerde functie aanroepe
 ```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
+
+### <a name="viewing-log-files-locally"></a>Lokaal naar logboekbestanden weergeven
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>Publiceren naar Azure
 

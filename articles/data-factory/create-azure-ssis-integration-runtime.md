@@ -3,7 +3,7 @@ title: Azure-SSIS-integratie runtime maken in Azure Data Factory | Microsoft Doc
 description: Informatie over het maken van een Azure-SSIS-integratie runtime, zodat u SSIS-pakket in de Azure-cloud uitvoeren kunt.
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: f3616214dc63716a382b4374ff82bec33e876177
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: douglasl
+ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Een Azure-SSIS-integratie runtime maken in Azure Data Factory
 Dit artikel bevat stappen voor het inrichten van een Azure-SSIS-integratie runtime in Azure Data Factory. Vervolgens kunt u SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) gebruiken om pakketten van SQL Server Integration Services (SSIS) te implementeren in deze runtime van Azure.
@@ -40,7 +40,7 @@ In dit artikel bevat verschillende manieren voor het leveren van een Azure-SSIS-
 
 Wanneer u een Azure-SSIS-IR maakt, is Data Factory maakt verbinding met uw Azure SQL Database voorbereiden van de catalogus SSIS-database (SSISDB). Het script configureert ook machtigingen en instellingen voor uw VNet, indien opgegeven, en verbindt de nieuwe instantie van de Azure SSIS Integration Runtime met het VNet.
 
-Wanneer u een exemplaar van Azure SSIS-IR inricht, worden ook de functie Azure Pack voor SSIS en toegang Redistributable geïnstalleerd. Deze onderdelen bieden connectiviteit met Excel- en Access-bestanden en met verschillende Azure-gegevensbronnen, naast de gegevensbronnen die worden ondersteund door de ingebouwde onderdelen. Onderdelen van derden voor SSIS kunnen op dit moment niet worden geïnstalleerd (met inbegrip van onderdelen van derden van Microsoft, zoals de Oracle- en Teradata-onderdelen van Attunity en de SAP BI-onderdelen).
+Wanneer u een exemplaar van een Azure-SSI-IR inricht, worden ook het Azure Feature Pack voor SSIS en de Access Redistributable geïnstalleerd. Deze onderdelen bieden connectiviteit met Excel- en Access-bestanden en met verschillende Azure-gegevensbronnen, naast de gegevensbronnen die worden ondersteund door de ingebouwde onderdelen. Onderdelen van derden voor SSIS kunnen op dit moment niet worden geïnstalleerd (met inbegrip van onderdelen van derden van Microsoft, zoals de Oracle- en Teradata-onderdelen van Attunity en de SAP BI-onderdelen).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -54,15 +54,15 @@ Wanneer u een exemplaar van Azure SSIS-IR inricht, worden ook de functie Azure P
 - **Azure PowerShell**. Volg de instructies in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Azure PowerShell installeren en configureren). U gebruikt PowerShell om een script uit te voeren voor het inrichten van een Azure SSIS Integration Runtime die SSIS-pakketten uitvoert in de cloud. 
 
 > [!NOTE]
-> - U kunt een gegevensfactory van versie 2 maken in de volgende gebieden: VS-Oost, VS-Oost 2, Zuidoost-Azië, en West-Europa. 
-> - U kunt een Azure-SSIS-IR maken in de volgende gebieden: VS-Oost, VS-Oost 2, VS-midden, Noord-Europa, West-Europa en Australië-Oost.
+> - U kunt een gegevensfactory van versie 2 maken in de volgende regio's: VS - oost, VS - oost 2, Zuidoost-Azië en West-Europa. 
+> - U kunt een Azure-SSIS-IR maken in de volgende regio's: VS - oost, VS - oost 2, VS - midden, Noord-Europa, West-Europa en Australië - oost.
 
 ## <a name="azure-portal"></a>Azure Portal
 In deze sectie maakt u de Azure portal, specifiek de Data Factory-gebruikersinterface gebruiken voor het maken van een Azure-SSIS-IR 
 
 ### <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
-1. Start **Microsoft Edge** of **Google Chrome** webbrowser. Op dit moment wordt Data Factory-gebruikersinterface alleen ondersteund in Microsoft Edge en Google Chrome webbrowsers.
+1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
 2. Meld u aan bij [Azure Portal](https://portal.azure.com/).    
 3. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    

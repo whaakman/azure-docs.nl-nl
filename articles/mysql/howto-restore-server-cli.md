@@ -1,20 +1,20 @@
 ---
-title: Het back-up en herstellen van een server in Azure-Database voor MySQL | Microsoft Docs
+title: Het back-up en herstellen van een server in Azure-Database voor MySQL
 description: Informatie over het back-up en herstellen van een server in Azure-Database voor MySQL met behulp van de Azure CLI.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: 44b3c68b8df4006d3fe087e5ad4118d7616d3d9a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.date: 02/28/2018
+ms.openlocfilehash: b954e26c9ecb1767b971117fc9102e8573beaaac
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure-Database voor MySQL met behulp van de Azure CLI
 
@@ -32,7 +32,7 @@ Voor het voltooien van deze handleiding instructies, hebt u het volgende nodig:
 ## <a name="backup-happens-automatically"></a>Back-up automatisch wordt uitgevoerd
 Wanneer u Azure-Database voor MySQL, wordt de database-service automatisch een back-up van de service om de 5 minuten. 
 
-Basic-laag zijn de back-ups beschikbaar voor 7 dagen. Standard-laag zijn de back-ups beschikbaar voor 35 dagen. Zie voor meer informatie [Azure Database voor MySQL Prijscategorieën](concepts-service-tiers.md).
+Basic-laag zijn de back-ups beschikbaar voor 7 dagen. Standard-laag zijn de back-ups beschikbaar voor 35 dagen. Zie voor meer informatie [Azure Database voor MySQL Prijscategorieën](concepts-pricing-tiers.md).
 
 Met deze functie voor automatische back-up kunt u de server en de databases herstellen naar een eerdere datum of tijdstip voor herstel.
 
@@ -46,16 +46,16 @@ De Azure CLI gebruiken voor het herstellen van de server [az mysql server terugz
 Voer de volgende opdracht voor het herstellen van de server bij de Azure CLI-opdrachtprompt:
 
 ```azurecli-interactive
-az mysql server restore --resource-group myResourceGroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server myserver4demo
+az mysql server restore --resource-group myresourcegroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
 De `az mysql server restore` opdracht worden de volgende parameters:
 | Instelling | Voorgestelde waarde | Beschrijving  |
 | --- | --- | --- |
-| resourcegroep | myResourceGroup |  De resourcegroep waar de bronserver bestaat.  |
-| naam | MijnServer hersteld | De naam van de nieuwe server die door de opdracht restore wordt gemaakt. |
+| resource-group | myResourceGroup |  De resourcegroep waar de bronserver bestaat.  |
+| naam | myserver-restored | De naam van de nieuwe server die door de opdracht restore wordt gemaakt. |
 | herstel punt in tijd | 2017-04-13T13:59:00Z | Selecteer een punt in tijd om naar te herstellen. Deze datum en tijd moet binnen de back-up bewaarperiode van de bronserver. Gebruik de ISO8601-indeling voor datum en tijd. Bijvoorbeeld, kunt u uw eigen lokale tijdzone, zoals `2017-04-13T05:59:00-08:00`. U kunt ook de Zulu UTC-notatie, bijvoorbeeld gebruiken `2017-04-13T13:59:00Z`. |
-| bron-server | myserver4demo | De naam of ID van de bronserver in om te herstellen. |
+| bron-server | mydemoserver | De naam of ID van de bronserver in om te herstellen. |
 
 Wanneer u een server naar een eerder tijdstip herstellen, wordt een nieuwe server gemaakt. De oorspronkelijke server en de databases van het opgegeven punt in tijd worden gekopieerd naar de nieuwe server.
 

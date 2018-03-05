@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 122646f73b6e4e7c62eb0e6d4b6672b603d8acb2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resource-classes-for-workload-management"></a>Resource-klassen voor het beheer van de werkbelasting
 Richtlijnen voor het gebruik van resource-klassen voor het beheren van het aantal gelijktijdige query's die gelijktijdig worden uitgevoerd en bronnen berekenen voor query's in Azure SQL Data Warehouse.
@@ -85,6 +85,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 De resourceklasse van de servicebeheerder is vast en kan niet worden gewijzigd.  De servicebeheerder is de gebruiker die is gemaakt tijdens het inrichtingsproces.
 
+> [!NOTE]
+> Servicebeheerders zijn het gebruikers of groepen die zijn gedefinieerd als Active Directory-beheerder.
+>
+>
+
 ### <a name="default-resource-class"></a>Standaard-bronklasse
 Standaard elke gebruiker is lid van de resourceklasse kleine **smallrc**. 
 
@@ -112,7 +117,7 @@ De volgende instructies zijn uitgesloten van resource-klassen en altijd uitgevoe
 * MAKEN of weergave verwijderen
 * WAARDEN INVOEGEN
 * Selecteer in het systeemweergaven en DMV 's
-* UITLEGGEN
+* EXPLAIN
 * DBCC
 
 <!--
@@ -126,7 +131,7 @@ Removed as these two are not confirmed / supported under SQLDW
 We raden aan een gebruiker die is toegewezen voor het uitvoeren van een specifiek type query maken of laden van bewerkingen. Vervolgens geeft die gebruiker een permanente bronklasse in plaats van de bronklasse regelmatig wijzigen. Gezien het feit dat statische resource klassen meer algemene controle van de werkbelasting bieden ook raadzaam die eerst met voordat het overwegen van dynamische Bronklassen.
 
 ### <a name="resource-classes-for-load-users"></a>Resource-klassen voor de load-gebruikers
-`CREATE TABLE`Standaard maakt gebruik van geclusterde columnstore-indexen. Comprimeren van gegevens in een columnstore index is een geheugenintensieve bewerking en geheugendruk de kwaliteit van de index kan verminderen. Daarom bent u waarschijnlijk een hogere bronklasse vereist bij het laden van gegevens. U kunt maken van een gebruiker die is aangewezen voor het uitvoeren van de belasting en die gebruiker toewijzen aan een hogere bronklasse zodat hoeveelheden over voldoende geheugen beschikt.
+`CREATE TABLE` Standaard maakt gebruik van geclusterde columnstore-indexen. Comprimeren van gegevens in een columnstore index is een geheugenintensieve bewerking en geheugendruk de kwaliteit van de index kan verminderen. Daarom bent u waarschijnlijk een hogere bronklasse vereist bij het laden van gegevens. U kunt maken van een gebruiker die is aangewezen voor het uitvoeren van de belasting en die gebruiker toewijzen aan een hogere bronklasse zodat hoeveelheden over voldoende geheugen beschikt.
 
 De hoeveelheid geheugen die nodig zijn voor de belasting efficiënt verwerken, is afhankelijk van de aard van de tabel die is geladen en de omvang van gegevens. Zie voor meer informatie over geheugenvereisten [rijgroep kwaliteit maximaliseren](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
@@ -168,9 +173,9 @@ Dit is het doel van deze opgeslagen procedure:
 ### <a name="usage-example"></a>Voorbeeld van gebruik:
 Syntaxis:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
-1. @DWU:Ofwel een NULL-parameter voor de huidige DWU extraheren uit de DW-database of geef een ondersteunde DWU in de vorm van 'DW100' opgeven
-2. @SCHEMA_NAME:Geef een schemanaam van de tabel
-3. @TABLE_NAME:Geef de tabelnaam van een met het belang
+1. @DWU: Ofwel een NULL-parameter voor de huidige DWU extraheren uit de DW-database of geef een ondersteunde DWU in de vorm van 'DW100' opgeven
+2. @SCHEMA_NAME: Geef een schemanaam van de tabel
+3. @TABLE_NAME: Geef de tabelnaam van een met het belang
 
 Voorbeelden voor het uitvoeren van deze opgeslagen procedure:  
 ```sql  

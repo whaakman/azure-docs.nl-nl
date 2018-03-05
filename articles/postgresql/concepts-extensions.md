@@ -1,19 +1,19 @@
 ---
-title: PostgreSQL-extensies in de Azure-Database gebruiken voor PostgreSQL | Microsoft Docs
+title: PostgreSQL-extensies in de Azure-Database voor PostgreSQL gebruiken
 description: Beschrijft de mogelijkheid om uit te breiden de functionaliteit van de extensies in de Azure-Database gebruiken voor PostgreSQL-database.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: f02588495e7107b34dac7e076cf3612de12b51d4
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.date: 02/28/2018
+ms.openlocfilehash: 0b4150fcd7d32c823173c3e2676e226634346a2b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL-uitbreidingen in een Azure-Database voor PostgreSQL
 PostgreSQL biedt de mogelijkheid om uit te breiden de functionaliteit van de database met de extensies. Extensies kunnen voor bundeling van meerdere verwante objecten in de SQL samen in één pakket die kan worden geladen of verwijderd uit de database met één opdracht. Extensies kunnen na wordt geladen in de database, functioneren als ingebouwde functies. Zie voor meer informatie over PostgreSQL extensies [verpakking verwante objecten in een uitbreiding](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -33,9 +33,9 @@ De volgende tabellen worden de standaard PostgreSQL-uitbreidingen die momenteel 
 |---|---|
 | [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | Biedt een gegevenstype voor wachtwoorden automatisch versleuteld. |
 | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Bevat een niet-hoofdlettergevoelige teken tekenreekstype. |
-| [kubus](https://www.postgresql.org/docs/9.6/static/cube.html) | Biedt een gegevenstype voor multidimensionale kubussen. |
+| [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | Biedt een gegevenstype voor multidimensionale kubussen. |
 | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Biedt een gegevenstype voor het opslaan van sets van sleutel-waardeparen. |
-| [niet](https://www.postgresql.org/docs/9.6/static/isn.html) | Biedt gegevenstypen voor internationale product nummering standaarden. |
+| [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | Biedt gegevenstypen voor internationale product nummering standaarden. |
 | [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | Biedt een gegevenstype voor hiërarchische boomstructuren. |
 
 ### <a name="functions-extensions"></a>Uitbreidingen van functies
@@ -48,16 +48,16 @@ De volgende tabellen worden de standaard PostgreSQL-uitbreidingen die momenteel 
 | [intarray](https://www.postgresql.org/docs/9.6/static/intarray.html) | Biedt de functies en operators voor het manipuleren van null gratis matrices van gehele getallen. |
 | [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | Biedt cryptografische functies. |
 | [PG\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Gepartitioneerde tabellen wordt beheerd door de time- of -ID. |
-| [PG\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Functies en operatoren biedt voor het bepalen van de overeenkomsten van alfanumerieke tekst op basis van overeenkomst trigram. |
+| [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Functies en operatoren biedt voor het bepalen van de overeenkomsten van alfanumerieke tekst op basis van overeenkomst trigram. |
 | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Biedt de functies die hele tabellen, inclusief kruistabel bewerken. |
-| [UUID ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genereert Universeel unieke id's (UUID's). |
+| [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genereert Universeel unieke id's (UUID's). |
 
 ### <a name="full-text-search-extensions"></a>Zoekopdracht in volledige tekst-extensies
 
 > [!div class="mx-tableFixed"]
 | **De extensie** | **Beschrijving** |
 |---|---|
-| [Dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | Biedt een sjabloon van tekst zoeken woordenlijst voor gehele getallen. |
+| [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | Biedt een sjabloon van tekst zoeken woordenlijst voor gehele getallen. |
 | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | Een woordenlijst van de tekst zoeken waarmee accenten (diakritische tekens) uit lexemes worden verwijderd. |
 
 ### <a name="index-types-extensions"></a>Index typen uitbreidingen
@@ -80,8 +80,8 @@ De volgende tabellen worden de standaard PostgreSQL-uitbreidingen die momenteel 
 > [!div class="mx-tableFixed"]
 | **De extensie** | **Beschrijving** |
 |---|---|
-| [PG\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Biedt een manier voor het onderzoeken van wat er gebeurt in de cache gedeelde buffer in realtime. |
-| [PG\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Biedt een manier relatie om gegevens te laden in het cachegeheugen van de buffer. |
+| [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Biedt een manier voor het onderzoeken van wat er gebeurt in de cache gedeelde buffer in realtime. |
+| [pg\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Biedt een manier relatie om gegevens te laden in het cachegeheugen van de buffer. |
 | [PG\_stat\_instructies](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Biedt een manier voor het bijhouden van Uitvoeringsstatistieken van alle SQL-instructies uitgevoerd door een server. |
 | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Biedt een manier voor het weergeven van rijniveau vergrendelingsfout informatie. |
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Biedt een manier voor het weergeven van statistieken tuple niveau. |

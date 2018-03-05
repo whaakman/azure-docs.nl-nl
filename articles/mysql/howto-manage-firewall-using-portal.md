@@ -1,19 +1,19 @@
 ---
-title: Maken en beheren van de firewallregels MySQL in Azure-Database voor MySQL | Microsoft Docs
+title: Maken en beheren van de firewallregels MySQL in Azure-Database voor MySQL
 description: Maken en beheren van Azure-Database voor firewallregels MySQL met de Azure portal
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/12/2018
-ms.openlocfilehash: d0852f59d6463a4e73bfb2ca75b285701a897864
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 6475c5c3ecb43352a8ef8db8fe1c023a16cd8a3d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Maken en beheren van Azure-Database voor firewallregels MySQL met behulp van de Azure-portal
 Firewallregels op serverniveau kunnen beheerders toegang krijgen tot een Azure-Database voor MySQL-Server uit een opgegeven IP-adres of een bereik met IP-adressen. 

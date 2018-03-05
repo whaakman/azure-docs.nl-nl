@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: b465993882563420652ef1ac8c623a1b9b7295ec
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: af43f4b2a11f217853a9160f473dea8c488ea852
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Zelfstudie: Azure Active Directory-integratie met het selectievakje
 
@@ -108,13 +108,12 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Vak domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-box-tutorial/url3.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.box.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.box.com`
 
-    b. In de **id** textbox, typ de URL:`box.net`
+    b. In de **id** textbox, typ de URL: `box.net`
      
     > [!NOTE] 
     > Deze waarde is geen echte. Werk de waarde met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [Box Client ondersteuningsteam](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) deze waarde op te halen. 
-
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![De downloadkoppeling certificaat](./media/active-directory-saas-box-tutorial/tutorial_box_certificate.png) 
@@ -123,7 +122,10 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-box-tutorial/tutorial_general_400.png)
     
-6. Als u eenmalige aanmelding die zijn geconfigureerd voor uw toepassing, neem contact op met [Box Client ondersteuningsteam](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) en geeft u het gedownloade XML-bestand.
+6. Als u eenmalige aanmelding die zijn geconfigureerd voor uw toepassing, voer de stappen uit in [instelling van eenmalige aanmelding op uw eigen](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown)
+
+> [!NOTE] 
+> Als u nog geen Single Sign-On-instellingen voor uw account vak inschakelen, moet u mogelijk contact opnemen met [Box Client ondersteuningsteam](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) en geeft u het gedownloade XML-bestand.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

@@ -12,17 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 036d5c2945bd6730d65f88f72c9377047fefcde6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: ab8582d9c32cf13bd7b21a59031af8fde58effbf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-scenarios"></a>Netwerkinterfaces van virtuele machines voor on-premises naar Azure scenario's beheren
 
-Een virtuele machine (VM) in Azure moet ten minste één netwerkinterface is gekoppeld. Deze kan hebben als veel netwerkinterfaces gekoppeld als de VM-grootte ondersteunt. 
+Een virtuele machine (VM) in Azure moet ten minste één netwerkinterface is gekoppeld. Deze kan hebben als veel netwerkinterfaces gekoppeld als de VM-grootte ondersteunt.
 
 Standaard worden de eerste netwerkinterface is gekoppeld aan een virtuele machine van Azure wordt gedefinieerd als de primaire netwerkinterface. Alle andere netwerkinterfaces in de virtuele machine zijn secundaire netwerkinterfaces. Ook wordt standaard al het uitgaande verkeer van de virtuele machine uit het IP-adres dat toegewezen aan de primaire IP-adresconfiguratie van de primaire netwerkinterface verzonden.
 

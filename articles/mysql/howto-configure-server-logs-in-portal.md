@@ -1,19 +1,19 @@
 ---
-title: Configureren en toegang van server-logboeken voor Azure-Database voor MySQL in Azure Portal | Microsoft Docs
+title: Configureren en toegang van server-logboeken voor Azure-Database voor MySQL in Azure Portal
 description: Dit artikel wordt beschreven hoe u kunt configureren en toegang tot de server-Logboeken in Azure-Database voor MySQL in Azure Portal.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: 89674c133b458c16fbdacd771be24830624dde7c
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.date: 02/28/2018
+ms.openlocfilehash: b68d92688b18e69f74c0e0a9b2e572795a288579
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configureren en de logboeken van de toegangsserver in de Azure portal
 
@@ -35,24 +35,18 @@ Toegang tot de trage querylogboek MySQL configureren.
 
 4. Selecteer de kop **Klik hier om Logboeken inschakelen en configureren van parameters voor het vastleggen** om te zien van de parameters van de server.
 
-5. Selecteer de **meer** uitbreidingsmodule voor een uitgebreide lijst met beschikbare parameters. 
-
-   Zie de MySQL-documentatie voor meer informatie over de definities van de parameters op [logboeken](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
-
-   ![Klik op weergeven meer voor langere lijst](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. Wijzig de parameters die u nodig hebt om aan te passen. Alle wijzigingen die u in deze sessie aanbrengt worden in paars gemarkeerd. 
+5. Wijzig de parameters die u nodig hebt om aan te passen. Alle wijzigingen die u in deze sessie aanbrengt worden in paars gemarkeerd. 
 
    Zodra u de parameters hebt gewijzigd, klikt u op **opslaan**. U kunt **negeren** uw wijzigingen.
 
    ![Klik op opslaan of negeren](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. Terug naar de lijst met Logboeken door te klikken op de **knop Sluiten** (pictogram X) op de **serverparameters** pagina.
+6. Terug naar de lijst met Logboeken door te klikken op de **knop Sluiten** (pictogram X) op de **serverparameters** pagina.
 
 ## <a name="view-list-and-download-logs"></a>Lijst weergeven en logboeken downloaden
 Zodra logboekregistratie wordt gestart, kunt u een lijst met beschikbare logboeken weergeven en downloaden in het deelvenster logboeken van de Server een afzonderlijke logboekbestanden. 
 
-1. Open de Azure-portal.
+1. Open Azure Portal.
 
 2. Selecteer uw Azure-Database voor de MySQL-server.
 

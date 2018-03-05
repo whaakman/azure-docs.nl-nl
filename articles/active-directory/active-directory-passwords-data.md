@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 929843825d19c003b5a97363a03ffdd3ae2a2f7d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Wachtwoord opnieuw instellen zonder dat eindgebruikers registratie implementeren
 
@@ -112,7 +112,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>Gebruik PowerShell versie 2
 
-Om te beginnen, moet u [downloaden en installeren van de Azure AD PowerShell-module voor versie 2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). Nadat u geïnstalleerd hebt, kunt u de stappen volgen voor het configureren van elk veld.
+Om te beginnen, moet u [downloaden en installeren van de Azure AD PowerShell-module voor versie 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). Nadat u geïnstalleerd hebt, kunt u de stappen volgen voor het configureren van elk veld.
 
 Als u wilt snel installeren van recente versies die ondersteuning bieden voor installatie-Module van PowerShell, voer de volgende opdrachten. (De eerste regel controleert of de module al is geïnstalleerd.)
 

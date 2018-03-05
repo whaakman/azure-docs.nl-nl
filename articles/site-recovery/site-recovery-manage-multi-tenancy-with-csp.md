@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: a49da33c8038ad467389c66e59727c7e195baf82
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 6dc8b573e66eaae1b5cb923ae72333fb959d0969
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-multi-tenancy-with-the-cloud-solution-provider-csp-program"></a>Multi-tenancymodus met het programma Cloud Solution Provider (CSP) beheren
 
@@ -76,14 +76,14 @@ U kunt toegang tot de tenant abonnement via het Microsoft Partner Center-Dashboa
 
     Te klikken op **alle resources** biedt u toegang tot Azure-abonnementen van de tenant. U kunt toegang controleren door te klikken op de Azure Active Directory-koppeling aan de bovenkant van de Azure-portal.
 
-    ![Azure Active Directory-koppeling](./media/site-recovery-manage-multi-tenancy-with-csp/aad-admin-display.png)
+    ![Azure Active Directory link](./media/site-recovery-manage-multi-tenancy-with-csp/aad-admin-display.png)
 
 U kunt nu alle site-en herstelbewerkingen op voor de tenant via de Azure portal uitvoeren en beheren van de bewerkingen voor herstel na noodgevallen. Voor toegang tot het tenantabonnement via de CSP voor beheerde noodherstel, volgt u de eerder beschreven procedure.
 
 ## <a name="deploy-resources-to-the-tenant-subscription"></a>Resources aan het tenantabonnement implementeren
 1. Een resourcegroep maken in de Azure portal en vervolgens implementeert u een Recovery Services-kluis per normale proces.
 
-2. Download de kluisregistratiesleutel.
+2. Download de registratiesleutel voor de kluis.
 
 3. Registreer de CS voor de tenant met behulp van de sleutel van de registratie van de kluis.
 

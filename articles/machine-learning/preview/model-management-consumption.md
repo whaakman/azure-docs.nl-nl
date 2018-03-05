@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: b8641cd2d4a34821b7cf0e644345f0904bad294a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="consuming-web-services"></a>Webservices verbruiken
 Wanneer u een model als een realtime-webservice implementeert, kunt u gegevens verzenden en voorspellingen ophalen vanaf verschillende platforms en toepassingen. De realtime-webservice wordt een REST-API voor het ophalen van voorspellingen. U kunt gegevens verzenden naar de webservice in de indeling van één of meerdere rij ophalen van een of meer voorspellingen tegelijk.
@@ -35,7 +35,7 @@ U kunt weergeven van de momenteel geïmplementeerde services en de Docker-instal
 Nadat de web-service is geïmplementeerd, moet u de volgende opdracht gebruiken om op te halen van de service-URL en andere details voor het aanroepen van het service-eindpunt. 
 
 ```
-az ml service usage realtime -i <service name>
+az ml service usage realtime -i <web service id>
 ```
 
 Met deze opdracht wordt de service-URL, vereist aanvraagheaders, swagger-URL en voorbeeldgegevens om de service aan te roepen als de service API-schema is opgegeven op het moment van implementatie afgedrukt.
@@ -43,7 +43,7 @@ Met deze opdracht wordt de service-URL, vereist aanvraagheaders, swagger-URL en 
 U kunt de service rechtstreeks vanuit de CLI testen zonder het samenstellen van een HTTP-aanvraag met de opdracht van de CLI voorbeeld met de invoergegevens:
 
 ```
-az ml service run realtime -i <service name> -d "Your input data"
+az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## <a name="get-the-service-api-key"></a>De service API-sleutel ophalen

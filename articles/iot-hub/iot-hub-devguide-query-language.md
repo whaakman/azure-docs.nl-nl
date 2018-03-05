@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor apparaat horende, taken en het routeren van berichten
 
@@ -298,27 +298,27 @@ IoT Hub wordt ervan uitgegaan dat de volgende JSON-weergave van berichtkoppen vo
 
 ```json
 {
-    "$messageId": "",
-    "$enqueuedTime": "",
-    "$to": "",
-    "$expiryTimeUtc": "",
-    "$correlationId": "",
-    "$userId": "",
-    "$ack": "",
-    "$connectionDeviceId": "",
-    "$connectionDeviceGenerationId": "",
-    "$connectionAuthMethod": "",
-    "$content-type": "",
-    "$content-encoding": "",
-
-    "userProperty1": "",
-    "userProperty2": ""
+  "message": {
+    "systemProperties": {
+      "contentType": "application/json",
+      "contentEncoding": "utf-8",
+      "iothub-message-source": "deviceMessages",
+      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
+    },
+    "appProperties": {
+      "processingPath": "<optional>",
+      "verbose": "<optional>",
+      "severity": "<optional>",
+      "testDevice": "<optional>"
+    },
+    "body": "{\"Weather\":{\"Temperature\":50}}"
+  }
 }
 ```
 
 Bericht Systeemeigenschappen worden voorafgegaan door de `'$'` symbool.
-Eigenschappen van de gebruiker worden altijd geopend met hun naam. Als de naam van een eigenschap valt met een systeemeigenschap samen (zoals `$to`), de gebruikerseigenschap is opgehaald met de `$to` expressie.
-U kunt altijd toegang hebt tot de systeemeigenschap met behulp van haakjes `{}`: u kunt bijvoorbeeld de expressie gebruiken `{$to}` voor toegang tot de systeemeigenschap `to`. Eigenschapnamen ophalen altijd de bijbehorende systeemeigenschap.
+Eigenschappen van de gebruiker worden altijd geopend met hun naam. Als de naam van een eigenschap valt met een systeemeigenschap samen (zoals `$contentType`), de gebruikerseigenschap is opgehaald met de `$contentType` expressie.
+U kunt altijd toegang hebt tot de systeemeigenschap met behulp van haakjes `{}`: u kunt bijvoorbeeld de expressie gebruiken `{$contentType}` voor toegang tot de systeemeigenschap `contentType`. Eigenschapnamen ophalen altijd de bijbehorende systeemeigenschap.
 
 Houd er rekening mee dat de namen van eigenschappen zijn niet hoofdlettergevoelig.
 
@@ -350,12 +350,58 @@ Raadpleeg de [expressie en voorwaarden] [ lnk-query-expressions] sectie voor een
 
 IoT Hub kan alleen worden doorgestuurd op basis van de berichttekst inhoud als de berichttekst correct is gevormd JSON gecodeerd in UTF-8, UTF-16- of UTF-32. Het inhoudstype van het bericht instellen `application/json`. De inhoud op een van de ondersteunde coderingen UTF in berichtkoppen codering ingesteld. Als een van de headers niet is opgegeven, probeert IoT Hub niet evalueren van een queryexpressie met betrekking tot de hoofdtekst tegen het bericht. Als uw bericht is niet een JSON-bericht, of als het bericht geeft niet het type inhoud en de codering van inhoud, kunt u nog steeds berichtroutering gebruiken voor het routeren van het bericht op basis van de berichtkoppen.
 
+Het volgende voorbeeld ziet u hoe een bericht met een JSON-hoofdtekst goed gevormd en gecodeerde maken:
+
+```csharp
+string messageBody = @"{ 
+                            ""Weather"":{ 
+                                ""Temperature"":50, 
+                                ""Time"":""2017-03-09T00:00:00.000Z"", 
+                                ""PrevTemperatures"":[ 
+                                    20, 
+                                    30, 
+                                    40 
+                                ], 
+                                ""IsEnabled"":true, 
+                                ""Location"":{ 
+                                    ""Street"":""One Microsoft Way"", 
+                                    ""City"":""Redmond"", 
+                                    ""State"":""WA"" 
+                                }, 
+                                ""HistoricalData"":[ 
+                                    { 
+                                    ""Month"":""Feb"", 
+                                    ""Temperature"":40 
+                                    }, 
+                                    { 
+                                    ""Month"":""Jan"", 
+                                    ""Temperature"":30 
+                                    } 
+                                ] 
+                            } 
+                        }"; 
+ 
+// Encode message body using UTF-8 
+byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
+ 
+using (var message = new Message(messageBytes)) 
+{ 
+    // Set message body type and content encoding. 
+    message.ContentEncoding = "utf-8"; 
+    message.ContentType = "application/json"; 
+ 
+    // Add other custom application properties.  
+    message.Properties["Status"] = "Active";    
+ 
+    await deviceClient.SendEventAsync(message); 
+}
+```
+
 U kunt `$body` in de query-expressie voor het routeren van het bericht. U kunt een eenvoudige hoofdtekst-verwijzing, hoofdtekst matrixverwijzing of meerdere hoofdtekst verwijzingen in de query-expressie. Uw query-expressie kunt ook een verwijzing instantie met een verwijzing van de header bericht combineren. De volgende zijn bijvoorbeeld alle geldige query-expressies:
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
@@ -513,7 +559,7 @@ In situaties routes, worden het volgende type controleren en de casten functies 
 
 | Functie | Beschrijving |
 | -------- | ----------- |
-| AS_NUMBER | De invoerreeks converteert naar een getal. `noop`Als de invoer is een getal. `Undefined` als tekenreeks geen een getal vertegenwoordigt.|
+| AS_NUMBER | De invoerreeks converteert naar een getal. `noop` Als de invoer is een getal. `Undefined` als tekenreeks geen een getal vertegenwoordigt.|
 | IS_ARRAY | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een matrix is. |
 | IS_BOOL | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een Booleaanse waarde is. |
 | IS_DEFINED | Retourneert een Booleaanse waarde die aangeeft of de eigenschap een waarde is toegewezen. |

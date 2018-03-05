@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 038cfb72cfc98fdddaca6751b321c11066527e56
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ff2f1dd89796a30d4e0fee0810ff45ff57f5f8bf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-a-model-in-azure-portal"></a>Een model maken in Azure portal
 
@@ -27,15 +27,19 @@ De functie designer (preview) Azure Analysis Services in Azure-portal biedt een 
 
 Houd er rekening mee, de ontwerpfunctie web **preview**. Functionaliteit is beperkt, terwijl de nieuwe functionaliteit alle tijd, in preview wordt toegevoegd. Voor meer geavanceerde model ontwikkelen en testen is het aanbevolen gebruik van Visual Studio (SSDT) en SQL Server Management Studio (SSMS).
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="before-you-begin"></a>Voordat u begint
 
 - Een Azure Analysis Services-server op de categorie Standard of ontwikkelaar. Nieuwe modellen die zijn gemaakt met behulp van de ontwerpfunctie Web zijn DirectQuery, wordt alleen ondersteund door deze lagen.
 - Een Azure SQL Database, Azure SQL Data Warehouse of Power BI Desktop (pbix)-bestand als een gegevensbron. Nieuwe modellen gemaakt op basis van Power BI Desktop-ondersteuning voor Azure SQL Database, Azure SQL Data Warehouse, Oracle en Teradata-gegevensbronnen.
 - Een SQL Server-account en wachtwoord voor het verbinden met Azure SQL Database- of Azure SQL Data Warehouse-gegevensbronnen.
 
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+
+Meld u aan bij [Azure Portal](https://portal.azure.com/).
+
 ## <a name="to-create-a-new-tabular-model"></a>Een nieuw tabellair model maken
 
-1. In de server **overzicht** blade > **webdesigner**, klikt u op **Open**.
+1. In de server **overzicht** > **webdesigner**, klikt u op **Open**.
 
     ![Een model maken in Azure portal](./media/analysis-services-create-model-portal/aas-create-portal-overview-wd.png)
 

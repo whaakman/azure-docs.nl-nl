@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: ff590ecb5091695d6105b510f563251fe43412fe
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 410fe05e0a545905024f223e6f7297066b326d14
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Genereren en exporteren van certificaten voor punt-naar-Site-verbindingen met PowerShell op Windows 10 of Windows Server 2016
 
@@ -34,12 +34,11 @@ Punt-naar-Site-verbindingen kunt u certificaten voor verificatie gebruiken. In d
 > 
 > 
 
-
 In dit artikel op een computer met Windows 10 of Windows Server 2016, moet u de stappen uitvoeren. De PowerShell-cmdlets die u gebruikt voor het genereren van certificaten deel uitmaken van het besturingssysteem en werken niet op andere versies van Windows. De computer met Windows 10 of Windows Server 2016 is alleen nodig voor het genereren van de certificaten. Zodra de certificaten zijn gegenereerd, kunt u deze uploaden of installeren op een ondersteunde client-besturingssysteem. 
 
 Als u geen toegang tot een computer met Windows 10 of Windows Server 2016, kunt u [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) voor het genereren van certificaten. De certificaten die u genereren met behulp van beide methoden kunnen worden geïnstalleerd op een [ondersteund](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) clientbesturingssysteem.
 
-## <a name="rootcert"></a>Een zelfondertekend basiscertificaat maken
+## <a name="rootcert"></a>1. Een zelfondertekend basiscertificaat maken
 
 Gebruik de cmdlet New-SelfSignedCertificate voor het maken van een zelfondertekend basiscertificaat. Zie voor informatie over de extra parameters, [nieuw SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
@@ -53,17 +52,7 @@ Gebruik de cmdlet New-SelfSignedCertificate voor het maken van een zelfonderteke
   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
   ```
 
-### <a name="cer"></a>Exporteer de openbare sleutel (.cer)
-
-[!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
-
-Het bestand exported.cer moet worden geüpload naar Azure. Zie voor instructies [een punt-naar-Site-verbinding configureren](vpn-gateway-howto-point-to-site-rm-ps.md#upload). Toevoegen van een vertrouwd basiscertificaat aanvullende [in deze sectie](vpn-gateway-howto-point-to-site-rm-ps.md#addremovecert) van het artikel.
-
-### <a name="export-the-self-signed-root-certificate-and-public-key-to-store-it-optional"></a>Exporteer het zelfondertekende basiscertificaat en openbare sleutel voor het opslaan van het (optioneel)
-
-U kunt het zelfondertekende basiscertificaat exporteren en veilig opslaan. Indien nodig zijn, u kunt later op een andere computer installeren en meer clientcertificaten te genereren of een andere cer-bestand exporteren. Als u wilt het zelfondertekende basiscertificaat exporteren als een .pfx-bestand, selecteer het basiscertificaat en gebruik dezelfde stappen zoals beschreven in [exporteren van een clientcertificaat](#clientexport).
-
-## <a name="clientcert"></a>Een clientcertificaat genereren
+## <a name="clientcert"></a>2. Een clientcertificaat genereren
 
 Op elke clientcomputer die via punt-naar-site verbinding maakt met een VNet, moet een clientcertificaat zijn geïnstalleerd. U een clientcertificaat genereren uit het zelfondertekende basiscertificaat en vervolgens exporteren en installeren van het clientcertificaat. Als het clientcertificaat niet is geïnstalleerd, mislukt de verificatie. 
 
@@ -123,19 +112,30 @@ Als u extra clientcertificaten maakt of dezelfde PowerShell-sessie die u gebruik
   -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
   ```
 
-## <a name="clientexport"></a>Een clientcertificaat exporteren   
+## <a name="cer"></a>3. Exporteer de openbare sleutel voor basis-certificaat (.cer)
+
+[!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
+
+
+### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exporteer het zelfondertekende basiscertificaat en de persoonlijke sleutel voor het opslaan van het (optioneel)
+
+U kunt naar de zelfondertekende basiscertificaat exporteren en op te slaan veilig als back. Indien nodig zijn, kunt u later kunt installeren op een andere computer en meer client certifiates genereren. Als u wilt het zelfondertekende basiscertificaat exporteren als een .pfx-bestand, selecteer het basiscertificaat en gebruik dezelfde stappen zoals beschreven in [exporteren van een clientcertificaat](#clientexport).
+
+## <a name="clientexport"></a>4. Het clientcertificaat exporteren
 
 [!INCLUDE [Export client certificate](../../includes/vpn-gateway-certificates-export-client-cert-include.md)]
 
-## <a name="install"></a>Een geëxporteerde certificaat installeren
+
+## <a name="install"></a>5. Een geëxporteerd clientcertificaat installeren
+
+Elke client die verbinding met het VNet via een P2S-verbinding maakt vereist een clientcertificaat lokaal zijn geïnstalleerd.
 
 Als u wilt installeren een clientcertificaat, Zie [installeren van een clientcertificaat voor punt-naar-Site-verbindingen](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>Volgende stappen
+## <a name="install"></a>6. Ga door met de configuratiestappen voor P2S
 
 Ga door met de punt-naar-Site-configuratie.
 
 * Voor **Resource Manager** model implementatiestappen Zie [P2S configureren met behulp van systeemeigen Azure certificaatverificatie](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
 * Voor **klassieke** model implementatiestappen Zie [punt-naar-Site VPN-verbinding geconfigureerd met een VNet (klassiek)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
-
-Voor P2S probleemoplossingsinformatie, Zie [punt-naar-site-verbindingen voor probleemoplossing voor Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+* Voor P2S probleemoplossingsinformatie, Zie [punt-naar-site-verbindingen voor probleemoplossing voor Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologieën voor Azure AD Connect
 In dit artikel beschrijft de verschillende on-premises en Azure Active Directory (Azure AD)-topologieën die Azure AD Connect-synchronisatie als de sleutel integratieoplossing gebruiken. Dit artikel bevat de ondersteunde en niet-ondersteunde configuraties.
@@ -144,7 +144,9 @@ In deze topologie wordt is een Azure AD Connect-synchronisatie-server verbonden 
 
 Een DNS-domein kan worden geregistreerd in slechts één Azure AD-tenant. De UPN van de gebruikers in de lokale Active Directory-exemplaar moeten ook afzonderlijke naamruimten gebruiken. Bijvoorbeeld drie afzonderlijke UPN-achtervoegsels in de voorgaande afbeelding zijn geregistreerd in de lokale Active Directory-exemplaar: contoso.com en fabrikam.com wingtiptoys.com. De gebruikers in elk lokale Active Directory-domein gebruiken een andere naamruimte.
 
-Er is geen GALSync tussen de exemplaren van de Azure AD-tenant. Het adresboek in Exchange Online en Skype voor bedrijven toont alleen gebruikers binnen dezelfde tenant.
+>[!NOTE]
+>Globale adres lijst synchronisatie (GalSync) is niet automatisch uitgevoerd in deze topologie en vereist een aanvullende aangepaste MIM-implementatie om ervoor te zorgen elke tenant een volledige globale adreslijst (GAL) in Exchange Online en Skype voor bedrijven Online.
+
 
 Deze topologie heeft de volgende beperkingen op andere wijze ondersteund scenario's:
 

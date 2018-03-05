@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Zelfstudie: Azure Active Directory-integratie met Rollbar
 
@@ -108,15 +108,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en Rollbar domein eenmalige aanmelding informatie](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url.png)
 
-    a. In de **id** textbox, typ de URL:`https://saml.rollbar.com`
+    a. In de **id** textbox, typ de URL: `https://saml.rollbar.com`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://rollbar.com/<accountname>/saml/sso/azure/`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://rollbar.com/<accountname>/saml/sso/azure/`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![URL's en Rollbar domein eenmalige aanmelding informatie](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://rollbar.com/<accountname>/saml/login/azure/`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://rollbar.com/<accountname>/saml/login/azure/`
      
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [Rollbar Client ondersteuningsteam](mailto:support@rollbar.com) ophalen van deze waarden. 
@@ -149,11 +149,14 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     c. Klik op **Opslaan**.
 
-11. Na het opslaan te klikken op knop, het scherm worden als volgt. Voer de volgende stappen in deze sectie:
+11. Na het opslaan te klikken op knop, het scherm worden als volgt:
     
     ![Configuratie](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    > [!NOTE] 
+    > Als u wilt de volgende stap hebt voltooid, moet u eerst toevoegen zelf als een gebruiker in de Rollbar-app in Azure.
+    a. Als u wilt dat alle gebruikers moeten verifiëren via Azure en klik vervolgens op **aanmelden via uw identiteitsprovider** opnieuw via Azure worden geverifieerd.  
 
-    a. Selecteer **is aanmelding via SAML-identiteitsprovider vereist** selectievakje.
+    b.  Als u wordt teruggeleid naar het scherm, selecteert u de **is aanmelding via SAML-identiteitsprovider vereist** selectievakje.
 
     b. Klik op **Opslaan**.
 
