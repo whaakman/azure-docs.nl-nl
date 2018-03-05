@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: a30b5d08377594b8ad7e10b63a23e2a9d168af9c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -41,6 +41,256 @@ Azure AD ontvangt verbeteringen voortdurend. Om te blijven up-to-date met de mee
 Deze pagina maandelijks wordt bijgewerkt, dus regelmatig bezoeken.
 
 
+
+## <a name="february-2018"></a>2018 februari
+ 
+
+### <a name="improved-navigation-for-managing-users-and-groups"></a>Verbeterde navigatie voor het beheren van gebruikers en groepen
+
+**Type:** wijzigingen  
+**Servicecategorie:** Directory Management  
+**Product mogelijkheid:** Directory
+ 
+
+De navigatie-ervaring voor het beheren van gebruikers en groepen is gestroomlijnd. U kunt nu navigeren vanuit een overzicht van de directory rechtstreeks aan de lijst met alle gebruikers gemakkelijker toegang aan de lijst met verwijderde gebruikers. U kunt ook rechtstreeks aan de lijst van alle groepen, met gemakkelijker toegang tot de groepsinstellingen uit het overzicht directory navigeren. En ook op de pagina overzicht directory u kunt zoeken naar een gebruiker, groep, bedrijfstoepassing of app-registratie.
+ 
+
+---
+
+
+### <a name="availability-of-sign-ins-and-audit-reports-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>Beschikbaarheid van aanmeldingen en audit rapporten in Microsoft Azure beheerd door 21Vianet (Azure China 21Vianet)
+
+**Type:** nieuwe functie  
+**Servicecategorie:** soevereine Clouds  
+**Product mogelijkheid:** bewaking en rapportage
+ 
+
+Azure AD-activiteit log-rapporten zijn nu beschikbaar in Microsoft Azure beheerd door 21Vianet (Azure China 21Vianet) exemplaren. De volgende logboeken zijn opgenomen:
+
+- **Aanmeldingen activiteitenlogboeken** -omvat alle de aanmeldingen logboeken die zijn gekoppeld aan uw tenant.
+
+- **Selfservice voor wachtwoord Audit logboeken** -bevat de logboeken voor de audit SSPR.
+
+- **Controleren van Directory-beheer registreert** -omvat alle gerelateerde Directorybeheer controlelogboeken zoals gebruiker management, App-beheer en anderen.
+
+Met deze logboeken krijgt u inzicht in hoe uw omgeving doet. Met de gegevens kunt u het volgende doen:
+
+- Bepalen hoe uw apps en services worden gebruikt door uw gebruikers.
+
+- Los problemen te voorkomen dat uw gebruikers toegang krijgen tot hun werk.
+
+Zie voor meer informatie over het gebruik van deze rapporten [rapportage van Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal).
+ 
+
+---
+
+
+### <a name="use-report-reader-role-non-admin-role-to-view-azure-ad-activity-reports"></a>Gebruik van 'rapportlezer'-rol (niet-beheerders rol) Azure AD activiteitsrapporten weer te geven
+
+**Type:** nieuwe functie  
+**Servicecategorie:** rapportage  
+**Product mogelijkheid:** bewaking en rapportage
+ 
+
+Als onderdeel van feedback van klanten om in te schakelen van niet-beheerders functies toegang hebben tot Azure AD-activiteit zich aanmeldt, hebben we de mogelijkheid voor gebruikers die in de rol 'rapportlezer' aanmeldingen met toegang tot en controle-activiteit in de Azure Portal, evenals met onze Graph-API's zijn ingeschakeld. 
+
+Voor meer informatie het gebruik van deze rapporten, Zie [rapportage van Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
+
+---
+ 
+
+
+### <a name="employeeid-claim-available-as-user-attribute-and-user-identifier"></a>Werknemer-id claim beschikbaar als gebruikerskenmerk en gebruikers-id
+
+**Type:** nieuwe functie  
+**Servicecategorie:** zakelijke Apps  
+**Product mogelijkheid:** eenmalige aanmelding
+ 
+
+U kunt configureren **werknemer-id** als de gebruikers-id en gebruikerskenmerk voor gebruikers en lid B2B gasten in SAML-aanmelding toepassingen uit de bedrijfstoepassing gebruikersinterface.
+
+Zie voor meer informatie [uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
+ 
+
+---
+
+
+### <a name="simplified-application-management-using-wildcards-in-azure-ad-application-proxy"></a>Vereenvoudigde Toepassingsbeheer gebruik van jokertekens in Azure AD-toepassingsproxy
+
+**Type:** nieuwe functie  
+**Servicecategorie:** toepassingsproxy  
+**Product mogelijkheid:** gebruikersverificatie
+ 
+
+Voor de implementatie van de toepassing te vereenvoudigen en reduceren uw administratieve overhead, ondersteunen we nu de mogelijkheid voor het publiceren van toepassingen die gebruikmaken van jokertekens. U kunt een jokerteken als toepassing wilt publiceren, volgt u de standaardtoepassing publishing stroom maar een jokerteken gebruikt in de interne en externe URL's.
+
+Zie voor meer informatie [jokertekens toepassingen in de Azure Active Directory-toepassingsproxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard)
+
+ 
+
+---
+ 
+### <a name="new-cmdlets-to-support-configuration-of-application-proxy"></a>Nieuwe cmdlets voor de ondersteuning van de configuratie van Application Proxy
+
+**Type:** nieuwe functie  
+**Servicecategorie:** toepassingsproxy  
+**Product mogelijkheid:** Platform
+ 
+
+De meest recente versie van de module AzureAD PowerShell Preview bevat nieuwe cmdlets waarmee klanten om Application Proxy toepassingen met behulp van PowerShell te configureren.
+
+De nieuwe cmdlets zijn: 
+
+- Get-AzureADApplicationProxyApplication
+- Get-AzureADApplicationProxyApplicationConnectorGroup
+- Get-AzureADApplicationProxyConnector
+- Get-AzureADApplicationProxyConnectorGroup
+- Get-AzureADApplicationProxyConnectorGroupMembers
+- Get-AzureADApplicationProxyConnectorMemberOf
+- New-AzureADApplicationProxyApplication
+- New-AzureADApplicationProxyConnectorGroup
+- Remove-AzureADApplicationProxyApplication
+- Remove-AzureADApplicationProxyApplicationConnectorGroup
+- Remove-AzureADApplicationProxyConnectorGroup
+- Set-AzureADApplicationProxyApplication
+- Set-AzureADApplicationProxyApplicationConnectorGroup
+- Set-AzureADApplicationProxyApplicationCustomDomainCertificate
+- Set-AzureADApplicationProxyApplicationSingleSignOn
+- Set-AzureADApplicationProxyConnector
+- Set-AzureADApplicationProxyConnectorGroup
+
+
+ 
+
+---
+ 
+
+### <a name="new-cmdlets-to-support-configuration-of-groups"></a>Nieuwe cmdlets voor de ondersteuning van de configuratie van groepen
+
+**Type:** nieuwe functie  
+**Servicecategorie:** toepassingsproxy  
+**Product mogelijkheid:** Platform
+ 
+
+De nieuwste versie van de AzureAD PowerShell-module bevat cmdlets voor het beheren van groepen in Azure AD. Deze cmdlets eerder beschikbaar waren in de module AzureADPreview en nu zijn toegevoegd aan de module AzureAD
+
+De groep-cmdlets die nu release voor algemene beschikbaarheid zijn zijn: 
+
+- Get-AzureADMSGroup
+- New-AzureADMSGroup
+- Remove-AzureADMSGroup
+- Set-AzureADMSGroup
+- Get-AzureADMSGroupLifecyclePolicy
+- New-AzureADMSGroupLifecyclePolicy
+- Remove-AzureADMSGroupLifecyclePolicy
+- Add-AzureADMSLifecyclePolicyGroup
+- Remove-AzureADMSLifecyclePolicyGroup
+- Reset-AzureADMSLifeCycleGroup   
+- Get-AzureADMSLifecyclePolicyGroup
+ 
+
+---
+ 
+### <a name="a-new-release-of-azure-ad-connect-is-available"></a>Er is een nieuwe versie van Azure AD Connect beschikbaar
+
+**Type:** nieuwe functie  
+**Servicecategorie:** AD Sync  
+**Product mogelijkheid:** Platform
+ 
+
+Azure AD Connect is de aanbevolen hulpprogramma om te synchroniseren van gegevens tussen Azure AD en lokale gegevensbronnen, met inbegrip van Windows Server Active Directory en LDAP.
+
+**Belangrijk**
+ 
+Deze build schema en sync introduceert wijzigingen regel. De Azure AD Connect-synchronisatieservice activeert een volledige Import en een volledige synchronisatie stappen na een upgrade. Zie voor meer informatie over het wijzigen van dit gedrag [het uitstellen van de volledige synchronisatie na de upgrade](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#how-to-defer-full-synchronization-after-upgrade).
+
+Deze release heeft de volgende updates en wijzigingen:
+
+**Opgeloste problemen**
+
+- Los tijdvenster op achtergrondtaken voor pagina Paritition filteren wanneer u overschakelt naar de volgende pagina.
+- Een fout die toegangsfout tijdens de aangepaste actie ConfigDB veroorzaakt vast.
+- Heeft een fout bij het herstellen van de time-out van de sql-verbinding.
+- Een fout vastgesteld waar certificaten met jokertekens SAN controle van vereisten mislukt.
+- Heeft een fout die ervoor zorgt miiserver.exe crashes tijdens het exporteren van AAD-connector dat.
+- Een fout vastgesteld welke onjuist wachtwoord poging DC aangemeld bij het uitvoeren van AAD connect wizard configuratie wijzigen
+
+**Nieuwe functies en verbeteringen**
+
+- Voor GDPR, zijn er vereist om aan te geven de typen van klantgegevens die worden gedeeld met Microsoft (telemetrie, status, enz.) bevatten koppelingen naar gedetailleerde online documentatie en bieden een manier om u aan uw voorkeuren wijzigen.  Dit selectievakje in voegt het volgende:
+    - Delen van gegevens en privacy-melding op het opschonen installeren EULA-pagina.
+
+    - Delen en privacy melding gegevens op de upgradepagina.
+
+    - Een nieuwe taak aanvullende **privacyinstellingen** waarin de gebruiker de voorkeuren kunt wijzigen.
+ 
+- Toepassingstelemetrie - beheerders kunnen schakelen deze klasse van gegevens in-of uitschakelen.
+
+- Statusgegevens van Azure AD - beheerders moeten Ga naar de health-portal voor het beheren van instellingen voor de status. Zodra de service-beleid is gewijzigd, wordt de agents lezen en wordt deze toepassen.
+
+- Apparaat terugschrijven Configuratieacties en een voortgangsbalk zien voor de initialisatie van de pagina toegevoegd.
+
+- Verbeterde algemene diagnostische gegevens met de HTML-rapport en volledige gegevens verzamelen in een ZIP-tekst / HTML-rapport.
+
+- Verbeterde betrouwbaarheid van Automatische upgrade en extra telemetrie om te controleren of de status van de server kan worden bepaald toegevoegd.
+
+- Machtigingen die beschikbaar zijn beperkt tot beschermde accounts op AD-Connector-account. Voor nieuwe installaties van de wizard beperkt de machtigingen die accounts met bevoegdheden hebben op het account MSOL na het maken van het account MSOL. De wijzigingen die invloed hebben op installaties van snelle en aangepaste installaties met account automatisch maken.
+
+- Het installatieprogramma niet verplicht stellen SA-bevoegdheden op een schone installatie van AADConnect wordt gewijzigd.
+
+- Nieuwe hulpprogramma voor het oplossen van synchronisatieproblemen voor een specifiek object. Op dit moment controleert het hulpprogramma voor het volgende:
+
+    - UserPrincipalName komt niet overeen tussen gesynchroniseerde gebruikersobject en het gebruikersaccount in Azure AD-Tenant.
+  
+    - Als het object is gefilterd van synchronisatie vanwege domein filteren
+  
+    - Als het object van synchronisatie vanwege organisatie-eenheid (OE) voor het filteren is gefilterd
+
+- Nieuwe hulpprogramma voor het synchroniseren van de huidige wachtwoordhash opgeslagen in de lokale Active Directory voor een specifiek gebruikersaccount. Het hulpprogramma is niet vereist voor wachtwoord wijzigen. 
+ 
+
+---
+ 
+
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Toepassingen ondersteunende Intune App Protection-beleid wordt toegevoegd voor gebruik met voorwaardelijke toegang van Azure AD op basis van een toepassing
+
+**Type:** gewijzigde functie  
+**Servicecategorie:** voorwaardelijke toegang  
+**Product mogelijkheid:** identiteit beveiliging en gegevensbescherming
+ 
+
+We hebben hebt meer toepassingen die ondersteuning bieden voor voorwaardelijke toegang op basis van een toepassing toegevoegd. U krijgt nu toegang tot Office 365 en andere Azure AD verbonden cloud-apps met behulp van deze goedgekeurde ClientApps.
+
+De volgende toepassingen worden toegevoegd aan het einde van februari 
+
+- Microsoft PowerBI
+
+- Microsoft Launcher
+
+- Microsoft facturering
+
+Zie voor meer informatie:
+
+- [Goedgekeurde app vereiste](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD app gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+ 
+
+---
+ 
+
+### <a name="terms-of-use-update-to-mobile-experience"></a>Gebruiksvoorwaarden bijwerken naar mobiele ervaring 
+
+**Type:** gewijzigde functie  
+**Servicecategorie:** gebruiksvoorwaarden  
+**Product mogelijkheid:** Governance
+ 
+
+Wanneer u de gebruiksvoorwaarden worden weergegeven, kunt u nu klikken **met problemen bij het bekijken? Klik hier**. Op deze koppeling klikt, opent de gebruiksvoorwaarden systeemeigen op uw apparaat. Ongeacht de grootte van het lettertype in het document of de schermgrootte van apparaat, kunt u inzoomen en lezen van het document indien nodig. 
+ 
+
+---
+ 
 ## <a name="january-2018"></a>2018 januari
  
 

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: c5942bed5e171c23864ef3ee10665273e04640a6
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9fbdb190e7c745000b358451c1a6e3058cb861fd
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Implementatie van een Machine Learning-Model als een webservice
 
@@ -144,7 +144,7 @@ U kunt een eerder geregistreerde model toevoegen aan het manifest met argument `
 U kunt een installatiekopie maken met de optie van de manifest voordat hebben gemaakt. 
 
 ```
-az ml image create -n [image name] -manifest-id [the manifest ID]
+az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
 Of u kunt maken van het manifest en de installatiekopie met één opdracht. 

@@ -1,19 +1,19 @@
 ---
-title: Server-logboeken voor de Azure-Database voor MySQL | Microsoft Docs
+title: Server-logboeken voor de Azure-Database voor MySQL
 description: Beschrijft de logboeken die beschikbaar zijn in Azure-Database voor MySQL en de beschikbare parameters voor het inschakelen van van verschillende logboekregistratieniveaus.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/18/2017
-ms.openlocfilehash: 13b30df82c1a6c4c45a621a1f7a40148a55a7648
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.date: 02/28/2018
+ms.openlocfilehash: ce6b6208b74063ea5d6e9868ca414f833b1a2045
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Serverlogboekbestanden in Azure-Database voor MySQL
 Het querylogboek traag is in de Azure-Database voor MySQL, beschikbaar voor gebruikers. Toegang tot het transactielogboek wordt niet ondersteund. Het querylogboek traag kan worden gebruikt voor het identificeren van knelpunten voor het oplossen van problemen. 

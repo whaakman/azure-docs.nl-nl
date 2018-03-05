@@ -1,19 +1,19 @@
 ---
-title: Minimale downtime migratie naar Azure-Database voor MySQL | Microsoft Docs
+title: Minimale downtime migratie naar Azure-Database voor MySQL
 description: Dit artikel wordt beschreven hoe u een minimale downtime migratie van een MySQL-database naar Azure-Database voor MySQL uitvoert en het instellen van de eerste belasting en synchroniseren van doorlopende gegevens uit de brondatabase naar de doeldatabase Attunity repliceren met voor Microsoft Migraties.
 services: mysql
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/04/2018
-ms.openlocfilehash: d23628fd8446f6e7e0e5ed14b98da13c09b2d592
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: e1be72d97570643cc8a7c6eb05d3d363e96357b6
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Minimale downtime migratie naar Azure-Database voor MySQL
 U kunt uw bestaande MySQL-database migreren naar Azure-Database voor MySQL Attunity repliceren met voor Microsoft Migrations. Attunity repliceren is een gezamenlijke aanbieding van Attunity en Microsoft. Samen met de Azure-databaseservice migratie is het opgenomen zonder extra kosten voor klanten van Microsoft. 

@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: f98fe82a9637cfdddf7af1dcb6aaf979bffcad6f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Gebruik Python gebruiker gedefinieerde functies (UDF) met Hive en Pig in HDInsight
 
@@ -126,8 +126,8 @@ Een pythonscript kan worden gebruikt als een UDF van Pig via de `GENERATE` instr
 
 Gebruik het opgeven van de Python-interpreter `register` bij verwijzingen naar het Python-script. De volgende voorbeelden scripts registreren bij Pig als `myfuncs`:
 
-* **Jython gebruiken**:`register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Gebruik C Python**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Jython gebruiken**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Gebruik C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]
 > Wanneer u Jython, het pad naar het bestand pig_jython mag een lokaal pad of een WASB: / / pad. Echter, wanneer u C Python gebruikt, u moet verwijzen naar een bestand op het lokale bestandssysteem van het knooppunt dat u gebruikt voor het verzenden van de Pig-taak.
@@ -145,7 +145,7 @@ Dit is wat in dit voorbeeld doet:
 
 1. De eerste regel wordt het voorbeeldgegevensbestand geladen `sample.log` in `LOGS`. Ook wordt gedefinieerd hoe elke record als een `chararray`.
 2. De volgende regel gefilterd met een null-waarden voor het opslaan van het resultaat van de bewerking in `LOG`.
-3. Vervolgens wordt het via de records in doorloopt `LOG` en maakt gebruik van `GENERATE` aan te roepen de `create_structure` methode opgenomen in het script Python/Jython geladen als `myfuncs`. `LINE`wordt gebruikt voor het doorgeven van de huidige record aan de functie.
+3. Vervolgens wordt het via de records in doorloopt `LOG` en maakt gebruik van `GENERATE` aan te roepen de `create_structure` methode opgenomen in het script Python/Jython geladen als `myfuncs`. `LINE` wordt gebruikt voor het doorgeven van de huidige record aan de functie.
 4. Ten slotte wordt de uitvoer STDOUT worden gedumpt met behulp van de `DUMP` opdracht. Met deze opdracht worden de resultaten weergegeven nadat de bewerking is voltooid.
 
 ### <a name="create-the-pigudfpy-file"></a>Het bestand pigudf.py maken
@@ -380,8 +380,8 @@ De informatie over de fout (STDERR) en het resultaat van de taak (STDOUT), worde
 
 | Voor deze taak... | Bekijk deze bestanden in de blob-container |
 | --- | --- |
-| Hive |/ HivePython/stderr<p>/ HivePython/stdout |
-| Pig |/ PigPython/stderr<p>/ PigPython/stdout |
+| Hive |/ HivePython/stderr<p>/HivePython/stdout |
+| Pig |/PigPython/stderr<p>/PigPython/stdout |
 
 ## <a name="next"></a>Volgende stappen
 

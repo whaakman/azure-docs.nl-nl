@@ -1,19 +1,19 @@
 ---
-title: Dump en herstellen in Azure-Database voor PostgreSQL | Microsoft Docs
-description: Beschrijft hoe een PostgreSQL-database in een bestand en de PostgreSQL-database terugzetten vanaf een archiefbestand voor PostgreSQL door pg_dump in Azure-Database gemaakt.
+title: Dump en herstellen in Azure-Database voor PostgreSQL
+description: Beschrijft hoe een PostgreSQL-database in een dumpbestand en herstellen van een bestand gemaakt door pg_dump in Azure-Database voor PostgreSQL.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 28727117dbd37f9c595b488639a632b4c7404496
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 6ea839c10bffc9a024af38132081f2c9bd7dfc0a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migreer uw PostgreSQL-database met behulp van de dump en terugzetten
 U kunt [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) een PostgreSQL-database in een dumpbestand uitpakken en [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) de PostgreSQL-database herstellen uit een archiefbestand gemaakt door pg_dump.
@@ -40,9 +40,9 @@ Nadat u de doeldatabase hebt gemaakt, kunt u de opdracht pg_restore en -d,--dbna
 ```bash
 pg_restore -v –-host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
 ```
-In dit voorbeeld kunt u de gegevens terugzetten vanaf het dumpbestand **testdb.dump** in de database **mypgsqldb** op doelserver **mypgserver 20170401.postgres.database.azure.com**.
+In dit voorbeeld kunt u de gegevens terugzetten vanaf het dumpbestand **testdb.dump** in de database **mypgsqldb** op doelserver **mydemoserver.postgres.database.azure.com**.
 ```bash
-pg_restore -v --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb testdb.dump
+pg_restore -v --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

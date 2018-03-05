@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
-ms.openlocfilehash: daf5168ba9a21a56d72fc14649c349b0fb63a167
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>De procedure van wetenschappelijke gegevens Team in actie: gebruik Azure HDInsight Hadoop-clusters
 In dit scenario, gebruiken we de [Team gegevens wetenschap proces (TDSP)](overview.md) in een end-to-end-scenario. We gebruiken een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/) verkennen, om op te slaan en functie-engineering-gegevens uit de openbaar beschikbare [NYC Taxi reizen](http://www.andresmh.com/nyctaxitrips/) gegevensset, en met de gegevens down-voorbeeld. Voor het afhandelen van binaire en multiklassen classificatie en regressie voorspellende taken, maken we modellen van de gegevens met Azure Machine Learning. 
@@ -104,10 +104,10 @@ Hier wordt beschreven hoe AzCopy gebruiken om over te dragen van de bestanden me
 
 In de volgende opdrachten uit AzCopy, vervangt u de volgende parameters met de werkelijke waarden die u hebt opgegeven bij het maken van het Hadoop-cluster en de gegevensbestanden ritsen.
 
-* ***&#60; path_to_data_folder >*** de map (samen met het pad) op de computer die de uitgepakte bestanden bevat.  
-* ***&#60; opslagaccountnaam van Hadoop-cluster >*** het storage-account die is gekoppeld aan uw HDInsight-cluster.
-* ***&#60; standaardcontainer van Hadoop-cluster >*** de standaardcontainer gebruikt door het cluster. Houd er rekening mee dat de naam van de standaardcontainer meestal dezelfde naam als het cluster zelf is. Als het cluster wordt 'abc123.azurehdinsight.net' genoemd, is de standaardcontainer abc123.
-* ***&#60; opslagaccountsleutel >*** de sleutel voor het opslagaccount dat wordt gebruikt door het cluster.
+* ***< Path_to_data_folder >*** de map (samen met het pad) op de computer die de uitgepakte bestanden bevat.  
+* ***<storage account name of Hadoop cluster>*** Het opslagaccount die is gekoppeld aan uw HDInsight-cluster.
+* ***<default container of Hadoop cluster>*** De standaard-container die wordt gebruikt door het cluster. Houd er rekening mee dat de naam van de standaardcontainer meestal dezelfde naam als het cluster zelf is. Als het cluster wordt 'abc123.azurehdinsight.net' genoemd, is de standaardcontainer abc123.
+* ***<storage account key>*** De sleutel voor het opslagaccount dat wordt gebruikt door het cluster.
 
 Voer de volgende twee AzCopy-opdrachten uit vanaf de opdrachtprompt of een Windows PowerShell-venster.
 
@@ -561,7 +561,7 @@ Overzicht van de inhoud van een bepaald bestand, spreken **000000\_0**, gebruik 
     hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 
 > [!WARNING]
-> `copyToLocal`erg langzaam voor grote bestanden en wordt niet aanbevolen voor gebruik met deze.  
+> `copyToLocal` erg langzaam voor grote bestanden en wordt niet aanbevolen voor gebruik met deze.  
 > 
 > 
 

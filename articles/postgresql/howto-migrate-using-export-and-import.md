@@ -1,19 +1,19 @@
 ---
-title: Migreren van een database met behulp van importeren en exporteren in Azure-Database voor PostgreSQL | Microsoft Docs
+title: Migreren van een database met behulp van importeren en exporteren in Azure-Database voor PostgreSQL
 description: Beschrijft hoe een PostgreSQL-database in een scriptbestand en importeer de gegevens in de doeldatabase van dat bestand.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: ddbfd9ef8b2ae4c3c851afc18b010b234b654c81
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.date: 02/28/2018
+ms.openlocfilehash: 8726badde2214a0904336f5bc73310114bcf9e91
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migreer uw PostgreSQL-database met exporteren en importeren
 U kunt [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) een PostgreSQL-database in een scriptbestand uitpakken en [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) de gegevens in de doeldatabase van dat bestand importeert.
@@ -41,9 +41,9 @@ U kunt de psql vanaf de opdrachtregel en de parameter--dbname (-d) de gegevens w
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
 ```
-In dit voorbeeld wordt psql hulpprogramma en een scriptbestand met de naam **testdb.sql** uit de vorige stap om gegevens te importeren in de database **mypgsqldb** op de doelserver  **mypgserver 20170401.postgres.database.azure.com**.
+In dit voorbeeld wordt psql hulpprogramma en een scriptbestand met de naam **testdb.sql** uit de vorige stap om gegevens te importeren in de database **mypgsqldb** op de doelserver  **mydemoserver.postgres.database.Azure.com**.
 ```bash
-psql --file=testdb.sql --host=mypgserver-20170401.database.windows.net --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb
+psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

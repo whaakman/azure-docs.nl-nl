@@ -10,11 +10,11 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 467111978d43d35788276cf7a464496393e4599b
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Afstemming van hyperparameters met behulp van Azure Machine Learning Workbench gedistribueerd
 
@@ -39,19 +39,14 @@ Raster zoeken op basis van kruisvalidatie kan tijdrovend. Als een algoritme vijf
 * Een geïnstalleerde kopie van [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) volgende de [installeren en het maken van de Quick Start](./quickstart-installation.md) voor het installeren van de Workbench en maken van accounts.
 * Dit scenario wordt ervan uitgegaan dat u Azure ML-Workbench worden uitgevoerd op Windows 10- of Mac OS met Docker-engine die lokaal zijn geïnstalleerd. 
 * Inrichten om uit te voeren van het scenario met een externe Docker-container, Ubuntu gegevens wetenschappelijke virtuele Machine (DSVM) door de [instructies](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). U wordt aangeraden een virtuele machine gebruiken met ten minste 8 kernen en 28 Gb aan geheugen. D4 exemplaren van virtuele machines hebt die capaciteit. 
-* Om dit scenario worden uitgevoerd met een Spark-cluster, richt u Azure HDInsight-cluster door het volgende [instructies](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
-We raden u aan met een cluster met ten minste:
-    - zes worker-knooppunten
+* Om dit scenario worden uitgevoerd met een Spark-cluster, richt u HDInsight Spark-cluster door het volgende [instructies](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). U wordt aangeraden dat een cluster met de volgende configuratie in header- en werkrollen knooppunten:
+    - vier worker-knooppunten
     - acht kernen
-    - 28 Gb geheugen in de kop- en werkrollen knooppunten. D4 exemplaren van virtuele machines hebt die capaciteit.       
-    - U wordt aangeraden het wijzigen van de volgende parameters om de prestaties van het cluster:
-        - Spark.Executor.Instances
-        - Spark.Executor.cores
-        - Spark.Executor.Memory 
+    - 28 Gb geheugen  
+      
+  D4 exemplaren van virtuele machines hebt die capaciteit. 
 
-Voert u deze [instructies](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) en bewerkt u de definities in de sectie 'aangepaste spark standaardwaarden'.
-
-     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+     **Het oplossen van problemen**: uw Azure-abonnement heeft mogelijk een quotum op het aantal kernen dat kan worden gebruikt. De Azure-portal is niet toegestaan voor het maken van een cluster met het totale aantal kernen overschrijdt het quotum. Vindt u quota u in de Azure portal naar het gedeelte abonnementen, klikt u op het abonnement dat is gebruikt voor het implementeren van een cluster en klik vervolgens op **gebruik + quota**. Meestal quota per Azure-regio worden gedefinieerd en u kunt kiezen voor het implementeren van het Spark-cluster in een regio waarin u onvoldoende vrije kernen hebben. 
 
 * Maak een Azure storage-account dat wordt gebruikt voor het opslaan van de gegevensset. Ga als volgt de [instructies](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) om een opslagaccount te maken.
 
@@ -112,13 +107,13 @@ In de volgende twee secties laten we zien hoe de configuratie van externe docker
 
 met IP-adres, gebruikersnaam en wachtwoord in DSVM. IP-adres van DSVM vindt u in de sectie overzicht van uw pagina DSVM in Azure-portal:
 
-![VM-IP](media/scenario-distributed-tuning-of-hyperparameters/vm_ip.png)
+![VM IP](media/scenario-distributed-tuning-of-hyperparameters/vm_ip.png)
 
 #### <a name="configuration-of-spark-cluster"></a>Configuratie van Spark-cluster
 
 Als u Spark omgeving instelt, worden uitgevoerd in de CLI
 
-    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
+    az ml computetarget attach cluster --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 met de naam van het cluster, van het cluster SSH-gebruikersnaam en wachtwoord. De standaardwaarde van SSH-gebruikersnaam is `sshuser`, tenzij u het gewijzigd tijdens het inrichten van het cluster. De naam van het cluster kunt vinden in het gedeelte Eigenschappen van de pagina van de cluster in Azure-portal:
 
@@ -126,14 +121,20 @@ met de naam van het cluster, van het cluster SSH-gebruikersnaam en wachtwoord. D
 
 We spark sklearn pakket gebruiken om Spark als gedistribueerde afstemming van hyperparameters in een omgeving worden uitgevoerd. We spark_dependencies.yml-bestand voor het installeren van dit pakket wanneer uitvoeringsomgeving Spark wordt gebruikt is gewijzigd:
 
-    configuration: {}
+    configuration: 
+      #"spark.driver.cores": "8"
+      #"spark.driver.memory": "5200m"
+      #"spark.executor.instances": "128"
+      #"spark.executor.memory": "5200m"  
+      #"spark.executor.cores": "2"
+  
     repositories:
       - "https://mmlspark.azureedge.net/maven"
       - "https://spark-packages.org/packages"
     packages:
       - group: "com.microsoft.ml.spark"
         artifact: "mmlspark_2.11"
-        version: "0.7"
+        version: "0.7.91"
       - group: "databricks"
         artifact: "spark-sklearn"
         version: "0.2.0"
@@ -199,9 +200,9 @@ CLI-venster.
 Aangezien lokale omgeving te klein is voor het berekenen van dat alle sets functie, wordt er overschakelen naar externe DSVM die grotere geheugen heeft. De uitvoering binnen DSVM wordt in Docker-container die wordt beheerd door AML Workbench gedaan. Met deze DSVM we kunnen zijn voor het berekenen van alle functies en modellen trainen en afstemmen hyperparameters (Zie de volgende sectie). singleVM.py bestand heeft volledige functie berekenen en modelleren code. We tonen singleVM.py uitvoeren in externe DSVM in de volgende sectie. 
 
 ### <a name="tuning-hyperparameters-using-remote-dsvm"></a>Met behulp van externe DSVM hyperparameters afstemmen
-We gebruiken [xgboost](https://anaconda.org/conda-forge/xgboost) implementatie [1] van de kleurovergang structuur versterking. We gebruiken [scikit-meer](http://scikit-learn.org/) pakket af te stemmen hyperparameters van xgboost. Xgboost maakt geen deel uit van scikit-pakket, informatie over het scikit implementeert-informatie over API en daarom kan worden gebruikt in combinatie met hyperparameter afstemming van de functies van scikit-meer. 
+We gebruiken [xgboost](https://anaconda.org/conda-forge/xgboost) implementatie [1] van de kleurovergang structuur versterking. We gebruiken ook [scikit-meer](http://scikit-learn.org/) pakket af te stemmen hyperparameters van xgboost. Xgboost maakt geen deel uit van scikit-pakket, informatie over het scikit implementeert-informatie over API en daarom kan worden gebruikt in combinatie met hyperparameter afstemming van de functies van scikit-meer. 
 
-Xgboost heeft acht hyperparameters:
+Xgboost heeft acht hyperparameters, beschreven [hier](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md):
 * n_estimators
 * max_depth
 * reg_alpha
@@ -210,14 +211,13 @@ Xgboost heeft acht hyperparameters:
 * learning_rate
 * colsample\_by_level
 * deelsteekproef
-* Een beschrijving van deze hyperparameters doel kan worden gevonden op
-- http://xgboost.readthedocs.IO/en/Latest/Python/python_api.HTML#module-xgboost.sklearn-https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
-- 
+* Doelstelling  
+ 
 In eerste instantie we gebruiken van externe DSVM en afstemmen hyperparameters van een klein raster van candidate waarden:
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
-Dit raster heeft vier combinaties van waarden van hyperparameters. We gebruiken 5-fold cross validatie, resulterende 5 x 4 = 20 xgboost reeksen. Voor het meten van de prestaties van de modellen gebruiken we negatieve logboek verlies metriek. De volgende code vindt de waarden van hyperparameters uit het raster dat het verlies negatieve logboek cross-gevalideerde maximaliseren. De code wordt ook deze waarden voor het trainen van het laatste model ten opzichte van de volledige trainingset:
+Dit raster heeft vier combinaties van waarden van hyperparameters. We gebruiken 5-fold cross validatie, wat resulteert in 4 x 5 = 20 reeksen xgboost. Voor het meten van de prestaties van de modellen gebruiken we negatieve logboek verlies metriek. De volgende code vindt de waarden van hyperparameters uit het raster dat het verlies negatieve logboek cross-gevalideerde maximaliseren. De code wordt ook deze waarden voor het trainen van het laatste model ten opzichte van de volledige trainingset:
 
     clf = XGBClassifier(seed=0)
     metric = 'neg_log_loss'
@@ -285,7 +285,7 @@ We gebruiken Spark-cluster uitbreiden hyperparameters afstemmen en grotere raste
 
 Dit raster heeft 16 combinaties van waarden van hyperparameters. Aangezien we 5-fold cross validatie gebruiken, we xgboost 16 x 5 = 80 uitgevoerd tijden.
 
-scikit-informatie over het pakket heeft geen een systeemeigen ondersteuning van het afstemmen van hyperparameters met Spark-cluster. Gelukkig [spark sklearn](https://spark-packages.org/package/databricks/spark-sklearn) pakket van Databricks door dit gat vult. Dit pakket biedt GridSearchCV-functie die bijna de dezelfde API als GridSearchCV-functie in scikit heeft-informatie. Voor het gebruik van spark sklearn en afstemmen met Spark hyperparameters moet een verbinding maken voor het maken van Spark-context
+scikit-informatie over het pakket heeft geen een systeemeigen ondersteuning van het afstemmen van hyperparameters met Spark-cluster. Gelukkig [spark sklearn](https://spark-packages.org/package/databricks/spark-sklearn) pakket van Databricks door dit gat vult. Dit pakket biedt GridSearchCV-functie die bijna de dezelfde API als GridSearchCV-functie in scikit heeft-informatie. Voor het gebruik van spark sklearn en afstemmen met Spark hyperparameters moeten we maken van een Spark-context
 
     from pyspark import SparkContext
     sc = SparkContext.getOrCreate()

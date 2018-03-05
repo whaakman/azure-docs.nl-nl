@@ -1,23 +1,23 @@
 ---
-title: SSL-verbindingen in de Azure-Database configureren voor PostgreSQL | Microsoft Docs
+title: SSL-verbindingen in de Azure-Database configureren voor PostgreSQL
 description: Instructies en informatie voor het configureren van Azure-Database voor PostgreSQL en de bijbehorende toepassingen SSL-verbindingen niet normaal kunnen gebruiken.
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: postgresql
 ms.custom: 
 ms.topic: article
-ms.date: 11/01/2017
-ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 02/28/2018
+ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>SSL-verbindingen in de Azure-Database configureren voor PostgreSQL
-Azure-Database voor PostgreSQL verkiest verbinding maken met uw clienttoepassingen naar de PostgreSQL-service met Secure Sockets Layer (SSL). Afdwingen van SSL-verbindingen tussen uw database-server en client-toepassingen beschermt tegen 'man-in het midden'-aanvallen door het versleutelen van de gegevensstroom tussen de server en uw toepassing.
+Azure-Database voor PostgreSQL verkiest verbinding maken met uw clienttoepassingen naar de PostgreSQL-service met Secure Sockets Layer (SSL). Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.
 
 De PostgreSQL-database-service is standaard geconfigureerd om SSL-verbinding vereist. U kunt desgewenst uitschakelen SSL verbinding maken met de database-service als de clienttoepassing biedt geen ondersteuning voor SSL-verbindingen vereisen. 
 
@@ -40,7 +40,7 @@ U kunt de instelling controleren door de **overzicht** om te zien de **SSL afdwi
 U kunt inschakelen of uitschakelen de **ssl-afdwinging** met behulp van de parameter `Enabled` of `Disabled` waarden respectievelijk in Azure CLI.
 
 ```azurecli
-az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
+az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Zorg ervoor dat uw toepassing of framework ondersteunt SSL-verbindingen
@@ -116,11 +116,11 @@ Het volgende voorbeeld laat zien hoe om verbinding te maken met uw PostgreSQL-se
 
 Met de opdrachtregelinterface PostgreSQL, voer de volgende opdracht:
 ```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mypgserver-20170401.postgres.database.azure.com dbname=postgres user=mylogin@mypgserver-20170401"
+psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=mylogin@mydemoserver"
 ```
 Als dit lukt, wordt de volgende uitvoer:
 ```bash
-Password for user mylogin@mypgserver-20170401:
+Password for user mylogin@mydemoserver:
 psql (9.6.2)
 WARNING: Console code page (437) differs from Windows code page (1252)
      8-bit characters might not work correctly. See psql reference

@@ -1,19 +1,19 @@
 ---
-title: Concepten van hoge beschikbaarheid in Azure-Database voor PostgreSQL | Microsoft Docs
-description: Dit onderwerp bevat informatie van hoge beschikbaarheid bij gebruik van Azure-Database voor PostgreSQL
+title: Concepten van hoge beschikbaarheid in Azure voor PostgreSQL-Database
+description: Dit artikel bevat informatie van hoge beschikbaarheid bij gebruik van Azure-Database voor PostgreSQL.
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: 600896cf064770a5b294f874dc29081f0ce7d942
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 02/28/2018
+ms.openlocfilehash: 203a142a21153935e172508e62b813dca95468cb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Concepten van hoge beschikbaarheid in Azure voor PostgreSQL-Database
 De Azure-Database voor PostgreSQL-service biedt een gegarandeerde hoge mate van beschikbaarheid. Back-financieel service level agreement (SLA) is 99,99% bij algemene beschikbaarheid. Er is bijna geen toepassing uitvaltijd wanneer u deze service.

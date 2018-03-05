@@ -1,20 +1,20 @@
 ---
-title: Configureren en toegang tot server-logboeken voor PostgreSQL met Azure CLI | Microsoft Docs
+title: Configureren en toegang tot server-logboeken voor PostgreSQL met Azure CLI
 description: Dit artikel wordt beschreven hoe u kunt configureren en toegang tot de server-Logboeken in Azure-Database voor PostgreSQL via Azure CLI-opdrachtregel.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: d18ec44ecede44829b488ac9864bbfae2c62883a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: e12a8907b641b4591ed5ff9fdd5d8458eb75525e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Configureren en toegang tot de server-logboeken met Azure CLI
 U kunt de PostgreSQL server-foutenlogboeken met behulp van de opdrachtregelinterface (Azure CLI) downloaden. Toegang tot de transactielogboeken wordt echter niet ondersteund. 
@@ -35,16 +35,16 @@ Zie voor meer informatie [configuratieparameters server aanpassen](howto-configu
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Logboeken van de lijst voor de Azure-Database voor PostgreSQL-server
 Uitvoeren als de beschikbare logboekbestanden voor uw server wilt weergeven, de [az postgres serverlogboeken lijst](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) opdracht.
 
-U kunt geven lijsten van logboekbestanden voor server **mypgserver 20170401.postgres.database.azure.com** onder de resourcegroep **myresourcegroup**, en het omleiden naar een tekstbestand aangeroepen **logboek\_bestanden\_lijst.txt.**
+U kunt geven lijsten van logboekbestanden voor server **mydemoserver.postgres.database.azure.com** onder de resourcegroep **myresourcegroup**, en het omleiden naar een tekstbestand aangeroepen **logboek\_ bestanden\_lijst.txt.**
 ```azurecli-interactive
-az postgres server-logs list --resource-group myresourcegroup --server mypgserver-20170401 > log_files_list.txt
+az postgres server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-locally-from-the-server"></a>Lokaal logboeken downloaden van de server
 De [az postgres serverlogboeken downloaden](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) opdracht kunt u afzonderlijke logboekbestanden voor uw server downloaden. 
 
-In dit voorbeeld downloadt de specifiek logboekbestand voor de server **mypgserver 20170401.postgres.database.azure.com** onder de resourcegroep **myresourcegroup** op uw lokale omgeving.
+In dit voorbeeld downloadt de specifiek logboekbestand voor de server **mydemoserver.postgres.database.azure.com** onder de resourcegroep **myresourcegroup** op uw lokale omgeving.
 ```azurecli-interactive
-az postgres server-logs download --name 20170414-mypgserver-20170401-postgresql.log --resource-group myresourcegroup --server mypgserver-20170401
+az postgres server-logs download --name 20170414-mydemoserver-postgresql.log --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="next-steps"></a>Volgende stappen
 - Zie voor meer informatie over de serverlogboeken [Server-logboeken in Azure-Database voor PostgreSQL](concepts-server-logs.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Status controleren, instellen van logboekregistratie van diagnostische gegevens en waarschuwingen inschakelen voor Azure Logic Apps
 
@@ -97,7 +97,7 @@ Voordat u begint, moet u een OMS-werkruimte hebt. Meer informatie over [het make
    3. Onder **OMS werkruimten**, selecteer de OMS-werkruimte moet worden gebruikt voor logboekregistratie.
    4. Onder **logboek**, selecteer de **WorkflowRuntime** categorie.
    5. Kies een metrische interval.
-   6. Als u bent klaar, kiest u **opslaan**.
+   6. Als u bent klaar, kiest u **Opslaan**.
 
    ![Selecteer de OMS-werkruimte en de gegevens voor logboekregistratie](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -131,7 +131,7 @@ Om te zoeken en weergeven van gebeurtenissen in uw logische app, zoals gebeurten
 
 5. Geef in het zoekvak, een veld dat u wilt zoeken en druk op **Enter**. Wanneer u te typen begint, OMS laat zien u mogelijke overeenkomsten en de bewerkingen die u kunt gebruiken. 
 
-   Bijvoorbeeld als u zoekt de top 10-gebeurtenissen die hebben plaatsgevonden, invoeren en deze zoekopdracht selecteren: **categorie WorkflowRuntime = | top 10**
+   Bijvoorbeeld als u zoekt de top 10-gebeurtenissen die hebben plaatsgevonden, invoeren en deze zoekopdracht selecteren: **categorie Zoek == "WorkflowRuntime" | 10 beperken**
 
    ![Geef zoektekenreeks](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

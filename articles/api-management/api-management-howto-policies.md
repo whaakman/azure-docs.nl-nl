@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 54fbba197f6609731ffaf3ff15143a28e70a955f
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Beleid in Azure API Management
 
@@ -27,7 +27,7 @@ Beleidsregels worden toegepast binnen de gateway die de consument API en de behe
 
 Beleidsexpressies kunnen worden gebruikt als kenmerkwaarden of tekstwaarden in API Management-beleidsregels, tenzij het beleid iets anders aangeeft. Sommige beleidsregels, zoals de [transportbesturing] [ Control flow] en [variabele instellen] [ Set variable] beleid is gebaseerd op beleidsexpressies. Zie voor meer informatie [Geavanceerde beleidsregels] [ Advanced policies] en [beleidsexpressies][Policy expressions].
 
-## <a name="sections"></a>Understanding beleidsconfiguratie
+## <a name="sections"> </a>Understanding beleidsconfiguratie
 
 De beleidsdefinitie is een eenvoudige XML-document dat wordt een reeks binnenkomend en uitgaand instructies beschreven. Het XML-bestand kan worden bewerkt rechtstreeks in het definitievenster. Een lijst van de instructies vindt u aan de rechterkant en instructies van toepassing op het huidige bereik zijn ingeschakeld en gemarkeerd.
 
@@ -60,7 +60,7 @@ De configuratie is onderverdeeld in `inbound`, `backend`, `outbound`, en `on-err
 
 Als er een fout opgetreden tijdens het verwerken van een aanvraag, alle overige stappen in de `inbound`, `backend`, of `outbound` secties worden overgeslagen en uitvoering gaat u naar de instructies in de `on-error` sectie. Door het plaatsen van beleidsverklaringen in de `on-error` sectie kunt u de fout bekijken met behulp van de `context.LastError` eigenschap, controleren en aanpassen van de fout antwoord via de `set-body` -beleid, en configureer wat er gebeurt als een fout optreedt. Er zijn foutcodes voor ingebouwde stappen en voor fouten die tijdens de verwerking van beleid voor instructies optreden. Zie voor meer informatie [foutafhandeling in API Management-beleidsregels](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-## <a name="scopes"></a>Beleid configureren
+## <a name="scopes"> </a>Het configureren van beleid
 
 Zie voor meer informatie over het configureren van beleid [instellen of bewerken van beleid](set-edit-policies.md).
 
@@ -112,12 +112,6 @@ Beperken van binnenkomende aanvragen en accepteert alleen die uit een IP-adres v
     <address>1.2.3.4</address>
 </ip-filter>
 ```
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Volgende stappen
 

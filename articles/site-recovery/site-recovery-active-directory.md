@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Azure Site Recovery gebruiken om te beveiligen van Active Directory en DNS
 
@@ -26,7 +26,7 @@ In dit artikel wordt uitgelegd hoe het maken van een noodherstel voor Active Dir
 ## <a name="prerequisites"></a>Vereisten
 
 * Als u naar Azure repliceert, [voorbereiden van de Azure-resources](tutorial-prepare-azure.md), met inbegrip van een abonnement, een virtueel netwerk van Azure storage-account en een Recovery Services-kluis.
-* Controleer de [ondersteuningsvereisten](site-recovery-support-matrix-to-azure.md) voor alle onderdelen.
+* Raadpleeg de [ondersteuningsvereisten](site-recovery-support-matrix-to-azure.md) voor alle onderdelen.
 
 ## <a name="replicate-the-domain-controller"></a>De domeincontroller worden gerepliceerd.
 
@@ -80,7 +80,7 @@ De meeste toepassingen vereist de aanwezigheid van een domeincontroller of een D
     ![Azure testnetwerk](./media/site-recovery-active-directory/azure-test-network.png)
 
     > [!TIP]
-    > Site Recovery probeert te maken van test-virtuele machines in een subnet met dezelfde naam en met behulp van hetzelfde IP-adres die opgegeven in de **berekening en netwerk** instellingen van de virtuele machine. Als een subnet met dezelfde naam is niet beschikbaar in het Azure-netwerk dat opgegeven voor de testfailover, wordt de virtuele testmachine gemaakt in het alfabetisch eerste subnet. 
+    > Site Recovery probeert te maken van test-virtuele machines in een subnet met dezelfde naam en met behulp van hetzelfde IP-adres die opgegeven in de **berekening en netwerk** instellingen van de virtuele machine. Als een subnet met dezelfde naam is niet beschikbaar in het Azure-netwerk dat opgegeven voor de testfailover, wordt de virtuele testmachine gemaakt in het alfabetisch eerste subnet.
     >
     > Als het doel-IP-adres deel van het geselecteerde subnet uitmaakt, probeert de Site Recovery de failover de virtuele machine maken met behulp van het doel-IP-adres. Als het doel-IP-adres maakt geen deel uit van het geselecteerde subnet, wordt de failover de virtuele machine gemaakt met behulp van het volgende beschikbare IP-adres in het geselecteerde subnet.
     >
@@ -110,7 +110,7 @@ Vanaf Windows Server 2012 [extra beveiliging zijn ingebouwd in Active Directory 
 
 Wanneer **Vmgid** opnieuw wordt ingesteld, de **InvocationID** waarde van de AD DS-database ook opnieuw ingesteld. Bovendien worden de RID-groep is verwijderd en SYSVOL is gemarkeerd als niet-bindende. Zie voor meer informatie [Inleiding tot virtualisatie van Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) en [veilig virtualiseren DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-Mogelijk worden niet via Azure **Vmgid** opnieuw in te stellen. Opnieuw instellen van **Vmgid** aanvullende veiligheidsmaatregelen wanneer de domain controller virtuele machine wordt opgestart in Azure. Dit kan leiden tot een *aanzienlijke vertraging* kunt aanmelden bij de virtuele machine van de domain controller. 
+Mogelijk worden niet via Azure **Vmgid** opnieuw in te stellen. Opnieuw instellen van **Vmgid** aanvullende veiligheidsmaatregelen wanneer de domain controller virtuele machine wordt opgestart in Azure. Dit kan leiden tot een *aanzienlijke vertraging* kunt aanmelden bij de virtuele machine van de domain controller.
 
 Omdat deze domeincontroller alleen in een testfailover veiligheidsmaatregelen voor virtualisatie niet noodzakelijk gebruikt wordt. Om ervoor te zorgen dat de **Vmgid** waarde voor de domain controller virtuele machine niet wijzigen, kunt u de waarde van de volgende DWORD naar **4** in de lokale domeincontroller:
 
@@ -165,20 +165,20 @@ Als de virtualisatiebeveiliging geactiveerd na een failovertest uitvoert, ziet u
 Als u de bovenstaande voorwaarden is voldaan, is het waarschijnlijk dat de domeincontroller correct functioneert. Als dit niet het geval is, kunt u de volgende stappen:
 
 1. Voer een bindend terugzetten van de domeincontroller. Houd rekening met de volgende informatie:
-    * Hoewel niet aangeraden [FRS-replicatie](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), als u FRS-replicatie, volg de stappen voor een bindende terugzetbewerking. Het proces wordt beschreven in [met behulp van de registersleutel BurFlags File Replication-Service opnieuw initialiseren](https://support.microsoft.com/kb/290762). 
-    
+    * Hoewel niet aangeraden [FRS-replicatie](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), als u FRS-replicatie, volg de stappen voor een bindende terugzetbewerking. Het proces wordt beschreven in [met behulp van de registersleutel BurFlags File Replication-Service opnieuw initialiseren](https://support.microsoft.com/kb/290762).
+
         Zie het blogbericht voor meer informatie over BurFlags [D2 en D4: Wat is het voor?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Als u de DFSR-replicatie gebruikt, volg u de stappen voor een bindende terugzetbewerking. Het proces wordt beschreven in [een bindende en niet-bindende synchronisatie afdwingen voor DFSR gerepliceerd SYSVOL (like "D4/D2' voor FRS)](https://support.microsoft.com/kb/2218556). 
-    
+    * Als u de DFSR-replicatie gebruikt, volg u de stappen voor een bindende terugzetbewerking. Het proces wordt beschreven in [een bindende en niet-bindende synchronisatie afdwingen voor DFSR gerepliceerd SYSVOL (like "D4/D2' voor FRS)](https://support.microsoft.com/kb/2218556).
+
         U kunt ook de PowerShell-functies gebruiken. Zie voor meer informatie [DFSR SYSVOL gezaghebbende/niet-bindende terugzetbewerking PowerShell functies](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 
-2. De eerste synchronisatie-vereiste omzeilen door de volgende registersleutel in te stellen op **0** in de lokale domeincontroller. Als de DWORD-waarde niet bestaat, kunt u het maken onder de **Parameters** knooppunt. 
+2. De eerste synchronisatie-vereiste omzeilen door de volgende registersleutel in te stellen op **0** in de lokale domeincontroller. Als de DWORD-waarde niet bestaat, kunt u het maken onder de **Parameters** knooppunt.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
     Zie voor meer informatie [problemen met DNS-gebeurtenis-ID 4013: de DNS-server kan niet worden geladen is AD geïntegreerde DNS-zones](https://support.microsoft.com/kb/2001093).
 
-3. Schakel de vereiste dat een globale-catalogusserver beschikbaar zijn voor het valideren van de gebruikersaanmelding. Klik hiervoor in de lokale domeincontroller zodanig dat de volgende registersleutel **1**. Als de DWORD-waarde niet bestaat, kunt u het maken onder de **Lsa** knooppunt. 
+3. Schakel de vereiste dat een globale-catalogusserver beschikbaar zijn voor het valideren van de gebruikersaanmelding. Klik hiervoor in de lokale domeincontroller zodanig dat de volgende registersleutel **1**. Als de DWORD-waarde niet bestaat, kunt u het maken onder de **Lsa** knooppunt.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 

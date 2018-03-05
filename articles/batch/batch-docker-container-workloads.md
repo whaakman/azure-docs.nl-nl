@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Containertoepassingen worden uitgevoerd op Azure Batch
 
@@ -27,7 +27,7 @@ In dit artikel wordt ervan uitgegaan dat bekend bent met concepten voor Docker-c
 
 ## <a name="prerequisites"></a>Vereisten
 
-* SDK-versies: de Batch-SDK's ondersteuning container afbeeldingen in de volgende versies:
+* SDK-versies: de Batch-SDK's ondersteuning container installatiekopieën vanaf de volgende versies:
     * Batch REST-API versie 2017-09-01.6.0
     * Batch .NET SDK versie 8.0.0
     * Batch Python SDK versie 4.0
@@ -87,7 +87,7 @@ Geef een verwijzing naar de VM-installatiekopie moet worden gebruikt bij het mak
 
     Als u deze afbeeldings-ID van de Azure-portal, opent u **alle resources**, selecteert u de aangepaste installatiekopie en van de **overzicht** sectie kopiëren van het tabblad installatiekopie van het pad in **Resource-ID**.
 
-* Als u een [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) installatiekopie, geeft u een groep van parameters met een beschrijving van de afbeelding: het aanbiedingtype, uitgever, SKU en versie van de afbeelding, zoals vermeld in [lijst van installatiekopieën van virtuele machines](batch-linux-nodes.md#list-of-virtual-machine-images):
+* Als u een [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) installatiekopie, geeft u een groep van parameters met een beschrijving van de afbeelding: de uitgever, het aanbiedingtype, SKU en versie van de afbeelding, zoals vermeld in [lijst van installatiekopieën van virtuele machines](batch-linux-nodes.md#list-of-virtual-machine-images):
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -239,7 +239,7 @@ CloudTask containerTask = new CloudTask (
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een gedetailleerd overzicht van Batch [ontwikkelen grootschalige parallelle compute-oplossingen met Batch](batch-api-basics.md).
+* Zie ook de [Batch scheepswerf](https://github.com/Azure/batch-shipyard) toolkit voor een gemakkelijke implementatie van de container werkbelastingen op Azure Batch via [scheepswerf recepten](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
 * Zie voor meer informatie over het installeren en gebruiken van Docker CE op Linux, de [Docker](https://docs.docker.com/engine/installation/) documentatie.
 

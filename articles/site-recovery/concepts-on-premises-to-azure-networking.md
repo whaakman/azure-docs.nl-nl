@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 9b14f6ea361d3c1d7402d1a8aeb10695a8726edb
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b9aeaf1dc6d471ba993dd470403ba60ce68153fc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>IP-adressen als u wilt verbinden na een failover naar Azure instellen
 
@@ -36,7 +36,7 @@ In dit artikel leert u over:
 Bij het plannen van uw replicatie en failoverstrategie is een van de belangrijke vragen verbinding maken met de Azure VM na een failover. Er zijn een aantal opties bij het ontwerpen van uw netwerk-strategie voor de replica virtuele Azure-machines:
 
 - **Gebruik verschillende IP-adres**: U kunt selecteren om een ander IP-adresbereik voor de gerepliceerde Azure VM-netwerk. In dit scenario wordt de virtuele machine een nieuw IP-adres na een failover en een DNS-update is vereist.
-- **Hetzelfde IP-adres behouden**: U kunt hetzelfde IP-adresbereik gebruiken als die in uw primaire on-premises-site voor het Azure-netwerk na een failover. Houden dezelfde IP adressen het herstel vereenvoudigt door te beperken netwerkgerelateerde problemen na een failover. Echter, wanneer u naar Azure repliceert, moet u het bijwerken van routes met de nieuwe locatie van de IP-adressen na een failover. 
+- **Hetzelfde IP-adres behouden**: U kunt hetzelfde IP-adresbereik gebruiken als die in uw primaire on-premises-site voor het Azure-netwerk na een failover. Houden dezelfde IP adressen het herstel vereenvoudigt door te beperken netwerkgerelateerde problemen na een failover. Echter, wanneer u naar Azure repliceert, moet u het bijwerken van routes met de nieuwe locatie van de IP-adressen na een failover.
 
 ## <a name="retaining-ip-addresses"></a>IP-adressen behouden
 
@@ -86,11 +86,7 @@ Naast de vnet-naar-vnet-verbinding, na een failover kunt Woodgrove site-naar-sit
 
 ## <a name="assigning-new-ip-addresses"></a>Nieuwe IP-adressen toewijzen
 
-Dit [blogbericht](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) wordt uitgelegd hoe u de Azure-netwerkinfrastructuur wilt instellen wanneer u hoeft niet te IP-adressen behouden na een failover. Deze begint met een toepassingsbeschrijving, het instellen van het lokale netwerk en in Azure wordt bekeken en wordt afgesloten met informatie over het uitvoeren van failovers. 
+Dit [blogbericht](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) wordt uitgelegd hoe u de Azure-netwerkinfrastructuur wilt instellen wanneer u hoeft niet te IP-adressen behouden na een failover. Deze begint met een toepassingsbeschrijving, het instellen van het lokale netwerk en in Azure wordt bekeken en wordt afgesloten met informatie over het uitvoeren van failovers.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Een failover uitvoeren](site-recovery-failover.md)
-
-
-
-

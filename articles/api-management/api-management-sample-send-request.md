@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 7f3cc81327d1d247fb8e19e256eafb009a5bf162
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d7c32e5ae02e294ee88c19f058e04249c7c9969e
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Met behulp van externe services van de Azure API Management-service
 De beleidsregels die beschikbaar zijn in Azure API Management-service kan een breed scala aan goed functioneren op basis van uitsluitend op de inkomende aanvraag, het uitgaande antwoord en basisinformatie over de configuratie kunnen doen. Echter, kunnen communiceren met externe services van API Management beleid wordt geopend veel meer mogelijkheden.
@@ -282,11 +282,4 @@ U kunt het dashboard resource mogen worden opgeslagen voor ten minste een uur co
 
 ## <a name="summary"></a>Samenvatting
 Azure API Management-service biedt flexibele beleidsregels die u kunnen selectief worden toegepast op HTTP-verkeer en Hiermee samenstelling van back-end-services. Of u wilt uw API-gateway met waarschuwingen, functies, verificatie, validatie-mogelijkheden verbeteren of maken van nieuwe samengestelde resources op basis van meerdere back-end-services de `send-request` en bijbehorende beleid opent u een wereld van mogelijkheden.
-
-## <a name="watch-a-video-overview-of-these-policies"></a>Bekijk een video-overzicht van deze beleidsregels
-Voor meer informatie over de [-één-manier-Verzendaanvraag](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [aanvragen verzenden](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), en [return antwoord](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) beleidsregels die in dit artikel bevat de volgende video:
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
-> 
-> 
 

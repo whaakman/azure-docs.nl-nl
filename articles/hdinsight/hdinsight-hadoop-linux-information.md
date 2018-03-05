@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4449dfa1b189f51292d24af884ba9d2addf1fe24
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informatie over het gebruik van HDInsight in Linux
 
@@ -35,7 +35,7 @@ Veel van de stappen in dit document met de volgende hulpprogramma's, die mogelij
 
 * [cURL](https://curl.haxx.se/) : wordt gebruikt om te communiceren met webservices
 * [jq](https://stedolan.github.io/jq/) : wordt gebruikt voor het parseren van JSON-documenten
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (preview): gebruikt voor het extern beheren van Azure-services
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) : wordt gebruikt voor het extern beheren van Azure-services
 
 ## <a name="users"></a>Gebruikers
 
@@ -61,7 +61,7 @@ Met deze opdracht retourneert een JSON-document met een beschrijving van de serv
 
 ## <a name="remote-access-to-services"></a>Externe toegang tot services
 
-* **Ambari (web)** -https://&lt;clustername >. azurehdinsight.net
+* **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
     Verifiëren met behulp van de cluster-beheerder en het wachtwoord en vervolgens weer aanmelden bij Ambari.
 
@@ -72,14 +72,14 @@ Met deze opdracht retourneert een JSON-document met een beschrijving van de serv
     >
     > U kunt de volledige functionaliteit van de Ambari-webgebruikersinterface, gebruiken een SSH-tunnel naar de proxy-webverkeer met het hoofdknooppunt van het cluster. Zie [SSH-Tunneling gebruiken voor toegang tot de Ambari-webgebruikersinterface, ResourceManager JobHistory, NameNode, Oozie en andere web-UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** -https://&lt;clustername >.azurehdinsight.net/ambari
+* **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
     > [!NOTE]
     > Verifiëren met behulp van de cluster-beheerder en het wachtwoord.
     >
     > Verificatie is tekst zonder opmaak - altijd gebruik van HTTPS om ervoor te zorgen dat de verbinding beveiligd is.
 
-* **WebHCat (Templeton)** -https://&lt;clustername >.azurehdinsight.net/templeton
+* **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
 
     > [!NOTE]
     > Verifiëren met behulp van de cluster-beheerder en het wachtwoord.
@@ -100,7 +100,7 @@ Hadoop-bestanden kunnen u vinden op de clusterknooppunten op `/usr/hdp`. Deze ma
 * **2.2.4.9-1**: naam van de map is de versie van het Hortonworks Data Platform die door HDInsight worden gebruikt. Het nummer op het cluster is mogelijk anders dan hier vermeld.
 * **huidige**: deze map bevat koppelingen naar submappen onder de **2.2.4.9-1** directory. Deze map bestaat, zodat u niet hoeft te onthouden het versienummer.
 
-Van de voorbeeldgegevens en JAR-bestanden kunnen u vinden op Hadoop Distributed File System op `/example` en`/HdiSamples`
+Van de voorbeeldgegevens en JAR-bestanden kunnen u vinden op Hadoop Distributed File System op `/example` en `/HdiSamples`
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS-, Azure-opslag- en Data Lake Store
 
@@ -151,11 +151,11 @@ U kunt Ambari gebruiken voor het ophalen van de standaardconfiguratie voor de op
 
 Met deze opdracht retourneert een waarde die vergelijkbaar is met de volgende URI's:
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net`Als een Azure Storage-account wordt gebruikt.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` Als een Azure Storage-account wordt gebruikt.
 
     De accountnaam is de naam van het Azure Storage-account. De containernaam is de blob-container is de hoofdmap van de clusteropslag.
 
-* `adl://home`Als u Azure Data Lake Store. Als u de naam van de Data Lake Store, gebruikt u de volgende REST-aanroep:
+* `adl://home` Als u Azure Data Lake Store. Als u de naam van de Data Lake Store, gebruikt u de volgende REST-aanroep:
 
     ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
@@ -196,7 +196,7 @@ Als u __Azure Data Lake Store__, Zie de volgende koppelingen voor dat u toegang 
 * [Webbrowser](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
 * [Azure CLI 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
-* [WebHDFS REST-API](../data-lake-store/data-lake-store-get-started-rest-api.md)
+* [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Data Lake Tools voor Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)

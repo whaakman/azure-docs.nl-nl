@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps en -configuratie
 
@@ -58,15 +58,22 @@ Deze beperkingen gelden voor één HTTP-aanvraag of een aanroep van de connector
 
 Deze beperkingen gelden voor een enkele logische-app uitvoeren.
 
-| Naam | Limiet | 
-| ---- | ----- | 
-| Duur uitvoering | 90 dagen | 
-| Bewaren van opslag | Begintijd van 90 dagen van de uitvoeren | 
-| Terugkeerpatroon min | 1 seconde </br>Voor logic apps met een App Service-Plan: 15 seconden | 
-| Maximale terugkeerpatroon | 500 dagen | 
-||| 
+| Naam | Standaard | Limiet |
+| ---- | ------- | ----- |
+| Duur uitvoering   | 90 dagen | 7 tot 90 dagen |
+| Bewaren van opslag | Begintijd van 90 dagen van de uitvoeren |  7 tot 90 dagen na de begintijd voor de uitvoering |
+||||
 
 Overschrijden voor uitvoering duur of handhaving van opslag in uw flow normale verwerking [Neem contact op met het productteam](mailto://logicappsemail@microsoft.com) voor hulp bij uw behoeften.
+
+
+### <a name="recurrence-interval"></a>Interval voor terugkeerpatroon
+
+| Naam | Limiet |
+| ---- | ------- |
+| Terugkeerpatroon min | 1 seconde </br>Voor logic apps met een App Service-Plan: 15 seconden |
+| Maximale terugkeerpatroon | 500 dagen |
+|||
 
 ### <a name="looping-and-debatching-limits"></a>Lussen en limieten debatching
 
@@ -75,7 +82,7 @@ Deze beperkingen gelden voor een enkele logische-app uitvoeren.
 | Naam | Limiet | Opmerkingen | 
 | ---- | ----- | ----- | 
 | ForEach-items | 100,000 | U kunt de [query actie](../connectors/connectors-native-query.md) voor het filteren van grotere matrices indien nodig. | 
-| Pas iteraties | 5,000 | | 
+| Pas iteraties | 5.000 | | 
 | SplitOn items | 100,000 | | 
 | ForEach parallelle uitvoering | 50 | De standaardwaarde is 20. <p>Om in te stellen van een specifiek niveau van parallelle uitvoering in een lus ForEach de `runtimeConfiguration` eigenschap in de `foreach` in te grijpen. <p>Als u wilt een lus ForEach sequentieel worden uitgevoerd, stelt de `operationOptions` eigenschap in op 'Sequentiële' in de `foreach` actie. | 
 |||| 
@@ -109,10 +116,10 @@ Deze beperkingen gelden voor een definitie van één logic Apps.
 | Aantal variabelen per werkstroom | 250 | | 
 | Maximum aantal tekens per expressie | 8.192 | | 
 | Maximale `trackedProperties` grootte in tekens | 16,000 | 
-| `action`/`trigger`limiet voor de naam | 80 | | 
-| `description`lengtelimiet | 256 | | 
-| `parameters`limiet | 50 | | 
-| `outputs`limiet | 10 | | 
+| `action`/`trigger` limiet voor de naam | 80 | | 
+| `description` lengtelimiet | 256 | | 
+| `parameters` Limiet | 50 | | 
+| `outputs` Limiet | 10 | | 
 |||| 
 
 <a name="custom-connector-limits"></a>

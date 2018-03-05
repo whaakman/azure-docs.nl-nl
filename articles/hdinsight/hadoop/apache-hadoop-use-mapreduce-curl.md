@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/04/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dd3e5904ee21ee74da5adaa65abd7865a82c8b36
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: e48e9f833db86f01d944133c8a32d2c6b27b7b48
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>MapReduce-taken uitvoeren met Hadoop op HDInsight met behulp van REST
 
@@ -33,23 +33,46 @@ Informatie over het gebruik van de REST-API WebHCat MapReduce-taken uitvoeren op
 ## <a id="prereq"></a>Vereisten
 
 * Een Hadoop op HDInsight-cluster
-* [CURL](http://curl.haxx.se/)
-* [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell of [Curl](http://curl.haxx.se/) en [jq](http://stedolan.github.io/jq/)
 
-## <a id="curl"></a>MapReduce-taken met Curl uitvoeren
+## <a id="curl"></a>Voer een MapReduce-taak
 
 > [!NOTE]
 > Wanneer u Curl of andere REST-communicatie met WebHCat gebruikt, moet u de aanvragen verifiëren door te geven van de gebruikersnaam van de beheerder voor HDInsight-cluster en het wachtwoord. U moet de clusternaam gebruiken als onderdeel van de URI die wordt gebruikt voor het versturen van aanvragen naar de server.
 >
-> Voor de opdrachten in deze sectie vervangt u **admin** met de gebruiker om het cluster te verifiëren. Vervang **CLUSTERNAME** door de naam van uw cluster. Geef desgevraagd het wachtwoord voor het gebruikersaccount.
->
 > De REST-API is beveiligd met behulp van [basistoegang verificatie](http://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd maken met behulp van HTTPS om ervoor te zorgen dat uw referenties veilig worden verzonden naar de server.
 
-
-1. Gebruik een opdrachtregel met de volgende opdracht om te controleren of u verbinding met uw HDInsight-cluster kunt maken:
+1. Om in te stellen de cluster-aanmelding die wordt gebruikt door de scripts in dit document, moet u een van de followig-opdrachten gebruiken:
 
     ```bash
-    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    read -p "Enter your cluster login account name: " LOGIN
+    ```
+
+    ```powershell
+    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
+    ```
+
+2. Naam van het cluster stelt een van de volgende opdrachten te gebruiken:
+
+    ```bash
+    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    ```
+
+    ```powershell
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    ```
+
+3. Gebruik een opdrachtregel met de volgende opdracht om te controleren of u verbinding met uw HDInsight-cluster kunt maken:
+
+    ```bash
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
+        -Credential $creds `
+        -UseBasicParsing
+    $resp.Content
     ```
 
     U ontvangt een reactie vergelijkbaar met de volgende JSON:
@@ -63,15 +86,33 @@ Informatie over het gebruik van de REST-API WebHCat MapReduce-taken uitvoeren op
 
    Het begin van de URI **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is hetzelfde voor alle aanvragen.
 
-2. Als u een MapReduce-taak, moet u de volgende opdracht gebruiken:
+4. Als u een MapReduce-taak, moet u de volgende opdracht gebruiken:
 
     ```bash
-    curl -u admin -d user.name=admin -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
+    JOBID=`curl -u $LOGIN -d user.name=$LOGIN -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/output https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar | jq .id`
+    echo $JOBID
+    ```
+
+    ```powershell
+    $reqParams = @{}
+    $reqParams."user.name" = "admin"
+    $reqParams.jar = "/example/jars/hadoop-mapreduce-examples.jar"
+    $reqParams.class = "wordcount"
+    $reqParams.arg = @()
+    $reqParams.arg += "/example/data/gutenberg/davinci.txt"
+    $reqparams.arg += "/example/data/output"
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/mapreduce/jar" `
+       -Credential $creds `
+       -Body $reqParams `
+       -Method POST `
+       -UseBasicParsing
+    $jobID = (ConvertFrom-Json $resp.Content).id
+    $jobID
     ```
 
     Het einde van de URI (mapreduce/jar) ziet WebHCat of er een MapReduce-taak op deze aanvraag wordt gestart van een klasse in een jar-bestand. In deze opdracht worden de volgende parameters gebruikt:
 
-   * **-d**: `-G` niet wordt gebruikt, zodat de aanvraag wordt standaard ingesteld op de POST-methode. `-d`Hiermee geeft u de waarden die worden verzonden met de aanvraag.
+   * **-d**: `-G` niet wordt gebruikt, zodat de aanvraag wordt standaard ingesteld op de POST-methode. `-d` Hiermee geeft u de waarden die worden verzonden met de aanvraag.
     * **User.name**: de gebruiker die de opdracht wordt uitgevoerd
     * **JAR**: de locatie van de jar-bestand met de klasse om te worden uitgevoerd
     * **klasse**: de klasse met de MapReduce-logica
@@ -79,22 +120,32 @@ Informatie over het gebruik van de REST-API WebHCat MapReduce-taken uitvoeren op
 
    Met deze opdracht als resultaat moet een taak-ID die kan worden gebruikt om de status van de taak te controleren:
 
-       {"id":"job_1415651640909_0026"}
+       job_1415651640909_0026
 
-3. Als u wilt de status van de taak controleren, moet u de volgende opdracht gebruiken:
+5. Als u wilt de status van de taak controleren, moet u de volgende opdracht gebruiken:
 
     ```bash
-    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
     ```
 
-    Vervang de **JOBID** met de waarde die wordt geretourneerd in de vorige stap. Bijvoorbeeld, als de retourwaarde is `{"id":"job_1415651640909_0026"}`, en vervolgens de JOBID is `job_1415651640909_0026`.
+    ```powershell
+    $reqParams=@{"user.name"="admin"}
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
+       -Credential $creds `
+       -Body $reqParams `
+       -UseBasicParsing
+    # ConvertFrom-JSON can't handle duplicate names with different case
+    # So change one to prevent the error
+    $fixDup=$resp.Content.Replace("jobID","job_ID")
+    (ConvertFrom-Json $fixDup).status.state
+    ```
 
     Als de taak voltooid is, wordt de status geretourneerd is `SUCCEEDED`.
 
    > [!NOTE]
    > Deze aanvraag Curl retourneert een JSON-document met informatie over de taak. Jq wordt gebruikt voor het ophalen van de waarde van de status.
 
-4. Wanneer de status van de taak is gewijzigd in `SUCCEEDED`, kunt u de resultaten van de taak ophalen uit Azure Blob-opslag. De `statusdir` parameter die wordt doorgegeven aan de query bevat de locatie van het uitvoerbestand. In dit voorbeeld is de locatie `/example/curl`. Dit adres slaat de uitvoer van de taak in de opslag van de standaard clusters op `/example/curl`.
+6. Wanneer de status van de taak is gewijzigd in `SUCCEEDED`, kunt u de resultaten van de taak ophalen uit Azure Blob-opslag. De `statusdir` parameter die wordt doorgegeven aan de query bevat de locatie van het uitvoerbestand. In dit voorbeeld is de locatie `/example/curl`. Dit adres slaat de uitvoer van de taak in de opslag van de standaard clusters op `/example/curl`.
 
 U kunt de lijst en deze bestanden downloaden met behulp van de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Zie voor meer informatie over het werken met blobs met Azure CLI het [met behulp van de Azure CLI 2.0 met Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
 

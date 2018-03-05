@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Veelgestelde vragen over Azure Relay
 
@@ -76,14 +76,13 @@ Een bericht verzenden naar een Service Bus relay wordt behandeld als een 'volled
 Relays die worden geopend met behulp van de **netTCPRelay** WCF binding berichten behandelen niet als afzonderlijke berichten, maar als een stream met gegevens die door het systeem. Wanneer u deze binding gebruikt, hebben alleen de afzender en de listener inzicht in de verwoording van de afzonderlijke berichten worden verzonden en ontvangen. Voor doorstuurt die gebruikmaken van de **netTCPRelay** binding, alle gegevens wordt behandeld als een stroom voor het berekenen van factureerbare berichten. Service Bus berekent in dit geval wordt de totale hoeveelheid gegevens verzonden of ontvangen via elke afzonderlijke relay op basis van de 5 minuten. Vervolgens wordt dat totale hoeveelheid gegevens verdeeld met 64 KB om te bepalen het aantal factureerbare berichten voor die relay in die periode.
 
 ## <a name="quotas"></a>Quota
-| De naam van de quota | Bereik | Type | Gedrag wanneer overschreden | Waarde |
-| --- | --- | --- | --- | --- |
-| Gelijktijdige listeners op een relay |Entiteit |Statisch |De volgende aanvragen voor aanvullende verbindingen worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |25 |
-| Gelijktijdige relay-listeners |Hele systeem |Statisch |De volgende aanvragen voor aanvullende verbindingen worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |2,000 |
-| Gelijktijdige relay-verbindingen per alle relay-eindpunten in de naamruimte van een service |Hele systeem |Statisch |- |5,000 |
-| Relay-eindpunten per Servicenaamruimte |Hele systeem |Statisch |- |10.000 |
-| Berichtgrootte voor [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) en [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) doorstuurt |Hele systeem |Statisch |Binnenkomende berichten die groter is dan deze quota worden geweigerd en een uitzondering is ontvangen door de aanroepende code. |64 kB |
-| Berichtgrootte voor [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) en [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) doorstuurt |Hele systeem |Statisch |- |Onbeperkt |
+| De naam van de quota | Bereik |  Opmerkingen | Waarde |
+| --- | --- | --- | --- |
+| Gelijktijdige listeners op een relay |Entiteit |De volgende aanvragen voor aanvullende verbindingen worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |25 |
+| Gelijktijdige relay-verbindingen per alle relay-eindpunten in de naamruimte van een service |Naamruimte |- |5.000 |
+| Relay-eindpunten per Servicenaamruimte |Naamruimte |- |10.000 |
+| Berichtgrootte voor [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) en [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) doorstuurt |Naamruimte |Binnenkomende berichten die groter is dan deze quota worden geweigerd en een uitzondering is ontvangen door de aanroepende code. |64 kB |
+| Berichtgrootte voor [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) en [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) doorstuurt |Naamruimte |Geen limiet voor de grootte van het bericht. |Onbeperkt |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Heeft Relay quota voor gebruik?
 Microsoft stelt voor elke cloudservice wordt standaard een cumulatieve maandelijkse gebruiksgegevens van die is berekend voor alle abonnementen voor een klant. We begrijpen dat op tijdstippen uw behoeften, deze limieten overschrijdt mogelijk. U kunt contact opnemen met customer support op elk gewenst moment zodat we kunnen uw behoeften te begrijpen en pas deze limieten op de juiste wijze. Service bus zijn de quota voor cumulatieve gebruik als volgt uit:

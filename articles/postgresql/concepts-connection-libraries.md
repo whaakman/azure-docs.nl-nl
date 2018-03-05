@@ -1,19 +1,19 @@
 ---
-title: Verbindingsbibliotheken voor Azure-Database voor PostgreSQL | Microsoft Docs
+title: Verbindingsbibliotheken voor Azure-Database voor PostgreSQL
 description: In dit artikel beschrijft de verschillende bibliotheken en stuurprogramma's die ontwikkelaars wanneer gebruiken kunnen toepassingen verbinding maken en query uitvoeren op Azure-Database voor PostgreSQL coderen.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: f371d5cd4e20096d5101fadf9066e3a135218d0b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 02/28/2018
+ms.openlocfilehash: 7f0dd217a124f530ba009c9a5588691f604827e5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Verbindingsbibliotheken voor Azure-Database voor PostgreSQL
 Dit artikel worden de bibliotheken en stuurprogramma's die ontwikkelaars gebruiken kunnen voor het ontwikkelen van toepassingen verbinding te maken voor PostgreSQL query uitvoeren op Azure-Database.
@@ -24,7 +24,7 @@ De meeste taal clientbibliotheken waarmee verbinding met server PostgreSQL exter
 | **Taal** | **Client-interface** | **Aanvullende informatie** | **Downloaden** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
 | Python | [psycopg](http://initd.org/psycopg/) | API voor DB 2.0-compatibel | [Downloaden](http://initd.org/psycopg/download/) |
-| PHP | [PHP-pgsql](https://php.net/manual/en/book.pgsql.php) | Database-uitbreiding | [Installeren](https://secure.php.net/manual/en/pgsql.installation.php) |
+| PHP | [php-pgsql](https://php.net/manual/en/book.pgsql.php) | Database-uitbreiding | [Installeren](https://secure.php.net/manual/en/pgsql.installation.php) |
 | Node.js | [PG npm-pakket](https://www.npmjs.com/package/pg) | Niet-blokkerende client pure JavaScript | [Installeren](https://www.npmjs.com/package/pg) |
 | Java | [JDBC](http://jdbc.postgresql.org/) | Type 4 JDBC-stuurprogramma | [Downloaden](https://jdbc.postgresql.org/download.html)  |
 | Ruby | [PG gem](https://deveiate.org/code/pg/) | Ruby-Interface | [Downloaden](https://rubygems.org/downloads/pg-0.20.0.gem) |
@@ -37,4 +37,4 @@ De meeste taal clientbibliotheken waarmee verbinding met server PostgreSQL exter
 ## <a name="next-steps"></a>Volgende stappen
 Lees deze snelstartgidsen voor het verbinding maken met en doorzoeken op Azure Database PostgreSQL met behulp van de taal van uw keuze:
 
-[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md)  |  [.NET (C#)](./connect-csharp.md) | [gaan](./connect-go.md)
+[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

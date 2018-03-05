@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: bd8b3d13754e981235cbce39e919f39228820426
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 47011bf2cfde268bb6248e54e98930f3a0b522e4
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Het autoriseren van ontwikkelaarsaccounts met behulp van OAuth 2.0 in Azure API Management
 Ondersteuning voor veel API's [OAuth 2.0](http://oauth.net/2/) de API beveiligen en ervoor te zorgen dat alleen geldige gebruikers toegang hebben en ze alleen toegang tot resources waarnaar ze bevoegd bent. Om interactieve Azure API Management-Ontwikkelaarsconsole met deze API's gebruiken, kunt de service u voor het configureren van uw service-exemplaar om te werken met uw OAuth 2.0 ingeschakelde API.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"> </a>Vereisten
 Deze handleiding leest u hoe uw API Management-service-exemplaar voor het gebruik van OAuth 2.0-autorisatie voor ontwikkelaarsaccounts configureren, maar wordt niet beschreven hoe u een OAuth 2.0-provider configureren. De configuratie voor elke OAuth 2.0-provider is verschillend zijn, hoewel de stappen vergelijkbaar zijn, en de vereiste stukjes informatie die wordt gebruikt bij het configureren van OAuth 2.0 in uw API Management-service-exemplaar hetzelfde zijn. Dit onderwerp bevat voorbeelden met Azure Active Directory als een OAuth 2.0-provider.
 
 > [!NOTE]
@@ -30,7 +30,7 @@ Deze handleiding leest u hoe uw API Management-service-exemplaar voor het gebrui
 > 
 > 
 
-## <a name="step1"></a>Een OAuth 2.0-autorisatie-server configureren in API Management
+## <a name="step1"> </a>Een OAuth 2.0-autorisatie-server configureren in API Management
 Als u aan de slag wilt gaan, klikt u op **Publicatieportal** in Azure Portal voor uw API Management-service.
 
 ![Publicatieportal][api-management-management-console]
@@ -89,7 +89,7 @@ Als **autorisatiecode verlenen typen** is ingesteld op **Resource eigenaarswacht
 
 Wanneer het formulier voltooid is, klikt u op **opslaan** om op te slaan van de configuratie van de API Management OAuth 2.0-autorisatie-server. Zodra de serverconfiguratie is opgeslagen, kunt u API's voor het gebruik van deze configuratie kunt configureren, zoals wordt weergegeven in de volgende sectie.
 
-## <a name="step2"></a>Een API voor het gebruik van OAuth 2.0-gebruikersautorisatie configureren
+## <a name="step2"> </a>Een API voor het gebruik van OAuth 2.0-gebruikersautorisatie configureren
 Klik op **API's** van de **API Management** menu aan de linkerkant, klik op de naam van de gewenste API, klik op **beveiliging**, en vervolgens het selectievakje in voor **OAuth 2.0**.
 
 ![Gebruikersautorisatie][api-management-user-authorization]
@@ -98,7 +98,7 @@ Selecteer de gewenste **autorisatie server** in de vervolgkeuzelijst en klik op 
 
 ![Gebruikersautorisatie][api-management-user-authorization-save]
 
-## <a name="step3"></a>Het OAuth 2.0-gebruikersautorisatie testen in de Portal voor ontwikkelaars
+## <a name="step3"> </a>De OAuth 2.0-gebruikersautorisatie testen in de Portal voor ontwikkelaars
 Zodra u hebt uw OAuth 2.0-autorisatie-server is geconfigureerd en uw API voor het gebruik van die server geconfigureerd, kunt u het testen door te gaan naar de Ontwikkelaarsportal en een API aanroepen.  Klik op **ontwikkelaarsportal** in het menu rechtsboven.
 
 ![ontwikkelaarsportal][api-management-developer-portal-menu]
@@ -134,9 +134,6 @@ Op dit moment kunt u configureren van de gewenste waarden voor de resterende par
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het gebruik van OAuth 2.0 en API Management, de volgende video en bijbehorende [artikel](api-management-howto-protect-backend-with-aad.md).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-oauth2/api-management-management-console.png
 [api-management-oauth2]: ./media/api-management-howto-oauth2/api-management-oauth2.png

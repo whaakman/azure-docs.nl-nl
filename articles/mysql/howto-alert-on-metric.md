@@ -1,19 +1,19 @@
 ---
-title: Waarschuwingen van de metrische gegevens voor Azure-Database configureren voor MySQL in Azure-portal | Microsoft Docs
+title: Waarschuwingen van de metrische gegevens voor Azure-Database configureren voor MySQL in Azure-portal
 description: Dit artikel wordt beschreven hoe u configureert en toegang tot metrische waarschuwingen voor Azure-Database voor MySQL vanuit de Azure-portal.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 5b4263e76f89ae27b9c9f317db3038def01e3e6b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 025e7089f797b0accf8ee7d14028e5b5ab23c113
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>De Azure portal gebruiken om in te stellen waarschuwingen op metrische gegevens voor Azure-Database voor MySQL 
 
@@ -24,13 +24,13 @@ De waarschuwing activeert wanneer de waarde van een opgegeven waarde overschrijd
 U kunt de volgende acties uitvoeren als er wordt een waarschuwing configureren:
 * e-mailmeldingen verzenden naar de servicebeheerder en medebeheerders
 * e-mail verzenden naar andere e-mailberichten die u opgeeft.
-* een webhook aanroepen
+* Een webhook aanroepen
 
 U kunt configureren en informatie krijgen over de regels voor waarschuwingen met behulp van:
 * [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [Opdrachtregelinterface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [Monitor voor Azure REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Een waarschuwingsregel maken op een waarde van de Azure-portal
 1. In de [Azure-portal](https://portal.azure.com/), selecteert u de Azure-Database voor de MySQL-server die u wilt bewaken.
@@ -49,7 +49,7 @@ U kunt configureren en informatie krijgen over de regels voor waarschuwingen met
    |---------|---------|
    | Naam | Geef een naam voor de waarschuwingsregel. Deze waarde wordt verzonden in de e-mailmelding voor waarschuwingen. |
    | Beschrijving | Geef een korte beschrijving van de waarschuwingsregel. Deze waarde wordt verzonden in de e-mailmelding voor waarschuwingen. |
-   | Waarschuwing bij | Kies **metrische gegevens** voor dit type waarschuwing. |
+   | Waarschuwen bij | Kies **metrische gegevens** voor dit type waarschuwing. |
    | Abonnement | Dit veld is vooraf ingevuld met het abonnement dat als host fungeert voor uw Azure-Database voor MySQL. |
    | Resourcegroep | Dit veld is vooraf ingevuld met de resourcegroep van uw Azure-Database voor MySQL. |
    | Resource | Dit veld is vooraf ingevuld met de naam van uw Azure-Database voor MySQL. |

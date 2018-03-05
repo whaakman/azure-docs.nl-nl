@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Functies voor gegevens in een Hadoop-cluster met behulp van Hive-query's maken
 Dit document wordt beschreven hoe de functies voor gegevens die zijn opgeslagen in een Azure HDInsight Hadoop-cluster met behulp van Hive-query's maken. Deze Hive-query's gebruiken ingesloten Hive User-Defined-functies (UDF's), de scripts die worden geleverd.
@@ -93,14 +93,14 @@ Hive wordt geleverd met een reeks UDF's voor het verwerken van datetime-velden. 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Deze Hive-query wordt ervan uitgegaan dat de *&#60; datetime-veld >* bevindt zich in de standaardnotatie voor datum/tijd.
+Deze Hive-query wordt ervan uitgegaan dat de  *<datetime field>*  bevindt zich in de standaardnotatie voor datum/tijd.
 
 Als een datetime-veld niet in de standaardindeling is, moet u eerst het datetime-veld converteren naar Unix tijdstempel, en vervolgens het tijdstempel Unix converteren naar een datum/tijd-tekenreeks die in de standaardindeling. Wanneer de datum/tijd in-indeling wordt, kunnen gebruikers de ingesloten datetime UDF's uitpakken functies toepassen.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-In deze query als de *&#60; datetime-veld >* heeft het patroon zoals *03/26/2015 12:04:39*, wordt de *' &#60; patroon van de datetime-veld >'* moet `'MM/dd/yyyy HH:mm:ss'`. Als u wilt testen, kunnen gebruikers uitvoeren
+In deze query als de  *<datetime field>*  heeft het patroon zoals *03/26/2015 12:04:39*, wordt de  *<pattern of the datetime field>'* moet `'MM/dd/yyyy HH:mm:ss'`. Als u wilt testen, kunnen gebruikers uitvoeren
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -140,7 +140,7 @@ De wiskundige vergelijkingen die de afstand tussen twee GPS-coördinaten bereken
 
 Een volledige lijst met Hive ingesloten UDF's vindt u in de **ingebouwde functies** sectie op de <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a>Onderwerpen over geavanceerde: stemmen Hive-parameters voor het verbeteren van de query
+## <a name="tuning"></a> Onderwerpen over geavanceerde: stemmen Hive-parameters voor het verbeteren van de query
 De standaardinstellingen van de parameter van Hive-cluster is mogelijk niet geschikt is voor de Hive-query's en de gegevens die de verwerking van de query's. Deze sectie wordt beschreven sommige parameters die gebruikers afstemmen kunnen om de prestaties van Hive-query's te verbeteren. Gebruikers moeten de parameter afstemmen van query's voordat de query's van het verwerken van gegevens toevoegen.
 
 1. **Java-heap ruimte**: voor query's met betrekking tot lid te worden grote gegevenssets of verwerken van lange records **bijna vol heap** is een van de algemene fouten. Deze fout kan worden voorkomen door het instellen van de parameters *mapreduce.map.java.opts* en *mapreduce.task.io.sort.mb* naar de gewenste waarden. Hier volgt een voorbeeld:

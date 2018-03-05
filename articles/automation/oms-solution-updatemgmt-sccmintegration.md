@@ -1,58 +1,57 @@
 ---
-title: Gerichte updates met behulp van SCCM-verzamelingen in OMS-updatebeheer | Microsoft Docs
+title: Doel voor Updates met behulp van de SCCM-verzamelingen in Azure Automation - updatebeheer | Microsoft Docs
 description: Dit artikel is bedoeld om u te helpen bij het configureren van System Center Configuration Manager met deze oplossing voor het beheren van updates van met SCCM beheerde computers.
-services: operations-management-suite
+services: automation
 documentationcenter: 
 author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: operations-management-suite
+ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 4696f3b9602c1da01d9706f15f38cdf5bc0f3372
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: c1636ce84f6d0d228dcb15e62af4a88b50fd84bd
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integratie van System Center Configuration Manager met OMS-updatebeheer
+# <a name="integrate-system-center-configuration-manager-with-update-management"></a>System Center Configuration Manager integreren met updatebeheer
 
-Klanten die hebben geïnvesteerd in System Center Configuration Manager voor het beheren van pc's, servers en mobiele apparaten, rekenen ook op zijn kracht en volwassenheid bij het beheren van software-updates als onderdeel van hun software-updatebeheercyclus.  
+Klanten die hebben geïnvesteerd in System Center Configuration Manager voor het beheren van pc's, servers en mobiele apparaten, rekenen ook op zijn kracht en volwassenheid bij het beheren van software-updates als onderdeel van hun software-updatebeheercyclus.
 
-Voortbouwend op de bestaande integratie van OMS en Configuration Manager, kunt u rapporten maken over beheerde Windows-servers en deze bijwerken door vooraf software-update-implementaties te maken en klaar te zetten in Configuration Manager, en gedetailleerde statusrapporten van de voltooide update-implementaties krijgen met de [Updatebeheer-oplossing](../operations-management-suite/oms-solution-update-management.md). Als u Configuration Manager gebruikt voor rapportage over updatenaleving, maar niet voor het beheren van update-implementaties met uw Windows-servers, kunt u blijven doorgaan met rapporteren aan Configuration Manager terwijl beveiligingsupdates worden beheerd met de Updatebeheer-oplossing van OMS.
+Rapporteren en beheerde Windows-servers bijwerken door het maken en vooraf gefaseerde installatie van software-update-implementaties in Configuration Manager en ophalen van gedetailleerde status weergegeven van de voltooide update-implementaties met behulp van de [bijwerken beheeroplossing](automation-update-management.md). Als u Configuration Manager gebruikt voor rapportage voor updatecompatibiliteit maar niet voor het beheren van update-implementaties met uw Windows-servers, kunt u doorgaan naar Configuration Manager melden terwijl beveiligingsupdates worden beheerd met het beheersysteem voor bijwerken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* U moet de [Updatebeheer-oplossing](../operations-management-suite/oms-solution-update-management.md) hebben toegevoegd aan uw Log Analytics-werkruimte en hebben gekoppeld met uw Automation-account in dezelfde resourcegroep en regio.   
-* Windows-servers die worden beheerd door uw System Center Configuration Manager-omgeving moeten ook rapporteren aan de Log Analytics-werkruimte waar ook de Updatebeheer-oplossing is ingeschakeld.  
-* Deze functie ondersteunt System Center Configuration Manager Current Branch versie 1606 en hoger.  Als u uw centrale beheersite van Configuration Manager of een zelfstandige primaire site met Log Analytics wilt integreren en verzamelingen importeren, leest u [Connect Configuration Manager to Log Analytics](../log-analytics/log-analytics-sccm.md) (Configuration Manager koppelen aan Log Analytics).  
+* U moet hebben de [Update beheeroplossing](automation-update-management.md) toegevoegd aan uw Automation-account.
+* Windows-servers die worden beheerd door uw System Center Configuration Manager-omgeving moeten ook rapporteren aan de Log Analytics-werkruimte waar ook de Updatebeheer-oplossing is ingeschakeld.
+* Deze functie is ingeschakeld in System Center Configuration Manager huidige vertakking versie 1606 of hoger. Als u uw centrale beheersite van Configuration Manager of een zelfstandige primaire site met Log Analytics wilt integreren en verzamelingen importeren, leest u [Connect Configuration Manager to Log Analytics](../log-analytics/log-analytics-sccm.md) (Configuration Manager koppelen aan Log Analytics).  
 * Windows-agents moeten worden geconfigureerd om te communiceren met een WSUS-server (Windows Server Update Services of toegang hebben tot Microsoft Update als ze geen beveiligingsupdates krijgen van Configuration Manager.   
 
-Hoe u clients die worden gehost in Azure IaaS met uw bestaande Configuration Manager-omgeving beheert, hangt hoofdzakelijk af van de verbinding die u hebt tussen Azure-datacenters en uw infrastructuur. Deze verbinding is van invloed op de ontwerpwijzigingen die u mogelijk moet aanbrengen in uw Configuration Manager-infrastructuur en de daarmee samenhangende kosten voor de ondersteuning van de benodigde wijzigingen.  Om te begrijpen welke overwegingen u wilt evalueren voordat u doorgaat, leest u [Configuration Manager on Azure - Frequently Asked Questions](https://docs.microsoft.com/sccm/core/understand/configuration-manager-on-azure#networking) (veelgestelde vragen).    
+Hoe u clients die worden gehost in Azure IaaS met uw bestaande Configuration Manager-omgeving beheert, hangt hoofdzakelijk af van de verbinding die u hebt tussen Azure-datacenters en uw infrastructuur. Deze verbinding is van invloed op de ontwerpwijzigingen die u mogelijk moet aanbrengen in uw Configuration Manager-infrastructuur en de daarmee samenhangende kosten voor de ondersteuning van de benodigde wijzigingen. Om te begrijpen welke overwegingen u wilt evalueren voordat u doorgaat, leest u [Configuration Manager on Azure - Frequently Asked Questions](/sccm/core/understand/configuration-manager-on-azure#networking) (veelgestelde vragen).
 
 ## <a name="configuration"></a>Configuratie
 
 ### <a name="manage-software-updates-from-configuration-manager"></a>Software-updates beheren vanuit Configuration Manager 
 
-Voer de volgende stappen uit als u update-implementaties wilt blijven beheren vanuit Configuration Manager.  OMS maakt verbinding met Configuration Manager om updates toe te passen op de clientcomputers die zijn verbonden met uw Log Analytics-werkruimte. Update-inhoud is beschikbaar via de cache van de clientcomputer alsof de implementatie werd beheerd door Configuration Manager.  
+Voer de volgende stappen uit als u update-implementaties wilt blijven beheren vanuit Configuration Manager. Azure Automation maakt verbinding naar Configuration Manager updates toepassen op de clientcomputers die zijn verbonden met uw werkruimte voor logboekanalyse. Update-inhoud is beschikbaar via de cache van de clientcomputer alsof de implementatie werd beheerd door Configuration Manager.
 
-1. Maak een software-update-implementatie van de site op het hoogste niveau in uw Configuration Manager-hiërarchie met behulp van het proces dat wordt beschreven in het proces voor het [implementeren van software-updates](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates) (Engelstalig artikel).  De enige instelling die anders moet worden geconfigureerd dan bij een standaardimplementatie, is de optie **Software-updates niet installeren** om het downloadgedrag van het implementatiepakket te bepalen. Dit gedrag wordt beheerd door de OMS Updatebeheer-oplossing door in de volgende stap een geplande update-implementatie te maken.  
+1. Maak een software-update-implementatie van de site op het hoogste niveau in uw Configuration Manager-hiërarchie met behulp van het proces dat wordt beschreven in het proces voor het [implementeren van software-updates](/sccm/sum/deploy-use/deploy-software-updates) (Engelstalig artikel). De enige instelling die anders moet worden geconfigureerd dan bij een standaardimplementatie, is de optie **Software-updates niet installeren** om het downloadgedrag van het implementatiepakket te bepalen. Dit gedrag wordt beheerd door het beheersysteem voor bijwerken door het maken van een geplande update-implementatie in de volgende stap.
 
-1. Open het dashboard Updatebeheer in de OMS-portal.  Maak een nieuwe implementatie door de stappen te volgen die worden beschreven in [Een update-implementatie maken](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment), en selecteer in de vervolgkeuzelijst de juiste Configuration Manager-verzameling die wordt weergegeven als een OMS-computergroep.  Houd rekening met de volgende belangrijke punten:
-    1. Als er een onderhoudsvenster is gedefinieerd op de geselecteerde apparaatverzameling van Configuration Manager, houden leden van de verzameling zich daaraan in plaats van aan de **Duur**-instelling die is gedefinieerd in de geplande implementatie in OMS.
-    1. Leden van de doelverzameling moeten verbinding hebben met internet (rechtstreeks, via een proxyserver of via de OMS-gateway).  
+1. Selecteer in Azure Automation **updatebeheer**. Maak een nieuwe implementatie de stappen in [maken van een Update-implementatie](automation-tutorial-update-management.md#schedule-an-update-deployment) en selecteer **groepen geïmporteerd** op de **Type** vervolgkeuzelijst voor de juiste selecteren Configuration Manager-verzameling. Houd er rekening mee houden van de volgende belangrijke punten: een. Als een onderhoudsvenster is gedefinieerd op de geselecteerde apparaatverzameling van Configuration Manager, leden van de verzameling voldoen aan deze in plaats van de **duur** instelling die is gedefinieerd in de geplande implementatie.
+    b. Leden van de doelverzameling moeten verbinding hebben met internet (rechtstreeks, via een proxyserver of via de OMS-gateway).
 
-Nadat de update-implementatie met de OMS-oplossing is voltooid, worden op de doelcomputers die lid zijn van de geselecteerde computergroep op de geplande tijd updates geïnstalleerd vanuit hun lokale clientcache.  U kunt de [status van de update-implementatie bekijken](../operations-management-suite/oms-solution-update-management.md#viewing-update-deployments) om de resultaten van uw implementatie te bewaken.  
+Na het voltooien van de update-implementatie via Azure Automation wordt de doel-pc die lid van de groep op de geselecteerde computer zijn updates op het geplande tijdstip installeren vanaf de lokale clientcache. U kunt de [status van de update-implementatie bekijken](automation-tutorial-update-management.md#view-results-of-an-update-deployment) om de resultaten van uw implementatie te bewaken.
 
+### <a name="manage-software-updates-from-azure-automation"></a>Software-updates van Azure Automation beheren
 
-### <a name="manage-software-updates-from-oms"></a>Software-updates beheren vanuit OMS
+Als u updates wilt beheren voor Windows Server-VM's die Configuration Manager-clients zijn, moet u clientbeleid configureren om de Software Update Management-functie uit te schakelen voor alle clients die worden beheerd door deze oplossing. Standaard gelden clientinstellingen voor alle apparaten in de hiërarchie. Raadpleeg voor meer informatie over deze beleidsinstelling en hoe u deze kunt configureren [Het configureren van clientinstellingen in System Center Configuration Manager](/sccm/core/clients/deploy/configure-client-settings).
 
-Als u updates wilt beheren voor Windows Server-VM's die Configuration Manager-clients zijn, moet u clientbeleid configureren om de Software Update Management-functie uit te schakelen voor alle clients die worden beheerd door deze oplossing.  Standaard gelden clientinstellingen voor alle apparaten in de hiërarchie.  Raadpleeg voor meer informatie over deze beleidsinstelling en hoe u deze kunt configureren [Het configureren van clientinstellingen in System Center Configuration Manager](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).  
+Na het uitvoeren van deze wijziging in de configuratie die u maakt een nieuwe implementatie de stappen in [maken van een Update-implementatie](automation-tutorial-update-management.md#schedule-an-update-deployment) en selecteer **groepen geïmporteerd** op de **Type** vervolgkeuzelijst om de juiste Configuration Manager-verzameling te selecteren.
 
-Nadat u deze configuratiewijziging hebt uitgevoerd, maakt u een nieuwe implementatie door de stappen te volgen die worden beschreven in [Een update-implementatie maken](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment), en selecteert u in de vervolgkeuzelijst de juiste Configuration Manager-verzameling die wordt weergegeven als een OMS-computergroep. 
-
+## <a name="next-steps"></a>Volgende stappen

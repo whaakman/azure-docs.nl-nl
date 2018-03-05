@@ -1,19 +1,19 @@
 ---
-title: Een overzicht voor de ontwikkelaars voor Azure-Database voor MySQL database | Microsoft Docs
+title: Een overzicht voor de ontwikkelaars voor Azure-Database voor MySQL database
 description: Overwegingen bij het ontwerpen die een ontwikkelaar volgen moet bij het schrijven van code van de toepassing verbinding maken met Azure-Database voor MySQL introduceert
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/29/2017
-ms.openlocfilehash: 6a9bd8f88383b5186e470163bc67f9233172fd49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: 1a3f517221c7e22d87dec5d0fc6f11c1bed16505
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Overzicht van toepassing voor ontwikkelaars voor Azure-Database voor MySQL 
 Dit artikel wordt beschreven ontwerpoverwegingen die een ontwikkelaar bij het schrijven van code van de toepassing verbinding maken met Azure-Database voor MySQL moet volgen. 
@@ -35,7 +35,7 @@ Azure MySQL-Database beheert de beschikbare bronnen voor een server met behulp v
 ## <a name="security"></a>Beveiliging
 Azure MySQL-Database bevat bronnen voor beperkende toegang, beschermen gegevens configureren gebruikers en rollen en bewakingsactiviteiten op een MySQL-database.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 Azure MySQL-Database biedt ondersteuning voor server-verificatie van gebruikers en aanmeldingen.
 
 ## <a name="resiliency"></a>Flexibiliteit

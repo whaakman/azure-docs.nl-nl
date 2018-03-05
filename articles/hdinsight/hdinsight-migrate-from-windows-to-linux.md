@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 764a41dc9e890de85c3bfab3d2f78d5a07b39dff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migreren van een HDInsight op basis van Windows-cluster naar een cluster op basis van Linux
 
@@ -132,7 +132,7 @@ Wordt u aangeraden openbare-sleutelcertificaat, omdat het is veiliger dan een wa
 
 Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-### <a name="cluster-customization"></a>Aanpassing van het cluster
+### <a name="cluster-customization"></a>Clusteraanpassing
 
 **Acties script** gebruikt met clusters op basis van Linux in Bash-scripts moeten worden geschreven. Op basis van Linux-clusters kunt scriptacties tijdens of na het maken van het cluster. Zie voor meer informatie [HDInsight op basis van Linux aanpassen met scriptacties](hdinsight-hadoop-customize-cluster-linux.md) en [Scriptactieontwikkeling voor HDInsight op basis van Linux](hdinsight-hadoop-script-actions-linux.md).
 
@@ -200,11 +200,11 @@ De volgende tabel biedt richtlijnen voor het migreren van uw Hive-werkbelastinge
 
 | Op Windows gebaseerde ik gebruik... | Op Linux gebaseerde... |
 | --- | --- |
-| **Hive-Editor** |[Weergave in de Ambari hive](hadoop/apache-hadoop-use-hive-ambari-view.md) |
-| `set hive.execution.engine=tez;`inschakelen van Tez |Tez is de engine voor het uitvoeren van standaard voor op basis van Linux-clusters, zodat de set-instructie niet langer nodig is. |
+| **Hive Editor** |[Weergave in de Ambari hive](hadoop/apache-hadoop-use-hive-ambari-view.md) |
+| `set hive.execution.engine=tez;` inschakelen van Tez |Tez is de engine voor het uitvoeren van standaard voor op basis van Linux-clusters, zodat de set-instructie niet langer nodig is. |
 | C# gebruiker gedefinieerde functies | Zie voor informatie over het valideren van C#-onderdelen met HDInsight op basis van Linux, [migreren .NET-oplossingen voor HDInsight op basis van Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD-bestanden of scripts op de server die als onderdeel van een Hive-taak wordt aangeroepen |Bash-scripts gebruiken |
-| `hive`de opdracht van een extern bureaublad |Gebruik [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) of [Hive van een SSH-sessie](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` de opdracht van een extern bureaublad |Gebruik [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) of [Hive van een SSH-sessie](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 

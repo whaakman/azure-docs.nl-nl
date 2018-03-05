@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: f3cb11bc13ad2561e62c096d840c0b8e4471d271
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption Veelgestelde vragen
 
@@ -49,10 +49,11 @@ In dit artikel vindt u antwoorden op veelgestelde vragen (FAQ) over Azure Disk E
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | Besturingssysteem en schijf |
 | Ubuntu | 14.04.5-DAILY-LTS | Besturingssysteem en schijf |
-| RHEL | 7.3 | Besturingssysteem en schijf |
-| RHEL | 7.2 | Besturingssysteem en schijf |
-| RHEL | 6.8 | Besturingssysteem en schijf |
-| RHEL | 6.7 | Gegevensschijf |
+| RHEL | 7.4 | Gegevens schijf * |
+| RHEL | 7.3 | Gegevens schijf * |
+| RHEL | 7.2 | Gegevens schijf * |
+| RHEL | 6.8 | Gegevens schijf * |
+| RHEL | 6.7 | Gegevens schijf * |
 | CentOS | 7.3 | Besturingssysteem en schijf |
 | CentOS | 7.2n | Besturingssysteem en schijf |
 | CentOS | 6.8 | Besturingssysteem en schijf |
@@ -67,6 +68,8 @@ In dit artikel vindt u antwoorden op veelgestelde vragen (FAQ) over Azure Disk E
 | SLES | HPC 12 | Gegevensschijf |
 | SLES | Prioriteit: 11-SP4 | Gegevensschijf |
 | SLES | 11 SP4 | Gegevensschijf |
+
+*__ADE wordt ondersteund voor RHEL voor gegevensschijf. De huidige implementatie van ADE werkt voor de besturingssysteemschijf maar gezamenlijk momenteel niet wordt ondersteund. Microsoft en Red Hat werken aan een gezamenlijk ondersteunde oplossing. In de tussentijd kunt u verwijzen naar de whitepaper ADE voor Linux-besturingssysteem schijfversleuteling [hier](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
 
 **V:** hoe kan ik beginnen met behulp van Azure Disk Encryption?
 
