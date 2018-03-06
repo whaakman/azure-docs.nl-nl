@@ -1,50 +1,50 @@
 ---
-title: Azure CLI-script - serverconfiguraties wijzigen | Microsoft Docs
-description: Dit voorbeeldscript CLI geeft een lijst van alle beschikbare server-configuraties en de waarde van innodb_lock_wait_timeout bijgewerkt.
+title: 'Azure CLI-script: serverconfiguraties wijzigen'
+description: Dit CLI-voorbeeldscript maakt een lijst met alle beschikbare serverconfiguratieopties en werkt de waarde van innodb_lock_wait_timeout bij.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/03/2017
-ms.openlocfilehash: 9a94f257e5cd3534127e8594ddee3c5f837876df
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.date: 02/28/2018
+ms.openlocfilehash: df169cfc4194337146201b0ad5bdf84d91a49898
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Weergeven en bijwerken van configuraties van een Azure-Database voor de MySQL-server met Azure CLI
-Dit voorbeeldscript CLI bevat alle beschikbare configuratieparameters, evenals de toegestane waarden for Azure Database MySQL-server, en stelt de *innodb_lock_wait_timeout* op een waarde die is dan de standaard een.
+# <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Configuraties van een Azure Database for MySQL-server opsommen en bijwerken met behulp van Azure CLI
+Met dit CLI-voorbeeldscript wordt een lijst gemaakt van alle beschikbare configuratieparameters en de toegestane waarden ervan voor een Azure Database for MySQL-server, en wordt *innodb_lock_wait_timeout* ingesteld op een andere waarde dan de standaardwaarde.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal uit te voeren, moet u voor dit artikel gebruikmaken van Azure CLI-versie 2.0 of hoger. Controleer de versie door `az --version` uit te voeren. Zie [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli) voor het installeren of upgraden van uw versie van Azure CLI. 
 
-## <a name="sample-script"></a>Voorbeeld van een script
-Wijzig de gemarkeerde regels voor het aanpassen van de gebruikersnaam van de beheerder en het wachtwoord in dit voorbeeldscript.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/change-server-configurations/change-server-configurations.sh?highlight=15-16 "List and update configurations of Azure Database for MySQL.")]
+## <a name="sample-script"></a>Voorbeeldscript
+Bewerk in dit voorbeeldscript de gemarkeerde regels om de gebruikersnaam en het wachtwoord van de beheerder naar uw eigen bij te werken.
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/change-server-configurations/change-server-configurations.sh?highlight=18-19 "List and update configurations of Azure Database for MySQL.")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Gebruik de volgende opdracht om de resourcegroep en alle resources die er aan zijn gekoppeld te verwijderen nadat het script is uitgevoerd. 
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/change-server-configurations/delete-mysql.sh  "Delete the resource group.")]
 
-## <a name="script-explanation"></a>Script uitleg
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+## <a name="script-explanation"></a>Uitleg van het script
+Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weergegeven:
 
-| **Opdracht** | **Opmerkingen bij de** |
+| **Opdracht** | **Opmerkingen** |
 |---|---|
-| [AZ groep maken](/cli/azure/group#az_group_create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ mysql-server maken](/cli/azure/mysql/server#az_msql_server_create) | Hiermee maakt u een MySQL-server die als host fungeert voor de databases. |
-| [lijst van AZ mysql server-configuratie](/cli/azure/mysql/server/configuration#az_msql_server_configuration_list) | Lijst van de configuraties van een Azure-Database voor de MySQL-server. |
-| [AZ mysql server configuratie instellen](/cli/azure/mysql/server/configuration#az_msql_server_configuration_set) | Werk de configuratie van een Azure-Database voor de MySQL-server. |
-| [AZ mysql server configuratie weergeven](/cli/azure/mysql/server/configuration#az_msql_server_configuration_show) | Tonen de configuratie van een Azure-Database voor de MySQL-server. |
-| [AZ groep verwijderen](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle ingesloten resources. |
+| [az group create](/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | Hiermee wordt een MySQL-server gemaakt waar de databases worden gehost. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_msql_server_configuration_list) | Hiermee wordt een lijst gemaakt van de configuraties van een Azure Database for MySQL-server. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_msql_server_configuration_set) | Hiermee wordt de configuratie van een Azure Database for MySQL-server bijgewerkt. |
+| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_msql_server_configuration_show) | Hiermee wordt de configuratie van een Azure Database for MySQL-server weergegeven. |
+| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over de Azure CLI: [documentatie van Azure CLI](/cli/azure/overview).
-- Probeer extra scripts: [voorbeelden van Azure CLI voor Azure-Database voor MySQL](../sample-scripts-azure-cli.md)
-- Zie voor meer informatie over parameters van de server [hoe te configureren Parameters van de Server in Azure-Database voor MySQL](../howto-server-parameters.md).
+- Lees de [documentatie van Azure CLI](/cli/azure/overview) voor meer informatie over de Azure CLI.
+- Meer scripts om te proberen: [Azure CLI-voorbeelden voor Azure Database for MySQL](../sample-scripts-azure-cli.md)
+- Zie [How To Configure Server Parameters in Azure Database for MySQL](../howto-server-parameters.md) (Serverparameters in Azure Database for MySQL configureren) voor meer informatie over serverparameters.

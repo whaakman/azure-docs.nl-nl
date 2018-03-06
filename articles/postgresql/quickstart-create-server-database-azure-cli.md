@@ -1,23 +1,23 @@
 ---
-title: Een Azure-database voor PostgreSQL maken met de Azure CLI | Microsoft-documenten
+title: 'Snelstart: een Azure Database for PostgreSQL maken via Azure CLI'
 description: Quick Start voor het maken en beheren van Azure Database voor PostgreSQL-server met behulp van Azure CLI (opdrachtregelinterface).
 services: postgresql
-author: sanagama
-ms.author: sanagama
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: ab07172d62806631f73c1df35c7d646e83ad5221
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 50bb3f8ca1032e704b9805beb54fbd4ea4f8e7c1
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Een Azure-database voor PostgreSQL maken met de Azure CLI
+# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Snelstart: een Azure Database for PostgreSQL maken via Azure CLI
 Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze Quick Start laat zien hoe u een Azure-database voor PostgreSQL-server kunt maken in een [Azure resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) met de Azure CLI.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -42,14 +42,18 @@ Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
-
+## <a name="add-the-extension"></a>De extensie toevoegen
+Voeg de bijgewerkte Azure Database for PostgreSQL-beheerextensie toe met de volgende opdracht:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Een Azure-database voor PostgreSQL-server maken
 
 Maak een [Azure-database voor PostgreSQL-server](overview.md) met behulp van de opdracht [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create). Een server bevat een groep met databases die worden beheerd als groep. 
 
-In het volgende voorbeeld wordt een server gemaakt met de naam `mypgserver-20170401` in uw resourcegroep `myresourcegroup` met aanmeldgegevens van de serverbeheerder `mylogin`. De naam van een server komt overeen met een DNS-naam en moet dus globaal uniek zijn in Azure. Vervang het `<server_admin_password>` door uw eigen waarde.
+In het volgende voorbeeld wordt een server in VS West gemaakt met de naam `mydemoserver` in uw resourcegroep `myresourcegroup` met aanmeldgegevens van de serverbeheerder `myadmin`. Dit is een **Gen 4**-server voor **Algemeen gebruik** met twee **vCores**. De naam van een server komt overeen met een DNS-naam en moet dus globaal uniek zijn in Azure. Vervang het `<server_admin_password>` door uw eigen waarde.
 ```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mypgserver-20170401  --location westus --admin-user mylogin --admin-password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
 > [!IMPORTANT]
@@ -64,7 +68,7 @@ Maak een Azure PostgreSQL-firewallregel op serverniveau met de opdracht [az post
 
 U kunt een firewallregel voor een IP-bereik instellen, zodat u vanaf uw netwerk verbinding kunt maken. In het volgende voorbeeld wordt [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) gebruikt om een firewallregels te maken `AllowAllIps` voor een IP-adresbereik. Als u alle IP-adressen wilt openen, gebruikt u 0.0.0.0 als beginadres en 255.255.255.255 als eindadres.
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
@@ -74,27 +78,32 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 
 Als u verbinding met uw server wilt maken, moet u hostgegevens en toegangsreferenties opgeven.
 ```azurecli-interactive
-az postgres server show --resource-group myresourcegroup --name mypgserver-20170401
+az postgres server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 Het resultaat wordt in JSON-indeling weergegeven. Noteer de **aanmeldgegevens van de beheerder** en **fullyQualifiedDomainName**.
 ```json
 {
-  "administratorLogin": "mylogin",
-  "fullyQualifiedDomainName": "mypgserver-20170401.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mypgserver-20170401",
+  "administratorLogin": "myadmin",
+  "earliestRestoreDate": null,
+  "fullyQualifiedDomainName": "mydemoserver.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver",
   "location": "westus",
-  "name": "mypgserver-20170401",
+  "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 50,
-    "family": null,
-    "name": "PGSQLS2M50",
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "sslEnforcement": null,
-  "storageMb": 51200,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforPostgreSQL/servers",
   "userVisibleState": "Ready",
@@ -111,10 +120,10 @@ Als op uw clientcomputer PostgreSQL is geïnstalleerd, kunt u een lokale instant
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
-  Met de volgende opdracht maakt u bijvoorbeeld verbinding met de standaarddatabase **postgres** op uw PostgreSQL-server **mypgserver-20170401.postgres.database.azure.com** met behulp van toegangsreferenties. Voer het `<server_admin_password>` in dat u koos toen u werd gevraagd om een wachtwoord.
+  Met de volgende opdracht maakt u bijvoorbeeld verbinding met de standaarddatabase **postgres** op uw PostgreSQL-server **mydemoserver.postgres.database.azure.com** met behulp van toegangsreferenties. Voer het `<server_admin_password>` in dat u koos toen u werd gevraagd om een wachtwoord.
   
   ```azurecli-interactive
-psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
 ```
 
 2.  Wanneer u met de server bent verbonden, maakt u bij de prompt een lege database.
@@ -127,28 +136,51 @@ CREATE DATABASE mypgsqldb;
 \c mypgsqldb
 ```
 
-## <a name="connect-to-postgresql-database-using-pgadmin"></a>Verbinding maken met een PostgreSQL-database met behulp van pgAdmin
+## <a name="connect-to-the-postgresql-server-using-pgadmin"></a>Verbinding maken met de PostgreSQL-server met behulp van pgAdmin
 
-Verbinding maken met een Azure PostgreSQL-server met behulp van het GUI-hulpprogramma _pgAdmin_
-1.  Start de toepassing _pgAdmin_ op uw clientcomputer. U kunt _pgAdmin_ installeren via http://www.pgadmin.org/.
-2.  Selecteer **Nieuwe Server toevoegen** via het menu **Snelkoppelingen**.
-3.  In het dialoogvenster **Maken - Server**, tabblad **Algemeen**, voert u een unieke beschrijvende naam in voor de server. Bijvoorbeeld **Azure PostgreSQL Server**.
- ![pgAdmin-hulpprogramma - Maken - Server](./media/quickstart-create-server-database-azure-cli/1-pgadmin-create-server.png)
-4.  In het dialoogvenster **Maken - Server**, tabblad **Verbinding**:
-    - Geef de volledige servernaam op (bijvoorbeeld **mypgserver-20170401.postgres.database.azure.com**) in het vak **Hostnaam/-adres**. 
-    - Typ 5432 in het vak **Poort**. 
-    - Typ de **Aanmeldgegevens voor de serverbeheerder (user@mypgserver)** die u eerder hebt verkregen in deze Quick Start en het wachtwoord dat u aanmaakte toen u de server maakte, in de respectieve vakken **Gebruikersnaam** en **Wachtwoord**.
-    - Selecteer **SSL-modus** als **Vereist**. Standaard worden alle Azure PostgreSQL-servers gemaakt met de optie SSL afdwingen ingeschakeld. Zie [SSL afdwingen](./concepts-ssl-connection-security.md) als u het afdwingen van SSL wilt uitschakelen.
+pgAdmin is een open-source hulpprogramma voor PostgreSQL. U kunt pgAdmin installeren vanaf de [pgAdmin-website](http://www.pgadmin.org/). Mogelijk gebruikt u een andere versie van pgAdmin dan de versie in deze snelstart. Raadpleeg de documentatie van pgAdmin als u extra hulp nodig hebt.
 
-    ![pgAdmin - Maken - Server](./media/quickstart-create-server-database-azure-cli/2-pgadmin-create-server.png)
-5.  Klik op **Opslaan**.
-6.  In het linkerdeelvenster Browser vouwt u de optie **Servergroepen** uit. Kies uw **Azure PostgreSQL-server**.
-7.  Kies de **server** waarmee u verbonden bent en selecteer daaronder **Databases**. 
-8.  Klik met de rechtermuisknop op **Databases** om een database te maken.
-9.  Kies de databasenaam **mypgsqldb** en voer de eigenaar in als serverbeheerder (**mylogin**).
-10. Klik op **Opslaan** om een lege database te maken.
-11. In **Browser** vouwt u **Servers**-groep uit. Vouw de server uit die u hebt gemaakt en u ziet daaronder de database **mypgsqldb**.
- ![pgAdmin - Maken - Database](./media/quickstart-create-server-database-azure-cli/3-pgadmin-database.png)
+1. Start de toepassing pgAdmin op uw clientcomputer.
+
+2. Ga naar **Object** op de werkbalk, wijs **Create** aan met de muisaanwijzer en selecteer **Server**.
+
+3. In het dialoogvenster **Create - Server** gaat u naar het tabblad **General** en voert u een unieke beschrijvende naam in voor de server, zoals **mydemoserver**.
+
+   ![Het tabblad General](./media/quickstart-create-server-database-azure-cli/9-pgadmin-create-server.png)
+
+4. In het dialoogvenster **Create - Server** gaat u naar het tabblad **Connection** en vult u de tabel met instellingen in.
+
+   ![Het tabblad Connection](./media/quickstart-create-server-database-azure-cli/10-pgadmin-create-server.png)
+
+    Parameter pgAdmin |Waarde|Beschrijving
+    ---|---|---
+    Host name/address | Servernaam | De servernaam die u hebt gebruikt toen u eerder de Azure Database for PostgreSQL-server hebt gemaakt. De server in ons voorbeeld is **mydemoserver.postgres.database.azure.com**. Gebruik de FQDN (Fully Qualified Domain Name) (**\*. postgres.database.azure.com**) zoals weergegeven in het voorbeeld. Als u de servernaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen. 
+    Poort | 5432 | De poort die moet worden gebruikt wanneer u verbinding maakt met de Azure Database for PostgreSQL-server. 
+    Onderhoudsdatabase | *postgres* | De door het systeem gegenereerde standaarddatabasenaam.
+    Gebruikersnaam | Aanmeldingsnaam van serverbeheerder | De aanmeldingsnaam van de serverbeheerder die u hebt opgegeven toen u de Azure Database for PostgreSQL-server eerder hebt gemaakt. Als u de gebruikersnaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen. De indeling is *username@servername*.
+    Wachtwoord | Uw beheerderswachtwoord | Het wachtwoord dat u hebt gekozen toen u eerder in deze Quick Start de server maakte.
+    Rol | Leeg laten | U hoeft op dit moment geen rolnaam op te geven. Laat het veld leeg.
+    SSL-modus | *Require* | U kunt de SSL-modus instellen op het tabblad SSL van pgAdmin. Bij het maken van een Azure Database for PostgreSQL-server wordt standaard geforceerd SSL ingeschakeld. Raadpleeg [SSL afdwingen](./concepts-ssl-connection-security.md) als u geforceerd SSL wilt uitschakelen.
+    
+5. Selecteer **Opslaan**.
+
+6. Vouw in het linkerdeelvenster **Browser** het knooppunt **Server** uit. Selecteer uw server, bijvoorbeeld **mydemoserver**. Klik erop om er verbinding mee te maken.
+
+7. Vouw het knooppunt Servers uit en vouw vervolgens **Databases** eronder uit. De lijst moet uw bestaande *postgres*-database bevatten, plus eventuele andere databases die u hebt gemaakt. U kunt met Azure Database for PostgreSQL meerdere databases per server maken.
+
+8. Klik met de rechtermuisknop op **Databases**, kies het menu **Create** en selecteer **Database**.
+
+9. Typ een naam voor de database in het veld **Database**, bijvoorbeeld **mypgsqldb2**.
+
+10. Selecteer bij **Owner** de eigenaar voor de database uit de keuzelijst. Kies de aanmeldingsnaam van de serverbeheerder, zoals **my admin** uit het voorbeeld.
+
+   ![Een database maken in pgadmin](./media/quickstart-create-server-database-azure-cli/11-pgadmin-database.png)
+
+11. Klik op **Save** om een nieuwe, lege database te maken.
+
+12. In het deelvenster **Browser** kunt u de database die u hebt gemaakt, zien in de lijst met databases onder de naam van uw server.
+
+
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
@@ -164,9 +196,10 @@ az group delete --name myresourcegroup
 
 Als u alleen de zojuist gemaakte server wilt verwijderen, kunt u de opdracht [az postgres server delete](/cli/azure/postgres/server#az_postgres_server_delete) uitvoeren.
 ```azurecli-interactive
-az postgres server delete --resource-group myresourcegroup --name mypgserver-20170401
+az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Een database migreren met behulp van Exporteren en importeren](./howto-migrate-using-export-and-import.md)
+

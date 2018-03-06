@@ -1,21 +1,21 @@
 ---
-title: Via Java verbinding maken met Azure Database voor MySQL | Microsoft Docs
+title: Verbinding maken met Azure Database for MySQL via Java
 description: Deze snelstartgids bevat een voorbeeld van Java-code dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor MySQL-database.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 12/14/2017
-ms.openlocfilehash: 1f5fc33116bccea1c37596e2317d5e36124facd6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: efc1fd07f09bd0bae3c21b9d63c04020abc7832e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure Database voor MySQL: Java gebruiken om verbinding te maken en gegevens op te vragen
 In deze quickstart ziet u hoe u verbinding maakt met Azure Database for MySQL met behulp van een Java-toepassing en het JDBC-stuurprogramma [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Java, maar geen ervaring hebt met het werken met Azure Database voor MySQL.
@@ -37,11 +37,10 @@ Er zijn talrijke andere voorbeelden en voorbeeldcode op de [pagina met voorbeeld
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor MySQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het linkerdeelvenster op **Alle resources** en zoek vervolgens naar de server die u hebt gemaakt (bijvoorbeeld **myserver4demo**).
+2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en zoek naar de server die u hebt gemaakt (bijvoorbeeld **mydemoserver**).
 3. Klik op de servernaam.
-4. Selecteer de pagina **Eigenschappen** van de server en noteer vervolgens de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**.
- ![Naam van Azure Database voor MySQL-server](./media/connect-java/1_server-properties-name-login.png)
-5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
+4. Ga naar het venster **Overzicht** van de server en noteer de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**. Als u uw wachtwoord vergeet, kunt u het wachtwoord in dit venster opnieuw instellen.
+ ![Naam van Azure Database voor MySQL-server](./media/connect-java/1_server-overview-name-login.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Verbinden, tabel maken en gegevens invoegen
 Gebruik de volgende code om verbinding te maken en de gegevens te laden met de functie met een SQL-instructie **INSERT**. De methode [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) wordt gebruikt om verbinding te maken met MySQL. De methoden [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) en execute() worden gebruikt om de tabel te verwijderen en te maken. Het object prepareStatement wordt gebruikt voor het bouwen van de INSERT-opdrachten, waarbij setString() en setInt() worden gebruikt om de parameterwaarden te koppelen. Met de methode executeUpdate() wordt de opdracht voor elke set parameters uitgevoerd om de waarden in te voegen. 
@@ -57,9 +56,9 @@ public class CreateTableInsertRows {
     public static void main (String[] args)  throws Exception
     {
         // Initialize connection variables. 
-        String host = "myserver4demo.mysql.database.azure.com";
+        String host = "mydemoserver.mysql.database.azure.com";
         String database = "quickstartdb";
-        String user = "myadmin@myserver4demo";
+        String user = "myadmin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -159,9 +158,9 @@ public class ReadTable {
     public static void main (String[] args)  throws Exception
     {
         // Initialize connection variables.
-        String host = "myserver4demo.mysql.database.azure.com";
+        String host = "mydemoserver.mysql.database.azure.com";
         String database = "quickstartdb";
-        String user = "myadmin@myserver4demo";
+        String user = "myadmin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -245,9 +244,9 @@ public class UpdateTable {
     public static void main (String[] args)  throws Exception
     {
         // Initialize connection variables. 
-        String host = "myserver4demo.mysql.database.azure.com";
+        String host = "mydemoserver.mysql.database.azure.com";
         String database = "quickstartdb";
-        String user = "myadmin@myserver4demo";
+        String user = "myadmin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -326,9 +325,9 @@ public class DeleteTable {
     public static void main (String[] args)  throws Exception
     {
         // Initialize connection variables.
-        String host = "myserver4demo.mysql.database.azure.com";
+        String host = "mydemoserver.mysql.database.azure.com";
         String database = "quickstartdb";
-        String user = "myadmin@myserver4demo";
+        String user = "myadmin@mydemoserver";
         String password = "<server_admin_password>";
         
         // check that the driver is installed

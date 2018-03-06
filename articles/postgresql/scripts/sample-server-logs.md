@@ -1,39 +1,39 @@
 ---
-title: 'Azure CLI-script: Serverlogboeken downloaden in Azure Database for PostgreSQL'
+title: 'Azure CLI-script: serverlogboeken downloaden in Azure Database for PostgreSQL'
 description: Dit voorbeeld Azure CLI script laat zien hoe u de serverlogboeken van een Azure Database voor PostgreSQL server kunt activeren en downloaden.
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 01/12/2018
-ms.openlocfilehash: 27dad83546c5f6d5bac18d61a1e223ced1158236
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: 195a9d1162798e916a9fc8fc6efce58a0af9f2eb
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Langzame-serverquerylogboeken van een Azure Database voor PostgreSQL-server activeren en downloaden met behulp van Azure CLI
 Met dit CLI-voorbeeldscript worden de langzame-querylogboeken van één Azure Database for PostgreSQL server geactiveerd en gedownload.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit voorbeeld gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal uit te voeren, moet u voor dit artikel gebruikmaken van Azure CLI-versie 2.0 of hoger. Controleer de versie door `az --version` uit te voeren. Zie [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli) voor het installeren of upgraden van uw versie van Azure CLI.
 
 ## <a name="sample-script"></a>Voorbeeldscript
-Wijzig in dit voorbeeldscript de gemarkeerde regels om de gebruikersnaam en het wachtwoord van de beheerder aan te passen. Vervang <log_file_file_name> in de az monitor opdrachten door de naam van uw eigen serverlogboekbestand.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/server-logs/server-logs.sh?highlight=15-16 "Manipulate with server logs.")]
+Bewerk in dit voorbeeldscript de gemarkeerde regels om de gebruikersnaam en het wachtwoord van de beheerder naar uw eigen bij te werken. Vervang <log_file_name> in de `az monitor`-opdrachten door de naam van uw eigen serverlogboekbestand.
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/server-logs/server-logs.sh?highlight=18-19 "Manipulate with server logs.")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om de resourcegroep en alle resources die er aan zijn gekoppeld te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep en alle resources die er aan zijn gekoppeld te verwijderen nadat het script is uitgevoerd. 
 [!code-azurecli-interactive[main](../../../cli_scripts/postgresql/server-logs/delete-postgresql.sh  "Delete the resource group.")]
 
 ## <a name="script-explanation"></a>Uitleg van het script
-In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel is een koppeling naar specifieke documentatie over de opdracht.
+Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weergegeven:
 
 | **Opdracht** | **Opmerkingen** |
 |---|---|

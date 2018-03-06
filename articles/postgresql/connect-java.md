@@ -1,27 +1,27 @@
 ---
-title: Met Java verbinding maken met Azure Database voor PostgreSQL | Microsoft Docs
-description: Deze quickstart bevat een voorbeeld van Java-code die u kunt gebruiken om verbinding te maken met en query's uit te voeren voor gegevens uit een Azure Database voor PostgreSQL.
+title: Verbinding maken met Azure Database for PostgreSQL via Java
+description: Deze snelstartgids bevat een voorbeeld van Java-code die u kunt gebruiken om verbinding te maken met en query's uit te voeren voor gegevens uit een Azure Database voor PostgreSQL.
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: 0d763d30633e9d808501620c7247ed73567d3f62
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 5c55adec1471b28880f7a24a736cf25df2c8bd3f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Java gebruiken om verbinding te maken en query's voor gegevens uit te voeren
-In deze quickstart ziet u hoe u met behulp van een Java-toepassing verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Java en geen ervaring hebt met het werken met Azure Database for PostgreSQL.
+In deze snelstartgids ziet u hoe u met behulp van een Java-toepassing verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Java en geen ervaring hebt met het werken met Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Vereisten
-In deze quickstart worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
+In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
 - [Database maken - Portal](quickstart-create-server-database-portal.md)
 - [Database maken - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
@@ -33,11 +33,10 @@ U moet ook het volgende doen:
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor PostgreSQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu links in Azure Portal op **Alle resources** en zoek de server die u hebt gemaakt (bijvoorbeeld **mypgserver-20170401**).
-3. Klik op de servernaam **mypgserver-20170401**.
-4. Selecteer de pagina **Overzicht** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
- ![Azure Database voor PostgreSQL - Aanmeldgegevens van de serverbeheerder](./media/connect-java/1-connection-string.png)
-5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
+2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en zoek naar de server die u hebt gemaakt (bijvoorbeeld **mydemoserver**).
+3. Klik op de servernaam.
+4. Ga naar het venster **Overzicht** van de server en noteer de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**. Als u uw wachtwoord vergeet, kunt u het wachtwoord in dit venster opnieuw instellen.
+ ![Servernaam Azure Database for PostgreSQL](./media/connect-java/1-connection-string.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Verbinden, tabel maken en gegevens invoegen
 Gebruik de volgende code om verbinding te maken en de gegevens in de database te laden met de functie met een SQL-instructie **INSERT**. De methoden [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) en [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) worden gebruikt om verbinding maken met de database, de tabel neer te zetten en te maken. Het object [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) wordt gebruikt voor het bouwen van de INSERT-opdrachten, waarbij setString() en setInt() worden gebruikt om de parameterwaarden te koppelen. Met de methode [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) wordt de opdracht voor elke set parameters uitgevoerd. 
@@ -54,9 +53,9 @@ public class CreateTableInsertRows {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -154,9 +153,9 @@ public class ReadTable {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -240,9 +239,9 @@ public class UpdateTable {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -320,9 +319,9 @@ public class DeleteTable {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed

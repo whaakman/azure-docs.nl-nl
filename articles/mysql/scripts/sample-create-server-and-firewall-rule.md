@@ -1,47 +1,47 @@
 ---
-title: Azure CLI Script - Maak een Azure-Database voor MySQL | Microsoft Docs
-description: Dit voorbeeldscript CLI maakt een Azure-Database voor de MySQL-server en configureert u een firewallregel op serverniveau.
+title: 'Azure CLI-script: een Azure Database for MySQL maken'
+description: In dit CLI-voorbeeldscript wordt een Azure Database for MySQL-server gemaakt en een firewallregel op serverniveau geconfigureerd.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 11/02/2017
-ms.openlocfilehash: ee0d7e1d060492cabc78eeff098057bf9c09c6d1
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.date: 02/28/2018
+ms.openlocfilehash: 217b3d1ba8d9bc1f287327eb376a789dbfb4ee27
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Een MySQL-server maken en configureren van een firewallregel op met de Azure CLI
-Dit voorbeeldscript CLI maakt een Azure-Database voor de MySQL-server en configureert u een firewallregel op serverniveau. Nadat het script is uitgevoerd, is de MySQL-server toegankelijk is voor alle Azure-services en het geconfigureerde IP-adres.
+# <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Een MySQL-server maken en een firewallregel configureren met de Azure CLI
+In dit CLI-voorbeeldscript wordt een Azure Database for MySQL-server gemaakt en een firewallregel op serverniveau geconfigureerd. Nadat het script is uitgevoerd, is de MySQL-server toegankelijk voor alle Azure-services en het geconfigureerde IP-adres.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal uit te voeren, moet u voor dit artikel gebruikmaken van Azure CLI-versie 2.0 of hoger. Controleer de versie door `az --version` uit te voeren. Zie [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli) voor het installeren of upgraden van uw versie van Azure CLI. 
 
-## <a name="sample-script"></a>Voorbeeld van een script
-Bewerk de gemarkeerde regels voor het aanpassen van de gebruikersnaam van de beheerder en het wachtwoord in dit voorbeeldscript.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh?highlight=15-16 "Create an Azure Database for MySQL, and server-level firewall rule.")]
+## <a name="sample-script"></a>Voorbeeldscript
+Bewerk in dit voorbeeldscript de gemarkeerde regels om de gebruikersnaam en het wachtwoord van de beheerder naar uw eigen bij te werken.
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh?highlight=18-19 "Create an Azure Database for MySQL, and server-level firewall rule.")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Gebruik de volgende opdracht om de resourcegroep en alle resources die er aan zijn gekoppeld te verwijderen nadat het script is uitgevoerd. 
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/delete-mysql.sh "Delete the resource group.")]
 
-## <a name="script-explanation"></a>Script uitleg
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+## <a name="script-explanation"></a>Uitleg van het script
+Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weergegeven:
 
-| **Opdracht** | **Opmerkingen bij de** |
+| **Opdracht** | **Opmerkingen** |
 |---|---|
-| [AZ groep maken](/cli/azure/group#az_group_create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ mysql-server maken](/cli/azure/mysql/server#az_msql_server_create) | Hiermee maakt u een MySQL-server die als host fungeert voor de databases. |
-| [firewall AZ mysql-server maken](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) | Maakt een firewallregel voor toegang tot de server en de databases in deze uit het opgegeven IP-adresbereik. |
-| [AZ groep verwijderen](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle ingesloten resources. |
+| [az group create](/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | Hiermee wordt een MySQL-server gemaakt waar de databases worden gehost. |
+| [az mysql server firewall create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) | Hiermee wordt een firewallregel gemaakt om toegang mogelijk te maken tot de server en databases onder deze regel vanaf het ingevoerde IP-adres. |
+| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over de Azure CLI: [documentatie van Azure CLI](/cli/azure/overview).
-- Probeer extra scripts: [voorbeelden van Azure CLI voor Azure-Database voor MySQL](../sample-scripts-azure-cli.md)
+- Lees de [documentatie van Azure CLI](/cli/azure/overview) voor meer informatie over de Azure CLI.
+- Meer scripts om te proberen: [Azure CLI-voorbeelden voor Azure Database for MySQL](../sample-scripts-azure-cli.md)

@@ -1,34 +1,34 @@
 ---
-title: Ontwerp van uw eerste Azure-Database voor PostgreSQL met Azure CLI | Microsoft Docs
-description: Deze zelfstudie laat zien hoe uw eerste Azure-Database voor PostgreSQL ontwerpen met Azure CLI.
+title: 'Zelfstudie: uw eerste Azure Database for PostgreSQL ontwerpen met Azure CLI'
+description: Deze zelfstudie laat zien hoe u uw eerste Azure Database for PostgreSQL-server kunt maken, configureren en er query's op kunt toepassen met Azure CLI.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.openlocfilehash: 97299ae904115d08c5d03be38be263203552b84b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: MT
+ms.date: 02/28/2018
+ms.openlocfilehash: 7e5e33ee2a7b53f3ffbd27992f6b604358db49bb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Ontwerp van uw eerste Azure-Database voor PostgreSQL met Azure CLI 
-In deze zelfstudie maakt u Azure CLI (opdrachtregelinterface) en andere hulpprogramma's voor meer informatie over hoe:
+# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Zelfstudie: uw eerste Azure Database for PostgreSQL ontwerpen met Azure CLI 
+In deze zelfstudie gebruikt u Azure CLI (Command Line Interface of opdrachtregelinterface in goed Nederlands) en andere hulpprogramma's om deze bewerkingen uit te voeren:
 > [!div class="checklist"]
 > * Een Azure-database voor PostgreSQL-server maken
 > * De serverfirewall configureren
-> * Gebruik [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) hulpprogramma voor het maken van een database
+> * Het hulpprogramma [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) gebruiken om een database te maken
 > * Voorbeeldgegevens laden
 > * Querygegevens
 > * Gegevens bijwerken
 > * Gegevens terugzetten
 
-U kunt de Azure-Cloud-Shell gebruiken in de browser of [Installeer Azure CLI 2.0]( /cli/azure/install-azure-cli) op uw eigen computer uitvoeren van de opdrachten in deze zelfstudie.
+U kunt de Azure Cloud Shell gebruiken in de browser of [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli) op uw eigen computer om de opdrachten in deze zelfstudie uit te voeren.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -45,12 +45,18 @@ Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview
 az group create --name myresourcegroup --location westus
 ```
 
+## <a name="add-the-extension"></a>De extensie toevoegen
+Voeg de bijgewerkte Azure Database for PostgreSQL-beheerextensie toe met de volgende opdracht:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
+
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Een Azure-database voor PostgreSQL-server maken
 Maak een [Azure-database voor PostgreSQL-server](overview.md) met behulp van de opdracht [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create). Een server bevat een groep met databases die worden beheerd als groep. 
 
-Het volgende voorbeeld wordt een server met de naam `mypgserver-20170401` in uw resourcegroep `myresourcegroup` met aanmeldgegevens van serverbeheerder `mylogin`. De naam van een server komt overeen met een DNS-naam en moet dus globaal uniek zijn in Azure. Vervang het `<server_admin_password>` door uw eigen waarde.
+In het volgende voorbeeld wordt een server gemaakt met de naam `mydemoserver` in uw resourcegroep `myresourcegroup` met aanmeldgegevens van de serverbeheerder `myadmin`. De naam van een server komt overeen met een DNS-naam en moet dus globaal uniek zijn in Azure. Vervang het `<server_admin_password>` door uw eigen waarde. Dit is een Gen 4-server voor Algemeen gebruik met twee vCores.
 ```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mypgserver-20170401 --location westus --admin-user mylogin --admin-password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
 > [!IMPORTANT]
@@ -63,12 +69,12 @@ De database **postgres** wordt standaard gemaakt op uw server. De database [post
 
 Maak een Azure PostgreSQL-firewallregel op serverniveau met de opdracht [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create). Met een firewallregel op serverniveau kan een externe toepassing, zoals [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) of [PgAdmin](https://www.pgadmin.org/) verbinding maken met uw server via de firewall van de Azure PostgreSQL-service. 
 
-U kunt een firewallregel voor een IP-bereik zodat u vanaf uw netwerk verbinding kunt maken. Het volgende voorbeeld wordt [az postgres server-firewallregel maken](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) voor het maken van een firewallregel `AllowAllIps` waarmee de verbinding van elk IP-adres. Als u alle IP-adressen wilt openen, gebruikt u 0.0.0.0 als beginadres en 255.255.255.255 als eindadres.
+U kunt een firewallregel voor een IP-bereik zodat u vanaf uw netwerk verbinding kunt maken. In het volgende voorbeeld wordt [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) gebruikt om een firewallregel `AllowAllIps` te maken voor verbinding met elk IP-adres. Als u alle IP-adressen wilt openen, gebruikt u 0.0.0.0 als beginadres en 255.255.255.255 als eindadres.
 
-Om toegang te beperken met uw Azure-PostgreSQL-server met alleen het netwerk, kunt u de firewallregel alleen betrekking op uw bedrijfsnetwerk IP-adresbereik instellen.
+Als u de toegang tot uw Azure PostgreSQL-server wilt beperken tot alleen uw netwerk, kunt u de firewallregel zo instellen dat deze alleen het IP-adresbereik van uw bedrijfsnetwerk dekt.
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
@@ -79,49 +85,55 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 
 Als u verbinding met uw server wilt maken, moet u hostgegevens en toegangsreferenties opgeven.
 ```azurecli-interactive
-az postgres server show --resource-group myresourcegroup --name mypgserver-20170401
+az postgres server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 Het resultaat wordt in JSON-indeling weergegeven. Noteer de **aanmeldgegevens van de beheerder** en **fullyQualifiedDomainName**.
 ```json
 {
-  "administratorLogin": "mylogin",
-  "fullyQualifiedDomainName": "mypgserver-20170401.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mypgserver-20170401",
+  "administratorLogin": "myadmin",
+  "earliestRestoreDate": null,
+  "fullyQualifiedDomainName": "mydemoserver.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver",
   "location": "westus",
-  "name": "mypgserver-20170401",
+  "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 50,
-    "family": null,
-    "name": "PGSQLS2M50",
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "sslEnforcement": null,
-  "storageMb": 51200,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforPostgreSQL/servers",
   "userVisibleState": "Ready",
   "version": "9.6"
+
 }
 ```
 
-## <a name="connect-to-azure-database-for-postgresql-database-using-psql"></a>Verbinding maken met Azure-Database voor PostgreSQL-database met behulp van psql
-Als de clientcomputer PostgreSQL geïnstalleerd heeft, kunt u een lokaal exemplaar van [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html), of de Azure-Cloud-Console verbinding maken met een Azure-PostgreSQL-server. U gaat nu het opdrachtregelprogramma psql gebruiken om verbinding te maken met de Azure Database voor PostgreSQL-server.
+## <a name="connect-to-azure-database-for-postgresql-database-using-psql"></a>Verbinding maken met een Azure Database for PostgreSQL-database via psql
+Als op uw clientcomputer PostgreSQL is geïnstalleerd, kunt u een lokale instantie van [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) of de Azure Cloud Console gebruiken om verbinding te maken met een Azure PostgreSQL-server. U gaat nu het opdrachtregelprogramma psql gebruiken om verbinding te maken met de Azure Database voor PostgreSQL-server.
 
-1. Voer de volgende opdracht psql verbinding maken met een Azure-Database voor PostgreSQL-database:
+1. Voer de volgende psql-opdracht uit om verbinding te maken met een Azure Database for PostgreSQL-database:
 ```azurecli-interactive
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
-  Met de volgende opdracht maakt u bijvoorbeeld verbinding met de standaarddatabase **postgres** op uw PostgreSQL-server **mypgserver-20170401.postgres.database.azure.com** met behulp van toegangsreferenties. Voer het `<server_admin_password>` in dat u koos toen u werd gevraagd om een wachtwoord.
+  Met de volgende opdracht maakt u bijvoorbeeld verbinding met de standaarddatabase **postgres** op uw PostgreSQL-server **mydemoserver.postgres.database.azure.com** met behulp van toegangsreferenties. Voer het `<server_admin_password>` in dat u koos toen u werd gevraagd om een wachtwoord.
   
   ```azurecli-interactive
-psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 ---dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver ---dbname=postgres
 ```
 
-2.  Zodra u met de server verbonden bent, moet u een lege database maken bij de opdrachtprompt:
+2.  Wanneer u met de server bent verbonden, maakt u bij de prompt een lege database:
 ```sql
 CREATE DATABASE mypgsqldb;
 ```
@@ -132,9 +144,9 @@ CREATE DATABASE mypgsqldb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Tabellen maken in de database
-Nu dat u hoe u verbinding maken met de Azure-Database voor PostgreSQL weet, kunnen we gaan over hoe u enkele eenvoudige taken uitvoeren.
+U weet nu hoe u verbinding kunt maken met de Azure Database for PostgreSQL en dus is het tijd om enkele eenvoudige taken uit te voeren.
 
-We kunnen eerst een tabel maken en deze met enkele gegevens te laden. We gaan een tabel maken die inventarisatie-informatie houdt:
+We kunnen eerst een tabel maken en hierin enkele gegevens laden. Laten we een tabel maken waarin voorraadgegevens worden bijgehouden:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -143,66 +155,66 @@ CREATE TABLE inventory (
 );
 ```
 
-U kunt nu de zojuist gemaakte tabel in de lijst met tabellen zien door te typen:
+U kunt de zojuist gemaakte tabel nu in de lijst met tabellen zien door het volgende te typen:
 ```sql
 \dt
 ```
 
 ## <a name="load-data-into-the-table"></a>Gegevens laden in de tabel
-Nu dat we een tabel hebben, kunnen we sommige gegevens invoegen in het. Voer de volgende query voor het invoegen van een aantal rijen van de gegevens in het venster opdrachtprompt openen:
+Nu we een tabel hebben gemaakt, kunnen we er gegevens aan toevoegen. Voer bij de opdrachtprompt de volgende query uit om enkele rijen met gegevens in te voegen:
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-U hebt nu twee rijen van voorbeeldgegevens toegevoegd in de tabel die u eerder hebt gemaakt.
+U hebt nu twee rijen met voorbeeldgegevens toegevoegd aan de tabel die u eerder hebt gemaakt.
 
-## <a name="query-and-update-the-data-in-the-tables"></a>Vragen en de gegevens in de tabellen bijwerken
-De volgende query voor het ophalen van gegevens uit de tabel inventarisatie uitvoeren: 
+## <a name="query-and-update-the-data-in-the-tables"></a>De gegevens in de tabellen opvragen en bijwerken
+Voer de volgende query uit om gegevens op te halen uit de voorraadtabel: 
 ```sql
 SELECT * FROM inventory;
 ```
 
-U kunt ook de gegevens in de inventaris-tabel bijwerken:
+U kunt ook de gegevens in de voorraadtabel bijwerken:
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-Wanneer u de gegevens ophaalt, kunt u de bijgewerkte waarden zien:
+U kunt de bijgewerkte waarden zien wanneer u de gegevens ophaalt:
 ```sql
 SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Een database herstellen naar een eerder tijdstip
-Stel dat u een tabel per ongeluk hebt verwijderd. Dit is iets dat die u eenvoudig niet vanuit herstellen. Azure PostgreSQL-Database kunt u terugkeren naar een punt-in-tijd (maximaal 7 dagen in Basic) en 35 dagen in de standaard- en dit punt in tijd herstellen naar een nieuwe server. U kunt deze nieuwe server gebruiken om uw verwijderde gegevens te herstellen. 
+Stel dat u een tabel per ongeluk hebt verwijderd. Dit is iets wat u niet eenvoudig kunt herstellen. Met Azure Database for PostgreSQL kunt u gegevens herstellen van elk tijdstip waarop een back-up van uw server is gemaakt (welke tijdstippen dat zijn, is afhankelijk van de geconfigureerde bewaarperiode voor back-ups) en dit tijdstip herstellen naar een nieuwe server. U kunt deze nieuwe server dan gebruiken om de verwijderde gegevens te herstellen. 
 
-De volgende opdracht worden de voorbeeldserver hersteld naar een punt voordat de tabel is toegevoegd:
+Met de volgende opdracht wordt de voorbeeldserver hersteld naar een tijdstip voordat de tabel is toegevoegd:
 ```azurecli-interactive
-az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
+az postgres server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
-De `az postgres server restore` opdracht moet de volgende parameters:
+De opdracht `az postgres server restore` vereist de volgende parameters:
 | Instelling | Voorgestelde waarde | Beschrijving  |
 | --- | --- | --- |
-| --resourcegroep |  myResourceGroup |  De resourcegroep waarin de bronserver bestaat.  |
-| --naam | mypgserver hersteld | De naam van de nieuwe server die door de opdracht restore wordt gemaakt. |
-| herstel punt in tijd | 2017-04-13T13:59:00Z | Selecteer een point-in-time om naar te herstellen. Deze datum en tijd moet binnen de back-up bewaarperiode van de bronserver. Gebruik ISO8601-indeling voor datum en tijd. Bijvoorbeeld, u kunt uw eigen lokale tijdzone, zoals `2017-04-13T05:59:00-08:00`, of Zulu UTC-notatie gebruiken `2017-04-13T13:59:00Z`. |
-| ---bronserver | mypgserver 20170401 | De naam of ID van de bronserver in om te herstellen. |
+| resource-group |  myResourceGroup |  De resourcegroep waarin de bronserver bestaat.  |
+| naam | mydemoserver-restored | De naam van de nieuwe server die door de opdracht restore is gemaakt. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Selecteer een bepaald tijdstip om naar te herstellen. Deze datum en tijd moet binnen de back-upretentieperiode van de bronserver vallen. Gebruik ISO8601-notatie voor datum en tijd. U kunt bijvoorbeeld uw eigen lokale tijdzone, zoals `2017-04-13T05:59:00-08:00`, gebruiken of de UTC Zulu-notatie `2017-04-13T13:59:00Z`. |
+| source-server | mydemoserver | De naam of ID van de bronserver voor het herstellen. |
 
-Herstellen van een server naar een punt in tijd, maakt een nieuwe server, als de oorspronkelijke server vanaf het punt in tijd die u hebt gekopieerd. De locatie en de prijscategorie laag waarden voor de herstelde server zijn hetzelfde als de bronserver.
+Wanneer u een server naar een bepaald tijdstip herstelt, wordt er een nieuwe server gemaakt, die een kopie is van de oorspronkelijke server vanaf het opgegeven tijdstip. De locatie en prijscategorie van de herstelde server zijn hetzelfde als die van de bronserver.
 
-De opdracht is synchroon en wordt geretourneerd nadat de server is hersteld. Nadat het herstel is voltooid, zoek de nieuwe server die is gemaakt. Controleer of dat de gegevens is hersteld, zoals verwacht.
+De opdracht is synchroon en keert terug nadat de server is hersteld. Nadat het herstel is voltooid, zoekt u de nieuwe server. Controleer of de gegevens zijn hersteld zoals verwacht.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u Azure CLI (opdrachtregelinterface) en andere hulpprogramma's om te gebruiken:
+In deze zelfstudie hebt u geleerd hoe u Azure CLI (Command Line Interface of opdrachtregelinterface) en andere hulpprogramma's gebruikt om deze bewerkingen uit te voeren:
 > [!div class="checklist"]
 > * Een Azure-database voor PostgreSQL-server maken
 > * De serverfirewall configureren
-> * Gebruik [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) hulpprogramma voor het maken van een database
+> * Het hulpprogramma [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) gebruiken om een database te maken
 > * Voorbeeldgegevens laden
 > * Querygegevens
 > * Gegevens bijwerken
 > * Gegevens terugzetten
 
-Vervolgens leert u hoe u met de Azure-portal hetzelfde werk, controleert u in deze zelfstudie: [ontwerpen van uw eerste Azure-Database voor PostgreSQL met de Azure portal](tutorial-design-database-using-azure-portal.md)
+Als u meer informatie wilt over het gebruik van Azure Portal voor vergelijkbare taken, gaat u verder met deze zelfstudie: [Uw eerste Azure Database for PostgreSQL ontwerpen met Azure Portal](tutorial-design-database-using-azure-portal.md)

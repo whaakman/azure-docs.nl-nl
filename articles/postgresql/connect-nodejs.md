@@ -1,27 +1,27 @@
 ---
-title: Vanuit Node.js verbinding maken met Azure Database voor PostgreSQL | Microsoft Docs
-description: Deze quickstart bevat een voorbeeld van Node.js-code die u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor PostgreSQL.
+title: Verbinding maken met Azure Database for PostgreSQL via Node.js
+description: Deze snelstartgids bevat een voorbeeld van Node.js-code die u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor PostgreSQL.
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: 72756c6acd8cd7c35405754ccda585228f800a8e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: ddccefd4d39de49809e5648454c8d9f50b34a7c5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Node.js gebruiken om verbinding te maken en query's uit te voeren op gegevens
 In deze Quick Start ziet u hoe u met behulp van een [Node.js](https://nodejs.org/)-toepassing verbinding maakt met een Azure Database for PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Node.js en geen ervaring hebt met het werken met Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Vereisten
-In deze quickstart worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
+In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
 - [Database maken - Portal](quickstart-create-server-database-portal.md)
 - [Database maken - CLI](quickstart-create-server-database-azure-cli.md)
 
@@ -45,11 +45,10 @@ npm list
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor PostgreSQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en zoek naar de server die u hebt gemaakt.
+2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en zoek naar de server die u hebt gemaakt (bijvoorbeeld **mydemoserver**).
 3. Klik op de servernaam.
-4. Selecteer de pagina **Overzicht** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
- ![Azure Database voor PostgreSQL - Aanmeldgegevens van de serverbeheerder](./media/connect-nodejs/1-connection-string.png)
-5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
+4. Ga naar het venster **Overzicht** van de server en noteer de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**. Als u uw wachtwoord vergeet, kunt u het wachtwoord in dit venster opnieuw instellen.
+ ![Servernaam Azure Database for PostgreSQL](./media/connect-nodejs/1-connection-string.png)
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>De JavaScript-code in Node.js uitvoeren
 U kunt Node.js starten vanuit de Bash-shell, Terminal of opdrachtprompt van Windows door `node` in te voeren. Voer vervolgens de JavaScript-voorbeeldcode interactief uit door deze te kopiëren en in de prompt te plakken. U kunt de JavaScript-code ook in een tekstbestand opslaan en `node filename.js` starten met de bestandsnaam als parameter om de code uit te voeren.
