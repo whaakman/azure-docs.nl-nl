@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
 ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Algemene technische documentatie van SQL-Connector
 Dit artikel worden de algemene SQL-Connector. Het artikel is van toepassing op de volgende producten:
@@ -250,9 +250,9 @@ Ga als volgt te werk:
 
 * Als u veel gegevens hebt, wordt het aanbevolen voor het implementeren van paginering met uw opgeslagen Procedures.
 * Voor de opgeslagen Procedure voor de ondersteuning van paginering, moet u Index Start en End Index opgeven. Zie: [efficiënt paginering van grote hoeveelheden gegevens](https://msdn.microsoft.com/library/bb445504.aspx).
-* @StartIndexen @EndIndex tijdens uitvoeringstijd worden vervangen door geconfigureerd op de waarde van de desbetreffende pagina bestandsgrootte **stap configureren** pagina. Bijvoorbeeld, wanneer de connector haalt eerste pagina en de paginagrootte is ingesteld 500, in een dergelijke situatie @StartIndex zou dit 1 en @EndIndex 500. Deze waarden vergroten wanneer connector de volgende pagina's en wijzig haalt de @StartIndex & @EndIndex waarde.
+* @StartIndex en @EndIndex tijdens uitvoeringstijd worden vervangen door geconfigureerd op de waarde van de desbetreffende pagina bestandsgrootte **stap configureren** pagina. Bijvoorbeeld, wanneer de connector haalt eerste pagina en de paginagrootte is ingesteld 500, in een dergelijke situatie @StartIndex zou dit 1 en @EndIndex 500. Deze waarden vergroten wanneer connector de volgende pagina's en wijzig haalt de @StartIndex & @EndIndex waarde.
 * Geef de parameters in voor het uitvoeren van de opgeslagen Procedure met parameters `[Name]:[Direction]:[Value]` indeling. Voer elke parameter in op een afzonderlijke regel (Gebruik Ctrl + Enter om op te halen van een nieuwe regel).
-* Algemene SQL-connector ondersteunt ook de importbewerking van gekoppelde Servers in Microsoft SQL Server. Gegevens moeten worden opgehaald uit een tabel in de gekoppelde server, moet tabel worden opgegeven in de indeling:`[ServerName].[Database].[Schema].[TableName]`
+* Algemene SQL-connector ondersteunt ook de importbewerking van gekoppelde Servers in Microsoft SQL Server. Gegevens moeten worden opgehaald uit een tabel in de gekoppelde server, moet tabel worden opgegeven in de indeling: `[ServerName].[Database].[Schema].[TableName]`
 * Algemene SQL-Connector ondersteunt alleen objecten die vergelijkbaar structuur (zowel alias naam en het gegevenstype type) tussen de detectie van gegevens en schema's voor de stappen uitvoeren. Als het geselecteerde object van het schema en de opgegeven informatie in stappen van uitvoering verschilt, zijn SQL-Connector kan geen ondersteuning voor dit soort scenario's.
 
 **SQL Query**  
@@ -269,7 +269,7 @@ Ga als volgt te werk:
 Configuratie van delta-Import is vergeleken met de volledige Import meer configuratie vereist.
 
 * Als u de Trigger of momentopname van de aanpak voor het bijhouden van wijzigingen, en geeft vervolgens geschiedenistabel of momentopname van de database in **geschiedenistabel of momentopname van de databasenaam** vak.
-* U moet ook bijvoorbeeld join-voorwaarde tussen geschiedenistabel en bovenliggende tabel bieden`Employee.ID=History.EmployeeID`
+* U moet ook bijvoorbeeld join-voorwaarde tussen geschiedenistabel en bovenliggende tabel bieden `Employee.ID=History.EmployeeID`
 * Om bij te houden de transactie op de bovenliggende tabel uit de geschiedenistabel, moet u de naam van de kolom met de bewerkingsinformatie (toevoegen, bijwerken, verwijderen) opgeven.
 * Als u watermerk kiest voor het bijhouden van wijzigingen, en geef vervolgens de naam van de kolom met de gegevens opnieuw in **Water Mark kolomnaam**.
 * De **wijzigen typekenmerk** kolom is vereist voor het wijzigingstype. In deze kolom wijst een wijziging die in de primaire tabel of meerdere waarden naar een wijziging in de delta-weergave plaatsvindt. Deze kolom mag het wijzigingstype Modify_Attribute voor kenmerk niveau wijzigen of toevoegen, wijzigen of verwijderen Wijzig type voor een type op objectniveau wijzigen. Als deze iets anders dan de standaardwaarde toevoegen, wijzigen of verwijderen, moet u deze waarden met deze optie kunt definiëren.
@@ -306,7 +306,7 @@ Als u de SQL-query-optie kiest, moet exporteren drie verschillende query's Inser
 * **Query invoegen**: deze query wordt uitgevoerd als een object wordt geleverd met connector voor het invoegen in de bijbehorende tabel.
 * **Query bijwerken**: deze query wordt uitgevoerd als een object wordt geleverd met connector voor update in de bijbehorende tabel.
 * **Query verwijdert**: deze query wordt uitgevoerd als een object wordt geleverd met connector in de bijbehorende tabel voor verwijdering.
-* Kenmerk geselecteerd in het schema gebruikt als een parameterwaarde aan de query, bijvoorbeeld`Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
+* Kenmerk geselecteerd in het schema gebruikt als een parameterwaarde aan de query, bijvoorbeeld `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 * Zie voor meer informatie over het inschakelen van logboekregistratie voor het oplossen van de connector de [hoe ETW-tracering inschakelen voor Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).

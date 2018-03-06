@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: f15875610e2035c6f4c10c36e19c02f3e045b3ea
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Het gebruik van PerfInsights 
 
@@ -89,15 +89,15 @@ Dit scenario voert een speciale prestaties teller vastleggen samen met een netwe
 | Latentie      | Gem. per seconde/gegevensaanvraag         |
 |              | Gemiddelde leestijd                 |
 |              | Gemiddelde schrijftijd                |
-| I/o-grootte      | Gem. Bytes/gegevensaanvraag       |
-|              | Gem. Aantal gelezen bytes               |
-|              | Gem. Geschreven bytes              |
-| Doorvoer   | Gegevens Bytes per seconde                |
+| I/o-grootte      | Avg. Bytes/gegevensaanvraag       |
+|              | Avg. Bytes/Read               |
+|              | Avg. Geschreven bytes              |
+| Doorvoer   | Data Bytes/sec                |
 |              | Gelezen Bytes per seconde                |
 |              | Geschreven Bytes per seconde               |
-| Wachtrijlengte | Gem. Wachtrijlengte voor lezen        |
-|              | Gem. Wachtrijlengte voor schrijven       |
-|              | Gem. Wachtrijlengte van gegevens        |
+| Wachtrijlengte | Avg. Wachtrijlengte voor lezen        |
+|              | Avg. Wachtrijlengte voor schrijven       |
+|              | Avg. Wachtrijlengte van gegevens        |
 
 ### <a name="custom-slow-vm-analysis"></a>Aangepaste analyse van trage VM 
 
@@ -332,7 +332,7 @@ De **diagnostische** tabblad bevat informatie over bovenste consumenten van CPU,
 
 Diskspd is een opslag laden en prestaties van de generator test hulpprogramma van Microsoft. Zie voor meer informatie [Diskspd](https://github.com/Microsoft/diskspd).
 
-### <a name="xperf"></a>XPerf
+### <a name="xperf"></a>Xperf
 
 XPerf is een opdrachtregelprogramma voor het vastleggen van traces van de werkset van de prestaties van Windows. Zie voor meer informatie [Windows prestaties Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 

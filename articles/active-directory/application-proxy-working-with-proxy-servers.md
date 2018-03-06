@@ -16,10 +16,10 @@ ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: 85b45a828dbb06325b6a1c9453117849f48a27c8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Werken met bestaande lokale proxyservers
 
@@ -108,13 +108,13 @@ Er zijn vier aspecten rekening moet houden bij de uitgaande proxy:
 #### <a name="proxy-outbound-rules"></a>Uitgaande proxy-regels
 Toegang tot de volgende eindpunten voor connector-Servicetoegang toestaan:
 
-* *. msappproxy.net
-* *. servicebus.windows.net
+* *.msappproxy.net
+* *.servicebus.windows.net
 
 Voor de initiële registratie, moet u toegang tot de volgende eindpunten toestaan:
 
 * login.windows.net
-* Login.microsoftonline.com
+* login.microsoftonline.com
 
 Als u niet kan verbinding met FQDN-naam maken en moet in plaats daarvan IP-adresbereiken opgeven, gebruikt u deze opties:
 
