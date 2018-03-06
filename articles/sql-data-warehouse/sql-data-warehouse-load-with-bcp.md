@@ -174,7 +174,7 @@ U kunt controleren of de gegevens correct zijn geëxporteerd door het nieuwe bes
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u uw laadproces wilt ontwerpen, zie [Overzicht laden](sql-data-warehouse-design-elt-data-loading].  
+Als u uw laadproces wilt ontwerpen, zie [Overzicht laden](sql-data-warehouse-design-elt-data-loading.md).  
 
 
 
