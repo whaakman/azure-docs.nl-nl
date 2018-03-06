@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Gebruik van SAML 2.0-identiteitsprovider (IdP) voor eenmalige aanmelding in
 
@@ -60,9 +60,9 @@ Knooppunt voor de handtekening bevat binnen het SAML-antwoordbericht informatie 
 2.  De RSA-sha1-algoritme moet worden gebruikt als de DigestMethod. Andere algoritmen digitale handtekening worden niet geaccepteerd.
    `<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>`
 3.  Het XML-document kan zich ook aanmelden. 
-4.  De transformatie-algoritme moet overeenkomen met de waarden in het volgende voorbeeld:`<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+4.  De transformatie-algoritme moet overeenkomen met de waarden in het volgende voorbeeld:    `<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
        <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>`
-9.  Het algoritme SignatureMethod moet overeenkomen met het volgende voorbeeld:`<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
+9.  Het algoritme SignatureMethod moet overeenkomen met het volgende voorbeeld:   `<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## <a name="supported-bindings"></a>Ondersteunde bindingen
 Bindingen zijn het transport communicatieparameters die vereist zijn gerelateerd. De volgende vereisten gelden voor de bindingen
@@ -78,7 +78,7 @@ Deze tabel bevat de vereisten voor specifieke kenmerken in het SAML 2.0-bericht.
 | ----- | ----- |
 |NameID|De waarde van deze verklaring moet hetzelfde zijn als de Azure AD-gebruiker onveranderbare id genoemd. Het kan maximaal 64 alfanumerieke tekens lang zijn. Veilige niet HTML-tekens moeten worden gecodeerd, bijvoorbeeld een teken '+' wordt weergegeven als '.2B'.|
 |IDPEmail|De User Principal Name (UPN) wordt vermeld in de SAML-reactie als een element met de naam IDPEmail is dit van de gebruiker UserPrincipalName (UPN) in Azure AD/Office 365. De UPN is in de e-mailadres. De waarde van de UPN in Windows Office 365 (Azure Active Directory).|
-|Certificaatverlener|Dit is een URI van de identiteitsprovider vereist. U moet niet opnieuw gebruiken voor de verlener van de voorbeeldberichten. Als er meerdere domeinen van het hoogste niveau in uw Azure AD-tenants de uitgever, moet overeenkomen met de opgegeven URI-instelling geconfigureerd per domein.|
+|Verlener|Dit is een URI van de identiteitsprovider vereist. U moet niet opnieuw gebruiken voor de verlener van de voorbeeldberichten. Als er meerdere domeinen van het hoogste niveau in uw Azure AD-tenants de uitgever, moet overeenkomen met de opgegeven URI-instelling geconfigureerd per domein.|
 
 >[!IMPORTANT]
 >Azure AD momenteel ondersteunt de volgende NameID indeling URI voor SAML-2.0:urn:oasis:names:tc:SAML:2.0:nameid-indeling: permanente.
@@ -176,7 +176,7 @@ De volgende procedure begeleidt u bij het converteren van een bestaand domein st
 
 
 1. Verbinding maken met uw Azure AD-Directory als tenantbeheerder: verbinding maken met MsolService.
-2.  Configureer de gewenste Office 365-domein voor het gebruik van Federatie met SAML 2.0:`$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
+2.  Configureer de gewenste Office 365-domein voor het gebruik van Federatie met SAML 2.0: `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
 3.  U kunt de ondertekenen certificaat base64-gecodeerde tekenreeks ophalen uit het bestand IDP-metagegevens. Een voorbeeld van deze locatie is opgegeven, maar kan verschillen enigszins verschillen op basis van uw implementatie.
 
@@ -200,7 +200,7 @@ Deze procedure wordt beschreven hoe een enkele gebruiker toevoegen aan Azure AD.
 
 
 1. Verbinding maken met uw Azure AD-Directory als tenantbeheerder: verbinding maken met MsolService.
-2.  Maak een nieuwe gebruiker-principal:` New-MsolUser
+2.  Maak een nieuwe gebruiker-principal: ` New-MsolUser
         -UserPrincipalName elwoodf1@contoso.com
         -ImmutableId ABCDEFG1234567890
         -DisplayName "Elwood Folk"

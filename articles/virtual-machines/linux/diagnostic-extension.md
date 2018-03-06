@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
 ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux-extensie voor diagnostische gebruiken om te controleren van Logboeken en metrische gegevens
 
@@ -189,8 +189,8 @@ Versie 3.0 van de Linux-extensie voor diagnostische ondersteunt twee typen van d
 
 De vermelding 'sasURL' bevat de volledige URL, met inbegrip van SAS-token voor de Event Hub waarvoor gegevens moeten worden gepubliceerd. LAD vereist een SAS naamgeving van een beleid waarmee de verzenden claim. Een voorbeeld:
 
-* Een aangeroepen Event Hubs-naamruimte maken`contosohub`
-* Een Event Hub maken in de naamruimte die is aangeroepen`syslogmsgs`
+* Een aangeroepen Event Hubs-naamruimte maken `contosohub`
+* Een Event Hub maken in de naamruimte die is aangeroepen `syslogmsgs`
 * Een gedeeld toegangsbeleid maken op de Event Hub met de naam `writer` waarmee de claim verzenden
 
 Als u hebt gemaakt een SAS goede tot middernacht UTC op 1 januari 2018, is de waarde sasURL mogelijk:
@@ -319,13 +319,13 @@ counterSpecifier | Identificeert de specifieke metrische gegevens in de naamruim
 voorwaarde | (optioneel) Hiermee selecteert u een specifiek exemplaar van het object waarop de metriek is van toepassing of selecteert de aggregatie in alle exemplaren van dat object. Zie voor meer informatie de [ `builtin` metrische definities](#metrics-supported-by-builtin).
 sampleRate | IS 8601-interval die bepaalt de snelheid waarmee onbewerkte voorbeelden voor deze metrische gegevens worden verzameld. Als niet is ingesteld, het interval voor gegevensverzameling is ingesteld door de waarde van [sampleRateInSeconds](#ladcfg). De kortste ondersteunde samplefrequentie is 15 seconden (PT15S).
 eenheid | Moet een van deze tekenreeksen: 'Count', 'Bytes', 'Seconden', 'Percentage', 'CountPerSecond', 'BytesPerSecond', 'Milliseconde'. Hiermee definieert u de eenheid voor de metriek. Gebruikers van de verzamelde gegevens verwacht de waarden van de verzamelde gegevens overeenkomen met deze eenheid. LAD negeert dit veld.
-Weergavenaam | Het label (in de taal die is opgegeven door de bijbehorende landinstelling) moet worden gekoppeld aan deze gegevens in Azure metrische gegevens. LAD negeert dit veld.
+displayName | Het label (in de taal die is opgegeven door de bijbehorende landinstelling) moet worden gekoppeld aan deze gegevens in Azure metrische gegevens. LAD negeert dit veld.
 
 De counterSpecifier is een identifier. Consumenten van metrische gegevens, zoals de Azure portal voor grafieken en counterSpecifier waarschuwingen van de functie, gebruiken als de 'sleutel' die een waarde of een exemplaar van een metriek identificeert. Voor `builtin` metrische gegevens, wordt aangeraden gebruik van counterSpecifier-waarden die met beginnen `/builtin/`. Als u een specifiek exemplaar van een metriek verzamelt, raden wij dat u de id van het exemplaar koppelen aan de counterSpecifier-waarde. Een aantal voorbeelden:
 
-* `/builtin/Processor/PercentIdleTime`-Niet-actieve tijd met een gemiddelde van alle vcpu 's
-* `/builtin/Disk/FreeSpace(/mnt)`-Vrije ruimte voor het bestandssysteem mnt
-* `/builtin/Disk/FreeSpace`-Vrije ruimte met een gemiddelde van alle gekoppelde bestandssystemen
+* `/builtin/Processor/PercentIdleTime` -Niet-actieve tijd met een gemiddelde van alle vcpu 's
+* `/builtin/Disk/FreeSpace(/mnt)` -Vrije ruimte voor het bestandssysteem mnt
+* `/builtin/Disk/FreeSpace` -Vrije ruimte met een gemiddelde van alle gekoppelde bestandssystemen
 
 Verwacht dat de waarde counterSpecifier moet overeenkomen met een patroon LAD noch de Azure-portal. In de manier waarop u counterSpecifier waarden samenstelt consistent zijn.
 
@@ -358,7 +358,7 @@ De verzameling syslogEventConfiguration heeft een vermelding voor elke syslog-fa
 Element | Waarde
 ------- | -----
 Put | Een door komma's gescheiden lijst met namen van put die afzonderlijke gebeurtenissen worden gepubliceerd. Alle gebeurtenissen die overeenkomt met de beperkingen in syslogEventConfiguration worden gepubliceerd op elke vermelde sink. Voorbeeld: 'EHforsyslog'
-voorziening %{facilityname/ | De naam van een syslog-faciliteit (zoals ' logboek\_gebruiker ' of ' LOG\_LOCAL0 '). Zie de sectie 'faciliteit' van de [syslog man pagina](http://man7.org/linux/man-pages/man3/syslog.3.html) voor een volledige lijst.
+facilityName | De naam van een syslog-faciliteit (zoals ' logboek\_gebruiker ' of ' LOG\_LOCAL0 '). Zie de sectie 'faciliteit' van de [syslog man pagina](http://man7.org/linux/man-pages/man3/syslog.3.html) voor een volledige lijst.
 minSeverity | Een urgentieniveau syslog (zoals ' logboek\_fout ' of ' LOG\_INFO '). Zie de sectie 'niveau' van de [syslog man pagina](http://man7.org/linux/man-pages/man3/syslog.3.html) voor een volledige lijst. De extensie bevat gebeurtenissen die worden verzonden naar de faciliteit aan of hoger dan het opgegeven niveau.
 
 Wanneer u opgeeft `syslogEvents`, LAD altijd schrijft gegevens naar een tabel in Azure-opslag. U kunt dezelfde gegevens geschreven naar JSON-blobs en/of Event Hubs, maar u het opslaan van gegevens naar een tabel niet uitschakelen. De partitionering gedrag voor deze tabel is hetzelfde als is beschreven voor `performanceCounters`. De tabelnaam van de is de samenvoeging van deze tekenreeksen:
@@ -433,7 +433,7 @@ De Processor-klasse van metrische gegevens biedt informatie over het processorge
 Prestatiemeteritems | Betekenis
 ------- | -------
 PercentIdleTime | Percentage tijd tijdens het aggregatie-venster dat processors de niet-actieve lus kernel zijn uitgevoerd
-percentProcessorTime | Percentage tijd dat een niet-actieve thread wordt uitgevoerd
+PercentProcessorTime | Percentage tijd dat een niet-actieve thread wordt uitgevoerd
 PercentIOWaitTime | Percentage tijd wachten i/o-bewerkingen te voltooien
 PercentInterruptTime | Percentage tijd hardware/software-interrupts en DPC's (uitgestelde procedureaanroepen) wordt uitgevoerd
 PercentUserTime | Niet-actieve tijd tijdens het venster aggregatie, het percentage tijd die is doorgebracht in gebruiker meer met normale prioriteit

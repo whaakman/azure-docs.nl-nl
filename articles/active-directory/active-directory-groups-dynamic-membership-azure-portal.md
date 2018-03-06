@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Op kenmerken gebaseerde regels maken voor dynamisch lidmaatschap in Azure Active Directory
 In Azure Active Directory (Azure AD), kunt u geavanceerde regels om in te schakelen van complexe op kenmerken gebaseerde dynamisch lidmaatschap voor groepen maken. In dit artikel beschrijft de kenmerken en de syntaxis voor het maken van regels voor dynamisch lidmaatschap voor gebruikers of apparaten.
@@ -126,7 +126,7 @@ De volgende tabel bevat algemene fouten en hoe deze corrigeren
 | --- | --- | --- |
 | Fout: Kenmerk wordt niet ondersteund. |(user.invalidProperty - eq 'Value') |(user.department - eq '' waarde '')<br/><br/>Zorg ervoor dat het kenmerk is ingesteld op de [eigenschappenlijst ondersteund](#supported-properties). |
 | Fout: De Operator wordt niet ondersteund op kenmerk. |(user.accountEnabled-bevat true) |(user.accountEnabled - eq waar)<br/><br/>De operator die wordt gebruikt, wordt niet ondersteund voor het eigenschapstype (in dit voorbeeld-bevat kan niet worden gebruikt voor het type boolean). Gebruik de juiste operators voor het eigenschapstype. |
-| Fout: Fout bij schemacompilatie opvragen. |1. (user.department - eq 'Verkoop') (user.department - eq "Marketing")<br/><br/>2. (user.userPrincipalName-overeenkomen met ' *@domain.ext') |1. Ontbrekende operator. Gebruik - en - of twee predicaten te koppelen<br/><br/>(user.department - eq 'Verkoop')- of (user.department - eq "Marketing")<br/><br/>2. fout in de reguliere expressie die wordt gebruikt met - overeen met<br/><br/>(user.userPrincipalName-overeenkomen met '. *@domain.ext'), u kunt ook: (user.userPrincipalName-overeenkomen met '@domain.ext$")|
+| Fout: Fout bij schemacompilatie opvragen. |1. (user.department - eq 'Verkoop') (user.department - eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Ontbrekende operator. Gebruik - en - of twee predicaten te koppelen<br/><br/>(user.department - eq 'Verkoop')- of (user.department - eq "Marketing")<br/><br/>2. fout in de reguliere expressie die wordt gebruikt met - overeen met<br/><br/>(user.userPrincipalName-overeenkomen met '. *@domain.ext'), u kunt ook: (user.userPrincipalName-overeenkomen met '@domain.ext$")|
 
 ## <a name="supported-properties"></a>Ondersteunde eigenschappen
 Hier volgen de gebruikersgegevens die u in de geavanceerde regel gebruiken kunt:
@@ -160,21 +160,21 @@ Toegestane operators
 | --- | --- | --- |
 | city |Een tekenreekswaarde of *null* |(user.city - eq '' waarde '') |
 | Land |Een tekenreekswaarde of *null* |(user.country - eq '' waarde '') |
-| Bedrijfsnaam | Een tekenreekswaarde of *null* | (user.companyName - eq '' waarde '') |
+| companyName | Een tekenreekswaarde of *null* | (user.companyName - eq '' waarde '') |
 | Afdeling |Een tekenreekswaarde of *null* |(user.department - eq '' waarde '') |
-| Weergavenaam |Waarde van een tekenreeks |(user.displayName - eq '' waarde '') |
+| displayName |Waarde van een tekenreeks |(user.displayName - eq '' waarde '') |
 | werknemer-id |Waarde van een tekenreeks |(user.employeeId - eq '' waarde '')<br>(user.employeeId - ne *null*) |
-| facsimileTelephoneNumber |Een tekenreekswaarde of *null* |(user.facsimileTelephoneNumber - eq '' waarde '') |
-| Voornaam |Een tekenreekswaarde of *null* |(user.givenName - eq '' waarde '') |
-| Functie |Een tekenreekswaarde of *null* |(user.jobTitle - eq '' waarde '') |
+| facsimileTelephoneNumber |Een tekenreekswaarde of *null* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |Een tekenreekswaarde of *null* |(user.givenName - eq '' waarde '') |
+| jobTitle |Een tekenreekswaarde of *null* |(user.jobTitle - eq '' waarde '') |
 | E-mail |Een tekenreekswaarde of *null* (SMTP-adres van de gebruiker) |(user.mail - eq '' waarde '') |
-| mailNickName |De waarde van een tekenreeks (mailalias van de gebruiker) |(user.mailNickName - eq '' waarde '') |
+| mailNickName |De waarde van een tekenreeks (mailalias van de gebruiker) |(user.mailNickName -eq "value") |
 | mobiele |Een tekenreekswaarde of *null* |(user.mobile - eq '' waarde '') |
-| object-id |GUID van het gebruikersobject |(user.objectId - eq '1111111-1111-1111-1111-111111111111') |
-| onPremisesSecurityIdentifier | On-premises beveiligings-id (SID) voor gebruikers die zijn gesynchroniseerd van on-premises naar de cloud. |(user.onPremisesSecurityIdentifier - eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
-| passwordPolicies |Geen DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies - eq "DisableStrongPassword") |
+| objectId |GUID van het gebruikersobject |(user.objectId - eq '1111111-1111-1111-1111-111111111111') |
+| onPremisesSecurityIdentifier | On-premises beveiligings-id (SID) voor gebruikers die zijn gesynchroniseerd van on-premises naar de cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
+| passwordPolicies |Geen DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Een tekenreekswaarde of *null* |(user.physicalDeliveryOfficeName - eq '' waarde '') |
-| Postcode |Een tekenreekswaarde of *null* |(user.postalCode - eq '' waarde '') |
+| postalCode |Een tekenreekswaarde of *null* |(user.postalCode - eq '' waarde '') |
 | preferredLanguage |ISO 639-1-code |(user.preferredLanguage - eq 'en-US') |
 | sipProxyAddress |Een tekenreekswaarde of *null* |(user.sipProxyAddress - eq '' waarde '') |
 | state |Een tekenreekswaarde of *null* |(user.state - eq '' waarde '') |
@@ -182,7 +182,7 @@ Toegestane operators
 | Achternaam |Een tekenreekswaarde of *null* |(user.surname - eq '' waarde '') |
 | telephoneNumber |Een tekenreekswaarde of *null* |(user.telephoneNumber - eq '' waarde '') |
 | usageLocation |Twee letters landcode |(user.usageLocation - eq "VS") |
-| userPrincipalName |Waarde van een tekenreeks |(user.userPrincipalName - eq "alias@domain") |
+| userPrincipalName |Waarde van een tekenreeks |(user.userPrincipalName -eq "alias@domain") |
 | UserType |lid Gast *null* |(user.userType - eq 'Lid') |
 
 ### <a name="properties-of-type-string-collection"></a>Eigenschappen van het type tekenreeks-verzameling
@@ -194,7 +194,7 @@ Toegestane operators
 | Eigenschappen | Toegestane waarden | Gebruik |
 | --- | --- | --- |
 | otherMails |Waarde van een tekenreeks |(user.otherMails-bevat 'alias@domain') |
-| proxyAddresses |SMTP: alias@domain smtp:alias@domain |(user.proxyAddresses-bevat ' SMTP: alias@domain") |
+| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses-bevat ' SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>Eigenschappen van meerdere waarden
 Toegestane operators
@@ -273,20 +273,20 @@ U kunt ook een regel die u apparaatobjecten voor lidmaatschap in een groep selec
  Apparaatkenmerk  | Waarden | Voorbeeld
  ----- | ----- | ----------------
  accountEnabled | de waarde True, false | (device.accountEnabled - eq waar)
- Weergavenaam | Waarde van een tekenreeks |(device.displayName - eq 'Rob Iphone')
- DeviceOSType | Waarde van een tekenreeks | (device.deviceOSType - eq "iPad")- of (device.deviceOSType - eq 'iPhone')
- DeviceOSVersion | Waarde van een tekenreeks | (apparaat. OSVersion - eq '9.1')
+ displayName | Waarde van een tekenreeks |(device.displayName - eq 'Rob Iphone')
+ deviceOSType | Waarde van een tekenreeks | (device.deviceOSType - eq "iPad")- of (device.deviceOSType - eq 'iPhone')
+ deviceOSVersion | Waarde van een tekenreeks | (apparaat. OSVersion - eq '9.1')
  deviceCategory | een geldige apparaatnaam categorie | (device.deviceCategory - eq "BYOD")
  DeviceManufacturer | Waarde van een tekenreeks | (device.deviceManufacturer - eq 'Samsung')
- DeviceModel | Waarde van een tekenreeks | (device.deviceModel - eq "iPad lucht")
+ deviceModel | Waarde van een tekenreeks | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Persoonlijk, bedrijf, onbekend | (device.deviceOwnership - eq "Bedrijf")
- Domeinnaam | Waarde van een tekenreeks | (device.domainName - eq 'contoso.com')
+ domainName | Waarde van een tekenreeks | (device.domainName - eq 'contoso.com')
  enrollmentProfileName | De naam van het Inschrijvingsprofiel voor apparaten van Apple | (device.enrollmentProfileName - eq 'DEP iPhones')
  isRooted | de waarde True, false | (device.isRooted - eq waar)
  managementType | MDM (voor mobiele apparaten)<br>PC (voor computers die worden beheerd door de Intune-PC-agent) | (device.managementType - eq 'MDM')
  OrganizationalUnit | de waarde van een tekenreeks die overeenkomt met de naam van de organisatie-eenheid ingesteld door een lokale Active Directory | (device.organizationalUnit - eq "VS-pc's")
  deviceId | een geldige Azure AD-apparaat-ID | (device.deviceId - eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- object-id | een geldige Azure AD-object-ID |  (device.objectId - eq 76ad43c9-32c5-45e8-a272-7b58b58f596d')
+ objectId | een geldige Azure AD-object-ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
 
 
