@@ -5,6 +5,7 @@
 ## [Azure Data Lake Store vergelijken met Azure Storage](data-lake-store-comparison-with-blob-storage.md)
 ## [Azure Data Lake Store voor de verwerking van big data](data-lake-store-data-scenarios.md)
 ## [Open-sourcetoepassingen die met Azure Data Lake Store kunnen samenwerken](data-lake-store-compatible-oss-other-applications.md)
+## [Best practices voor het gebruik van Data Lake Store](data-lake-store-best-practices.md)
 
 # Aan de slag
 ## [Portal gebruiken](data-lake-store-get-started-portal.md)

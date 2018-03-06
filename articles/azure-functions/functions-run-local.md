@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
+ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Code en Azure Functions lokaal testen
 
@@ -35,14 +35,6 @@ Als u een Azure-functies van Visual Studio C# ontwikkelaar, ook bent [kan worden
 
 >[!NOTE]  
 > Voordat u eender welke versie installeert, moet u [installeren NodeJS](https://docs.npmjs.com/getting-started/installing-node), waaronder npm. Voor versie 2.x van de hulpprogramma's, alleen Node.js 8.5 en latere versies worden ondersteund. 
-
-### <a name="version-1x-runtime"></a>Versie 1.x runtime
-
-De runtime van Functions 1.x maakt gebruik van de oorspronkelijke versie van de hulpprogramma's. Deze versie van .NET Framework gebruikt en wordt alleen ondersteund op Windows-computers. Gebruik de volgende opdracht voor het installeren van de versie 1.x-hulpprogramma's:
-
-```bash
-npm install -g azure-functions-core-tools
-```
 
 ### <a name="version-2x-runtime"></a>Versie 2.x runtime
 
@@ -69,6 +61,14 @@ Wanneer u installeert op Mac OS- en Linux, moet u wellicht omvatten de `unsafe-p
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+### <a name="version-1x-runtime"></a>Versie 1.x runtime
+
+De runtime van Functions 1.x maakt gebruik van de oorspronkelijke versie van de hulpprogramma's. Deze versie van .NET Framework gebruikt en wordt alleen ondersteund op Windows-computers. Gebruik de volgende opdracht voor het installeren van de versie 1.x-hulpprogramma's:
+
+```bash
+npm install -g azure-functions-core-tools
 ```
 
 ## <a name="run-azure-functions-core-tools"></a>Azure Functions Core hulpprogramma's uitvoeren

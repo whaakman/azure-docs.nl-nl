@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Veelgestelde vragen over Azure Redis Cache
 Informatie over de antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azure Redis-Cache.
@@ -135,7 +135,7 @@ We kunnen de volgende conclusie trekt tekenen uit deze tabel:
 | Prijscategorie | Grootte | CPU-kernen | Beschikbare bandbreedte | De grootte van 1 KB | De grootte van 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Standaard cachegrootte** | | |**Megabits per seconde (Mb/s) / Megabytes per seconde (MB/s)** |**Aanvragen per tweede (RPS) niet-SSL** |**Aanvragen per tweede (RPS) SSL** |
-| C0 |250 MB |Gedeeld |100 / 12.5 |15,000 |7,500 |
+| C0 |250 MB |Gedeeld |100 / 12.5 |15,000 |7.500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
 | C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
@@ -246,9 +246,7 @@ U kunt een van de opdrachten die wordt vermeld op [Redis opdrachten](http://redi
 * U kunt ook de Redis-opdrachtregelprogramma's gebruiken. Als u wilt gebruiken, moet u de volgende stappen uitvoeren:
 * Download de [Redis-opdrachtregelprogramma's](https://github.com/MSOpenTech/redis/releases/).
 * Verbinding maken met behulp van de cache `redis-cli.exe`. Doorgeven in de cache-eindpunt met behulp die de -h switch en de sleutel met van - a zoals weergegeven in het volgende voorbeeld:
-* `redis-cli -h <your cache="" name="">
-  .redis.cache.windows.net -a <key>
-  `
+* `redis-cli -h <redis cache name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
 > De Redis-opdrachtregelprogramma's werken niet met de SSL-poort, maar u kunt een hulpprogramma zoals `stunnel` om veilig met de hulpprogramma's voor de SSL-poort volgens de aanwijzingen in de [aangekondigd ASP.NET Session State-Provider voor Redis-Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogbericht.
@@ -270,7 +268,7 @@ Ja, voor het gebruik van Azure Redis-Cache als de cache van een PHP-sessie, geef
 >
 > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
 >
-> Als de sleutel geen URL gecodeerd is, ontvangt u mogelijk een uitzondering met een bericht zoals:`Failed to parse session.save_path`
+> Als de sleutel geen URL gecodeerd is, ontvangt u mogelijk een uitzondering met een bericht zoals: `Failed to parse session.save_path`
 >
 >
 

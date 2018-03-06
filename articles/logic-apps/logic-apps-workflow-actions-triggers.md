@@ -1,6 +1,6 @@
 ---
 title: Werkstroom triggers en acties - Azure Logic Apps | Microsoft Docs
-description: Meer informatie over de soorten triggers en acties die u gebruiken kunt voor het maken en automatisering van werkstromen en processen met Azure Logic Apps
+description: Meer informatie over de triggers en acties voor het maken van geautomatiseerde werkstromen en processen met logic apps
 services: logic-apps
 author: MandiOhlinger
 manager: anneta
@@ -12,13 +12,13 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/17/2016
-ms.author: LADocs; mandia
-ms.openlocfilehash: 981bf5555d1941509e787adf656fe6310dd43cb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 10/13/2017
+ms.author: klam; LADocs
+ms.openlocfilehash: af30fd30f389cdc2070c45ae3b6e2cb1165239e7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Triggers en acties voor logic app-werkstromen
 
@@ -26,28 +26,28 @@ Alle logische apps beginnen met een trigger gevolgd door acties. In dit artikel 
   
 ## <a name="triggers-overview"></a>Triggers-overzicht 
 
-Alle logische apps beginnen met een trigger, waarmee de oproepen die u met een logische app uitgevoerd beginnen kunnen. Hier volgen de twee manieren waarop u initiëren starten kunt, een uitvoering van uw werkstroom:  
+Alle logische apps beginnen met een trigger, waarmee de oproepen die u met een logische app uitgevoerd beginnen kunnen. Hier volgen de soorten triggers die u kunt gebruiken:
 
-* Een polling-trigger  
-* Een push-signaal roept de [REST-API van Workflow](https://docs.microsoft.com/rest/api/logic/workflows)  
+* Een *polling* trigger waarmee HTTP-eindpunt van een service wordt regelmatig gecontroleerd
+* Een *push* activeert, welke aanroepen de [REST-API van Workflow](https://docs.microsoft.com/rest/api/logic/workflows)
   
 Alle triggers bevatten deze op het hoogste niveau elementen:  
   
 ```json
-"trigger-name": {
-    "type": "trigger-type",
-    "inputs": { call-settings },
+"<myTriggerName>": {
+    "type": "<triggerType>",
+    "inputs": { <callSettings> },
     "recurrence": {  
-        "frequency": "Second|Minute|Hour|Day|Week|Month",
-        "interval": recurrence-interval-based-on-frequency
+        "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+        "interval": "<recurrence-interval-based-on-frequency>"
     },
-    "conditions": [ array-of-required-conditions ],
-    "splitOn": "property-used-for-creating-separate-workflows",
-    "operationOptions": "operation-options-for-trigger"
+    "conditions": [ <array-with-required-conditions> ],
+    "splitOn": "<property-used-for-creating-runs>",
+    "operationOptions": "<options-for-operations-on-the-trigger>"
 }
 ```
 
-### <a name="trigger-types-and-inputs"></a>Triggertypen en invoer  
+## <a name="trigger-types-and-inputs"></a>Triggertypen en invoer  
 
 Elk triggertype heeft een andere interface en andere *invoer* het gedrag te definiëren. 
 
@@ -57,15 +57,19 @@ Elk triggertype heeft een andere interface en andere *invoer* het gedrag te defi
 | **Aanvraag**  | Uw logische app maakt in een eindpunt dat u aanroepen kunt, ook wel bekend als een 'handmatig' trigger. | 
 | **HTTP** | Controleert, of *polls*, een HTTP-web-eindpunt. Het HTTP-eindpunt moet voldoen aan een specifieke activerende contract met behulp van een '202' asynchrone patroon of door te retourneren van een matrix. | 
 | **ApiConnection** | Als een HTTP-trigger worden opgevraagd, maar gebruikt [Microsoft beheerde API's](../connectors/apis-list.md). | 
-| **HTTPWebhook** | Uw logische app maakt in een aanroepbare eindpunt, zoals de aanvraag worden geactiveerd, maar een opgegeven URL voor het registreren en de registratie van aanroepen. |
+| **HTTPWebhook** | Uw logische app maakt in een aanroepbare eindpunt, zoals de **aanvragen** activeren, maar het aanroepen van een opgegeven URL voor het registreren en de registratie. |
 | **ApiConnectionWebhook** | Werkt als de **HTTPWebhook** trigger gebruikt, maar Microsoft beheerde API's. | 
 ||| 
 
-Zie voor meer informatie over andere details [werkstroom Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
-  
+Zie voor meer informatie [werkstroom Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
+
+<a name="recurrence-trigger"></a>
+
 ## <a name="recurrence-trigger"></a>Terugkeerpatroon trigger  
 
-Deze trigger wordt uitgevoerd op basis van het terugkeerpatroon en het schema dat u opgeeft en biedt een eenvoudige manier voor het uitvoeren van regelmatig een werkstroom. Hier volgt een voorbeeld van een trigger basis terugkeerpatroon die dagelijks wordt uitgevoerd:
+Deze trigger wordt uitgevoerd op basis van het terugkeerpatroon en het schema dat u opgeeft en biedt een eenvoudige manier voor het uitvoeren van regelmatig een werkstroom. 
+
+Hier volgt een voorbeeld van een trigger basis terugkeerpatroon die dagelijks wordt uitgevoerd:
 
 ```json
 "myRecurrenceTrigger": {
@@ -76,6 +80,7 @@ Deze trigger wordt uitgevoerd op basis van het terugkeerpatroon en het schema da
     }
 }
 ```
+
 U kunt ook een begindatum en -tijd voor het starten van de trigger plannen. U kunt bijvoorbeeld een wekelijks rapport elke maandag starten, de logische app te starten op een specifieke maandag zoals in dit voorbeeld plannen: 
 
 ```json
@@ -84,29 +89,29 @@ U kunt ook een begindatum en -tijd voor het starten van de trigger plannen. U ku
     "recurrence": {
         "frequency": "Week",
         "interval": "1",
-        "startTime" : "2017-09-18T00:00:00Z"
+        "startTime": "2017-09-18T00:00:00Z"
     }
 }
 ```
 
-Hier volgt de definitie voor deze trigger: 
+Hier volgt de definitie voor deze trigger:
 
 ```json
 "myRecurrenceTrigger": {
     "type": "Recurrence",
     "recurrence": {
         "frequency": "second|minute|hour|day|week|month",
-        "interval": recurrence-interval-based-on-frequency,
+        "interval": <recurrence-interval-based-on-frequency>,
         "schedule": {
             // Applies only when frequency is Day or Week. Separate values with commas.
-            "hours": [ one-or-more-hour-marks ], 
+            "hours": [ <one-or-more-hour-marks> ], 
             // Applies only when frequency is Day or Week. Separate values with commas.
-            "minutes": [ one-or-more-minute-marks ], 
+            "minutes": [ <one-or-more-minute-marks> ], 
             // Applies only when frequency is Week. Separate values with commas.
             "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
         },
-        "startTime": "start-date-time-with-format-YYYY-MM-DDThh:mm:ss",
-        "timeZone": "specify-time-zone"
+        "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
+        "timeZone": "<specify-time-zone>"
     }
 }
 ```
@@ -120,35 +125,31 @@ Hier volgt de definitie voor deze trigger:
 | weekDays | Nee | String of string array | Als u 'Week' opgeeft voor `frequency`, kunt u een of meer dagen, gescheiden door komma's, als u wilt uitvoeren van de werkstroom: "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag" en "Zondag" | 
 | hours | Nee | Geheel getal of een matrix van geheel getal | Als u 'Day' of 'Week' opgeeft voor `frequency`, kunt u een of meer gehele getallen tussen 0 en 23, gescheiden door komma's als de uren van de dag waarop u wilt uitvoeren van de werkstroom. <p>Bijvoorbeeld, als u '10', '12' en '14' opgeeft, krijgt u 10 uur, 12 uur en 14 uur als de markeringen uur. | 
 | minutes | Nee | Geheel getal of een matrix van geheel getal | Als u 'Dag' of 'Week' opgeeft voor `frequency`, kunt u een of meer gehele getallen van 0 tot 59, gescheiden door komma's als de minuten van het uur waarop u wilt uitvoeren van de werkstroom. <p>Bijvoorbeeld, kunt u '30' als de minuut is ingeschakeld en met het vorige voorbeeld voor het uur van de dag, krijgt u 10:30 AM, 12:30 PM en 2:30 PM. | 
-|||||| 
+||||| 
 
 Deze trigger terugkeerpatroon geeft bijvoorbeeld aan dat er Wekelijks elke maandag op uw logische app wordt uitgevoerd op 10:30 uur, 12:30 PM en 2:30 uur Pacific (standaardtijd), geen vroeger dan 9 September 2017 op 14:00 uur wordt gestart:
 
 ``` json
-{
-    "triggers": {
-        "myRecurrenceTrigger": {
-            "type": "Recurrence",
-            "recurrence": {
-                "frequency": "Week",
-                "interval": 1,
-                "schedule": {
-                    "hours": [
-                        10,
-                        12,
-                        14
-                    ],
-                    "minutes": [
-                        30
-                    ],
-                    "weekDays": [
-                        "Monday"
-                    ]
-                },
-               "startTime": "2017-09-07T14:00:00",
-               "timeZone": "Pacific Standard Time"
-            }
-        }
+"myRecurrenceTrigger": {
+    "type": "Recurrence",
+    "recurrence": {
+        "frequency": "Week",
+        "interval": 1,
+        "schedule": {
+            "hours": [
+                10,
+                12,
+                14
+            ],
+            "minutes": [
+                30
+            ],
+            "weekDays": [
+                "Monday"
+            ]
+        },
+       "startTime": "2017-09-07T14:00:00",
+       "timeZone": "Pacific Standard Time"
     }
 }
 ```
@@ -176,22 +177,22 @@ Deze trigger fungeert als een eindpunt dat u gebruiken kunt voor het aanroepen v
 } 
 ```
 
-Deze trigger heeft een optionele eigenschap aangeroepen *schema*:
+Deze trigger heeft een optionele eigenschap aangeroepen `schema`:
   
 | Elementnaam | Vereist | Type | Beschrijving |
 | ------------ | -------- | ---- | ----------- |
 | schema | Nee | Object | Een JSON-schema te valideren en de binnenkomende aanvraag. Handig voor het helpen werkstroomstappen van de volgende weten welke eigenschappen om te verwijzen. | 
 ||||| 
 
-Om aan te roepen dit eindpunt, moet u aan te roepen de *listCallbackUrl* API. Zie [REST-API van werkstroom](https://docs.microsoft.com/rest/api/logic/workflows).
+Als u wilt deze trigger als een eindpunt aanroepen, moet u aan te roepen de `listCallbackUrl` API. Zie [REST-API van werkstroom](https://docs.microsoft.com/rest/api/logic/workflows).
 
 ## <a name="http-trigger"></a>HTTP-trigger  
 
-HTTP-triggers peilen op een opgegeven eindpunt en controleert u het antwoord om te bepalen of de werkstroom moet worden uitgevoerd. Hier de `inputs` object nodig deze parameters die zijn vereist voor het maken van een HTTP-aanroep:  
+Deze trigger een opgegeven eindpunt worden opgevraagd en controleert het antwoord om te bepalen of de werkstroom moet worden uitgevoerd of niet. Hier de `inputs` object nodig deze parameters die zijn vereist voor het maken van een HTTP-aanroep: 
 
 | Elementnaam | Vereist | Type | Beschrijving | 
 | ------------ | -------- | ---- | ----------- | 
-| methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
+| Methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
 | uri | Ja| Tekenreeks | De HTTP of HTTPs-eindpunt dat de trigger wordt gecontroleerd. Maximale grootte van tekenreeks: 2 KB | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
 | headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
@@ -199,7 +200,17 @@ HTTP-triggers peilen op een opgegeven eindpunt en controleert u het antwoord om 
 | retryPolicy | Nee | Object | Dit object gebruiken voor het aanpassen van het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten. Zie voor meer informatie [beleid probeer](../logic-apps/logic-apps-exception-handling.md). | 
 | verificatie | Nee | Object | Hiermee geeft u de methode die voor de aanvraag wordt gebruikt voor verificatie. Zie voor meer informatie [Scheduler uitgaande verificatie](../scheduler/scheduler-outbound-authentication.md). <p>Afgezien van Scheduler, er is een meer ondersteunde eigenschap: `authority`. Deze waarde is standaard `https://login.windows.net` wanneer niet wordt opgegeven, maar u kunt een andere waarde, zoals`https://login.windows\-ppe.net`. | 
 ||||| 
- 
+
+Een *beleid voor opnieuw proberen* is van toepassing op onregelmatige problemen, gekenmerkt als HTTP-statuscodes 408 429 en 5xx, naast eventuele uitzonderingen connectiviteit. Kunt u dit beleid met de `retryPolicy` object als volgt te werk:
+  
+```json
+"retryPolicy": {
+    "type": "<retry-policy-type>",
+    "interval": <retry-interval>,
+    "count": <number-of-retry-attempts>
+}
+```
+
 Om te werken goed met uw logische app, vereist de HTTP-trigger dat de HTTP-API om te voldoen aan een specifiek patroon. De trigger herkent deze eigenschappen:  
   
 | Antwoord | Vereist | Beschrijving | 
@@ -228,9 +239,11 @@ Hier volgen de HTTP-trigger uitvoer:
 | hoofdtekst | Object | De hoofdtekst van het HTTP-antwoord | 
 |||| 
 
-## <a name="api-connection-trigger"></a>API-verbinding activeren  
+<a name="apiconnection-trigger"></a>
 
-De API verbinding trigger is vergelijkbaar met de HTTP-trigger in de basisfunctionaliteit. De parameters voor het identificeren van de actie zijn echter verschillend. Hier volgt een voorbeeld:  
+## <a name="apiconnection-trigger"></a>APIConnection trigger  
+
+In basisfunctionaliteit werkt deze trigger als de HTTP-trigger. De parameters voor het identificeren van de actie zijn echter verschillend. Hier volgt een voorbeeld:   
   
 ```json
 "myDailyReportTrigger": {
@@ -247,7 +260,7 @@ De API verbinding trigger is vergelijkbaar met de HTTP-trigger in de basisfuncti
     },  
     "method": "POST",
     "body": {
-        "category": "awesomest"
+        "category": "myCategory"
     }
 }
 ```
@@ -255,7 +268,7 @@ De API verbinding trigger is vergelijkbaar met de HTTP-trigger in de basisfuncti
 | Elementnaam | Vereist | Type | Beschrijving | 
 | ------------ | -------- | ---- | ----------- | 
 | host | Ja | Object | De gehoste-gateway en de ID voor de API-App | 
-| methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
+| Methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
 | headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
@@ -271,6 +284,16 @@ Voor de `host` object hier worden de eigenschappen:
 | Verbindingsnaam |  | De naam van de beheerde API-verbinding die gebruikmaakt van de werkstroom. Moet verwijzen naar een parameter genaamd `$connection`. |
 |||| 
 
+Een *beleid voor opnieuw proberen* is van toepassing op onregelmatige problemen, gekenmerkt als HTTP-statuscodes 408 429 en 5xx, naast eventuele uitzonderingen connectiviteit. Kunt u dit beleid met de `retryPolicy` object als volgt te werk:
+  
+```json
+"retryPolicy": {
+    "type": "<retry-policy-type>",
+    "interval": <retry-interval>,
+    "count": <number-of-retry-attempts>
+}
+```
+
 Hier volgen de uitvoer voor een API-verbinding activeren:
   
 | Elementnaam | Type | Beschrijving |
@@ -283,7 +306,7 @@ Meer informatie over [hoe werkt prijzen voor API-verbinding activeert](../logic-
 
 ## <a name="httpwebhook-trigger"></a>HTTPWebhook trigger  
 
-De trigger HTTPWebhook biedt een eindpunt, vergelijkbaar met de aanvraag worden geactiveerd, maar de trigger HTTPWebhook aanroepen ook een opgegeven URL voor het registreren en de registratie. Hier volgt een voorbeeld van wat een trigger HTTPWebhook als volgt uitzien:  
+Deze trigger biedt een eindpunt, vergelijkbaar met de `Request` trigger, maar de trigger HTTPWebhook ook een opgegeven URL-aanroepen voor het registreren en de registratie. Hier volgt een voorbeeld van wat een trigger HTTPWebhook als volgt uitzien:
 
 ```json
 "myAppsSpotTrigger": {
@@ -292,27 +315,27 @@ De trigger HTTPWebhook biedt een eindpunt, vergelijkbaar met de aanvraag worden 
         "subscribe": {
             "method": "POST",
             "uri": "https://pubsubhubbub.appspot.com/subscribe",
-            "headers": { },
+            "headers": {},
             "body": {
                 "hub.callback": "@{listCallbackUrl()}",
                 "hub.mode": "subscribe",
                 "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
             },
-            "authentication": { },
-            "retryPolicy": { }
+            "authentication": {},
+            "retryPolicy": {}
         },
         "unsubscribe": {
+            "method": "POST",
             "url": "https://pubsubhubbub.appspot.com/subscribe",
             "body": {
                 "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
                 "hub.mode": "unsubscribe",
                 "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
             },
-            "method": "POST",
-            "authentication": { }
+            "authentication": {}
         }
     },
-    "conditions": [ ]
+    "conditions": []
 }
 ```
 
@@ -324,13 +347,13 @@ Veel van deze gedeelten zijn optioneel en de werking van de trigger HTTPWebhook 
 | afmelden | Nee | Hiermee geeft u de uitgaande aanvraag aan te roepen wanneer de trigger wordt verwijderd. | 
 |||| 
 
-U kunt limieten opgeven van een webhook-actie op dezelfde manier als [HTTP asynchrone limieten](#asynchronous-limits). Hier vindt u meer informatie over de `subscribe` en `unsubscribe` acties:
+U kunt limieten opgeven van een webhook-trigger op dezelfde manier als [HTTP asynchrone limieten](#asynchronous-limits). Hier vindt u meer informatie over de `subscribe` en `unsubscribe` acties:
 
-* `subscribe`wordt aangeroepen, zodat de trigger kunt beginnen met luisteren op gebeurtenissen. Deze uitgaande aanroep wordt gestart met dezelfde parameters als standaard HTTP-acties. Deze aanroep wordt uitgevoerd wanneer de werkstroom op een manier, bijvoorbeeld wijzigingen wanneer de referenties worden hersteld of van de trigger-invoerparameters wijzigen. 
+* `subscribe` wordt aangeroepen, zodat de trigger kunt beginnen met luisteren op gebeurtenissen. Deze uitgaande aanroep wordt gestart met dezelfde parameters als standaard HTTP-acties. Deze aanroep wordt uitgevoerd wanneer de werkstroom op een manier, bijvoorbeeld wijzigingen wanneer de referenties worden hersteld of van de trigger-invoerparameters wijzigen. 
   
   Ter ondersteuning van deze aanroep de `@listCallbackUrl()` functie wordt een unieke URL voor deze specifieke trigger in de werkstroom. Deze URL vertegenwoordigt de unieke id voor de eindpunten die van de service REST API gebruikmaken.
   
-* `unsubscribe`wordt automatisch aangeroepen wanneer een bewerking renders deze trigger ongeldig, met inbegrip van deze bewerkingen:
+* `unsubscribe` wordt automatisch aangeroepen wanneer een bewerking renders deze trigger ongeldig, met inbegrip van deze bewerkingen:
 
   * Het verwijderen of uitschakelen van de trigger. 
   * Het verwijderen of uitschakelen van de werkstroom. 
@@ -346,9 +369,9 @@ Hier worden de uitvoer van de HTTPWebhook activeren en de inhoud van de binnenko
 | hoofdtekst | Object | De hoofdtekst van het HTTP-antwoord | 
 |||| 
 
-## <a name="conditions"></a>Voorwaarden  
+## <a name="triggers-conditions"></a>Triggers: voorwaarden
 
-U kunt een of meer voorwaarden om te bepalen of de werkstroom moet worden uitgevoerd of niet gebruiken voor een trigger. Bijvoorbeeld:  
+U kunt een of meer voorwaarden om te bepalen of de werkstroom moet worden uitgevoerd of niet gebruiken voor een trigger. In dit voorbeeld wordt het rapport alleen triggers terwijl de werkstroom `sendReports` parameter is ingesteld op true. 
 
 ```json
 "myDailyReportTrigger": {
@@ -365,7 +388,7 @@ U kunt een of meer voorwaarden om te bepalen of de werkstroom moet worden uitgev
 }
 ```
 
-In dit geval wordt het rapport alleen triggers terwijl de werkstroom `sendReports` parameter is ingesteld op true. Ten slotte voorwaarden kunnen verwijzen naar de statuscode van de trigger. U kunt bijvoorbeeld een werkstroom starten alleen als uw website een statuscode 500, bijvoorbeeld retourneert:
+Ten slotte voorwaarden kunnen verwijzen naar de statuscode van de trigger. U kunt bijvoorbeeld een werkstroom starten alleen als uw website een statuscode 500 retourneert:
   
 ``` json
 "conditions": [ 
@@ -374,59 +397,73 @@ In dit geval wordt het rapport alleen triggers terwijl de werkstroom `sendReport
     }  
 ]  
 ```  
-  
-> [!NOTE]  
-> Als een expressie verwijst naar een trigger statuscode in op een manier, wordt het standaardgedrag die wordt geactiveerd op de 200 'OK', vervangen. Bijvoorbeeld, als u activeren op zowel de statuscode 200 als de statuscode 201 wilt, hebt u omvatten: `@or(equals(triggers().code, 200),equals(triggers().code,201))` als de voorwaarde.
-  
-## <a name="start-multiple-runs-for-a-request"></a>Meerdere wordt uitgevoerd voor een aanvraag starten
 
-Activeer meerdere wordt uitgevoerd voor een enkele aanvraag `splitOn` is nuttig, bijvoorbeeld wanneer u wilt pollen een eindpunt dat meerdere nieuwe items tussen polling-intervallen kan hebben.
-  
-Met `splitOn`, geeft u de eigenschap binnen de nettolading van antwoord met de matrix van items die u gebruiken wilt voor het starten van een uitvoering van de trigger. Stel dat u hebt een API die dit antwoord geretourneerd:  
+> [!NOTE]
+> Standaard een trigger wordt geactiveerd alleen op de ontvangst een ' 200 OK ' antwoord. Als een expressie verwijst naar een trigger statuscode in op een manier, wordt het standaardgedrag van de trigger vervangen. Dus als u wilt dat de trigger wordt gestart op basis van meerdere statuscodes, bijvoorbeeld, statuscode 200 en statuscode 201, moet u deze instructie als de voorwaarde opnemen: 
+>
+> `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
+
+<a name="split-on-debatch"></a>
+
+## <a name="triggers-process-an-array-with-multiple-runs"></a>Triggers: Verwerken van een matrix met meerdere wordt uitgevoerd
+
+Als de trigger een matrix voor uw logische app retourneert verwerken, soms een lus 'voor elk' te lang zou duren voor het verwerken van elk matrixitem. In plaats daarvan kunt u de **SplitOn** eigenschap in de trigger *debatch* de matrix. 
+
+Debatching splitst de items van de matrix en start een nieuwe logische app kopie die wordt uitgevoerd voor elk matrixitem. Deze aanpak is bijvoorbeeld handig als u een eindpunt dat meerdere nieuwe items tussen polling-intervallen retourneren mogelijk polling wilt.
+Voor het maximum aantal matrix-items die **SplitOn** kan verwerken in een uitvoering van één logische app, Zie [en -configuratie](../logic-apps/logic-apps-limits-and-config.md). 
+
+> [!NOTE]
+> U kunt toevoegen **SplitOn** alleen voor triggers door handmatig definiëren of in de weergave van de code voor uw logische app JSON-definitie te overschrijven. U kunt geen gebruiken **SplitOn** als u wilt implementeren een patroon synchrone antwoord. Elke werkstroom die gebruikmaakt van **SplitOn** en bevat een antwoord actie asynchroon uitgevoerd en onmiddellijk een `202 ACCEPTED` antwoord.
+
+Als de trigger Swagger-bestand een nettolading die een matrix beschrijft de **SplitOn** eigenschap wordt automatisch toegevoegd aan de trigger. Anders wordt deze eigenschap binnen de nettolading van antwoord met de matrix die u wilt debatch toevoegen. 
+
+Stel bijvoorbeeld dat u hebt een API die dit antwoord geretourneerd: 
   
 ```json
 {
-    "status": "Succeeded",
-    "rows": [
-        {  
-            "id" : 938109380,
-            "name" : "myFirstRow"
+    "Status": "Succeeded",
+    "Rows": [ 
+        { 
+            "id": 938109380,
+            "name": "customer-name-one"
         },
         {
-            "id" : 938109381,
-            "name" : "mySecondRow"
+            "id": 938109381,
+            "name": "customer-name-two"
         }
     ]
 }
 ```
   
-Uw logische app hoeft alleen de `rows` inhoud, zodat u de trigger zoals in dit voorbeeld kunt maken:  
+Uw logische app hoeft alleen de inhoud van `Rows`, zodat u een trigger zoals in dit voorbeeld kunt maken.
 
-```json
-"mySplitterTrigger": {
+``` json
+"myDebatchTrigger": {
     "type": "Http",
     "recurrence": {
-        "frequency": "minute",
-        "interval": 1
+        "frequency": "Second",
+        "interval": "1"
     },
-    "intputs": {
+    "inputs": {
         "uri": "https://mydomain.com/myAPI",
         "method": "GET"
     },
-    "splitOn": "@triggerBody()?.rows"
+    "splitOn": "@triggerBody()?.Rows"
 }
 ```
-> [!NOTE]  
-> Als u de `SplitOn` uitvoert, en u de eigenschappen die zich buiten de matrix kan niet ophalen voor dit voorbeeld er dus kan niet de `status` eigenschap in het antwoord geretourneerd van de API.
-> Ook in dit voorbeeld gebruiken we de `?` operator zodat er een storing vermijden kunt als de `rows` eigenschap bestaat niet. 
 
-Dus in de werkstroomdefinitie `@triggerBody().name` retourneert `myFirstRow` voor het eerst wordt uitgevoerd, en `mySecondRow` voor de tweede uitvoeren. De trigger uitvoer eruit zien in dit voorbeeld:  
+> [!NOTE]
+> Als u de `SplitOn` uitvoert, en u de eigenschappen die zich buiten de matrix kan niet ophalen. Bijvoorbeeld, er dus kan niet de `status` eigenschap in het antwoord geretourneerd van de API.
+> 
+> Om te voorkomen dat een fout als de `Rows` eigenschap bestaat niet, in dit voorbeeld wordt de `?` operator.
+
+De werkstroomdefinitie van de kan nu gebruikmaken van `@triggerBody().name` ophalen `customer-name-one` van de eerste uitvoering en `customer-name-two` van de tweede uitvoeren. Ja, de trigger uiterlijk levert, zoals deze voorbeelden:
 
 ```json
 {
     "body": {
         "id": 938109380,
-        "name": "mySecondRow"
+        "name": "customer-name-one"
     }
 }
 ```
@@ -435,26 +472,25 @@ Dus in de werkstroomdefinitie `@triggerBody().name` retourneert `myFirstRow` voo
 {
     "body": {
         "id": 938109381,
-        "name": "mySecondRow"
+        "name": "customer-name-two"
     }
 }
 ```
   
-## <a name="single-run-instance"></a>SIS uitvoeren
+## <a name="triggers-fire-only-after-all-active-runs-finish"></a>Triggers: Fire nadat alle alleen actief wordt uitgevoerd voltooien
 
-U kunt terugkeerpatroon triggers configureren zodat ze alleen wanneer alle actieve sessies hebt gestart. Als een geplande terugkeer gebeurt terwijl werkstroomexemplaar wordt uitgevoerd, wordt de trigger wordt overgeslagen en wacht tot het volgende geplande terugkeerpatroon opnieuw te controleren.
-Om deze instelling configureert, stel de `operationOptions` eigenschap `singleInstance`:
+U kunt terugkeerpatroon triggers configureren zodat ze alleen wanneer alle actieve sessies hebt gestart. Om deze instelling configureert, stel de `operationOptions` eigenschap `singleInstance`:
 
 ```json
-"triggers": {
-    "myHTTPTrigger": {
-        "type": "Http",
-        "inputs": { ... },
-        "recurrence": { ... },
-        "operationOptions": "singleInstance"
-    }
+"myTrigger": {
+    "type": "Http",
+    "inputs": { },
+    "recurrence": { },
+    "operationOptions": "singleInstance"
 }
 ```
+
+Als een geplande terugkeer gebeurt terwijl een werkstroomexemplaar dat wordt uitgevoerd, wordt de trigger wordt overgeslagen en wacht tot het volgende geplande terugkeerpatroon opnieuw te controleren.
 
 ## <a name="actions-overview"></a>Overzicht van de acties
 
@@ -468,6 +504,7 @@ Er zijn veel verschillende soorten acties, elk met unieke gedrag. Elk actietype 
 | **ApiConnection**  | Net als bij de HTTP-actie, maar gebruikt [Microsoft beheerde API's](https://docs.microsoft.com/azure/connectors/apis-list). | 
 | **ApiConnectionWebhook** | Werkt zoals HTTPWebhook, maar gebruikt door Microsoft beheerde API's. | 
 | **Antwoord** | Hiermee definieert u de reactie voor een inkomend gesprek. | 
+| **Opstellen** | Hiermee wordt een willekeurig object uit de invoer van de actie. | 
 | **Functie** | Hiermee geeft u een Azure-functie. | 
 | **Wacht** | Wacht een vast bedrag tijd of totdat een bepaalde tijd. | 
 | **Werkstroom** | Hiermee geeft u een geneste werkstroom. | 
@@ -476,21 +513,24 @@ Er zijn veel verschillende soorten acties, elk met unieke gedrag. Elk actietype 
 | **Selecteren** | Elk element van een matrix projecteert in een nieuwe waarde. U kunt bijvoorbeeld een matrix van getallen omzetten in een matrix met objecten. | 
 | **Tabel** | Converteert een matrix van items naar een CSV of HTML-tabel. | 
 | **Terminate** | Een werkstroom wordt gestopt. | 
+| **Wacht** | Wacht een vast bedrag tijd of totdat een bepaalde tijd. | 
+| **Werkstroom** | Hiermee geeft u een geneste werkstroom. | 
 ||| 
 
 ### <a name="collection-actions"></a>Verzameling acties
 
 | Actietype | Beschrijving | 
 | ----------- | ----------- | 
-| **Voorwaarde** | Evalueert een expressie en op basis van het resultaat, de bijbehorende vertakking wordt uitgevoerd. | 
-| **Bereik** | Gebruik dit voor andere acties logisch groeperen. | 
+| **If** | Een expressie niet evalueren en op basis van het resultaat, de bijbehorende vertakking wordt uitgevoerd. | 
+| **Switch** | Andere acties op basis van specifieke waarden van een object uitvoeren. | 
 | **ForEach** | Deze actie samenvoegartikel een matrix doorlopen en interne acties uitvoert op elk matrixitem. | 
-| **Pas** | Deze actie samenvoegartikel worden interne acties uitgevoerd totdat een voorwaarde in waar resulteert. | 
-||| 
+| **pas** | Deze actie samenvoegartikel worden interne acties uitgevoerd totdat een voorwaarde in waar resulteert. | 
+| **Bereik** | Gebruik dit voor andere acties logisch groeperen. | 
+|||  
 
 ## <a name="http-action"></a>HTTP-actie  
 
-Acties voor HTTP-aanroepen van een opgegeven eindpunt en controleren van het antwoord om te bepalen of de werkstroom moet worden uitgevoerd. Bijvoorbeeld:
+Een HTTP-bewerking aangeroepen een opgegeven eindpunt en het antwoord om te bepalen of de werkstroom moet worden uitgevoerd of niet wordt gecontroleerd. Bijvoorbeeld:
   
 ```json
 "myLatestNewsAction": {
@@ -506,7 +546,7 @@ Hier de `inputs` object nodig deze parameters die zijn vereist voor het maken va
 
 | Elementnaam | Vereist | Type | Beschrijving | 
 | ------------ | -------- | ---- | ----------- | 
-| methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
+| Methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
 | uri | Ja| Tekenreeks | De HTTP of HTTPs-eindpunt dat de trigger wordt gecontroleerd. Maximale grootte van tekenreeks: 2 KB | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
 | headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
@@ -516,6 +556,16 @@ Hier de `inputs` object nodig deze parameters die zijn vereist voor het maken va
 | verificatie | Nee | Object | Hiermee geeft u de methode die voor de aanvraag wordt gebruikt voor verificatie. Zie voor meer informatie [Scheduler uitgaande verificatie](../scheduler/scheduler-outbound-authentication.md). <p>Afgezien van Scheduler, er is een meer ondersteunde eigenschap: `authority`. Deze waarde is standaard `https://login.windows.net` wanneer niet wordt opgegeven, maar u kunt een andere waarde, zoals`https://login.windows\-ppe.net`. | 
 ||||| 
 
+HTTP-acties en APIConnection acties ondersteunen *beleid probeer*. Een beleid voor opnieuw proberen is van toepassing op onregelmatige problemen, gekenmerkt als HTTP-statuscodes 408 429 en 5xx, naast eventuele uitzonderingen connectiviteit. Kunt u dit beleid met de `retryPolicy` object als volgt te werk:
+  
+```json
+"retryPolicy": {
+    "type": "<retry-policy-type>",
+    "interval": <retry-interval>,
+    "count": <number-of-retry-attempts>
+}
+```
+
 In dit voorbeeld HTTP-actie pogingen ophalen van het laatste nieuws twee keer als er onregelmatige problemen voor een totaal van drie uitvoeringen en een vertraging van 30 seconden tussen elke poging:
   
 ```json
@@ -524,7 +574,7 @@ In dit voorbeeld HTTP-actie pogingen ophalen van het laatste nieuws twee keer al
     "inputs": {
         "method": "GET",
         "uri": "https://mynews.example.com/latest",
-        "retryPolicy" : {
+        "retryPolicy": {
             "type": "fixed",
             "interval": "PT30S",
             "count": 2
@@ -533,7 +583,7 @@ In dit voorbeeld HTTP-actie pogingen ophalen van het laatste nieuws twee keer al
 }
 ```
 
-Het interval voor opnieuw proberen is opgegeven in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601). Dit interval heeft een waarde standaard en een minimum van 20 seconden, terwijl de maximale waarde een uur is. Het standaard- en maximum aantal is gelijk aan vier uur. Als u de definitie van het beleid voor opnieuw proberen niet opgeeft een `fixed` strategie met een standaardwaarde opnieuw telling en het interval wordt gebruikt. Als wilt uitschakelen in het beleid voor opnieuw proberen, stelt u het type in op `None`.
+Het interval voor opnieuw proberen is opgegeven in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601). Dit interval heeft een waarde standaard en een minimum van 20 seconden, terwijl de maximale waarde een uur is. Het standaard- en maximum aantal is gelijk aan vier uur. Als u een definitie van het beleid voor opnieuw proberen niet opgeeft een `fixed` strategie met een standaardwaarde opnieuw telling en het interval wordt gebruikt. Als wilt uitschakelen in het beleid voor opnieuw proberen, stelt u het type in op `None`.
 
 ### <a name="asynchronous-patterns"></a>Asynchrone patronen
 
@@ -551,14 +601,16 @@ Om te schakelen het asynchrone gedrag die eerder is beschreven, stelt `operation
     "operationOptions": "DisableAsyncPattern"
 }
 ```
+
 <a name="asynchronous-limits"></a>
 
 #### <a name="asynchronous-limits"></a>Asynchrone limieten
 
-U kunt de duur van een asynchrone patroon voor een bepaald tijdsinterval beperken. Als het tijdsinterval is verstreken zonder dat een definitieve status bereikt, de status van de actie is gemarkeerd `Cancelled` met een `ActionTimedOut` code. De time-out voor de limiet is opgegeven in de ISO 8601-notatie. U kunt limieten opgeven als volgt te werk:
+U kunt de duur van een asynchrone patroon voor een bepaald tijdsinterval beperken. Als het tijdsinterval is verstreken zonder dat een definitieve status bereikt, de status van de actie is gemarkeerd `Cancelled` met een `ActionTimedOut` code. De time-out voor de limiet is opgegeven in de ISO 8601-notatie. Dit voorbeeld ziet hoe u beperkingen kunt opgeven:
+
 
 ``` json
-"action-name": {
+"<action-name>": {
     "type": "Workflow|Webhook|Http|ApiConnectionWebhook|ApiConnection",
     "inputs": { },
     "limit": {
@@ -569,8 +621,7 @@ U kunt de duur van een asynchrone patroon voor een bepaald tijdsinterval beperke
   
 ## <a name="apiconnection-action"></a>APIConnection actie
 
-De actie APIConnection verwijst naar een connector door Microsoft beheerd. Deze actie vereist een verwijzing naar een geldige verbinding en informatie over de API en de parameters.
-Hier volgt een voorbeeld APIConnection actie:
+Deze actie verwijst naar een connector voor Microsoft beheerde, vereisen een verwijzing naar een geldige verbinding en informatie over de API en de parameters. Hier volgt een voorbeeld APIConnection actie:
 
 ```json
 "Send_Email": {
@@ -599,7 +650,7 @@ Hier volgt een voorbeeld APIConnection actie:
 | Elementnaam | Vereist | Type | Beschrijving | 
 | ------------ | -------- | ---- | ----------- | 
 | host | Ja | Object | Hiermee geeft u de connector-informatie, zoals de `runtimeUrl` en verwijzing naar het object connection. | 
-| methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
+| Methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
 | pad | Ja | Tekenreeks | Het pad voor de API-bewerking | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
 | headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
@@ -608,6 +659,16 @@ Hier volgt een voorbeeld APIConnection actie:
 | operationsOptions | Nee | Tekenreeks | Definieert de set met speciaal gedrag negeren. | 
 | verificatie | Nee | Object | Hiermee geeft u de methode die voor de aanvraag wordt gebruikt voor verificatie. Zie voor meer informatie [Scheduler uitgaande verificatie](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
+
+Een beleid voor opnieuw proberen is van toepassing op onregelmatige problemen, gekenmerkt als HTTP-statuscodes 408 429 en 5xx, naast eventuele uitzonderingen connectiviteit. Kunt u dit beleid met de `retryPolicy` object als volgt te werk:
+
+```json
+"retryPolicy": {
+    "type": "<retry-policy-type>",
+    "interval": <retry-interval>,
+    "count": <number-of-retry-attempts>
+}
+```
 
 ## <a name="apiconnection-webhook-action"></a>APIConnection webhook actie
 
@@ -658,7 +719,7 @@ Met deze actie de nettolading van het volledige antwoord van een HTTP-aanvraag b
   
 ```json
 "myResponseAction": {
-    "type": "response",
+    "type": "Response",
     "inputs": {
         "statusCode": 200,
         "body": {
@@ -682,16 +743,36 @@ De actie antwoord heeft speciale beperkingen die niet van toepassing op andere a
   
 * Kan niet worden gebruikt in een werkstroom met reacties de `splitOn` opdracht in de definitie van de trigger omdat de oproep wordt gemaakt van meerdere wordt uitgevoerd. Als gevolg hiervan controleren voor deze aanvraag bij de bewerking van de werkstroom wordt geplaatst en een 'onjuiste aanvraag' antwoord retourneren.
 
-## <a name="function-action"></a>Functie actie   
+## <a name="compose-action"></a>Actie opstellen
+
+Deze actie kunt u een willekeurig object samenstellen en de uitvoer is het resultaat van evaluatie van de invoer van de actie. 
+
+> [!NOTE]
+> U kunt de `Compose` actie voor het maken van uitvoer, met inbegrip van objecten, matrices en een ander type systeemeigen worden ondersteund door logische apps zoals XML en binary.
+
+U kunt bijvoorbeeld de `Compose` actie voor het samenvoegen van de uitvoer van meerdere acties:
+
+```json
+"composeUserRecordAction": {
+    "type": "Compose",
+    "inputs": {
+        "firstName": "@actions('getUser').firstName",
+        "alias": "@actions('getUser').alias",
+        "thumbnailLink": "@actions('lookupThumbnail').url"
+    }
+}
+```
+
+## <a name="function-action"></a>Functie actie
 
 Deze actie kunt u vertegenwoordigen en aanroep een [Azure functie](../azure-functions/functions-overview.md), bijvoorbeeld:
 
 ```json
-"my-Azure-Function-name": {
+"<my-Azure-Function-name>": {
    "type": "Function",
     "inputs": {
         "function": {
-            "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/sites/{your-Azure-function-app-name}/functions/{your-Azure-function-name}"
+            "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/sites/<your-Azure-function-app-name>/functions/<your-Azure-function-name>"
         },
         "queries": {
             "extrafield": "specialValue"
@@ -708,23 +789,172 @@ Deze actie kunt u vertegenwoordigen en aanroep een [Azure functie](../azure-func
     "runAfter": {}
 }
 ```
+
 | Elementnaam | Vereist | Type | Beschrijving | 
 | ------------ | -------- | ---- | ----------- |  
 | functie-id | Ja | Tekenreeks | De resource-ID voor de Azure-functie die u wilt aanroepen. | 
-| methode | Nee | Tekenreeks | De HTTP-methode die wordt gebruikt voor het aanroepen van de functie. Als niet wordt opgegeven, is "POST" de standaardmethode. | 
+| Methode | Nee | Tekenreeks | De HTTP-methode die wordt gebruikt voor het aanroepen van de functie. Als niet wordt opgegeven, is "POST" de standaardmethode. | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
 | headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
 |||||
 
-Wanneer u uw logische app opslaat, controleert Azure Logic Apps op de functie waarnaar wordt verwezen:
+Wanneer u uw logische app opslaat, voert de Logic Apps-engine sommige controles op de functie waarnaar wordt verwezen:
 
 * U moet toegang hebben tot de functie.
-* U kunt alleen de standaard HTTP-triggers of algemene JSON webhook triggers gebruiken.
+* U kunt alleen een standaard HTTP-trigger of generic Webhook JSON-trigger.
 * De functie mag geen enkele route gedefinieerd.
-* Alleen 'functioneren' en 'anonymous' autorisatieniveau is toegestaan.
+* Alleen 'de functie' en 'anonymous' machtigingsniveaus zijn toegestaan.
 
-De URL van de trigger is opgehaald, in de cache opgeslagen en gebruikt tijdens runtime. Dus als een bewerking wordt ongeldig gemaakt van de URL in de cache, mislukt de actie tijdens runtime. U kunt dit probleem omzeilen, sla de logische app opnieuw, waardoor de logische app op te halen en de trigger-URL opnieuw in de cache.
+> [!NOTE]
+> De engine voor Logic Apps opgehaald en plaatst de trigger-URL die wordt gebruikt tijdens runtime. Dus als een bewerking wordt ongeldig gemaakt van de URL in de cache, mislukt de actie tijdens runtime. U kunt dit probleem omzeilen, sla de logische app opnieuw, waardoor de logische app op te halen en de trigger-URL opnieuw in de cache.
+
+## <a name="select-action"></a>Selecteer actie
+
+Deze actie kunt u elk element van een matrix project in een nieuwe waarde. In dit voorbeeld wordt een matrix van getallen in een matrix met objecten geconverteerd:
+
+```json
+"selectNumbersAction": {
+    "type": "Select",
+    "inputs": {
+        "from": [ 1, 3, 0, 5, 4, 2 ],
+        "select": { "number": "@item()" }
+    }
+}
+```
+
+| Naam | Vereist | Type | Beschrijving | 
+| ---- | -------- | ---- | ----------- | 
+| van | Ja | Matrix | De bronmatrix |
+| selecteer | Ja | Alle | De projectie toegepast op elk element in de bronmatrix |
+||||| 
+
+De uitvoer van de `select` actie is een matrix met de dezelfde kardinaliteit als de invoermatrix. Elk element wordt omgezet, zoals gedefinieerd door de `select` eigenschap. Als de invoer een lege matrix is, wordt de uitvoer is ook een lege matrix.
+
+## <a name="terminate-action"></a>Actie beëindigen
+
+Deze actie stopt een workflow uitvoeren, annuleren van eventuele acties uitgevoerd en alle overige acties wordt overgeslagen. De actie beëindigen heeft geen invloed op reeds voltooide acties.
+
+Bijvoorbeeld, een uitvoering met stoppen `Failed` status:
+
+```json
+"HandleUnexpectedResponse": {
+    "type": "Terminate",
+    "inputs": {
+        "runStatus": "Failed",
+        "runError": {
+            "code": "UnexpectedResponse",
+            "message": "Received an unexpected response",
+        }
+    }
+}
+```
+
+| Naam | Vereist | Type | Beschrijving | 
+| ---- | -------- | ---- | ----------- | 
+| runStatus | Ja | Tekenreeks | Het doel uitvoert de status een is `Failed` of `Cancelled` |
+| runError | Nee | Object | De details van de fout. Ondersteunde alleen wanneer `runStatus` is ingesteld op `Failed`. |
+| runError code | Nee | Tekenreeks | De run foutcode: |
+| runError bericht | Nee | Tekenreeks | Foutbericht van de uitvoering | 
+||||| 
+
+## <a name="query-action"></a>Queryactie
+
+Deze actie kunt u filteren op basis van een voorwaarde matrix. 
+
+> [!NOTE]
+> U kunt de actie opstellen niet gebruiken om eventuele uitvoer, met inbegrip van objecten, matrices en een ander type systeemeigen worden ondersteund door logische apps zoals XML en binaire samen te stellen.
+
+Als u bijvoorbeeld getallen die groter is dan twee selecteren:
+
+```json
+"filterNumbersAction": {
+    "type": "Query",
+    "inputs": {
+        "from": [ 1, 3, 0, 5, 4, 2 ],
+        "where": "@greater(item(), 2)"
+    }
+}
+```
+
+| Naam | Vereist | Type | Beschrijving | 
+| ---- | -------- | ---- | ----------- | 
+| van | Ja | Matrix | De bronmatrix |
+| waar | Ja | Tekenreeks | De voorwaarde die wordt toegepast op elk element van de bronmatrix. Als geen waarden voldoen aan de `where` voorwaarde, het resultaat is een lege matrix. |
+||||| 
+
+De uitvoer van de `query` actie is een matrix met elementen van de invoermatrix die voldoen aan de voorwaarde.
+
+## <a name="table-action"></a>Tabel actie
+
+Deze actie kunt u een matrix converteren naar een CSV of HTML-tabel. 
+
+```json
+"ConvertToTable": {
+    "type": "Table",
+    "inputs": {
+        "from": "<source-array>",
+        "format": "CSV | HTML"
+    }
+}
+```
+
+| Naam | Vereist | Type | Beschrijving | 
+| ---- | -------- | ---- | ----------- | 
+| van | Ja | Matrix | De bronmatrix. Als de `from` waarde van de eigenschap is een lege matrix, de uitvoer is een lege tabel. | 
+| Indeling | Ja | Tekenreeks | De tabelindeling die u wilt, 'CSV' of 'HTML' | 
+| Kolommen | Nee | Matrix | De tabelkolommen die u wilt. Met de vorm van de tabel standaard wordt genegeerd. | 
+| kolomkop | Nee | Tekenreeks | De kolomkop | 
+| waarde in de kolom | Ja | Tekenreeks | De waarde in de kolom | 
+||||| 
+
+Stel dat u een actie van de tabel zoals in dit voorbeeld definiëren:
+
+```json
+"convertToTableAction": {
+    "type": "Table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "HTML"
+    }
+}
+```
+
+En gebruik deze matrix voor `@triggerBody()`:
+
+```json
+[ {"ID": 0, "Name": "apples"},{"ID": 1, "Name": "oranges"} ]
+```
+
+Dit is de uitvoer van dit voorbeeld:
+
+<table><thead><tr><th>Id</th><th>Naam</th></tr></thead><tbody><tr><td>0</td><td>appels</td></tr><tr><td>1</td><td>appels</td></tr></tbody></table>
+
+Voor het aanpassen van deze tabel kunt u de kolommen expliciet, bijvoorbeeld:
+
+```json
+"ConvertToTableAction": {
+    "type": "Table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html",
+        "columns": [ 
+            {
+                "header": "Produce ID",
+                "value": "@item().id"
+            },
+            {
+              "header": "Description",
+              "value": "@concat('fresh ', item().name)"
+            }
+        ]
+    }
+}
+```
+
+Dit is de uitvoer van dit voorbeeld:
+
+<table><thead><tr><th>ID maken</th><th>Beschrijving</th></tr></thead><tbody><tr><td>0</td><td>nieuwe appels</td></tr><tr><td>1</td><td>nieuwe appels</td></tr></tbody></table>
 
 ## <a name="wait-action"></a>Actie wachten  
 
@@ -756,29 +986,27 @@ Als u wilt wachten tot een bepaald moment, kunt u ook in dit voorbeeld gebruiken
 ```
   
 > [!NOTE]  
-> De duur van de wachttijd kan worden ofwel opgegeven met de `until` object of `interval` , maar niet beide.
-  
+> Kunt u de duur van de wachttijd opgeven met ofwel de `interval` object of de `until` , maar niet beide.
+
 | Elementnaam | Vereist | Type | Beschrijving | 
 | ------------ | -------- | ---- | ----------- | 
-| tot | Nee | Object | De duur van de wachttijd op basis van een punt in tijd | 
+| pas | Nee | Object | De duur van de wachttijd op basis van een punt in tijd | 
 | Pas de timestamp | Ja | Tekenreeks | Punt in tijd in [UTC-datum-tijdnotatie](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) wanneer de wachttijd is verlopen | 
 | interval | Nee | Object | De duur van de wachttijd op basis van de intervaleenheid en het aantal | 
 | intervaleenheid | Ja | Tekenreeks | Tijdseenheid. Gebruik slechts één van deze waarden: 'tweede', 'minuut', 'uur', 'day', 'week' of 'maand' | 
 | interval aantal | Ja | Geheel getal | Een positief geheel getal dat het aantal gebruikt voor de duur van de wachttijd intervaleenheden | 
 ||||| 
 
-## <a name="workflow-action"></a>Werkstroomactie   
+## <a name="workflow-action"></a>Werkstroomactie
 
-Deze actie vertegenwoordigt een andere werkstroom. Logic Apps voert een toegangscontrole op de werkstroom of een meer specifiek, de trigger, wat betekent dat u moet toegang hebben tot de workflow.
-
-De uitvoer van deze actie zijn gebaseerd op wat u definieert in de `response` actie voor de onderliggende werkstroom. Als u dit nog niet hebt gedefinieerd een `response` actie wordt de uitvoer is leeg.
+Deze actie kunt u een werkstroom worden genest. De Logic Apps-engine voert een toegangscontrole in de werkstroom onderliggende meer specifiek, de trigger, dus u toegang tot de onderliggende werkstroom hebben moet. Bijvoorbeeld:
 
 ```json
-"myNestedWorkflowAction": {
+"<my-nested-workflow-action-name>": {
     "type": "Workflow",
     "inputs": {
         "host": {
-            "id": "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Logic/mywf001",
+            "id": "/subscriptions/<my-subscription-ID>/resourceGroups/<my-resource-group-name>/providers/Microsoft.Logic/<my-nested-workflow-action-name>",
             "triggerName": "mytrigger001"
         },
         "queries": {
@@ -804,259 +1032,199 @@ De uitvoer van deze actie zijn gebaseerd op wat u definieert in de `response` ac
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
 | headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
-|||||   
-
-## <a name="compose-action"></a>Actie opstellen
-
-Deze actie kunt u een willekeurig object samenstellen en de uitvoer is het resultaat van evaluatie van de invoer van de actie. 
-
-> [!NOTE]
-> U kunt de `Compose` actie voor het maken van uitvoer, met inbegrip van objecten, matrices en een ander type systeemeigen worden ondersteund door logische apps zoals XML en binary.
-
-Bijvoorbeeld, kunt u de actie opstellen voor het samenvoegen van de uitvoer van meerdere acties:
-
-```json
-"composeUserRecordAction": {
-    "type": "Compose",
-    "inputs": {
-        "firstName": "@actions('getUser').firstName",
-        "alias": "@actions('getUser').alias",
-        "thumbnailLink": "@actions('lookupThumbnail').url"
-    }
-}
-```
-
-## <a name="select-action"></a>Selecteer actie
-
-Deze actie kunt u elk element van een matrix project in een nieuwe waarde.
-Bijvoorbeeld, als u wilt converteren van een matrix van getallen in een matrix met objecten, kunt u gebruiken:
-
-```json
-"selectNumbersAction": {
-    "type": "Select",
-    "inputs": {
-        "from": [ 1, 3, 0, 5, 4, 2 ],
-        "select": { "number": "@item()" }
-    }
-}
-```
-
-| Naam | Vereist | Type | Beschrijving | 
-| ---- | -------- | ---- | ----------- | 
-| uit | Ja | Matrix | De bronmatrix |
-| selecteren | Ja | Alle | De projectie toegepast op elk element in de bronmatrix |
 ||||| 
 
-De uitvoer van de `select` actie is een matrix met de dezelfde kardinaliteit als de invoermatrix. Elk element wordt omgezet, zoals gedefinieerd door de `select` eigenschap. Als de invoer een lege matrix is, wordt de uitvoer is ook een lege matrix.
-
-## <a name="query-action"></a>Queryactie
-
-Deze actie kunt u filteren op basis van een voorwaarde matrix. In dit voorbeeld worden getallen die groter is dan twee geselecteerd:
-
-```json
-"filterNumbersAction": {
-    "type": "Query",
-    "inputs": {
-        "from": [ 1, 3, 0, 5, 4, 2 ],
-        "where": "@greater(item(), 2)"
-    }
-}
-```
-
-De uitvoer van de `query` actie is een matrix met elementen van de invoermatrix die voldoen aan de voorwaarde.
-
-> [!NOTE]
-> Als geen waarden voldoen aan de `where` voorwaarde, het resultaat is een lege matrix.
-
-| Naam | Vereist | Type | Beschrijving | 
-| ---- | -------- | ---- | ----------- | 
-| uit | Ja | Matrix | De bronmatrix |
-| waar | Ja | Tekenreeks | De voorwaarde die wordt toegepast op elk element van de bronmatrix |
-||||| 
-
-## <a name="table-action"></a>Tabel actie
-
-Deze actie kunt u bij het converteren van een matrix van items in een **CSV** of **HTML** tabel. Stel bijvoorbeeld dat u hebt een `@triggerBody()` met deze matrix:
-
-```json
-[ 
-    {
-      "id": 0,
-      "name": "apples"
-    },
-    {
-      "id": 1, 
-      "name": "oranges"
-    }
-]
-```
-
-En definiëren van een tabel in te grijpen als volgt:
-
-```json
-"convertToTableAction": {
-    "type": "Table",
-    "inputs": {
-        "from": "@triggerBody()",
-        "format": "html"
-    }
-}
-```
-
-Het resultaat van dit voorbeeld lijkt op deze HTML-tabel: 
-
-<table><thead><tr><th>id</th><th>naam</th></tr></thead><tbody><tr><td>0</td><td>appels</td></tr><tr><td>1</td><td>appels</td></tr></tbody></table>
-
-Voor het aanpassen van deze tabel kunt u de kolommen expliciet, bijvoorbeeld:
-
-```json
-"ConvertToTableAction": {
-    "type": "Table",
-    "inputs": {
-        "from": "@triggerBody()",
-        "format": "html",
-        "columns": [ 
-            {
-                "header": "Produce ID",
-                "value": "@item().id"
-            },
-            {
-              "header": "Description",
-              "value": "@concat('fresh ', item().name)"
-            }
-        ]
-    }
-}
-```
-
-Het resultaat van dit voorbeeld lijkt op deze HTML-tabel: 
-
-<table><thead><tr><th>ID maken</th><th>Beschrijving</th></tr></thead><tbody><tr><td>0</td><td>nieuwe appels</td></tr><tr><td>1</td><td>nieuwe appels</td></tr></tbody></table>
-
-| Naam | Vereist | Type | Beschrijving | 
-| ---- | -------- | ---- | ----------- | 
-| uit | Ja | Matrix | De bronmatrix. Als de `from` waarde van de eigenschap is een lege matrix, de uitvoer is een lege tabel. | 
-| Indeling | Ja | Tekenreeks | De tabelindeling die u, ofwel wilt **CSV** of **HTML** | 
-| Kolommen | Nee | Matrix | De tabelkolommen die u wilt. Met de vorm van de tabel standaard wordt genegeerd. | 
-| kolomkop | Nee | Tekenreeks | De kolomkop | 
-| waarde in de kolom | Ja | Tekenreeks | De waarde in de kolom | 
-||||| 
-
-## <a name="terminate-action"></a>Actie beëindigen
-
-Deze actie Hiermee stopt u de werkstroom uitvoeren, annuleert onderweg acties en slaat eventuele resterende acties. De actie beëindigen heeft geen invloed op alle voltooide acties.
-
-Bijvoorbeeld, als u wilt stoppen run dat '' status mislukt is, kunt u dit voorbeeld:
-
-```json
-"handleUnexpectedResponseAction": {
-    "type": "Terminate",
-    "inputs": {
-        "runStatus": "Failed",
-        "runError": {
-            "code": "UnexpectedResponse",
-            "message": "Received an unexpected response"
-        }
-    }
-}
-```
-
-| Naam | Vereist | Type | Beschrijving | 
-| ---- | -------- | ---- | ----------- | 
-| runStatus | Ja | Tekenreeks | Het doel uitvoert de status een is `Failed` of`Cancelled` |
-| runError | Nee | Object | De details van de fout. Ondersteunde alleen wanneer `runStatus` is ingesteld op `Failed`. |
-| runError code | Nee | Tekenreeks | De run foutcode: |
-| runError bericht | Nee | Tekenreeks | Foutbericht van de uitvoering |
-||||| 
+De uitvoer van deze actie zijn gebaseerd op wat u definieert in de `Response` actie voor de onderliggende werkstroom. Als de onderliggende werkstroom bevat geen definitie van een `Response` -actie voor de uitvoer is leeg.
 
 ## <a name="collection-actions-overview"></a>Overzicht van de verzameling acties
 
-Sommige handelingen kunnen acties in zichzelf bevatten. Referentie-acties in een verzameling kunnen worden verwezen rechtstreeks buiten de verzameling. Bijvoorbeeld, als u definiëren `Http` in een `scope`, klikt u vervolgens `@body('http')` nog geldig overal in de werkstroom. Zijn er acties in een verzameling `runAfter` alleen in combinatie met andere acties in dezelfde verzameling.
+Om te bepalen van de uitvoering van de werkstroom, verzameling acties kunnen andere acties omvatten. U kunt rechtstreeks verwijzen voor verwijzingen naar acties in een verzameling buiten de verzameling. Als u bijvoorbeeld een `Http` actie in een bereik vervolgens `@body('http')` nog geldig overal in een werkstroom. Ook kunnen de acties in een verzameling alleen 'uitgevoerd na' andere acties in dezelfde verzameling.
 
-## <a name="condition-if-action"></a>Voorwaarde: Als actie
+## <a name="if-action"></a>Als actie
 
-Deze actie kunt u een voorwaarde evalueren en uitvoeren van een vertakking op basis van of de expressie resulteert in `true`. 
-  
+Deze actie een voorwaarde is, kunt u een voorwaarde evalueren en een vertakking op basis van of de expressie wordt geëvalueerd als waar uitvoeren. Als de voorwaarde waar is, kan de voorwaarde 'Geslaagd' is gemarkeerd. Acties die zich in de `actions` of `else` objecten worden geëvalueerd tot deze waarden:
+
+* 'Geslaagd' wanneer ze worden uitgevoerd en mislukt
+* 'Is mislukt' wanneer ze worden uitgevoerd en mislukt
+* 'Overgeslagen' wanneer de respectieve vertakking kan niet worden uitgevoerd
+
+Meer informatie over [voorwaardelijke instructies in logic apps](../logic-apps/logic-apps-control-flow-conditional-statement.md).
+
+``` json
+"<my-condition-name>": {
+  "type": "If",
+  "expression": "<condition>",
+  "actions": {
+    "if-true-run-this-action": {
+      "type": <action-type>,
+      "inputs": {},
+      "runAfter": {}
+    }
+  },
+  "else": {
+    "actions": {
+        "if-false-run-this-action": {
+            "type": <action-type>,
+            "inputs": {},
+            "runAfter": {}
+        }
+    }
+  },
+  "runAfter": {}
+}
+```
+
+| Naam | Vereist | Type | Beschrijving | 
+| ---- | -------- | ---- | ----------- | 
+| acties | Ja | Object | De interne acties uit te voeren wanneer `expression` resulteert in `true` | 
+| expressie | Ja | Tekenreeks | De expressie om te evalueren |
+| anders | Nee | Object | De interne acties uit te voeren wanneer `expression` resulteert in `false` |
+||||| 
+
+Bijvoorbeeld:
+
 ```json
 "myCondition": {
     "type": "If",
     "actions": {
-        "if_true": {
+        "if-true-check-this-website": {
             "type": "Http",
             "inputs": {
                 "method": "GET",
-                "uri": "http://myurl"
+                "uri": "http://this-url"
             },
             "runAfter": {}
         }
     },
     "else": {
         "actions": {
-            "if_false": {
+            "if-false-check-this-other-website": {
                 "type": "Http",
                 "inputs": {
                     "method": "GET",
-                    "uri": "http://myurl"
+                    "uri": "http://this-other-url"
                 },
                 "runAfter": {}
             }
         }
-    },
-    "expression": "@equals(triggerBody(), json(true))",
-    "runAfter": {}
-}
-``` 
-
-| Naam | Vereist | Type | Beschrijving | 
-| ---- | -------- | ---- | ----------- | 
-| acties | Ja | Object | De interne acties uit te voeren wanneer `expression` resulteert in`true` | 
-| expressie | Ja | Tekenreeks | De expressie om te evalueren |
-| anders | Nee | Object | De interne acties uit te voeren wanneer `expression` resulteert in`false` |
-||||| 
-
-Als de voorwaarde is geëvalueerd, de voorwaarde is gemarkeerd als `Succeeded`. Acties in ofwel de `actions` of `else` objecten worden geëvalueerd tot: 
-
-* `Succeeded`wanneer ze worden uitgevoerd en mislukt
-* `Failed`wanneer ze worden uitgevoerd en mislukt
-* `Skipped`Wanneer de respectieve vertakking niet wordt uitgevoerd
-
-Hier volgen voorbeelden die laten zien hoe voorwaarden expressies in een actie kunnen gebruiken:
-  
-| JSON-waarde | Resultaat | 
-| ---------- | -------| 
-| `"expression": "@parameters('hasSpecialAction')"` | Een waarde die wordt geëvalueerd op true, zal dit probleem op te geven. Ondersteunt alleen Booleaanse expressies. Als u wilt converteren andere typen naar Booleaanse waarde, gebruik van deze functies: `empty` en`equals` | 
-| `"expression": "@greater(actions('act1').output.value, parameters('threshold'))"` | Vergelijking van functies ondersteunt. Bijvoorbeeld, de actie kan alleen worden uitgevoerd wanneer de uitvoer van `act1` is groter dan de drempelwaarde. | 
-| `"expression": "@or(greater(actions('act1').output.value, parameters('threshold')), less(actions('act1').output.value, 100))"` | Biedt ondersteuning voor bedrijfslogica-functies voor het maken van geneste Booleaanse expressies. In dit voorbeeld wordt de actie uitgevoerd als de uitvoer van `act1` boven de drempelwaarde of onder de 100 is. | 
-| `"expression": "@equals(length(actions('act1').outputs.errors), 0))"` | Om te controleren dat of een matrix geen objecten heeft, kunt u matrixfuncties. In dit voorbeeld wordt de actie uitgevoerd als de `errors` matrix leeg is. | 
-| `"expression": "parameters('hasSpecialAction')"` | Fout, niet een geldig voorwaarde omdat @ is vereist voor voorwaarden. |  
-|||
-
-## <a name="scope-action"></a>Bereikactie
-
-Deze actie kunt u logische groep acties in een werkstroom.
-
-```json
-"myScope": {
-    "type": "Scope",
-    "actions": {
-        "call_bing": {
-            "type": "Http",
-             "inputs": {
-                "url": "http://www.bing.com"
-            }
-        }
     }
+}
+```  
+
+### <a name="how-conditions-can-use-expressions-in-actions"></a>Hoe voorwaarden expressies in acties kunnen gebruiken
+
+Hier volgen enkele voorbeelden die laten zien hoe u expressies kunt gebruiken in omstandigheden:
+  
+| JSON-expressie | Resultaat | 
+| --------------- | ------ | 
+| `"expression": "@parameters('hasSpecialAction')"` | Een waarde die wordt geëvalueerd als waar, wordt dit probleem op te geven. Ondersteunt alleen Booleaanse expressies. Als u wilt converteren andere typen naar Booleaanse waarde, gebruik van deze functies: `empty` of `equals` | 
+| `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | Vergelijking van functies ondersteunt. Bijvoorbeeld, de actie wordt alleen uitgevoerd als de uitvoer van action1 groter dan de drempelwaarde is. | 
+| `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | Biedt ondersteuning voor bedrijfslogica-functies voor het maken van geneste Booleaanse expressies. In dit voorbeeld wordt de actie uitgevoerd wanneer de uitvoer van action1 meer dan de drempelwaarde of onder de 100 is. | 
+| `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | Om te controleren dat of een matrix geen objecten heeft, kunt u matrixfuncties. In dit voorbeeld wordt de actie uitgevoerd wanneer de fouten matrix leeg is. | 
+| `"expression": "parameters('hasSpecialAction')"` | Deze expressie wordt een fout veroorzaakt en is niet een geldige voorwaarde. Voorwaarden moeten gebruikmaken van de ' @ ' symbool. | 
+||| 
+
+## <a name="switch-action"></a>Switch-actie
+
+Deze actie een switch-instructie wordt, voert verschillende acties op basis van specifieke waarden van een object, een expressie of een token. Deze actie evalueert het object, de expressie of het token, kiest de aanvraag die overeenkomt met het resultaat en acties voor alleen deze aanvraag wordt uitgevoerd. Als er geen enkel geval overeenkomt met het resultaat, wordt de standaardactie uitgevoerd. Wanneer de switch-instructie wordt uitgevoerd, hebben slechts één case moet overeenkomen met het resultaat. Meer informatie over [instructies in logic apps-switch](../logic-apps/logic-apps-control-flow-switch-statement.md).
+
+``` json
+"<my-switch-statement-name>": {
+   "type": "Switch",
+   "expression": "<evaluate-this-object-expression-token>",
+   "cases": {
+      "myCase1" : {
+         "actions" : {
+           "myAction1": {}
+         },
+         "case": "<result1>"
+      },
+      "myCase2": {
+         "actions" : {
+           "myAction2": {}
+         },
+         "case": "<result2>"
+      }
+   },
+   "default": {
+      "actions": {
+          "myDefaultAction": {}
+      }
+   },
+   "runAfter": {}
 }
 ```
 
 | Naam | Vereist | Type | Beschrijving | 
-| ---- | -------- | ---- | ----------- |  
-| acties | Ja | Object | De interne acties uit te voeren binnen het bereik |
+| ---- | -------- | ---- | ----------- | 
+| expressie | Ja | Tekenreeks | Het object, expressie of token evalueren | 
+| gevallen | Ja | Object | Bevat de sets met interne acties die worden uitgevoerd op basis van het resultaat van de expressie. | 
+| Aanvraag | Ja | Tekenreeks | De waarde waarmee moet overeenkomen met het resultaat | 
+| acties | Ja | Object | De interne acties die worden uitgevoerd voor de aanvraag die overeenkomt met het resultaat van de expressie | 
+| standaard | Nee | Object | De interne acties die worden uitgevoerd als er geen cases overeenkomen met het resultaat | 
 ||||| 
 
-## <a name="foreach-action"></a>ForEach-actie
+Bijvoorbeeld:
 
-Deze actie samenvoegartikel een matrix doorlopen en interne acties uitvoert op elk matrixitem. Standaard de `foreach` lus wordt parallel uitgevoerd en 20 uitvoeringen parallel tegelijk kunt uitvoeren. U stelt regels worden uitgevoerd met de `operationOptions` parameter.
+``` json
+"myApprovalEmailAction": {
+   "type": "Switch",
+   "expression": "@body('Send_approval_email')?['SelectedOption']",
+   "cases": {
+      "Case": {
+         "actions" : {
+           "Send_an_email": {...}
+         },
+         "case": "Approve"
+      },
+      "Case_2": {
+         "actions" : {
+           "Send_an_email_2": {...}
+         },
+         "case": "Reject"
+      }
+   },
+   "default": {
+      "actions": {}
+   },
+   "runAfter": {
+      "Send_approval_email": [
+         "Succeeded"
+      ]
+   }
+}
+```
+
+## <a name="foreach-action"></a>Foreach-actie
+
+Deze actie samenvoegartikel een matrix doorlopen en interne acties uitvoert op elk matrixitem. Standaard wordt de lus Foreach parallel uitgevoerd. Voor het maximale aantal parallelle replicatiecycli die "voor elk' lussen kan uitvoeren, Zie [limieten en config](../logic-apps/logic-apps-limits-and-config.md). Voor elke cyclus worden opeenvolgend uitgevoerd, stelt de `operationOptions` -parameter voor `Sequential`. Meer informatie over [Foreach lus in logic apps](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
+
+```json
+"<my-forEach-loop-name>": {
+    "type": "Foreach",
+    "actions": {
+        "myInnerAction1": {
+            "type": "<action-type>",
+            "inputs": {}
+        },
+        "myInnerAction2": {
+            "type": "<action-type>",
+            "inputs": {}
+        }
+    },
+    "foreach": "<array>",
+    "runAfter": {}
+}
+```
+
+| Naam | Vereist | Type | Beschrijving | 
+| ---- | -------- | ---- | ----------- | 
+| acties | Ja | Object | De interne acties uit te voeren binnen de lus | 
+| foreach | Ja | Tekenreeks | De matrix te doorlopen | 
+| operationOptions | Nee | Tekenreeks | Hiermee geeft u alle opties voor de bewerking voor het aanpassen van gedrag. Ondersteunt momenteel alleen `Sequential` voor opeenvolgend uitgevoerd iteraties waar het standaardgedrag parallelle is. |
+||||| 
+
+Bijvoorbeeld:
 
 ```json
 "forEach_EmailAction": {
@@ -1079,37 +1247,28 @@ Deze actie samenvoegartikel een matrix doorlopen en interne acties uitvoert op e
             }
         }
     },
+    "foreach": "@body('email_filter')",
     "runAfter": {
         "email_filter": [ "Succeeded" ]
     }
 }
 ```
 
-| Naam | Vereist | Type | Beschrijving | 
-| ---- | -------- | ---- | ----------- | 
-| acties | Ja | Object | De interne acties uit te voeren binnen de lus | 
-| foreach | Ja | Tekenreeks | De matrix te doorlopen | 
-| operationOptions | Nee | Tekenreeks | Hiermee geeft u alle opties voor de bewerking voor het aanpassen van gedrag. Ondersteunt momenteel alleen `Sequential` voor opeenvolgend uitgevoerd iteraties waar het standaardgedrag parallelle is. |
-||||| 
-
 ## <a name="until-action"></a>Totdat de actie
 
-Deze actie samenvoegartikel binnenste acties uitgevoerd tot aan een voorwaarde resultaten op true.
+Deze samenvoegartikel actie wordt de interne acties uitgevoerd totdat een voorwaarde wordt geëvalueerd als waar. Meer informatie over ['tot' Lussen in logic apps](../logic-apps/logic-apps-control-flow-loops.md#until-loop).
 
 ```json
- "runUntilSucceededAction": {
+ "<my-Until-loop-name>": {
     "type": "Until",
     "actions": {
-        "Http": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://myurl"
-            },
+        "myActionName": {
+            "type": "<action-type>",
+            "inputs": {},
             "runAfter": {}
         }
     },
-    "expression": "@equals(outputs('Http')['statusCode', 200)",
+    "expression": "<myCondition>",
     "limit": {
         "count": 1000,
         "timeout": "PT1H"
@@ -1127,7 +1286,56 @@ Deze actie samenvoegartikel binnenste acties uitgevoerd tot aan een voorwaarde r
 | timeout | Nee | Tekenreeks | De time-outlimiet in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601) die specificeert hoe lang de lus moet worden uitgevoerd |
 ||||| 
 
+Bijvoorbeeld:
+
+```json
+ "runUntilSucceededAction": {
+    "type": "Until",
+    "actions": {
+        "Http": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {}
+        }
+    },
+    "expression": "@equals(outputs('Http')['statusCode', 200)",
+    "limit": {
+        "count": 100,
+        "timeout": "PT1H"
+    },
+    "runAfter": {}
+}
+```
+
+## <a name="scope-action"></a>Bereikactie
+
+Deze actie kunt u logische groep acties in een werkstroom. Het bereik wordt ook een eigen status nadat alle acties in dat bereik voltooien uitgevoerd. Meer informatie over [scopes](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md).
+
+```json
+"<my-scope-action-name>": {
+    "type": "Scope",
+    "actions": {
+        "myInnerAction1": {
+            "type": "<action-type>",
+            "inputs": {}
+        },
+        "myInnerAction2": {
+            "type": "<action-type>",
+            "inputs": {}
+        }
+    }
+}
+```
+
+| Naam | Vereist | Type | Beschrijving | 
+| ---- | -------- | ---- | ----------- |  
+| acties | Ja | Object | De interne acties uit te voeren binnen het bereik |
+||||| 
+
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Definitietaal van workflow](../logic-apps/logic-apps-workflow-definition-language.md)
-* [Werkstroom REST-API](https://docs.microsoft.com/rest/api/logic/workflows)
+* Meer informatie over [werkstroom Definition Language](../logic-apps/logic-apps-workflow-definition-language.md)
+* Meer informatie over [werkstroom REST-API](https://docs.microsoft.com/rest/api/logic/workflows)

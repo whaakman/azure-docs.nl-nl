@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 5484f0422e67c75320cc76ffcf08a2b8d6cc6108
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e143ed1e6bcece7efac9126c8e46408e7a88a5c0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Uw Linux VM optimaliseren voor Azure
 Maken van virtuele Linux-machine (VM) is eenvoudig doen vanaf de opdrachtregel of in de portal. Deze zelfstudie laat zien hoe u om te controleren of u dit hebt ingesteld om de prestaties van het Microsoft Azure-platform te optimaliseren. In dit onderwerp maakt gebruik van een virtuele Ubuntu Server-machine, maar u kunt ook maken Linux virtuele machine met [uw eigen installatiekopieën die u als sjabloon](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -58,7 +58,7 @@ Ubuntu Cloud afbeeldingen, moet u cloud-init gebruiken voor het configureren van
 
 Voor installatiekopieën zonder ondersteuning voor cloud-init zijn VM-installatiekopieën die zijn geïmplementeerd vanuit Azure Marketplace een VM-Linux-Agent geïntegreerd met het besturingssysteem. Deze agent kan de virtuele machine om te communiceren met verschillende Azure-services. Ervan uitgaande dat u een standaardinstallatiekopie vanuit Azure Marketplace hebt geïmplementeerd, moet u volgt te werk om instellingen voor het wisselbestand Linux correct te configureren:
 
-Zoek en wijzigen van twee vermeldingen in de **/etc/waagent.conf** bestand. Ze bepalen de aanwezigheid van een speciale wisselbestand en grootte van het wisselbestand. De parameters die u wilt wijzigen zijn `ResourceDisk.EnableSwap=N` en`ResourceDisk.SwapSizeMB=0` 
+Zoek en wijzigen van twee vermeldingen in de **/etc/waagent.conf** bestand. Ze bepalen de aanwezigheid van een speciale wisselbestand en grootte van het wisselbestand. De parameters die u wilt wijzigen zijn `ResourceDisk.EnableSwap=N` en `ResourceDisk.SwapSizeMB=0` 
 
 Wijzig de parameters voor de volgende instellingen:
 
@@ -131,8 +131,7 @@ Denk eraan dat als met alle optimalisatie discussies die u nodig hebt voor het u
 
 Sommige nuttig koppelingen naar aanvullende bronnen: 
 
-* [Premium Storage: opslag met hoge prestaties voor de werkbelasting van virtuele Azure-machines](../windows/premium-storage.md)
-* [Gebruikershandleiding voor Azure Linux-Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [MySQL-prestaties op Azure Linux virtuele machines optimaliseren](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Configureren van Software-RAID op Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+* [Premium Storage: opslag met hoge prestaties voor de werkbelasting van virtuele Azure-machines](premium-storage.md)
+* [Gebruikershandleiding voor Azure Linux-Agent](agent-user-guide.md)
+* [MySQL-prestaties op Azure Linux virtuele machines optimaliseren](classic/optimize-mysql.md)
+* [Configureren van Software-RAID op Linux](configure-raid.md)

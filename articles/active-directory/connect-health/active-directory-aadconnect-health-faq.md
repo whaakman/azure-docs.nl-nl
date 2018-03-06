@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Veelgestelde vragen over Azure AD Connect Health
 In dit artikel bevat antwoorden op veelgestelde vragen (FAQ's) over Azure Active Directory (Azure AD) Connect Health. Deze Veelgestelde vragen hebben betrekking op vragen over het gebruik van de service, waaronder het facturering model, mogelijkheden, beperkingen en ondersteuning.
@@ -128,12 +128,7 @@ De health-agent kan worden geregistreerd vanwege de volgende redenen mislukken:
 
 **V: ik ben ophalen gewaarschuwd dat 'Health-servicegegevens is niet actueel.' Hoe kan ik het probleem oplossen?**
 
-Azure AD Connect Health, wordt er een waarschuwing gegenereerd wanneer deze niet de gegevenspunten van de server in de afgelopen twee uur ontvangt. Er kan ook meerdere oorzaken voor deze waarschuwing.
-
-* De agent kan niet communiceren met de vereiste eindpunten omdat verkeer door een firewall wordt geblokkeerd. Dit geldt met name op webtoepassingsproxyservers. Zorg ervoor dat u uitgaande communicatie met de vereiste eindpunten en poorten zijn toegestaan. Zie de [gedeelte vereisten](active-directory-aadconnect-health-agent-install.md#requirements) voor meer informatie.
-* Uitgaande communicatie is onderworpen aan een SSL-inspectie door de network-laag. Dit zorgt ervoor dat het certificaat dat de agent gebruikt om te worden vervangen door de controle van de server/entiteit en het proces om gegevens te uploaden naar de Azure AD Connect Health-service mislukt.
-* U kunt de connectiviteitsopdracht is ingebouwd in de agent. [Meer informatie](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
-* De agents bieden ook ondersteuning voor uitgaande verbindingen via een niet-geverifieerde HTTP-Proxy. [Meer informatie](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
+Azure AD Connect Health, wordt er een waarschuwing gegenereerd wanneer deze niet de gegevenspunten van de server in de afgelopen twee uur ontvangt. [Meer informatie](active-directory-aadconnect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Bewerkingen vragen
 **V: heb ik nodig voor het inschakelen van controle voor de web application proxy-servers?**

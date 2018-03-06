@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: d8f457569ef1e9dfe400266982596ab53ec4f10d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9aa316e59fb78373cc044f8e18f5d24ea9c5258f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Veelgestelde vragen over virtuele Windows-Machines
 In dit artikel komen enkele veelgestelde vragen over Windows virtuele machines die in Azure met behulp van het Resource Manager-implementatiemodel zijn gemaakt. Zie voor de Linux-versie van dit onderwerp [Veelgestelde vragen over virtuele Linux-Machines](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -78,7 +78,7 @@ Ja, dit is nu mogelijk. De virtuele machine eerst moet worden gestopt toewijzing
 Ja. De computernaam mag maximaal 15 tekens lang zijn. Zie [Naming conventions regels en beperkingen](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie over de naamgeving van uw resources.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Zijn er een resource vereisten voor de naam groep?
-Ja. Naam van de resourcegroep mag maximaal 90 tekens lang zijn. Zie [Naming conventions regels en beperkingen](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie over resourcegroepen.
+Ja. Naam van de resourcegroep mag maximaal 90 tekens lang zijn. Zie [Naming conventions regels en beperkingen](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) voor meer informatie over resourcegroepen.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Wat zijn de vereisten van de gebruikersnaam bij het maken van een virtuele machine?
 
@@ -88,27 +88,27 @@ Gebruikersnamen mag maximaal 20 tekens lang zijn en mag niet eindigen op een pun
 De volgende gebruikersnamen zijn niet toegestaan:
 <table>
     <tr>
-        <td style="text-align:center">Beheerder </td><td style="text-align:center"> Beheerder </td><td style="text-align:center"> Gebruiker </td><td style="text-align:center"> Gebruiker1</td>
+        <td style="text-align:center">Beheerder </td><td style="text-align:center"> beheerder </td><td style="text-align:center"> Gebruiker </td><td style="text-align:center"> Gebruiker1</td>
     </tr>
     <tr>
-        <td style="text-align:center">Test </td><td style="text-align:center"> Gebruiker2 </td><td style="text-align:center"> Test1 </td><td style="text-align:center"> User3</td>
+        <td style="text-align:center">test </td><td style="text-align:center"> Gebruiker2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> User3</td>
     </tr>    <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> een</td>
+        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> ASPNET</td>
+        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
     </tr>
     <tr>
-        <td style="text-align:center">Back-up </td><td style="text-align:center"> Console </td><td style="text-align:center"> David </td><td style="text-align:center"> Gast</td>
+        <td style="text-align:center">Back-up </td><td style="text-align:center"> console </td><td style="text-align:center"> David </td><td style="text-align:center"> Gast</td>
     </tr>
     <tr>
-        <td style="text-align:center">John </td><td style="text-align:center"> Eigenaar </td><td style="text-align:center"> hoofdmap </td><td style="text-align:center"> server</td>
+        <td style="text-align:center">John </td><td style="text-align:center"> eigenaar </td><td style="text-align:center"> hoofdmap </td><td style="text-align:center"> server</td>
     </tr>
     <tr>
-        <td style="text-align:center">SQL </td><td style="text-align:center"> Ondersteuning </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+        <td style="text-align:center">sql </td><td style="text-align:center"> ondersteuning </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
     </tr>
     <tr>
-        <td style="text-align:center">Test2 </td><td style="text-align:center"> Test3 </td><td style="text-align:center"> User4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> User4 </td><td style="text-align:center"> user5</td>
     </tr>
 </table>
 

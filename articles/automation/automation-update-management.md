@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: bb20137cc3ac8daf82ee21300be6981e09ce3fe0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
-ms.translationtype: HT
+ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
@@ -56,8 +56,8 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen:
 
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
-|WindowsServer 2008 en hoger     | Ondersteunt alleen bijwerken beoordelingen         |
-|Windows Server 2008 R2 SP1 en hoger     |.NET framework 4.5 en WMF 5.0 of hoger nodig voor Windows Server 2008 R2 SP1<br>Nano Server ondersteund niet         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken beoordelingen         |
+|Windows Server 2008 R2 SP1 en hoger     |.NET framework 4.5 en WMF 5.0 of hoger nodig voor Windows Server 2008 R2 SP1        |
 |CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
@@ -70,7 +70,7 @@ De volgende tabel worden de besturingssystemen die worden niet ondersteund:
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
 |Windows-client     | Client-besturingssystemen (Windows 7, Windows 10, enzovoort) worden niet ondersteund.        |
-|Nano Server     | Nano server uitmaakt deel van Windows 2016.        |
+|Windows Server 2016 Nano Server     | Niet ondersteund       |
 
 ### <a name="client-requirements"></a>Clientvereisten
 

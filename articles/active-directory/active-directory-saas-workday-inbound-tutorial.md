@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten configureren
 
@@ -45,7 +45,7 @@ De Workday gebruiker inrichting werkstromen worden ondersteund door de service v
 
 * **Werknemer afsluitingen worden** : wanneer een werknemer wordt beëindigd in werkdag, hun gebruikersaccount wordt automatisch uitgeschakeld in Active Directory, Azure Active Directory en eventueel Office 365 en [andere SaaS-toepassingen die worden ondersteund door Azure AD](active-directory-saas-app-provisioning.md).
 
-* **Werknemer opnieuw huurt** : wanneer een werknemer is rehired in werkdag, hun oude account kan worden automatisch geactiveerd of opnieuw worden ingericht (afhankelijk van uw voorkeur) naar Active Directory, Azure Active Directory en eventueel Office 365 en [andere SaaS-toepassingen die worden ondersteund door Azure AD](active-directory-saas-app-provisioning.md).
+* **Werknemer opnieuw huurt** : wanneer een werknemer is rehired in werkdag, hun oude account kan worden automatisch geactiveerd of opnieuw worden ingericht (afhankelijk van uw voorkeur) naar Active Directory, Azure Active Directory, en desgewenst Office 365 en [andere SaaS-toepassingen die worden ondersteund door Azure AD](active-directory-saas-app-provisioning.md).
 
 
 ## <a name="planning-your-solution"></a>Plannen van uw oplossing
@@ -105,7 +105,7 @@ Azure AD levert vergemakkelijkt deze meerdere werkstromen op meerdere bron en do
 
 * **Werkdag voor het inrichten van Active Directory** -deze app vereenvoudigt gebruiker account inrichten vanuit Workday voor één Active Directory-forest. Als u meerdere forests hebt, kunt u één exemplaar van deze app kunt toevoegen van de app-galerie van Azure AD voor elk Active Directory-forest dat u wilt inrichten.
 
-* **Werkdag voor Azure AD-inrichting** - terwijl AAD Connect het hulpprogramma dat moet worden gebruikt om Active Directory gebruikers met Azure Active Directory, deze app kunnen worden gebruikt wordt ter bevordering van de inrichting van gebruikers uit Workday in één Azure Active Directory-tenant alleen in de cloud te synchroniseren.
+* **Werkdag voor Azure AD-inrichting** - terwijl AAD Connect het hulpprogramma dat moet worden gebruikt om Active Directory gebruikers met Azure Active Directory, deze app kunnen worden gebruikt wordt ter bevordering van de inrichting van gebruikers uit Workday naar een enkele Azure alleen in de cloud te synchroniseren Active Directory-tenant.
 
 * **Write-back van werkdag** -deze app Write-back van gebruiker e-mailadressen van Azure Active Directory naar Workday vergemakkelijkt.
 
@@ -245,7 +245,7 @@ Volg deze instructies voor het inrichten van Workday voor elk Active Directory-f
 
 8.  Voltooi de **beheerdersreferenties** sectie als volgt:
 
-   * **Admin Username** – Geef de gebruikersnaam van het systeemaccount van Workday-integratie met de naam van de tenant-domein toegevoegd. **Moet als volgt uitzien:username@contoso4**
+   * **Admin Username** – Geef de gebruikersnaam van het systeemaccount van Workday-integratie met de naam van de tenant-domein toegevoegd. **Moet als volgt uitzien: username@contoso4**
 
    * **Beheerderswachtwoord –** Geef het wachtwoord van het systeem-account van Workday-integratie
 
@@ -346,14 +346,14 @@ In deze sectie configureert u hoe gebruikersgegevens uit Workday loopt naar Acti
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Maken en bijwerken |
 | **PostalCode**  |   postalCode  |     | Maken en bijwerken |
 | **LocalReference** |  preferredLanguage  |     |  Maken en bijwerken |
-| **Vervang (Mid (Vervang (\[werknemer-id\],, ' (\[ \\ \\ / \\ \\ \\ \\ \\ \\\[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ', ' ',), 1, 20), ' ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Geschreven op alleen maken |
+| **Vervang (Mid (Vervang (\[werknemer-id\],, ' (\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ', ' ',), 1, 20), ' ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Geschreven op alleen maken |
 | **LastName**   |   SN   |     |  Maken en bijwerken |
 | **CountryRegionReference** |  St     |     | Maken en bijwerken |
 | **AddressLineData**    |  StreetAddress  |     |   Maken en bijwerken |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Maken en bijwerken |
 | **BusinessTitle**   |  titel     |     |  Maken en bijwerken |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, ''M',), '([ñńňÑŃŇN])', "n",), '([öòőõôóÖÒŐÕÔÓO])', "o",), '([P])', 'p',), '([Q])', 'q',), '([řŘR])', 'r',), '([ßšśŠŚS])', "s",), '([TŤť])', "t",), '([üùûúůűÜÙÛÚŮŰU])', "u",), '([V])', 'v',), '([B])', 'w',), '([ýÿýŸÝY])', 'y',), '([źžżŹŽŻZ])', 'z',), ' ',,, ' ',), 'contoso.com')**   | userPrincipalName     |     | Geschreven op alleen maken                                                   
-| **Switch (\[gemeente\], ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = = standaard, organisatie-eenheid locaties, DC = = contoso, DC = com ', 'Dallas' ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Dallas, OU = locaties, DC = = contoso, DC = com ', 'Austin' ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Austin, OU = locaties, DC = = contoso, DC = com ","Seattle"' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Seattle, OU = locaties, DC = = contoso, DC = com ', 'Londen', ' organisatie-eenheid standaardgebruikers = OU = Users, organisatie-eenheid Londen, OU = locaties, DC = = contoso, DC = com ")**  | parentDistinguishedName     |     |  Maken en bijwerken |
+| **Join (' @ ', vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (Vervang ((vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen () Vervangen (deelnemen aan ('. ', [Voornaam], [Achternaam]), '([Øø])', 'oe',), '[Ææ]', 'ae',), '([äãàâãåáąÄÃÀÂÃÅÁĄA])', "a",), '[B]', "b",), '([CçčćÇČĆ])', "c",), '([ďĎD])', "d",), '([ëèéêęěËÈÉÊĘĚE])', 'e',), '[F]', 'f',), '([G])' ,, 'g',), '[H]', "h",), '([ïîìíÏÎÌÍI])', 'i',), '[J]', 'j',), '([K])', 'k',), '([ľłŁĽL])', "l",), '([M])', ''M',), '([ñńňÑŃŇN])', "n",), '([öòőõôóÖÒŐÕÔÓO])', "o",), '([P])', 'p',), '([Q])', 'q',),  '([ŘŘR])', 'r',), '([ßšśŠŚS])', "s",), '([TŤť])', "t",), '([üùûúůűÜÙÛÚŮŰU])', "u",), '([V])', 'v',), '([B])', 'w',), '([ýÿýŸÝY])', 'y',), '([źžżŹŽŻZ])', 'z',), ' ',,, ' ',), 'contoso.com')**   | userPrincipalName     |     | Geschreven op alleen maken                                                   
+| **Switch (\[gemeente\], ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = = standaard, organisatie-eenheid locaties, DC = = contoso, DC = com ', 'Dallas', ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Dallas, OU = locaties, DC = = contoso, DC = com ', 'Austin', ' organisatie-eenheid standaardgebruikers, OU = Gebruikers, OU = Austin, OU = locaties, DC = = contoso, DC = com ","Seattle"' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Seattle, OU = locaties, DC = = contoso, DC = com ', 'Londen', ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Londen, OU = locaties, DC = = contoso, DC = com ')**  | parentDistinguishedName     |     |  Maken en bijwerken |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Deel 3: De lokale synchronisatie-agent configureren
 
@@ -500,7 +500,7 @@ De volgende secties beschrijven instellen van een verbinding tussen Workday en A
 
 8.  Voltooi de **beheerdersreferenties** sectie als volgt:
 
-   * **Admin Username** – Geef de gebruikersnaam van het systeemaccount van Workday-integratie met de naam van de tenant-domein toegevoegd. Moet als volgt uitzien:username@contoso4
+   * **Admin Username** – Geef de gebruikersnaam van het systeemaccount van Workday-integratie met de naam van de tenant-domein toegevoegd. Moet als volgt uitzien: username@contoso4
 
    * **Beheerderswachtwoord –** Geef het wachtwoord van het systeem-account van Workday-integratie
 
@@ -605,7 +605,7 @@ Volg deze instructies voor het configureren van Write-back van gebruiker e-maila
 
 8.  Voltooi de **beheerdersreferenties** sectie als volgt:
 
-   * **Admin Username** – Geef de gebruikersnaam van het systeemaccount van Workday-integratie met de naam van de tenant-domein toegevoegd. Moet als volgt uitzien:username@contoso4
+   * **Admin Username** – Geef de gebruikersnaam van het systeemaccount van Workday-integratie met de naam van de tenant-domein toegevoegd. Moet als volgt uitzien: username@contoso4
 
    * **Beheerderswachtwoord –** Geef het wachtwoord van het systeem-account van Workday-integratie
 
@@ -743,7 +743,7 @@ Om dit te doen, moet u [Workday Studio](https://community.workday.com/studio-dow
 
 8. Voor **Type**, selecteren dat op de juiste wijze komt met het kenmerk overeen (**tekenreeks** is gebruikelijk).
 
-9. Voor **API expressie**, geef de XPath-expressie die u hebt gekopieerd uit Workday Studio. Voorbeeld:`wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+9. Voor **API expressie**, geef de XPath-expressie die u hebt gekopieerd uit Workday Studio. Voorbeeld: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
 
 10. Selecteer **kenmerk toevoegen**.
 

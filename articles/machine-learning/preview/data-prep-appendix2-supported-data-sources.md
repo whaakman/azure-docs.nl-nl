@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 625e3f599303bfb93db9d52beb2aed48ad50d3b7
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 7b42080ea4bf9a9e49f2695ab8746d9ead7348bd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Ondersteunde gegevensbronnen voor Azure Machine Learning gegevens voorbereiden 
 In dit artikel bevat een overzicht van de momenteel ondersteunde gegevensbronnen voor Azure Machine Learning gegevens voorbereiden.
@@ -60,7 +60,7 @@ Een bestand met door komma's gescheiden waarden lezen uit de opslag.
 #### <a name="options"></a>Opties
 - Scheidingsteken
 - Opmerking
-- Kopteksten
+- Headers
 - Decimaalteken
 - Bestandscodering
 - Regels over te slaan
@@ -70,7 +70,7 @@ Een bestand tabblad's gescheiden waarden lezen uit de opslag.
 
 #### <a name="options"></a>Opties
 - Opmerking
-- Kopteksten
+- Headers
 - Bestandscodering
 - Regels over te slaan
 
@@ -79,14 +79,14 @@ Een Excel-bestand een blad tegelijk lezen door bladnaam of nummer te geven.
 
 #### <a name="options"></a>Opties
 - Bladnaam of een cijfer
-- Kopteksten
+- Headers
 - Regels over te slaan
 
 ### <a name="json-file"></a>JSON-bestand
 Een JSON-bestand gelezen uit de opslag. Het bestand wordt "afgevlakt" bij lezen.
 
 #### <a name="options"></a>Opties
-- None
+- Geen
 
 ### <a name="parquet"></a>Parquet
 Lees een gegevensset parketvloeren ofwel één bestand of map.

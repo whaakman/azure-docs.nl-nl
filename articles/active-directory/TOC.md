@@ -113,6 +113,7 @@
 #### [Benoemde locaties configureren](active-directory-named-locations.md)
 #### [Activiteitenrapporten vinden](active-directory-reporting-migration.md)
 #### [Het Power BI-inhoudspakket van Azure Active Directory gebruiken](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Gebruikers herstellen voor wie wordt aangegeven dat ze risico lopen](active-directory-report-security-user-at-risk-remediation.md)
 ### Naslaginformatie
 #### [Retentie](active-directory-reporting-retention.md)
 #### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)

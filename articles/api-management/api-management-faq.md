@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 091cfaaf8fa1cccf2f8b819732946bbbd08fd426
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management-Veelgestelde vragen
 De antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azure API Management.
@@ -122,7 +122,7 @@ Op de pagina van de tenant in de Azure portal kunt u uw IP-adres (of de adressen
 Zie voor meer informatie over het configureren van een OAuth 2.0-autorisatie-server met Active Directory Federation Services (AD FS), beveiliging, [met behulp van AD FS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
 
 ### <a name="what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations"></a>Welke methode voor het doorsturen gebruikt API Management in implementaties van meerdere geografische locaties?
-API Management maakt gebruik van de [prestaties methode voor het doorsturen van verkeer](../traffic-manager/traffic-manager-routing-methods.md#priority) in implementaties van meerdere geografische locaties. Binnenkomend verkeer wordt doorgestuurd naar de dichtstbijzijnde API-gateway. Als één regio offline gaat, wordt automatisch binnenkomend verkeer naar de volgende dichtstbijzijnde gateway gerouteerd. Meer informatie over methoden voor het doorsturen in [methoden voor het doorsturen van Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
+API Management maakt gebruik van de [prestaties methode voor het doorsturen van verkeer](../traffic-manager/traffic-manager-routing-methods.md#performance) in implementaties van meerdere geografische locaties. Binnenkomend verkeer wordt doorgestuurd naar de dichtstbijzijnde API-gateway. Als één regio offline gaat, wordt automatisch binnenkomend verkeer naar de volgende dichtstbijzijnde gateway gerouteerd. Meer informatie over methoden voor het doorsturen in [methoden voor het doorsturen van Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Kan ik een Azure Resource Manager-sjabloon gebruiken voor het maken van een service-exemplaar van API Management?
 Ja. Zie de [Azure API Management-Service](http://aka.ms/apimtemplate) Quick Start-sjablonen.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2e829ae90aa0366964f96b3c43f88503c7f3e894
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Vragen over de Azure Backup-service
 In dit artikel antwoorden op veelgestelde vragen over de Azure Backup-onderdelen. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt via **Opmerkingen** (aan de rechterkant) vragen stellen over Azure Backup. De opmerkingen worden onder aan dit artikel weergegeven. Er is een Livefyre-account vereist om opmerkingen te kunnen plaatsen. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -30,7 +30,7 @@ Als u kort de secties in dit artikel wilt bekijken, gebruikt u de koppelingen aa
 ## <a name="recovery-services-vault"></a>Recovery Services-kluis
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Is er een limiet voor het aantal kluizen dat voor elk Azure-abonnement kan worden gemaakt? <br/>
-Ja. Vanaf September 2016, kunt u 25 Recovery Services-kluizen per abonnement. U kunt per abonnement maximaal 25 Recovery Services-kluizen per ondersteunde regio van Azure Backup maken. Als u extra kluizen nodig hebt, maakt u een extra abonnement.
+Ja. Vanaf januari 2018, kunt u maximaal 25 Recovery Services-kluizen per ondersteunde regio van Azure Backup per abonnement. Als u extra kluizen nodig hebt, maakt u een extra abonnement.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Zijn er beperkingen met betrekking tot het aantal servers/machines dat kan worden geregistreerd voor elke kluis? <br/>
 U kunt maximaal 200 Azure virtuele machines per kluis registreren. Als u van mal Agent gebruikmaakt kunt u maximaal 50 mal agents per kluis registreren. En u kunt 50 mal servers/DPM-servers in een kluis registreren.
@@ -164,7 +164,7 @@ Er is geen limiet voor het aantal herstelbewerkingen vanuit Azure Backup.
 Nee. Uw herstelbewerkingen zijn gratis en er worden geen kosten in rekening gebracht voor het uitgaande verkeer.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>Wat gebeurt er wanneer ik mijn back-upbeleid wijzigen?
-Wanneer een nieuw beleid wordt toegepast, wordt planning en retentie van het nieuwe beleid gevolgd. Als de bewaarperiode is uitgebreid, worden bestaande herstelpunten zodat ze volgens het beleid voor nieuwe gemarkeerd. Als bewaarperiode wordt beperkt, worden ze gemarkeerd voor verwijderen in de volgende taak opschonen en vervolgens verwijderd.
+Wanneer een nieuw beleid wordt toegepast, wordt planning en retentie van het nieuwe beleid gevolgd. Als de retentie is uitgebreid, worden de bestaande herstelpunten gemarkeerd voor bewaring conform het nieuwe beleid. Als de retentie is beperkt, worden de bestaande herstelpunten gemarkeerd voor verwijdering in de eerstvolgende opschoontaak, en worden ze vervolgens verwijderd.
 
 ## <a name="azure-backup-encryption"></a>Azure Backup-versleuteling
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>Worden de gegevens die naar Azure worden verzonden, versleuteld? <br/>

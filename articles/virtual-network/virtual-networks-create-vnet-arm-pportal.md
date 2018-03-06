@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 201da4e6ec86a6c2a79a9e948245c0d83708c3f9
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c89b455212ad428dbe67d7f1d95517072c220d8e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Een virtueel netwerk maken met meerdere subnetten met de Azure portal
 
@@ -53,8 +53,8 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 2. Selecteer **subnetten** en selecteer vervolgens **+ Subnet**, zoals wordt weergegeven in de volgende afbeelding:
 
      ![Een subnet toevoegen](./media/virtual-networks-create-vnet-arm-pportal/add-subnet.png)
-
-3. In de **subnet toevoegen** dat verschijnt, voer *persoonlijke* voor **naam**, voer *10.0.1.0/24* voor **-adresbereik**, en selecteer vervolgens **OK**. 
+     
+3. In de **subnet toevoegen** dat verschijnt, voer *persoonlijke* voor **naam**, voer *10.0.1.0/24* voor **-adresbereik**, en selecteer vervolgens **OK**.  Een subnet-adresbereik overlappen niet met de adresbereiken van andere subnetten binnen een virtueel netwerk. 
 
 Voordat u deze implementeert in Azure virtuele netwerken en subnetten voor gebruik in productieomgevingen, het is raadzaam dat u zorgvuldig vertrouwd raken met de adresruimte [overwegingen](virtual-network-manage-network.md#create-a-virtual-network) en [virtueel netwerk limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Zodra resources zijn geïmplementeerd in subnetten, kunnen sommige virtueel netwerk en subnet wijzigingen, zoals het wijzigen van-adresbereiken opnieuw distribueren van bestaande Azure-resources geïmplementeerd in subnetten vereisen.
 
@@ -83,6 +83,8 @@ Een virtueel netwerk kunt verschillende soorten Azure-resources met het Internet
 7. Stap 1-6 opnieuw uitvoeren, maar voert *myVmMgmt* voor de **naam** van de virtuele machine en selecteer **persoonlijke** voor de **Subnet**.
 
 De virtuele machines maken in een paar minuten duren. Ga niet verder met de resterende stappen totdat beide virtuele machines worden gemaakt.
+
+De virtuele machines die in dit artikel hebt [netwerkinterface](virtual-network-network-interface.md) met één IP-adres dat dynamisch wordt toegewezen aan de netwerkinterface. Nadat u de virtuele machine hebt geïmplementeerd, kunt u [meerdere openbare en particuliere IP-adressen toevoegen of wijzigen van de toewijzingsmethode van IP-adres naar statisch](virtual-network-network-interface-addresses.md#add-ip-addresses). U kunt [netwerkinterfaces toevoegen](virtual-network-network-interface-vm.md#vm-add-nic), tot de limiet wordt ondersteund door de [VM-grootte](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dat u selecteert wanneer u een virtuele machine maken. U kunt ook [één hoofdelement i/o-virtualisatie (SR-IOV) inschakelen](create-vm-accelerated-networking-powershell.md) voor een VM, maar alleen wanneer u een virtuele machine maken met een VM-grootte die ondersteuning de mogelijkheid biedt.
 
 ### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Communiceren tussen virtuele machines en met het internet
 
@@ -127,7 +129,9 @@ De virtuele machines maken in een paar minuten duren. Ga niet verder met de rest
         Minimum = 0ms, Maximum = 0ms, Average = 0ms
     ```
       
-    Kunt u zien dat het adres van de *myVmMgmt* virtuele machine is 10.0.1.4. 10.0.1.4 is het eerste beschikbare IP-adres in het adresbereik van de *persoonlijke* subnet dat u hebt geïmplementeerd de *myVmMgmt* virtuele machine in de vorige stap.  U ziet dat de volledig gekwalificeerde domeinnaam van de virtuele machine *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Hoewel de *dar5p44cif3ulfq00wxznl3i3f* gedeelte van de domeinnaam is verschillend voor de virtuele machine, de resterende gedeelten van de domeinnaam zijn hetzelfde. Alle virtuele machines in Azure gebruiken de standaard Azure DNS-service. Alle virtuele machines binnen een virtueel netwerk, kunnen de namen van alle andere virtuele machines in hetzelfde virtuele netwerk met behulp van Azure standaard DNS-service omzetten. In plaats van Azure standaard DNS-service, kunt u uw eigen DNS-server of de mogelijkheid persoonlijke domein van de Azure DNS-service. Zie voor meer informatie [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) of [Azure DNS gebruiken voor persoonlijke domeinen](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    Kunt u zien dat het adres van de *myVmMgmt* virtuele machine is 10.0.1.4. 10.0.1.4 is het eerste beschikbare IP-adres in het adresbereik van de *persoonlijke* subnet dat u hebt geïmplementeerd de *myVmMgmt* virtuele machine in de vorige stap.  U ziet dat de volledig gekwalificeerde domeinnaam van de virtuele machine *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Hoewel de *dar5p44cif3ulfq00wxznl3i3f* gedeelte van de domeinnaam is verschillend voor de virtuele machine, de resterende gedeelten van de domeinnaam zijn hetzelfde. 
+
+    Alle virtuele machines in Azure gebruiken de standaard Azure DNS-service. Alle virtuele machines binnen een virtueel netwerk, kunnen de namen van alle andere virtuele machines in hetzelfde virtuele netwerk met behulp van Azure standaard DNS-service omzetten. In plaats van Azure standaard DNS-service, kunt u uw eigen DNS-server of de mogelijkheid persoonlijke domein van de Azure DNS-service. Zie voor meer informatie [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) of [Azure DNS gebruiken voor persoonlijke domeinen](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 9. Internet Information Services (IIS) voor Windows Server installeren op de *myVmWeb* virtuele machine, voer de volgende opdracht vanuit een PowerShell-sessie:
 
@@ -137,13 +141,12 @@ De virtuele machines maken in een paar minuten duren. Ga niet verder met de rest
 
 10. Nadat de installatie van IIS voltooid is, Verbreek de verbinding met de *myVmWeb* extern bureaublad-sessiehost, waarbij u in de *myVmMgmt* extern bureaublad-sessiehost. Open een webbrowser en Ga naar http://myvmweb. U ziet de pagina Welkom IIS.
 11. Verbreek de verbinding met de *myVmMgmt* extern bureaublad-sessiehost.
-12. Poging om de IIS-welkomstpagina van uw eigen computer weer te geven. Wanneer Azure gemaakt de *myVmWeb* virtuele machine, een openbare IP-adres-resource met de naam *myVmWeb* ook is gemaakt en toegewezen aan de virtuele machine. U kunt zien dat 52.170.5.92 is toegewezen aan de *myVmMgmt* virtuele machine in de afbeelding in stap 2. Vinden van het openbare IP-adres is toegewezen aan de *myVmWeb* virtuele machine, zoekt u *myVmWeb* in het zoekvak, selecteert u vervolgens wanneer deze wordt weergegeven in de zoekresultaten. 
+12. Zoeken naar het openbare IP-adres van de *myVmWeb* virtuele machine. Wanneer Azure gemaakt de *myVmWeb* virtuele machine, een openbare IP-adres-resource met de naam *myVmWeb* ook is gemaakt en toegewezen aan de virtuele machine. U kunt zien dat 52.170.5.92 is toegewezen voor **openbaar IP-adres** naar de *myVmMgmt* virtuele machine in de afbeelding in stap 2. Vinden van het openbare IP-adres is toegewezen aan de *myVmWeb* virtuele machine, zoekt u *myVmWeb* in het zoekvak van de portal, selecteert u vervolgens wanneer deze wordt weergegeven in de zoekresultaten.
 
     Hoewel een virtuele machine is niet vereist voor het openbare IP-adres toegewezen, wijst Azure een openbaar IP-adres toe aan elke virtuele machine die u, standaard maakt. Om te communiceren via Internet met een virtuele machine, moet een openbaar IP-adres worden toegewezen aan de virtuele machine. Alle virtuele machines kunnen communiceren met het Internet, uitgaande of er een openbaar IP-adres is toegewezen aan de virtuele machine. Zie voor meer informatie over uitgaande Internet-verbindingen in Azure, [uitgaande verbindingen in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+13. Blader op uw eigen computer naar het openbare IP-adres van de *myVmWeb* virtuele machine. De poging om weer te geven van de IIS-welkomstpagina van uw eigen computer is mislukt. De poging is mislukt omdat wanneer de virtuele machines zijn geïmplementeerd, Azure standaard een netwerkbeveiligingsgroep voor elke virtuele machine gemaakt. 
 
-    Blader op uw eigen computer naar het openbare IP-adres van de *myVmWeb* virtuele machine. De poging om weer te geven van de IIS-welkomstpagina van uw eigen computer is mislukt. De poging is mislukt omdat wanneer de virtuele machines zijn geïmplementeerd, Azure standaard een netwerkbeveiligingsgroep voor elke virtuele machine gemaakt. 
-
-    Een netwerkbeveiligingsgroep bevat beveiligingsregels voor verbindingen toestaan of weigeren van binnenkomende en uitgaande netwerkverkeer op poort en IP-adres. De standaard netwerkbeveiligingsgroep die Azure gemaakt kan communicatie via alle poorten tussen resources in hetzelfde virtuele netwerk. Voor Windows virtuele machines, de standaard netwerkbeveiligingsgroep weigert alle binnenkomend verkeer van Internet via alle poorten, TCP-poort 3389 (RDP) accepteren. Als gevolg hiervan standaard kunt u ook RDP rechtstreeks naar de *myVmWeb* virtuele machine van het Internet, zelfs als u wilt niet poort 3389 openen met een webserver. Omdat websurfen via poort 80 communiceert, wordt de communicatie van het Internet mislukt omdat er is geen regel in de standaard netwerkbeveiligingsgroep verkeer toestaat via poort 80.
+     Een netwerkbeveiligingsgroep bevat beveiligingsregels voor verbindingen toestaan of weigeren van binnenkomende en uitgaande netwerkverkeer op poort en IP-adres. De standaard netwerkbeveiligingsgroep die Azure gemaakt kan communicatie via alle poorten tussen resources in hetzelfde virtuele netwerk. Voor Windows virtuele machines, de standaard netwerkbeveiligingsgroep weigert alle binnenkomend verkeer van Internet via alle poorten, TCP-poort 3389 (RDP) accepteren. Als gevolg hiervan standaard kunt u ook RDP rechtstreeks naar de *myVmWeb* virtuele machine van het Internet, zelfs als u wilt niet poort 3389 openen met een webserver. Omdat websurfen via poort 80 communiceert, wordt de communicatie van het Internet mislukt omdat er is geen regel in de standaard netwerkbeveiligingsgroep verkeer toestaat via poort 80.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

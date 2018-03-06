@@ -5,16 +5,16 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 00e98ff07d144db791fcf074699614f1e664634b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning-experimenten Service configuratiebestanden
 
@@ -29,12 +29,12 @@ Hieronder vindt u de relevante bestanden onder deze map:
     - \<configuratienaam uitvoeren > .runconfig
 
 >[!NOTE]
->U doorgaans een compute-doelbestand hebben en uitvoeren van configuratiebestand voor elke compute doel dat u maakt. U kunt echter afzonderlijk maken van deze bestanden en meerdere uitvoeren configuratiebestanden die verwijzen naar hetzelfde compute doel hebben.
+>U doorgaans een compute-doelbestand hebben en uitvoeren van configuratiebestand voor elke compute doel dat u maakt. U kunt echter afzonderlijk maken van deze bestanden en meerdere uitvoeren configuratiebestanden die verwijst naar hetzelfde compute doel hebben.
 
 ## <a name="condadependenciesyml"></a>conda_dependencies.yml
-Dit bestand is een [conda omgeving bestand](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) die aangeeft dat de runtime-versie van Python en pakketten die afhankelijk zijn van uw code. Wanneer u een script wordt uitgevoerd in een Docker-container of de HDInsight-cluster van Azure ML-Workbench, maakt deze een [conda omgeving](https://conda.io/docs/using/envs.html) voor uw script uit te voeren. 
+Dit bestand is een [conda omgeving bestand](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) die aangeeft dat de runtime-versie van Python en pakketten die afhankelijk zijn van uw code. Wanneer u een script wordt uitgevoerd in een Docker-container of de HDInsight-cluster van Azure ML-Workbench, maakt deze een [conda omgeving](https://conda.io/docs/using/envs.html) voor uw script uit te voeren op. 
 
-In dit bestand geeft u Python-pakketten die uw script nodig voor uitvoering heeft. Azure ML experimenteren Service maakt de conda-omgeving in de installatiekopie van het Docker volgens uw lijst met afhankelijkheden. De lijst met pakketten hier moet bereikbaar zijn door de engine voor het uitvoeren. Om die reden moeten pakketten worden weergegeven in de kanalen, zoals:
+In dit bestand geeft u Python-pakketten die uw script nodig voor uitvoering heeft. Azure ML experimenteren Service maakt de omgeving conda volgens uw lijst met afhankelijkheden. Pakketten die hier worden vermeld moeten, zoals bereikbaar is voor de engine voor het uitvoeren via kanalen zijn:
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
@@ -43,7 +43,7 @@ In dit bestand geeft u Python-pakketten die uw script nodig voor uitvoering heef
 * anderen kunnen worden bereikt door de engine voor het uitvoeren
 
 >[!NOTE]
->Wanneer op HDInsight-cluster wordt uitgevoerd, maakt Azure ML-Workbench een conda omgeving voor uw uitvoeren. Hierdoor kunnen andere gebruikers worden uitgevoerd op verschillende python-omgevingen in hetzelfde cluster.  
+>Wanneer op HDInsight-cluster wordt uitgevoerd, maakt Azure ML-Workbench een conda omgeving voor uw specifieke uitvoeren. Hierdoor kunnen andere gebruikers worden uitgevoerd op verschillende python-omgevingen in hetzelfde cluster.  
 
 Hier volgt een voorbeeld van een typische **conda_dependencies.yml** bestand.
 ```yaml
@@ -68,13 +68,13 @@ dependencies:
      - C:\temp\my_private_python_pkg.whl
 ```
 
-Azure ML-Workbench maakt gebruik van dezelfde conda omgeving zonder opnieuw opbouwen, zolang de **conda_dependencies.yml** blijft intact. Als er iets verandert in dit bestand, resulteert het echter in de opbouw van de Docker-installatiekopie.
+Azure ML-Workbench maakt gebruik van dezelfde conda omgeving zonder bouwen zolang de **conda_dependencies.yml** hetzelfde is gebleven. Als uw afhankelijkheden wijzigt, wordt deze uw omgeving opnieuw maken.
 
 >[!NOTE]
 >Als u richt de uitvoering tegen _lokale_ context, compute **conda_dependencies.yml** bestand is **niet** gebruikt. Pakketafhankelijkheden voor uw lokale Azure ML-Workbench Python-omgeving moeten handmatig worden geïnstalleerd.
 
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
-Dit bestand bevat de naam van de toepassing Spark wanneer u een PySpark-script en Spark-pakketten die moet worden geïnstalleerd. U kunt ook een openbare opslagplaats met Maven, evenals een Spark-pakket dat kan worden gevonden in deze Maven-opslagplaatsen opgeven.
+Dit bestand bevat de naam van de toepassing Spark wanneer u een PySpark-script en Spark-pakketten die moeten worden geïnstalleerd. U kunt ook een openbare opslagplaats met Maven, evenals een Spark-pakketten die kunnen worden gevonden in deze Maven-opslagplaatsen opgeven.
 
 Hier volgt een voorbeeld:
 
@@ -103,13 +103,13 @@ packages:
 ```
 
 >[!NOTE]
->Cluster afstemmen parameters, zoals de grootte van de werknemer, kernen moeten gaan naar de sectie "configuratie" in het bestand spark_dependecies.yml 
+>Cluster-parameters zoals de grootte van de werknemer en kernen afstemmen moet gaan naar de sectie "configuratie" in het bestand spark_dependecies.yml 
 
 >[!NOTE]
->Als u bij het uitvoeren van script in Python-omgeving, *spark_dependencies.yml* bestand genegeerd. Dit heeft alleen effect als u werkt met tegen Spark (zowel op Docker of HDInsight-Cluster).
+>Als u bij het uitvoeren van script in Python-omgeving, *spark_dependencies.yml* bestand genegeerd. Dit wordt alleen gebruikt als u tegen Spark (op een Docker of HDInsight-Cluster) worden uitgevoerd.
 
 ## <a name="run-configuration"></a>Configuratie uitvoeren
-Geef een specifieke configuratie uitvoeren door is een combinatie van bestanden vereist. Ze worden doorgaans gegenereerd met een opdracht CLI. Maar u kunt ook klonen zijn afgesloten, wijzigen en deze bewerken.
+Als u een specifieke configuratie uitvoeren, moet u een bestand .compute en een .runconfig-bestand. Deze worden doorgaans gegenereerd met een opdracht CLI. U kunt ook klonen zijn afgesloten, wijzigen en bewerken.
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
@@ -125,10 +125,11 @@ Deze opdracht maakt u een combinatie van bestanden op basis van het opgegeven do
 > _lokale_ of _docker_ namen voor de uitvoering configuratiebestanden willekeurige zijn. Azure ML-Workbench voegt dat deze twee configuraties worden uitgevoerd wanneer u een leeg project voor uw gemak maken. U kunt de naam '<run configuration name>.runconfig ' bestanden die worden geleverd met de projectsjabloon of nieuwe maken met de naam die u wilt.
 
 ### <a name="compute-target-namecompute"></a>\<COMPUTE doelnaam > .compute
-_\<COMPUTE doelnaam > .compute_ bestand geeft verbinding en configuratie-informatie voor de compute-doel. Het is een lijst met naam-waardeparen. Dit zijn de ondersteunde instellingen.
+_\<COMPUTE doelnaam > .compute_ bestand geeft verbinding en configuratie-informatie voor de compute-doel. Het is een lijst met naam-waardeparen. Hieronder volgen de ondersteunde instellingen:
 
 **type**: Type van de compute-omgeving. Ondersteunde waarden zijn:
   - lokaal
+  - Externe
   - Docker
   - remotedocker
   - cluster
@@ -147,8 +148,10 @@ _\<COMPUTE doelnaam > .compute_ bestand geeft verbinding en configuratie-informa
 
 **nativeSharedDirectory**: deze eigenschap geeft u het basisobject in Active directory (bijvoorbeeld: _~/.azureml/share/_) waar de bestanden kunnen worden opgeslagen om te worden gedeeld tussen wordt uitgevoerd op hetzelfde doel compute. Als deze instelling wordt gebruikt wanneer u gebruikmaakt van een Docker-container _sharedVolumes_ moet worden ingesteld op true. Anders mislukt de uitvoering.
 
+**userManagedEnvironment**: deze eigenschap geeft aan of dit doel compute beheerd door de gebruiker rechtstreeks of via experimenteren-service worden beheerd.  
+
 ### <a name="run-configuration-namerunconfig"></a>\<configuratienaam uitvoeren > .runconfig
-_\<configuratienaam uitvoeren > .runconfig_ Hiermee geeft u de Azure ML uitvoeringsgedrag experimenteren. U kunt uitvoering gedrag zoals uitvoeringsgeschiedenis bijhouden configureren of wat het doel moet worden gebruikt samen met vele andere compute. De namen van de configuratiebestanden uitvoeren die worden gebruikt voor het vullen van de vervolgkeuzelijst van de context kan worden uitgevoerd in de Azure ML-Workbench bureaubladtoepassing.
+_\<configuratienaam uitvoeren > .runconfig_ Hiermee geeft u de Azure ML uitvoeringsgedrag experimenteren. U kunt uitvoeringsgedrag zoals bijhouden uitvoeringsgeschiedenis configureren of wat het doel moet worden gebruikt samen met vele andere compute. De namen van de configuratiebestanden uitvoeren die worden gebruikt voor het vullen van de vervolgkeuzelijst van de context kan worden uitgevoerd in de Azure ML-Workbench bureaubladtoepassing.
 
 **ArgumentVector**: in deze sectie geeft het script moet worden uitgevoerd als onderdeel van deze uitvoering en de parameters voor het script. Bijvoorbeeld, als u het volgende fragment in uw '<run configuration name>.runconfig ' bestand 
 
@@ -170,7 +173,7 @@ EnvironmentVariables:
   "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-Deze omgevingsvariabelen kunnen worden geopend in de code van de gebruiker. Bijvoorbeeld, de omgevingsvariabele met de naam 'EXAMPLE_ENV_VAR' in deze code phyton worden afgedrukt
+Deze omgevingsvariabelen kunnen worden geopend in de code van de gebruiker. Bijvoorbeeld de variabele met de naam 'EXAMPLE_ENV_VAR' in deze Python-code wordt afgedrukt
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```
@@ -189,7 +192,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **DataSourceSettings**: deze configuratiesectie bevat instellingen voor de gegevensbron. In deze sectie gebruiker geeft op welke bestaande steekproef voor een bepaalde gegevensbron wordt gebruikt als onderdeel van de uitvoering. 
 
-De volgende configuratie-instelling geeft aan dat voorbeeld met de naam 'MySample' wordt gebruikt voor de gegevensbron met de naam 'MyDataSource'
+De volgende configuratie-instelling geeft aan dat voorbeeld met de naam 'MySample' wordt gebruikt voor de gegevensbron met naam 'MyDataSource'
 ```
 DataSourceSettings:
     MyDataSource.dsource:

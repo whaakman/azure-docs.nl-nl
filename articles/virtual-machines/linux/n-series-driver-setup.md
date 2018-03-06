@@ -13,32 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 421e594f7bd4df1bc1c5faedc2c8bfab0540ca61
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 201734661873c7ac7f7a5dd710009eb324cedc86
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>NVIDIA GPU-stuurprogramma's installeren op N-reeks virtuele machines waarop Linux wordt uitgevoerd
 
 Als u wilt profiteren van de GPU-mogelijkheden van N-reeks virtuele machines in Azure waarop Linux wordt uitgevoerd, ondersteunde NVIDIA graphics-stuurprogramma's te installeren. Dit artikel bevat de installatiestappen stuurprogramma nadat u een VM N-serie implementeren. Stuurprogramma-installatie-informatie is ook beschikbaar voor [VM's van Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-
 Zie voor N-serie VM specificaties opslagcapaciteit en details van de schijf, [GPU Linux VM-grootten](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-
-
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>Voor NC NCv2 en ND VMs CUDA stuurprogramma's installeren
+## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Voor NC, NCv2 NCv3 en ND-serie VMs CUDA stuurprogramma's installeren
 
-Hier volgen de stappen NVIDIA-stuurprogramma's installeren op Linux NC virtuele machines van de NVIDIA CUDA Toolkit. 
+Hier volgen de stappen voor het installeren van NVIDIA-stuurprogramma's uit de werkset NVIDIA CUDA op virtuele machines N-reeks. 
 
 C en C++-ontwikkelaars kunnen desgewenst installeren voor de volledige Toolkit om GPU-versnelde toepassingen te bouwen. Zie voor meer informatie de [CUDA installatiehandleiding](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
-
 
 > [!NOTE]
 > CUDA stuurprogramma downloadkoppelingen opgegeven op het moment van publicatie hier actueel zijn. Voor de nieuwste stuurprogramma's CUDA gaat u naar de [NVIDIA](https://developer.nvidia.com/cuda-zone) website.
@@ -113,9 +109,9 @@ sudo reboot
 2. Install the latest Linux Integration Services for Hyper-V.
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-5.tar.gz
+  tar xvzf lis-rpms-4.2.4.tar.gz
  
   cd LISISO
  
@@ -152,16 +148,13 @@ sudo reboot
 
 5. Start de virtuele machine op en gaat u verder met de installatie verifiëren.
 
-
 ### <a name="verify-driver-installation"></a>Controleer of de installatie van stuurprogramma
-
 
 Query uitvoeren op de apparaatstatus GPU SSH naar de virtuele machine en voer de [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) opdrachtregelprogramma met het stuurprogramma geïnstalleerd. 
 
 Als het stuurprogramma is geïnstalleerd, ziet u uitvoer ziet er als volgt. Houd er rekening mee dat **GPU-Util** 0% ziet, tenzij u de werkbelasting van een GPU die momenteel worden uitgevoerd op de virtuele machine. Het is mogelijk dat uw versie van stuurprogramma en GPU details afwijken van de namen weergegeven.
 
 ![De apparaatstatus NVIDIA](./media/n-series-driver-setup/smi.png)
-
 
 ## <a name="rdma-network-connectivity"></a>RDMA-netwerkverbinding
 
@@ -180,9 +173,9 @@ RDMA-compatibele N-reeks-virtuele machines van een installatiekopie in Azure Mar
 > 
 
 
-## <a name="install-grid-drivers-for-nv-vms"></a>RASTER stuurprogramma's voor virtuele machines NV installeren
+## <a name="install-grid-drivers-for-nv-series-vms"></a>RASTER stuurprogramma's installeren voor virtuele machines NV-serie
 
-NVIDIA RASTER stuurprogramma's installeren op virtuele machines NV, een SSH-verbinding maken met elke VM en volg de stappen voor uw Linux-distributie. 
+Een SSH-verbinding maken met elke VM wilt NVIDIA RASTER stuurprogramma's installeren op virtuele machines NV-serie, en volg de stappen voor uw Linux-distributie. 
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
@@ -265,9 +258,9 @@ NVIDIA RASTER stuurprogramma's installeren op virtuele machines NV, een SSH-verb
 3. De virtuele machine opnieuw opstarten, opnieuw verbinding maken en installeer de meest recente Linux-integratieservices voor Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-5.tar.gz
+  tar xvzf lis-rpms-4.2.4.tar.gz
 
   cd LISISO
 
@@ -348,7 +341,6 @@ Dit bestand kan worden aangeroepen als basis voor opgestart door het maken van e
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 * U kunt instellen persistentie modus met `nvidia-smi` zodat de uitvoer van de opdracht sneller is als u query-kaarten wilt. Persistentie als modus wilt instellen, uitvoeren `nvidia-smi -pm 1`. Houd er rekening mee dat als de virtuele machine opnieuw wordt opgestart, de instelling voor de verdwijnt. U kunt de instelling voor de uit te voeren bij het opstarten altijd script.
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

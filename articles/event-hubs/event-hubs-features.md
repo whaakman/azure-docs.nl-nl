@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2017
+ms.date: 03/02/2018
 ms.author: sethm
-ms.openlocfilehash: aa9fc3b03e24d0b4d1a7ecd9a945b67d8d182492
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: aaedb8ed2be85017b17a2015ff2fcaaf76c20058
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="event-hubs-features-overview"></a>Overzicht van Event Hubs-functies
 
@@ -52,7 +52,7 @@ Het is niet nodig om van tevoren uitgeversnamen te maken. De namen moeten echter
 
 ## <a name="capture"></a>Capture
 
-[Event Hubs vastleggen](event-hubs-capture-overview.md) kunt u automatisch de streaming-gegevens in Event Hubs vastleggen en opslaan op uw keuze van een Blob storage-account of een Azure Data Lake-Service-account. U kunt vastleggen inschakelen via de Azure-portal en geef een minimale grootte en tijdvenster om uit te voeren van het vastleggen. Met Event Hubs vastleggen opgeven u uw eigen Azure Blob Storage-account en een container of een Azure Data Lake-Service-account wordt gebruikt voor het opslaan van de vastgelegde gegevens. Gegevensopname is geschreven in de Apache Avro-indeling.
+[Event Hubs vastleggen](event-hubs-capture-overview.md) kunt u automatisch de streaming-gegevens in Event Hubs vastleggen en opslaan op uw keuze van een Blob storage-account of een Azure Data Lake-Service-account. U kunt vastleggen inschakelen via de Azure-portal en geef een minimale grootte en tijdvenster om uit te voeren van het vastleggen. Met Event Hubs vastleggen opgeven u uw eigen Azure Blob Storage-account en een container of een Azure Data Lake-Service-account, een van die wordt gebruikt voor het opslaan van de vastgelegde gegevens. Gegevensopname is geschreven in de Apache Avro-indeling.
 
 ## <a name="partitions"></a>Partities
 

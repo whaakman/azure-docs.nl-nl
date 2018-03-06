@@ -1,24 +1,8 @@
----
-title: Het beheren van certificaten in een Azure Service Fabric-cluster | Microsoft Docs
-description: Beschrijft hoe nieuwe certificaten, rollovercertificaat, toevoegen en verwijderen van certificaat naar of van een Service Fabric-cluster.
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: timlt
-editor: 
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/09/2017
-ms.author: chackdan
-ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+--titel: het beheren van certificaten in een Azure Service Fabric-cluster | Microsoft Docs beschrijving: hierin wordt beschreven hoe u nieuwe certificaten, rollovercertificaat, toevoegen en verwijderen van certificaat naar of van een Service Fabric-cluster.
+Services: service fabric-documentationcenter: .net auteur: ChackDan manager: timlt-editor: ''
+
+MS.AssetID: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service fabric-ms.devlang: dotnet ms.topic: artikel ms.tgt_pltfrm: n.v.t. ms.workload: n.v.t. ms.date: 23-02/2018 ms.author: chackdan
+
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Toevoegen of verwijderen van certificaten voor een Service Fabric-cluster in Azure
 Het is raadzaam dat u raken met het Service Fabric X.509-certificaten gebruikt en vertrouwd met zijn de [security scenario's](service-fabric-cluster-security.md). U moet begrijpen wat een certificaat in het cluster is en wat wordt gebruikt voor, voordat u verder.
@@ -49,6 +33,8 @@ Een secundair certificaat worden gebruikt voor een clusterbeveiliging navigeren 
 Als uw bedoeling is om het certificaat dat is gemarkeerd als primaire verwijderen, wordt moet u eerst met de secundaire uitwisselen, en verwijder vervolgens de secundaire nadat de upgrade is voltooid.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Toevoegen van een secundair certificaat met behulp van Resource Manager Powershell
+> [! UPDATE] We hebt nu een beter en eenvoudiger manier om toe te voegen een secundair certificaat met [toevoegen AzureRmServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate?view=azurermps-5.3.0). U hoeft niet te volgen rest van de stappen in deze sectie als u Add-AzureRmServiceFabricClusterCertificate gebruiken.
+
 
 Deze stappen wordt ervan uitgegaan dat bekend bent met de werking van Resource Manager en moet ten minste één Service Fabric-cluster met een Resource Manager-sjabloon hebt geïmplementeerd en de sjabloon die u gebruikt voor het instellen van het cluster bij de hand hebt. Ook wordt ervan uitgegaan dat u vertrouwd met een JSON bent.
 
@@ -119,7 +105,7 @@ Als u wilt **rollover van het certificaat**, geef het nieuwe certificaat als pri
 ``` 
 
 
-**Stap 4:** wijzigingen aanbrengen in **alle** de **Microsoft.Compute/virtualMachineScaleSets** resourcedefinities - de bron Microsoft.Compute/virtualMachineScaleSets gevonden definitie. Blader naar de 'publisher': 'Microsoft.Azure.ServiceFabric' onder 'virtualMachineProfile'.
+**Stap 4:** wijzigingen aanbrengen in **alle** de **Microsoft.Compute/virtualMachineScaleSets** resourcedefinities - Zoek de resourcedefinitie Microsoft.Compute/virtualMachineScaleSets. Blader naar de 'publisher': 'Microsoft.Azure.ServiceFabric' onder 'virtualMachineProfile'.
 
 In de instellingen voor service fabric publisher ziet u er ongeveer als volgt.
 
@@ -160,7 +146,7 @@ De eigenschappen ziet er nu als volgt
 ![Json_Pub_Setting3][Json_Pub_Setting3]
 
 
-**Stap 5:** wijzigingen aanbrengen in **alle** de **Microsoft.Compute/virtualMachineScaleSets** resourcedefinities - de bron Microsoft.Compute/virtualMachineScaleSets gevonden definitie. Blader naar de 'vaultCertificates':, onder 'OSProfile'. Dit ziet er ongeveer als volgt.
+**Stap 5:** wijzigingen aanbrengen in **alle** de **Microsoft.Compute/virtualMachineScaleSets** resourcedefinities - Zoek de resourcedefinitie Microsoft.Compute/virtualMachineScaleSets. Blader naar de 'vaultCertificates':, onder 'OSProfile'. Dit ziet er ongeveer als volgt.
 
 
 ![Json_Pub_Setting4][Json_Pub_Setting4]

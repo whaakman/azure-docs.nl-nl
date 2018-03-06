@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: d91985849bd2483e8a28a01d63d253960190829d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9cd6e6cdf8d8dc2b1872d6f7b76821122fd427fa
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Gegevens transformaties gebruiken voor het voorbereiden van gegevens in Azure Machine Learning
 
@@ -48,7 +48,7 @@ U kunt de kolommen selecteren voordat de transformatie wordt aangeroepen. Wannee
 Voor een meer gedetailleerde uitleg van de **afgeleide kolom door voorbeeld** transformatie, samen met meer voorbeelden, Zie [kolom afgeleid door voorbeeld verwijzing](data-prep-derive-column-by-example.md).  
 
 ## <a name="split-column-by-example"></a>Kolom splitsen door voorbeeld
-Deze transformatie een bestaande kolom heeft en met behulp van de "Voorbeeld"-engine probeert het scheiden van die kolom in  *n*  andere kolommen. U kunt de splitsing van het automatisch uitvoeren op de volgende gegenereerde kolommen.
+Deze transformatie een bestaande kolom heeft en met behulp van de "Voorbeeld"-engine probeert het scheiden van die kolom in *n* andere kolommen. U kunt de splitsing van het automatisch uitvoeren op de volgende gegenereerde kolommen.
 
 Voor een meer gedetailleerde uitleg van de **kolom splitsen door voorbeeld** transformatie, samen met meer voorbeelden, Zie [kolom splitsen op basis van het voorbeeld](data-prep-split-column-by-example.md).
 

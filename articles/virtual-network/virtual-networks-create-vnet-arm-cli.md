@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: a4cb309a9fd07e842193b0ce4b023fab8c08e035
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: feb8fb218b8bde88ba7fbdc3419e32c9313c7885
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-cli"></a>Een virtueel netwerk maken met meerdere subnetten met de Azure CLI
 
@@ -126,6 +126,8 @@ De virtuele machine duurt een paar minuten maken. Nadat de virtuele machine is g
 In het voorbeeld van uitvoer ziet u dat de **privateIpAddress** is *10.0.1.4*. Azure gemaakt een [netwerkinterface](virtual-network-network-interface.md), deze gekoppeld aan de virtuele machine, een particulier IP-adres van de netwerkinterface toegewezen en een **macAddress**. 10.0.1.4 Azure DHCP automatisch toegewezen aan de netwerkinterface omdat dit de eerste beschikbare IP-adres in de *persoonlijke* subnet. De particuliere IP- en MAC-adressen blijft toegewezen aan de netwerkinterface totdat de netwerkinterface wordt verwijderd. 
 
 Noteer de **publicIpAddress**. Dit adres wordt gebruikt voor toegang tot de virtuele machine vanaf het Internet in een later stadium. Hoewel een virtuele machine is niet vereist voor het openbare IP-adres toegewezen, wijst Azure een openbaar IP-adres toe aan elke virtuele machine die u, standaard maakt. Om te communiceren via Internet met een virtuele machine, moet een openbaar IP-adres worden toegewezen aan de virtuele machine. Alle virtuele machines kunnen communiceren met het Internet, uitgaande of er een openbaar IP-adres is toegewezen aan de virtuele machine. Zie voor meer informatie over uitgaande Internet-verbindingen in Azure, [uitgaande verbindingen in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+De virtuele machines die in dit artikel hebt [netwerkinterface](virtual-network-network-interface.md) met één IP-adres dat dynamisch wordt toegewezen aan de netwerkinterface. Nadat u de virtuele machine hebt geïmplementeerd, kunt u [meerdere openbare en particuliere IP-adressen toevoegen of wijzigen van de toewijzingsmethode van IP-adres naar statisch](virtual-network-network-interface-addresses.md#add-ip-addresses). U kunt [netwerkinterfaces toevoegen](virtual-network-network-interface-vm.md#vm-add-nic), tot de limiet wordt ondersteund door de [VM-grootte](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dat u selecteert wanneer u een virtuele machine maken. U kunt ook [één hoofdelement i/o-virtualisatie (SR-IOV) inschakelen](create-vm-accelerated-networking-cli.md) voor een VM, maar alleen wanneer u een virtuele machine maken met een VM-grootte die ondersteuning de mogelijkheid biedt.
 
 ### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Communiceren tussen virtuele machines en met het internet
 

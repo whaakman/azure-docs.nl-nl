@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Hybride Azure Active Directory die lid zijn van apparaten configureren
 
@@ -33,6 +33,8 @@ Als u een on-premises Active Directory-omgeving hebt en u wilt deelnemen aan uw 
 Voordat u begint met het configureren van hybride Azure AD die lid zijn van apparaten in uw omgeving, moet u dat vertrouwd raken met de ondersteunde scenario's en de beperkingen.  
 
 Als u vertrouwen op de [hulpprogramma voor systeemvoorbereiding (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), Controleer of u installatiekopieën maken van een installatie van Windows die is nog niet geregistreerd met Azure AD.
+
+Alle domein-apparaten met Windows 10 Verjaardag Update en Windows Server 2016 automatisch wordt geregistreerd bij Azure AD herstart van het apparaat of gebruiker aanmelden als de hieronder vermelde configuratiestappen voltooid zijn. Als dit probleem automatisch registreren niet aanbevolen wordt of als een beheerde implementatie vereist is, volg instructies in de sectie implementatie en implementatie onderstaande eerst selectief of automatische implementatie uitschakelen voordat u doorgaat met de andere configuratiestappen.  
 
 In dit onderwerp gebruikt ter verbetering van de leesbaarheid van de beschrijvingen van de volgende voorwaarden: 
 
@@ -204,7 +206,7 @@ De definitie helpt u om te controleren of de waarden aanwezig zijn of als u nodi
 
 ### <a name="issue-account-type-claim"></a>Probleem account type claim
 
-**`http://schemas.microsoft.com/ws/2012/01/accounttype`**-Deze claim moet een waarde van bevatten **DJ**, die het apparaat als een domein gekoppelde computer identificeert. U kunt een regel voor het transformeren van uitgifte die uitziet toevoegen in AD FS:
+**`http://schemas.microsoft.com/ws/2012/01/accounttype`** -Deze claim moet een waarde van bevatten **DJ**, die het apparaat als een domein gekoppelde computer identificeert. U kunt een regel voor het transformeren van uitgifte die uitziet toevoegen in AD FS:
 
     @RuleName = "Issue account type for domain-joined computers"
     c:[
@@ -219,7 +221,7 @@ De definitie helpt u om te controleren of de waarden aanwezig zijn of als u nodi
 
 ### <a name="issue-objectguid-of-the-computer-account-on-premises"></a>Probleem objectGUID van de computer account on-premises
 
-**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`**-Deze claim moet bevatten de **objectGUID** waarde van de lokale computeraccount. U kunt een regel voor het transformeren van uitgifte die uitziet toevoegen in AD FS:
+**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`** -Deze claim moet bevatten de **objectGUID** waarde van de lokale computeraccount. U kunt een regel voor het transformeren van uitgifte die uitziet toevoegen in AD FS:
 
     @RuleName = "Issue object GUID for domain-joined computers"
     c1:[
@@ -241,7 +243,7 @@ De definitie helpt u om te controleren of de waarden aanwezig zijn of als u nodi
  
 ### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Probleem objectSID van de computer account on-premises
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`**-Deze claim moet bevatten de de **objectSid** waarde van de lokale computeraccount. U kunt een regel voor het transformeren van uitgifte die uitziet toevoegen in AD FS:
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** -Deze claim moet bevatten de de **objectSid** waarde van de lokale computeraccount. U kunt een regel voor het transformeren van uitgifte die uitziet toevoegen in AD FS:
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -258,7 +260,7 @@ De definitie helpt u om te controleren of de waarden aanwezig zijn of als u nodi
 
 ### <a name="issue-issuerid-for-computer-when-multiple-verified-domain-names-in-azure-ad"></a>IssuerID voor computer uitgeven wanneer meerdere domeinnamen in Azure AD geverifieerd
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`**-Deze claim moet de id URI (Uniform Resource) van een van de geverifieerde domeinnamen die verbinding met de lokale federation-service (AD FS of 3e partij maken) bevatten voor het uitgeven van het token. U kunt in AD FS uitgifte transformatieregels die lijken op die hieronder in die specifieke volgorde na de bovenstaande waarden toevoegen. Houd er rekening mee dat één regel expliciet uitgeven van de regel voor gebruikers nodig is. Een eerste regel gebruiker versus computerverificatie identificeren in de onderstaande regels is toegevoegd.
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`** -Deze claim moet de id URI (Uniform Resource) van een van de geverifieerde domeinnamen die verbinding met de lokale federation-service (AD FS of 3e partij maken) bevatten voor het uitgeven van het token. U kunt in AD FS uitgifte transformatieregels die lijken op die hieronder in die specifieke volgorde na de bovenstaande waarden toevoegen. Houd er rekening mee dat één regel expliciet uitgeven van de regel voor gebruikers nodig is. Een eerste regel gebruiker versus computerverificatie identificeren in de onderstaande regels is toegevoegd.
 
     @RuleName = "Issue account type with the value User when its not a computer"
     NOT EXISTS(
@@ -304,7 +306,7 @@ De definitie helpt u om te controleren of de waarden aanwezig zijn of als u nodi
 
 In de bovenstaande claim
 
-- `<verified-domain-name>`is een tijdelijke aanduiding die u wilt vervangen door een van uw geverifieerde domeinnamen in Azure AD. Bijvoorbeeld, Value = "http://contoso.com/adfs/services/trust/"
+- `<verified-domain-name>` is een tijdelijke aanduiding die u wilt vervangen door een van uw geverifieerde domeinnamen in Azure AD. Bijvoorbeeld, Value = "http://contoso.com/adfs/services/trust/"
 
 
 
@@ -315,7 +317,7 @@ Als u een lijst van uw bedrijf geverifieerde domeinen, kunt u de [Get-MsolDomain
 
 ### <a name="issue-immutableid-for-computer-when-one-for-users-exist-eg-alternate-login-id-is-set"></a>Onveranderbare id genoemd uitgeven voor computer, als een voor gebruikers bestaat (bijvoorbeeld alternatieve aanmeldings-ID is ingesteld)
 
-**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`**-Deze claim moet een geldige waarde voor computers bevatten. In AD FS, kunt u een regel voor het transformeren van uitgifte als volgt:
+**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`** -Deze claim moet een geldige waarde voor computers bevatten. In AD FS, kunt u een regel voor het transformeren van uitgifte als volgt:
 
     @RuleName = "Issue ImmutableID for computers"
     c1:[
@@ -512,7 +514,7 @@ In AD FS, moet u een regel voor het transformeren van uitgifte die geeft via de 
 2. Met de rechtermuisknop op het Identiteitsplatform van Microsoft Office 365 relying party trust object en selecteer vervolgens **Claimregels bewerken**.
 3. Op de **uitgifte Transformatieregels** tabblad **regel toevoegen**.
 4. In de **claimregel** lijst met sjablonen, selecteer **Claims verzenden met een aangepaste regel**.
-5. Selecteer **volgende**.
+5. Selecteer **Volgende**.
 6. In de **naam Claimregel** in het vak **Auth methode Claimregel**.
 7. In de **claimregel** typt u de volgende regel:
 
@@ -566,7 +568,8 @@ Voor het beheren van de implementatie van de huidige Windows-computers, implemen
    > [!NOTE]
    > Deze groepsbeleidssjabloon gewijzigd van eerdere versies van de console Groepsbeleidsbeheer. Als u van een eerdere versie van de console gebruikmaakt, gaat u naar `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
-7. Selecteer **ingeschakeld**, en klik vervolgens op **toepassen**.
+7. Selecteer **ingeschakeld**, en klik vervolgens op **toepassen**. U moet selecteren **uitgeschakelde** als u wilt dat het beleid voor het blokkeren van apparaten die worden beheerd door dit groepsbeleid automatisch wordt geregistreerd met Azure AD.
+
 8. Klik op **OK**.
 9. Het groepsbeleidsobject koppelen naar een locatie van uw keuze. Bijvoorbeeld, kunt u deze koppelen aan een specifieke organisatie-eenheid. U kan ook deze koppelen aan een specifieke beveiligingsgroep met computers automatisch worden toegevoegd met Azure AD. U dit beleid instellen voor alle Windows 10 en Windows Server 2016 Domeincomputers in uw organisatie, het groepsbeleidsobject aan het domein te koppelen.
 

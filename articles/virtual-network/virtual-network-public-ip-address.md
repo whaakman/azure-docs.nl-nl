@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: e6eacdb437d28eb733da522280cb2c7d8c24d9ba
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Maken, wijzigen of verwijderen van een openbaar IP-adres
 
@@ -29,21 +29,20 @@ Meer informatie over een openbaar IP-adres en het maken, wijzigen en verwijderen
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-De volgende taken uitvoeren voordat u alle stappen in elke sectie van dit artikel uitvoert:
+De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit artikel:
 
-- Controleer de [Azure beperkt](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artikel voor meer informatie over limieten voor het openbare IP-adressen.
-- Aanmelden bij de Azure [portal](https://portal.azure.com), Azure-opdrachtregelinterface (CLI) of Azure PowerShell gebruiken met een Azure-account. Als u nog een Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
-- Als PowerShell-opdrachten voor het uitvoeren van taken in dit artikel [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Zorg ervoor dat u hebt de meest recente versie van de Azure PowerShell-commandlets geïnstalleerd. Typ voor hulp bij PowerShell-opdrachten, met voorbeelden, `get-help <command> -full`.
-- Als Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel [installeren en configureren van de Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Zorg ervoor dat u hebt de meest recente versie van de Azure CLI geïnstalleerd. Typ voor hulp bij CLI-opdrachten, `az <command> --help`. In plaats van de CLI en de vereisten installeert, kunt u de Azure-Cloud-Shell. De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. In deze shell is de Azure CLI vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Met de Cloud-Shell, klikt u op de Shell Cloud **> _** knop aan de bovenkant van de [portal](https://portal.azure.com).
+- Als u nog een Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
+- Als u de portal gebruikt, open https://portal.azure.com en meld u aan met uw Azure-account.
+- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.2.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` de geïnstalleerde versie vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.26 of hoger. Voer `az --version` de geïnstalleerde versie vinden. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
 
 Openbare IP-adressen hebben nominaal kosten met zich mee. Als de prijzen, lezen de [IP-adres prijzen](https://azure.microsoft.com/pricing/details/ip-addresses) pagina. 
 
 ## <a name="create-a-public-ip-address"></a>Een openbaar IP-adres maken
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met een account is toegewezen (minimaal) machtigingen voor de rol Inzender netwerk voor uw abonnement. Lees de [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikel voor meer informatie over het toewijzen van rollen en machtigingen aan accounts.
-2. In het vak dat de tekst bevat *zoeken bronnen* aan de bovenkant van de Azure-portal, typ *openbaar IP-adres*. Wanneer **openbare IP-adressen** wordt weergegeven in de zoekresultaten, klik erop.
-3. Klik op **+ toevoegen** in de **openbaar IP-adres** blade die wordt weergegeven.
-4. Typ of Selecteer waarden voor de volgende instellingen in de **openbare IP-adres maken** blade die wordt weergegeven, klikt u vervolgens op **maken**:
+1. In het vak dat de tekst bevat *zoeken bronnen* aan de bovenkant van de Azure-portal, typ *openbaar IP-adres*. Wanneer **openbare IP-adressen** wordt weergegeven in de zoekresultaten, klik erop.
+2. Klik op **+ toevoegen** in de **openbaar IP-adres** blade die wordt weergegeven.
+3. Typ of Selecteer waarden voor de volgende instellingen in de **openbare IP-adres maken** blade die wordt weergegeven, klikt u vervolgens op **maken**:
 
     |Instelling|Vereist?|Details|
     |---|---|---|
@@ -73,10 +72,9 @@ Hoewel de portal biedt de optie voor het maken van twee openbare IP-adresbronnen
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>Weergeven, instellingen voor wijzigen of verwijderen van een openbaar IP-adres
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met een account is toegewezen (minimaal) machtigingen voor de rol Inzender netwerk voor uw abonnement. Lees de [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikel voor meer informatie over het toewijzen van rollen en machtigingen aan accounts.
-2. In het vak dat de tekst bevat *zoeken bronnen* aan de bovenkant van de Azure-portal, typ *openbaar IP-adres*. Wanneer **openbare IP-adressen** wordt weergegeven in de zoekresultaten, klik erop.
-3. In de **openbare IP-adressen** blade die wordt weergegeven, klikt u op de naam van het openbare IP-adres dat u wilt weergeven, instellingen voor wijzigen of verwijderen.
-4. In de blade die wordt weergegeven voor het openbare IP-adres, voert u een van de volgende opties, afhankelijk van of u wilt weergeven, verwijderen of wijzigen van het openbare IP-adres.
+1. In het vak dat de tekst bevat *zoeken bronnen* aan de bovenkant van de Azure-portal, typ *openbaar IP-adres*. Wanneer **openbare IP-adressen** wordt weergegeven in de zoekresultaten, klik erop.
+2. In de **openbare IP-adressen** blade die wordt weergegeven, klikt u op de naam van het openbare IP-adres dat u wilt weergeven, instellingen voor wijzigen of verwijderen.
+3. In de blade die wordt weergegeven voor het openbare IP-adres, voert u een van de volgende opties, afhankelijk van of u wilt weergeven, verwijderen of wijzigen van het openbare IP-adres.
     - **Weergave**: de **overzicht** sectie van de blade wordt registersleutelinstellingen voor het openbare IP-adres, zoals de netwerkinterface die deze gekoppeld (als het adres gekoppeld aan een netwerkinterface is). De versie van het adres (IPv4 of IPv6) niet wordt weergegeven in de portal. Als u wilt de versie-informatie weergeven, gebruikt u de opdracht PowerShell of CLI om het openbare IP-adres weer te geven. Als de IP-adresversie IPv6 is, wordt het toegewezen adres wordt niet weergegeven door de portal, PowerShell of de CLI. 
     - **Verwijder**: voor het verwijderen van het openbare IP-adres, klikt u op **verwijderen** in de **overzicht** sectie van de blade. Als het adres momenteel gekoppeld aan een IP-configuratie is, kan niet worden verwijderd. Als het adres momenteel gekoppeld aan een configuratie is, klikt u op **Dissociate** ontkoppelen van het adres van de IP-configuratie.
     - **Wijziging**: klik op **configuratie**. Instellingen wijzigen met behulp van de informatie in stap 4 van de [maken van een openbaar IP-adres](#create-a-public-ip-address) sectie van dit artikel. Als u wilt de toewijzing voor een IPv4-adres van statisch naar dynamisch wijzigt, moet u eerst ontkoppelen van het openbare IPv4-adres van de IP-adresconfiguratie die deze gekoppeld. U kunt dynamisch de toewijzingsmethode wijzigen en klik op **koppelen** om te koppelen van het IP-adres adres naar dezelfde IP-configuratie of een andere configuratie kunt laten ontkoppeld. Ontkoppelen van een openbaar IP-adres de **overzicht** sectie, klikt u op **Dissociate**.
@@ -98,16 +96,12 @@ Hoewel de portal biedt de optie voor het maken van twee openbare IP-adresbronnen
 
 Voordat u een standaard SKU openbare IP-adres maken kunt, moet u eerst registreren voor de preview. Voer de volgende stappen uit om te registreren voor de preview:
 
-1. Installeren en configureren van Azure [PowerShell](/powershell/azure/install-azurerm-ps).
-2. Voer de `Get-Module -ListAvailable AzureRM` opdracht om te zien welke versie van de module AzureRM die u hebt geïnstalleerd. U moet beschikken over versie 4.4.0 of hoger is geïnstalleerd. Als u dit niet doet, kunt u installeren de nieuwste versie van de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM).
-3. Aanmelden bij Azure met de `login-azurermaccount` opdracht.
-4. Voer de volgende opdracht om te registreren voor de preview:
+1. Voer de volgende opdracht om te registreren voor de Preview-versie van PowerShell:
    
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
     ```
-
-5. Bevestig dat u voor de preview zijn geregistreerd met de volgende opdracht:
+2. Bevestig dat u voor de preview zijn geregistreerd met de volgende opdracht:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network

@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 8146c2a41a2b8fc241131a42ec74227795867609
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: aa213a3b1a8949f0fca5e4bbb7ec5a6a775ae6ec
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Voorbeeld van aangepaste gegevensstroom transformaties (Python) 
 De naam van de transformatie in het menu is **transformeren gegevensstroom (Script)**. Lees voordat u deze bijlage lezen, [Python uitbreidbaarheid overzicht](data-prep-python-extensibility-overview.md).
@@ -42,8 +42,8 @@ Opnieuw wordt geformuleerd de gegevens om te voldoen aan een formule voor het be
 
 ## <a name="transform-data-flow"></a>Gegevensstroom transformeren
 ### <a name="fill-down"></a>Omlaag doorvoeren 
-Omlaag doorvoeren vereist twee transformaties. Wordt ervan uitgegaan dat gegevens die op het volgende lijkt:
 
+Omlaag doorvoeren vereist twee transformaties. Wordt ervan uitgegaan dat gegevens die op de volgende tabel lijkt:
 
 |Status         |Plaats       |
 |--------------|-----------|
@@ -58,16 +58,17 @@ Omlaag doorvoeren vereist twee transformaties. Wordt ervan uitgegaan dat gegeven
 |              |San Antonio|
 |              |Houston    |
 
-Maak eerst een kolom toevoegen (Script)-transformatie die de volgende code bevat:
+1. Maak een transformatie 'Kolom (Script) toevoegen' met de volgende code:
 ```python
     row['State'] if len(row['State']) > 0 else None
 ```
-Nu een transformatie-gegevensstroom (Script) transformatiebestand maken dat de volgende code bevat:
+
+2. Maak een 'Transformatie gegevensstroom (Script)'-transformatie die de volgende code bevat:
 ```python
     df = df.fillna( method='pad')
 ```
 
-De gegevens ziet er nu als volgt uit:
+De gegevens ziet nu de volgende tabel:
 
 |Status         |newState         |Plaats       |
 |--------------|--------------|-----------|
