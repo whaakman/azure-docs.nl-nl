@@ -1,47 +1,47 @@
 ---
-title: 'Azure CLI: Een Azure-Database voor de MySQL-server herstellen'
-description: Dit voorbeeldscript Azure CLI laat zien hoe een Azure-Database voor de MySQL-server en de databases naar een eerder tijdstip herstellen.
+title: 'Azure CLI-script: een Azure Database for MySQL-server herstellen'
+description: Dit Azure CLI-voorbeeldscript laat zien hoe u een Azure Database for MySQL-server en de databases ervan kunt herstellen naar een eerder tijdstip.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 01/11/2018
-ms.openlocfilehash: ed04115ff7e6f83e0357f13d734e4be3738f4c6d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
-ms.translationtype: MT
+ms.date: 02/28/2018
+ms.openlocfilehash: 6d23227640d4d5bb140aeff63663fe3b3cd92a4c
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Herstellen van een Azure-Database voor de MySQL-server met Azure CLI
-Dit voorbeeldscript CLI wordt één Azure-Database voor de MySQL-server hersteld naar een eerder punt in tijd.
+# <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Een Azure Database for MySQL-server herstellen met behulp van Azure CLI
+Met dit CLI-voorbeeldscript wordt één Azure Database for MySQL-server hersteld naar een eerder tijdstip.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, wordt in dit voorbeeld vereist dat u de Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal uit te voeren, moet u voor dit artikel gebruikmaken van Azure CLI-versie 2.0 of hoger. Controleer de versie door `az --version` uit te voeren. Zie [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli) voor het installeren of upgraden van uw versie van Azure CLI. 
 
-## <a name="sample-script"></a>Voorbeeld van een script
-Wijzig de gemarkeerde regels voor het aanpassen van de gebruikersnaam van de beheerder en het wachtwoord in dit voorbeeldscript. Vervang de abonnement-ID gebruikt in de opdrachten az monitor met uw eigen abonnement-ID.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/backup-restore-pitr/backup-restore.sh?highlight=15-16 "Restore Azure Database for MySQL.")]
+## <a name="sample-script"></a>Voorbeeldscript
+Bewerk in dit voorbeeldscript de gemarkeerde regels om de gebruikersnaam en het wachtwoord van de beheerder naar uw eigen bij te werken. Vervang de abonnement-ID die wordt gebruikt in de `az monitor`-opdrachten door uw eigen abonnement-ID.
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/backup-restore-pitr/backup-restore.sh?highlight=18-19 "Restore Azure Database for MySQL.")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Gebruik de volgende opdracht om de resourcegroep en alle resources die er aan zijn gekoppeld te verwijderen nadat het script is uitgevoerd. 
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/backup-restore-pitr/delete-mysql.sh  "Delete the resource group.")]
 
-## <a name="script-explanation"></a>Script uitleg
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+## <a name="script-explanation"></a>Uitleg van het script
+Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weergegeven:
 
-| **Opdracht** | **Opmerkingen bij de** |
+| **Opdracht** | **Opmerkingen** |
 |---|---|
-| [AZ groep maken](/cli/azure/group#az_group_create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ mysql-server maken](/cli/azure/mysql/server#az_mysql_server_create) | Hiermee maakt u een MySQL-server die als host fungeert voor de databases. |
-| [AZ mysql server herstellen](/cli/azure/mysql/server#az_mysql_server_restore) | Een server herstellen vanuit back-up. |
-| [AZ groep verwijderen](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle ingesloten resources. |
+| [az group create](/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | Hiermee wordt een MySQL-server gemaakt waar de databases worden gehost. |
+| [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore) | Een server herstellen uit een back-up. |
+| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over de Azure CLI: [documentatie van Azure CLI](/cli/azure/overview).
-- Probeer extra scripts: [voorbeelden van Azure CLI voor Azure-Database voor MySQL](../sample-scripts-azure-cli.md)
+- Lees de [documentatie van Azure CLI](/cli/azure/overview) voor meer informatie over de Azure CLI.
+- Meer scripts om te proberen: [Azure CLI-voorbeelden voor Azure Database for MySQL](../sample-scripts-azure-cli.md)

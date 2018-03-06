@@ -1,21 +1,21 @@
 ---
-title: Via Ruby verbinding maken met Azure Database voor MySQL | Microsoft Docs
+title: Verbinding maken met Azure Database for MySQL via Ruby
 description: Deze snelstartgids bevat enkele voorbeelden van Ruby-code die u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor MySQL.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: 821138f2f80d985a400c3148eeb348c06f97ee4a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: 84898a5bc3afd21aa6b922b4074fd09b4315dd6e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Azure Database voor MySQL: Ruby gebruiken om verbinding te maken en gegevens op te vragen
 In deze snelstartgids ziet u hoe u vanuit de platformen Windows, Ubuntu Linux en Mac met behulp van een [Ruby](https://www.ruby-lang.org)-toepassing en de [mysql2](https://rubygems.org/gems/mysql2)-gem verbinding maakt met een Azure Database voor MySQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Ruby, maar geen ervaring hebt met het werken met Azure Database voor MySQL.
@@ -55,11 +55,10 @@ Installeer Ruby, Gem en de MySQL2-bibliotheek op de computer.
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor MySQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en zoek vervolgens de server die u hebt gemaakt (bijvoorbeeld **myserver4demo**).
-3. Klik op de servernaam **myserver4demo**.
-4. Selecteer de pagina **Eigenschappen** van de server en noteer vervolgens de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**.
- ![Azure Database voor MySQL - Aanmeldgegevens van de serverbeheerder](./media/connect-ruby/1_server-properties-name-login.png)
-5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
+2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en zoek naar de server die u hebt gemaakt (bijvoorbeeld **mydemoserver**).
+3. Klik op de servernaam.
+4. Ga naar het venster **Overzicht** van de server en noteer de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**. Als u uw wachtwoord vergeet, kunt u het wachtwoord in dit venster opnieuw instellen.
+ ![Naam van Azure Database voor MySQL-server](./media/connect-ruby/1_server-overview-name-login.png)
 
 ## <a name="run-ruby-code"></a>Ruby-code uitvoeren 
 1. Plak de Ruby-code uit de onderstaande secties in tekstbestanden en sla vervolgens de bestanden op in een projectmap met de bestandsextensie .rb, zoals `C:\rubymysql\createtable.rb` of `/home/username/rubymysql/createtable.rb`.
@@ -78,9 +77,9 @@ require 'mysql2'
 
 begin
     # Initialize connection variables.
-    host = String('myserver4demo.mysql.database.azure.com')
+    host = String('mydemoserver.mysql.database.azure.com')
     database = String('quickstartdb')
-    username = String('myadmin@myserver4demo')
+    username = String('myadmin@mydemoserver')
     password = String('yourpassword')
 
     # Initialize connection object.
@@ -124,9 +123,9 @@ require 'mysql2'
 
 begin
     # Initialize connection variables.
-    host = String('myserver4demo.mysql.database.azure.com')
+    host = String('mydemoserver.mysql.database.azure.com')
     database = String('quickstartdb')
-    username = String('myadmin@myserver4demo')
+    username = String('myadmin@mydemoserver')
     password = String('yourpassword')
 
     # Initialize connection object.
@@ -163,9 +162,9 @@ require 'mysql2'
 
 begin
     # Initialize connection variables.
-    host = String('myserver4demo.mysql.database.azure.com')
+    host = String('mydemoserver.mysql.database.azure.com')
     database = String('quickstartdb')
-    username = String('myadmin@myserver4demo')
+    username = String('myadmin@mydemoserver')
     password = String('yourpassword')
 
     # Initialize connection object.
@@ -200,9 +199,9 @@ require 'mysql2'
 
 begin
     # Initialize connection variables.
-    host = String('myserver4demo.mysql.database.azure.com')
+    host = String('mydemoserver.mysql.database.azure.com')
     database = String('quickstartdb')
-    username = String('myadmin@myserver4demo')
+    username = String('myadmin@mydemoserver')
     password = String('yourpassword')
 
     # Initialize connection object.

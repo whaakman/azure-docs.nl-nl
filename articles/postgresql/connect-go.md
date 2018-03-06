@@ -1,27 +1,27 @@
 ---
-title: Met Go-taal verbinding maken met Azure Database voor PostgreSQL | Microsoft Docs
-description: Deze quickstart bevat een voorbeeld van de programmeertaal Go dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor PostgreSQL.
+title: Verbinding maken met Azure Database for PostgreSQL met Go-taal
+description: Deze snelstartgids bevat een voorbeeld van de programmeertaal Go dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor PostgreSQL.
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: 8b52aeaadf7ba94d6b79ef447600cd7b57e70dfa
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 305a9ad066ad504b7564945d8ccce1be19a4135a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Go-taal gebruiken om verbinding te maken en gegevens op te vragen
-In deze quickstart ziet u hoe u met behulp van code in de [Go](https://golang.org/)-taal (golang) verbinding maakt met een Azure-database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met Go, maar geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
+In deze snelstartgids ziet u hoe u met behulp van code in de [Go](https://golang.org/)-taal (golang) verbinding maakt met een Azure-database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met Go, maar geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
 
 ## <a name="prerequisites"></a>Vereisten
-In deze quickstart worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
+In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
 - [Database maken - Portal](quickstart-create-server-database-portal.md)
 - [Database maken - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
@@ -81,11 +81,10 @@ Installeer [Go](https://golang.org/doc/install) en het [Pure Go Postgres-stuurpr
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor PostgreSQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu links in Azure Portal op **Alle resources** en zoek de server die u hebt gemaakt (bijvoorbeeld **mypgserver-20170401**).
-3. Klik op de servernaam **mypgserver-20170401**.
-4. Selecteer de pagina **Overzicht** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
- ![Azure Database voor PostgreSQL - Aanmeldgegevens van de serverbeheerder](./media/connect-go/1-connection-string.png)
-5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven. Stel het wachtwoord indien nodig opnieuw in.
+2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en zoek naar de server die u hebt gemaakt (bijvoorbeeld **mydemoserver**).
+3. Klik op de servernaam.
+4. Ga naar het venster **Overzicht** van de server en noteer de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**. Als u uw wachtwoord vergeet, kunt u het wachtwoord in dit venster opnieuw instellen.
+ ![Servernaam Azure Database for PostgreSQL](./media/connect-go/1-connection-string.png)
 
 ## <a name="build-and-run-go-code"></a>Go-code schrijven en uitvoeren 
 1. Als u Golang-code wilt schrijven, gebruikt u een eenvoudige teksteditor zoals Kladblok in Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) of [Nano](https://www.nano-editor.org/) in Ubuntu en TextEdit in macOS. Als u liever een uitgebreidere Interactive Development Environment (IDE) gebruikt, gaat u aan de slag met [Gogland](https://www.jetbrains.com/go/) van Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) van Microsoft of [Atom](https://atom.io/).
@@ -100,7 +99,7 @@ Gebruik de volgende code om een tabel te verbinden en te maken met de SQL-instru
 
 Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](http://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de PostgresSQL-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
 
-In de code wordt de methode [sql.Open()](http://godoc.org/github.com/lib/pq#Open) aangeroepen om verbinding te maken met Azure Database for PostgreSQL-database, en wordt de verbinding gecontroleerd met de methode [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. In de code wordt de methode [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) meerdere keren aangeroepen om diverse SQL-opdrachten uit te voeren. Telkens wordt een aangepaste checkError()-methode gebruikt om te controleren of er fouten zijn opgetreden en om af te sluiten als er een fout is opgetreden.
+In de code wordt de methode [sql.Open()](http://godoc.org/github.com/lib/pq#Open) aangeroepen om verbinding te maken met de Azure Database for PostgreSQL-database, en wordt de verbinding gecontroleerd met de methode [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. In de code wordt de methode [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) meerdere keren aangeroepen om diverse SQL-opdrachten uit te voeren. Telkens wordt een aangepaste checkError()-methode gebruikt om te controleren of er fouten zijn opgetreden en om af te sluiten als er een fout is opgetreden.
 
 Vervang de parameters `HOST`, `DATABASE`, `USER` en `PASSWORD` door uw eigen waarden. 
 
@@ -115,9 +114,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 
@@ -181,9 +180,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 
@@ -247,9 +246,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 
@@ -300,9 +299,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 

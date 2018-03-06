@@ -1,21 +1,21 @@
 ---
-title: 'Quick Start: een Azure-database voor MySQL-server maken - Azure CLI | Microsoft Docs'
+title: 'Snelstart: een Azure Database for MySQL-server maken - Azure CLI'
 description: In deze Quick Start wordt beschreven hoe u Azure CLI gebruikt om een Azure-database voor MySQL-server in een Azure-resourcegroep te maken.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: aca5d33adda703f3cd50e940ee43bb0624e179a1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a2efce07dac65eb8af59e6bc1bd5a51bfc62d69e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Een Azure-database voor MySQL-server maken met behulp van Azure CLI
 In deze Quick Start wordt beschreven hoe u Azure CLI gebruikt om binnen ongeveer vijf minuten een Azure-database voor MySQL-server in een Azure-resourcegroep te maken. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts.
@@ -40,13 +40,18 @@ In het volgende voorbeeld wordt een resourcegroep met de naam `myresourcegroup` 
 az group create --name myresourcegroup --location westus
 ```
 
+## <a name="add-the-extension"></a>De extensie toevoegen
+Voeg de bijgewerkte Azure Database for MySQL-beheerextensie toe met de volgende opdracht:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
+
 ## <a name="create-an-azure-database-for-mysql-server"></a>Een Azure-database voor MySQL-server maken
 Maak een Azure Database for MySQL-server met de opdracht **[az mysql server create](/cli/azure/mysql/server#az_mysql_server_create)**. Een server kan meerdere databases beheren. Een aparte database wordt doorgaans gebruikt voor elk project of voor elke gebruiker.
 
-In het volgende voorbeeld wordt een Azure-database voor MySQL-server gemaakt die zich in `westus` bevindt in de resourcegroep `myresourcegroup` met de naam `myserver4demo`. De server heeft aanmeldgegevens voor de beheerder met de naam `myadmin` en het wachtwoord `Password01!`. De server wordt gemaakt met de **Basic**-prestatielaag en **50** rekeneenheden die tussen alle databases op de server worden gedeeld. U kunt berekeningen en opslag omhoog of omlaag schalen afhankelijk van de behoeften van de toepassing.
-
+In het volgende voorbeeld wordt een server in VS West gemaakt met de naam `mydemoserver` in uw resourcegroep `myresourcegroup` met aanmeldgegevens van de serverbeheerder `myadmin`. Dit is een **Gen 4**-server voor **Algemeen gebruik** met twee **vCores**. De naam van een server komt overeen met een DNS-naam en moet dus globaal uniek zijn in Azure. Vervang het `<server_admin_password>` door uw eigen waarde.
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name myserver4demo --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
 
 ## <a name="configure-firewall-rule"></a>Firewallregel configureren
@@ -55,15 +60,22 @@ Maak een Azure Database for MySQL-firewallregel op serverniveau met de opdracht 
 In het volgende voorbeeld wordt een firewallregel gemaakt voor een vooraf gedefinieerd adresbereik. In dit voorbeeld is dit het volledige bereik van IP-adressen.
 
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myresourcegroup --server myserver4demo --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
+Het toestaan van alle IP-adressen is niet veilig. Dit voorbeeld wordt gemakshalve gegeven, maar in een praktijksituatie moet u de precieze IP-adresbereiken weten die u voor uw toepassingen en gebruikers moet toevoegen. 
+
+> [!NOTE]
+> Verbindingen met Azure Database voor MySQL communiceren via poort 3306. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 3306 mogelijk niet toegestaan. In dat geval kunt u alleen verbinding maken met uw server als uw IT-afdeling poort 3306 openstelt.
+> 
+
+
 ## <a name="configure-ssl-settings"></a>SSL-instellingen configureren
 Standaard worden SSL-verbindingen tussen uw server en clienttoepassingen afgedwongen. Deze standaardinstelling zorgt voor beveiliging van gegevens 'in beweging' door de gegevensstroom via internet te versleutelen. Om deze Quickstart makkelijker te maken, schakelen we SSL-verbindingen uit voor uw server. Dit wordt afgeraden voor productieservers. Zie [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (SSL-connectiviteit in uw toepassing configureren om veilig verbinding te maken met Azure-database voor MySQL) voor meer informatie.
 
 In het volgende voorbeeld wordt het afdwingen van SSL op uw MySQL-server uitgeschakeld.
  
  ```azurecli-interactive
- az mysql server update --resource-group myresourcegroup --name myserver4demo --ssl-enforcement Disabled
+ az mysql server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
  ```
 
 ## <a name="get-the-connection-information"></a>De verbindingsgegevens ophalen
@@ -71,31 +83,36 @@ In het volgende voorbeeld wordt het afdwingen van SSL op uw MySQL-server uitgesc
 Als u verbinding met uw server wilt maken, moet u hostgegevens en toegangsreferenties opgeven.
 
 ```azurecli-interactive
-az mysql server show --resource-group myresourcegroup --name myserver4demo
+az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 Het resultaat wordt in JSON-indeling weergegeven. Noteer de **fullyQualifiedDomainName** en de **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "myserver4demo.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver4demo",
+  "earliestRestoreDate": null,
+  "fullyQualifiedDomainName": "mydemoserver.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/mydemoserver",
   "location": "westus",
-  "name": "myserver4demo",
+  "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 50,
-    "family": null,
-    "name": "MYSQLS2M50",
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "storageMb": 2048,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforMySQL/servers",
   "userVisibleState": "Ready",
-  "version": null
+  "version": "5.7"
 }
 ```
 
@@ -106,7 +123,7 @@ Typ de volgende opdrachten:
 
 1. Maak verbinding met de server met behulp van het opdrachtregelprogramma **mysql**:
 ```azurecli-interactive
- mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
+ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
 
 2. Bekijk de status van de server:
@@ -116,7 +133,7 @@ Typ de volgende opdrachten:
 Als alles goed gaat, geeft het opdrachtregelprogramma de volgende tekst weer:
 
 ```dos
-C:\Users\>mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
+C:\Users\>mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
@@ -141,7 +158,7 @@ SSL:                    Not in use
 Using delimiter:        ;
 Server version:         5.6.26.0 MySQL Community Server (GPL)
 Protocol version:       10
-Connection:             myserver4demo.mysql.database.azure.com via TCP/IP
+Connection:             mydemoserver.mysql.database.azure.com via TCP/IP
 Server characterset:    latin1
 Db     characterset:    latin1
 Client characterset:    gbk
@@ -169,9 +186,9 @@ mysql>
 |---|---|---|
 |   Verbindingsnaam | Mijn verbinding | Geef een label op voor deze verbinding (dit kan van alles zijn) |
 | Verbindingsmethode | kies Standard (TCP/IP) | TCP/IP-protocol gebruiken om verbinding te maken met Azure Database voor MySQL> |
-| Hostnaam | myserver4demo.mysql.database.azure.com | De servernaam die u eerder hebt genoteerd. |
+| Hostnaam | mydemoserver.mysql.database.azure.com | De servernaam die u eerder hebt genoteerd. |
 | Poort | 3306 | De standaardpoort voor MySQL wordt gebruikt. |
-| Gebruikersnaam | myadmin@myserver4demo | De aanmeldgegevens van een serverbeheerder die u eerder hebt genoteerd. |
+| Gebruikersnaam | myadmin@mydemoserver | De aanmeldgegevens van een serverbeheerder die u eerder hebt genoteerd. |
 | Wachtwoord | **** | Gebruik het wachtwoord voor het beheerdersaccount dat u eerder hebt geconfigureerd. |
 
 Klik op **Verbinding testen** om te controleren of alle parameters juist zijn geconfigureerd.
@@ -182,6 +199,11 @@ Als u deze resources niet voor een andere Quickstart of zelfstudie nodig hebt, k
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
+```
+
+Als u alleen de zojuist gemaakte server wilt verwijderen, kunt u de opdracht [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete) uitvoeren.
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,21 +1,21 @@
 ---
-title: Verbinding maken met een Azure-database voor MySQL met behulp van Go | Microsoft Docs
+title: Verbinding maken met Azure Database for MySQL via Go
 description: Deze snelstartgids bevat enkele voorbeelden van Go-code die u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure-database voor MySQL.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/24/2018
-ms.openlocfilehash: 44011c4b1ac5da686954a87bbf17a54b963ff6d8
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: af4027835ca503c0875d098d0daf7a98bdef44fb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Azure-database voor MySQL: de taal Go gebruiken om verbinding te maken en gegevens op te vragen
 In deze quickstart leest u hoe u op Windows-, Ubuntu Linux- en Apple macOS-platforms verbinding maakt met Azure Database for MySQL met behulp van code geschreven in de taal [Go](https://golang.org/). U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Go, maar geen ervaring hebt met het werken met Azure Database for MySQL.
@@ -26,7 +26,7 @@ In deze snelstartgids worden de resources die in een van deze handleidingen zijn
 - [Een Azure-database voor een MySQL-server maken met behulp van Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>Go en de MySQL-connector installeren
-Installeer [Go](https://golang.org/doc/install) en het [Go-SQL-stuurprogramma voor MySQL](https://github.com/go-sql-driver/mysql#installation) (versie 1.3 of later) op uw computer. Afhankelijk van uw platform voert u de volgende stappen uit in de toepasselijke sectie:
+Installeer [Go](https://golang.org/doc/install) en het [Go-SQL-stuurprogramma voor MySQL](https://github.com/go-sql-driver/mysql#installation) op uw computer. Afhankelijk van uw platform voert u de volgende stappen uit in de toepasselijke sectie:
 
 ### <a name="windows"></a>Windows
 1. [Download](https://golang.org/dl/) en installeer Go voor Microsoft Windows volgens de [installatie-instructies](https://golang.org/doc/install).
@@ -34,7 +34,7 @@ Installeer [Go](https://golang.org/doc/install) en het [Go-SQL-stuurprogramma vo
 3. Maak een map voor uw project, bijvoorbeeld: `mkdir  %USERPROFILE%\go\src\mysqlgo`.
 4. Wijzig de map in de projectmap, bijvoorbeeld `cd %USERPROFILE%\go\src\mysqlgo`.
 5. Stel de omgevingsvariabele voor GOPATH zo in dat deze verwijst naar de broncodemap. `set GOPATH=%USERPROFILE%\go`.
-6. Installeer het [Go-SQL-stuurprogramma voor MySQL](https://github.com/go-sql-driver/mysql#installation) door de opdracht `go get github.com/go-sql-driver/mysql` uit te voeren. Versie 1.3 is de minimaal vereiste versie.
+6. Installeer het [Go-SQL-stuurprogramma voor MySQL](https://github.com/go-sql-driver/mysql#installation) door de opdracht `go get github.com/go-sql-driver/mysql` uit te voeren.
 
    Kortom: installeer Go en voer vervolgens deze opdrachten uit in de opdrachtprompt:
    ```cmd
@@ -50,7 +50,7 @@ Installeer [Go](https://golang.org/doc/install) en het [Go-SQL-stuurprogramma vo
 3. Maak in de basismap een map voor uw project, bijvoorbeeld `mkdir -p ~/go/src/mysqlgo/`.
 4. Wijzig de map in de map, bijvoorbeeld `cd ~/go/src/mysqlgo/`.
 5. Stel de omgevingsvariabele GOPATH zo in dat deze verwijst naar een geldige bronmap, zoals de Go-map in uw huidige basismap. Voer `export GOPATH=~/go` in de Bash-shell uit om de Go-map toe te voegen als GOPATH voor de huidige shellsessie.
-6. Installeer het [Go-SQL-stuurprogramma voor MySQL](https://github.com/go-sql-driver/mysql#installation) door de opdracht `go get github.com/go-sql-driver/mysql` uit te voeren. Versie 1.3 is de minimaal vereiste versie.
+6. Installeer het [Go-SQL-stuurprogramma voor MySQL](https://github.com/go-sql-driver/mysql#installation) door de opdracht `go get github.com/go-sql-driver/mysql` uit te voeren.
 
    Kortom: voer deze Bash-opdrachten uit:
    ```bash
@@ -67,7 +67,7 @@ Installeer [Go](https://golang.org/doc/install) en het [Go-SQL-stuurprogramma vo
 3. Maak in de basismap een map voor uw project, bijvoorbeeld `mkdir -p ~/go/src/mysqlgo/`.
 4. Wijzig de map in de map, bijvoorbeeld `cd ~/go/src/mysqlgo/`.
 5. Stel de omgevingsvariabele GOPATH zo in dat deze verwijst naar een geldige bronmap, zoals de Go-map in uw huidige basismap. Voer `export GOPATH=~/go` in de Bash-shell uit om de Go-map toe te voegen als GOPATH voor de huidige shellsessie.
-6. Installeer het [Go-SQL-stuurprogramma voor MySQL](https://github.com/go-sql-driver/mysql#installation) door de opdracht `go get github.com/go-sql-driver/mysql` uit te voeren. Versie 1.3 is de minimaal vereiste versie.
+6. Installeer het [Go-SQL-stuurprogramma voor MySQL](https://github.com/go-sql-driver/mysql#installation) door de opdracht `go get github.com/go-sql-driver/mysql` uit te voeren.
 
    Kortom: installeer Go en voer deze Bash-opdrachten uit:
    ```bash
@@ -81,11 +81,10 @@ Installeer [Go](https://golang.org/doc/install) en het [Go-SQL-stuurprogramma vo
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor MySQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu links in Azure Portal op **Alle resources** en zoek vervolgens de server die u hebt gemaakt (bijvoorbeeld **myserver4demo**).
-3. Klik op de servernaam **myserver4demo**.
-4. Selecteer de pagina **Eigenschappen** van de server en noteer vervolgens de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**.
- ![Azure Database voor MySQL - Aanmeldgegevens van de serverbeheerder](./media/connect-go/1_server-properties-name-login.png)
-5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
+2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en zoek naar de server die u hebt gemaakt (bijvoorbeeld **mydemoserver**).
+3. Klik op de servernaam.
+4. Ga naar het venster **Overzicht** van de server en noteer de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**. Als u uw wachtwoord vergeet, kunt u het wachtwoord in dit venster opnieuw instellen.
+ ![Naam van Azure Database voor MySQL-server](./media/connect-go/1_server-overview-name-login.png)
    
 
 ## <a name="build-and-run-go-code"></a>Go-code schrijven en uitvoeren 
@@ -116,9 +115,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -193,9 +192,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -262,9 +261,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -316,9 +315,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 

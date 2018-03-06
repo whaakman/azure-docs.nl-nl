@@ -1,27 +1,27 @@
 ---
-title: Vanuit C# verbinding maken met Azure Database voor PostgreSQL | Microsoft Docs
-description: Deze quickstart bevat een voorbeeld van C# (.NET)-code dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor PostgreSQL.
+title: Verbinding maken met Azure Database for PostgreSQL via C#
+description: Deze snelstartgids bevat een voorbeeld van C# (.NET)-code dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor PostgreSQL.
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: 9dc187b17471abe67abc49674b70889c1aca840e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 02/28/2018
+ms.openlocfilehash: 7c5c549bf2402757e19928d4217954f778947d18
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: .NET (C#) gebruiken om verbinding te maken en gegevens op te vragen
-In deze quickstart ziet u hoe u met behulp van een C#-toepassing verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met C#, maar geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
+In deze snelstartgids ziet u hoe u met behulp van een C#-toepassing verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met C#, maar geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
 
 ## <a name="prerequisites"></a>Vereisten
-In deze quickstart worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
+In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
 - [Database maken - Portal](quickstart-create-server-database-portal.md)
 - [Database maken - CLI](quickstart-create-server-database-azure-cli.md)
 
@@ -34,11 +34,10 @@ U moet ook het volgende doen:
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor PostgreSQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu links in Azure Portal op **Alle resources** en zoek de server die u hebt gemaakt (bijvoorbeeld **mypgserver-20170401**).
-3. Klik op de servernaam **mypgserver-20170401**.
-4. Selecteer de pagina **Overzicht** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
- ![Azure Database voor PostgreSQL - Aanmeldgegevens van de serverbeheerder](./media/connect-csharp/1-connection-string.png)
-5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
+2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en zoek naar de server die u hebt gemaakt (bijvoorbeeld **mydemoserver**).
+3. Klik op de servernaam.
+4. Ga naar het venster **Overzicht** van de server en noteer de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**. Als u uw wachtwoord vergeet, kunt u het wachtwoord in dit venster opnieuw instellen.
+ ![Servernaam Azure Database for PostgreSQL](./media/connect-csharp/1-connection-string.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Verbinden, tabel maken en gegevens invoegen
 Gebruik de volgende code om verbinding te maken en de gegevens te laden met de SQL-instructies **CREATE TABLE** EN **INSERT INTO**. In de code wordt de klasse NpgsqlCommand gebruikt met de methode [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) om een verbinding met de PostgreSQL-database te maken. Vervolgens wordt de methode [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) gebruikt, de eigenschap CommandText ingesteld en de methode [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) aangeroepen om de databaseopdrachten uit te voeren. 
@@ -59,8 +58,8 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mypgserver-20170401.postgres.database.azure.com";
-        private static string User = "mylogin@mypgserver-20170401";
+        private static string Host = "mydemoserver.postgres.database.azure.com";
+        private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";
@@ -136,8 +135,8 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mypgserver-20170401.postgres.database.azure.com";
-        private static string User = "mylogin@mypgserver-20170401";
+        private static string Host = "mydemoserver.postgres.database.azure.com";
+        private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";
@@ -206,8 +205,8 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mypgserver-20170401.postgres.database.azure.com";
-        private static string User = "mylogin@mypgserver-20170401";
+        private static string Host = "mydemoserver.postgres.database.azure.com";
+        private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";
@@ -272,8 +271,8 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mypgserver-20170401.postgres.database.azure.com";
-        private static string User = "mylogin@mypgserver-20170401";
+        private static string Host = "mydemoserver.postgres.database.azure.com";
+        private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";

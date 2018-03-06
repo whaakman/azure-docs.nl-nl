@@ -1,21 +1,21 @@
 ---
-title: Via C++ verbinding maken met Azure Database voor MySQL | Microsoft Docs
+title: Verbinding maken met Azure Database for MySQL via C++
 description: Deze snelstartgids bevat een voorbeeld van C++-code dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor MySQL.
 services: mysql
-author: seanli1988
-ms.author: seal
-manager: janders
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: C++
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: b4d84fc29f7ea1c11491738bab3af079cff01346
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: 41a56e1325c62a71880395c666e67c740742c3f9
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database voor MySQL: Connector/C++ gebruiken om verbinding te maken en gegevens op te vragen
 In deze quickstart ziet u hoe u met behulp van een C++-toepassing verbinding maakt met een Azure Database for MySQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met C++, maar geen ervaring hebt met het werken met Azure Database for MySQL.
@@ -51,11 +51,10 @@ Voor de stappen in dit gedeelte wordt ervan uitgegaan dat u bekend bent met het 
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor MySQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu links in Azure Portal op **Alle resources** en zoek de server die u hebt gemaakt (bijvoorbeeld **myserver4demo**).
+2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en zoek naar de server die u hebt gemaakt (bijvoorbeeld **mydemoserver**).
 3. Klik op de servernaam.
-4. Selecteer de pagina **Eigenschappen** van de server en noteer vervolgens de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**.
- ![Naam van Azure Database voor MySQL-server](./media/connect-cpp/1_server-properties-name-login.png)
-5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
+4. Ga naar het venster **Overzicht** van de server en noteer de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**. Als u uw wachtwoord vergeet, kunt u het wachtwoord in dit venster opnieuw instellen.
+ ![Naam van Azure Database voor MySQL-server](./media/connect-cpp/1_server-overview-name-login.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Verbinden, tabel maken en gegevens invoegen
 Gebruik de volgende code om verbinding te maken en de gegevens te laden met behulp van de SQL-instructies **CREATE TABLE** EN **INSERT INTO**. In de code wordt de klasse sql::Driver met de methode connect() gebruikt om een verbinding te maken met MySQL. Vervolgens worden de methoden createStatement() en execute()) gebruikt om de databaseopdrachten uit te voeren. 
@@ -84,7 +83,7 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
     }
     catch (sql::SQLException e)
     {
@@ -152,7 +151,7 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
     }
     catch (sql::SQLException e)
     {
@@ -202,7 +201,7 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
     }
     catch (sql::SQLException e)
     {
@@ -254,7 +253,7 @@ int main()
     {
         driver = get_driver_instance();
         //for demonstration only. never save password in the code!
-        con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+        con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
     }
     catch (sql::SQLException e)
     {

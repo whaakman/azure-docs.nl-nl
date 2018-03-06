@@ -1,24 +1,24 @@
 ---
-title: Via Python verbinding maken met Azure Database voor MySQL | Microsoft Docs
+title: Verbinding maken met Azure Database for MySQL via Python
 description: Deze snelstartgids bevat enkele voorbeelden van Python-code die u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit Azure Database voor MySQL.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: 057a3bdb9a70c09fdd95cc02cc664db29e6c2f69
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 4003c1258fcc0a6d04c4ae8d234eba4d0224b8a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database voor MySQL: Python gebruiken om verbinding te maken en gegevens op te vragen
-In deze snelstartgids ziet u hoe u met behulp van [Python](https://python.org) verbinding maakt met Azure Database voor MySQL. Er worden SQL-instructies gebruikt om gegevens op te vragen, in te voegen, bij te werken en te verwijderen in de database vanaf Mac OS-, Ubuntu Linux- en Windows-platforms. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Python, maar geen ervaring hebt met het werken met Azure Database voor MySQL. Zie de [Azure MySQL libraries for Python SDK](/python/api/overview/azure/mysql) documentatie en een [voorbeeld van een MySQL-connector](https://dev.mysql.com/doc/connector-python/en/connector-python-example-connecting.html) voor meer details over de SDK.
+In deze snelstartgids ziet u hoe u met behulp van [Python](https://python.org) verbinding maakt met Azure Database voor MySQL. Er worden SQL-instructies gebruikt om gegevens op te vragen, in te voegen, bij te werken en te verwijderen in de database vanaf Mac OS-, Ubuntu Linux- en Windows-platforms. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Python, maar geen ervaring hebt met het werken met Azure Database voor MySQL.
 
 ## <a name="prerequisites"></a>Vereisten
 In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
@@ -61,11 +61,10 @@ Installeer [Python](https://www.python.org/downloads/) en de [MySQL-connector vo
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor MySQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu links in Azure Portal op **Alle resources** en zoek de server die u hebt gemaakt (bijvoorbeeld **myserver4demo**).
-3. Klik op de servernaam **myserver4demo**.
-4. Selecteer de pagina **Eigenschappen** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
- ![Azure Database voor MySQL - Aanmeldgegevens van de serverbeheerder](./media/connect-python/1_server-properties-name-login.png)
-5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
+2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en zoek naar de server die u hebt gemaakt (bijvoorbeeld **mydemoserver**).
+3. Klik op de servernaam.
+4. Ga naar het venster **Overzicht** van de server en noteer de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**. Als u uw wachtwoord vergeet, kunt u het wachtwoord in dit venster opnieuw instellen.
+ ![Naam van Azure Database voor MySQL-server](./media/connect-python/1_server-overview-name-login.png)
    
 
 ## <a name="run-python-code"></a>Python-code uitvoeren
@@ -85,8 +84,8 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'myserver4demo.mysql.database.azure.com',
-  'user':'myadmin@myserver4demo',
+  'host':'mydemoserver.mysql.database.azure.com',
+  'user':'myadmin@mydemoserver',
   'password':'yourpassword',
   'database':'quickstartdb'
 }
@@ -141,8 +140,8 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'myserver4demo.mysql.database.azure.com',
-  'user':'myadmin@myserver4demo',
+  'host':'mydemoserver.mysql.database.azure.com',
+  'user':'myadmin@mydemoserver',
   'password':'yourpassword',
   'database':'quickstartdb'
 }
@@ -190,8 +189,8 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'myserver4demo.mysql.database.azure.com',
-  'user':'myadmin@myserver4demo',
+  'host':'mydemoserver.mysql.database.azure.com',
+  'user':'myadmin@mydemoserver',
   'password':'yourpassword',
   'database':'quickstartdb'
 }
@@ -234,8 +233,8 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'myserver4demo.mysql.database.azure.com',
-  'user':'myadmin@myserver4demo',
+  'host':'mydemoserver.mysql.database.azure.com',
+  'user':'myadmin@mydemoserver',
   'password':'yourpassword',
   'database':'quickstartdb'
 }

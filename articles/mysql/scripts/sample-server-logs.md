@@ -1,50 +1,50 @@
 ---
-title: 'Azure CLI: Server-Logboeken in Azure-Database voor MySQL downloaden'
-description: Dit voorbeeldscript Azure CLI laat zien hoe inschakelen en de serverlogboeken van een Azure-Database voor de MySQL-server downloaden.
+title: 'Azure CLI-script: serverlogboeken downloaden in Azure Database for MySQL'
+description: Dit Azure CLI-voorbeeldscript laat zien hoe u de serverlogboeken van een Azure Database for MySQL-server kunt activeren en downloaden.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 01/11/2018
-ms.openlocfilehash: b0d34009d189ab136dcb6f28fdccc49b6da9e108
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
-ms.translationtype: MT
+ms.date: 02/28/2018
+ms.openlocfilehash: 31dd89f3bf5f43f45979b9a3cc5dda5eea1e352d
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Inschakelen en downloaden van de query wordt vertraagd serverlogboeken van een Azure-Database voor de MySQL-server met Azure CLI
-Dit voorbeeldscript CLI kunt en downloadt de logboeken van de query wordt vertraagd van één Azure-Database voor de MySQL-server.
+# <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Langzame-querylogboeken van een Azure Database for MySQL-server activeren en downloaden met behulp van Azure CLI
+Met dit CLI-voorbeeldscript worden de langzame-querylogboeken van één Azure Database for MySQL-server geactiveerd en gedownload.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, wordt in dit voorbeeld vereist dat u de Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal uit te voeren, moet u voor dit artikel gebruikmaken van Azure CLI-versie 2.0 of hoger. Controleer de versie door `az --version` uit te voeren. Zie [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli) voor het installeren of upgraden van uw versie van Azure CLI. 
 
-## <a name="sample-script"></a>Voorbeeld van een script
-Wijzig de gemarkeerde regels voor het aanpassen van de gebruikersnaam van de beheerder en het wachtwoord in dit voorbeeldscript. De < logbestandnaam > in de monitor az opdrachten vervangen door uw eigen servernaam van het logboek.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/server-logs/server-logs.sh?highlight=15-16 "Manipulate with server logs.")]
+## <a name="sample-script"></a>Voorbeeldscript
+Bewerk in dit voorbeeldscript de gemarkeerde regels om de gebruikersnaam en het wachtwoord van de beheerder naar uw eigen bij te werken. Vervang <log_file_name> in de `az monitor`-opdrachten door de naam van uw eigen serverlogboekbestand.
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/server-logs/server-logs.sh?highlight=18-19 "Manipulate with server logs.")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Gebruik de volgende opdracht om de resourcegroep en alle resources die er aan zijn gekoppeld te verwijderen nadat het script is uitgevoerd. 
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/server-logs/delete-mysql.sh  "Delete the resource group.")]
 
-## <a name="script-explanation"></a>Script uitleg
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+## <a name="script-explanation"></a>Uitleg van het script
+Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weergegeven:
 
-| **Opdracht** | **Opmerkingen bij de** |
+| **Opdracht** | **Opmerkingen** |
 |---|---|
-| [AZ groep maken](/cli/azure/group#az_group_create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ mysql-server maken](/cli/azure/mysql/server#az_msql_server_create) | Hiermee maakt u een MySQL-server die als host fungeert voor de databases. |
-| [lijst van AZ mysql server-configuratie](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) | Lijst van de configuratiewaarden voor een server. |
-| [AZ mysql server configuratie instellen](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) | Werk de configuratie van een server. |
-| [AZ mysql serverlogboeken lijst](/cli/azure/mysql/server-logs#az_mysql_server_logs_list) | Een lijst met logboekbestanden voor een server. |
-| [mysql-serverlogboeken AZ downloaden](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) | Download de logboekbestanden. |
-| [AZ groep verwijderen](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle ingesloten resources. |
+| [az group create](/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | Hiermee wordt een MySQL-server gemaakt waar de databases worden gehost. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) | Hiermee maakt u een lijst van de configuratiewaarden voor een server. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) | Hiermee werkt u de configuratie van een server bij. |
+| [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list) | Hiermee maakt u een lijst met de logboekbestanden van een server. |
+| [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) | Hiermee kunt u logboekgegevens downloaden. |
+| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over de Azure CLI: [documentatie van Azure CLI](/cli/azure/overview).
-- Probeer extra scripts: [voorbeelden van Azure CLI voor Azure-Database voor MySQL](../sample-scripts-azure-cli.md)
+- Lees de [documentatie van Azure CLI](/cli/azure/overview) voor meer informatie over de Azure CLI.
+- Meer scripts om te proberen: [Azure CLI-voorbeelden voor Azure Database for MySQL](../sample-scripts-azure-cli.md)

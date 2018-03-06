@@ -1,48 +1,48 @@
 ---
-title: Azure CLI Script Scale Azure voor PostgreSQL-Database | Microsoft Docs
-description: 'Azure CLI - voorbeeldscript: de schaal Azure-Database voor PostgreSQL-server naar een andere prestatieniveau na het uitvoeren van query''s de metrische gegevens.'
+title: 'Azure CLI-script: schaal aanpassen voor Azure Database for PostgreSQL'
+description: 'Azure CLI-voorbeeldscript: de schaal van een Azure Database for PostgreSQL-server aanpassen naar een ander prestatieniveau na het uitvoeren van query''s op de metrische gegevens.'
 services: postgresql
-author: salonisonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 11/27/2017
-ms.openlocfilehash: a5a24e9aeea193df28bd49d5c428a72b5ec75d1b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: MT
+ms.date: 02/28/2018
+ms.openlocfilehash: 21021485a7fe5f9bf32da76b507360290b8cfe66
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Bewaken en schalen van één PostgreSQL-server met Azure CLI
-Dit voorbeeldscript CLI schaalt één Azure-Database voor PostgreSQL-server naar een andere prestatieniveau na het uitvoeren van query's de metrische gegevens. 
+# <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Eén PostgreSQL-server bewaken en de schaal ervan aanpassen met Azure CLI
+Met dit CLI-voorbeeldscript wordt de schaal van één Azure Database for PostgreSQL-server aangepast naar een ander prestatieniveau na het uitvoeren van query's op de metrische gegevens. 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal uit te voeren, moet u voor dit artikel gebruikmaken van Azure CLI-versie 2.0 of hoger. Controleer de versie door `az --version` uit te voeren. Zie [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli) voor het installeren of upgraden van uw versie van Azure CLI.
 
-## <a name="sample-script"></a>Voorbeeld van een script
-Wijzig de gemarkeerde regels voor het aanpassen van de gebruikersnaam van de beheerder en het wachtwoord in dit voorbeeldscript. Vervang de abonnements-id in de opdrachten az monitor met uw eigen abonnement-id wordt gebruikt.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=15-16 "Create and scale Azure Database for PostgreSQL.")]
+## <a name="sample-script"></a>Voorbeeldscript
+Bewerk in dit voorbeeldscript de gemarkeerde regels om de gebruikersnaam en het wachtwoord van de beheerder naar uw eigen bij te werken. Vervang de abonnement-ID die wordt gebruikt in de `az monitor`-opdrachten door uw eigen abonnement-ID.
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=18-19 "Create and scale Azure Database for PostgreSQL.")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Gebruik de volgende opdracht om de resourcegroep en alle resources die er aan zijn gekoppeld te verwijderen nadat het script is uitgevoerd. 
 [!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/delete-postgresql.sh "Delete the resource group.")]
 
-## <a name="script-explanation"></a>Script uitleg
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+## <a name="script-explanation"></a>Uitleg van het script
+Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weergegeven:
 
-| **Opdracht** | **Opmerkingen bij de** |
+| **Opdracht** | **Opmerkingen** |
 |---|---|
-| [AZ groep maken](/cli/azure/group#az_group_create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ postgres server maken](/cli/azure/postgres/server#az_postgres_server_create) | Maakt een PostgreSQL-server die als host fungeert voor de databases. |
-| [lijst met AZ monitor metrische gegevens](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Lijst van de metrische waarde voor de bronnen. |
-| [AZ groep verwijderen](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle ingesloten resources. |
+| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Hiermee wordt een PostgreSQL-server gemaakt waar de SQL-database wordt gehost. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Geeft de metrische waarde weer voor de resources. |
+| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over de Azure CLI: [Azure CLI-documentatie](/cli/azure/overview)
-- Probeer extra scripts: [voorbeelden van Azure CLI voor Azure-Database voor PostgreSQL](../sample-scripts-azure-cli.md)
-- Meer informatie over het schalen: [Servicelagen](../concepts-service-tiers.md) en [Compute-eenheden en de eenheden voor opslag](../concepts-compute-unit-and-storage.md)
+- Meer informatie over de Azure CLI: [documentatie van Azure CLI](/cli/azure/overview)
+- Meer scripts om te proberen: [Azure CLI-voorbeelden voor Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
+- Meer informatie over de schaal aanpassen: [Servicelagen](../concepts-service-tiers.md) en [Rekeneenheden en opslageenheden](../concepts-compute-unit-and-storage.md)
