@@ -2,7 +2,7 @@
 title: Limieten en -configuratie - Azure Logic Apps | Microsoft Docs
 description: Service-limieten en configuratiewaarden voor Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
-ms.translationtype: HT
+ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps en -configuratie
 
@@ -28,13 +28,13 @@ In dit artikel beschrijft de huidige limieten en de configuratie-informatie voor
 
 ### <a name="http-request-limits"></a>Limieten voor HTTP-aanvraag
 
-Deze beperkingen gelden voor één HTTP-aanvraag of een aanroep van de connector.
+Hier volgen de limieten voor één HTTP-aanvraag of een aanroep van de connector:
 
 #### <a name="timeout"></a>Time-out
 
 | Naam | Limiet | Opmerkingen | 
 | ---- | ----- | ----- | 
-| Time-out van de aanvraag | 120 seconden | Een [asynchrone patroon](../logic-apps/logic-apps-create-api-app.md) of [tot lus](logic-apps-loops-and-scopes.md) kunt compenseren indien nodig |
+| Time-out van de aanvraag | 120 seconden | Een [asynchrone patroon](../logic-apps/logic-apps-create-api-app.md) of [tot lus](logic-apps-control-flow-loops.md) kunt compenseren indien nodig | 
 |||| 
 
 #### <a name="message-size"></a>Berichtgrootte
@@ -56,28 +56,21 @@ Deze beperkingen gelden voor één HTTP-aanvraag of een aanroep van de connector
 
 ### <a name="run-duration-and-retention"></a>Voer duur en retentie
 
-Deze beperkingen gelden voor een enkele logische-app uitvoeren.
+Hier volgen de limieten voor een enkele logische-app uitvoeren:
 
-| Naam | Standaard | Limiet |
-| ---- | ------- | ----- |
-| Duur uitvoering   | 90 dagen | 7 tot 90 dagen |
-| Bewaren van opslag | Begintijd van 90 dagen van de uitvoeren |  7 tot 90 dagen na de begintijd voor de uitvoering |
-||||
+| Naam | Limiet | 
+| ---- | ----- | 
+| Duur uitvoering | 90 dagen | 
+| Bewaren van opslag | Begintijd van 90 dagen van de uitvoeren | 
+| Terugkeerpatroon min | 1 seconde </br>Voor logic apps met een App Service-Plan: 15 seconden | 
+| Maximale terugkeerpatroon | 500 dagen | 
+||| 
 
-Overschrijden voor uitvoering duur of handhaving van opslag in uw flow normale verwerking [Neem contact op met het productteam](mailto://logicappsemail@microsoft.com) voor hulp bij uw behoeften.
-
-
-### <a name="recurrence-interval"></a>Interval voor terugkeerpatroon
-
-| Naam | Limiet |
-| ---- | ------- |
-| Terugkeerpatroon min | 1 seconde </br>Voor logic apps met een App Service-Plan: 15 seconden |
-| Maximale terugkeerpatroon | 500 dagen |
-|||
+Overschrijden voor uitvoering duur of handhaving van opslag in uw flow normale verwerking [Neem contact op met het team van Logic Apps](mailto://logicappsemail@microsoft.com) voor hulp bij uw behoeften.
 
 ### <a name="looping-and-debatching-limits"></a>Lussen en limieten debatching
 
-Deze beperkingen gelden voor een enkele logische-app uitvoeren.
+Hier volgen de limieten voor een enkele logische-app uitvoeren:
 
 | Naam | Limiet | Opmerkingen | 
 | ---- | ----- | ----- | 
@@ -89,22 +82,22 @@ Deze beperkingen gelden voor een enkele logische-app uitvoeren.
 
 ### <a name="throughput-limits"></a>Doorvoerlimieten
 
-Deze beperkingen gelden voor een resource voor één logische app.
+Hier volgen de limieten voor een enkele logic app-exemplaar:
 
 | Naam | Limiet | Opmerkingen | 
 | ----- | ----- | ----- | 
-| Acties uitvoeringen per 5 minuten | 100,000 |<p>De limiet aan 300.000 kan worden verhoogd door een logische app in `High Througput` modus. De modus hoge doorvoer kan worden geconfigureerd door in te stellen de `operationOptions` eigenschap onder`runtimeConfiguration` van de werkstroom bron `OptimizedForHighThroughput`. <p>Houd er rekening mee dat hoge doorvoersnelheid-modus bevindt zich in preview. Een werklast kan ook worden gedistribueerd voor meerdere apps, indien nodig. | 
+| Acties uitvoeringen per 5 minuten | 100,000 | Als u wilt de limiet voor 300.000 verhogen, kunt u een logische app uitvoeren in `High Througput` modus. Voor het configureren van de modus hoge doorvoer, onder de `runtimeConfiguration` ingesteld van de resource werkstroom de `operationOptions` eigenschap `OptimizedForHighThroughput`. <p>**Opmerking**: hoge doorvoersnelheid modus bevindt zich in preview. U kunt ook een werkbelasting distribueren voor meerdere apps indien nodig. | 
 | Acties gelijktijdige uitgaande oproepen | ~2,500 | Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig. | 
 | Runtime-eindpunt: gelijktijdige binnenkomende oproepen |~1,000 | Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig. | 
 | Runtime-eindpunt: aanroepen per 5 minuten lezen  | 60,000 | Werkbelasting kan worden verdelen over meerdere apps naar behoefte. | 
 | Runtime-eindpunt: aanroepen aanroepen per 5 minuten| 45,000 |Werkbelasting kan worden verdelen over meerdere apps naar behoefte. | 
 |||| 
 
-Aan deze beperkingen in de normale verwerking of voer load testen die mogelijk groter is dan deze limiet overschrijden [Neem contact op met het productteam](mailto://logicappsemail@microsoft.com) voor hulp bij uw behoeften.
+Aan deze beperkingen in de normale verwerking of voer load testen die mogelijk groter is dan deze limiet overschrijden [Neem contact op met het team van Logic Apps](mailto://logicappsemail@microsoft.com) voor hulp bij uw behoeften.
 
 ### <a name="logic-app-definition-limits"></a>Limieten voor Logic app-definitie
 
-Deze beperkingen gelden voor een definitie van één logic Apps.
+Hier volgen de limieten voor een definitie van één logische app:
 
 | Naam | Limiet | Opmerkingen | 
 | ---- | ----- | ----- | 
@@ -136,7 +129,7 @@ Deze beperkingen gelden voor aangepaste connectors die u van web-API's maken kun
 
 ### <a name="integration-account-limits"></a>Limieten van integratie
 
-Deze beperkingen gelden voor artefacten die u aan een account voor de integratie toevoegen kunt.
+Hier volgen de limieten voor de artefacten die u aan een account voor de integratie toevoegen kunt.
 
 | Naam | Limiet | Opmerkingen | 
 | ---- | ----- | ----- | 
@@ -155,7 +148,7 @@ Deze beperkingen gelden voor het aantal artefacten die u aan een account voor de
 | Naam | Limiet | Opmerkingen | 
 | ---- | ----- | ----- | 
 | Overeenkomsten | 10 | | 
-| Andere typen artefact | 25 |Artefacten typen zijn partners, schema's, certificaten en maps. Elk type mogelijk tot het maximum aantal van artefacten. | 
+| Andere typen artefact | 25 | Artefacten typen zijn partners, schema's, certificaten en maps. Elk type mogelijk tot het maximum aantal van artefacten. | 
 |||| 
 
 #### <a name="standard-pricing-tier"></a>Standard-prijscategorie
@@ -167,7 +160,7 @@ Deze beperkingen gelden voor het aantal artefacten die u aan een account voor de
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Berichtgrootte B2B-protocollen (AS2, X12, EDIFACT)
 
-Deze beperkingen gelden voor B2B-protocollen.
+Hier volgen de grenzen die betrekking hebben op B2B-protocollen:
 
 | Naam | Limiet | Opmerkingen | 
 | ---- | ----- | ----- | 

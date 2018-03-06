@@ -12,17 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 03/01/2018
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Azure Key Vault instellen met end-to-end sleutelrotatie en -controle
 ## <a name="introduction"></a>Inleiding
 Na het maken van de sleutelkluis, kunt u zich kunt starten dat kluis gebruiken voor het opslaan van uw sleutels en geheimen. Uw toepassingen niet langer nodig hebt voor het persistent maken van uw sleutels of geheimen, maar in plaats daarvan wordt deze aanvragen op de sleutelkluis indien nodig. Hiermee kunt u sleutels en geheimen bijwerken zonder het gedrag van uw toepassing, wat een groot aantal mogelijkheden om uw sleutel en geheime management wordt geopend.
+
+>[!IMPORTANT]
+> De voorbeelden in dit artikel zijn bedoeld ter illustratie. Ze zijn niet bedoeld voor gebruik in productieomgevingen. 
 
 Dit artikel begeleidt bij een voorbeeld van het gebruik van Azure Key Vault voor het opslaan van een geheim in dit geval een Azure Storage-Account-sleutel die is geopend door een toepassing. U ziet ook uitvoering van een geplande rotatie van de sleutel van die opslagaccount. Ten slotte wordt begeleid bij een demonstratie van het bewaken van de controlelogboeken van de sleutelkluis en waarschuwingen genereren wanneer onverwachte aanvragen worden gedaan.
 

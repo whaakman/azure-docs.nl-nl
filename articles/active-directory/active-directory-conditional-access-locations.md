@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2018
+ms.date: 03/01/2018
 ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: 028a3f4411e6984b70e0f98c5cf3284e5be1c3b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.reviewer: calebb
+ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Voorwaarden van de locatie van voorwaardelijke toegang van Azure Active Directory 
 
@@ -120,9 +120,12 @@ Met deze optie kunt u een of meer benoemde locaties selecteren. Voor een beleid 
 
 Beleid voor voorwaardelijke toegang worden geëvalueerd wanneer: 
 
-- Een gebruiker zich in eerste instantie aanmeldt 
+- Een gebruiker in eerste instantie zich aanmeldt bij een app, mobiele of bureaublad van een webtoepassing. 
 
-- Azure AD geeft een token voor de cloud-app die op het beleid voor voorwaardelijke toegang is ingesteld. 
+- Een mobiele of bureaubladtoepassingen toepassing die gebruikmaakt van moderne verificatie maakt gebruik van een vernieuwingstoken een nieuw toegangstoken verkrijgen. Standaard is dit één keer per uur. 
+
+Dit betekent dat voor mobiele en bureaubladtoepassingen die moderne authenticatie gebruiken, een wijziging in de locatie zou worden gedetecteerd binnen een uur van het wijzigen van de netwerklocatie. Voor mobiele en bureaublad-toepassingen die geen van moderne verificatie gebruikmaken, wordt het beleid toegepast op elke tokenaanvraag. De frequentie van de aanvraag kan variëren, afhankelijk van de toepassing. Op deze manier voor webtoepassingen, het beleid wordt toegepast bij de eerste aanmelding en geschikt is voor de levensduur van de sessie op de webtoepassing. Vanwege verschillen in de sessie levensduur voor toepassingen variëren de tijd tussen de evaluatie van het beleid ook. Elke keer dat de toepassing vraagt om een nieuw token-in wordt het beleid toegepast.
+
 
 Azure AD geeft standaard een token op uurbasis. Na het verplaatsen van buiten het bedrijfsnetwerk, binnen een uur wordt het beleid afgedwongen voor toepassingen die moderne authenticatie gebruiken.
 

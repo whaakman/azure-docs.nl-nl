@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar de nieuwe resourcegroep of abonnement
 
@@ -123,7 +123,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * HDInsight-clusters - Zie [HDInsight-beperkingen](#hdinsight-limitations)
 * IoT Hubs
 * Key Vault
-* Load Balancers
+* Taakverdelers
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -165,7 +165,7 @@ De services die op dit moment niet inschakelen voor het verplaatsen van een reso
 * Beheerde schijven - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Recovery Services-kluis - ook komen niet verplaatsen van de Compute, Network en Storage-resources die zijn gekoppeld aan de Recovery Services-kluis, Zie [Recovery Services-beperkingen](#recovery-services-limitations).
 * Beveiliging
-* StorSimple-apparaatbeheerfunctie
+* StorSimple-Apparaatbeheer
 * Virtuele netwerken (klassiek) - Zie [klassieke implementatie beperkingen](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>Beperkingen van de virtuele Machines
@@ -178,7 +178,7 @@ Beheerde schijven bieden geen ondersteuning voor verplaatsen. Deze beperking bet
 * Momentopnamen die zijn gemaakt van beheerde schijven
 * Beschikbaarheidssets met virtuele machines met beheerde schijven
 
-Virtuele machines die zijn gemaakt op basis van de Marketplace-resources kan niet worden verplaatst tussen abonnementen. De virtuele machine in het huidige abonnement inrichting ervan ongedaan en implementeer opnieuw in het nieuwe abonnement.
+Virtuele machines die zijn gemaakt op basis van de Marketplace-resources met plannen gekoppeld kan niet worden verplaatst tussen resourcegroepen of abonnementen. De virtuele machine in het huidige abonnement inrichting ervan ongedaan en implementeer opnieuw in het nieuwe abonnement.
 
 Virtuele Machines met Sleutelkluis opgeslagen certificaat kan worden verplaatst naar een nieuwe resourcegroep in hetzelfde abonnement, maar niet voor abonnementen.
 

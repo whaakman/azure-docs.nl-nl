@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16d9431ec0a0425c8433557fe384864bb599bf1f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snelstartgids: Uw eerste rand van de IoT-module van de Azure-portal naar een Windows-apparaat implementeren - voorbeeld
 
@@ -122,6 +122,12 @@ docker logs -f tempSensor
 
 U kunt ook weergeven met de telemetrie verzenden van het apparaat met behulp van de [IoT Hub explorer hulpprogramma][lnk-iothub-explorer]. 
 ## <a name="clean-up-resources"></a>Resources opschonen
+
+Als u verwijderen van het gesimuleerde apparaat die u hebt gemaakt wilt, samen met de Docker-containers die zijn gestart voor elke module, gebruikt u de volgende opdracht: 
+
+```cmd
+iotedgectl uninstall
+```
 
 Als u niet langer de IoT-Hub die u hebt gemaakt, kunt u de [az iot hub verwijderen] [ lnk-delete] opdracht om de resource en alle apparaten die zijn gekoppeld aan deze te verwijderen:
 

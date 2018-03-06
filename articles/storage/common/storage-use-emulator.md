@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 7d86d5e8547d977c07cfbb0597b74382172a8472
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>De Azure-opslagemulator gebruiken voor ontwikkeling en testen
 
@@ -43,6 +43,14 @@ De opslagemulator maakt verbinding met SQL Server of LocalDB met Windows-verific
 Een paar verschillen in functionaliteit bestaan tussen de opslagemulator en Azure storage-services. Zie voor meer informatie over deze verschillen, de [verschillen tussen de opslagemulator en Azure Storage](#differences-between-the-storage-emulator-and-azure-storage) verderop in dit artikel.
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Start en de opslagemulator initialiseren
+
+### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[De Azure-opslagemulator in Docker uitvoeren](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
+```
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
+```
+
+### <a name="using-sdk"></a>Met behulp van SDK
+
 Starten van de Azure-opslagemulator:
 1. Selecteer de **Start** of drukt u op de **Windows** sleutel.
 1. Begint te typen `Azure Storage Emulator`.
@@ -140,9 +148,9 @@ Het volgende adres kan bijvoorbeeld worden gebruikt voor toegang tot een blob in
 
 De service-eindpunten voor de opslagemulator zijn:
 
-* BLOB-service:`http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Queue-service:`http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Tabelservice:`http://127.0.0.1:10002/<account-name>/<resource-path>`
+* BLOB-service: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+* Queue-service: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Tabelservice: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Adressen van de secundaire met RA-GRS-account
 Vanaf versie 3.1 is ondersteunt de opslagemulator geografisch redundante replicatie van leestoegang (RA-GRS). Storage-resources in de cloud en in de lokale emulator, u kunt toegang tot de secundaire locatie door voegen - ondergeschikt aan de accountnaam. Het volgende adres kan bijvoorbeeld worden gebruikt voor toegang tot een blob met behulp van de secundaire alleen-lezen in de opslagemulator:
@@ -171,7 +179,7 @@ Als u wilt weergeven in de lijst met opties, typt u `/help` bij de opdrachtpromp
 | Optie | Beschrijving | Opdracht | Argumenten |
 | --- | --- | --- | --- |
 | **Beginnen** |De opslagemulator wordt opgestart. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Start de emulator in het huidige proces in plaats van een nieuw proces maken. |
-| **Stoppen** |Hiermee stopt de opslagemulator. |`AzureStorageEmulator.exe stop` | |
+| **Stop** |Hiermee stopt de opslagemulator. |`AzureStorageEmulator.exe stop` | |
 | **Status** |De status van de opslagemulator afgedrukt. |`AzureStorageEmulator.exe status` | |
 | **Wissen** |Hiermee wist u de gegevens in alle services die op de opdrachtregel opgegeven. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*BLOB*: wist blob-gegevens. <br/>*wachtrij*: wist wachtrijgegevens. <br/>*tabel*: tabelgegevens worden gewist. <br/>*alle*: alle gegevens in alle services worden gewist. |
 | **Init** |Voert eenmalig initialisatie voor het instellen van de emulator. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server Servernaam\exemplaarnaam*: Hiermee geeft u op de server die als host fungeert voor de SQL-exemplaar. <br/>*-sqlinstance instanceName*: Hiermee geeft u de naam van het SQL-exemplaar moet worden gebruikt in het standaardexemplaar van de server. <br/>*-forcecreate*: forceert de creatie van de SQL-database, zelfs als deze al bestaat. <br/>*-skipcreate*: maken van de SQL-database wordt overgeslagen. Dit heeft voorrang boven - forcecreate.<br/>*-reserveports*: probeert te reserveren van de HTTP-poorten die zijn gekoppeld aan de services.<br/>*-unreserveports*: pogingen om te verwijderen van de reserveringen voor de HTTP-poorten die zijn gekoppeld aan de services. Dit heeft voorrang boven - reserveports.<br/>*-inprocess*: initialisatie in het huidige proces in plaats van een nieuwe aanmaakproces uitvoert. Het huidige proces moet worden gestart met verhoogde machtigingen als poort reserveringen wilt wijzigen. |

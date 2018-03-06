@@ -5,21 +5,21 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f93c74d0c2f66e6a5001289efca07f074e3d3c5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning-experimenten Service configureren
 
 ## <a name="overview"></a>Overzicht
-Azure Machine Learning experimenteren Service kunt gegevenswetenschappers uit te voeren hun experimenten met behulp van de uitvoering van de Azure Machine Learning en beheerfuncties uitvoeren. Dit biedt een raamwerk voor flexibele experimenteren met snel herhalingen. Azure Machine Learning Workbench kunt u beginnen met lokale wordt uitgevoerd op uw computer en biedt een eenvoudige manier voor het schalen van en buiten in andere omgevingen zoals externe gegevens wetenschappelijke VMs met een GPU of met Spark HDInsight-Clusters.
+Azure Machine Learning experimenteren Service kunt gegevenswetenschappers uit te voeren hun experimenten met behulp van de uitvoering van de Azure Machine Learning en beheerfuncties uitvoeren. Dit biedt een raamwerk voor flexibele experimenteren met snel herhalingen. Azure Machine Learning Workbench kunt u beginnen met lokale wordt uitgevoerd op uw computer en een eenvoudige manier voor het schalen van en buiten in andere omgevingen zoals externe gegevens wetenschappelijke VMs met een GPU of met Spark HDInsight-Clusters.
 
 Experimenteren Service is gebouwd voor het ontwikkelen van uw experimenten is geïsoleerd, reproduceerbare en consistente uitgevoerd. Dit helpt u bij uw doelen voor compute, omgevingen kan worden uitgevoerd, beheren en uitvoeren van configuraties. Met behulp van de Azure Machine Learning Workbench uitvoering en beheerfuncties uitvoeren, kunt u gemakkelijk verplaatsen tussen verschillende omgevingen. 
 
@@ -27,9 +27,10 @@ U kunt een Python of PySpark-script uitvoeren in een project Workbench lokaal of
 
 U kunt uw scripts uitvoeren op: 
 
-* (3.5.2) Python-omgeving op de lokale computer is geïnstalleerd door de Workbench.
+* (3.5.2) Python-omgeving op de lokale computer is geïnstalleerd door Workbench
 * Conda Python-omgeving binnen een Docker-container op lokale computer
-* Conda Python-omgeving binnen een Docker-container op een externe Linux-machine. Bijvoorbeeld, een [Ubuntu gebaseerde DSVM op Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
+* Op een Python-omgeving die u bezit en beheren op een externe Linux-computer
+* Conda Python-omgeving binnen een Docker-container op een externe Linux-machine. Bijvoorbeeld, een [Ubuntu gebaseerde DSVM op Azure] (https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [HDInsight voor Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) op Azure
 
 >[!IMPORTANT]
@@ -47,6 +48,7 @@ _AZ ml computetarget koppelen_ opdracht in de CLI kunt u voor het maken van een 
 Ondersteunde compute doelen zijn:
 * Lokale omgeving Python (3.5.2) op uw computer is geïnstalleerd door de Workbench.
 * Lokale Docker op uw computer
+* Gebruikers wordt beheerd, Python-omgeving op externe Linux Ubuntu virtuele machines. Bijvoorbeeld, een [Ubuntu gebaseerde DSVM op Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * Externe Docker op Linux-Ubuntu virtuele machines. Bijvoorbeeld, een [Ubuntu gebaseerde DSVM op Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [HDInsight Spark-cluster](https://azure.microsoft.com/services/hdinsight/apache-spark/) op Azure
 
@@ -69,14 +71,14 @@ Conda wordt gebruikt voor het beheren van Docker lokale en externe Docker-uitvoe
 ### <a name="run-configuration"></a>Configuratie uitvoeren
 Naast de compute-omgeving voor doel en kan worden uitgevoerd, biedt Azure Machine Learning een framework om te definiëren en te wijzigen *configuraties uitvoeren*. Verschillende uitvoeringen van uw experiment wellicht andere configuratie als onderdeel van terugkerende experimenten nodig. U verstrekkende verschillende parameter bereiken, om de volgende met behulp van verschillende gegevensbronnen en het afstemmen van spark-parameters. Experimenteren-Service biedt een framework voor het beheren van configuraties uitvoeren.
 
-Met _az ml computetarget koppelen_ opdracht geeft u twee bestanden in uw **aml_config** map in uw project: een .compute en een .runconfig volgen van deze overeenkomst: _< your_ computetarget_name > .compute_ en _< your_computetarget_name > .runconfig_. Het bestand .runconfig wordt automatisch gemaakt voor uw gemak bij het maken van een compute-doel. U kunt maken en beheren van andere uitvoeren configuraties met _az ml runconfigurations_ opdracht in de CLI. U kunt ook maken en deze te bewerken op het bestandssysteem.
+Met _az ml computetarget koppelen_ opdracht geeft u twee bestanden in uw **aml_config** map in uw project: een '.compute' en een '.runconfig' volgen van deze overeenkomst: _< your_ computetarget_name > .compute_ en _< your_computetarget_name > .runconfig_. Het bestand .runconfig wordt automatisch gemaakt voor uw gemak bij het maken van een compute-doel. U kunt maken en beheren van andere uitvoeren configuraties met _az ml runconfigurations_ opdracht in de CLI. U kunt ook maken en deze te bewerken op het bestandssysteem.
 
 Voer de configuratie in Workbench kunt u omgevingsvariabelen opgeven. U kunt omgevingsvariabelen opgeven en deze gebruiken in uw code door de volgende sectie toe te voegen in het bestand .runconfig. 
 
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+    "EXAMPLE_ENV_VAR1": "Example Value1"
+    "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Deze omgevingsvariabelen kunnen worden geopend in uw code. Bijvoorbeeld, de omgevingsvariabele met de naam 'EXAMPLE_ENV_VAR1' in dit codefragment phyton worden afgedrukt
@@ -101,7 +103,7 @@ Een eenvoudige manier om te starten van de CLI openen van een project in de Work
 Met deze opdracht wordt een terminalvenster waarin kunt u opdrachten voor het uitvoeren van scripts in de huidige projectmap gestart. Deze terminalvenster is geconfigureerd met de 3.5.2 Python-omgeving, die wordt geïnstalleerd door de Workbench.
 
 >[!NOTE]
-> Wanneer u een uitvoert _az ml_ opdracht vanuit het opdrachtvenster hoeft te worden geverifieerd voor Azure. CLI maakt gebruik van een onafhankelijke verificatiecache en vervolgens de bureaublad-app en zich dus bij Workbench betekent niet dat u bent geverifieerd in uw omgeving CLI. Om te verifiëren, de volgende stappen uit te voeren. Verificatietoken cache lokaal voor een bepaalde periode zodat alleen u deze stappen herhalen moet wanneer het token is verlopen. Wanneer het token is verlopen of als u verificatiefouten ziet, voert u de volgende opdrachten uit:
+> Wanneer u een uitvoert _az ml_ opdracht vanuit het opdrachtvenster hoeft te worden geverifieerd voor Azure. CLI maakt gebruik van een onafhankelijke verificatiecache en vervolgens de bureaublad-app en zich dus bij Workbench betekent niet dat u bent geverifieerd in uw omgeving CLI. Om te verifiëren, gebruikt u de volgende stappen. Verificatietoken cache lokaal voor een bepaalde periode zodat alleen u deze stappen herhalen moet wanneer het token is verlopen. Wanneer het token is verlopen of als u verificatiefouten ziet, voert u de volgende opdrachten uit:
 
 ```
 # to authenticate 
@@ -124,7 +126,7 @@ $ az account show
 ## <a name="running-scripts-and-experiments"></a>Uitvoeren van scripts en experimenten
 Met Workbench, kunt u uw Python uitvoeren en scripts PySpark over diverse berekenen doelen met behulp van de _az ml experiment indienen_ opdracht. Deze opdracht moet een definitie van de configuratie uitvoeren. 
 
-Workbench wordt een bijbehorende .runconfig-bestand gemaakt wanneer u een compute-doel maken, maar u kunt aanvullende run configuraties met maken _az ml runconfiguration maken_ opdracht. U kunt ook handmatig de configuratiebestanden uitvoeren bewerken.
+Workbench wordt een bijbehorende runconfig-bestand gemaakt wanneer u een compute-doel maken, maar u kunt aanvullende run configuraties met maken _az ml runconfiguration maken_ opdracht. U kunt ook handmatig de configuratiebestanden uitvoeren bewerken.
 
 Voer configuraties weergegeven als onderdeel van een experiment uitvoert in de Workbench. 
 
@@ -213,16 +215,57 @@ Het proces van de constructie Docker voor externe VM's is precies hetzelfde als 
 >[!TIP]
 >Als u liever om te voorkomen dat de latentie geïntroduceerd door het bouwen van de Docker-afbeelding voor de eerste keer uitvoert, kunt u de volgende opdracht voor het voorbereiden van het doel compute voordat het script wordt uitgevoerd. AZ ml experiment - c remotedocker voorbereiden
 
-
 _**Overzicht van externe vm-uitvoering voor een pythonscript:**_
 ![](media/experimentation-service-configuration/remote-vm-run.png)
+
+## <a name="running-a-script-on-a-remote-vm-targeting-user-managed-environments"></a>Een script uitvoeren op een externe virtuele machine die gericht is op gebruiker beheerde omgevingen
+Experimenteren service ondersteunt ook een script uitgevoerd op de Python-omgeving van gebruiker binnen een externe Ubuntu virtuele machine. Hiermee kunt u uw eigen omgeving voor uitvoering beheren en nog steeds gebruik van Azure Machine Learning-mogelijkheden. 
+
+De volgende stappen voor het uitvoeren van uw script op uw eigen omgeving.
+* Bereid uw Python-omgeving op een externe Ubuntu VM of een installatie van de afhankelijkheden DSVM.
+* Vereisten voor Azure Machine Learning met de volgende opdracht installeren.
+
+```
+pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+
+>[!TIP]
+>In sommige gevallen moet u wellicht deze opdracht uitvoert in de modus sudo, afhankelijk van uw bevoegdheden. 
+```
+sudo pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+ 
+* Gebruik de volgende opdracht in de definitie van de compute-doel en de uitvoering configuratie voor gebruikers wordt beheerd wordt uitgevoerd op externe VM-uitvoeringen te maken.
+```
+az ml computetarget attach remote --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
+```
+>[!NOTE]
+>Hierdoor wordt de parameter 'userManagedEnvironment' ingesteld in uw configuratiebestand .compute op true.
+
+* Locatie van uw Python-runtime uitvoerbare instellen in uw bestand .compute. U moet verwijzen naar het volledige pad van uw uitvoerbare python. 
+```
+pythonLocation: python3
+```
+
+Zodra u de compute-doel hebt geconfigureerd, kunt u de volgende opdracht om uit te voeren van uw script.
+```
+$ az ml experiment submit -c remotevm myscript.py
+```
+
+>[!NOTE]
+> Als u op een DSVM uitvoert, moet u de volgende opdrachten gebruiken
+
+Als u uitvoeren rechtstreeks op de DSVM globale python-omgeving wilt, moet u deze opdracht uitvoeren.
+```
+sudo /anaconda/envs/py35/bin/pip install <package>
+```
 
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Een script uitgevoerd op een HDInsight-cluster
 HDInsight is een populair platform voor big data-analyses Apache Spark ondersteunen. Workbench kunt experimenteren big Data met behulp van HDInsight Spark-clusters. 
 
 >[!NOTE]
->Het HDInsight-cluster moet Azure Blob gebruiken als de primaire opslag. Het gebruik van Azure Data Lake-opslag wordt nog niet ondersteund.
+>Het HDInsight-cluster moet Azure Blob als primaire opslag gebruiken. Het gebruik van Azure Data Lake-opslag wordt nog niet ondersteund.
 
 U kunt een compute-doel maken en configuratie voor een HDInsight Spark-cluster met de volgende opdracht uitvoeren:
 
@@ -281,4 +324,4 @@ az ml experiment prepare -c remotevm
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Maak en installeer Azure Machine Learning](quickstart-installation.md)
-* [Model-Management](model-management-overview.md)
+* [Model Management](model-management-overview.md)

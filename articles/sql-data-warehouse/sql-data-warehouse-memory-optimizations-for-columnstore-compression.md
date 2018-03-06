@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: barbkess
-ms.openlocfilehash: 0476afb875616ed0758835aa52fb2334b63959a9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Het optimaliseren van rijgroep kwaliteit voor columnstore
 
@@ -139,7 +139,7 @@ OPTION (MAXDOP 1);
 
 DWU-grootte en de resource gebruikersklasse samen bepalen hoeveel geheugen beschikbaar is voor de aanvraag voor een gebruiker. Voor een verhoging van de geheugentoekenning voor een load-query kunt u Verhoog het aantal dwu's of vergroot de bronklasse.
 
-- Zie voor een verhoging van het aantal dwu's [hoe schalen prestaties?](sql-data-warehouse-manage-compute-overview.md#scale-compute)
+- Zie voor een verhoging van het aantal dwu's [hoe schalen prestaties?](quickstart-scale-compute-portal.md)
 - Zie het wijzigen van de bronklasse voor een query [wijzigen van een voorbeeld van een gebruiker resource klasse](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
 Bijvoorbeeld op DWU 100 kunt een gebruiker in de bronklasse smallrc 100 MB aan geheugen voor elk distributiepunt. Zie voor meer informatie, [gelijktijdigheid in SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).

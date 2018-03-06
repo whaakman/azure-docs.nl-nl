@@ -9,6 +9,12 @@
   items:
     - name: Een Databricks-werkruimte maken
       href: quickstart-create-databricks-workspace-portal.md
+- name: Handleidingen
+  items:
+    - name: 'Verbinding maken met Excel, R en Python'
+      href: connect-databricks-excel-python-r.md
+    - name: Databricks CLI van Azure Cloud Shell gebruiken
+      href: databricks-cli-from-azure-cloud-shell.md
 - name: Resources
   items:
     - name: Veelgestelde vragen

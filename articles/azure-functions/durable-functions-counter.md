@@ -14,13 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 46cdd8523117e1100e7ce2a29ade9eb2dc0afe75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Stateful singletons in duurzame functies - teller voorbeeld
+
+> [!NOTE]
+> We herschrijven van dit voorbeeld. De codefragmenten zijn verwijderd en wordt vervangen door een nieuw artikel voor een voorbeeld van een nieuwe.
 
 Stateful singletons zijn langlopende (mogelijk eeuwige) orchestrator-functies die kunnen worden opgeslagen status en worden aangeroepen en opgevraagd met andere functies. Stateful singletons zijn vergelijkbaar met de [Actor model](https://en.wikipedia.org/wiki/Actor_model) in gedistribueerde computeromgevingen.
 
@@ -51,15 +54,15 @@ Dit artikel begeleidt u bij de **E3_Counter** functie in de voorbeeld-app.
 
 De volgende secties worden de code die wordt gebruikt voor het ontwikkelen van Visual Studio Code en Azure-Portal.
 
-### <a name="c-script"></a>C#-Script
+### <a name="c-script"></a>C# Script
 
 Het bestand function.json:
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+<!-- [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)] -->
 
 Het bestand run.csx:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)] -->
 
 ### <a name="precompiled-c"></a>Vooraf gecompileerde C# 
 
@@ -67,7 +70,7 @@ De volgende secties worden de code die wordt gebruikt voor het ontwikkelen van V
 
 Dit is de code die de orchestrator-functie implementeert:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)] -->
 
 ### <a name="explanation-of-the-code"></a>Uitleg van de code
 
@@ -85,7 +88,7 @@ Een uniek kenmerk van deze functie orchestrator is dat de effectief geen geschie
 > [!NOTE]
 > De `ContinueAsNew` -methode heeft een andere gebruiksvoorbeeld naast eeuwige integraties. Zie voor meer informatie [eeuwige integraties](durable-functions-eternal-orchestrations.md).
 
-## <a name="run-the-sample"></a>Het voorbeeld uitvoert
+## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 
 U kunt de orchestration starten door de volgende HTTP POST-aanvraag te verzenden. Om toe te staan `counterState` om te beginnen bij nul (de standaardwaarde voor `int`), er is geen inhoud in deze aanvraag.
 

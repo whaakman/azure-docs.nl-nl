@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: klam; LADocs
+ms.openlocfilehash: de4f4ee086fbf3799fcac1f1b008d9237b5e7a09
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Bel, trigger of nesten van werkstromen met HTTP-eindpunten in logic apps
 
@@ -30,12 +30,12 @@ U kunt deze triggers voor het maken van HTTP-eindpunten toevoegen zodat uw logis
 
 * [Aanvraag](../connectors/connectors-native-reqres.md)
 
-* [API-verbinding Webhook](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
+* [API-verbinding Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
 * [HTTP-webhook](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > Hoewel onze voorbeelden gebruiken de **aanvragen** worden geactiveerd, kunt u een van de vermelde HTTP-triggers en alle principles identiek toepassen op de andere triggertypen.
+   > Hoewel deze voorbeelden gebruiken de **aanvragen** worden geactiveerd, kunt u een van de vermelde HTTP-triggers en alle principles identiek toepassen op de andere triggertypen.
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Een HTTP-eindpunt voor uw logische app instellen
 
@@ -94,7 +94,7 @@ Voeg een trigger die inkomende aanvragen kan ontvangen voor het maken van een HT
     }
     ```
 
-4.  Sla uw logische app. Onder **HTTP POST naar deze URL**, u ziet nu een gegenereerde retouraanroep-URL, zoals in dit voorbeeld:
+4.  Sla uw logische app op. Onder **HTTP POST naar deze URL**, u ziet nu een gegenereerde retouraanroep-URL, zoals in dit voorbeeld:
 
     ![URL van de gegenereerde retouraanroep voor het eindpunt](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
@@ -153,11 +153,11 @@ Als u wilt dat uw HTTP-eindpunt-URL parameters accepteert, aanpassen van uw trig
 
     ![Antwoordtekst met de parameter](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
-6. Sla uw logische app. 
+6. Sla uw logische app op. 
 
     De HTTP-eindpunt-URL bevat nu het relatieve pad, bijvoorbeeld: 
 
-    HTTPS & # 58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
+    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
 
 7. Als u wilt testen van uw HTTP-eindpunt, kopieer en plak de bijgewerkte URL in een ander browservenster, maar vervang `{customerID}` met `123456`, en druk op Enter.
 
@@ -166,6 +166,7 @@ Als u wilt dat uw HTTP-eindpunt-URL parameters accepteert, aanpassen van uw trig
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Tokens die zijn gegenereerd op basis van de JSON-schema's voor uw logische app
 
 Wanneer het bieden van een JSON-schema in uw **aanvragen** worden geactiveerd, de Logic App-ontwerper genereert tokens voor eigenschappen in dat het schema. U kunt deze tokens vervolgens gebruiken voor het doorgeven van gegevens via uw logische app-werkstroom.
@@ -206,6 +207,9 @@ U kunt werkstromen in uw logische app nesten door toe te voegen andere logic app
 
 Nadat u uw HTTP-eindpunt hebt gemaakt, kunt u uw logische app via activeren een `POST` methode voor de volledige URL. Logische apps hebben een ingebouwde ondersteuning voor directe toegang eindpunten.
 
+> [!NOTE] 
+> Kiezen voor een logische app handmatig uitvoeren op elk gewenst moment op de werkbalk Logic App-ontwerper of Logic App codeweergave **uitvoeren**.
+
 ## <a name="reference-content-from-an-incoming-request"></a>Referentie-inhoud van een binnenkomende aanvraag
 
 Als de inhoud type `application/json`, kunt u verwijzen naar eigenschappen van de binnenkomende aanvraag. Anders wordt inhoud behandeld als één eenheid binaire die u aan andere API's doorgeven kunt. Om te verwijzen naar deze inhoud in de werkstroom, moet u die inhoud te converteren. Bijvoorbeeld, als u doorgeeft `application/xml` inhoud, kunt u `@xpath()` voor een extractie XPath of `@json()` voor XML converteren naar JSON. Meer informatie over [werken met inhoudstypen](../logic-apps/logic-apps-content-type.md).
@@ -234,7 +238,7 @@ Het is raadzaam om te reageren op bepaalde verzoeken die een logische app starte
 
 ### <a name="construct-the-response"></a>Het antwoord maken
 
-U kunt meer dan één header en elk type inhoud in de hoofdtekst van antwoord opnemen. In ons voorbeeld-antwoord bevat de header dat het antwoord type inhoud heeft `application/json`. en de hoofdtekst bevat `title` en `name`, op basis van de JSON-schema eerder bijgewerkt in verband met de **aanvragen** trigger.
+U kunt meer dan één header en elk type inhoud in de hoofdtekst van antwoord opnemen. De berichtheader geeft in het antwoord voorbeeld, dat het antwoord type inhoud heeft `application/json`. en de hoofdtekst bevat `title` en `name`, op basis van de JSON-schema eerder bijgewerkt in verband met de **aanvragen** trigger.
 
 ![HTTP-antwoord actie][3]
 
@@ -243,8 +247,8 @@ Antwoorden hebben deze eigenschappen:
 | Eigenschap | Beschrijving |
 | --- | --- |
 | statusCode |Hiermee geeft u de HTTP-statuscode voor het reageren op de binnenkomende aanvraag. Deze code kan geldige statuscode die met 2xx, 4xx of 5xx begint zijn. Statuscodes 3xx zijn echter niet toegestaan. |
-| Headers |Hiermee definieert u een willekeurig aantal kopteksten in het antwoord op te nemen. |
-| Hoofdtekst |Hiermee geeft u een instantie-object dat kan bestaan uit een tekenreeks, een JSON-object of zelfs binaire inhoud waarnaar wordt verwezen vanuit de vorige stap. |
+| headers |Hiermee definieert u een willekeurig aantal kopteksten in het antwoord op te nemen. |
+| hoofdtekst |Hiermee geeft u een instantie-object dat kan bestaan uit een tekenreeks, een JSON-object of zelfs binaire inhoud waarnaar wordt verwezen vanuit de vorige stap. |
 
 Hier ziet u hoe de JSON-schema eruit ziet nu voor de **antwoord** actie:
 
@@ -300,7 +304,7 @@ A: Hier volgt een samenvatting over deze wijzigingen:
 | Basisverificatie of OAuth-verificatie configureren |via API-beheer |
 | Configureren van HTTP-methode |Onder **geavanceerde opties weergeven**, kiest u een HTTP-methode |
 | Relatief pad configureren |Onder **geavanceerde opties weergeven**, voegt u een relatief pad |
-| Verwijst naar de hoofdtekst van het binnenkomende via`@triggerOutputs().body.Content` |Verwijzing via`@triggerOutputs().body` |
+| Verwijst naar de hoofdtekst van het binnenkomende via `@triggerOutputs().body.Content` |Verwijzing via `@triggerOutputs().body` |
 | **HTTP-antwoord verzonden** actie op de HTTP-Listener |Klik op **reageert op HTTP-aanvraag** (Er is geen API App vereist) |
 
 ## <a name="get-help"></a>Help opvragen

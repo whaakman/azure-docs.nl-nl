@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3eaf42f8d0bdad274ec92f5790fe79878500a1b2
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Kolom afgeleid door voorbeeld transformatie
 
@@ -115,9 +115,9 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 3
 |LAURIER AVE & OAKDALE AVE;  HORSHAM; Station 352; 2015-12-10 @ 16:46:48;|Horsham|
 |Extern bureaublad COLLEGEVILLE & LYWISKI RD;  SKIPPACK; Station 336; 2015-12-10 @ 16:17:05;|Skippack|
 |MAIN ST & oude SUMNEYTOWN SNOEK;  LAGERE SALFORD; Station 344; 2015-12-10 @ 16:51:42;|Lagere Salford|
-|BLUEROUTE & RAMP I476 NB NAAR CHEMISCHE RD; PLYMOUTH; 2015-12-10 @ 17:35:41;|Plymouth|
-|RT202 PKWY & KNAPP RD; MONTGOMERY; 2015-12-10 @ 17:33:50;|Montgomery|
-|SOORT RD & COLWELL RG; PLYMOUTH; 2015-12-10 @ 16:32:10;|Plymouth|
+|BLUEROUTE &AMP; RAMP I476 NB NAAR CHEMISCHE RD; PLYMOUTH; 2015-12-10 @ 17:35:41;|Plymouth|
+|RT202 PKWY &AMP; KNAPP RD; MONTGOMERY; 2015-12-10 @ 17:33:50;|Montgomery|
+|SOORT RD &AMP; COLWELL RG; PLYMOUTH; 2015-12-10 @ 16:32:10;|Plymouth|
 
 ### <a name="s3-date-format-manipulation-during-string-extraction"></a>S3. De datumnotatie manipulatie tijdens de extractie van tekenreeks
 
@@ -127,10 +127,10 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 1
 |:-----|:-----|
 |MONTGOMERY AVE & WOODSIDE RD;  LAGERE MERION; Station 313; 2015-12-11 @ 04:11:35;|**12 november 2015 4 uur**|
 |DREYCOTT RG & W LANCASTER AVE;  LAGERE MERION; Station 313; 2015-12-11 @ 01:29:52;|12 Nov 2015 1AM|
-|EXTERN BUREAUBLAD-FABRIEK VOOR E-LEVERING & CONSHOHOCKEN STATUS RD; LAGERE MERION; 2015-12-11 @ 07:29:58;|12 Nov 2015 7AM|
+|EXTERN BUREAUBLAD-FABRIEK VOOR E-LEVERING &AMP; CONSHOHOCKEN STATUS RD; LAGERE MERION; 2015-12-11 @ 07:29:58;|12 Nov 2015 7AM|
 |PENN VALLEY RD & MANOR RD;  LAGERE MERION; Station 313; 2015-12-10 @ 20:53:30;|12 Oct 2015 8 uur|
-|BELMONT AVE & OVERHILL RD; LAGERE MERION; 2015-12-10 @ 23:02:27;|12 Oct 2015 23: 00 uur|
-|W MONTGOMERY AVE & PENNSWOOD RD; LAGERE MERION; 2015-12-10 @ 19:25:22;|12 Oct 2015 19 uur|
+|BELMONT AVE &AMP; OVERHILL RD; LAGERE MERION; 2015-12-10 @ 23:02:27;|12 Oct 2015 23: 00 uur|
+|W MONTGOMERY AVE &AMP; PENNSWOOD RD; LAGERE MERION; 2015-12-10 @ 19:25:22;|12 Oct 2015 19 uur|
 |ROSEMONT AVE & ONBESTELBARE einde;  LAGERE MERION; Station 313; 2015-12-10 @ 18:43:07;|12 Oct 2015 18: 00 uur|
 |AVIGNON DR & ONBESTELBARE einde; LAGERE MERION; 2015-12-10 @ 20:01:29-station: STA24;|12 Oct 2015 8 uur|
 
@@ -147,12 +147,12 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 1
 |Claudio|A|Kauwen|**Claudio·A·Chew**|
 |Sarah-Jane|S|Smith|Sarah-Jane·S·Smith|
 |Brandi||Blumenthal|Brandi·· Blumenthal|
-|Jesusita|V|Reis|Jesusita·R·Journey|
+|Jesusita|R|Reis|Jesusita·R·Journey|
 |Hermina||Hults|Hermina·· Hults|
 |Anne-Marie|W|Jones|Anne-Marie·W·Jones|
 |Rico||Ropp|Rico··Ropp|
 |Lauren-May||Fullmer|Lauren-May··Fullmer|
-|Tony|D|Maine|Marc·T·Maine|
+|Tony|T|Maine|Marc·T·Maine|
 |Angie||Adelman|Angie··Adelman|
 |John-Paul||Smith|John-Paul··Smith|
 |Nummer|W|Staller|Song·W·Staller|
@@ -189,14 +189,14 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 3
 |Administratieve geslacht|Uitvoer|
 |:-----|:-----:|
 |Man|**0**|
-|Vrouw|**1**|
+|vrouwelijk|**1**|
 |Onbekend|**2**|
-|Vrouw|1|
-|Vrouw|1|
+|vrouwelijk|1|
+|vrouwelijk|1|
 |Man|0|
 |Onbekend|2|
 |Man|0|
-|Vrouw|1|
+|vrouwelijk|1|
 
 ## <a name="examples-of-number-transformations-by-example"></a>Voorbeelden van aantal transformaties door voorbeeld
 
@@ -270,7 +270,7 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 1
 
 Aantal voorbeelden die vereist voor deze aanvraag zijn: 1
 
-|Coderen|Uitvoer|
+|Code|Uitvoer|
 |-----:|-----:|
 |5828|**05828**|
 |44130|44130|
@@ -290,12 +290,12 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 1
 
 Deze onderdelen van een datum zijn geëxtraheerd met behulp van verschillende door voorbeeld transformaties op dezelfde gegevensset. Vet tekenreeksen vertegenwoordigen in de voorbeelden die zijn opgegeven in hun respectieve transformatie.
 
-|Datum en tijd|werkdag|Datum|Maand|Jaar|Uur|Minuut|Tweede|
+|DateTime|werkdag|Date|Maand|Jaar|Uur|Minuut|Seconde|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**Fri**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
 |17-Jan-1990 13:32:01|wo|17|jan|1990|13|32|01|
 |14-Feb-2034 05:36:07|di|14|feb|2034|5|36|07|
-|14-Mar-2002 13:16:16|do|14|mrt|2002|13|16|16|
+|14-Mar-2002 13:16:16|do|14|maa|2002|13|16|16|
 |21-Jan-1985 05:44:43|ma|21|jan|1985|5|44|**43**|
 |16-Aug-1985 01:11:56|vr|16|aug|1985|1|11|56|
 |20-Dec-2033 18:36:29|di|20|dec|2033|18|36|29|
@@ -310,14 +310,14 @@ Deze onderdelen van een datum zijn geëxtraheerd met behulp van verschillende do
 |11-May-2028 15:31:52|do|11|mei|2028|15|31|52|
 |15-Jul-1977 12:45:39|vr|15|jul|1977|12|45|39|
 |27-Jan-2029 05:55:41|za|27|jan|2029|5|55|41|
-|03-Mar-2024 10:17:49|zo|3|mrt|2024|10|17|49|
+|03-Mar-2024 10:17:49|zo|3|maa|2024|10|17|49|
 |14-Apr-2010 00:23:13|wo|14|apr|2010|0|23|13|
 
 ### <a name="d2-formatting-dates"></a>D2. Datumnotatie
 
 Deze datum formattings zijn gedaan met behulp van verschillende door voorbeeld transformaties op dezelfde gegevensset. Vet tekenreeksen vertegenwoordigen in de voorbeelden die zijn opgegeven in hun respectieve transformatie.
 
-|Datum en tijd|Opmaak 1|Opmaak 2|Format3|Format4|Format5|
+|DateTime|Opmaak 1|Opmaak 2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**1/31/2031**|**Vrijdag 31 januari 2031**|**01312031 5:54**|**1-31/2031 5:54 UUR**|**Q1 2031**|
 |17-Jan-1990 13:32:01|1/17/1990|Woensdag 17 januari 1990|01171990 13:32|17-1-1990 13:32 UUR|Q1 1990|
@@ -345,7 +345,7 @@ Deze datum formattings zijn gedaan met behulp van verschillende door voorbeeld t
 
 Deze datum/tijd in periode toewijzingen zijn gedaan met behulp van verschillende door voorbeeld transformaties op dezelfde gegevensset. Vet tekenreeksen vertegenwoordigen in de voorbeelden die zijn opgegeven in hun respectieve transformatie.
 
-|Datum en tijd|Period(seconds)|Period(MINUTES)|Periode (twee uur)|Periode (30 minuten)|
+|DateTime|Period(seconds)|Period(MINUTES)|Periode (twee uur)|Periode (30 minuten)|
 |-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
 |17-Jan-1990 13:32:01|**0-20**|30-45|1PM-3PM|13:30-14:00|

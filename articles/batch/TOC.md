@@ -42,12 +42,13 @@
 
 ## Pools maken en beheren
 ### [Compute-knooppunten automatisch schalen](batch-automatic-scaling.md)
-### [Rekenintensieve VM’s](batch-pool-compute-intensive-sizes.md)
+### [Kies een VM-grootte voor rekenknooppunten](batch-pool-vm-sizes.md)
 ### [Toegang tot rekenknooppunten configureren](pool-endpoint-configuration.md)
 ### [Een pool maken met een aangepaste installatiekopie](batch-custom-images.md)
 ### [Een pool in een virtueel netwerk maken](batch-virtual-network.md)
-### [Compute-knooppunten in Linux](batch-linux-nodes.md)
-### [Virtuele machines met lage prioriteit](batch-low-pri-vms.md)
+### [Rekenintensieve VM’s gebruiken](batch-pool-compute-intensive-sizes.md)
+### [Compute-knooppunten in Linux gebruiken](batch-linux-nodes.md)
+### [Virtuele machines met lage prioriteit gebruiken](batch-low-pri-vms.md)
 
 ## Taken beheren
 ### [Taken voor taakvoorbereiding- en -voltooiing](batch-job-prep-release.md)

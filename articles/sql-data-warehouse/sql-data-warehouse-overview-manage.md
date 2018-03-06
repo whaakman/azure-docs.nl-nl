@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Databases in Azure SQL Data Warehouse beheren
 SQL Data Warehouse automatiseert veel aspecten van het beheer van uw databases. Bijvoorbeeld, als u wilt schalen prestaties hoeft u alleen te aanpassen en betaalt voor het juiste niveau van rekenresources en laat SQL Data Warehouse het werk van uitbreiden en terug te schalen.
@@ -34,20 +34,20 @@ Dit overzicht bevat informatie over deze aspecten van het beheer van SQL Data Wa
 * Aanbevolen procedures voor prestaties
 * Bewaking van de query
 * Beveiliging
-* Back-ups en herstellen
+* Back-up en herstel
 
 ## <a name="management-tools"></a>Beheerhulpprogramma's
 U kunt verschillende hulpprogramma's gebruiken voor het beheren van databases in SQL Data Warehouse. Als u databases beheren, kunt u het hulpprogramma voorkeuren voor elk type taak die u moet uitvoeren kunt ontwikkelen.
 
 ### <a name="azure-portal"></a>Azure Portal
-De [Azure-portal] [ Azure portal] is een web-portal kunt u maken, bijwerken, en verwijdert u de databases en databaseresources bewaken. Dit hulpprogramma is een goede is als u alleen aan de slag gaat met Azure, het beheren van een klein aantal datawarehouse-databases of snel een bewerking wilt uitvoeren.
+De [Azure-portal] [ Azure portal] is een web-portal kunt u maken, bijwerken, en verwijdert u de databases en databaseresources bewaken. Dit hulpprogramma is ideaal als u alleen aan de slag met Azure, het beheren van een klein aantal gegevens datawarehouse-databases of snel een bewerking wilt uitvoeren.
 
 Als u wilt beginnen met de Azure-portal, Zie [maken van een SQL Data Warehouse (Azure-portal)][Create a SQL Data Warehouse (Azure portal)].
 
 ### <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server Data Tools in Visual Studio
 [SQL Server Data Tools] [ SQL Server Data Tools] (SSDT) in Visual Studio kunt u verbinding wil maken, beheren en ontwikkelen van uw databases. Als u bent een toepassingsontwikkelaar bekend bent met Visual Studio of andere geïntegreerde ontwikkelomgevingen (IDE), probeert u SSDT in Visual Studio.
 
-SSDT bevat de SQL Server Object Explorer waarmee u visualiseren, verbinding maken en uitvoeren van scripts in SQL Data Warehouse-databases. Voor snel verbinding met SQL Data Warehouse, klikt u gewoon op de **openen in Visual Studio** knop in de opdrachtbalk wanneer een details weergeven van de database in de Azure portal.  
+SSDT bevat de SQL Server Object Explorer, waarmee u visualiseren, verbinding maken en uitvoeren van scripts in SQL Data Warehouse-databases. Voor snel verbinding met SQL Data Warehouse, klikt u gewoon op de **openen in Visual Studio** knop in de opdrachtbalk wanneer een details weergeven van de database in de Azure portal.  
 
 Als u wilt beginnen met SSDT in Visual Studio, Zie [Query Azure SQL Data Warehouse met Visual Studio][Query Azure SQL Data Warehouse with Visual Studio].
 
@@ -59,7 +59,7 @@ DMV's zijn de boter brood en van het beheer van SQL Data Warehouse. Er is een vr
 
 Om te beginnen, Zie [Connect en query met sqlcmd][Connect and query with sqlcmd], en [maken van een database (PowerShell)][Create a database (PowerShell)].
 
-## <a name="scale-compute"></a>Scale compute
+## <a name="scale-compute"></a>De schaal van Compute aanpassen
 In SQL Data Warehouse, kunt u snel de prestaties af of terug te vergroten of verkleinen van rekenresources van CPU, geheugen en i/o-bandbreedte te schalen. Als u wilt schalen prestaties, hoeft u is pas het aantal datawarehouse Units (dwu's) die SQL Data Warehouse worden toegewezen aan de database. SQL Data Warehouse snel de wijziging aanbrengt en alle onderliggende wijzigingen aan de hardware of software worden verwerkt.
 
 Zie voor meer informatie over het schalen van dwu's, [prestaties schalen].
@@ -84,8 +84,8 @@ Om te blijven van een beveiligd systeem, moet u zich op de waarschuwing en besch
 
 Voor meer informatie over het beheren van beveiliging, Ga naar de [beveiligingsoverzicht][Security overview].
 
-## <a name="backup-and-restore"></a>Back-ups en herstellen
-Met betrouwbare backps van uw gegevens is een essentieel onderdeel van een productiedatabase. SQL Data Warehouse houdt uw gegevens veilig door automatisch back-ups van uw actieve databases met regelmatige tussenpozen. Deze back-ups kunnen u scenario's waar hebt u uw gegevens beschadigd of per ongeluk verwijderd van uw gegevens of de database herstellen.  Zie voor de back-upschema gegevens bewaarbeleid en hoe u een database [herstellen vanuit een momentopname][Restore from snapshot].
+## <a name="back-up-and-restore"></a>Back-up en herstel
+Met betrouwbare back-ups van uw gegevens is een essentieel onderdeel van een productiedatabase. SQL Data Warehouse houdt uw gegevens veilig door automatisch back-ups van uw actieve databases met regelmatige tussenpozen. Deze back-ups kunnen u scenario's waar hebt u uw gegevens beschadigd of per ongeluk verwijderd van uw gegevens of de database herstellen.  Zie voor de back-upschema gegevens bewaarbeleid en hoe u een database [herstellen vanuit een momentopname][Restore from snapshot].
 
 ## <a name="next-steps"></a>Volgende stappen
 Met behulp van goed ontwerp principes maakt het eenvoudiger voor het beheren van uw databases in SQL Data Warehouse. Ga voor meer informatie naar de [overzicht voor ontwikkelaars][Development overview].
@@ -100,10 +100,10 @@ Met behulp van goed ontwerp principes maakt het eenvoudiger voor het beheren van
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[prestaties schalen]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[prestaties schalen]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

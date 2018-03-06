@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: ad829fc771bf67953315f3f42abd66eaa2628c13
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b9714bc456ad28d9dd46742ca16f52e68c61399
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -300,7 +300,7 @@ Als u wilt gebruiken voor de inhoud van stdout.txt in downstream-activiteiten, k
 
 ## <a name="difference-between-custom-activity-in-azure-data-factory-version-2-and-custom-dotnet-activity-in-azure-data-factory-version-1"></a>Verschil tussen aangepaste activiteit in Azure Data Factory versie 2 en DotNet-activiteit in Azure Data Factory versie 1 (aangepast)
 
-  In Azure Data Factory versie 1, u (aangepast) DotNet activiteit code implementeren met het maken van een .net Class Library-project met een klasse die de Execute-methode van de IDotNetActivity-interface implementeert. De gekoppelde Services, gegevenssets en uitgebreide eigenschappen in (aangepast) DotNet activiteit JSON-nettolading worden doorgegeven aan de methode kan worden uitgevoerd als sterk getypeerde objecten. Raadpleeg voor meer informatie, [DotNet in versie 1 (aangepast)](v1/data-factory-use-custom-activities.md). Vanwege die uw aangepaste code moet worden geschreven in .net Framework 4.5.2 en worden uitgevoerd op de knooppunten op basis van Windows Azure Batch-Pool. 
+  In Azure Data Factory versie 1, u (aangepast) DotNet activiteit code implementeren met het maken van een .net Class Library-project met een klasse die de Execute-methode van de IDotNetActivity-interface implementeert. De gekoppelde Services, gegevenssets en uitgebreide eigenschappen in (aangepast) DotNet activiteit JSON-nettolading worden doorgegeven aan de methode kan worden uitgevoerd als sterk getypeerde objecten. Raadpleeg voor meer informatie, [DotNet in versie 1 (aangepast)](v1/data-factory-use-custom-activities.md). Vanwege deze implementatie uw aangepaste code moet worden geschreven in .net Framework 4.5.2 en worden uitgevoerd op de knooppunten op basis van Windows Azure Batch-Pool. 
 
   In Azure Data Factory-V2 aangepaste activiteit, bent u niet verplicht voor het implementeren van een .net-interface. U kunt nu rechtstreeks opdrachten, scripts, uitvoeren en uw eigen aangepaste code in acht genomen als uitvoerbaar bestand. U bereiken doet door te geven van de eigenschap van de opdracht samen met de eigenschap folderPath. Aangepaste activiteit uploadt het uitvoerbare bestand en de afhankelijkheden in folderpath en voert de opdracht voor u. 
 
@@ -317,7 +317,7 @@ Als u wilt gebruiken voor de inhoud van stdout.txt in downstream-activiteiten, k
 |Uitvoeringsomgeving van het aangepaste regels      |Windows- of Linux      |Windows (.Net Framework 4.5.2)      |
 |Scripts uitvoeren      |Ondersteuning voor het uitvoeren van scripts rechtstreeks (bijvoorbeeld "cmd /c echo Hallo wereld' op de virtuele machine van Windows)      |Implementatie in de .net-DLL-bestand is vereist      |
 |DataSet vereist      |Optioneel      |Vereist voor het koppelen van activiteiten en informatie doorgeven      |
-|Informatie van de activiteit aan aangepaste regels doorgeven      |Via ReferenceObjects (LinkedServices en gegevenssets) en ExtendedProperties (aangepaste eigenschappen) en      |Via ExtendedProperties (aangepaste eigenschappen), invoer en Uitvoergegevenssets      |
+|Informatie van de activiteit aan aangepaste regels doorgeven      |Via ReferenceObjects (LinkedServices en gegevenssets) en ExtendedProperties (aangepaste eigenschappen)      |Via ExtendedProperties (aangepaste eigenschappen), invoer en Uitvoergegevenssets      |
 |Ophalen van informatie aangepaste regels      |Activity.json linkedServices.json en datasets.json opgeslagen in dezelfde map van het uitvoerbare bestand parseren      |Via .net SDK (.Net Frame 4.5.2)      |
 |Logboekregistratie      |Schrijft rechtstreeks naar STDOUT      |Implementatie van berichtenlogboek in .net DLL-bestand      |
 
@@ -331,7 +331,7 @@ Als u wilt gebruiken voor de inhoud van stdout.txt in downstream-activiteiten, k
    - Microsoft.Azure.Management.DataFactories NuGet-pakket is niet langer vereist. 
    - De code compileren, afhankelijkheden en uitvoerbaar bestand uploaden naar Azure Storage en het pad in de eigenschap folderPath definiëren. 
 
-Voor een compleet voorbeeld van hoe de end-to-end-DLL en pijplijn voorbeeld in de Data Factory-versie 1 document beschreven [aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) herschrijven in de Data Factory versie 2 aangepaste activiteit stijl kan zijn. Verwijzen naar een [Data Factory versie 2 aangepaste activiteit voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Voor een compleet voorbeeld van hoe de end-to-end-DLL en pijplijn voorbeeld in de Data Factory-versie 1 document beschreven [aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) opnieuw kan worden geschreven in de Data Factory versie 2 aangepaste activiteit stijl. Verwijzen naar een [Data Factory versie 2 aangepaste activiteit voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatische schaling van Azure Batch
 U kunt ook maken met een Azure Batch-pool met **automatisch schalen** functie. U kunt bijvoorbeeld een azure batch-pool maken met 0 toegewezen virtuele machines en een formule voor automatisch schalen is op basis van het aantal in behandeling zijnde taken. 

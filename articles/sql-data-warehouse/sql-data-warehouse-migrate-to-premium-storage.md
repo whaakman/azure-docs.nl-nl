@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 1e3cdb4aa3af3067b27b6a85212e2a3d27542cc3
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 751f553c277cec579327771beb2f3256664452b1
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Uw datawarehouse migreren naar premium-opslag
 Azure SQL Data Warehouse onlangs geïntroduceerd [premium-opslag voor groter prestaties, voorspelbaarheid][premium storage for greater performance predictability]. Bestaande datawarehouses momenteel op standaardopslag kunnen nu worden gemigreerd naar de premium-opslag. U kunt profiteren van de automatische migratie van of als u liever om te beheren wanneer voor het migreren van (dit heeft betrekking op enige downtime), kunt u de migratie zelf doen.
@@ -32,7 +32,7 @@ Als u een datawarehouse hebt gemaakt voordat de volgende datums, u standaardopsl
 | **Regio** | **Datawarehouse gemaakt voor deze datum** |
 |:--- |:--- |
 | Australië - oost |Premium-opslag is nog niet beschikbaar |
-| China - oost |1 november 2016 |
+| China East |1 november 2016 |
 | China - noord |1 november 2016 |
 | Duitsland - centraal |1 november 2016 |
 | Duitsland - noordoost |1 november 2016 |
@@ -70,7 +70,7 @@ Automatische migraties optreden tussen 18:00 uur en 6:00 uur (lokale tijd per re
 | **Regio** | **Geschatte begindatum** | **Geschatte einddatum** |
 |:--- |:--- |:--- |
 | Australië - oost |Nog niet worden vastgesteld |Nog niet worden vastgesteld |
-| China - oost |9 januari 2017 |13 januari 2017 |
+| China East |9 januari 2017 |13 januari 2017 |
 | China - noord |9 januari 2017 |13 januari 2017 |
 | Duitsland - centraal |9 januari 2017 |13 januari 2017 |
 | Duitsland - noordoost |9 januari 2017 |13 januari 2017 |
@@ -116,7 +116,7 @@ Met het wijzigen naar premium-opslag hebt u ook een toenemend aantal blob-databa
 **Vereisten:**
 
 - Het datawarehouse moet worden uitgevoerd met 1000 datawarehouse eenheden of hoger (Zie [scale rekenkracht][scale compute power]).
-- De gebruiker uitvoeren van het script moet in de [mediumrc rol] [ mediumrc role] of hoger. Een gebruiker toevoegen aan deze rol, uitvoeren van het volgende:````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+- De gebruiker uitvoeren van het script moet in de [mediumrc rol] [ mediumrc role] of hoger. Een gebruiker toevoegen aan deze rol, uitvoeren van het volgende: ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
@@ -173,7 +173,7 @@ Als u problemen ondervindt met uw datawarehouse [Maak een ondersteuningsticket] 
 [Pause]: sql-data-warehouse-manage-compute-portal.md
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
-[scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power
+[scale compute power]: quickstart-scale-compute-portal.md
 [mediumrc role]: sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->

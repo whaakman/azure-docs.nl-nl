@@ -4,18 +4,18 @@ description: Naslaginformatie over Azure Machine Learning-Model gegevens verzame
 services: machine-learning
 author: aashishb
 ms.author: aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 7a0fda8a44d13bcaba84b4124d9b693c05874154
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de5e8bc8880fea5e7f57c88590e32a9fbb60ac6
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Naslaginformatie over Azure Machine Learning-Model gegevens verzameling API
 
@@ -48,7 +48,7 @@ In het score-bestand dat wordt gebruikt voor uitoefening data collector-module e
 ## <a name="model-data-collector-instantiation"></a>Model data collector instantiëring
 Een nieuwe instantie van een ModelDataCollector:
 
-DC = ModelDataCollector (modelnaam, id = 'default', feature_names = geen model_management_account_id = 'Onbekend', webservice_name = 'Onbekend', model_id = 'Onbekend', model_version = 'Onbekend')
+dc = ModelDataCollector(model_name, identifier='default', feature_names=None, model_management_account_id='unknown', webservice_name='unknown', model_id='unknown', model_version='unknown')
 
 Zie de details van klasse en de Parameter:
 
@@ -62,13 +62,13 @@ Zie de details van klasse en de Parameter:
 
 | Naam | Type | Beschrijving |
 |-------------|------------|-------------------------|
-| modelnaam | Tekenreeks | de naam van het model voor welke gegevens worden verzameld |
-| ID | Tekenreeks | de locatie in de code die deze gegevens, dat wil zeggen identificeert 'RawInput' of 'Prediction' |
+| model_name | tekenreeks | de naam van het model voor welke gegevens worden verzameld |
+| identifier | tekenreeks | de locatie in de code die deze gegevens, dat wil zeggen identificeert 'RawInput' of 'Prediction' |
 | feature_names | lijst met tekenreeksen | een lijst met onderdelen die de csv-koptekst als opgegeven geworden |
-| model_management_account_id | Tekenreeks | de id voor het account van de model-beheerserver waarop dit model is opgeslagen. Dit wordt automatisch gevuld wanneer modellen zijn geoperationaliseerd via AML |
-| webservice_name | Tekenreeks | de naam van de webservice waarnaar dit model wordt geïmplementeerd. Dit wordt automatisch gevuld wanneer modellen zijn geoperationaliseerd via AML |
-| model_id | Tekenreeks | De unieke id voor dit model in de context van een model-management-account. Dit wordt automatisch gevuld wanneer modellen zijn geoperationaliseerd via AML |
-| model_version | Tekenreeks | het versienummer van dit model in de context van een model-management-account. Dit wordt automatisch gevuld wanneer modellen zijn geoperationaliseerd via AML |
+| model_management_account_id | tekenreeks | de id voor het account van de model-beheerserver waarop dit model is opgeslagen. Dit wordt automatisch gevuld wanneer modellen zijn geoperationaliseerd via AML |
+| webservice_name | tekenreeks | de naam van de webservice waarnaar dit model wordt geïmplementeerd. Dit wordt automatisch gevuld wanneer modellen zijn geoperationaliseerd via AML |
+| model_id | tekenreeks | De unieke id voor dit model in de context van een model-management-account. Dit wordt automatisch gevuld wanneer modellen zijn geoperationaliseerd via AML |
+| model_version | tekenreeks | het versienummer van dit model in de context van een model-management-account. Dit wordt automatisch gevuld wanneer modellen zijn geoperationaliseerd via AML |
 
 
 
@@ -93,5 +93,5 @@ Zie de details van methode en de Parameter:
 | Naam | Type | Beschrijving |
 |-------------|------------|-------------------------|
 | input_data | meerdere typen | de gegevens te verzamelen (momenteel de lijst met bestandstypen, numpy.array, pandas accepteert. DataFrame, pyspark.sql.DataFrame). Voor dataframe typen, als er een header met functienamen bestaat, deze informatie is opgenomen in de doel-gegevens (zonder expliciet onderdeelnamen in de constructor ModelDataCollector) |
-| user_correlation_id | Tekenreeks | een optionele correlatie-id, die kan worden opgegeven door de gebruiker die deze voorspelling correleren |
+| user_correlation_id | tekenreeks | een optionele correlatie-id, die kan worden opgegeven door de gebruiker die deze voorspelling correleren |
 

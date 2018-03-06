@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 6c4f96ee34d59102ae289e99733216fe0b145e93
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 36814d238aabd12e7cc6947809c135130002eb46
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="execute-data-sources-and-data-preparations-packages-from-python"></a>Gegevensbronnen en gegevens voorbereidingen pakketten van Python uitvoeren
 
@@ -33,9 +33,9 @@ Deze actie wordt een korte pythonscript dat wordt uitgevoerd van het pakket en r
 ## <a name="data-sources"></a>Gegevensbronnen
 
 De `azureml.dataprep.datasource` -module bevat één functie voor het uitvoeren van een gegevensbron en retourneren een dataframe: `load_datasource(path, secrets=None, spark=None)`.
-- `path`is het pad naar de gegevensbron (.dsource-bestand).
-- `secrets`is een optionele woordenboek die sleutels wordt toegewezen aan geheimen.
-- `spark`is een optionele bool die bepaalt of een Spark-dataframe of een dataframe Pandas retourneren. Standaard bepaalt Azure Machine Learning Workbench welk soort dataframe om terug te keren tijdens runtime op basis van context.
+- `path` is het pad naar de gegevensbron (.dsource-bestand).
+- `secrets` is een optionele woordenboek die sleutels wordt toegewezen aan geheimen.
+- `spark` is een optionele bool die bepaalt of een Spark-dataframe of een dataframe Pandas retourneren. Standaard bepaalt Azure Machine Learning Workbench welk soort dataframe om terug te keren tijdens runtime op basis van context.
 
 ## <a name="data-preparations-packages"></a>Gegevens voorbereidingen pakketten
 
@@ -43,13 +43,13 @@ De `azureml.dataprep.package` -module bevat drie functies die een gegevensstroom
 
 ### <a name="execution-functions"></a>Functies worden uitgevoerd
 
-- `submit(package_path, dataflow_idx=0, secrets=None, spark=None)`de opgegeven gegevensstroom voor uitvoering worden verzonden, maar retourneert geen een dataframe.
-- `run(package_path, dataflow_idx=0, secrets=None, spark=None)`de opgegeven gegevensstroom wordt uitgevoerd en de resultaten retourneert als een dataframe.
-- `run_on_data(user_config, package_path, dataflow_idx=0, secrets=None, spark=None)`de opgegeven gegevensstroom op basis van een gegevensbron in het geheugen wordt uitgevoerd en de resultaten retourneert als een dataframe. De `user_config` argument is een dictionary waarmee het absolute pad van een gegevensbron (.dsource-bestand) worden toegewezen aan een gegevensbron van in het geheugen weergegeven als een lijst met lijsten.
+- `submit(package_path, dataflow_idx=0, secrets=None, spark=None)` de opgegeven gegevensstroom voor uitvoering worden verzonden, maar retourneert geen een dataframe.
+- `run(package_path, dataflow_idx=0, secrets=None, spark=None)` de opgegeven gegevensstroom wordt uitgevoerd en de resultaten retourneert als een dataframe.
+- `run_on_data(user_config, package_path, dataflow_idx=0, secrets=None, spark=None)` de opgegeven gegevensstroom op basis van een gegevensbron in het geheugen wordt uitgevoerd en de resultaten retourneert als een dataframe. De `user_config` argument is een dictionary waarmee het absolute pad van een gegevensbron (.dsource-bestand) worden toegewezen aan een gegevensbron van in het geheugen weergegeven als een lijst met lijsten.
 
 ### <a name="common-arguments"></a>Algemene argumenten
 
-- `package_path`is het pad naar het pakket gegevens voorbereidingen (.dprep-bestand).
-- `dataflow_idx`is de op nul gebaseerde index van de gegevensstroom van welke in het pakket uit te voeren. Als de opgegeven gegevensstroom verwijst naar andere gegevensoverdrachten of gegevensbronnen, worden deze ook uitgevoerd.
-- `secrets`is een optionele woordenboek die sleutels wordt toegewezen aan geheimen.
-- `spark`is een optionele bool die bepaalt of een Spark-dataframe of een dataframe Pandas retourneren. Standaard bepaalt Workbench van welke soort dataframe om terug te keren tijdens runtime op basis van de context.
+- `package_path` is het pad naar het pakket gegevens voorbereidingen (.dprep-bestand).
+- `dataflow_idx` is de op nul gebaseerde index van de gegevensstroom van welke in het pakket uit te voeren. Als de opgegeven gegevensstroom verwijst naar andere gegevensoverdrachten of gegevensbronnen, worden deze ook uitgevoerd.
+- `secrets` is een optionele woordenboek die sleutels wordt toegewezen aan geheimen.
+- `spark` is een optionele bool die bepaalt of een Spark-dataframe of een dataframe Pandas retourneren. Standaard bepaalt Workbench van welke soort dataframe om terug te keren tijdens runtime op basis van de context.

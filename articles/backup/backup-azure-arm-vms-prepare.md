@@ -13,26 +13,24 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/21/2017
+ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
 
-In dit artikel bevat de stappen voor het voorbereiden van uw omgeving tot back-up van een Azure Resource Manager geïmplementeerde virtuele machine (VM). De stappen in de procedures gebruikt u de Azure-portal.  
-
-De Azure Backup-service heeft twee soorten kluizen voor het beveiligen van uw virtuele machines: back-upkluizen en de Recovery Services-kluizen. Een back-upkluis beveiligt virtuele machines die worden geïmplementeerd via het klassieke implementatiemodel. Een Recovery Services-kluis beschermt *zowel klassieke geïmplementeerd als Resource Manager geïmplementeerde VM's*. Als u wilt een Resource Manager geïmplementeerde VM beveiligen, moet u een Recovery Services-kluis gebruiken.
+In dit artikel bevat de stappen voor het voorbereiden van uw omgeving tot back-up van een Azure Resource Manager geïmplementeerde virtuele machine (VM). De stappen in de procedures gebruikt u de Azure-portal. De back-upgegevens van de virtuele machine opslaan in een Recovery Services-kluis. De kluis bevat de back-upgegevens voor classic en Resource Manager geïmplementeerde virtuele machines.
 
 > [!NOTE]
 > Azure heeft twee implementatiemodellen voor het maken en werken met resources: [Resource Manager en classic](../azure-resource-manager/resource-manager-deployment-model.md).
 
-Voordat u kunt beveiligen of back-up van een Resource Manager geïmplementeerde virtuele machine, zorg er dan voor dat deze vereisten bestaan:
+Voordat u beveiligen (of back-up) een Resource Manager geïmplementeerde virtuele machine, Controleer of deze vereiste onderdelen aanwezig zijn:
 
-* Een Recovery Services-kluis maken (of een bestaande Recovery Services-kluis identificeren) *in dezelfde locatie als uw VM*.
+* Een Recovery Services-kluis maken (of een bestaande Recovery Services-kluis identificeren) *in dezelfde regio bevinden als uw VM*.
 * Selecteer een scenario, het back-upbeleid definiëren en definiëren van items moeten worden beveiligd.
 * Controleer de installatie van een VM-agent op de virtuele machine.
 * Controleer de netwerkverbinding.
@@ -44,7 +42,7 @@ Als deze voorwaarden al in uw omgeving bestaat, gaat u verder met de [Back-up va
  * **Linux**: Azure Backup ondersteunt [een lijst met distributies die Azure onderschrijft](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), behalve CoreOS Linux. 
  
     > [!NOTE] 
-    > Andere bring-your-eigenaar-Linux-distributies mogelijk werkt, zolang de VM-agent beschikbaar op de virtuele machine is en ondersteuning voor Python bestaat. We tekent echter niet de distributies voor back-up.
+    > Andere bring-your-eigenaar-Linux-distributies mogelijk werkt, zolang de VM-agent beschikbaar op de virtuele machine is en ondersteuning voor Python bestaat. Deze distributies worden echter niet ondersteund.
  * **Windows Server**: versies ouder dan Windows Server 2008 R2 worden niet ondersteund.
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Beperkingen bij een back-up en herstellen van een virtuele machine
@@ -54,16 +52,17 @@ Voordat u uw omgeving hebt voorbereid, zorg er dan voor dat deze beperkingen beg
 * Back-ups van virtuele machines met gegevens groter zijn dan 1023 GB schijfgrootten wordt niet ondersteund.
 
   > [!NOTE]
-  > We hebben een private preview ter ondersteuning van back-ups voor virtuele machines met schijven > 1TB. Raadpleeg voor meer informatie, [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > We hebben een private preview ter ondersteuning van back-ups voor virtuele machines met meer dan één TB schijven. Raadpleeg voor meer informatie, [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Back-ups van virtuele machines met een gereserveerd IP-adres en er is geen gedefinieerde eindpunt wordt niet ondersteund.
-* Back-ups van virtuele machines die zijn gecodeerd met alleen een BitLocker-versleutelingssleutel (BEK) wordt niet ondersteund. Back-ups van virtuele Linux-machines versleuteld door middel van Linux Unified sleutel Setup (LUKS) codering wordt niet ondersteund.
+* Back-ups van virtuele Linux-machines versleuteld door middel van Linux Unified sleutel Setup (LUKS) codering wordt niet ondersteund.
 * Back-ups van virtuele machines met gedeelde clustervolumes (CSV) of Scale-Out File Server-configuratie aanbevolen niet. Ze hebben met betrekking tot alle virtuele machines die zijn opgenomen in de configuratie tijdens de taak van een momentopname van het cluster nodig. Azure Backup biedt geen ondersteuning voor consistentie tussen meerdere VM's. 
 * Back-upgegevens bevat geen gekoppeld netwerkstations gekoppeld aan een virtuele machine.
 * Een bestaande virtuele machine kan tijdens het herstel niet worden vervangen. Als u probeert te herstellen van de virtuele machine wanneer de virtuele machine bestaat, mislukt de herstelbewerking opnieuw.
 * Regio-overschrijdende back-up en herstel worden niet ondersteund.
-* Back-up en herstel van virtuele Machines met niet-beheerde schijven in de storage-accounts met netwerk regels toegepast wordt momenteel niet ondersteund. Tijdens het configureren van back-up, zorg ervoor dat de 'Firewalls en virtuele netwerken' instellingen voor het opslagaccount toegang toestaan via "Alle netwerken."
+* Een back-up en herstellen van virtuele machines met niet-beheerde schijven in opslagaccounts met netwerk regels toegepast, wordt niet ondersteund. 
+* Tijdens het configureren van back up, zorg ervoor dat de **Firewalls en virtuele netwerken** Opslaginstellingen account toegang toestaan via alle netwerken.
 * U kunt back-ups van virtuele machines in alle openbare gebieden van Azure. (Zie de [controlelijst](https://azure.microsoft.com/regions/#services) van ondersteunde regio's.) Als de regio die u zoekt niet vandaag ondersteund wordt, wordt deze niet in de vervolgkeuzelijst weergegeven tijdens het maken van de kluis.
 * Herstellen van een domeincontroller wordt (DC) VM die deel uitmaakt van een multi-DC-configuratie alleen ondersteund door PowerShell. Zie voor meer informatie, [een multi-DC-domeincontroller terugzetten](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Herstellen van virtuele machines waarvoor de volgende speciale netwerkconfiguraties wordt alleen ondersteund door PowerShell. Virtuele machines die zijn gemaakt via de werkstroom terugzetten in de gebruikersinterface wordt geen van deze netwerkconfiguraties nadat de herstelbewerking voltooid is. Zie voor meer informatie, [herstellen van virtuele machines met speciale netwerkconfiguraties](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -106,7 +105,7 @@ Een Recovery Services-kluis maken:
 Nu u uw kluis hebt gemaakt, leert u hoe u de opslagreplicatie instelt.
 
 ## <a name="set-storage-replication"></a>Replicatie van de opslag instellen
-De optie voor opslagreplicatie kunt u kiezen tussen geografisch redundante opslag en lokaal redundante opslag. Uw kluis heeft standaard geografisch redundante opslag. Laat de optie ingesteld op geografisch redundante opslag als dit uw primaire back-up is. Kies lokaal redundante opslag als u een goedkopere optie wilt die minder duurzaam is.
+De optie voor opslagreplicatie kunt u kiezen tussen geografisch redundante opslag en lokaal redundante opslag. Uw kluis heeft standaard geografisch redundante opslag. Laat u de optie-instelling als geografisch redundante opslag voor uw primaire back-up. Als u een goedkopere optie die niet zo duurzaam wilt, kunt u lokaal redundante opslag.
 
 De instelling voor opslagreplicatie bewerken:
 
@@ -126,9 +125,7 @@ De instelling voor opslagreplicatie bewerken:
 Nadat u de opslagoptie voor uw kluis hebt gekozen, bent u klaar om te koppelen van de virtuele machine met de kluis. Voordat u de VM aan de kluis koppelt, moet u eerst de virtuele Azure-machines detecteren en registreren.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Een back-doel selecteren, beleid instellen en definiëren van items moeten worden beveiligd
-Voordat u een virtuele machine met een kluis registreert, voert u het detectieproces om ervoor te zorgen dat de nieuwe virtuele machines die zijn toegevoegd aan het abonnement zijn geïdentificeerd. De query's proces Azure voor de lijst met virtuele machines in het abonnement, samen met informatie zoals de naam van de cloudservice en de regio. 
-
-In de Azure portal *scenario* verwijst naar wat u in de Recovery Services-kluis wordt geplaatst. *Beleid* is de planning voor hoe vaak en wanneer de herstelpunten worden gemaakt. Het beleid bevat ook de bewaartermijn voor de herstelpunten.
+Voordat u een virtuele machine met een Recovery Services-kluis registreert, voert u het detectieproces voor het identificeren van de nieuwe virtuele machines toegevoegd aan het abonnement. Het detectieproces Azure een query voor de lijst met virtuele machines in het abonnement. Als nieuwe virtuele machines zijn gevonden, geeft de portal wordt weergegeven van de cloud-servicenaam en de bijbehorende regio. In de Azure portal, de *scenario* is wat u in de Recovery Services-kluis. *Beleid* is de planning voor hoe vaak en wanneer de herstelpunten worden gemaakt. Het beleid bevat ook de bewaartermijn voor de herstelpunten.
 
 1. Als er al een Recovery Services-kluis is geopend, gaat u verder met stap 2. Als u geen een Recovery Services-kluis openen, opent u de [Azure-portal](https://portal.azure.com/). Op de **Hub** selecteert u **meer services**.
 
@@ -151,7 +148,7 @@ In de Azure portal *scenario* verwijst naar wat u in de Recovery Services-kluis 
 
    De **back-up** en **back-updoel** deelvensters openen.
 
-3. Op de **back-updoel** deelvenster ingesteld **waar wordt uw workload uitgevoerd?** naar **Azure** en **wat wilt u back-up maken?** naar  **Virtuele machine**. Selecteer vervolgens **OK**.
+3. Op de **back-updoel** deelvenster ingesteld **waar wordt uw workload uitgevoerd?** als **Azure** en **wat wilt u back-up maken?** als  **Virtuele machine**. Selecteer vervolgens **OK**.
 
    ![Back-up- en back-updoel deelvensters](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -170,7 +167,7 @@ In de Azure portal *scenario* verwijst naar wat u in de Recovery Services-kluis 
 
    ![Deelvenster 'Virtuele machines selecteren'](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-   De geselecteerde virtuele machine wordt gevalideerd. Als u de virtuele machines die u verwacht te zien niet ziet, controleert u dat ze bestaan in dezelfde Azure-locatie als de Recovery Services-kluis en dat u nog niet is beveiligd in een andere kluis. Het kluisdashboard toont de locatie van de Recovery Services-kluis.
+   De geselecteerde virtuele machine wordt gevalideerd. Als u niet de verwachte virtuele machines niet ziet, Controleer of de virtuele machines in dezelfde Azure-regio als de Recovery Services-kluis. Als u de virtuele machines niet ziet, controleert u of ze nog niet zijn beveiligd met een andere kluis. Het kluisdashboard toont de regio waar de Recovery Services-kluis bestaat.
 
 6. Nu dat u alle instellingen voor de kluis hebt gedefinieerd op de **back-** deelvenster **back-up**. Deze stap wordt het beleid geïmplementeerd voor de kluis en de virtuele machines. Deze stap maakt geen het eerste herstelpunt voor de virtuele machine.
 

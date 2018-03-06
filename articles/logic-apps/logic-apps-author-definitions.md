@@ -1,7 +1,7 @@
 ---
-title: "Werkstromen met JSON - Azure Logic Apps definiëren | Microsoft Docs"
-description: Het schrijven van werkstroomdefinities in JSON voor logic apps
-author: jeffhollan
+title: Voor logic app-definities met JSON - Azure Logic Apps bouwen | Microsoft Docs
+description: Voeg parameters toe, verwerking van tekenreeksen, parameter maps maken en ophalen van gegevens met de datum-functies
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,197 +13,202 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
-ms.date: 03/29/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 7dde5bc4733af1aba34199f332379d2faf566725
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.date: 01/31/2018
+ms.author: LADocs; estfan
+ms.openlocfilehash: d05f7e34cbe670db6733c199e3420c810c304a84
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Werkstroomdefinities voor logische apps met JSON maken
+# <a name="build-on-your-logic-app-definition-with-json"></a>Voor de definitie van de logische app met JSON bouwen
 
-U kunt de werkstroomdefinities voor de maken [Azure Logic Apps](logic-apps-overview.md) met eenvoudig, declaratief JSON-taal. Als u nog niet gedaan hebt, moet u rekening houden [uw eerste logische app maken met Logic App-ontwerper](quickstart-create-first-logic-app-workflow.md). Zie ook de [volledige verwijzing voor de werkstroom Definition Language](http://aka.ms/logicappsdocs).
+Om uit te voeren meer geavanceerde taken met [Azure Logic Apps](../logic-apps/logic-apps-overview.md), kunt u code weergeven om te bewerken van uw logische app-definitie, die eenvoudig, declaratief JSON-taal gebruikt. Als u nog niet gedaan hebt, moet u rekening houden [het maken van uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Zie ook de [volledige verwijzing voor de werkstroom Definition Language](http://aka.ms/logicappsdocs).
 
-## <a name="repeat-steps-over-a-list"></a>Herhaal de stappen via een lijst
+> [!NOTE]
+> Sommige Azure Logic Apps-mogelijkheden, zoals parameters, zijn alleen beschikbaar wanneer u in de weergave van de code voor de definitie van uw logische app werkt. Parameters kunnen u waarden in uw logische app opnieuw gebruiken. Bijvoorbeeld, als u wilt gebruiken hetzelfde e-mailadres in verschillende acties definiëren dat e-mailadres als een parameter.
 
-Als u wilt een matrix met maximaal 10.000 items doorlopen en een actie uitvoert voor elk item, gebruiken de [foreach type](logic-apps-loops-and-scopes.md).
+## <a name="view-and-edit-your-logic-app-definitions-in-json"></a>Weergeven en bewerken van uw logische app definitie van in JSON
 
-## <a name="handle-failures-if-something-goes-wrong"></a>Afhandelen van fouten als er iets mis gaat
+1. Meld u aan bij [Azure Portal](https://portal.azure.com "Azure Portal").
 
-Meestal kunt u wilt opnemen een *herstel stap* : bepaalde logica die wordt uitgevoerd *als* een of meer van uw aanroepen mislukken. In dit voorbeeld ontvangt gegevens van verschillende locaties, maar als de aanroep is mislukt, willen we een bericht ergens zodat we later omlaag die is mislukt bijhouden kunt:  
+2. Kies in het menu links **meer services**. Kies onder **Enterprise Integration** de optie **Logic Apps**. Selecteer uw logische app.
 
+3. Van uw logische app-menu onder **ontwikkelingsprogramma's**, kies **Logic App codeweergave**.
+
+   Het venster codeweergave wordt geopend en toont de definitie van de logische app.
+
+## <a name="parameters"></a>Parameters
+
+Parameters kunnen u waarden in uw logische app opnieuw gebruiken en geschikt zijn voor het vervangen van waarden die u vaak wijzigt. Als u een e-mailadres die u gebruiken op meerdere plaatsen wilt hebt, moet u dat e-mailadres definiëren als een parameter. 
+
+Parameters zijn ook handig als u wilt overschrijven parameters in verschillende omgevingen, meer informatie over [parameters voor de implementatie van](#deployment-parameters) en de [REST-API voor Azure Logic Apps documentatie](https://docs.microsoft.com/rest/api/logic).
+
+> [!NOTE]
+> Parameters zijn alleen beschikbaar in de codeweergave.
+
+In de [eerste voorbeeld logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md), u een werkstroom die wordt verzonden e-mailberichten wanneer nieuwe advertenties worden weergegeven in de RSS-feed van een website gemaakt. De URL van de feed is vastgelegd, zodat dit voorbeeld laat hoe de waarde van de query vervangen door een parameter zien, zodat u de URL van feed eenvoudiger kunt wijzigen.
+
+1. Zoeken in de codeweergave de `parameters : {}` object en voeg een `currentFeedUrl` object:
+
+   ``` json
+     "currentFeedUrl" : {
+      "type" : "string",
+            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+   }
+   ```
+
+2. In de `When_a_feed-item_is_published` actie, vinden de `queries` sectie en vervang de querywaarde met `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
+
+   **Before**
+   ``` json
+   }
+      "queries": {
+          "feedUrl": "https://s.ch9.ms/Feeds/RSS"
+       }
+   },   
+   ```
+
+   **After**
+   ``` json
+   }
+      "queries": {
+          "feedUrl": "#@{parameters('currentFeedUrl')}"
+       }
+   },   
+   ```
+
+   Als u wilt deelnemen aan twee of meer tekenreeksen, u kunt ook de `concat` functie. 
+   Bijvoorbeeld: `"@concat('#',parameters('currentFeedUrl'))"` werkt hetzelfde als het vorige voorbeeld.
+
+3.  Als u bent klaar, kiest u **Opslaan**. 
+
+Nu kunt u de website RSS-feed door een andere URL via de `currentFeedURL` object.
+
+<a name="deployment-parameters"></a>
+
+## <a name="deployment-parameters-for-different-environments"></a>Implementatieparameters voor verschillende omgevingen
+
+Implementatie levenscycli hebben meestal omgevingen voor ontwikkeling, fasering en productie. U kunt bijvoorbeeld de dezelfde definitie van logische Apps gebruiken in alle deze omgevingen maar verschillende databases gebruiken. U wilt ook gebruik van dezelfde definitie over verschillende regio's voor hoge beschikbaarheid, maar elk exemplaar van de app logica van de regio-database te gebruiken. 
+
+> [!NOTE] 
+> Dit scenario verschilt van de parameters op te nemen *runtime* waar moet u de `trigger()` werken in plaats daarvan.
+
+Hier volgt een basisdefinitie:
+
+``` json
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "uri": {
+            "type": "string"
+        }
+    },
+    "triggers": {
+        "request": {
+          "type": "request",
+          "kind": "http"
+        }
+    },
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@parameters('uri')"
+            }
+        }
+    },
+    "outputs": {}
+}
 ```
+In de werkelijke `PUT` aanvragen voor de logic apps kunt u de parameter bieden `uri`. In elke omgeving, kunt u opgeven van een andere waarde voor de `connection` parameter. Omdat een standaardwaarde niet meer bestaat, is deze parameter vereist in de nettolading van de logische app:
+
+``` json
+{
+    "properties": {},
+        "definition": {
+          /// Use the definition from above here
+        },
+        "parameters": {
+            "connection": {
+                "value": "https://my.connection.that.is.per.enviornment"
+            }
+        }
+    },
+    "location": "westus"
+}
+``` 
+
+Zie voor meer informatie, de [REST-API voor Azure Logic Apps documentatie](https://docs.microsoft.com/rest/api/logic/).
+
+## <a name="process-strings-with-functions"></a>Proces tekenreeksen met functies
+
+Logic Apps heeft diverse functies voor het werken met tekenreeksen. Stel dat u wilt een bedrijfsnaam vanuit een order doorgeven naar een ander systeem. Echter, u niet zeker bent over het afhandelen van de juiste voor codering. Base64-codering op deze tekenreeks kan worden uitgevoerd, maar om te voorkomen dat Hiermee heft u in de URL, kunt u verschillende tekens in plaats daarvan vervangen. Bovendien hoeft u alleen een subtekenreeks voor naam van het bedrijf omdat de eerste vijf tekens niet worden gebruikt. 
+
+``` json
 {
   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {},
+  "parameters": {
+    "order": {
+      "defaultValue": {
+        "quantity": 10,
+        "id": "myorder1",
+        "companyName": "NAME=Contoso"
+      },
+      "type": "Object"
+    }
+  },
   "triggers": {
-    "Request": {
-      "type": "request",
-      "kind": "http"
-    }
-  },
-  "actions": {
-    "readData": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      }
-    },
-    "postToErrorMessageQueue": {
-      "type": "ApiConnection",
-      "inputs": "...",
-      "runAfter": {
-        "readData": [
-          "Failed"
-        ]
-      }
-    }
-  },
-  "outputs": {}
-}
-```
-
-Om op te geven die `postToErrorMessageQueue` alleen wordt uitgevoerd na `readData` heeft `Failed`, gebruiken de `runAfter` eigenschap, bijvoorbeeld een lijst van mogelijke waarden opgeven zodat `runAfter` kan worden `["Succeeded", "Failed"]`.
-
-Ten slotte omdat in dit voorbeeld wordt de fout nu verwerkt, wordt niet langer markeren het run as- `Failed`. Omdat we de stap voor het verwerken van deze fout in dit voorbeeld hebt toegevoegd, wordt de uitvoering is `Succeeded` maar één stap `Failed`.
-
-## <a name="execute-two-or-more-steps-in-parallel"></a>Twee of meer stappen parallel uitvoeren
-
-Meerdere acties uitvoeren parallel, de `runAfter` eigenschap moet gelijkwaardige tijdens runtime. 
-
-```
-{
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "triggers": {
-    "Request": {
-      "kind": "http",
-      "type": "Request"
-    }
-  },
-  "actions": {
-    "readData": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      }
-    },
-    "branch1": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    },
-    "branch2": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    }
-  },
-  "outputs": {}
-}
-```
-
-In dit voorbeeld beide `branch1` en `branch2` zijn ingesteld op uitvoeren na `readData`. Als gevolg hiervan beide vertakkingen parallel worden uitgevoerd. Het tijdstempel voor beide vertakkingen is identiek.
-
-![Parallel](media/logic-apps-author-definitions/parallel.png)
-
-## <a name="join-two-parallel-branches"></a>Twee parallelle vertakkingen koppelen
-
-U kunt deelnemen aan twee acties die zijn ingesteld op parallel worden uitgevoerd door de items toevoegen aan de `runAfter` eigenschap zoals in het vorige voorbeeld.
-
-```
-{
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-04-01-preview/workflowdefinition.json#",
-  "actions": {
-    "readData": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {}
-    },
-    "branch1": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    },
-    "branch2": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    },
-    "join": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "branch1": [
-          "Succeeded"
-        ],
-        "branch2": [
-          "Succeeded"
-        ]
-      }
-    }
-  },
-  "parameters": {},
-  "triggers": {
-    "Request": {
+    "request": {
       "type": "Request",
-      "kind": "Http",
+      "kind": "Http"
+    }
+  },
+  "actions": {
+    "order": {
+      "type": "Http",
       "inputs": {
-        "schema": {}
+        "method": "GET",
+        "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
       }
     }
   },
-  "contentVersion": "1.0.0.0",
   "outputs": {}
 }
 ```
 
-![Parallel](media/logic-apps-author-definitions/join.png)
+Deze stappen wordt beschreven hoe deze tekenreeks, werken van binnenuit aan de buitenkant in dit voorbeeld worden verwerkt:
 
-## <a name="map-list-items-to-a-different-configuration"></a>Lijstitems worden toegewezen aan een andere configuratie
-
-Volgende, stel willen we andere inhoud op basis van de waarde van een eigenschap ophalen. We kunnen een overzicht van waarden naar bestemmingen maken als een parameter:  
-
+``` 
+"uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
+
+1. Ophalen van de [ `length()` ](../logic-apps/logic-apps-workflow-definition-language.md) voor de naam van het bedrijf, zodat u het totale aantal tekens.
+
+2. Als u een kortere tekenreeks, afgetrokken `5`.
+
+3. Nu een [ `substring()` ](../logic-apps/logic-apps-workflow-definition-language.md). Start bij index `5`, en Ga naar de rest van de tekenreeks.
+
+4. Deze reeks die u wilt converteren een [ `base64()` ](../logic-apps/logic-apps-workflow-definition-language.md) tekenreeks.
+
+5. Nu [ `replace()` ](../logic-apps/logic-apps-workflow-definition-language.md) alle de `+` tekens `-` tekens.
+
+6. Ten slotte [ `replace()` ](../logic-apps/logic-apps-workflow-definition-language.md) alle de `/` tekens `_` tekens.
+
+## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Lijstitems worden toegewezen aan eigenschapswaarden en gebruik vervolgens maps als parameters
+
+Als u verschillende resultaten op basis van de waarde van een eigenschap, kunt u een map die overeenkomt met de waarde van elke eigenschap aan een resultaat maken en vervolgens gebruiken die zijn toegewezen als een parameter. 
+
+Deze werkstroom wordt bijvoorbeeld sommige categorieën gedefinieerd als parameters en een toewijzing die overeenkomt met deze categorieën met een specifieke URL. De werkstroom wordt eerst een lijst met artikelen. De werkstroom wordt de kaart vinden van de URL die overeenkomt met de categorie voor elk artikel.
+
+*   De [ `intersection()` ](../logic-apps/logic-apps-workflow-definition-language.md) functie gecontroleerd of de categorie overeenkomt met een bekende categorie die gedefinieerd.
+
+*   Nadat u een overeenkomende categorie, haalt het voorbeeld het item uit een kaart met vierkante haken: `parameters[...]`
+
+``` json
 {
   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
   "contentVersion": "1.0.0.0",
@@ -271,21 +276,29 @@ Volgende, stel willen we andere inhoud op basis van de waarde van een eigenschap
 }
 ```
 
-In dit geval krijgen we eerst een lijst met artikelen. Op basis van de categorie die is gedefinieerd als een parameter, de tweede stap een kaart gebruikt om de URL voor het ophalen van de inhoud te zoeken.
+## <a name="get-data-with-date-functions"></a>Ophalen van gegevens met de datum-functies
 
-Een aantal keer te worden hier: 
+Gegevens ophalen uit een gegevensbron die geen systeemeigen ondersteunt *triggers*, kunt u datum fungeert voor het werken met tijden en datums in plaats daarvan. Bijvoorbeeld hoe lang deze werkstroom stappen zijn duurt, worden gevonden voor deze expressie van binnenuit werken aan de buitenkant:
 
-*   De [ `intersection()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) functie gecontroleerd of de categorie overeenkomt met een van de bekende gedefinieerde categorieën.
-
-*   Nadat we de categorie hebt ontvangen, kunnen we het item uit een kaart met vierkante haken ophalen:`parameters[...]`
-
-## <a name="process-strings"></a>Proces tekenreeksen
-
-U kunt diverse functies gebruiken om te manipuleren van tekenreeksen. Stel bijvoorbeeld dat we hebben een tekenreeks die u moet doorgeven aan een systeem, maar we zijn ervan overtuigd over het afhandelen van de juiste voor codering niet. Een mogelijkheid is het base64 coderen van deze tekenreeks. Om te voorkomen aanhalingstekens in een URL, gaan we echter een paar tekens wilt vervangen. 
-
-We willen ook een subtekenreeks van de naam van de volgorde van omdat de eerste vijf tekens niet worden gebruikt.
-
+``` json
+"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
+
+1. Van de `order` extract-actie voor de `startTime`. 
+2. Ophalen van de huidige tijd met `utcNow()`.
+3. Trek één seconde:
+
+   [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
+
+   U kunt andere tijdseenheden, zoals `minutes` of `hours`. 
+
+3. U kunt nu deze twee waarden vergelijken. 
+
+   Als de eerste waarde kleiner dan de tweede waarde en klik vervolgens op meer dan één seconde is is verstreken sinds de volgorde voor het eerst is geplaatst.
+
+Als u wilt opmaken datums, kunt u formatters tekenreeks. Bijvoorbeeld, als u de RFC1123, gebruikt [ `utcnow('r')` ](../logic-apps/logic-apps-workflow-definition-language.md). Meer informatie over [datum opmaak](../logic-apps/logic-apps-workflow-definition-language.md).
+
+``` json
 {
   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
   "contentVersion": "1.0.0.0",
@@ -293,58 +306,7 @@ We willen ook een subtekenreeks van de naam van de volgorde van omdat de eerste 
     "order": {
       "defaultValue": {
         "quantity": 10,
-        "id": "myorder1",
-        "orderer": "NAME=Contoso"
-      },
-      "type": "Object"
-    }
-  },
-  "triggers": {
-    "request": {
-      "type": "request",
-      "kind": "http"
-    }
-  },
-  "actions": {
-    "order": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
-      }
-    }
-  },
-  "outputs": {}
-}
-```
-
-Werken vanaf binnen naar buiten:
-
-1. Ophalen van de [ `length()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) voor de naam van de besteller, dus we terughalen het totale aantal tekens.
-
-2. Aftrekken 5 aangezien we een kortere tekenreeks.
-
-3. Pas de [ `substring()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). We beginnen bij index `5` en gaat u de rest van de tekenreeks.
-
-4. Deze reeks die u wilt converteren een [ `base64()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) tekenreeks.
-
-5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)alle de `+` tekens `-` tekens.
-
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)alle de `/` tekens `_` tekens.
-
-## <a name="work-with-date-times"></a>Werken met datums en tijden
-
-Datums en tijden kan handig zijn met name als u wilt ophalen van gegevens uit een gegevensbron die natuurlijk biedt geen ondersteuning voor *triggers*. U kunt ook datums en tijden voor het vinden van hoe lang verschillende stappen nemen.
-
-```
-{
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "order": {
-      "defaultValue": {
-        "quantity": 10,
-        "id": "myorder1"
+        "id": "myorder-id"
       },
       "type": "Object"
     }
@@ -386,67 +348,13 @@ Datums en tijden kan handig zijn met name als u wilt ophalen van gegevens uit ee
 }
 ```
 
-In dit voorbeeld halen we de `startTime` van de vorige stap. Vervolgens wordt de huidige tijd niet ophalen en afgetrokken van één seconde:
 
-[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) 
+## <a name="next-steps"></a>Volgende stappen
 
-U kunt andere tijdseenheden, zoals `minutes` of `hours`. Ten slotte kunnen we deze twee waarden vergelijken. Als de eerste waarde kleiner dan de tweede waarde en klik vervolgens op meer dan één seconde is is verstreken sinds de volgorde voor het eerst is geplaatst.
-
-Als u wilt opmaken datums, kunnen we tekenreeks formatters gebruiken. Bijvoorbeeld, als u de RFC1123, gebruiken we [ `utcnow('r')` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). Zie voor meer informatie over het opmaken van datum, [werkstroom Definition Language](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
-
-## <a name="deployment-parameters-for-different-environments"></a>Implementatieparameters voor verschillende omgevingen
-
-Implementatie levenscycli hebben doorgaans een ontwikkelomgeving, een testomgeving en een productie-omgeving. U kan bijvoorbeeld gebruik van dezelfde definitie in alle deze omgevingen maar verschillende databases gebruikt. U wilt ook gebruik van dezelfde definitie over verschillende regio's voor hoge beschikbaarheid, maar elke instantie van de app logica wilt Neem contact op met de database van de regio.
-Dit scenario verschilt van de parameters op te nemen *runtime* waar in plaats daarvan moet u de `trigger()` werken zoals in het vorige voorbeeld.
-
-U kunt beginnen met een basisdefinitie zoals in dit voorbeeld:
-
-```
-{
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "uri": {
-            "type": "string"
-        }
-    },
-    "triggers": {
-        "request": {
-          "type": "request",
-          "kind": "http"
-        }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('uri')"
-            }
-        }
-    },
-    "outputs": {}
-}
-```
-
-In de werkelijke `PUT` aanvragen voor de logic apps kunt u de parameter bieden `uri`. Omdat een standaardwaarde niet meer bestaat, is deze parameter vereist in de nettolading van de logische app:
-
-```
-{
-    "properties": {},
-        "definition": {
-          // Use the definition from above here
-        },
-        "parameters": {
-            "connection": {
-                "value": "https://my.connection.that.is.per.enviornment"
-            }
-        }
-    },
-    "location": "westus"
-}
-``` 
-
-In elke omgeving, kunt u opgeven van een andere waarde voor de `connection` parameter. 
-
-Zie voor alle opties die u hebt voor het maken en beheren van logic apps, de [REST API-documentatie](https://msdn.microsoft.com/library/azure/mt643787.aspx). 
+* [Voer stappen uit op basis van een voorwaarde (voorwaardelijke instructies)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Voer stappen uit op basis van verschillende waarden (switch instructies)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Uitvoeren en herhaalt u stap (lussen)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Uitvoeren of samenvoegen van parallelle stappen (vertakkingen)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Voer stappen uit op basis van Actiestatus van de gegroepeerde (scopes genoemd)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* Meer informatie over de [werkstroom Definition Language-schema voor Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md)
+* Meer informatie over [werkstroomacties en triggers voor Azure Logic Apps](../logic-apps/logic-apps-workflow-actions-triggers.md)

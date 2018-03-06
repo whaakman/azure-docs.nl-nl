@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
-ms.date: 09/13/2017
+ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Algemene scenario's, voorbeelden, zelfstudies en scenario's voor Azure Logic Apps
 
@@ -63,14 +63,15 @@ Voor systemen en services die mogelijk niet connectors hebt gepubliceerd, kunt u
 * [Reageren op externe gebeurtenissen en acties met webhooks.](../logic-apps/logic-apps-create-api-app.md)
 * [Bel, trigger of nesten van werkstromen met synchrone reacties op HTTP-aanvragen](../logic-apps/logic-apps-http-endpoint.md)
 * [Zelfstudie: Bouw een AI ingeschakeld sociale dashboard in minuten met Logic Apps en Power BI](http://aka.ms/logicappsdemo)
-* [Zelfstudie: Reageren op Twilio SMS webhooks en verzendt een tekstantwoord](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [Video: Reageren op Twilio SMS webhooks en verzendt een tekstantwoord](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Controlestroom foutafhandeling en mogelijkheden voor logboekregistratie
 
 Logische apps bevatten uitgebreide mogelijkheden voor geavanceerde Controlestroom, zoals voorwaarden, switches, lussen en -scopes. Om ervoor te zorgen flexibele oplossingen, kunt u ook fout en afhandeling van uitzonderingen in uw werkstromen implementeren. Meldingen en logboeken met diagnostische gegevens voor werkstroom uitvoeringsstatus biedt Azure Logic Apps ook controle en waarschuwingen.
 
-* [Proces-items in de arrays en verzamelingen met lussen en batches in logic apps](../logic-apps/logic-apps-loops-and-scopes.md)
-* [Andere acties uitvoeren in het switch-instructies](../logic-apps/logic-apps-switch-case.md)
+* Andere acties uitvoeren op basis van [voorwaardelijke instructies](../logic-apps/logic-apps-control-flow-conditional-statement.md) en [instructies overschakelen](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Herhaal de stappen of items in de arrays en verzamelingen met lussen proces](../logic-apps/logic-apps-control-flow-loops.md)
+* [Acties van de groepen samen met de scopes](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [Fout van de auteur en afhandeling van uitzonderingen in een werkstroom](../logic-apps/logic-apps-exception-handling.md)
 * [Gebruiksvoorbeeld: hoe een bedrijf gezondheidszorg logic app uitzonderingsverwerking voor HL7 FHIR werkstromen gebruikt](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Bewaking, logboekregistratie en waarschuwingen voor bestaande logische apps inschakelen](../logic-apps/logic-apps-monitor-your-logic-apps.md)
@@ -89,7 +90,7 @@ U kunt volledig ontwikkelen en logic apps implementeren met Visual Studio, Visua
 Toegang tot, converteren en transformatie van verschillende typen inhoud met behulp van de vele functies in de Azure Logic Apps [werkstroom definition language](http://aka.ms/logicappsdocs). Bijvoorbeeld, u kunt converteren tussen een tekenreeks, JSON en XML met de `@json()` en `@xml()` expressies. De Logic Apps-engine van bewaart inhoudstypen ter ondersteuning van inhoudsoverdracht op een manier zonder verlies tussen services.
 
 * [De werking van expressies in logic apps](../logic-apps/logic-apps-author-definitions.md)
-* [Typen niet JSON-inhoud verwerken](../logic-apps/logic-apps-content-type.md), bijvoorbeeld `application/xml`, `application/octet-stream`, en`multipart/formdata`
+* [Typen niet JSON-inhoud verwerken](../logic-apps/logic-apps-content-type.md), bijvoorbeeld `application/xml`, `application/octet-stream`, en `multipart/formdata`
 * [Referentie: Definitietaal van de werkstroom met logische Apps van Azure](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Andere integraties en mogelijkheden
@@ -98,15 +99,22 @@ Logische apps bieden ook integratie met veel services, zoals Azure Functions, Az
 
 * [Maak een realtime sociale dashboard met Azure zonder server](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Azure-functies aanroepen vanuit logic apps](../logic-apps/logic-apps-azure-functions.md)
-* [Scenario: Trigger logic apps met Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Zelfstudie: Trigger logic apps met Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Zelfstudie: Wijzigingen van de virtuele machine met Azure Event raster en Logic Apps bewaken](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Zelfstudie: Een functie die kan worden geïntegreerd met Azure Logic Apps en cognitieve Microsoft-Services voor het analyseren van Twitter post gevoel maken](../azure-functions/functions-twitter-email.md)
+* [Zelfstudie: Externe controle IoT en meldingen met Azure Logic Apps die gebruikmaken van uw IoT-hub en Postvak](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blog: Call SOAP-eindpunten vanuit logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>End-to-end scenario 's
 
-* [Technisch document: Enterprise integration end-to-end aanvraagbeheer met Azure-services, zoals Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [Technisch document: End-to-end aanvraagbeheer integratie met Azure-services, zoals Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+
+## <a name="customer-stories"></a>Verhalen van klanten
+
+Meer informatie over hoe Azure Logic Apps samen met andere Azure-services en Microsoft-producten, geholpen [deze bedrijven](https://aka.ms/logic-apps-customer-stories) hun flexibiliteit verbeteren en zich richten op hun bedrijf core door te vereenvoudigen, organisatie, automatiseren en organiseren complexe processen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [De workflowdefinitie auteur met de werkstroom definition language](../logic-apps/logic-apps-author-definitions.md)
+* [Voor logic app-definities met JSON bouwen](../logic-apps/logic-apps-author-definitions.md)
 * [Voor het afhandelen van fouten en uitzonderingen in logic apps](../logic-apps/logic-apps-exception-handling.md)
-* [Verzenden van uw opmerkingen, vragen, feedback of suggesties voor hoe kunnen we Azure Logic Apps verbeteren](https://feedback.azure.com/forums/287593-logic-apps)
+* [Verzenden van uw opmerkingen, vragen, feedback of suggesties voor het verbeteren van Azure Logic Apps](https://feedback.azure.com/forums/287593-logic-apps)

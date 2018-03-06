@@ -4,7 +4,7 @@ description: Meer informatie over een netwerkinterface is maken, instellingen vo
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: da29ecaaa0f694be3e96baebfd80c09069d7c4a8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Maken, wijzigen of verwijderen van een netwerkinterface
 
@@ -30,12 +30,12 @@ Als u toevoegen wilt, wijzigen of verwijderen van IP-adressen voor een netwerkin
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-De volgende taken uitvoeren voordat u alle stappen in elke sectie van dit artikel uitvoert:
+De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit artikel:
 
-- Controleer de [Azure beperkt](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artikel voor meer informatie over limieten voor netwerkinterfaces.
-- Aanmelden bij de Azure [portal](https://portal.azure.com), Azure-opdrachtregelinterface (CLI) of Azure PowerShell gebruiken met een Azure-account. Als u nog een Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
-- Als PowerShell-opdrachten voor het uitvoeren van taken in dit artikel [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Zorg ervoor dat u hebt de meest recente versie van de Azure PowerShell-commandlets geïnstalleerd. Typ voor hulp bij PowerShell-opdrachten, met voorbeelden, `get-help <command> -full`.
-- Als Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel [installeren en configureren van de Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Zorg ervoor dat u hebt de meest recente versie van de Azure CLI geïnstalleerd. Typ voor hulp bij CLI-opdrachten, `az <command> --help`. In plaats van de CLI en de vereisten installeert, kunt u de Azure-Cloud-Shell. De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. In deze shell is de Azure CLI vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Met de Cloud-Shell, klikt u op de Shell Cloud **> _** knop aan de bovenkant van de [portal](https://portal.azure.com).
+- Als u nog een Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
+- Als u de portal gebruikt, open https://portal.azure.com en meld u aan met uw Azure-account.
+- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.2.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` de geïnstalleerde versie vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.26 of hoger. Voer `az --version` de geïnstalleerde versie vinden. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
 
 ## <a name="create-a-network-interface"></a>Een netwerkinterface maken
 
@@ -163,7 +163,7 @@ U kunt het subnet, maar niet het virtuele netwerk, dat een netwerkinterface is t
 
 ## <a name="delete-a-network-interface"></a>Verwijderen van een netwerkinterface
 
-U kunt een netwerkinterface verwijderen zolang deze niet is gekoppeld aan een virtuele machine. Als deze is gekoppeld aan een virtuele machine, moet u eerst plaats de virtuele machine gestopt (toewijzing ongedaan gemaakt) en vervolgens de netwerkinterface van de virtuele machine, loskoppelen voordat u de netwerkinterface kunt verwijderen. Als u wilt loskoppelen van een netwerkinterface van een virtuele machine, voer de stappen in de [loskoppelen van een netwerkinterface van een virtuele machine](virtual-network-network-interface-vm.md#vm-remove-nic) sectie van de [toevoegen of verwijderen van netwerkinterfaces](virtual-network-network-interface-vm.md) artikel. Verwijderen van een virtuele machine wordt losgekoppeld van alle netwerkinterfaces die zijn gekoppeld, maar niet de netwerkinterfaces verwijdert.
+U kunt een netwerkinterface verwijderen zolang deze niet is gekoppeld aan een virtuele machine. Als deze is gekoppeld aan een virtuele machine, moet u eerst plaats de virtuele machine gestopt (toewijzing ongedaan gemaakt) en vervolgens de netwerkinterface van de virtuele machine, loskoppelen voordat u de netwerkinterface kunt verwijderen. Als u wilt loskoppelen van een netwerkinterface van een virtuele machine, voer de stappen in de [loskoppelen van een netwerkinterface van een virtuele machine](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm) sectie van de [toevoegen of verwijderen van netwerkinterfaces](virtual-network-network-interface-vm.md) artikel. Verwijderen van een virtuele machine wordt losgekoppeld van alle netwerkinterfaces die zijn gekoppeld, maar niet de netwerkinterfaces verwijdert.
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met een account is toegewezen (minimaal) machtigingen voor de rol Inzender netwerk voor uw abonnement. Lees de [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikel voor meer informatie over het toewijzen van rollen en machtigingen aan accounts.
 2. In het vak dat de tekst bevat *zoeken bronnen* aan de bovenkant van de Azure-portal, typ *netwerkinterfaces*. Wanneer **netwerkinterfaces** wordt weergegeven in de zoekresultaten, klik erop.

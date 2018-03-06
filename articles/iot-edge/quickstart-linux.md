@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Snelstartgids: Uw eerste rand van de IoT-module naar een Linux- of Mac-apparaat implementeren - voorbeeld
 
@@ -27,7 +27,7 @@ Deze snelstartgids maakt gebruik van uw computer of virtuele machine, zoals een 
 
 * Python pip voor het installeren van de rand van de IoT-runtime.
    * Linux: `sudo apt-get install python-pip`.
-   * Mac OS: `sudo easy_install pip`.
+   * MacOS: `sudo easy_install pip`.
 * Docker om uit te voeren van de rand IoT modules
    * [Docker voor Linux installeren] [ lnk-docker-ubuntu] en zorg ervoor dat deze wordt uitgevoerd. 
    * [Docker voor Mac installeert] [ lnk-docker-mac] en zorg ervoor dat deze wordt uitgevoerd. 
@@ -70,22 +70,22 @@ Maak een apparaat-id waarmee uw gesimuleerde apparaat kan communiceren met uw Io
 De runtime IoT-rand wordt geïmplementeerd op alle rand van de IoT-apparaten. Het omvat twee modules. Eerst vergemakkelijkt de agent IoT rand implementatie en controle van modules die zich in de IoT-randapparaat. Ten tweede beheert de rand van de IoT-hub communicatie tussen het apparaat aan de rand van de IoT-modules en tussen het apparaat en IoT Hub. 
 
 Download het script IoT Edge-besturingselement op de machine waarop u het apparaat aan de rand van de IoT voert:
-```cmd
+```bash
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Configureer de runtime door uw verbindingsreeks rand van de IoT-apparaat uit het vorige gedeelte:
-```cmd
+```bash
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Start de runtime:
-```cmd
+```bash
 sudo iotedgectl start
 ```
 
 Controleer de Docker om te zien of de rand van de IoT-agent wordt uitgevoerd als een module:
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -101,7 +101,7 @@ In deze snelstartgids gemaakt van een nieuwe IoT Edge-apparaat en de rand van de
 
 Open de opdrachtprompt op de computer die uw gesimuleerde apparaat nogmaals uit te voeren. Bevestig dat de module op basis van de cloud geïmplementeerd op uw IoT-randapparaat wordt uitgevoerd:
 
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -109,7 +109,7 @@ sudo docker ps
 
 De berichten die naar de cloud worden verzonden vanaf de module tempSensor weergeven:
 
-```cmd
+```bash
 sudo docker logs -f tempSensor
 ```
 
@@ -118,6 +118,12 @@ sudo docker logs -f tempSensor
 U kunt ook weergeven met de telemetrie verzenden van het apparaat met behulp van de [IoT Hub explorer hulpprogramma][lnk-iothub-explorer]. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
+
+Als u verwijderen van het gesimuleerde apparaat die u hebt gemaakt wilt, samen met de Docker-containers die zijn gestart voor elke module, gebruikt u de volgende opdracht: 
+
+```bash
+sudo iotedgectl uninstall
+```
 
 Als u niet langer de IoT-Hub die u hebt gemaakt, kunt u de [az iot hub verwijderen] [ lnk-delete] opdracht om de resource en alle apparaten die zijn gekoppeld aan deze te verwijderen:
 
