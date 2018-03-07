@@ -11,7 +11,7 @@ Nu gaat u naar het registreren van uw toepassing in de *Portal voor registratie 
 1.  Ga naar [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app)
 2.  Voer een naam voor uw toepassing en uw e-mailadres
 3.  Zorg ervoor dat de optie voor begeleide Setup is uitgeschakeld
-4.  Klik op `Add Platform`, selecteer daarna `Native Application` en klikt u op`Save`
+4.  Klik op `Add Platform`, selecteer daarna `Native Application` en klikt u op `Save`
 5.  Ga terug naar Xcode. In `ViewController.swift`, vervangt u de regel die begint met '`let kClientID`' met de toepassings-ID die u zojuist hebt geregistreerd:
 
 ```swift
@@ -21,7 +21,7 @@ let kClientID = "Your_Application_Id_Here"
 <!-- Workaround for Docs conversion bug -->
 <ol start="6">
 <li>
-Control + klik <code>Info.plist</code> online zetten van het contextafhankelijke menu en klik vervolgens op: <code>Open As</code>> <code>Source Code</code>
+Control + klik <code>Info.plist</code> online zetten van het contextafhankelijke menu en klik vervolgens op: <code>Open As</code> > <code>Source Code</code>
 </li>
 <li>
 Onder de <code>dict</code> de hoofd-knooppunt, voeg de volgende:

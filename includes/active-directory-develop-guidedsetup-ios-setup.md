@@ -12,7 +12,7 @@ Carthage package manager wordt gebruikt tijdens de evaluatieperiode van MSAL –
 
 ## <a name="creating-your-application"></a>Maken van de toepassing
 
-1.  Open Xcode en selecteer`Create a new Xcode project`
+1.  Open Xcode en selecteer `Create a new Xcode project`
 2.  Selecteer `iOS`  >  `Single view Application` en klik op *volgende*
 3.  Geef een productnaam en klik op *volgende*
 4.  Selecteer een map voor het maken van uw app en klik op *maken*
@@ -42,10 +42,10 @@ carthage update
 
 ## <a name="add-the-msal-framework-to-your-application"></a>Het framework MSAL aan uw toepassing toevoegen
 1.  Open in Xcode, de `General` tabblad
-2.  Ga naar de `Linked Frameworks and Libraries` sectie en klikt u op`+`
+2.  Ga naar de `Linked Frameworks and Libraries` sectie en klikt u op `+`
 3.  Selecteer `Add other…`
 4.  Selecteer: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` en klik op *Open*. U ziet `MSAL.framework` toegevoegd aan de lijst.
-5.  Ga naar `Build Phases` tabblad en klik op `+` pictogram kiezen`New Run Script Phase`
+5.  Ga naar `Build Phases` tabblad en klik op `+` pictogram kiezen `New Run Script Phase`
 6.  Voeg de volgende inhoud naar de *gebied script*:
 
 ```text
@@ -66,7 +66,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ## <a name="creating-your-applications-ui"></a>Maken van de gebruikersinterface van uw toepassing
 Een bestand Main.storyboard moet automatisch worden gemaakt als onderdeel van uw project-sjabloon. Volg de onderstaande instructies voor het maken van de gebruikersinterface van de app:
 
-1.  Control + klik `Main.storyboard` online zetten van het contextafhankelijke menu en klik vervolgens op:`Open As` > `Source Code`
+1.  Control + klik `Main.storyboard` online zetten van het contextafhankelijke menu en klik vervolgens op: `Open As` > `Source Code`
 2.  Vervang de `<scenes>` knooppunt met de volgende code:
 
 ```xml

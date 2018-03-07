@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
 ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Maken van een gebruiker gedefinieerde route - Azure-portal
 
@@ -32,7 +32,7 @@ In deze zelfstudie maakt u een virtueel netwerk maken met openbare, persoonlijke
 
 ![Door de gebruiker gedefinieerde routes](./media/create-user-defined-route/user-defined-routes.png)
 
-Dit artikel bevat stappen voor het maken van een gebruiker gedefinieerde route via het Resource Manager-implementatiemodel het implementatiemodel dat wordt u aangeraden is bij het maken van de gebruiker gedefinieerde routes. Als u een door de gebruiker gedefinieerde route (klassiek) maken moet, Zie [een door de gebruiker gedefinieerde route (klassiek) maken](virtual-network-create-udr-classic-ps.md). Als u niet bekend met Azure implementatiemodellen bent, Zie [begrijpen Azure-implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Zie voor meer informatie over de gebruiker gedefinieerde routes, [overzicht van de gebruiker gedefinieerde routes](virtual-networks-udr-overview.md#user-defined).
+Dit artikel bevat stappen voor het maken van een gebruiker gedefinieerde route via het Resource Manager-implementatiemodel het implementatiemodel dat wordt u aangeraden is bij het maken van de gebruiker gedefinieerde routes. Als u een door de gebruiker gedefinieerde route (klassiek) maken moet, Zie [een door de gebruiker gedefinieerde route (klassiek) maken](virtual-network-create-udr-classic-ps.md). Als u niet bekend met Azure implementatiemodellen bent, Zie [begrijpen Azure-implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Zie [Door de gebruiker gedefinieerde routes](virtual-networks-udr-overview.md#user-defined) voor meer informatie over door de gebruiker gedefinieerde routes.
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>Routes en netwerk virtueel apparaat maken
 
@@ -63,7 +63,7 @@ Dit artikel bevat stappen voor het maken van een gebruiker gedefinieerde route v
 
         |Instelling|Waarde|
         |---|---|
-        |Naam|myVm Nva|
+        |Naam|myVm-Nva|
         |Gebruikersnaam|azureuser|
         |Wachtwoord en wachtwoord bevestigen|Een wachtwoord van uw keuze|
         |Abonnement|Selecteer uw abonnement|
@@ -82,7 +82,7 @@ Dit artikel bevat stappen voor het maken van een gebruiker gedefinieerde route v
     - Op de **zoeken bronnen** vak boven aan de pagina *myVm Nva*.
     - Klik op **myVm Nva** wanneer deze wordt weergegeven in de zoekresultaten.
     - Klik op **Networking** onder **instellingen** aan de linkerkant.
-    - Klik op de naam van de netwerkinterface onder **myVm-Nva - netwerkinterfaces**. De naam is **myvm nva***X*, waarbij *X* is een getal dat is toegewezen door de portal.
+    - Klik op de naam van de netwerkinterface onder **myVm-Nva - netwerkinterfaces**. De naam is **myvm nva *** X*, waarbij *X* is een getal dat is toegewezen door de portal.
     - Klik op **IP-configuraties** onder **instellingen** voor de netwerkinterface, zoals wordt weergegeven in de volgende afbeelding:
 
         ![Netwerkinterface-instellingen](./media/create-user-defined-route/network-interface-settings.png)
@@ -102,7 +102,7 @@ Dit artikel bevat stappen voor het maken van een gebruiker gedefinieerde route v
 
         |Instelling|Waarde|
         |---|---|
-        |Naam|myRouteTable-openbare|
+        |Naam|myRouteTable-Public|
         |Abonnement|Selecteer uw abonnement|
         |Resourcegroep|Selecteer **gebruik bestaande**, selecteer daarna **myResourceGroup**|
         |Locatie|VS - oost|
