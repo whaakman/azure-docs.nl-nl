@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
 ms.openlocfilehash: 934f4deb3139c136c871ab0125ba45267e1d1b05
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>OPC-Publisher voor Azure IoT-rand
 
@@ -131,9 +131,9 @@ Als de volledige informatie over het gebruik van de toepassing wilt weergeven, g
 OpcPublisher.exe <applicationname> [<IoT Hubconnectionstring>] [<options>]
 ```
 
-`applicationname`is de naam van de toepassing OPC UA te gebruiken. Deze parameter is vereist. Naam van de toepassing wordt ook gebruikt voor het registreren van de uitgever in het register van IoT Hub apparaat.
+`applicationname` is de naam van de toepassing OPC UA te gebruiken. Deze parameter is vereist. Naam van de toepassing wordt ook gebruikt voor het registreren van de uitgever in het register van IoT Hub apparaat.
 
-`IoT Hubconnectionstring`de verbindingsreeks van de IoT Hub-eigenaar is. Deze parameter is optioneel.
+`IoT Hubconnectionstring` de verbindingsreeks van de IoT Hub-eigenaar is. Deze parameter is optioneel.
 
 De volgende opties worden ondersteund:
 
