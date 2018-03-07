@@ -1,6 +1,6 @@
 ---
 title: Een Linux Service Fabric-cluster maken in Azure | Microsoft Docs
-description: Informatie over hoe u een Linux Service Fabric-cluster implementeert in een bestaand virtueel Azure-netwerk met behulp van Azure CLI.
+description: In deze zelfstudie leert u hoe u een Linux Service Fabric-cluster implementeert in een bestaand virtueel Azure-netwerk met behulp van Azure CLI.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 3b09e676a26336d1ef1e744f9e45066c4815fe21
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e6cbc8c3c7e1a9ebe9684efb0fa6ffa0717240ea
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Een Linux Service Fabric-cluster implementeren in een virtueel Azure-netwerk
+# <a name="tutorial-deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Zelfstudie: een Linux Service Fabric-cluster implementeren in een virtueel Azure-netwerk
 Deze zelfstudie is deel één van een serie. U leert hoe u een Linux Service Fabric-cluster in een [virtueel Azure-netwerk (VNET)](../virtual-network/virtual-networks-overview.md) en een [netwerkbeveiligingsgroep (NSG)](../virtual-network/virtual-networks-nsg.md) implementeert met behulp van Azure CLI en een sjabloon. Wanneer u klaar bent, wordt er in de cloud een cluster uitgevoerd waarin u toepassingen kunt implementeren. Als u met behulp van PowerShell een Windows-cluster wilt maken, raadpleegt u [Een Service Fabric Windows-cluster in een Azure-netwerk implementeren](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 In deze zelfstudie leert u het volgende:
@@ -53,7 +53,7 @@ Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het n
 
 Het knooppunttype bepaalt de grootte, het aantal en de eigenschappen van een set virtuele machines in het cluster. Elk gedefinieerd knooppunttype is ingesteld als een [virtuele-machineschaalset](/azure/virtual-machine-scale-sets/), een Azure-rekenresource die u gebruikt om een verzameling virtuele machines als set te implementeren en te beheren. Elk knooppunttype kan dan onafhankelijk omhoog of omlaag worden geschaald, verschillende open poorten bevatten en diverse capaciteitsstatistieken hebben. Knooppunttypen worden gebruikt voor het definiëren van rollen voor een set clusterknooppunten, zoals 'front-end' of 'back-end'.  Uw cluster kan meer dan één knooppunttype hebben, maar voor productieclusters moet het primaire knooppunttype ten minste vijf VM's bevatten (of ten minste drie VM's voor testclusters).  [Service Fabric-systeemservices](service-fabric-technical-overview.md#system-services) worden op de knooppunten van het primaire knooppunttype geplaatst.
 
-Het cluster is beveiligd met een clustercertificaat. Een clustercertificaat is een X.509-certificaat dat wordt gebruikt om de communicatie tussen knooppunten te beveiligen en om eindpunten voor clusterbeheer aan een beheerclient toe te wijzen.  Het clustercertificaat biedt ook een SSL voor de API voor HTTPS-beheer en voor Service Fabric Explorer via HTTPS. Zelfondertekende certificaten zijn handig voor testclusters.  Gebruik voor productieclusters een certificaat van een certificeringsinstantie (CA) als clustercertificaat.
+Het cluster wordt beveiligd met een clustercertificaat. Een clustercertificaat is een X.509-certificaat dat wordt gebruikt om de communicatie tussen knooppunten te beveiligen en om eindpunten voor clusterbeheer aan een beheerclient toe te wijzen.  Het clustercertificaat biedt ook een SSL voor de API voor HTTPS-beheer en voor Service Fabric Explorer via HTTPS. Zelfondertekende certificaten zijn handig voor testclusters.  Gebruik voor productieclusters een certificaat van een certificeringsinstantie (CA) als clustercertificaat.
 
 Het clustercertificaat moet:
 
@@ -63,7 +63,7 @@ Het clustercertificaat moet:
 
 Azure Key Vault wordt gebruikt om certificaten voor Service Fabric-clusters in Azure te beheren.  Wanneer een cluster in Azure is geïmplementeerd, is de Azure-resourceprovider verantwoordelijk voor het maken van Service Fabric-clusters die certificaten ophalen uit Key Vault en installeren op de cluster-VM's.
 
-In deze zelfstudie wordt een cluster met vijf knooppunten in één knooppunttype geïmplementeerd. Voor een implementatie van een productiecluster is [capaciteitsplanning](service-fabric-cluster-capacity.md) echter van groot belang. Hier volgen enkele aandachtspunten voor dat proces.
+In deze zelfstudie wordt een cluster met vijf knooppunten van één knooppunttype geïmplementeerd. Voor een implementatie van een productiecluster is [capaciteitsplanning](service-fabric-cluster-capacity.md) echter van groot belang. Hier volgen enkele aandachtspunten voor dat proces.
 
 - Het aantal knooppunten en knooppunttypen dat uw cluster nodig heeft 
 - De eigenschappen van elk knooppunttype (bijvoorbeeld grootte, primair knooppunt, internetverbinding en het aantal VM's)
@@ -89,7 +89,7 @@ Een Linux-cluster wordt geïmplementeerd met de volgende kenmerken:
 - eindpunt van de HTTP-gateway: 19080 (configureerbaar in de sjabloonparameters)
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Een load balancer wordt geïmplementeerd en controles en regels worden ingesteld voor de volgende poorten:
+Er wordt een load balancer geïmplementeerd en er worden tests en regels ingesteld voor de volgende poorten:
 - het eindpunt van de clientverbinding: 19000
 - het eindpunt van de HTTP-gateway: 19080 
 - toepassingspoort: 80
@@ -100,7 +100,7 @@ De namen van het virtuele netwerk, het subnet en de netwerkbeveiligingsgroep zij
 - virtuele netwerkadresruimte: 10.0.0.0/16
 - Service Fabric-subnetadresruimte: 10.0.2.0/24
 
-De volgende regels voor binnenkomend verkeer zijn ingeschakeld in de netwerkbeveiligingsgroep. U kunt de waarden van de poort wijzigen door de sjabloonvariabelen te wijzigen.
+De volgende regels voor binnenkomend verkeer zijn ingeschakeld in de netwerkbeveiligingsgroep. U kunt de poortwaarden wijzigen door de sjabloonvariabelen te wijzigen.
 - ClientConnectionEndpoint (TCP): 19000
 - HttpGatewayEndpoint (HTTP/TCP): 19080
 - SMB: 445

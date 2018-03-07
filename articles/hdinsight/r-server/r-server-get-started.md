@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.openlocfilehash: e688068efb41cdccbeb23de3c8ad7a09021e5b3f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: aa7f2e6f44036738756391ecaa265c57c093c42c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-r-server-on-hdinsight"></a>Aan de slag met R Server in HDInsight
 
@@ -61,7 +61,7 @@ U kunt het maken van HDInsight R Server-exemplaren automatiseren met Azure Resou
 4. Selecteer **Clustertype** om het deelvenster **Clusterconfiguratie** te openen. Selecteer in het deelvenster **Clusterconfiguratie** de volgende opties:
 
     * **Clustertype**: selecteer **R Server**.
-    * **Versie**: selecteer de versie van R Server die u op het cluster wilt installeren. De momenteel beschikbare versie is **R Server 9.1 (HDI 3.6)**. Releaseopmerkingen voor de beschikbare versies van R Server vindt u op [MSDN](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes).
+    * **Versie**: selecteer de versie van R Server die u op het cluster wilt installeren. De momenteel beschikbare versie is **R Server 9.1 (HDI 3.6)**. Releaseopmerkingen voor de beschikbare versies van R Server vindt u op [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-r-server#r-server-91).
     * **R Studio Community-editie voor R Server**: deze IDE op basis van een browser wordt standaard geïnstalleerd op het edge-knooppunt. Als u de IDE niet wilt installeren, schakelt u het selectievakje uit. Als u ervoor kiest deze wel te laten installeren, is de URL naar de aanmeldingspagina voor RStudio Server aanwezig in een portaltoepassingsvenster voor het cluster nadat het is gemaakt.
     * Laat bij de andere opties de standaardwaarden staan en gebruik de knop **Selecteren** om clustertype op te slaan.
 
@@ -98,11 +98,11 @@ U kunt het maken van HDInsight R Server-exemplaren automatiseren met Azure Resou
 
         chmod 600 <private-key-filename>
 
-   e. Het persoonlijke-sleutelbestand met SSH gebruiken voor externe aanmelding:
+   e. Het persoonlijke sleutelbestand met SSH gebruiken voor externe aanmelding:
 
         ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
-      Of gebruik het persoonlijke-sleutelbestand als onderdeel van de definitie van uw Hadoop Spark Compute-context voor R Server op de client. Zie [Create a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started) (Een Compute-context voor Spark maken) voor meer informatie.
+      Of gebruik het persoonlijke-sleutelbestand als onderdeel van de definitie van uw Hadoop Spark Compute-context voor R Server op de client. Zie [Create a Compute Context for Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark) (Een Compute-context voor Spark maken) voor meer informatie.
 
 8. Met Snel maken gaat u over naar het deelvenster **Storage**. Daar selecteert u de instellingen voor het opslagaccount dat moet worden gebruikt voor de primaire locatie van het HDFS-bestandssysteem dat door het cluster wordt gebruikt. Selecteer een nieuw of bestaand Azure-opslagaccount of selecteer een bestaand Azure Data Lake Store-account.
 
@@ -173,7 +173,7 @@ Als u de RStudio Server Community-editie wilt opnemen in de installatie, hebt u 
 > Ongeacht welke methode u kiest, de eerste keer dat u zich aanmeldt moet u zich twee keer verifiëren. Bij de eerste verificatie geeft u de gebruikers-id en het wachtwoord voor de beheerder op voor het cluster. Bij de tweede prompt geeft u de gebruikers-id en het wachtwoord voor SSH op. Voor opvolgende aanmeldingen zijn alleen de gebruikers-id en het wachtwoord voor SSH vereist.
 
 <a name="connect-to-edge-node"></a>
-## <a name="connect-to-the-r-server-edge-node"></a>Verbinding maken met het R Server-edge-knooppunt
+## <a name="connect-to-the-r-server-edge-node"></a>Verbinding maken met het R Server Edge-knooppunt
 
 Maak verbinding met het R Server-edge-knooppunt van het HDInsight-cluster door gebruik te maken van deze opdracht:
 
@@ -228,7 +228,7 @@ Omdat de RStudio Server-communityversie op het edge-knooppunt van het cluster wo
 
 ### <a name="use-the-created-ssh-user-to-log-in-to-the-edge-node"></a>Gebruik de SSH-gebruiker om u aan te melden bij het Edge-knooppunt
 
-Download een SSH-hulpprogramma (zoals PuTTY) en gebruik de bestaande SSH-gebruiker om u aan te melden. Volg de instructies in [Verbinding maken met HDInsight (Hadoop) via SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) voor toegang tot het edge-knooppunt. Het adres van het edge-knooppunt voor R Server op HDInsight-cluster is: **clusternaam-ed-ssh.azurehdinsight.net**
+Download een SSH-hulpprogramma (zoals PuTTY) en gebruik de bestaande SSH-gebruiker om u aan te melden. Volg de instructies in [Verbinding maken met HDInsight (Hadoop) via SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) voor toegang tot het Edge-knooppunt. Het adres van het edge-knooppunt voor R Server op HDInsight-cluster is: **clusternaam-ed-ssh.azurehdinsight.net**
 
 
 ### <a name="add-more-linux-users-to-the-edge-node"></a>Meer Linux-gebruikers toevoegen aan het edge-knooppunt
@@ -379,7 +379,7 @@ U ziet dat de nieuw toegevoegde gebruikers geen basisbevoegdheden in het Linux-s
 
 ## <a name="use-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>R Server op HDI gebruiken vanaf een extern exemplaar van Microsoft R Server of Microsoft R Client
 
-Het is mogelijk toegang in te stellen voor de HDI Hadoop Spark Compute-context van een extern exemplaar van Microsoft R Server of Microsoft R Client dat wordt uitgevoerd op een desktop of laptop. Zie de sectie 'Using Microsoft R Server as a Hadoop Client' (Microsoft R Server als Hadoop Client gebruiken) in [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started.md) (een Compute-context voor Spark maken) voor meer informatie. Hiervoor geeft u de volgende opties op wanneer u de RxSpark Compute-context definieert op uw laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches en sshProfileScript. Hier volgt een voorbeeld:
+Het is mogelijk toegang in te stellen voor de HDI Hadoop Spark Compute-context van een extern exemplaar van Microsoft R Server of Microsoft R Client dat wordt uitgevoerd op een desktop of laptop. Zie de sectie 'Using Microsoft R Server as a Hadoop Client' (Microsoft R Server als Hadoop Client gebruiken) in [Creating a Compute Context for Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) (een Compute-context voor Spark maken) voor meer informatie. Hiervoor geeft u de volgende opties op wanneer u de RxSpark Compute-context definieert op uw laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches en sshProfileScript. Hier volgt een voorbeeld:
 
 
     myNameNode <- "default"
@@ -594,7 +594,7 @@ De volgende code toont een paar voorbeelden van het gebruik van de nieuwe functi
 Zie de online-Help in R Server voor meer informatie met behulp van de opdrachten `?RxHivedata` en `?RxParquetData`.  
 
 
-## <a name="install-additional-r-packages-on-the-edge-node"></a>Extra R-pakketten op het edge-knooppunt installeren
+## <a name="install-additional-r-packages-on-the-edge-node"></a>Extra R-pakketten op het Edge-knooppunt installeren
 
 Als u extra R-pakketten wilt installeren op het edge-knooppunt, kunt u `install.packages()` rechtstreeks vanuit de R-console gebruiken wanneer u via SSH bent verbonden met het edge-knooppunt. Als u echter R-pakketten wilt installeren op de worker-knooppunten van het cluster, moet u een scriptactie gebruiken.
 
@@ -705,7 +705,7 @@ Wanneer de gegevensmodellering is voltooid, kunt u het model uitvoeren om voorsp
     rxSparkConnect(reset = TRUE)
 
 
-In dit stadium is de configuratie voor uitoefening voltooid. U kunt nu het mrsdeploy-pakket op R Client gebruiken om verbinding te maken met de uitoefening op het edge-knooppunt. Vervolgens kunt u de functies ervan gebruiken, bijvoorbeeld [externe uitvoering](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) en [webservices](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Afhankelijk van of het cluster is ingesteld in een virtueel netwerk of niet, moet u mogelijk forward tunneling via een SSH-aanmelding instellen voor de poort.
+In dit stadium is de configuratie voor uitoefening voltooid. U kunt nu het mrsdeploy-pakket op R Client gebruiken om verbinding te maken met de uitoefening op het edge-knooppunt. Vervolgens kunt u de functies ervan gebruiken, bijvoorbeeld [externe uitvoering](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) en [webservices](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). Afhankelijk van of het cluster is ingesteld in een virtueel netwerk of niet, moet u mogelijk forward tunneling via een SSH-aanmelding instellen voor de poort.
 
 ### <a name="r-server-cluster-on-a-virtual-network"></a>R Server-cluster in een virtueel netwerk
 

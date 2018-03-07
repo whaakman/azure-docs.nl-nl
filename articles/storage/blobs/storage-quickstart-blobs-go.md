@@ -1,22 +1,22 @@
 ---
-title: Azure-quickstart - objecten overdragen naar/van Azure Blob-opslag met Go | Microsoft Docs
-description: Lees hoe u objecten overdraagt naar/van Azure Blob-opslag met Go
+title: Azure-quickstart - Blobs uploaden, downloaden en vermelden in Azure Storage met behulp van Go | Microsoft Docs
+description: In deze quickstart maakt u een opslagaccount en een container. Vervolgens gebruikt u de opslagclientbibliotheek voor Go om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
 services: storage
 author: seguler
-manager: jahogg
+manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/29/2018
+ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 4ba9721dc12bc50b20ad85019b1df51a56b52ebc
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a30d012ea663b04028a4b0ebb2880532a596500b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-go"></a>Objecten overdragen naar/van Azure Blob-opslag met Go
+# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Quickstart: blobs downloaden, uploaden en vermelden met behulp van Go
+
 In deze quickstart leert u hoe u de programmeertaal Go kunt gebruiken om blok-bobs te uploaden, te downloaden en weer te geven in een container in Azure Blob-opslag. 
 
 ## <a name="prerequisites"></a>Vereisten

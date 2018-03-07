@@ -1,23 +1,23 @@
 ---
-title: Een model bouwen voor Azure Machine Learning-services (preview) | Microsoft Docs
+title: Zelfstudie over het bouwen van een model voor Azure Machine Learning-services (preview) | Microsoft Docs
 description: Deze volledige zelfstudie laat zien hoe u Azure Machine Learning-services (preview) end-to-end gebruikt. Dit is deel twee en hierin wordt het experimenteren besproken.
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/06/2017
-ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: f52d4268c3983b419a6393bbd651301022688029
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="classify-iris-part-2-build-a-model"></a>Classificeren van Iris deel 2: een model bouwen
+# <a name="tutorial-classify-iris-part-2---build-a-model"></a>Zelfstudie - Classificeren van Iris deel 2: een model bouwen
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
 
 Deze zelfstudie is deel 2 van een driedelige reeks. In dit gedeelte van de zelfstudie wordt uitgelegd hoe u Azure Machine Learning-services (preview) gebruikt om:
@@ -33,6 +33,8 @@ Deze zelfstudie is deel 2 van een driedelige reeks. In dit gedeelte van de zelfs
 > * Scripts uit te voeren in een HDInsight-cloudomgeving.
 
 In deze zelfstudie wordt de tijdloze [Iris-gegevensset](https://en.wikipedia.org/wiki/Iris_flower_data_set) gebruikt. De schermopnamen zijn specifiek voor Windows, maar de Mac OS-versie is bijna identiek.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 Voltooi het eerste deel van deze reeks zelfstudies. Volg de zelfstudie [Gegevens voorbereiden](tutorial-classifying-iris-part-1.md) om Azure Machine Learning-resources te maken en de toepassing Azure Machine Learning Workbench te installeren voordat u begint aan deze zelfstudie.
@@ -374,6 +376,10 @@ U kunt dit script ook uitvoeren in een HDInsight Spark-cluster. Leer [hoe u een 
    >Wanneer u het script uitvoert in een extern HDInsight-cluster, kunt u ook de uitvoeringsdetails van de YARN-taak (Yet Another Resource Negotiator) bekijken op `https://<cluster_name>.azurehdinsight.net/yarnui`. Gebruik hiervoor het gebruikersaccount `admin`.
 
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## <a name="next-steps"></a>Volgende stappen
 In dit tweede deel van deze driedelige reeks zelfstudies hebt u geleerd hoe u Azure Machine Learning-services kunt gebruiken om:
 > [!div class="checklist"]
@@ -389,4 +395,4 @@ In dit tweede deel van deze driedelige reeks zelfstudies hebt u geleerd hoe u Az
 U kunt nu verder met het derde deel van deze zelfstudie. Aangezien u nu beschikt over een logistiek regressiemodel, is het een goed idee om dit model te gaan implementeren als een realtime webservice.
 
 > [!div class="nextstepaction"]
-> [Een model implementeren](tutorial-classifying-iris-part-3.md)
+> [Zelfstudie 3 - Classificeren van Iris: modellen implementeren](tutorial-classifying-iris-part-3.md)

@@ -1,10 +1,10 @@
 ---
 title: 'Overzicht van VPN Gateway: cross-premises VPN-verbindingen met virtuele Azure-netwerken maken| Microsoft Docs'
-description: In dit overzicht van VPN Gateway worden de manieren besproken waarop u met een VPN-verbinding via internet verbinding kunt maken met een virtueel Azure-netwerk. U vindt hier ook schema's van basisverbindingsconfiguraties.
+description: In dit artikel wordt uitgelegd wat een VPN Gateway is en worden de manieren besproken waarop u met een VPN-verbinding via internet verbinding kunt maken met een virtueel Azure-netwerk. U vindt hier ook schema's van basisverbindingsconfiguraties.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/16/2018
 ms.author: cherylmc
-ms.openlocfilehash: ae8de17c6b2ca8e1b9888612221c7f39b629c1b1
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: dadddeaac2a7856f8e249db981b018de070e1f3f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="about-vpn-gateway"></a>Informatie over VPN-gateway
 
@@ -27,15 +27,11 @@ Een VPN-gateway is een soort gateway voor virtuele netwerken die versleuteld ver
 
 Elk virtuele netwerk mag slechts over één VPN-gateway beschikken, maar u kunt meerdere verbindingen met dezelfde VPN-gateway maken. Een voorbeeld hiervan is een configuratie met meerdere siteverbindingen. Wanneer u meerdere verbindingen naar dezelfde VPN-gateway hebt gemaakt, delen alle VPN-tunnels, met inbegrip van punt-naar-site-VPN-verbindingen, de bandbreedte die voor de gateway beschikbaar is.
 
-### <a name="whatis"></a>Wat is een virtuele netwerkgateway?
+## <a name="whatis"></a>Wat is een virtuele netwerkgateway?
 
 Een virtuele netwerkgateway bestaat uit twee of meer virtuele machines die zijn geïmplementeerd voor een specifiek subnet met de naam GatewaySubnet. De virtuele machines die zich in het GatewaySubnet bevinden, worden gemaakt wanneer u de virtuele netwerkgateway maakt. Virtuele machines uit virtuele netwerkgateways bevatten routeringstabellen en gatewayservices speciaal voor de bijbehorende gateway. U kunt de virtuele machines die deel uitmaken van de virtuele netwerkgateway niet rechtstreeks configureren en u mag nooit aanvullende resources implementeren op het GatewaySubnet.
 
 Wanneer u een virtuele netwerkgateway maakt met het gatewaytype Vpn wordt er een specifiek type virtuele netwerkgateway gemaakt waarmee verkeer wordt versleuteld: een VPN-gateway. Het maken van een VPN-gateway kan tot 45 minuten duren. Dit is omdat de virtuele machines voor de VPN-gateway op het GatewaySubnet worden geïmplementeerd en worden geconfigureerd met de instellingen die u hebt opgegeven. De gateway-SKU die u selecteert, bepaalt hoe effectief de virtuele machines zijn.
-
-## <a name="gwsku"></a>Gateway-SKU's
-
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="configuring"></a>Een VPN-gateway configureren
 
@@ -53,6 +49,17 @@ U kunt beginnen met het maken en configureren van resources met een configuratie
 
 Wanneer u een VPN-gateway configureert, zijn de stappen die u moet volgen, afhankelijk van het implementatiemodel waarmee u het virtuele netwerk hebt gemaakt. Als u bijvoorbeeld uw VNet hebt gemaakt met het klassieke implementatiemodel, gebruikt u de richtlijnen en instructies voor het klassieke implementatiemodel om de VPN-gateway te maken en de instellingen te configureren. Zie [Het Resource Manager-implementatiemodel en het klassieke implementatiemodel begrijpen](../azure-resource-manager/resource-manager-deployment-model.md) voor meer informatie over de implementatiemodellen.
 
+### <a name="planningtable"></a>Tabel plannen
+
+De volgende tabel kan u helpen bij het kiezen van de beste connectiviteitsoptie voor uw oplossing.
+
+[!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
+
+
+## <a name="gwsku"></a>Gateway-SKU's
+
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+
 ## <a name="diagrams"></a>Diagrammen over de verbindingstopologie
 
 Het is belangrijk te weten dat er verschillende configuraties beschikbaar zijn voor VPN-gatewayverbindingen. U moet bepalen welke configuratie het beste aansluit bij uw behoeften. In de gedeelten hieronder kunt u informatie en topologiediagrammen over de volgende VPN-gatewayverbindingen bekijken. In de tabellen worden de volgende zaken weergegeven:
@@ -67,7 +74,7 @@ Gebruik de diagrammen en beschrijvingen als hulp bij het selecteren van de juist
 
 ### <a name="S2S"></a>Site-naar-site
 
-Een site-naar-site-VPN-gatewayverbinding (S2S) is een verbinding via een VPN-tunnel met IPsec/IKE (IKEv1 of IKEv2). Voor een S2S-verbinding moet een VPN-apparaat on-premises aanwezig zijn waaraan een openbaar IP-adres is toegewezen en dat zich niet achter een NAT bevindt. S2S-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.   
+Een site-naar-site-VPN-gatewayverbinding (S2S) is een verbinding via een VPN-tunnel met IPsec/IKE (IKEv1 of IKEv2). S2S-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties. Voor een S2S-verbinding moet een VPN-apparaat on-premises aanwezig zijn waaraan een openbaar IP-adres is toegewezen en dat zich niet achter een NAT bevindt. Zie [Veelgestelde vragen over VPN Gateways - VPN-apparaten](/vpn-gateway-vpn-faq.md#s2s) voor meer informatie over het selecteren van een VPN-apparaat.
 
 ![Voorbeeld van een site-naar-site-verbinding met Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 

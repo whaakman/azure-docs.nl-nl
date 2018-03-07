@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 8817b511d779029421491194b50120d51ec9dbad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d327a3c28e928550b361c07569df74060cfcac0d
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="overview-of-microsoft-azure-data-lake-analytics"></a>Overzicht van Microsoft Azure Data Lake Analytics
 ## <a name="what-is-azure-data-lake-analytics"></a>Wat is Azure Data Lake Analytics?
-Azure Data Lake Analytics is een service op aanvraag voor het uitvoeren van analysetaken, om de analyse van big data te vereenvoudigen. U kunt u richten op het schrijven, uitvoeren en beheren van taken, in plaats van op het beheren van een gedistribueerde infrastructuur. U hoeft geen hardware te implementeren, configureren en optimaliseren, maar kunt query's schrijven om uw data te transformeren en waardevolle inzichten te verkrijgen. De analyseservice kan taken van elke schaal onmiddellijk verwerken, door de hoeveelheid rekenkracht die u nodig hebt aan te passen. U betaalt alleen voor de tijd die nodig is voor het uitvoeren van uw taak, wat het gebruik van deze service zeer rendabel maakt. De analyseservice biedt ondersteuning voor Azure Active Directory voor beheer van toegang en rollen, en integratie met uw on-premises identiteitsbeheersysteem. Het omvat ook U-SQL, een taal die de voordelen van SQL combineert met de expressieve voordelen van gebruikerscode. De schaalbare gedistribueerde runtime van U-SQL kunt u gebruiken om op een efficiënte manier gegevens te analyseren in de Store en op alle SQL-servers in Azure, Azure SQL Database en Azure SQL Data Warehouse.
+Azure Data Lake Analytics is een service op aanvraag voor het uitvoeren van analysetaken, om de analyse van big data te vereenvoudigen. U hoeft geen hardware te implementeren, configureren en optimaliseren, maar kunt query's schrijven om uw data te transformeren en waardevolle inzichten te verkrijgen. De analyseservice kan taken van elke schaal onmiddellijk verwerken, door de hoeveelheid rekenkracht die u nodig hebt aan te passen. U betaalt alleen voor de tijd die nodig is voor het uitvoeren van uw taak, wat het gebruik van deze service zeer rendabel maakt. De analyseservice ondersteunt ook U-SQL, een taal die de voordelen van SQL combineert met de voordelen van imperatieve code. Met U-SQL kunt u gegevens analyseren in Data Lake Store, SQL Server in Azure, Azure SQL Database en Azure SQL Data Warehouse.
 
 ## <a name="key-capabilities"></a>Belangrijkste mogelijkheden
 * **Dynamische schaalbaarheid**
@@ -37,9 +37,11 @@ Azure Data Lake Analytics is een service op aanvraag voor het uitvoeren van anal
 * **Moeiteloze integratie met uw IT-investeringen**
   
     Met Data Lake Analytics kunt u uw bestaande IT-investeringen gebruiken voor identiteitsservices, beheer, beveiliging en datawarehousing. Deze aanpak vereenvoudigt het gegevensbeheer en maakt het gemakkelijk om uw huidige gegevenstoepassingen uit te breiden. Data Lake Analytics is geïntegreerd met Active Directory voor het beheer van gebruikers en machtigingen, en biedt ingebouwde functionaliteit voor bewaking en controle.
+
 * **Betaalbaar en rendabel**
   
-    Data Lake Analytics is een rendabele oplossing voor het uitvoeren van big data-workloads. U betaalt per taak wanneer de gegevens worden verwerkt. Hardware, licenties en servicespecifieke ondersteuningsovereenkomsten zijn niet nodig. Het systeem wordt automatisch omhoog of omlaag geschaald bij het starten en eindigen van de taak. Op deze manier betaalt u nooit voor meer dan u nodig hebt.
+    Data Lake Analytics is een rendabele oplossing voor het uitvoeren van big data-workloads. U betaalt per taak wanneer de gegevens worden verwerkt. Hardware, licenties en servicespecifieke ondersteuningsovereenkomsten zijn niet nodig. Het systeem wordt automatisch omhoog of omlaag geschaald bij het starten en eindigen van de taak. Op deze manier betaalt u nooit voor meer dan u nodig hebt. [Meer informatie over kostenbeheersing en geldbesparing](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c).
+    
 * **Werkt met alle Azure-gegevens**
   
     Data Lake Analytics is geoptimaliseerd voor gebruik met Azure Data Lake en biedt het hoogste niveau van prestaties, doorvoer en parallellisering voor uw big data-workloads.  Data Lake Analytics kan ook worden gebruikt met Blob-opslag en Azure SQL Database.
@@ -48,4 +50,4 @@ Azure Data Lake Analytics is een service op aanvraag voor het uitvoeren van anal
  
   * Aan de slag met Data Lake Analytics met behulp van [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli2.md)
   * Azure Data Lake Analytics beheren met behulp van [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)
-  * [Azure Data Lake Analytics-taken bewaken en problemen oplossen met Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md) 
+  * [Kosten beheersen en geld besparen met Data Lake Analytics](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c)

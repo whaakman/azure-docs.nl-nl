@@ -1,6 +1,6 @@
 ---
-title: Implementeer een Azure Service Fabric-toepassing met continue integratie (Team Services) | Microsoft Docs
-description: Informatie over het instellen van continue integratie en implementatie voor een Service Fabric-toepassing met behulp van Visual Studio Team Services.  Een toepassing implementeert op een Service Fabric-cluster in Azure.
+title: Een Azure Service Fabric-toepassing met continue integratie implementeren (Team Services) | Microsoft Docs
+description: In deze zelfstudie leert u continue integratie en implementatie in te stellen voor een Service Fabric-toepassing met behulp van Visual Studio-teamservices.  Een toepassing implementeren in een Service Fabric-cluster in Azure.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,146 +15,146 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 3f5ccd40e2b46cc68b4f7aeb67577fb66dbd5355
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Implementeer een toepassing met CI/CD naar een Service Fabric-cluster
-Deze zelfstudie maakt deel uit drie van een reeks en wordt beschreven hoe u voor het instellen van continue integratie en implementatie voor een Azure Service Fabric-toepassing met behulp van Visual Studio Team Services.  Een bestaande Service Fabric-toepassing is vereist, wordt de toepassing gemaakt in [een .NET-toepassing bouwen](service-fabric-tutorial-create-dotnet-app.md) wordt gebruikt als een voorbeeld.
+# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Zelfstudie: een toepassing met CI/CD implementeren in een Service Fabric-cluster
+Deze zelfstudie is deel drie van een reeks en beschrijft het instellen van continue integratie en implementatie voor een Azure Service Fabric-toepassing met behulp van Visual Studio Team Services.  Er is een bestaande Service Fabric-toepassing vereist. De toepassing die in [Een .NET-toepassing bouwen](service-fabric-tutorial-create-dotnet-app.md) is gemaakt, wordt als voorbeeld gebruikt.
 
-Deel 3 van de reeks, leert u hoe:
+In deel drie van de serie leert u het volgende:
 
 > [!div class="checklist"]
-> * Broncodebeheer toevoegen aan uw project
-> * Een build-definitie maken in een Team Services
-> * De definitie van een release in Team Services maken
-> * Automatisch implementeren en bijwerken van een toepassing
+> * Broncodebeheer aan uw project toevoegen
+> * Een build-definitie in Team Services maken
+> * Een release-definitie in Team Services maken
+> * Automatisch een upgrade en een toepassing implementeren
 
-In deze zelfstudie reeks leert u hoe:
+In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
-> * [Een .NET-Service Fabric-toepassing bouwen](service-fabric-tutorial-create-dotnet-app.md)
-> * [De toepassing naar een externe-cluster implementeren](service-fabric-tutorial-deploy-app-to-party-cluster.md)
-> * CI/CD met behulp van Visual Studio Team Services configureren
+> * [Een .NET Service Fabric-toepassing bouwen](service-fabric-tutorial-create-dotnet-app.md)
+> * [De toepassing implementeren in een extern cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * CI/CD configureren met behulp van Visual Studio Team Services
 > * [Controle en diagnostische gegevens voor de toepassing instellen](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u deze zelfstudie begint:
-- Als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Installeer Visual Studio 2017](https://www.visualstudio.com/) en installeer de **ontwikkelen van Azure** en **ASP.NET en web ontwikkeling** werkbelastingen.
-- [De Service Fabric SDK installeren](service-fabric-get-started.md)
-- Maak een Windows-Service Fabric-cluster in Azure, bijvoorbeeld door [deze zelfstudie](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+Voor u met deze zelfstudie begint:
+- Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Installeer Visual Studio 2017](https://www.visualstudio.com/) en installeer de workloads **Azure-ontwikkeling** en **ASP.NET-ontwikkeling en webontwikkeling**.
+- [Installeer de Service Fabric-SDK](service-fabric-get-started.md)
+- Maak een Windows Service Fabric-cluster in Azure, bijvoorbeeld door [deze zelfstudie te volgen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - Maak een [Team Services-account](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
-## <a name="download-the-voting-sample-application"></a>De voorbeeldtoepassing Voting downloaden
-Als u hebt niet de voorbeeldtoepassing Voting in [deel uitmaken van een van deze zelfstudie reeks](service-fabric-tutorial-create-dotnet-app.md), u kunt dit downloaden. Voer de volgende opdracht voor het klonen van de opslagplaats van de voorbeeld-app op uw lokale computer in een opdrachtvenster.
+## <a name="download-the-voting-sample-application"></a>De voorbeeldtoepassing om te stemmen downloaden
+Als u in [deel één van deze zelfstudiereeks](service-fabric-tutorial-create-dotnet-app.md) niet de voorbeeldtoepassing om te stemmen hebt gemaakt, kunt u deze downloaden. Voer in een opdrachtvenster de volgende opdracht uit om de voorbeeld-app-opslagplaats te klonen op de lokale computer.
 
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="prepare-a-publish-profile"></a>Een publicatieprofiel voorbereiden
-Nu dat u hebt [gemaakt van een toepassing](service-fabric-tutorial-create-dotnet-app.md) en [geïmplementeerd van de toepassing in Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), u klaar bent voor het instellen van continue integratie.  Bereid eerst een publicatieprofiel in uw toepassing voor gebruik door het implementatieproces die wordt uitgevoerd binnen Team Services.  Het publicatieprofiel dat moet worden geconfigureerd voor het doel van het cluster dat u eerder hebt gemaakt.  Visual Studio starten en opent u een bestaand project van de Service Fabric-toepassing.  In **Solution Explorer**, met de rechtermuisknop op de toepassing en selecteer **publiceren...** .
+U hebt [een toepassing gemaakt](service-fabric-tutorial-create-dotnet-app.md) en [de toepassing in Azure geïmplementeerd](service-fabric-tutorial-deploy-app-to-party-cluster.md). U kunt nu continue integratie instellen.  Bereid eerst een publicatieprofiel binnen uw toepassing voor, dat kan worden gebruikt door het implementatieproces dat in Team Services wordt uitgevoerd.  Het publicatieprofiel moet worden geconfigureerd zodat het cluster dat u eerder hebt gemaakt als doel kan dienen.  Start Visual Studio en open een bestaand Service Fabric-toepassingsproject.  Klik in **Solution Explorer** met de rechtermuisknop op de toepassing en selecteer **Publish...**.
 
-Kies een doelprofiel in uw toepassingsproject om te gebruiken voor uw werkstroom continue integratie, bijvoorbeeld Cloud.  Geef het verbindingseindpunt cluster.  Controleer de **Upgrade van de toepassing** selectievakje in zodat uw toepassing upgrades voor elke implementatie in een Team Services.  Klik op de **opslaan** hyperlink naar de instellingen in het publicatieprofiel opslaan en klik vervolgens op **annuleren** om het dialoogvenster te sluiten.  
+Kies een doelprofiel in het toepassingsproject, dat voor de werkstroom voor continue integratie kan worden gebruikt, bijvoorbeeld Cloud.  Geef het eindpunt voor de clusterverbinding op.  Schakel het selectievakje bij **Upgrade the Application** in, zodat voor elke implementatie in Team Services een upgrade voor de toepassing wordt uitgevoerd.  Klik op de hyperlink **Save** om de instellingen op te slaan in het publicatieprofiel. Klik vervolgens op **Cancel** om het dialoogvenster te sluiten.  
 
 ![Push-profiel][publish-app-profile]
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Delen van uw Visual Studio-oplossing een nieuw Team Services Git-opslagplaats
-Delen de bronbestanden van uw toepassing in een teamproject in Team Services, zodat u builds kunt genereren.  
+## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Uw Visual Studio-oplossing delen met een nieuwe Git-opslagplaats van Team Services
+Deel de bronbestanden van uw toepassing met een teamproject in Team Services zodat u builds kunt genereren.  
 
-Een nieuwe lokale Git-opslagplaats voor uw project maken door te selecteren **toevoegen aan broncodebeheer** -> **Git** op de statusbalk in de rechterbenedenhoek van Visual Studio. 
+Maak een nieuwe Git-opslagplaats voor uw project door op de statusbalk in de linkeronderhoek van Visual Studio **Add to Source Control** -> **Git** te selecteren. 
 
-In de **Push** weergeven in **Team Explorer**, selecteer de **Git-opslagplaats publiceren** knop onder **Push naar Visual Studio Team Services**.
+Ga naar de **Push**-weergave in **Team Explorer** en selecteer onder **Push to Visual Studio Team Services** de knop **Publish Git Repo**.
 
-![Push Git-opslagplaats][push-git-repo]
+![Git-opslagplaats pushen][push-git-repo]
 
-Controleer of uw e-mailadres en selecteert u uw account in de **Team Services domein** vervolgkeuzelijst. Voer de naam van uw opslagplaats en selecteer **publiceren opslagplaats**.
+Controleer uw e-mail en selecteer uw account in de vervolgkeuzelijst **Team Services Domain**. Voer de naam van de opslagplaats in en selecteer **Publish repository**.
 
-![Push Git-opslagplaats][publish-code]
+![Git-opslagplaats pushen][publish-code]
 
-Publiceren van de opslagplaats, maakt een nieuw teamproject in uw account met dezelfde naam als de lokale opslagplaats. Klik op om de opslagplaats in een bestaande teamproject **Geavanceerd** naast **opslagplaats** naam en selecteer een teamproject. U kunt uw code op het web bekijken door te selecteren **op het web bekijken**.
+Als u de opslagplaats pusht, wordt er een nieuw teamproject voor uw account gemaakt met dezelfde naam als de lokale opslagplaats. Als u de repro in een bestaand teamproject wilt maken, klikt u naast de naam van de **opslagplaats** op **Advanced** en selecteert u een teamproject. U kunt uw code op het web weergeven door **See it on the web** te selecteren.
 
-## <a name="configure-continuous-delivery-with-vsts"></a>Continue levering met VSTS configureren
-De definitie van een Team Services build beschrijft een werkstroom die bestaat uit een reeks build stappen die sequentieel worden uitgevoerd. Een build-definitie maken die die produceert een Service Fabric-toepassingspakket en andere onderdelen, om te implementeren op een Service Fabric-cluster. Meer informatie over [Team Services bouwen definities](https://www.visualstudio.com/docs/build/define/create). 
+## <a name="configure-continuous-delivery-with-vsts"></a>Continue levering configureren met VSTS
+Een definitie van een Team Services-build beschrijft een werkstroom die bestaat uit een reeks build-stappen die achtereenvolgens worden uitgevoerd. Maak een definitie van een build die een Service Fabric-toepassingspakket maakt en andere artefacten, om deze in een Service Fabric-cluster te implementeren. Meer informatie over [Definities van Team Services-builds](https://www.visualstudio.com/docs/build/define/create). 
 
-De definitie van een Team Services release beschrijft een werkstroom die een toepassingspakket in een cluster implementeert. Wanneer samen worden gebruikt, worden de volledige werkstroom beginnen met bronbestanden om te eindigen op een actieve toepassing in uw cluster uitvoeren door de build-definitie en de definitie van de release. Meer informatie over Services Team [definities release](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+Een definitie van een Team Services-release beschrijft een werkstroom waarmee een toepassingspakket in een cluster wordt geïmplementeerd. Als de definities van de build en de release samen worden gebruikt, wordt hiermee de hele werkstroom uitgevoerd, te beginnen met bronbestanden en te eindigen met het uitvoeren van een toepassing in uw cluster. Meer informatie over [release-definities ](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) van Team Services.
 
 ### <a name="create-a-build-definition"></a>Een build-definitie maken
-Open een webbrowser en navigeer naar uw nieuw teamproject op: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
+Open een webbrowser en ga naar uw nieuwe teamproject op: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
 
-Selecteer de **bouwen & Release** tabblad vervolgens **Builds**, klikt u vervolgens **+ nieuwe definitie**.  In **Selecteer een sjabloon**, selecteer de **Azure Service Fabric-toepassing** sjabloon en klikt u op **toepassen**. 
+Selecteer het tabblad **Build & Release**, vervolgens **Builds** en **+ New definition**.  Selecteer in **Select a template** de sjabloon **Azure Service Fabric Application** en klik op **Apply**. 
 
-![Kies build-sjabloon][select-build-template] 
+![Build-sjabloon kiezen][select-build-template] 
 
-In **taken**, "VS2017 gehost" invoeren als de **Agent wachtrij**. 
+Voer in **Tasks** Hosted VS2017 in als de **Agent queue**. 
 
 ![Taken selecteren][save-and-queue]
 
-Onder **Triggers**, continue integratie inschakelen door in te stellen **status activeren**.  Selecteer **opslaan en een wachtrij** een build handmatig te starten.  
+Schakel onder **Triggers** continue integratie in door **Trigger status** in te stellen.  Selecteer **Save and queue** om handmatig een build te starten.  
 
-![Selecteer triggers][save-and-queue2]
+![Triggers selecteren][save-and-queue2]
 
-Voortbouwt ook trigger op push of inchecken. Als u wilt uw build-voortgang controleren, gaat u naar de **Builds** tabblad.  Zodra u hebt gecontroleerd dat de build met succes wordt uitgevoerd, definieert u de definitie van een versie die uw toepassing naar een cluster wordt geïmplementeerd. 
+Hiermee worden ook triggers gebouwd na pushen of inchecken. Als u de voortgang van de build wilt controleren, schakelt u over naar het tabblad **Builds**.  Als u hebt gecontroleerd dat de build correct wordt uitgevoerd, definieert u een release-definitie waarmee uw toepassing in een cluster wordt geïmplementeerd. 
 
-### <a name="create-a-release-definition"></a>Een release-definitie maken  
+### <a name="create-a-release-definition"></a>Release-definitie maken  
 
-Selecteer de **bouwen & Release** tabblad vervolgens **Releases**, klikt u vervolgens **+ nieuwe definitie**.  In **Selecteer een sjabloon**, selecteer de **Azure Service Fabric-implementatie** sjabloon uit de lijst en vervolgens **toepassen**.  
+Selecteer het tabblad **Build & Release**, vervolgens **Releases** en **+ New definition**.  Selecteer in **Select a template** de sjabloon **Azure Service Fabric Deployment** in de lijst en vervolgens **Apply**.  
 
-![Kies releasesjabloon][select-release-template]
+![Release-sjabloon kiezen][select-release-template]
 
-Selecteer **taken**->**omgeving 1** en vervolgens **+ nieuw** een nieuwe verbinding met cluster toevoegen.
+Selecteer **Tasks**->**Environment 1** en vervolgens **+New** om een nieuwe clusterverbinding toe te voegen.
 
-![Cluster-verbinding toevoegen][add-cluster-connection]
+![Clusterverbinding toevoegen][add-cluster-connection]
 
-In de **nieuwe Service Fabric-verbinding toevoegen** Selecteer weergeven **op basis van certificaat** of **Azure Active Directory** verificatie.  Geef de verbindingsnaam van een van 'mysftestcluster' en 'tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000' van een clustereindpunt (of het eindpunt van het cluster die u implementeert op). 
+Selecteer in de weergave **Add new Service Fabric Connection** **Certificate Based**- of **Azure Active Directory**-verificatie.  Geef de verbindingsnaam mysftestcluster op en het clustereindpunt tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000 (of het eindpunt van het cluster waarin de implementatie wordt uitgevoerd). 
 
-Voor verificatie op basis, voegt u de **Server certificaatvingerafdruk** van het servercertificaat gebruikt voor het maken van het cluster.  In **clientcertificaat**, voeg de base 64-codering van het certificaatbestand. Zie het help-pop-upvenster op het veld voor informatie over het verkrijgen van die base-64 gecodeerde representatie van het certificaat. Voeg ook de **wachtwoord** voor het certificaat.  U kunt het certificaat van de cluster- of als u een afzonderlijke clientcertificaat geen. 
+Voor verificatie op basis van verificatie voegt u de **vingerafdruk voor servercertificaat** toe van het servercertificaat waarmee het cluster is gemaakt.  Voeg in het **clientcertificaat** de basis-64-codering van het certificaatbestand van de client toe. Zie het pop-upitem met de Help voor dat veld voor informatie over hoe u de basis-64-representatie van het certificaat ophaalt. Voeg ook het **wachtwoord** voor het certificaat toe.  U kunt het cluster- of het servercertificaat gebruiken als u geen apart clientcertificaat hebt. 
 
-Voor Azure Active Directory-referenties, voegt u de **Server certificaatvingerafdruk** van het servercertificaat gebruikt voor het maken van het cluster en de referenties u wilt gebruiken voor verbinding met het cluster in de **gebruikersnaam** en **wachtwoord** velden. 
+Voor referenties van Azure Active Directory voegt u de **vingerafdruk voor het servercertificaat** van het servercertificaat waarmee het cluster is gemaakt, en de referenties die u wilt gebruiken om verbinding te maken met het cluster, toe aan de velden **Username** en **Password**. 
 
-Klik op **toevoegen** om op te slaan van de cluster-verbinding.
+Klik op **Add** om de clusterverbinding op te slaan.
 
-Voeg vervolgens een artefact build toe aan de pijplijn zodat de release-definitie de uitvoer van de build kan vinden. Selecteer **pijplijn** en **artefacten**->**+ toevoegen**.  In **bron (Build-definitie)**, selecteert u de build-definitie die u eerder hebt gemaakt.  Klik op **toevoegen** om op te slaan van het artefact build.
+Voeg vervolgens een build-artefact toe aan de pijplijn, zodat met de releasedefinitie de uitvoer van de build kan worden gevonden. Selecteer **Pipeline** en **Artifacts**->**+Add**.  Selecteer in **Source (Build definition)** de build-definitie die u eerder hebt gemaakt.  Klik op **Add** om het build-artefact op te slaan.
 
-![Artefacten toevoegen][add-artifact]
+![Artefact toevoegen][add-artifact]
 
-Een trigger continue implementatie inschakelen zodat een release automatisch gemaakt wordt wanneer de build is voltooid. Klik op het pictogram lightning in het artefact en klikt u op de trigger inschakelen **opslaan** om op te slaan de release-definitie.
+Schakel een trigger voor continue implementatie in, zodat automatisch een release wordt gemaakt als de build wordt voltooid. Klik op het bliksempictogram in het artefact, schakel de trigger in en klik op **Save** om de release-definitie op te slaan.
 
 ![Trigger inschakelen][enable-trigger]
 
-Selecteer **+ Release** -> **maken Release** -> **maken** handmatig maken van een release.  Controleer of de implementatie is voltooid en de toepassing wordt uitgevoerd in het cluster.  Open een webbrowser en navigeer naar [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Noteer de versie van de toepassing in dit voorbeeld is '1.0.0.20170616.3'. 
+Selecteer **+Release** -> **Create Release** -> **Create** om handmatig een release te maken.  Controleer of de implementatie is gelukt en de toepassing in het cluster wordt uitgevoerd.  Open een webbrowser en ga naar [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Noteer de versie van de toepassing (in dit voorbeeld 1.0.0.20170616.3). 
 
-## <a name="commit-and-push-changes-trigger-a-release"></a>Doorvoeren en wijzigingen forceren, een release activeren
-Om te controleren of de pijplijn continue integratie werkt door te controleren in een aantal codewijzigingen in Team Services.    
+## <a name="commit-and-push-changes-trigger-a-release"></a>Wijzigingen doorvoeren en pushen, een release activeren
+Als u wilt controleren of de pijplijn voor continue integratie functioneert, checkt u enkele codewijzigingen aan Team Services in.    
 
-Als u uw code schrijft, worden uw wijzigingen automatisch bijgehouden door Visual Studio. Wijzigingen doorvoeren aan uw lokale Git-opslagplaats door het selecteren van het pictogram wijzigingen in behandeling (![In behandeling][pending]) van de statusbalk onder in het rechterdeelvenster.
+Terwijl u de code schrijft, worden de wijzigingen automatisch in Visual Studio bijgehouden. Voer wijzigingen door in de lokale Git-opslagplaats door het pictogram voor wijzigingen in behandeling (![In behandeling][pending]) te selecteren op de statusbalk rechtsonder.
 
-Op de **wijzigingen** weergeven in Verkenner-Team, een bericht met een beschrijving van de update toevoegen en uw wijzigingen.
+Voeg aan de weergave **Changes** in Team Explorer een bericht toe waarin u de update beschrijft en voer de wijzigingen door.
 
-![Alle doorvoeren][changes]
+![Alles doorvoeren][changes]
 
-Selecteer het pictogram van niet-gepubliceerde wijzigingen status balk (![niet-gepubliceerde wijzigingen][unpublished-changes]) of de synchronisatie-weergave in de Explorer-Team. Selecteer **Push** bijwerken van uw code in Services/TFS Team.
+Selecteer het pictogram voor de statusbalk met niet-gepubliceerde wijzigingen (![Unpublished changes][unpublished-changes]) of de synchronisatieweergave in Team Explorer. Selecteer **Push** om de code bij te werken in Team Services/TFS.
 
-![Wijzigingen][push]
+![Wijzigingen pushen][push]
 
-De wijzigingen worden gepusht naar Team Services automatisch een build wordt geactiveerd.  Wanneer de build-definitie is voltooid, wordt een versie wordt automatisch gemaakt en begint met het upgraden van de toepassing op het cluster.
+Als u de wijzigingen naar Team Services pusht, wordt er automatisch een build geactiveerd.  Als de build-definitie wordt voltooid, wordt er automatisch een release gemaakt en wordt de toepassing in het cluster bijgewerkt.
 
-Als u wilt uw build-voortgang controleren, gaat u naar de **Builds** tabblad **Team Explorer** in Visual Studio.  Zodra u hebt gecontroleerd dat de build met succes wordt uitgevoerd, definieert u de definitie van een versie die uw toepassing naar een cluster wordt geïmplementeerd.
+Als u de voortgang van de build wilt controleren, schakelt u over naar het tabblad **Builds** in **Team Explorer** in Visual Studio.  Als u hebt gecontroleerd dat de build correct wordt uitgevoerd, definieert u een release-definitie waarmee uw toepassing in een cluster wordt geïmplementeerd.
 
-Controleer of de implementatie is voltooid en de toepassing wordt uitgevoerd in het cluster.  Open een webbrowser en navigeer naar [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Noteer de versie van de toepassing in dit voorbeeld is '1.0.0.20170815.3'.
+Controleer of de implementatie is gelukt en de toepassing in het cluster wordt uitgevoerd.  Open een webbrowser en ga naar [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Noteer de versie van de toepassing (in dit voorbeeld 1.0.0.20170815.3).
 
 ![Service Fabric Explorer][sfx1]
 
 ## <a name="update-the-application"></a>De toepassing bijwerken
-Codewijzigingen aanbrengen in de toepassing.  Opslaan en de wijzigingen, de vorige stappen te volgen.
+Breng in de toepassing wijzigingen aan de code aan.  Sla de wijzigingen op en voer ze door aan de hand van de voorgaande stappen.
 
-Zodra de upgrade van de toepassing is gestart, kunt u de voortgang van de upgrade in Service Fabric Explorer bekijken:
+Zodra de upgrade van de toepassing wordt uitgevoerd, kunt u de voortgang ervan volgen in Service Fabric Explorer:
 
 ![Service Fabric Explorer][sfx2]
 
-De upgrade van de toepassing kan enkele minuten duren. Wanneer de upgrade voltooid is, wordt de toepassing uitgevoerd de volgende versie.  In dit voorbeeld '1.0.0.20170815.4'.
+Het kan enkele minuten duren voordat de toepassing is bijgewerkt. Als het bijwerken is voltooid, wordt de volgende versie door de toepassing uitgevoerd.  In dit voorbeeld 1.0.0.20170815.4.
 
 ![Service Fabric Explorer][sfx3]
 
@@ -162,12 +162,12 @@ De upgrade van de toepassing kan enkele minuten duren. Wanneer de upgrade voltoo
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Broncodebeheer toevoegen aan uw project
+> * Broncodebeheer aan uw project toevoegen
 > * Een build-definitie maken
-> * Een release-definitie maken
-> * Automatisch implementeren en bijwerken van een toepassing
+> * Release-definitie maken
+> * Automatisch een upgrade en een toepassing implementeren
 
-Ga naar de volgende zelfstudie:
+Ga door naar de volgende zelfstudie:
 > [!div class="nextstepaction"]
 > [Controle en diagnostische gegevens voor de toepassing instellen](service-fabric-tutorial-monitoring-aspnet.md) 
 

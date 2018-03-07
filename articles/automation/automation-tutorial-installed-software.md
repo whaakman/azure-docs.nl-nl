@@ -5,16 +5,16 @@ services: automation
 keywords: inventaris, automation, wijziging, bijhouden
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bdd638d0612a8ddee1a0ddb4fd4579f8da14b887
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: MT
+ms.openlocfilehash: 97cd2c91ca2c70b044518c43d49356918202d5ff
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Uitvinden welke software is geïnstalleerd op uw Azure- en niet-Azure-computers
 
@@ -23,7 +23,7 @@ In deze zelfstudie leert u hoe u kunt uitvinden welke software er is geïnstalle
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een VM onboarden voor Wijzigingen bijhouden en Inventaris
+> * Een virtuele machine onboarden voor Wijzigingen bijhouden en Inventaris
 > * Geïnstalleerde software weergeven
 > * Inventarislogboeken doorzoeken op geïnstalleerde software
 
@@ -41,38 +41,20 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Wijzigingen bijhouden en Inventaris inschakelen
 
-U moet voor deze zelfstudie eerst Wijzigingen bijhouden en Inventaris voor uw virtuele machine inschakelen. Als u eerder een andere automatiseringsoplossing voor een VM hebt ingeschakeld, is deze stap niet nodig.
+U moet voor deze zelfstudie eerst Wijzigingen bijhouden en Inventaris voor uw virtuele machine inschakelen. Als u eerder de oplossing **Wijzigingen bijhouden** voor uw virtuele machine hebt ingeschakeld, is deze stap niet nodig.
 
 1. Selecteer in het menu links **Virtuele machines** en selecteer een virtuele machine in de lijst.
 2. Klik in het menu links in het gedeelte **Bewerkingen** op **Inventaris**. De pagina **Wijzigingen bijhouden en Inventaris inschakelen** wordt weergegeven.
 
-Er wordt een validatie uitgevoerd om te bepalen of Inventaris is ingeschakeld voor deze virtuele machine.
-De validatie bevat controles voor een Log Analytics-werkruimte en het gekoppelde Automation-account en controleert of de oplossing zich in de werkruimte bevindt.
+![Banner voor configuratie van onboarden Inventaris](./media/automation-tutorial-installed-software/enableinventory.png)
+
+Configureer de locatie, de Log Analytics-werkruimte en het Automation-account dat moet worden gebruikt, en klik op **Inschakelen** om de oplossing in te schakelen. Als de velden lichtgrijs zijn, betekent dit dat een andere automatiseringsoplossing is ingeschakeld voor de virtuele machine en dat dezelfde werkruimte en hetzelfde Automation-account moeten worden gebruikt.
 
 Een [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-werkruimte wordt gebruikt om gegevens te verzamelen die worden gegenereerd door functies en services zoals Inventaris.
 De werkruimte biedt één locatie om gegevens uit meerdere bronnen te bekijken en te analyseren.
 
-Tijdens het validatieproces wordt ook gecontroleerd of de VM is ingericht met Microsoft Monitoring Agent (MMA) en Hybrid Worker.
-Deze agent wordt gebruikt om te communiceren met de VM en om informatie op te vragen over geïnstalleerde software.
-Tijdens het validatieproces wordt ook gecontroleerd of de VM is ingericht met Microsoft Monitoring Agent (MMA) en Automation Hybrid Runbook Worker.
-
-Als niet aan deze vereisten wordt voldaan, verschijnt er een banner waarin u de optie krijgt de oplossing in te schakelen.
-
-![Banner voor configuratie van onboarden Inventaris](./media/automation-tutorial-installed-software/enableinventory.png)
-
-Klik op de banner om de oplossing in te schakelen.
-Als een van de volgende vereiste onderdelen ontbreekt na de validatie, wordt dit automatisch toegevoegd:
-
-* [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-werkruimte
-* [Automatisering](./automation-offering-get-started.md)
-* Een [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md) wordt ingeschakeld op de VM.
-
-Het scherm **Wijzigingen bijhouden en Inventaris** wordt weergegeven. Configureer de locatie, de Log Analytics-werkruimte en het Automation-account dat moet worden gebruikt, en klik op **Inschakelen**. Als de velden lichtgrijs zijn, betekent dit dat een andere automatiseringsoplossing is ingeschakeld voor de VM en dat dezelfde werkruimte en hetzelfde Automation-account moeten worden gebruikt.
-
-![Het venster Oplossing Wijzigingen bijhouden inschakelen](./media/automation-tutorial-installed-software/installed-software-enable.png)
-
 Het inschakelen van de oplossing kan maximaal 15 minuten duren. Gedurende deze tijd mag u het browservenster niet sluiten.
-Nadat de oplossing is ingeschakeld, wordt informatie over geïnstalleerde software en wijzigingen op de VM naar Log Analytics verzonden.
+Nadat de oplossing is ingeschakeld, wordt informatie over geïnstalleerde software en wijzigingen op de virtuele machine naar Log Analytics verzonden.
 Het duurt tussen 30 minuten en 6 uur voordat de gegevens beschikbaar zijn voor analyse.
 
 ## <a name="view-installed-software"></a>Geïnstalleerde software weergeven
@@ -137,4 +119,4 @@ In deze zelfstudie hebt u geleerd hoe u software-inventaris kunt weergeven om he
 Ga verder naar het overzicht van de oplossing Wijzigingen bijhouden en Inventaris als u er meer over wilt weten.
 
 > [!div class="nextstepaction"]
-> [De oplossing Wijzigingen bijhouden en Inventaris](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [De oplossing Wijzigingen bijhouden en Inventaris](automation-change-tracking.md)

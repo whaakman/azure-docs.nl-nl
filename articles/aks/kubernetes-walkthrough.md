@@ -1,31 +1,31 @@
 ---
-title: Snelstartgids - Azure Kubernetes-cluster voor Linux
+title: Quickstart - Azure Kubernetes-cluster voor Linux
 description: Leer snel hoe u een Kubernetes-cluster voor Linux-containers in AKS maakt met behulp van de Azure CLI.
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: f0ed49c94dc83624b5f6f1ee0a4dcdff9284d5a5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8e64ab3214633ae2f34234514dca5e7bb7b1896e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Een AKS-cluster (Azure Container Service) implementeren
 
-In deze snelstartgids gaan we een AKS-cluster implementeren met behulp van de Azure CLI. Vervolgens wordt een toepassing met meerdere containers op het cluster uitgevoerd die bestaat uit een web-front-end en een Redis-exemplaar. Nadat de toepassing is voltooid, is deze toegankelijk via internet.
+In deze quickstart gaan we een AKS-cluster implementeren met behulp van de Azure CLI. Vervolgens wordt een toepassing met meerdere containers op het cluster uitgevoerd die bestaat uit een web-front-end en een Redis-exemplaar. Zodra de toepassing is voltooid, is deze toegankelijk via internet.
 
 ![Afbeelding van browsen naar Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-In deze snelstartgids wordt ervan uitgegaan dat u over basiskennis van Kubernetes-concepten beschikt. Raadpleeg de [Kubernetes-documentatie][kubernetes-documentation] voor gedetailleerde informatie over Kubernetes.
+In deze quickstart wordt ervan uitgegaan dat u over basiskennis van Kubernetes-concepten beschikt. Raadpleeg de [Kubernetes-documentatie][kubernetes-documentation] voor gedetailleerde informatie over Kubernetes.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids versie 2.0.21 of hoger van Azure CLI uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de Azure CLI versie 2.0.27 of later uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>AKS-preview inschakelen voor uw Azure-abonnement
 Zolang AKS in preview is, moet voor het maken van nieuwe clusters een functievlag worden toegevoegd aan uw abonnement. U kunt deze functie aanvragen voor een willekeurig aantal abonnementen dat u wilt gebruiken. Gebruik de opdracht `az provider register` om de AKS-provider te registreren:
@@ -39,6 +39,7 @@ Als dat is gebeurd, kunt u een Kubernetes-cluster gaan maken met AKS.
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Een resourcegroep maken met de opdracht [az group create][az-group-create]. Een Azure-resourcegroep is een logische groep waarin Azure-resources worden geïmplementeerd en beheerd.
+Bij het aanmaken van een resourcegroep wordt u gevraagd een locatie op te geven. Dit is waar uw resources zich in Azure zullen bevinden. Zolang AKS in preview is, zijn er slechts enkele locatieopties beschikbaar. Dit zijn `eastus, westeurope, centralus, canadacentral, canadaeast`.
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
 
@@ -88,7 +89,7 @@ Als u kubectl zo wilt configureren dat de client verbinding maakt met uw Kuberne
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Als u de verbinding met uw cluster wilt controleren, gebruikt u de opdracht [kubectl get][kubectl-get] om een lijst met clusterknooppunten te retourneren.
+Als u de verbinding met uw cluster wilt controleren, gebruikt u de opdracht [kubectl get][kubectl-get] om een lijst met clusterknooppunten te retourneren. Houd er rekening met dat het een paar minuten kan duren voordat gegevens worden weergegeven.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -103,9 +104,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-In een Kubernetes-manifestbestand wordt een gewenste status voor het cluster gedefinieerd, inclusief zaken zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In dit voorbeeld worden met behulp van een manifest alle objecten gemaakt die nodig zijn om de Azure Vote-toepassing uit te voeren.
+In een Kubernetes-manifestbestand wordt een gewenste status voor het cluster gedefinieerd, inclusief zaken zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In dit voorbeeld worden met behulp van een manifest alle objecten gemaakt die nodig zijn om de Azure Vote-toepassing uit te voeren. De bijgeleverde installatiekopie is een voorbeeldtoepassing, maar u kunt lezen over [het maken van een installatiekopie](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app) en [implementeren naar het Azure Container Registry](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr) als u zelf een toepassing wilt maken.
 
-Maak een bestand met de naam `azure-vote.yaml` en kopieer de volgende YAML-code naar het bestand. Als u werkt in Azure Cloud Shell, kan dit bestand worden gemaakt met behulp van vi of Nano, zoals bij een virtueel of fysiek systeem.
+Maak een bestand met de naam `azure-vote.yaml` en kopieer de volgende YAML-code naar het bestand. Als u werkt in Azure Cloud Shell, kan dit bestand worden gemaakt met behulp van vi of Nano, zoals bij een virtueel of fysiek systeem. Als u lokaal werkt, kunt u Visual Studio Code gebruiken om dit bestand te maken door `code azure-vote.yaml` uit te voeren.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -200,7 +201,7 @@ NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Nadat het *EXTERNE IP-adres* is gewijzigd van *in behandeling* in een *IP-adres*, gebruikt u `CTRL-C` om het controleproces van kubectl te stoppen.
+Zodra het *EXTERNE IP-adres* is gewijzigd van *in behandeling* in een *IP-adres*, gebruikt u `CTRL-C` om het controleproces van kubectl te stoppen.
 
 ```
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -209,18 +210,6 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 Nu kunt u naar het externe IP-adres browsen voor een overzicht van de Azure Vote-toepassing.
 
 ![Afbeelding van browsen naar Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
-
-## <a name="open-kubernetes-dashboard"></a>Kubernetes-dashboard openen
-
-De Azure CLI kan ook worden gebruikt voor het instellen van een verbinding met het Kubernetes-dashboard. Gebruik hiervoor de opdracht [az aks browse][az-aks-browse].
-
-```azurecli-interactive
-az aks browse --resource-group myResourceGroup --name myAKSCluster
-```
-
-Wanneer deze opdracht is uitgevoerd, wordt het Kubernetes-dashboard in een browser geopend.
-
-![Kubernetes-dashboard](media/container-service-kubernetes-walkthrough/k8s-dashboard.png)
 
 ## <a name="delete-cluster"></a>Cluster verwijderen
 
@@ -232,7 +221,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Code ophalen
 
-In deze snelstartgids zijn vooraf gemaakte containerinstallatiekopieën gebruikt om een Kubernetes-implementatie te maken. De gerelateerde toepassingscode, Dockerfile en het Kubernetes-manifestbestand zijn beschikbaar op GitHub.
+In deze quickstart zijn vooraf gemaakte containerinstallatiekopieën gebruikt om een Kubernetes-implementatie te maken. De gerelateerde toepassingscode, Dockerfile en het Kubernetes-manifestbestand zijn beschikbaar op GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
@@ -243,7 +232,7 @@ In deze snelstartgids hebt u een Kubernetes-cluster geïmplementeerd en vervolge
 Voor meer informatie over AKS en een volledig stapsgewijs voorbeeld van code tot implementatie gaat u naar de zelfstudie over Kubernetes-clusters.
 
 > [!div class="nextstepaction"]
-> [Een AKS-cluster beheren][aks-tutorial]:
+> [ASK-zelfstudie][aks-tutorial]:
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

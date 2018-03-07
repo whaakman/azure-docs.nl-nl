@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 070f69cab63525c3209380bc5f7121812be4a899
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: c77b7c965f43dc9c4f76683aabeb6ff9c9d3a1c9
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Een Docker Python- en PostgreSQL-web-app in Azure maken
 
@@ -28,7 +28,7 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een PostgreSQL-database in Azure maken
-> * Een Python-app verbinden met MySQL
+> * Een Python-app verbinden met PostgreSQL
 > * De app implementeren in Azure
 > * Het gegevensmodel bijwerken en de app opnieuw implementeren
 > * De app in Azure Portal beheren

@@ -1,6 +1,6 @@
 ---
 title: Een Spring Boot-toepassing implementeren in Azure Service Fabric | Microsoft Docs
-description: Een Spring Boot-toepassing implementeren in Azure Service Fabric met behulp van de Spring Boot Aan de slag.
+description: In deze snelstart implementeert u een Spring Boot-toepassing voor Azure Service Fabric met behulp van een Spring Boot-voorbeeldtoepassing.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8e57ed29560baeea6279a45e8769f4005c123b56
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ab860b8525bcb77d3ab35d3f649532713c661b61
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-spring-boot-application"></a>Een Spring Boot-toepassing implementeren
+# <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>Snelstart: een Java Spring Boot-toepassing in Azure implementeren
 Azure Service Fabric is een platform voor gedistribueerde systemen voor het implementeren en distribueren van microservices en containers. 
 
-In deze snelstartgids wordt gedemonstreerd hoe u een Spring Boot-toepassing implementeert in Service Fabric. Deze snelstartgids gebruikt het [Aan de slag](https://spring.io/guides/gs/spring-boot/)-voorbeeld van de Spring-website. Met gebruik van vertrouwde opdrachtregelprogramma’s wordt u in deze snelstartgids stapsgewijs begeleid bij het implementeren van het Spring Boot-voorbeeld als een Service Fabric-toepassing. Als u klaar bent, werkt het Spring Boot Aan de slag-voorbeeld in Service Fabric. 
+In deze quickstart wordt gedemonstreerd hoe u een Spring Boot-toepassing implementeert in Service Fabric. Deze quickstart gebruikt het [Aan de slag](https://spring.io/guides/gs/spring-boot/)-voorbeeld van de Spring-website. Met gebruik van vertrouwde opdrachtregelprogramma’s wordt u in deze quickstart stapsgewijs begeleid bij het implementeren van het Spring Boot-voorbeeld als een Service Fabric-toepassing. Als u klaar bent, werkt het Spring Boot Aan de slag-voorbeeld in Service Fabric. 
 
 ![Schermafbeelding van de toepassing](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -38,7 +38,7 @@ In deze snelstartgids leert u de volgende zaken:
 > * Failover van de service uitvoeren met geen beschikbaarheid
 
 ## <a name="prerequisites"></a>Vereisten
-Dit zijn de vereisten voor het voltooien van deze snelstartgids:
+Dit zijn de vereisten voor het voltooien van deze Quickstart:
 1. [Service Fabric-SDK en Service Fabric CLI (opdrachtregelinterface) installeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Git installeren](https://git-scm.com/)
 3. [Yeoman installeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)

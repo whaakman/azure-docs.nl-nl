@@ -1,50 +1,50 @@
 ---
-title: Zelfstudie voor Azure Container Service - Monitor Kubernetes
-description: Zelfstudie voor Azure Container Service - Monitor Kubernetes met Microsoft Operations Management Suite (OMS)
+title: Zelfstudie voor Azure Container Service - Kubernetes bewaken
+description: Zelfstudie voor Azure Container Service - Kubernetes bewaken met Microsoft Operations Management Suite (OMS)
 services: container-service
 author: dlepow
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 07/25/2017
+ms.date: 02/26/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 948e3aeea34a0355c3d958f29008c26499e19ba4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 965ce4b7e154684fc1d171c90f17498afc828a66
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="monitor-a-kubernetes-cluster-with-operations-management-suite"></a>Monitor voor een cluster Kubernetes met Operations Management Suite
+# <a name="monitor-a-kubernetes-cluster-with-operations-management-suite"></a>Kubernetes-cluster bewaken met Operations Management Suite
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Uw cluster Kubernetes en containers is niet kritiek, vooral wanneer u een productiecluster op schaal met meerdere apps beheren. 
+Het is erg belangrijk om uw Kubernetes-cluster en -containers te bewaken, vooral wanneer u een productiecluster op schaal bewaakt met meerdere apps. 
 
-U kunt profiteren van verschillende Kubernetes bewakingsoplossingen, van Microsoft of andere providers. In deze zelfstudie maakt u uw cluster Kubernetes controleren met behulp van de oplossing Containers in [Operations Management Suite](../../operations-management-suite/operations-management-suite-overview.md), van de Microsoft cloud-gebaseerde IT-oplossing. (De Containers OMS-oplossing is in preview.)
+U kunt gebruikmaken van meerdere Kubernetes-bewakingsoplossingen, zowel van Microsoft als van derden. In deze zelfstudie bewaakt u het Kubernetes-cluster met behulp van Containers in [Operations Management Suite](../../operations-management-suite/operations-management-suite-overview.md), de cloud-IT-beheeroplossing van Microsoft. (OMS Containers is beschikbaar als preview-versie.)
 
-Deze zelfstudie maakt deel uit zeven zeven, komen de volgende taken:
+In deze zelfstudie, deel zeven van zeven, komen de volgende taken aan bod:
 
 > [!div class="checklist"]
-> * OMS-werkruimte-instellingen ophalen
-> * OMS-agents op de knooppunten Kubernetes instellen
-> * Toegang tot gegevens in de OMS-portal of Azure-portal bewaken
+> * Instellingen voor OMS Workspace ophalen
+> * OMS-agenten instellen op de Kubernetes-knooppunten
+> * Toegang tot de bewakingsgegevens in de OMS-portal of in Azure Portal
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Een toepassing is in de vorige zelfstudies ingepakt in container-installatiekopieën, deze installatiekopieën geüpload naar het register van Azure-Container en een Kubernetes-cluster gemaakt. 
+In de vorige zelfstudies is er een toepassing verpakt in containerinstallatiekopieën, zijn de installatiekopieën geüpload naar Azure Container Registry en is er een Kubernetes-cluster gemaakt. 
 
-Als u deze stappen nog niet hebt gedaan en u wilt volgen, terug naar [zelfstudie 1 – installatiekopieën van de container maken](./container-service-tutorial-kubernetes-prepare-app.md). 
+Als u deze stappen niet hebt uitgevoerd en deze zelfstudie wilt volgen, gaat u terug naar [Zelfstudie 1: Containerinstallatiekopieën maken](./container-service-tutorial-kubernetes-prepare-app.md). 
 
-## <a name="get-workspace-settings"></a>Werkruimte-instellingen ophalen
+## <a name="get-workspace-settings"></a>Instellingen voor werkruimte ophalen
 
-Wanneer u toegang hebt tot de [OMS-portal](https://mms.microsoft.com), gaat u naar **instellingen** > **verbonden bronnen** > **Linux-Servers**. U vindt er, de *werkruimte-ID* en een primaire of secundaire site *Werkruimtesleutel*. Noteer deze waarden, u moet voor het instellen van OMS-agents op het cluster.
+Als u de [OMS-portal](https://mms.microsoft.com) opent, gaat u naar **Instellingen** > **Verbonden bronnen** > **Linux-servers**. Hier vindt u de *werkstroom-id* en een primaire of secundaire *werkruimtesleutel*. Noteer deze waarden. U hebt ze nodig om OMS-agenten voor het cluster in te stellen.
 
-## <a name="set-up-oms-agents"></a>Instellen van OMS-agents
+## <a name="set-up-oms-agents"></a>OMS-agenten instellen
 
-Hier volgt een YAML-bestand voor het instellen van OMS-agents op de clusterknooppunten Linux. Het maken van een Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), die een enkele identiek schil wordt uitgevoerd op elk clusterknooppunt. De bron DaemonSet is ideaal voor het implementeren van een agent voor toepassingsbewaking. 
+Hier ziet u een YAML-bestand waarmee u OMS-agenten op de eindpunten van het Linux-cluster kunt instellen. Er wordt een Kubernetes-[DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) gemaakt, die één identieke pod op elk clusterknooppunt uitvoert. De resource DaemonSet is zeer geschikt voor het implementeren van een bewakingsagent. 
 
-Opslaan van de volgende tekst in een bestand met de naam `oms-daemonset.yaml`, en vervang de tijdelijke aanduiding voor waarden voor *myWorkspaceID* en *myWorkspaceKey* OMS-werkruimte-ID en sleutel van uw. (In productie, kunt u deze waarden coderen als geheimen.)
+Sla de volgende tekst op in een bestand met de naam `oms-daemonset.yaml` en vervang de waarden in de tijdelijke aanduidingen met *myWorkspaceID* en *myWorkspaceKey* door de OMS Workspace-id en -sleutel. (Tijdens productie kunt u deze waarden als geheimen coderen.)
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -99,13 +99,13 @@ spec:
        path: /var/log
 ```
 
-De DaemonSet maken met de volgende opdracht:
+Maak de DaemonSet met de volgende opdracht:
 
 ```azurecli-interactive
 kubectl create -f oms-daemonset.yaml
 ```
 
-Om te zien dat de DaemonSet is gemaakt, worden uitgevoerd:
+Voer de volgende opdracht uit om te controleren dat de DaemonSet is gemaakt:
 
 ```azurecli-interactive
 kubectl get daemonset
@@ -118,33 +118,33 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         0            3           <none>          5m
 ```
 
-Nadat de agents uitvoert, duurt het enkele minuten voor OMS opnemen en verwerken van de gegevens.
+Wanneer de agents worden uitgevoerd, duurt het een aantal minuten voordat de OMS de gegevens heeft opgenomen en verwerkt.
 
 ## <a name="access-monitoring-data"></a>Toegang tot bewakingsgegevens
 
-Weergeven en analyseren van de OMS-container bewakingsgegevens met de [Container oplossing](../../log-analytics/log-analytics-containers.md) in de OMS-portal of de Azure-portal. 
+Bekijk en analyseer met de [Container-oplossing](../../log-analytics/log-analytics-containers.md) de bewakingsgegevens van de OMS-container. U kunt dit doen in de OMS-portal of in Azure Portal. 
 
-Voor het installeren van de Container oplossing met behulp van de [OMS-portal](https://mms.microsoft.com), gaat u naar **galerie met oplossingen**. Voeg vervolgens **Container oplossing**. U kunt ook toevoegen de Containers-oplossing van de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
+Als u de Container-oplossing wilt installeren via de [OMS-portal](https://mms.microsoft.com), gaat u naar **Oplossingengalerie**. Voeg vervolgens **Container-oplossing** toe. U kunt de Containers-oplossing ook toevoegen vanaf [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
-Zoek in de OMS-portal een **Containers** tegel samenvatting op het dashboard OMS. Klik op de tegel voor meer informatie, met inbegrip van: container gebeurtenissen, fouten, status, inventaris van de installatiekopie en CPU- en geheugengebruik. Voor meer gedetailleerde informatie op een rij op een tegel of voer een [logboek zoeken](../../log-analytics/log-analytics-log-searches.md).
+Zoek in de OMS-portal, op het OMS-dashboard, naar een overzichtstegel **Containers**. Klik op de tegel voor details, waaronder: containergebeurtenissen, fouten, status, voorraad installatiekopieën en CPU- en geheugengebruik. Klik voor meer gedetailleerde informatie op een rij op een tegel of voer een [zoekopdracht in een logboek](../../log-analytics/log-analytics-log-searches.md) uit.
 
-![Containers dashboard in OMS-portal](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
+![Dashboard Containers in OMS-portal](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Op deze manier in de Azure-portal, gaat u naar **logboekanalyse** en selecteer de Werkruimtenaam van uw. Om te zien de **Containers** tegel samenvatting, klikt u op **oplossingen** > **Containers**. Klik op de tegel voor details.
+Op dezelfde wijze gaat u in Azure Portal naar **Log Analytics** en selecteert u de naam van uw werkruimte. Klik voor de overzichtstegel **Containers** op **Oplossingen** > **Containers**. Klik voor details op de tegel.
 
-Zie de [Azure Log Analytics-documentatie](../../log-analytics/index.yml) voor gedetailleerde hulp bij het uitvoeren van query's en analyseren van bewakingsgegevens.
+Zie de [Azure Log Analytics-documentatie](../../log-analytics/index.yml) voor gedetailleerde hulp bij het uitvoeren van query's en het analyseren van bewakingsgegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt bewaakt u uw cluster Kubernetes met OMS. Taken aan de orde opgenomen:
+In deze zelfstudie hebt u uw Kubernetes-cluster met OMS bewaakt. Behandelde taken zijn:
 
 > [!div class="checklist"]
-> * OMS-werkruimte-instellingen ophalen
-> * OMS-agents op de knooppunten Kubernetes instellen
-> * Toegang tot gegevens in de OMS-portal of Azure-portal bewaken
+> * Instellingen voor OMS Workspace ophalen
+> * OMS-agenten instellen op de Kubernetes-knooppunten
+> * Toegang tot de bewakingsgegevens in de OMS-portal of in Azure Portal
 
 
-Volg deze link om te zien van vooraf samengestelde scriptvoorbeelden voor Container Service.
+Volg deze koppeling om voorbeeldscripts te zien voor Containerservice.
 
 > [!div class="nextstepaction"]
-> [Azure Container Service script-voorbeelden](cli-samples.md)
+> [Voorbeeldscripts voor Azure Container Service](cli-samples.md)

@@ -6,17 +6,17 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4c7f48c993d66dd79538fd73ccaed1355c2e8cdd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f8fe53f834e4fcf7f16174222cb51d89e40305ec
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Uw eerste container maken in Azure Container Instances
-Met Azure Container Instances kunt u gemakkelijk Docker-containers in Azure maken en beheren, zonder virtuele machines te hoeven inrichten of een service op een hoger niveau te moeten gebruiken. In deze quickstart maakt u een container in Azure en geeft u deze op internet weer via een openbaar IP-adres. Deze bewerking wordt uitgevoerd in één opdracht. Binnen een paar seconden ziet u dit in uw browser:
+Met Azure Container Instances kunt u gemakkelijk Docker-containers in Azure maken en beheren, zonder virtuele machines te hoeven inrichten of een service op een hoger niveau te moeten gebruiken. In deze quickstart maakt u een container in Azure en publiceert u deze op internet via een FQDN (Fully Qualified Domain Name). Deze bewerking wordt uitgevoerd in één opdracht. Binnen een paar seconden ziet u dit in uw browser:
 
 ![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-app-browser]
 
@@ -24,7 +24,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account][azure-acco
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-U kunt de Azure Cloud Shell of een lokale installatie van de Azure CLI gebruiken om deze Quick Start uit te voeren. Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze quickstart versie 2.0.21 of hoger van Azure CLI uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+U kunt de Azure Cloud Shell of een lokale installatie van de Azure CLI gebruiken om deze Quick Start uit te voeren. Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de Azure CLI versie 2.0.27 of later uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -40,41 +40,32 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Een container maken
 
-U kunt een container maken door een naam, een Docker-installatiekopie en een Azure-resourcegroep op te geven bij de opdracht [az container create][az-container-create]. U kunt de container desgewenst weergeven op internet met een openbaar IP-adres. In deze quickstart implementeert u een container die als host fungeert voor een kleine web-app die is geschreven in [Node.js][node-js].
+U kunt een container maken door een naam, een Docker-installatiekopie en een Azure-resourcegroep op te geven bij de opdracht [az container create][az-container-create]. U kunt de container desgewenst weergeven op internet door een DNS-naamlabel op te geven. In deze quickstart implementeert u een container die als host fungeert voor een kleine web-app die is geschreven in [Node.js][node-js].
+
+Voer de volgende opdracht uit om een exemplaar van de container te starten. De waarde `--dns-name-label` moet uniek zijn binnen de Azure-regio waar u het exemplaar maakt, dus u zult deze waarde mogelijk moeten wijzigen om ervoor te zorgen dat deze uniek is.
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
 Binnen enkele seconden krijgt u een reactie op uw aanvraag. In eerste instantie heeft de container nog de status **Maken**, maar de container moet binnen een paar seconden starten. U kunt de status controleren met de opdracht [az container show][az-container-show]:
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer
+az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
 ```
 
-Aan de onderkant van de uitvoer ziet u de inrichtingsstatus en het IP-adres van de container:
+Als u de opdracht uitvoert, worden de FQDN (Fully Qualified Domain Name) en de inrichtingsstatus weergegeven:
 
-```json
-...
-"ipAddress": {
-      "ip": "13.88.176.27",
-      "ports": [
-        {
-          "port": 80,
-          "protocol": "TCP"
-        }
-      ]
-    },
-    "location:": "eastus",
-    "name": "mycontainer",
-    "osType": "Linux",
-    "provisioningState": "Succeeded"
-...
+```console
+$ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+FQDN                               ProvisioningState
+---------------------------------  -------------------
+aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Als de container de status **Voltooid** heeft, kunt u deze in uw browser openen met behulp van het opgegeven IP-adres.
+Als de container de status **Voltooid** heeft, kunt u deze in uw browser openen door naar de FQDN-naam ervan te gaan:
 
-![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-app-browser]
+![Schermafbeelding van browser met toepassing die wordt uitgevoerd in een exemplaar van een Azure-container][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>De containerlogboeken ophalen
 

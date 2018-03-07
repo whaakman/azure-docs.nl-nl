@@ -1,78 +1,78 @@
 ---
-title: Kubernetes op Azure zelfstudie - App voorbereiden
-description: AKS zelfstudie - App voorbereiden
+title: 'Zelfstudie: Kubernetes in Azure - app voorbereiden'
+description: 'Zelfstudie: AKS - app voorbereiden'
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 60e0feb1e45ac5d9f35eac9667eaf9004d77e86a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 0c4a1459a49fb60578f9f38ea65cd1400b538382
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="prepare-application-for-azure-container-service-aks"></a>Voorbereiden van de toepassing Azure Container Service (AKS)
+# <a name="prepare-application-for-azure-container-service-aks"></a>Toepassing voorbereiden voor AKS (Azure Container Service)
 
-In deze zelfstudie, deel 1 van acht, is een toepassing met meerdere container klaar voor gebruik in Kubernetes. Stappen voltooid omvatten:  
+In deze zelfstudie, deel een van acht, wordt een toepassing met meerdere containers voorbereid voor gebruik in Kubernetes. Dit zijn de uitgevoerde stappen:  
 
 > [!div class="checklist"]
 > * Toepassingsbron klonen vanuit GitHub  
-> * Maken van een installatiekopie van een container van de toepassingsbron
+> * Een containerinstallatiekopie maken uit de toepassingsbron
 > * De toepassing testen in een lokale Docker-omgeving
 
-Zodra de stappen zijn voltooid, is de volgende toepassing toegankelijk in uw lokale ontwikkelomgeving.
+Na voltooiing is de volgende toepassing toegankelijk in uw lokale ontwikkelomgeving.
 
 ![Afbeelding van Kubernetes-cluster in Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-In volgende zelfstudies leert is de installatiekopie van de container geüpload naar een Azure Container Registry, en voer in een cluster AKS.
+In de volgende zelfstudies wordt de containerinstallatiekopie geüpload naar een Azure Container Registry, en vervolgens uitgevoerd in een AKS-cluster.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van Docker-kernconcepten zoals containers, containerinstallatiekopieën en Docker-basisopdrachten. Indien nodig, Zie [aan de slag met Docker] [ docker-get-started] voor een primer op de basisprincipes van de container. 
+In deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van Docker-kernconcepten zoals containers, containerinstallatiekopieën en Docker-basisopdrachten. Zie, indien nodig, [Aan de slag met Docker][docker-get-started] voor een uitleg van de basisprincipes van containers. 
 
-Voor deze zelfstudie hebt u een Docker-ontwikkelomgeving nodig. Docker biedt pakketten die eenvoudig Docker op elke configureren [Mac][docker-for-mac], [Windows][docker-for-windows], of [Linux] [ docker-for-linux] system.
+Voor deze zelfstudie hebt u een Docker-ontwikkelomgeving nodig. Docker biedt pakketten die eenvoudig Docker configureren op elk [Mac][docker-for-mac]-, [Windows][docker-for-windows]- of [Linux][docker-for-linux]-systeem.
 
-Azure Cloud-Shell is dan de Docker-onderdelen die nodig zijn voor het voltooien van elke stap in deze zelfstudie niet opgenomen. Daarom wordt u aangeraden een volledige Docker-ontwikkelomgeving.
+Azure Cloud Shell bevat niet de vereiste Docker-onderdelen die nodig zijn om elke stap in deze zelfstudie te voltooien. Daarom raden wij u aan een volledige Docker-ontwikkelomgeving te gebruiken.
 
 ## <a name="get-application-code"></a>Toepassingscode ophalen
 
-De voorbeeldtoepassing gebruikt in deze zelfstudie is een eenvoudige stemmende app. De toepassing bestaat uit een front-onderdeel en een back-end Redis-exemplaar. Het webonderdeel wordt verpakt in een installatiekopie van een aangepaste container. Een installatiekopie van een ongewijzigd van Docker-Hub maakt gebruik van het Redis-exemplaar.  
+De voorbeeldtoepassing die wordt gebruikt in deze zelfstudie, is een eenvoudige stem-app. De toepassing bestaat uit een front-endwebonderdeel en een back-end-Redis-exemplaar. Het webonderdeel is verpakt in een aangepaste containerinstallatiekopie. Het Redis-exemplaar gebruikt een ongewijzigde installatiekopie van Docker Hub.  
 
-Git gebruiken voor het downloaden van een kopie van de toepassing op uw ontwikkelomgeving.
+Gebruik git om een kopie van de toepassing te downloaden naar de ontwikkelomgeving.
 
 ```console
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Wijzig de mappen zodat u uit de gekloonde directory werkt.
+Wijzig de mappen zodat u vanuit de gekloonde map werkt.
 
 ```console
 cd azure-voting-app-redis
 ```
 
-In de map is de broncode van de toepassing, een vooraf gemaakte Docker compose bestands- en een manifestbestand Kubernetes. Deze bestanden worden gebruikt in de zelfstudie set. 
+In de map bevinden zich de broncode van de toepassing, een vooraf gemaakt Docker Compose-bestand en een Kubernetes-manifestbestand. Deze bestanden worden gebruikt in de alle delen van de zelfstudie. 
 
-## <a name="create-container-images"></a>Maken van installatiekopieën van de container
+## <a name="create-container-images"></a>Containerinstallatiekopieën maken
 
-[Docker Compose] [ docker-compose] kan worden gebruikt voor het automatiseren van de build buiten de container-installatiekopieën en de implementatie van toepassingen met meerdere container.
+[Docker Compose][docker-compose] kan worden gebruikt om de build te automatiseren op basis van containerinstallatiekopieën en de implementatie van toepassingen met meerdere containers.
 
-Voer de `docker-compose.yaml` bestand dat u wilt maken van de installatiekopie van de container, de installatiekopie van het Redis downloaden en de toepassing niet starten.
+Voer het bestand `docker-compose.yaml` uit om de containerinstallatiekopie te maken, download de Redis-installatiekopie en start de toepassing.
 
 ```console
 docker-compose up -d
 ```
 
-Wanneer het voltooid, gebruiken de [docker-installatiekopieën] [ docker-images] opdracht om te zien van de gemaakte afbeeldingen.
+Wanneer dit is voltooid, gebruikt u de opdracht [docker images][docker-images] om de gemaakte installatiekopieën te bekijken.
 
 ```console
 docker images
 ```
 
-U ziet dat drie afbeeldingen gedownload of gemaakt. De `azure-vote-front` installatiekopie bevat van de toepassing en maakt gebruik van de `nginx-flask` installatiekopie als basis. De `redis` installatiekopie wordt gebruikt om een Redis-exemplaar te starten.
+U ziet dat er drie installatiekopieën zijn gedownload of gemaakt. De `azure-vote-front`-installatiekopie bevat de toepassing en gebruikt de `nginx-flask`-installatiekopie als basis. De `redis`-installatiekopie wordt gebruikt om een Redis-exemplaar te starten.
 
 ```
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -81,7 +81,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Voer de [docker ps] [ docker-ps] opdracht om te zien van de actieve containers.
+Voer de opdracht [docker ps][docker-ps] uit om de actieve containers te zien.
 
 ```console
 docker ps
@@ -97,41 +97,41 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Toepassing lokaal testen
 
-Blader naar http://localhost: 8080 om te zien van de toepassing uitgevoerd.
+Blader naar http://localhost:8080 om de actieve toepassing te zien.
 
 ![Afbeelding van Kubernetes-cluster in Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Nu dat de functionaliteit van de toepassing is gevalideerd, kunnen de actieve containers worden gestopt en verwijderd. Installatiekopieën van de container niet verwijderen. De `azure-vote-front` afbeelding is geüpload naar een Azure Container register-exemplaar in de volgende zelfstudie.
+Nu de functionaliteit van de toepassing is gevalideerd, kunnen de actieve containers worden gestopt en verwijderd. Verwijder de containerinstallatiekopieën niet. De `azure-vote-front`-installatiekopie wordt in de volgende zelfstudie geüpload naar een Azure Container Registry-exemplaar.
 
-Voer de volgende als u wilt stoppen van de actieve containers.
+Voer de volgende opdracht uit om de actieve containers te stoppen.
 
 ```console
 docker-compose stop
 ```
 
-Verwijder de gestopte containers en -resources met de volgende opdracht.
+Verwijder de gestopte containers en resources met de volgende opdracht.
 
 ```console
 docker-compose down
 ```
 
-Is voltooid hebt u de installatiekopie van een container waarin de toepassing Azure stem.
+Na voltooiing hebt u een containerinstallatiekopie die de Azure Vote-toepassing bevat.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt een toepassing is getest en installatiekopieën van de container gemaakt voor de toepassing. De volgende stappen zijn voltooid:
+In deze zelfstudie is een toepassing getest en zijn containerinstallatiekopieën gemaakt voor de toepassing. De volgende stappen zijn voltooid:
 
 > [!div class="checklist"]
 > * De toepassingsbron klonen vanuit GitHub  
-> * De installatiekopie van een container van toepassingsbron gemaakt
-> * De toepassing getest in een lokale Docker-omgeving
+> * Containerinstallatiekopie maken uit de toepassingsbron
+> * De toepassing testen in een lokale Docker-omgeving
 
 Ga verder met de volgende zelfstudie voor meer informatie over het opslaan van installatiekopieën van de container in een Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Push-installatiekopieën in Azure Container register][aks-tutorial-prepare-acr]
+> [Installatiekopieën naar Azure Container Registry pushen][aks-tutorial-prepare-acr]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/

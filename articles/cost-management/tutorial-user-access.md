@@ -1,22 +1,22 @@
 ---
-title: Toegang beheren in Azure Cost Management | Microsoft Docs
-description: Hier leest u hoe u de toegang tot gegevens van Cost Management kunt beheren met behulp van gebruikersaccounts die toegangsniveaus voor entiteiten bepalen.
+title: 'Zelfstudie: toegang beheren in Azure Cost Management | Microsoft Docs'
+description: In deze zelfstudie leest u hoe u de toegang tot gegevens van Cost Management kunt beheren met behulp van gebruikersaccounts die toegangsniveaus voor entiteiten bepalen.
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 89639e6d9c06edf110dc8432fbefe1fbfd1298c9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="assign-access-to-cost-management-data"></a>Toegang tot gegevens van Cost Management beheren
+# <a name="tutorial-assign-access-to-cost-management-data"></a>Zelfstudie: toegang tot gegevens van Cost Management beheren
 
 De toegang tot gegevens van Cost Management wordt beheerd door middel van gebruikers of -entiteitsbeheer. Gebruikersaccounts van Cloudyn bepalen de toegang tot *entiteiten* en beheerfuncties. Er zijn twee soorten toegang: beheerder en gebruiker. Tenzij dit per gebruiker is gewijzigd, biedt beheerderstoegang gebruikers onbeperkte toegang tot alle functies in de portal van Cloudyn, met inbegrip van: beheer van gebruikers en lijsten met ontvangers, toegang als hoofdentiteit tot alle entiteitsgegevens. Gebruikerstoegang is bedoeld voor eindgebruikers om rapporten weer te geven en om rapporten te maken met de toegang die ze hebben tot entiteitsgegevens.
 
@@ -29,7 +29,12 @@ Op het moment dat u uw Azure overeenkomst of -account registreert, wordt er een 
 > * Een gebruiker met gebruikerstoegang maken
 > * Entiteiten maken
 
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
+## <a name="prerequisites"></a>Vereisten
+
+- U moet een Azure-account hebben.
+- U moet een proefregistratie of een betaald abonnement voor Azure Cost Management hebben.
 
 ## <a name="create-a-user-with-admin-access"></a>Een gebruiker met beheerderstoegang maken
 
@@ -83,7 +88,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een gebruiker met gebruikerstoegang maken
 > * Entiteiten maken
 
-Ga naar de volgende zelfstudie als u wilt weten hoe u uitgaven kunt voorspellen aan de hand van historische gegevens.
+Als u Azure Resource Manager API-toegang nog niet hebt ingeschakeld voor uw accounts, gaat u verder met het volgende artikel.
 
 > [!div class="nextstepaction"]
-> [Toekomstige uitgaven voorspellen](tutorial-forecast-spending.md)
+> [Azure-abonnementen en -accounts activeren](activate-subs-accounts.md)

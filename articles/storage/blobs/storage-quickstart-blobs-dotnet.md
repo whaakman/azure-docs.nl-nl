@@ -1,31 +1,27 @@
 ---
-title: Azure-snelstartgids - Objecten overdragen naar/van Azure Blob-opslag met .NET | Microsoft Docs
-description: Snel leren om objecten over te dragen naar/van Azure Blob-opslag met .NET
+title: Azure-snelstart - Blobs uploaden, downloaden en vermelden in Azure Storage met behulp van .NET | Microsoft Docs
+description: In deze snelstart maakt u een opslagaccount en een container. Vervolgens gebruikt u de opslagclientbibliotheek voor .NET om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5020f070a8eb9215f175fc3ff3a905cff28ce37f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 265691ff189c628156f234083645a4b2ca4b637b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Objecten overdragen naar/van Azure Blob-opslag met .NET
+# <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van .NET
 
-In deze snelstartgids leert u hoe u de .NET-clientbibliotheek voor Azure Storage gebruikt om blok-bobs in een container te uploaden, te downloaden en weer te geven.
+In deze quickstart leert u hoe u de .NET-clientbibliotheek voor Azure Storage gebruikt om blok-bobs in een container te uploaden, te downloaden en weer te geven.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze snelstartgids:
+Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 * .NET core 2.0 voor [Linux](/dotnet/core/linux-prerequisites?tabs=netcore2x) of [Windows](/dotnet/core/windows-prerequisites?tabs=netcore2x) installeren
 
@@ -35,7 +31,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 
-De voorbeeldtoepassing die in deze snelstartgids wordt gebruikt, is een basisconsoletoepassing. 
+De voorbeeldtoepassing die in deze quickstart wordt gebruikt, is een basisconsoletoepassing. 
 
 Gebruik [git](https://git-scm.com/) om een kopie van de toepassing naar uw ontwikkelomgeving te downloaden. 
 
@@ -103,7 +99,7 @@ Als eerste moeten verwijzingen worden gemaakt naar objecten die worden gebruikt 
 
 * Maak een exemplaar van het [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)-object, dat de container die u opent vertegenwoordigt. Containers worden gebruikt om uw blobs te organiseren op een wijze die lijkt op het gebruik van mappen op uw computer om uw bestanden te organiseren.
 
-Wanneer u de [Cloud Blob-container](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) hebt, kunt u een exemplaar maken van het object [CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet) dat verwijst naar de specifieke blob waarin u geïnteresseerd bent, en kunt u bewerkingen uitvoeren zoals uploaden, downloaden en kopiëren.
+Zodra u de [Cloud Blob-container](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) hebt, kunt u een exemplaar maken van het object [CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet) dat verwijst naar de specifieke blob waarin u geïnteresseerd bent, en kunt u bewerkingen uitvoeren zoals uploaden, downloaden en kopiëren.
 
 > [!IMPORTANT]
 > Containernamen moeten uit kleine letters bestaan. Zie [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Containers, blobs en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de namen van containers en blobs.
@@ -144,9 +140,9 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### <a name="upload-blobs-to-the-container"></a>Blobs uploaden naar de container
 
-Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Blok-blobs worden het meest gebruikt, en dat is wat er wordt gebruikt in deze snelstartgids.
+Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Blok-blobs worden het meest gebruikt, en dat is wat er wordt gebruikt in deze quickstart.
 
-Als u een bestand naar een blob wilt uploaden, haalt u een verwijzing naar de blob op in de doelcontainer. Wanneer u de blobverwijzing hebt, kunt u er gegevens naar uploaden met behulp van [CloudBlockBlob.UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync). Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschreven als deze wel al bestaat.
+Als u een bestand naar een blob wilt uploaden, haalt u een verwijzing naar de blob op in de doelcontainer. Zodra u de blobverwijzing hebt, kunt u er gegevens naar uploaden met behulp van [CloudBlockBlob.UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync). Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschreven als deze wel al bestaat.
 
 Met de voorbeeldcode wordt een lokaal bestand gemaakt voor het uploaden en downloaden, waarmee het bestand dat moet worden geüpload als **fileAndPath** en de naam van de blob in **localFileName** worden opgeslagen. In het volgende voorbeeld wordt het bestand geüpload naar de container met de naam **quickstartblobs**.
 
@@ -173,7 +169,7 @@ Blok-bobs kunnen een willekeurig soort tekst- of binair bestand zijn. Pagina-blo
 
 ### <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
-U kunt een lijst met bestanden in de container ophalen met behulp van [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). Met de volgende code wordt de lijst met blobs opgehaald en doorlopen, waarbij de URL‘s van de gevonden blobs worden weergegeven. U kunt de URI uit het opdrachtvenster kopiëren en in een browser plakken om het bestand weer te geven.
+U kunt een lijst met bestanden in de container ophalen met behulp van [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). Met de volgende code wordt de lijst met blobs opgehaald en doorlopen, waarbij de URI‘s van de gevonden blobs worden weergegeven. U kunt de URI uit het opdrachtvenster kopiëren en in een browser plakken om het bestand weer te geven.
 
 Als u 5.000 of minder blobs in de container hebt, worden alle blobnamen in één aanroep naar ListBlobsSegmentedAsync opgehaald. Als u meer dan 5.000 blobs in de container hebt, wordt de lijst door de service opgehaald in sets van 5.000 totdat alle blobnamen zijn opgehaald. De eerste keer dat deze API wordt aangeroepen, worden dus de eerste 5000 namen en een vervolgtoken geretourneerd. De tweede keer geeft u het token op en haalt de service de volgende set blobnamen op, enzovoort, totdat het vervolgtoken null is, wat aangeeft dat alle blobnamen zijn opgehaald.
 
@@ -212,7 +208,7 @@ await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 
 ### <a name="clean-up-resources"></a>Resources opschonen
 
-Als u de blobs die in deze snelstartgids zijn geüpload niet langer nodig hebt, kunt u de volledige container verwijderen met behulp van [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Verwijder ook de gemaakte bestanden als u deze niet langer nodig hebt.
+Als u de blobs die in deze quickstart zijn geüpload niet langer nodig hebt, kunt u de volledige container verwijderen met behulp van [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Verwijder ook de gemaakte bestanden als u deze niet langer nodig hebt.
 
 ```csharp
 Console.WriteLine("Press the 'Enter' key to delete the sample files, example container, and exit the application.");
@@ -230,7 +226,7 @@ File.Delete(destinationFile);
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u geleerd hoe u bestanden overbrengt tussen een lokale schijf en Azure Blob-opslag met behulp van .NET. Voor meer informatie over het werken met Blob-opslag, gaat u naar de instructies voor Blob-opslag.
+In deze quickstart hebt u geleerd hoe u bestanden overbrengt tussen een lokale schijf en Azure Blob-opslag met behulp van .NET. Voor meer informatie over het werken met Blob-opslag, gaat u naar de instructies voor Blob-opslag.
 
 > [!div class="nextstepaction"]
 > [Instructies voor bewerkingen in Blob-opslag](storage-dotnet-how-to-use-blobs.md)

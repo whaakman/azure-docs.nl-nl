@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/12/2018
+ms.date: 02/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 7a57593825f816a03b59f6c5228243670f1e9e9e
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 56fb52cb2dbca1939aac2eb9dd4971a93bf8c0dc
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Een Azure SQL-database maken in Azure Portal
 
@@ -38,7 +38,7 @@ Een Azure SQL-database wordt gemaakt met een gedefinieerde set [reken- en opslag
 
 Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens van Adventure Works LT.
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
 
 2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **Maken** onder **SQL-database** op de pagina **Nieuw**.
 
@@ -157,7 +157,7 @@ Nu u een voorbeelddatabase in Azure hebt gemaakt, gebruiken we het ingebouwde hu
 
    ![resultaten queryeditor](./media/sql-database-get-started-portal/query-editor-results.png)
 
-5. Sluit de pagina **Data explorer**, klik op **OK** om uw niet-opgeslagen bewerkingen te verwijderen.
+5. Sluit de pagina **Query-editor** en klik op **OK** om uw niet-opgeslagen bewerkingen te verwijderen.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

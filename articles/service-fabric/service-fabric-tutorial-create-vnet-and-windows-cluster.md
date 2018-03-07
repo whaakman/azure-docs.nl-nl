@@ -1,6 +1,6 @@
 ---
 title: Een Windows Service Fabric-cluster maken in Azure | Microsoft Docs
-description: Informatie over hoe u een Windows Service Fabric-cluster implementeert in een bestaand virtueel Azure-netwerk met behulp van PowerShell.
+description: In deze zelfstudie leert u hoe u een Windows Service Fabric-cluster implementeert in een bestaand virtueel Azure-netwerk met behulp van PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aee1b0ded7a26df802ca2f05d6e93c153fa0476
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7418e0420b14f044bac253046a8971d1263e45b3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Een Windows Service Fabric-cluster implementeren in een virtueel Azure-netwerk
+# <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Zelfstudie: een Windows Service Fabric-cluster implementeren in een virtueel Azure-netwerk
 Deze zelfstudie is deel één van een serie. U leert hoe u een Service Fabric-cluster met Windows in een [virtueel Azure-netwerk (VNET)](../virtual-network/virtual-networks-overview.md) en een [netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md) implementeert met behulp van PowerShell en een sjabloon. Wanneer u klaar bent, wordt er in de cloud een cluster uitgevoerd waarin u toepassingen kunt implementeren.  Zie [Een beveiligd Linux-cluster maken in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) als u een Linux-cluster wilt maken met behulp van Azure CLI.
 
 In deze zelfstudie wordt een productiescenario beschreven.  Zie [een testcluster met drie knooppunten maken](./scripts/service-fabric-powershell-create-test-cluster.md) als u snel een klein cluster wilt maken voor testdoeleinden.
@@ -39,7 +39,7 @@ In deze zelfstudie leert u het volgende:
 In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
 > * Een beveiligd cluster maken in Azure
-> * [Een cluster in- of uitschalen](/service-fabric-tutorial-scale-cluster.md)
+> * [Een cluster in- of uitschalen](service-fabric-tutorial-scale-cluster.md)
 > * [De runtime van een cluster upgraden](service-fabric-tutorial-upgrade-cluster.md)
 > * [API Management implementeren met Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 

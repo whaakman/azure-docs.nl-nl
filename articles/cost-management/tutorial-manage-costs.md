@@ -1,22 +1,22 @@
 ---
-title: Kosten beheren met behulp van Azure Cost Management | Microsoft Docs
-description: Lees hier alles over het beheren van kosten met behulp van kostentoewijzing en rapporten over showback en chargeback.
+title: 'Zelfstudie: kosten beheren met Azure Cost Management | Microsoft Docs'
+description: In deze zelfstudie leest u hoe u kosten kunt beheren met behulp van kostentoewijzing en rapporten over showback en chargeback.
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Kosten beheren met behulp van Azure Cost Management
+# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Zelfstudie: kosten beheren met behulp van Azure Cost Management
 
 In Azure Cost Management van Cloudyn kunt u kosten beheren en showback-rapporten maken door kosten toe te wijzen op basis van tags. Het proces van kostentoewijzing houdt in dat er kosten worden toegewezen aan uw verbruikte cloudresources. Kosten worden volledig toegewezen als al uw resources met behulp van tags in categorieën zijn ingedeeld. Nadat de kosten zijn toegewezen, kunt u met dashboards en rapporten showback of chargeback bieden aan uw gebruikers. Als u aan de slag gaat met Cost Management, hebben veel resources mogelijk nog geen tags of kunnen er geen tags aan worden toegewezen.
 
@@ -27,6 +27,13 @@ In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 > * Aangepaste tags gebruiken voor het toewijzen van kosten.
 > * Showback- en chargeback-rapporten maken.
+
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
+
+## <a name="prerequisites"></a>Vereisten
+
+- U moet een Azure-account hebben.
+- U moet een proefregistratie of een betaald abonnement voor Azure Cost Management hebben.
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Aangepaste tags gebruiken voor het toewijzen van kosten
 
@@ -122,7 +129,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 
 
-Raadpleeg de documentatie van Cloudyn om aan de slag te gaan met de oplossing.
+In de volgende zelfstudie leert u hoe u toegang tot gegevens beheert.
 
 > [!div class="nextstepaction"]
-> [Documentatie van Cloudyn](https://support.cloudyn.com/hc/)
+> [Toegang tot gegevens beheren](tutorial-user-access.md)

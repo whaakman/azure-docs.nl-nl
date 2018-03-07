@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d82232d590bcc5c578ebe8ed7c85d25aebcfe097
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 16c8892743ac25c21b7004e10796c77c3ac9f900
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Kubernetes in Azure Container Service (AKS) upgraden
 
@@ -35,25 +35,25 @@ Als u deze stappen niet hebt uitgevoerd en deze zelfstudie wilt volgen, gaat u t
 
 ## <a name="get-cluster-versions"></a>Clusterversies verkrijgen
 
-Voordat u een cluster upgradet, gebruikt u de opdracht `az aks get-versions` om te controleren welke Kubernetes-releases beschikbaar zijn voor de upgrade.
+Voordat u een cluster upgradet, gebruikt u de opdracht `az aks get-upgrades` om te controleren welke Kubernetes-releases beschikbaar zijn voor de upgrade.
 
-```azurecli-interactive
-az aks get-versions --name myAKSCluster --resource-group myResourceGroup --output table
+```azurecli
+az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-Hier kunt u zien dat de versie van het huidige knooppunt `1.7.7` is en dat versie `1.7.9`, `1.8.1` en `1.8.2` beschikbaar zijn.
+Hier ziet u dat de versie van het huidige knooppunt `1.7.9` is. In de kolom met upgrades ziet u welke upgradeversies beschikbaar zijn.
 
 ```
-Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion     NodePoolUpgrades
--------  ---------------  ---------------  -------------------  ------------------  -------------------
-default  myAKSCluster     1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
+Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
+-------  ---------------  ---------------  -----------------  ----------------------------------
+default  myResourceGroup  1.7.9            1.7.9              1.7.12, 1.8.1, 1.8.2, 1.8.6, 1.8.7
 ```
 
 ## <a name="upgrade-cluster"></a>Een cluster upgraden
 
 Gebruik de opdracht `az aks upgrade` als u de clusterknooppunten wilt upgraden. In de volgende voorbeelden wordt het cluster bijgewerkt naar versie `1.8.2`.
 
-```azurecli-interactive
+```azurecli
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
@@ -117,7 +117,7 @@ Uitvoer:
 
 U kunt nu bevestigen dat de upgrade is geslaagd met de opdracht `az aks show`.
 
-```azurecli-interactive
+```azurecli
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 

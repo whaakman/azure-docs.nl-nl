@@ -1,23 +1,21 @@
 ---
-title: Azure-snelstartgids - Objecten overdragen naar/van Azure Blob-opslag met Azure Portal | Microsoft Docs
-description: Leer hoe u Azure Portal gebruikt voor het uploaden, downloaden en weergeven van blobs in Azure Blob-opslag.
+title: 'Azure-quickstart: Blobs uploaden, downloaden en vermelden in Azure Storage met behulp van Azure Portal | Microsoft Docs'
+description: In deze quickstart maakt u een opslagaccount en een container met behulp van Azure Portal. Vervolgens gebruikt u Azure Portal om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: f647a5b78ee2fa362c4dea6ee9003ac56e0f7f7d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b03c3a26a6218bea8317749f43b4f74f6b3b4101
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-portal"></a>Objecten overdragen naar/van Azure Blob-opslag met Azure Portal
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>Quickstart: blobs uploaden, downloaden en vermelden met behulp van Azure Portal
 
 In deze snelstartgids leert u hoe u [Azure Portal](https://portal.azure.com/) gebruikt om een container te maken in Azure Storage, en om blok-blobs in deze container te uploaden en te downloaden.
 
@@ -82,7 +80,7 @@ Ga als volgt te werk om de container te verwijderen:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u geleerd hoe u bestanden overbrengt tussen een lokale schijf en Azure Blob-opslag met behulp van .NET. Voor meer informatie over het werken met Blob-opslag, gaat u naar de instructies voor Blob-opslag.
+In deze quickstart hebt u geleerd hoe u bestanden overbrengt tussen een lokale schijf en Azure Blob-opslag met behulp van .NET. Voor meer informatie over het werken met Blob-opslag, gaat u naar de instructies voor Blob-opslag.
 
 > [!div class="nextstepaction"]
 > [Instructies voor bewerkingen in Blob-opslag](storage-dotnet-how-to-use-blobs.md)

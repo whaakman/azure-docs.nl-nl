@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5398605f98c9e115255057cfad0c4c2c2e14737c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 20f9be1a0274b40a684fe12207cf9fe1f33969c8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
@@ -387,6 +387,7 @@ Windows Server-containers (procesisolatiemodus) zijn mogelijk niet compatibel me
 ```xml
 <ContainerHostPolicies> 
          <ImageOverrides> 
+           <Image Name="myregistry.azurecr.io/samples/helloworldappDefault" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
          </ImageOverrides> 
@@ -406,6 +407,7 @@ De build-versie voor Windows Server 2016 is 14393, voor Windows Server versie 17
 
 Als het onderliggende besturingssysteem op de VM build 16299 (versie 1709) is, kiest Service Fabric de containerinstallatiekopie die overeenkomt met die versie van Windows Server.  Als in het toepassingsmanifest een containerinstallatiekopie zonder tag wordt opgegeven samen met een containerinstallatiekopie met tag, behandelt Service Fabric de installatiekopie zonder tag als installatiekopie die in meerdere versies werkt. Het is raadzaam om containerinstallatiekopieën expliciet te taggen.
 
+De containerinstallatiekopie zonder tag werkt als overschrijving van de installatiekopie in het bestand ServiceManifest.xml. Met de installatiekopie "myregistry.azurecr.io/samples/helloworldappDefault" wordt dus ImageName "myregistry.azurecr.io/samples/helloworldapp" in het bestand ServiceManifest.xml overschreven.
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Volledig voorbeeld van de manifesten voor de Fabric Service-toepassing en -service
 Dit zijn de volledige manifesten voor de service en toepassing die in dit artikel worden gebruikt.
@@ -430,6 +432,9 @@ Dit zijn de volledige manifesten voor de service en toepassing die in dit artike
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
+        <!-- Pass comma delimited commands to your container: dotnet, myproc.dll, 5" -->
+        <!--Commands> dotnet, myproc.dll, 5 </Commands-->
+        <Commands></Commands>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->    

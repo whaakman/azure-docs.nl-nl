@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center Quick Start - vrijgeven uw Azure-abonnement Security Center Standard | Microsoft Docs
-description: Deze snelstartgids wordt beschreven hoe u een upgrade uitvoert naar de Security Center standaard prijscategorie voor extra beveiliging.
+title: 'Snelstartgids voor Azure Security Center: uw Azure-abonnement onboarden naar Security Center Standard | Microsoft Docs'
+description: In deze snelstartgids wordt beschreven hoe u een upgrade uitvoert naar de prijscategorie Standard van Security Center voor extra beveiliging.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,107 +9,108 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: ac4e3b36b08223f7e3b54850ed53a8185e85f0d2
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: MT
+ms.openlocfilehash: 0004db332ec13e23ed49f2c19e3454a516ca6a40
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Snelstartgids: Vrijgeven uw Azure-abonnement Security Center Standard
-Azure Security Center biedt uniform beheer en threat beveiliging via de werkbelasting van uw hybride cloud. Terwijl de laag gratis beperkte beveiliging voor uw Azure-resources alleen biedt, breidt de prijscategorie Standard deze mogelijkheden voor on-premises en andere clouds. Standard Security Center helpt u bij het vinden en beveiligingsproblemen oplossen, toepassen toegangs- en besturingselementen voor het blokkeren van schadelijke activiteiten, met behulp van de analyses en intelligence bedreigingen te detecteren en snel reageren als aangevallen. U kunt proberen Security Center Standard zonder kosten voor de eerste 60 dagen.
+# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Snelstartgids: uw Azure-abonnement onboarden voor Security Center Standard
+Azure Security Center biedt geïntegreerd beveiligingsbeheer en bedreigingsbeveiliging voor uw verschillende hybride cloudworkloads. De Gratis laag biedt beperkte beveiliging voor alleen uw Azure-resources, maar de prijscategorie Standard biedt deze mogelijkheden ook voor on-premises en andere clouds. Standard van Security Center helpt u beveiligingsproblemen te vinden en op te lossen, toegangs- en toepassingsbesturingselementen toe te passen om schadelijke activiteiten te blokkeren, bedreigingen te detecteren met behulp van analyses en gegevens en snel te reageren bij aanvallen. U kunt Security Center Standard de eerste 60 dagen kosteloos proberen.
 
-In dit artikel, moet u upgraden naar de prijscategorie Standard voor extra beveiliging en Microsoft Monitoring Agent installeren op uw virtuele machines om te controleren op beveiligingsproblemen en bedreigingen.
+In dit artikel gaat u upgraden naar de prijscategorie Standard voor extra beveiliging en MMA installeren op uw virtuele machines om te controleren op beveiligingsproblemen en bedreigingen.
 
 ## <a name="prerequisites"></a>Vereisten
 U moet over een abonnement op Microsoft Azure beschikken om met Security Center aan de slag te gaan. Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/pricing/free-trial/).
 
-Als u wilt een abonnement upgraden naar de prijscategorie Standard, moet u zijn toegewezen de rol van eigenaar abonnement, abonnement bijdrager of beveiligings-beheerder.
+Als u een abonnement wilt upgraden naar de prijscategorie Standard, moet de rol Abonnementhouder, Inzender of Beveiligingsbeheerder aan u zijn toegewezen.
 
 ## <a name="enable-your-azure-subscription"></a>Uw Azure-abonnement inschakelen
 
 1. Meld u aan bij de [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
-2. Ga naar het **Microsoft Azure**-menu en selecteer **Security Center**. **Security Center - overzicht** wordt geopend.
+2. Ga naar het **Microsoft Azure**-menu en selecteer **Security Center**. **Security Center - Overzicht** wordt geopend.
 
  ![Security Center-overzicht][2]
 
-**Security Center – overzicht** voorziet in een uniform overzicht van de beveiligingsstatus van de werkbelasting van uw hybride cloud, zodat u om te detecteren en beoordelen van de beveiliging van uw werkbelastingen kunt herkennen en verhelpen van risico's. Security Center wordt automatisch geactiveerd van uw Azure-abonnementen niet eerder vrijgegeven door u of een ander abonnement gebruiker naar de laag gratis.
+**Security Center - overzicht** biedt een duidelijk overzicht van de beveiligingsstatus van uw hybride cloudworkloads, zodat u de beveiliging van uw workloads kunt bepalen en beoordelen en risico's kunt herkennen en verminderen. Security Center activeert automatisch de Azure-abonnementen naar de Gratis laag waarvoor u of een andere abonnementsgebruiker niet eerder onboarding hebt uitgevoerd.
 
-U kunt bekijken en de lijst met abonnementen filteren door te klikken op de **abonnementen** menu-item. Security Center gaat nu verder met de beoordeling van de beveiliging van deze abonnementen op beveiligingsproblemen identificeren. U kunt het beveiligingsbeleid wijzigen voor het aanpassen van de soorten beoordelingen. Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en helpt ervoor te zorgen dat aan de beveiligingsvereisten van het bedrijf of aan regelgeving wordt voldaan.
+U kunt de lijst met abonnementen bekijken en filteren door op het menu-item **Abonnementen** te klikken. Security Center begint met het beoordelen van de beveiliging van deze abonnementen om beveiligingsproblemen te identificeren. U kunt het beveiligingsbeleid wijzigen om de soorten evaluaties aan te passen. Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en helpt ervoor te zorgen dat aan de beveiligingsvereisten van het bedrijf of aan regelgeving wordt voldaan.
 
-Binnen enkele minuten van Security Center de eerste keer wordt gestart, ziet u mogelijk:
+Binnen enkele minuten nadat u Security Center voor het eerst hebt gestart, ziet u mogelijk het volgende:
 
-- **Aanbevelingen** manieren om te verbeteren de beveiliging van uw Azure-abonnementen. Te klikken op de **aanbevelingen** tegel, een geprioriteerde lijst wordt gestart.
-- Een inventaris van **Compute**, **Networking**, **opslag & gegevens**, en **toepassingen** resources die worden nu beoordeeld door Security Center samen met de beveiligingsstatus van elk.
+- **Aanbevelingen** voor manieren om de beveiliging van uw Azure-abonnementen te verbeteren. Als u op de tegel **Aanbevelingen** klikt, wordt er een gerangschikte lijst geopend.
+- Een overzicht van **Compute**-, **Netwerken**-, **Opslag & gegevens**-, en **Toepassingen**-resources die nu worden beoordeeld door Security Center samen met de beveiligingsstatus van elke resource.
 
-Om te profiteren van Security Center, moet u de stappen hieronder om te upgraden naar de prijscategorie Standard en Microsoft Monitoring Agent installeren.
+Voltooi de stappen hieronder om naar de prijscategorie Standard te upgraden en de MMA te installeren om zo volledig van Security Center te profiteren.
 
-## <a name="upgrade-to-the-standard-tier"></a>Een upgrade uitvoert naar de prijscategorie Standard
-Omwille van de Security Center snelstartgidsen en zelfstudies moet u upgraden naar de prijscategorie Standard. De eerste 60 dagen zijn gratis en kunt u terugkeren naar de laag gratis elk gewenst moment.
+## <a name="upgrade-to-the-standard-tier"></a>Upgraden naar de prijscategorie Standard
+Voor de snelstartgidsen en zelfstudies van Security Center moet u upgraden naar de prijscategorie Standard. De eerste 60 dagen zijn gratis en u kunt op elk gewenst moment terugkeren naar de Gratis laag.
 
-1. Selecteer onder het hoofdmenu Security Center **voorbereiding voor geavanceerde beveiliging**.
+1. Selecteer in het hoofdmenu van Security Center de optie **Onboarding naar geavanceerde beveiliging**.
 
-2. Onder **voorbereiding voor geavanceerde beveiliging**, Security Center een lijst met abonnementen en werkruimten die in aanmerking voor onboarding. Selecteer een abonnement in de lijst.
+2. Security Center geeft onder **Onboarding naar geavanceerde beveiliging** een lijst weer met abonnementen en werkruimten die in aanmerking komen voor onboarding. Selecteer een abonnement in de lijst.
 
   ![Een abonnement selecteren][4]
 
-3. **Beveiligingsbeleid** bevat informatie over de brongroepen die zijn opgenomen in het abonnement. **Prijzen** ook wordt geopend.
-4. Onder **prijzen**, selecteer **standaard** upgrade vanaf gratis naar standaard en klik op **opslaan**.
+3. **Beveiligingsbeleid** bevat informatie over de resourcegroepen die in het abonnement zijn opgenomen. **Prijzen** wordt ook geopend.
+4. Selecteer onder **Prijzen** de optie **Standard** om van Gratis naar Standard te upgraden en klik op **Opslaan**.
 
-  ![Selecteer standaard][5]
+  ![Standard selecteren][5]
 
-Nu dat u hebt bijgewerkt naar de prijscategorie Standard, hebt u toegang tot extra Security Center-functies, zoals **adaptieve toepassing besturingselementen**, **alleen bij het toegang in uitvoeringstijd VM**, **beveiliging waarschuwingen**, **dreiging intelligence**, **automation hulpmiddelen marketing en verkoop**, en meer. Houd er rekening mee beveiligingswaarschuwingen wordt alleen weergegeven wanneer het Beveiligingscentrum detecteert schadelijke activiteiten.
+Nu dat u een upgrade naar de prijscategorie Standard hebt uitgevoerd, hebt u toegang tot extra Security Center-functies, zoals **besturingselementen voor adaptieve toepassingen**, **Just-In-Time-VM-toegang**, **beveiligingswaarschuwingen**, **bedreigingsinformatie**, **playbooks voor automatiseren** en meer. Houd er rekening mee dat beveiligingswaarschuwingen alleen worden weergegeven wanneer Security Center schadelijke activiteiten detecteert.
 
   ![Beveiligingswaarschuwingen][7]
 
-## <a name="automate-data-collection"></a>Automatisch verzamelen van gegevens
-Security Center verzamelt gegevens van uw Azure VM's en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. Gegevens worden verzameld met behulp van Microsoft Monitoring Agent, die verschillende configuraties betrekking hebben op beveiliging en gebeurtenislogboeken van de machine leest en kopieert de gegevens naar de werkruimte voor analyse. Security Center maakt standaard een nieuwe werkruimte voor u.
+## <a name="automate-data-collection"></a>Gegevensverzameling automatiseren
+Security Center verzamelt gegevens van uw Azure-VM's en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse. Security Center maakt standaard een nieuwe werkruimte voor u.
 
-Wanneer automatische inrichting is ingeschakeld, wordt Microsoft Monitoring Agent in Security Center geïnstalleerd op alle ondersteunde virtuele Azure-machines en nieuwe bestanden die zijn gemaakt. Automatische inrichting wordt sterk aanbevolen.
+Als automatisch inrichten is ingeschakeld, installeert Security Center de MMA op alle ondersteunde Azure-VM's en op nieuwe VM's. Automatische inrichting wordt sterk aanbevolen.
 
-Inschakelen van automatische inrichting van de Microsoft Monitoring Agent:
+Automatische inrichting van de MMA inschakelen:
 
-1. Selecteer onder het hoofdmenu Security Center **beveiligingsbeleid**.
+1. Selecteer in het hoofdmenu van Security Center de optie **Beveiligingsbeleid**.
 2. Selecteer het abonnement.
-3. Onder **beveiligingsbeleid**, selecteer **gegevensverzameling**.
-4. Onder **gegevensverzameling**, selecteer **op** automatische inrichting inschakelen.
+3. Onder **Beveiligingsbeleid** selecteert u **Gegevensverzameling**.
+4. Selecteer onder **Gegevensverzameling** **Aan** om automatische inrichting in te schakelen.
 5. Selecteer **Opslaan**.
 
   ![Automatische inrichting inschakelen][6]
 
-Security Center kunt met deze nieuwe inzicht in uw Azure VM's bieden extra aanbevelingen met betrekking tot system bijwerken, status, OS beveiligingsconfiguraties, endpoint protection, evenals aanvullende beveiligingswaarschuwingen te genereren.
+Security Center kan deze nieuwe inzichten in uw Azure-VM's gebruiken om extra aanbevelingen te doen met betrekking tot de updatestatus van het systeem, de beveiligingsconfiguraties van het besturingssysteem en de eindpuntbeveiliging. Ook kan Security Center aanvullende beveiligingswaarschuwingen genereren.
 
   ![Aanbevelingen][8]
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Andere snelstartgidsen en zelfstudies in deze verzameling bouwen voort op deze snelstartgids. Als u van plan bent om door te gaan op werken met de volgende snelstartgidsen en zelfstudies, blijven de prijscategorie Standard uitvoeren en houden automatische inrichting is ingeschakeld. Als u niet wilt doorgaan of wilt terugkeren naar de laag gratis:
+Andere snelstartgidsen en zelfstudies in deze verzameling zijn gebaseerd op deze snelstartgids. Als u de volgende snelstartgidsen en zelfstudies ook wilt doornemen, blijf dan de prijscategorie Standard gebruiken en houd automatische inrichting ingeschakeld. Als u niet wilt doorgaan of wilt terugkeren naar de laag gratis:
 
-1. Terug naar het hoofdmenu Security Center en selecteer **beveiligingsbeleid**.
-2. Selecteer het abonnement of het beleid dat u wilt terugkeren naar vrije. **Beveiligingsbeleid voor** wordt geopend.
-3. Onder **beleid onderdelen**, selecteer **prijscategorie**.
-4. Selecteer **vrije** abonnement te wijzigen van standaard laag naar de laag gratis.
+1. Ga terug naar het hoofdmenu van Security Center en selecteer **Beveiligingsbeleid**.
+2. Selecteer het abonnement of het beleid dat u wilt terugzetten op Gratis. **Beveiligingsbeleid** wordt geopend.
+3. Selecteer onder **BELEIDSONDERDELEN** de optie **Prijscategorie**.
+4. Selecteer **Gratis** om het abonnement te wijzigen van de Standard-laag in de Gratis laag.
 5. Selecteer **Opslaan**.
 
-Als u automatisch inrichten uitschakelen wilt:
+Als u automatisch inrichten wilt uitschakelen:
 
-1. Terug naar het hoofdmenu Security Center en selecteer **beveiligingsbeleid**.
-2. Selecteer het abonnement dat u wilt automatisch inrichten uitschakelen.
-3. Onder **beveiligingsbeleid – gegevensverzameling**, selecteer **uit** onder **Onboarding** automatisch inrichten uitschakelen.
+1. Ga terug naar het hoofdmenu van Security Center en selecteer **Beveiligingsbeleid**.
+2. Selecteer het abonnement waarvoor u automatisch inrichten wilt uitschakelen.
+3. Ga naar **Beveiligingsbeleid – Gegevensverzameling** en selecteer onder **Onboarding** de optie **Uit** om automatisch inrichten uit te schakelen.
 4. Selecteer **Opslaan**.
 
 >[!NOTE]
-> Uitschakelen van automatische inrichting verwijdert geen Microsoft Monitoring Agent van de Azure VM's waarop de agent is ingericht. Uitschakelen van automatische inrichting limieten beveiligingsbewaking voor uw resources.
+> Wanneer u automatische inrichting uitschakelt, wordt MMA niet verwijderd van Azure-VM's waarop de agent is ingericht. Door automatische inrichting uit te schakelen, wordt de beveiligingsbewaking voor uw resources beperkt.
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstartgids bijgewerkt naar de Standard-laag en de Microsoft Monitoring Agent voor het beveiligingsbeheer van de geïntegreerde en threat protection ingericht via de werkbelasting van uw hybride cloud. Voor meer informatie over hoe u met Security Center, blijven de Quick Start voor onboarding Windows-computers die zich on-premises en in andere clouds.
+In deze snelstartgids hebt u een upgrade naar de prijscategorie Standard uitgevoerd en de MMA ingericht voor geïntegreerd beveiligingsbeheer en bescherming tegen bedreigingen voor uw hybride cloudworkloads. Ga naar de snelstartgids voor het onboarden van Windows-computers die zich on-premises en in andere clouds bevinden voor meer informatie over hoe u Security Center kunt gebruiken.
 
 > [!div class="nextstepaction"]
-> [Snelstartgids: Ingebouwde Windows-computers met Azure Security Center](quick-onboard-windows-computer.md)
+> [Snelstartgids: Windows-computers onboarden naar Azure Security Center](quick-onboard-windows-computer.md)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

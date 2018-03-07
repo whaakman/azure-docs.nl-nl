@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric integreren met API Management | Microsoft Docs
-description: Ontdek hoe u snel aan de slag kunt met Azure API Management en Service Fabric.
+description: In deze zelfstudie leert u hoe u snel aan de slag kunt met Azure API Management en Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7265af62adf8f380a3a5bd5d9950fb70e9ad6172
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9277f2c8a4ff595e639f6332d61b936ce44aeb13
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-api-management-with-service-fabric"></a>API Management implementeren met Service Fabric
+# <a name="tutorial-deploy-api-management-with-service-fabric"></a>Zelfstudie: API Management implementeren met Service Fabric
 Deze zelfstudie is deel vier een serie.  De implementatie van Azure API Management met Service Fabric is een geavanceerd scenario.  API Management is handig als u API's met een geavanceerde set regels voor doorsturen moet publiceren voor uw Service Fabric-services in de back-end. Cloudtoepassingen hebben meestal een gateway in de front-end nodig om een centraal ingangspunt te bieden voor gebruikers, apparaten of andere toepassingen. In Service Fabric kan een gateway elke stateless service zijn die is ontworpen voor inkomend verkeer, zoals een ASP.NET Core-toepassing, Event Hubs, IoT-Hub of Azure API Management. 
 
 Deze zelfstudie laat zien hoe u [Azure API Management](../api-management/api-management-key-concepts.md) instelt met Service Fabric om verkeer om te leiden naar een service in de back-end van Service Fabric.  Aan het einde van de zelfstudie hebt u API Management geïmplementeerd in een VNET en een API-bewerking geconfigureerd voor het verzenden van verkeer naar -stateless services in de back-end. Zie het [overzichtsartikel](service-fabric-api-management-overview.md) voor meer informatie over Azure API Management-scenario's met Service Fabric.
