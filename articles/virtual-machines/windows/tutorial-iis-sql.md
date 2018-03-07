@@ -1,59 +1,66 @@
 ---
-title: Maken van virtuele machines met een SQL- &#92; IIS &#92;. NET-stack in Azure | Microsoft Docs
-description: Zelfstudie - installatie van een Azure SQL, IIS, .NET stack is op een Windows virtuele machines.
+title: Virtuele machines met een SQL&#92;IIS&#92;.NET-stack maken in Azure | Microsoft Docs
+description: Zelfstudie - Een Azure SQL, IIS, .NET-stack installeren op virtuele Windows-machines.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/24/2017
+ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6533ab205e07243e2f757ea0a66028e1d140c52b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: ad84d6e8f74fa184ac2359ff7f08e6c8143d419a
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="install-a-sql92iis92net-stack-in-azure"></a>Installeer een SQL- &#92; IIS &#92;. NET-stack in Azure
+# <a name="install-a-sql92iis92net-stack-in-azure"></a>Een SQL&#92;IIS&#92;.NET-stack installeren in Azure
 
-In deze zelfstudie installeren we een SQL- &#92; IIS &#92;. NET stack met Azure PowerShell. Deze stack bestaat uit twee virtuele machines met Windows Server 2016, één met IIS en .NET en de andere met SQL Server.
+In deze zelfstudie installeren we een SQL&#92;IIS&#92;.NET-stack met Azure PowerShell. Deze stack bestaat uit twee virtuele machines met Windows Server 2016, waarvan een met IIS en .NET en een met SQL Server.
 
 > [!div class="checklist"]
-> * Een virtuele machine met behulp van New-AzVM maken
-> * IIS en de kern van het .NET SDK installeren op de virtuele machine
-> * Een virtuele machine met SQL Server maken
-> * De uitbreiding voor de SQL Server installeren
+> * Een virtuele machine maken 
+> * IIS en .NET Core SDK installeren op de virtuele machine
+> * Een VM maken waarop SQL Server wordt uitgevoerd
+> * De SQL Server-extensie installeren
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, wordt voor deze zelfstudie moduleversie 5.1.1 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Voor deze zelfstudie is module versie 4.3.1 of hoger van AzureRM.Compute vereist. Voer `Get-Module -ListAvailable AzureRM.Compute` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
-## <a name="create-a-iis-vm"></a>Een IIS-virtuele machine maken 
+## <a name="create-a-iis-vm"></a>Een virtuele IIS-machine maken 
 
-In dit voorbeeld gebruiken we de [nieuw AzVM](https://www.powershellgallery.com/packages/AzureRM.Compute.Experiments) cmdlet in de Cloud-Shell PowerShell snel een virtuele machine van Windows Server 2016 maken en vervolgens installeren IIS en .NET Framework. IIS en SQL-machines delen een resourcegroep en een virtueel netwerk, zodat we de variabelen voor deze namen maken.
+In dit voorbeeld gebruiken we de cmdlet [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) in de Cloud Shell van PowerShell om snel een virtuele machine met Windows Server 2016 te maken en vervolgens IIS en .NET Framework te installeren. De virtuele IIS en SQL-machines delen een resourcegroep en een virtueel netwerk, dus voor deze namen maken we variabelen.
 
-Klik op de **probeert het** knop aan de rechterbovenhoek van het codeblok Cloud Shell in dit venster te starten. U wordt gevraagd referenties op te geven voor de virtuele machine op de opdrachtprompt.
 
 ```azurepowershell-interactive
-$vmName = "IISVM$(Get-Random)"
+$vmName = "IISVM"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzureRmVm `
+    -ResourceGroupName $resourceGroup `
+    -Name $vmName `
+    -Location "East US" `
+    -VirtualNetworkName $vNetName `
+    -SubnetName "myIISSubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -AddressPrefix 192.168.0.0/16 `
+    -PublicIpAddressName "myIISPublicIpAddress" `
+    -OpenPorts 80,3389 
 ```
 
-Installatie van IIS en .NET framework met behulp van de extensie voor aangepaste scripts.
+Installeer IIS en .NET Framework met behulp van de aangepaste scriptextensie.
 
 ```azurepowershell-interactive
-
-Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
+Set-AzureRmVMExtension `
+    -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
     -VMName $vmName `
     -Publisher Microsoft.Compute `
@@ -63,67 +70,73 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -Location EastUS
 ```
 
-## <a name="azure-sql-vm"></a>Azure SQL VM
+## <a name="create-another-subnet"></a>Nog een subnet maken
 
-We gebruiken een vooraf geconfigureerde Azure marketplace-installatiekopie van een SQL server de SQL-VM's te maken. We eerst de virtuele machine maken en de SQL Server-extensie wordt geïnstalleerd op de virtuele machine. 
-
+Maak een tweede subnet voor de SQL-VM. Haal het vNet op met behulp van [Get-AzureRmVirtualNetwork]{/powershell/module/azurerm.network/get-azurermvirtualnetwork}.
 
 ```azurepowershell-interactive
-# Create user object. You get a pop-up prompting you to enter the credentials for the VM.
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-# Create a subnet configuration
-$vNet = Get-AzureRmVirtualNetwork -Name $vNetName -ResourceGroupName $resourceGroup
-Add-AzureRmVirtualNetworkSubnetConfig -Name mySQLSubnet -VirtualNetwork $vNet -AddressPrefix "192.168.2.0/24"
-Set-AzureRmVirtualNetwork -VirtualNetwork $vNet
-
-
-# Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location eastus `
-  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
-
-# Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
-  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
-
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location eastus `
-  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name mySQLNic -ResourceGroupName $resourceGroup -Location eastus `
-  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName mySQLVM -VMSize Standard_D1 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName mySQLVM -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName MicrosoftSQLServer -Offer SQL2014SP2-WS2012R2 -Skus Enterprise -Version latest | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-# Create the VM
-New-AzureRmVM -ResourceGroupName $resourceGroup -Location eastus -VM $vmConfig
+$vNet = Get-AzureRmVirtualNetwork `
+   -Name $vNetName `
+   -ResourceGroupName $resourceGroup
 ```
 
-Gebruik [Set AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) toevoegen de [SQL Server-extensie](/sql/virtual-machines-windows-sql-server-agent-extension.md) voor de SQL-VM.
+Maak een configuratie voor het subnet met behulp van [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig).
+
 
 ```azurepowershell-interactive
-Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLVM -name "SQLExtension"
+Add-AzureRmVirtualNetworkSubnetConfig `
+   -AddressPrefix 192.168.0.0/24 `
+   -Name mySQLSubnet `
+   -VirtualNetwork $vNet `
+   -ServiceEndpoint Microsoft.Sql
+```
+
+Werk het vNet bij met de nieuwe subnetgegevens met behulp van de cmdlet [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork).
+   
+```azurepowershell-interactive   
+$vNet | Set-AzureRmVirtualNetwork
+```
+
+## <a name="azure-sql-vm"></a>Azure SQL-VM
+
+Gebruik een vooraf geconfigureerde Azure Marketplace-installatiekopie van een SQL-server om de SQL-VM te maken. We maken eerst de virtuele machine en installeren vervolgens de SQL Server-extensie op de VM. 
+
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName $resourceGroup `
+    -Name "mySQLVM" `
+    -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
+    -Location eastus `
+    -VirtualNetworkName $vNetName `
+    -SubnetName "mySQLSubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "mySQLPublicIpAddress" `
+    -OpenPorts 3389,1401 
+```
+
+Gebruik [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) om de [SQL Server-extensie](/sql/virtual-machines-windows-sql-server-agent-extension.md) toe te voegen aan de SQL-VM.
+
+```azurepowershell-interactive
+Set-AzureRmVMSqlServerExtension `
+   -ResourceGroupName $resourceGroup  `
+   -VMName mySQLVM `
+   -Name "SQLExtension" `
+   -Location "EastUS"
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geïnstalleerd een SQL- &#92; IIS &#92;. NET stack met Azure PowerShell. U hebt geleerd hoe u:
+In deze zelfstudie hebt u een SQL&#92;IIS&#92;.NET-stack geïnstalleerd met behulp van Azure PowerShell. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Een virtuele machine met behulp van New-AzVM maken
-> * IIS en de kern van het .NET SDK installeren op de virtuele machine
-> * Een virtuele machine met SQL Server maken
-> * De uitbreiding voor de SQL Server installeren
+> * Een virtuele machine maken 
+> * IIS en .NET Core SDK installeren op de virtuele machine
+> * Een VM maken waarop SQL Server wordt uitgevoerd
+> * De SQL Server-extensie installeren
 
-Ga naar de volgende zelfstudie voor meer informatie over het beveiligen van IIS-webserver met SSL-certificaten.
+Ga door naar de volgende zelfstudie om te leren hoe u een IIS-webserver kunt beveiligen met behulp van SSL-certificaten.
 
 > [!div class="nextstepaction"]
-> [IIS-webserver met SSL-certificaten beveiligen](tutorial-secure-web-server.md)
+> [Een IIS-webserver beveiligen met SSL-certificaten](tutorial-secure-web-server.md)
 

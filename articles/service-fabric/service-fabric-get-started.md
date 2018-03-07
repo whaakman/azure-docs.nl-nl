@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: a4000791afca35dca6d2e3d7a8fb6a003b17d066
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 18578f87ec6b58d72da7a7a81cbdc3d2c98ffaf6
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Uw ontwikkelomgeving voorbereiden in Windows
 > [!div class="op_single_selector"]
@@ -63,10 +63,10 @@ Als u alleen de SDK nodig hebt, kunt u dit pakket installeren:
 * [Microsoft Azure Service Fabric SDK installeren][core-sdk]
 
 De huidige versies zijn:
-* Service Fabric SDK and Tools 3.0.456
-* Service Fabric runtime 6.1.456
+* Service Fabric SDK and Tools 3.0.467
+* Service Fabric Runtime 6.1.467
 * Service Fabric Tools for Visual Studio 2015 2.0.10124.2
-* Visual Studio 2017 15.5.6 bevat Service Fabric Tools for Visual Studio 2.0.20180124.2 
+* Visual Studio 2017 15.5.6 bevat Service Fabric Tools for Visual Studio 2.0.20180124.2  
 
 Zie [Ondersteuning voor Service Fabric](service-fabric-support.md) voor een lijst met ondersteunde versies.
 
@@ -88,6 +88,7 @@ Nu u uw ontwikkelingsomgeving hebt ingesteld, kunt u apps ontwikkelen en uitvoer
 * [Uw cluster visualiseren door gebruik te maken van Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * [Het leertraject voor Service Fabric volgen voor een brede inleiding tot het platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * Meer informatie over [ondersteuningsopties voor Service Fabric](service-fabric-support.md)
+* [Besturingssysteempatches automatiseren in uw cluster](service-fabric-patch-orchestration-application.md)
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric-campagnepagina"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"

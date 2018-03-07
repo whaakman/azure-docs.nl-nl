@@ -3,57 +3,80 @@ title: Gegevens voorbereiden voor de zelfstudie 'Classifying Iris' (Iris classif
 description: "Deze volledige zelfstudie laat zien hoe u Azure Machine Learning-services (preview) end-to-end gebruikt. Dit is deel één en hier wordt het voorbereiden van gegevens besproken."
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 09/28/2017
-ms.openlocfilehash: 4e558518a5a1fb7b4cd0a58fe2453fd4c083b46a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.date: 02/28/2018
+ms.openlocfilehash: 0bef557ee1394e3c786fd2c54e821b5dea28fabf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="classify-iris-part-1-prepare-the-data"></a>Classifying Iris deel 1: gegevens voorbereiden
+# <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>Zelfstudie: classificeren van Iris deel 1: gegevens voorbereiden
+
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
 
 Deze zelfstudie is deel één van een serie van drie. In deze zelfstudie doorlopen we de basisprincipes van Machine Learning-services (preview). Procedures voor:
-> [!div class="checklist"]
-> * Een project maken in Azure Machine Learning Workbench.
-> * Een gegevensvoorbereidingspakket maken.
-> * Python/PySpark-code genereren voor het aanroepen van het gegevensvoorbereidingspakket.
 
-In deze zelfstudie wordt de tijdloze [Iris-gegevensset](https://en.wikipedia.org/wiki/Iris_flower_data_set) gebruikt. De schermopnamen zijn specifiek voor Windows, maar de Mac OS-versie is bijna identiek.
+> [!div class="checklist"]
+> * Een project maken in Azure Machine Learning Workbench
+> * Een gegevensvoorbereidingspakket maken
+> * Python/PySpark-code genereren voor het aanroepen van het gegevensvoorbereidingspakket
+
+In deze zelfstudie wordt de tijdloze [Iris-gegevensset](https://en.wikipedia.org/wiki/Iris_flower_data_set) gebruikt. De schermafbeeldingen zijn specifiek voor Windows, maar de ervaring voor macOS is bijna identiek.
 
 ## <a name="prerequisites"></a>Vereisten
-- Een Azure Machine Learning Experimenten-account maken.
-- Azure Machine Learning Workbench installeren.
 
-Volg de instructies in [dit artikel](quickstart-installation.md) om de toepassing Azure Machine Learning Workbench te installeren. Deze installatie omvat ook het platformoverschrijdende opdrachtregelprogramma van Azure, te weten Azure CLI.
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="create-a-new-project-in-azure-machine-learning-workbench"></a>Een nieuw project maken in Azure Machine Learning Workbench
-1. Open de app Azure Machine Learning Workbench en meld u indien nodig aan. Klik in het deelvenster **PROJECTS** (PROJECTEN) op het plusteken (**+**) om **New Project** (Nieuw project) te kiezen.
+U hebt het volgende nodig om deze zelfstudie te voltooien:
+- Een Azure Machine Learning Experimenten-account
+- Azure Machine Learning Workbench moet zijn geïnstalleerd
+
+Als u nog geen account hebt en Workbench nog niet is geïnstalleerd, volgt u de stappen in het artikel [Quickstart: Install and start](quickstart-installation.md) (Snelstart: installeren en starten) om dit account in te stellen en de toepassing Azure Machine Learning Workbench te installeren. 
+
+## <a name="create-a-new-project-in-workbench"></a>Een nieuw project maken in Workbench
+
+Als u de stappen in het artikel [Quickstart: Install and start](quickstart-installation.md) (Snelstart: installeren en starten) hebt gevolgd, hebt u dit project al gemaakt en kunt u doorgaan met de volgende sectie.
+
+1. Open de app Azure Machine Learning Workbench en meld u indien nodig aan. 
+   
+   + In Windows kunt u de Workbench starten met de snelkoppeling **Machine Learning Workbench** op het bureaublad. 
+   + Selecteer in macOS **Azure ML Workbench** in Launchpad.
+
+1. Klik in het deelvenster **PROJECTS** op het plusteken (+) om **New Project** te kiezen.  
 
    ![Nieuwe werkruimte](media/tutorial-classifying-iris/new_ws.png)
 
-2. Vul de gegevens in bij **Create New Project** (Nieuw project maken): 
+1. Vul de formuliervelden in en selecteer de knop **Maken** om een nieuw project te maken in Workbench.
+
+   Veld|Aanbevolen waarde voor zelfstudie|Beschrijving
+   ---|---|---
+   Projectnaam | myIris |Voer een unieke naam in die uw account aanduidt. U kunt uw eigen naam gebruiken, maar ook de naam van een afdeling of project waarmee het experiment is verbonden. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. 
+   Projectmap | c:\Temp\ | Selecteer de map waarin het project moet worden gemaakt.
+   Projectbeschrijving | _leeg laten_ | Optioneel veld, nuttig voor het beschrijven van de projecten.
+   Visualstudio.com |_leeg laten_ | Optioneel veld. Een project kan eventueel worden gekoppeld aan een Git-opslagplaats in Visual Studio Team Services voor broncodebeheer en samenwerking. [Informatie over het instellen daarvan](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Werkruimte | IrisGarden (indien aanwezig) | Kies een werkruimte die u hebt gemaakt voor uw Experimenten-account in Azure Portal. <br/>Als u de snelstart hebt gevolgd, hebt u een werkruimte met de naam IrisGarden. Selecteer anders de werkruimte die u hebt gemaakt bij het maken van uw Experimenten-account, of een andere werkruimte die u wilt gebruiken.
+   Projectsjabloon | Iris classificeren | Sjablonen bevatten scripts en gegevens die u kunt gebruiken om het product te verkennen. Deze sjabloon bevat de scripts en gegevens die u nodig hebt voor deze snelstart en andere zelfstudies op deze documentatiesite. 
 
    ![Nieuw project](media/tutorial-classifying-iris/new_project.png)
-
-   - Vul in het veld **Project name** (Projectnaam) een naam in voor het project. Gebruik bijvoorbeeld de waarde **myIris**.
-   - Selecteer bij **Project directory** (Projectmap) de map waarin het project moet worden gemaakt. Gebruik bijvoorbeeld de waarde `C:\Temp\`. 
-   - Typ eventueel beschrijvende tekst bij **Projectbeschrijving**. 
-   - Het veld voor de **Git repository** is ook optioneel en kan leeg worden gelaten. U kunt een bestaande, lege Git-repo (een repo zonder master branch) in Visual Studio Team Services opgeven. Als u een Git-repository gebruikt die al bestaat, kunt u later de scenario's voor roaming en delen inschakelen. Zie [Use Git repo](using-git-ml-project.md) (Git-repo gebruiken) voor meer informatie. 
-   - Selecteer bij **Workspace** een werkruimte. In deze zelfstudie wordt bijvoorbeeld **IrisGarden** gebruikt. 
-   - Selecteer de sjabloon **Classifying Iris** (Iris classificeren) in de lijst met projectsjablonen. 
-
-3. Selecteer de knop **Create** (Maken). Het project wordt voor u gemaakt en geopend.
+ 
+ Er wordt een nieuw project gemaakt en het projectdashboard wordt geopend met dat project. U kunt nu de introductiepagina, gegevensbronnen, notitieblokken en broncodebestanden van het project verkennen. 
 
 ## <a name="create-a-data-preparation-package"></a>Een gegevensvoorbereidingspakket maken
-1. Open het bestand **iris.csv** vanuit de **bestandsweergave**. Het bestand is een tabel met vijf kolommen en 150 rijen. De tabel bevat vier numerieke parameterkolommen en een tekenreeks-doelkolom. Er zijn geen kolomkoppen.
+
+In dit gedeelte van de zelfstudie verkent u de gegevens en start u het gegevensvoorbereidingsproces. Wanneer u de gegevens in Azure Machine Learning Workbench voorbereidt, wordt een JSON-weergave van de transformaties die u in Workbench uitvoert, opgeslagen in een lokaal gegevensvoorbereidingspakket (*.dprep-bestand). Dit gegevensvoorbereidingspakket is de primaire container voor de gegevensvoorbereidingswerkzaamheden in Workbench.
+
+Dit pakket kan voor uitvoering worden overgedragen aan een runtime, zoals local-C#/CoreCLR, Scala/Spark of Scala/HDI, waar code wordt gegenereerd voor de juiste runtime voor uitvoering. 
+
+1. Selecteer het mappictogram om de bestandsweergave te openen en selecteer vervolgens **iris.csv** om dit bestand te openen.  
+
+   Het bestand is een tabel met vijf kolommen en 150 rijen. De tabel bevat vier numerieke parameterkolommen en een tekenreeks-doelkolom. Er zijn geen kolomkoppen.
 
    ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
@@ -97,19 +120,19 @@ Volg de instructies in [dit artikel](quickstart-installation.md) om de toepassin
 
    Er wordt een nieuw pakket voor gegevensvoorbereiding gemaakt met de naam **iris-1.dprep** en geopend in de editor voor gegevensvoorbereiding.
 
-9. Nu gaan we enkele eenvoudige stappen uitvoeren om de gegevens voor te bereiden. Wijzig de kolomnamen. Selecteer elke kolomkop om de koptekst te bewerken. 
+9. Nu gaan we enkele eenvoudige stappen uitvoeren om de gegevens voor te bereiden. Selecteer elke kolomkop om de koptekst te bewerken. Wijzig de naam van elke naam als volgt: 
 
-   Geef voor de vijf kolommen respectievelijk **Petal Length**, **Petal Width**, **Petal Length**, **Petal Width** en **Species** op.
+   Geef voor de vijf kolommen respectievelijk **Sepal Length**, **Sepal Width**, **Petal Length**, **Petal Width** en **Species** (in deze volgorde) op.
 
    ![Kolomnamen wijzigen](media/tutorial-classifying-iris/rename_column.png)
 
 10. Als u afzonderlijke waarden wilt tellen, selecteert u de kolom **Species** en klikt u er met de rechtermuisknop op. Selecteer **Value Counts** (Aantallen waarden) in de vervolgkeuzelijst. 
 
+   Met deze actie wordt het deelvenster **Inspectors** onder de gegevens geopend. Een histogram met vier balken wordt weergegeven. U ziet dat de doelkolom drie afzonderlijke waarden heeft: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** en een **(null)**-waarde.
+
    ![Selecteer Value Counts](media/tutorial-classifying-iris/value_count.png)
 
-   Hiermee opent u het deelvenster **Inspectors** en ziet u een histogram met vier balken. U ziet dat de doelkolom drie afzonderlijke waarden heeft: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** en een **(null)**-waarde.
-
-11. Null-waarden kunt u wegfilteren door de balk in de grafiek te selecteren die de waarde null vertegenwoordigt. Er is één rij met een **(null)**-waarde. Als u deze rij wilt verwijderen, selecteert u het minteken (**-**).
+11. Als u de null-waarden wilt filteren, selecteert u het label Null en selecteert u het minteken (**-**). De rij Null wordt vervolgens grijs weergegeven om aan te geven dat deze is gefilterd. 
 
    ![Histogram met aantal waarden](media/tutorial-classifying-iris/filter_out.png)
 
@@ -121,11 +144,15 @@ Volg de instructies in [dit artikel](quickstart-installation.md) om de toepassin
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>Python/PySpark-code genereren voor het aanroepen van het gegevensvoorbereidingspakket
 
-1. Klik met de rechtermuisknop op het bestand **iris 1.dprep** om het contextmenu weer te geven en selecteer **Generate Data Access Code File** (Toegangscode voor gegevenstoegang genereren). 
+<!-- The output/results of a Package can be explored in Python or via a Jupyter Notebook. A Package can be executed across multiple runtimes including local Python, Spark (including in Docker), and HDInsight. A Package contains one or more Dataflows that are the steps and transforms applied to the data. A Package may use another Package as a Data Source (referred to as a Reference Data Flow). -->
+
+1. Zoek het bestand **iris 1.dprep** op het tabblad Data Preparations.
+
+1. Klik met de rechtermuisknop op het bestand **iris 1.dprep** en selecteer **Generate Data Access Code File** in het contextmenu. 
 
    ![Code genereren](media/tutorial-classifying-iris/generate_code.png)
 
-2. Er wordt een nieuw bestand met de naam **iris-1.py** geopend met daarin de volgende regels code:
+   Een nieuw bestand met de naam **iris 1.py** wordt geopend met de volgende regels met code om de logica op te roepen die u als een gegevensvoorbereidingspakket hebt gemaakt:
 
    ```python
    # Use the Azure Machine Learning data preparation package
@@ -144,17 +171,22 @@ Volg de instructies in [dit artikel](quickstart-installation.md) om de toepassin
    df.head(10)
    ```
 
-   Dit codefragment roept de logica aan die u hebt gemaakt als gegevensvoorbereidingspakket. Afhankelijk van de context waarin deze code wordt uitgevoerd, vertegenwoordigt `df` verschillende soorten gegevensframes. Een [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) wordt gebruikt bij uitvoering in Python-runtime, of een [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) bij uitvoering in een Spark-context. 
+   Afhankelijk van de context waarin deze code wordt uitgevoerd, vertegenwoordigt `df` verschillende soorten gegevensframes. Een [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) wordt gebruikt bij uitvoering in Python-runtime, of een [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) bij uitvoering in een Spark-context. 
+   
+   Voor informatie over het voorbereiden van gegevens in Azure Machine Learning Workbench verwijzen we naar de handleiding [Getting Started with Data Preparation](data-prep-getting-started.md) (Aan de slag met gegevensvoorbereiding).
 
-   Voor meer informatie over het voorbereiden van gegevens in Azure Machine Learning Workbench verwijzen we naar de handleiding [Getting Started with Data Preparation](data-prep-getting-started.md) (Aan de slag met gegevensvoorbereiding).
+## <a name="clean-up-resources"></a>Resources opschonen
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit eerste deel van deze zelfstudie hebt u geleerd hoe u Azure Machine Learning Workbench kunt gebruiken voor deze bewerkingen:
-> [!div class="checklist"]
-> * Een nieuw project maken. 
-> * Een gegevensvoorbereidingspakket maken.
-> * Python/PySpark-code genereren voor het aanroepen van het gegevensvoorbereidingspakket.
 
-U bent klaar om door te gaan met het volgende deel in de reeks, waar u leert hoe u een Azure Machine Learning-model bouwt.
+In deze zelfstudie hebt u Azure Machine Learning Workbench gebruikt om de volgende bewerkingen uit te voeren:
+> [!div class="checklist"]
+> * Een nieuw project maken
+> * Een gegevensvoorbereidingspakket maken
+> * Python/PySpark-code genereren voor het aanroepen van het gegevensvoorbereidingspakket
+
+U bent klaar om door te gaan met het volgende deel in de zelfstudiereeks, waar u leert hoe u een Azure Machine Learning-model bouwt.
 > [!div class="nextstepaction"]
-> [Een model bouwen](tutorial-classifying-iris-part-2.md)
+> [Zelfstudie 2: modellen bouwen](tutorial-classifying-iris-part-2.md)

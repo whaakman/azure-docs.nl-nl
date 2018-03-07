@@ -1,6 +1,6 @@
 ---
 title: Resources maken voor gebruik met Azure Site Recovery | Microsoft Docs
-description: Informatie over het voorbereiden van Azure voor replicatie van lokale apparaten via de Azure Site Recovery-service.
+description: Informatie over het voorbereiden van Azure voor replicatie van on-premises machines met behulp van Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,89 +8,94 @@ ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 63290127b298efced14ad34e9223840f3229f046
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
-ms.translationtype: MT
+ms.openlocfilehash: 2f6ff1d30eef1fe34e55457d9bdd4295804ec16a
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Azure-resources voor de replicatie van machines lokale voorbereiden
+# <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Azure-resources voorbereiden voor replicatie van lokale machines
 
-De [Azure Site Recovery](site-recovery-overview.md) service draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel herstel (BCDR) door uw business-apps te houden tijdens geplande en ongeplande uitval. Site Recovery beheert en noodherstel van on-premises machines en virtuele Azure-machines (VM's), met inbegrip van replicatie, failovers en herstel ingedeeld.
+ [Azure Site Recovery](site-recovery-overview.md) draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel (BCDR) door te zorgen dat uw zakelijke apps actief blijven tijdens geplande en ongeplande uitval. Site Recovery beheert en orkestreert noodherstel van on-premises machines en virtuele Azure-machines (VM's), met inbegrip van replicatie, failover en herstel.
 
-Deze zelfstudie laat zien hoe Azure-onderdelen voorbereiden wanneer u een lokale virtuele machines (Hyper-V- of VMware) of Windows of Linux fysieke servers repliceren naar Azure wilt maken. In deze zelfstudie leert u het volgende:
+Deze zelfstudie laat zien hoe u Azure-onderdelen voorbereidt wanneer u on-premises virtuele machines (Hyper-V of VMware) of fysieke Windows- of Linux-servers wilt repliceren naar Azure. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Controleer of dat uw account replicatie machtigingen heeft
+> * Controleren of uw account replicatiemachtigingen heeft.
 > * Een Azure-opslagaccount maken.
-> * Een Azure-netwerk instellen. Wanneer virtuele Azure-machines na een failover worden gemaakt, zijn ze gekoppeld aan deze Azure-netwerk.
+> * Een Azure-netwerk instellen. Wanneer de Azure VM's zijn gemaakt na de failover, worden ze gekoppeld aan dit Azure-netwerk.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/pricing/free-trial/) aan voordat u begint.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u via http://portal.azure.com aan bij Azure Portal.
+Meld u aan bij [Azure Portal](http://portal.azure.com).
 
-## <a name="verify-account-permissions"></a>Controleer de accountmachtigingen
+## <a name="verify-account-permissions"></a>Accountmachtigingen controleren
 
-Als u uw gratis Azure-account zojuist hebt gemaakt, bent u de beheerder van uw abonnement. Als u niet de abonnementsbeheerder bent, samen met de beheerder u moet machtigingen toewijzen. Om replicatie inschakelen voor een nieuwe virtuele machine, moet u het volgende hebben:
+Als u net pas uw gratis Azure-account hebt gemaakt, bent u de beheerder van uw abonnement. Als u niet de abonnementsbeheerder bent, neemt u contact op met de beheerder om de machtigingen te krijgen die u nodig hebt. Om replicatie in te kunnen schakelen voor een nieuwe virtuele machine, moet u de volgende machtigingen hebben:
 
-- Machtiging voor het maken van een virtuele machine in de geselecteerde resourcegroep
-- Machtiging voor het maken van een virtuele machine in de geselecteerde virtuele netwerk
-- Machtigingen voor schrijven naar het geselecteerde opslagaccount
+- Het maken van een VM in de geselecteerde resourcegroep.
+- Het maken van een VM in het geselecteerde virtuele netwerk.
+- Schrijven naar het geselecteerde opslagaccount.
 
-De ingebouwde rol 'Virtual Machine Contributor' heeft deze machtingen. U moet ook de machtiging voor het beheren van Azure Site Recovery-bewerkingen. De rol 'Inzender Site Recovery' heeft alle machtigingen nodig voor het beheren van Site Recovery-bewerkingen in een Recovery Services-kluis.
+De ingebouwde rol Inzender voor virtuele machines beschikt over deze machtigingen. U moet ook zijn gemachtigd om Site Recovery-bewerkingen te kunnen beheren. De rol Site Recovery-inzender bevat alle machtigingen die nodig zijn om Site Recovery-bewerkingen in een Recovery Services-kluis te kunnen beheren.
 
 ## <a name="create-a-storage-account"></a>Een opslagaccount maken
 
-Installatiekopieën van gerepliceerde machines worden bewaard in Azure-opslag. Virtuele machines in Azure worden uit de opslag gemaakt wanneer u een failover van on-premises naar Azure.
+Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. Azure VM's worden gemaakt vanuit de opslag wanneer u een failover van on-premises naar Azure uitvoert.
 
-1. In de [Azure-portal](https://portal.azure.com) menu, klikt u op **nieuw** -> **opslag** -> **opslagaccount**.
-2. In **storage-account maken**, voer een naam voor het account. Voor deze zelfstudie gebruiken we de naam van de **contosovmsacct1910171607**. De naam moet uniek zijn binnen Azure en tussen 3 en 24 tekens lang zijn en alleen cijfers en kleine letters.
-3. Gebruik de **Resource Manager** implementatiemodel.
-4. Selecteer **algemeen** > **standaard**. Selecteer niet blob-opslag.
-5. Selecteer de standaard **RA-GRS** voor redundantie van gegevensopslag.
-6. Selecteer het abonnement waarin u het nieuwe opslagaccount wilt maken.
-7. Geef een nieuwe resourcegroep. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Voor deze zelfstudie gebruiken we de naam van de **ContosoRG**.
-8. Selecteer de geografische locatie voor het opslagaccount. Het opslagaccount moet in dezelfde regio bevinden als de Recovery Services-kluis. Voor deze zelfstudie gebruiken we de **West-Europa** regio.
+1. Selecteer in het menu van [Azure Portal](https://portal.azure.com) **Nieuw** > **Opslag** > **Opslagaccount**.
+2. Voer in **Opslagaccount maken** een naam voor het account in. Voor deze zelfstudies gebruiken we de naam **contosovmsacct1910171607**. De naam moet uniek zijn in Azure, tussen de 3 en 24 tekens lang zijn en mag alleen cijfers en kleine letters bevatten.
+3. Selecteer bij **implementatiemodel** **Resource Manager**.
+4. Selecteer bij **Soort account** **Algemeen gebruik**. Selecteer bij **Prestaties** **Standard**. Selecteer niet blob-opslag.
+5. Selecteer bij **Replicatie** de standaardoptie **Geografisch redundante opslag met leestoegang** voor opslagredundantie.
+6. Selecteer bij **Abonnement** het abonnement waarin u het nieuwe opslagaccount wilt maken.
+7. Geef bij **Resourcegroep** een nieuwe resourcegroep op. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Gebruik voor deze zelfstudies de naam **ContosoRG**.
+8. Selecteer bij **Locatie** de geografische locatie voor het opslagaccount. Het opslagaccount moet zich in dezelfde regio bevinden als de Recovery Services-kluis. Gebruik voor deze zelfstudie de regio **West-Europa**.
 
-   ![create-storageacct](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Een opslagaccount maken](media/tutorial-prepare-azure/create-storageacct.png)
 
-9. Klik op **Maken** om het opslagaccount te maken.
+9. Selecteer **Maken** om het opslagaccount te maken.
 
 ## <a name="create-a-vault"></a>Een kluis maken
 
-1. Klik in het menu van Azure portal, op **nieuw** > **voor bewaking en beheer** >
-    **back-up en herstel van de Site**.
-2. Geef in **Naam** een beschrijvende naam op om de kluis mee aan te duiden. Voor deze zelfstudie gebruiken we **ContosoVMVault**.
-3. Selecteer de bestaande resourcegroep met de naam **contosoRG**.
-4. Geef de Azure-regio **West-Europa**, die we in deze reeks zelfstudies gebruiken.
-5. Voor snelle toegang tot de kluis vanuit het dashboard, klikt u op **vastmaken aan dashboard** > **maken**.
+1. Selecteer in Azure Portal **Een resource maken** > **Controle en beheer** > **Backup en Site Recovery**.
+2. Voer in **Naam** een beschrijvende naam in om de kluis aan te duiden. Gebruik voor deze zelfstudie **ContosoVMVault**.
+3. Selecteer bij **Resourcegroep** de bestaande resourcegroep met de naam **contosoRG**.
+4. Geef bij **Locatie** de Azure-regio **West-Europa** op, die we in deze reeks zelfstudies gebruiken.
+5. Voor snelle toegang tot de kluis vanuit het dashboard, selecteert u **Aan dashboard vastmaken** > **Maken**.
 
-   ![Nieuwe kluis](./media/tutorial-prepare-azure/new-vault-settings.png)
+   ![Een nieuwe kluis maken](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   De nieuwe kluis wordt weergegeven in de **Dashboard** > **alle resources**, en klik op de hoofdblade **Recovery Services-kluizen** pagina.
+   De nieuwe kluis wordt weergegeven in **Dashboard** > **Alle resources** en op de hoofdpagina **Recovery Services-kluizen**.
 
 ## <a name="set-up-an-azure-network"></a>Een Azure-netwerk instellen
 
-Wanneer Azure VM's worden gemaakt vanuit opslag na een failover, zijn ze gekoppeld aan dit netwerk.
+Wanneer de Azure VM's zijn gemaakt vanuit de opslag na de failover, worden ze gekoppeld aan dit netwerk.
 
-1. In de [Azure-portal](https://portal.azure.com) menu, klikt u op **nieuw** > **Networking** >
-    **virtueel netwerk**
-2. Laat **Resource Manager** geselecteerd als het implementatiemodel. Resource Manager is het aanbevolen implementatiemodel.
-   - Geef een netwerknaam. De naam moet uniek zijn binnen de Azure-resourcegroep. We gebruiken de naam van de **ContosoASRnet**
-   - Gebruik de bestaande resourcegroep **contosoRG**.
-   - Geef het adresbereik 10.0.0.0/24 netwerk.
-   - We hebben een subnet voor deze zelfstudie.
-   - Selecteer het abonnement in te maken van het netwerk.
-   - Selecteer de locatie **West-Europa**. Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
-3. Klik op **Create**.
+1. Selecteer in [Azure Portal](https://portal.azure.com) **Een resource maken** > **Netwerken** > **Virtueel netwerk**.
+2. Laat **Resource Manager** geselecteerd als het implementatiemodel. Resource Manager is het voorkeursimplementatiemodel. Voer vervolgens deze stappen uit:
 
-   ![netwerk maken](media/tutorial-prepare-azure/create-network.png)
+   a. Voer bij **Naam** een netwerknaam in. De naam moet uniek zijn binnen de Azure-resourcegroep. Gebruik de naam **ContosoASRnet**.
 
-   Het virtuele netwerk duurt een paar seconden te maken. Nadat deze gemaakt, kunt u deze bekijken in de Azure-portaldashboard.
+   b. Gebruik bij **Resourcegroep** de bestaande resourcegroep **contosoRG**.
+
+   c. Voer bij **Adresbereik** het adresbereik in van het netwerk: **10.0.0.0/24**.
+
+   d. Voor deze zelfstudie hebt u geen subnet nodig.
+
+   e. Selecteer bij **Abonnement** het abonnement waarin u het netwerk wilt maken.
+
+   f. Selecteer bij **Locatie** de optie **West-Europa**. Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
+
+3. Selecteer **Maken**.
+
+   ![Een virtueel netwerk maken](media/tutorial-prepare-azure/create-network.png)
+
+   Het duurt een paar seconden voordat het virtuele netwerk is gemaakt. Nadat dit is gemaakt, wordt het in het Azure Portal-dashboard weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [De on-premises VMware-infrastructuur voorbereiden voor herstel na noodgevallen naar Azure](tutorial-prepare-on-premises-vmware.md)
+> [De on-premises VMware-infrastructuur voorbereiden op herstel naar Azure na een noodgeval](tutorial-prepare-on-premises-vmware.md)

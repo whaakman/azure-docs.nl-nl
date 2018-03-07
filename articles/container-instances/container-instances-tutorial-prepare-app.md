@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie voor Azure Containerexemplaren - voorbereiden van uw app
-description: 'Azure Containerexemplaren zelfstudie, deel 1 van 3: een app voorbereiden voor implementatie naar Containerexemplaren Azure'
+title: Zelfstudie voor Azure Container Instances - uw app voorbereiden
+description: Zelfstudie 1 van 3 voor Azure Container Instances - Een app voorbereiden voor implementatie in Azure Container Instances
 services: container-instances
 author: seanmck
 manager: timlt
@@ -9,38 +9,38 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: fc16be80e776d1472be775fa32354ba157d16545
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 5012412ec642a04102836274caea253635376efb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-container-for-deployment-to-azure-container-instances"></a>Een container voor implementatie in Azure Container Instances maken
 
-Met Azure Container Instances kunt u Docker-containers implementeren in de Azure-infrastructuur zonder virtuele machines in te richten of gebruik te maken van een service op een hoger niveau. In deze zelfstudie maakt u een kleine webtoepassing in Node.js bouwen en in een container die kan worden uitgevoerd met Azure Container instanties in een pakket.
+Met Azure Container Instances kunt u Docker-containers implementeren in de Azure-infrastructuur zonder virtuele machines in te richten of gebruik te maken van een service op een hoger niveau. In deze zelfstudie maakt u een kleine webtoepassing in Node.js en verpakt u deze in een container die kan worden uitgevoerd met behulp van Azure Container Instances.
 
-In dit artikel deel uit van een van de reeks u:
+In dit artikel, deel één uit de reeks, voert u de volgende handelingen uit:
 
 > [!div class="checklist"]
-> * Klonen van de broncode van de toepassing van GitHub
-> * Een installatiekopie van een container van toepassingsbron maken
-> * De afbeelding te testen in een lokale Docker-omgeving
+> * Toepassingsbroncode klonen vanuit GitHub
+> * Containerinstallatiekopie maken uit de toepassingsbron
+> * Installatiekopie testen in een lokale Docker-omgeving
 
-Uw installatiekopie uploaden naar een Azure Container Registry in volgende zelfstudies en vervolgens implementeren op Azure Containerexemplaren.
+In volgende zelfstudies uploadt u uw installatiekopie naar een Azure Container Registry en implementeert u deze vervolgens in Azure Container Instances.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Deze zelfstudie vereist dat u de Azure CLI versie 2.0.23 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [2.0 voor Azure CLI installeren][azure-cli-install].
+Voor deze zelfstudie moet u de versie Azure CLI 2.0.23 of later uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
-Deze zelfstudie wordt ervan uitgegaan dat een basiskennis van core Docker-concepten zoals containers, installatiekopieën van de container en basic `docker` opdrachten. Indien nodig, Zie [aan de slag met Docker] [ docker-get-started] voor een primer op de basisprincipes van de container.
+In deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van Docker-kernconcepten zoals containers, containerinstallatiekopieën en eenvoudige `docker`-opdrachten. Zie, indien nodig, [Aan de slag met Docker][docker-get-started] voor een uitleg van de basisprincipes van containers.
 
-Voor deze zelfstudie hebt voltooid, moet u een Docker-ontwikkelomgeving die lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker op elke configureren [Mac][docker-mac], [Windows][docker-windows], of [Linux] [ docker-linux] system.
+Er moet lokaal een Docker-ontwikkelomgeving zijn geïnstalleerd om deze zelfstudie te voltooien. Docker biedt pakketten die eenvoudig Docker configureren op elk [Mac][docker-mac]-, [Windows][docker-windows]- of [Linux][docker-linux]-systeem.
 
-Azure Cloud-Shell is dan de Docker-onderdelen die nodig zijn voor het voltooien van elke stap in deze zelfstudie niet opgenomen. U moet de Azure CLI en Docker-ontwikkelomgeving installeren op uw lokale computer om deze zelfstudie te voltooien.
+Azure Cloud Shell bevat niet de vereiste Docker-onderdelen die nodig zijn om elke stap in deze zelfstudie te voltooien. U moet Azure CLI en de Docker-ontwikkelomgeving op uw lokale computer installeren om deze zelfstudie te voltooien.
 
 ## <a name="get-application-code"></a>Toepassingscode ophalen
 
-Het voorbeeld in deze zelfstudie bevat een eenvoudige webtoepassing die is ingebouwd in [Node.js][nodejs]. De app dient een statische HTML-pagina en ziet er als volgt uit:
+Het voorbeeld in deze zelfstudie bevat een eenvoudige webtoepassing die is gebouwd in [Node.js][nodejs]. De app dient een statische HTML-pagina en ziet er als volgt uit:
 
 ![Zelfstudie-app weergegeven in browser][aci-tutorial-app]
 
@@ -52,24 +52,24 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 ## <a name="build-the-container-image"></a>De containerinstallatiekopie bouwen
 
-Het Dockerfile dat is opgegeven in de voorbeeldopslagplaats laat zien hoe de container wordt gebouwd. Het starten van een [officiële Node.js installatiekopie] [ docker-hub-nodeimage] op basis van [Alpine Linux][alpine-linux], een kleine distributie die zeer geschikt voor gebruik met containers. Vervolgens worden de toepassingsbestanden naar de container gekopieerd, afhankelijkheden geïnstalleerd met behulp van het de Node Package Manager, en wordt ten slotte de toepassing gestart.
+Het Dockerfile dat is opgegeven in de voorbeeldopslagplaats laat zien hoe de container wordt gebouwd. Het begint met een [officiële Node.js-installatiekopie][docker-hub-nodeimage] op basis van [Alpine Linux][alpine-linux], een kleine distributie die zeer geschikt is voor gebruik met containers. Vervolgens worden de toepassingsbestanden naar de container gekopieerd, afhankelijkheden geïnstalleerd met behulp van het de Node Package Manager, en wordt ten slotte de toepassing gestart.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
 RUN mkdir -p /usr/src/app
-COPY ./app/* /usr/src/app/
+COPY ./app/ /usr/src/app/
 WORKDIR /usr/src/app
 RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Gebruik de [docker-build] [ docker-build] opdracht voor het maken van de installatiekopie van de container als tagging *aci-zelfstudie-app*:
+Gebruik de opdracht [docker build][docker-build] voor het maken van de containerinstallatiekopie door deze te taggen als *aci-tutorial-app*:
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-De uitvoer van de [docker-build] [ docker-build] opdracht is vergelijkbaar met de volgende (afgekapt voor leesbaarheid):
+De uitvoer van de opdracht [docker build][docker-build] lijkt op (ingekort om makkelijk te kunnen lezen):
 
 ```bash
 Sending build context to Docker daemon  119.3kB
@@ -90,7 +90,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Gebruik de [docker-installatiekopieën] [ docker-images] opdracht om te zien van de installatiekopie van het ingebouwde:
+Gebruik de opdracht [docker images][docker-images] om de gemaakte installatiekopie te bekijken:
 
 ```bash
 docker images
@@ -120,9 +120,9 @@ Open de browser en ga naar http://localhost:8080 om te bevestigen dat de contain
 In deze zelfstudie hebt u een containerinstallatiekopie gemaakt die kan worden geïmplementeerd naar Azure Container Instances. De volgende stappen zijn voltooid:
 
 > [!div class="checklist"]
-> * De toepassingsbron van GitHub gekloond
-> * Installatiekopieën van het gemaakte container van toepassingsbron
-> * De container lokaal getest
+> * De toepassingsbron is gekloond vanuit GitHub
+> * Containerinstallatiekopieën van de toepassingsbron zijn gemaakt
+> * De container is lokaal uitgevoerd
 
 Ga verder met de volgende zelfstudie voor meer informatie over het opslaan van installatiekopieën van de container in een Azure Container Registry.
 

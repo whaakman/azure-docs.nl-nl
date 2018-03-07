@@ -1,6 +1,6 @@
 ---
-title: Upgrade van Azure Service Fabric-runtime | Microsoft Docs
-description: Informatie over het upgraden van de runtime van een Azure gehoste Service Fabric-cluster met PowerShell.
+title: Azure Service Fabric-runtime upgraden | Microsoft Docs
+description: In deze zelfstudie leert u hoe u PowerShell gebruikt om de runtime te upgraden van een Service Fabric-cluster dat wordt gehost in Azure.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,44 +15,44 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: faf134bc0952da913e90a93bc872a53f5f2369ff
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 49211a88e004bbcbcc41b6674a34934db39513c7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Upgrade de runtime van een Service Fabric-cluster
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Zelfstudie: de runtime van een Service Fabric-cluster upgraden
 
-Deze zelfstudie maakt deel uit drie van een reeks en ziet u hoe u een upgrade van de Service Fabric-runtime in een Azure Service Fabric-cluster. Deze zelfstudie is geschreven voor Service Fabric-clusters die zijn uitgevoerd op Azure en niet van toepassing op zelfstandige Service Fabric clusters.
+Deze zelfstudie is deel drie uit een reeks. Hierin ziet u hoe u de Service Fabric-runtime kunt upgraden op een Azure Service Fabric-cluster. Dit deel van de zelfstudie is geschreven voor Service Fabric-clusters die worden uitgevoerd in Azure en is niet van toepassing op zelfstandige Service Fabric-clusters.
 
 > [!WARNING]
-> Dit deel van de zelfstudie is PowerShell vereist. Ondersteuning voor het upgraden van de cluster-runtime is nog niet ondersteund door de Azure CLI-hulpprogramma's. U kunt ook kan een cluster worden bijgewerkt in de portal. Zie voor meer informatie [upgraden van een Azure Service Fabric-cluster](service-fabric-cluster-upgrade.md).
+> Voor dit deel van de zelfstudie is PowerShell vereist. De Azure CLI-hulpprogramma's bieden nog geen ondersteuning voor het upgraden van de clusterruntime. Een cluster kan ook worden geüpgraded in de portal. Zie [Een Azure Service Fabric-cluster upgraden](service-fabric-cluster-upgrade.md) voor meer informatie.
 
-Als uw cluster wordt al uitgevoerd voor de meest recente Service Fabric-runtime, hoeft u geen Voer deze stap. In dit artikel kan echter worden gebruikt voor het installeren van een ondersteunde runtime in een Azure Service Fabric-cluster.
+Als op het cluster al de meest recente Service Fabric-runtime wordt uitgevoerd, hoeft u deze stap niet uit te voeren. Dit artikel kan echter worden gebruikt om elke willekeurige ondersteunde runtime te installeren op een Azure Service Fabric-cluster.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Lezen van de cluster-versie
-> * De versie van het cluster instellen
+> * De clusterversie lezen
+> * De clusterversie instellen
 
-In deze zelfstudie reeks leert u hoe:
+In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
-> * Maken van een veilige [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) op Azure met behulp van een sjabloon
-> * [Een in- of -cluster schalen](service-fabric-tutorial-scale-cluster.md)
-> * Upgrade de runtime van een cluster
-> * [API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)
+> * Een veilig [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) maken in Azure met behulp van een sjabloon
+> * [Een cluster in- of uitschalen](service-fabric-tutorial-scale-cluster.md)
+> * De runtime van een cluster upgraden
+> * [API Management implementeren met Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u deze zelfstudie begint:
-- Als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Installeer de [Azure Powershell-moduleversie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) of [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Maken van een veilige [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) op Azure
-- Als u een Windows-cluster implementeert, kunt u een Windows-ontwikkelomgeving instellen. Installeer [Visual Studio 2017](http://www.visualstudio.com) en de **ontwikkelen van Azure**, **ASP.NET en web ontwikkeling**, en **.NET Core platformoverschrijdende ontwikkeling**werkbelastingen.  Stel een [.NET ontwikkelomgeving](service-fabric-get-started.md).
-- Als u een Linux-cluster implementeert, stelt u een Java-ontwikkelomgeving op [Linux](service-fabric-get-started-linux.md) of [Mac OS](service-fabric-get-started-mac.md).  Installeer de [Service Fabric CLI](service-fabric-cli.md). 
+Voor u met deze zelfstudie begint:
+- Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Installeer de [Azure Powershell-module, versie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) of [Azure CLI 2.0](/cli/azure/install-azure-cli).
+- Maak een veilig [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) in Azure
+- Als u een Windows-cluster implementeert, richt u een Windows-ontwikkelomgeving in. Installeer [Visual Studio 2017](http://www.visualstudio.com) en de workloads voor **Azure-ontwikkeling**, **ASP.NET-ontwikkeling en webontwikkeling** en **.NET Core platformoverschrijdende ontwikkeling**.  Richt vervolgens een [.NET-ontwikkelomgeving in](service-fabric-get-started.md).
+- Als u een Linux-cluster implementeert, richt u een Java-ontwikkelomgeving in voor [Linux](service-fabric-get-started-linux.md) of [Mac OS](service-fabric-get-started-mac.md).  Installeer de [Service Fabric CLI](service-fabric-cli.md). 
 
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure
-Aanmelden bij uw Azure-account, selecteer uw abonnement voordat u Azure-opdrachten uitvoeren.
+Meld u aan bij uw Azure-account en selecteer uw abonnement voordat u Azure-opdrachten gaat uitvoeren.
 
 ```powershell
 Login-AzureRmAccount
@@ -60,32 +60,32 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-## <a name="get-the-runtime-version"></a>Ophalen van de runtimeversie
+## <a name="get-the-runtime-version"></a>De runtimeversie ophalen
 
-Nadat u verbinding hebt gemaakt in Azure, geselecteerd het abonnement met het Service Fabric-cluster, kunt u de runtimeversie van het cluster krijgen.
+Nadat u verbinding hebt gemaakt met Azure en het abonnement hebt geselecteerd dat het Service Fabric-cluster bevat, kunt u de runtimeversie van het cluster ophalen.
 
 ```powershell
 Get-AzureRmServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-Of alleen een lijst met alle clusters ophalen in uw abonnement met de volgende opties:
+Of haal alleen een lijst op met alle clusters in uw abonnement. Doe dit als volgt:
 
 ```powershell
 Get-AzureRmServiceFabricCluster | Select-Object Name, ClusterCodeVersion
 ```
 
-Opmerking de **ClusterCodeVersion** waarde. Deze waarde wordt gebruikt in de volgende sectie.
+Noteer de waarde voor **ClusterCodeVersion**. Deze waarde wordt gebruikt in de volgende sectie.
 
-## <a name="upgrade-the-runtime"></a>Upgrade de runtime
+## <a name="upgrade-the-runtime"></a>De runtime upgraden
 
-Gebruik de waarde van **ClusterCodeVersion** uit de vorige sectie met de `Get-ServiceFabricRuntimeUpgradeVersion` cmdlet om te ontdekken welke versies zijn beschikbaar om te werken naar. Deze cmdlet kan alleen worden uitgevoerd vanaf een computer die is verbonden met internet. Bijvoorbeeld, als u wilt zien welke runtime-versies die u naar versie upgraden kunt `5.7.198.9494`, gebruik de volgende opdracht:
+Gebruik de waarde voor **ClusterCodeVersion** uit de vorige sectie met de cmdlet `Get-ServiceFabricRuntimeUpgradeVersion`om te ontdekken naar welke versies u kunt upgraden. Deze cmdlet kan alleen worden uitgevoerd vanaf een computer die is verbonden met internet. Als u bijvoorbeeld wilt zien naar welke runtimeversies u kunt upgraden vanaf versie `5.7.198.9494`, gebruikt u de volgende opdracht:
 
 ```powershell
 Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
 ```
 
-Een lijst met versies ziet u de Azure Service Fabric-cluster om te werken naar een runtime die nieuwer is. Bijvoorbeeld, als versie `6.0.219.9494` beschikbaar is voor de upgrade naar de volgende opdracht gebruiken om te werken van uw cluster.
+Met een lijst met versies kunt u het Azure Service Fabric-cluster de opdracht geven om te upgraden naar een nieuwere runtime. Als bijvoorbeeld versie `6.0.219.9494` beschikbaar is als upgrade, gebruikt u de volgende opdracht om het cluster te upgraden.
 
 ```powershell
 Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
@@ -95,11 +95,11 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 ```
 
 > [!IMPORTANT]
-> Het upgraden van cluster runtime kan lang duren om te voltooien. PowerShell wordt geblokkeerd terwijl de upgrade wordt uitgevoerd. U kunt een andere PowerShell-sessie gebruiken om de status van de upgrade te controleren.
+> Het kan lang duren voordat de upgrade voor de clusterruntime is voltooid. Tijdens het uitvoeren van de upgrade is PowerShell geblokkeerd. U kunt een andere PowerShell-sessie gebruiken om de status van de upgrade te controleren.
 
-De status van de upgrade kan worden bewaakt met beide PowerShell of de `sfctl` CLI.
+De status van de upgrade kan worden gecontroleerd met PowerShell of met de CLI-opdracht `sfctl`.
 
-De eerste verbinding met het cluster met de SSL-certificaat in het eerste deel van de zelfstudie hebt gemaakt. Gebruik de `Connect-ServiceFabricCluster` cmdlet of `sfctl cluster upgrade-status`.
+Maak eerst verbinding met het cluster met het SSL-certificaat dat is gemaakt in het eerste deel van de zelfstudie. Gebruik de cmdlet `Connect-ServiceFabricCluster` of `sfctl cluster upgrade-status`.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
@@ -117,7 +117,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Gebruik vervolgens `Get-ServiceFabricClusterUpgrade` of `sfctl cluster upgrade-status` om de status weer te geven. Iets soortgelijks als in het volgende resultaat wordt weergegeven.
+Gebruik vervolgens `Get-ServiceFabricClusterUpgrade` of `sfctl cluster upgrade-status` om de status weer te geven. Het resultaat zier er ongeveer uit zoals hieronder wordt weergegeven.
 
 ```powershell
 Get-ServiceFabricClusterUpgrade
@@ -195,10 +195,10 @@ sfctl cluster upgrade-status
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * De versie van de cluster-runtime ophalen
-> * Upgrade van de cluster-runtime
-> * Monitor voor de upgrade
+> * De versie van de clusterruntime ophalen
+> * De clusterruntime upgraden
+> * De upgrade controleren
 
-Ga vervolgens naar de volgende zelfstudie voor meer informatie over het implementeren van API Management met een Service Fabric-cluster.
+Ga vervolgens verder met de volgende zelfstudie voor meer informatie over het implementeren van API Management met een Service Fabric-cluster.
 > [!div class="nextstepaction"]
-> [API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)
+> [API Management implementeren met Service Fabric](service-fabric-tutorial-deploy-api-management.md)

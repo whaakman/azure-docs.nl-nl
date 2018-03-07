@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center Quick Start - vrijgeven uw Windows-computers met Security Center | Microsoft Docs
-description: Deze snelstartgids wordt beschreven hoe u voor het inrichten van Microsoft Monitoring Agent op een Windows-computer.
+title: 'Snelstart voor Azure Security Center: uw Windows-computers naar Security Center onboarden | Microsoft Docs'
+description: In deze snelstart leert u hoe u Microsoft Monitoring Agent op een Windows-computer inricht.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,84 +9,85 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 50cbbca9181d67bc41632a4650c76b9636a72356
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: MT
+ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Snelstartgids: Ingebouwde Windows-computers met Azure Security Center
-Nadat u vrijgeven uw Azure-abonnementen, kunt u inschakelen Security Center voor resources buiten Azure, actief is voor voorbeeld on-premises of andere clouds met het inrichten van Microsoft Monitoring Agent.
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Snelstart: Windows-computers onboarden naar Azure Security Center
+Nadat u de onboarding van uw Azure-abonnementen hebt uitgevoerd, kunt u Security Center inschakelen voor resources die buiten Azure worden uitgevoerd, bijvoorbeeld on-premises of in andere clouds, door Microsoft Monitoring Agent in te richten.
 
-Deze snelstartgids wordt beschreven hoe u Microsoft Monitoring Agent installeren op een Windows-computer.
+In deze snelstart ziet u hoe u Microsoft Monitoring Agent op een Windows-computer installeert.
 
 ## <a name="prerequisites"></a>Vereisten
 U moet over een abonnement op Microsoft Azure beschikken om met Security Center aan de slag te gaan. Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/pricing/free-trial/).
 
-U moet op de Standard-prijscategorie van Security Center voordat deze snelstartgids wordt gestart. Zie [Onboard uw Azure-abonnement Security Center Standard](security-center-get-started.md) voor upgrade-instructies. U kunt Security Center van standaard gratis proberen voor de eerste 60 dagen.
+U moet u zich in de Standard-prijscategorie van Security Center bevinden voordat u aan deze snelstart kunt beginnen. Zie [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Uw Azure-abonnement registreren voor Security Center Standard) voor upgrade-instructies. U kunt Security Center Standard de eerste zestig dagen kosteloos proberen.
 
-## <a name="add-new-windows-computer"></a>Toevoegen van nieuwe Windows-computer
+## <a name="add-new-windows-computer"></a>Nieuwe Windows-computer toevoegen
 
 1. Meld u aan bij de [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
-2. Ga naar het **Microsoft Azure**-menu en selecteer **Security Center**. **Security Center - overzicht** wordt geopend.
+2. Ga naar het **Microsoft Azure**-menu en selecteer **Security Center**. **Security Center - Overzicht** wordt geopend.
 
- ![Security Center-overzicht][2]
+ ![Overzicht van Security Center][2]
 
-3. Selecteer onder het hoofdmenu Security Center **voorbereiding voor geavanceerde beveiliging**.
-4. Selecteer **wilt u niet-Azure-computers toevoegen**.
+3. Selecteer in het hoofdmenu van Security Center de optie **Onboarding naar geavanceerde beveiliging**.
+4. Selecteer **Wilt u niet-Azure-computers toevoegen?**
 
-   ![Onboarding van geavanceerde beveiliging][3]
+   ![Onboarden naar geavanceerde beveiliging][3]
 
-5. Op **nieuwe niet-Azure-computers toevoegen**, een lijst met uw Log Analytics-werkruimten wordt weergegeven. De lijst bevat, indien van toepassing, de standaard-werkruimte gemaakt door Security Center wanneer automatische inrichting is ingeschakeld. Selecteer deze werkruimte of een andere werkruimte die u wilt gebruiken.
+5. Bij **Nieuwe niet-Azure-computers toevoegen** wordt een lijst met uw Log Analytics-werkruimten weergegeven. De lijst bevat, indien van toepassing, de standaardwerkruimte die is gemaakt door Security Center toen automatisch inrichten werd ingeschakeld. Selecteer deze werkruimte of een andere werkruimte die u wilt gebruiken.
 
     ![Niet-Azure-computer toevoegen][4]
 
-  De **Direct Agent** blade wordt geopend met een koppeling voor het downloaden van een Windows-agent en -sleutels voor uw werkruimte-ID moet worden gebruikt in de configuratie van de agent.
+  De blade **Agent toewijzen** wordt geopend, met een koppeling om een Windows-agent en sleutels voor uw werkruimte-id te downloaden, zodat u de agent kunt configureren.
 
-6.  Selecteer de **Windows-Agent downloaden** koppeling van toepassing op uw computer processortype voor het downloaden van het setup-bestand.
+6.  Selecteer de koppeling **Windows-agent downloaden** die van toepassing is op het processortype van uw computer om het installatiebestand te downloaden.
 
-7.  Aan de rechterkant van **werkruimte-ID**, selecteer het pictogram kopiëren en plakken van de ID in Kladblok.
+7.  Selecteer rechts van **Werkruimte-id** het kopieerpictogram en plak de id in Kladblok.
 
-8.  Aan de rechterkant van **primaire sleutel**, selecteer het pictogram kopiëren en plakken van de sleutel in Kladblok.
+8.  Selecteer rechts van **Primaire sleutel** het kopieerpictogram en plak de sleutel in Kladblok.
 
 ## <a name="install-the-agent"></a>De agent installeren
-Nu moet u het gedownloade bestand op de doelcomputer installeren.
+U dient nu het gedownloade bestand op de doelcomputer te installeren.
 
-1. Kopieer het bestand naar de doelcomputer en voer Setup uit.
-2. Op de **Welkom** pagina **volgende**.
-3. Op de **licentievoorwaarden** pagina, lees de licentievoorwaarden en selecteer vervolgens **ik ga akkoord**.
-4. Op de **doelmap** pagina, wijzigen of de standaardinstallatiemap houden en selecteer vervolgens **volgende**.
-5. Op de **installatieopties voor Agent** pagina, kiest u moet de agent verbinden met naar Azure logboekanalyse (OMS) en selecteer vervolgens **volgende**.
-6. Op de **Azure Log Analytics** pagina, plak de **werkruimte-ID** en **Werkruimtesleutel (primaire sleutel)** die u in de vorige procedure hebt gekopieerd in Kladblok.
-7. Als de computer een werkruimte voor logboekanalyse in Azure Government cloud rapporteren moet, selecteert u **Azure US Government** formulier de **Azure-Cloud** vervolgkeuzelijst.  Als de computer communiceren met de Log Analytics-service via een proxyserver moet, selecteert u **Geavanceerd** en geef de URL en het poortnummer van de proxyserver.
-8. Selecteer **volgende** als u klaar bent met het leveren van de vereiste configuratie-instellingen.
+1. Kopieer het bestand naar de doelcomputer en voer setup uit.
+2. Op de pagina **Welkom** selecteert u **Volgende**.
+3. Lees de licentie op de pagina **Licentievoorwaarden** en selecteer **Akkoord**.
+4. Op de pagina **Doelmap** wijzigt u desgewenst de standaardinstallatiemap en selecteert u **Volgende**.
+5. Op de pagina **Installatieopties voor agent** kiest u ervoor de agent verbinding te laten maken met Azure Log Analytics (OMS) en selecteert u **Volgende**.
+6. Op de pagina **Azure Log Analytics** plakt u de **werkruimte-id** en **werkruimtesleutel (primaire sleutel)** die u in de vorige stap in Kladblok hebt gekopieerd.
+7. Als u de computer wilt laten rapporteren bij een Log Analytics-werkruimte in de Azure Government-cloud, selecteert u **Azure US Government** in de vervolgkeuzelijst **Azure Cloud**.  Als de computer met de Log Analytics-service moet communiceren via een proxyserver, selecteert u **Geavanceerd** en geeft u de URL en het poortnummer van de proxyserver op.
+8. Selecteer **Volgende** als u de vereiste configuratie-instellingen hebt voltooid.
 
   ![De agent installeren][5]
 
-9. Op de **gereed voor installatie** pagina, Controleer uw selecties en selecteer vervolgens **installeren**.
-10. Op de **configuratie voltooid** pagina **voltooien**
+9. Controleer op de pagina **Gereed om te installeren** uw keuzes en selecteer **Installeren**.
+10. Selecteer op de pagina **Configuratie voltooid** de optie **Voltooien**
 
-Als u klaar bent wordt de **MMA** in het **Configuratiescherm** weergegeven. U kunt de configuratie er bekijken en controleren of de agent is verbonden.
+Als u klaar bent wordt de **MMA** in het **Configuratiescherm** weergegeven. U kunt hier de configuratie controleren en verifiëren of de agent is verbonden.
 
-Zie voor meer informatie over het installeren en configureren van de agent [verbinding maken met Windows-computers](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup).
+Zie [Windows-computers verbinden](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup-wizard) voor meer informatie over het installeren en configureren van de agent.
 
-U kunt nu uw Azure VM's en niet-Azure-computers op één plek bewaken. Onder **Compute**, hebt u een overzicht van alle virtuele machines en computers plus de aanbevelingen. Elke kolom vertegenwoordigt een reeks aanbevelingen. De kleur vertegenwoordigt van de virtuele machine of de computer huidige beveiligingsstatus voor die aanbeveling. Security Center geeft alle detecties voor deze computers in beveiligingswaarschuwingen ook weer.
+U kunt nu uw Azure-VM's en niet-Azure-computers op één plek bewaken. Onder **Compute** vindt u een overzicht van alle VM's en computers, plus aanbevelingen. Elke kolom vertegenwoordigt een reeks aanbevelingen. De kleur vertegenwoordigt de huidige beveiligingsstatus van de VM's of computers voor die aanbeveling. Security Center geeft ook detecties voor deze computers in beveiligingswaarschuwingen weer.
 
-  ![Blade berekenen][6]
+  ![Blade Compute][6]
 
-Er zijn twee soorten pictogrammen worden weergegeven op de **Compute** blade:
+Er worden twee soorten pictogrammen weergegeven op de blade **Compute**:
 
 ![pictogram1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Niet-Azure-computer
 
 ![pictogram2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Azure VM
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer het niet meer nodig hebt, kunt u de agent verwijderen uit de Windows-computer.
+Wanneer de agent niet langer nodig is, kunt u deze verwijderen van de Windows-computer.
 
 De agent verwijderen:
 
@@ -95,10 +96,10 @@ De agent verwijderen:
 3. Selecteer in **Programma's en onderdelen** de optie **MMA** en klik op **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstartgids ingericht u Microsoft Monitoring Agent op een Windows-computer. Voor meer informatie over het gebruik van Security Center, blijven de zelfstudie voor het configureren van een beveiligingsbeleid en het bepalen van de beveiliging van uw resources.
+In deze snelstart richt u Microsoft Monitoring Agent in op een Windows-computer. Voor meer informatie over het gebruik van Security Center gaat u verder met de zelfstudie voor het configureren van een beveiligingsbeleid en het beoordelen van de beveiliging van uw resources.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Definiëren en beoordelen van beveiligingsbeleid](tutorial-security-policy.md)
+> [Zelfstudie: Beveiligingsbeleidsregels opstellen en beoordelen](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

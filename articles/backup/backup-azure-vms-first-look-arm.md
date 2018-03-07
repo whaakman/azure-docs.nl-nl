@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: fdaf1349ddf623e2634360e891d959105c504093
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Back-ups maken van virtuele Azure-machines naar Recovery Services-kluizen
 
@@ -47,12 +47,12 @@ Afhankelijk van het aantal virtuele machines dat u wilt beveiligen, kunt u vanaf
 
 ## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>De back-uptaak configureren vanaf de VM-beheerblade
 
-Voer de volgende stappen uit als u de back-uptaak wilt configureren vanaf de VM-beheerblade in Azure Portal. De volgende stappen gelden alleen voor virtuele machines in de Azure-portal.
+Voer de volgende stappen uit als u de back-uptaak wilt configureren vanaf de VM-beheerblade in Azure Portal. De volgende stappen gelden alleen voor virtuele machines in Azure Portal.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu Hub op **Meer services** en typ **Virtuele machines** in het dialoogvenster Filter. Terwijl u typt, wordt de lijst met resources gefilterd. Wanneer u Virtuele machines ziet, selecteert u deze optie.
+2. Klik in het menu Hub op **Alle services** en typ **Virtuele machines** in het dialoogvenster Filter. Terwijl u typt, wordt de lijst met resources gefilterd. Wanneer u Virtuele machines ziet, selecteert u deze optie.
 
-  ![Klik in het menu Hub op Meer services om een tekstvenster te openen. Typ hierin 'Virtuele machines'.](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![Schermopname die laat zien hoe u vanuit Alle services naar virtuele machines navigeert](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
   De lijst met virtuele machines in het abonnement wordt weergegeven.
 
@@ -131,7 +131,7 @@ Een Recovery Services-kluis is een entiteit waarmee alle back-ups en herstelpunt
 Een Recovery Services-kluis maken:
 
 1. Meld u met uw Azure-abonnement aan bij [Azure Portal](https://portal.azure.com/) als u dit nog niet hebt gedaan.
-2. Klik in het menu Hub op **Meer services** en typ **Recovery Services** in het dialoogvenster Filter. Terwijl u typt, wordt de lijst met resources gefilterd. Wanneer Recovery Services-kluizen in de lijst wordt weergegeven, klikt u erop.
+2. Klik in het menu Hub op **Alle services** en typ **Recovery Services** in het dialoogvenster Filter. Terwijl u typt, wordt de lijst met resources gefilterd. Wanneer Recovery Services-kluizen in de lijst wordt weergegeven, klikt u erop.
 
     ![Een Recovery Services-kluis maken, stap 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -202,7 +202,7 @@ De instelling voor opslagreplicatie bewerken:
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Een back-doel selecteren, beleid instellen en definiëren welke items moeten worden beveiligd
 Voordat u een VM met een kluis registreert, voert u het detectieproces uit om ervoor te zorgen dat nieuwe virtuele machines die zijn toegevoegd aan het abonnement, worden geïdentificeerd. Er wordt een query uitgevoerd om de virtuele Azure-machines in het abonnement weer te geven, samen met aanvullende informatie zoals de naam van de cloudservice en de regio. In Azure Portal wordt met scenario verwezen naar wat u in de Recovery Services-kluis wilt opnemen. Het beleid is de planning voor hoe vaak en wanneer er herstelpunten worden gemaakt. Het beleid bevat ook de bewaartermijn voor de herstelpunten.
 
-1. Als er al een Recovery Services-kluis is geopend, gaat u verder met stap 2. Anders klikt u in het menu Hub op **Meer services**, typt u **Recovery Services** in de lijst met resources en klikt u op **Recovery Services-kluizen**.
+1. Als er al een Recovery Services-kluis is geopend, gaat u verder met stap 2. Klik anders op **Alle services**. Typ **Recovery Services** en klik op **Recovery Services-kluizen**.
 
     ![Een Recovery Services-kluis maken, stap 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -239,7 +239,7 @@ Voordat u een VM met een kluis registreert, voert u het detectieproces uit om er
 
     ![Workload selecteren](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    De geselecteerde virtuele machine wordt gevalideerd. Als u de verwachte virtuele machines niet ziet, controleert u of ze bestaan op dezelfde Azure-locatie als de Recovery Services-kluis. De locatie van de Recovery Services-kluis wordt weergegeven op het kluisdashboard.
+    De geselecteerde virtuele machine wordt gevalideerd. Als u de verwachte virtuele machines niet ziet, controleert u of ze bestaan op dezelfde Azure-locatie als de Recovery Services-kluis en controleert u of ze al worden beveiligd. De locatie van de Recovery Services-kluis wordt weergegeven op het kluisdashboard.
 
 6. Nu alle instellingen voor de kluis zijn gedefinieerd, klikt u op de blade Back-up op **Back-up inschakelen** om het beleid te implementeren op de kluizen en virtuele machines. Met het implementeren van het beleid wordt niet het eerste herstelpunt voor de virtuele machine gemaakt.
 

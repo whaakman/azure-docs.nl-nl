@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 339e600f18613e8cf4e5529c759ad33076d48654
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 594cb0afbdb0a44e9f092b9afc5af13b21e763a4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integreren met de door Azure beheerde services met behulp van Open Service Broker for Azure (OSBA)
 
@@ -70,51 +70,23 @@ v1beta1.storage.k8s.io               10
 
 De volgende stap bestaat uit het installeren van [Open Service Broker for Azure][open-service-broker-azure], waar ook de catalogus voor de door Azure beheerde services deel van uitmaakt. Voorbeelden van beschikbare Azure-services zijn onder andere Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB en Azure SQL Database.
 
-We beginnen met het toevoegen van de Helm-opslagplaats van Open Service Broker for Azure:
+Begin met het toevoegen van de Helm-opslagplaats van Open Service Broker voor Azure:
 
 ```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-Maak een [service-principal][create-service-principal] met de volgende Azure CLI-opdracht:
+Gebruik vervolgens het volgende script om een [service-principal][create-service-principal] te maken en een aantal variabelen te vullen. Deze variabelen worden gebruikt bij het uitvoeren van de Helm-grafiek voor het installeren van Service Broker.
 
 ```azurecli-interactive
-az ad sp create-for-rbac
+SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
+AZURE_CLIENT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 4)
+AZURE_CLIENT_SECRET=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 16)
+AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
+AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 ```
 
-De uitvoer moet er ongeveer als volgt uitzien. Noteer de `appId`, `password` en de waarden van `tenant`. Deze gaat u in de volgende stap gebruiken.
-
-```JSON
-{
-  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
-  "displayName": "azure-cli-2017-10-15-02-20-15",
-  "name": "http://azure-cli-2017-10-15-02-20-15",
-  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
-  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
-}
-```
-
-Stel de volgende omgevingsvariabelen in op basis van de bovenstaande waarden:
-
-```azurecli-interactive
-AZURE_CLIENT_ID=<appId>
-AZURE_CLIENT_SECRET=<password>
-AZURE_TENANT_ID=<tenant>
-```
-
-Haal nu uw Azure-abonnements-id op:
-
-```azurecli-interactive
-az account show --query id --output tsv
-```
-
-Stel weer de volgende omgevingsvariabele in op basis van de bovenstaande waarde:
-
-```azurecli-interactive
-AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
-```
-
-Nu u deze omgevingsvariabelen hebt ingevuld, voert u de volgende opdracht uit voor het installeren van Open Service Broker for Azure met behulp van het Helm-diagram:
+Nu u deze omgevingsvariabelen hebt ingevuld, voert u de volgende opdracht uit om Service Broker te installeren.
 
 ```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \

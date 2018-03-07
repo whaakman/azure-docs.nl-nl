@@ -1,6 +1,6 @@
 ---
-title: Een Azure Service Fabric-toepassing implementeren in een Party-cluster | Microsoft Docs
-description: Lees hoe u een toepassing implementeert in een Party-cluster.
+title: Een Azure Service Fabric-toepassing implementeren in een cluster | Microsoft Docs
+description: In deze zelfstudie leert u hoe u een toepassing implementeert in een Service Fabric-cluster.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 35ddf77b1e9a9b355ed2cee4731e3c5d87c4a701
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Een toepassing implementeren in een Party-cluster in Azure
-Deze zelfstudie is deel twee van een reeks en laat zien hoe u een Azure Service Fabric-toepassing implementeert in een Party-cluster in Azure.
+# <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Zelfstudie: een toepassing implementeren in een Service Fabric-cluster in Azure
+Deze zelfstudie is deel twee van een reeks en laat zien hoe u een Azure Service Fabric-toepassing implementeert in een cluster die in Azure wordt uitgevoerd.
 
 In deel twee van de reeks zelfstudies leert u het volgende:
 > [!div class="checklist"]

@@ -1,6 +1,6 @@
 ---
 title: Zelfstudie Azure Active Directory B2C gebruiken voor gebruikersverificatie in een voor een ASP.NET-web-app
-description: Zelfstudie over het gebruik van Azure Active Directory B2C voor het aanmelden en registreren van gebruikers in een ASP.NET-web-app.
+description: Zelfstudie over het gebruik van Azure Active Directory B2C voor het opgeven van gebruikersaanmeldingsreferenties voor een ASP.NET-web-app.
 services: active-directory-b2c
 author: PatAltimore
 ms.author: patricka
@@ -9,11 +9,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: ee006476f9e40e9d1a6e7213cb1881ca46ea75c2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1d1e0ce51d86ebcdbf0a2a423ff64b3814413d86
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Zelfstudie: Verificatie van gebruikers met Azure Active Directory B2C in een ASP.NET-web-app
 
@@ -147,9 +147,9 @@ De voorbeeld-ASP.NET-web-app is een eenvoudige takenlijst-app waarmee u een take
 
 Er bevinden zich twee projecten in de voorbeeldoplossing:
 
-**Voorbeeld-web-app (TaskWebApp):** een web-app om een takenlijst te maken of te bewerken. De web-app gebruikt het **registratie- of aanmeldingsbeleid** om gebruikers met een e-mailadres te registreren of aan te melden.
+**Voorbeeld-web-app (TaskWebApp):** een web-app om een takenlijst te maken of te bewerken. De web-app gebruikt het **registratie- of aanmeldingsbeleid** om gebruikers te registreren of aan te melden.
 
-**Voorbeeld-web-API-app (TaskService):** een web-API die ondersteuning biedt voor het maken, lezen, bijwerken en verwijderen van takenlijstfunctionaliteit. De web-API wordt beveiligd door Azure AD B2C en aangeroepen door de web-app.
+**Voorbeeld-web-API-app (TaskService):** een web-API die ondersteuning biedt voor het maken, lezen, bijwerken en verwijderen van takenlijstfunctionaliteit. De web-API wordt beveiligd door Azure AD B2C en wordt aangeroepen door de web-app.
 
 U moet wijzigingen aanbrengen aan de app om de app-registratie in uw tenant te kunnen gebruiken. U moet ook de beleidsregels configureren die u hebt gemaakt. De voorbeeld-web-app definieert de configuratiewaarden als app-instellingen in het bestand Web.config. De app-instellingen wijzigen:
 
@@ -178,7 +178,7 @@ Klik in Solution Explorer met de rechtermuisknop op het project **TaskWebApp** e
 
 Druk op **F5** om de web-app te starten. De standaardbrowser wordt gestart met het adres van de lokale site `https://localhost:44316/`. 
 
-De standaard-app biedt ondersteuning voor gebruikersregistratie, -aanmelding, het bewerken van een profiel en het opnieuw instellen van een wachtwoord. Hieronder ziet u hoe gebruikers zich aanmelden voor gebruik van de app met een e-mailadres. U kunt zelf de andere scenario's proberen.
+De standaard-app biedt ondersteuning voor gebruikersregistratie, -aanmelding, het bewerken van een profiel en het opnieuw instellen van een wachtwoord. In deze zelfstudie leest u hoe gebruikers zich registreren om de app met behulp van een e-mailadres te gebruiken. U kunt zelf de andere scenario's verkennen.
 
 ### <a name="sign-up-using-an-email-address"></a>Aanmelden met een e-mailadres
 
@@ -205,4 +205,4 @@ U kunt uw Azure AD B2C-tenant gebruiken voor andere zelfstudies voor Azure AD B2
 In deze zelfstudie hebt u geleerd hoe u een Azure AD B2C-tenant maakt, beleid maakt, en de voorbeeld-web-app moet bijwerken om uw Azure AD B2C-tenant te gebruiken. Ga verder met de volgende zelfstudie als u meer wilt weten over het registreren, configureren en aanroepen van een ASP.NET-web-API die is beveiligd door uw Azure AD B2C-tenant.
 
 > [!div class="nextstepaction"]
-> [Azure Active Directory B2C gebruiken voor het beveiligen van een ASP.NET-web-API](active-directory-b2c-tutorials-web-api.md)
+> [Zelfstudie: Azure Active Directory B2C gebruiken voor het beveiligen van een ASP.NET-web-API](active-directory-b2c-tutorials-web-api.md)

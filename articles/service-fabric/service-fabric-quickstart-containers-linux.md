@@ -1,6 +1,6 @@
 ---
 title: Een Azure Service Fabric-containertoepassing maken in Linux | Microsoft Docs
-description: Maak uw eerste Linux-containertoepassing in Azure Service Fabric.  Bouw een Docker-installatiekopie met uw toepassing, push de installatiekopie naar een containerregister, en bouw en implementeer een Service Fabric-containertoepassing.
+description: In deze snelstart maakt u uw eerste Linux-containertoepassing in Azure Service Fabric.  Bouw een Docker-installatiekopie met uw toepassing, push de installatiekopie naar een containerregister, en bouw en implementeer een Service Fabric-containertoepassing.
 services: service-fabric
 documentationcenter: linux
 author: suhuruli
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f568bdf6ce40ff2d437f3566b66f6dd1478a74fa
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Een Linux-containertoepassing voor Azure Service Fabric implementeren in Azure
+# <a name="quickstart-deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Snelstart: een Linux-containertoepassing voor Azure Service Fabric implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
 
 In deze Quick Start leert u hoe u Linux-containers kunt implementeren in een Service Fabric-cluster. Nadat dit is voltooid, beschikt u over een stemtoepassing die bestaat uit een Python-web-front-end en een Redis-back-end. Beide worden uitgevoerd in een Service Fabric-cluster. 

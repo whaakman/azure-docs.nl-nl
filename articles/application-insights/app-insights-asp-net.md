@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8922759295928a59114fcea55470d113d59b9387
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 4fea71509b2dec897a3dafef627e243ae25447ad
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Application Insights instellen voor uw ASP.NET-website
 
@@ -28,13 +28,16 @@ Voor de Setup zijn maar een paar klikken nodig in Visual Studio. U kunt kosten b
 ## <a name="prerequisites"></a>Vereisten
 Als u Application Insights wilt toevoegen aan uw ASP.NET-website, moet u het volgende doen:
 
-- Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
+- [Installeer Visual Studio 2017 voor Windows ](https://www.visualstudio.com/downloads/) met de volgende workloads:
     - ASP.NET-ontwikkeling en webontwikkeling
     - Azure-ontwikkeling
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="ide"></a> Stap 1: de Application Insights-SDK toevoegen
+
+> [!IMPORTANT]
+> Het proces voor het toevoegen van Application Insights hangt af van het type ASP.NET-sjabloon. Als u de sjabloon **Leeg** of **Azure mobile app** gebruikt, selecteer dan **Project** > **Application Insights Telemetry toevoegen**. Raadpleeg voor alle andere ASP.NET-sjablonen de onderstaande instructies. 
 
 Klik met de rechtermuisknop op de naam van de web-app in Solution Explorer en kies **Application Insights configureren**
 

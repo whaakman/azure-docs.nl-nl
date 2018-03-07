@@ -1,27 +1,34 @@
 ---
-title: Uitgaven voorspellen met Azure Cost Management | Microsoft Docs
-description: Lees hoe u uitgaven kunt voorspellen met behulp van historische gegevens van gebruik en uitgaven.
+title: 'Zelfstudie: uitgaven voorspellen met Azure Cost Management | Microsoft Docs'
+description: In deze zelfstudie leest u hoe u uitgaven kunt voorspellen met behulp van historische gegevens van gebruik en uitgaven.
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 03624efc419efe46aef472007b438442ce22eb9c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 35142cb40560db848c71da266bbaa1881f12e15d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="forecast-future-spending"></a>Toekomstige uitgaven voorspellen
+# <a name="tutorial-forecast-future-spending"></a>Zelfstudie: toekomstige uitgaven voorspellen
 
 Azure Cost Management van Cloudyn helpt u bij het voorspellen van toekomstige uitgaven aan de hand van historische gegevens van gebruik en uitgaven. U gebruikt rapporten van Cloudyn om gegevens van alle geschatte kosten weer te geven. De voorbeelden in deze zelfstudie laten zien hoe u kostenschattingen kunt controleren met behulp van de rapporten. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Toekomstige uitgaven voorspellen
+
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
+
+## <a name="prerequisites"></a>Vereisten
+
+- U moet een Azure-account hebben.
+- U moet een proefregistratie of een betaald abonnement voor Azure Cost Management hebben.
 
 ## <a name="forecast-future-spending"></a>Toekomstige uitgaven voorspellen
 

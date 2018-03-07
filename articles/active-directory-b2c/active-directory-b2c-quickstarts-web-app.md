@@ -1,128 +1,129 @@
 ---
-title: Test een web-app van Azure AD B2C ingeschakeld station | Microsoft Docs
-description: Test station aanmelden, registreren, profiel te bewerken en opnieuw ingesteld wachtwoord gebruiker trajecten met behulp van een testomgeving met Azure AD B2C
+title: Een Azure AD B2C-web-app testen
+description: Snelstart voor het uitproberen van een voorbeeld-ASP.NET-web-app die gebruikmaakt van Azure Active Directory B2C voor gebruikersaanmelding.
 services: active-directory-b2c
-documentationcenter: .net
-author: saraford
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 2ffb780d-2c51-4c2e-b8d6-39c40a81a77e
+ms.reviewer: saraford
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 10/31/2017
+ms.topic: quickstart
+ms.custom: mvc
+ms.date: 2/13/2018
 ms.author: patricka
-ms.openlocfilehash: bc56da695145f396a2899fb9dc7add3af9a549e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 87c180445038b1205e2f6aab1ce721765ecb35c9
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="test-drive-an-azure-ad-b2c-enabled-web-app"></a>Test station een Azure AD B2C ingeschakeld web-app
+# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-web-app"></a>Snelstart: een Azure AD B2C-web-app testen
 
-Azure Active Directory B2C biedt cloud identity management te houden van uw toepassing, zakelijke en klanten die zijn beveiligd. Deze snelstartgids maakt gebruik van een voorbeeld-app voor de lijst van taken voor het demonstreren van:
+Azure Active Directory (Azure AD) B2C bevat functionaliteit voor identiteitsbeheer in de cloud ter bescherming van uw toepassing, bedrijf en klanten. Met Azure AD B2C zijn uw apps in staat om zich met behulp van open-standaardprotocollen te verifiëren bij sociaalnetwerk- en Enterprise-accounts.
 
-> [!div class="checklist"]
-> * Aanmelden met een aangepaste aanmeldingspagina.
-> * Meld u aan met een sociale id-provider.
-> * Maken en beheren van uw Azure AD B2C-account en de gebruiker het profiel.
-> * Het aanroepen van een web-API die zijn beveiligd door Azure AD B2C.
-
-## <a name="prerequisites"></a>Vereisten
-
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de **ASP.NET en web ontwikkeling** werkbelasting. 
-* Een sociaal-account van Facebook, Google, Microsoft- of Twitter.
+In deze snelstart gebruikt u een voorbeeld van een voor Azure AD B2C geconfigureerde ASP.NET-app. Deze app wordt gebruikt voor het aanmelden via een id-provider voor sociale netwerken en voor het aanroepen van een met Azure AD B2C beveiligde web-API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## <a name="prerequisites"></a>Vereisten
+
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de **ASP.NET- en webontwikkelworkload**. 
+* Een sociaalnetwerkaccount van Facebook, Google, Microsoft of Twitter.
+
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-[Downloaden of te klonen van de voorbeeldtoepassing](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) vanuit GitHub.
+[Download een ZIP-bestand ](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) of kloon de voorbeeld-web-app vanuit GitHub.
 
-## <a name="run-the-app-in-visual-studio"></a>Voer de app in Visual Studio
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
+```
 
-Open in de projectmap voorbeeld toepassing de `B2C-WebAPI-DotNet.sln` oplossing in Visual Studio. 
+## <a name="run-the-app-in-visual-studio"></a>De app uitvoeren in Visual Studio
 
-De oplossing is een voorbeeld van taak lijst die bestaat uit twee projecten:
+In de projectmap van de voorbeeldtoepassing opent u de `B2C-WebAPI-DotNet.sln`-oplossing in Visual Studio.
 
-* **TaskWebApp** : een ASP.NET MVC-webtoepassing waar een gebruiker hun taak lijstitems kan beheren.  
-* **TaskService** – back-end van een ASP.NET-Web-API die wordt beheerd bewerkingen uitgevoerd op de lijst taakitems van een gebruiker. De web-app deze web-API aanroept en de resultaten worden weergegeven.
+Er bevinden zich twee projecten in de voorbeeldoplossing:
 
-Voor deze Quick Start, moet u beide uitvoeren de `TaskWebApp` en `TaskService` projecten tegelijk. 
+**Voorbeeld-web-app (TaskWebApp):** een web-app om een takenlijst te maken of te bewerken. De web-app gebruikt het **registratie- of aanmeldingsbeleid** om gebruikers te registreren of aan te melden.
 
-1. Selecteer in het menu Visual Studio **projecten > Opstartprojecten instellen...** . 
-2. Selecteer **meerdere opstartprojecten** keuzerondje.
-3. Wijzig de **actie** voor beide projecten naar **Start**. Klik op **OK**.
+**Voorbeeld-web-API-app (TaskService):** een web-API die ondersteuning biedt voor het maken, lezen, bijwerken en verwijderen van takenlijstfunctionaliteit. De web-API wordt beveiligd door Azure AD B2C en wordt aangeroepen door de web-app.
 
-![Starten van de pagina instellen in Visual Studio](media/active-directory-b2c-quickstarts-web-app/setup-startup-projects.png)
+Voor deze snelstart voert u de `TaskWebApp`- en `TaskService`- projecten tegelijk uit. 
 
-Selecteer **fouten opsporen > Foutopsporing starten** het bouwen en uitvoeren van beide toepassingen. Elke toepassing wordt geopend in een eigen browsertabblad:
+1. Selecteer de oplossing `B2C-WebAPI-DotNet` in Solution Explorer.
+2. Selecteer in het menu van Visual Studio **Project > Opstartprojecten instellen...** . 
+3. Selecteer het keuzerondje **Meerdere opstartprojecten**.
+4. Wijzig de **actie** voor beide projecten in **Start**. Klik op **OK**.
 
-`https://localhost:44316/`-Deze pagina is de ASP.NET-webtoepassing. U communiceert rechtstreeks met deze toepassing in de Quick Start.
-`https://localhost:44332/`-Deze pagina is de web-API die wordt aangeroepen door de ASP.NET-webtoepassing.
+Druk op **F5** om fouten in beide toepassingen op te sporen. Elke toepassing wordt geopend op een eigen browsertabblad:
+
+`https://localhost:44316/` - Deze pagina is de ASP.NET-webtoepassing. U communiceert rechtstreeks met deze toepassing in de snelstart.
+`https://localhost:44332/` - deze pagina is de web-API die wordt aangeroepen door de ASP.NET-webtoepassing.
 
 ## <a name="create-an-account"></a>Een account maken
 
-Klik op de **aanmelden / aanmelden** koppeling in de ASP.NET-webtoepassing starten de **registreren of aanmelden** werkstroom. Wanneer u een account maakt, kunt u een bestaande sociale identiteit provider-account of een e-mailaccount. Gebruik een account van de provider van sociale identiteit van Facebook, Google, Microsoft- of Twitter voor deze snelstartgids.
+Klik op de koppeling **Registeren/aanmelden** in de ASP.NET-webtoepassing om de werkstroom **Registreren of aanmelden** te starten op basis van een Azure AD B2C-beleid.
 
-![Voorbeeld ASP.NET-web-app](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
+![Voorbeeld-ASP.NET-web-app](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
-### <a name="sign-up-using-a-social-identity-provider"></a>Aanmelden met een identiteitsprovider van sociale
+In de voorbeeldtoepassing worden verschillende registratiemogelijkheden ondersteund. U kunt bijvoorbeeld een id-provider voor sociale netwerken gebruiken of een lokaal account maken met behulp van een e-mailadres. Voor deze snelstart gebruikt u een account van een id-provider voor sociale netwerken (Facebook, Google, Microsoft of Twitter). 
 
-Klik op de knop van de id-provider die u wilt gebruiken voor het aanmelden met een identiteitsprovider van sociale. 
+### <a name="sign-up-using-a-social-identity-provider"></a>Aanmelden met een id-provider voor sociale netwerken
 
-![Provider aanmelden of registreren](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
+In Azure AD B2C wordt een aangepaste aanmeldingspagina voor het fictieve merk Wingtip Toys weergegeven voor de voorbeeldweb-app. 
 
-U moet verifiëren met uw account sociale referenties en autoriseren van de toepassing om informatie te lezen uit je account sociale (sign-in). Door toegang te verlenen, kan de toepassing profielgegevens ophalen van de sociale account zoals uw naam en plaats. 
+1. Klik op de knop van de id-provider voor sociale netwerken die u wilt gebruiken om u aan te melden via een id-provider voor sociale netwerken.
 
-Het proces aanmelden voltooid voor de id-provider. Bijvoorbeeld: als u Twitter, Voer uw referenties voor Twitter en klikt u op **aanmelden**.
+    ![Provider voor aanmelden of registreren](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
-![Verifiëren en autoriseren met een sociaal-account](media/active-directory-b2c-quickstarts-web-app/twitter-authenticate-authorize-web.png)
+    U moet zich verifiëren (aanmelden) met behulp van de referenties van uw sociaalnetwerkaccount en de toepassing autoriseren om informatie uit uw sociaalnetwerkaccount te lezen. Door toegang te verlenen, kan de toepassing profielgegevens van het sociaalnetwerkaccount ophalen, zoals uw naam en plaats. 
 
-Uw nieuwe Azure AD B2C profiel accountgegevens zijn al ingevuld met informatie uit uw sociale-account.
+2. Voltooi het aanmeldingsproces voor de id-provider. Als u bijvoorbeeld Twitter hebt gekozen, voert u uw referenties voor Twitter in en klikt u op **Aanmelden**.
 
-De weergavenaam, functietitel en plaats velden bijwerken en klik op **doorgaan**.  De waarden die u invoert worden gebruikt voor het hulpprogramma voor het account van uw Azure AD B2C-gebruikersprofiel.
+    ![Verifiëren en autoriseren met een sociaalnetwerkaccount](media/active-directory-b2c-quickstarts-web-app/twitter-authenticate-authorize-web.png)
 
-![Nieuwe registratie profiel accountgegevens](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
+    De profielgegevens van uw nieuwe Azure AD B2C-account worden ingevuld met informatie uit uw sociaalnetwerkaccount.
 
-Er is:
+3. Werk de velden Weergavenaam, Functie en Plaats bij en klik op **Doorgaan**.  De ingevoerde waarden worden gebruikt voor uw Azure AD B2C-gebruikersaccountprofiel.
 
-> [!div class="checklist"]
-> * Geverifieerd met een id-provider.
-> * Een Azure AD B2C-account gemaakt. 
+    ![Aanmeldingsprofielgegevens van nieuw account](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
 
-## <a name="edit-your-profile"></a>Uw profiel bewerken
+    U hebt de voorbeeld-web-app gebruikt waarin gebruik wordt gemaakt van een Azure AD B2C-beleid om de verificatie uit te voeren met behulp van een id-provider en om een Azure AD B2C-gebruikersaccount te maken. 
 
-Azure Active Directory B2C biedt functionaliteit waarmee gebruikers hun profielen bijwerken. Klik op de profielnaam in de menubalk van web-toepassing en selecteer **profiel bewerken** bewerken van het profiel dat u hebt gemaakt.
+## <a name="edit-your-profile"></a>Het profiel bewerken
 
-![Profiel bewerken](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
+Azure Active Directory B2C biedt functionaliteit waarmee gebruikers hun profielen kunnen bijwerken. In de voorbeeldweb-app wordt een Azure AD B2C-bewerkingsprofielbeleid gebruikt voor de werkstroom. 
 
-Wijzig uw **weergavenaam** en **stad**.  Klik op **doorgaan** uw profiel bijwerken.
+1. Klik in de menubalk van de webtoepassing op uw profielnaam en selecteer **Profiel bewerken** om het profiel te bewerken dat u hebt gemaakt.
 
-![Profiel bijwerken](media/active-directory-b2c-quickstarts-web-app/update-profile-web.png)
+    ![Profiel bewerken](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
 
-Let op dat de weergavenaam van uw in de rechterbovenhoek van de pagina wordt de bijgewerkte naam weergegeven. 
+2. Wijzig uw **weergavenaam** en **plaats**.  
+3. Klik op **Doorgaan** om uw profiel bij te werken. De nieuwe weergavenaam wordt in de rechterbovenhoek van de startpagina van de web-app weergegeven.
 
-## <a name="access-a-secured-web-api-resource"></a>Toegang krijgen tot een beveiligde web API-resource
+## <a name="access-a-protected-web-api-resource"></a>Toegang tot een beveiligde web-API-resource
 
-Klik op **takenlijst** in te voeren en uw taak lijstitems te wijzigen. De ASP.NET-webtoepassing bevat een toegangstoken in de aanvraag op het web API resource aanvragende toestemming voor het uitvoeren van bewerkingen op de taakitems lijst van de gebruiker. 
+1. Klik op **Takenlijst** om uw takenlijstitems in te voeren en te wijzigen. 
 
-Voer tekst in de **Nieuw Item** in het tekstvak. Klik op **toevoegen** aanroepen van de Azure AD B2C beveiligd web-API waarmee een lijstitem taak toegevoegd.
+2. Voer tekst in het tekstvak **Nieuw item** in. Klik op **Toevoegen** om de met Azure AD B2C beveiligde web-API aan te roepen, waarmee een takenlijstitem wordt toegevoegd.
 
-![Een taak lijstitem toevoegen](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
+    ![Een takenlijstitem toevoegen](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
 
-U hebt uw Azure AD B2C-gebruikersaccount is gebruikt voor een geautoriseerde gesprek een web-API van Azure AD B2C, beveiligd.
+    De ASP.NET-webtoepassing bevat een Azure AD-toegangstoken in de aanvraag voor de beveiligde web-API-resource, waarmee bewerkingen op de takenlijstitems van de gebruiker kunnen worden uitgevoerd.
+
+U hebt uw Azure AD B2C-gebruikersaccount gebruikt voor het geautoriseerd aanroepen van een web-API die met Azure AD B2C is beveiligd.
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+U kunt uw Azure AD B2C-tenant gebruiken voor andere snelstarts of zelfstudies voor Azure AD B2C. Als u deze niet meer nodig hebt, kunt u [uw Azure AD B2C-tenant verwijderen](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Het voorbeeld in deze snelstartgids gebruikt kan worden gebruikt om te proberen andere Azure AD B2C-scenario's, waaronder:
+In deze snelstart hebt u een voorbeeld van een voor Azure AD B2C geconfigureerde ASP.NET-app gebruikt. Deze app wordt gebruikt voor het aanmelden via een aangepaste aanmeldingspagina, het aanmelden via een id-provider voor sociale netwerken, het maken van een Azure AD B2C-account en het aanroepen van een met Azure AD B2C beveiligde web-API. 
 
-* Maken van een nieuwe lokale account met behulp van een e-mailadres.
-* Opnieuw instellen van uw lokale wachtwoord.
-
-Als u klaar bent om dieper uw eigen Azure AD B2C-tenant maken en configureren van het voorbeeld wilt uitvoeren met behulp van uw eigen tenant, probeer de volgende zelfstudie.
+U kunt verdergaan met de zelfstudie als u wilt leren hoe u de ASP.NET-voorbeeld-app kunt configureren voor het gebruik van uw eigen Azure AD B2C-tenant.
 
 > [!div class="nextstepaction"]
-> [Een ASP.NET-web-app maken met Azure Active Directory B2C registreren, aanmelden, profiel bewerken en wachtwoord opnieuw instellen](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+> [Zelfstudie: verificatie van gebruikers met Azure Active Directory B2C in een ASP.NET-web-app](active-directory-b2c-tutorials-web-app.md)

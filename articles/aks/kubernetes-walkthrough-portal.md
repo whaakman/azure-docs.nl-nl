@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 734243a28dc59518dc30d9d86064235795e794ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 35886217328d35229a59b9713f5bb4bf0244569a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Een AKS-cluster (Azure Container Service) implementeren
 
@@ -49,9 +49,9 @@ Klik op **Opslaan** en noteer het wachtwoord. Dit wachtwoord is nodig bij het ma
 
 ![De derde service-principal maken](media/container-service-walkthrough-portal/create-sp-three.png)
 
-## <a name="create-aks-cluster"></a>Een AKS-cluster maken
+## <a name="create-aks-cluster"></a>AKS-cluster maken
 
-Selecteer achtereenvolgens **Nieuw** > **Containers** > **Azure Container Service - AKS (preview-versie)**.
+Selecteer **Een resource maken** > **Containers** > **Azure Container Service - AKS (preview)**.
 
 Geef de volgende informatie op voor het cluster: naam, DNS-voorvoegsel, naam van resourcegroep, locatie en Kubernetes-versie. Noteer de namen van het cluster en de resourcegroep. Deze zijn nodig wanneer er verbinding wordt gemaakt met het cluster.
 
@@ -236,7 +236,7 @@ In deze snelstartgids hebt u een Kubernetes-cluster geïmplementeerd en vervolge
 Voor meer informatie over AKS en een volledig stapsgewijs voorbeeld van code tot implementatie gaat u naar de zelfstudie over Kubernetes-clusters.
 
 > [!div class="nextstepaction"]
-> [Een AKS-cluster beheren][aks-tutorial]
+> [AKS-zelfstudie][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

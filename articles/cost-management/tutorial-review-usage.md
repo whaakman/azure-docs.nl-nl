@@ -1,22 +1,25 @@
 ---
-title: Gebruik en kosten bekijken in Azure Cost Management | Microsoft Docs
-description: "Bekijk gebruik en kosten om trends bij te houden, inefficiëntie te detecteren en waarschuwingen te maken."
+title: Zelfstudie - Gebruik en kosten bekijken in Azure Cost Management | Microsoft Docs
+description: "In deze zelfstudie bekijkt u gebruik en kosten om trends bij te houden, inefficiëntie te detecteren en waarschuwingen te maken."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="review-usage-and-costs"></a>Gebruik en kosten bekijken
+<!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
+-->
+
+# <a name="tutorial-review-usage-and-costs"></a>Zelfstudie: Gebruik en kosten bekijken
 
 Azure Cost Management van Cloudyn geeft gebruik en kosten weer, zodat u trends kunt bijhouden, inefficiëntie kunt detecteren en waarschuwingen kunt maken. Alle gegevens over gebruik en kosten worden weergegeven in Cloudyn-dashboards en -rapporten. Aan de hand van de voorbeelden in deze zelfstudie bekijkt u het gebruik en de kosten met behulp van dashboards en rapporten. In deze zelfstudie leert u het volgende:
 
@@ -25,7 +28,12 @@ Azure Cost Management van Cloudyn geeft gebruik en kosten weer, zodat u trends k
 > * Inefficiënt gebruik detecteren
 > * Waarschuwingen maken voor ongebruikelijke uitgaven of te hoge uitgaven
 
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
+## <a name="prerequisites"></a>Vereisten
+
+- U moet een Azure-account hebben.
+- U moet een proefregistratie of een betaald abonnement voor Azure Cost Management hebben.
 
 ## <a name="open-the-cloudyn-portal"></a>De Cloudyn-portal openen
 
@@ -90,7 +98,7 @@ U kunt ook de drempeloptie Cost Percentage vs. Budget kiezen om waarschuwingen t
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u het volgende geleerd:
+In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Gebruiks- en kostentrends bijhouden
@@ -98,7 +106,7 @@ In deze zelfstudie hebt u het volgende geleerd:
 > * Waarschuwingen maken voor ongebruikelijke uitgaven of te hoge uitgaven
 
 
-In de volgende zelfstudie leert u hoe u toegang tot gegevens beheert.
+Ga naar de volgende zelfstudie als u wilt weten hoe u uitgaven kunt voorspellen aan de hand van historische gegevens.
 
 > [!div class="nextstepaction"]
-> [Toegang tot gegevens beheren](tutorial-user-access.md)
+> [Toekomstige uitgaven voorspellen](tutorial-forecast-spending.md)

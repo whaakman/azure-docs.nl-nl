@@ -1,22 +1,22 @@
 ---
-title: Azure Quick Start - Objecten overdragen naar/van Azure Blob-opslag met Python | Microsoft Docs
-description: Snel leren om objecten over te dragen naar/van Azure Blob-opslag met Python
+title: 'Azure-snelstart: blobs uploaden, downloaden en vermelden in Azure Storage met behulp van Python | Microsoft Docs'
+description: In deze snelstart maakt u een opslagaccount en een container. Vervolgens gebruikt u de opslagclientbibliotheek voor Python om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/12/2017
-ms.author: v-ruogun
-ms.openlocfilehash: 50f43e6ef9ee60cbf489bb8d0c1c64ca61a393e1
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 02/22/2018
+ms.author: tamram
+ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Objecten overdragen naar/van Azure Blob-opslag met Python
+# <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van Python
+
 In deze zelfstudie leert u hoe u Python kunt gebruiken om blok-bobs te uploaden, te downloaden en weer te geven in een container in Azure Blob-opslag. 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -48,7 +48,7 @@ block_blob_service = BlockBlobService(account_name='accountname', account_key='a
 ```
 
 ## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
-In dit voorbeeld wordt een testbestand in de map Documenten gemaakt. Door het voorbeeldprogramma uit te voeren wordt een testbestand geüpload naar de Blob-opslag, worden de blobs in the container vermeld en wordt het bestand met een nieuwe naam gedownload. 
+In dit voorbeeld wordt een testbestand in de map Documenten gemaakt. Door het voorbeeldprogramma uit te voeren, wordt een testbestand geüpload naar de Blob-opslag, worden de blobs in the container vermeld en wordt het bestand met een nieuwe naam gedownload. 
 
 Voet het voorbeeld uit. De volgende uitvoer is een voorbeeld van de uitvoer die wordt geretourneerd wanneer de toepassing wordt uitgevoerd:
   

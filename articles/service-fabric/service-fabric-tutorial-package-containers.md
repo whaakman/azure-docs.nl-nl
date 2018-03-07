@@ -1,6 +1,6 @@
 ---
 title: Een Service Fabric-containertoepassing verpakken en implementeren | Microsoft Docs
-description: Leer hoe u een Azure Service Fabric-toepassingsdefinitie kunt genereren met behulp van Yeoman en de toepassing verpakken.
+description: In deze zelfstudie leert u hoe u een Azure Service Fabric-toepassingsdefinitie kunt genereren met behulp van Yeoman en de toepassing verpakken.
 services: service-fabric
 documentationcenter: 
 author: suhuruli
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Containers verpakken en implementeren als een Service Fabric-toepassing
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Zelfstudie: containers verpakken en implementeren als een Service Fabric-toepassing
 
 Deze zelfstudie is deel twee van een serie. In deze zelfstudie wordt een hulpprogramma voor het genereren van sjablonen (Yeoman) gebruikt om een Service Fabric-toepassingsdefinitie te genereren. Deze toepassing kan vervolgens worden gebruikt voor het implementeren van containers naar Service Fabric. In deze zelfstudie leert u het volgende: 
 

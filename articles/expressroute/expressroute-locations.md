@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2018
 ms.author: pareshmu
-ms.openlocfilehash: 828532dcb583dc46ecb5c9fc63e47a263ddc2a20
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fd549ff0e6753c854ce9d43cab8e3a672f6502f3
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -100,7 +100,7 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **[KPN](http://www.kpn.com/cloudconnect)** | Ondersteund | Ondersteund | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Las Vegas, Londen, Newport, New York, San Antonio, Sao Paulo, Seattle, Silicon Valley, Singapore, Tokio, Washington DC |
 | **LG CNS** |Ondersteund |Ondersteund |Busan, Seoul |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Dublin, Hongkong, Las Vegas, Londen, Los Angeles, Melbourne, Miami, New York, Quebec (stad), San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Sydney, Toronto, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Denver, Dublin, Hongkong, Las Vegas, Londen, Los Angeles, Melbourne, Miami, New York, Quebec (stad), San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Sydney, Toronto, Washington DC |
 | **MTN** |Ondersteund |Ondersteund |Londen |
 | **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Ondersteund |Ondersteund |Miami, Sao Paulo |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Ondersteund |Ondersteund |Newport (Wales) |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 328b2778a68e32d95b666124bf7bba969a5f52a6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4ac26c02e1893097c858380c07f520e6570fd3db
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Uw ontwikkelomgeving instellen in Mac OS X
 > [!div class="op_single_selector"]
@@ -35,7 +35,6 @@ Azure Service Fabric wordt niet systeemeigen op OS X uitgevoerd. Als u een lokaa
 
 * Ten minste 4 GB RAM-geheugen.
 * Nieuwste versie van [Docker](https://www.docker.com/).
-* Toegang tot het Service Fabric [onebox containerinstallatiekopie](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/).
 
 >[!TIP]
 >
@@ -45,10 +44,10 @@ Azure Service Fabric wordt niet systeemeigen op OS X uitgevoerd. Als u een lokaa
 ## <a name="create-a-local-container-and-set-up-service-fabric"></a>Een lokale container maken en Service Fabric configureren
 Als u een lokale Docker-container wilt instellen en daarop een Service Fabric-cluster wilt uitvoeren, voert u de volgende stappen uit:
 
-1. De installatiekopie van de Service Fabric onebox container ophalen uit de opslagplaats voor Docker-hub:
+1. Haal de installatiekopie van de Service Fabric onebox container op uit de opslagplaats voor Docker-hub. Standaard wordt hierdoor de installatiekopie met de nieuwste versie van Service Fabric opgehaald. Ga naar de [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)-pagina als u een bepaalde revisie wilt ophalen.
 
     ```bash
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. Werk de configuratie van de Docker-daemon op uw host bij met de volgende instellingen en start de Docker-daemon opnieuw op: 
@@ -71,14 +70,14 @@ Als u een lokale Docker-container wilt instellen en daarop een Service Fabric-cl
 3. Start een instantie van Service Fabric onebox container en gebruik de installatiekopie die u in de eerste stap hebt opgevraagd:
 
     ```bash
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     >Door een naam op te geven voor uw instantie van de container, kunt u deze op een beter leesbare manier verwerken. 
     >
     >Als uw toepassing op bepaalde poorten luistert, moeten de poorten worden opgegeven met behulp van aanvullende `-p` labels. Bijvoorbeeld, als uw toepassing op poort 8080 luistert, voeg dan de volgende `-p` tag toe:
     >
-    >`run docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox`
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
 4. Meld u aan bij de Docker-container in interactieve ssh-modus:
@@ -160,7 +159,7 @@ Azure Service Fabric biedt een invoegtoepassing voor de Eclipse-Neon voor de Jav
 De laatste stap is het instantiëren van de container met een pad dat wordt gedeeld met de host. De invoegtoepassing vereist dit soort instantiëring om te werken met de Docker-container op uw Mac. Bijvoorbeeld:
 
 ```bash
-docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox servicefabricoss/service-fabric-onebox
+docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox
 ```
 
 De kenmerken zijn als volgt gedefinieerd:

@@ -1,6 +1,6 @@
 ---
 title: Zelfstudie-artikel voor Azure Machine Learning preview-functies - opdrachtregelinterface | Microsoft Docs
-description: Deze zelfstudie Doorloop de stappen die een Iris classificatie end-to-end van de opdrachtregelinterface.
+description: Deze zelfstudie doorloopt alle stappen die nodig zijn om een end-to-end Iris-classificatie te voltooien vanaf de opdrachtregelinterface.
 services: machine-learning
 author: ahgyger
 ms.author: ahgyger, ritbhat
@@ -11,47 +11,49 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Zelfstudie: Classificeren Iris via de opdrachtregelinterface
-Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
+# <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Zelfstudie: Iris classificeren via de opdrachtregelinterface
+Azure Machine Learning-services (preview) zijn een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
 
-In deze zelfstudie leert u de opdrachtregelinterface (CLI)-hulpprogramma's in Azure Machine Learning preview-functies te gebruiken: 
+In deze zelfstudie leert u de opdrachtregelinterface (CLI)-hulpprogramma's in Azure Machine Learning preview-functies te gebruiken om het volgende te doen: 
 > [!div class="checklist"]
-> * Instellen van een account experimenteren en een werkruimte maken
+> * Een Experimenten-account instellen en een werkruimte maken
 > * Een project maken
-> * Verzenden van een experiment aan verschillende compute-doelen
-> * Promoveren en registreren van een getraind model
-> * Een webservice implementeren ter beoordeling van nieuwe gegevens
-
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+> * Een experiment verzenden naar verschillende compute-doelen
+> * Een getraind model promoten en registreren
+> * Een webservice implementeren voor het scoren van nieuwe gegevens
 
 ## <a name="prerequisites"></a>Vereisten
-- U moet toegang tot een Azure-abonnement en machtigingen voor het maken van resources in het desbetreffende abonnement. 
-- U moet Azure Machine Learing Workbench toepassing installeren door de [installeren en het maken van de Quick Start](quickstart-installation.md). 
+Voor deze zelfstudie hebt u het volgende nodig:
+- Toegang tot een Azure-abonnement en machtigingen om resources te maken in dat abonnement. 
+  
+  Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-  >[!NOTE]
-  >U hoeft alleen te installeren van de Azure Machine Learning-Workbench lokaal. U moet alleen de stappen in de secties recht installeren Azure Machine Learning Workbench, sinds de account is gemaakt, en maak een nieuw project stappen worden uitgevoerd met de opdrachtregel in dit artikel.
+- Azure Machine Learning Workbench toepassing geïnstalleerd zoals beschreven in [Snelstart: Azure Machine Learning-services installeren en starten](quickstart-installation.md). 
+
+  >[!IMPORTANT]
+  >Maak geen Azure Machine Learning-serviceaccounts aan, want u doet dat met behulp van de CLI in dit artikel.
  
 ## <a name="getting-started"></a>Aan de slag
-Azure Machine Learning-opdrachtregelinterface (CLI) kunt u alle taken die vereist zijn voor een wetenschappelijke werkstroom end-to-end uitvoeren. U kunt de CLI-hulpprogramma's in de volgende manieren openen:
+Met de CLI (opdrachtregelinterface) van Azure Machine Learning kunt u alle taken uitvoeren die nodig zijn voor een end-to-end gegevenswetenschapwerkstroom. U hebt op de volgende manieren toegang tot de CLI-hulpprogramma’s:
 
-### <a name="option-1-launch-azure-ml-cli-from-azure-ml-workbench-log-in-dialog-box"></a>Optie 1. Azure ML CLI van Azure ML aanmelden dialoogvenster Workbench starten
-Wanneer u Azure ML-Workbench en zich aanmelden voor het eerst start, en als u nog geen toegang tot een experimenteren-Account hebt, krijgt u het volgende scherm:
+### <a name="option-1-launch-azure-ml-cli-from-azure-ml-workbench-log-in-dialog-box"></a>Optie 1. Azure ML CLI starten vanuit het aanmeldingsvenster van Azure ML Workbench
+Wanneer u Azure ML Workbench start en u voor de eerste keer aanmeldt en u geen toegang hebt tot een Experimenten-account, krijgt u het volgende scherm te zien:
 
-![Er is geen account gevonden](media/tutorial-iris-azure-cli/no_account_found.png)
+![geen account gevonden](media/tutorial-iris-azure-cli/no_account_found.png)
 
-Klik op de **opdrachtregelvenster** koppeling in het dialoogvenster voor het starten van het venster vanaf de opdrachtregel.
+Klik in het dialoogvenster op de koppeling **Opdrachtregelvenster** om het opdrachtregelvenster te openen.
 
-### <a name="option-2-launch-azure-ml-cli-from-azure-ml-workbench-app"></a>Optie 2. Azure ML CLI van Azure ML-Workbench app starten
-Als u al toegang tot een experimenteren-Account hebt, kunt u met succes registreren. En vervolgens kunt u de opdrachtregel-venster openen door te klikken op **bestand** --> **opdracht vragen openen** menu.
+### <a name="option-2-launch-azure-ml-cli-from-azure-ml-workbench-app"></a>Optie 2. Azure ML CLI starten van uit de Azure ML Workbench-app
+Als u al toegang hebt tot een Experimenteren-account, kunt zich met succes aanmelden. Vervolgens kunt u het opdrachtregelvenster openen door op **Bestand** --> **Opdrachtprompt openen** te klikken.
 
-### <a name="option-3-enable-azure-ml-cli-in-an-arbitrary-command-line-window"></a>Optie 3. Azure ML CLI in een willekeurige opdrachtregelvenster inschakelen
-U kunt ook Azure ML CLI in een opdrachtregelvenster inschakelen. Gewoon start u een opdrachtvenster en voert u de volgende opdrachten:
+### <a name="option-3-enable-azure-ml-cli-in-an-arbitrary-command-line-window"></a>Optie 3. Azure ML CLI inschakelen in een willekeurig opdrachtregelvenster
+U kunt Azure ML CLI ook inschakelen in een opdrachtregelvenster. Doe dit door een opdrachtvenster te starten en de volgende opdrachten in te voeren:
 
 ```sh
 # Windows Command Prompt
@@ -63,15 +65,15 @@ $env:Path = $env:LOCALAPPDATA+"\amlworkbench\Python;"+$env:LOCALAPPDATA+"\amlwor
 # macOS Bash Shell
 PATH=$HOME/Library/Caches/AmlWorkbench/Python/bin:$PATH
 ```
-U kunt gebruiken om de wijziging permanente `SETX` in Windows. Voor Mac OS, kunt u `setenv`.
+Als u de wijziging permanent wilt maken, kunt u `SETX` gebruiken in Windows. Voor macOS kunt u `setenv` gebruiken.
 
 >[!TIP]
->U kunt Azure CLI in uw favoriete terminalvenster inschakelen door het instellen van de bovenstaande omgevingsvariabelen.
+>U kunt Azure CLI in uw favoriete terminalvenster inschakelen door de voorgaande omgevingsvariabelen in te stellen.
 
 ## <a name="step-1-log-in-to-azure"></a>Step 1. Meld u aan bij Azure.
-De eerste stap is de CLI openen vanuit de App AMLWorkbench (bestand > opdrachtprompt openen). Hiermee zorgt u ervoor gebruiken we de juiste python-omgeving en hebben we de ML CLI-opdrachten die beschikbaar zijn. 
+De eerste stap is het openen van de CLI vanuit de AMLWorkbench-app (Bestand > Opdrachtprompt openen). Hiermee zorgt u ervoor dat u de juiste python-omgeving hebt en dat de ML CLI-opdrachten beschikbaar zijn. 
 
-Er moet vervolgens stelt u de juiste context in uw CLI raadplegen en beheren van Azure-resources.
+Nu kunt u de juiste context instellen in uw CLI om toegang te krijgen tot Azure-resources en deze te beheren.
  
 ```azure-cli
 # log in
@@ -84,11 +86,12 @@ $ az account list -o table
 $ az account set -s <subscription id or name>
 ```
 
-## <a name="step-2-create-a-new-azure-machine-learning-experimentation-account-and-workspace"></a>Stap 2. Een nieuwe Account voor Azure Machine Learning experimenteren en werkruimte maken
-Begin door een nieuw experimenteren-account en een nieuwe werkruimte te maken. Zie [Azure Machine Learning-concepten](overview-general-concepts.md) voor meer informatie over accounts experimenteren en werkruimten.
+## <a name="step-2-create-a-new-azure-machine-learning-experimentation-account-and-workspace"></a>Stap 2. Een nieuwe Azure Machine Learning Experimenten-account en werkruimte maken
+
+In deze stap maakt u een nieuwe Experimenten-account en een nieuwe werkruimte. Zie [Azure Machine Learning-concepten](overview-general-concepts.md) voor meer informatie over Experimenten-accounts en werkruimten.
 
 > [!NOTE]
-> Experimenteren accounts vereist een opslagaccount die wordt gebruikt voor het opslaan van de uitvoer van uw experiment wordt uitgevoerd. Naam van het opslagaccount heeft moet globaal uniek zijn in Azure, omdat er een url die is gekoppeld. Als u een bestaand opslagaccount niet opgeeft, wordt de naam van uw experimenteren wordt gebruikt voor het maken van een nieuw opslagaccount. Controleer of u een unieke naam op of u krijgt een foutmelding zoals _' de storage-account met de naam \<storage_account_name > is al in gebruik. "_ U kunt ook de `--storage` argument op te geven van een bestaand opslagaccount.
+> Voor Experimenten-accounts is een opslagaccount vereist, dat wordt gebruikt voor het opslaan van de uitvoer van uw experimenten. De naam van het opslagaccount moet globaal uniek zijn in Azure, omdat er een URL aan gekoppeld is. Als u geen bestaand opslagaccount opgeeft, wordt de naam van uw Experimenten-account gebruikt om een nieuw opslagaccount te maken. Zorg ervoor dat u een unieke naam gebruikt, anders krijgt u een foutmelding zoals _‘Het opslagaccount met de naam \<naam_opslagaccount> is al in gebruik.’_ U kunt ook het argument `--storage` gebruiken om een bestaand opslagaccount op te geven.
 
 ```azure-cli
 # create a resource group 
@@ -104,8 +107,8 @@ $ az ml account experimentation create --name <experimentation account name>  --
 az ml workspace create --name <workspace name> --account <experimentation account name> --resource-group <resource group name>
 ```
 
-## <a name="step-2a-optional-share-a-workspace-with-co-worker"></a>Stap 2. (optioneel) een werkruimte delen met collega
-Hier besproken voor het delen van toegang tot een werkruimte met een collega. De stappen voor het delen van toegang tot een experimenteren-account of een project zou zijn hetzelfde. Alleen de manier om de Azure-Resource-ID moet worden bijgewerkt.
+## <a name="step-2a-optional-share-a-workspace-with-co-worker"></a>Stap 2.a (optioneel) een werkruimte delen met een collega
+Hier kunt u ontdekken hoe u de toegang tot een werkruimte kunt delen met een collega. De stappen voor het delen van de toegang tot een Experimenten-account of een project zijn dan hetzelfde. Alleen de manier waarop de Azure Resource-id wordt opgehaald, moet worden bijgewerkt.
 
 ```azure-cli
 # find the workspace Azure Resource ID
@@ -116,10 +119,10 @@ $az role assignment create --assignee bob@contoso.com --role owner --scope <work
 ```
 
 > [!TIP]
-> `bob@contoso.com`in de bovenstaande opdracht moet een geldige Azure AD-identiteit in de map waar het huidige abonnement behoort.
+> `bob@contoso.com` in de bovenstaande opdracht moet een geldige Azure AD-id zijn in de directory waar het huidige abonnement toe behoort.
 
 ## <a name="step-3-create-a-new-project"></a>Stap 3. Een nieuw project maken
-De volgende stap is het maken van een nieuw project. Er zijn verschillende manieren om te beginnen met een nieuw project.
+De volgende stap is het maken van nieuw project. Er zijn verschillende manieren om van start te gaan met een nieuw project.
 
 ### <a name="create-a-new-blank-project"></a>Een nieuw, leeg project maken
 
@@ -128,27 +131,27 @@ De volgende stap is het maken van een nieuw project. Er zijn verschillende manie
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path>
 ```
 
-### <a name="create-a-new-project-with-a-default-project-template"></a>Een nieuw project maakt met een standaardsjabloon voor project
+### <a name="create-a-new-project-with-a-default-project-template"></a>Een nieuw project maken met een standaardprojectsjabloon
 U kunt een nieuw project maakt met een standaardsjabloon.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --template
 ```
 
-### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Maak een nieuw project gekoppeld aan een cloud Git-opslagplaats
-We kunnen een nieuw project die zijn gekoppeld aan een VSTS (Visual Studio Team Service) Git-opslagplaats maken. Telkens wanneer een experiment wordt ingediend, wordt een momentopname van de hele projectmap is doorgevoerd in de externe Git-opslagplaats. Zie [met behulp van Git-opslagplaats met een Azure Machine Learning Workbench project](using-git-ml-project.md) voor meer informatie.
+### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Een nieuw project maken dat is gekoppeld aan een Git-opslagplaats in de cloud
+U kunt een nieuw project maken dat is gekoppeld aan een VSTS (Visual Studio Team Service) Git-opslagplaats. Telkens wanneer een experiment wordt ingediend, wordt een momentopname van de hele projectmap opgenomen in de externe Git-opslagplaats. Zie [Een Git-opslagplaats gebruiken met een Machine Learning Workbench-project](using-git-ml-project.md) voor meer informatie.
 
 > [!NOTE]
-> Azure Machine Learning biedt alleen ondersteuning voor lege Git repo's in VSTS gemaakt.
+> Azure Machine Learning biedt alleen ondersteuning voor lege Git-opslagplaatsen die in VSTS worden gemaakt.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
 ```
 > [!TIP]
-> Als u krijgt een fout "opslagplaats url is mogelijk ongeldig of gebruikers mogelijk geen toegang", maakt u een beveiligingstoken in VSTS (onder _beveiliging_, _persoonlijke toegangstokens toevoegen_ menu) en gebruiken van de `--vststoken`argument bij het maken van uw project. 
+> Als u een foutmelding krijgt met de mededeling dat de URL van de opslagplaats mogelijk ongeldig is of dat de gebruiker geen toegang heeft, kunt u een beveiligingstoken maken in VSTS (onder _Beveiliging_, menu _Persoonlijke toegangstokens toevoegen_) en het argument `--vststoken` gebruiken bij het maken van uw project. 
 
-### <a name="sample_create"></a>Een nieuw project maken van een steekproef
-In dit voorbeeld maken we een nieuw project met een voorbeeldproject als sjabloon.
+### <a name="sample_create"></a>Een nieuw project maken van een voorbeeld
+In dit voorbeeld maakt u een nieuw project met een voorbeeldproject als sjabloon.
 
 ```azure-cli
 # List the project samples, find the Classifying Iris sample
@@ -157,13 +160,13 @@ $ az ml project sample list
 # Create a new project from the sample
 az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --template-url https://github.com/MicrosoftDocs/MachineLearningSamples-Iris
 ```
-Zodra het project is gemaakt, gebruikt u `cd` opdracht voor het invoeren van de projectmap.
+Wanneer het project is gemaakt, gebruikt u de opdracht `cd` om naar de projectmap te gaan.
 
-## <a name="step-4-run-the-training-experiment"></a>Stap 4, voer het trainingsexperiment 
-De volgende stappen wordt ervan uitgegaan dat u een project met het voorbeeld Iris hebt (Zie [een nieuw project maken van een online voorbeeld](#sample_create)).
+## <a name="step-4-run-the-training-experiment"></a>Stap 4. Het trainingsexperiment uitvoeren 
+In de volgende stappen wordt ervan uitgegaan dat u een project hebt met het Iris-voorbeeld (zie [Een nieuw project maken op basis van een online voorbeeld](#sample_create)).
 
 ### <a name="prepare-your-environment"></a>Uw omgeving voorbereiden 
-Voor het voorbeeld Iris moeten we matplotlib installeren.
+Voor het Iris-voorbeeld moet u matplotlib installeren.
 
 ```azure-cli
 $ pip install matplotlib
@@ -176,53 +179,53 @@ $ pip install matplotlib
 $ az ml experiment submit --run-configuration local iris_sklearn.py
 ```
 
-### <a name="iterate-on-your-experiment-with-descending-regularization-rates"></a>Uw experiment met aflopende regularisatie tarieven herhalen
-Met sommige creativiteit is het eenvoudig om samen te stellen een pythonscript waarmee experimenten met verschillende regularisatie tarieven. (U wellicht Bewerk het bestand om te verwijzen naar het juiste projectpad.)
+### <a name="iterate-on-your-experiment-with-descending-regularization-rates"></a>Uw experiment met aflopende regularisatiegraden herhalen
+Met enige creativiteit is het eenvoudig een Python-script samen te stellen dat experimenten indient met verschillende regularisatiegraden. (Mogelijk moet u het bestand bewerken om naar het juiste projectpad te wijzen.)
 
 ```azure-cli
 $ python run.py
 ```
 
 ## <a name="step-5-view-run-history"></a>Stap 5. Uitvoeringsgeschiedenis weergeven
-Na de opdracht geeft een lijst van de vorige uitgevoerd uitgevoerd. 
+Met de volgende opdracht maakt u een lijst met alle eerdere uitvoeringen. 
 
 ```azure-cli
 $ az ml history list -o table
 ```
-Met de bovenstaande opdracht wordt een lijst weergegeven met alle sessies die horen bij dit project. U kunt zien nauwkeurigheid en regularisatie snelheid metrische gegevens te staan. Deze maken het gemakkelijk kunt herkennen het beste uitvoeren in de lijst.
+Met de voorgaande opdracht wordt een lijst weergegeven met uitvoeringen die tot dit project behoren. U ziet dat er ook metrische gegevens voor de nauwkeurigheid en regularisatiegraad worden vermeld. Hierdoor kunt u gemakkelijk de beste uitvoering in de lijst identificeren.
 
-## <a name="step-5a-view-attachment-created-by-a-given-run"></a>Stap bijlage van 5. weergeven die zijn gemaakt door een bepaalde uitvoering 
-Als u wilt weergeven die zijn gekoppeld aan een bepaald run bijlage, kunnen we de opdracht info van uitvoeringsgeschiedenis gebruiken. Een uitvoeren-id van een specifieke reeks die in de bovenstaande lijst vinden.
+## <a name="step-5a-view-attachment-created-by-a-given-run"></a>Stap 5. a Door een bepaalde uitvoering gemaakte bijlage bekijken 
+Om de bijlage die bij een bepaalde run hoort te bekijken, kunt u gebruikmaken van de info-opdracht van de uitvoeringsgeschiedenis. Vind een uitvoerings-id van een specifieke uitvoering uit de voorgaande lijst.
 
 ```azure-cli
 $ az ml history info --run <run id> --artifact driver_log
 ```
 
-Voor het downloaden van de artefacten van een uitvoeren, kunt u onderstaande opdracht:
+Voor het downloaden van de artefacten van een uitvoering, kunt u de onderstaande opdracht gebruiken:
 
 ```azure-cli
 # Stream a given attachment 
 $ az ml history info --run <run id> --artifact <artifact location>
 ```
 
-## <a name="step-6-promote-artifacts-of-a-run"></a>Stap 6. Onderdelen van een uitvoering verhogen 
-Een van de worden uitgevoerd er heeft een betere AUC zodat we gebruiken wilt voor het maken van een score webservice implementeren naar productie. Als u wilt doen, moeten we eerst de artefacten promoveert naar een asset.
+## <a name="step-6-promote-artifacts-of-a-run"></a>Stap 6. Artefacten van een uitvoering verhogen 
+Een van de uitvoeringen heeft een betere AUC, dus dit is degene die u wilt gebruiken bij het maken van een scoringwebservice om te implementeren voor productie. Als u wilt doen, moet u eerst de artefacten promoveren naar een asset.
 
 ```azure-cli
 $ az ml history promote --run <run id> --artifact-path outputs/model.pkl --name model.pkl
 ```
 
-Hiermee maakt u een `assets` map in de projectmap van uw met een `model.pkl.link` bestand. Deze koppelingsbestand wordt gebruikt om te verwijzen naar een gepromoveerde asset.
+Hierdoor wordt een map `assets` in uw projectmap gemaakt met een bestand `model.pkl.link`. Dit koppelingsbestand wordt gebruikt om te verwijzen naar een gepromoveerde asset.
 
-## <a name="step-7-download-the-files-to-be-operationalized"></a>Stap 7. De bestanden moeten worden geoperationaliseerd downloaden
-We moeten nu downloaden van de gepromoveerde model, zodat we deze gebruiken kunt om onze voorspelling webservice te maken. 
+## <a name="step-7-download-the-files-to-be-operationalized"></a>Stap 7. De te operationaliseren bestanden downloaden
+Download het gepromoveerde model zodat u ze kunt gebruiken voor het maken van een voorspellingswebservice. 
 
 ```azure-cli
 $ az ml asset download --link-file assets\pickle.link -d asset_download
 ```
 
-## <a name="step-8-setup-your-model-management-environment"></a>Stap 8. Instellen van uw model-management-omgeving 
-We maken een omgeving om webservices implementeren. We kunnen de web-service op de lokale computer met behulp van Docker uitvoeren. Of voor een ACS-cluster voor hoge schaalbewerkingen implementeren. 
+## <a name="step-8-set-up-your-model-management-environment"></a>Stap 8. Uw modelbeheeromgeving instellen 
+Maak een omgeving voor het implementeren van webservices. U kunt de webservice op de lokale computer uitvoeren met behulp van Docker. Of deze implementeren op een ACS-cluster voor grootschalige bewerkingen. 
 
 ```azure-cli
 # Create new local operationalization environment
@@ -231,22 +234,22 @@ $ az ml env setup -l <supported Azure region> -n <env name>
 $ az ml env set -g <resource group name> -n <env name>
 ```
 
-## <a name="step-9-create-a-model-management-account"></a>Stap 9. Een model-management-account maken 
-Een model-management-account is vereist voor het implementeren en bijhouden van uw modellen in productie. 
+## <a name="step-9-create-a-model-management-account"></a>Stap 9. Een modelbeheeraccount maken 
+Een modelbeheeraccount is nodig om uw modellen in productie te implementeren en te volgen. 
 
 ```azure-cli
 $ az ml account modelmanagement create -n <model management account name> -g <resource group name> -l <supported Azure region>
 ```
 
 ## <a name="step-10-create-a-web-service"></a>Stap 10. Een webservice maken
-Vervolgens maken we een webservice die als resultaat geeft een voorspelling met het model dat wordt geïmplementeerd. 
+Maak een webservice die een voorspelling retourneert met behulp van het model dat u hebt geïmplementeerd. 
 
 ```azure-cli
 $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r python –n <web service name>
 ```
 
-## <a name="step-10-run-the-web-service"></a>Stap 10. De webservice wordt uitgevoerd
-Met behulp van de webservice-id uit de uitvoer van de vorige stap, kunnen we de service aanroepen en testen. 
+## <a name="step-11-run-the-web-service"></a>Stap 11. De webservice uitvoeren
+Roep de webservice aan met behulp van de webservice-id uit de uitvoer van de vorige stap en test deze. 
 
 ```azure-cli
 # Get web service usage infomration
@@ -256,22 +259,22 @@ $ az ml service usage realtime -i <web service id>
 $ az ml service run realtime -i <web service id> -d <input data>
 ```
 
-## <a name="deleting-all-the-resources"></a>Alle resources verwijderen 
-Laten we in deze zelfstudie voltooid door het verwijderen van alle resources die we hebben gemaakt, tenzij u wilt blijven werken op het! 
+## <a name="step-12-deleting-all-the-resources"></a>Stap 12. Alle resources verwijderen 
+We voltooien deze zelfstudie door alle gemaakte resources te verwijderen, tenzij u ermee wilt blijven werken. 
 
-Om dit te doen verwijderen we dan gewoon de resourcegroep van alle onze resources. 
+U doet dit door de resourcegroep te verwijderen waar de resources zich bevinden. 
 
 ```azure-cli
 az group delete --name <resource group name>
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe de Azure Machine Learning preview-functies te gebruiken 
+In deze zelfstudie hebt u geleerd hoe u Azure Machine Learning kunt gebruiken het volgende te doen: 
 > [!div class="checklist"]
-> * Instellen van een account experimenteren,-werkruimte maken
+> * Een Experimenten-account instellen en een werkruimte maken
 > * Projecten maken
-> * Verzenden van experimenten met meerdere compute-doel
-> * Promoveren en registreren van een getraind model
-> * Een model management-account voor het Modelbeheer van maken
-> * Een omgeving voor het implementeren van een webservice maken
-> * Implementeer een web-service en de score bij met nieuwe gegevens
+> * Experimenten verzenden naar verschillende compute-doelen
+> * Een getraind model promoten en registreren
+> * Een modelbeheeraccount maken voor het beheren van modellen
+> * Een omgeving maken voor het implementeren van webservices
+> * Een webservice implementeren en scoren met nieuwe gegevens

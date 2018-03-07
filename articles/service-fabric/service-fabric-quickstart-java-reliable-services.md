@@ -1,6 +1,6 @@
 ---
 title: Een Java-toepassing maken in Azure Service Fabric | Microsoft Docs
-description: Maak een Java-toepassing voor Azure met behulp van het snelstartvoorbeeld voor Service Fabric.
+description: In deze snelstart maakt u een Java-toepassing voor Azure met behulp van een voorbeeldtoepassing van de betrouwbare Service Fabric-services.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8f4d121ba76d63b70fa6976125457942a0e98aa9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0b284194abbbdd38524c0ae74ab7e05977d6883f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-a-java-application"></a>Een Java-toepassing maken
+# <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Snelstart: een toepassing van betrouwbare Java Service Fabric-services implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen voor het implementeren en distribueren van microservices en containers. 
 
-Deze snelstartgids laat zien hoe u uw eerste Java-toepassing in Service Fabric implementeert met behulp van de Eclipse IDE op een Linux-machine voor ontwikkelaars. Wanneer u klaar bent, hebt u een stemtoepassing met een web-front-end in Java die stemresultaten opslaat in een stateful back-endservice in het cluster.
+Deze quickstart laat zien hoe u uw eerste Java-toepassing in Service Fabric implementeert met behulp van de Eclipse IDE op een Linux-machine voor ontwikkelaars. Wanneer u klaar bent, hebt u een stemtoepassing met een web-front-end in Java die stemresultaten opslaat in een stateful back-endservice in het cluster.
 
 ![Schermafbeelding van de toepassing](./media/service-fabric-quickstart-java/votingapp.png)
 
@@ -37,7 +37,7 @@ In deze snelstartgids leert u de volgende zaken:
 > * De toepassing uitschalen over meerdere knooppunten
 
 ## <a name="prerequisites"></a>Vereisten
-Dit zijn de vereisten voor het voltooien van deze snelstartgids:
+Dit zijn de vereisten voor het voltooien van deze Quickstart:
 1. [Service Fabric-SDK en Service Fabric CLI (opdrachtregelinterface) installeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Git installeren](https://git-scm.com/)
 3. [Eclipse installeren](https://www.eclipse.org/downloads/)

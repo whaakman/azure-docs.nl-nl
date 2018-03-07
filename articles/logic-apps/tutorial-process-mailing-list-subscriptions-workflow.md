@@ -1,6 +1,6 @@
 ---
-title: Van goedkeuringswerkstromen voor het verwerken van aanvragen mailinglijst - Azure Logic Apps bouwen | Microsoft Docs
-description: Deze zelfstudie laat zien hoe u automatische goedkeuringswerkstromen voor het verwerken van mailinglijst abonnementen met Azure Logic Apps maken
+title: Goedkeuringswerkstromen maken voor het verwerken van adressenlijstaanvragen - Azure Logic Apps | Microsoft Docs
+description: Deze zelfstudie laat zien hoe u automatische goedkeuringswerkstromen kunt maken voor het verwerken van adressenlijstabonnementen met Azure Logic Apps
 author: ecfan
 manager: anneta
 editor: 
@@ -15,308 +15,308 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 26ef6f69ef2f2d50628f4d0b021159526c9a04a7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: MT
+ms.openlocfilehash: 4765a38689d5476331c593b89e54f94d4bd310c3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="manage-mailing-list-requests-with-a-logic-app"></a>Mailinglijst aanvragen met een logische app beheren
+# <a name="manage-mailing-list-requests-with-a-logic-app"></a>Adressenlijstaanvragen beheren met een logische app
 
-Logische Apps van Azure kunt u werkstromen automatiseren en integratie van gegevens over Azure-services, Microsoft-services, andere software as a service (SaaS)-apps en on-premises systemen. Deze zelfstudie laat zien hoe u kunt samenstellen een [logische app](../logic-apps/logic-apps-overview.md) processen verzoeken om abonnementen voor een verzendlijst beheerd door de [MailChimp](https://mailchimp.com/) service.
-Deze logische app bewaakt een e-mailaccount voor deze aanvragen, stuurt deze aanvragen voor goedkeuring en goedgekeurde leden worden toegevoegd aan de adreslijst.
+Azure Logic Apps helpt u om uw werkstromen te automatiseren en om gegevens te integreren in Azure-services, Microsoft-services, andere SaaS-apps (software als een service) en on-premises systemen. Deze zelfstudie laat zien hoe u een [logische app](../logic-apps/logic-apps-overview.md) kunt bouwen die abonnementsaanvragen verwerkt voor een adressenlijst die wordt beheerd door de [MailChimp](https://mailchimp.com/)-service.
+Deze logische app bewaakt een e-mailaccount voor deze aanvragen, verzendt deze aanvragen voor goedkeuring en voegt goedgekeurde leden toe aan de adressenlijst.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een lege, logische app maken.
-> * Toevoegen van een trigger die e-mailberichten voor verzoeken om abonnementen bewaakt.
-> * Toevoegen van een actie die wordt verzonden e-mailberichten voor het goedkeuren of weigeren van deze aanvragen.
-> * Een voorwaarde waarmee wordt gecontroleerd of het goedkeuringsantwoord toevoegen.
-> * Toevoegen van een actie die goedgekeurde leden worden toegevoegd aan de adreslijst.
-> * Een voorwaarde waarmee wordt gecontroleerd of deze leden nu deel uit van de lijst toevoegen.
-> * Een actie die wordt verzonden e-mailberichten bevestigen of deze leden nu deel uit van de lijst toevoegen.
+> * Een trigger toevoegen waarmee e-mailberichten op abonnementaanvragen worden gecontroleerd.
+> * Een actie toevoegen waarmee e-mailberichten worden verzonden om deze aanvragen goed te keuren of af te wijzen.
+> * Een voorwaarde toevoegen voor het controleren van het goedkeuringsantwoord.
+> * Een actie toevoegen waarmee goedgekeurde leden worden toegevoegd aan de adressenlijst.
+> * Een voorwaarde toevoegen waarmee wordt gecontroleerd of deze leden met succes aan de lijst zijn toegevoegd.
+> * Een voorwaarde toevoegen waarmee e-mailberichten worden verzonden om te bevestigen of deze leden met succes aan de lijst zijn toegevoegd.
 
-Wanneer u bent klaar, ziet uw logische app deze werkstroom op hoog niveau:
+Wanneer u bent klaar, ziet uw logische app eruit als deze werkstroom op hoog niveau:
 
-![Op hoog niveau klaar logische app](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
+![Een voltooide logische app op hoog niveau](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
 
 Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">meld u dan aan voor een gratis Azure-account</a> voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een MailChimp-account. Maak een lijst met de naam 'test-leden-ML' waarin uw logische app e-mailadressen voor goedgekeurde leden kunt toevoegen. Als u een account geen [aanmelden voor een gratis account](https://login.mailchimp.com/signup/) en meer informatie over [het maken van een lijst](https://us17.admin.mailchimp.com/lists/#). 
+* Een MailChimp-account. Maak een lijst met de naam ‘test-leden-ML’ waaraan uw logische app e-mailadressen voor goedgekeurde leden kan toevoegen. Als u geen account hebt, kunt u zich [aanmelden voor een gratis account](https://login.mailchimp.com/signup/) en leren [hoe u een lijst kunt maken](https://us17.admin.mailchimp.com/lists/#). 
 
-* Een e-mailaccount met Outlook van Office 365 of Outlook.com, die ondersteuning bieden voor werkstromen voor goedkeuring. In dit artikel maakt gebruik van Outlook van Office 365. Als u een ander e-mailaccount gebruikt, wordt de algemene stappen hetzelfde blijven, maar uw gebruikersinterface iets anders uitzien.
+* Een e-mailaccount met Office 365 Outlook of Outlook.com, die goedkeuringsworkflows ondersteunen. In dit artikel wordt gebruikgemaakt van Outlook van Office 365. Als u een ander e-mailaccount gebruikt, blijven de algemene stappen gelijk, maar uw gebruikersinterface kan er iets anders uitzien.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
-Aanmelden bij de <a href="https://portal.azure.com" target="_blank">Azure-portal</a> met de referenties van uw Azure-account.
+Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
 ## <a name="create-your-logic-app"></a>Uw logische app maken
 
-1. Kies in het Azure-menu de optie **Nieuw** > **Enterprise Integration** > **Logische app**.
+1. Kies in het hoofdmenu van Azure **Een resource maken** > **Bedrijfsintegratie** > **Logische app**.
 
    ![Logische app maken](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
 
-2. Onder **maken logische app**, bevatten deze informatie over uw logische app weergegeven en beschreven. Als u klaar bent, kiest u **Vastmaken aan dashboard** > **Maken**.
+2. In het menu **Logische app maken** geeft u de informatie over uw logische app op zoals hier wordt weergegeven en beschreven. Als u klaar bent, kiest u **Vastmaken aan dashboard** > **Maken**.
 
-   ![Geef informatie op logic app](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
+   ![Informatie over logische app opgeven](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
    | Instelling | Waarde | Beschrijving | 
    | ------- | ----- | ----------- | 
    | **Naam** | LA-MailingList | De naam voor uw logische app | 
-   | **Abonnement** | <*your-Azure-subscription-name*> | De naam voor uw Azure-abonnement | 
-   | **Resourcegroep** | LA-MailingList-RG | De naam voor de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) gebruikt om verwante resources te organiseren | 
-   | **Locatie** | VS - oost 2 | De regio waar informatie over uw logische app wordt opgeslagen | 
-   | **Log Analytics** | Uit | Houd de **uit** instellen voor het vastleggen van diagnostische gegevens. | 
+   | **Abonnement** | <*your-Azure-subscription-name*> | De naam van uw Azure-abonnement | 
+   | **Resourcegroep** | LA-MailingList-RG | De naam van de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) die wordt gebruikt om verwante resources te organiseren | 
+   | **Locatie** | VS - oost 2 | De regio waar u informatie over uw logische app opslaat | 
+   | **Log Analytics** | Uit | Behoud de instelling **Uit** voor het vastleggen van diagnostische gegevens. | 
    |||| 
 
-3. Nadat u uw app wordt geïmplementeerd in Azure, wordt de ontwerpfunctie van Logic Apps wordt geopend en ziet u een pagina met een video inleiding en sjablonen voor algemene logic app patronen. Kies onder **Sjablonen** de optie **Lege logische app**.
+3. Nadat Azure uw app heeft geïmplementeerd, wordt de Ontwerper van logische apps geopend en ziet u een pagina met een inleidende video en sjablonen voor veelgebruikte patronen voor logische apps. Kies onder **Sjablonen** de optie **Lege logische app**.
 
    ![Sjabloon voor lege logische app kiezen](./media/tutorial-process-mailing-list-subscriptions-workflow/choose-logic-app-template.png)
 
-Vervolgens voegt u een [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) die luistert naar binnenkomende e-mailberichten met verzoeken om abonnementen.
-Elke logische app moet beginnen met een trigger, die wordt geactiveerd wanneer een bepaalde gebeurtenis wordt uitgevoerd of wanneer een bepaalde voorwaarde voldoet aan de nieuwe gegevens. Zie voor meer informatie [uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Voeg vervolgens een [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) toe die luistert naar binnenkomende e-mailberichten met abonnementaanvragen.
+Elke logische app moet beginnen met een trigger, die wordt geactiveerd wanneer er een bepaalde gebeurtenis plaatsvindt of wanneer nieuwe gegevens voldoen aan een bepaalde voorwaarde. Bekijk [Uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) voor meer informatie.
 
 ## <a name="add-trigger-to-monitor-emails"></a>Trigger voor het bewaken van e-mailberichten toevoegen
 
-1. Voer op de designer 'als u e-mailbericht ontvangt' in het zoekvak. Selecteer de trigger voor uw e-mailprovider:  **< *uw op e-mailprovider*>: wanneer een nieuw e-mailbericht**
+1. Typ 'wanneer e-mail aankomt' in het zoekvak van de ontwerpfunctie. Selecteer de trigger voor uw e-mailprovider: **<*uw-e-mailprovider*> - Wanneer er een nieuwe e-mail binnenkomt**
    
-   ![Selecteer deze trigger voor e-mailprovider: 'Wanneer u een nieuw e-mailadres binnenkomt'](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
+   ![Selecteer deze trigger voor e-mailprovider: 'Wanneer er een nieuwe e-mail binnenkomt'](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
 
    * Voor werk- of schoolaccounts van Azure selecteert u Outlook van Office 365.
    * Selecteer Outlook.com voor persoonlijke Microsoft-accounts.
 
-2. Als u wordt gevraagd om referenties, aanmelden bij uw e-mailaccount zodat Logic Apps kunnen geen verbinding met uw e-mailaccount maken.
+2. Als u om uw referenties wordt gevraagd, meldt u zich aan bij uw e-mailaccount, zodat Logic Apps een verbinding met uw e-mailaccount kan maken.
 
-3. Geef de criteria die de trigger controleert nu in alle nieuwe e-mailbericht.
+3. Geef nu de criteria op waarop de trigger alle nieuwe e-mail controleert.
 
-   1. Geef de map, interval en frequentie voor het controleren van e-mailberichten.
+   1. Geef de map, interval en frequentie voor het controleren van e-mails op.
 
-      ![Geef een map, interval en frequentie voor het controleren van e-mails](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-up-email.png)
+      ![Geef map, interval en frequentie voor het controleren van e-mails op](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-up-email.png)
 
       | Instelling | Waarde | Beschrijving | 
       | ------- | ----- | ----------- | 
-      | **Folder** | Postvak in | De e-map bewaken | 
-      | **Interval** | 1 | Het aantal intervallen moet worden gewacht tussen controles | 
-      | **Frequentie** | Uur | Controleert de tijdseenheid voor elk interval tussen  | 
+      | **Map** | Postvak IN | De te bewaken e-mailmap | 
+      | **Interval** | 1 | Het aantal intervallen dat tussen controles moet worden gewacht | 
+      | **Frequentie** | Uur | De tijdseenheid voor elk interval tussen controles  | 
       |  |  |  | 
 
-   2. Kies **geavanceerde opties weergeven**. In de **onderwerp Filter** Voer deze tekst voor de trigger te vinden in het onderwerp van e-mail:```subscribe-test-members-ML```
+   2. Kies **Geavanceerde opties weergeven**. Voer in het vak **Onderwerpfilter** deze tekst in voor de trigger om in het e-mailonderwerp te zoeken: ```subscribe-test-members-ML```
 
       ![Geavanceerde opties instellen](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-advanced-options.png)
 
-4. Als u wilt verbergen van de trigger gegevens nu, klikt u op de titelbalk van de trigger.
+4. Als u de details van de trigger voorlopig wilt verbergen, klikt u op de titelbalk van de trigger.
 
-   ![Samenvouwen vorm details verbergen](./media/tutorial-process-mailing-list-subscriptions-workflow/collapse-trigger-shape.png)
+   ![Shape samenvouwen om details te verbergen](./media/tutorial-process-mailing-list-subscriptions-workflow/collapse-trigger-shape.png)
 
-5. Sla uw logische app. Kies **Opslaan** op de werkbalk van de ontwerper.
+5. Sla uw logische app op. Kies **Opslaan** op de werkbalk van de ontwerper.
 
-   Uw logische app is nu live maar geen reactie dan Controleer uw binnenkomende e-mailadres. 
-   Een actie die reageert wanneer de trigger wordt geactiveerd, dus toevoegen.
+   Uw logische app is nu live, maar doet niets behalve uw binnenkomende e-mail controleren. 
+   Daarom gaat u nu een actie toevoegen die reageert wanneer de trigger wordt geactiveerd.
 
 ## <a name="send-approval-email"></a>Goedkeurings-e-mail verzenden
 
-Nadat u hebt een trigger, voegt u toe een [actie](../logic-apps/logic-apps-overview.md#logic-app-concepts) die een e-mailbericht wilt goedkeuren of afwijzen van de aanvraag verzendt. 
+Nu u een trigger hebt, kunt u een [actie](../logic-apps/logic-apps-overview.md#logic-app-concepts) toevoegen waarmee een e-mailbericht wordt verzonden om de aanvraag goed te keuren of af te wijzen. 
 
-1. Kies onder de trigger **+ een nieuwe stap** > **een actie toevoegen**. Zoek naar 'goedkeuring' en selecteert u deze actie:  **< *uw op e-mailprovider*>-goedkeuring e-mail verzenden**
+1. Kies bij de trigger **+ Nieuwe stap** > **Een actie toevoegen**. Zoek naar 'goedkeuring' en selecteer deze actie: **<*uw-e-mailprovider*> - Goedkeurings-e-mail verzenden**
 
-   ![Kies ' < uw-e-provider > - goedkeuring per E-mail '](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-send-approval-email.png)
+   ![Kies ‘<uw-e-mailprovider> - Goedkeurings-e-mail verzenden’](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-send-approval-email.png)
 
-2. Bevatten informatie voor deze actie wordt weergegeven en beschreven: 
+2. Geef informatie voor deze actie op zoals weergegeven en beschreven: 
 
-   ![Goedkeuring ingesteld e-mailinstellingen](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-approval-email-settings.png)
+   ![Goedkeurings-e-mailinstellingen instellen](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-approval-email-settings.png)
 
    | Instelling | Waarde | Beschrijving | 
    | ------- | ----- | ----------- | 
-   | **Aan** | <*approver-email-address*> | De goedkeurder e-mailadres. U kunt uw eigen adres gebruiken voor testdoeleinden. | 
-   | **Opties voor gebruikers** | Goedkeuren, Weigeren | De antwoordopties die de goedkeurder kunt kiezen. Standaard de goedkeurder kunt ofwel 'goedkeuren' of 'Negeren' als de reactie. | 
-   | **Onderwerp** | Lid-aanvraag voor de test leden ML goedkeuren | Een onderwerp beschrijvende e | 
+   | **Aan** | <*e-mail-adres-fiatteur*> | Het e-mailadres van de fiatteur. Voor testdoeleinden kunt u uw eigen adres gebruiken. | 
+   | **Gebruikersopties** | Goedkeuren, Afwijzen | De antwoordopties die de fiatteur kan kiezen. Standaard kan de fiatteur ‘Goedkeuren’ of ‘Afwijzen’ kiezen als antwoord. | 
+   | **Onderwerp** | Lidmaatschapsaanvraag voor test-leden-ML goedkeuren | Een beschrijvend e-mailonderwerp | 
    |  |  |  | 
 
-   Op dit moment negeren de dynamische inhoud lijst of inline-parameter die wordt weergegeven wanneer u in specifieke invoervakken klikt. 
-   Deze lijst kunt u parameters selecteren uit eerdere acties die u als invoer in uw werkstroom gebruiken kunt. 
+   Negeer voorlopig de dynamische inhoudlijst of inline parameterlijst die verschijnt wanneer u in specifieke tekstvakken klikt. 
+   In deze lijst kunt u parameters van vorige acties selecteren die u kunt gebruiken als invoer in uw werkstroom. 
    De breedte van uw browser bepaalt welke lijst wordt weergegeven. 
  
-4. Sla uw logische app.
+4. Sla uw logische app op.
 
-Vervolgens voegt u een voorwaarde om te controleren van de goedkeurder gekozen antwoord.
+Vervolgens voegt u een voorwaarde toe om het door de fiatteur gekozen antwoord te controleren.
 
 ## <a name="check-approval-response"></a>Goedkeuringsantwoord controleren
 
-1. Onder de **goedkeuring per E-mail** actie, kies **+ een nieuwe stap** > **een voorwaarde toevoegen**.
+1. Kies onder de actie **Goedkeurings-e-mail toevoegen** **+ Nieuwe stap** > **Een voorwaarde toevoegen**.
 
-   De vorm van de voorwaarde wordt weergegeven, samen met alle beschikbare parameters die u als invoer voor uw werkstroom opnemen kunt. 
+   De voorwaardeshape verschijnt, samen met de beschikbare parameters die u als invoer in uw workflow kunt opnemen. 
 
-2. Wijzig de naam van de voorwaarde van een betere beschrijving.
+2. Geef de voorwaarde een naam met een betere beschrijving.
 
-   1. Kies op de titelbalk van de voorwaarde **weglatingstekens** (**...** ) knop > **naam**.
+   1. Kies op de titelbalk van de voorwaarde **de knop met weglatingstekens** (**...**) > **Naam wijzigen**.
 
-      Bijvoorbeeld, als uw browser in smalle weergave:
+      Als u browser bijvoorbeeld in een kleine weergave wordt weergegeven:
 
       ![Naam voorwaarde wijzigen](./media/tutorial-process-mailing-list-subscriptions-workflow/condition-rename.png)
 
-      Als uw browser in de weergave voor het gehele is en de lijst met dynamische inhoud blokkeert de toegang tot de knop met weglatingstekens, sluit u de lijst door te kiezen **dynamische inhoud toevoegen** binnen de voorwaarde.
+      Als uw browser over het hele scherm wordt weergegeven en de lijst met dynamische inhoud de toegang tot de knop met weglatingstekens blokkeert, sluit u de lijst door in de voorwaarde **Dynamische inhoud toevoegen** te selecteren.
 
-   2. Wijzig de naam van de voorwaarde van deze beschrijving:```If request approved```
+   2. Verander de naam van uw voorwaarde in deze beschrijving: ```If request approved```
 
-3. Maken van een voorwaarde waarmee wordt gecontroleerd of de goedkeurder geselecteerd **goedkeuren**:
+3. Bouw een voorwaarde op waarmee wordt gecontroleerd of de fiatteur **Goedkeuren** heeft geselecteerd:
 
-   1. Klik in de voorwaarde in de **kiest u een waarde** vak die aan de linkerkant (wide browserweergave) of op de voorgrond (browserweergave smalle).
-   Selecteer in de lijst met parameters of de lijst met dynamische inhoud, de **SelectedOption** veld onder **goedkeuring per E-mail**.
+   1. Klik in de voorwaarde in het vak **Een waarde kiezen** aan de linkerkant (brede browserweergave) of aan de bovenkant (smalle browserweergave).
+   Selecteer uit de lijst met parameters of de lijst met dynamische inhoud het veld **SelectedOption** onder **Goedkeurings-e-mail verzenden**.
 
-      Bijvoorbeeld, als u in de weergave voor het gehele werkt, de voorwaarde ziet eruit als in dit voorbeeld:
+      Als u bijvoorbeeld in de brede weergave werkt, ziet uw voorwaarde eruit zoals in dit voorbeeld:
 
-      ![Selecteer onder 'Verzenden goedkeuring e', 'SelectedOption'](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
+      ![Selecteer 'SelectedOption' onder 'Goedkeurings-e-mail verzenden'](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
 
-   2. Selecteer in het vak vergelijking operator deze operator: **is gelijk aan**
+   2. Selecteer in het vak voor de vergelijkingsoperator deze operator: **is gelijk aan**
 
-   3. In de onderste (smalle weergave) of naar rechts (wide weergave) **kiest u een waarde** vak, voert u deze waarde:```Approve```
+   3. Voer in het vak **Een waarde kiezen** aan de rechterkant (brede weergave) of aan de onderkant (smalle weergave) deze waarde in: ```Approve```
 
-      Wanneer u bent klaar, ziet de voorwaarde in dit voorbeeld:
+      Wanneer u klaar bent, ziet de voorwaarde eruit zoals in dit voorbeeld:
 
-      ![Volledige voorwaarde](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
+      ![Voltooide voorwaarde](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
 
-4. Sla uw logische app.
+4. Sla uw logische app op.
 
-Geef vervolgens de actie die uw logische app uitvoert wanneer de revisor de aanvraag goedkeurt. 
+Geef vervolgens de actie op die uw logische app uitvoert wanneer de fiatteur de aanvraag goedkeurt. 
 
-## <a name="add-member-to-mailchimp-list"></a>Lid toevoegen aan lijst van MailChimp
+## <a name="add-member-to-mailchimp-list"></a>Lid toevoegen aan MailChimp-lijst
 
-Voeg nu een actie waarmee de goedgekeurde lid wordt toegevoegd aan uw adreslijst.
+Voeg nu een actie toe waarmee het goedgekeurde lid wordt toegevoegd aan uw adressenlijst.
 
-1. In de voorwaarde **als de waarde true** vertakking, kiest u **een actie toevoegen**.
-Zoek naar 'mailchimp' en selecteert u deze actie: **MailChimp - lid toevoegen aan de lijst**
+1. In de vertakking **Indien waar** van de voorwaarde kiest u **Een actie toevoegen**.
+Zoek naar 'mailchimp' en selecteer deze actie: **MailChimp - Add member to list (Lid toevoegen aan de lijst)**
 
-   ![Selecteer "MailChimp - lid toevoegen aan de lijst '](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member.png)
+   ![Selecteer ‘MailChimp - Add member to list’](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member.png)
 
-3. Als u wordt gevraagd of u aan te melden bij uw MailChimp-account, kunt u aanmelden met uw MailChimp-referenties.
+3. Als u wordt gevraagd u aan te melden bij uw MailChimp-account, meldt u zich aan met uw MailChimp-referenties.
 
-4. Geef hier informatie voor deze actie wordt weergegeven en beschreven:
+4. Geef informatie voor deze actie op zoals hier wordt weergegeven en beschreven:
 
-   ![Geef informatie op voor 'Lid toevoegen aan lijst'](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
+   ![Informatie opgeven voor 'Add member to list'](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
 
    | Instelling | Waarde | Beschrijving | 
    | ------- | ----- | ----------- | 
-   | **Lijst-Id** | test-members-ML | De naam voor uw adreslijst MailChimp | 
-   | **Status** | geabonneerd | De abonnementstatus voor het nieuwe lid. Zie voor meer informatie <a href="https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/" target="_blank">beheren abonnees met de API van MailChimp</a>. | 
-   | **E-mailadres** | <*new-member-email-address*> | Selecteer in de lijst met parameters of lijst van dynamische inhoud, **van** onder **wanneer een nieuw e binnenkomt**, die wordt doorgegeven in het e-mailadres voor het nieuwe lid. 
+   | **List Id (Lijst-id)** | test-leden-ML | De naam voor uw MailChimp-adressenlijst | 
+   | **Status** | subscribed (geabonneerd) | De abonnementstatus voor het nieuwe lid. Zie voor meer informatie <a href="https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/" target="_blank">Manage subscribers with the MailChimp API (Abonnees beheren met de MailChimp-API)</a>. | 
+   | **Email Address (E-mailadres)** | <*e-mailadres-nieuw-lid*> | Selecteer uit de lijst met parameters of de lijst met dynamische inhoud **Van** onder **Wanneer er een nieuwe e-mail binnenkomt**, waardoor het e-mailadres voor het nieuwe lid wordt doorgegeven. 
    |  |  |  | 
 
-5. Sla uw logische app.
+5. Sla uw logische app op.
 
-Voeg vervolgens een voorwaarde zodat u controleren kunt of het nieuwe lid geworden van uw adreslijst. Op die manier uw logische app waarschuwt u of deze bewerking is geslaagd of mislukt.
+Voeg vervolgens een voorwaarde toe waarmee u kunt controleren of het nieuwe lid met succes aan uw adressenlijst is toegevoegd. Op die manier meldt uw logische app u of de bewerking is geslaagd of mislukt.
 
 ## <a name="check-for-success-or-failure"></a>Controleren op slagen of mislukken
 
-1. In de **als de waarde true** vertakking onder de **lid toevoegen aan lijst** actie, kies **meer...**   >  **Een voorwaarde toevoegen**.
+1. Selecteer in de tak **Indien waar** onder de actie **Lid toevoegen aan lijst** de optie **Meer...** > **Een voorwaarde toevoegen**.
 
-2. Wijzig de naam van de voorwaarde van deze beschrijving:```If add member succeeded```
+2. Wijzig de naam van de voorwaarde met deze beschrijving: ```If add member succeeded```
 
-3. Bouw een voorwaarde waarmee wordt gecontroleerd of het goedgekeurde lid slaagt of mislukt in uw adreslijst toevoegen:
+3. Maak een voorwaarde die controleert of het goedgekeurde lid met succes aan uw adressenlijst is toegevoegd of niet:
 
-   1. Klik in de voorwaarde in de **kiest u een waarde** vak die aan de linkerkant (wide browserweergave) of op de voorgrond (browserweergave smalle).
-   Selecteer in de lijst met parameters of de lijst met dynamische inhoud, de **Status** veld onder **lid toevoegen aan lijst**.
+   1. Klik in de voorwaarde in het vak **Een waarde kiezen** aan de linkerkant (brede browserweergave) of aan de bovenkant (smalle browserweergave).
+   Selecteer in de parameterlijst of de lijst met dynamische inhoud het veld **Status** onder **Lid toevoegen aan lijst**.
 
-      Bijvoorbeeld, als u in de weergave voor het gehele werkt, de voorwaarde ziet eruit als in dit voorbeeld:
+      Als u bijvoorbeeld in de brede weergave werkt, ziet uw voorwaarde eruit zoals in dit voorbeeld:
 
-      ![Onder 'Lid toevoegen aan de lijst', 'Status' selecteren](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member.png)
+      ![Onder ‘Lid toevoegen aan lijst’ selecteert u ‘Status’](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member.png)
 
-   2. Selecteer in het vak vergelijking operator deze operator: **is gelijk aan**
+   2. Selecteer in het vak voor de vergelijkingsoperator deze operator: **is gelijk aan**
 
-   3. In de onderste (smalle weergave) of naar rechts (wide weergave) **kiest u een waarde** vak, voert u deze waarde:```subscribed```
+   3. Voer in het vak **Een waarde kiezen** aan de rechterkant (brede weergave) of aan de onderkant (smalle weergave) deze waarde in: ```subscribed```
 
-   Wanneer u bent klaar, ziet de voorwaarde in dit voorbeeld:
+   Wanneer u klaar bent, ziet de voorwaarde eruit zoals in dit voorbeeld:
 
    ![Voltooide voorwaarde](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
 
-Vervolgens stelt u de e-mailberichten verzenden wanneer het goedgekeurde lid slaagt of mislukt in lid te worden van uw adreslijst.
+Stel vervolgens de e-mailberichten in die moeten worden verzonden als het goedgekeurde lid met succes aan uw adressenlijst is toegevoegd of niet.
 
-## <a name="send-email-if-member-added"></a>E-mailbericht verzenden als lid toegevoegd
+## <a name="send-email-if-member-added"></a>E-mailbericht verzenden als lid is toegevoegd
 
-1. In de **als de waarde true** vertakking voor de voorwaarde **als geslaagd lid toevoegen**, kies **een actie toevoegen**.
+1. Kies in de tak **Indien waar** voor de voorwaarde **If add member succeeded (Indien toevoegen van lid is geslaagd)** **Een actie toevoegen**.
 
-   ![In filialen 'als de waarde true' voor de voorwaarde, kiest u 'Een actie toevoegen'](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
+   ![Kies ‘Een actie toevoegen’ in de tak ‘Indien waar’ van de voorwaarde](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
 
-2. Zoek naar 'e-mail in outlook verzenden' en selecteert u deze actie:  **< *uw op e-mailprovider*>-e-mailbericht verzenden**
+2. Zoek naar ‘outlook e-mail verzenden’ en selecteer deze actie: **<*uw-e-mailprovider*> - Een e-mail verzenden**
 
-   ![Actie voor 'Stuurt u een e-mailbericht' toevoegen](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-2.png)
+   ![Actie voor ‘Een e-mail verzenden’ toevoegen](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-2.png)
 
-3. Wijzig de naam van de actie met deze beschrijving:```Send email on success```
+3. Wijzig de naam van de actie met deze beschrijving: ```Send email on success```
 
-4. Bevatten informatie voor deze actie wordt weergegeven en beschreven:
+4. Geef informatie voor deze actie op zoals weergegeven en beschreven:
 
-   ![Geef informatie op voor succes e-mail](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-settings.png)
-
-   | Instelling | Waarde | Beschrijving | 
-   | ------- | ----- | ----------- | 
-   | **Aan** | <*your-email-address*> | Het e-mailadres voor de locatie waar u het succes e-mailbericht verzenden. Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken. | 
-   | **Onderwerp** | <*subject-for-success-email*> | Het onderwerp voor de e-mail geslaagd. Deze tekst invoeren voor deze zelfstudie, en selecteer het opgegeven veld onder **lid toevoegen aan lijst** uit de parameterlijst of dynamische inhoud: <p>"Success! Lid toegevoegd aan 'test leden ML': **e-mailadres**' | 
-   | **Hoofdtekst** | <*body-for-success-email*> | De inhoud van de instantie voor het succes e-mailbericht. Deze tekst invoeren voor deze zelfstudie en selecteer onder de opgegeven velden **lid toevoegen aan lijst** uit de parameterlijst of dynamische inhoud:  <p>' Nieuw lid geworden van 'test leden ML': **e-mailadres**'</br>' Lid deelnamestatus: **Status**' | 
-   | | | | 
-
-5. Sla uw logische app.
-
-## <a name="send-email-if-member-not-added"></a>E-mailbericht verzenden als lid is niet toegevoegd
-
-1. In de **indien false** vertakking voor de voorwaarde **als geslaagd lid toevoegen**, kies **een actie toevoegen**.
-
-   ![In 'als false"vertakking kiezen voor de voorwaarde 'Een actie toevoegen'](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
-
-2. Zoek naar 'e-mail in outlook verzenden' en selecteert u deze actie:  **< *uw op e-mailprovider*>-e-mailbericht verzenden**
-
-   ![Actie voor 'Stuurt u een e-mailbericht' toevoegen](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-2.png)
-
-3. Wijzig de naam van de actie met deze beschrijving:```Send email on failure```
-
-4. Geef hier informatie voor deze actie wordt weergegeven en beschreven:
-
-   ![Geef informatie op voor e-mailadres is mislukt](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
+   ![Informatie opgeven voor e-mail bij succes](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-settings.png)
 
    | Instelling | Waarde | Beschrijving | 
    | ------- | ----- | ----------- | 
-   | **Aan** | <*your-email-address*> | Het e-mailadres voor het verzenden van de e-mail is mislukt. Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken. | 
-   | **Onderwerp** | <*subject-for-failure-email*> | Het onderwerp voor de e-mail is mislukt. Deze tekst invoeren voor deze zelfstudie, en selecteer het opgegeven veld onder **lid toevoegen aan lijst** uit de parameterlijst of dynamische inhoud: <p>' Is mislukt, lid is niet toegevoegd aan 'test leden ML': **e-mailadres**' | 
-   | **Hoofdtekst** | <*body-for-failure-email*> | De inhoud van de hoofdtekst voor de e-mail is mislukt. Voor deze zelfstudie, voert u deze tekst: <p>"Lid al bestaat mogelijk. Controleer uw MailChimp-account." | 
+   | **Aan** | <*uw-e-mailadres*> | Het e-mailadres waarnaar het bericht bij succes moet worden verzonden. Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken. | 
+   | **Onderwerp** | <*onderwerp-voor-succes-e-mail*> | Het onderwerp voor het e-mailbericht bij succes. Voer voor deze zelfstudie deze tekst in en selecteer het opgegeven veld onder **Lid toevoegen aan lijst** uit de parameterlijst of de lijst met dynamische inhoud: <p>‘Geslaagd! Lid toegevoegd aan ‘test-leden-ML’: **e-mailadres**’ | 
+   | **Hoofdtekst** | <*hoofdtekst-voor-succes-e-mail*> | De hoofdtekst voor het e-mailbericht bij succes. Voer voor deze zelfstudie deze tekst in en selecteer de opgegeven velden onder **Lid toevoegen aan lijst** uit de parameterlijst of de lijst met dynamische inhoud:  <p>'Er is een nieuw lid toegevoegd aan ‘test-leden-ML’: **E-mailadres**’</br>‘Deelnamestatus lid: **Status**’ | 
    | | | | 
 
-5. Sla uw logische app. 
+5. Sla uw logische app op.
 
-Test vervolgens uw logische app, nu er ongeveer als in dit voorbeeld volgt:
+## <a name="send-email-if-member-not-added"></a>E-mailbericht verzenden als lid niet is toegevoegd
+
+1. Kies in de tak **Indien onwaar** voor de voorwaarde **If add member succeeded (Indien toevoegen van lid is geslaagd)** **Een actie toevoegen**.
+
+   ![Kies ‘Een actie toevoegen’ in de tak ‘Indien onwaar’ van de voorwaarde](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
+
+2. Zoek naar ‘outlook e-mail verzenden’ en selecteer deze actie: **<*uw-e-mailprovider*> - Een e-mail verzenden**
+
+   ![Actie voor ‘Een e-mail verzenden’ toevoegen](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-2.png)
+
+3. Wijzig de naam van de actie met deze beschrijving: ```Send email on failure```
+
+4. Geef informatie voor deze actie op zoals hier wordt weergegeven en beschreven:
+
+   ![Informatie opgeven voor e-mail bij mislukken](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
+
+   | Instelling | Waarde | Beschrijving | 
+   | ------- | ----- | ----------- | 
+   | **Aan** | <*uw-e-mailadres*> | Het e-mailadres waarnaar het bericht bij mislukken moet worden verzonden. Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken. | 
+   | **Onderwerp** | <*onderwerp-voor-e-mail-bij-mislukken*> | Het onderwerp voor het e-mailbericht bij mislukken. Voer voor deze zelfstudie deze tekst in en selecteer het opgegeven veld onder **Lid toevoegen aan lijst** uit de parameterlijst of de lijst met dynamische inhoud: <p>‘Mislukt; lid niet toegevoegd aan ‘test-leden-ML’: **e-mailadres**’ | 
+   | **Hoofdtekst** | <*hoofdtekst-voor-e-mail-bij-mislukken*> | De hoofdtekst voor het e-mailbericht bij mislukken. Voer voor deze zelfstudie deze tekst in: <p>‘Lid bestaat mogelijk al. Controleer uw MailChimp-account.’ | 
+   | | | | 
+
+5. Sla uw logische app op. 
+
+Test vervolgens uw logische app, die er nu bijna net zo uitziet als dit voorbeeld:
 
  ![Voltooide logische app](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-complete.png)
 
-## <a name="run-your-logic-app"></a>Voer uw logische app
+## <a name="run-your-logic-app"></a>Uw logische app uitvoeren
 
-1. Zelf een e-aanvraag om lid van uw adreslijst te verzenden.
-Wacht totdat de aanvraag in je postvak in wordt weergegeven.
+1. Stuur uzelf een e-mailbericht met een aanvraag om lid te worden van uw adressenlijst.
+Wacht totdat de aanvraag in uw Postvak IN aankomt.
 
 3. Kies **Uitvoeren** op de werkbalk in de ontwerper als u de logische app handmatig wilt uitvoeren. 
 
-   Als uw e-mailadres een onderwerp dat overeenkomt met de trigger onderwerp filter heeft, verzendt uw logische app dat u e-voor het goedkeuren van de Abonnementaanvraag.
+   Als uw e-mail een onderwerp heeft dat overeenkomt met het onderwerpfilter van de trigger, stuurt uw logische app u een e-mail om de abonnementaanvraag goed te keuren.
 
-4. Kies in de e-mail goedkeuring **goedkeuren**.
+4. Kies **Goedkeuren** in de goedkeurings-e-mail.
 
-5. Als e-mailadres van de abonnee niet op uw mailinglijst bestaat, wordt uw logische app wordt toegevoegd die persoon e-mailadres en verzendt u een e-mail als volgt:
+5. Als het e-mailadres van de abonnee niet voorkomt in uw adressenlijst, voegt uw logische app het e-mailadres van die persoon toe en stuurt u een e-mail zoals dit voorbeeld:
 
-   ![E-mailadres geslaagd](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-success.png)
+   ![E-mailbericht bij succes](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-success.png)
 
-   Als uw logische app niet de abonnee toevoegen, krijgt u een e-mailbericht zoals in dit voorbeeld:
+   Als uw logische app de abonnee niet kan toevoegen, krijgt u een e-mail als in dit voorbeeld:
 
-   ![Mislukte e](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-failed.png)
+   ![E-mail bij mislukken](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-failed.png)
 
-   Als u een e-mailberichten geen krijgt, controleert u uw e-mailadres ongewenste map. 
-   Uw ongewenste e-mail mogelijk dit soort e-mails omleiden. 
+   Als u geen een e-mailberichten ontvangt, controleert u de map met ongewenste e-mail. 
+   Het is mogelijk dat uw filter voor ongewenste e-mail dit soort e-mails in deze map zet. 
    Als u niet zeker weet of uw logische app correct wordt uitgevoerd, kunt u [Problemen met uw logische app oplossen](../logic-apps/logic-apps-diagnosing-failures.md) raadplegen.
 
-Gefeliciteerd, u hebt nu gemaakt en een logische app uitgevoerd die is geïntegreerd informatie over Azure, Microsoft-services en andere SaaS-apps.
+Gefeliciteerd, u hebt nu een logische app gemaakt en uitgevoerd die informatie in Azure, Microsoft-services en andere SaaS-apps integreert.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer deze niet langer nodig is, verwijdert u de resourcegroep die uw logische app en de bijbehorende resources bevat. Op het Azure hoofdmenu, gaat u naar **resourcegroepen**, en selecteert u de resourcegroep voor uw logische app. Kies **resourcegroep verwijderen**. Voer de naam van de resourcegroep als bevestiging en kies **verwijderen**.
+Als u die niet meer nodig hebt, verwijdert u de resourcegroep die uw logische app en alle gerelateerde resources bevat. Ga in het Azure-hoofdmenu naar **Resourcegroepen** en selecteer de resourcegroep voor uw logische app. Kies **Resourcegroep verwijderen**. Voer ter bevestiging de naam van de resourcegroep in en kies **Verwijderen**.
 
-!["Overview" > 'Delete bronnengroep'](./media/tutorial-process-mailing-list-subscriptions-workflow/delete-resource-group.png)
+!["Overzicht" > "Resourcegroep verwijderen"](./media/tutorial-process-mailing-list-subscriptions-workflow/delete-resource-group.png)
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 
@@ -325,7 +325,7 @@ Wanneer deze niet langer nodig is, verwijdert u de resourcegroep die uw logische
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt u een logische app die wordt beheerd goedkeuringen voor mailinglijst aanvragen gemaakt. Nu informatie over het bouwen van een logische app, die worden verwerkt en opgeslagen e-mailbijlagen door integratie van Azure-services, zoals Azure Storage en Azure Functions.
+In deze zelfstudie hebt u een logische app gemaakt die goedkeuringen voor adressenlijstaanvragen beheert. Leer nu hoe u een logische app kunt bouwen die e-mailbijlagen verwerkt en opslaat door integratie van Azure-diensten, zoals Azure Storage en Azure Functions.
 
 > [!div class="nextstepaction"]
-> [E-mailbijlagen proces](../logic-apps/tutorial-process-email-attachments-workflow.md)
+> [E-mailbijlagen verwerken](../logic-apps/tutorial-process-email-attachments-workflow.md)

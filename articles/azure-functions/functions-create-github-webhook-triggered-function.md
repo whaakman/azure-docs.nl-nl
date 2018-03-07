@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Een door een GitHub-webhook geactiveerde functie maken
 
@@ -67,7 +67,7 @@ Vervolgens maakt u een webhook in uw GitHub-opslagplaats.
 
 ## <a name="configure-the-webhook"></a>De webhook configureren
 
-1. Navigeer naar een van uw opslagplaatsen in GitHub. U kunt ook een opslagplaats gebruiken die u hebt gesplitst. Als u een opslagplaats moet splitsen, gebruikt u <https://github.com/Azure-Samples/functions-quickstart>.
+1. Navigeer naar een van uw opslagplaatsen in GitHub. U kunt ook een opslagplaats gebruiken die u hebt gesplitst. Gebruik <https://github.com/Azure-Samples/functions-quickstart> als u een fork van een opslagplaats wilt maken.
 
 1. Klik achtereenvolgens op **Instellingen**, **Webhooks** en **Webhook toevoegen**.
 
@@ -80,8 +80,8 @@ Vervolgens maakt u een webhook in uw GitHub-opslagplaats.
 | Instelling | Voorgestelde waarde | Beschrijving |
 |---|---|---|
 | **URL van de nettolading** | Gekopieerde waarde | Gebruik de waarde die wordt geretourneerd door **</> Functie-URL ophalen**. |
-| **Geheim**   | Gekopieerde waarde | Gebruik de waarde die wordt geretourneerd door **</> GitHub-geheim ophalen**. |
 | **Inhoudstype** | application/json | De functie verwacht een JSON-nettolading. |
+| **Geheim**   | Gekopieerde waarde | Gebruik de waarde die wordt geretourneerd door **</> GitHub-geheim ophalen**. |
 | Gebeurtenistriggers | Ik wil afzonderlijke gebeurtenissen selecteren | We willen alleen activeren bij gebeurtenissen met een opmerking bij actie van het item.  |
 | | Opmerking bij actie item |  |
 
@@ -107,7 +107,7 @@ Nu is de webhook zo geconfigureerd dat de functie wordt geactiveerd wanneer er e
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt een functie gemaakt die wordt uitgevoerd wanneer er een aanvraag wordt ontvangen van een GitHub-webhook.
+U hebt een functie gemaakt die wordt geactiveerd wanneer een aanvraag wordt ontvangen van een GitHub-webhook.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

@@ -1,21 +1,21 @@
 ---
-title: Azure-snelstartgids - Objecten overdragen naar/van Azure Blob-opslag met behulp van Azure Storage Explorer | Microsoft Docs
-description: Snel leren om objecten over te dragen naar/van Azure Blob-opslag met behulp van Azure Storage Explorer
+title: Azure-quickstart - Blobs uploaden, downloaden en vermelden in Azure Storage met behulp van Azure Storage Explorer | Microsoft Docs
+description: In deze quickstart maakt u een opslagaccount en een container met behulp van Azure Storage Explorer. Vervolgens gebruikt u Storage Explorer om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5a91a39a340f20197e49a8045f0ee65c924469cb
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>Objecten overdragen naar/van Azure Blob-opslag met behulp van Azure Storage Explorer
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Quickstart: blobs uploaden, downloaden en vermelden met behulp van Azure Storage Explorer
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is een gebruikersinterface met meerdere platforms die wordt gebruikt om de inhoud van opslagaccounts te beheren. In deze handleiding wordt gedetailleerd uitgelegd hoe u Azure Storage Explorer kunt gebruiken om bestanden over te dragen tussen een lokale schijf en Azure Blob-opslag.
 

@@ -5,13 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
-ms.openlocfilehash: e7b925d2daed11ee4e070cda6bcbd4a3511d9c17
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.custom: MVC
+ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Virtuele Azure-machines migreren naar een andere regio
 
@@ -75,7 +76,7 @@ Controleer of de meest recente basiscertificaten aanwezig zijn op de virtuele Az
 Maak de kluis in elke gewenste regio, met uitzondering van de bronregio.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Klik op **Nieuw** > **Bewaking en beheer** > **Backup en Site Recovery**.
+2. Klik op **Een resource maken** > **Controle en beheer** > **Backup en Site Recovery**.
 3. Bij **Naam** geeft u de beschrijvende naam **ContosoVMVault** op. Als u meer dan één abonnement hebt, selecteert u het gewenste abonnement.
 4. Maak een resourcegroep met de naam **ContosoRG**.
 5. Geef een Azure-regio op. Zie Geografische beschikbaarheid in [Prijsinformatie voor Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) om na te gaan welke regio's er worden ondersteund.
@@ -123,7 +124,8 @@ In Site Recovery wordt een lijst opgehaald van de virtuele machines die zijn gek
 2. Bij **Failover** selecteert u **Meest recente**. De instelling voor de coderingssleutel is niet relevant in dit scenario.
 3. Selecteer **Sluit de computer af voordat de failover wordt gestart**. Site Recovery sluit de virtuele bronmachine af voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. U kunt de voortgang van de failover volgen op de pagina **Taken**.
 4. Controleer of de virtuele Azure-machine in Azure wordt weergegeven zoals verwacht.
-5. Klik in **Gerepliceerde items** met de rechtermuisknop op de virtuele machine > **Migratie voltooien**. Hiermee wordt het migratieproces voltooid en de replicatie voor de virtuele machine beëindigd.
+5. Klik in **Gerepliceerde items** met de rechtermuisknop op de virtuele machine > **Doorvoeren**. Het migratieproces wordt voltooid.
+6. Nadat het doorvoeren is voltooid, klikt u op **Replicatie uitschakelen**.  Hierdoor wordt de replicatie voor de virtuele machine beëindigd.
 
 
 

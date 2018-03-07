@@ -1,6 +1,6 @@
 ---
 title: Een Azure Service Fabric Windows-containertoepassing maken | Microsoft Docs
-description: Maak uw eerste Windows-containertoepassing in Azure Service Fabric.
+description: In deze snelstart maakt uw eerste Windows-containertoepassing in Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/25/18
+ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7a8d28ef842ba77355628c79c20fa7fd3c693380
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Een Service Fabric Windows-containertoepassing implementeren in Azure
+# <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Snelstart: een Service Fabric Windows-containertoepassing implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
 
 Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Windows-container uit te voeren in een Service Fabric-cluster. In deze snelstartgids ziet u hoe u een vooraf gebouwde Docker-containerinstallatiekopie in een Service Fabric-toepassing implementeert. Wanneer u klaar bent, hebt u een actieve Windows Server 2016 Nano Server en IIS-container. In deze snelstartgids wordt beschreven hoe u een Windows-container implementeert. Lees [deze snelstartgids](service-fabric-quickstart-containers-linux.md) als u een Linux-container wilt implementeren.
@@ -48,21 +48,25 @@ Start Visual Studio als 'Beheerder'.  Selecteer **Bestand** > **Nieuw** > **Proj
 
 Selecteer **Service Fabric-toepassing**, geef deze de naam MyFirstContainer en klik op **OK**.
 
-Selecteer **Container** in de lijst met **servicesjablonen**.
+Selecteer **Container** in de lijst met sjablonen voor **gehoste containers en toepassingen**.
 
 In **Naam van installatiekopie** voert u 'microsoft/iis:nanoserver' in, de [Windows Server Nano Server en IIS-basisinstallatiekopie](https://hub.docker.com/r/microsoft/iis/). 
 
 Geef uw service de naam 'MyContainerService' en klik op **OK**.
 
 ## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Communicatie en poort-naar-host poorttoewijzing van de container configureren
-De service heeft een eindpunt voor communicatie nodig.  U kunt nu het protocol en de poort toevoegen en typen naar een `Endpoint` in het bestand ServiceManifest.xml. Voor deze snelstartgids luistert de beperkte service naar poort 80: 
+De service heeft een eindpunt voor communicatie nodig.  Voor deze Quick Start luistert de containerservice naar poort 80.  Open *MyFirstContainer/ApplicationPackageRoot/MyContainerServicePkg/ServiceManifest.xml* in Solution Explorer.  Werk de bestaande `Endpoint` in het bestand ServiceManifest.xml bij en voeg het protocol, de poort en het URI-schema toe: 
 
 ```xml
-<Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+<Resources>
+    <Endpoints>
+        <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+   </Endpoints>
+</Resources>
 ```
 Door `UriScheme` op te geven wordt het eindpunt van de container automatisch geregistreerd bij de Service Fabric Naming-service voor meer zichtbaarheid. Een volledig voorbeeld van een ServiceManifest.xml-bestand vindt u aan het einde van dit artikel. 
 
-Configureer de poorttoewijzing poort-naar-host voor de container door een `PortBinding`-beleid op te geven in `ContainerHostPolicies` van het bestand ApplicationManifest.xml.  Voor deze snelstartgids is `ContainerPort` 80 en `EndpointRef` 'MyContainerServiceTypeEndpoint' (het eindpunt dat is gedefinieerd in het servicemanifest).  Binnenkomende aanvragen naar de service op poort 80 worden toegewezen aan poort 80 in de container.  
+Configureer de toewijzing van de containerpoort naar de hostpoort zó, dat binnenkomende aanvragen voor de service op poort 80 worden toegewezen aan poort 80 van de container.  Open *MyFirstContainer/ApplicationPackageRoot/ApplicationManifest.xml* in Solution Explorer en geef een `PortBinding`-beleid op in `ContainerHostPolicies`.  Voor deze snelstartgids is `ContainerPort` 80 en `EndpointRef` 'MyContainerServiceTypeEndpoint' (het eindpunt dat is gedefinieerd in het servicemanifest).    
 
 ```xml
 <ServiceManifestImport>
@@ -79,9 +83,7 @@ Configureer de poorttoewijzing poort-naar-host voor de container door een `PortB
 Een volledig voorbeeld van een ApplicationManifest.xml-bestand vindt u aan het einde van dit artikel.
 
 ## <a name="create-a-cluster"></a>Een cluster maken
-U kunt voor het implementeren van de toepassing naar een cluster in Azure een Party-cluster gebruiken of [uw eigen cluster maken in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
-
-Clusters van derden zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform. Het cluster gebruikt één zelfondertekend certificaat voor beveiliging van knooppunt-naar-knooppunt en client-naar-knooppunt. 
+U kunt voor het implementeren van de toepassing naar een cluster in Azure een Party-cluster gebruiken. Clusters van derden zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform. Het cluster gebruikt één zelfondertekend certificaat voor beveiliging van knooppunt-naar-knooppunt en client-naar-knooppunt. 
 
 Meld u aan en [neem deel aan een Windows-cluster](http://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Het certificaat en de waarde van het **verbindingseindpunt** worden in volgende stappen gebruikt.
 
@@ -108,7 +110,7 @@ Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio impleme
 
 Klik met de rechtermuisknop op **MyFirstContainer** in Solution Explorer en kies **Publiceren**. Het dialoogvenster Publiceren wordt weergegeven.
 
-Kopieer het **verbindingseindpunt** van het cluster van derden naar het veld **Verbindingseindpunt**. Bijvoorbeeld `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klik op **Advanced Connection Parameters** en vul de volgende gegevens in.  De waarden *FindValue* en *ServerCertThumbprint* moeten overeenkomen met de vingerafdruk van het certificaat dat in de vorige stap is geïnstalleerd. 
+Kopieer het **verbindingseindpunt** van het cluster van derden naar het veld **Verbindingseindpunt**. Bijvoorbeeld `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klik op **Geavanceerde verbindingsparameters** en controleer de informatie van de verbindingsparameters.  De waarden *FindValue* en *ServerCertThumbprint* moeten overeenkomen met de vingerafdruk van het certificaat dat in de vorige stap is geïnstalleerd. 
 
 ![Het dialoogvenster Publiceren](./media/service-fabric-quickstart-containers/publish-app.png)
 
@@ -187,7 +189,6 @@ Dit zijn de volledige manifesten voor de service en toepassing die worden gebrui
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
-
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 
