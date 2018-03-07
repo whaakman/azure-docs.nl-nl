@@ -235,21 +235,21 @@ U kunt de risiconiveaus gebruiker gebruiken voor het maken van beleid voor voorw
 
 ### <a name="closing-risk-events-manually"></a>Risico's handmatig sluiten
 
-In de meeste gevallen duurt herstelacties zoals een beveiligd wachtwoord opnieuw instellen op automatisch risico's te sluiten. Echter, dit mogelijk niet altijd mogelijk.  
+In de meeste gevallen neemt u herstelacties zoals het opnieuw instellen van een beveiligd wachtwoord om risicogebeurtenissen automatisch te sluiten. Dit is echter niet altijd mogelijk. 
 Dit is, bijvoorbeeld het geval wanneer:
 
 * Een gebruiker met actieve risicogebeurtenissen is verwijderd
-* Een onderzoek blijkt dat een risicogebeurtenis gemelde heeft zijn uitvoeren door de gebruiker legitieme
+* Uit onderzoek blijkt dat een risicogebeurtenis is uitgevoerd door een legitieme gebruiker
 
-Omdat de risico's die zijn **Active** bijdragen aan de gebruiker risico berekening, moet u mogelijk handmatig een risiconiveau verlagen door risicogebeurtenissen handmatig sluiten.  
-U kunt kiezen tijdens het onderzoek moet worden uitgevoerd op een van deze acties om de status van een gebeurtenis risico's te wijzigen:
+Omdat risicogebeurtenissen die **Actief** zijn, bijdragen aan de berekening van het gebruikersrisico, moet u een risiconiveau mogelijk handmatig verlagen door risicogebeurtenissen handmatig te sluiten. 
+Gedurende het onderzoek kunt u een van deze acties kiezen om de status van een risicogebeurtenis te wijzigen:
 
 ![Acties](./media/active-directory-identityprotection/34.png "acties")
 
-* **Los** - als na een risicogebeurtenis onderzoeken, u een juiste herstelactie buiten Identity Protection heeft ondernomen, en u van mening bent dat de gebeurtenis risico's nodig hebt gesloten, markeert u de gebeurtenis als opgelost. Gebeurtenissen stelt de status van de risicogebeurtenis op gesloten en de risicogebeurtenis wordt niet langer bijdragen aan de gebruiker risico's opgelost.
-* **Markeren als fout-positieve** -In sommige gevallen kan u een risicogebeurtenis onderzoeken en onjuist is gemarkeerd als een riskante te detecteren. Verkleint u het aantal dergelijke instanties door de risicogebeurtenis als fout-positieve markeren. Dit helpt de machine learning-algoritmen ter verbetering van de classificatie van soortgelijke gebeurtenissen in de toekomst. De status van de fout-positieve gebeurtenissen wordt **gesloten** en ze niet langer draagt bij tot het risico van de gebruiker.
-* **Negeren** : als u een herstelactie niet genomen, maar u wilt dat de risicogebeurtenis worden verwijderd uit de actieve lijst kunt u een risicogebeurtenis negeren markeren en de gebeurtenisstatus van de wordt gesloten. Genegeerd gebeurtenissen bijdragen niet tot het risico van de gebruiker. Deze optie dient alleen ongebruikelijke omstandigheden worden gebruikt.
-* **Opnieuw activeren** -gebeurtenissen die handmatig zijn gesloten risico (door te kiezen **los**, **fout-positief**, of **negeren**) kan opnieuw worden geactiveerd, instellen van de gebeurtenisstatus terug naar **Active**. Opnieuw geactiveerde risicogebeurtenissen bijdragen aan de gebruiker risico niveau berekening. Risico's gesloten via herstel (zoals een beveiligd wachtwoord opnieuw instellen) kunnen niet opnieuw worden geactiveerd.
+* **Oplossen** - als u na onderzoek van een risicogebeurtenis een juiste herstelactie buiten Identity Protection hebt ondernomen en van mening bent dat de risicogebeurtenis kan worden gesloten, markeert u de gebeurtenis als Opgelost. Een opgeloste risicogebeurtenis krijgt de status Gesloten. Bovendien draagt de risicogebeurtenis niet meer bij aan het gebruikersrisico.
+* **Markeren als fout-positief** -In sommige gevallen kan u uit onderzoek van een risicogebeurtenis blijken dat deze onjuist als riskant is gemarkeerd. U verkleint het aantal dergelijke instanties door de risicogebeurtenis als fout-positief te markeren. Dit helpt de machine learning-algoritmen te verbeteren om zo soortgelijke gebeurtenissen in de toekomst beter te kunnen classificeren. De status van de fout-positieve gebeurtenissen wordt **gesloten** en ze zullen niet langer bijdragen als risico voor de gebruiker.
+* **Negeren**: als u geen herstelactie heb uitgevoerd, maar wilt dat de risicogebeurtenis wordt verwijderd uit de actieve lijst, kunt u een risicogebeurtenis markeren als Negeren. De status van de gebeurtenis wordt dan Gesloten. Genegeerde gebeurtenissen dragen niet bij aan het gebruikersrisico. Deze optie dient alleen in ongebruikelijke omstandigheden te worden gebruikt.
+* **Opnieuw activeren** - gebeurtenissen die handmatig zijn gesloten (door bijvoorbeeld te kiezen voor **Oplossen**, **Vals positief** of **Negeren**), kunnen opnieuw worden geactiveerd. Dit kan door de status van de gebeurtenis terug te zetten naar **Actief**. Opnieuw geactiveerde risicogebeurtenissen dragen bij aan de berekening van het gebruikersrisiconiveau. Risico's die gesloten zijn via herstelacties (zoals het opnieuw instellen van een beveiligd wachtwoord), kunnen niet opnieuw worden geactiveerd.
 
 **Opent het dialoogvenster gerelateerde configuratie**:
 
