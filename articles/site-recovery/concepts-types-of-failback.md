@@ -2,25 +2,20 @@
 title: Failback in de Azure Site Recovery | Microsoft Docs
 description: Dit artikel bevat een overzicht van verschillende typen failback en waarschuwingen te worden beschouwd bij mislukte terug naar de on-premises met de Azure Site Recovery-service.
 services: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: guaravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 03/05/2018
 ms.author: rajanki
-ms.openlocfilehash: 07dc05c0bd89e69b6bfcff7577919494647efed0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 372a7867b47960338d7a1bf7e646fb9fffbe72e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-failback"></a>Overzicht van failback
+
 Nadat u hebt een failover uitvoeren naar Azure, kunt u terug naar uw on-premises site mislukt. Er zijn twee verschillende soorten failback die mogelijk met Azure Site Recovery zijn: 
 
 - Failback naar de oorspronkelijke locatie 
@@ -55,5 +50,5 @@ Als u de on-premises virtuele machine bestaat niet voor de virtuele machine opni
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Volg de stappen voor het uitvoeren van de [failback-bewerking](site-recovery-how-to-failback-azure-to-vmware.md).
+Volg de stappen voor het uitvoeren van de [failback-bewerking](vmware-azure-failback.md).
 

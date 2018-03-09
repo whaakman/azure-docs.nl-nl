@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 02/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6190f64633034bb5fc28a1caf7ffa6c09215ef1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3b22927017e445ee3b6cea3e92edc0fb786cd8c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Artikelen in de Azure AD-handleiding voor ontwikkelaars
 Hier volgt een lijst met alle onderwerpen in de Azure Active Directory-handleiding voor ontwikkelaars.
@@ -41,10 +41,11 @@ In deze artikelen worden specifieke concepten en functies van Azure Active Direc
 | [AppSource-certificering](active-directory-devhowto-appsource-certified.md)                                                     | Het publiceren van een toepassing op Microsoft AppSource |
 | [Azure AD-app-galerie](active-directory-app-gallery-listing.md)                                                                 |Het publiceren van een toepassing op de app-galerie van Azure AD|
 | [Office 365-verkopersdashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | Het publiceren van een toepassing op het verkoperdashboard O365 |
-| [Visual Studio verbonden Services](vs-active-directory-dotnet-getting-started.md)                                               | Het gebruik van Azure AD-integratie met MVC-projecten in Visual Studio |
+| [Visual Studio Connected Services](vs-active-directory-dotnet-getting-started.md)                                               | Het gebruik van Azure AD-integratie met MVC-projecten in Visual Studio |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Integratie met lokale Active Directory met AD FS |
+| [Best practices voor foutafhandeling voor ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Integratie met lokale Active Directory met AD FS |
 
-## <a name="reference"></a>Naslaginformatie
+## <a name="reference"></a>Referentie
 Deze artikelen bevatten een basis voor de REST en verificatiebibliotheken, protocollen, fouten, codevoorbeelden en eindpunten.
 
 |                                                                                     | |
@@ -54,6 +55,6 @@ Deze artikelen bevatten een basis voor de REST en verificatiebibliotheken, proto
 | [Woordenlijst](active-directory-dev-glossary.md)                                        | Termen en definities van woorden die in deze documenten worden gebruikt |
 | [Toepassingsobjecten](active-directory-application-objects.md)                      | Een uitleg van Azure AD-toepassingsmodel. |
 | [Het toepassingsmanifest](active-directory-application-manifest.md)                    | Een uitleg van de elementen die gezamenlijk een Azure AD-app-registratie |
-| [Levensduur van token](../active-directory-configurable-token-lifetimes.md)              | De standaardlevensduur van Azure AD-tokens en instructies voor aanpassingen |
+| [Token Lifetimes](../active-directory-configurable-token-lifetimes.md)              | De standaardlevensduur van Azure AD-tokens en instructies voor aanpassingen |
 | [Service limieten en beperkingen](../active-directory-service-limits-restrictions.md) | Beperkingen van Azure AD-entiteiten en objecten |
 | [Codevoorbeelden](active-directory-code-samples.md)                                    | Een lijst met alle Azure AD-codevoorbeelden |

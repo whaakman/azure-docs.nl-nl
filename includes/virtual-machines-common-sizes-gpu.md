@@ -5,14 +5,14 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/01/2018
+ms.date: 03/05/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 34b38ff02d401e87be10f1f72cb2025b66317c9e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8614fa7a52c91419c66782f7434692228e6b18d2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 GPU geoptimaliseerd VM grootten gespecialiseerde virtuele machines met één of meerdere NVIDIA GPU's beschikbaar zijn. Deze grootten zijn ontworpen voor rekenintensieve en grafisch-intensieve visualisatie werkbelastingen. In dit artikel bevat informatie over het aantal en type GPU's, Vcpu, gegevensschijven, en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering van. 
 
@@ -95,14 +95,16 @@ De ND-serie virtuele machines zijn een nieuwe aanvulling op de GPU-familie die z
 
 ## <a name="nv-series"></a>NV-serie
 
-De NV-reeks worden van stroom voorzien door [NVIDIA Tesla M60 ](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU's en NVIDIA RASTER technologie voor bureaublad versnelde toepassingen en virtuele bureaubladen waarop klanten kunnen hun gegevens of simulaties visualiseren. Gebruikers kunnen hun grafisch geheugenintensieve werkstromen op de exemplaren NV krijgen hogere grafische mogelijkheden en ook uitvoeren met enkele precisie werkbelastingen, zoals codering en -rendering visualiseren. 
+De NV-serie virtuele machines worden gemaakt, aangeboden via [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU's en NVIDIA RASTER technologie voor bureaublad versnelde toepassingen en virtuele bureaubladen waarop klanten kunnen hun gegevens of simulaties visualiseren. Gebruikers kunnen hun grafisch geheugenintensieve werkstromen op de exemplaren NV krijgen hogere grafische mogelijkheden en ook uitvoeren met enkele precisie werkbelastingen, zoals codering en -rendering visualiseren. 
 
-| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Max. aantal gegevensschijven | Max. aantal NIC's |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 |
-| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 |
-| Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 |
+Elke GPU in NV exemplaren wordt geleverd met een licentie RASTER. Deze licentie hebt u de flexibiliteit om te gebruiken een NV-exemplaar als een virtuele werkstation voor één gebruiker of 25 gelijktijdige gebruikers verbinding kunnen maken met de virtuele machine voor een virtuele toepassingsscenario.
+
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Max. aantal gegevensschijven | Max. aantal NIC's | Virtuele werkstations | Virtuele toepassingen | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 | 1 | 25 |
+| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
+| Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
 
 1 GPU = halve M60-kaart.
 
-
+ 

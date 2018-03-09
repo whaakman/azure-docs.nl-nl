@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: da4f72e61607dcad7314a2fe65324da4635752c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database-gegevens voor het opsporen en classificatie
 Detectie van de gegevens & classificatie (momenteel in preview) biedt geavanceerde mogelijkheden die zijn ingebouwd in Azure SQL Database voor **detecteren**, **classificeren**, **labels**  &  **beveiligen** de gevoelige gegevens in uw databases.
@@ -95,12 +95,12 @@ De classificatie bevat twee metagegevenskenmerken:
 
 Een belangrijk aspect van het information protection paradigma is de mogelijkheid voor het bewaken van toegang tot gevoelige gegevens.
 
-[Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) is uitgebreid met een nieuw veld in het controlelogboek aangeroepen *data_sensitivity_information*, die de classificaties gevoeligheid (labels) van de werkelijke hoeveelheid gegevens die is geretourneerd door Logboeken de query.
+[Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) is uitgebreid met een nieuw veld in het controlelogboek aangeroepen *data_sensitivity_information*, die de classificaties gevoeligheid (labels) van de werkelijke hoeveelheid gegevens die is geretourneerd door Logboeken de query.
 
 ![Navigatiedeelvenster][11]
 
 ## <a id="subheading-4"></a>Volgende stappen
-Houd rekening met het configureren van [Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) voor bewaking en controle van toegang tot uw geclassificeerde gevoelige gegevens.
+Houd rekening met het configureren van [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) voor bewaking en controle van toegang tot uw geclassificeerde gevoelige gegevens.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

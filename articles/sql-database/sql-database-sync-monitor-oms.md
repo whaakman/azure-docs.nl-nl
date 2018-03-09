@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 8683b3aec569f210529c1188cbbf514f7956b340
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: be1423026af633ab024980dc6b12b0977639ba3a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Controleprogramma SQL synchroniseren van gegevens (Preview) met OMS Log Analytics 
 
@@ -92,7 +92,7 @@ Zie voor meer informatie over het maken van een runbook [Mijn eerste PowerShell-
 
     2.  Informatie van de groep voor synchronisatie.
 
-    3.  OMS-informatie. Deze informatie vinden op OMS-Portal | Instellingen | Verbonden bronnen. Zie voor meer informatie over het verzenden van gegevens met logboekanalyse [gegevens verzenden naar logboekanalyse met de HTTP-API van Data Collector (openbare preview)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  OMS-informatie. Deze informatie vinden op OMS-Portal | Instellingen | Verbonden bronnen. Zie voor meer informatie over het verzenden van gegevens met logboekanalyse [gegevens verzenden naar logboekanalyse met de HTTP-API van Data Collector (preview)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Het runbook worden uitgevoerd in het testvenster. Controleer of dat deze is geslaagd.
 

@@ -2,23 +2,17 @@
 title: Failover in Site Recovery | Microsoft Docs
 description: "Azure Site Recovery coördineert de replicatie, failovers en herstel van virtuele machines en fysieke servers. Meer informatie over failover naar Azure of een secundair datacenter."
 services: site-recovery
-documentationcenter: 
-author: prateek9us
-manager: gauravd
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
+ms.date: 03/05/2018
 ms.author: pratshar
-ms.openlocfilehash: afdab6e5ee5ae3bb8bc553afd93ff8f1ee18147f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9b662099a75bf2eaebda388a6e675e70cf0b9cdc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="failover-in-site-recovery"></a>Failover in Site Recovery
 Dit artikel wordt beschreven hoe met failover-virtuele machines en fysieke servers beveiligd door Site Recovery.
@@ -65,9 +59,9 @@ Deze procedure wordt beschreven hoe u een failover voor een [herstelplan](site-r
     >
     >
 
-1. U kunt de voortgang van de failover volgen op de **taken** pagina. Zelfs als er fouten optreden tijdens een niet-geplande failover het herstelplan wordt uitgevoerd totdat deze voltooid is.
+1. U kunt de voortgang van de failover volgen op de pagina **Taken**. Zelfs als er fouten optreden tijdens een niet-geplande failover het herstelplan wordt uitgevoerd totdat deze voltooid is.
 1. Valideer de virtuele machine door logboekregistratie in voor deze na de failover. Als u wilt overschakelen naar een ander herstelpunt van de virtuele machine, dan kunt u **herstelpunt wijzigen** optie.
-1. Wanneer u tevreden met de mislukte bent via de virtuele machine, kunt u **doorvoeren** de failover. **Commit verwijdert alle herstelpunten die beschikbaar zijn met de service** en **herstelpunt wijzigen** optie is niet meer beschikbaar.
+1. Wanneer u tevreden bent met de virtuele machine waarvoor u de failover hebt uitgevoerd, kunt u de failover **Doorvoeren**. **Commit verwijdert alle herstelpunten die beschikbaar zijn met de service** en **herstelpunt wijzigen** optie is niet meer beschikbaar.
 
 ## <a name="planned-failover"></a>Geplande failover
 Virtuele machines of fysieke servers die zijn beveiligd met Site Recovery ook ondersteuning **geplande failover**. Geplande failover is een nul gegevens verloren gaan failover-optie. Wanneer een geplande failover wordt geactiveerd, eerst de bron virtuele machines afsluiten zijn de meest recente gegevens worden gesynchroniseerd en vervolgens een failover wordt geactiveerd.
@@ -126,8 +120,8 @@ Als u wilt behouden de stationsletter op virtuele machines na een failover, kunt
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!WARNING]
-> Als u failover uitgevoerd voor virtuele machines en de on-premises Datacenter beschikbaar is, moet u [ **beveiligt** ](site-recovery-how-to-reprotect.md) virtuele VMware-machines terug naar de on-premises Datacenter.
+> Als u failover uitgevoerd voor virtuele machines en de on-premises Datacenter beschikbaar is, moet u [ **beveiligt** ](vmware-azure-reprotect.md) virtuele VMware-machines terug naar de on-premises Datacenter.
 
-Gebruik [ **geplande failover** ](site-recovery-failback-from-azure-to-hyper-v.md) optie naar **Failback** Hyper-v virtuele machines naar on-premises van Azure.
+Gebruik [ **geplande failover** ](hyper-v-azure-failback.md) optie naar **Failback** Hyper-v virtuele machines naar on-premises van Azure.
 
 Als is mislukt via een Hyper-v virtuele machine naar een andere on-premises datacentrum worden beheerd door een VMM-server en het primaire Datacenter beschikbaar is, gebruikt u vervolgens **omgekeerde repliceren** optie voor het starten van de replicatie terug naar de primaire gegevens Center.

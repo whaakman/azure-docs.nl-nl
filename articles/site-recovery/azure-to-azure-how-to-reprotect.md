@@ -6,30 +6,30 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: d24376c57c468a562fc6d6dd52b4e9b01b53c3da
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Azure Virtual machines beveiligt failover naar de primaire regio
 
 
 >[!NOTE]
 >
-> Replicatie van site Recovery voor Azure VM's is momenteel in preview.
+> Replicatie van Site Recovery voor virtuele Azure-machines is momenteel in preview.
 
 
 
 Wanneer u [failover](site-recovery-failover.md) Azure virtuele machines van één regio is voor het gebruik van een andere [Azure Site Recovery](site-recovery-overview.md), de virtuele machines opstart in de secundaire regio, in een onbeveiligde toestand. Als de virtuele machines mislukken terug naar de primaire regio, moet u het volgende doen:
 
-- Beveilig de virtuele machines in de secundaire regio opnieuw zodat deze beginnen te repliceren naar de primaire regio. 
+- Beveilig de virtuele machines in de secundaire regio opnieuw zodat deze worden gerepliceerd naar de primaire regio beginnen. 
 - Nadat de beveiligingspoging is voltooid en repliceren van de virtuele machines, kunt u ze failover van de secundaire naar primaire regio.
 
 > [!WARNING]
-> Als u hebt [gemigreerd](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration) machines van de primaire naar de secundaire regio verplaatst van de virtuele machine naar een andere resourcegroep of is verwijderd van de Azure VM, u kan niet opnieuw beveiligen van de virtuele machine of failback uit.
+> Als u hebt [gemigreerd](migrate-overview.md#what-do-we-mean-by-migration) machines van de primaire naar de secundaire regio verplaatst van de virtuele machine naar een andere resourcegroep of is verwijderd van de Azure VM, u kan niet opnieuw beveiligen van de virtuele machine of failback uit.
 
 
 ## <a name="prerequisites"></a>Vereisten

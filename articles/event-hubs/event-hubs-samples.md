@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 03/05/2018
 ms.author: sethm
-ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a581b7039a3631b7f1dc35816175242f892bd7dd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-hubs-samples"></a>Voorbeelden van Event Hubs 
 
@@ -61,10 +61,6 @@ De [Event Hubs aan de slag](https://code.msdn.microsoft.com/Service-Bus-Event-Hu
 
 De [Scale-out gebeurtenisverwerking](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) voorbeeld laat zien hoe u de [Event Processor Host](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) voor het distribueren van de werkbelasting van Event Hubs stroom verbruik. Er wordt weergegeven hoe voor het implementeren van de **EventProcessor** en **EventProcessorFactory** objecten voor het beheren van de gebeurtenisstroom. 
 
-### <a name="pull-web-data-into-an-event-hub"></a>Pull-web-gegevens in een event hub 
-
-De [gegevens importeren uit het web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) voorbeeld laat zien hoe u gegevens ophalen uit de openbare feeds (zoals het vervoer afdeling verkeer informatie feed) en dit doorgeven aan een event hub.
-
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over de versies van .NET Framework via de volgende koppelingen:
@@ -75,5 +71,5 @@ Meer informatie over de versies van .NET Framework via de volgende koppelingen:
 U kunt meer informatie over Event Hubs in de volgende artikelen:
 
 - [Event Hubs-overzicht](event-hubs-what-is-event-hubs.md)
-- [Een Event Hub maken](event-hubs-create.md)
+- [Functies van Event Hubs](event-hubs-features.md)
 - [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)

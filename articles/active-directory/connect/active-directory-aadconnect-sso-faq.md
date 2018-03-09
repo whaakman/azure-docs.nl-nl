@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 15155ecaf17ae309a218bb1f51a4757e5338f64c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen
 
@@ -38,7 +38,16 @@ Nee. Naadloze eenmalige aanmelding is alleen beschikbaar in het wereldwijde exem
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Welke toepassingen profiteren van `domain_hint` of `login_hint` parameter mogelijkheid van naadloze eenmalige aanmelding?
 
-We zijn bezig het compileren van de lijst met toepassingen die deze parameters en de waarden die niet verzenden. Als u toepassingen die u geïnteresseerd bent in hebt, laat ons weten in het gedeelte met opmerkingen.
+Hieronder vindt u een niet-uitputtende lijst met toepassingen die deze parameters verzenden naar Azure AD en daarom biedt gebruikers een ervaring voor stille aanmelding met naadloze eenmalige aanmelding:
+
+| De naam van de toepassing | URL van de toepassing moet worden gebruikt |
+| -- | -- |
+| Toegangsvenster | myapps.microsoft.com/contoso.com |
+| Outlook op Web | outlook.office365.com/contoso.com |
+
+De domeinnaam van uw om te gaan naar de juiste URL's voor uw tenant vervangen 'contoso.com' in de bovenstaande tabel.
+
+Als u andere toepassingen die u geïnteresseerd bent in hebt, laat ons weten in het gedeelte met opmerkingen.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Biedt ondersteuning voor naadloze eenmalige aanmelding `Alternate ID` als de gebruikersnaam in plaats van `userPrincipalName`?
 

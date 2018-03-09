@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: 889f65a796aee20d7902964b8c47af46dd9149cb
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sql-database-threat-detection"></a>Detectie van dreigingen van SQL Database
 
@@ -30,7 +30,7 @@ Detectie van dreigingen SQL biedt een nieuwe laag van beveiliging, waarmee klant
 
 SQL-injectie is bijvoorbeeld een van de algemene Web application beveiligingsproblemen op het Internet worden gebruikt voor aanvallen op gegevensgestuurde toepassingen. Aanvallers te profiteren van de toepassing zwakke plekken in het injecteren schadelijke SQL-instructies in de toepassing invoervelden, schendingen veroorzaken of wijzigen van gegevens in de database.
 
-Detectie van dreigingen SQL integreert waarschuwingen met [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/), en elke beveiligde SQL Database-server wordt gefactureerd op dezelfde prijs als Azure Security Center Standard-laag op $15/knooppunt/maand, waar elke SQL-Database hebt beveiligd Server worden geteld als één knooppunt.  
+Detectie van dreigingen SQL integreert waarschuwingen met [Azure Security Center](https://azure.microsoft.com/services/security-center/), en elke beveiligde SQL Database-server wordt gefactureerd op dezelfde prijs als Azure Security Center Standard-laag op $15/knooppunt/maand, waar elke SQL-Database hebt beveiligd Server worden geteld als één knooppunt.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Detectie van dreigingen voor uw database in de Azure portal instellen
 1. Starten van de Azure portal op [https://portal.azure.com](https://portal.azure.com).
@@ -54,13 +54,13 @@ Zie voor een scriptvoorbeeld van een, [configureren van controle en detectie van
    Het e-mailbericht bevat informatie over de verdachte-gebeurtenis met inbegrip van de aard van de afwijkende activiteiten, databasenaam, servernaam, toepassingsnaam en de tijd van de gebeurtenis. Bovendien wordt het e-mailbericht bevat informatie over mogelijke oorzaken en aanbevolen acties te onderzoeken en potentiële risico dat naar de database.<br/>
      
     ![Navigatiedeelvenster][4]
-2. De e-mailmelding bevat een directe koppeling naar het SQL-logboek. Op deze koppeling te klikken, start de Azure-portal en Hiermee opent u de SQL-controlerecords rond de tijd van de verdachte activiteit. Klik op een controlerecord meer details weergeven over de verdachte databaseactiviteiten, waardoor het gemakkelijker vinden van de SQL-instructies die zijn uitgevoerd (die toegankelijk zijn, wat ze hebben gedaan en wanneer) en bepalen of de gebeurtenis legitieme of schadelijke is (bijvoorbeeld een toepassing kwetsbaarheid voor SQL-injectie misbruik wordt gemaakt, iemand geschonden gevoelige gegevens, enzovoort).<br/>
+2. De e-mailmelding bevat een directe koppeling naar het SQL-logboek. Op deze koppeling te klikken, start de Azure-portal en Hiermee opent u de SQL-controlerecords rond de tijd van de verdachte activiteit. Klik op een controlerecord voor meer informatie over de verdachte databaseactiviteiten, waardoor het gemakkelijker vinden van de SQL-instructies die zijn uitgevoerd (die toegankelijk zijn, wat ze hebben gedaan en wanneer) en bepalen of de gebeurtenis legitieme of schadelijke is (bijvoorbeeld een toepassing kwetsbaarheid voor SQL-injectie misbruik wordt gemaakt, iemand geschonden gevoelige gegevens, enzovoort).<br/>
    ![Navigatiedeelvenster][5]
 
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Verken dagelijks geconstateerde waarschuwingen voor uw database in de Azure portal
 
-Detectie van SQL Database dreigingen integreert de waarschuwingen met [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/). Een live SQL security-tegel in de database page in de Azure portal houdt de status van actieve bedreigingen. 
+Detectie van SQL Database dreigingen integreert de waarschuwingen met [Azure Security Center](https://azure.microsoft.com/services/security-center/). Een live SQL security-tegel in de database page in de Azure portal houdt de status van actieve bedreigingen. 
 
    ![Navigatiedeelvenster][6]
    
@@ -75,10 +75,10 @@ Detectie van SQL Database dreigingen integreert de waarschuwingen met [Azure Sec
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over detectie van dreigingen, gaat u naar de [Azure-blog](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* Meer informatie over detectie van dreigingen, gaat u naar de [Azure-blog](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Meer informatie over [Azure SQL Database Auditing](sql-database-auditing.md)
 * Meer informatie over [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Zie voor meer informatie over prijzen de [pagina met prijzen van SQL-Database](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
+* Zie voor meer informatie over prijzen de [pagina met prijzen van SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/)  
 * Zie voor een voorbeeld van de PowerShell-script, [controle en detectie van bedreigingen met behulp van PowerShell configureren](scripts/sql-database-auditing-and-threat-detection-powershell.md)
 
 

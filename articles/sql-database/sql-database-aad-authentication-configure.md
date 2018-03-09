@@ -1,25 +1,21 @@
 ---
 title: Azure Active Directory - SQL-verificatie configureren | Microsoft Docs
-description: Informatie over het verbinding maken met SQL-Database en SQL Data Warehouse met behulp van Azure Active Directory-verificatie - na het configureren van Azure AD.
+description: Informatie over het verbinding maken met SQL-Database, exemplaar beheerd en SQL Data Warehouse met behulp van Azure Active Directory-verificatie - na het configureren van Azure AD.
 services: sql-database
 author: GithubMirek
 manager: johammer
-ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: Active
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 93fb39770a0b0c63011c05505be411c7470fea0a
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 00b5be9863e2bff9e5b82845f99d6829e1bcdf13
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse
+# <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configureren en beheren van Azure Active Directory-verificatie met SQL-Database, exemplaar beheerd of SQL Data Warehouse
 
 In dit artikel leest u hoe maken en Azure AD te vullen en vervolgens Azure AD te gebruiken met Azure SQL Database en SQL Data Warehouse. Zie voor een overzicht [Azure Active Directory-verificatie](sql-database-aad-authentication.md).
 
@@ -47,22 +43,74 @@ Als u Azure Active Directory met geo-replicatie, moet de Azure Active Directory-
 > Gebruikers die niet zijn gebaseerd op een Azure AD-account (inclusief het administrator-account van de Azure SQL-server), kan Azure AD-gebruikers, maken, omdat ze geen machtiging voor het valideren van de voorgestelde databasegebruikers met Azure AD.
 > 
 
-## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-server"></a>Een Azure Active Directory-beheerder voor uw Azure SQL-server inrichten
+## <a name="provision-an-azure-active-directory-administrator-for-your-managed-instance"></a>Een Azure Active Directory-beheerder voor uw beheerde exemplaar inrichten
+
+> [!IMPORTANT]
+> Volg deze stappen alleen als u een exemplaar beheerd inricht. Deze bewerking kan alleen worden uitgevoerd door Global/Company administrator in Azure AD. Volgende stappen beschrijven het proces voor het verlenen van machtigingen voor gebruikers met verschillende bevoegdheden in de directory.
+
+Uw beheerde exemplaar moet leesmachtigingen voor Azure AD om met succes taken zoals verificatie van gebruikers via het lidmaatschap van beveiligingsgroep of maken van nieuwe gebruikers. Dit werkt, moet u machtigingen verlenen voor beheerde exemplaar voor het lezen van Azure AD. Er zijn twee manieren doen: vanuit de Portal en PowerShell. De volgende stappen voor beide methoden.
+
+1. Klik op de verbinding met een vervolgkeuzelijst met mogelijke Active Directory's in de rechterbovenhoek van de Azure Portal. 
+2. Kies de juiste Active Directory als de standaard Azure AD. 
+
+   Deze stap koppelt u het abonnement is gekoppeld aan Active Directory met beheerde-exemplaar om ervoor te zorgen dat hetzelfde abonnement wordt gebruikt voor zowel Azure AD en het exemplaar worden beheerd.
+3. Navigeer naar beheerde exemplaar en selecteer een die u wilt gebruiken voor Azure AD-integratie.
+
+   ![AAD](./media/sql-database-aad-authentication/aad.png)
+
+4.  Klik op de banner boven op de pagina Active Directory-beheerder. Als u bent aangemeld als Global/Company administrator in Azure AD, kunt u dit doen vanuit Azure portal of met behulp van PowerShell.
+
+    ![verleent machtigingen-portal](./media/sql-database-aad-authentication/grant-permissions.png)
+
+    ![verleent machtigingen powershell](./media/sql-database-aad-authentication/grant-permissions-powershell.png)
+    
+    Als u bent aangemeld als Global/Company administrator in Azure AD, kunt u dit doen via de Azure-portal of een PowerShell-script uitvoeren.
+
+5. Nadat de bewerking is voltooid, worden volgende melding in de rechterbovenhoek weergegeven:
+
+    ![voltooid](./media/sql-database-aad-authentication/success.png)
+
+6.  U kunt nu uw Azure AD-beheerder voor uw exemplaar beheerd. Die, op de beheerpagina van Active Directory, klikt u op **beheerder instellen** opdracht.
+
+    ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
+
+7. Selecteer de gebruiker of groep moet een beheerder in de pagina van de beheerder toevoegen, zoekt u naar een gebruiker en klik vervolgens op **Selecteer**. 
+
+   De pagina Active Directory-beheerder ziet u alle leden en groepen van Active Directory. Gebruikers of groepen die grijs worden weergegeven, kunnen niet worden geselecteerd omdat ze worden niet ondersteund als Azure AD-beheerders. Zie de lijst met ondersteunde beheerders in [Azure AD-functies en beperkingen](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Op rollen gebaseerde toegangsbeheer (RBAC) geldt alleen voor de Azure-portal en niet wordt doorgegeven naar SQL Server.
+
+    ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
+
+8. Klik boven aan de pagina Active Directory-beheerder op **opslaan**.
+
+    ![opslaan](./media/sql-database-aad-authentication/save.png)
+
+    Het proces van het wijzigen van de beheerder kan enkele minuten duren. De nieuwe beheerder verschijnt in het vak van Active Directory-beheerder.
+
+> [!IMPORTANT]
+> Bij het instellen van de Azure AD-beheerder, kan niet de nieuwe admin-naam (gebruiker of groep) al aanwezig zijn in de virtuele-hoofddatabase als de gebruiker van een SQL Server-verificatie. Indien aanwezig, mislukt de installatie van de Azure AD-beheerder en terugdraaien gemaakt, die aangeeft dat deze een beheerder (naam) al bestaat. Omdat deze een SQL Server authentication-gebruiker geen deel uit van de Azure AD maakt, worden alle inspanningen verbinding maken met de server met Azure AD-verificatie mislukt.
+
+> [!TIP]
+> U later verwijdert een beheerder, aan de bovenkant van de pagina Active Directory-beheerder op **admin verwijderen**, en klik vervolgens op **opslaan**.
+ 
+## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>Een Azure Active Directory-beheerder voor uw Azure SQL Database-server inrichten
+
+> [!IMPORTANT]
+> Volg deze stappen alleen als u bij het inrichten van een Azure SQL Database-server of het datawarehouse.
 
 De volgende twee procedures laten zien hoe een Azure Active Directory-beheerder voor uw Azure SQL-server in de Azure-portal en met behulp van PowerShell inrichten.
 
 ### <a name="azure-portal"></a>Azure Portal
 1. In de [Azure-portal](https://portal.azure.com/), klik op de verbinding met een vervolgkeuzelijst met mogelijke Active Directory's in de rechterbovenhoek. Kies de juiste Active Directory als de standaard Azure AD. Deze stap koppelt u de koppeling van het abonnement met Active Directory met Azure SQL-server om ervoor te zorgen dat hetzelfde abonnement wordt gebruikt voor zowel Azure AD en SQL Server. (De Azure SQL-server kan worden gehost, Azure SQL Database of Azure SQL Data Warehouse.)   
-    ![Kies ad][8]   
+    ![choose-ad][8]   
     
-2. Selecteer in het linkerdeelvenster banner **SQL-servers**, selecteer uw **SQL server**, en klik vervolgens in de **SQL Server** blade, klikt u op **Active Directory-beheerder** .   
-3. In de **Active Directory-beheerder** blade, klikt u op **beheerder instellen**.   
+2. Selecteer in het linkerdeelvenster banner **SQL-servers**, selecteer uw **SQL server**, en klik vervolgens in de **SQL Server** pagina, klikt u op **Active Directory-beheerder**.   
+3. In de **Active Directory-beheerder** pagina, klikt u op **beheerder instellen**.   
     ![Selecteer active directory](./media/sql-database-aad-authentication/select-active-directory.png)  
     
-4. In de **admin toevoegen** blade, zoekt u naar een gebruiker selecteert de gebruiker of groep een beheerder en klik vervolgens op **Selecteer**. (De Active Directory-beheerder blade ziet u alle leden en groepen van Active Directory. Gebruikers of groepen die grijs worden weergegeven, kunnen niet worden geselecteerd omdat ze worden niet ondersteund als Azure AD-beheerders. (Zie de lijst met ondersteunde beheerders in de **Azure AD-functies en beperkingen** sectie van [Azure Active Directory-verificatie gebruiken voor verificatie bij SQL-Database of SQL Data Warehouse](sql-database-aad-authentication.md).) Op rollen gebaseerde toegangsbeheer (RBAC) geldt alleen voor de portal en niet wordt doorgegeven naar SQL Server.   
+4. In de **admin toevoegen** pagina, zoeken naar een gebruiker, selecteert u de gebruiker of groep als beheerder en klik vervolgens op **Selecteer**. (De pagina Active Directory-beheerder ziet u alle leden en groepen van Active Directory. Gebruikers of groepen die grijs worden weergegeven, kunnen niet worden geselecteerd omdat ze worden niet ondersteund als Azure AD-beheerders. (Zie de lijst met ondersteunde beheerders in de **Azure AD-functies en beperkingen** sectie van [Azure Active Directory-verificatie gebruiken voor verificatie bij SQL-Database of SQL Data Warehouse](sql-database-aad-authentication.md).) Op rollen gebaseerde toegangsbeheer (RBAC) geldt alleen voor de portal en niet wordt doorgegeven naar SQL Server.   
     ![Selecteer beheerder](./media/sql-database-aad-authentication/select-admin.png)  
     
-5. Aan de bovenkant van de **Active Directory-beheerder** blade, klikt u op **opslaan**.   
+5. Aan de bovenkant van de **Active Directory-beheerder** pagina, klikt u op **opslaan**.   
     ![beheerder opslaan](./media/sql-database-aad-authentication/save-admin.png)   
 
 Het proces van het wijzigen van de beheerder kan enkele minuten duren. En vervolgens de nieuwe beheerder wordt weergegeven in de **Active Directory-beheerder** vak.
@@ -72,7 +120,7 @@ Het proces van het wijzigen van de beheerder kan enkele minuten duren. En vervol
    > 
 
 
-Later verwijderen van een beheerder, aan de bovenkant van de **Active Directory-beheerder** blade, klikt u op **admin verwijderen**, en klik vervolgens op **opslaan**.
+Later verwijderen van een beheerder, aan de bovenkant van de **Active Directory-beheerder** pagina, klikt u op **admin verwijderen**, en klik vervolgens op **opslaan**.
 
 ### <a name="powershell"></a>PowerShell
 Voor het uitvoeren van PowerShell-cmdlets, moet u Azure PowerShell is geïnstalleerd en actief zijn. Zie voor gedetailleerde informatie [Installeren en configureren van Azure PowerShell](/powershell/azure/overview).
@@ -80,14 +128,14 @@ Voor het uitvoeren van PowerShell-cmdlets, moet u Azure PowerShell is geïnstall
 Voer de volgende Azure PowerShell-opdrachten voor het inrichten van een Azure AD-beheerder:
 
 * Add-AzureRmAccount
-* SELECT-AzureRmSubscription
+* Select-AzureRmSubscription
 
 Cmdlets gebruikt voor het inrichten en beheren van Azure AD-beheerder:
 
 | Naam van cmdlet | Beschrijving |
 | --- | --- |
 | [Set-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Voorziet in een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. (Moet van het huidige abonnement.) |
-| [Verwijder AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Hiermee verwijdert u een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. |
+| [Remove-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Hiermee verwijdert u een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. |
 | [Get-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator) |Retourneert informatie over een Azure Active Directory-beheerder die momenteel zijn geconfigureerd voor de Azure SQL-server of Azure SQL Data Warehouse. |
 
 Gebruik PowerShell-opdracht get-help voor meer informatie voor elk van deze opdrachten, bijvoorbeeld ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.

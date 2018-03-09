@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/13/2017
+ms.date: 03/06/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a0131fdbbf926d59eae06089cde109649a1433b8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementeren van Azure Machine Learning als een module van de rand van de IoT - voorbeeld
 
@@ -27,14 +27,13 @@ In deze zelfstudie leert u het volgende:
 > * Een Azure Machine Learning module implementeren voor uw IoT-randapparaat
 > * Gegevens weergeven die zijn gegenereerd
 
-De Azure Machine Learning-module die u in deze zelfstudie maakt leest de temperatuur-gegevens die worden gegenereerd door het apparaat en upstream-berichten worden alleen naar Azure IoT Hub verzendt wanneer er een fout (een afwijkingsdetectie genoemd) worden voorspeld. 
-
+De Azure Machine Learning-module die u in deze zelfstudie maakt het milieu gegevens die zijn gegenereerd door uw apparaat leest en labels van de berichten als afwijkend of niet. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Azure IoT apparaat aan de rand die u hebt gemaakt in de Quick Start of de eerste zelfstudie.
 * De verbindingsreeks voor de IoT Hub voor uw IoT-Edge-apparaat verbinding met maakt IoT-hub.
-* Een Azure Machine Learning-account. Volg de instructies in voor het maken van een account [maken Azure Machine Learning-accounts en installeer Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts). U hoeft niet te installeren van de workbench-toepassing voor deze zelfstudie. 
+* Een Azure Machine Learning-account. Volg de instructies in voor het maken van een account [maken Azure Machine Learning-accounts en installeer Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts). U hoeft niet te installeren van de workbench-toepassing voor deze zelfstudie. 
 * Beheer van de module voor Azure ML op uw computer. Volg de instructies in voor het instellen van uw omgeving en maak een account, [Model beheerinstellingen](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
 
 ## <a name="create-the-azure-ml-container"></a>De Azure ML-container maken
@@ -75,11 +74,11 @@ Windows:
    iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password> 
    ```
 
-## <a name="run-the-solution"></a>Uitvoeren van de oplossing
+## <a name="run-the-solution"></a>De oplossing uitvoeren
 
 1. Op de [Azure-portal](https://portal.azure.com), gaat u naar uw IoT-hub.
-1. Ga naar **IoT rand (preview)** en selecteer het apparaat IoT rand.
-1. Selecteer **modules ingesteld**.
+1. Ga naar **IoT Edge (Preview)** en selecteer uw IoT Edge-apparaat.
+1. Selecteer **Modules instellen**.
 1. Als u hebt de tempSensor-module eerder hebt geïmplementeerd naar uw IoT-Edge-apparaat, kunnen er automatisch invullen. Als deze nog niet in uw lijst met modules, toevoegen.
     1. Selecteer **IoT rand Module toevoegen**.
     2. In de **naam** veld `tempSensor`.
@@ -87,10 +86,10 @@ Windows:
     4. Selecteer **Opslaan**.
 1. Toevoegen van de machine learning-module die u hebt gemaakt.
     1. Selecteer **IoT rand Module toevoegen**.
-    1. In de **naam** veld`machinelearningmodule`
+    1. In de **naam** veld `machinelearningmodule`
     1. In de **installatiekopie** en voer het adres klopt; bijvoorbeeld `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. Selecteer **Opslaan**.
-1. Terug in de **Modules toevoegen** stap, selecteer **volgende**.
+1. Terug in de stap **Modules toevoegen** selecteert u **Volgende**.
 1. In de **Routes opgeven** stap, kopieert u de JSON onder in het tekstvak. De eerste route transporten berichten van de temperatuursensor aan de machine learning-module via het eindpunt 'amlInput', is het eindpunt dat alle Azure Machine Learning-modules gebruiken. De tweede route transporten berichten van de machine learning module IoT-hub. In deze route '' amlOutput'' is het eindpunt dat alle Azure Machine Learning-modules met gegevens en '' stroomopwaarts$ '' geeft IoT Hub. 
 
     ```json
@@ -102,13 +101,13 @@ Windows:
     }
     ``` 
 
-1. Selecteer **volgende**. 
-1. In de **Template bekijken** stap, selecteer **indienen**. 
-1. Terug naar de detailpagina voor het apparaat en selecteer **vernieuwen**.  U ziet nu de nieuwe **machinelearningmodule** uitgevoerd samen met de **tempSensor** module en de rand van de IoT-runtime-modules.
+1. Selecteer **Volgende**. 
+1. Selecteer in de stap **Sjabloon controleren** de optie **Indienen**. 
+1. Ga terug naar de detailpagina van het apparaat en selecteer **Vernieuwen**.  U ziet nu de nieuwe **machinelearningmodule** uitgevoerd samen met de **tempSensor** module en de rand van de IoT-runtime-modules.
 
 ## <a name="view-generated-data"></a>Gegevens weergeven die zijn gegenereerd
 
-U kunt de apparaat-naar-cloud-berichten die uw IoT-randapparaat verzendt met behulp van de extensie Azure IoT Toolkit voor Visual Studio Code weergeven. 
+U vindt de apparaat-naar-cloud-berichten die uw IoT-randapparaat worden verzonden via de [IoT Hub explorer](https://github.com/azure/iothub-explorer) of de extensie Azure IoT Toolkit voor Visual Studio Code. 
 
 1. Selecteer in Visual Studio Code **IoT Hub-apparaten**. 
 2. Selecteer **...**  Selecteer **verbindingsreeks van de IoT-Hub ingesteld** in het menu. 
@@ -117,7 +116,7 @@ U kunt de apparaat-naar-cloud-berichten die uw IoT-randapparaat verzendt met beh
 
 3. Voer in het tekstvak dat wordt geopend aan de bovenkant van de pagina de verbindingsreeks iothubowner voor uw IoT Hub. Uw IoT-randapparaat moet worden weergegeven in de lijst met IoT Hub-apparaten.
 4. Selecteer **...**  opnieuw selecteert **D2C bericht bewaking starten**.
-5. De berichten afkomstig zijn van tempSensor elke vijf seconden, welke machinelearningmodule worden toegevoegd met de beoordeling van de apparaatstatus bekijken. 
+5. De berichten afkomstig zijn van tempSensor elke vijf seconden bekijken. De berichttekst bevat een eigenschap genaamd **afwijkingsdetectie** waarmee de machinelearningmodule met de waarde true of false. De **AzureMLResponse** eigenschap bevat de waarde 'OK' als het model is uitgevoerd. 
 
    ![Azure ML-respons in de hoofdtekst van bericht](./media/tutorial-deploy-machine-learning/ml-output.png)
 

@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -126,5 +126,23 @@ Ga als volgt te werk voor het verzamelen van Event Tracing voor Windows:
 7. Sluit de hulpprogramma's voor ontwikkelaars.
  
 
+## <a name="vcenter-errors"></a>vCenter fouten
 
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Er is een fout UnhandledException interne fout opgetreden: System.IO.FileNotFoundException
+
+Dit is een probleem dat wordt weergegeven op de Collector-versies lager dan 1.0.9.5. Als u zich op een Collector versie 1.0.9.2 of pre-GA versies zoals 1.0.8.59, kunt u dit probleem ervaart. Ga als volgt de [koppelen gegeven hier in de forums voor een gedetailleerde antwoord](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+
+[Upgrade van uw Collector als het probleem wilt oplossen](https://aka.ms/migrate/col/checkforupdates).
+
+### <a name="error-unabletoconnecttoserver"></a>Fout UnableToConnectToServer
+
+Kan geen verbinding met de vCenter-Server 'Servername.com:9443' vanwege de volgende fout: Er is geen eindpunt luistert op https://Servername.com:9443/sdk die het bericht kan accepteren.
+
+Dit gebeurt wanneer de verzamelaar machine kan niet worden omgezet van de opgegeven naam van de vCenter-server of de poort speficified is onjuist. Standaard, als de poort niet is gespecificeerd, probeert Collector verbinding maken met het poortnummer 443.
+
+1. Probeer te pingen de servernaam.com van de Collector-machine.
+2. Als u stap 1 mislukt, probeert verbinding maken met de vCenter-server via IP-adres.
+3. Het juiste poortnummer verbinding maken met de vCenter identificeren.
+4. Ten slotte kunt u controleren of de vCenter-server actief is.
+ 
 

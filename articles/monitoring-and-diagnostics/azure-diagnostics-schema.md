@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
-ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45a092452bc702a6a593cd6c21a8d2eaf4ff44bd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Azure Diagnostics extensie schema configuratieversies en geschiedenis
+# <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics extensie schema configuratieversies en geschiedenis
 Deze pagina indexen Azure Diagnostics extensie schema versies geleverd als onderdeel van de Microsoft Azure SDK.  
 
 > [!NOTE]
@@ -135,18 +135,18 @@ De PUT-element en de mogelijkheid om diagnostische gegevens verzenden toegevoegd
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 en diagnostische gegevens van de extensie 1.3 
 Voor Cloud Service-projecten in Visual Studio, zijn de volgende wijzigingen aangebracht. (Deze wijzigingen ook van toepassing op latere versies van Azure SDK.)
 
-* De lokale emulator ondersteunt nu de diagnostische gegevens. Dit betekent dat u kunt het verzamelen van diagnostische gegevens en zorg ervoor dat uw toepassing wordt gemaakt door de juiste traceringen tijdens het ontwikkelen en testen in Visual Studio. De verbindingsreeks `UseDevelopmentStorage=true` kunt verzamelen van diagnostische gegevens, terwijl u uw cloudserviceproject in Visual Studio uitvoert met behulp van de Azure-opslagemulator. Alle diagnostische gegevens worden verzameld in het opslagaccount (ontwikkeling opslag).
+* De lokale emulator ondersteunt nu de diagnostische gegevens. Deze wijziging betekent dat u kunt het verzamelen van diagnostische gegevens en zorg ervoor dat uw toepassing wordt gemaakt door de juiste traceringen tijdens het ontwikkelen en testen in Visual Studio. De verbindingsreeks `UseDevelopmentStorage=true` kunt verzamelen van diagnostische gegevens, terwijl u uw cloudserviceproject in Visual Studio uitvoert met behulp van de Azure-opslagemulator. Alle diagnostische gegevens worden verzameld in het opslagaccount (ontwikkeling opslag).
 * De verbindingsreeks van diagnostische gegevens storage-account (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) wordt nog een keer opgeslagen in het service-configuratiebestand (.cscfg). In de Azure SDK 2.5 is de opslagaccount voor diagnostische gegevens opgegeven in het bestand diagnostics.wadcfgx.
 
 Er zijn enkele belangrijke verschillen tussen hoe de verbindingsreeks in de Azure SDK 2.4 en eerder heeft gewerkt, en hoe het werkt in de Azure SDK 2.6 en hoger.
 
-* In Azure SDK 2.4 en eerdere versies, is de verbindingsreeks gebruikt als een runtime door de invoegtoepassing diagnostische gegevens ophalen van de accountgegevens voor de opslag voor het overdragen van diagnostische logboeken.
-* In Azure SDK 2.6 en hoger, wordt de verbindingsreeks van de diagnostische gegevens door Visual Studio gebruikt voor het configureren van de extensie voor diagnostische gegevens met de juiste opslag gegevens tijdens de publicatie. De verbindingsreeks kunt u verschillende opslagaccounts voor verschillende configuraties die door Visual Studio wordt gebruikt bij het publiceren van definiëren. Omdat de diagnostics-invoegtoepassing (na de Azure SDK 2,5) niet langer beschikbaar is, kan niet het cscfg-bestand zelf echter de extensie voor diagnostische gegevens inschakelen. U moet de extensie afzonderlijk via hulpprogramma's zoals Visual Studio of PowerShell inschakelen.
+* In Azure SDK 2.4 en eerdere versies, is de verbindingsreeks gebruikt tijdens runtime door de invoegtoepassing diagnostische gegevens ophalen van de accountgegevens voor de opslag voor het overdragen van diagnostische logboeken.
+* In de Azure SDK 2.6 en hoger, Visual Studio de verbindingsreeks van diagnostische gegevens gebruikt voor het configureren van de extensie voor diagnostische gegevens met de juiste opslag gegevens tijdens de publicatie. De verbindingsreeks kunt u verschillende opslagaccounts voor verschillende configuraties die door Visual Studio wordt gebruikt bij het publiceren van definiëren. Omdat de diagnostics-invoegtoepassing (na de Azure SDK 2,5) niet langer beschikbaar is, kan niet het cscfg-bestand zelf echter de extensie voor diagnostische gegevens inschakelen. U moet de extensie afzonderlijk via hulpprogramma's zoals Visual Studio of PowerShell inschakelen.
 * De uitvoer van het pakket van Visual Studio bevat ook de openbare configuratie-XML voor de extensie voor diagnostische gegevens voor elke rol voor het vereenvoudigen van de extensie voor diagnostische gegevens configureren met PowerShell. De verbindingsreeks diagnostics Visual Studio gebruikt voor het vullen van de opslag-accountgegevens die aanwezig zijn in de openbare configuratie. De openbare configuratiebestanden worden gemaakt in de map extensies en volg het patroon PaaSDiagnostics. <RoleName>. PubConfig.xml. Alle implementaties op basis van PowerShell kunnen dit patroon gebruiken voor elke configuratie worden toegewezen aan een rol.
 * De verbindingsreeks in het .cscfg-bestand wordt ook gebruikt door de Azure-portal om diagnostische gegevens zodat het kan worden weergegeven de **bewaking** tabblad. De verbindingsreeks is nodig voor de service configureren voor het uitgebreide bewakingsgegevens weergeven in de portal.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migreren projecten op Azure SDK 2.6 en hoger
-Wanneer u migreert van Azure SDK 2.5 naar Azure SDK 2.6 of hoger, als u een opslagaccount voor diagnostische gegevens opgegeven in het bestand .wadcfgx had, vervolgens blijft er. Als u wilt profiteren van de flexibiliteit van het gebruik van verschillende storage-accounts voor opslagconfiguraties verschillende, hebt u de verbindingsreeks handmatig toevoegen aan uw project. Als u een project waarnaar u migreert van Azure SDK 2.4 of eerder in Azure SDK 2.6, blijven de verbindingsreeksen van diagnostische gegevens behouden. Let echter de wijzigingen in hoe verbindingsreeksen worden behandeld in de Azure SDK 2.6 zoals opgegeven in de vorige sectie.
+Wanneer u migreert van Azure SDK 2.5 naar Azure SDK 2.6 of hoger, als u een opslagaccount voor diagnostische gegevens opgegeven in het bestand .wadcfgx had, vervolgens blijft er. Als u wilt profiteren van de flexibiliteit van het gebruik van verschillende storage-accounts voor opslagconfiguraties verschillende, hebt u de verbindingsreeks handmatig toevoegen aan uw project. Als u een project waarnaar u migreert van Azure SDK 2.4 of eerder in Azure SDK 2.6, blijven de verbindingsreeksen van diagnostische gegevens behouden. Let echter op de wijzigingen in hoe verbindingsreeksen worden behandeld in de Azure SDK 2.6 zoals opgegeven in de vorige sectie.
 
 #### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>Hoe de opslagaccount voor diagnostische gegevens in Visual Studio wordt bepaald
 * Als een verbindingsreeks diagnostische gegevens in het .cscfg-bestand is opgegeven, wordt het in Visual Studio gebruikt voor het configureren van de extensie voor diagnostische gegevens bij het publiceren en bij het genereren van de openbare configuratie-xml-bestanden tijdens pakketten.

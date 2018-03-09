@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/02/2018
 ms.author: johnkem
-ms.openlocfilehash: c3c7ffe00263b8f76d89aa8d15fe2d502538527d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2cd3e2e471135242b52459abc231a0f3545e05e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream de Azure Activity Log naar Event Hubs
-De [ **Azure Activity Log** ](monitoring-overview-activity-logs.md) kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde optie 'Exporteren' in de portal of doordat de Service Bus regel-Id in een logboek profiel via de Azure PowerShell-Cmdlets of Azure CLI.
+De [ **Azure Activity Log** ](monitoring-overview-activity-logs.md) kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde optie 'Exporteren' in de portal of doordat de Service Bus regel-ID in een logboek profiel via de Azure PowerShell Cmdlets of Azure CLI.
 
 ## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>Wat u kunt doen met de activiteitenlogboek en Event Hubs
 Hier volgen slechts enkele manieren waarop u de streaming-mogelijkheden kunt gebruiken voor het logboek:
@@ -30,20 +30,26 @@ Hier volgen slechts enkele manieren waarop u de streaming-mogelijkheden kunt geb
 * **Maken van een aangepaste Telemetrie en logboekregistratie platform** : als u al hebt een op maat gemaakte telemetrie platform of de zijn alleen nadenkt over het bouwen van een uiterst schaalbare voor publiceren / abonneren aard van Event Hubs kunt u het activiteitenlogboek flexibel opnemen. [Zie de Dan Rosanova-handleiding voor het gebruik van Event Hubs in een hier wereldwijde schaal telemetrie-platform.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Streaming van het activiteitenlogboek activeren
-U kunt het inschakelen van het activiteitenlogboek streaming via programmacode of via de portal. In beide gevallen moet u kiest een Service Bus-Namespace en een gedeeld toegangsbeleid voor die naamruimte en een Event Hub wordt gemaakt in die naamruimte als de eerste nieuwe activiteitenlogboek gebeurtenis plaatsvindt. Als u een Service Bus-Namespace niet hebt, moet u eerst een maken. Als u hebt eerder gestreamd activiteitenlogboek van gebeurtenissen naar deze Service Bus-Namespace, wordt opnieuw gebruikt de Event Hub die eerder is gemaakt. Het beleid voor gedeelde toegang definieert de machtigingen van het mechanisme voor streaming. Vandaag de dag streaming naar een Event Hubs vereist **beheren**, **verzenden**, en **luisteren** machtigingen. U kunt maken of wijzigen van Service Bus Namespace gedeeld toegangsbeleid in de Azure portal onder het tabblad 'Configureren' voor uw Service Bus-Namespace. Voor het bijwerken van het profiel van het logboek activiteitenlogboek om op te nemen streaming, moet de gebruiker wijziging aan te brengen de machtiging ListKey hebben op die Service Bus-autorisatieregel.
+U kunt het inschakelen van het activiteitenlogboek streaming via programmacode of via de portal. In beide gevallen moet u kiest een Event Hubs-naamruimte en een gedeeld toegangsbeleid voor die naamruimte en een event hub met de naam 'insights-logboeken-operationallogs' gemaakt in die naamruimte als de eerste nieuwe activiteitenlogboek gebeurtenis plaatsvindt. Als u een naamruimte Event Hubs niet hebt, moet u eerst een maken. Als u hebt eerder gestreamd activiteitenlogboek van gebeurtenissen naar deze naamruimte Event Hubs, wordt opnieuw gebruikt de event hub die eerder is gemaakt. Het beleid voor gedeelde toegang definieert de machtigingen van het mechanisme voor streaming. Vandaag de dag streaming naar een event hub vereist **beheren**, **verzenden**, en **luisteren** machtigingen. U kunt maken of wijzigen van Event Hubs naamruimte gedeeld toegangsbeleid in de Azure portal onder het tabblad 'Configureren' voor de naamruimte. Voor het bijwerken van het profiel van het logboek activiteitenlogboek om op te nemen streaming moet de gebruiker wijziging aan te brengen de machtiging ListKey hebben op deze event hub-autorisatieregel.
 
-De service bus of event hub-naamruimte heeft geen zich in hetzelfde abonnement als het abonnement dat Logboeken, zolang de gebruiker die de instelling configureert juiste RBAC toegang tot beide abonnementen heeft.
+De naamruimte van Event Hubs heeft geen zich in hetzelfde abonnement als het abonnement dat Logboeken, zolang de gebruiker die de instelling configureert juiste RBAC toegang tot beide abonnementen heeft.
 
 ### <a name="via-azure-portal"></a>Via de Azure-portal
-1. Navigeer naar de **activiteitenlogboek** blade via alle services zoeken aan de linkerkant van de portal.
+1. Navigeer naar de **activiteitenlogboek** sectie met behulp van de volledige services zoeken aan de linkerkant van de portal.
    
     ![Navigeer naar activiteitenlogboek in portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Klik op de **exporteren** knop aan de bovenkant van de activiteit logboek blade.
+2. Klik op de **exporteren** knop aan de bovenkant van het activiteitenlogboek. Houd er rekening mee u toegepast waren tijdens het bekijken van het activiteitenlogboek in de vorige weergave instellingen voor het filter hebben geen invloed op de exportinstellingen--zijn alleen voor het filteren van wat u tijdens het bladeren in uw activiteitenlogboek in de portal ziet.
    
     ![Knop exporteren in de portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
-3. In de blade die wordt weergegeven, kunt u de regio's waarvoor u wilt stroom gebeurtenissen en de Service Bus-Namespace waarin u een Event Hub wordt gemaakt voor het streamen van deze gebeurtenissen wilt selecteren. Selecteer **alle regio's**.
+3. Selecteer in de sectie **alle regio's**. Selecteer specifieke regio's niet.
    
-    ![Activiteitenlogboek blade exporteren](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+    ![Activiteitenlogboek exporteren](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+    
+    > [!WARNING]
+    > Selecteer alleen alle gebieden. Anders mist u belangrijke gebeurtenissen die u anders zou hebben verwacht te ontvangen. Dit is vanwege het feit dat het activiteitenlogboek een logboek met algemene (niet-regionale), is de meeste gebeurtenissen hoeft dus niet een regio die is gekoppeld.
+    >
+    >
+    
 4. Klik op **opslaan** deze instellingen op te slaan. De instellingen zijn direct toegepast op uw abonnement.
 5. Als u meerdere abonnementen hebt, moet u deze bewerking en alle gegevens verzenden naar de dezelfde event hub.
 

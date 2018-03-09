@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: c132baad4d26fe481fa022329da32815b6994ad7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7f82083cd18f762d1037da2ccf43e9d0c220fe09
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindingen voor Azure Functions
 
@@ -89,7 +89,7 @@ public class TableStorage
     {
         foreach (MyPoco poco in pocos)
         {
-            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
         }
     }
 }
@@ -350,13 +350,13 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** | N.v.t. | moet worden ingesteld op `table`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal.|
 |**direction** | N.v.t. | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal. |
-|**naam** | N.v.t. | De naam van de variabele die staat voor de tabel of de entiteit in functiecode. | 
-|**tableName** | **TableName** | De naam van de tabel.| 
-|**partitionKey** | **PartitionKey** |Optioneel. De partitiesleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
-|**rowKey** |**RowKey** | Optioneel. De rijsleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
-|**duren** |**Duren** | Optioneel. Het maximum aantal entiteiten kunnen worden gelezen in JavaScript. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
+|**Naam** | N.v.t. | De naam van de variabele die staat voor de tabel of de entiteit in functiecode. | 
+|**TableName** | **TableName** | De naam van de tabel.| 
+|**PartitionKey** | **PartitionKey** |Optioneel. De partitiesleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
+|**RowKey** |**RowKey** | Optioneel. De rijsleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
+|**duren** |**duren** | Optioneel. Het maximum aantal entiteiten kunnen worden gelezen in JavaScript. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
 |**filter** |**Filter** | Optioneel. Een OData-filterexpressie voor de tabel invoer in JavaScript. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
-|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+|**Verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -366,16 +366,14 @@ De tabel opslag invoer binding ondersteunt de volgende scenario's:
 
 * **Lezen van een rij in C# of C#-script**
 
-  Stel `partitionKey` en `rowKey`. Toegang tot gegevens in de tabel met behulp van een methodeparameter `T <paramName>`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T`is meestal een type dat wordt geïmplementeerd `ITableEntity` of is afgeleid van `TableEntity`. De `filter` en `take` eigenschappen worden niet gebruikt in dit scenario. 
+  Stel `partitionKey` en `rowKey`. Toegang tot gegevens in de tabel met behulp van een methodeparameter `T <paramName>`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` is meestal een type dat wordt geïmplementeerd `ITableEntity` of is afgeleid van `TableEntity`. De `filter` en `take` eigenschappen worden niet gebruikt in dit scenario. 
 
 * **Een of meer rijen in C# of C# script lezen**
 
-  Toegang tot gegevens in de tabel met behulp van een methodeparameter `IQueryable<T> <paramName>`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T`moet een type dat implementeert `ITableEntity` of is afgeleid van `TableEntity`. U kunt `IQueryable` methoden wilt filteren vereist. De `partitionKey`, `rowKey`, `filter`, en `take` eigenschappen worden niet gebruikt in dit scenario.  
+  Toegang tot gegevens in de tabel met behulp van een methodeparameter `IQueryable<T> <paramName>`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` moet een type dat implementeert `ITableEntity` of is afgeleid van `TableEntity`. U kunt `IQueryable` methoden wilt filteren vereist. De `partitionKey`, `rowKey`, `filter`, en `take` eigenschappen worden niet gebruikt in dit scenario.  
 
 > [!NOTE]
-> `IQueryable`werkt niet in .NET Core, zodat deze werkt niet in de [runtime van Functions v2](functions-versions.md).
-
-  Een alternatief is een `CloudTable paramName` methodeparameter om te lezen van de tabel met behulp van de Azure-opslag-SDK.
+> `IQueryable` wordt niet ondersteund de [runtime van Functions v2](functions-versions.md). Een alternatief is [CloudTable paramName methodeparameter gebruiken](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) lezen van de tabel met behulp van de Azure-opslag-SDK.
 
 * **Lezen van een of meer rijen in JavaScript**
 
@@ -609,11 +607,11 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** | N.v.t. | moet worden ingesteld op `table`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal.|
 |**direction** | N.v.t. | moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal. |
-|**naam** | N.v.t. | De naam van de variabele gebruikt in de functiecode die de tabel of een entiteit vertegenwoordigt. Ingesteld op `$return` om te verwijzen naar de retourwaarde van de functie.| 
-|**tableName** |**TableName** | De naam van de tabel.| 
-|**partitionKey** |**PartitionKey** | De partitiesleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor hulp bij het gebruik van deze eigenschap.| 
-|**rowKey** |**RowKey** | De rijsleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor hulp bij het gebruik van deze eigenschap.| 
-|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+|**Naam** | N.v.t. | De naam van de variabele gebruikt in de functiecode die de tabel of een entiteit vertegenwoordigt. Ingesteld op `$return` om te verwijzen naar de retourwaarde van de functie.| 
+|**TableName** |**TableName** | De naam van de tabel.| 
+|**PartitionKey** |**PartitionKey** | De partitiesleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor hulp bij het gebruik van deze eigenschap.| 
+|**RowKey** |**RowKey** | De rijsleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor hulp bij het gebruik van deze eigenschap.| 
+|**Verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -623,11 +621,11 @@ De Table storage uitvoer binding ondersteunt de volgende scenario's:
 
 * **Schrijven van een rij in een andere taal**
 
-  In C# en C# script, toegang krijgen tot de entiteit van de tabel uitvoer met een methodeparameter zoals `out T paramName` of de functie retourwaarde bevat. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T`kan serialiseerbaar type zijn als de partitiesleutel en de rijsleutel worden geleverd door de *function.json* bestand of de `Table` kenmerk. Anders `T` moet een type met `PartitionKey` en `RowKey` eigenschappen. In dit scenario `T` doorgaans implementeert `ITableEntity` of is afgeleid van `TableEntity`, maar heeft geen aan.
+  In C# en C# script, toegang krijgen tot de entiteit van de tabel uitvoer met een methodeparameter zoals `out T paramName` of de functie retourwaarde bevat. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` kan serialiseerbaar type zijn als de partitiesleutel en de rijsleutel worden geleverd door de *function.json* bestand of de `Table` kenmerk. Anders `T` moet een type met `PartitionKey` en `RowKey` eigenschappen. In dit scenario `T` doorgaans implementeert `ITableEntity` of is afgeleid van `TableEntity`, maar heeft geen aan.
 
 * **Een of meer rijen in C# of C# schrijven**
 
-  In C# en C# script, toegang krijgen tot de entiteit van de tabel uitvoer met een methodeparameter `ICollector<T> paramName` of `ICollectorAsync<T> paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T`Hiermee geeft u het schema van de entiteiten die u wilt toevoegen. Normaal gesproken `T` is afgeleid van `TableEntity` of implementeert `ITableEntity`, maar heeft geen aan. De partitiesleutel en rij waarden in sleutel *function.json* of de `Table` kenmerkconstructor worden niet gebruikt in dit scenario.
+  In C# en C# script, toegang krijgen tot de entiteit van de tabel uitvoer met een methodeparameter `ICollector<T> paramName` of `ICollectorAsync<T> paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` Hiermee geeft u het schema van de entiteiten die u wilt toevoegen. Normaal gesproken `T` is afgeleid van `TableEntity` of implementeert `ITableEntity`, maar heeft geen aan. De partitiesleutel en rij waarden in sleutel *function.json* of de `Table` kenmerkconstructor worden niet gebruikt in dit scenario.
 
   Een alternatief is een `CloudTable paramName` methodeparameter om te schrijven naar de tabel met behulp van de Azure-opslag-SDK.
 

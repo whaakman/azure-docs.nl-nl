@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: a45393804aa5398bc0c40ca3f3cb6c97b106b81c
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: a01ccd8b0e7c4759b3731adba9d37b7ce5afd764
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Connectiviteit bibliotheken en frameworks voor SQL Server
 
@@ -29,24 +29,24 @@ De volgende tabel bevat de bibliotheken voor databaseconnectiviteit of *stuurpro
 
 | Taal | Platform | Aanvullende resources | Downloaden | Aan de slag |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, Mac OS | [Microsoft ADO.NET voor SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Downloaden](https://www.microsoft.com/net/download/) | [Aan de slag](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, Mac OS | [Microsoft JDBC-stuurprogramma voor SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Downloaden](https://go.microsoft.com/fwlink/?linkid=852460) |  [Aan de slag](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, Mac OS| [PHP-SQL-stuurprogramma voor SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Besturingssysteem: <br/> \*[Windows](https://www.microsoft.com/download/details.aspx?id=55642) <br/> \*[Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \*[Mac OS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Aan de slag](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
-| Node.js | Windows, Linux, Mac OS | [Node.js-stuurprogramma voor SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Installeren](https://msdn.microsoft.com/library/mt652094.aspx) |  [Aan de slag](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, Mac OS | [Python-SQL-stuurprogramma](http://msdn.microsoft.com/library/mt652092.aspx) | Installeer keuzes: <br/> \*[pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \*[pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Aan de slag](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows, Linux, Mac OS | [Ruby stuurprogramma voor SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Installeren](https://msdn.microsoft.com/library/mt711041.aspx) | [Aan de slag](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
-| C++ | Windows, Linux, Mac OS | [ODBC-stuurprogramma voor SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Downloaden](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET voor SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Downloaden](https://www.microsoft.com/net/download/) | [Aan de slag](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| Java | Windows, Linux, macOS | [Microsoft JDBC-stuurprogramma voor SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Downloaden](https://go.microsoft.com/fwlink/?linkid=852460) |  [Aan de slag](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows, Linux, macOS| [PHP-SQL-stuurprogramma voor SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Besturingssysteem: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=55642) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Aan de slag](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu)
+| Node.js | Windows, Linux, macOS | [Node.js-stuurprogramma voor SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Installeren](https://msdn.microsoft.com/library/mt652094.aspx) |  [Aan de slag](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows, Linux, macOS | [Python-SQL-stuurprogramma](http://msdn.microsoft.com/library/mt652092.aspx) | Installeer keuzes: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Aan de slag](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [Ruby stuurprogramma voor SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Installeren](https://msdn.microsoft.com/library/mt711041.aspx) | [Aan de slag](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
+| C++ | Windows, Linux, macOS | [ODBC-stuurprogramma voor SQL Server](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [Downloaden](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
 
 De volgende tabel bevat voorbeelden van object-relationele gegevens (ORM) frameworks en web-frameworks die clienttoepassingen gebruiken kunnen met SQL Server lokaal wordt uitgevoerd of in de cloud. U kunt de frameworks gebruiken op Linux-, Windows- of Docker en ze verbinding maken met SQL-Database en SQL Data Warehouse te gebruiken. 
 
 | Taal | Platform | ORM(s) |
 | :-- | :-- | :-- |
-| C# | Windows, Linux, Mac OS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
-| Java | Windows, Linux, Mac OS |[Sluimerstand ORM](http://hibernate.org/orm)|
+| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
+| Java | Windows, Linux, macOS |[Sluimerstand ORM](http://hibernate.org/orm)|
 | PHP | Windows, Linux | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
-| Node.js | Windows, Linux, Mac OS | [ORM sequelize](http://docs.sequelizejs.com) |
-| Python | Windows, Linux, Mac OS |[Django](https://www.djangoproject.com/) |
-| Ruby | Windows, Linux, Mac OS | [Ruby op Rails](http://rubyonrails.org/) |
+| Node.js | Windows, Linux, macOS | [ORM sequelize](http://docs.sequelizejs.com) |
+| Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
+| Ruby | Windows, Linux, macOS | [Ruby op Rails](http://rubyonrails.org/) |
 ||||
 
 ## <a name="related-links"></a>Verwante koppelingen

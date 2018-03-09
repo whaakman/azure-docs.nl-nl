@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/05/2018
 ms.author: billmath
-ms.openlocfilehash: 1d935b73e1087d5ad858bdbee9af68dd1cf5cd1e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3c1c080c1198fd75916a119d4bb08c8db50a05d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synchronisatie: kenmerken gesynchroniseerd naar Azure Active Directory
 Dit onderwerp worden de kenmerken die worden gesynchroniseerd door Azure AD Connect-synchronisatie.  
@@ -83,11 +83,11 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | givenName |X |X | | |
 | HomePhone |X |X | | |
 | info |X |X |X |Dit kenmerk is momenteel niet worden gebruikt voor groepen. |
-| Intialen |X |X | | |
+| initialen |X |X | | |
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
-| Door | | |X | |
+| beheerdDoor | | |X | |
 | manager |X |X | | |
 | Lid | | |X | |
 | mobiele |X |X | | |
@@ -211,7 +211,7 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | l |X |X | | |
 | E-mail |X |X |X | |
 | mailnickname |X |X |X | |
-| Door | | |X | |
+| beheerdDoor | | |X | |
 | manager |X |X | | |
 | Lid | | |X | |
 | middleName |X |X | | |
@@ -271,7 +271,7 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | l |X |X | | |
 | E-mail |X |X |X | |
 | mailNickname |X |X |X | |
-| Door | | |X | |
+| beheerdDoor | | |X | |
 | manager |X |X | | |
 | Lid | | |X | |
 | mobiele |X |X | | |
@@ -351,7 +351,7 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
 | l |X |X | | |
-| Door | | |X | |
+| beheerdDoor | | |X | |
 | manager |X |X | | |
 | Lid | | |X | |
 | mobiele |X |X | | |
@@ -385,7 +385,7 @@ Deze groep is een set kenmerken die kunnen worden gebruikt als de Azure AD-direc
 | displayName |X |X |X | |
 | givenName |X |X | | |
 | E-mail |X | |X | |
-| Door | | |X | |
+| beheerdDoor | | |X | |
 | mailNickName |X |X |X | |
 | Lid | | |X | |
 | objectSID |X | | |mechanische eigenschap. AD gebruikers-id gebruikt om te onderhouden synchronisatie tussen Azure AD en AD. |
@@ -421,17 +421,17 @@ Deze kenmerken voor **gebruiker** worden naast de andere apps die u hebt geselec
 ## <a name="exchange-hybrid-writeback"></a>Exchange hybride Write-back
 Deze kenmerken worden teruggeschreven van Azure AD naar lokale Active Directory wanneer u selecteert om in te schakelen **Exchange hybride**. Afhankelijk van uw versie van Exchange mogelijk minder kenmerken worden gesynchroniseerd.
 
-| Naam kenmerk | Gebruiker | Contact | Groep | Opmerking |
-| --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Afgeleid van cloudAnchor in Azure AD. Dit kenmerk is nieuw in Exchange 2016 en Windows Server 2016 AD. |
-| msExchArchiveStatus |X | | |Online archief: Kunnen klanten bij de archivering van e-mail. |
-| msExchBlockedSendersHash |X | | |Filteren: Schrijft terug on-premises filteren en online veilige en geblokkeerde afzender gegevens van clients. |
-| msExchSafeRecipientsHash |X | | |Filteren: Schrijft terug on-premises filteren en online veilige en geblokkeerde afzender gegevens van clients. |
-| msExchSafeSendersHash |X | | |Filteren: Schrijft terug on-premises filteren en online veilige en geblokkeerde afzender gegevens van clients. |
-| msExchUCVoiceMailSettings |X | | |Unified Messaging (UM) - Online voicemail inschakelen: gebruikt door Microsoft Lync Server integratie om aan te geven voor Lync Server lokale dat de gebruiker voicemail in onlineservices heeft. |
-| msExchUserHoldPolicies |X | | |Geschil wachtstand: Hiermee cloudservices om te bepalen welke gebruikers zijn onder geschil houdt. |
-| proxyAddresses |X |X |X |Alleen de x500-adres van Exchange Online wordt ingevoegd. |
-| publicDelegates |X | | |Hiermee kunt een Exchange Online-postvak om te worden toegekend SendOnBehalfTo rechten aan gebruikers met lokale Exchange-postvak. Azure AD Connect build 1.1.552.0 vereist of na. |
+| Naam van het kenmerk (verbinding maken met de gebruikersinterface) |Naam van het kenmerk (On-premises AD) | Gebruiker | Contact | Groep | Opmerking |
+| --- |:---:|:---:|:---:| --- |---|
+| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Afgeleid van cloudAnchor in Azure AD. Dit kenmerk is nieuw in Exchange 2016 en Windows Server 2016 AD. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Online archief: Kunnen klanten bij de archivering van e-mail. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filteren: Schrijft terug on-premises filteren en online veilige en geblokkeerde afzender gegevens van clients. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filteren: Schrijft terug on-premises filteren en online veilige en geblokkeerde afzender gegevens van clients. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filteren: Schrijft terug on-premises filteren en online veilige en geblokkeerde afzender gegevens van clients. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Unified Messaging (UM) - Online voicemail inschakelen: gebruikt door Microsoft Lync Server integratie om aan te geven voor Lync Server lokale dat de gebruiker voicemail in onlineservices heeft. |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Geschil wachtstand: Hiermee cloudservices om te bepalen welke gebruikers zijn onder geschil houdt. |
+| proxyAddresses| proxyAddresses |X |X |X |Alleen de x500-adres van Exchange Online wordt ingevoegd. |
+| publicDelegates| ms-Exch-Public-Delegates  |X | | |Hiermee kunt een Exchange Online-postvak om te worden toegekend SendOnBehalfTo rechten aan gebruikers met lokale Exchange-postvak. Azure AD Connect build 1.1.552.0 vereist of na. |
 
 ## <a name="exchange-mail-public-folder"></a>Exchange Mail openbare map
 Deze kenmerken worden gesynchroniseerd vanuit de lokale Active Directory naar Azure AD wanneer u selecteert om in te schakelen **Exchange Mail openbare map**.

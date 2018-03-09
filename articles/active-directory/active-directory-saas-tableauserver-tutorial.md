@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ba94f4f90f49fb7850f4cad2bb49ab4faa3fa92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b0390c8b95a46b2c134252532bef118ea4df52d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Zelfstudie: Azure Active Directory-integratie met Tableau Server
 
@@ -110,11 +110,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://azure.<domain name>.link`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://azure.<domain name>.link`
     
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://azure.<domain name>.link`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://azure.<domain name>.link`
 
-    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://azure.<domain name>.link/wg/saml/SSO/index.html`
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
      
     > [!NOTE] 
     > De voorgaande waarden zijn niet echte waarden. Later kunt bijwerken u de waarden met de werkelijke URL en de id van de configuratiepagina Tableau Server. 
@@ -125,9 +125,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
 5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding hierboven en voer de volgende stappen uit:
     
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | ---------------| --------------- |    
-    | gebruikersnaam | *User.DisplayName* |
+    | gebruikersnaam | *user.mailnickname* |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -257,7 +257,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel Tableau Server in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Tableau-Server.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

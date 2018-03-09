@@ -2,18 +2,18 @@
 title: Het gebruik van het Azure locatie op basis van Services Kaartbesturingselement | Microsoft Docs
 description: Informatie over het gebruik van het Kaartbesturingselement voor Services van Azure locatie-gebaseerd clientzijde Javascript-bibliotheek.
 services: location-based-services
-keywords: Voeg geen of trefwoorden zonder overleg met uw EXPERT in Zoekmachineoptimalisatie bewerken.
-author: philmea
-ms.author: philmea
+keywords: Voeg geen sleutelwoorden toe en bewerk ze niet zonder overleg met uw SEO-expert.
+author: kgremban
+ms.author: kgremban
 ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 494a8308a5ed4ae37ed9561d051155e7433e6193
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 9843387a9e4f3b5751bafceb48d6fc949dff7e23
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Het gebruik van het Azure locatie op basis van Services Kaartbesturingselement
 Het Kaartbesturingselement clientzijde Javascript-bibliotheek kunt u het weergeven van maps en ingesloten Services van Azure-locatie op basis van functies in uw web- of mobiele toepassing. 

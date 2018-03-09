@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 02/27/2017
 ms.custom: 
-ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 082953eb860197d2188851f6c8be260797d6ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Fout tijdens het verwerken van aanbevolen procedures voor clients van Azure Active Directory Authentication Library (ADAL)
 
@@ -49,7 +49,7 @@ Er is een reeks fouten die zijn gegenereerd door het besturingssysteem waarvoor 
 
 Fundamenteel, er zijn twee gevallen AcquireTokenSilent fouten:
 
-| Case | Beschrijving |
+| Aanvraag | Beschrijving |
 |------|-------------|
 | **Voorbeeld 1**: fout kan worden omgezet met een interactieve aanmelden | Voor fouten worden veroorzaakt door het ontbreken van geldige tokens, is een interactieve aanvraag nodig. Zoeken in het cachegeheugen en een vernieuwingstoken dat ongeldig/verlopen moet in het bijzonder een AcquireToken-aanroep om op te lossen.<br><br>In dergelijke gevallen moet de eindgebruiker gevraagd om aan te melden. De toepassing kunt kiezen voor een interactieve aanvraag doen onmiddellijk na de interactie door de eindgebruiker (zoals een knop roept) of later. De keuze is afhankelijk van het gewenste gedrag van de toepassing.<br><br>Zie de code in de volgende sectie voor deze specifieke aanvraag en de fouten die deze diagnose.|
 | **Voorbeeld 2**: fout kan niet worden omgezet met een interactieve aanmelden | Voor het netwerk en tijdelijke/tijdelijke fouten of andere fouten, uitvoeren van een interactieve AcquireToken-aanvraag komt het probleem oplossen niet. Onnodige interactief aanmelden prompts kunnen ook frustrerend kan zijn voor eindgebruikers. ADAL probeert automatisch een enkele nieuwe poging voor de meeste fouten op AcquireTokenSilent fouten.<br><br>De clienttoepassing kan ook op een later tijdstip opnieuw proberen, maar wanneer en hoe u dit doen, is afhankelijk van het gedrag van toepassingen en gewenste eindgebruikers. Bijvoorbeeld, kunnen een AcquireTokenSilent opnieuw proberen na een paar minuten of als reactie op een bepaalde actie door eindgebruikers uitvoeren. Een directe nieuwe leidt ertoe dat de toepassing wordt beperkt, en niet uit te voeren.<br><br>Een opeenvolgende pogingen mislukken met dezelfde fout betekent niet dat de client een interactieve aanvraag met AcquireToken, moet doen als de fout kan niet worden omgezet.<br><br>Zie de code in de volgende sectie voor deze specifieke aanvraag en de fouten die deze diagnose. |
@@ -479,6 +479,9 @@ We hebt gemaakt een [compleet codevoorbeeld](https://github.com/Azure-Samples/ac
 
 ## <a name="error-and-logging-reference"></a>Documentatie over de fout en logboekregistratie
 
+### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>Logboekregistratie van persoonsgegevens persoonsgegevens (PII) & organisatie-identificatiegegevens (OII)
+Standaard ADAL logboekregistratie niet vastleggen of meld persoonsgegevens of OII. De bibliotheek kan ontwikkelaars van de app dit inschakelen via een setter in de klasse berichtenlogboek. Door het inschakelen van persoonsgegevens of OII, wordt de app is verantwoordelijk voor het veilig zeer vertrouwelijke gegevens verwerken en die voldoet aan de wettelijke vereisten.
+
 ### <a name="net"></a>.NET
 
 #### <a name="adal-library-errors"></a>Fouten van de ADAL-bibliotheek
@@ -487,7 +490,7 @@ Om te verkennen specifieke ADAL fouten, de broncode in de [azure-Active Director
 
 #### <a name="guidance-for-error-logging-code"></a>Richtlijnen voor logboekregistratie van foutcode
 
-Wijzigingen in de logboekregistratie van ADAL .NET afhankelijk van het platform dat wordt gewerkt. Raadpleeg de [logboekregistratie documentatie](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics) voor code voor het inschakelen van logboekregistratie.
+Wijzigingen in de logboekregistratie van ADAL .NET afhankelijk van het platform dat wordt gewerkt. Raadpleeg de [logboekregistratie wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net) voor code voor het inschakelen van logboekregistratie.
 
 ### <a name="android"></a>Android
 
@@ -497,14 +500,9 @@ Om te verkennen specifieke ADAL fouten, de broncode in de [azure Active Director
 
 #### <a name="operating-system-errors"></a>Besturingssysteem-fouten
 
-Android OS-fouten kunnen worden weergegeven via AuthenticationException in ADAL, te identificeren als 'SERVER_INVALID_REQUEST' zijn, en meer gedetailleerde via de beschrijvingen van de fouten. De twee opvallende berichten die een app wilt weergeven, gebruikersinterface zijn:
+Android OS-fouten kunnen worden weergegeven via AuthenticationException in ADAL, te identificeren als 'SERVER_INVALID_REQUEST' zijn, en meer gedetailleerde via de beschrijvingen van de fouten. 
 
-- SSL-fouten 
-  - [Gebruiker met behulp van Chrome 53](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)
-  - [Certificaatketen heeft een certificaat dat is gemarkeerd als extra downloaden (gebruikersbehoeften contact opnemen met IT-beheerder)](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929)
-  - Basis-CA wordt niet vertrouwd door het apparaat. Neem contact op met de IT-beheerder. 
-- Netwerk gerelateerde fouten 
-  - [Probleem mogelijk verband houden met de SSL-certificaat-validatie met het netwerk](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue), kan een enkele opnieuw proberen
+Voor een volledige lijst met algemene fouten en welke stappen moeten worden ondernomen wanneer uw app of eindgebruikers optreedt, raadpleegt u de [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki). 
 
 #### <a name="guidance-for-error-logging-code"></a>Richtlijnen voor logboekregistratie van foutcode
 
@@ -522,6 +520,15 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 // 2. Set the log level
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
+// By default, the `Logger` does not capture any PII or OII
+
+// PII or OII will be logged
+Logger.getInstance().setEnablePII(true);
+
+// PII or OII will NOT be logged
+Logger.getInstance().setEnablePII(false);
+
+
 // 3. Send logs to logcat.
 adb logcat > "C:\logmsg\logfile.txt";
 ```
@@ -536,7 +543,7 @@ Om te verkennen specifieke ADAL fouten, de broncode in de [azure-Active Director
 
 iOS-fouten optreden tijdens het aanmelden wanneer gebruikers webweergaven en de aard van verificatie gebruiken. Dit kan zijn veroorzaakt door voorwaarden zoals SSL-fouten, time-outs of netwerkfouten:
 
-- Voor het delen van recht aanmeldingen zijn niet permanent en de cache is leeg. U kunt oplossen door de volgende coderegel toe te voegen aan de sleutelketen:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
+- Voor het delen van recht aanmeldingen zijn niet permanent en de cache is leeg. U kunt oplossen door de volgende coderegel toe te voegen aan de sleutelketen: `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - Voor de set NsUrlDomain fouten verandert de actie, afhankelijk van de logica van de app. Zie de [NSURLErrorDomain naslagdocumentatie](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) voor specifieke exemplaren die kunnen worden verwerkt.
 - Zie [ADAL Obj C veelvoorkomende problemen](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror) voor een overzicht van veelvoorkomende fouten die worden beheerd door de ADAL Objective-C-team.
 

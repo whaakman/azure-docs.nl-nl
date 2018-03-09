@@ -63,6 +63,10 @@
 ### [Bestandscompressie](cdn-troubleshoot-compression.md)
 
 # Naslaginformatie
+##  [Verwijzing regelengine](cdn-rules-engine-reference.md)
+### [Voorwaardelijke expressies regelengine](cdn-rules-engine-reference-conditional-expressions.md)
+### [Criteria voor overeenkomst regelengine](cdn-rules-engine-reference-match-conditions.md)
+### [Functies regelengine](cdn-rules-engine-reference-features.md)
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
@@ -70,10 +74,6 @@
 ## [REST](/rest/api/cdn/)
 
 # Resources
-##  [Verwijzing regelengine](cdn-rules-engine-reference.md)
-### [Voorwaardelijke expressies regelengine](cdn-rules-engine-reference-conditional-expressions.md)
-### [Functies regelengine](cdn-rules-engine-reference-features.md)
-### [Criteria voor overeenkomst regelengine](cdn-rules-engine-reference-match-conditions.md)
 ## [POP-locaties Azure CDN](cdn-pop-locations.md)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)

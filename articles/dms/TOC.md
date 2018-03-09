@@ -6,6 +6,7 @@
 
 # Zelfstudies
 ## [SQL Server migreren naar Azure SQL DB](tutorial-sql-server-to-azure-sql.md)
+## [SQL Server migreren naar een met Azure SQL-database beheerd exemplaar](tutorial-sql-server-to-managed-instance.md)
 
 # Handleidingen
 ## [PowerShell gebruiken om SQL Server te migreren](howto-sql-server-to-azure-sql-powershell.md)
@@ -19,4 +20,4 @@
 ## [Overzicht van vereisten](pre-reqs.md)
 ## [Veelgestelde vragen](faq.md)
 ## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=database-migration)
-
+## [Netwerktopologieën voor migraties van met Azure SQL-database beheerde exemplaren](resource-network-topologies.md)

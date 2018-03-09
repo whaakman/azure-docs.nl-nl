@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 01/08/2018
+ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 21511b37eba2cd2e87d8720f3e9cfe453b50d88c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
 
@@ -84,8 +84,8 @@ Ja. Hier volgen de belangrijke informatie voor selfservice voor wachtwoordherste
 ### <a name="is-password-reset-available-for-guest-users-in-a-just-in-time-jit-or-viral-tenant-who-accepted-invitations-with-a-work-or-school-email-address-but-who-didnt-have-a-pre-existing-azure-ad-account"></a>Wachtwoord opnieuw ingesteld beschikbaar voor gastgebruikers in een just-in-time (Just in time) of 'een' tenant die geaccepteerd uitnodigingen met een werk of school e-mailadres, maar die geen bestaande Azure AD-account?
 Ja. Een wachtwoord opnieuw instellen van e-mailbericht kan die kunnen gebruikers hun wachtwoord opnieuw instellen in de JIT-tenancymodus worden verzonden.
 
-### <a name="does-microsoft-dynamics-crm-provide-online-support-for-azure-ad-b2b-collaboration"></a>Biedt Microsoft Dynamics CRM online ondersteuning voor Azure AD B2B-samenwerking?
-Op dit moment biedt Microsoft Dynamics CRM geen ondersteuning voor online voor Azure AD B2B-samenwerking. We zullen echter deze in de toekomst te ondersteunen.
+### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Biedt Microsoft Dynamics 365 online ondersteuning voor Azure AD B2B-samenwerking?
+Ja, biedt Dynamics 365 (online) ondersteuning voor Azure AD B2B-samenwerking. Zie voor meer informatie het artikel Dynamics 365 [gebruikers met Azure AD B2B-samenwerking uitnodigen](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Wat is de levensduur van een eerste wachtwoord voor een nieuwe gebruiker voor B2B-samenwerking?
 Azure AD heeft een vaste set van teken, Wachtwoordsterkte en account lockout vereisten die gelden voor zowel alle Azure AD cloud gebruikersaccounts. Cloud-gebruikersaccounts zijn accounts die zijn niet federatief met een andere id-provider, zoals 

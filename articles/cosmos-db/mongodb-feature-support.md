@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB-API-ondersteuning voor MongoDB-functies en syntaxis
 
@@ -235,7 +235,7 @@ $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 
 In $regex query's kunnen expressies links verankerd search index. Echter met behulp van 'i' aanpassingsfunctie (hoofdlettergevoeligheid) en 'M ' aanpassingsfunctie (multiline) zorgt ervoor dat de verzameling scan in alle expressies.
 Wanneer er een nodig om '$' of ' |', het is raadzaam om twee (of meer) regex-query's maken. Bijvoorbeeld, krijgt de volgende query in de oorspronkelijke: ```find({x:{$regex: /^abc$/})```, er als volgt worden gewijzigd: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-Het eerste deel wordt de index met de zoekopdracht beperken tot deze documenten vanaf ^ abc en het tweede gedeelte komt overeen met de exacte vermeldingen. De balk operator ' |' fungeert als een functie 'of' - de query ```find({x:{$regex: /^abc|^def/})``` overeenkomt met de documenten whin welk veld 'x' heeft de waarde die met "abc" of "def begint". Als u wilt gebruikmaken van de index, verdient het aanbeveling om de query in twee verschillende query's die worden toegevoegd door de $of operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+Het eerste deel wordt de index met de zoekopdracht beperken tot deze documenten vanaf ^ abc en het tweede gedeelte komt overeen met de exacte vermeldingen. De balk operator ' |' fungeert als een functie 'of' - de query ```find({x:{$regex: /^abc|^def/})``` overeenkomt met de documenten in welk veld 'x' waarden die met heeft "abc" of "def beginnen". Als u wilt gebruikmaken van de index, verdient het aanbeveling om de query in twee verschillende query's die worden toegevoegd door de $of operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
 ### <a name="update-operators"></a>Update-operators
 

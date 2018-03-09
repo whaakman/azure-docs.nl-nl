@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 033d696f0d219fef66b4acd523f28a35afcf9929
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8558593633de47ce67adbfe28dc8973fd21f1a4b
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Maak een virtueel netwerk peering - verschillend implementatiemodellen, hetzelfde abonnement 
 
@@ -29,7 +29,7 @@ De stappen voor het maken van een virtueel netwerk peering verschillen, afhankel
 
 |Azure-implementatiemodel  | Azure-abonnement  |
 |--------- |---------|
-|[Beide Resource Manager](virtual-network-create-peering.md) |Dezelfde|
+|[Beide Resource Manager](tutorial-connect-virtual-networks-portal.md) |Dezelfde|
 |[Beide Resource Manager](create-peering-different-subscriptions.md) |Verschil|
 |[Een Resource Manager, een klassiek](create-peering-different-deployment-models-subscriptions.md) |Verschil|
 

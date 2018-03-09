@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 03/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: a6363fa380d0bab05d7500141cc6019d1d3f68b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0517caed3a7d6632c1a5650147f4db240dbe0a17
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Virtuele netwerkgateways voor ExpressRoute
 Een virtuele netwerkgateway wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken van Azure en on-premises locaties. Wanneer u een ExpressRoute-verbinding configureert, moet u maken en configureren van een virtuele netwerkgateway en een verbinding met virtual network gateway.
@@ -41,7 +41,7 @@ In de volgende tabel ziet u de gatewaytypen en de geschatte geaggregeerde doorvo
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> Doorvoer van toepassing is afhankelijk van meerdere factoren, zoals de end-to-end-latentie en het nummer van de verkeersstromen die de toepassing wordt geopend. De getallen in de tabel vertegenwoordigen de bovengrens die de toepassing kan theorectically bereiken in een omgeving met ideaal. 
+> Doorvoer van toepassing is afhankelijk van meerdere factoren, zoals de end-to-end-latentie en het nummer van de verkeersstromen die de toepassing wordt geopend. De getallen in de tabel vertegenwoordigen de bovengrens die de toepassing theoretisch in een ideale omgeving kunt bereiken. 
 > 
 >
 
@@ -54,5 +54,6 @@ Zie voor aanvullende technische bronnen en specifieke syntaxis vereisten bij het
 | [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [overzicht van ExpressRoute](expressroute-introduction.md) voor meer informatie over beschikbare verbinding configuraties. 
+Zie [overzicht van ExpressRoute](expressroute-introduction.md) voor meer informatie over beschikbare verbinding configuraties.
 
+Zie [maken van een virtuele netwerkgateway voor ExpressRoute](expressroute-howto-add-gateway-resource-manager.md) voor meer informatie over het maken van ExpressRoute-gateways.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60f6c45b7dacd26e0dea7b8b69c52534dcb5fec9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Maken, weergeven en waarschuwingen beheren met behulp van Azure Monitor - waarschuwingen (Preview)
 
@@ -71,7 +71,7 @@ Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van Azure-w
 
     > [!NOTE]
 
-    > Nieuwe metrische mogelijkheden geïntroduceerd voor snelle waarschuwingen alleen zijn opgenomen in het signaaltypen als metrische gegevens van platformservice
+    >  Alle [near-realtime waarschuwingen](monitoring-near-real-time-metric-alerts.md) geschikte bronnen worden weergegeven met monitor-service **Platform** en aan te geven type als **metrische gegevens**
 
 6. *Metrische waarschuwingen*: nadat u signaal hebt geselecteerd, logica voor waarschuwingen kan worden vermeld. Ter referentie: historische gegevens van signaal wordt weergegeven met de optie voor het aanpassen van de tijd venster via **geschiedenis weergeven**, variëren van afgelopen zes uur voor vorige week. Met de visualisatie aanwezig is, **waarschuwing logica** kan worden geselecteerd uit de weergegeven opties van de voorwaarde, aggregatie en ten slotte drempelwaarde. Als voorbeeld van de logica die is opgegeven, wordt de voorwaarde weergegeven in de visualisatie samen met de geschiedenis van een signaal om aan te geven wanneer de waarschuwing zou hebben geactiveerd. Ten slotte opgeven voor welke tijd, waarschuwing moet worden gezocht naar de opgegeven voorwaarde door te kiezen uit de **periode** optie samen met hoe vaak waarschuwing moet worden uitgevoerd door het selecteren van **frequentie**.
 

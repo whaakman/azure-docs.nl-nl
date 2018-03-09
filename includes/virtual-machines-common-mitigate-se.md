@@ -1,17 +1,23 @@
 
 
 
-**Laatste document update**: 22 januari 3:00 PM PST.
+**Laatste document update**: 6 maart 10:00 AM PST.
 
 De recente openbaarmaking van een [nieuwe klasse van CPU-beveiligingsproblemen](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) die bekend staat als speculatieve uitvoering side-kanaal aanvallen heeft geleid tot vragen van klanten meer duidelijkheid te zoeken.  
 
 De infrastructuur die wordt uitgevoerd van Azure en werkbelastingen van de klant van elkaar isoleert is beveiligd.  Dit betekent dat andere klanten uitgevoerd op Azure uw toepassing met behulp van deze beveiligingslekken kunnen geen aanvallen.
 
 > [!NOTE] 
-> Azure oplossingen eerder aangekondigd op 3 Jan 2018 worden hierdoor niet beïnvloed door de recente [richtlijnen bijgewerkt](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) van Intel. Er zijn geen extra onderhoud activiteit van de klant VM's als gevolg van deze nieuwe gegevens.
+> In latere februari 2018, Intel Corporation gepubliceerd bijgewerkte [Microcode revisie richtlijnen](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) op de status van hun microcode-versies die de stabiliteit te verbeteren en beperken dat recente beveiligingsproblemen vermeld door [Google Project nul](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). De oplossingen die door Azure op [3 januari 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) worden niet beïnvloed door van Intel microcode update. Microsoft al ingevoerd sterk oplossingen Azure om klanten te beschermen van andere tenants Azure.  
 >
-> Er wordt nog deze best practices bijwerken wanneer we microcode-updates van hardwareleveranciers ontvangen. Controleer of terug naar het bijgewerkte richtlijnen.
+> Van Intel microcode adressen variant 2 Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715)) te beschermen tegen aanvallen die alleen zijn van toepassing waarin u gedeelde of niet-vertrouwde werkbelasting uitvoeren binnen uw virtuele machines in Azure. Onze technici test de stabiliteit om te beperken van invloed op de prestaties van de microcode, voordat het beschikbaar maken op Azure-klanten.  Als klanten heel weinig niet-vertrouwde werkbelastingen binnen hun virtuele machines worden uitgevoerd, moet de meeste klanten niet inschakelen van deze mogelijkheid eenmaal uitgebracht. 
 >
+> Deze pagina wordt bijgewerkt als u meer informatie beschikbaar is.  
+
+
+
+
+
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Uw besturingssystemen up-to-date te houden
 
@@ -43,7 +49,7 @@ Geen aanvullende klant-actie is vereist tenzij u niet-vertrouwde code uitvoert. 
 
 
 ### <a name="windows"></a>Windows 
-Als u met behulp van Windows en niet-vertrouwde code te hosten, moet u ook een Windows-functie aangeroepen Kernel virtueel adres (KVA) schaduwkopie maken die zorgt voor extra beveiliging tegen speculatieve beveiligingslekken voor side-kanaal inschakelen. Deze functie is standaard uitgeschakeld en kan invloed hebben op prestaties als ingeschakeld. Ga als volgt [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instructies voor het inschakelen van beveiliging op de Server. Als u Azure Cloud Services uitvoert, controleert u of dat u altijd WA-GUEST-OS-5.15_201801-01 of WA-GUEST-OS-4.50_201801-01 (beschikbaar vanaf op 10 januari) en schakelt u het register sleutel via een taak starten.
+Als u met behulp van Windows en niet-vertrouwde code te hosten, moet u ook een Windows-functie aangeroepen Kernel virtueel adres (KVA) schaduwkopie maken die zorgt voor extra beveiliging tegen speculatieve beveiligingslekken voor side-kanaal inschakelen. Deze functie is standaard uitgeschakeld en kan invloed hebben op prestaties als ingeschakeld. Ga als volgt [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instructies voor het inschakelen van beveiliging op de Server. Als u Azure Cloud Services uitvoert, controleert u of dat u altijd WA-GUEST-OS-5.15_201801-01 of WA-GUEST-OS-4.50_201801-01 (beschikbaar vanaf op 10 januari 2018) en schakelt u het register sleutel via een taak starten.
 
 
 ### <a name="linux"></a>Linux

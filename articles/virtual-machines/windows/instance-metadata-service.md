@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f0a706a5a7724788d62479d1570fffac07ce6d54
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8b9e79a2be26cf279abe0d29db1738b695622e9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure service van de metagegevens van het exemplaar
 
@@ -32,14 +32,14 @@ Service voor de metagegevens van Azure exemplaar is een REST-eindpunt toegankeli
 > Deze service is **algemeen beschikbaar** in alle Azure-regio's.  Het ontvangt regelmatig updates om nieuwe informatie over de virtuele machine-exemplaren weer te geven. Deze pagina geeft de actuele [gegevenscategorieën](#instance-metadata-data-categories) beschikbaar.
 
 ## <a name="service-availability"></a>Beschikbaarheid van services
-De service is beschikbaar in alle algemeen beschikbaar alle Azure-regio's. Niet alle API-versie is mogelijk beschikbaar in alle Azure-regio's.
+De service is beschikbaar in het algemeen beschikbaar Azure-regio's. Niet alle API-versie is mogelijk beschikbaar in alle Azure-regio's.
 
 Regio's                                        | Beschikbaarheid?                                 | Ondersteunde versies
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Alle in het algemeen beschikbare globale Azure-regio 's](https://azure.microsoft.com/regions/)     | Algemeen beschikbaar   | 2017-04-02, 2017-08-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Algemeen beschikbaar | 2017-04-02
-[Azure China](https://www.azure.cn/)                                                           | Algemeen beschikbaar | 2017-04-02
-[Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | Algemeen beschikbaar | 2017-04-02
+[Alle in het algemeen beschikbare globale Azure-regio 's](https://azure.microsoft.com/regions/)     | Algemeen beschikbaar   | 2017-04-02 2017-12-01(This version is not available in UK regions) 2017-08-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Algemeen beschikbaar | 2017-04-02,2017-08-01
+[Azure China](https://www.azure.cn/)                                                           | Algemeen beschikbaar | 2017-04-02,2017-08-01
+[Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | Algemeen beschikbaar | 2017-04-02,2017-08-01
 
 Deze tabel wordt bijgewerkt wanneer er updates van de service en of nieuwe ondersteunde versies zijn beschikbaar
 
@@ -48,7 +48,7 @@ Maak een VM uit om de Service-exemplaar voor metagegevens uitproberen, [Azure Re
 ## <a name="usage"></a>Gebruik
 
 ### <a name="versioning"></a>Versiebeheer
-De Service-exemplaar voor metagegevens is samengestelde. Versies zijn verplicht en de huidige versie op globale Azure is `2017-08-01`. Huidige ondersteunde versies zijn (2017-04-02, 2017-08-01)
+De Service-exemplaar voor metagegevens is samengestelde. Versies zijn verplicht en de huidige versie op globale Azure is `2017-12-01`. Huidige ondersteunde versies zijn (2017-04-02, 2017-08-01,2017-12-01)
 
 > [!NOTE] 
 > Eerdere versies van de preview van geplande gebeurtenissen {laatste} wordt ondersteund als de api-versie. Deze indeling wordt niet meer ondersteund en in de toekomst wordt afgeschaft.
@@ -157,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Aanvraag**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
 ```
 
 **Antwoord**
@@ -182,7 +182,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
     "tags": "",
     "version": "16.04.201708030",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmSize": "Standard_D1"
+    "vmScaleSetName": "",
+    "vmSize": "Standard_D1",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -296,13 +298,15 @@ subscriptionId | Azure-abonnement voor de virtuele Machine | 2017-08-01
 tags | [Labels](../../azure-resource-manager/resource-group-using-tags.md) voor uw virtuele Machine  | 2017-08-01
 resourceGroupName | [Resourcegroep](../../azure-resource-manager/resource-group-overview.md) voor uw virtuele Machine | 2017-08-01
 placementGroupId | [Plaatsing groep](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) van de schaal van uw virtuele machine instellen | 2017-08-01
+vmScaleSetName | [Naam van de virtuele Machine-ScaleSet] (.. /.. / virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) van de schaal van uw virtuele machine instellen | 2017-12-01
+zone | [Beschikbaarheid Zone](../../availability-zones/az-overview.md) van uw virtuele machine | 2017-12-01 
 ipv4/privateIpAddress | Lokale IPv4-adres van de virtuele machine | 2017-04-02
 ipv4/publicIpAddress | Openbaar IPv4-adres van de virtuele machine | 2017-04-02
 subnetadres / | Subnetadres van de virtuele machine | 2017-04-02 
 subnetvoorvoegsel / | Subnetvoorvoegsel, voorbeeld 24 | 2017-04-02 
 ipv6/ipAddress | Lokale IPv6-adres van de virtuele machine | 2017-04-02 
 MAC-adres | Mac-adres van VM | 2017-04-02 
-scheduledevents | Zie [gebeurtenissen gepland](scheduled-events.md) | 2017-03-01
+scheduledevents | Zie [gebeurtenissen gepland](scheduled-events.md) | 2017-08-01
 
 ## <a name="example-scenarios-for-usage"></a>Voorbeeldscenario's voor gebruik  
 
@@ -325,6 +329,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Plaatsing van containers domein veroorzaakt of bij te werken op basis van gegevens partities 
 
 Voor bepaalde scenario's, de plaatsing van replica's van verschillende gegevens is van primair belang. Bijvoorbeeld: [HDFS replica plaatsing](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) of plaatsing van de container via een [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) mogelijk dat u wilt weten de `platformFaultDomain` en `platformUpdateDomain` op de virtuele machine wordt uitgevoerd.
+U kunt ook gebruikmaken van [beschikbaarheid Zones](../../availability-zones/az-overview.md) voor de exemplaren om deze beslissingen te nemen.
 U kunt deze gegevens rechtstreeks via de Service-exemplaar voor metagegevens opvragen.
 
 **Aanvraag**

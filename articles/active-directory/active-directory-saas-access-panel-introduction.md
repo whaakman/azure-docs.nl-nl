@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9069cb0b46ddc1155c64bd63a7fcd8a685abbad
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-access-panel"></a>Wat is het toegangsvenster?
 
@@ -67,6 +67,9 @@ Wanneer u bent geverifieerd, kunt u communiceren met de toepassingen die de behe
 ## <a name="web-browser-requirements"></a>Vereisten voor webbrowsers
 
 Ten minste het toegangsvenster vereist een browser die JavaScript ondersteunt en CSS is ingeschakeld. Als u wilt worden aangemeld via op basis van wachtwoorden eenmalige aanmelding (SSO) aan toepassingen, moet u de uitbreiding van toegang tot Configuratiescherm geïnstalleerd in uw browser hebben. De extensie wordt automatisch gedownload wanneer u een toepassing die is geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden selecteert.
+
+Het installatieprogramma is specifiek voor architectuur. Als u op de koppeling klikt, krijgt u alleen het installatieprogramma voor de OS-architectuur die momenteel worden uitgevoerd op. Als u een beheerder van de implementatie van toepassing zijn, ervoor zorgen dat u gaat u naar de downloadkoppeling vanaf een apparaat 64-bits en 32-bits installatieprogramma's van zowel ophalen.
+
 
 De extensie van het Configuratiescherm toegang is momenteel beschikbaar voor:
 - **Rand**: verjaardagseditie van Windows 10 of hoger. 

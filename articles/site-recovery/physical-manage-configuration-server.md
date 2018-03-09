@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 7fe68f072ef438e21f3e6d3d52aee9e86e537687
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>De configuratieserver voor noodherstel van de fysieke server beheren
 
@@ -36,7 +36,7 @@ De tabel ziet u de prerequistes voor het implementeren van de lokale configurati
 | IIS | -Er zijn geen bestaande standaardwebsite <br> -Inschakelen [anonieme verificatie](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Inschakelen [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) instelling  <br> -Niet bestaande reeds websitetoepassing geluisterd op poort 443<br>|
 | NIC-type | VMXNET3 (indien geïmplementeerd als een VMware-VM) |
 | Type IP-adres | Statisch |
-| Toegang tot het internet | De server heeft toegang tot deze URL's: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (niet vereist voor uitbreidbare processervers) <br> - time.nist.gov <br> - time.windows.com |
+| Toegang tot het internet | De server heeft toegang tot deze URL's: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (niet vereist voor uitbreidbare processervers) <br> - time.nist.gov <br> - time.windows.com |
 | Poorten | 443 (Orchestration-besturingselement)<br>9443 (Gegevenstransport)|
 
 ## <a name="download-the-latest-installation-file"></a>Download de meest recente installatiebestand
@@ -164,7 +164,7 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
   ```
 
   >[!WARNING]
-  Als u aanvullende processen-servers die zijn gekoppeld aan de configuratieserver hebt, moet u [los van de proxy-instellingen op alle processervers van de scale-out](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) in uw implementatie.
+  Als u aanvullende processen-servers die zijn gekoppeld aan de configuratieserver hebt, moet u [los van de proxy-instellingen op alle processervers van de scale-out](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) in uw implementatie.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Een configuratieserver met dezelfde kluis te registreren
   1. Aanmelden bij de configuratieserver van uw.
@@ -184,7 +184,7 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
       ```
 
   >[!WARNING]
-  Als u meerdere processerver hebt, moet u [registreert](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server).
+  Als u meerdere processerver hebt, moet u [registreert](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Een configuratieserver registreren bij een andere kluis
 
@@ -233,8 +233,8 @@ De server als volgt bijwerken:
 > [!WARNING]
 > Zorg ervoor dat het volgende voordat u begint met het buiten gebruik stellen van de configuratieserver.
 > 1. [Schakel de beveiliging](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) voor alle virtuele machines op deze Server Configuration.
-> 2. [Loskoppelen](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) en [verwijderen](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) alle beleidsregels voor replicatie van de configuratieserver.
-> 3. [Verwijder](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) alle Vcenter-servers/vSphere-hosts die gekoppeld aan de configuratieserver zijn.
+> 2. [Loskoppelen](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) en [verwijderen](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alle beleidsregels voor replicatie van de configuratieserver.
+> 3. [Verwijder](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) alle Vcenter-servers/vSphere-hosts die gekoppeld aan de configuratieserver zijn.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Verwijderen van de configuratieserver via Azure-portal

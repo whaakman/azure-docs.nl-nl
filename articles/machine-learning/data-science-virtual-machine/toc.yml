@@ -8,6 +8,8 @@
       href: overview.md
     - name: Wat is de Deep Learning VM?
       href: deep-learning-dsvm-overview.md
+    - name: Wat is de Geo AI Data Science VM?
+      href: geo-ai-dsvm-overview.md
 - name: Aan de slag
   items:
     - name: Een Windows Data Science VM maken
@@ -18,6 +20,8 @@
       href: linux-dsvm-intro.md
     - name: Een Deep Learning VM maken
       href: provision-deep-learning-dsvm.md
+    - name: Een Geo AI Data Science VM maken
+      href: provision-geo-ai-dsvm.md
 - name: Procedures
   items:
     - name: Een Windows Data Science VM gebruiken
@@ -26,6 +30,8 @@
       href: linux-dsvm-walkthrough.md
     - name: Een Deep Learning VM gebruiken
       href: use-deep-learning-dsvm.md
+    - name: Een Geo AI Data Science VM gebruiken
+      href: use-geo-ai-dsvm.md
 - name: Naslaginformatie
   expanded: true
   items:

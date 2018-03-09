@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 28d772df384e620c7e82812adfa2bfa148401132
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>IP-adres bewaren voor failover van de virtuele machine van Azure
 
@@ -88,7 +88,7 @@ VPN-Gateways gebruikmaken van openbare IP-adressen en gateway hops verbindingen 
 
 Deze functie is momenteel in de openbare preview en ter ondersteuning van meer regio's is wordt uitgevouwen: directe verbinding voor VM-VM zonder de betrokkenheid van alle openbare internet of eventuele extra hops inschakelen.
 
-Raadpleeg voor meer informatie de [peering documentatie](../virtual-network/virtual-network-create-peering.md#register) en [prijzen](https://azure.microsoft.com/en-us/pricing/details/virtual-network/).
+Raadpleeg voor meer informatie de [peering documentatie](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) en [prijzen](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ## <a name="on-premises-to-azure-connectivity"></a>Connectiviteit op lokale-die naar Azure
 

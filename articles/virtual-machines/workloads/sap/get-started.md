@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/02/2018
+ms.date: 03/05/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a0dcb941db5038b7c904c9eaa8599c5a1dc6e83
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: ffa77e95387f3595d8ff69e89d29b7af5cf9c69d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Met behulp van Azure voor het hosten en uitvoeren van SAP werkbelasting scenario 's
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -227,7 +227,7 @@ ms.lasthandoff: 01/03/2018
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
-[sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
+[sap-pam]:https://support.sap.com/pam (SAP Product beschikbaarheid Matrix)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
@@ -298,7 +298,7 @@ Als u Microsoft Azure als uw SAP gereed cloud partner kiest, zich u op betrouwba
 
 Naast de SAP NetWeaver scenario's met de verschillende DBMS in Azure hosten, kunt u hosten verschillende andere SAP werkbelasting scenario's zoals SAP BI in Azure. Documentatie over SAP NetWeaver implementaties op virtuele Machines in Azure systeemeigen vindt u in de sectie "SAP NetWeaver op virtuele Machines in Azure."
 
-Azure heeft systeemeigen virtuele Machine van Azure-aanbiedingen die ooit in grootte van de CPU en geheugenbronnen kost omvatten SAP-werkbelasting die gebruikmaakt van SAP HANA groeien. Meer informatie over dit onderwerp, zoekt u de documenten in de sectie SAP HANA op Azure Virtual Machines."
+Azure heeft systeemeigen virtuele Machine van Azure-aanbiedingen die ooit in grootte van de CPU en geheugenbronnen kost omvatten SAP-werkbelasting die gebruikmaakt van SAP HANA groeien. Meer informatie over dit gebied, zoekt u de documenten in de sectie SAP HANA op Azure Virtual Machines."
 
 De uniekheid van Azure voor SAP HANA is een unieke aanbieding die Azure naast concurrentie ingesteld. Om in te schakelen die als host fungeert meer geheugen en CPU-bronnen veeleisende SAP-scenario's met betrekking tot SAP HANA, Azure biedt het gebruik van de klant toegewezen bare-metal hardware omwille van de SAP HANA-implementaties die tot 20 TB (60 TB scale-out) aan geheugen voor vereisen die worden uitgevoerd S/4HANA of andere SAP HANA-werkbelasting. Deze unieke Azure oplossing van SAP HANA in Azure (grote exemplaren) kunt u SAP HANA uitvoeren op de specifieke bare-metal hardware met de SAP-toepassingslaag of werkbelasting middleware-laag in systeemeigen Azure Virtual Machines die worden gehost. Deze oplossing wordt beschreven in meerdere documenten in de sectie 'SAP HANA in Azure (grote exemplaren)'.   
 
@@ -310,7 +310,7 @@ SAP werkbelasting scenario's in Azure hosten ook eisen van Identity integration 
 ### <a name="overview-and-architecture-of-sap-hana-on-azure-large-instances"></a>Overzicht en architectuur van SAP HANA in Azure (grote exemplaren)
 Titel: Overzicht en architectuur van SAP HANA in Azure (grote exemplaren)
 
-Overzicht: Deze architectuur en technische Implementatiehandleiding bevat informatie over het implementeren van SAP op de nieuwe SAP HANA in Azure (grote exemplaren) in Azure. Het is niet bedoeld als een uitgebreide handleiding die betrekking hebben op specifieke installatie van het SAP-oplossingen, maar in plaats daarvan nuttige informatie in de eerste installatie en voortgaande operaties. Deze moet niet vervangen met SAP documentatie die betrekking heeft op de installatie van de SAP HANA (of veel SAP ondersteuning opmerkingen die betrekking hebben op het onderwerp). Het biedt een overzicht en biedt de extra details SAP HANA op Azure (grote exemplaren) te installeren.
+Overzicht: Deze architectuur en technische Implementatiehandleiding bevat informatie over het implementeren van SAP op de nieuwe SAP HANA in Azure (grote exemplaren) in Azure. Het is niet bedoeld als een uitgebreide handleiding die betrekking hebben op specifieke installatie van het SAP-oplossingen, maar in plaats daarvan nuttige informatie in de eerste installatie en voortgaande operaties. Deze moet niet vervangen met SAP documentatie die betrekking heeft op de installatie van de SAP HANA (of veel SAP ondersteuning opmerkingen die betrekking hebben op het gebied). Het biedt een overzicht en biedt de extra details SAP HANA op Azure (grote exemplaren) te installeren.
 
 Bijgewerkte: Oktober 2017
 
@@ -337,7 +337,7 @@ Bijgewerkte: Juli 2017
 ### <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>Hoge beschikbaarheid en herstel na noodgevallen van SAP HANA in Azure (grote exemplaren)
 Titel: Hoge beschikbaarheid en herstel na noodgevallen van SAP HANA in Azure (grote exemplaren)
 
-Overzicht: Hoge beschikbaarheid en herstel na noodgeval (DR) zijn zeer belangrijke aspecten van uw bedrijfskritieke SAP HANA worden uitgevoerd op Azure (grote exemplaren) (s). Deze's importeren in de SAP, uw system integrator en/of Microsoft goed ontwerpen en implementeren van het recht HA-/ DR-strategie voor u samenwerkt. Belangrijke overwegingen zoals Recovery Point Objective (RPO) en herstel tijd Objective (RTO), specifiek voor uw omgeving, moeten worden overwogen.  Dit document wordt uitgelegd uw opties voor het inschakelen van uw voorkeur niveau van de HA en Noodherstel.
+Overzicht: Hoge beschikbaarheid en herstel na noodgeval (DR) zijn belangrijke aspecten van uw bedrijfskritieke SAP HANA uitgevoerd op Azure (grote exemplaren) (s). Deze's importeren in de SAP, uw system integrator en/of Microsoft goed ontwerpen en implementeren van het recht HA-/ DR-strategie voor u samenwerkt. Belangrijke overwegingen zoals Recovery Point Objective (RPO) en herstel tijd Objective (RTO), specifiek voor uw omgeving, moeten worden overwogen.  Dit document wordt uitgelegd uw opties voor het inschakelen van uw voorkeur niveau van de HA en Noodherstel.
 
 Bijgewerkte: Oktober 2017
 

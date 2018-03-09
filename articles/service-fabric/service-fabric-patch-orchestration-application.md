@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/16/2018
+ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -136,7 +136,9 @@ Automatische Windows-updates kunnen leiden tot verlies van beschikbaarheid omdat
 
 ## <a name="download-the-app-package"></a>Download het apppakket
 
-Downloaden van de toepassing van de [downloadkoppeling](https://go.microsoft.com/fwlink/P/?linkid=849590).
+Toepassing samen met de van installatiescripts kan worden gedownload vanuit [archief koppeling](https://go.microsoft.com/fwlink/?linkid=869566).
+
+Toepassing in sfpkg indeling kan worden gedownload vanaf [sfpkg koppeling](https://go.microsoft.com/fwlink/?linkid=869567). Dit is handig voor [implementatie van toepassing op basis van Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>De app configureren
 
@@ -148,12 +150,12 @@ Het gedrag van de patch orchestration-app kan worden geconfigureerd om te voldoe
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy geeft aan het beleid dat moet worden gebruikt door de coördinator-Service voor het installeren van Windows-updates over de clusterknooppunten Service Fabric.<br>                         Toegestane waarden zijn: <br>                                                           <b>NodeWise</b>. Windows Update is geïnstalleerd, één knooppunt tegelijk. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is geïnstalleerd, één upgradedomein tegelijk. (Het maximum is bereikt, alle knooppunten van een upgradedomein gaan voor Windows Update.)
 |LogsDiskQuotaInMB   |Lang  <br> (Standaard: 1024)               |Maximale grootte van de patch orchestration app registreert in MB, hetgeen kan lokaal op knooppunten worden gehandhaafd.
 | WUQuery               | tekenreeks<br>(Standaard: ' IsInstalled = 0 ")                | De query voor het ophalen van Windows-updates. Zie voor meer informatie [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Boole-waarde <br> (standaard: True)                 | Deze vlag kan updates voor Windows-besturingssysteem moet worden geïnstalleerd.            |
+| InstallWindowsOSOnlyUpdates | Booleaans <br> (standaard: True)                 | Deze vlag kan updates voor Windows-besturingssysteem moet worden geïnstalleerd.            |
 | WUOperationTimeOutInMinutes | Int <br>(Standaard: 90).                   | Hiermee geeft u de time-out voor een Windows Update-bewerking (zoeken of downloaden of installeren). Als de bewerking is niet voltooid binnen de opgegeven time-out, wordt het afgebroken.       |
 | WURescheduleCount     | Int <br> (Standaard: 5).                  | Het maximum aantal keren dat de service opnieuw gepland voor de Windows update als een bewerking blijft mislukken.          |
 | WURescheduleTimeInMinutes | Int <br>(Standaard: 30). | Het interval waarmee de service wordt automatisch opnieuw gepland Windows update als de fout zich blijft voordoen. |
 | WUFrequency           | Door komma's gescheiden tekenreeks (standaard: "Wekelijks, woensdag, 7:00:00")     | De frequentie voor het installeren van Windows Update. De indeling en de mogelijke waarden zijn: <br>-Maandelijks, DD: mm: ss, bijvoorbeeld, maandelijks, 5, 12: 22:32. <br> -Per week, dag,: mm: ss, voor bijvoorbeeld wekelijks, dinsdag, 12:22:32.  <br> -Dagelijks: mm: ss, bijvoorbeeld dagelijks, 12:22:32.  <br> -Geen geeft aan dat de Windows Update mag niet worden uitgevoerd.  <br><br> Houd er rekening mee dat de tijden in UTC zijn.|
-| AcceptWindowsUpdateEula | Boole-waarde <br>(Standaard: true) | Deze vlag instelt, wordt in de toepassing de eindgebruiker-licentie voor Windows Update accepteert namens de eigenaar van de machine.              |
+| AcceptWindowsUpdateEula | Booleaans <br>(Standaard: true) | Deze vlag instelt, wordt in de toepassing de eindgebruiker-licentie voor Windows Update accepteert namens de eigenaar van de machine.              |
 
 > [!TIP]
 > Als u Windows Update gebeurt onmiddellijk wilt, stelt `WUFrequency` ten opzichte van de tijd van de implementatie van toepassing. Stel bijvoorbeeld dat u hebt een testcluster met vijf knooppunten en plan de implementatie van de app op ongeveer 5:00 uur UTC. Als u wordt ervan uitgegaan dat de upgrade van de toepassing of implementatie 30 minuten maximaal duurt, ingesteld op de WUFrequency "Dagelijks, 17:30:00."
@@ -361,8 +363,12 @@ Er moet een beheerder ingrijpen en bepalen waarom de toepassing of het cluster b
 ### <a name="version-111"></a>Versie 1.1.1
 - Een bug vast entrypoint van NodeAgentService waardoor de installatie van NodeAgentNTService.
 
-### <a name="version-120-latest"></a>Versie 1.2.0 (laatste)
+### <a name="version-120"></a>Versie 1.2.0
 
 - Werkstroom van oplossingen voor problemen rond systeem opnieuw starten.
 - Fout te herstellen bij het maken van de RM-taken als gevolg van welke status selectievakje tijdens herstel taken voorbereiden is niet plaatsvinden, zoals verwacht.
 - De opstartmodus gewijzigd voor windows service POANodeSvc van automatische vertraagd automatisch.
+
+### <a name="version-121-latest"></a>Versie 1.2.1 (laatste)
+
+- Fout te herstellen in cluster omlaag schalen werkstroom. Garbagecollection verzameling logica voor POA reparatietaken die horen bij niet-bestaande knooppunten geïntroduceerd.

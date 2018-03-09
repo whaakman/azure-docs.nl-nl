@@ -45,12 +45,14 @@
       href: sql-database-design-first-database.md
     - name: 1 - Database ontwerpen met behulp van .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - SQL Server-DB migreren
+    - name: 2 - Migreren naar SQL Server-database
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - Uw SQL-database beveiligen
       href: sql-database-security-tutorial.md
     - name: 4 - Een geografisch gedistribueerde database implementeren
       href: sql-database-implement-geo-distributed-database.md
+    - name: 5 - Beheerd exemplaar maken
+      href: sql-database-managed-instance-tutorial-portal.md
 - name: Voorbeelden
   items:
     - name: Codevoorbeelden
@@ -61,26 +63,26 @@
       href: sql-database-powershell-samples.md
 - name: Concepten
   items:
-    - name: Databaseservice
-      items:
-        - name: Servers en databases
-          href: sql-database-servers-databases.md
-        - name: Servicelagen
-          href: sql-database-service-tiers.md
-        - name: Bronlimieten
-          href: sql-database-resource-limits.md
-        - name: Individuele databases
-          href: sql-database-single-database-resources.md
-        - name: Pools voor Elastic Database
-          href: sql-database-elastic-pool.md
-        - name: Connectiviteitsarchitectuur
-          href: sql-database-connectivity-architecture.md
-        - name: DTU's en eDTU's
-          href: sql-database-what-is-a-dtu.md
-        - name: DTU-benchmark
-          href: sql-database-benchmark-overview.md
-        - name: Algemene SQL Server-functies
-          href: sql-database-features.md
+    - name: Servers en databases
+      href: sql-database-servers-databases.md
+    - name: Beheerd exemplaar
+      href: sql-database-managed-instance.md
+    - name: Servicelagen
+      href: sql-database-service-tiers.md
+    - name: Bronlimieten
+      href: sql-database-resource-limits.md
+    - name: Individuele databases
+      href: sql-database-single-database-resources.md
+    - name: Pools voor Elastic Database
+      href: sql-database-elastic-pool.md
+    - name: Connectiviteitsarchitectuur
+      href: sql-database-connectivity-architecture.md
+    - name: DTU's en eDTU's
+      href: sql-database-what-is-a-dtu.md
+    - name: DTU-benchmark
+      href: sql-database-benchmark-overview.md
+    - name: Algemene SQL Server-functies
+      href: sql-database-features.md
     - name: Hoge beschikbaarheid
       href: sql-database-high-availability.md
     - name: Beveiliging
@@ -101,8 +103,10 @@
           href: sql-database-ssms-mfa-authentication.md
         - name: Controleren
           href: sql-database-auditing.md
-        - name: Detectie van bedreigingen
+        - name: Detectie van bedreigingen - SQL Database
           href: sql-database-threat-detection.md
+        - name: Detectie van bedreigingen - beheerd exemplaar
+          href: sql-database-managed-instance-threat-detection.md
         - name: Tabel controleren en TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Dynamische gegevensmaskering
@@ -137,11 +141,15 @@
           href: sql-database-disaster-recovery-drills.md
     - name: Migreren naar SQL Database
       items:
-        - name: Overzicht
+        - name: Migreren naar SQL Database
           href: sql-database-cloud-migrate.md
-        - name: T-SQL-wijzigingen
+        - name: Migreren naar beheerd exemplaar
+          href: sql-database-managed-instance-migrate.md
+        - name: T-SQL-details van SQL Database
           href: sql-database-transact-sql-information.md
-        - name: Een database na migratie beheren
+        - name: T-SQL-details van beheerd exemplaar
+          href: sql-database-managed-instance-transact-sql-information.md
+        - name: SQL Database na migratie beheren
           href: sql-database-manage-after-migration.md
     - name: Gegevens laden en verplaatsen
       items:
@@ -265,6 +273,16 @@
           href: sql-database-elastic-query-horizontal-partitioning.md
         - name: Query's uitvoeren op tabellen met verschillende schema's
           href: sql-database-elastic-query-vertical-partitioning.md
+    - name: Beheerd exemplaar
+      items:
+        - name: VNET-configuratie
+          href: sql-database-managed-instance-vnet-configuration.md
+        - name: Aangepaste DNS
+          href: sql-database-managed-instance-custom-dns.md
+        - name: Toepassingen koppelen
+          href: sql-database-managed-instance-connect-app.md
+        - name: Netwerkconfiguratie synchroniseren
+          href: sql-database-managed-instance-sync-network-configuration.md
     - name: Beveiliging
       items:
         - name: Azure AD-verificatie configureren
@@ -472,4 +490,4 @@
     - name: Architecturencentrum
       href: /azure/architecture/
     - name: Verhalen van klanten
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
+      href: 'https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

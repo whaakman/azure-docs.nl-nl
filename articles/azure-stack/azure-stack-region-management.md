@@ -3,8 +3,8 @@ title: Regiobeheer van de in Azure Stack | Microsoft Docs
 description: Overzicht van regio management in Azure-Stack.
 services: azure-stack
 documentationcenter: 
-author: efemmano
-manager: dsavage
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: efemmano
-ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/27/2018
+ms.author: brenduns
+ms.reviewer: efemmano
+ms.openlocfilehash: 0a19490ce276eec9a46bc0ea4343e3449a9dc93c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="region-management-in-azure-stack"></a>Regio management in Azure-Stack
 
@@ -41,19 +42,13 @@ Azure Stack beschikt over een reeks regio management mogelijkheden beschikbaar z
 
 2. **Waarschuwingen**. Deze tegel hele systeem waarschuwingen bevat en biedt details over elk van deze waarschuwingen.
 
-3. **Updates**. U kunt de huidige versie van de infrastructuur van uw Azure-Stack weergeven op deze tegel.
+3. **Updates**. U kunt de huidige versie van uw Azure-Stack-infrastructuur, beschikbare updates en de historie van updates weergeven in deze tegel. U kunt ook uw geïntegreerde systeem bijwerken.
 
-4. **Resourceproviders**. Resourceproviders is de plaats voor het beheren van de tenant-functionaliteit van de onderdelen die zijn vereist voor het uitvoeren van de Azure-Stack. Elke resourceprovider wordt geleverd met een administratieve ervaring. Deze ervaring kan waarschuwingen bevatten voor de provider, meetgegevens en andere beheermogelijkheden die specifiek zijn voor de resourceprovider.
- 
-5. **Infrastructuur functies**. Infrastructuur rollen zijn de onderdelen die nodig zijn voor het uitvoeren van de Azure-Stack. De infrastructuur-rollen die rapporteren van waarschuwingen worden weergegeven. Door te klikken op een rol, ziet u de waarschuwingen die zijn gekoppeld aan de specifieke rol en de rolexemplaren waarop deze rol wordt uitgevoerd. Hoewel er de mogelijkheid om op te starten, starten, of een exemplaar van de rol infrastructuur afgesloten, doen **niet** dit doen in een ontwikkelomgeving kit. Deze opties zijn specifiek bedoeld voor een omgeving met meerdere knooppunten, waarbij er meer dan één rolexemplaar per infrastructuurrol. Een rolexemplaar (met name AzS-Xrp01) opnieuw te starten in de development kit zorgt ervoor dat de instabiliteit van het systeem.
+4. **Resourceproviders**. Resourceproviders is de plaats voor het beheren van de gebruiker-functionaliteit van de onderdelen die zijn vereist voor het uitvoeren van de Azure-Stack. Elke resourceprovider wordt geleverd met een administratieve ervaring. Deze ervaring kan waarschuwingen bevatten voor de provider, meetgegevens en andere beheermogelijkheden die specifiek zijn voor de resourceprovider.
+
+5. **Infrastructuur functies**. Infrastructuur rollen zijn de onderdelen die nodig zijn voor het uitvoeren van de Azure-Stack. De infrastructuur-rollen die rapporteren van waarschuwingen worden weergegeven. Door te klikken op een rol, ziet u de waarschuwingen die zijn gekoppeld aan de specifieke rol en de rolexemplaren waarop deze rol wordt uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Status en waarschuwingen in de Azure-Stack controleren](azure-stack-monitor-health.md)
 
 [Beheren van updates in de Azure-Stack](azure-stack-updates.md)
-
-
-
-
-
-

@@ -1,6 +1,6 @@
 ---
 title: Met behulp van de portal logboek zoeken in Azure Log Analytics | Microsoft Docs
-description: Dit artikel bevat een zelfstudie waarin wordt beschreven hoe maken zoekopdrachten logboek en analyseren van gegevens die zijn opgeslagen in de werkruimte voor logboekanalyse via de portal logboek zoeken.  De zelfstudie omvat het uitvoeren van enkele eenvoudige query's voor verschillende soorten gegevens en analyseren van resultaten retourneren.
+description: Dit artikel bevat een zelfstudie waarin wordt beschreven hoe maken zoekopdrachten logboek en analyseren van gegevens die zijn opgeslagen in de werkruimte voor logboekanalyse via de portal logboek zoeken.  In deze zelfstudie worden enkele eenvoudige query's uitgevoerd voor het retourneren van verschillende soorten gegevens en worden resultaten geanalyseerd.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 37213012e817f0fae21a47a4334a519bbbca206b
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Logboek zoekopdrachten maken in Azure-logboekanalyse via de portal logboek zoeken
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/22/2018
 >
 > Als uw werkruimte is niet naar de nieuwe query language bijgewerkt, moet u verwijzen naar [vinden van gegevens met behulp van logboek zoekopdrachten in logboekanalyse](log-analytics-log-searches.md) voor meer informatie over de huidige versie van de portal logboek zoeken.
 
-Dit artikel bevat een zelfstudie waarin wordt beschreven hoe maken zoekopdrachten logboek en analyseren van gegevens die zijn opgeslagen in de werkruimte voor logboekanalyse via de portal logboek zoeken.  De zelfstudie omvat het uitvoeren van enkele eenvoudige query's voor verschillende soorten gegevens en analyseren van resultaten retourneren.  Dit artikel gaat over functies in de portal logboek zoeken voor de query te wijzigen in plaats van rechtstreeks wijzigen.  Zie voor meer informatie over het rechtstreeks bewerken van de query de [Query Language reference](https://go.microsoft.com/fwlink/?linkid=856079).
+Dit artikel bevat een zelfstudie waarin wordt beschreven hoe maken zoekopdrachten logboek en analyseren van gegevens die zijn opgeslagen in de werkruimte voor logboekanalyse via de portal logboek zoeken.  In deze zelfstudie worden enkele eenvoudige query's uitgevoerd voor het retourneren van verschillende soorten gegevens en worden resultaten geanalyseerd.  Dit artikel gaat over functies in de portal logboek zoeken voor de query te wijzigen in plaats van rechtstreeks wijzigen.  Zie voor meer informatie over het rechtstreeks bewerken van de query de [Query Language reference](https://go.microsoft.com/fwlink/?linkid=856079).
 
 Zie voor informatie over het maken van zoekopdrachten in de portal Advanced Analytics in plaats van de portal zoeken logboek [aan de slag met de Portal Analytics](https://go.microsoft.com/fwlink/?linkid=856587).  Beide portals gebruiken dezelfde querytaal voor toegang tot dezelfde gegevens in de werkruimte voor logboekanalyse.
 
@@ -36,8 +36,8 @@ Deze zelfstudie wordt ervan uitgegaan dat u al een werkruimte voor logboekanalys
 - Als u een werkruimte geen hebt, kunt u een gratis abonnement met de procedure op [aan de slag met een werkruimte voor logboekanalyse](log-analytics-get-started.md).
 - Verbinding maken met ten minste één [Windows-agent](log-analytics-windows-agent.md) of één [Linux-agent](log-analytics-linux-agents.md) naar de werkruimte.  
 
-## <a name="open-the-log-search-portal"></a>De portal logboek zoeken openen
-Start via de portal logboek zoeken. 
+## <a name="open-the-log-search-portal"></a>De portal Zoeken in logboeken openen
+Open eerst de portal Zoeken in logboeken. 
 
 1. Open Azure Portal.
 2. Navigeer met logboekanalyse en selecteer uw werkruimte.
@@ -45,10 +45,10 @@ Start via de portal logboek zoeken.
 
 ![Meld u knop Zoeken](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
-## <a name="create-a-simple-search"></a>Maken van een eenvoudige zoekopdrachten
-De snelste manier om op te halen van sommige gegevens voor gebruik met is een eenvoudige query die als resultaat alle records in de tabel geeft.  Als u hebt een Windows- of Linux-clients die zijn verbonden met uw werkruimte vervolgens hebt u gegevens in de gebeurtenis (Windows) of de tabel Syslog (Linux).
+## <a name="create-a-simple-search"></a>Een eenvoudige zoekopdracht maken
+De snelste manier om gegevens op te halen om mee te werken, is met een eenvoudige query waarmee alle records in de tabel worden opgehaald.  Als u een Windows- of Linux-client hebt verbonden met uw werkruimte, hebt u gegevens in de gebeurtenis- (Windows) of Syslog-tabel (Linux).
 
-Typ een de volgende query's in het zoekvak en klik op de zoekknop.  
+Typ een van de volgende query's in het zoekvak en klik op de zoekknop.  
 
 ```
 Event
@@ -57,11 +57,11 @@ Event
 Syslog
 ```
 
-Gegevens worden geretourneerd in de standaardlijstweergave en kunt u zien hoeveel totale records geretourneerd.
+Gegevens worden geretourneerd in de standaardlijstweergave en u kunt zien hoeveel records er in totaal zijn geretourneerd.
 
 ![Eenvoudige query](media/log-analytics-log-search-log-search-portal/log-search-portal-01.png)
 
-Alleen de eerste enkele eigenschappen van elke record worden weergegeven.  Klik op **meer** om alle eigenschappen voor een bepaalde record weer te geven.
+Alleen de eerste paar eigenschappen van elk record worden weergegeven.  Klik op **Meer weergeven** om alle eigenschappen van een bepaald record weer te geven.
 
 ![Details van de records](media/log-analytics-log-search-log-search-portal/log-search-portal-02.png)
 
@@ -74,10 +74,10 @@ Het standaardbereik van de tijd is **1 dag**.  Wijzig deze waarde in **7 dagen**
 
 ![Datum tijd bereik](media/log-analytics-log-search-log-search-portal/log-search-portal-03.png)
 
-## <a name="filter-results-of-the-query"></a>Filteren van resultaten van de query
-Is het filterdeelvenster dat kunt u filteren op in de query zonder het te wijzigen rechtstreeks toevoegen aan de linkerkant van het scherm.  Verschillende eigenschappen van de records geretourneerd worden met de top 10 van waarden met hun aantal records weergegeven.
+## <a name="filter-results-of-the-query"></a>Resultaten van de query filteren
+Aan de linkerkant van het scherm bevindt zich het filterdeelvenster waarin u filteropties kunt toevoegen aan de query zonder deze rechtstreeks te wijzigen.  Verschillende eigenschappen van de records geretourneerd worden met de top 10 van waarden met hun aantal records weergegeven.
 
-Als u met werkt **gebeurtenis**, schakel het selectievakje in naast **fout** onder **EVENTLEVELNAME**.   Als u met werkt **Syslog**, schakel het selectievakje in naast **err** onder **FOUTCODE**.  Hiermee wordt de query gewijzigd in een van de volgende om de resultaten op foutgebeurtenissen te beperken.
+Als u werkt met een **gebeurtenis**, schakelt u het selectievakje in naast **Fout** onder **EVENTLEVELNAME**.   Als u met **Syslog** werkt, schakelt u het selectievakje naast **err** onder **SEVERITYLEVEL** in.  Hiermee wordt de query gewijzigd in een van het volgende om de resultaten te beperken tot foutgebeurtenissen.
 
 ```
 Event | where (EventLevelName == "Error")
@@ -88,47 +88,47 @@ Syslog | where (SeverityLevel == "err")
 
 ![Filteren](media/log-analytics-log-search-log-search-portal/log-search-portal-04.png)
 
-Eigenschappen voor het filterdeelvenster toevoegen door te selecteren **toevoegen aan filters** vanuit het menu van de eigenschap op een van de records.
+Voeg eigenschappen toe aan het filterdeelvenster door **Toevoegen aan filters** te selecteren vanuit het eigenschappenmenu van een van de records.
 
-![Toevoegen aan het filtermenu](media/log-analytics-log-search-log-search-portal/log-search-portal-02a.png)
+![Toevoegen aan filtermenu](media/log-analytics-log-search-log-search-portal/log-search-portal-02a.png)
 
-U kunt hetzelfde filter instellen door het selecteren van **Filter** in het menu van de eigenschap voor een record met de waarde die u wilt filteren.  
+U kunt hetzelfde filter instellen door **Filter** te selecteren in het eigenschappenmenu voor een record met de waarde die u wilt filteren.  
 
-U hoeft alleen de **Filter** optie voor eigenschappen met de naam in blauw.  Dit zijn *doorzoekbare* velden die zijn geïndexeerd voor voorwaarden zoeken.  Velden grijs zijn *vrije tekst doorzoekbare* velden die alleen de **verwijzingen** optie.  Deze optie retourneert records die deze waarde in een eigenschap.
+U hoeft alleen de **Filter** optie voor eigenschappen met de naam in blauw.  Dit zijn *doorzoekbare* velden die zijn geïndexeerd voor zoekvoorwaarden.  Grijze velden zijn *op vrije tekst doorzoekbare* velden waarvoor alleen de optie **Verwijzingen weergeven** beschikbaar is.  Met deze optie worden records geretourneerd die deze waarde in een eigenschap bevatten.
 
 ![Filtermenu](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 
-U kunt de resultaten op één eigenschap groeperen door het selecteren van de **groeperen op** optie in het menu record.  Hiermee voegt u toe een [samenvatten](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) operator aan de query die de resultaten in een grafiek weergegeven.  U kunt groeperen op meer dan één eigenschap, maar u moet de query rechtstreeks bewerken.  Selecteer het menu record naast de de **Computer** eigenschap en selecteer **groeperen op 'Computer'**.  
+U kunt de resultaten op één eigenschap groeperen door de optie **Groeperen op** in het recordmenu te selecteren.  Hiermee voegt u de operator [samenvatten](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) toe aan de query die de resultaten in een grafiek weergeeft.  U kunt groeperen op meer dan één eigenschap, maar dan moet u de query rechtstreeks bewerken.  Selecteer het menu record naast de **Computer** eigenschap en selecteer **groeperen op 'Computer'**.  
 
 ![Groeperen op computer](media/log-analytics-log-search-log-search-portal/log-search-portal-10.png)
 
 ## <a name="work-with-results"></a>Werken met resultaten
-De portal zoeken logboek heeft een aantal functies voor het werken met de resultaten van een query.  U kunt sorteren, filter en de resultaten van Groepsbeleid voor het analyseren van de gegevens zonder de werkelijke query te wijzigen.  Resultaten van een query worden niet standaard gesorteerd.
+De portal Zoeken in logboeken heeft een aantal functies voor het werken met de resultaten van een query.  U kunt resultaten sorteren, filteren en groeperen om de gegevens te analyseren zonder de werkelijke query te wijzigen.  Resultaten van een query worden niet standaard gesorteerd.
 
-Bekijk de gegevens in tabelvorm, wat zorgt voor extra opties voor filteren en sorteren, klikt u op **tabel**.  
+Als u de gegevens in tabelvorm wilt bekijken, zodat u over extra opties voor filteren en sorteren beschikt, klikt u op **Tabel**.  
 
 ![Tabelweergave](media/log-analytics-log-search-log-search-portal/log-search-portal-05.png)
 
-Klik op de pijl door een record weergeven van de details voor deze record.
+Klik op de pijl voor een record om de details voor dat record weer te geven.
 
 ![Resultaten sorteren](media/log-analytics-log-search-log-search-portal/log-search-portal-06.png)
 
-Sorteren op elk veld door te klikken op de kolomkop.
+U kunt op elk veld sorteren door op de kolomkop te klikken.
 
 ![Resultaten sorteren](media/log-analytics-log-search-log-search-portal/log-search-portal-07.png)
 
-De resultaten van een specifieke waarde in de kolom door te klikken op de filterknop en het leveren van een filtervoorwaarde filteren.
+Filter de resultaten op een specifieke waarde in de kolom door te klikken op de filterknop en een filtervoorwaarde op te geven.
 
 ![Resultaten filteren](media/log-analytics-log-search-log-search-portal/log-search-portal-08.png)
 
-Groeperen op een kolom met de kolomkop naar de bovenkant van de resultaten te slepen.  U kunt meerdere velden groeperen door meerdere kolommen naar boven te slepen.
+U kunt groeperen op een kolom door de kolomkop naar de bovenkant van de resultaten te slepen.  U kunt op meerdere velden groeperen door meerdere kolommen naar boven te slepen.
 
-![Resultaten van Groepsbeleid](media/log-analytics-log-search-log-search-portal/log-search-portal-09.png)
+![Resultaten groeperen](media/log-analytics-log-search-log-search-portal/log-search-portal-09.png)
 
 
 
 ## <a name="work-with-performance-data"></a>Werken met prestatiegegevens
-Prestatiegegevens voor Windows- en Linux-agents wordt opgeslagen in de werkruimte voor logboekanalyse in de **Perf** tabel.  Prestatiegegevens net als elke andere record zoeken en we een eenvoudige query waarin retourneert dat alle records van de prestaties op dezelfde manier als met gebeurtenissen kunt schrijven.
+Prestatiegegevens voor Windows- en Linux-agents worden opgeslagen in de Log Analytics-werkruimte in de tabel **Perf**.  Prestatiegegevens net als elke andere record zoeken en we een eenvoudige query waarin retourneert dat alle records van de prestaties op dezelfde manier als met gebeurtenissen kunt schrijven.
 
 ```
 Perf
@@ -136,7 +136,7 @@ Perf
 
 ![Prestatiegegevens](media/log-analytics-log-search-log-search-portal/log-search-portal-11.png)
 
-Hoewel miljoenen records voor alle prestatieobjecten en prestatiemeteritems retourneren is niet erg nuttig.  U kunt de methodes die u hierboven hebt gebruikt voor het filter de gegevens of typ de volgende query rechtstreeks in het zoekvak van het logboek.  Hiermee wordt alleen processor gebruik records voor zowel Windows- en Linux-computers.
+Het retourneren van miljoenen records voor alle prestatieobjecten en -meteritems is niet erg nuttig.  U kunt dezelfde methoden gebruiken die u hierboven hebt gebruikt voor het filteren van de gegevens of de volgende query rechtstreeks in het zoekvak van het logboek typen.  Hiermee worden alleen processorgebruikrecords voor zowel Windows- en Linux-computers geretourneerd.
 
 ```
 Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time")
@@ -144,15 +144,15 @@ Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor T
 
 ![Processorgebruik](media/log-analytics-log-search-log-search-portal/log-search-portal-12.png)
 
-Dit beperkt de gegevens naar een bepaald item, maar deze nog niet plaatsen in een formulier dat is bijzonder nuttig.  U kunt de gegevens in een lijndiagram worden weergegeven, maar u moet eerst het groeperen van Computer- en TimeGenerated.  Als u wilt groeperen op meerdere velden, moet u de query rechtstreeks wijzigen, zodat de query met de volgende wijzigen.  Dit maakt gebruik van de [Gem](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) functioneren in de **tegenwaarde** eigenschap bij de berekening van de gemiddelde waarde voor elk uur.
+Dit beperkt de gegevens tot een bepaald meteritem, maar plaatst deze nog niet in een vorm die handig is.  U kunt de gegevens weergegeven in een lijndiagram, maar u moet deze eerst groeperen op Computer en TimeGenerated.  Als u wilt groeperen op meerdere velden, moet u de query rechtstreeks wijzigen. Wijzig de query daarom als volgt.  Hiermee wordt de functie [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) in de eigenschap **CounterValue** gebruikt om de gemiddelde waarde voor elk uur te berekenen.
 
 ```
 Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated
 ```
 
-![Prestaties van een grafiek gegevensbron](media/log-analytics-log-search-log-search-portal/log-search-portal-13.png)
+![Prestatiegegevensgrafiek](media/log-analytics-log-search-log-search-portal/log-search-portal-13.png)
 
-Nu dat de gegevens worden naar behoren gegroepeerd, kunt u deze weergeven in een grafiek visual door toe te voegen de [renderen](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) operator.  
+Nu de gegevens naar behoren zijn gegroepeerd, kunt u deze weergeven in een visuele grafiek door de operator [render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) toe te voegen.  
 
 ```
 Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated | render timechart

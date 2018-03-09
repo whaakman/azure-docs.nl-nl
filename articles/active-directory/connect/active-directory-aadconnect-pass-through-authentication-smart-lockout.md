@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9477d47824213d7ea15bcf6c6b615a220bae2e48
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Pass-through-verificatie van Azure Active Directory: Smart accountvergrendeling
 
 ## <a name="overview"></a>Overzicht
 
-Azure Active Directory (Azure AD) beschermt tegen aanvallen met brute kracht wachtwoord en voorkomen dat legitieme gebruikers hun Office 365 en SaaS-toepassingen wordt vergrendeld. Deze mogelijkheid, aangeroepen *Smart accountvergrendeling*, wordt ondersteund als u Pass-through-verificatie als uw contactmethode aanmelden gebruiken. Smartcard-vergrendeling is standaard ingeschakeld voor alle tenants en het continu uw gebruikersaccounts beveiligt.
+Azure Active Directory (Azure AD) beschermt tegen aanvallen met brute kracht wachtwoord en voorkomen dat legitieme gebruikers hun Office 365 en SaaS-toepassingen wordt vergrendeld. Deze mogelijkheid, aangeroepen *Smart accountvergrendeling*, wordt ondersteund als u Pass-through-verificatie als uw contactmethode aanmelden gebruiken. Smartcard-vergrendeling is standaard ingeschakeld voor alle tenants, niet alleen tenants via Pass-through-verificatie en het continu uw gebruikersaccounts beveiligt.
 
 Smart accountvergrendeling houdt van mislukte pogingen voor aanmelden. Na een bepaalde *blokkeringsdrempel*, wordt het een *vergrendelingsduur*. Smart vergrendeling wordt elke poging om te ondertekenen van de hacker tijdens de duur van de vergrendeling geweigerd. Als de aanval blijft, aanmeldingspogingen daaropvolgende mislukte nadat de vergrendelingsduur resultaat in langere duur van de vergrendeling eindigt.
 

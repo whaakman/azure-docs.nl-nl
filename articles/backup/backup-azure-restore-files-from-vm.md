@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Bestanden herstellen vanuit back-up van virtuele machine van Azure
 
 Azure Backup biedt de mogelijkheid om te herstellen [Azure virtual machines (VM's) en schijven](./backup-azure-arm-restore-vms.md) van back-ups van virtuele machine in Azure, ook wel bekend als herstelpunten. In dit artikel wordt uitgelegd hoe bestanden en mappen herstellen van een virtuele machine van Azure back-up. Bestanden en mappen terugzetten is alleen beschikbaar voor virtuele Azure-machines geïmplementeerd met behulp van de Resource Manager-model en beveiligd door een Recovery services-kluis.
 
 > [!Note]
+> Deze functie is beschikbaar voor virtuele Azure-machines geïmplementeerd met behulp van de Resource Manager-model en beveiligd door een Recovery Services-kluis.
 > Herstel van bestanden vanuit een versleutelde VM back-up wordt niet ondersteund.
 >
 
@@ -154,7 +155,7 @@ De volgende opdracht geeft details weer over alle raid-schijven.
 ```
 $ mdadm –detail –scan
 ```
- De relevante RAID-schijf wordt weergegeven als`/dev/mdm/<RAID array name in the protected VM>`
+ De relevante RAID-schijf wordt weergegeven als `/dev/mdm/<RAID array name in the protected VM>`
 
 Gebruik de koppelopdracht als de schijf RAID fysieke volumes heeft.
 ```

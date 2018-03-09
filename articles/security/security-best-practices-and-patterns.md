@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
 ms.author: 
-ms.openlocfilehash: 5176f679971d542e67dfc6ff04a729fa52bc3f6e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6713580325450d7548e63c78af4d44c65653f884
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure-beveiliging aanbevolen procedures en patronen
 
@@ -28,11 +28,12 @@ ms.lasthandoff: 02/22/2018
 * [Azure identiteits- en toegang beheren best practices voor beveiliging](azure-security-identity-management-best-practices.md)
 * [Aanbevolen beveiligingsprocedures voor Azure-netwerk](azure-security-network-security-best-practices.md)
 * [Aanbevolen procedures voor Azure operationele beveiliging](azure-operational-security-best-practices.md)
-* [Aanbevolen procedures voor Azure PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments) 
-* [Azure Service Fabric best practices voor beveiliging](security-best-practices-and-patterns.md)
-* [Aanbevolen procedures voor beveiliging van de virtuele machine in Azure](azure-service-fabric-security-best-practices.md)
+* [Aanbevolen procedures voor Azure PaaS](security-paas-deployments.md) 
+* [Azure Service Fabric best practices voor beveiliging](azure-service-fabric-security-best-practices.md)
+* [Aanbevolen procedures voor beveiliging van de virtuele machine in Azure](azure-security-best-practices-vms.md)
 * [Een beveiligde, hybride netwerkarchitectuur implementeren in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Aanbevolen beveiligingsprocedures voor Internet der dingen](azure-security-iot-best-practices.md)* [beveiligen PaaS-databases in Azure](security-paas-applications-using-sql.md)
+* [Aanbevolen beveiligingsprocedures voor Internet der dingen](azure-security-iot-best-practices.md)
+* [PaaS-databases in Azure beveiligen](security-paas-applications-using-sql.md)
 * [Beveiligen van PaaS-webtoepassingen en mobiele toepassingen met behulp van Azure App Service](security-paas-applications-using-app-services.md)
 * [PaaS-toepassingen voor web en mobiel beveiligen met Azure Storage](security-paas-applications-using-storage.md)
 * [Aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure](azure-security-iaas.md)

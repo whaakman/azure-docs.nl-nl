@@ -8,14 +8,14 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/14/2018
 ms.topic: article
-ms.openlocfilehash: 8753d039582abdf22f105bf7f139a35c224e7c59
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 799be6d2bb521de38af952376bf8ee14a18846de
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Ansible gebruiken voor het beheren van uw Azure dynamische voorraden
-Ansible kan worden gebruikt voor het pull-inventarisatie-informatie uit diverse bronnen (met inbegrip van cloud-bronnen zoals Azure) in een *dynamische inventaris*. In dit artikel, gebruikt u de [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) tag een die virtuele machines voor het configureren van een Ansible Azure dynamische inventarisatie waarin u twee virtuele machines maken en Nginx installeren op de gemarkeerde virtuele machine.
+Ansible kan worden gebruikt voor het pull-inventarisatie-informatie uit diverse bronnen (met inbegrip van cloud-bronnen zoals Azure) in een *dynamische inventaris*. In dit artikel, gebruikt u de [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) tag een van deze virtuele machines voor het configureren van een Ansible Azure dynamische inventarisatie waarin u twee virtuele machines maken en Nginx installeren op de gemarkeerde virtuele machine.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -59,11 +59,11 @@ U kunt [codes gebruiken om uw Azure-resources te organiseren](https://docs.micro
 Voer de volgende [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) opdracht voor het taggen van de virtuele machine `ansible-inventory-test-vm1` met de sleutel `nginx`:
 
 ```azurecli-interactive
-az resource tag --tags nginx --id /subscriptions/&lt;YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
+az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
 ## <a name="generate-a-dynamic-inventory"></a>Genereren van een dynamische inventarisatie
-Als u uw virtuele machines hebt gedefinieerd (en niet-gecodeerde), is het tijd om de dynamische voorraad genereren. Ansible bevat een pythonscript aangeroepen [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) die een dynamische inventaris van uw Azure-resources wordt gegenereerd door het maken van API-aanvragen in de Azure Resource Manager. De volgende stappen maakt u met behulp van de `azure_rm.py` script verbinding maken met uw twee test Azure virtuele machine:
+Als u uw virtuele machines hebt gedefinieerd (en niet-gecodeerde), is het tijd om de dynamische voorraad genereren. Ansible bevat een pythonscript aangeroepen [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) die een dynamische inventaris van uw Azure-resources wordt gegenereerd door het maken van API-aanvragen in de Azure Resource Manager. De volgende stappen maakt u met behulp van de `azure_rm.py` script verbinding maken met uw twee virtuele machines in Azure testen:
 
 1. Gebruik de GNU `wget` opdracht voor het ophalen van de `azure_rm.py` script:
 

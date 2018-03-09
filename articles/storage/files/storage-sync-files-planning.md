@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 341ace1d9792aba3d6d525a2cde0d9b74367d214
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planning voor de implementatie van een Azure-bestand Sync (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -92,7 +92,7 @@ Toekomstige versies van Windows Server worden toegevoegd zodra ze worden vrijgeg
 | Reparsepunten | Overgeslagen | |
 | NTFS-compressie | Volledig ondersteund | |
 | Verspreide bestanden | Volledig ondersteund | Synchronisatie van verspreide bestanden (worden niet geblokkeerd), maar ze naar de cloud als een volledig bestand synchroniseert. Als de inhoud van het bestand wijzigen in de cloud (of op een andere server), is het bestand niet meer sparse wanneer de wijziging wordt gedownload. |
-| Alternatieve gegevensstreams (ADS) | Behouden, maar niet gesynchroniseerd | |
+| Alternatieve gegevensstreams (ADS) | Behouden, maar niet gesynchroniseerd | Bijvoorbeeld de classificatie-labels die zijn gemaakt door de infrastructuur voor Bestandsclassificatie zijn niet gesynchroniseerd. Bestaande classificatie labels op bestanden op elk van de server-eindpunten zijn ongewijzigd. |
 
 > [!Note]  
 > NTFS-volumes worden ondersteund. ReFS, FAT, FAT32 en andere bestandssystemen worden niet ondersteund.
@@ -142,7 +142,7 @@ Back-upoplossingen kunnen leiden tot het intrekken van gelaagde bestanden zoals 
 Ondersteuning voor versleuteling oplossingen, is afhankelijk van hoe ze worden geïmplementeerd. Azure File-synchronisatie is bekend dat werkt met:
 
 - BitLocker-versleuteling
-- Azure Rights Management Services (Azure RMS) (en verouderde Active Directory RMS)
+- Azure Information Protection, Azure Rights Management Services (Azure RMS) en Active Directory RMS
 
 Azure File-synchronisatie bekend is niet werken met:
 

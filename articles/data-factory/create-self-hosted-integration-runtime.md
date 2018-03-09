@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e9c6b85a439ba880c15ae16ab1cac093020430ba
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Het maken en configureren van Self-hosted integratie Runtime
 De integratie Runtime (IR) is de beheerinfrastructuur gebruikt door Azure Data Factory om te bieden mogelijkheden voor de integratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [integratie Runtime overzicht](concepts-integration-runtime.md).
@@ -65,6 +65,7 @@ Hier volgt een gegevensstroom op hoog niveau voor de samenvatting van stappen vo
 - Host zichzelf integratie runtime moet worden gebruikt voor de ondersteuning van de integratie van de gegevens in Azure Virtual Network.
 - Uw gegevensbron behandelen als een lokale gegevensbron (die zich achter een firewall) zelfs als u werkt met **ExpressRoute**. De runtime host zichzelf integratie gebruiken om verbinding tussen de service en de gegevensbron te maken.
 - U moet de host zichzelf integratie-runtime gebruiken, zelfs als het gegevensarchief is in de cloud op een **Azure IaaS virtuele machine**.
+- Taken mislukken in een Self-hosted integratie Runtime is geïnstalleerd op een Windows-Server op welke FIPS-compatibele versleuteling is ingeschakeld. U kunt dit probleem omzeilen, FIPS-compatibele versleuteling op de server uitschakelen
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -182,7 +183,7 @@ De integratie-runtime-Host-Service wordt automatisch opnieuw opgestart nadat u d
 Nadat de host zichzelf integratie runtime is geregistreerd, als u wilt weergeven of bijwerken van proxy-instellingen, moet u integratie Runtime Configuration Manager gebruiken.
 
 1.  Start **Microsoft integratie Runtime Configuration Manager**.
-2.  Overschakelen naar de **instellingen** tabblad.
+2.  Schakel over naar het tabblad **Instellingen**.
 3.  Klik op **wijziging** koppelen **HTTP-Proxy** sectie starten de **Set HTTP-Proxy** dialoogvenster.
 4.  Nadat u op de **volgende** knop klikt, ziet u een waarschuwingsdialoogvenster waarin wordt gevraagd uw toestemming voor het opslaan van de proxy-instellingen en de integratie Runtime-Host-Service opnieuw starten.
 

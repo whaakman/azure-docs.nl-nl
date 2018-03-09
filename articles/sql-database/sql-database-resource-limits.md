@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: eea4362e33ff2587758601758db463ffa82382b3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limieten voor Azure SQL Database
+
+> [!IMPORTANT]
+> Zie voor de limieten van de resource met Azure SQL Database beheerd exemplaar, [beheerde exemplaar van SQL Database](sql-database-managed-instance.md#managed-instance-service-tier).
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Individuele database: opslaggrootte en prestatieniveaus
 
@@ -79,7 +82,6 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 
 > [!NOTE]
 > De limieten van de afzonderlijke databases in een elastische pools zijn in het algemeen hetzelfde als voor individuele databases buiten groepen op basis van dtu's en de servicetier. Bijvoorbeeld, is het maximumaantal gelijktijdige werknemers voor een database S2 120 werknemers. Het maximumaantal gelijktijdige werknemers voor een database in een Standard-pool is dus ook 120 werknemers als het maximale aantal DTU per database in de groep is 50 dtu's (dit is gelijk aan S2).
->
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 

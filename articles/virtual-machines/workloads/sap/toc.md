@@ -14,7 +14,11 @@
 ## [SAP HANA-installatie met enkel exemplaar](hana-get-started.md)
 ## [Implementatiehandleiding voor S/4 HANA of BW/4 HANA SAP CAL](cal-s4h.md)
 ## [Bedieningsgids voor SAP HANA op Azure](hana-vm-operations.md)
-## [SAP HANA met hoge beschikbaarheid in virtuele machines op Azure](sap-hana-high-availability.md)
+## Beschikbaarheid van SAP HANA in virtuele Azure-machines
+### [Overzicht van de beschikbaarheid van SAP HANA op Azure](sap-hana-availability-overview.md)
+### [Beschikbaarheid van SAP HANA op Azure binnen één Azure-regio](sap-hana-availability-one-region.md)
+### [Beschikbaarheid van SAP HANA op Azure in meerdere Azure-regio's](sap-hana-availability-across-regions.md)
+## [SAP HANA-systeemreplicatie instellen in virtuele Azure-machines](sap-hana-high-availability.md)
 ## [Overzicht van back-ups van SAP HANA](sap-hana-backup-guide.md)
 ## [Back-ups maken van SAP HANA op bestandsniveau](sap-hana-backup-file-level.md)
 ## [Back-ups maken van SAP HANA-opslagmomentopnamen](sap-hana-backup-storage-snapshots.md)

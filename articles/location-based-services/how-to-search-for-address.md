@@ -2,17 +2,17 @@
 title: Het zoeken naar een adres met behulp van de zoekservice Azure locatie op basis van Services (preview) | Microsoft Docs
 description: Meer informatie over het zoeken naar een adres met de Azure locatie op basis van Services (preview) Search-service
 services: location-based-services
-keywords: Voeg geen of trefwoorden zonder overleg met uw EXPERT in Zoekmachineoptimalisatie bewerken.
-author: philmea
-ms.author: philmea
+keywords: Voeg geen sleutelwoorden toe en bewerk ze niet zonder overleg met uw SEO-expert.
+author: kgremban
+ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Het zoeken van een adres met behulp van de zoekservice Azure locatie op basis van Services (preview)
 De Search-service is een RESTful reeks API's die zijn ontworpen voor ontwikkelaars om te zoeken naar adressen, locaties, punten van belang, lijsten van bedrijven en andere geografische informatie. Een breedtegraad/lengtegraad wijst de Search-Service naar een specifiek adres, cross straat, geografische functie of interessante (POI). Breedtegraad en lengtegraad waarden geretourneerd door de zoekservice API's kunnen worden gebruikt als parameters in andere Azure locatie op basis van Services zoals de verkeer stromen API's en Route.
@@ -40,7 +40,7 @@ De meeste zoekopdrachten standaard ingesteld op ' maxFuzzyLevel = 1' om toegang 
 
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
-    | HTTP-methode | GET |
+    | HTTP-methode | TOEVOEGEN |
     | Aanvraag-URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | Autorisatie | Er is geen verificatie |
 
@@ -92,7 +92,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
-    | HTTP-methode | GET |
+    | HTTP-methode | TOEVOEGEN |
     | Aanvraag-URL | https://atlas.microsoft.com/search/address/json? |
     | Autorisatie | Er is geen verificatie |
 
@@ -119,7 +119,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
 
     | Sleutel | Waarde |
     |-----|------------|
-    | typeahead | waar |
+    | typeahead | true |
 
     De **typeahead** vlag wordt de API-adres zoeken aan de query behandelen als een gedeeltelijke invoer en een matrix van voorspellende waarden retourneren.
 
@@ -132,7 +132,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
-    | HTTP-methode | GET |
+    | HTTP-methode | TOEVOEGEN |
     | Aanvraag-URL | https://atlas.microsoft.com/search/address/reverse/json? |
     | Autorisatie | Er is geen verificatie |
     
@@ -154,7 +154,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
 
     | Sleutel | Waarde |
     |-----|------------|
-    | nummer | waar |
+    | nummer | true |
 
     Als de [getal](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter met de aanvraag is verzonden, moet het antwoord eventueel de kant van de straat (links/rechts) en ook de positie van een offset voor dat nummer.
     
@@ -162,7 +162,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
 
     | Sleutel | Waarde |
     |-----|------------|
-    | spatialKeys | waar |
+    | spatialKeys | true |
 
     Wanneer de [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, wordt het antwoord bevat eigen geo-ruimtelijke belangrijke informatie voor een opgegeven locatie.
 
@@ -170,7 +170,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
 
     | Sleutel | Waarde |
     |-----|------------|
-    | returnSpeedLimit | waar |
+    | returnSpeedLimit | true |
     
     Wanneer de [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, het antwoord geretourneerd van de geboekte limiet voor snelheid.
 
@@ -178,7 +178,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
 
     | Sleutel | Waarde |
     |-----|------------|
-    | returnRoadUse | waar |
+    | returnRoadUse | true |
 
     Wanneer de [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, wordt het antwoord retourneert de weg gebruik matrix voor reversegeocodes op niveau van de straat.
 
@@ -186,7 +186,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
 
     | Sleutel | Waarde |
     |-----|------------|
-    | roadUse | waar |
+    | roadUse | true |
 
     U kunt de omgekeerde geocode query beperken tot een specifiek type van het gebruik van weg gebruik de [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter.
     
@@ -200,7 +200,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
-    | HTTP-methode | GET |
+    | HTTP-methode | TOEVOEGEN |
     | Aanvraag-URL | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
     | Autorisatie | Er is geen verificatie |
     

@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Configureerbare token levensduur in Azure Active Directory (openbare Preview)
 U kunt de levensduur van een token dat is uitgegeven door Azure Active Directory (Azure AD) opgeven. Token levensduur voor alle apps in uw organisatie, voor een multitenant (meerdere organisatie)-toepassing of voor een specifieke service-principal kunt u instellen in uw organisatie.
@@ -34,6 +34,11 @@ Een beleidsobject vertegenwoordigt in Azure AD een reeks regels die op afzonderl
 
 U kunt een beleid aanwijzen als het standaardbeleid voor uw organisatie. Het beleid wordt toegepast op alle toepassingen in de organisatie, zolang deze niet is overschreven door een beleid met een hogere prioriteit. U kunt ook een beleid toewijzen aan specifieke toepassingen. De volgorde van prioriteit, varieert per beleidstype.
 
+> [!NOTE]
+> Beleid voor configureerbare levensduur van het token wordt niet ondersteund voor SharePoint Online.  Hoewel u de mogelijkheid hebt te maken van dit beleid via PowerShell, wordt SharePoint Online niet meer op dit beleid. Raadpleeg de [SharePoint Online-blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) voor meer informatie over het configureren van niet-actieve sessies.
+>* De standaardlevensduur voor het SharePoint Online toegangstoken is 1 uur. 
+>* De standaard maximale inactieve tijd van het SharePoint Online vernieuwingstoken is 90 dagen.
+>
 
 ## <a name="token-types"></a>Tokentypen
 

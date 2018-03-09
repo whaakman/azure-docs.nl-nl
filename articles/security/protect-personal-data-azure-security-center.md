@@ -1,6 +1,6 @@
 ---
 title: Persoonlijke gegevens beschermen met Azure Security Center | Microsoft Docs
-description: beveiligen van persoonlijke gegevens met Azure security center
+description: security center gebruiken om persoonlijke gegevens te beveiligen. Dit kan worden gebruikt in inspanningen om te voldoen met algemene Data Protection regelgeving (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 118752a030a1c300306aa3e05571bb9b624a2c20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>Persoonlijke gegevens beschermen tegen aanvallen en inbreuken op: Azure Security Center
 
-In dit artikel helpt u begrijpen hoe Azure Security Center persoonlijke gegevens beveiligen tegen aanvallen en inbreuken op.
+In dit artikel helpt u begrijpen hoe Azure Security Center persoonlijke gegevens beveiligen tegen aanvallen en inbreuken op. De informatie in dit helpt u bij uw inspanningen om te voldoen met algemene Data Protection regelgeving (GDPR).
 
 ## <a name="scenario"></a>Scenario 
 

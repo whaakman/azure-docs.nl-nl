@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 10e82c13dc2bb8461fb628435484a3a6e1877aa8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="apply-updates-in-azure-stack"></a>Toepassen van updates in Azure-Stack
 
@@ -67,7 +67,7 @@ De volgende procedure laat zien hoe importeren en updatepakketten installeren in
  
     ![Laat zien waar elk pakketbestand uploaden](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Herhaal stap 6 en 7 voor de *PackageName*.bin en Metadata.xml-bestanden. 
+8. Herhaal stap 6 en 7 voor de *PackageName*.bin en Metadata.xml-bestanden. Importeer het bestand aanvullende Notice.txt niet als opgenomen.
 9. Wanneer u klaar bent, kunt u de meldingen (belpictogram in de rechterbovenhoek van de portal) bekijken. De meldingen zou moeten aangeven dat het uploaden is voltooid. 
 10. Ga terug naar de tegel Update op het dashboard. De tegel zou moeten aangeven dat er een update beschikbaar is. Klik op de tegel om te controleren van het zojuist toegevoegde updatepakket.
 11. De update wilt installeren, selecteer het pakket dat gemarkeerd als **gereed** en met de rechtermuisknop op het pakket en selecteert u **nu bijwerken**, of klik op de **nu bijwerken** actie boven .

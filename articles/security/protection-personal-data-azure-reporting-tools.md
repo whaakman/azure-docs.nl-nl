@@ -1,6 +1,6 @@
 ---
 title: Beveiliging van persoonlijke gegevens met Azure-hulpprogramma's voor rapportage-document | Microsoft Docs
-description: "het gebruik van Azure reporting services en -technologieën om de privacy van persoonlijke gegevens te beschermen."
+description: Gebruik Azure reporting services ter bescherming van de privacy van persoonlijke gegevens in initiatieven om te voldoen met algemene Data Protection regelgeving (GDPR).
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Beveiliging voor documenten van persoonlijke gegevens met Azure-hulpprogramma's voor rapportage
 
-In dit artikel wordt besproken hoe u Azure reporting services en -technologieën om de privacy van persoonlijke gegevens te beschermen.
-
+In dit artikel wordt besproken hoe u Azure reporting services en -technologieën om de privacy van persoonlijke gegevens te beschermen. Deze informatie kan worden gebruikt om te voldoen aan de branche of overheidsinstelling voorschriften zoals algemene Data Protection regelgeving (GDPR).
 ## <a name="scenario"></a>Scenario
 
 Een bedrijf grote cruise, gevestigd in de Verenigde Staten, aanvullende bewerkingen voor het bieden van routes in de Middellandse, Adriatische, Baltische veiligheid ook Florida. Om te helpen deze inspanningen, heeft die is verkregen meerdere kleinere cruise regels op basis van Italië, Duitsland, Denemarken en het Verenigd Koninkrijk

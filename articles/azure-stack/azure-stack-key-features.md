@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
-ms.reviewer: unknown
-ms.openlocfilehash: 6c02ec42874e4e3221c53e6d6e85378bbe2e414a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.reviewer: 
+ms.openlocfilehash: b773ddc5da12f92960ef3378decac8569dac9ab9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Belangrijke functies en -concepten in Azure-Stack
 
@@ -91,6 +91,7 @@ Abonnementen helpen providers ordenen en toegang tot bronnen en services.
 
 Voor de beheerder is een standaard Provider-abonnement gemaakt tijdens de implementatie. Dit abonnement kan worden gebruikt voor Azure-Stack beheren, implementeren verdere resourceproviders en plannen en aanbiedingen maken voor tenants. Deze mag niet worden gebruikt om uit te voeren van de klant workloads en toepassingen. 
 
+
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 Met behulp van Azure Resource Manager kunt u werken met de infrastructuurresources van uw in een model op basis van een sjabloon, declaratieve.   Het biedt één interface waarmee u kunt implementeren en beheren van de oplossingsonderdelen van uw. Zie voor meer informatie en richtlijnen de [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
@@ -127,6 +128,25 @@ Azure Queue Storage biedt uitwisseling van berichten tussen toepassingsonderdele
 
 ### <a name="keyvault"></a>KeyVault
 De KeyVault RP biedt beheer en controle van geheimen zoals wachtwoorden en certificaten. Als u bijvoorbeeld kunt een tenant de KeyVault RP beheerderswachtwoorden of sleutels opgeven tijdens de VM-implementatie.
+
+## <a name="high-availability-for-azure-stack"></a>Hoge beschikbaarheid voor Azure-Stack
+*Van toepassing op: Azure Stack 1802 of hoger*
+
+Om te zorgen voor hoge beschikbaarheid van een multi-VM productiesystemen in Azure, worden virtuele machines in een beschikbaarheidsset die zich ze in meerdere domeinen met fouten en update domeinen verspreidt geplaatst. Op deze manier [virtuele machines die worden geïmplementeerd in beschikbaarheidssets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) zijn fysiek geïsoleerd van elkaar op afzonderlijke server rekken om toe te staan voor fout tolerantie, zoals wordt weergegeven in het volgende diagram:
+
+  ![Azure Stack hoge beschikbaarheid](media/azure-stack-key-features/high-availability.png)
+
+### <a name="availablity-sets-in-azure-stack"></a>Beschikbaarheid wordt ingesteld in Azure-Stack
+De infrastructuur van Azure-Stack is al tegen storingen, de onderliggende technologie (Failoverclustering) nog steeds leidt ertoe dat enige uitvaltijd voor virtuele machines op een betrokken fysieke server in het geval van een hardwarefout. Azure Stack ondersteunt die consistent zijn met Azure met een maximum van drie foutdomeinen beschikbaarheidsset.
+
+- **Fault-domeinen**. Virtuele machines in een beschikbaarheidsset geplaatst worden fysiek van elkaar geïsoleerd door ze zo gelijkmatig mogelijk te spreiden over meerdere domeinen met fouten (Azure-Stack knooppunten). In het geval van een hardwarefout wordt virtuele machines van de mislukte foutdomein opnieuw gestart in andere domeinen met fouten, maar, indien mogelijk wordt bijgehouden in afzonderlijke foutdomeinen van de andere virtuele machines in dezelfde beschikbaarheidsset. Wanneer de hardware weer online wordt gezet, wordt virtuele machines worden uitgevoerd voor het onderhouden van hoge beschikbaarheid. 
+ 
+- **Bijwerken van domeinen**. Update domeinen zijn een andere Azure-concept dat zorgt voor hoge beschikbaarheid in beschikbaarheidssets. Een updatedomein is een logische groep van de onderliggende hardware die onderhoud op hetzelfde moment kan ondergaan. Virtuele machines zich in hetzelfde updatedomein wordt opnieuw gestart samen tijdens gepland onderhoud. Tenants maken van virtuele machines binnen een beschikbaarheidsset, de Azure-platform distribueert automatisch virtuele machines in deze domeinen bijwerken. In Azure-Stack zijn virtuele machines live gemigreerd in de andere hosts in het cluster online voordat hun onderliggende host wordt bijgewerkt. Omdat er geen uitvaltijd tenant tijdens het bijwerken van de host, is de functie voor het domein van updates op Azure-Stack alleen beschikbaar voor compatibiliteit met Azure. 
+
+### <a name="upgrade-scenarios"></a>Upgradescenario 's 
+Virtuele machines in beschikbaarheidssets voordat Azure Stack versie 1802 krijgt een aantal fouten en update domeinen gemaakt (1 en 1 respectievelijk). Om te zorgen voor hoge beschikbaarheid voor virtuele machines in deze vooraf bestaande beschikbaarheidssets, moet u eerst de bestaande virtuele machines te verwijderen en deze vervolgens opnieuw te implementeren in een nieuwe beschikbaarheidsset met de juiste tellingen voor probleem- en update domein zoals beschreven in [wijzigen de beschikbaarheidsset voor een Windows-VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
+
+Voor VM-schaalsets, een beschikbaarheidsset is gemaakt intern met een standaard domein en de update aantal foutdomeinen (3 en 5 respectievelijk). Een VM schalen worden gemaakt voordat de update 1802 worden geplaatst in een beschikbaarheidsset met het aantal standaard fouttolerantie en update domein (1 en 1 respectievelijk). Voor het bijwerken van deze VM-instanties scale set zodat de nieuwere verspreiding schalen van de VM-schaalsets door het aantal exemplaren die waren voordat de update 1802 en verwijder vervolgens de oudere exemplaren van de VM-schaalsets. 
 
 ## <a name="role-based-access-control-rbac"></a>Op rollen gebaseerde toegangsbeheer (RBAC)
 U kunt gebruikmaken van RBAC om systeemtoegang te verlenen tot gemachtigde gebruikers, groepen en services door het toewijzen van rollen aan een abonnement, resourcegroep of afzonderlijke resource niveau. Elke rol definieert het toegangsniveau dat een gebruiker, groep of -service op de Stack van Microsoft Azure-resources heeft.

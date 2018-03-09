@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: cynthn
-ms.openlocfilehash: d802ba16ecb4e32e2adb7be3a8e99c72a1625841
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e78ecf6bd281bd5d30f59413789eb1e6fc7b5bc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Een gegeneraliseerde VHD uploaden en deze gebruiken voor het maken van nieuwe virtuele machines in Azure
 
@@ -163,6 +163,12 @@ U kunt ook een VHD uploaden naar uw storage-account met behulp van een van de vo
 - [Opslag voor importeren/exporteren Service REST API-verwijzing](https://msdn.microsoft.com/library/dn529096.aspx)
 -   U kunt het beste Import/Export-Service gebruikt als de geschatte tijd uploaden is langer dan zeven dagen. U kunt [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) om in te schatten het tijdstip in gegevenseenheid grootte en de overdracht. 
     Import/Export kan worden gebruikt om te kopiëren naar een standard-opslagaccount. U wilt kopiëren van de standard-opslag naar premium storage-account met behulp van een hulpprogramma zoals AzCopy.
+
+> [!IMPORTANT]
+> Als u uw VHD uploaden naar Azure AzCopy gebruikt, controleert u of u hebt ingesteld [/BlobType:page](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) voordat u script uploaden. Als de bestemming een blob is en deze optie niet is opgegeven, standaard maakt AzCopy een blok-blob.
+> 
+> 
+
 
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Een begeleide afbeelding van de geüploade VHD maken 

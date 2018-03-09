@@ -3,28 +3,28 @@ title: Hulpprogramma's voor de opslag van Azure-Stack
 description: Meer informatie over Azure-Stack opslaggegevens hulpmiddelen voor bestandsoverdracht
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 9799498a11449a9ed496d0fdb40312603eda064e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/21/2018
+ms.author: mabrigg
+ms.reviewer: xiaofmao
+ms.openlocfilehash: 9318b7af3c3dd545207f1896c9008207f562b735
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Hulpprogramma's voor de opslag van Azure Stack
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Microsoft Azure-Stack biedt een set van de storage-services voor schijven, blobs, tabellen, wachtrijen en functionaliteit voor Gebruikersaccountbeheer. U kunt een set hulpprogramma's van Azure Storage gebruiken als u wilt beheren of gegevens te verplaatsen naar of van de Azure-Storage-Stack. Dit artikel bevat een overzicht van de beschikbare hulpprogramma's.
+Microsoft Azure-Stack biedt een set van de storage-services voor schijven, blobs, tabellen, wachtrijen en beheerfuncties account. U kunt een set hulpprogramma's van Azure Storage gebruiken als u wilt beheren of gegevens te verplaatsen naar of van de Azure-Storage-Stack. Dit artikel bevat een overzicht van de beschikbare hulpprogramma's.
 
 Het hulpprogramma die het beste werkt, is afhankelijk van uw vereisten:
 * [AzCopy](#azcopy)
@@ -35,7 +35,7 @@ Het hulpprogramma die het beste werkt, is afhankelijk van uw vereisten:
 
     Een taakgebaseerde opdrachtregel-shell en scripttaal die speciaal is ontworpen voor systeembeheer.
 
-* [Azure CLI](#azure-cli)
+* [Azure-CLI](#azure-cli)
 
     Een open-source platformoverschrijdende hulpprogramma waarmee een reeks opdrachten voor het werken met de Azure en Azure Stack-platforms.
 
@@ -47,10 +47,14 @@ Vanwege de Storage-services verschillen tussen Azure en Azure-Stack, is er mogel
 
 
 ## <a name="azcopy"></a>AzCopy
-AzCopy is een opdrachtregelprogramma dat is ontworpen om gegevens te kopiëren naar en van Microsoft Azure-Blob en Table storage met eenvoudige opdrachten met optimale prestaties. U kunt gegevens van het ene object naar de andere kopiëren binnen uw opslagaccount of tussen opslagaccounts. Er zijn twee versie van de AzCopy: AzCopy voor Windows en AzCopy op Linux. Azure-Stack ondersteunt alleen de Windows-versie. 
+AzCopy is een opdrachtregelprogramma dat is ontworpen om gegevens te kopiëren naar en van Microsoft Azure-Blob en Table storage met eenvoudige opdrachten met optimale prestaties. U kunt gegevens van het ene object naar de andere kopiëren binnen uw opslagaccount of tussen opslagaccounts. Er zijn twee versies van de AzCopy: AzCopy voor Windows en AzCopy op Linux. Azure-Stack ondersteunt alleen de Windows-versie. 
  
 ### <a name="download-and-install-azcopy"></a>Downloaden en installeren van AzCopy 
-[Download](https://aka.ms/azcopyforazurestack) de ondersteunde Windows-versie van AzCopy voor Azure-Stack. U kunt installeren en gebruiken van AzCopy op Azure-Stack dezelfde manier als Azure. Zie voor meer informatie, [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../../storage/common/storage-use-azcopy.md). 
+
+[Download](https://aka.ms/azcopyforazurestack) de ondersteunde Windows-versie van AzCopy van Azure-Stack. U kunt installeren en gebruiken van AzCopy op Azure-Stack dezelfde manier als Azure. Zie voor meer informatie, [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../../storage/common/storage-use-azcopy.md). 
+
+ - Voor 1802 update of nieuwere versies [AzCopy 7.1.0 downloaden](https://aka.ms/azcopyforazurestack20170417).
+ - Voor de vorige versie [AzCopy 5.0.0 downloaden](https://aka.ms/azcopyforazurestack20150405).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Voorbeelden van AzCopy-opdracht voor gegevensoverdracht
 De volgende voorbeelden ziet enkele typische scenario's voor het kopiëren van gegevens naar en van de Stack Azure blobs. Zie voor meer informatie, [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../../storage/storage-use-azcopy.md). 
@@ -63,14 +67,14 @@ AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer 
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 #### <a name="move-data-between-azure-and-azure-stack-storage"></a>Gegevens verplaatsen tussen Azure en Azure Stack Storage 
-Asynchrone gegevensoverdracht tussen Azure Storage en Azure-Stack wordt niet ondersteund. u moet opgeven van de overdracht met de `/SyncCopy` optie. 
+Asynchrone gegevensoverdracht tussen Azure Storage en Azure-Stack wordt niet ondersteund. u moet opgeven van de overdracht met de **/SyncCopy** optie. 
 ```azcopy 
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
 ```
 
 ### <a name="azcopy-known-issues"></a>Azcopy bekende problemen
 * Eventuele AzCopy-bewerking op de opslag van bestanden is niet beschikbaar omdat de opslag van bestanden is nog niet beschikbaar in Azure-Stack.
-* Asynchrone gegevensoverdracht tussen Azure Storage en Azure-Stack wordt niet ondersteund. U kunt opgeven dat de overdracht met de `/SyncCopy` optie om de gegevens te kopiëren.
+* Asynchrone gegevensoverdracht tussen Azure Storage en Azure-Stack wordt niet ondersteund. U kunt opgeven dat de overdracht met de **/SyncCopy** optie om de gegevens te kopiëren.
 * De Linux-versie van Azcopy wordt niet ondersteund voor de opslag van de Azure-Stack. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -80,7 +84,7 @@ Azure PowerShell is een module met cmdlets voor het beheren van services op de A
 Azure Stack compatibele Azure PowerShell-modules zijn vereist voor het werken met Azure-Stack. Zie voor meer informatie [Installeer PowerShell voor Azure-Stack](azure-stack-powershell-install.md) en [configureren van de gebruiker van de Stack van Azure PowerShell-omgeving](azure-stack-powershell-configure-user.md) voor meer informatie.
 
 ### <a name="powershell-sample-script-for-azure-stack"></a>PowerShell-voorbeeldscript voor Azure-Stack 
-Dit voorbeeld wordt ervan uitgegaan dat u hebt met succes [Installeer PowerShell voor Azure-Stack](azure-stack-powershell-install.md). Dit script wordt helpen u de configuratie van de conplete en referenties voor uw account toevoegen aan de lokale PowerShell environemnt vraagt u uw Azure-Stack-tenant. Vervolgens wordt het script de Azure-abonnement instellen, een nieuw opslagaccount maken in Azure, een nieuwe container in deze nieuwe opslagaccount maken en uploaden van een bestaand installatiekopiebestand (blob) op die container. Nadat het script geeft een lijst van alle blobs in de container, worden een nieuwe bestemming-map maken in uw lokale computer en het installatiekopiebestand te downloaden.
+Dit voorbeeld wordt ervan uitgegaan dat u hebt met succes [Installeer PowerShell voor Azure-Stack](azure-stack-powershell-install.md). Dit script kunt u de configuratie te voltooien en vraagt u uw Azure-Stack-tenant referenties voor uw account toevoegen aan de lokale PowerShell-omgeving. Vervolgens wordt het script de Azure-abonnement instellen, een nieuw opslagaccount maken in Azure, een nieuwe container in deze nieuwe opslagaccount maken en uploaden van een bestaand installatiekopiebestand (blob) op die container. Nadat het script geeft een lijst van alle blobs in de container, worden een nieuwe bestemming-map maken in uw lokale computer en het installatiekopiebestand te downloaden.
 
 1. Installeer [Azure Stack-compatibele Azure PowerShell-modules](azure-stack-powershell-install.md).  
 2. Download de [hulpprogramma's voor het werken met Azure-Stack](azure-stack-powershell-download.md).  
@@ -154,7 +158,7 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 # end
 ```
 
-### <a name="powershell-known-issues"></a>PowerShell bekende problemen 
+### <a name="powershell-known-issues"></a>Bekende problemen met PowerShell 
 Met de huidige compatibele Azure PowerShell-moduleversie voor Azure-Stack is 1.2.10. Dit wijkt af van de meest recente versie van Azure PowerShell. Dit verschil geldt voor opslagbewerking services:
 
 * De indeling van de geretourneerde waarde van `Get-AzureRmStorageAccountKey` in versie 1.2.10 heeft twee eigenschappen: `Key1` en `Key2`, terwijl de huidige versie van de Azure retourneert een matrix met alle sleutels van het account.
@@ -172,7 +176,7 @@ Met de huidige compatibele Azure PowerShell-moduleversie voor Azure-Stack is 1.2
    ```
    Zie voor meer informatie [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure-CLI
 De Azure CLI is vanaf de opdrachtregel van Azure-ervaring voor het beheren van Azure-resources. U kunt deze op Mac OS-, Linux- en Windows installeren en uitvoeren vanaf de opdrachtregel. 
 
 Azure CLI is geoptimaliseerd voor het beheren en Azure-resources beheren vanaf de opdrachtregel en voor het bouwen van automatiseringsscripts die met Azure Resource Manager werken. Het biedt veel van dezelfde functies gevonden in de Stack Azure-portal, waaronder rich gegevenstoegang.
@@ -184,8 +188,8 @@ Nadat u de CLI-installatie en configuratie hebt voltooid, kunt u de volgende sta
 1. Uw favoriete teksteditor openen en vervolgens kopieert en plakt u dit script in de editor.
 2. Update van het script variabelen om uw configuratie-instellingen weer te geven. 
 3. Nadat u de benodigde variabelen hebt bijgewerkt, sla het script op en sluit de editor af. De volgende stappen wordt ervan uitgegaan dat u hebt uw script my_storage_sample.sh genoemd.
-4. Markeer het script als uitvoerbare, indien nodig:`chmod +x my_storage_sample.sh`
-5. Voer het script. Bijvoorbeeld in Bash:`./my_storage_sample.sh`
+4. Markeer het script als uitvoerbare, indien nodig: `chmod +x my_storage_sample.sh`
+5. Voer het script. Bijvoorbeeld in Bash: `./my_storage_sample.sh`
 
 ```bash
 #!/bin/bash
@@ -224,9 +228,8 @@ echo "Done"
 
 Microsoft Azure Storage Explorer is een zelfstandige app van Microsoft. Hiermee kunt u eenvoudig werken met Azure Storage en Azure Stack Storage-gegevens op Windows, Mac OS- en Linux. Als u een eenvoudige manier voor het beheren van uw Azure-Stack Storage-gegevens wilt, klikt u vervolgens Overweeg het gebruik van Microsoft Azure Storage Explorer.
 
-Zie voor meer informatie over het configureren van Azure Storage Explorer om te werken met Azure-Stack [Opslagverkenner verbinding maken met een Azure-Stack-abonnement](azure-stack-storage-connect-se.md).
-
-Zie voor meer informatie over Microsoft Azure Storage Explorer [aan de slag met Opslagverkenner (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+ - Zie voor meer informatie over het configureren van Azure Storage Explorer om te werken met Azure-Stack, [Opslagverkenner verbinding maken met een Azure-Stack-abonnement](azure-stack-storage-connect-se.md).
+ - Zie voor meer informatie over Microsoft Azure Storage Explorer, [aan de slag met Opslagverkenner (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Storage Explorer verbinding met een Azure-Stack-abonnement](azure-stack-storage-connect-se.md)

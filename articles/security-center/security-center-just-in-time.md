@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Beheer van de virtuele machine toegang met alleen in de tijd (Preview)
+# <a name="manage-virtual-machine-access-using-just-in-time"></a>Virtuele machine toegang met behulp van in de tijd beheren
 
 Alleen bij tijd virtuele machine (VM) kan toegang worden gebruikt vergrendelen binnenkomend verkeer naar uw Azure VM's, blootstelling aan aanvallen te verminderen terwijl er eenvoudig toegang krijgen tot het verbinding maken met virtuele machines wanneer deze nodig is.
 
 > [!NOTE]
-> De just-in tijd functie in preview is en beschikbaar zijn op de prijscategorie Standard van Security Center.  Zie [prijzen](security-center-pricing.md) voor meer informatie over Security Center de prijscategorie.
+> De NET tijdig functie is beschikbaar op de prijscategorie Standard van Security Center.  Zie [prijzen](security-center-pricing.md) voor meer informatie over Security Center de prijscategorie.
 >
 >
 
@@ -33,7 +33,7 @@ Alleen bij tijd virtuele machine (VM) kan toegang worden gebruikt vergrendelen b
 
 Brute force-aanvallen vaak doelpoorten management als een manier toegang te krijgen tot een virtuele machine. Als dit lukt, kan een aanvaller besturen van de virtuele machine en een voet achter de deur tot stand brengen in uw omgeving.
 
-Een manier om te beperken van blootstelling aan een beveiligingsaanval is om te beperken van de hoeveelheid tijd die een poort geopend is. Poorten voor beheertaken hoeft niet te allen tijde moeten worden gebruikt. Ze hoeft alleen te worden gebruikt terwijl u bent verbonden met de virtuele machine, zoals beheer- of taken uit te voeren. Wanneer u in de tijd is ingeschakeld, wordt gebruikt door Security Center [Netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md) (NSG) regels, die toegang tot beheerpoorten beperken zodat ze niet worden gericht door aanvallers.
+Een manier om te beperken van blootstelling aan een beveiligingsaanval is om te beperken van de hoeveelheid tijd die een poort geopend is. Beheerpoorten hoeven niet te allen tijde geopend te zijn. Ze hoeven alleen geopend te zijn wanneer u bent verbonden met de VM, bijvoorbeeld om beheer- of onderhoudstaken uit te voeren. Wanneer u in de tijd is ingeschakeld, wordt gebruikt door Security Center [Netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md) (NSG) regels, die toegang tot beheerpoorten beperken zodat ze niet worden gericht door aanvallers.
 
 ![Alleen bij tijd scenario][1]
 
@@ -60,14 +60,14 @@ De **Just in time VM toegang** venster wordt geopend.
 
 ![Alleen in de tijd VM toegang tegel][10]
 
-**Alleen bij het toegang in uitvoeringstijd VM** bevat informatie over de status van uw virtuele machines:
+**Just-In-Time-VM-toegang** biedt informatie over de status van uw VM's:
 
-- **Geconfigureerd** -virtuele machines die zijn geconfigureerd om te ondersteunen alleen bij het VM-time-toegang. De gegevens weergegeven voor de afgelopen week en bevat voor elke VM die het aantal goedgekeurde aanvragen, de datum van laatste toegang en de tijd en de laatste gebruiker.
-- **Aanbevolen** -VM's die alleen bij het toegang in uitvoeringstijd VM kunnen ondersteunen, maar niet is geconfigureerd voor. Het is raadzaam dat u alleen bij het VM-toegangsbeheer tijd voor deze virtuele machines inschakelt. Zie [een configureren in het toegangsbeleid tijd](#configuring-a-just-in-time-access-policy).
-- **Geen aanbeveling** -redenen die kunnen leiden tot een virtuele machine niet aan te bevelen zijn:
-  - NSG - de zojuist ontbreekt in de tijd oplossing vereist een NSG aan aanwezig zijn.
-  - Klassieke VM - Security Center alleen bij het VM-time-toegang ondersteunt momenteel alleen virtuele machines die zijn geïmplementeerd via Azure Resource Manager. Een klassieke implementatie wordt niet ondersteund door de zojuist in tijdoplossing.
-  - Andere - een virtuele machine is in deze categorie als de zojuist tijdig oplossing is uitgeschakeld in het beveiligingsbeleid van het abonnement of de resourcegroep, of dat ontbreekt een openbaar IP-adres en geen een NSG in plaats van de virtuele machine.
+- **Geconfigureerd**: VM's die zijn geconfigureerd om Just-In-Time-VM-toegang te ondersteunen. De gegevens weergegeven voor de afgelopen week en bevat voor elke VM die het aantal goedgekeurde aanvragen, de datum van laatste toegang en de tijd en de laatste gebruiker.
+- **Aanbevolen**: VM's die Just-In-Time-VM-toegang kunnen ondersteunen maar er niet voor zijn geconfigureerd. Het is raadzaam dat u alleen bij het VM-toegangsbeheer tijd voor deze virtuele machines inschakelt. Zie [een configureren in het toegangsbeleid tijd](#configuring-a-just-in-time-access-policy).
+- **Geen aanbeveling**: redenen waarom een VM mogelijk niet wordt aanbevolen zijn:
+  - NSG ontbreekt: de Just-In-Time-oplossing vereist dat er een NSG aanwezig is.
+  - Klassieke VM: Just-In-Time-VM-toegang van Security Center ondersteunt momenteel alleen VM's die zijn geïmplementeerd via Azure Resource Manager. Een klassieke implementatie wordt niet ondersteund door de zojuist in tijdoplossing.
+  - Overig: een VM valt in deze categorie als de Just-In-Time-oplossing is uitgeschakeld in het beveiligingsbeleid van het abonnement of de resourcegroep, of als de VM geen openbaar IP-adres heeft en geen NSG heeft.
 
 ## <a name="configuring-a-just-in-time-access-policy"></a>Configureren van een in het toegangsbeleid tijd
 

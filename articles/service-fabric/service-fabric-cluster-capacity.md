@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-cluster overwegingen bij capaciteitsplanning
 Voor productie-implementatie is capaciteitsplanning een belangrijke stap. Hier zijn enkele van de artikelen waarmee u rekening moet houden als onderdeel van dit proces.
 
 * Het nummer van uw cluster beginnen moet met knooppunttypen
 * De eigenschappen van elk knooppunttype (grootte, primair, internetgericht, aantal virtuele machines, enz.)
-* De betrouwbaarheid en duurzaamheid kenmerken van het cluster
+* De betrouwbaarheid en duurzaamheid van de clusterkenmerken
 
 Laat het ons kort Bekijk elk van deze items.
 
 ## <a name="the-number-of-node-types-your-cluster-needs-to-start-out-with"></a>Het nummer van uw cluster beginnen moet met knooppunttypen
 Eerst moet u achterhalen wat het cluster dat u maakt moet worden gebruikt voor gaat en welke soorten toepassingen u van plan bent om te implementeren in dit cluster. Als u niet wissen op het doel van het cluster, u waarschijnlijk nog niet klaar om in te voeren van het proces voor de capaciteitsplanning.
 
-Het nummer van uw cluster beginnen moet met knooppunttypen vast.  Elk knooppunttype is toegewezen aan een virtuele-Machineschaalset. Elk knooppunttype kan vervolgens worden uitgebreid of omlaag onafhankelijk, hebben verschillende sets van poorten openen en andere capaciteitsmetrieken kan hebben. Dus het besluit van het aantal knooppunttypen in feite geleverd omlaag met de volgende aspecten:
+Het nummer van uw cluster beginnen moet met knooppunttypen vast.  Elk knooppunttype is toegewezen aan een virtuele-Machineschaalset. Elk knooppunttype kan dan onafhankelijk omhoog of omlaag worden geschaald, verschillende open poorten bevatten en diverse capaciteitsstatistieken hebben. Dus het besluit van het aantal knooppunttypen in feite geleverd omlaag met de volgende aspecten:
 
 * Uw toepassing beschikt over meerdere services en hoeft deze niet openbaar of verbonden met internet? Standaard-toepassingen bevatten een front-gatewayservice die invoer ontvangt van een client en een of meer back-end-services die communiceren met de front-end-services. Dus in dit geval u uiteindelijk eindigen met typen voor ten minste twee knooppunten.
 * Beschikt over uw services (die gezamenlijk uw toepassing) andere infrastructuur behoeften zoals meer RAM-geheugen of hoger CPU-cycli? Laat het ons aannemen dat de toepassing die u wilt implementeren een front-end-service en een back-endservice bevat. De front-end-service kunt uitvoeren op kleinere virtuele machines (VM-grootten zoals D2) die poorten geopend met het internet.  De back-endservice echter wordt intensief gebruik gemaakt van berekening en moet worden uitgevoerd op grotere VM's (met VM-grootten zoals D4 D6, D15) die geen internet facing.
@@ -88,10 +88,11 @@ U krijgt duurzaamheid voor elk van uw knooppunttypen kiezen. U kunt één knoopp
  
 1. Implementaties voor uw virtuele-Machineschaalset en andere gerelateerde Azure-resources) kunnen worden uitgesteld, kunnen een time-out of volledig door problemen in het cluster of op het niveau van de infrastructuur kunnen worden geblokkeerd. 
 2. Verhoogt het aantal [replica lifecycle gebeurtenissen](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (bijvoorbeeld primaire worden verwisseld) automated vanwege knooppunt deactivations tijdens de bewerkingen van de Azure-infrastructuur.
+3. Neemt knooppunten buiten de service voor perioden tijdens het software-updates voor Azure-platform of onderhoud van hardware activiteiten plaatsvinden. Mogelijk ziet u de knooppunten met de status uitschakelen/uitgeschakeld tijdens deze activiteiten. Dit vermindert de capaciteit van uw cluster tijdelijk, maar u moet geen invloed op de beschikbaarheid van uw cluster of toepassingen.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Aanbevelingen voor het gebruik van zilver of goud duurzaamheid niveaus
 
-Zilver of goud duurzaamheid gebruiken voor alle typen van de knooppunten die als stateful services die u verwacht host te schalen in (VM-exemplaren verminderen) vaak, en u liever dat implementatiebewerkingen voor het vereenvoudigen van deze schaal in bewerkingen worden uitgesteld. De scale-out-scenario's (toe te voegen exemplaren van virtuele machines) niet in uw keuze van de laag duurzaamheid worden afgespeeld, heeft alleen schaal in.
+Zilver of goud duurzaamheid gebruiken voor alle typen van de knooppunten die als stateful services die u verwacht host te schalen in (VM-exemplaren verminderen) vaak, en u liever implementatiebewerkingen oplopen en capaciteit voor deze schaal in vereenvoudigen worden teruggebracht naar bewerkingen. De scale-out-scenario's (toe te voegen exemplaren van virtuele machines) niet in uw keuze van de laag duurzaamheid worden afgespeeld, heeft alleen schaal in.
 
 ### <a name="changing-durability-levels"></a>Duurzaamheid niveaus wijzigen
 - Knooppunttypen met duurzaamheid niveaus van zilver of goud kunnen niet worden verlaagd naar Brons.
@@ -142,7 +143,7 @@ Hier volgt de aanbeveling over het kiezen van de betrouwbaarheidslaag.
 | --- | --- |
 | 1 |Geef de parameter Betrouwbaarheidslaag berekend door het systeem |
 | 3 |Brons |
-| 5 of 6|Zilver |
+| 5 of 6|Zilverkleurig |
 | 7 of 8 |Goudkleurig |
 | 9 en hoger |Platina |
 

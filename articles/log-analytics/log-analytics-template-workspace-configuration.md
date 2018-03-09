@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.author: richrund
-ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics beheren met Azure Resource Manager-sjablonen
 U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten. Voorbeelden van de taken die u met behulp van sjablonen uitvoeren kunt zijn:
@@ -31,7 +31,6 @@ U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-gro
 * Verzamelen van prestatiemeteritems van Linux- en Windows-computers
 * Gebeurtenissen verzamelen van syslog op Linux-computers 
 * Verzamelen van gebeurtenissen van Windows-gebeurtenislogboeken
-* Aangepaste logboeken verzamelen
 * Log analytics agent toevoegen aan een virtuele machine van Azure
 * Log analytics om gegevens te indexeren verzameld met behulp van Azure diagnostics configureren
 
@@ -60,7 +59,6 @@ De volgende sjabloon voorbeeld ziet u hoe:
 7. Syslog-gebeurtenissen verzamelen van Linux-computers
 8. Fout- en waarschuwingsberichten gebeurtenissen verzamelen uit het gebeurtenislogboek van toepassing op Windows-computers
 9. Beschikbaar geheugen in megabytes-prestatiemeteritem verzamelen van Windows-computers
-10. Een aangepaste logboekgegevens verzamelen 
 11. IIS-logboeken en Windows-gebeurtenislogboeken is geschreven door Azure diagnostische gegevens naar een opslagaccount verzamelen
 
 ```json
@@ -295,61 +293,6 @@ De volgende sjabloon voorbeeld ziet u hoe:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLog1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLog",
-          "properties": {
-            "customLogName": "sampleCustomLog1",
-            "description": "test custom log datasources",
-            "inputs": [
-              {
-                "location": {
-                  "fileSystemLocations": {
-                    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
-                    "linuxFileTypeLogPaths": [ "/var/logs" ]
-                  }
-                },
-                "recordDelimiter": {
-                  "regexDelimiter": {
-                    "pattern": "\\n",
-                    "matchIndex": 0,
-                    "matchIndexSpecified": true,
-                    "numberedGroup": null
-                  }
-                }
-              }
-            ],
-            "extractions": [
-              {
-                "extractionName": "TimeGenerated",
-                "extractionType": "DateTime",
-                "extractionProperties": {
-                  "dateTimeExtraction": {
-                    "regex": null,
-                    "joinStringRegex": null
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLogCollection1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLogCollection",
-          "properties": {
-            "state": "LinuxLogsEnabled"
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
@@ -464,7 +407,7 @@ De volgende sjabloon voorbeeld ziet u hoe:
 ### <a name="deploying-the-sample-template"></a>De voorbeeldsjabloon implementeren
 De voorbeeldsjabloon implementeren:
 
-1. De gekoppelde steekproef bijvoorbeeld in een bestand opslaan`azuredeploy.json` 
+1. De gekoppelde steekproef bijvoorbeeld in een bestand opslaan `azuredeploy.json` 
 2. De sjabloon om de gewenste configuratie bewerken
 3. Gebruik PowerShell of de opdrachtregel om de sjabloon te implementeren
 

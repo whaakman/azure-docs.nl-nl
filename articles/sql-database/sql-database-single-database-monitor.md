@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 2286843317230b8167b315b1e8e413e7571da4fe
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: f6b370db3363180017c6561d7bd3a6d6b40d03ab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Databaseprestaties bewaken in Azure SQL Database
 Het bewaken van de prestaties van een SQL-database in Azure begint met het bewaken van het resourcegebruik ten opzichte van het gekozen niveau van databaseprestaties. Bewaking helpt u om te bepalen of de database te veel capaciteit heeft of juist problemen heeft omdat resources volledig worden benut. Vervolgens kunt u beslissen of u het prestatieniveau en de [servicelaag](sql-database-service-tiers.md) van uw database moet aanpassen. U kunt een database bewaken met grafische hulpprogramma's in de [Azure-portal](https://portal.azure.com) of met [dynamische beheerweergaven](https://msdn.microsoft.com/library/ms188754.aspx) van SQL.
@@ -37,7 +37,7 @@ In de [Azure-portal](https://portal.azure.com/) kunt u het verbruik van een indi
 * Gegevens-I/O-percentage
 * Databaseomvangpercentage
 
-Wanneer u deze metrische gegevens hebt toegevoegd, kunt u ze in de grafiek **Bewaking** gedetailleerder bekijken in het venster **Metrische gegevens**. De vier metrische gegevens tonen het gemiddelde gebruikspercentage ten opzichte van de **DTU** van uw database. Raadpleeg het artikel over [servicelagen](sql-database-service-tiers.md) voor meer informatie over DTU's.
+Nadat u deze metrische gegevens hebt toegevoegd, kunt u doorgaan met deze bekijken in de **bewaking** grafiek met meer informatie over de **metriek** venster. De vier metrische gegevens tonen het gemiddelde gebruikspercentage ten opzichte van de **DTU** van uw database. Raadpleeg het artikel over [servicelagen](sql-database-service-tiers.md) voor meer informatie over DTU's.
 
 ![Servicelaagbewaking van databaseprestaties.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 

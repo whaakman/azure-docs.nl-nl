@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: ec9258a123774607ffee8705a1bc5391525567f5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 26df11bb010414ba979077c45d01e66f17f6b12e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions-Tools voor Visual Studio  
 
@@ -52,14 +52,15 @@ Als u wilt maken en implementeren van functies, moet u ook:
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-
-## <a name="configure-the-project-for-local-development"></a>Het project voor lokale ontwikkeling configureren
-
-Als u een nieuw project met de Azure Functions-sjabloon maakt, krijgt u een leeg C#-project met de volgende bestanden:
+De projectsjabloon maakt een C#-project, installeert de `Microsoft.NET.Sdk.Functions` NuGet-pakket en stelt het doel-framework. Functies 1.x doelen .NET Framework en 2.x doelen .NET Standard fungeert. Het nieuwe project bevat de volgende bestanden:
 
 * **host.JSON**: Hiermee kunt u de functies host configureren. Deze instellingen gelden beide wanneer lokaal en in Azure wordt uitgevoerd. Zie voor meer informatie [host.json verwijzing](functions-host-json.md).
     
 * **Local.Settings.JSON**: onderhoudt instellingen bij lokale uitvoering van de functies die worden gebruikt. Deze instellingen worden niet gebruikt door Azure, ze worden gebruikt door de [kernonderdelen van Azure Functions](functions-run-local.md). Dit bestand opgeven van instellingen, zoals de verbindingsreeksen om andere Azure-services te gebruiken. Een nieuwe sleutel toevoegen aan de **waarden** matrix voor elke verbinding vereist voor functies in uw project. Zie voor meer informatie [lokale instellingenbestand](functions-run-local.md#local-settings-file) in het onderwerp kernonderdelen van Azure Functions.
+
+Zie voor meer informatie [functies class library-project](functions-dotnet-class-library.md#functions-class-library-project).
+
+## <a name="configure-the-project-for-local-development"></a>Het project voor lokale ontwikkeling configureren
 
 De runtime van Functions wordt intern gebruikt een Azure Storage-account. Voor alle typen dan HTTP en webhooks activeert, moet u instellen de **Values.AzureWebJobsStorage** sleutel op een geldige verbindingsreeks voor Azure Storage-account. 
 
@@ -147,5 +148,6 @@ U kunt ook de toepassingsinstellingen in een van deze andere manieren beheren:
 
 Zie voor meer informatie over hulpprogramma's van Azure Functions, de sectie Veelgestelde vragen van de [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blogbericht.
 
-Zie voor meer informatie over de hulpprogramma's van Azure Functions Core, [Code en testen van Azure functions lokaal](functions-run-local.md).  
+Zie voor meer informatie over de hulpprogramma's van Azure Functions Core, [Code en testen van Azure functions lokaal](functions-run-local.md).
+
 Zie voor meer informatie over het ontwikkelen van functies als .NET-klassebibliotheken, [Azure Functions C# referentie voor ontwikkelaars](functions-dotnet-class-library.md). In dit onderwerp bevat ook koppelingen naar enkele voorbeelden van het gebruik van kenmerken voor de verschillende typen bindingen die worden ondersteund door Azure Functions declareren.    

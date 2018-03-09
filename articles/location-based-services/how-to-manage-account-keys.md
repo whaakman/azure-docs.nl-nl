@@ -2,18 +2,18 @@
 title: Uw locatie op basis van Azure-Services-account en de sleutels beheren | Microsoft Docs
 description: De Azure-portal kunt u uw Azure-locatie op basis van Services-account beheren en uw toegangssleutels beheren.
 services: location-based-services
-keywords: Voeg geen of trefwoorden zonder overleg met uw EXPERT in Zoekmachineoptimalisatie bewerken.
-author: philmea
-ms.author: philmea
+keywords: Voeg geen sleutelwoorden toe en bewerk ze niet zonder overleg met uw SEO-expert.
+author: kgremban
+ms.author: kgremban
 ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: b82ff3edc3515d9dce465c7a7ed6084a2bfe25c2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8ea7beae054157800ee404cf237772d0677574ca
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Uw locatie op basis van Azure-Services-account en de sleutels beheren
 
@@ -27,7 +27,7 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
 ## <a name="create-a-new-account"></a>Een nieuw account maken
 
-1. Klik op **maken van een resource** in de linkerbovenhoek van de Azure portal.
+1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
 
 2. Zoek en selecteer **op basis van Locatieservices**, klikt u vervolgens op **maken**.
 

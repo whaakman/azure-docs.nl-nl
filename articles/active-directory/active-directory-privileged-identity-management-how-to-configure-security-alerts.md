@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 52a03624b8e3841f559caef564712ff74a614365
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8037942cb3700f8e46d3be24b5fed04004333335
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Beveiligingswaarschuwingen in Azure AD Privileged Identity Management configureren
 ## <a name="security-alerts"></a>Beveiligingswaarschuwingen
@@ -27,13 +27,18 @@ Azure Privileged Identity Management (PIM) genereert waarschuwingen wanneer er v
 
 ![PIM-dashboard beveiligingswaarschuwingen - schermafbeelding][1]
 
-| Waarschuwing | Trigger | Aanbeveling |
-| --- | --- | --- |
-| **Rollen zijn momenteel toegewezen buiten PIM** |Een beheerder is definitief toegewezen aan een rol, buiten de PIM-interface. |Bekijk de nieuwe roltoewijzing. Omdat andere services alleen permanente beheerders toewijst kunnen, deze wijzigen in de toewijzing van een in aanmerking komende indien nodig. |
-| **Rollen worden te vaak geactiveerd** |Er zijn te veel heractiveringen van dezelfde rol binnen de tijd die is toegestaan in de instellingen. |Neem contact op met de gebruiker om te zien waarom ze hebben geactiveerd de rol zo vaak. Mogelijk is de tijdslimiet te kort voor ze om hun taken te voltooien, of misschien bent met behulp van scripts automatisch een rol wilt activeren. |
-| **Rollen niet is vereist van MFA voor activering** |Er zijn functies zonder MFA ingeschakeld in de instellingen. |We MFA vereisen voor het meest maximaal bevoorrechte rollen, maar raden MFA voor activering voor alle functies in te schakelen. |
-| **Beheerders hun bevoorrechte rollen niet gebruiken** |Er zijn in aanmerking komende beheerders die hun rollen onlangs nog niet geactiveerd. |Start een toegang controleren om te bepalen van de gebruikers die geen toegang meer nodig. |
-| **Er zijn te veel globale beheerders** |Er zijn meer globale beheerders dan aanbevolen. |Als u een groot aantal globale beheerders hebt, is het waarschijnlijk dat gebruikers wel meer machtigingen dan ze nodig hebben. Gebruikers voor minder bevoorrechte rollen te verplaatsen, of zorg enkele ervan voor de rol in plaats van in aanmerking komende permanent zijn toegewezen. |
+| Waarschuwing | Ernst | Trigger | Aanbeveling |
+| --- | --- | --- | --- |
+| **Rollen zijn momenteel toegewezen buiten PIM** |Hoog |Een gebruiker is definitief toegewezen aan een bevoorrechte rol, buiten de PIM-interface. |Bekijk de gebruikers in de lijst en de toewijzing van rollen toegewezen buiten PIM bevoorrechte. |
+| **Rollen worden te vaak geactiveerd** |Middelgroot |Er zijn te veel heractiveringen van dezelfde rol binnen de tijd die is toegestaan in de instellingen. |Neem contact op met de gebruiker om te zien waarom ze hebben geactiveerd de rol zo vaak. Mogelijk is de tijdslimiet te kort voor ze om hun taken te voltooien, of misschien bent met behulp van scripts automatisch een rol wilt activeren. Zorg ervoor dat de activeringsduur van de voor hun rol is ingesteld lang genoeg is voor hun taken uit te voeren. |
+| **Rollen niet is vereist van MFA voor activering** |Middelgroot |Er zijn functies zonder MFA ingeschakeld in de instellingen. |We MFA vereisen voor het meest maximaal bevoorrechte rollen, maar raden MFA voor activering voor alle functies in te schakelen. |
+| **Gebruikers hun bevoorrechte rollen niet gebruiken** |Laag |Er zijn in aanmerking komende beheerders die hun rollen onlangs nog niet geactiveerd. |Start een toegang controleren om te bepalen van de gebruikers die geen toegang meer nodig. |
+| **Er zijn te veel globale beheerders** |Laag |Er zijn meer globale beheerders dan aanbevolen. |Als u een groot aantal globale beheerders hebt, is het waarschijnlijk dat gebruikers wel meer machtigingen dan ze nodig hebben. Gebruikers voor minder bevoorrechte rollen te verplaatsen, of zorg enkele ervan voor de rol in plaats van in aanmerking komende permanent zijn toegewezen. |
+
+### <a name="severity"></a>Ernst
+* **Hoge**: directe actie is vereist vanwege een schending van het beleid. 
+* **Gemiddeld**: geen directe actie is vereist, maar geeft u een potentiële beleidsovertreding.
+* **Lage**: geen directe actie is vereist, maar stelt voor een beter dan beleidswijziging.
 
 ## <a name="configure-security-alert-settings"></a>Waarschuwing beveiligingsinstellingen configureren
 U kunt sommige van de beveiligingswaarschuwingen in PIM werkt met uw omgeving en beveiligingsdoelen aanpassen. Volg deze stappen voor het bereiken van de instellingenblade:

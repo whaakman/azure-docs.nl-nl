@@ -12,18 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: dd101db9ea3c03a939efb6a64c231d885f33cedc
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: d4abd68aa559540da3b735d7a583fc86107531f9
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd TPM-apparaat met de SDK met C maken en inrichten voor Azure IoT Hub Device Provisioning Service
-> [!div class="op_single_selector"]
-> * [C](quick-create-simulated-device.md)
-> * [Java](quick-create-simulated-device-tpm-java.md)
-> * [C#](quick-create-simulated-device-tpm-csharp.md)
-> * [Python](quick-create-simulated-device-tpm-python.md)
+
+[!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
 In deze stappen wordt getoond hoe u een gesimuleerd apparaat maakt op een ontwikkelcomputer met Windows OS, de Windows TPM-simulator uitvoert als de [HSM (Hardware Security Module)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) van het apparaat en het codevoorbeeld gebruikt om dit gesimuleerde apparaat te verbinden met Device Provisioning Service en uw IoT-hub. 
 
@@ -143,8 +140,8 @@ Als u wilt blijven doorwerken met het voorbeeld van de apparaatclient en deze be
 
 1. Sluit het uitvoervenster van het voorbeeld van de apparaatclient op de computer.
 1. Sluit het TPM-simulatorvenster op de computer.
-1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer uw Device Provisioning Service. Open de blade **Registraties beheren** voor uw service en klik op het tabblad **Afzonderlijke registraties**. Selecteer de *registratie-id* van het apparaat dat u hebt geregistreerd met behulp van deze quickstart. Klik vervolgens op de knop **Verwijderen** bovenaan. 
-1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer vervolgens uw IoT-hub. Open de blade **IoT-apparaten** voor uw hub, selecteer de *apparaat-id* van het apparaat dat u hebt geregistreerd in deze quickstart en klik vervolgens op de knop **Verwijderen** bovenaan.
+1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer uw Device Provisioning Service. Open de blade **Inschrijvingen beheren** voor uw service en klik vervolgens op het tabblad **Afzonderlijke inschrijvingen**. Selecteer de *registratie-id* van het apparaat dat u hebt ingeschreven met behulp van deze quickstart. Klik vervolgens bovenaan op de knop **Verwijderen**. 
+1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer vervolgens uw IoT-hub. Open de blade **IoT-apparaten** voor uw hub, selecteer de *apparaat-id* van het apparaat dat u hebt geregistreerd in deze quickstart en klik vervolgens bovenaan op de knop **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

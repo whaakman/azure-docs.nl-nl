@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 91839d8f547340d55f6badb3350a393a48a13c7d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 661bfadfe1094271ad2ab672ad3f755c0fd24f02
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Achtergrondtaken uitvoeren met WebJobs in Azure App Service
 
@@ -57,7 +57,7 @@ De volgende bestandstypen worden ondersteund:
 * .js (met behulp van Node.js)
 * JAR (met Java)
 
-## <a name="CreateContinuous"></a>Maken van een doorlopende webtaak
+## <a name="CreateContinuous"></a> Maken van een doorlopende webtaak
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -95,7 +95,7 @@ when making changes in one don't forget the other two.
 
     ![Stoppen van een doorlopende webtaak](./media/web-sites-create-web-jobs/continuousstop.png)
 
-## <a name="CreateOnDemand"></a>Maken van een webtaak handmatig triggered
+## <a name="CreateOnDemand"></a> Maken van een webtaak handmatig triggered
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -133,7 +133,7 @@ when making changes in one don't forget the other two.
    
     ![Webtaak uitvoeren](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="CreateScheduledCRON"></a>Een geplande webtaak maken
+## <a name="CreateScheduledCRON"></a> Een geplande webtaak maken
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -172,11 +172,11 @@ when making changes in one don't forget the other two.
 
 Een [CRON expressie](https://en.wikipedia.org/wiki/Cron) bestaat uit zes velden: `{second} {minute} {hour} {day} {month} {day of the week}`.  Hier volgen enkele voorbeelden:
 
-* Om de 15 minuten:`0 */15 * * * *`
-* Elk uur (dat wil zeggen, wanneer het aantal minuten 0 is):`0 0 * * * *` 
-* Elk uur uit 9: 00 uur tot 5 PM:`0 0 9-17 * * *` 
-* Om 9:30 AM dagelijks:`0 30 9 * * *`
-* Om 9:30 AM elke weekdag:`0 30 9 * * 1-5`
+* Om de 15 minuten: `0 */15 * * * *`
+* Elk uur (dat wil zeggen, wanneer het aantal minuten 0 is): `0 0 * * * *` 
+* Elk uur uit 9: 00 uur tot 5 PM: `0 0 9-17 * * *` 
+* Om 9:30 AM dagelijks: `0 30 9 * * *`
+* Om 9:30 AM elke weekdag: `0 30 9 * * 1-5`
 
 U kunt de CRON-expressie invoeren in de portal of omvatten een `settings.job` bestand in de hoofdmap van uw webtaak *.zip* -bestand, zoals in het volgende voorbeeld:
 
@@ -189,7 +189,7 @@ U kunt de CRON-expressie invoeren in de portal of omvatten een `settings.job` be
 > [!NOTE]
 > Wanneer u een webtaak vanuit Visual Studio implementeert, markeer de `settings.job` bestandseigenschappen als **kopiëren indien nieuwer**.
 
-## <a name="ViewJobHistory"></a>De Taakgeschiedenis weergeven
+## <a name="ViewJobHistory"></a> De Taakgeschiedenis weergeven
 
 1. Selecteer de webtaak die u wilt zien van de geschiedenis voor en selecteer vervolgens de **logboeken** knop.
    
@@ -213,4 +213,4 @@ U kunt de CRON-expressie invoeren in de portal of omvatten een `settings.job` be
    
 ## <a name="NextSteps"></a> Volgende stappen
 
-De Azure WebJobs SDK kan worden gebruikt met de WebJobs veel programmeringstaken te vereenvoudigen. Zie voor meer informatie [wat de WebJobs SDK is](https://github.com/Azure/azure-webjobs-sdk/wiki).
+De Azure WebJobs SDK kan worden gebruikt met de WebJobs veel programmeringstaken te vereenvoudigen. Zie voor meer informatie [wat de WebJobs SDK is](https://github.com/Azure/azure-webjobs-sdk/wiki) en de [WebJobs SDK-naslaginformatie](./media/web-sites-create-web-jobs/webjobs-sdk-quick-reference.png).

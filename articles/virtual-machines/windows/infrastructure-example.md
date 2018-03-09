@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c3f47739f28e0b0b2a24fcea61b055071cba7d5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c532657951d6d0241a5d8d25a56bb237ad481567
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Voorbeeld van de Azure-infrastructuur overzicht voor het Windows-VM 's
 In dit artikel wordt uitgelegd opzetten van een voorbeeld van de toepassing-infrastructuur. Een infrastructuur voor een eenvoudige onlinewinkel die de richtlijnen en beslissingen rond naamconventies, beschikbaarheidssets, virtuele netwerken en taakverdelers samenbrengt ontwerpen en distribueren van uw virtuele machines (VM's) detail te beschrijven.
@@ -61,7 +61,7 @@ Alle bovenstaande voldoen aan deze naamgeving:
 Adventure Works Cycles gebruikt om de facturering van deze workload IT hun Enterprise-abonnement, met de naam Adventure Works Enterprise-abonnement.
 
 ## <a name="storage"></a>Storage
-Adventure Works Cycles bepaald dat ze beheerd Azure-schijven moeten gebruiken. Bij het maken van virtuele machines worden beide beschikbare opslag opslaglagen gebruikt:
+Adventure Works Cycles bepaald dat ze beheerd Azure-schijven moeten gebruiken. Bij het maken van virtuele machines worden beide lagen beschikbare opslag worden gebruikt:
 
 * **Standard-opslag** voor de webservers, toepassingsservers, en domeincontrollers en hun gegevensschijven.
 * **Premium-opslag** voor de VM's van SQL Server en hun gegevensschijven.
@@ -71,7 +71,7 @@ Omdat het virtuele netwerk heeft geen actieve verbinding met de Adventure werk c
 
 Ze een virtueel netwerk alleen in de cloud gemaakt met de volgende instellingen met behulp van de Azure-portal:
 
-* Naam: AZOS gebruik VN01
+* Name: AZOS-USE-VN01
 * Locatie: VS-Oost 2
 * Adresruimte virtuele netwerk: 10.0.0.0/8
 * Eerste subnet:

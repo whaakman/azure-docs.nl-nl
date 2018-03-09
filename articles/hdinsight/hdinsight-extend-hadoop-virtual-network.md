@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: e0ca77fb49bfdd0a47c7efe746d58a93dd4eafc1
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ea686ea5dd6166d6e4e4055cb4a2cdd70af81ab4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -283,7 +283,7 @@ Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruikt, 
     | Canada | Canada - oost | 52.229.127.96</br>52.229.123.172 | 443 | Inkomend |
     | &nbsp; | Canada - midden | 52.228.37.66</br>52.228.45.222 | 443 | Inkomend |
     | China | China - noord | 42.159.96.170</br>139.217.2.219 | 443 | Inkomend |
-    | &nbsp; | China - oost | 42.159.198.178</br>42.159.234.157 | 443 | Inkomend |
+    | &nbsp; | China East | 42.159.198.178</br>42.159.234.157 | 443 | Inkomend |
     | Europa | Noord-Europa | 52.164.210.96</br>13.74.153.132 | 443 | Inkomend |
     | &nbsp; | West-Europa| 52.166.243.90</br>52.174.36.244 | 443 | Inkomend |
     | Duitsland | Duitsland - centraal | 51.4.146.68</br>51.4.146.80 | 443 | Inkomend |
@@ -434,6 +434,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     -Name $subnetName `
     -AddressPrefix $subnet.AddressPrefix `
     -NetworkSecurityGroup $nsg
+$vnet | Set-AzureRmVirtual Network
 ```
 
 > [!IMPORTANT]

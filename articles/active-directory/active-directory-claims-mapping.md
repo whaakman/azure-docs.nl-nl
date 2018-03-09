@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Claims toewijzen in Azure Active Directory (openbare preview)
 
@@ -30,7 +30,7 @@ Deze functie wordt gebruikt door tenantbeheerders voor het aanpassen van de clai
 - Kies of wijzig de bron van gegevens die in bepaalde claims.
 
 >[!NOTE]
->Deze mogelijkheid is momenteel in de openbare preview. Wees voorbereid om te herstellen of verwijderen van eventuele wijzigingen. De functie is beschikbaar in een abonnement voor Azure Active Directory (Azure AD) tijdens de openbare preview. Wanneer de functie algemeen beschikbaar wordt, kunnen sommige aspecten van de functie echter een Azure Active Directory premium-abonnement nodig.
+>Deze mogelijkheid is momenteel in de openbare preview. Wees voorbereid om te herstellen of verwijderen van eventuele wijzigingen. De functie is beschikbaar in een abonnement voor Azure Active Directory (Azure AD) tijdens de openbare preview. Wanneer de functie algemeen beschikbaar wordt, kunnen sommige aspecten van de functie echter een Azure Active Directory premium-abonnement nodig. Deze functie ondersteunt configureren claim koppelen van beleidsregels voor WS-Fed, SAML, OAuth en OpenID Connect-protocollen.
 
 ## <a name="claims-mapping-policy-type"></a>Claims beleidstype toewijzing
 In Azure AD een **beleid** object vertegenwoordigt een reeks regels afgedwongen op afzonderlijke toepassingen of op alle toepassingen in een organisatie. Elk type beleid heeft een unieke structuur, met een set eigenschappen die vervolgens worden toegepast op objecten waarvoor ze worden toegewezen.
@@ -55,11 +55,11 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |_claim_names|
 |_claim_sources|
 |access_token|
-|Account_type|
+|account_type|
 |acr|
 |Actor|
 |actortoken|
-|AIO|
+|aio|
 |altsecid|
 |AMR|
 |app_chain|
@@ -79,7 +79,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |azpacr|
 |c_hash|
 |ca_enf|
-|CC|
+|cc|
 |cert_token_use|
 |client_id|
 |cloud_graph_host_name|
@@ -107,19 +107,19 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |hasgroups|
 |hash_alg|
 |home_oid|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/AuthenticationInstant|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/AuthenticationMethod|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/Expiration|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/EXPIRED|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/EmailAddress|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/name|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/NameIdentifier|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
 |IAT|
 |identityprovider|
-|IDP|
+|idp|
 |in_corp|
 |instantie|
-|IpAddr|
+|ipaddr|
 |isbrowserhostedapp|
 |ISS|
 |jwk|
@@ -132,7 +132,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |mdm_enrollment_url|
 |mdm_terms_of_use_url|
 |NameID|
-|NBF|
+|nbf|
 |netbios_name|
 |nonce|
 |OID|
@@ -154,7 +154,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |refresh_token|
 |refreshtoken|
 |request_nonce|
-|resource|
+|Bron|
 |rol|
 |rolls|
 |Bereik|
@@ -164,7 +164,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |signin_state|
 |src1|
 |src2|
-|Sub|
+|sub|
 |tbid|
 |tenant_display_name|
 |tenant_region_scope|
@@ -186,59 +186,59 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 #### <a name="table-2-security-assertion-markup-language-saml-restricted-claim-set"></a>Tabel 2: Security Assertion Markup Language (SAML) beperkt claimset
 |Claimtype (URI)|
 | ----- |
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/Expiration|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/EXPIRED|
-|http://schemas.Microsoft.com/Identity/claims/accesstoken|
-|http://schemas.Microsoft.com/Identity/claims/openid2_id|
-|http://schemas.Microsoft.com/Identity/claims/identityprovider|
-|http://schemas.Microsoft.com/Identity/claims/objectidentifier|
-|http://schemas.Microsoft.com/Identity/claims/PUID|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/NameIdentifier [MR1] |
-|http://schemas.Microsoft.com/Identity/claims/tenantid|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/AuthenticationInstant|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/AuthenticationMethod|
-|http://schemas.Microsoft.com/AccessControlService/2010/07/claims/identityprovider|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/Groups|
-|http://schemas.Microsoft.com/claims/groups.Link|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/Role|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/wids|
-|http://schemas.Microsoft.com/2014/09/devicecontext/claims/iscompliant|
-|http://schemas.Microsoft.com/2014/02/devicecontext/claims/isknown|
-|http://schemas.Microsoft.com/2012/01/devicecontext/claims/ismanaged|
-|http://schemas.Microsoft.com/2014/03/psso|
-|http://schemas.Microsoft.com/claims/authnmethodsreferences|
-|http://schemas.xmlsoap.org/ws/2009/09/Identity/claims/actor|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/samlissuername|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/confirmationkey|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/windowsaccountname|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/primarygroupsid|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/primarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/authorizationdecision|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/Authentication|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/SID|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/denyonlyprimarygroupsid|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/denyonlyprimarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/denyonlysid|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/denyonlywindowsdevicegroup|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/windowsdeviceclaim|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/windowsdevicegroup|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/windowsfqbnversion|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/windowssubauthority|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/windowsuserclaim|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/x500distinguishedname|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/UPN|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/GroupSID|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/SPN|
-|http://schemas.Microsoft.com/ws/2008/06/Identity/claims/ispersistent|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/privatepersonalidentifier|
-|http://schemas.Microsoft.com/Identity/claims/scope|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
+|http://schemas.microsoft.com/identity/claims/accesstoken|
+|http://schemas.microsoft.com/identity/claims/openid2_id|
+|http://schemas.microsoft.com/identity/claims/identityprovider|
+|http://schemas.microsoft.com/identity/claims/objectidentifier|
+|http://schemas.microsoft.com/identity/claims/puid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier[MR1] |
+|http://schemas.microsoft.com/identity/claims/tenantid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
+|http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/groups|
+|http://schemas.microsoft.com/claims/groups.link|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/role|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/wids|
+|http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant|
+|http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown|
+|http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged|
+|http://schemas.microsoft.com/2014/03/psso|
+|http://schemas.microsoft.com/claims/authnmethodsreferences|
+|http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier|
+|http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Claims toewijzing van eigenschappen van beleid
 Gebruik de eigenschappen van een toewijzing van beleid om te bepalen welke claims worden verzonden en waar de gegevens afkomstig is uit de claimprovider. Als er geen beleid is ingesteld, geeft het systeem tokens met de claimset core, de basic claimset en optionele claims die de toepassing ervoor gekozen heeft te ontvangen.
 
 ### <a name="include-basic-claim-set"></a>Basic claimset opnemen
 
-**Tekenreeks:** IncludeBasicClaimSet
+**String:** IncludeBasicClaimSet
 
 **Gegevenstype:** Booleaans (True of False)
 
@@ -252,7 +252,7 @@ Gebruik de eigenschappen van een toewijzing van beleid om te bepalen welke claim
 
 ### <a name="claims-schema"></a>Claims schema
 
-**Tekenreeks:** ClaimsSchema
+**String:** ClaimsSchema
 
 **Gegevenstype:** JSON-blob met een of meer claim schema vermeldingen
 
@@ -290,7 +290,7 @@ Het ID-element identificeert welke eigenschap op de bron wordt de waarde voor de
 |Gebruiker|userPrincipalName|User principal name|
 |Gebruiker|Afdeling|Afdeling|
 |Gebruiker|onpremisessamaccountname|Op de lokale Sam-accountnaam|
-|Gebruiker|NetBIOS-naam|NetBios-naam|
+|Gebruiker|netbiosname|NetBios Name|
 |Gebruiker|DNS-domeinnaam|DNS-domeinnaam|
 |Gebruiker|onpremisesecurityidentifier|on-premises beveiligings-id|
 |Gebruiker|bedrijfsnaam|Naam van organisatie|

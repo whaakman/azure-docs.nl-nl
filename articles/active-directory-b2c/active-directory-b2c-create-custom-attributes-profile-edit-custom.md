@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.openlocfilehash: 0d4ee064c15c914eea7353900c6bb5a77b3e3b3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 33c9e4322444895a3affc16e11af5443f2db6b6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Maken en gebruiken van aangepaste kenmerken in een aangepast profiel beleid bewerken
 
@@ -65,8 +65,8 @@ Eigenschappen van de extensie bestaan alleen in de context van een geregistreerd
 1. Zet een vinkje in Toepassingsmachtigingen: **lezen en schrijven directorygegevens**, en **opslaan**
 1. Kies **machtigingen verlenen** en bevestig **Ja**.
 1. Naar het Klembord kopiëren en opslaan van de volgende id's van de Web-App-GraphAPI-DirectoryExtensions > Instellingen > Eigenschappen >
-*  **Toepassings-ID** . Voorbeeld:`103ee0e6-f92d-4183-b576-8c3739027780`
-* **Object-ID**. Voorbeeld:`80d8296a-da0a-49ee-b6ab-fd232aa45201`
+*  **Toepassings-ID** . Voorbeeld: `103ee0e6-f92d-4183-b576-8c3739027780`
+* **Object-ID**. Voorbeeld: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 
 
@@ -96,7 +96,7 @@ Eigenschappen van de extensie bestaan alleen in de context van een geregistreerd
 ```
 
 >[!NOTE]
->De <TechnicalProfile Id="AAD-Common"> wordt aangeduid als 'algemene' omdat de elementen zijn opgenomen in en opnieuw worden gebruikt in alle de Azure Active Directory TechnicalProfiles met behulp van het element:`<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
+>De <TechnicalProfile Id="AAD-Common"> wordt aangeduid als 'algemene' omdat de elementen zijn opgenomen in en opnieuw worden gebruikt in alle de Azure Active Directory TechnicalProfiles met behulp van het element: `<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
 
 >[!NOTE]
 >Wanneer de TechnicalProfile voor de eerste keer naar de zojuist gemaakte uitbreidingseigenschap schrijft, kunnen een eenmalige fout optreden.  De eigenschap extension wordt gemaakt van de eerste keer dat deze wordt gebruikt.  
@@ -152,7 +152,7 @@ Eigenschappen van de extensie bestaan alleen in de context van een geregistreerd
             <InputClaim ClaimTypeReferenceId="userPrincipalName" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <InputClaim ClaimTypeReferenceId="givenName" />
             <InputClaim ClaimTypeReferenceId="surname" />
             <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -162,7 +162,7 @@ Eigenschappen van de extensie bestaan alleen in de context van een geregistreerd
             <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <OutputClaim ClaimTypeReferenceId="givenName" />
             <OutputClaim ClaimTypeReferenceId="surname" />
             <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -289,7 +289,7 @@ extension_<app-guid>_ActivationStatus via the Graph API.
 ```
 
 
-## <a name="reference"></a>Naslaginformatie
+## <a name="reference"></a>Referentie
 
 * Een **technische profiel (TP)** is een elementtype dat kan worden beschouwd als een *functie* die definieert de naam van een eindpunt, de metagegevens, het protocol en details van de uitwisseling van claims die moeten worden uitgevoerd in het kader van de gebruikerservaring identiteit.  Wanneer dit *functie* wordt aangeroepen in een stap orchestration of van een andere TechnicalProfile, de InputClaims en OutputClaims worden geleverd als parameters door de aanroeper.
 

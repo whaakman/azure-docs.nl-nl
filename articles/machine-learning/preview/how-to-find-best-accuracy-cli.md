@@ -5,16 +5,16 @@ services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
-ms.reviewer: akannava, haining, mldocs, garyericson, jasonwhowell
+ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: 40e066fe602e8c4680043158f1d401a884e07c19
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bd8888d911730831435b87d3a60b48a7797eea98
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Wordt uitgevoerd met de beste nauwkeurigheid en de duur van de laagste zoeken
 Opgegeven meerdere wordt uitgevoerd, is een gebruiksvoorbeeld uitgevoerd met de beste nauwkeurigheid vinden. Een aanpak is het gebruik van de opdrachtregelinterface (CLI) met een [JMESPath](http://jmespath.org/) query. Zie voor meer informatie over het gebruik van JMESPath in de Azure CLI [JMESPath gebruiken query's met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). In het volgende voorbeeld worden vier wordt uitgevoerd met nauwkeurigheid waarden van 0, 0,98 1 en 1 gemaakt. Wordt uitgevoerd als ze in het bereik worden gefilterd `[MaxAccuracy-Threshold, MaxAccuracy]` waar `Threshold = .03`.
@@ -58,7 +58,7 @@ Met deze waarde max nauwkeurigheid van `1` en een drempelwaarde van `0.03`, de t
 az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`)] | sort_by(@, &duration)'
 ```
 > [!NOTE]
-> Als u een strikte bovengrens controle wilt, is de queryindeling van de``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
+> Als u een strikte bovengrens controle wilt, is de queryindeling van de ``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
 
 Als u PowerShell gebruikt, gebruikt de volgende code lokale variabelen voor het opslaan van de drempel en de maximale nauwkeurigheid:
 ```powershell

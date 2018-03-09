@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 0319a7b9248dec9d7cdabba9c18a25463d94284b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 47cca0c3b6b7010323dd816cdb863c652516bfe5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Doorsturen taakstatus en taak stromen van Automation voor logboekanalyse (OMS)
 Automation kan runbook taak status en taak streams verzenden naar de werkruimte voor logboekanalyse voor Microsoft Operations Management Suite (OMS). Taak registreert en taak streams zichtbaar zijn in de Azure-portal of PowerShell zijn voor afzonderlijke taken en Hiermee kunt u eenvoudige onderzoeken uitvoeren. Met Log Analytics kunt u nu:
@@ -69,7 +69,7 @@ Als u wilt zoeken naar de *naam* van uw Automation-account in de Azure portal, s
 
 Na dit script uitvoert, ziet u records in logboekanalyse binnen 10 minuten van nieuwe JobLogs of JobStreams wordt geschreven.
 
-Overzicht van de logboeken, voer de volgende query in logboekanalyse logboek zoeken:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION""`
+Overzicht van de logboeken, voer de volgende query in logboekanalyse logboek zoeken: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Configuratie controleren
 Om te bevestigen dat uw Automation-account logboeken naar uw werkruimte voor logboekanalyse is verzendt, moet u controleren of diagnostische gegevens juist zijn geconfigureerd op het Automation-account met behulp van de volgende PowerShell:
@@ -104,11 +104,11 @@ Diagnostische gegevens van Azure Automation maakt u twee soorten records in Log 
 | ResourceId |Hiermee geeft u de Azure Automation-account-id van het runbook. |
 | SubscriptionId | De Azure-abonnement-Id (GUID) voor het Automation-account. |
 | ResourceGroup | Naam van de resourcegroep voor het Automation-account. |
-| ResourceProvider | MICROSOFT CORPORATION. AUTOMATION |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
 
-### <a name="job-streams"></a>Taak stromen
+### <a name="job-streams"></a>Job Streams
 | Eigenschap | Beschrijving |
 | --- | --- |
 | TimeGenerated |Datum en tijd van uitvoering van de runbooktaak. |
@@ -127,13 +127,13 @@ Diagnostische gegevens van Azure Automation maakt u twee soorten records in Log 
 | ResourceId |Hiermee geeft u de Azure Automation-account-id van het runbook. |
 | SubscriptionId | De Azure-abonnement-Id (GUID) voor het Automation-account. |
 | ResourceGroup | Naam van de resourcegroep voor het Automation-account. |
-| ResourceProvider | MICROSOFT CORPORATION. AUTOMATION |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Log Analytics Automation weer aanmeldt
 Nu u uw Automation-taaklogboeken verzenden met logboekanalyse gestart, gaan we kijken wat u kunt doen met deze logboeken in logboekanalyse.
 
-Overzicht van de logboeken, voer de volgende query:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Overzicht van de logboeken, voer de volgende query: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Een e-mailbericht verzenden wanneer een runbooktaak is mislukt of wordt onderbroken
 Een van de bovenste klant vraagt is voor de mogelijkheid voor het verzenden van een e-mailbericht of een tekst wanneer er iets mis met een runbooktaak gaat.   
@@ -141,7 +141,7 @@ Een van de bovenste klant vraagt is voor de mogelijkheid voor het verzenden van 
 Als u wilt een waarschuwingsregel maakt, begint u met het maken van een zoekopdracht logboek voor de runbook-taak-records die de waarschuwing moet worden aangeroepen. Klik op de **waarschuwing** knop maken en configureren van de waarschuwingsregel.
 
 1. Klik op de pagina overzicht van Log Analytics **logboek zoeken**.
-2. Maken van een zoekquery logboek voor de waarschuwing door de volgende zoeken in het queryveld typen: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` u kunt de RunbookName groeperen met behulp van:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Maken van een zoekquery logboek voor de waarschuwing door de volgende zoeken in het queryveld typen: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` u kunt de RunbookName groeperen met behulp van: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Als u logboeken van meer dan een Automation-account of -abonnement aan uw werkruimte, kunt u uw waarschuwingen per abonnement en de Automation-account kunt groeperen. Automation-accountnaam vindt u in het veld Resource in het doorzoeken van JobLogs.
 1. Openen van de **waarschuwingsregel toevoegen** scherm, klikt u op **waarschuwing** boven aan de pagina. Zie voor meer informatie over de opties voor het configureren van de waarschuwing [waarschuwingen in logboekanalyse](../log-analytics/log-analytics-alerts.md#alert-rules).

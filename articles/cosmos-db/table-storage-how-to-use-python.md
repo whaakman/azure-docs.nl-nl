@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mimig
-ms.openlocfilehash: 2c8c7dc6d3bdb6ba34818d7e36739297cffbe2d2
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 455479c9eb77093dd5611263fe5bdcf699b9d026
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Aan de slag met Azure Table storage met Python
 
@@ -42,7 +42,7 @@ Tijdens het werken met de scenario's in deze zelfstudie kunt u verwijzen naar de
 U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 of 3.6
-- [Azure Cosmos DB tabel 1.01 SDK voor Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Deze SDK maakt verbinding met Azure Table storage en de Azure-API voor tabel Cosmos DB.
+- [Azure Cosmos DB tabel SDK voor Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Deze SDK maakt verbinding met Azure Table storage en de Azure-API voor tabel Cosmos DB.
 - [Azure Storage-account](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) of [Azure DB die Cosmos-account](https://azure.microsoft.com/en-us/try/cosmosdb/)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]

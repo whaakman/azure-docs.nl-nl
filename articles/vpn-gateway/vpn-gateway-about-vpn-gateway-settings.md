@@ -13,19 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 03/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: d265c72cfc02710afb630f3b8258602c936d1ebc
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Over configuratie-instellingen voor VPN-Gateway
 
 Een VPN-gateway is een type van de virtuele netwerkgateway die versleuteld verkeer tussen uw virtuele netwerk en uw on-premises locatie via een openbare verbinding verzonden. U kunt ook een VPN-gateway gebruiken om verkeer tussen virtuele netwerken via de Azure-backbone te verzenden.
 
 Er is een VPN-gatewayverbinding afhankelijk van de configuratie van meerdere resources, die elk configureerbare instellingen bevat. De secties in dit artikel worden de resources en de instellingen met betrekking tot een VPN-gateway voor een virtueel netwerk gemaakt in Resource Manager-implementatiemodel. U vindt beschrijvingen en diagrammen topologie voor elke oplossing verbinding in de [over VPN-Gateway](vpn-gateway-about-vpngateways.md) artikel.
+
+>[!NOTE]
+> De waarden in dit artikel van toepassing op virtuele netwerkgateways die gebruikmaken van de - GatewayType 'Vpn'. Dit is de reden waarom ze worden aangeduid als de VPN-gateways. Zie voor waarden die betrekking hebben op - GatewayType 'ExpressRoute' [virtuele netwerkgateways voor ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md). De waarden voor de ExpressRoute-gateways zijn niet dezelfde waarden die u voor VPN-gateways gebruikt.
+>
+>
 
 ## <a name="gwtype"></a>Gatewaytypen
 
@@ -120,7 +125,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 Voordat u een VPN-gateway maakt, moet u een gatewaysubnet maken. Het gatewaysubnet bevat de IP-adressen die gebruikmaken van de virtuele netwerkgateway virtuele machines en services. Wanneer u uw virtuele netwerkgateway maakt, worden gateway-VM's in het gatewaysubnet is geïmplementeerd en geconfigureerd met de vereiste instellingen voor VPN-gateway. U moet nooit iets anders (bijvoorbeeld extra VM's) om het gatewaysubnet te implementeren. Het gatewaysubnet moet de naam 'GatewaySubnet' goed te laten werken. Naamgeving van het gatewaysubnet 'GatewaySubnet', kunt weet dat deze het subnet voor het implementeren van de virtuele netwerkgateway virtuele machines en services met Azure.
 
-Wanneer u het gatewaysubnet maakt, geeft u op hoeveel IP-adressen het subnet bevat. De IP-adressen in het gatewaysubnet worden toegewezen aan de gateway-VM's en gatewayservices. Sommige configuraties moeten meer IP-adressen dan andere. Bekijk de instructies voor de configuratie die u wilt maken en te controleren of het gatewaysubnet dat u wilt maken, voldoet aan deze vereisten. Bovendien wilt u Zorg ervoor dat het gatewaysubnet bevat voldoende IP-adressen zodat mogelijke toekomstige aanvullende configuraties. U kunt een gatewaysubnet slechts/29 maken, wordt aangeraden dat u een gatewaysubnet van/28 of groter maakt (/ 28, / 27, /26 enz.). Op die manier als u de functionaliteit in de toekomst toevoegt u hoeft te verwijderen van uw gateway en vervolgens verwijderen en opnieuw maken van het gatewaysubnet om toe te staan voor meer IP-adressen.
+Wanneer u het gatewaysubnet maakt, geeft u op hoeveel IP-adressen het subnet bevat. De IP-adressen in het gatewaysubnet worden toegewezen aan de gateway-VM's en gatewayservices. Sommige configuraties vereisen meer IP-adressen dan andere. Bekijk de instructies voor de configuratie die u wilt maken en te controleren of het gatewaysubnet dat u wilt maken, voldoet aan deze vereisten. Bovendien wilt u Zorg ervoor dat het gatewaysubnet bevat voldoende IP-adressen zodat mogelijke toekomstige aanvullende configuraties. U kunt een gatewaysubnet slechts/29 maken, wordt aangeraden dat u een gatewaysubnet van/28 of groter maakt (/ 28, / 27, /26 enz.). Op die manier als u de functionaliteit in de toekomst toevoegt u hoeft te verwijderen van uw gateway en vervolgens verwijderen en opnieuw maken van het gatewaysubnet om toe te staan voor meer IP-adressen.
 
 De volgende Resource Manager PowerShell-voorbeeld ziet een gatewaysubnet met de naam GatewaySubnet. U ziet dat de CIDR-notatie een/27, geeft dit biedt voldoende IP-adressen voor de meeste configuraties die momenteel aanwezig zijn.
 
@@ -153,7 +158,7 @@ Zie voor aanvullende technische bronnen en de syntaxis van de specifieke vereist
 | --- | --- |
 | [PowerShell](/powershell/module/azure#networking) |[PowerShell](/powershell/module/azurerm.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
-| Niet ondersteund | [Azure CLI](/cli/azure/network/vnet-gateway)|
+| Niet ondersteund | [Azure-CLI](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gebeurtenis raster trigger voor Azure Functions
 
@@ -33,6 +33,16 @@ Als u liever, kunt u een HTTP-trigger voor het afhandelen van gebeurtenis raster
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## <a name="packages"></a>Pakketten
+
+De gebeurtenis raster trigger is opgegeven de [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-pakket. De broncode voor het pakket bevindt zich in de [azure-functies-eventgrid-extensie](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub-opslagplaats.
+
+Het pakket wordt gebruikt voor [C# class library ontwikkeling](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) en [functies van registratie van de uitbreiding v2 binding](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
+
+<!--
+If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
+-->
+
 ## <a name="example"></a>Voorbeeld
 
 Zie het voorbeeld taalspecifieke voor een trigger gebeurtenis raster:
@@ -45,24 +55,58 @@ Zie voor een voorbeeld van de trigger HTTP [het gebruik van HTTP-trigger](#use-a
 
 ### <a name="c-example"></a>C#-voorbeeld
 
-Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die enkele van de velden die gemeenschappelijk voor alle gebeurtenissen en alle van de gegevens van de gebeurtenis-specifieke zijn Logboeken.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die wordt gebonden aan `JObject`:
 
 ```cs
-[FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace Company.Function
 {
-    log.Info("C# Event Grid function processed a request.");
-    log.Info($"Subject: {eventGridEvent.Subject}");
-    log.Info($"Time: {eventGridEvent.EventTime}");
-    log.Info($"Data: {eventGridEvent.Data.ToString()}");
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, TraceWriter log)
+        {
+            log.Info(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
 }
 ```
 
-De `EventGridTrigger` kenmerk is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid).
+<!--
+The following example shows a [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTest")]
+            public static void EventGridTest([EventGridTrigger] Microsoft.Azure.EventGrid.Models.EventGridEvent eventGridEvent, TraceWriter log)
+        {
+            log.Info("C# Event Grid function processed a request.");
+            log.Info($"Subject: {eventGridEvent.Subject}");
+            log.Info($"Time: {eventGridEvent.EventTime}");
+            log.Info($"Data: {eventGridEvent.Data.ToString()}");
+        }
+    }
+}
+```
+-->
+
+Zie voor meer informatie [pakketten](#packages), [kenmerken](#attributes), [configuratie](#configuration), en [gebruik](#usage).
 
 ### <a name="c-script-example"></a>Voorbeeld van C#-script
 
-Het volgende voorbeeld ziet u een trigger-binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie Logboeken enkele van de velden die gemeenschappelijk voor alle gebeurtenissen en alle van de gebeurtenis-specifieke gegevens zijn.
+Het volgende voorbeeld ziet u een trigger-binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding.
 
 Dit zijn de bindingsgegevens de *function.json* bestand:
 
@@ -79,12 +123,30 @@ Dit zijn de bindingsgegevens de *function.json* bestand:
 }
 ```
 
-Dit is de C#-scriptcode:
+Hier volgt C# script-code die wordt gebonden aan `JObject`:
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
+
+<!--
+Here's C# script code that binds to `EventGridEvent`:
 
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.Azure.WebJobs.Extensions.EventGrid"
+#r "Microsoft.Azure.EventGrid"
+
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+Using Microsoft.Azure.EventGrid.Models;
 
 public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 {
@@ -94,10 +156,13 @@ public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
     log.Info($"Data: {eventGridEvent.Data.ToString()}");
 }
 ```
+-->
+
+Zie voor meer informatie [pakketten](#packages), [kenmerken](#attributes), [configuratie](#configuration), en [gebruik](#usage).
 
 ### <a name="javascript-example"></a>JavaScript-voorbeeld
 
-Het volgende voorbeeld ziet u een trigger-binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie Logboeken enkele van de velden die gemeenschappelijk voor alle gebeurtenissen en alle van de gebeurtenis-specifieke gegevens zijn.
+Het volgende voorbeeld ziet u een trigger-binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding.
 
 Dit zijn de bindingsgegevens de *function.json* bestand:
 
@@ -128,13 +193,13 @@ module.exports = function (context, eventGridEvent) {
      
 ## <a name="attributes"></a>Kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) kenmerk, gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) kenmerk.
 
 Hier volgt een `EventGridTrigger` kenmerk in een handtekening voor methode:
 
 ```csharp
 [FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
+public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, TraceWriter log)
 {
     ...
 }
@@ -154,7 +219,11 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 
 ## <a name="usage"></a>Gebruik
 
-Voor C# en F #, declareert het type van uw invoer worden trigger `EventGridEvent` of een aangepast type. Voor een aangepast type probeert de runtime van Functions parseren van de gebeurtenis JSON instellen van eigenschappen van het object.
+Voor C# en F # functies, kunt u de volgende parametertypen voor de trigger gebeurtenis raster:
+
+* `JObject`
+* `string`
+* `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`-Definieert de eigenschappen voor de overeenkomende velden voor alle types van gebeurtenissen. **Dit type is afgeschaft**, maar de vervanging ervan is nog niet gepubliceerd naar NuGet.
 
 Voor JavaScript-functies, de parameter met de naam door de *function.json* `name` eigenschap bevat een verwijzing naar de event-object.
 
@@ -315,7 +384,7 @@ Gebruik een hulpprogramma zoals [Postman](https://www.getpostman.com/) of [curl]
 * Post een bericht naar de URL van uw activeringsfunctie gebeurtenis raster met het volgende patroon volgen:
 
 ```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 De `functionName` parameter moet de naam die is opgegeven in de `FunctionName` kenmerk.
@@ -376,7 +445,7 @@ De URL ngrok biedt geen speciale verwerking door gebeurtenis raster krijgt, zoda
 Maken van een gebeurtenis raster-abonnement van het type dat u wilt testen en wijs hieraan uw ngrok-eindpunt met het volgende patroon volgen:
 
 ```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 De `functionName` parameter moet de naam die is opgegeven in de `FunctionName` kenmerk.

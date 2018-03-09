@@ -27,7 +27,8 @@
 ### [Netwerkbeveiligingsgroepen](virtual-networks-nsg.md)
 
 ## Implementeren
-### [Virtuele netwerken](virtual-networks-create-vnet-arm-pportal.md)
+### Virtuele netwerken
+#### [Azure Portal](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [Azure-CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Sjabloon](virtual-networks-create-vnet-arm-template-click.md)
@@ -42,17 +43,20 @@
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
-### Door de gebruiker gedefinieerde routes
-#### [Azure Portal](create-user-defined-route-portal.md)
-#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure-CLI](virtual-network-create-udr-arm-cli.md)
+### Routetabellen
+#### [Azure Portal](tutorial-create-route-table-portal.md)
+#### [Azure PowerShell](tutorial-create-route-table-powershell.md)
+#### [Azure-CLI](tutorial-create-route-table-cli.md)
 #### [Sjabloon](virtual-network-create-udr-arm-template.md)
 #### Klassiek
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [Azure-CLI](virtual-network-create-udr-classic-cli.md)
 
 ### Peering op virtueel netwerk
-#### [Hetzelfde implementatiemodel - hetzelfde abonnement](virtual-network-create-peering.md)
+#### Hetzelfde implementatiemodel - hetzelfde abonnement
+##### [Azure Portal](tutorial-connect-virtual-networks-portal.md)
+##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
+##### [Azure-CLI](tutorial-connect-virtual-networks-cli.md)
 #### [Hetzelfde implementatiemodel - verschillende abonnementen](create-peering-different-subscriptions.md)
 #### [Verschillende implementatiemodellen - hetzelfde abonnement](create-peering-different-deployment-models.md)
 #### [Verschillende implementatiemodellen - verschillende abonnementen](create-peering-different-deployment-models-subscriptions.md)

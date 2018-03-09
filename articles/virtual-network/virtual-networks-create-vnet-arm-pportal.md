@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c89b455212ad428dbe67d7f1d95517072c220d8e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d317d35e2b4e1a0cebb354e3b2b2e75fd9ca6976
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Een virtueel netwerk maken met meerdere subnetten met de Azure portal
 
@@ -41,7 +41,7 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
 1. Selecteer **+ maken van een resource** op het bovenste linkerbovenhoek van de Azure-portal.
 2. Selecteer **Networking**, en selecteer vervolgens **virtueel netwerk**.
-3. Zoals u in de volgende afbeelding, voer *myVirtualNetwork* voor **naam**, **myResourceGroup** voor **resourcegroep**, *Openbare* voor Subnet **naam**, 10.0.0.0/24 voor Subnet **-adresbereik**, selecteer een **locatie** en uw  **Abonnement**, accepteer de standaardinstellingen van de resterende en selecteer vervolgens **maken**:
+3. Zoals u in de volgende afbeelding, voer *myVirtualNetwork* voor **naam**, *10.0.0.0/16* voor **adresruimte**,  **myResourceGroup** voor **resourcegroep**, *openbare* voor Subnet **naam**, 10.0.0.0/24 voor Subnet **-adresbereik**, selecteer een **locatie** en uw **abonnement**, accepteer de standaardinstellingen van de resterende en selecteer vervolgens **maken**:
 
     ![Een virtueel netwerk maken](./media/virtual-networks-create-vnet-arm-pportal/create-virtual-network.png)
 
@@ -146,7 +146,7 @@ De virtuele machines die in dit artikel hebt [netwerkinterface](virtual-network-
     Hoewel een virtuele machine is niet vereist voor het openbare IP-adres toegewezen, wijst Azure een openbaar IP-adres toe aan elke virtuele machine die u, standaard maakt. Om te communiceren via Internet met een virtuele machine, moet een openbaar IP-adres worden toegewezen aan de virtuele machine. Alle virtuele machines kunnen communiceren met het Internet, uitgaande of er een openbaar IP-adres is toegewezen aan de virtuele machine. Zie voor meer informatie over uitgaande Internet-verbindingen in Azure, [uitgaande verbindingen in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 13. Blader op uw eigen computer naar het openbare IP-adres van de *myVmWeb* virtuele machine. De poging om weer te geven van de IIS-welkomstpagina van uw eigen computer is mislukt. De poging is mislukt omdat wanneer de virtuele machines zijn geïmplementeerd, Azure standaard een netwerkbeveiligingsgroep voor elke virtuele machine gemaakt. 
 
-     Een netwerkbeveiligingsgroep bevat beveiligingsregels voor verbindingen toestaan of weigeren van binnenkomende en uitgaande netwerkverkeer op poort en IP-adres. De standaard netwerkbeveiligingsgroep die Azure gemaakt kan communicatie via alle poorten tussen resources in hetzelfde virtuele netwerk. Voor Windows virtuele machines, de standaard netwerkbeveiligingsgroep weigert alle binnenkomend verkeer van Internet via alle poorten, TCP-poort 3389 (RDP) accepteren. Als gevolg hiervan standaard kunt u ook RDP rechtstreeks naar de *myVmWeb* virtuele machine van het Internet, zelfs als u wilt niet poort 3389 openen met een webserver. Omdat websurfen via poort 80 communiceert, wordt de communicatie van het Internet mislukt omdat er is geen regel in de standaard netwerkbeveiligingsgroep verkeer toestaat via poort 80.
+     Een netwerkbeveiligingsgroep bevat beveiligingsregels voor verbindingen toestaan of weigeren van binnenkomende en uitgaande netwerkverkeer op poort en IP-adres. De standaard netwerkbeveiligingsgroep die Azure gemaakt kan communicatie via alle poorten tussen resources in hetzelfde virtuele netwerk. Voor Windows virtuele machines weigert de netwerkbeveiligingsgroep voor de standaard alle binnenkomend verkeer van Internet via alle poorten, met uitzondering van TCP-poort 3389 (RDP). Als gevolg hiervan standaard kunt u ook RDP rechtstreeks naar de *myVmWeb* virtuele machine van het Internet, zelfs als u wilt niet poort 3389 openen met een webserver. Omdat websurfen via poort 80 communiceert, wordt de communicatie van het Internet mislukt omdat er is geen regel in de standaard netwerkbeveiligingsgroep verkeer toestaat via poort 80.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c80bddfe1896b0b99319ef007c25718b5a754005
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="scaling-media-processing-overview"></a>Overzicht van de verwerking van Media schalen
 Deze pagina biedt een overzicht van hoe en waarom schalen verwerking van media. 
@@ -44,8 +44,6 @@ De volgende tabel kunt u besluit bij de keuze tussen verschillende codering snel
 
 * Gereserveerde eenheden werkt voor alle media verwerking, met inbegrip van taken met behulp van Azure Media Indexer indexeren parallelizing.  Indexeringstaken worden echter niet sneller verwerkt met snellere gereserveerde eenheden, terwijl dit bij coderen wel het geval is.
 * Als de gedeelde groep wordt gebruikt, dat wil zeggen, hebben zonder eventuele gereserveerde eenheden vervolgens uw taken coderen dezelfde prestaties als met S1 RUs. Er is echter geen bovengrens voor de tijd die uw taken in in de wachtrij staat besteden kunnen, en op elk gewenst maximaal slechts één taak wordt uitgevoerd.
-* De volgende datacenters bieden niet de **S2** gereserveerd eenheidstype: Brazilië-Zuid en India-West.
-* Het volgende Datacenter biedt niet aan de **S3** eenheidstype gereserveerd: India-West.
 
 ## <a name="billing"></a>Facturering
 
@@ -66,8 +64,8 @@ De schaal verwerkingstaak voor media met een van deze technologieën bereiken:
 > 
 
 > [!NOTE]
-> Om de nieuwste versie van Java SDK en te beginnen met ontwikkelen met behulp van Java, Zie [aan de slag met de SDK voor Java-clients voor Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Voor het downloaden van de meest recente PHP SDK voor Media Services, zoekt u versie 0.5.7 van het pakket Microsoft/WindowAzure in de [Packagist opslagplaats](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Zie [Aan de slag met de SDK voor Java-clients voor Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use) om de nieuwste versie van de Java-SDK op te halen en te ontwikkelen met Java. <br/>
+> Als u de nieuwste PHP-SDK voor Media Services wilt downloaden, zoekt u versie 0.5.7 van het Microsoft/WindowAzure-pakket in de [Packagist-opslagplaats](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 03/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 26f29355f53a586ea21551831f48ddf8898d3c9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Ondersteunde bestandsindelingen en compressiecodecs in Azure Data Factory
 
@@ -307,7 +307,7 @@ en u wilt het kopiëren naar een Azure SQL-tabel in de volgende indeling, door d
 De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (gedeeltelijke definitie met alleen belangrijke onderdelen). Met name:
 
 - Het gedeelte `structure` definieert de aangepaste kolomnamen en het bijbehorende gegevenstype tijdens het converteren van gegevens in tabelvorm. Dit gedeelte is **optioneel**, tenzij u kolommen moet toewijzen. Zie voor meer informatie [bronkolommen gegevensset toewijzen aan bestemming gegevensset kolommen](copy-activity-schema-and-type-mapping.md).
-- `jsonNodeReference`Hiermee wordt aangegeven als u wilt herhalen en gegevens ophalen uit de objecten met hetzelfde patroon onder **matrix** `orderlines`.
+- `jsonNodeReference` Hiermee wordt aangegeven als u wilt herhalen en gegevens ophalen uit de objecten met hetzelfde patroon onder **matrix** `orderlines`.
 - Met `jsonPathDefinition` geeft u het JSON-pad op voor elke kolom die aangeeft waar de gegevens moeten worden opgehaald. In dit voorbeeld `ordernumber`, `orderdate`, en `city` zijn onder hoofdobject met JSON-pad beginnen met `$.`, terwijl `order_pd` en `order_price` zijn gedefinieerd met het pad dat is afgeleid van het matrixelement zonder `$.` .
 
 ```json
@@ -436,7 +436,7 @@ Als u de ORC-bestanden wilt parseren of de gegevens in ORC-indeling wilt schrijv
 ```
 
 > [!IMPORTANT]
-> Als u de ORC niet **ongewijzigd** kopieert tussen on-premises gegevensopslag en gegevensopslag in de cloud, moet u de JRE 8 (Java Runtime Environment) op de gatewaycomputer installeren. Een 64-bits-gateway vereist 64-bits JRE en 32-bits JRE is vereist voor een 32-bits-gateway. U vindt beide versies [hier](http://go.microsoft.com/fwlink/?LinkId=808605). Kies de juiste versie.
+> Voor het kopiëren gemachtigd door Self-hosted integratie Runtime bijvoorbeeld tussen on-premises en cloud gegevens worden opgeslagen, als u geen ORC-bestanden kopieert **als-is**, moet u de JRE 8 (Java Runtime Environment) installeren op uw machine IR. Een 64-bits-IR vereist een 64-bits JRE. U vindt beide versies [hier](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Houd rekening met de volgende punten:
@@ -456,7 +456,7 @@ Als u de Parquet-bestanden wilt parseren of de gegevens in Parquet-indeling wilt
 ```
 
 > [!IMPORTANT]
-> Als u de Parquet niet **ongewijzigd** kopieert tussen on-premises gegevensopslag en gegevensopslag in de cloud, moet u de JRE 8 (Java Runtime Environment) op de gatewaycomputer installeren. Een 64-bits-gateway vereist 64-bits JRE en 32-bits JRE is vereist voor een 32-bits-gateway. U vindt beide versies [hier](http://go.microsoft.com/fwlink/?LinkId=808605). Kies de juiste versie.
+> Voor het kopiëren gemachtigd door Self-hosted integratie Runtime bijvoorbeeld tussen on-premises en cloud gegevens worden opgeslagen, als u geen parketvloeren bestanden kopieert **als-is**, moet u de JRE 8 (Java Runtime Environment) installeren op uw machine IR. Een 64-bits-IR vereist een 64-bits JRE. U vindt beide versies [hier](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Houd rekening met de volgende punten:

@@ -1,10 +1,10 @@
-Updates op de Azure-bestand Sync-agent worden uitgebracht regelmatig nieuwe functionaliteit toe te voegen en los eventuele problemen die zijn ontdekt. Het is raadzaam dat u Microsoft Update om alle updates met de Azure-bestand Sync-agent zoals we ze brengen configureren. We begrijpen dat sommige organisaties, zoals strikt bepalen en de updates hebt getest. 
+De Azure-bestand Sync-agent wordt bijgewerkt regelmatig nieuwe functionaliteit toe te voegen en om problemen te verhelpen. We raden aan met het configureren van Microsoft Update om updates voor de Azure-bestand Sync-agent als ze beschikbaar zijn. We begrijpen dat sommige organisaties willen strikt bepalen en de updates hebt getest.
 
 Voor implementaties die gebruikmaken van eerdere versies van de Azure-bestand Sync-agent:
 
-- De synchronisatieservice opslag respecteert de hoofdversie van de voorgaande drie maanden na de initiële release van een nieuwe primaire versie. De synchronisatieservice opslag ondersteunen bijvoorbeeld versie 1. \* tot drie maanden na de release van versie 2. \*.
-- Nadat de drie maanden zijn verstreken, begint de synchronisatieservice opslag blokkeren geregistreerde Servers die van de verlopen versie gebruikmaken wordt gesynchroniseerd met de synchronisatie-groepen.
-- In de drie maanden voor een voorgaande hoofdversie gaat alle oplossingen voor problemen alleen voor de huidige primaire versie.
+- Na de initiële release van een nieuwe primaire versie respecteert de Storage-Sync-Service de vorige primaire versie voor 3 maanden. De synchronisatieservice opslag ondersteunt bijvoorbeeld versie 1. \* voor 3 maanden na de release van versie 2. \*.
+- Nadat de drie maanden zijn verstreken, blokkeert de synchronisatieservice opslag geregistreerde Servers met de verlopen versie wordt gesynchroniseerd met de synchronisatiegroepen.
+- In de drie maanden die de vorige primaire versie wordt gehonoreerd, gaat u alle oplossingen voor problemen alleen naar de huidige primaire versie (nieuw).
 
 > [!Note]  
-> U ontvangt een pop-upmelding in Azure Portal als u een versie van Azure File Sync gebruikt die binnen de komende drie maanden verloopt.
+> Als uw versie van Azure bestand Sync binnen drie maanden verloopt, bent u een melding via toast-melding in de Azure portal.

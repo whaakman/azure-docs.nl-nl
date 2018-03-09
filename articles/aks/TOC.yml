@@ -47,9 +47,13 @@
           href: delete-cluster.md
     - name: Gegevensvolumes configureren
       items:
-        - name: Azure-schijven
+        - name: Kubernetes-volume - schijven
+          href: azure-disk-volume.md
+        - name: Kubernetes-volume - bestanden
+          href: azure-files-volume.md
+        - name: Permanent volume - schijven
           href: azure-disks-dynamic-pv.md
-        - name: Azure Files
+        - name: Permanent volume - bestanden
           href: azure-files-dynamic-pv.md
     - name: Netwerk configureren
       items:
@@ -73,6 +77,8 @@
           href: integrate-azure.md
         - name: Doorlopende Jenkins-implementatie
           href: jenkins-continuous-deployment.md
+        - name: Met behulp van OpenFaaS met AKS
+          href: openfaas.md
     - name: Basisbeginselen voor Kubernetes
       items:
         - name: Kubernetes-dashboard gebruiken

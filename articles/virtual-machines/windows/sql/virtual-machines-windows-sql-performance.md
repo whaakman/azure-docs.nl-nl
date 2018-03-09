@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2018
 ms.author: jroth
-ms.openlocfilehash: d0668a5fff3e5a69162c1893c07d5f4c2a015a28
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3458e2f1a09b597c50c01d59eb6522b3fa521310
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Aanbevolen procedures voor prestaties voor SQL Server op virtuele machines van Azure
 
@@ -171,4 +171,4 @@ Sommige implementaties mogelijk extra prestatievoordelen met behulp van meer gea
 
 Zie voor aanbevolen procedures voor beveiliging, [beveiligingsoverwegingen voor het SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
-Raadpleeg andere virtuele Machine van SQL Server-artikelen op [SQL Server op Azure Virtual Machines Overview](virtual-machines-windows-sql-server-iaas-overview.md).
+Raadpleeg andere virtuele Machine van SQL Server-artikelen op [SQL Server op Azure Virtual Machines Overview](virtual-machines-windows-sql-server-iaas-overview.md). Als u vragen over virtuele machines van SQL Server hebt, raadpleegt u de [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).

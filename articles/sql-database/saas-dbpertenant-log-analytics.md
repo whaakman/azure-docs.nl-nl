@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 90510520e5f6bbfa8aea4026d7437a4a4881984f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7747092d5613a40fa0aff09cfbdfb9b786b37954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Instellen en gebruiken van logboekanalyse (OMS) met een multitenant SaaS van Azure SQL Database-app
 
@@ -132,7 +132,7 @@ U kunt de logboek- en meetwaarde op die gegevens in de werkruimte verder verkenn
 
 De bewaking en waarschuwingen in Log Analytics en OMS is gebaseerd op query's over de gegevens in de werkruimte, in tegenstelling tot de waarschuwingen voor elke resource in de Azure-portal gedefinieerd. Door waarschuwingen op query's als uitgangspunt, kunt u één waarschuwing die er ongeveer via alle databases in plaats van definiërende één per database uitziet definiëren. De uitvoering van query's wordt alleen beperkt door de gegevens die beschikbaar zijn in de werkruimte.
 
-Voor meer informatie over het gebruik van OMS wilt opvragen en instellen van waarschuwingen, zien, [werken met regels voor waarschuwingen in logboekanalyse](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating).
+Voor meer informatie over het gebruik van OMS wilt opvragen en instellen van waarschuwingen, zien, [werken met regels voor waarschuwingen in logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 De kosten die in rekening worden gebracht voor Log Analytics voor SQL Database worden gebaseerd op het gegevensvolume in de werkruimte. In deze zelfstudie maakt u gemaakt een gratis werkruimte die is beperkt tot 500 MB per dag. Zodra deze limiet is bereikt, wordt niet meer gegevens toegevoegd aan de werkruimte.
 

@@ -13,19 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
 ms.workload: On Demand
+ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: aa6a032a9d42038502cf074ef8aeff8e2e8b0b31
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Maximaal beschikbare services met behulp van Azure SQL Database ontwerpen
 
 Bij het maken en implementeren van maximaal beschikbare services in Azure SQL-Database, gebruikt u [failover groepen en actieve geo-replicatie](sql-database-geo-replication-overview.md) om herstelmogelijkheden bij uitval van regionale en kritieke fouten optreden. Ook kunt snel herstel van de secundaire databases. Dit artikel is gericht op algemene patronen van de toepassing en de voordelen en -en nadelen van elke optie. Zie voor meer informatie over actieve geo-replicatie met elastische Pools [elastische Pool disaster recovery strategieën](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
+> [!NOTE]
+> Als u Premium-databases en pools gebruikt, kunt u ze robuuste bij regionale uitval door deze te converteren naar zone redundant implementatieconfiguratie (momenteel in preview). Zie [Zone-redundante databases](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: Met behulp van twee Azure-regio's voor bedrijfscontinuïteit met minimale downtime
 In dit scenario hebben de toepassingen in de volgende kenmerken: 
@@ -47,8 +50,7 @@ Deze configuratie voordat een storing in het volgende diagram wordt weergegeven:
 Na een storing in de primaire regio detecteert de service SQL Database dat de primaire database niet toegankelijk is en failover naar de secundaire regio op basis van de parameters van het beleid automatische failover (1 activeert). U kunt een respijtperiode die de tijd tussen de onderbreking te detecteren en de failover zelf bepaalt configureren, afhankelijk van de SLA voor uw toepassing. Het is mogelijk dat het traffic manager initieert de failover eindpunt voordat de failover-groep de failover van de database activeert. In dat geval de webtoepassing niet onmiddellijk opnieuw verbinding maken met de database. Maar de inlogmodus worden automatisch uitgevoerd zodra de failover van de database is voltooid. Wanneer de mislukte regio teruggezet en weer online is, wordt de oude primaire automatisch opnieuw verbinding als een nieuwe secundaire database. Het onderstaande diagram ziet u de configuratie na een failover.
  
 > [!NOTE]
-> Alle transacties na de failover zijn verloren gegaan tijdens het opnieuw verbinden. Nadat de failover is voltooid, kan de toepassing in de regio B herstellen en opnieuw starten gebruiker aanvragen. Zowel de webtoepassing en de primaire database zijn nu in regio B en blijven CO-locaties. 
-n>
+> Alle transacties na de failover zijn verloren gegaan tijdens het opnieuw verbinden. Nadat de failover is voltooid, kan de toepassing in de regio B herstellen en opnieuw starten gebruiker aanvragen. Zowel de webtoepassing en de primaire database zijn nu in regio B en blijven CO-locaties. n>
 
 ![Scenario 1. Configuratie na een failover](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 

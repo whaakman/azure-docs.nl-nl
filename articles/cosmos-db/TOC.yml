@@ -260,6 +260,8 @@
               href: mongodb-mongoose.md
             - name: Leesvoorkeur gebruiken
               href: mongodb-readpreference.md
+            - name: Indexeren
+              href: mongodb-indexing.md
             - name: Ondersteuning voor MongoDB-functies
               href: mongodb-feature-support.md
             - name: Reeks zelfstudies voor Angular

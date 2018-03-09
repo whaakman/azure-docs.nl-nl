@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ecd3a01ee5591cb09140edb1b1290ff2d4510200
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Een sleutelpaar met een openbare en persoonlijke SSH-sleutel voor virtuele Linux-machines maken en gebruiken
 Met een SSH-sleutelpaar (secure shell) kunt u virtuele machines (VM's) in Azure maken die voor verificatie gebruikmaken van SSH-sleutels, waardoor aanmelding met een wachtwoord niet meer nodig is. In dit artikel wordt beschreven hoe u snel een sleutelpaar met een openbare en een persoonlijke sleutel met SSH-protocol versie 2 RSA maakt en gebruikt voor virtuele Linux-machines. U kunt deze stappen voltooien met de Azure Cloud Shell, een macOS- of Linux-host of het Windows-subsysteem voor Linux. Zie voor meer stappen en extra voorbeelden [Gedetailleerde stappen voor het maken van SSH-sleutelparen en certificaten](create-ssh-keys-detailed.md).
 
 ## <a name="create-an-ssh-key-pair"></a>Een SSH-sleutelpaar maken
-Gebruik de opdracht `ssh-keygen` om openbare en persoonlijke SSH-sleutelbestanden te maken die standaard gemaakt worden in de map `~/.ssh`. U kunt een andere locatie en een extra wachtwoordzin (een wachtwoord voor toegang tot het bestand met de persoonlijke sleutel) opgeven wanneer u hierom wordt gevraagd. Voer de volgende opdracht uit vanuit een Bash-shell en beantwoord de prompts met uw eigen gegevens.
+Gebruik de `ssh-keygen` opdracht SSH openbare en persoonlijke sleutel om bestanden te maken die gemaakt zijn in standaard de `~/.ssh` directory. Kunt u een andere locatie en de aanvullende wachtwoordzin (een wachtwoord voor toegang tot het bestand met de persoonlijke sleutel) wanneer u wordt gevraagd. Als een SSH-sleutelpaar in de huidige locatie bestaat, worden deze overschreven.
 
 ```bash
 ssh-keygen -t rsa -b 2048

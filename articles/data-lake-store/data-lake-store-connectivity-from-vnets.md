@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: c1bb9d8f5759ece8fe6384441c692adea190aba8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 483406c6929844a8355dffcb86c1e3a3dabda061
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Toegang tot Azure Data Lake Store van VM's binnen een Azure VNET
-Azure Data Lake Store is een PaaS-service die wordt uitgevoerd op het openbare Internet IP-adressen. Een server die verbinding met het openbare Internet maken kan kunt maken doorgaans verbinding met Azure Data Lake Store-eindpunten ook. Standaard alle VM's die in Azure VNETs kunnen toegang tot het Internet en daarmee toegang tot Azure Data Lake Store. Het is echter mogelijk voor het configureren van virtuele machines in een VNET-naar-geen toegang tot het Internet. Voor deze VM's is toegang tot Azure Data Lake Store beperkt ook. Openbare toegang tot Internet blokkeren voor virtuele machines in Azure VNETs kan worden gedaan met behulp van de volgende benadering.
+Azure Data Lake Store is een PaaS-service die wordt uitgevoerd op het openbare Internet IP-adressen. Een server die verbinding met het openbare Internet maken kan kunt maken doorgaans verbinding met Azure Data Lake Store-eindpunten ook. Standaard alle VM's die in Azure VNETs kunnen toegang tot het Internet en daarmee toegang tot Azure Data Lake Store. Het is echter mogelijk voor het configureren van virtuele machines in een VNET-naar-geen toegang tot het Internet. Voor deze VM's is toegang tot Azure Data Lake Store beperkt ook. Openbare toegang tot Internet blokkeren voor virtuele machines in Azure VNETs kan worden gedaan met behulp van een van de volgende methoden:
 
 * Door het configureren van Netwerkbeveiligingsgroep groepen (NSG)
 * Door gebruiker gedefinieerde Routes (UDR) configureren
-* Door het uitwisselen van routes via BGP (dynamische routering standaardprotocol) wanneer u ExpressRoute gebruikt dat blok toegang tot het Internet
+* Door het uitwisselen van routes via BGP (dynamische routering standaardprotocol) wanneer u ExpressRoute gebruikt, die toegang blokkeren tot met het Internet
 
-In dit artikel leert u hoe u toegang inschakelen voor Azure Data Lake Store van de Azure VM's die zijn beperkt tot toegang tot bronnen met behulp van een van de drie methoden die hierboven worden genoemd.
+In dit artikel leert u hoe u toegang inschakelen voor Azure Data Lake Store van de Azure VM's, die zijn beperkt tot toegang tot bronnen met behulp van een van de drie methoden die eerder is vermeld.
 
 ## <a name="enabling-connectivity-to-azure-data-lake-store-from-vms-with-restricted-connectivity"></a>Connectiviteit met Azure Data Lake Store inschakelen van VM's met beperkte connectiviteit
-Voor toegang tot Azure Data Lake Store van dergelijke virtuele machines, moet u configureren zodat ze toegang krijgen tot het IP-adres waar het Azure Data Lake Store-account beschikbaar is. U kunt de IP-adressen voor uw Data Lake Store-accounts identificeren door de DNS-namen van uw accounts op te lossen (`<account>.azuredatalakestore.net`). Hiervoor kunt u hulpprogramma's zoals **nslookup**. Open een opdrachtprompt op de computer en voer de volgende opdracht.
+Voor toegang tot Azure Data Lake Store van dergelijke virtuele machines, moet u configureren zodat ze toegang krijgen tot het IP-adres waar het Azure Data Lake Store-account beschikbaar is. U kunt de IP-adressen voor uw Data Lake Store-accounts identificeren door de DNS-namen van uw accounts op te lossen (`<account>.azuredatalakestore.net`). U kunt oplossen door DNS-namen van uw accounts, kunt u hulpprogramma's zoals **nslookup**. Open een opdrachtprompt op de computer en voer de volgende opdracht:
 
     nslookup mydatastore.azuredatalakestore.net
 
@@ -43,10 +43,10 @@ De uitvoer lijkt op de volgende. De waarde ten opzichte van **adres** eigenschap
 
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>Verbinding van VM's met behulp van de NSG beperkt inschakelen
-Wanneer u een NSG-regel wordt gebruikt voor het blokkeren van toegang tot het Internet, kunt u een andere NSG die toegang tot het Data Lake Store IP-adres verleent maken. Meer informatie over het NSG-regels is beschikbaar op [wat is er een Netwerkbeveiligingsgroep?](../virtual-network/virtual-networks-nsg.md). Zie voor instructies over het maken van de nsg's [het nsg's met de Azure portal beheren](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+Wanneer een regel voor het NSG wordt gebruikt voor het blokkeren van toegang tot het Internet, kunt u een andere NSG die toegang tot het Data Lake Store IP-adres verleent maken. Zie voor meer informatie over het NSG-regels [netwerk beveiligingsgroepen overzicht](../virtual-network/security-overview.md). Zie voor instructies over het maken van de nsg's [het nsg's met de Azure portal beheren](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-udr-or-expressroute"></a>Verbinding van VM's met behulp van UDR of ExpressRoute beperkt inschakelen
-Als routes, udr's of uitgewisseld BGP routes worden gebruikt voor het blokkeren van toegang tot het Internet, moet een speciale route worden geconfigureerd zodat virtuele machines in deze subnetten toegang Data Lake Store-eindpunten tot hebben. Zie voor meer informatie [wat de gebruiker gedefinieerde Routes zijn?](../virtual-network/virtual-networks-udr-overview.md). Zie voor instructies over het maken van udr's [maken udr's in Resource Manager](../virtual-network/virtual-network-create-udr-arm-ps.md).
+Als routes, udr's of uitgewisseld BGP routes worden gebruikt voor het blokkeren van toegang tot het Internet, moet een speciale route worden geconfigureerd zodat virtuele machines in deze subnetten toegang Data Lake Store-eindpunten tot hebben. Zie voor meer informatie [overzicht van de gebruiker gedefinieerde routes](../virtual-network/virtual-networks-udr-overview.md). Zie voor instructies over het maken van udr's [maken udr's in Resource Manager](../virtual-network/tutorial-create-route-table-powershell.md).
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Verbinding van VM's met behulp van ExpressRoute beperkt inschakelen
 Wanneer een ExpressRoute-circuit is geconfigureerd, kunnen de on-premises servers toegang tot Data Lake Store via openbare peering. Meer informatie over het configureren van ExpressRoute voor openbare peering is beschikbaar op [Veelgestelde vragen over ExpressRoute](../expressroute/expressroute-faqs.md).

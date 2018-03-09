@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 
@@ -53,7 +53,7 @@ Uitbreidingen worden geleverd als NuGet-pakketten, waarbij de pakketnaam doorgaa
 + [Lokaal via Azure Functions kernonderdelen](#local-development-azure-functions-core-tools)
 + [In de Azure portal](#azure-portal-development) 
 
-Er zijn een kernset aan bindingen in versie 2.x die niet worden geleverd als extensies. U hoeft niet te registreren van uitbreidingen voor de volgende triggers en bindingen: HTTP, timer en Azure Storage. 
+Er is een kernset aan bindingen in versie 2.x die niet worden geleverd als extensies. U hoeft niet te registreren van uitbreidingen voor de volgende triggers en bindingen: HTTP, timer en Azure Storage. 
 
 Voor informatie over het instellen van een functie-app-versie 2.x van de runtime functies Zie [hoe gericht op Azure Functions-runtime-versies](set-runtime-version.md). Versie 2.x van de runtime van Functions is momenteel in preview. 
 

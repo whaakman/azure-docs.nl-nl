@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: d49afd9e5cfe80ddc2d919c76eaa0cb168280c15
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: dd45acd75e1cf263029c869d88c87b28f56d50cc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Actor levenscyclus, garbagecollection automatische en handmatige verwijderen
 Een actor is de eerste keer die wordt een aanroep naar een van de bijbehorende methoden geactiveerd. Een actor is gedeactiveerd (garbage collector zijn verzameld door de runtime actoren) als deze niet wordt gebruikt voor een configureerbare periode. Een actor en de status kunnen ook handmatig worden verwijderd op elk gewenst moment.
@@ -48,7 +48,7 @@ Wanneer een actor is gedeactiveerd, verwijzingen naar het object actor worden vr
 Wat wordt geteld als 'wordt gebruikt' voor het deactiveren en garbagecollection?
 
 * Ontvangt een oproep
-* `IRemindable.ReceiveReminderAsync`methode wordt aangeroepen (alleen van toepassing als de actor herinneringen gebruikt)
+* `IRemindable.ReceiveReminderAsync` methode wordt aangeroepen (alleen van toepassing als de actor herinneringen gebruikt)
 
 > [!NOTE]
 > Als de actor timers gebruikt en de timer-retouraanroep wordt aangeroepen, wordt **niet** aantal als 'wordt gebruikt'.
@@ -150,7 +150,7 @@ Let op: een actor kan niet worden aangeroepen op zichzelf uit een van de bijbeho
 * [Acteur herintreding](service-fabric-reliable-actors-reentrancy.md)
 * [Acteur diagnostische gegevens en prestatiebewaking](service-fabric-reliable-actors-diagnostics.md)
 * [Acteur API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# voorbeeldcode](https://github.com/Azure/servicefabric-samples)
+* [C# voorbeeldcode](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Voorbeeldcode voor Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->

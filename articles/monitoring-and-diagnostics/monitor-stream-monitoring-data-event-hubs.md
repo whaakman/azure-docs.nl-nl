@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stroom Azure voor het bewaken van gegevens naar een event hub voor verbruik door een extern hulpprogramma
 
@@ -36,7 +36,18 @@ Er zijn verschillende 'lagen' van het bewaken van gegevens binnen uw Azure-omgev
 
 Gegevens van elke laag kunnen worden verzonden in een event hub, waar deze in een partner-hulpprogramma kan worden opgevraagd. De volgende secties wordt beschreven hoe u gegevens van elke laag kunnen worden gestreamd naar een event hub kunt configureren. De stappen wordt ervan uitgegaan dat u al activa op die laag worden bewaakt.
 
-Voordat u begint, moet u [een Event Hubs-naamruimte en event hub maken](../event-hubs/event-hubs-create.md). Deze naamruimte en event hub is de bestemming voor al uw bewakingsgegevens.
+## <a name="set-up-an-event-hubs-namespace"></a>Instellen van een naamruimte Event Hubs
+
+Voordat u begint, moet u [een Event Hubs-naamruimte en event hub maken](../event-hubs/event-hubs-create.md). Deze naamruimte en event hub is de bestemming voor al uw bewakingsgegevens. Een naamruimte Event Hubs is een logische groepering van event hubs die het beleid voor dezelfde delen, zoals een opslag veel heeft account afzonderlijke blobs binnen dit opslagaccount. Houd er rekening mee enkele gegevens over de event hubs-naamruimte en event hubs die u maakt:
+* U wordt aangeraden een standaard Event Hubs-naamruimte.
+* Normaal gesproken hoeft slechts één doorvoereenheid. Als u opschalen als uw logboek gebruik toeneemt wilt, kunt u altijd handmatig Verhoog het aantal doorvoereenheden voor de naamruimte later of automatische inflatie inschakelen.
+* Het aantal doorvoereenheden kunt u verbeteren van doorvoer schaal voor de event hubs. Het aantal partities kunt u verbruik parallelize over veel gebruikers. Een enkele partitie kunt doen, tot 20MBps of ongeveer 20.000 berichten per seconde. Afhankelijk van het hulpprogramma gebruiken van de gegevens, mogelijk of mogelijk niet ondersteund voor het gebruiken van meerdere partities. Als u niet zeker weet of het aantal partities in te stellen, kunt u het beste beginnen met vier partities.
+* Het is raadzaam dat u message bewaren ingesteld op uw event hub aan de 7 dagen. Als uw consumerende hulpprogramma uitgeschakeld voor meer dan een dag wordt, dit zorgt ervoor dat het hulpprogramma waar deze was ophalen kan gebleven (voor gebeurtenissen tot 7 dagen).
+* U wordt aangeraden met behulp van de consument standaardgroep voor uw event hub. Er is niet nodig andere consumergroepen maken of een afzonderlijke consumergroep gebruiken, tenzij u van plan bent twee verschillende hulpprogramma's gebruiken dezelfde gegevens van de dezelfde event hub.
+* Voor de Azure Activity Log u kiest een naamruimte Event Hubs en Azure Monitor maakt een event hub binnen deze naamruimte aangeroepen 'insights-logboeken-operationallogs'. Voor andere typen logboek kunt u een bestaande event hub (zodat u de dezelfde insights-logboeken-operationallogs event hub gebruiken) kiezen of maken van een event hub per categorie logboek Azure-Monitor.
+* Normaal gesproken moet poort 5671 en 5672 worden geopend op de computer gebruiken van gegevens van de event hub.
+
+Ook raadpleegt u de [Veelgestelde vragen over Azure Event Hubs](../event-hubs/event-hubs-faq.md).
 
 ## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hoe stel ik Azure-platform bewakingsgegevens in kunnen worden gestreamd naar een event hub?
 

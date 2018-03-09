@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: 53ef19628b40c4a008143c867c9e7867ac91854d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Een validatietest uitvoeren voor Azure-Stack
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/12/2018
  
 U kunt de status van uw Azure-Stack valideren. Wanneer u een probleem hebt, moet u contact op met klantondersteuning van Microsoft voor Services. Ondersteuning wordt u gevraagd te testen AzureStack uitvoeren vanaf het beheerknooppunt. De validatietest isoleert de fout. Ondersteuning kunt analyseren van gedetailleerde logboekgegevens, ligt de nadruk op het gebied waar de fout is opgetreden en werken met u bij het oplossen van het probleem.
 
-## <a name="run-test-azurestack"></a>Test AzureStack uitvoeren
+## <a name="run-test-azurestack"></a>Run Test-AzureStack
 
 Wanneer u een probleem hebt, neem contact op met de klantondersteuning van Microsoft voor Services en voer vervolgens **Voer Test-AzureStack**.
 
@@ -35,8 +35,8 @@ Wanneer u een probleem hebt, neem contact op met de klantondersteuning van Micro
     1. Toegang tot de bevoegde eindpunt. Zie voor instructies [met behulp van de bevoegde eindpunt in Azure-Stack](azure-stack-privileged-endpoint.md). 
     2. Meld u aan als **AzureStack\CloudAdmin** op de host management.
     3. Open PowerShell als beheerder.
-    4. Uitvoeren:`Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
-    5. Uitvoeren:`Test-AzureStack`
+    4. Uitvoeren: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
+    5. Uitvoeren: `Test-AzureStack`
 4. Als het rapport mislukken alle tests uitvoeren: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` de cmdlet haalt de logboeken van de Test-AzureStack. Zie voor meer informatie over diagnostische logboeken [diagnostische hulpprogramma's van Azure-Stack](azure-stack-diagnostics.md).
 5. Verzenden van de **SeedRing** logboeken aan de klantenservice van Microsoft voor Services. Services klantondersteuning van Microsoft werkt samen met u het probleem op te lossen.
 
@@ -44,7 +44,7 @@ Wanneer u een probleem hebt, neem contact op met de klantondersteuning van Micro
 
 Deze sectie bevat een overzicht van de cmdlet Test-AzureStack en een overzicht van het rapport.
 
-### <a name="test-azurestack"></a>Test AzureStack
+### <a name="test-azurestack"></a>Test-AzureStack
 
 Valideert de status van de Azure-Stack. De cmdlet meldt de status van uw Azure-Stack hardware en software. Ondersteuningsmedewerkers kunt dit rapport in minder tijd om op te lossen ondersteuningsaanvragen Azure-Stack gebruiken.
 
@@ -64,7 +64,7 @@ Valideert de status van de Azure-Stack. De cmdlet meldt de status van uw Azure-S
 | ServiceAdminCredentials | PSCredential    | Nee       | DE WAARDE FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | Nee       | DE WAARDE FALSE   |
 | AdminCredential         | PSCredential    | Nee       | N.v.t.      |
-| StorageConnectionString | Tekenreeks          | Nee       | N.v.t.      |
+<!-- | StorageConnectionString | Tekenreeks          | Nee       | N.v.t.      | niet ondersteund in 1802-->
 | Lijst                    | SwitchParameter | Nee       | DE WAARDE FALSE   |
 | Negeren                  | Tekenreeks          | Nee       | N.v.t.      |
 | Opnemen                 | Tekenreeks          | Nee       | N.v.t.      |

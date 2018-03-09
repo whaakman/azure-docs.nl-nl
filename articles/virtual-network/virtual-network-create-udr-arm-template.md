@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Door de gebruiker gedefinieerde Routes (UDR) met een sjabloon maken
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Azure-CLI](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [Azure-CLI](tutorial-create-route-table-cli.md)
 > * [Sjabloon](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (klassiek)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (klassiek)](virtual-network-create-udr-classic-cli.md)
@@ -75,7 +75,7 @@ Om te koppelen van de UDR aan de front-end-subnet, die u moet de subnetdefinitie
 
 U ziet dezelfde wordt uitgevoerd als de back-end-NSG en het subnet van de back-end in de sjabloon.
 
-Ook moet u ervoor zorgen dat de **FW1** VM heeft de eigenschap is ingeschakeld op de NIC die wordt gebruikt voor het ontvangen en doorsturen van pakketten doorsturen via IP. De onderstaande sectie bevat de definitie van de NIC voor FW1 in het bestand azuredeploy-nsg-udr.json, op basis van de bovenstaande scenario.
+Ook moet u ervoor zorgen dat de **FW1** VM heeft de eigenschap is ingeschakeld op de NIC die wordt gebruikt voor het ontvangen en doorsturen van pakketten doorsturen via IP. De volgende sectie bevat de definitie van de NIC voor FW1 in het bestand azuredeploy-nsg-udr.json, op basis van het scenario.
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -112,7 +112,7 @@ Ook moet u ervoor zorgen dat de **FW1** VM heeft de eigenschap is ingeschakeld o
     }
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>De sjabloon implementeren met Klik om te implementeren
-De voorbeeldsjabloon in de openbare opslagplaats maakt gebruik van een parameterbestand dat de standaardwaarden bevat voor het genereren van het hierboven beschreven scenario. Als u deze sjabloon wilt implementeren met behulp van Klik om te implementeren, volgt u [deze koppeling](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR). Klik op **Distribueren naar Azure**, vervang indien nodig de standaardparameterwaarden en volg de instructies in de portal.
+De voorbeeldsjabloon die beschikbaar zijn in de openbare opslagplaats maakt gebruik van een parameterbestand met de standaard waarden gebruikt voor het genereren van het scenario dat eerder is beschreven. Als u deze sjabloon wilt implementeren met behulp van Klik om te implementeren, volgt u [deze koppeling](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR). Klik op **Distribueren naar Azure**, vervang indien nodig de standaardparameterwaarden en volg de instructies in de portal.
 
 1. Als u Azure PowerShell nog niet eerder hebt gebruikt, kunt u [Azure PowerShell installeren en configureren](/powershell/azure/overview) raadplegen en de instructies helemaal tot aan het einde volgen om u aan te melden bij Azure en uw abonnement te selecteren.
 2. Voer de volgende opdracht uit om een resourcegroep te maken:
@@ -173,7 +173,7 @@ De voorbeeldsjabloon in de openbare opslagplaats maakt gebruik van een parameter
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>De sjabloon implementeren met de Azure CLI
 
-Als u wilt de ARM-sjabloon implementeren met behulp van de Azure CLI, moet u de volgende stappen uitvoeren:
+Als u wilt de Azure Resource Manager-sjabloon implementeren met behulp van de Azure CLI, moet u de volgende stappen uitvoeren:
 
 1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
 2. De volgende opdracht uit te schakelen naar de modus Resource Manager:
@@ -182,11 +182,11 @@ Als u wilt de ARM-sjabloon implementeren met behulp van de Azure CLI, moet u de 
     azure config mode arm
     ```
 
-    Dit is de verwachte uitvoer voor de bovenstaande opdracht:
+    Dit is de verwachte uitvoer voor de vorige opdracht:
 
         info:    New mode is arm
 
-3. Navigeer via uw browser naar **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, de inhoud van het json-bestand kopiëren en plakken in een nieuw bestand op uw computer. In dit scenario zou u de waarden onder kopieert naar een bestand met de naam **c:\udr\azuredeploy.parameters.json**.
+3. Navigeer via uw browser naar **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, de inhoud van het json-bestand kopiëren en plakken in een nieuw bestand op uw computer. Voor dit scenario kunt u de volgende waarden kopiëren naar een bestand met de naam **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {
@@ -206,7 +206,7 @@ Als u wilt de ARM-sjabloon implementeren met behulp van de Azure CLI, moet u de 
         }
     ```
 
-4. Voer de volgende opdracht om de nieuwe VNet te implementeren met behulp van de sjabloon en de parameterbestanden bestanden u hebt gedownload en hierboven zijn gewijzigd:
+4. Voer de volgende opdracht om de nieuwe VNet te implementeren met behulp van de sjabloon en de parameterbestanden bestanden u hebt gedownload en eerder gewijzigd:
 
     ```azurecli
     azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
@@ -404,5 +404,5 @@ Als u wilt de ARM-sjabloon implementeren met behulp van de Azure CLI, moet u de 
             info:    group show command OK
 
 > [!TIP]
-> Als u alle resources niet ziet, voert u de `azure group deployment show` opdracht om te controleren of de Inrichtingsstatus van de implementatie is *Succeded*.
+> Als u alle resources niet ziet, voert u de `azure group deployment show` opdracht om te controleren of de Inrichtingsstatus van de implementatie is *geslaagd*.
 > 

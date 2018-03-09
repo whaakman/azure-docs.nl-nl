@@ -5,16 +5,16 @@ services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f5c75b95d9019c15bb402313ce7407fa9abb81d4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Het behouden blijven van wijzigingen en werken met grote bestanden
 U kunt met de service Azure Machine Learning-experimenten tal van uitvoering van doelen configureren. Sommige doelen zijn lokale computer, zoals een lokale computer of een Docker-container op een lokale computer. Andere zijn externe, zoals een Docker-container op een externe computer of een HDInsight-cluster. Zie voor meer informatie [overzicht van Azure Machine Learning-experiment uitvoering service](experimentation-service-configuration.md). 

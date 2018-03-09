@@ -56,7 +56,7 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 | Check Point |Security Gateway |R77.30 |[Configuratiehandleiding](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Configuratiehandleiding](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Configuratiehandleiding*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Voorbeelden van configuraties**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Voorbeelden van configuraties\*\*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Cisco |Meraki |N.v.t. |Niet compatibel |Niet compatibel |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 en hoger |[Configuratiehandleiding](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Niet compatibel |
 | F5 |BIG-IP-serie |12.0 |[Configuratiehandleiding](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Configuratiehandleiding](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
@@ -78,7 +78,7 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 >
 > (*) Met Cisco ASA versie 8.4 en hoger wordt IKEv2-ondersteuning toegevoegd en kan verbinding worden gemaakt met Azure VPN-gateways met behulp van een aangepast IPsec/IKE-beleid met de optie UsePolicyBasedTrafficSelectors. Raadpleeg dit [artikel met instructies](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 >
-> (**) Routers uit de ISR 7200-serie bieden alleen ondersteuning voor PolicyBased VPN's.
+> (\*\*) Routers uit de ISR 7200-serie bieden alleen ondersteuning voor PolicyBased VPN's.
 
 ## <a name="additionaldevices"></a>Niet-gevalideerde VPN-apparaten
 

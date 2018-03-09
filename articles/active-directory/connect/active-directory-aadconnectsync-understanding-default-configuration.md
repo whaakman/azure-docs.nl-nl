@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synchronisatie: inzicht in de standaardconfiguratie
 Dit artikel wordt uitgelegd dat de van de out-of-box-configuratieregels. Deze documenten in de regels en de invloed van deze regels op de configuratie. Ook helpt u bij de standaardconfiguratie van Azure AD Connect-synchronisatie. Het doel is dat de lezer hoe het configuratiemodel begrijpt, met de naam declaratieve inrichting werkt in een voorbeeld van een echte. In dit artikel wordt ervan uitgegaan dat u al hebt geïnstalleerd en configureren van Azure AD Connect-synchronisatie met de installatiewizard.
@@ -50,7 +50,7 @@ De volgende gebruikersobjecten zijn **niet** gesynchroniseerd naar Azure AD:
 * Objecten die niet in Exchange Online werkt niet synchroniseren.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   Deze bitmasker (& H21C07000) filtert u uit de volgende objecten:
-  * E-mailfunctionaliteit openbare map
+  * E-mailfunctionaliteit openbare map (In Preview vanaf versie 1.1.524.0)
   * Eigen Postvak
   * Postvak Database postvak (systeempostvak)
   * De universele beveiligingsgroep (wouldn't gelden voor een gebruiker, maar is omwille van de verouderde aanwezig)

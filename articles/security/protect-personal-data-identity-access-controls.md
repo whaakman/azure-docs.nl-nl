@@ -1,6 +1,6 @@
 ---
 title: Persoonlijke gegevens beschermen met Azure identiteits- en toegangsbeheer besturingselementen | Microsoft Docs
-description: Met behulp van Azure identiteits- en toegangsbeheer bepaalt voor hulp bij het beveiligen van uw persoonlijke gegevens
+description: Hiermee bepaalt u helpen u te beschermen persoonlijke gegevens en zijn mogelijk handig die voldoet aan algemene gegevens beveiliging regelgeving (GDPR) Azure identiteits- en toegangsbeheer
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory en de multi-factor Authentication: persoonlijke gegevens beschermen met besturingselementen voor identiteits- en toegangsbeheer
 
-Dit artikel bevat informatie en procedures die u gebruiken kunt voor het beveiligen van persoonlijke gegevens met Azure Active Directory en de multi-factor authentication-beveiligingsfuncties en -services.
+Dit artikel bevat informatie en procedures die u gebruiken kunt voor het beveiligen van persoonlijke gegevens met Azure Active Directory en de multi-factor authentication-beveiligingsfuncties en -services. De informatie in dit artikel zijn mogelijk handig zijn in uw inspanningen om te voldoen met algemene Data Protection regelgeving (GDPR).
 
 ## <a name="scenario"></a>Scenario
 

@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Azure Site Recovery gebruiken om te beveiligen van Active Directory en DNS
 
@@ -73,7 +73,7 @@ Om te voorkomen dat gevolgen voor de productie-workloads, doet testfailover zich
 
 De meeste toepassingen vereist de aanwezigheid van een domeincontroller of een DNS-server. Daarom voordat de toepassing een failover uitvoert, moet u een domeincontroller in het geïsoleerde netwerk moet worden gebruikt voor de testfailover. De eenvoudigste manier om dit te doen is met Site Recovery voor een virtuele machine die als host fungeert voor een domeincontroller of de DNS-replicatie. Voer vervolgens een testfailover van de domain controller virtuele machine voordat u een testfailover uitgevoerd van het herstelplan voor de toepassing uitvoert. Hier ziet u hoe u dat doen:
 
-1. Gebruik Site Recovery voor [repliceren](site-recovery-replicate-vmware-to-azure.md) de virtuele machine die als host fungeert voor de domeincontroller of DNS.
+1. Gebruik Site Recovery voor [repliceren](vmware-azure-tutorial.md) de virtuele machine die als host fungeert voor de domeincontroller of DNS.
 2. Maak een geïsoleerd netwerk. Een virtueel netwerk die u in Azure maakt is geïsoleerd van andere netwerken standaard. Het is raadzaam dat u hetzelfde IP-adresbereik voor dit netwerk die u in uw productienetwerk gebruikt. Geen site-naar-site-connectiviteit op dit netwerk inschakelen.
 3. Geef een DNS IP-adres in het geïsoleerde netwerk. Gebruik het IP-adres die u verwacht dat de DNS-virtuele machine om op te halen. Als u naar Azure repliceert, geeft u het IP-adres voor de virtuele machine die wordt gebruikt op failover. Het IP-adres, in de gerepliceerde virtuele machine, invoeren in de **berekening en netwerk** -instellingen, selecteert de **IP-adres doel** instellingen.
 
