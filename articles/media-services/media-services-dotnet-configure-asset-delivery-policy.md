@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/13/2017
-ms.author: juliako;mingfeiy
-ms.openlocfilehash: 515467fefe9b318900ed64979d950b0ab783fd4a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 03/05/2018
+ms.author: juliako
+ms.openlocfilehash: 8fe78d2d8cef1ee5484bcdcd83b00afe8e5b30ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Beleid voor de levering asset configureren met .NET SDK
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -32,7 +32,6 @@ Dit artikel wordt beschreven waarom en hoe u kunt maken en configureren van bele
 >Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
 >
 >Uw asset moet ook om het gebruik van dynamische pakketten en dynamische versleuteling te kunnen bevatten een set adaptive bitrate MP4s of adaptive bitrate Smooth Streaming-bestanden.
-
 
 U kunt verschillende beleidsregels aan dezelfde activa toepassen. U kan bijvoorbeeld PlayReady-versleuteling toepassen op Smooth Streaming en AES Envelope versleuteling MPEG DASH en HLS. Alle protocollen die niet zijn gedefinieerd in een leveringsbeleid (u voegt bijvoorbeeld één beleid toe waarmee alleen HLS als protocol wordt opgegeven), worden voor streaming geblokkeerd. De uitzondering is als u helemaal geen leveringsbeleid voor assets hebt gedefinieerd. In dat geval is streaming voor alle protocollen toegestaan.
 
@@ -54,9 +53,8 @@ MPEG DASH
 
 {streaming-eindpunt naam media services-account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-
 ## <a name="considerations"></a>Overwegingen
-* U kunt een AssetDeliveryPolicy die zijn gekoppeld aan een asset, terwijl een (streaming) OnDemand-locator voor de activa bestaat niet verwijderen. De aanbeveling is het beleid uit de asset verwijderen voordat u het beleid wordt verwijderd.
+* Voordat u de AssetDeliveryPolicy verwijdert, verwijdert u alle van de streaming-locators die zijn gekoppeld aan de asset. Later kunt u nieuwe streaming-locators, indien gewenst, met een nieuwe AssetDeliveryPolicy maken.
 * Een streaming-locator kan niet worden gemaakt op een versleutelde actief opslag wanneer geen leveringsbeleid voor Assets is ingesteld.  Als de Asset niet versleuteld opslag, kunt het systeem u een locator te maken en te streamen van de activa in het wissen zonder een leveringsbeleid voor Assets.
 * U kunt meerdere asset levering beleidsregels die zijn gekoppeld aan één element hebben, maar u kunt slechts één manier voor het verwerken van een bepaalde AssetDeliveryProtocol opgeven.  Dit betekent dat als u probeert te koppelen van twee leveringsbeleid die het protocol AssetDeliveryProtocol.SmoothStreaming die in een fout opgetreden resulteren omdat het systeem die u wilt toepassen wanneer een client een aanvraag Smooth Streaming doet niet weet opgeeft.
 * Als u een asset met een bestaande streaming-locator hebt, kunt u een nieuw beleid niet koppelen aan de asset (u kunt een bestaand beleid uit de asset ontkoppelen of bijwerken van een leveringsbeleid die zijn gekoppeld aan de asset).  U moet eerst de streaming-locator verwijderen, aanpassen van het beleid en de streaming-locator opnieuw maken.  U kunt de dezelfde locatorId gebruiken wanneer u de streaming-locator opnieuw, maar u ervoor dat niet toe leiden dat problemen voor clients zorgen moet omdat inhoud kan worden in het cachegeheugen van de oorsprong of een downstream CDN.

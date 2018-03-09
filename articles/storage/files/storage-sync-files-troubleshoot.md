@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Problemen met Azure File-synchronisatie (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -51,7 +51,7 @@ Bekijk installer.log om de oorzaak van de installatie is mislukt.
 Om op te lossen, draagt u de functie PDC naar een andere domein domeincontrollers met Windows Server 2012R2 of meer recente daarna synchronisatie te installeren.
 
 <a id="agent-installation-websitename-failure"></a>**Installatie van agent mislukt vanwege de volgende fout: 'Opslag Sync-Agent is voortijdig beëindigd'**  
-Dit probleem kan optreden als de standaardnaam van de IIS-website wordt gewijzigd. Wijzig de naam van de standaardwebsite van IIS als "Default Web Site" en de installatie opnieuw uitvoeren om dit probleem omzeilen. Het probleem wordt opgelost in een toekomstige update van de agent. 
+Dit probleem kan zich voordoen met versie 1.x-agent en of de IIS-website naam Standaard is gewijzigd. Om dit probleem omzeilen door onze 2.0.11+-agent te gebruiken.
 
 <a id="server-registration-missing"></a>**Server niet wordt vermeld onder de geregistreerde servers in de Azure portal**  
 Als een server niet wordt vermeld onder **servers geregistreerd** voor een Service-opslag-synchronisatie:

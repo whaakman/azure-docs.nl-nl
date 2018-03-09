@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0efb8b80bc98931f33991dc67f8f4aa1953bb491
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Azure SQL Database prestatieproblemen met Intelligent Insights oplossen
 
@@ -129,7 +129,7 @@ Het logboek voor diagnostische gegevens levert vergrendelingsfout details die u 
 
 De eenvoudigste en veiligste manier om het probleem te verhelpen is het transacties kort houden en om de voetafdruk van de vergrendeling van de meest dure query's te verkleinen. U kunt een grote batch van bewerkingen in kleinere bewerkingen opheffen. Het wordt aangeraden om te beperken van de voetafdruk van de vergrendeling query door het maken van de query zo efficiënt mogelijk. Grote scans verminderen omdat ze kans impassen verhogen en nadelige invloed heeft op de algehele prestaties van de database. U kunt maken van nieuwe indexen of kolommen toevoegen aan de bestaande index om te voorkomen dat de tabelscans voor geïdentificeerde query's die ertoe leiden dat vergrendelen. 
 
-Zie voor meer suggesties [blokkerende problemen die worden veroorzaakt door uitbreiding van de vergrendeling in SQL Server oplossen](https://support.microsoft.com/en-us/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
+Zie voor meer suggesties [blokkerende problemen die worden veroorzaakt door uitbreiding van de vergrendeling in SQL Server oplossen](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
 
 ## <a name="increased-maxdop"></a>Verbeterde MAXDOP
 
@@ -289,7 +289,7 @@ Wijzigingen in de database-scoped configuratie kunnen worden ingesteld voor elke
 
 De diagnostische gegevens Meld uitvoer database-scoped configuratiewijzigingen die onlangs zijn aangebracht die verminderde prestaties in vergelijking met het vorige zeven dagen werkbelasting gedrag veroorzaakt. U kunt wijzigingen in de configuratie op de vorige waarden herstellen. U kunt ook waarde door waarde afstemmen tot het gewenste prestatieniveau is bereikt. U kunt database bereik configuratiewaarden kopiëren uit een database vergelijkbaar met voldoende prestaties. Als u zich niet kunt oplossen met de prestaties, terugkeren naar de standaardwaarden van de standaard SQL-Database en proberen te starten vanaf deze basislijn aanpassen.
 
-Zie voor meer informatie over het optimaliseren van de database-scoped configuratie en T-SQL-syntaxis voor het wijzigen van de configuratie [Alter database-scoped configuration (Transact-SQL)](https://msdn.microsoft.com/en-us/library/mt629158.aspx).
+Zie voor meer informatie over het optimaliseren van de database-scoped configuratie en T-SQL-syntaxis voor het wijzigen van de configuratie [Alter database-scoped configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 
 ## <a name="slow-client"></a>Trage Client
 

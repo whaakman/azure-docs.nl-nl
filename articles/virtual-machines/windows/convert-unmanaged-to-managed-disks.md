@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: dd9ebaf9a1c8b3112623af4228efa0d9063c1e52
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 92168ba5605e119d42ba40ee694cebb3ad116041
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Een virtuele Windows-machine van niet-beheerde schijven converteren naar beheerde schijven
 
@@ -50,17 +50,12 @@ Deze sectie wordt uitgelegd hoe single instance Azure VM's van niet-beheerde sch
   Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
   ```
 
-2. De virtuele machine converteren naar beheerde schijven met behulp van de [ConvertTo AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) cmdlet. De volgende procedure wordt de vorige VM, inclusief de besturingssysteemschijf en alle gegevensschijven geconverteerd:
+2. De virtuele machine converteren naar beheerde schijven met behulp van de [ConvertTo AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) cmdlet. Het volgende proces converteert de vorige VM, inclusief de besturingssysteemschijf en alle gegevensschijven en start de virtuele Machine:
 
   ```azurepowershell-interactive
   ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
   ```
 
-3. Start de virtuele machine na de conversie naar beheerde schijven met behulp van [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm). Het volgende voorbeeld wordt opnieuw opgestart met de vorige VM:
-
-  ```azurepowershell-interactive
-  Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-  ```
 
 
 ## <a name="convert-vms-in-an-availability-set"></a>Converteren van virtuele machines in een beschikbaarheidsset
@@ -84,7 +79,7 @@ Als de virtuele machines die u converteren wilt naar beheerde schijven zich bevi
   Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
   ```
 
-2. Toewijzing ongedaan maken en omzetten van de virtuele machines in de beschikbaarheidsset. Het volgende script deallocates elke virtuele machine met behulp van de [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) cmdlet, converteert u deze met behulp van [ConvertTo AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk), en start deze opnieuw met behulp van [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm):
+2. Toewijzing ongedaan maken en omzetten van de virtuele machines in de beschikbaarheidsset. Het volgende script deallocates elke virtuele machine met behulp van de [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) cmdlet, converteert u deze met behulp van [ConvertTo AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk), en start deze opnieuw automatisch splitsen van het conversieproces :
 
   ```azurepowershell-interactive
   $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
@@ -94,7 +89,6 @@ Als de virtuele machines die u converteren wilt naar beheerde schijven zich bevi
      $vm = Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
      Stop-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name -Force
      ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-     Start-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name
   }
   ```
 

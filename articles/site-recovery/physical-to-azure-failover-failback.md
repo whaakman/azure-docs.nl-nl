@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: bbad2a0ea1a58834eaf32e0d3286f6e8a794d364
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8a3328e8aa42876f48960f7ccd32a5c819435019
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Failover en mislukken back fysieke servers die zijn gerepliceerd naar Azure
 
@@ -41,7 +41,7 @@ Controleer de servereigenschappen van de en zorg ervoor dat het voldoet aan [Azu
 
 ## <a name="run-a-failover-to-azure"></a>Een failover naar Azure uitvoeren
 
-1. In **instellingen** > **gerepliceerde items** Klik op de machine > **Failover**.
+1. Klik in **Instellingen** > **Gerepliceerde items** op de machine > **Failover**.
 2. Selecteer in **Failover** een **Herstelpunt** waarnaar u de failover wilt uitvoeren. U kunt een van de volgende opties gebruiken:
    - **Laatste** (standaard): met deze optie worden eerst alle gegevens naar Site Recovery verzonden gegevens verwerkt. Dit biedt het laagste RPO (Recovery Point Objective), omdat de na de failover gemaakte Azure-VM alle gegevens heeft die naar Site Recovery is gerepliceerd toen de failover werd geactiveerd.
    - **Meest recente verwerkte**: deze optie is overgenomen van de machine naar de meest recente herstelpunt dat is verwerkt door Site Recovery. Deze optie heeft een lage RTO (Recovery Time Objective), omdat er geen tijd wordt besteed aan het verwerken van niet-verwerkte gegevens.
@@ -62,7 +62,7 @@ De processerver ontvangt gegevens van de Azure VM en verzendt deze naar de on-pr
 
 - Als u een Azure ExpressRoute-verbinding hebt, kunt u voor testdoeleinden de on-premises processerver gebruiken die automatisch wordt geïnstalleerd op de configuratieserver.
 - Als u een VPN-verbinding hebt of als u failback in een productieomgeving uitvoert, moet u een Azure VM instellen als een Azure-processerver voor failback.
-- Volg de instructies in [in dit artikel](site-recovery-vmware-setup-azure-ps-resource-manager.md) voor het instellen van een processerver in Azure.
+- Volg de instructies in [in dit artikel](vmware-azure-set-up-process-server-azure.md) voor het instellen van een processerver in Azure.
 
 ## <a name="configure-the-master-target-server"></a>De hoofddoelserver configureren
 

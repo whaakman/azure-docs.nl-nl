@@ -3,8 +3,8 @@ title: Verkeer dekking in Azure-locatie op basis van Services | Microsoft Docs
 description: Meer informatie over verkeer dekking in Azure-locatie op basis van Services
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
+author: kgremban
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: location-based-services
@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5bfda1cd211eb08f80527aa0116815023ff93931
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 251c736e0f607ffeea144639f437900eb337b6ea
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-location-based-services---traffic-coverage"></a>Azure-locatie op basis van Services - verkeer dekking
 
@@ -42,7 +42,7 @@ Azure locatie op basis van Services (LBS) bevat uitgebreide verkeersinformatie i
 |Finland     |✓         |✓         |
 |+ Ålandeilanden      |✓         |✓         |
 |Frankrijk     |✓         |✓         |
-|+ Monaco     |✓         |✓         |
+|+Monaco     |✓         |✓         |
 |Duitsland     |✓         |✓         |
 |Griekenland     |✓         |✓         |
 |Hongkong SAR     |✓         |✓         |
@@ -52,7 +52,7 @@ Azure locatie op basis van Services (LBS) bevat uitgebreide verkeersinformatie i
 |Ierland (Republiek)     |✓         |✓         |
 |Israël     |         |✓         |
 |Italië     |✓         |✓        |
-|+ San Marino     |✓         |✓         |
+|+San Marino     |✓         |✓         |
 |Koeweit     |✓         |✓         |
 |Letland     |         |✓         |
 |Lesotho     |✓         |✓         |
@@ -79,13 +79,13 @@ Azure locatie op basis van Services (LBS) bevat uitgebreide verkeersinformatie i
 |Slovenië     |✓         |✓         |
 |Zuid-Afrika     |✓         |✓         |
 |Spanje     |✓         |✓         |
-|+ Andorra     |✓         |✓         |
+|+Andorra     |✓         |✓         |
 |+ Balearen     |✓         |✓         |
 |+ Canarische eilanden     |✓         |✓         |
 |+ Gibraltar     |✓         |✓         |
 |Zweden     |✓         |✓         |
 |Zwitserland     |✓         |✓        |
-|+ Liechtenstein      |✓         |✓         |
+|+Liechtenstein      |✓         |✓         |
 |Taiwan     |✓         |✓        |
 |Thailand     |✓         |✓        |
 |Turkije     |✓         |✓         |
@@ -95,4 +95,4 @@ Azure locatie op basis van Services (LBS) bevat uitgebreide verkeersinformatie i
 |(Guernsey & Jersey)     |✓         |✓         |
 |Man     |✓         |✓         |
 |Verenigde Staten     |✓         |✓        |
-|+ Portorico     |✓         |✓         |
+|+Puerto Rico     |✓         |✓         |

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
 
@@ -123,7 +123,7 @@ Toepassen van een aanbeveling kan niet direct gebeuren. De portal biedt informat
 | Status | Beschrijving |
 |:--- |:--- |
 | In behandeling |Aanbeveling opdracht is ontvangen en is gepland voor uitvoering toepassen. |
-| In uitvoering |De aanbeveling wordt toegepast. |
+| Uitvoeren |De aanbeveling wordt toegepast. |
 | Controleren |Aanbeveling is toegepast en de service is de voordelen te meten. |
 | Geslaagd |Aanbeveling is toegepast en voordelen zijn gemeten. |
 | Fout |Er is een fout opgetreden tijdens het toepassen van de aanbeveling. Dit is een tijdelijk probleem of mogelijk een schema wijzigen in de tabel en het script is niet meer geldig. |

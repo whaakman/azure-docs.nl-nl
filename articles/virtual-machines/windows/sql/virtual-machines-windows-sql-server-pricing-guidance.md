@@ -13,17 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/17/2017
+ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Prijsinformatie voor Azure VM's van SQL Server
 
-In dit artikel biedt prijsstelling richtlijnen voor SQL Server virtuele machines in Azure. Er zijn verschillende opties die invloed hebben op de kosten en het is belangrijk om op te halen van de installatiekopie van het juiste die een compromis tussen de kosten op zakelijke vereisten.
+In dit artikel biedt prijsstelling richtlijnen voor [virtuele machines van SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) in Azure. Er zijn verschillende opties die invloed hebben op de kosten en het is belangrijk om op te halen van de installatiekopie van het juiste die een compromis tussen de kosten op zakelijke vereisten.
+
+> [!TIP]
+> Als u alleen weten een schatting van de kosten voor een specifieke combinatie van de editie van SQL Server en de grootte van de virtuele machine wilt, raadpleegt u de [pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/windows). Selecteer uw besturingssysteem en SQL Server-editie van de **OS-Software** lijst.
+>
+> ![Gebruikersinterface op de pagina met prijzen VM](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
+>
+> Of gebruik de [prijscategorie Rekenmachine](https://azure.microsoft.com/pricing/#explore-cost) toevoegen en configureren van een virtuele machine. 
 
 ## <a name="free-licensed-sql-server-editions"></a>Vrije-gelicentieerde SQL Server-edities
 
@@ -56,7 +63,7 @@ Hebt u twee opties om te betalen voor SQL Server-licentieverlening voor deze edi
 
 ### <a name="pay-per-usage"></a>Betalen per gebruik
 
-**Betalen per gebruik van de SQL Server-licentie** betekent dat de kosten per minuut van het uitvoeren van de Azure VM de kosten van de SQL Server-licentie bevat. U kunt de prijzen voor de verschillende edities van SQL Server (Web, Standard, Enterprise) zien in de [Azure VM pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard). De kosten zijn hetzelfde voor alle versies van SQL Server (2012 SP3-2017). Met een SQL Server-licentieverlening in het algemeen, is de licentiekosten per minuut afhankelijk van het aantal kernen VM.
+**Betalen per gebruik van de SQL Server-licentie** betekent dat de kosten per minuut van het uitvoeren van de Azure VM de kosten van de SQL Server-licentie bevat. U kunt de prijzen voor de verschillende edities van SQL Server (Web, Standard, Enterprise) zien in de [Azure VM pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). De kosten zijn hetzelfde voor alle versies van SQL Server (2012 SP3-2017). Met een SQL Server-licentieverlening in het algemeen, is de licentiekosten per minuut afhankelijk van het aantal kernen VM.
 
 Betalen van de SQL Server wordt-licentieverlening per gebruik aanbevolen voor:
 
@@ -147,6 +154,6 @@ Voor andere werkstromen, kunt u automatisch afsluiten en opnieuw starten van vir
 
 Voor algemene Azure prijzen richtlijnen, Zie [te voorkomen dat onverwachte kosten met Azure-facturering en kostenbeheer](../../../billing/billing-getting-started.md).
 
-Voor de meest recente virtuele Machines prijzen, waaronder SQL Server, Zie de [Azure VM pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard).
+Voor de meest recente virtuele Machines prijzen, waaronder SQL Server, Zie de [Azure VM pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
 Meer informatie over virtuele machines van SQL Server voor zowel [VM's van SQL Server Windows](virtual-machines-windows-sql-server-iaas-overview.md) en [Linux VM's van SQL Server](../../linux/sql/sql-server-linux-virtual-machines-overview.md).

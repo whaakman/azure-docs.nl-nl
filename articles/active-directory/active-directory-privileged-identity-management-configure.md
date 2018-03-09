@@ -3,7 +3,7 @@ title: Azure AD Privileged Identity Management configureren | Microsoft Docs
 description: Dit onderwerp wordt beschreven wat Azure AD Privileged Identity Management is en hoe u PIM gebruikt om de beveiliging van uw cloud te verbeteren.
 services: active-directory
 documentationcenter: 
-author: barclayn
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
@@ -12,21 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
-ms.author: barclayn
+ms.date: 03/07/2018
+ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Wat is Azure AD Privileged Identity Management?
 
 Met Azure Active Directory (AD) Privileged Identity Management kunt u toegang binnen de organisatie beheren, controleren en bewaken. Dit geldt ook toegang tot bronnen in Azure AD, Azure-Resources (Preview) en andere Microsoft Online Services, zoals Office 365 of Microsoft Intune.
 
 > [!NOTE]
-> Privileged Identity Management is beschikbaar voor uw hele organisatie wanneer u uw beheerders met de Premium P2-editie van Azure Active Directory van licentie. Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.
+> Wanneer u Privileged Identity Management voor uw tenant inschakelt, een geldig Azure AD Premium-P2 of Enterprise Mobility + Security E5 betaald of proeflicentie is vereist voor elke gebruiker die communiceert met of ontvangt een voordeel van de service. Voorbeelden zijn onder meer gebruikers/gebruikers in > een groep die zijn:
+>
+>- Toegewezen aan de rol beheerder met bevoorrechte rol 
+>- Als in aanmerking voor andere directory-functies te beheren via PIM toegewezen 
+>- Kan goedkeuren/Weiger aanvragen in PIM 
+>- Toegewezen aan de rol van een Azure-resource met NET in tijd of Direct toewijzingen van (tijd is gebaseerd)  
+>- Toegewezen aan een toegang controleren
+>
+>Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.
 
 Beperk het aantal gebruikers die toegang hebben tot beveiligde gegevens of bronnen, omdat die vermindert de kans op een kwaadwillende gebruiker die toegang verkrijgen of een geautoriseerde gebruiker per ongeluk die invloed hebben op een gevoelige resource dat organisaties willen.  Gebruikers moeten echter nog steeds bevoorrechte bewerkingen uitvoeren in Azure AD, Azure, Office 365 of SaaS-apps. Organisaties kunnen gebruikers bevoorrechte toegang geven tot Azure-resources zoals abonnementen en Azure AD. Er is een toezicht voor wat gebruikers met hun beheerdersbevoegdheden doen nodig. Azure AD Privileged Identity Management vermindert het risico van overmatige, overbodige of foutieve toegangsrechten.
 
@@ -54,7 +62,7 @@ U kunt starten met Azure AD Privileged Identity Management in de [Azure-portal](
 
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) als globale beheerder van uw directory.
 2. Als uw organisatie meerdere directory's heeft, selecteert u uw gebruikersnaam rechtsboven in de Azure Portal. Selecteer de map waar u Azure AD Privileged Identity Management gebruikt.
-3. Selecteer **alle services** en het tekstvak Filter gebruiken om te zoeken naar **Azure AD Privileged Identity Management**.
+3. Selecteer **Alle services** en gebruik het tekstvak Filteren om te zoeken naar **Azure AD Privileged Identity Management**.
 4. Schakel **Vastmaken aan dashboard** in en klik op de knop **Maken**. De Privileged Identity Management-toepassing wordt geopend.
 
 Als u de eerste persoon die het gebruik van Azure AD Privileged Identity Management in uw directory bent en u naar Azure AD-directory-functies navigeren, en u naar Azure AD-directory-functies navigeren, een [beveiligingswizard](active-directory-privileged-identity-management-security-wizard.md) wordt u begeleid bij de eerste ervaring van de toewijzing. Hierna als u automatisch de eerste **beveiligingsbeheerder** en **beheerder met bevoorrechte rol** van de map.

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: asgang
 ms.openlocfilehash: 1b63515970f81b1cab679287d84707d531fd102a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>Toepassingen die worden uitgevoerd op virtuele VMware-machines naar Azure repliceren
 
@@ -67,7 +67,7 @@ Bij het repliceren van virtuele VMware-machines:
 8. Selecteer het Azure-netwerk en -subnet waarmee virtuele Azure-machines verbinding maken wanneer ze na een failover worden geactiveerd. Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis. Selecteer **Nu configureren voor geselecteerde machines** om de netwerkinstelling toe te passen op alle machines die u voor beveiliging selecteert. Selecteer **Later configureren** om per machine een Azure-netwerk te selecteren. Als u een netwerk hebt, moet u [maken van een](#set-up-an-azure-network). Klik op om een netwerk met Resource Manager **nieuw**. Als u wilt maken van een netwerk met behulp van het klassieke model, doet u dat [in de Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selecteer een subnet, indien van toepassing en klik vervolgens op **OK**.
 
     ![Schakel replicatie doel instelling](./media/site-recovery-vmware-to-azure/enable-rep3.png)
-9. In **virtuele Machines** > **virtuele machines selecteren**, selecteert u elke machine die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Klik vervolgens op **OK**.
+9. Selecteer in **Virtuele machines** > **Virtuele machines selecteren** alle machines die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Klik vervolgens op **OK**.
 
     ![Replicatie Selecteer virtuele machines inschakelen](./media/site-recovery-vmware-to-azure/enable-replication5.png)
 10. In **eigenschappen** > **eigenschappen configureren**, selecteert u het account dat wordt gebruikt door de processerver voor het installeren van de Mobility-Service automatisch op de machine.  
@@ -75,7 +75,7 @@ Bij het repliceren van virtuele VMware-machines:
 
     ![Schakel replicatie eigenschappen configureren](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 
-12. In **replicatie-instellingen** > **replicatie-instellingen configureren**, Controleer of de juiste replicatiebeleid is geselecteerd. U kunt replicatie-beleidsinstellingen in wijzigen **instellingen** > **replicatiebeleid** > (naam van beleid) > **instellingen bewerken**. Wijzigingen die u aan een beleid toepast ook van toepassing op replicerende en nieuwe machines.
+12. Controleer of het juiste replicatiebeleid is geselecteerd in **Replicatie-instellingen** > **Replicatie-instellingen configureren**. U kunt replicatie-beleidsinstellingen in wijzigen **instellingen** > **replicatiebeleid** > (naam van beleid) > **instellingen bewerken**. Wijzigingen die u aan een beleid toepast ook van toepassing op replicerende en nieuwe machines.
 13. Schakel **consistentie tussen meerdere VM's** als u wilt verzamelen machines in een replicatiegroep. Geef een naam voor de groep en klik vervolgens op **OK**. 
 
     > [!NOTE]

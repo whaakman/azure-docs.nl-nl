@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: fcf6d2bf13af785eae26ff60035a4754f6ec702e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="collector-appliance"></a>Collector toestel
 
@@ -23,9 +23,23 @@ ms.lasthandoff: 03/02/2018
 
 Een Collector voor het migreren van Azure is een lighweight toestel die kan worden gebruikt voor het detecteren van uw on-premises vCenter-omgeving. Dit toestel detecteert lokale VMware-machines en stuurt de metagegevens over deze naar de service Azure migreren.
 
-Het toestel Collector is een OVF die u van het project Azure migreren downloaden kunt. Het instantiëren van een virtuele VMware-machine met 4 kernen, 8 GB RAM-geheugen en één schijf van 80 GB. Het besturingssysteem van het toestel is Windows Server 2012 R2 (64 bits)
+Het toestel Collector is een OVF die u van het project Azure migreren downloaden kunt. Het instantiëren van een virtuele VMware-machine met 4 kernen, 8 GB RAM-geheugen en één schijf van 80 GB. Het besturingssysteem van het toestel is Windows Server 2012 R2 (64 bits).
 
 U kunt de Collector maken door de stappen te volgen hier - [het maken van de VM-Collector](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## <a name="collector-communication-diagram"></a>Diagram van de collector-communicatie
+
+![Diagram van de collector-communicatie](./media/tutorial-assessment-vmware/portdiagram.PNG)
+
+
+| Onderdeel      | Voor communicatie met   | Vereiste poort                            | Reden                                   |
+| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
+| Collector      | Azure Migrate-service | TCP 443                                  | Collector moet kunnen communiceren met de service via de SSL-poort 443 |
+| Collector      | vCenter Server        | Standaard 443                             | Collector moet communiceren met de vCenter-server. Deze verbinding maakt met vCenter op 443 standaard. Als de vCenter op een andere poort luistert, moet die poort beschikbaar zijn als uitgaande poort op de collector |
+| Collector      | RDP|   | TCP 3389 | U kunt RDP bij de Collector-computer |
+
+
+
 
 
 ## <a name="collector-pre-requisites"></a>Vereisten voor collector
@@ -158,6 +172,32 @@ De volgende tabel bevat de prestatiemeteritems die worden verzameld en ook verme
 De Collector wordt alleen gegevens van de machine detecteert en verzendt het naar het project. Het project kan extra tijd voordat de gedetecteerde gegevens op de portal wordt weergegeven en u kunt beginnen met het maken van een beoordeling duren.
 
 Op basis van het aantal virtuele machines in de geselecteerde scope, duurt het maximaal 15 minuten om de metagegevens van de statische aan het project. Nadat de metagegevens van de statische beschikbaar op de portal is, kunt u het overzicht van virtuele machines in de portal en beginnen met het maken van groepen. Een evaluatie kan niet worden gemaakt totdat de taak is voltooid en de gegevens is verwerkt door het project. Eenmaal de verzameling-taak is voltooid op de Collector, duurt het maximaal één uur voor de prestatiegegevens alleen beschikbaar op de portal op basis van het aantal virtuele machines in de geselecteerde scope.
+
+## <a name="how-to-upgrade-collector"></a>Het bijwerken van de Collector
+
+U kunt de Collector upgraden naar de nieuwste versie zonder dat de eicellen nogmaals gedownload.
+
+1. Download de meest recente [upgradepakket](https://aka.ms/migrate/col/latestupgrade).
+2. Om ervoor te zorgen dat de gedownloade hotfix beveiligd is, opent u het opdrachtvenster Administrator en voer de volgende opdracht voor het genereren van de hash van het ZIP-bestand. De gegenereerde hash moet overeenkomen met de hash op basis van de specifieke versie vermeld:
+
+    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    
+    (example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+3. Kopieer het zip-bestand naar de Azure-collector virtuele machine migreren (collector toestel).
+4. Met de rechtermuisknop op het zip-bestand en selecteer Alles uitpakken.
+5. Met de rechtermuisknop op Setup.ps1 en klikt u op uitvoeren met PowerShell en volg de instructies op het scherm om de update te installeren.
+
+### <a name="list-of-updates"></a>Lijst met updates
+
+#### <a name="upgrade-to-version-1095"></a>Upgrade uitvoeren naar versie 1.0.9.5
+
+Voor een Upgrade naar versie 1.0.9.5 downloaden [pakket](https://aka.ms/migrate/col/upgrade_9_5)
+
+**Algoritme** | **Hash-waarde**
+--- | ---
+MD5 | d969ebf3bdacc3952df0310d8891ffdf
+SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
+SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>Volgende stappen
 

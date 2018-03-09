@@ -20,6 +20,10 @@
 ## [Back-up en herstel](analysis-services-backup.md)
 ## [Vernieuwen met REST-API](analysis-services-async-refresh.md)
 ## [Uitschalen configureren](analysis-services-scale-out.md)
+## Beheertaken automatiseren
+### [Service-principal maken - Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Service-principal maken - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Een service-principal toevoegen aan serverbeheerdersrol](analysis-services-addservprinc-admins.md)
 ## Serverbeheer
 ### [Een alias voor een servernaam configureren](analysis-services-server-alias.md)
 ### [Een server beheren](analysis-services-manage.md)

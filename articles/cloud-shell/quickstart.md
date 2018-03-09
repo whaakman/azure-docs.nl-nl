@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3f605645e7a53f285cb7e508034ebab0daa0d335
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Snelstartgids voor Bash in de Azure-Cloud-Shell
 
@@ -37,7 +37,7 @@ In dit document worden Bash gebruiken in Azure Cloud-Shell op de [Azure-portal](
 > U bent automatisch geverifieerd voor Azure CLI 2.0 in elke sesssion.
 
 ### <a name="select-the-bash-environment"></a>Selecteer de Bash-omgeving
-1. Selecteer de omgeving voor vervolgkeuzelijst van de de linkerkant van de shell-venster <br>
+1. Selecteer de omgeving vervolgkeuzelijst vanaf de linkerkant van de shell-venster <br>
 ![](media/quickstart/env-selector.png)
 2. Selecteer Bash
 
@@ -65,7 +65,7 @@ Uw gebruikersnaam op deze virtuele machine worden uw gebruikersnaam die wordt ge
 
 ### <a name="ssh-into-your-linux-vm"></a>SSH in uw virtuele Linux-machine
 1. Zoeken naar de naam van uw virtuele machine in de Azure portal zoekbalk
-2. Klik op "Connect" en voer:`ssh username@ipaddress`
+2. Klik op "Connect" en voer: `ssh username@ipaddress`
 
 ![](media/quickstart/sshcmd-copy.png)
 

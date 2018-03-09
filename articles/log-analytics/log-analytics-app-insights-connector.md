@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights-Connector-beheeroplossing (Preview)
 
@@ -64,7 +64,7 @@ Gegevens beschikbaar in ongeveer 30 minuten en de Application Insights-tegel wor
 Andere punten rekening moet houden:
 
 - U kunt alleen Application Insights-apps koppelen aan een werkruimte voor logboekanalyse.
-- U kunt alleen koppelen [Standard of Premium Application Insights-resources](https://azure.microsoft.com/pricing/details/application-insights) met logboekanalyse. U kunt echter de laag gratis van logboekanalyse.
+- U kunt alleen koppelen [Basic of Enterprise Application Insights-resources](https://azure.microsoft.com/pricing/details/application-insights) met logboekanalyse. U kunt echter de laag gratis van logboekanalyse.
 
 ## <a name="management-packs"></a>Management packs
 
@@ -117,7 +117,7 @@ Wanneer u klikt op een willekeurige plaats de **uitzonderingen** blade ziet u ee
 
 ![Application Insights uitzonderingen blade](./media/log-analytics-app-insights-connector/exceptions-blade-drill-search.png)
 
-Ongeacht of u iets op een klikt de **Application Insights-Connector** dashboard in de **Search** pagina zelf, elke query retourneert gegevens van Application Insights ziet u de toepassing Insights perspectief. Als u gegevens van de Application Insights, bekijkt u bijvoorbeeld een **&#42;** query geeft ook het tabblad perspectief zoals de volgende afbeelding:
+Ongeacht of u iets op een klikt de **Application Insights-Connector** dashboard in de **Search** pagina zelf, elke query retourneert gegevens van Application Insights ziet u de toepassing Insights perspectief. Als u gegevens van de Application Insights, bekijkt u bijvoorbeeld een  **&#42;**  query geeft ook het tabblad perspectief zoals de volgende afbeelding:
 
 ![Application Insights ](./media/log-analytics-app-insights-connector/app-insights-search.png)
 

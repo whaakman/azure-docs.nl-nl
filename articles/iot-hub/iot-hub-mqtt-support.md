@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2018
+ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a22c20a26ee4750c79c23fbba69de72a0084dfe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 9acda980583319414cc9e8668424907947a257db
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw iothub met behulp van de protocollen MQTT-protocol
 
@@ -100,6 +100,8 @@ Als een apparaat niet kan het apparaat-SDK's, kan deze nog steeds verbinding mak
 
 MQTT verbinding maken met en pakketten verbreken, IoT-Hub geeft een gebeurtenis op de **Operations Monitoring** kanaal. Deze gebeurtenis biedt extra informatie die u helpen kan bij het oplossen van problemen met de netwerkverbinding.
 
+De apparaat-app kan aangeven een **wordt** bericht de **CONNECT** pakket. De app voor het apparaat moet worden gebruikt `devices/{device_id}/messages/events/{property_bag}` of `devices/{device_id}/messages/events/{property_bag}` als de **wordt** onderwerpnaam voor het definiëren van **wordt** berichten moeten worden doorgestuurd als een bericht telemetrie. In dit geval als de netwerkverbinding is gesloten, maar een **DISCONNECT** pakket niet eerder is ontvangen van het apparaat en IoT Hub verzendt de **wordt** bericht opgegeven in de **CONNECT** pakket naar het kanaal telemetrie. Het kanaal telemetrie mag ofwel de standaard **gebeurtenissen** eindpunt of een aangepaste eindpunt gedefinieerd door de IoT-Hub routering. Het bericht heeft de **iothub MessageType** eigenschap met de waarde **wordt** toegewezen.
+
 ### <a name="tlsssl-configuration"></a>TLS/SSL-configuratie
 
 Gebruik de protocollen MQTT protocol rechtstreeks uw client *moet* verbinding maken via TLS/SSL. Pogingen om deze stap overslaan mislukt met fouten.
@@ -165,7 +167,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 > [!NOTE]
 > Dit `{property_bag}` element gebruikt dezelfde codering als voor query-tekenreeks in het HTTPS-protocol.
 
-De apparaat-app kunt `devices/{device_id}/messages/events/{property_bag}` als de **wordt de naam van onderwerp** definiëren *berichten wordt* moeten worden doorgestuurd als een bericht telemetrie.
+Hier volgt een lijst met IoT Hub implementatie gedrag:
 
 * IoT Hub biedt geen ondersteuning voor QoS-2-berichten. Als een apparaat-app een bericht met publiceert **QoS 2**, IoT Hub de netwerkverbinding wordt gesloten.
 * IoT Hub behouden berichten niet bewaard is gebleven. Als een apparaat een bericht met verzendt de **behouden** vlag ingesteld op 1, IoT-Hub voegt de **x-opt-behouden** -eigenschap van toepassing op het bericht. In dit geval wordt in plaats van het behouden blijven van het bericht behouden, IoT-Hub wordt doorgegeven aan de back-end-app.

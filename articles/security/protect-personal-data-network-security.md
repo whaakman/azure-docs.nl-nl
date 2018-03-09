@@ -1,6 +1,6 @@
 ---
 title: Persoonlijke gegevens beschermen met Azure-netwerkbeveiligingsfuncties | Microsoft Docs
-description: Persoonlijke gegevens beschermen met beveiligingsfuncties van Azure-netwerk
+description: Persoonlijke gegevens beschermen met beveiligingsfuncties van Azure-netwerk. Dit kan worden gebruikt om te voldoen met algemene Data Protection regelgeving (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54aeb22a501e248105931df341d23e524448155a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Persoonlijke gegevens beschermen met netwerkbeveiligingsfuncties: Azure Application Gateway en Netwerkbeveiligingsgroepen
 
-Dit artikel bevat informatie en procedures waarmee u Azure Application Gateway en Netwerkbeveiligingsgroepen gebruiken om persoonlijke gegevens te beveiligen.
+Dit artikel bevat informatie en procedures waarmee u Azure Application Gateway en Netwerkbeveiligingsgroepen gebruiken om persoonlijke gegevens te beveiligen. Deze informatie kan nuttig zijn bij uw inspanningen om te voldoen met algemene Data Protection regelgeving (GDPR) zijn.
 
 Een belangrijk aspect vormt in een meerlaagse beveiligingsstrategie om de privacy van persoonlijke gegevens te beschermen, is een beveiliging tegen misbruik van algemene beveiligingsproblemen zoals SQL-injectie of cross-site scripting. Ongewenste netwerkverkeer buiten uw Azure virtual network beschermt tegen mogelijke inbreuk op gevoelige gegevens, en houden Microsoft Azure biedt u hulpprogramma's om u te helpen uw gegevens beschermen tegen kwaadwillende personen.
 

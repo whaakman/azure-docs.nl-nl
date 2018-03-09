@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 50cabbaa584671e52c1ea7efbd2ad990b8438272
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Problemen oplossen met het synchroniseren van de SQL-gegevens (Preview)
 
@@ -124,8 +124,8 @@ Veel scenario's kunnen deze fout veroorzaken. Bekijk de logboeken om te bepalen 
 
 Ga voor de oorzaak van de fout genereren en bekijk de logboeken van Windows Installer. U kunt aanmelden bij een opdrachtprompt inschakelen. Bijvoorbeeld, als het gedownloade bestand voor AgentServiceSetup.msi LocalAgentHost.msi, genereren en beoordelen van logboekbestanden met behulp van de volgende opdrachtregels:
 
--   Voor installaties:`msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
--   Wordt verwijderd voor:`msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+-   Voor installaties: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+-   Wordt verwijderd voor: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
 
 U kunt ook logboekregistratie voor alle installaties die worden uitgevoerd door Windows Installer inschakelen. De Microsoft Knowledge Base-artikel [het inschakelen van logboekregistratie voor Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) biedt een oplossing voor één muisklik inschakelen van logboekregistratie voor Windows Installer. Het bevat ook de locatie van de logboeken.
 
@@ -240,8 +240,8 @@ Voordat u verdergaat, controleert u de volgende voorwaarden:
 -   Het synchroniseren van de SQL-gegevens (Preview) Windows-service wordt uitgevoerd.  
 -   Het serviceaccount voor het synchroniseren van de SQL-gegevens (Preview) Preview Windows-service heeft toegang tot het netwerk.    
 -   De clientagent kunt contact opnemen met de Locator-Service. Controleer of de volgende registersleutel de https://locator.sync.azure.com/LocatorServiceApi.svc waarde is:  
-    -   Op een x86 computer:`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   Op een x64 computer:`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+    -   Op een x86 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
+    -   Op een x64 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
 
 #### <a name="cause"></a>Oorzaak
 

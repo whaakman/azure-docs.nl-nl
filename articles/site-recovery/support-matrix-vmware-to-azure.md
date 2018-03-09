@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/07/2018
 ms.author: raynew
-ms.openlocfilehash: 31754cd765c90b9e36d16dc766b0a3546e6fd93e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 10d7db60ef584632a45fd7cdc5877461fa45af03
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrix-ondersteuning voor VMware en fysieke server-replicatie naar Azure
 
@@ -70,13 +70,13 @@ Besturingssysteem van de machine (Linux) | Red Hat Enterprise Linux: 5.2 naar 5,
 
 **Onderdeel** | **Ondersteund**
 --- | ---
-Bestandssystemen | ext3, ext4, ReiserFS (alleen voor Suse Linux Enterprise Server), XFS
+Bestandssystemen | ext3, ext4, XFS
 Volumebeheer | LVM2
-Multipath-software | Apparaat toewijzen
-Opslagapparaten Paravirtualized | Apparaten die zijn geëxporteerd door paravirtualized stuurprogramma's worden niet ondersteund.
+Opslagapparaten Paravirtualized | Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
 Meerdere wachtrij blok i/o-apparaten | Wordt niet ondersteund.
 Fysieke servers met de opslagcontroller HP CCISS | Wordt niet ondersteund.
 Mappen | Deze mappen (indien ingesteld als afzonderlijke partities /-bestandssystemen) moet worden op dezelfde schijf als besturingssysteem op de bronserver: / (root), / Boot, /usr, /usr/local, /var, etc. </br></br> Als / volume (root) is een volume LVM en vervolgens/Boot moet zich bevinden op een afzonderlijke partitie op dezelfde schijf en niet een LVM-volume.<br/><br/>
+|Vrije schijfruimte| 2 GB op de partitie/Root <br/>250 MB op de map voor installatie
 XFSv5 | XFSv5 functies op XFS bestandssystemen, zoals metagegevens controlesom, worden ondersteund door de versie 9.10 van de Mobility-Service en hoger. Gebruik het hulpprogramma xfs_info om te controleren van de superblock XFS voor de partitie. Als ftype is ingesteld op 1, klikt u vervolgens zijn XFSv5 functies in gebruik.
 
 
@@ -171,7 +171,7 @@ Lokale virtuele machines die u naar Azure repliceert moeten voldoen aan de virtu
 
 **Onderdeel** | **Vereisten** | **Details**
 --- | --- | ---
-Gastbesturingssysteem | Controleer of [ondersteunde besturingssystemen](#replicated machines). | Controle van vereisten mislukt als een niet-ondersteund.
+**Gastbesturingssysteem** | Controleer of [ondersteunde besturingssystemen](#replicated machines). | Controle van vereisten mislukt als een niet-ondersteund.
 **Architectuur van de Gast-besturingssysteem** | 64-bits | Controle van vereisten mislukt als een niet-ondersteund.
 **Grootte van de besturingssysteemschijf** | Maximaal 2048 GB | Controle van vereisten mislukt als een niet-ondersteund.
 **Aantal besturingssysteemschijven** | 1 | Controle van vereisten mislukt als een niet-ondersteund.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Hybride Azure Active Directory die lid zijn van apparaten configureren
 
@@ -34,7 +34,7 @@ Voordat u begint met het configureren van hybride Azure AD die lid zijn van appa
 
 Als u vertrouwen op de [hulpprogramma voor systeemvoorbereiding (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), Controleer of u installatiekopieën maken van een installatie van Windows die is nog niet geregistreerd met Azure AD.
 
-Alle domein-apparaten met Windows 10 Verjaardag Update en Windows Server 2016 automatisch wordt geregistreerd bij Azure AD herstart van het apparaat of gebruiker aanmelden als de hieronder vermelde configuratiestappen voltooid zijn. Als dit probleem automatisch registreren niet aanbevolen wordt of als een beheerde implementatie vereist is, volg instructies in de sectie implementatie en implementatie onderstaande eerst selectief of automatische implementatie uitschakelen voordat u doorgaat met de andere configuratiestappen.  
+Alle domein-apparaten met Windows 10 Verjaardag Update en Windows Server 2016 automatisch wordt geregistreerd bij Azure AD herstart van het apparaat of gebruiker aanmelden als de hieronder vermelde configuratiestappen voltooid zijn. **Als dit probleem automatisch registreren niet aanbevolen wordt of een gecontroleerde rollout desgewenst**, volg de instructies in de sectie 'Stap 4: beheer implementatie en Rollout' hieronder om selectief in- of uitschakelen van automatische implementatie voordat eerst te na de configuratiestappen.  
 
 In dit onderwerp gebruikt ter verbetering van de leesbaarheid van de beschrijvingen van de volgende voorwaarden: 
 
@@ -542,7 +542,7 @@ Wanneer u de vereiste stappen hebt voltooid, worden apparaten die lid zijn van e
 
 ### <a name="remarks"></a>Opmerkingen
 
-- U kunt een Group Policy object gebruiken voor het beheren van de implementatie van automatische inschrijving van Windows 10 en Windows Server 2016 domein computers.
+- U kunt een Group Policy object gebruiken voor het beheren van de implementatie van automatische inschrijving van Windows 10 en Windows Server 2016 domein computers. **Als u niet dat deze apparaten wilt worden automatisch geregistreerd bij Azure AD of als u wilt bepalen van de registratie**, en vervolgens moet u Groepsbeleid voor de automatische registratie al deze apparaten eerst uitschakelen voordat u begint met de configuratie uitrolt stappen. Nadat u klaar bent u configureert, en wanneer u gereed om te testen bent, moet u Groepsbeleid inschakelen van de automatische registratie alleen voor de testapparaten implementeert en vervolgens naar alle andere apparaten als u kiest.
 
 - Windows 10 November 2015 Update automatisch samengevoegd met Azure AD **alleen** als het groepsbeleidsobject van de implementatie is ingesteld.
 

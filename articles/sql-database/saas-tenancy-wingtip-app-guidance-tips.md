@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: genemi
-ms.openlocfilehash: ebf1c4948816746fa02b867d1ea66afc64b882b0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 13ac12377887684143d32d08e4bd5de107183105
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Algemene richtlijnen voor het werken met Wingtip Tickets steekproef SaaS-apps
 
@@ -28,9 +28,9 @@ Dit artikel bevat algemene richtlijnen voor het uitvoeren van de Wingtip Tickets
 Uitvoerbare inhoud (scripts, dll-bestanden) mogelijk geblokkeerd door Windows als zip-bestanden van een externe bron wordt gedownload en uitgepakt. Bij het uitpakken van de scripts van een zip-bestand **Volg onderstaande stappen voor het deblokkeren van het ZIP-bestand voor het uitpakken van**. Dit zorgt ervoor dat de scripts mogen worden uitgevoerd.
 
 1. Blader naar de Wingtip Tickets SaaS GitHub-repo voor de database tenancymodus patroon dat u wilt verkennen: 
-    - [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-    - [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
-    - [WingtipTicketsSaaS MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
+    - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
+    - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
+    - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Klik op **klonen of downloaden**.
 3. Klik op **zip downloaden** en sla het bestand.
 4. Met de rechtermuisknop op het zip-bestand en selecteer **eigenschappen**. De naam van het zip-bestand komt overeen met de naam van de opslagplaats. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
@@ -86,10 +86,10 @@ De implementatie is in eerste instantie tenants en SQL Database-catalogusservers
 Een geslaagde demo-verbinding, zodat alle servers hebben een [firewallregel](sql-database-firewall-configure.md) toestaan via alle IP-adressen.
 
 
-1. Open *SSMS* en maak verbinding met de de tenants. Naam van de server is afhankelijk van de database tenancymodus patroon dat u hebt geselecteerd (Zie hieronder voor details):
-    - **Zelfstandige toepassing:** servers van individuele tenants (ex. *contosoconcerthall -&lt;gebruiker&gt;. database.windows.net*) 
+1. Open *SSMS* en maak verbinding met de tenants. Naam van de server is afhankelijk van de database tenancymodus patroon dat u hebt geselecteerd (Zie hieronder voor details):
+    - **Zelfstandige toepassing:** servers van individuele tenants (ex. *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
     - **Database per tenant:** *tenants1-dpt -&lt;gebruiker&gt;. database.windows.net*
-    - **Multitenant-database:** *tenants1-mt -&lt;gebruiker&gt;. database.windows.net* 
+    - **Multi-tenant database:** *tenants1-mt-&lt;User&gt;.database.windows.net* 
 2. Klik op **Verbinding maken**  > **Database-engine...**:
 
    ![catalogusserver](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
@@ -97,14 +97,14 @@ Een geslaagde demo-verbinding, zodat alle servers hebben een [firewallregel](sql
 3. Referenties voor Demo zijn: Gebruikersnaam = *developer*, Wachtwoord = *P@ssword1*
 
     De onderstaande afbeelding ziet u de aanmelding voor de *Database per tenant* patroon. 
-    ![verbinding](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
+    ![Verbinding](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
     
    
 
 4. Herhaal stappen 2-3 en maak verbinding met de GC-server (Zie hieronder voor specifieke servernamen op basis van de database tenancymodus geselecteerd)
     - **Zelfstandige toepassing:** *catalogus-sa -&lt;gebruiker&gt;. database.windows.net*
     - **Database per tenant:** *catalogus-dpt -&lt;gebruiker&gt;. database.windows.net*
-    - **Multitenant-database:** *catalogus-mt -&lt;gebruiker&gt;. database.windows.net*
+    - **Multi-tenant database:** *catalog-mt-&lt;User&gt;.database.windows.net*
 
 
 Nadat de verbinding tot stand ziet u alle servers. Uw lijst met databases mogelijk verschillen, afhankelijk van de tenants die u hebt ingericht.

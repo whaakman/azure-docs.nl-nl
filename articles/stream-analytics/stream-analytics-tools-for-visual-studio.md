@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 71e7247226f9432b3f9590ca87ac33883ea576ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Azure Stream Analytics-hulpprogramma's voor Visual Studio gebruiken
 Azure Stream Analytics-hulpprogramma's voor Visual Studio zijn nu algemeen beschikbaar. Deze hulpprogramma's inschakelen van een rijkere ervaring voor gebruikers van de Stream Analytics oplossen, evenals een complexe query's schrijven en zelfs schrijven lokaal query's. U kunt ook een Stream Analytics-taak exporteren naar een Visual Studio-project.
 
 ## <a name="introduction"></a>Inleiding
-In deze zelfstudie leert u hoe u met Stream Analytics-tools voor Visual Studio maken, ontwerpen, lokaal testen, beheren en fouten opsporen in uw Stream Analytics-taken. 
+In deze zelfstudie leert u hoe u met Stream Analytics-tools voor Visual Studio maken, ontwerpen, lokaal testen, beheren en fouten opsporen in uw Stream Analytics-taken. Nadat u de taak hebt gemaakt, kunt u een continu proces voor de integratie en implementatie naar Azure instellen met behulp van de CI/CD Nuget-pakket, voor meer informatie raadpleegt u [Stream Analytics VS-hulpprogramma's voor het instellen van een pijplijn CI/CD](stream-analytics-tools-for-visual-studio-cicd.md) artikel.
 
 Na het voltooien van deze zelfstudie, kunt u zich kunt:
 
@@ -141,9 +141,9 @@ Nu dat u uw eerste Stream Analytics query geschreven hebt, test u deze met behul
 
 Deze map bevat de volgende bestanden:
 
-* Entry.JSON
-* Exit.JSON
-* Registration.JSON
+* Entry.json
+* Exit.json
+* Registration.json
 
 ## <a name="question-number-of-vehicles-entering-a-toll-booth"></a>Vraag: Aantal voertuigen een tolstation stand
 Dubbelklik in het project op **Script.asaql** het script in de editor te openen. Het script in de vorige sectie in de editor plakken. De query-editor biedt ondersteuning voor IntelliSense syntaxiskleuren en de markering van een fout.

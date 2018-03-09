@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1e0d40b996e181a606d16d26633f890b9169ecbb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85447809cbc803c13ad731b5328e94a1b03abba8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Het beheer van apparaten met de Azure portal
 
@@ -112,6 +112,7 @@ Met beide opties, kun je op een weergave die:
 
 ![Alle apparaten](./media/device-management-azure-portal/51.png)
 
+Voor sommige iOS-apparaten kunnen de namen van enkele aanhalingstekens met andere tekens die lijken op enkele aanhalingstekens gebruiken. Dus voor dergelijke apparaten zoeken een lastige is-als u niet ziet zoekresultaten correct, zorg ervoor dat de zoekreeks overeenkomend aanhalingsteken bevat.
 
 ## <a name="device-management-tasks"></a>Taken voor het beheer van apparaten
 

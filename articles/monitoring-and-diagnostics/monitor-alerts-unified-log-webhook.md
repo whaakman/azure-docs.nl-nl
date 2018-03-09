@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: ee7bdf03c96e078d0d64eeaaffc38ff61596d837
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels logboek
 Wanneer een [waarschuwing is gemaakt in Azure (Preview)](monitor-alerts-unified-usage.md), hebt u de optie [configureren met de actiegroepen](monitoring-action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en de details over het configureren van de aangepaste JSON-indeling webhook.
@@ -170,7 +170,7 @@ Hier volgt een voorbeeld-nettolading voor een aangepaste webhook-actie voor een 
     
 
     {
-    "AlertRuleName":"AcmeRule","IncludeSearchResults":true,
+    "alertname":"AcmeRule","IncludeSearchResults":true,
     "SearchResult":
         {
         "tables":[

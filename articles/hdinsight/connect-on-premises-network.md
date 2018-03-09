@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>HDInsight verbinden met uw on-premises-netwerk
 
@@ -273,13 +273,13 @@ U kunt netwerkbeveiligingsgroepen (NSG) of de gebruiker gedefinieerde routes (UD
 
 > [!WARNING]
 > HDInsight vereist binnenkomende toegang van specifieke IP-adressen in de Azure-cloud en onbeperkte uitgaande toegang. Wanneer u nsg's of udr's om te bepalen van verkeer, moet u de volgende stappen uitvoeren:
->
-> 1. De IP-adressen vinden voor de locatie waarin het virtuele netwerk. Zie voor een lijst met vereiste IP-adressen per locatie, [vereiste IP-adressen](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
->
-> 2. Binnenkomend verkeer van de IP-adressen toestaan.
->
->    * __NSG__: toestaan __inkomende__ verkeer op poort __443__ van de __Internet__.
->    * __UDR__: Stel de __volgende Hop__ type van de route naar __Internet__.
+
+1. De IP-adressen vinden voor de locatie waarin het virtuele netwerk. Zie voor een lijst met vereiste IP-adressen per locatie, [vereiste IP-adressen](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+
+2. Voor het IP-adressen in stap 1 hebt geïdentificeerd, kunt u binnenkomend verkeer toestaan van die-IP-adressen.
+
+   * Als u __NSG__: toestaan __inkomende__ verkeer op poort __443__ voor de IP-adressen.
+   * Als u __UDR__: Stel de __volgende Hop__ type van de route naar __Internet__ voor de IP-adressen.
 
 Zie voor een voorbeeld van het gebruik van Azure PowerShell of Azure CLI voor het nsg's maken, de [HDInsight uitbreiden met Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) document.
 

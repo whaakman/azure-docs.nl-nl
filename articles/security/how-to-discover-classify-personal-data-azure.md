@@ -1,6 +1,6 @@
 ---
 title: Detecteren, identificeren en classificeren van persoonlijke gegevens in Microsoft Azure | Microsoft Docs
-description: "Meer informatie over het zoeken, classificeren, detecteren en gegevens worden geïdentificeerd"
+description: zoeken, classificeren, detecteren en identificeren van gegevens in Azure kunt u zich te houden met algemene Data Protection regelgeving (GDPR)
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21308faf5d3efd3908eccab4f37acb0cfccdcb8e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Detecteren, identificeren en classificeren van persoonlijke gegevens in Microsoft Azure
 
-In dit artikel biedt richtlijnen voor het detecteren, identificeren en classificeren van persoonlijke gegevens in verschillende Azure-hulpprogramma's en services, inclusief het gebruik van Azure Data Catalog, Azure Active Directory, SQL-Database, Power Query voor Hadoop-clusters in Azure HDInsight, Azure Gegevensbeveiliging, Azure Search en SQL-query's voor Azure Cosmos DB.
+In dit artikel biedt richtlijnen voor het detecteren, identificeren en classificeren van persoonlijke gegevens in verschillende Azure-hulpprogramma's en services, inclusief het gebruik van Azure Data Catalog, Azure Active Directory, SQL-Database, Power Query voor Hadoop-clusters in Azure HDInsight, Azure Gegevensbeveiliging, Azure Search en SQL-query's voor Azure Cosmos DB. Deze hulpprogramma's en processen kunnen worden gebruikt om te voldoen met algemene Data Protection regelgeving (GDPR)
 
 ## <a name="scenario-problem-statement-and-goal"></a>Scenario, Probleemstelling en doelstellingen
 
@@ -114,7 +114,7 @@ Voor informatie over het maken van de database op deze manier, gaat u naar de [m
 >[!Note]
 Windows-beheerders hebben vaak gebruik van PowerShell, maar sommige van deze Azure CLI geven de voorkeur.
 
-### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Hoe kan ik persoonlijke gegevens in SQL-database in de Azure portal zoeken? **
+### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Hoe kan ik persoonlijke gegevens in SQL-database in de Azure portal zoeken?
 
 U kunt het hulpprogramma van de ingebouwde query-editor binnen de Azure portal gebruiken om te zoeken naar persoonlijke gegevens. U Meld u aan het hulpprogramma met uw aanmelding voor SQL server-beheerder en het wachtwoord bij en voer vervolgens een query.
 
@@ -136,7 +136,7 @@ Voor meer informatie over het opvragen van een SQL-database in de Azure portal, 
 
 Elastische SQL-query (preview) kunt u meerdere databases en meerdere database-query's uitvoeren en retourneren een enkelvoudig resultaat wordt verkregen. De [overzicht van de zelfstudie](../sql-database/sql-database-elastic-query-overview.md) bevat een gedetailleerde beschrijving van scenario's en het verschil tussen het partitioneren van de verticale en horizontale database wordt uitgelegd. Horizontale partitioneren, heet 'sharding'.
 
-  ![Verticale partities](media/how-to-discover-classify-personal-data-azure/vertical-partition.png)
+  ![Verticale partitionering](media/how-to-discover-classify-personal-data-azure/vertical-partition.png)
 
   ![horizontale partitioneren](media/how-to-discover-classify-personal-data-azure/horizontal.png)
 

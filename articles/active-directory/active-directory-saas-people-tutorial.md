@@ -4,20 +4,20 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 7c9b6202-11dd-4bb6-a679-8fb0a7a0ef4e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 03/06/2017
 ms.author: jeedes
-ms.openlocfilehash: cf3c633aec5fd55d3525c0e010e1aca68407ef33
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a76701e23771efa79ef39ebd6deb29cec8acaa8a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Zelfstudie: Azure Active Directory-integratie met mensen
 
@@ -110,14 +110,14 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-people-tutorial/tutorial_people_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<company name>.peoplehr.com/`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:  `https://<company name>.peoplehr.net`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://www.peoplehr.com`
+    b. In de **id** textbox, typ de URL: `https://www.peoplehr.com`
 
-    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
-
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. Neem contact op met [mensen Client ondersteuningsteam](mailto:customerservices@peoplehr.com) ophalen van deze waarden.
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:  `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
+    
+    > [!NOTE]
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [mensen Client ondersteuningsteam](mailto:customerservices@peoplehr.com) ophalen van deze waarden. 
 
 5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -216,7 +216,7 @@ Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behu
 
 Als u op de tegel mensen in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing personen.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

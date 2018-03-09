@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 9274e2807beeb0fd517ba1e848cfc26db1c57655
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 89203a9499b3624faf41b63f4ea6e7bd29f3f0c9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Codering schalen met .NET SDK
 > [!div class="op_single_selector"]
@@ -53,7 +53,8 @@ Om te wijzigen van het type gereserveerde eenheid en het aantal gereserveerde ee
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ## <a name="opening-a-support-ticket"></a>Een Ondersteuningsticket openen
-Standaard elke Media Services-account kan worden geschaald tot maximaal 25 codering en 5 On Demand gereserveerde Streaming-eenheden. U kunt een hogere limiet aanvragen door een ondersteuningsticket openen.
+
+Elke Media Services-account kunt standaard maximaal 10 S2 of S3 Media gereserveerde eenheden (groepsbeleidsinstelling) of 25 S1 groepsbeleidsinstelling en 5 On-Demand Streaming gereserveerde eenheden schalen. U kunt een hogere limiet aanvragen door een ondersteuningsticket openen.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

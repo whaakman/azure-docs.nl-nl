@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jroth
-ms.openlocfilehash: 23538e933c8d1c2165cec1bdf1e9db28e0065801
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 64245a968eca94518d2e4238b4bc5c93c952563a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migreer een SQL Server-database naar een SQL Server in een virtuele machine van Azure
 
@@ -96,6 +96,9 @@ Gebruik de [Windows Import/Export-Service methode](../../../storage/common/stora
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het uitvoeren van SQL Server op Azure Virtual Machines [SQL Server op Azure Virtual Machines-overzicht](virtual-machines-windows-sql-server-iaas-overview.md).
+
+> [!TIP]
+> Als u vragen over virtuele machines van SQL Server hebt, raadpleegt u de [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Zie voor instructies over het maken van een virtuele Machine van Azure SQL Server vanuit een vastgelegd beeld [Tips & trucs voor SQL Azure virtuele machines van de vastgelegde installatiekopieën klonen](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) op de blog Engineers van CSS SQL Server.
 

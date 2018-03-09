@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 6f933c75d4829e3b2c5198aeee324f15490d8a93
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9f01ba69f6511a3f9a7f99e379522be3c00554f5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Inrichten van Windows gegevens wetenschappelijke virtuele Machine in Azure
 De Microsoft Data wetenschappelijke virtuele Machine is een Windows Azure virtuele machine (VM) vooraf is geïnstalleerd en geconfigureerd met verschillende populaire hulpprogramma's die vaak worden gebruikt voor gegevensanalyse en machine learning. De hulpprogramma's zijn:
@@ -39,8 +39,7 @@ De Microsoft Data wetenschappelijke virtuele Machine is een Windows Azure virtue
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : een visual gegevensanalyse en machine learning-software in Java.
   * [Apache inzoomen](https://drill.apache.org/): een schemavrije SQL Query-Engine voor Hadoop, NoSQL en Cloud-opslag.  Biedt ondersteuning voor ODBC- en JDBC-interfaces om in te schakelen query NoSQL- en bestanden van de standaard BI-tools zoals Power BI, Excel, Tableau.
 * Bibliotheken in R- en Python voor gebruik in Azure Machine Learning en andere Azure-services
-* GIT, met inbegrip van Git Bash werken met broncodeopslagplaatsen, met inbegrip van GitHub, Visual Studio Team Services
-* Windows-poorten van verschillende populaire Linux opdrachtregelprogramma's (inclusief awk, ype, perl, grep, zoeken, wget, curl, enz.) toegankelijk zijn via de opdrachtprompt. 
+* GIT, met inbegrip van Git Bash werken met broncodeopslagplaatsen, met inbegrip van GitHub, Visual Studio Team Services en vindt u enkele populaire Linux opdrachtregelprogramma's (inclusief awk, ype, perl, grep, zoeken, wget, curl, enz.) toegankelijk op git bash en opdracht prompt. 
 
 Tijdens het doorzoeken van wetenschappelijke gegevens omvat sequentieel op een reeks taken:
 
@@ -73,7 +72,7 @@ Volg deze stappen voor het maken van een exemplaar van de Microsoft wetenschappe
    1. **Basisinstellingen**
       
       1. **Naam**: naam van uw gegevens wetenschap-server die u maakt.
-      2. **VM-schijftype**: Kies tussen SSD of harde schijf. Kies voor een GPU (NC-serie), **HDD** als het schijftype. 
+      2. **VM-schijftype**: Kies tussen SSD of harde schijf. Kies voor NC_v1 GPU exemplaar (NVidia Tesla R80 gebaseerd), **HDD** als het schijftype. 
       3. **Gebruikersnaam**: Admin-account aanmeldings-id.
       4. **Wachtwoord**: wachtwoord van de beheerder.
       5. **Abonnement**: als u meer dan één abonnement hebt, selecteert u een op waarop de machine is gemaakt en kosten in rekening gebracht.
@@ -99,35 +98,28 @@ Als uw virtuele machine is gemaakt en ingericht, bent u klaar om te beginnen met
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Hulpprogramma's zijn geïnstalleerd op de Microsoft Data wetenschappelijke virtuele Machine
 
-### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
 
-Azure Machine Learning-Workbench is een bureaubladtoepassing en opdrachtregelinterface. De Workbench heeft ingebouwde gegevens voorbereiden die uw gegevens voorbereidende stappen leert u om ze uit te voeren. Het bevat ook projectbeheer, geschiedenis en laptop-integratie met uw productiviteit vergroot uitvoeren. U kunt profiteren van de beste open source-frameworks, met inbegrip van TensorFlow, cognitieve Toolkit, Spark ML en scikit-informatie over het ontwikkelen van uw modellen. Op de DSVM bieden we een bureaubladpictogram (InstallAMLFromLocal) uitpakken van de Azure Machine Learning-workbench lokaal in de map voor elke gebruiker % LOCALAPPDATA %. Elke gebruiker die moet worden gebruikt de Workbench moet doen een actie van het te dubbelklikken op het bureaubladpictogram InstallAMLFromLocal voor het installeren van hun exemplaar van de Workbench tijd. Azure Machine Learning ook maakt en gebruikt een per gebruiker Python-omgeving die in de map % LOCALAPPDATA%\amlworkbench\python wordt opgehaald.
 
 ### <a name="microsoft-ml-server-developer-edition"></a>Microsoft ML Server Developer Edition
 Als u gebruiken van Microsoft enterprise-bibliotheken voor schaalbare R- of Python voor uw analyses wilt, heeft de virtuele machine Microsoft ML Server Developer edition (voorheen bekend als Microsoft R Server) geïnstalleerd. Microsoft ML Server is een grotendeels implementeerbare bedrijfsniveau analytics platform beschikbaar voor R- en Python en schaalbare, commercieel ondersteunde en veilig is. Ondersteuning biedt voor tal van big data-statistieken, voorspellende modellen en machine learning-mogelijkheden, ondersteunt ML-Server het volledige bereik van analytics – exploratie, analyse, visualisatie en modellering. Door en uitbreiden van de open source R- en Python, Microsoft ML Server is volledig compatibel met R / Python-scripts, functies en CRAN / pip / Conda-pakketten voor het analyseren van gegevens op enterprise schalen. Biedt ook een oplossing de beperkingen in het geheugen van de Open Source R door parallelle en gesegmenteerde verwerking van gegevens toe te voegen. Hiermee kunt u analyses uitvoeren op gegevens veel groter dan wat in het hoofdgeheugen past.  Visual Studio Community Edition opgenomen op de virtuele machine bevat de R-Tools voor Visual Studio en Python-tools voor Visual Studio-extensie die een volledige IDE biedt voor het werken met R- of Python. We bieden ook andere IDE ook zoals [RStudio](http://www.rstudio.com) en [PyCharm Community edition](https://www.jetbrains.com/pycharm/) op de virtuele machine. 
 
 ### <a name="python"></a>Python
-Voor de ontwikkeling met behulp van Python, is distributie Anaconda Python 2.7 en 3.5 geïnstalleerd. Deze verdeling bevat de base Python samen met ongeveer 300 van de meest populaire math, engineering en gegevens analytics pakketten. U kunt Python-Tools voor Visual Studio (PTVS) die is geïnstalleerd in de Visual Studio 2015-Community-versie of een van de IDE gebundeld met Anaconda zoals niet-actief of Spyder gebruiken. U kunt een van deze door te zoeken op de zoekbalk starten (**Win** + **S** sleutel).
+Voor de ontwikkeling met behulp van Python, is distributie Anaconda Python 2.7 en 3.6 geïnstalleerd. Deze verdeling bevat de base Python samen met ongeveer 300 van de meest populaire math, engineering en gegevens analytics pakketten. U kunt Python-Tools voor Visual Studio (PTVS) die is geïnstalleerd in de Visual Studio 2017 Community-versie of een van de IDE gebundeld met Anaconda zoals niet-actief of Spyder gebruiken. U kunt een van deze door te zoeken op de zoekbalk starten (**Win** + **S** sleutel).
 
 > [!NOTE]
-> Om te verwijzen de Python-Tools voor Visual Studio op Anaconda Python 2.7 en 3.5, moet u aangepaste omgevingen voor elke versie te maken. Navigeer naar deze omgeving paden in de Visual Studio 2015 Community Edition stelt **extra** -> **Python Tools** -> **Python-omgevingen**en klik vervolgens op **+ aangepaste**. 
+> Om te verwijzen de Python-Tools voor Visual Studio op Anaconda Python 2.7, moet u aangepaste omgevingen voor elke versie te maken. Navigeer naar deze omgeving paden in de Visual Studio 2017 Community Edition stelt **extra** -> **Python Tools** -> **Python-omgevingen**en klik vervolgens op **+ aangepaste**. 
 > 
 > 
 
-Anaconda Python 2.7 onder C:\Anaconda is geïnstalleerd en Anaconda Python 3.5 onder c:\Anaconda\envs\py35 is geïnstalleerd. Zie [documentatie bij PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) voor gedetailleerde stappen. 
+Anaconda Python 3.6 onder C:\Anaconda is geïnstalleerd en Anaconda Python 2.7 onder c:\Anaconda\envs\python2 is geïnstalleerd. Zie [documentatie bij PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) voor gedetailleerde stappen. 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
-Anaconda-verdeling wordt ook geleverd met een Jupyter-notebook een omgeving voor het delen van code en -analyse. Een Jupyter-notebook-server is vooraf geconfigureerd met Python 2.7, Python 3.5, PySpark, Julia en R kernels. Er is een pictogram op het bureaublad met de naam 'Jupyter-Notebook' om te starten van de Jupyter-server en start de browser voor toegang tot de Notebook-server. 
-
-> [!NOTE]
-> Doorgaan als u certificaatwaarschuwingen. 
-> 
-> 
+Anaconda-verdeling wordt ook geleverd met een Jupyter-notebook een omgeving voor het delen van code en -analyse. Een Jupyter-notebook-server is vooraf geconfigureerd met Python 2.7, Python 3.x, PySpark, Julia en R kernels. Er is een pictogram op het bureaublad met de naam 'Jupyter-Notebook' om te starten van de Jupyter-server en start de browser voor toegang tot de Notebook-server. 
 
 We hebben verschillende voorbeeldquery notitieblokken in Python en in R. verpakt De Jupyter-notebooks laten zien hoe werken met Microsoft ML Server, SQL Server-Services voor ML (In de database analytics), Python, Microsoft cognitieve ToolKit, Tensorflow en andere technologieën voor Azure wanneer u toegang Jupyter tot. Nadat u geverifieerd bij de Jupyter-notebook met het wachtwoord die u in een eerdere stap hebt gemaakt, kunt u de koppeling naar de voorbeelden bekijken op de startpagina van de notebook. 
 
 ### <a name="visual-studio-2017-community-edition"></a>Visual Studio 2017 Community edition
-Visual Studio Community edition is geïnstalleerd op de virtuele machine. Het is een gratis versie van de populaire IDE van Microsoft die u voor evaluatiedoeleinden gebruikt en voor kleine teams gebruiken kunt. U kunt de licentievoorwaarden uitchecken [hier](https://www.visualstudio.com/support/legal/mt171547).  Visual Studio niet openen door te dubbelklikken op het bureaubladpictogram of de **Start** menu. U kunt ook zoeken naar programma's met **Win** + **S** en 'Visual Studio' in te voeren. Zodra er kunt u projecten in talen zoals C#, Python, R, node.js. Invoegtoepassingen zijn ook geïnstalleerd die werken met Azure-services zoals Azure Data Catalog, Azure HDInsight (Hadoop, Spark) en Azure Data Lake te vergemakkelijken. 
+Visual Studio Community edition is geïnstalleerd op de virtuele machine. Het is een gratis versie van de populaire IDE van Microsoft die u voor evaluatiedoeleinden gebruikt en voor kleine teams gebruiken kunt. U kunt de licentievoorwaarden uitchecken [hier](https://www.visualstudio.com/support/legal/mt171547).  Visual Studio niet openen door te dubbelklikken op het bureaubladpictogram of de **Start** menu. U kunt ook zoeken naar programma's met **Win** + **S** en 'Visual Studio' in te voeren. Zodra er kunt u projecten in talen zoals C#, Python, R, node.js. Invoegtoepassingen zijn ook geïnstalleerd die werken met Azure-services zoals Azure Data Catalog, Azure HDInsight (Hadoop, Spark) en Azure Data Lake te vergemakkelijken. Nu er is ook een invoegtoepassing aangeroepen ```Visual Studio Tools for AI``` die naadloos kan worden geïntegreerd Azure Machine Learning en helpt u snel build AI-toepassingen. 
 
 > [!NOTE]
 > Mogelijk dat u een bericht waarin staat dat uw evaluatieperiode is verlopen. Voer de referenties van uw Microsoft-account of maak een nieuwe gratis account toegang krijgen tot de Visual Studio Community Edition. 
@@ -170,6 +162,10 @@ Voor hulp bij het bouwen van dashboards en geweldige visualisaties de **Power BI
 > 
 > 
 
+### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
+
+Azure Machine Learning-Workbench is een bureaubladtoepassing en opdrachtregelinterface. De Workbench heeft ingebouwde gegevens voorbereiden die uw gegevens voorbereidende stappen leert u om ze uit te voeren. Het bevat ook projectbeheer, geschiedenis en laptop-integratie met uw productiviteit vergroot uitvoeren. U kunt profiteren van de beste open source-frameworks, met inbegrip van TensorFlow, cognitieve Toolkit, Spark ML en scikit-informatie over het ontwikkelen van uw modellen. Op de DSVM bieden we een bureaubladpictogram voor het installeren van de Azure Machine Learning-workbench in de map van de individuele gebruiker % LOCALAPPDATA %. Elke gebruiker die moet worden gebruikt de Workbench moet doen een actie van het te dubbelklikken op tijd de ```AzureML Workbench Setup``` bureaubladpictogram om hun exemplaar van de Workbench te installeren. Azure Machine Learning ook maakt en gebruikt een per gebruiker Python-omgeving die in de map % LOCALAPPDATA%\amlworkbench\python wordt opgehaald.
+
 ## <a name="additional-microsoft-development-tools"></a>Aanvullende Microsoft-ontwikkelprogramma 's
 De [ **Microsoft Web Platform Installer** ](https://www.microsoft.com/web/downloads/platform.aspx) kan worden gebruikt om te detecteren en andere Microsoft-ontwikkelprogramma's downloaden. Er is ook een snelkoppeling naar het hulpprogramma dat op het bureaublad van Microsoft Data wetenschappelijke virtuele Machine.  
 
@@ -177,10 +173,10 @@ De [ **Microsoft Web Platform Installer** ](https://www.microsoft.com/web/downlo
 | Item | Directory |
 | --- | --- |
 | Jupyter-notebook serverconfiguraties |C:\ProgramData\jupyter |
-| Basismap van Jupyter-Notebook-voorbeelden |c:\dsvm\notebooks |
+| Basismap van Jupyter-Notebook-voorbeelden |c:\dsvm\notebooks en c:\users\<username > \notebooks|
 | Andere voorbeelden |c:\dsvm\samples |
-| Anaconda (standaard: Python 2.7) |c:\Anaconda |
-| Anaconda 3.5 Python-omgeving |c:\Anaconda\envs\py35 |
+| Anaconda (standaard: Python 3.6) |c:\Anaconda |
+| Anaconda-omgeving voor Python 2.7 |c:\Anaconda\envs\python2 |
 | Microsoft ML Server zelfstandige Python  | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | Standaard-R-sessie (ML Server zelfstandig) |C:\Program Files\Microsoft\ML Server\R_SERVER |
 | ML-Services voor SQL-database-exemplaar directory |C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
@@ -188,7 +184,7 @@ De [ **Microsoft Web Platform Installer** ](https://www.microsoft.com/web/downlo
 | Diverse hulpprogramma 's |c:\dsvm\tools |
 
 > [!NOTE]
-> Exemplaren van de Microsoft Data wetenschappelijke virtuele Machine gemaakt voordat 1.5.0 (vóór 3 September 2016) gebruikt een iets andere mapstructuur dan is opgegeven in de voorgaande tabel. 
+> In Windows Server 2012-editie van de editie DSVM en Windows Server 2016 vóór maart 2018 is de standaard Anaconda-omgeving Python 2.7. De secundaire omgeving is Python 3.5 zich bevindt op c:\Anaconda\envs\py35. 
 > 
 > 
 

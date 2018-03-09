@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: 3192c67938fe118e79aa68ee6194e76f21d65d98
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8305a354588875926cab52a55d99d3a29bcfb509
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager met Azure Site Recovery
 
@@ -49,11 +44,11 @@ In een gebeurtenis na noodgevallen bedrijf A kunt activeren een [failover](site-
 
 Afhankelijk van de zakelijke vereisten, **bedrijf A** kunt kiezen een hogere of lagere [probing frequentie](../traffic-manager/traffic-manager-monitoring.md) overschakelen tussen on-premises naar Azure in een gebeurtenis na noodgevallen en zorg ervoor dat de minimale downtime voor gebruikers.
 
-Wanneer de sitedatabase is opgenomen, **bedrijf A** kunt failback vanuit Azure naar de on-premises-omgeving ([VMware](site-recovery-how-to-failback-azure-to-vmware.md) of [Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)) met Azure Site Recovery. Nu wanneer Traffic Manager gedetecteerd dat de **primaire** eindpunt opnieuw in orde is, wordt automatisch gebruikt de **primaire** eindpunt in de DNS-antwoorden.
+Wanneer de sitedatabase is opgenomen, **bedrijf A** kunt failback vanuit Azure naar de on-premises-omgeving ([VMware](vmware-azure-failback.md) of [Hyper-V](hyper-v-azure-failback.md)) met Azure Site Recovery. Nu wanneer Traffic Manager gedetecteerd dat de **primaire** eindpunt opnieuw in orde is, wordt automatisch gebruikt de **primaire** eindpunt in de DNS-antwoorden.
 
 ## <a name="on-premises-to-azure-migration"></a>On-premises naar Azure migreren
 
-Naast het herstel na noodgevallen, kunnen Azure Site Recovery ook [migraties naar Azure](site-recovery-migrate-to-azure.md). Met behulp van Azure Site Recovery krachtige test failoverfuncties beoordelen klanten toepassingsprestaties op Azure zonder hun on-premises omgeving. En wanneer klanten gereed om te migreren zijn, volledige werkbelastingen samen migreren of ervoor kiezen om te migreren en geleidelijk schalen kunt kiezen.
+Naast het herstel na noodgevallen, kunnen Azure Site Recovery ook [migraties naar Azure](migrate-overview.md). Met behulp van Azure Site Recovery krachtige test failoverfuncties beoordelen klanten toepassingsprestaties op Azure zonder hun on-premises omgeving. En wanneer klanten gereed om te migreren zijn, volledige werkbelastingen samen migreren of ervoor kiezen om te migreren en geleidelijk schalen kunt kiezen.
 
 Azure Traffic Manager van [gewogen](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) routeringsmethode kan worden gebruikt om een deel van het binnenkomende verkeer naar Azure leiden bij het doorsturen van de meeste naar de on-premises omgeving. Deze aanpak kunt beoordelen schaal, prestaties, zoals u kunt doorgaan met het verhogen van het gewicht toegewezen naar Azure als u meer en meer van de werkbelasting van uw naar Azure migreren.
 

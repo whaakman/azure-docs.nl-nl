@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 3479b9c5bc1c8c77d2c6012b40dc9cd8f8e1708b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5a08fd7d20dc78512315ab5d154ba95bd8e8494b
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure PowerShell Monitor snel starten-voorbeelden
 In dit artikel worden steekproef van PowerShell-opdrachten kunt u toegang tot Azure Monitor functies.
 
 > [!NOTE]
-> Monitor voor Azure is de nieuwe naam voor wat 'Azure Insights' is aangeroepen tot 25 september 2016. Echter, de naamruimten, en daarom de volgende opdrachten nog steeds de het woord 'insights'.
+> Monitor voor Azure is de nieuwe naam voor wat 'Azure Insights' is aangeroepen tot 25 september 2016. Echter, de naamruimten, en daarom de volgende opdrachten nog steeds het woord 'insights'.
 > 
 > 
 

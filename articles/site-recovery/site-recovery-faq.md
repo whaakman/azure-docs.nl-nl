@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8c6f577560442f28204b633d5f45f6d4c46ea4b8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen
+# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen (FAQ)
 Dit artikel bevat veelgestelde vragen over Azure Site Recovery. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="general"></a>Algemeen
@@ -106,8 +106,9 @@ Gegevens worden gerepliceerd naar geo-redundante Azure-opslag en u hoeft niet te
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Kan ik Site Recovery-scenario's met een SDK automatiseren?
 Ja. U kunt Site Recovery-werkstromen automatiseren met de Rest API-, PowerShell- of Azure-SDK. Ondersteunde scenario's voor de implementatie van Site Recovery met behulp van PowerShell:
 
-* [Hyper-V-machines in VMMs-clouds repliceren naar Azure PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-* [Hyper-V-machines zonder VMM repliceren naar Azure PowerShell-Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+* [Hyper-V-machines in VMMs-clouds repliceren naar Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
+* [Hyper-V-machines zonder VMM repliceren naar Azure PowerShell-Resource Manager](hyper-v-azure-powershell-resource-manager.md)
+* [VMware repliceren naar Azure met PowerShell-Resource Manager](vmware-azure-disaster-recovery-powershell.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Als ik repliceer naar Azure, wat voor opslagaccount heb ik dan nodig?
 U moet een LRS of GRS-opslagaccount. GRS wordt aanbevolen, omdat de gegevens dan flexibel zijn te gebruiken als er sprake is van regionale uitval of als de primaire regio niet kan worden hersteld. Het account moet zich in dezelfde regio bevinden als de Recovery Services-kluis. Premium-opslag wordt ondersteund voor VMware VM, Hyper-V-machine en replicatie van de fysieke server, wanneer u Site Recovery in Azure portal implementeert.
@@ -123,7 +124,7 @@ Uitgebreide of gekoppelde replicatie wordt niet ondersteund. Deze functie in aan
 Nee, dit wordt niet ondersteund. Aanvragen van deze functie in de [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>Kan ik bepaalde schijven uitsluiten van replicatie?
-Dit wordt ondersteund wanneer u klaar [repliceren van virtuele VMware-machines en Hyper-V-machines](site-recovery-exclude-disk.md) naar Azure met behulp van de Azure-portal.
+Dit wordt ondersteund als u repliceert virtuele VMware-machines en Hyper-V-machines naar Azure met behulp van de Azure-portal.
 
 ### <a name="can-i-replicate-virtual-machines-with-dynamic-disks"></a>Kan ik virtuele machines met dynamische schijven repliceren?
 Dynamische schijven worden ondersteund bij het repliceren van virtuele Hyper-V-machines. Ze worden ook ondersteund als virtuele VMware-machines en fysieke machines repliceren naar Azure. De besturingssysteemschijf moet een standaardschijf zijn.

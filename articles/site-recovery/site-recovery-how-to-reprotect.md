@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Beveiligt van Azure naar een on-premises site
 
@@ -203,8 +203,8 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 3. In **Hoofddoelserver** en **processerver**, selecteer de on-premises hoofddoelserver en de processerver.
 4. Voor **Datastore**, selecteert u het gegevensarchief waarnaar u herstellen van de schijven wilt on-premises. Deze optie wordt gebruikt wanneer de on-premises virtuele machine is verwijderd en moet u nieuwe schijven te maken. Deze optie wordt genegeerd als de schijven is al aanwezig, maar u moet nog steeds een waarde opgeven.
 5. Kies het station bewaren.
-6. Het failbackbeleid voor wordt automatisch geselecteerd.
-7. Klik op **OK** om te beginnen met de beveiligingspoging. Een taak begint met het repliceren van de virtuele machine van Azure naar de lokale site. U kunt de voortgang volgen op de **taken** tabblad.
+6. Het failback-beleid wordt automatisch geselecteerd.
+7. Klik op **OK** om te beginnen met opnieuw beveiligen. Er wordt een taak gestart voor het repliceren van de VM van Azure naar de on-premises site. U kunt de voortgang volgen op het tabblad **Taken**.
 
 Als u wilt herstellen naar een alternatieve locatie (wanneer de on-premises virtuele machine wordt verwijderd), selecteert u de bewaarstation en gegevensopslag die zijn geconfigureerd voor de hoofddoelserver. Wanneer u een failover naar de lokale site, de virtuele VMware-machines in de failback beveiligingsplan het hetzelfde gegevensarchief gebruiken als de hoofddoelserver. Een nieuwe virtuele machine wordt vervolgens gemaakt in vCenter.
 
@@ -214,10 +214,10 @@ Als u herstellen van de virtuele machine in Azure een bestaande on-premises virt
 U kunt ook op het niveau van een herstelplan beveiligt. Een replicatiegroep kan opnieuw worden beveiligd via een herstelplan alleen. Wanneer u met behulp van een herstelplan beveiligt, moet u de waarden opgeven voor elke beveiligde computer.
 
 > [!NOTE]
-> Gebruik de dezelfde hoofddoelserver aan een replicatiegroep beveiligt. Als u een andere hoofddoelserver aan een replicatiegroep beveiligt, opgeven niet de server een gemeenschappelijk punt in tijd.
+> Gebruik de dezelfde hoofddoelserver om een replicatiegroep opnieuw te beveiligen. Als u een andere hoofddoelserver gebruikt om een replicatiegroep opnieuw te beveiligen, kan de server geen gemeenschappelijk tijdstip bieden.
 
 > [!NOTE]
-> De on-premises virtuele machine is uitgeschakeld tijdens de beveiligingspoging. Dit helpt ervoor te zorgen dat gegevens tijdens de replicatie. Zet niet op de virtuele machine nadat beveiligingspoging is voltooid.
+> De on-premises virtuele machine is uitgeschakeld tijdens de beveiligingspoging. Dit helpt ervoor te zorgen dat gegevens tijdens de replicatie consistent blijven. Zet niet op de virtuele machine nadat beveiligingspoging is voltooid.
 
 Nadat de beveiligingspoging is geslaagd, wordt de virtuele machine een beveiligde status invoeren.
 

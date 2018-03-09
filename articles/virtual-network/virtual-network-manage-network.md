@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 6daf69574d45eeb1c91508d082bd7294b6e40f70
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 6829ca9ad5ef76b6a96eed1f2cc461d32c0e51cf
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Maken, wijzigen of verwijderen van een virtueel netwerk
 
@@ -41,7 +41,7 @@ De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit ar
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-1. Selecteer **+ nieuw** > **Networking** > **virtueel netwerk**.
+1. Selecteer **+ maken van een resource** > **Networking** > **virtueel netwerk**.
 2. Typ of Selecteer waarden voor de volgende instellingen en selecteer vervolgens **maken**:
     - **Naam**: de naam moet uniek zijn in de [resourcegroep](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) dat u selecteert voor het maken van het virtuele netwerk in. U kunt de naam niet wijzigen nadat het virtuele netwerk is gemaakt. U kunt meerdere virtuele netwerken maken gedurende een bepaalde periode. Zie voor de naamgeving van suggesties [naamconventies](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). Na een naamgevingsconventie kunt maken het gemakkelijker om meerdere virtuele netwerken te beheren.
     - **Adresruimte**: de adresruimte voor een virtueel netwerk bestaat uit een of meer niet-overlappende-adresbereiken die zijn opgegeven in CIDR-notatie. Het adresbereik dat u definieert mag public of private (RFC 1918). Of u het adresbereik als openbare of particuliere definiëren, is het adresbereik dat bereikbaar is alleen van binnen het virtuele netwerk van onderling verbonden virtuele netwerken en van een on-premises netwerken die u hebt gekoppeld aan het virtuele netwerk. U kunt de volgende adresbereiken niet toevoegen:
@@ -179,5 +179,5 @@ Als u wilt uitvoeren op virtuele netwerken, moet uw account worden toegewezen aa
 
 - Zie voor een virtuele machine maken en vervolgens verbinding met een virtueel netwerk, [een virtueel netwerk maken en verbinding maken met virtuele machines](quick-create-portal.md#create-virtual-machines).
 - Als u wilt filteren van netwerkverkeer tussen subnetten binnen een virtueel netwerk, Zie [netwerkbeveiligingsgroepen maken](virtual-networks-create-nsg-arm-pportal.md).
-- Zie to-peer-een virtueel netwerk met een ander virtueel netwerk, [peering van een virtueel netwerk maken](virtual-network-create-peering.md#portal).
+- Zie to-peer-een virtueel netwerk met een ander virtueel netwerk, [peering van een virtueel netwerk maken](tutorial-connect-virtual-networks-portal.md).
 - Zie voor meer informatie over opties voor het verbinden van een virtueel netwerk met een on-premises netwerk, [over VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

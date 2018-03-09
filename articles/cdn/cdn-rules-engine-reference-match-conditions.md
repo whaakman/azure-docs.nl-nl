@@ -1,5 +1,5 @@
 ---
-title: Voldoen aan bepaalde voorwaarden voor de engine van Azure CDN regels | Microsoft Docs
+title: Azure CDN regels overeen motor | Microsoft Docs
 description: Documentatie bij Azure Content Delivery Network regels motor overeen.
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 08845355be0bfb7e7dde52d19949fee4a68ed54b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Voldoen aan bepaalde voorwaarden voor de regels-engine van Azure CDN
+# <a name="azure-cdn-rules-engine-match-conditions"></a>Voldoen aan de engine van Azure CDN-regels 
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare overeenkomst voorwaarden voor het Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
 
 Het tweede gedeelte van een regel wordt de voorwaarde van de overeenkomst. De voorwaarde van een overeenkomst identificeert specifieke typen aanvragen waarvoor een reeks functies worden uitgevoerd.
@@ -71,7 +71,7 @@ De voorwaarden van de overeenkomst aanvraag identificeren aanvragen op basis van
 Naam | Doel
 -----|--------
 [IP-clientadres](#client-ip-address) | Aanvragen die afkomstig van een bepaald IP-adres zijn identificeert.
-[Cookie-Parameter](#cookie-parameter) | Controleert de cookies die zijn gekoppeld aan elke aanvraag naar de opgegeven waarde.
+[Cookie Parameter](#cookie-parameter) | Controleert de cookies die zijn gekoppeld aan elke aanvraag naar de opgegeven waarde.
 [Cookie Parameter Regex](#cookie-parameter-regex) | Controleert de cookies die zijn gekoppeld aan elke aanvraag voor de opgegeven reguliere expressie.
 [Rand Cname](#edge-cname) | Aanvragen die naar een specifieke rand CNAME verwijzen identificeert.
 [Verwijzende domein](#referring-domain) | Aanvragen die zijn aangeduid van de opgegeven hostnamen identificeert.
@@ -125,7 +125,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
-  - Interne maximumleeftijd forceren
+  - Force Internal Max-Age
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
@@ -166,7 +166,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
-  - Interne maximumleeftijd forceren
+  - Force Internal Max-Age
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
@@ -175,7 +175,7 @@ Belangrijke informatie:
 </br>
 
 ---
-### <a name="cookie-parameter"></a>Cookie-Parameter
+### <a name="cookie-parameter"></a>Cookie Parameter
 De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de Cookie-Parameter overeenkomen met de voorwaarde is voldaan.
 - **Komt overeen met**: vereist een aanvraag voor de opgegeven cookie met een waarde die overeenkomt met ten minste een van de waarden die zijn gedefinieerd in deze overeenkomst voorwaarde bevatten.
 - **Komt niet overeen met**: is vereist dat de aanvraag voldoet aan een van de volgende criteria:
@@ -195,7 +195,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
-  - Interne maximumleeftijd forceren
+  - Force Internal Max-Age
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
@@ -224,7 +224,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
-  - Interne maximumleeftijd forceren
+  - Force Internal Max-Age
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
@@ -249,7 +249,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
-  - Interne maximumleeftijd forceren
+  - Force Internal Max-Age
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
@@ -298,7 +298,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
-  - Interne maximumleeftijd forceren
+  - Force Internal Max-Age
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
@@ -321,26 +321,26 @@ De volgende tabel bevat WURFL mogelijkheden en hun variabelen voor de regelengin
 
 Mogelijkheid | Variabele | Beschrijving | Voorbeeldwaarden
 -----------|----------|-------------|----------------
-De naam van het merk | % {wurfl_cap_brand_name} | Een tekenreeks die de naam van het merk van het apparaat geeft. | Samsung
-Besturingssysteem van het apparaat | % {wurfl_cap_device_os} | Een tekenreeks die aangeeft van het besturingssysteem op het apparaat geïnstalleerd. | IOS
-Versie van apparaatbesturingssysteem | % {wurfl_cap_device_os_version} | Een tekenreeks die het versienummer van het besturingssysteem op het apparaat geïnstalleerd geeft. | 1.0.1
-Dual afdrukstand | % {wurfl_cap_dual_orientation} | Een Booleaanse waarde die aangeeft of het apparaat dual afdrukstand ondersteunt. | waar
-HTML voorkeur DTD | % {wurfl_cap_html_preferred_dtd} | Een tekenreeks die typedefinitie (DTD) voor HTML-inhoud van het mobiele apparaat voorkeur document aangeeft. | geen<br/>xhtml_basic<br/>HTML5
-Afbeelding Inlining | % {wurfl_cap_image_inlining} | Een Boolean die aangeeft of het apparaat ondersteunt met Base64 gecodeerd installatiekopieën. | onwaar
-Android is | % {wurfl_vcap_is_android} | Een Booleaanse waarde die aangeeft of het apparaat Android OS gebruikt. | waar
-IOS is | % {wurfl_vcap_is_ios} | Een Booleaanse waarde die aangeeft of het apparaat iOS gebruikt. | onwaar
-Smart TV is | % {wurfl_cap_is_smarttv} | Een Booleaanse waarde die aangeeft of het apparaat een intelligente TV is. | onwaar
-Smartphone is | % {wurfl_vcap_is_smartphone} | Een Booleaanse waarde die aangeeft of het apparaat een smartphone is. | waar
-Is Tablet | % {wurfl_cap_is_tablet} | Een Booleaanse waarde die aangeeft of het apparaat een tablet is. Deze beschrijving is onafhankelijk van het besturingssysteem. | waar
-Draadloze apparaat | % {wurfl_cap_is_wireless_device} | Een Booleaanse waarde die aangeeft of het apparaat wordt beschouwd als een draadloos apparaat. | waar
-De naam van marketing | % {wurfl_cap_marketing_name} | Een tekenreeks die marketing naam van het apparaat aangeeft. | BlackBerry 8100 Pearl
-Mobiele Browser | % {wurfl_cap_mobile_browser} | Een tekenreeks die aangeeft van de browser die wordt gebruikt voor het aanvragen van inhoud van het apparaat. | Chrome
-Mobiele browserversie | % {wurfl_cap_mobile_browser_version} | Een tekenreeks die de versie van de browser die wordt gebruikt voor het aanvragen van inhoud van het apparaat aangeeft. | 31
-Modelnaam | % {wurfl_cap_model_name} | Een tekenreeks die modelnaam van het apparaat aangeeft. | S3
-Progressief downloaden | % {wurfl_cap_progressive_download} | Een Booleaanse waarde die aangeeft of het apparaat ondersteuning biedt voor het afspelen van audio en video terwijl het nog steeds wordt gedownload. | waar
-Releasedatum | % {wurfl_cap_release_date} | Een tekenreeks die het jaar en maand op waarop het apparaat is toegevoegd aan de database WURFL aangeeft.<br/><br/>Indeling:`yyyy_mm` | 2013_december
-Hoogte van de oplossing | % {wurfl_cap_resolution_height} | Een geheel getal dat van het apparaat hoogte in pixels aangeeft. | 768
-Breedte van de oplossing | % {wurfl_cap_resolution_width} | Een geheel getal dat aangeeft het apparaat de breedte in pixels dat. | 1024
+De naam van het merk | %{wurfl_cap_brand_name} | Een tekenreeks die de naam van het merk van het apparaat geeft. | Samsung
+Besturingssysteem van het apparaat | %{wurfl_cap_device_os} | Een tekenreeks die aangeeft van het besturingssysteem op het apparaat geïnstalleerd. | IOS
+Versie van apparaatbesturingssysteem | %{wurfl_cap_device_os_version} | Een tekenreeks die het versienummer van het besturingssysteem op het apparaat geïnstalleerd geeft. | 1.0.1
+Dual afdrukstand | %{wurfl_cap_dual_orientation} | Een Booleaanse waarde die aangeeft of het apparaat dual afdrukstand ondersteunt. | true
+HTML voorkeur DTD | %{wurfl_cap_html_preferred_dtd} | Een tekenreeks die typedefinitie (DTD) voor HTML-inhoud van het mobiele apparaat voorkeur document aangeeft. | geen<br/>xhtml_basic<br/>html5
+Afbeelding Inlining | %{wurfl_cap_image_inlining} | Een Boolean die aangeeft of het apparaat ondersteunt met Base64 gecodeerd installatiekopieën. | false
+Is Android | %{wurfl_vcap_is_android} | Een Booleaanse waarde die aangeeft of het apparaat Android OS gebruikt. | true
+IOS is | %{wurfl_vcap_is_ios} | Een Booleaanse waarde die aangeeft of het apparaat iOS gebruikt. | false
+Is Smart TV | %{wurfl_cap_is_smarttv} | Een Booleaanse waarde die aangeeft of het apparaat een intelligente TV is. | false
+Smartphone is | %{wurfl_vcap_is_smartphone} | Een Booleaanse waarde die aangeeft of het apparaat een smartphone is. | true
+Is Tablet | %{wurfl_cap_is_tablet} | Een Booleaanse waarde die aangeeft of het apparaat een tablet is. Deze beschrijving is onafhankelijk van het besturingssysteem. | true
+Draadloze apparaat | %{wurfl_cap_is_wireless_device} | Een Booleaanse waarde die aangeeft of het apparaat wordt beschouwd als een draadloos apparaat. | true
+De naam van marketing | %{wurfl_cap_marketing_name} | Een tekenreeks die marketing naam van het apparaat aangeeft. | BlackBerry 8100 Pearl
+Mobile Browser | %{wurfl_cap_mobile_browser} | Een tekenreeks die aangeeft van de browser die wordt gebruikt voor het aanvragen van inhoud van het apparaat. | Chrome
+Mobiele browserversie | %{wurfl_cap_mobile_browser_version} | Een tekenreeks die de versie van de browser die wordt gebruikt voor het aanvragen van inhoud van het apparaat aangeeft. | 31
+Modelnaam | %{wurfl_cap_model_name} | Een tekenreeks die modelnaam van het apparaat aangeeft. | s3
+Progressief downloaden | %{wurfl_cap_progressive_download} | Een Booleaanse waarde die aangeeft of het apparaat ondersteuning biedt voor het afspelen van audio en video terwijl het nog steeds wordt gedownload. | true
+Releasedatum | %{wurfl_cap_release_date} | Een tekenreeks die het jaar en maand op waarop het apparaat is toegevoegd aan de database WURFL aangeeft.<br/><br/>Indeling: `yyyy_mm` | 2013_december
+Hoogte van de oplossing | %{wurfl_cap_resolution_height} | Een geheel getal dat van het apparaat hoogte in pixels aangeeft. | 768
+Breedte van de oplossing | %{wurfl_cap_resolution_width} | Een geheel getal dat aangeeft het apparaat de breedte in pixels dat. | 1024
 
 [Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -355,7 +355,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
-  - Interne maximumleeftijd forceren
+  - Force Internal Max-Age
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
@@ -379,7 +379,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
-  - Interne maximumleeftijd forceren
+  - Force Internal Max-Age
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
@@ -400,7 +400,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
-  - Interne maximumleeftijd forceren
+  - Force Internal Max-Age
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
@@ -427,7 +427,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
-  - Interne maximumleeftijd forceren
+  - Force Internal Max-Age
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd 
 
@@ -455,7 +455,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
-  - Interne maximumleeftijd forceren
+  - Force Internal Max-Age
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
@@ -466,21 +466,21 @@ Belangrijke informatie:
 ---
 ### <a name="request-method"></a>Verzoekmethode
 De voorwaarde van de overeenkomst aanvraagmethode wordt voldaan, alleen wanneer de activa zijn aangevraagd met de geselecteerde aanvraag-methode. De beschikbare aanvraagmethoden zijn:
-- GET
+- TOEVOEGEN
 - HEAD 
 - POST 
 - OPTIES 
 - PUT 
-- DELETE 
+- VERWIJDEREN 
 - TRACERING 
-- VERBINDING MAKEN 
+- CONNECT 
 
 Belangrijke informatie:
 - Standaard kan alleen de methode GET-aanvraag in de cache inhoud op het netwerk genereren. Andere aanvraagmethoden zijn via een proxyserver doorgestuurd via het netwerk.
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
-  - Interne maximumleeftijd forceren
+  - Force Internal Max-Age
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
@@ -498,7 +498,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
-  - Interne maximumleeftijd forceren
+  - Force Internal Max-Age
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
@@ -590,10 +590,10 @@ De voorbeeldconfiguratie van de volgende wordt ervan uitgegaan dat deze overeenk
 Waarde van de specificatie: asp aspx-php html
 
 Deze overeenkomst-voorwaarde is voldaan wanneer URL's die op de volgende extensies eindigen:
-- ASP
-- aspx
+- .asp
+- .aspx
 - .php
-- HTML
+- .html
 
 [Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -754,10 +754,10 @@ De voorbeeld-configuraties in de volgende tabel wordt ervan uitgegaan dat deze o
 Waarde                   | Relatieve    | Resultaat 
 ------------------------|----------------|-------
 */Test.HTML */test.php  | Basis- of oorsprong | Dit patroon is overeenkomt met de aanvragen voor bedrijfsmiddelen die met de naam 'test.html' of 'test.php' in een andere map.
-80ABCD/oorsprong/tekst / *   | Hoofdmap           | Dit patroon komt overeen wanneer de aangevraagde asset voldoet aan de volgende criteria: <br />-Deze moet zich bevinden op een klant-oorsprong aangeroepen 'origin'. <br />-Het relatieve pad moet beginnen met een map met de naam 'text'. Dat wil zeggen, dat de aangevraagde asset ofwel kan zich in de map 'text' of een van de recursieve submappen ervan.
+/80ABCD/origin/text/*   | Hoofdmap           | Dit patroon komt overeen wanneer de aangevraagde asset voldoet aan de volgende criteria: <br />-Deze moet zich bevinden op een klant-oorsprong aangeroepen 'origin'. <br />-Het relatieve pad moet beginnen met een map met de naam 'text'. Dat wil zeggen, dat de aangevraagde asset ofwel kan zich in de map 'text' of een van de recursieve submappen ervan.
 */CSS/* *padinfo /js/*          | Basis- of oorsprong | Dit patroon komt overeen met alle CDN of edge CNAME-URL's die een map CSS- of js bevatten.
 *.jpg *.gif *.png       | Basis- of oorsprong | Dit patroon komt overeen met alle CDN of edge CNAME-URL's die eindigen met .jpg, .gif of PNG. Een andere manier om op te geven van dit patroon is met de [URL-pad extensie overeenkomen met de voorwaarde](#url-path-extension).
-installatiekopieën / * / media / *      | Oorsprong         | Dit patroon is overeenkomt met de CDN of edge CNAME-URL's waarvan het relatieve pad met een map 'afbeeldingen' of 'media begint'. <br />-CDN URL: http:\//wpc.0001.&lt; Domein&gt;/800001/myorigin/images/sales/event1.png<br />-Edge CNAME URL voorbeeld: http:\//cdn.mydomain.com/images/sales/event1.png
+installatiekopieën / * / media / *      | Oorsprong         | Dit patroon is overeenkomt met de CDN of edge CNAME-URL's waarvan het relatieve pad met een map 'afbeeldingen' of 'media begint'. <br />-CDN URL: http:\//wpc.0001.&lt; Domein&gt;/800001/myorigin/images/sales/event1.png<br />- Sample edge CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -783,13 +783,13 @@ Belangrijke informatie:
 
    Teken | URL-codering
    ----------|---------
-   Spatiebalk     | % 20
-   &         | % 25
+   Spatiebalk     | %20
+   &         | %25
 
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
    - Voltooien van de opvulling van de Cache
    - Standaard interne-maximumleeftijd
-   - Interne maximumleeftijd forceren
+   - Force Internal Max-Age
    - Negeren oorsprong No-Cache
    - Interne Max-verouderd
 
@@ -819,8 +819,8 @@ Belangrijke informatie:
 
        Teken | URL-codering
        ----------|---------
-       Spatiebalk     | % 20
-       &         | % 25
+       Spatiebalk     | %20
+       &         | %25
 
 - Geef meer parameterwaarden voor query-tekenreeks door die begrenst elkaar met een spatie. Deze overeenkomst voorwaarde wordt voldaan aan wanneer een aanvraag een van de opgegeven naam/waarde-combinaties bevat.
 
@@ -832,35 +832,35 @@ Belangrijke informatie:
 
      - Deze configuratie komt overeen met de volgende parameters voor query-tekenreeks:
 
-       Parameter1 ValueA =
+       Parameter1=ValueA
     
-       Parameter1 ValueB =
+       Parameter1=ValueB
 
    - Voorbeeld 2:
 
      - Configuratie: 
 
-        Waarde % 20 bis waarde % 20 ter
+        Value%20A Value%20B
 
      - Deze configuratie komt overeen met de volgende parameters voor query-tekenreeks:
 
-       Parameter1 = waarde % 20 bis
+       Parameter1=Value%20A
 
-       Parameter1 = waarde % 20 ter
+       Parameter1=Value%20B
 
 - Deze overeenkomst-voorwaarde is voldaan, alleen wanneer er een exacte overeenkomst voor ten minste één van de opgegeven query-tekenreeks naam/waarde-combinaties.
 
    Bijvoorbeeld, als u de configuratie in het vorige voorbeeld, de parameter naam/waarde combinatie ' Parameter1 ValueAdd = ' kan niet worden gezien als een overeenkomst. Echter, als u een van de volgende waarden opgeven, deze overeenkomt met die naam/waarde-combinatie:
 
    - ValueA ValueB ValueAdd
-   - ValueA * ValueB
+   - ValueA* ValueB
 
 - Gebruik de **negeren geval** optie om te bepalen van de hoofdlettergevoeligheid van tekenreeksvergelijkingen query.
     
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
    - Voltooien van de opvulling van de Cache
    - Standaard interne-maximumleeftijd
-   - Interne maximumleeftijd forceren
+   - Force Internal Max-Age
    - Negeren oorsprong No-Cache
    - Interne Max-verouderd
 
@@ -896,8 +896,8 @@ Belangrijke informatie:
 
    Teken | URL-codering | Waarde
    ----------|--------------|------
-   Spatiebalk     | % 20          | \%20
-   &         | % 25          | \%25
+   Spatiebalk     | %20          | \%20
+   &         | %25          | \%25
 
    Houd er rekening mee dat percentage symbolen moeten worden voorafgegaan.
 
@@ -913,7 +913,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
    - Voltooien van de opvulling van de Cache
    - Standaard interne-maximumleeftijd
-   - Interne maximumleeftijd forceren
+   - Force Internal Max-Age
    - Negeren oorsprong No-Cache
    - Interne Max-verouderd
 
@@ -938,8 +938,8 @@ Belangrijke informatie:
 
      Teken | URL-codering
      ----------|---------
-     Spatiebalk     | % 20
-     &         | % 25
+     Spatiebalk     | %20
+     &         | %25
 
 - Meerdere waarden opgeven door die begrenst elkaar met een spatie.
 
@@ -952,7 +952,7 @@ Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
    - Voltooien van de opvulling van de Cache
    - Standaard interne-maximumleeftijd
-   - Interne maximumleeftijd forceren
+   - Force Internal Max-Age
    - Negeren oorsprong No-Cache
    - Interne Max-verouderd
 
@@ -961,8 +961,8 @@ Het volgende voorbeeld laat zien hoe deze optie werkt in bepaalde situaties:
 
  Naam                 | Beschrijving
  ---------------------|------------
-gebruiker Jan =              | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL is '? gebruiker Jan =. "
-\*gebruiker =\* \*optout =\* | Dit patroon komt overeen wanneer de CDN-URL-query de gebruiker of een optout-parameter bevat.
+user=joe              | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL is '? gebruiker Jan =. "
+\*user=\* \*optout=\* | Dit patroon komt overeen wanneer de CDN-URL-query de gebruiker of een optout-parameter bevat.
 
 [Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 

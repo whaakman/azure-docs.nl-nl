@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: asgang
 ms.openlocfilehash: 9e0c602646009b20c8d4f8a29d55b7f44a089131
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>Problemen met lokale VMware of fysieke server replicatie
 U wordt een specifieke foutbericht weergegeven bij het beveiligen van uw virtuele VMware-machines of fysieke servers met Azure Site Recovery. In dit artikel vindt u details van de meestvoorkomende foutberichten aangetroffen, samen met stappen om op te lossen ze voor probleemoplossing.

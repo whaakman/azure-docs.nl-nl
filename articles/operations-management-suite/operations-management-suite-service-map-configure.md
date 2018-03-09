@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 66023a501360a8d73f88e2fe9682c1bf8f207a07
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2a5e6367cef02b53cb0e24d644b7e3e8025e19ab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers, zoals u ze--beschouwen als onderling verbonden systemen die essentiële services leveren. Service-kaart toont de verbindingen tussen servers, processen en poorten via een TCP-verbinding architectuur waarvoor geen configuratie vereist, behalve de installatie van een agent.
@@ -147,7 +147,7 @@ Voor het implementeren van de Azure VM-extensie via PowerShell, kunt u het volge
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.3"
+$version = "9.4"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -180,7 +180,7 @@ Een zeer eenvoudige wijze om te controleren of de de afhankelijkheid-Agent wordt
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
     "type": "DependencyAgentWindows",
-    "typeHandlerVersion": "9.3",
+    "typeHandlerVersion": "9.4",
     "autoUpgradeMinorVersion": true
 }
 
@@ -315,7 +315,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
-| Besturingssysteemversie | Kernelversie |
+| Versie van het besturingssysteem | Kernelversie |
 |:--|:--|
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
@@ -324,7 +324,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 | 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
-| Besturingssysteemversie | Kernelversie |
+| Versie van het besturingssysteem | Kernelversie |
 |:--|:--|
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -338,7 +338,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 | 6.9 | 2.6.32-696 |
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
-| Besturingssysteemversie | Kernelversie |
+| Versie van het besturingssysteem | Kernelversie |
 |:--|:--|
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
@@ -348,14 +348,14 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 ### <a name="ubuntu-server"></a>Ubuntu Server
 - Aangepaste kernels, met inbegrip van hercompilaties van standaard kernels worden niet ondersteund.
 
-| Besturingssysteemversie | Kernelversie |
+| Versie van het besturingssysteem | Kernelversie |
 |:--|:--|
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
 ### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux met Unbreakable Enterprise Kernel
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
-| Besturingssysteemversie | Kernelversie
+| Versie van het besturingssysteem | Kernelversie
 |:--|:--|
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -365,7 +365,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 
 #### <a name="oracle-linux-5"></a>Oracle Linux 5
 
-| Besturingssysteemversie | Kernelversie
+| Versie van het besturingssysteem | Kernelversie
 |:--|:--|
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
@@ -373,7 +373,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 #### <a name="suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server
 
 #### <a name="suse-linux-11"></a>SUSE Linux 11
-| Besturingssysteemversie | Kernelversie
+| Versie van het besturingssysteem | Kernelversie
 |:--|:--|
 | 11 SP2 | 3.0.101-0.7 |
 | 11 SP3 | 3.0.101-0.47 |

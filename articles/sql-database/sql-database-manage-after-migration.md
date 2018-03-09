@@ -18,11 +18,11 @@ ms.author: Joe.Sack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: b65236fb2d11473d626ee2602237ed4a49380702
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ee1d847e04e1f1fa0472d8702c7022d622b9fe0f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud: uw database in Azure SQL Database beheren
 
@@ -76,7 +76,7 @@ SQL-Database hecht veel waarde beveiliging en Privacy. Beveiliging in SQL-Databa
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>Welke gebruikersverificatiemethoden zijn beschikbaar in SQL-Database?
 Er zijn [twee verificatiemethoden](sql-database-control-access.md#authentication) aangeboden in SQL-Database: 
-- [Azure Active Directory-verificatie](sql-database-aad-authentication.md)
+- [Azure Active Directory Authentication](sql-database-aad-authentication.md)
 - SQL-verificatie. 
 
 De traditionele windows-verificatie wordt niet ondersteund. Azure Active Directory (AD) is een gecentraliseerde service voor identiteits- en toegangsbeheer. Dit kunt u heel gemakkelijk een eenmalige aanmelding toegang (SSO) opgeven voor alle medewerkers in uw organisatie. Dit betekent dat de referenties worden gedeeld door alle Azure-services voor eenvoudigere verificatie. Biedt ondersteuning voor AAD [MFA (Multi-factor Authentication)](sql-database-ssms-mfa-authentication.md) en een met een [enkele muisklikken](../active-directory/connect/active-directory-aadconnect-get-started-express.md) AAD kan worden geïntegreerd met Windows Server Active Directory. SQL-verificatie werkt precies zoals u hebt gebruikt deze in het verleden. U geeft een gebruikersnaam en wachtwoord en u kunt gebruikers met een database op een bepaalde logische server verifiëren. Hierdoor kunnen ook SQL-Database en SQL Data Warehouse te bieden multi-factor authentication en Gast gebruikersaccounts in Azure AD-domein. Als u een Active Directory on-premises al hebt, kunt u de map met Azure Active Directory om uw directory naar Azure uitbreiden federeren.
@@ -210,7 +210,7 @@ In SQL-Database kunt u gebruikmaken van de intelligent inzichten van het platfor
 
 U kunt ook waarschuwingen door de bron van deze grafiek configureren. Deze waarschuwingen kunnen u reageren op de voorwaarden van de resource met een e-mailbericht, het schrijven naar een eindpunt HTTPS/HTTP- of een actie uitvoert. Zie de [databaseprestaties bewaken in SQL-Database](sql-database-single-database-monitor.md) voor gedetailleerde instructies.
 
-- **Dynamische beheerweergaven**: U kunt een query de [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamische Beheerweergave resource verbruik statistieken geschiedenis van het afgelopen uur retourneren en de [sys.resource_stats ](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system catalogusweergave geschiedenis retourneren voor de afgelopen 14 dagen.
+- **Dynamische beheerweergaven**: U kunt een query de [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamische Beheerweergave resource verbruik statistieken geschiedenis van het afgelopen uur retourneren en de [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system catalogusweergave geschiedenis retourneren voor de afgelopen 14 dagen.
 - **Query Performance Insight**: [Query Performance Insight](sql-database-query-performance.md) kunt u een historisch overzicht van de top-resource verbruikende query's en langlopende query's voor een specifieke database. U kunt snel TOP-query's door Resourcegebruik, duur en frequentie van de uitvoering van identificeren. U kunt query's volgen en regressie detecteren. Dit onderdeel vereist [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) worden ingeschakeld en actief is voor de database.
 
    ![Inzicht in queryprestaties](./media/sql-database-manage-after-migration/query-performance-insight.png)
@@ -231,7 +231,7 @@ Zie voor een uitgebreide set met aanbevelingen voor het afstemmen van prestatiep
 ### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-performance-level"></a>Hoe voorkom ik dat ik gebruik het juiste prijscategorie en prestatieniveau serviceniveau
 SQL-Database biedt verschillende servicecategorieën Basic, Standard en Premium. Elke servicelaag krijgt u een gegarandeerde voorspelbare prestaties gekoppeld aan dit serviceniveau. Afhankelijk van uw werkbelasting wellicht bursts van activiteit waar uw Resourcegebruik het maximum van het huidige prestatieniveau die u in mogelijk bereikt. In dergelijke gevallen is dit handig voor het opnieuw opstarten door te evalueren of eventuele afstemmen kunt (bijvoorbeeld toe te voegen of te wijzigen van een index enz.). Als u nog steeds limiet problemen ondervindt, kunt u verplaatsen naar een hoger prestatieniveau of serviceniveau. 
 
-|**Serviceniveau**|**Veelvoorkomende gebruiksscenario 's**|
+|**Service level**|**Veelvoorkomende gebruiksscenario 's**|
 |---|---|
 |**Basic**|Toepassingen met een enkele gebruikers en een database die geen hoge eisen voor gelijktijdigheid van taken, schaal en prestaties. |
 |**Standard**|Toepassingen met een aanzienlijke gelijktijdigheid, schaal en prestaties vereisten, samen met een laag tot gemiddeld i/o-vereisten. |
@@ -260,7 +260,7 @@ SQL-Database maakt gebruik van sommige smart technieken die toe te staan om bepa
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Hoe ik gegevens tussen de SQL-Database en SQL Server synchroniseren?
 Er zijn verschillende manieren om dit te bereiken: 
 - **[Synchroniseren van gegevens](sql-database-sync-data.md)**  – met deze functie kunt u gegevens in twee richtingen tussen meerdere lokale SQL Server-databases en SQL-Database te synchroniseren. Als u wilt synchroniseren met on-premises SQL Server-databases, die u wilt installeren en sync-agent configureren op een lokale computer en de uitgaande TCP-poort 1433 openen.
-- **[Transactiereplicatie](https://azure.microsoft.com/en-us/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – met transactiereplicatie kunt u uw gegevens van on-premises naar Azure SQL DB synchroniseren met de on-premises wordt van de uitgever en de Azure SQL DB, wordt de abonnee. Alleen voor deze installatie wordt nu ondersteund. Zie voor meer informatie over het migreren van uw gegevens van on-premises naar Azure SQL met minimale downtime: [transactiereplicatie gebruik](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Transactiereplicatie](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – met transactiereplicatie kunt u uw gegevens van on-premises naar Azure SQL DB synchroniseren met de on-premises wordt van de uitgever en de Azure SQL DB, wordt de abonnee. Alleen voor deze installatie wordt nu ondersteund. Zie voor meer informatie over het migreren van uw gegevens van on-premises naar Azure SQL met minimale downtime: [transactiereplicatie gebruik](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [SQL-Database](sql-database-technical-overview.md).

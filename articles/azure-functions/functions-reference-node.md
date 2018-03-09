@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: f613e480f6699b323c18402f01873e565768f10f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-handleiding voor ontwikkelaars
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -120,7 +120,7 @@ Hiermee kunt u om te schrijven naar de logboeken van de streaming-console op het
 | ---------------------- | ------------------------------------------ |
 | **fout (_bericht_)**   | Schrijft naar foutniveau registreren of lager.   |
 | **waarschuwen (_bericht_)**    | Schrijft naar waarschuwingsniveau registreren of lager. |
-| **Info (_bericht_)**    | Schrijft naar info-niveau registreren of lager.    |
+| **info(_message_)**    | Schrijft naar info-niveau registreren of lager.    |
 | **uitgebreide (_bericht_)** | Schrijft naar de uitgebreide logboekregistratie.           |
 
 Het volgende voorbeeld wordt geschreven naar de console op het niveau voor het traceren van waarschuwing:
@@ -208,11 +208,11 @@ De `request` object heeft de volgende eigenschappen:
 
 | Eigenschap      | Beschrijving                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _hoofdtekst_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
-| _headers_     | Een object dat de aanvraagheaders bevat.                   |
-| _methode_      | De HTTP-methode van de aanvraag.                                |
+| _body_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
+| _Headers_     | Een object dat de aanvraagheaders bevat.                   |
+| _Methode_      | De HTTP-methode van de aanvraag.                                |
 | _originalUrl_ | De URL van de aanvraag.                                        |
-| _parameters voor_      | Een object dat de routering parameters van de aanvraag bevat. |
+| _params_      | Een object dat de routering parameters van de aanvraag bevat. |
 | _query_       | Een object dat de queryparameters bevat.                  |
 | _rawBody_     | De hoofdtekst van het bericht als een tekenreeks.                           |
 
@@ -223,8 +223,8 @@ De `response` object heeft de volgende eigenschappen:
 
 | Eigenschap  | Beschrijving                                               |
 | --------- | --------------------------------------------------------- |
-| _hoofdtekst_    | Een object dat de hoofdtekst van het antwoord bevat.         |
-| _headers_ | Een object met de antwoordheaders.             |
+| _body_    | Een object dat de hoofdtekst van het antwoord bevat.         |
+| _Headers_ | Een object met de antwoordheaders.             |
 | _isRaw_   | Hiermee wordt aangegeven dat opmaak voor het antwoord is overgeslagen.    |
 | _status_  | De HTTP-statuscode van het antwoord.                     |
 
@@ -265,7 +265,15 @@ Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en antwoord-objecten 
     ```  
 
 ## <a name="node-version-and-package-management"></a>Knooppunt-versie en pakket-management
-De versie van het knooppunt is momenteel vergrendeld op `6.5.0`. We bent voor het onderzoeken van het toevoegen van ondersteuning voor meer versies en waardoor het worden geconfigureerd.
+
+De volgende tabel ziet u de Node.js-versie die door elke primaire versie van de runtime van Functions gebruikt:
+
+| Versie van de functies | Versie van Node.js | 
+|---|---|
+| 1.x | 6.11.2 (vergrendeld door de runtime) |
+| 2.x  |> = 8.4.0 met huidige TNS 8.9.4 aanbevolen. De versie ingesteld met behulp van de WEBSITE_DEFAULT_NODE_VERSION [app-instelling](functions-how-to-use-azure-function-app-settings.md#settings).|
+
+U kunt zien dat de huidige versie die door de runtime wordt gebruikt door af te drukken `process.version` van elke functie.
 
 De volgende stappen kunt u pakketten opnemen in uw app in functie: 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 4b9714bc456ad28d9dd46742ca16f52e68c61399
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6aaeaaacdc9ee67ebbed3ea3090455dde2357c3d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -298,40 +298,40 @@ Als u wilt gebruiken voor de inhoud van stdout.txt in downstream-activiteiten, k
   > - De activity.json, linkedServices.json en datasets.json worden opgeslagen in de runtime-map van de Batch-taak. In dit voorbeeld de activity.json, linkedServices.json en datasets.json worden opgeslagen in "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/ ' pad. Indien nodig, moet u deze afzonderlijk opschonen. 
   > - Blijft in klant gedefinieerd voor de gekoppelde Services maakt gebruik van Self-Hosted integratie Runtime, de gevoelige gegevens, zoals sleutels of wachtwoorden zijn versleuteld door de Runtime Self-Hosted integratie om ervoor te zorgen referentie persoonlijke netwerkomgeving. Sommige velden gevoelige mogelijk ontbreekt wanneer waarnaar wordt verwezen door de aangepaste toepassingscode die op deze manier. Gebruik SecureString in extendedProperties in plaats van verwijzing naar de gekoppelde Service, indien nodig. 
 
-## <a name="difference-between-custom-activity-in-azure-data-factory-version-2-and-custom-dotnet-activity-in-azure-data-factory-version-1"></a>Verschil tussen aangepaste activiteit in Azure Data Factory versie 2 en DotNet-activiteit in Azure Data Factory versie 1 (aangepast)
+## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a>Vergelijk v2 aangepaste activiteit en versie 1 (aangepast) DotNet activiteit
 
-  In Azure Data Factory versie 1, u (aangepast) DotNet activiteit code implementeren met het maken van een .net Class Library-project met een klasse die de Execute-methode van de IDotNetActivity-interface implementeert. De gekoppelde Services, gegevenssets en uitgebreide eigenschappen in (aangepast) DotNet activiteit JSON-nettolading worden doorgegeven aan de methode kan worden uitgevoerd als sterk getypeerde objecten. Raadpleeg voor meer informatie, [DotNet in versie 1 (aangepast)](v1/data-factory-use-custom-activities.md). Vanwege deze implementatie uw aangepaste code moet worden geschreven in .net Framework 4.5.2 en worden uitgevoerd op de knooppunten op basis van Windows Azure Batch-Pool. 
+  In Azure Data Factory versie 1, u een activiteit van de DotNet (aangepast) implementeren met het maken van een .net Class Library-project met een klasse die implementeert de `Execute` methode van de `IDotNetActivity` interface. De gekoppelde Services, gegevenssets en uitgebreide eigenschappen in de JSON-nettolading van een activiteit van de DotNet (aangepast) zijn doorgegeven aan de methode kan worden uitgevoerd als objecten sterk getypeerd. Zie voor meer informatie over het gedrag van versie 1 [DotNet in versie 1 (aangepast)](v1/data-factory-use-custom-activities.md). Vanwege deze implementatie uw code van versie 1 DotNet activiteit heeft als doel in .net Framework 4.5.2. De versie 1 DotNet activiteit heeft ook worden uitgevoerd op de knooppunten op basis van Windows Azure Batch-Pool. 
 
-  In Azure Data Factory-V2 aangepaste activiteit, bent u niet verplicht voor het implementeren van een .net-interface. U kunt nu rechtstreeks opdrachten, scripts, uitvoeren en uw eigen aangepaste code in acht genomen als uitvoerbaar bestand. U bereiken doet door te geven van de eigenschap van de opdracht samen met de eigenschap folderPath. Aangepaste activiteit uploadt het uitvoerbare bestand en de afhankelijkheden in folderpath en voert de opdracht voor u. 
+  In de Azure Data Factory V2 aangepaste activiteit, u niet vereist voor het implementeren van een .net-interface. U kunt nu rechtstreeks uitvoeren opdrachten, scripts en uw eigen aangepaste code, die is gecompileerd als een uitvoerbaar bestand. Voor het configureren van deze implementatie, die u opgeeft de `Command` eigenschap in combinatie met de `folderPath` eigenschap. De aangepaste activiteit uploadt het uitvoerbare bestand en de bijbehorende afhankelijkheden te `folderpath` en voert u de opdracht voor u. 
 
-  De gekoppelde Services, gegevenssets (gedefinieerd in referenceObjects) en uitgebreide eigenschappen die zijn gedefinieerd in JSON-nettolading van aangepaste activiteit toegankelijk zijn voor uw uitvoerbaar bestand als JSON-bestanden. U kunt toegang tot de vereiste eigenschappen met JSON serialisatiefunctie zoals weergegeven in de voorgaande SampleApp.exe codevoorbeeld. 
+  De gekoppelde Services, gegevenssets (gedefinieerd in referenceObjects) en uitgebreide eigenschappen die zijn gedefinieerd in de JSON-nettolading van een Data Factory-v2 die aangepaste activiteit kan worden geopend door uw uitvoerbaar bestand als JSON-bestanden. U kunt toegang tot de vereiste eigenschappen met behulp van een JSON-serialisatiefunctie zoals weergegeven in de voorbeeldcode van de voorgaande SampleApp.exe. 
 
-  Met de wijzigingen die zijn geïntroduceerd in Azure Data Factory V2 aangepaste activiteit, bent u uw bedrijfslogica aangepaste code schrijven in uw voorkeurstaal en ze worden uitgevoerd op Windows en Linux-besturingssystemen wordt ondersteund door Azure Batch. 
+  U kunt met de wijzigingen in de Data Factory V2 aangepaste activiteit, de logica van uw aangepaste code schrijven in uw voorkeurstaal en uitvoeren voor Windows en Linux-besturingssystemen wordt ondersteund door Azure Batch. 
 
-  De volgende tabel beschrijft de verschillen tussen Data Factory V2 aangepaste activiteit en de Data Factory versie 1 (aangepast) DotNet activiteit: 
+  De volgende tabel beschrijft de verschillen tussen de Data Factory V2 aangepaste activiteit en de Data Factory versie 1 (aangepast) DotNet activiteit: 
 
 
 |Verschillen      |versie 2 aangepaste activiteit      | versie 1 (aangepast) DotNet activiteit      |
 | ---- | ---- | ---- |
-|Hoe aangepaste regels is gedefinieerd      |Door te voeren uitvoerbare bestanden (bestaande of implementeren van uw eigen uitvoerbare bestand)      |Door het implementeren van een .net-DLL-bestand      |
+|Hoe aangepaste regels is gedefinieerd      |Door op te geven van een uitvoerbaar bestand      |Door het implementeren van een .net-DLL-bestand      |
 |Uitvoeringsomgeving van het aangepaste regels      |Windows- of Linux      |Windows (.Net Framework 4.5.2)      |
-|Scripts uitvoeren      |Ondersteuning voor het uitvoeren van scripts rechtstreeks (bijvoorbeeld "cmd /c echo Hallo wereld' op de virtuele machine van Windows)      |Implementatie in de .net-DLL-bestand is vereist      |
+|Scripts uitvoeren      |Ondersteunt het uitvoeren van scripts rechtstreeks (bijvoorbeeld "cmd /c echo Hallo wereld' op de virtuele machine van Windows)      |Implementatie in de .net-DLL-bestand is vereist      |
 |DataSet vereist      |Optioneel      |Vereist voor het koppelen van activiteiten en informatie doorgeven      |
 |Informatie van de activiteit aan aangepaste regels doorgeven      |Via ReferenceObjects (LinkedServices en gegevenssets) en ExtendedProperties (aangepaste eigenschappen)      |Via ExtendedProperties (aangepaste eigenschappen), invoer en Uitvoergegevenssets      |
-|Ophalen van informatie aangepaste regels      |Activity.json linkedServices.json en datasets.json opgeslagen in dezelfde map van het uitvoerbare bestand parseren      |Via .net SDK (.Net Frame 4.5.2)      |
+|Ophalen van informatie aangepaste regels      |Parseert activity.json linkedServices.json en opgeslagen in dezelfde map van het uitvoerbare bestand datasets.json      |Via .net SDK (.Net Frame 4.5.2)      |
 |Logboekregistratie      |Schrijft rechtstreeks naar STDOUT      |Implementatie van berichtenlogboek in .net DLL-bestand      |
 
 
-  Als u bestaande geschreven voor versie 1 (aangepast) DotNet activiteit .net-code hebt, moet u uw code te werken met versie 2 aangepaste activiteit met de volgende richtlijnen op hoog niveau wijzigen:  
+  Als u bestaande geschreven voor een versie 1 (aangepast) DotNet activiteit .net-code hebt, moet u uw code te werken met een versie 2 aangepaste activiteit wijzigen. Werk uw code door deze op hoog niveau richtlijnen te volgen:  
 
    - Het project wijzigen vanuit een .net-klassenbibliotheek naar een Console-App. 
-   - Start uw toepassing met de Main-methode, de Execute-methode van de interface IDotNetActivity is niet langer vereist. 
-   - Lezen en parseren van de gekoppelde Services, gegevenssets en activiteit met JSON serialisatiefunctie in plaats van als sterk getypeerde objecten en de waarden van de vereiste eigenschappen doorgeven aan de logica van uw belangrijkste aangepaste code. Raadpleeg de voorgaande SampleApp.exe code als voorbeeld. 
-   - Berichtenlogboek object niet langer wordt ondersteund, uitvoerbare uitvoer kan afdrukken in de console en wordt opgeslagen in stdout.txt. 
-   - Microsoft.Azure.Management.DataFactories NuGet-pakket is niet langer vereist. 
-   - De code compileren, afhankelijkheden en uitvoerbaar bestand uploaden naar Azure Storage en het pad in de eigenschap folderPath definiëren. 
+   - Start uw toepassing met de `Main` methode. De `Execute` methode van de `IDotNetActivity` interface is niet langer vereist. 
+   - Lezen en parseren van de gekoppelde Services, gegevenssets en activiteit met een JSON-serialisatiefunctie en niet als objecten sterk getypeerd. De waarden van de vereiste eigenschappen doorgeven aan de logica van uw belangrijkste aangepaste code. Raadpleeg de voorafgaande SampleApp.exe code als voorbeeld. 
+   - Het logboek-object is niet meer ondersteund. De uitvoer van uw uitvoerbare bestand kan worden afgedrukt aan de console en wordt opgeslagen in stdout.txt. 
+   - Het Microsoft.Azure.Management.DataFactories NuGet-pakket is niet langer vereist. 
+   - De code compileren, het uitvoerbare bestand en de bijbehorende afhankelijkheden uploaden naar Azure Storage en definiëren van het pad in de `folderPath` eigenschap. 
 
-Voor een compleet voorbeeld van hoe de end-to-end-DLL en pijplijn voorbeeld in de Data Factory-versie 1 document beschreven [aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) opnieuw kan worden geschreven in de Data Factory versie 2 aangepaste activiteit stijl. Verwijzen naar een [Data Factory versie 2 aangepaste activiteit voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Voor een compleet voorbeeld van hoe de end-to-end-DLL en pijplijn voorbeeld in de Data Factory-versie 1 artikel beschreven [aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) opnieuw kan worden geschreven als een aangepaste activiteit voor Data Factory-v2, Zie [ Data Factory versie 2 aangepaste activiteit voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatische schaling van Azure Batch
 U kunt ook maken met een Azure Batch-pool met **automatisch schalen** functie. U kunt bijvoorbeeld een azure batch-pool maken met 0 toegewezen virtuele machines en een formule voor automatisch schalen is op basis van het aantal in behandeling zijnde taken. 

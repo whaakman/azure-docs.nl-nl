@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 82a0a336e8315d7fe9862e22e47a6847f94bfcb1
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 91adff331d9a9a79af0869fda6392fc52c78cac2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Een virtuele Linux-machine maken met het versnelde netwerken
 
 > [!IMPORTANT] 
-> Virtuele machines moeten worden gemaakt met de versnelde netwerken ingeschakeld. Deze functie kan niet worden ingeschakeld op de bestaande virtuele machines. U kunt de stappen hieronder om in te schakelen versnelde netwerken:
+> Virtuele machines moeten worden gemaakt met de versnelde netwerken ingeschakeld. Deze functie kan niet worden ingeschakeld op de bestaande virtuele machines. Voer de volgende stappen uit om in te schakelen versnelde netwerken:
 >   1. Verwijder de virtuele machine.
 >   2. De virtuele machine opnieuw maken met de versnelde netwerken ingeschakeld.
 >
@@ -65,6 +65,8 @@ De volgende beperkingen bestaan wanneer deze wordt met deze mogelijkheid:
 * **Interface maken van een netwerk:** Accelerated netwerken kan alleen worden ingeschakeld voor een nieuwe NIC. Deze kan niet worden ingeschakeld voor een bestaande NIC.
 * **Maken van VM:** een NIC met versnelde netwerken ingeschakeld kan alleen worden gekoppeld aan een VM wanneer de virtuele machine wordt gemaakt. De NIC kan niet worden gekoppeld aan een bestaande virtuele machine. Als de virtuele machine toe te voegen aan de bestaande beschikbaarheidsset is ingesteld, moeten alle virtuele machines in de beschikbaarheidsset ook versnelde netwerken ingeschakeld.
 * **Implementatie via Azure Resource Manager alleen:** virtuele machines (klassiek) kan niet worden geïmplementeerd met versnelde toegang.
+
+Hoewel dit artikel stappen bevat voor het maken van een virtuele machine met versnelde netwerken met de Azure CLI, kunt u ook [maken van een virtuele machine met versnelde netwerken met de Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bij het maken van een virtuele machine met een ondersteund besturingssysteem en de VM-grootte in de portal onder **instellingen**, selecteer **ingeschakeld** onder **versnelde netwerken**. Nadat de virtuele machine is gemaakt, moet u de instructies in voltooien [Controleer of de versnelde netwerken is ingeschakeld](#confirm-that-accelerated-networking-is-enabled).
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 

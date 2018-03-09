@@ -3,153 +3,164 @@ title: Lokale Git-implementatie op de Azure App Service
 description: Informatie over het inschakelen van lokale Git-implementatie in Azure App Service.
 services: app-service
 documentationcenter: 
-author: dariagrigoriu
+author: cephalin
 manager: cfowler
-editor: mollybos
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2016
-ms.author: dariagrigoriu
-ms.openlocfilehash: 948c54a2e9be2260d0a7d2cce31b67ffbbd23d03
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.date: 03/05/2018
+ms.author: dariagrigoriu;cephalin
+ms.openlocfilehash: 4cbe26055bdbf906223a327ab8cf94bebe9e7998
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokale Git-implementatie op de Azure App Service
 
-Deze zelfstudie leert u hoe u uw app implementeert [Azure Web Apps](app-service-web-overview.md) van een Git-opslagplaats op uw lokale computer. App Service ondersteunt deze methode met de **lokale Git** Implementatieoptie wordt gebruikt in de [Azure-portal].
+Deze instructies handleiding laat zien hoe uw code te implementeren [Azure App Service](app-service-web-overview.md) van een Git-opslagplaats op uw lokale computer.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie hebt u het volgende nodig:
+De stappen in deze handleiding instructies:
 
-* GIT. U kunt de installatie van de binaire downloaden [hier](http://www.git-scm.com/downloads).
-* Basiskennis van Git.
-* Een Microsoft Azure-account. Als u geen account hebt, kunt u zich [aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
+* [Installeer Git](http://www.git-scm.com/downloads).
+* Onderhouden van een lokale Git-opslagplaats met code die u wilt implementeren.
+
+Als u een voorbeeld-opslagplaats wilt volgen, voer de volgende opdracht in uw lokale terminalvenster:
+
+```bash
+git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
+```
+
+## <a name="prepare-your-repository"></a>Voorbereiden van uw opslagplaats
+
+Zorg ervoor dat de hoofdmap van uw opslagplaats de juiste bestanden in uw project heeft.
+
+| Runtime | Root directory-bestanden |
+|-|-|
+| ASP.NET (alleen Windows) | _*.sln_, _*.csproj_, of _default.aspx_ |
+| ASP.NET Core | _*.sln_ of _*.csproj_ |
+| PHP | _index.php_ |
+| Ruby (alleen voor Linux) | _Gemfile_ |
+| Node.js | _Server.js_, _app.js_, of _package.json_ met een startscript |
+| Python (alleen Windows) | _\*.PY_, _requirements.txt_, of _runtime.txt_ |
+| HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_, of  _iisstart.htm_ |
+| Webtaken | _\<job_name > / uitvoeren. \<extensie >_ onder _App\_gegevens/taken/continue_ (voor doorlopende webtaken) of _App\_gegevens, taken/geactiveerd_ (voor geactiveerd WebJobs). Zie voor meer informatie [Kudu WebJobs-documentatie](https://github.com/projectkudu/kudu/wiki/WebJobs) |
+| Functies | Zie [continue implementatie voor Azure Functions](../azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements). |
+
+U kunt opnemen voor het aanpassen van uw implementatie, een _.deployment_ bestand in de hoofdmap van de opslagplaats. Zie voor meer informatie [implementaties aanpassen](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) en [aangepaste implementatiescript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
 > [!NOTE]
-> Als u wilt dat aan de slag met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/), waar u direct een tijdelijke app kunt maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
+> Zorg ervoor dat `git commit` alle wijzigingen die u wilt implementeren.
+>
 >
 
-## <a name="Step1"></a>Stap 1: Maak een lokale opslagplaats
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-De volgende taken uitvoeren om een nieuwe Git-opslagplaats maken.
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user.md)]
 
-1. Start een opdrachtregelprogramma, zoals **Git Bash** (Windows) of **Bash** (Unix-Shell). Op OS X-systemen u toegang hebt tot de opdrachtregel via de **Terminal** toepassing.
-1. Ga naar de map waar de inhoud voor het implementeren van geplaatst worden.
-1. Gebruik de volgende opdracht in een nieuwe Git-opslagplaats te initialiseren:
+## <a name="enable-git-for-your-app"></a>Git inschakelen voor uw app
 
-  ```bash
-  git init
-  ```
+Inschakelen van Git-implementatie voor een bestaande App Service-app [ `az webapp deployment source config-local-git` ](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git) in de Cloud-Shell.
 
-## <a name="Step2"></a>Stap 2: Uw inhoud doorvoeren
+```azurecli-interactive
+az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
+```
 
-App Service biedt ondersteuning voor toepassingen die zijn gemaakt in diverse programmeertalen.
+Als u wilt maken in plaats daarvan een Git-app, voer [ `az webapp create` ](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) in de Cloud-Shell met de `--deployment-local-git` parameter.
 
-1. Als uw opslagplaats al de inhoud niet opnemen, een statisch HTML-bestand toevoegen als volgt; of sla deze stap over:
-   * Start een teksteditor en maak een nieuw bestand met de naam **index.html** in de hoofdmap van de Git-opslagplaats
-   * De volgende tekst toevoegen als de inhoud van de index.html bestand en sla het: *Hello Git!*
-1. Vanaf de opdrachtregel, controleert u of u onder de hoofdmap van de Git-opslagplaats. Gebruik vervolgens de volgende opdracht om bestanden naar uw opslagplaats toevoegen:
+```azurecli-interactive
+az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
+```
 
-        git add -A 
-1. Voer vervolgens de wijzigingen aan de opslagplaats met behulp van de volgende opdracht:
+De `az webapp create` opdracht geeft u iets soortgelijks als in de volgende uitvoer:
 
-        git commit -m "Hello Azure App Service"
+```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
 
-## <a name="Step3"></a>Stap 3: De App Service-app-opslagplaats inschakelen
+## <a name="deploy-your-project"></a>Uw project implementeren
 
-De volgende stappen om in te schakelen van een Git-opslagplaats voor uw App Service-app uitvoeren.
+Voeg, eenmaal terug in het _lokale terminalvenster_, een externe Azure-instantie toe aan uw lokale Git-opslagplaats. Vervang  _\<url >_ met de URL van de externe Git die u hebt gekregen [Git inschakelen voor uw app](#enable-git-for-you-app).
 
-1. Meld u aan bij [Azure-portal].
-1. Klik in de weergave van uw App Service-app op **instellingen > implementatiebron**. Klik op **bron kiezen**, klikt u vervolgens op **lokale Git-opslagplaats**, en klik vervolgens op **OK**.
+```bash
+git remote add azure <url>
+```
 
-    ![Lokale Git-opslagplaats](./media/app-service-deploy-local-git/local_git_selection.png)
+Push naar de externe Azure-instantie om uw app te implementeren met de volgende opdracht. Zorg er als u om een wachtwoord wordt gevraagd voor dat u het wachtwoord dat u hebt gemaakt bij [Een implementatiegebruiker configureren](#configure-a-deployment-user) gebruikt en niet het wachtwoord dat u gebruikt om u aan te melden bij Azure Portal.
 
-1. Als dit de eerste keer instellen van een opslagplaats in Azure, moet u aanmeldingsreferenties voor het maken. U kunt ze zich aanmelden bij de Azure-opslagplaats en push wijzigingen vanaf uw lokale Git-opslagplaats. Uit uw Web-App-weergave, klikt u op **instellingen > implementatiereferenties**, configureert u uw implementatie gebruikersnaam en wachtwoord. Wanneer u bent klaar, klikt u op **opslaan**.
+```bash
+git push azure master
+```
 
-    ![](./media/app-service-deploy-local-git/deployment_credentials.png)
+Mogelijk ziet u runtime-specifieke automatiseren met behulp van de uitvoer, zoals MSBuild voor ASP.NET-, `npm install` voor Node.js, en `pip install` voor Python. 
 
-## <a name="Step4"></a>Stap 4: Implementeer uw project
+Zodra de implementatie is voltooid, uw app in de Azure-portal hebt nu een record van uw `git push` in de **implementatieopties** pagina.
 
-Gebruik de volgende stappen voor het publiceren van uw app in App Service met lokale Git.
+![](./media/app-service-deploy-local-git/deployment_history.png)
 
-1. In de weergave van uw Web-App in de Azure portal op **instellingen > eigenschappen** voor de **Git-URL**.
+Blader naar uw app om te controleren dat de inhoud wordt gedistribueerd.
 
-    ![](./media/app-service-deploy-local-git/git_url.png)
+## <a name="troubleshooting"></a>Problemen oplossen
 
-    **GIT-URL** is de externe verwijzing om te implementeren op van uw lokale opslagplaats. U gebruikt deze URL in de volgende stappen.
-1. Via de opdrachtregel, controleert u of u in de hoofdmap van uw lokale Git-opslagplaats.
-1. Gebruik `git remote` om toe te voegen van de externe verwijzing die worden vermeld in **Git-URL** uit stap 1. De opdracht ziet er ongeveer als volgt uit:
-
-    ```bash
-    git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
-    ```
-
-   > [!NOTE]
-   > De **externe** opdracht voegt een benoemde verwijzing naar een externe opslagplaats. In dit voorbeeld wordt een verwijzing met de naam 'azure' voor uw web-app-opslagplaats gemaakt.
-   >
-
-1. De inhoud van uw App service met behulp van de nieuwe push **azure** externe die u hebt gemaakt.
-
-    ```bash
-    git push azure master
-    ```
-
-    U wordt gevraagd om het wachtwoord dat u eerder hebt gemaakt wanneer u uw referenties voor implementatie in de Azure portal opnieuw. Voer het wachtwoord (Let erop dat Gitbash niet sterretjes naar de console biedt echo als het type van uw wachtwoord). 
-1. Ga terug naar uw app in de Azure-portal. Een logboekvermelding van de meest recente push moet worden weergegeven in de **implementaties** weergeven.
-
-    ![](./media/app-service-deploy-local-git/deployment_history.png)
-
-1. Klik op de **Bladeren** knop aan de bovenkant van de webpagina van de app om te controleren of de inhoud is geïmplementeerd.
-
-## <a name="Step5"></a>Problemen oplossen
-
-Hier volgen enkele fouten of problemen meestal opgetreden bij het gebruik van Git publiceren naar een App Service-app in Azure:
+Hier volgen algemene fouten of problemen bij het gebruik van Git publiceren naar een App Service-app in Azure:
 
 ---
-**Symptoom**:`Unable to access '[siteURL]': Failed to connect to [scmAddress]`
+**Symptoom**: `Unable to access '[siteURL]': Failed to connect to [scmAddress]`
 
-**Oorzaak**: deze fout kan optreden als de app niet actief is.
+**Oorzaak**: deze fout kan optreden als de app niet actief en werkend.
 
 **Resolutie**: de app te starten in de Azure portal. GIT-implementatie is niet beschikbaar wanneer de Web-App is gestopt.
 
 ---
-**Symptoom**:`Couldn't resolve host 'hostname'`
+**Symptoom**: `Couldn't resolve host 'hostname'`
 
 **Oorzaak**: deze fout kan optreden als de gegevens hebt ingevoerd bij het maken van de 'azure' externe onjuist is.
 
 **Resolutie**: Gebruik de `git remote -v` opdracht om een lijst van alle afstandsbedieningen, samen met de bijbehorende URL. Controleer of de URL voor de externe 'azure' klopt. Indien nodig, verwijderen en opnieuw maken van deze extern met behulp van de juiste URL.
 
 ---
-**Symptoom**:`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
+**Symptoom**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
-**Oorzaak**: deze fout kan optreden als u een vertakking tijdens niet opgeeft `git push`, of als u niet hebt ingesteld de `push.default` waarde in `.gitconfig`.
+**Oorzaak**: deze fout kan optreden als u een vertakking tijdens geen opgeeft `git push`, of als u dit nog niet hebt ingesteld de `push.default` waarde in `.gitconfig`.
 
-**Resolutie**: uitvoeren van de push-bewerking opnieuw, geven de hoofdvertakking. Bijvoorbeeld:
+**Resolutie**: Voer `git push` opnieuw, geven de hoofdvertakking. Bijvoorbeeld:
 
 ```bash
 git push azure master
 ```
 
 ---
-**Symptoom**:`src refspec [branchname] does not match any.`
+**Symptoom**: `src refspec [branchname] does not match any.`
 
 **Oorzaak**: deze fout kan optreden als u probeert te pushen naar een vertakking dan master in de 'azure' externe.
 
-**Resolutie**: uitvoeren van de push-bewerking opnieuw, geven de hoofdvertakking. Bijvoorbeeld:
+**Resolutie**: Voer `git push` opnieuw, geven de hoofdvertakking. Bijvoorbeeld:
 
 ```bash
 git push azure master
 ```
 
 ---
-**Symptoom**:`RPC failed; result=22, HTTP code = 5xx.`
+**Symptoom**: `RPC failed; result=22, HTTP code = 5xx.`
 
 **Oorzaak**: deze fout kan optreden als u probeert om een grote git-opslagplaats via HTTPS.
 
@@ -160,11 +171,11 @@ git config --global http.postBuffer 524288000
 ```
 
 ---
-**Symptoom**:`Error - Changes committed to remote repository but your web app not updated.`
+**Symptoom**: `Error - Changes committed to remote repository but your web app not updated.`
 
-**Oorzaak**: deze fout kan optreden als u een Node.js-app met een package.json-bestand waarin aanvullende vereiste modules implementeert.
+**Oorzaak**: deze fout kan optreden als u een Node.js-app met implementeert een _package.json_ -bestand dat Hiermee geeft u aanvullende vereiste modules.
 
-**Resolutie**: aanvullende berichten met 'npm ERR!' moet de aangemelde voorafgaand aan deze fout en aanvullende context kan bieden over de fout. Hier volgen enkele bekende oorzaken van deze fout en de bijbehorende 'npm ERR!' Bericht:
+**Resolutie**: aanvullende berichten met 'npm ERR!' voordat u deze fout moet worden vastgelegd en aanvullende context kan bieden over de fout. Hier volgen enkele bekende oorzaken van deze fout en de bijbehorende 'npm ERR!' Bericht:
 
 * **Ongeldige package.json-bestand**: npm ERR! Afhankelijkheden kan niet worden gelezen.
 * **Systeemeigen module die geen heeft een binaire distributiepunt voor Windows**:
@@ -176,17 +187,5 @@ git config --global http.postBuffer 524288000
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Git-documentatie](http://git-scm.com/documentation)
 * [Project Kudu documentatie](https://github.com/projectkudu/kudu/wiki)
 * [Doorlopende implementatie in Azure App Service](app-service-continuous-deployment.md)
-* [PowerShell voor Azure gebruiken](/powershell/azure/overview)
-* [Het gebruik van de Azure-opdrachtregelinterface](../cli-install-nodejs.md)
-
-[Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
-[Azure-portal]: https://portal.azure.com
-[Git website]: http://git-scm.com
-[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Azure Command-Line Interface]: https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/
-
-[Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
-[Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

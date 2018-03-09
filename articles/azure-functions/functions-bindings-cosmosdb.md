@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 1a57d26e0f1188a2dea29beba52fde090aa82ca8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0723f2c7c09029e99335f3a459c0ac86d84f9487
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB Cosmos-bindingen voor Azure Functions
 
@@ -160,7 +160,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Optioneel) De naam van de database waarin de verzameling gebruikt voor het opslaan van leases. Wanneer niet is ingesteld, de waarde van de `databaseName` instelling wordt gebruikt. Deze parameter wordt automatisch ingesteld wanneer de binding in de portal is gemaakt. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Optioneel) De naam van de verzameling gebruikt voor het opslaan van leases. Wanneer niet is ingesteld, de waarde `leases` wordt gebruikt. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Optioneel) Als de waarde `true`, de verzameling leases wordt automatisch gemaakt wanneer deze niet al bestaat. De standaardwaarde is `false`. |
-|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Optioneel) Hiermee definieert u de hoeveelheid Aanvraageenheden toewijzen bij het maken van de verzameling van leases. Deze instelling wordt alleen gebruikt bij `createLeaseCollectionIfNotExists` is ingesteld op `true`. Deze parameter wordt automatisch ingesteld als de binding is gemaakt met behulp van de portal.
+|**LeasesCollectionThroughput**| **LeasesCollectionThroughput**| (Optioneel) Hiermee definieert u de hoeveelheid Aanvraageenheden toewijzen bij het maken van de verzameling van leases. Deze instelling wordt alleen gebruikt bij `createLeaseCollectionIfNotExists` is ingesteld op `true`. Deze parameter wordt automatisch ingesteld als de binding is gemaakt met behulp van de portal.
 | |**LeaseOptions** | Configureer opties voor lease met het instellen van eigenschappen in een exemplaar van de [ChangeFeedHostOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions) klasse.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -318,7 +318,7 @@ Dit zijn de bindingsgegevens de *function.json* bestand:
 
 ```json
 {
-    "name": "inputDocument",
+    "name": "inputDocumentIn",
     "type": "documentDB",
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
@@ -326,6 +326,16 @@ Dit zijn de bindingsgegevens de *function.json* bestand:
     "partitionKey": "{queueTrigger_payload_property}",
     "connection": "MyAccount_COSMOSDB",     
     "direction": "in"
+},
+{
+    "name": "inputDocumentOut",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": false,
+    "partitionKey": "{queueTrigger_payload_property}",
+    "connection": "MyAccount_COSMOSDB",
+    "direction": "out"
 }
 ```
 De [configuratie](#input---configuration) sectie wordt uitgelegd deze eigenschappen.
@@ -734,7 +744,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**collectionName** |**CollectionName**  | De naam van de verzameling waarin het document is gemaakt. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Een Booleaanse waarde die aangeeft of de verzameling is gemaakt als deze nog niet bestaat. De standaardwaarde is *false* omdat nieuwe verzamelingen worden gemaakt met gereserveerde doorvoer, wat gevolgen heeft kosten. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/documentdb/) voor meer informatie.  |
 |**PartitionKey**|**PartitionKey** |Wanneer `CreateIfNotExists` is ingesteld op true, wordt het pad van de partitie voor de gemaakte verzameling gedefinieerd.|
-|**collectionThroughput**|**CollectionThroughput**| Wanneer `CreateIfNotExists` is ingesteld op true, definieert de [doorvoer](../cosmos-db/set-throughput.md) van de verzameling gemaakt.|
+|**CollectionThroughput**|**CollectionThroughput**| Wanneer `CreateIfNotExists` is ingesteld op true, definieert de [doorvoer](../cosmos-db/set-throughput.md) van de verzameling gemaakt.|
 |**Verbinding**    |**ConnectionStringSetting** |De naam van de app-instelling met de verbindingsreeks voor Azure Cosmos DB.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

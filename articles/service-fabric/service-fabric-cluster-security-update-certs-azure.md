@@ -1,8 +1,24 @@
---titel: het beheren van certificaten in een Azure Service Fabric-cluster | Microsoft Docs beschrijving: hierin wordt beschreven hoe u nieuwe certificaten, rollovercertificaat, toevoegen en verwijderen van certificaat naar of van een Service Fabric-cluster.
-Services: service fabric-documentationcenter: .net auteur: ChackDan manager: timlt-editor: ''
-
-MS.AssetID: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service fabric-ms.devlang: dotnet ms.topic: artikel ms.tgt_pltfrm: n.v.t. ms.workload: n.v.t. ms.date: 23-02/2018 ms.author: chackdan
-
+---
+title: Het beheren van certificaten in een Azure Service Fabric-cluster | Microsoft Docs
+description: Beschrijft hoe nieuwe certificaten, rollovercertificaat, toevoegen en verwijderen van certificaat naar of van een Service Fabric-cluster.
+services: service-fabric
+documentationcenter: .net
+author: ChackDan
+manager: timlt
+editor: 
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/23/2018
+ms.author: chackdan
+ms.openlocfilehash: 68654bd9b14857661b627bf6d6b1dfe2483019a4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Toevoegen of verwijderen van certificaten voor een Service Fabric-cluster in Azure
 Het is raadzaam dat u raken met het Service Fabric X.509-certificaten gebruikt en vertrouwd met zijn de [security scenario's](service-fabric-cluster-security.md). U moet begrijpen wat een certificaat in het cluster is en wat wordt gebruikt voor, voordat u verder.

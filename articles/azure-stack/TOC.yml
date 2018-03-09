@@ -10,6 +10,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Geïntegreerde systemen release-opmerkingen
           items:
+            - name: 1802 update
+              href: azure-stack-update-1802.md
             - name: 1712 update
               href: azure-stack-update-1712.md
             - name: 1711 update
@@ -133,14 +135,18 @@
           href: azure-stack-monitor-health.md
         - name: Netwerkresources beheren
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: Opslagresources beheren
-          href: azure-stack-manage-storage-accounts.md
-        - name: Opslagcapaciteit beheren
-          href: azure-stack-manage-storage-shares.md
         - name: Virtuele Windows Azure Pack-machines beheren
           href: azure-stack-manage-windows-azure-pack.md
         - name: Starten en stoppen van de Azure-Stack
           href: azure-stack-start-and-stop.md
+        - name: Capaciteit beheren
+          items:
+            - name: Opslagresources beheren
+              href: azure-stack-manage-storage-accounts.md
+            - name: Opslagcapaciteit beheren
+              href: azure-stack-manage-storage-shares.md
+            - name: Capaciteit van de fysieke opslag voor Azure-Stack beheren
+              href: azure-stack-manage-storage-physical-capacity.md
         - name: Hardware vervangen
           items:
             - name: Knooppunt-acties
@@ -230,6 +236,10 @@
               href: azure-stack-app-service-deploy.md
             - name: App Service offline implementeren
               href: azure-stack-app-service-deploy-offline.md
+            - name: App Service-resourceprovider bijwerken
+              href: azure-stack-app-service-update.md
+            - name: App Service-resourceprovider offline bijwerken
+              href: azure-stack-app-service-update-offline.md
             - name: Meer webwerkrollen toevoegen
               href: azure-stack-app-service-add-worker-roles.md
             - name: Implementatiebronnen configureren

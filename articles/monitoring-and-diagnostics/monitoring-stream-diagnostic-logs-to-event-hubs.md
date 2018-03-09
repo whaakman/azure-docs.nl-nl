@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: johnkem
-ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 72876e38f77aa7a13c0dd9a8cdf9479e058f4a0d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stroom Azure logboeken met diagnostische gegevens naar een event hub
 **[Azure diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde optie voor 'Exporteren naar Event Hubs' in de Portal of doordat de Event Hub autorisatie regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI.
@@ -83,10 +83,10 @@ De nieuwe instelling wordt weergegeven in de lijst met instellingen voor deze br
 Om in te schakelen streaming via de [Azure PowerShell-Cmdlets](insights-powershell-samples.md), kunt u de `Set-AzureRmDiagnosticSetting` cmdlet met de volgende parameters:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
-De regel-ID van Service Bus is een tekenreeks met deze indeling: `{Service Bus resource ID}/authorizationrules/{key name}`, bijvoorbeeld `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`. U selecteren de naam van een specifieke event hub met PowerShell op dit moment niet.
+De Event Hub autorisatie regel-ID is een tekenreeks met deze indeling: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, bijvoorbeeld `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. U selecteren de naam van een specifieke event hub met PowerShell op dit moment niet.
 
 ### <a name="via-azure-cli"></a>Via Azure CLI
 Om in te schakelen streaming via de [Azure CLI](insights-cli-samples.md), kunt u de `insights diagnostic set` opdracht als volgt:
@@ -95,7 +95,7 @@ Om in te schakelen streaming via de [Azure CLI](insights-cli-samples.md), kunt u
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Gebruik dezelfde indeling voor Service Bus regel-ID zoals uitgelegd voor de PowerShell-Cmdlet. U selecteren de naam van een specifieke event hub met de Azure CLI momenteel niet.
+Gebruik dezelfde indeling voor Event Hub autorisatie regel-ID, zoals wordt beschreven voor de PowerShell-Cmdlet. U selecteren de naam van een specifieke event hub met de Azure CLI momenteel niet.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Hoe ik de logboekgegevens van Event Hubs verbruiken?
 Hier volgt een voorbeeld uitvoergegevens van Event Hubs:

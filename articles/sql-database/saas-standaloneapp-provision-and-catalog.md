@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dd43ede94d6f219f3b551091fc6e4b59f56386d1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Inrichten en catalogus nieuwe tenants met behulp van de toepassing per tenant SaaS-patroon
 
@@ -31,7 +31,7 @@ In dit artikel bevat twee hoofdonderdelen:
     * De zelfstudie maakt gebruik van de Wingtip Tickets SaaS voorbeeldtoepassing, aangepast aan de app zelfstandige per tenant-patroon.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Zelfstandige toepassing per tenant patroon
-De zelfstandige app per tenant patroon is een van de verschillende patronen voor multitenant SaaS-toepassingen.  Een zelfstandige app wordt in dit patroon worden ingericht voor elke tenant. De toepassing bestaat uit niveau toepassingsonderdelen en een SQL-database.  Elke tenant-app kan worden geïmplementeerd in het abonnement van de leverancier.  U kunt ook Azure biedt een [beheerde toepassingen programma](https://docs.microsoft.com/en-us/azure/managed-applications/overview) in die een app kan worden geïmplementeerd in een tenant-abonnement en beheerd door de leverancier van de tenant namens. 
+De zelfstandige app per tenant patroon is een van de verschillende patronen voor multitenant SaaS-toepassingen.  Een zelfstandige app wordt in dit patroon worden ingericht voor elke tenant. De toepassing bestaat uit niveau toepassingsonderdelen en een SQL-database.  Elke tenant-app kan worden geïmplementeerd in het abonnement van de leverancier.  U kunt ook Azure biedt een [beheerde toepassingen programma](https://docs.microsoft.com/azure/managed-applications/overview) in die een app kan worden geïmplementeerd in een tenant-abonnement en beheerd door de leverancier van de tenant namens. 
 
    ![patroon van de App per tenant](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -45,7 +45,7 @@ Hoewel elke tenant-app en database zijn volledig geïsoleerd, kunnen verschillen
 De tenant-catalogus bevat een toewijzing tussen een tenant-id en een tenant-database, zodat een-id die moet worden omgezet naar een server en de databasenaam.  De tenant-id wordt berekend als een hash van de naam van de tenant in de Wingtip SaaS-app, maar andere schema's kunnen worden gebruikt.  Bij zelfstandige toepassingen niet de catalogus verbindingen beheren hoeft, kan de catalogus worden gebruikt als bereik voor andere acties om een set databases van de tenant. Elastische Query kan bijvoorbeeld de catalogus gebruiken om te bepalen welke databases waarvoor query's voor het melden van cross-tenant worden gedistribueerd.
 
 ## <a name="elastic-database-client-library"></a>Clientbibliotheek voor Elastic Database
-In de voorbeeldtoepassing Wingtip de catalogus wordt geïmplementeerd door de shard-beheerfuncties van de [clientbibliotheek voor elastische Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  De bibliotheek kunt een toepassing te maken, beheren en gebruiken van een shard-toewijzing die is opgeslagen in een database. In de steekproef Wingtip Tickets de catalogus wordt opgeslagen de *tenant catalogus* database.  De shard wijst een tenantsleutel voor de shard (database) in die tenant gegevens wordt opgeslagen.  EDCL functies beheren een *globale shard-toewijzing* opgeslagen in de tabellen in de *tenant catalogus* database en een *lokale shard-toewijzing* opgeslagen in elk shard.
+In de voorbeeldtoepassing Wingtip de catalogus wordt geïmplementeerd door de shard-beheerfuncties van de [clientbibliotheek voor elastische Database](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  De bibliotheek kunt een toepassing te maken, beheren en gebruiken van een shard-toewijzing die is opgeslagen in een database. In de steekproef Wingtip Tickets de catalogus wordt opgeslagen de *tenant catalogus* database.  De shard wijst een tenantsleutel voor de shard (database) in die tenant gegevens wordt opgeslagen.  EDCL functies beheren een *globale shard-toewijzing* opgeslagen in de tabellen in de *tenant catalogus* database en een *lokale shard-toewijzing* opgeslagen in elk shard.
 
 EDCL functies kunnen worden aangeroepen vanuit toepassingen of PowerShell-scripts maken en beheren van de vermeldingen in de shard-toewijzing. Andere functies EDCL kunnen worden gebruikt voor het ophalen van de reeks shards of verbinding maken met de juiste database voor de gegeven tenantsleutel. 
     
@@ -69,7 +69,7 @@ Aan het einde van deze zelfstudie hebt u een set zelfstandige tenant toepassinge
 ## <a name="prerequisites"></a>Vereisten
 U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt voldaan: 
 * Azure PowerShell is geïnstalleerd. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) voor meer informatie.
-* De drie voorbeeld tenant-apps worden geïmplementeerd. Zie voor het implementeren van deze apps in minder dan vijf minuten, [implementeren en het patroon Wingtip Tickets SaaS zelfstandige toepassing verkennen](https://docs.microsoft.com/en-us/azure/sql-database/saas-standaloneapp-get-started-deploy).
+* De drie voorbeeld tenant-apps worden geïmplementeerd. Zie voor het implementeren van deze apps in minder dan vijf minuten, [implementeren en het patroon Wingtip Tickets SaaS zelfstandige toepassing verkennen](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy).
 
 ## <a name="provision-the-catalog"></a>Inrichten van de catalogus
 Informatie over het inrichten van de catalogus gebruikt voor het registreren van alle databases in de tenant in deze taak. U gaat het volgende doen: 
@@ -149,4 +149,4 @@ In deze zelfstudie hebt u het volgende geleerd:
 > * Over de servers en databases die gezamenlijk de app.
 > * Klik hier voor meer informatie over het verwijderen van de voorbeeldresources om te stoppen gerelateerde facturering.
 
-Vindt u op hoe de catalogus wordt gebruikt ter ondersteuning van verschillende scenario's voor cross-tenant met behulp van de database per tenant-versie van de [Wingtip Tickets SaaS-toepassing](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  
+Vindt u op hoe de catalogus wordt gebruikt ter ondersteuning van verschillende scenario's voor cross-tenant met behulp van de database per tenant-versie van de [Wingtip Tickets SaaS-toepassing](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

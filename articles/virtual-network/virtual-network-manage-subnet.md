@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f8b60a27e760ae74c7f068844fad1ae0d4324366
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 27918e1d0b335613ea578a815fb3ae00df73ebaa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Toevoegen, wijzigen of een virtueel netwerksubnet verwijderen
 
@@ -44,7 +44,7 @@ De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit ar
     - **Naam**: de naam moet uniek zijn binnen het virtuele netwerk.
     - **-Adresbereik**: het bereik moet uniek zijn binnen de adresruimte voor het virtuele netwerk. Het bereik kan niet overlappen met adresbereiken van andere subnet binnen het virtuele netwerk. De adresruimte moet worden opgegeven met behulp van notatie (Classless Inter-Domain Routing). U kunt bijvoorbeeld een subnet-adresruimte van 10.0.0.0/24 definiëren in een virtueel netwerk met adresruimte 10.0.0.0/16. Het kleinste bereik dat kunt u opgeven is slechts/29, waarmee u acht IP-adressen voor het subnet. Azure behoudt zich het eerste en laatste adres in elk subnet voor het protocol overeenstemming. Drie extra adressen zijn gereserveerd voor gebruik van Azure service. Als gevolg hiervan definiëren van een subnet met een/29 adres bereik resulteert in drie bruikbare IP-adressen in het subnet. Als u een virtueel netwerk verbinden met een VPN-gateway wilt, moet u een gatewaysubnet maken. Meer informatie over [specifiek adresbereik overwegingen voor het gateway-subnetten](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). U kunt het adresbereik wijzigen nadat het subnet is toegevoegd, klikt u onder bepaalde omstandigheden. Zie voor meer informatie over het wijzigen van een subnet-adresbereik, [subnetinstellingen wijzigen](#change-subnet-settings).
     - **Netwerkbeveiligingsgroep**: U kunt nul of een bestaande netwerkbeveiligingsgroep aan een subnet voor het filteren van binnenkomende en uitgaande netwerkverkeer voor het subnet koppelen. De netwerkbeveiligingsgroep moet zich in hetzelfde abonnement en dezelfde locatie als het virtuele netwerk. Meer informatie over [netwerkbeveiligingsgroepen](security-overview.md) en [het maken van een netwerkbeveiligingsgroep](virtual-networks-create-nsg-arm-pportal.md).
-    - **Routetabel**: U kunt geen of een bestaande routetabel aan een subnet om te beheren met het netwerk voor verkeersroutering met andere netwerken koppelen. De routetabel moet zich in hetzelfde abonnement en dezelfde locatie als het virtuele netwerk. Meer informatie over [Azure routering](virtual-networks-udr-overview.md) en [een routetabel maken](create-user-defined-route-portal.md)
+    - **Routetabel**: U kunt geen of een bestaande routetabel aan een subnet om te beheren met het netwerk voor verkeersroutering met andere netwerken koppelen. De routetabel moet zich in hetzelfde abonnement en dezelfde locatie als het virtuele netwerk. Meer informatie over [Azure routering](virtual-networks-udr-overview.md) en [een routetabel maken](tutorial-create-route-table-portal.md)
     - **Service-eindpunten:** een subnet nul of meerdere service-eindpunten ingeschakeld voor deze kan hebben. Als u een service-eindpunt voor een service, selecteert u de service of de services die u wilt inschakelen, service-eindpunten voor uit de **Services** lijst. Als u wilt verwijderen van een service-eindpunt, moet u de service die u wilt verwijderen van het service-eindpunt voor verwijderen. Zie voor meer informatie over service-eindpunten, [Virtual network service-eindpunten overzicht](virtual-network-service-endpoints-overview.md). Wanneer u een service-eindpunt voor een service hebt ingeschakeld, moet u ook toegang tot het netwerk voor het subnet voor een resource die is gemaakt met de service inschakelen. Bijvoorbeeld, als u het service-eindpunt voor inschakelen *Microsoft.Storage*, moet u ook toegang tot het netwerk aan alle Azure Storage-accounts die u wilt verlenen toegang tot het netwerk inschakelen. Zie voor meer informatie over het inschakelen van netwerktoegang tot subnetten die een service-eindpunt is ingeschakeld voor de documentatie voor de afzonderlijke service ingeschakeld van het service-eindpunt voor.
 6. Selecteer om het subnet toe aan het virtuele netwerk die u hebt geselecteerd **OK**.
 

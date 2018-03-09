@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.openlocfilehash: b22307ee0cade40370b096ee49bb15dcfd2f0071
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3da41adfa0865c0741c61b5d15c3ef1741eb6118
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Azure SQL Database klant implementatie technische studies
 
@@ -33,8 +33,8 @@ ms.lasthandoff: 10/31/2017
 
 - [Quorum](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database): Quorum wordt sleutel database werkbelasting verdubbeld tijdens DTU verlagen door 70% met SQL-Database.
 
-- [Aanvraag voor certificaatvernieuwing](https://customers.microsoft.com/en-US/story/quest): aanvraag voor certificaatvernieuwing biedt de Spotlight op SQL Server Enterprise-service met één doel in uw achterhoofd: het geven van de database-professionals best beschikbare hulpprogramma's voor de beveiliging van gegevens, die gegevens rond verplaatsen en databasebewerkingen bewaking. Met Spotlight, met behulp van Microsoft Azure en Azure SQL Database, kunnen SQL Server databasebeheerders bewaken, detecteren, onderzoeken en bieden een manier voor het oplossen van prestatieproblemen in SQL Server, of ze op hun bureau zit of thuis werkt.
+- [Aanvraag voor certificaatvernieuwing](https://customers.microsoft.com/story/quest): aanvraag voor certificaatvernieuwing biedt de Spotlight op SQL Server Enterprise-service met één doel in uw achterhoofd: het geven van de database-professionals best beschikbare hulpprogramma's voor de beveiliging van gegevens, die gegevens rond verplaatsen en databasebewerkingen bewaking. Met Spotlight, met behulp van Microsoft Azure en Azure SQL Database, kunnen SQL Server databasebeheerders bewaken, detecteren, onderzoeken en bieden een manier voor het oplossen van prestatieproblemen in SQL Server, of ze op hun bureau zit of thuis werkt.
 
-- [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): deze korte casestudy licht best practices en uitkomsten van de 365 Dynamics voor operationele productteam-ervaring van de migratie naar Azure SQL Database zodat klanten over een volledig beheerde Software als een Service (SaaS) bieden. Met behulp van Azure SQL Database, de 365 Dynamics voor operationele team kon om te beheren en gebruiken van de service met aanzienlijk minder personeel en eenvoudig schalen met out-of-the-box beheerbaarheid functies zoals automatische databaseback-ups bewaartijd voor de back-up , hoge beschikbaarheid en noodherstel herstelfuncties. Dit naast de mogelijkheid om databases met trivial automation inrichten geleend Azure SQL Database voor een goede platform voor permanente grootschalige Services.
+- [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): deze korte casestudy licht best practices en uitkomsten van de Dynamics 365 voor operationele productteam-ervaring van de migratie naar Azure SQL Database zodat klanten over een volledig beheerde Software als een Service (SaaS) bieden. Met behulp van Azure SQL Database, de 365 Dynamics voor operationele team kon om te beheren en gebruiken van de service met aanzienlijk minder personeel en eenvoudig schalen met out-of-the-box beheerbaarheid functies zoals automatische databaseback-ups bewaartijd voor de back-up , hoge beschikbaarheid en noodherstel herstelfuncties. Dit naast de mogelijkheid om databases met trivial automation inrichten geleend Azure SQL Database voor een goede platform voor permanente grootschalige Services.
 
 - [Microsoft OneDrive en SharePoint Online](https://customers.microsoft.com/story/microsoft-azure-sql-database-dicrete-manufacturing-united-states): deze korte casestudy vertelt u het artikel achter Microsoft OneDrive en van SharePoint Online verplaatsen naar Azure SQL Database en een beschrijving van hoe deze migratie vrijwel onbeperkte elastische capaciteitsbeheer ingeschakeld tijdens de operationele kosten en infrastructuur overhead ook aanzienlijk verminderd.

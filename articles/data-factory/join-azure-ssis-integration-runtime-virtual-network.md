@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 3a5b68729d587e1365c42125108e610705965c86
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk
 Aanmelden bij uw Azure-SSIS-integratie runtime (IR) naar een Azure-netwerk in de volgende scenario's: 
@@ -176,7 +176,9 @@ U moet een virtueel netwerk configureren voordat u kunt een Azure-SSIS-IR deelne
 # Register to the Azure Batch resource provider
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
@@ -211,6 +213,11 @@ $AzureSSISName = "<Specify Azure-SSIS IR name>"
 $VnetId = "<Name of your Azure virtual network>"
 $SubnetName = "<Name of the subnet in the virtual network>"
 ```
+
+#### <a name="guidelines-for-selecting-a-subnet"></a>Richtlijnen voor het selecteren van een subnet
+-   Selecteer het GatewaySubnet voor het implementeren van een Azure-SSIS-integratie-Runtime niet omdat deze is specifiek voor virtuele netwerkgateways.
+-   Zorg ervoor dat het subnet dat u voldoende beschikbare adresruimte voor Azure SSIS-IR te gebruiken. Laat ten minste 2 * knooppuntnummer IR in beschikbare IP-adressen. Azure bepaalde IP-adressen binnen elk subnet gereserveerd en deze adressen kunnen niet worden gebruikt. De eerste en laatste IP-adressen van de subnetten die zijn gereserveerd voor protocol overeenstemming, samen met drie meer adressen voor Azure-services gebruikt. Zie voor meer informatie [zijn er beperkingen voor het gebruik van IP-adressen binnen deze subnetten?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
+
 
 ### <a name="stop-the-azure-ssis-ir"></a>De Azure-SSIS-IR stoppen
 De runtime Azure SSIS-integratie te stoppen voordat u deze met een virtueel netwerk kan worden toegevoegd. Met deze opdracht alle knooppunten worden vrijgegeven en stopt facturering:
@@ -264,6 +271,22 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 
 ```
 Deze opdracht genereert 20-30 minuten duren.
+
+## <a name="use-azure-expressroute-with-the-azure-ssis-ir"></a>Azure ExpressRoute gebruiken met de Azure-SSIS-IR
+
+U kunt verbinding maken met een [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit met de infrastructuur van uw virtuele netwerk naar uw on-premises netwerk uitbreiden naar Azure. 
+
+Een algemene configuratie-instellingen is het gebruik van geforceerde tunneling (adverteren een BGP-route 0.0.0.0/0 naar het VNet) waardoor uitgaand internetverkeer van de VNet-overdracht naar lokale netwerkapparaat voor controle en logboekregistratie. Dit netwerkverkeer verbreekt de connectiviteit tussen de Azure-SSIS-IR in het VNet met afhankelijke Azure Data Factory-services. De oplossing is voor het definiëren van een (of meer) [gebruiker gedefinieerde routes (udr's)](../virtual-network/virtual-networks-udr-overview.md) op het subnet waarin de Azure-SSIS-IR Een UDR definieert subnet-specifieke routes die worden gehonoreerd in plaats van de BGP-route.
+
+Gebruik indien mogelijk de volgende configuratie:
+-   Configuratie van de ExpressRoute kondigt 0.0.0.0/0 en door standaard force-tunnels al het uitgaande verkeer on-premises.
+-   De UDR toegepast op het subnet met de Azure-SSIS-IR definieert 0.0.0.0/0 route met het volgende hoptype met 'Internet'.
+- 
+Het gecombineerde effect van deze stappen is dat de UDR op subnetniveau voorrang op de ExpressRoute geforceerde tunneling heeft, zodat uitgaande toegang tot Internet vanaf de Azure-SSIS-IR
+
+Als u zich zorgen maakt over de mogelijkheid te verliezen uitgaand internetverkeer van dat subnet controleren, kunt u ook een NSG-regel toevoegen op het subnet om te beperken uitgaande bestemmingen [IP-adressen van Azure-datacentrum](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Zie [dit PowerShell-script](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) voor een voorbeeld. U moet uitvoeren van het script wekelijks up-to-date te houden de lijst met Azure data center IP-adres.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over de Azure-SSIS-runtime, in de volgende onderwerpen: 

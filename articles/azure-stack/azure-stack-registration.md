@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d5b77bb43c48bd286708ca96699b20be0f761baa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb9575cb7bb3d8d3f3a18a1f5577ff0330bda24c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 U kunt Azure-Stack registreren met Azure marketplace-items van Azure downloaden en voor het instellen van rapportage terug naar Microsoft commerce-gegevens. Nadat u Azure-Stack geregistreerd, wordt informatie over het gebruik gerapporteerd aan Azure commerce. U kunt dit zien onder het abonnement dat u voor registratie gebruikt.
@@ -54,6 +54,7 @@ De Azure-Stack extra GitHub-opslagplaats bevat PowerShell-modules die ondersteun
 cd \
 
 # Download the tools archive.
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -167,7 +168,7 @@ Desgewenst kunt u de cmdlet Get-inhoud om te verwijzen naar een bestand met uw r
 
 ## <a name="verify-azure-stack-registration"></a>Azure-Stack registratie controleren
 Volg deze stappen om te controleren dat Azure Stack met succes is geregistreerd bij Azure.
-1. Aanmelden bij de Azure-Stack [beheerdersportal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https &#58; / / adminportal. *&lt;regio >. &lt;FQDN-naam >*.
+1. Aanmelden bij de Azure-Stack [beheerdersportal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;regio >. &lt;FQDN-naam >*.
 2. Klik op **meer Services** > **Marketplace Management** > **toevoegen vanuit Azure**.
 
 Als u ziet een lijst met items die beschikbaar is via Azure (zoals WordPress), wordt de activering is geslaagd.

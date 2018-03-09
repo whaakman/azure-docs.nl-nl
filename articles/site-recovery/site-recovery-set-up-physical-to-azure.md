@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: anoopkv
 ms.openlocfilehash: 6c29ac32cb868cfdd72479add551cece266a5f9d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Instellen van de bronomgeving (fysieke server naar Azure)
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ De volgende tabel bevat de minimale hardware, software en netwerkvereisten voor 
   ![Bron instellen](./media/site-recovery-set-up-physical-to-azure/plus-config-srv.png)
 2. In de **Server toevoegen** blade, controleert u of **configuratieserver** wordt weergegeven in **servertype**.
 4. Download het installatiebestand van de Site Recovery Unified Setup.
-5. Download de kluisregistratiesleutel. Wanneer u Setup Unified uitvoert moet u de registratiesleutel. De sleutel blijft vijf dagen na het genereren ervan geldig.
+5. Download de registratiesleutel voor de kluis. Wanneer u Setup Unified uitvoert moet u de registratiesleutel. De sleutel blijft vijf dagen na het genereren ervan geldig.
 
     ![Bron instellen](./media/site-recovery-set-up-physical-to-azure/set-source2.png)
 6. Voer op de computer die u als de configuratieserver **Azure Site Recovery Unified Setup** voor het installeren van de configuratieserver, de processerver en de hoofddoelserver.

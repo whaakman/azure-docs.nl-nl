@@ -14,17 +14,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 23a1f008e2c51325b7e9c7676847d55d7ccb7d44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Het inrichten van een virtuele machine van Windows SQL Server in de Azure portal
 
 Deze handleiding bevat informatie over de verschillende opties beschikbaar wanneer u een virtuele machine van Windows SQL Server in de Azure-portal maakt. In dit artikel bevat informatie over meer configuratieopties dan de [Quick Start SQL Server VM](quickstart-sql-vm-create-portal.md), die meer via een mogelijk inrichting taak gaat. 
 
 Gebruik deze handleiding voor het maken van uw eigen SQL Server-VM. Of gebruik het als referentie voor de beschikbare opties in de Azure portal.
+
+> [!TIP]
+> Als u vragen over virtuele machines van SQL Server hebt, raadpleegt u de [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -34,7 +37,7 @@ Wanneer u een virtuele machine van SQL Server maakt, kunt u een van de verschill
 
 1. Meld u met uw account aan bij de [Azure Portal](https://portal.azure.com).
 
-1. Klik op de Azure-portal op **maken van een resource**. In de portal wordt het venster **Nieuw** geopend.
+1. Klik in Azure Portal op **Een resource maken**. In de portal wordt het venster **Nieuw** geopend.
 
 1. Klik in het venster **Nieuw** op **Berekenen** en klik vervolgens op **Alles weergeven**.
 

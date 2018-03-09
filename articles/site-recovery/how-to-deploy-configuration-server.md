@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/25/2018
 ms.author: anoopkv
 ms.openlocfilehash: f7ec02cb4723d8a4ea0847810b1a1822cf20e957
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -47,7 +47,7 @@ Als u virtuele VMware-machines repliceert, lees meer over [overwegingen bij capa
 Site Recovery biedt een sjabloon downloaden voor het instellen van de configuratieserver als een maximaal beschikbare VMware-VM. 
 
 1. Ga in de kluis naar **Infrastructuur voorbereiden** > **Bron**.
-2. In **bron voorbereiden**, selecteer **+ configuratieserver**.
+2. Selecteer **+Configuratieserver** in **Bron voorbereiden**.
 3. Controleer in **Server toevoegen** of **Configuratieserver voor VMware** wordt weergegeven in **Servertype**.
 4. Download de OVF-sjabloon (Open Virtualization Format) voor de configuratieserver.
 
@@ -58,8 +58,8 @@ Site Recovery biedt een sjabloon downloaden voor het instellen van de configurat
 ## <a name="import-the-template-in-vmware"></a>De sjabloon in VMware importeren
 
 
-1. Meld u aan de VMware vCenter-server of de vSphere ESXi-host met behulp van de VMWare vSphere Client.
-2. Op de **bestand** selecteert u **OVF-sjabloon implementeren** om de wizard OVF-sjabloon implementeren te starten.
+1. Meld u bij de VMware vCenter-server of vSphere ESXi-host met behulp van de VMWare vSphere-client.
+2. Selecteer in het menu **Bestand** de optie **OVF-sjabloon implementeren** om de wizard voor het implementeren van OVF-sjablonen te starten.
 
      ![OVF-sjabloon](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
 
@@ -72,7 +72,7 @@ Site Recovery biedt een sjabloon downloaden voor het instellen van de configurat
 
     * Selecteer **Inschakelen na de implementatie** > **Voltooien** om de VM in te stellen met de standaardinstellingen.
 
-    * Als u wilt een extra netwerkinterface toevoegen, schakelt u **na de implementatie inschakelen**, en selecteer vervolgens **voltooien**. Standaard wordt de configuratie van server-sjabloon geïmplementeerd met een enkele netwerkinterfacekaart. U kunt extra netwerkinterfacekaarten toevoegen na de implementatie.
+    * Als u wilt een extra netwerkinterface toevoegen, schakelt u **na de implementatie inschakelen**, en selecteer vervolgens **voltooien**. Standaard wordt de configuratieserversjabloon met één NIC geïmplementeerd. Na de implementatie kunt u meer NIC’s toevoegen.
 
 
 ## <a name="add-an-additional-adapter"></a>Een extra adapter toevoegen
@@ -80,34 +80,34 @@ Site Recovery biedt een sjabloon downloaden voor het instellen van de configurat
 Als u een extra NIC en de configuratieserver toevoegen wilt, moet u deze toevoegen voordat u de server in de kluis registreren. Het toevoegen van extra adapters wordt niet ondersteund na registratie.
 
 1. Klik in de vSphere Client-inventaris met de rechtermuisknop op de VM en selecteer **Instellingen bewerken**.
-2. In **Hardware**, selecteer **toevoegen** > **Ethernet-Adapter**. Selecteer vervolgens **Volgende**.
-3. Selecteer een type netwerkadapter en een netwerk. 
+2. Selecteer **Toevoegen** > **Ethernet-adapter** bij **Hardware**. Selecteer vervolgens **Volgende**.
+3. Selecteer een adaptertype en een netwerk. 
 4. Als u verbinding wilt maken met de virtuele NIC verbinding wanneer de VM wordt ingeschakeld, selecteert u **Verbinding maken bij inschakelen**. Selecteer vervolgens **volgende** > **voltooien** > **OK**.
  
 
 ## <a name="register-the-configuration-server"></a>De configuratieserver registreren 
 
 1. Schakel de VM in vanuit de VMWare vSphere Client-console.
-2. De VM wordt opgestart in een Windows Server 2016-installatie-ervaring. Accepteer de gebruiksrechtovereenkomst en voer een administrator-wachtwoord.
-3. Nadat de installatie is voltooid, meld u aan de virtuele machine als de beheerder.
-4. De eerste keer dat u zich aanmeldt, de Azure Site Recovery Configuration Tool wordt gestart.
-5. Voer een naam die wordt gebruikt voor het registreren van de configuratieserver met Site Recovery. Selecteer vervolgens **Volgende**.
-6. Het hulpprogramma controleert of de VM verbinding kan maken met Azure. Nadat de verbinding is gemaakt, selecteert u **aanmelden** aan te melden bij uw Azure-abonnement. De referenties moeten toegang hebben tot de kluis waarin u de configuratieserver wilt registreren.
+2. De VM wordt opgestart in een Windows Server 2016-installatie-ervaring. Accepteer de gebruiksrechtovereenkomst en voer een Administrator-wachtwoord in.
+3. Meld u nadat de installatie is voltooid bij de virtuele machine aan als de administrator.
+4. De eerste keer dat u zich aanmeldt, wordt het configuratieprogramma van Azure Site Recovery gestart.
+5. Voer een naam in die wordt gebruikt voor het registreren van de configuratieserver bij Site Recovery. Selecteer vervolgens **Volgende**.
+6. Het hulpprogramma controleert of de VM verbinding kan maken met Azure. Nadat de verbinding tot stand is gebracht, selecteert u **Aanmelden** om u aan te melden bij uw Azure-abonnement. De referenties moeten toegang hebben tot de kluis waarin u de configuratieserver wilt registreren.
 7. Het hulpprogramma voert enkele configuratietaken uit en start opnieuw op.
-8. Meld u aan de machine opnieuw. De configuratiewizard voor server management wordt automatisch gestart.
+8. Meld u opnieuw aan bij de machine. De wizard voor het beheer van de configuratieserver wordt automatisch gestart.
 
 ### <a name="configure-settings"></a>Instellingen configureren
 
 1. Selecteer in de wizard Configuratie server **Setup-connectiviteit**. Selecteer de NIC moet binnenkomend replicatieverkeer en selecteer vervolgens **opslaan**. U kunt deze instelling niet wijzigen nadat deze geconfigureerd.
-2. In **Selecteer Recovery Services-kluis**, selecteer uw Azure-abonnement en de betreffende resourcegroep en -kluis.
-3. In **software van derden installeren**, accepteer de gebruiksrechtovereenkomst. Selecteer **downloaden en installeren** MySQL-Server te installeren.
-4. Selecteer **installeren VMware PowerLCI**. Zorg ervoor dat alle browservensters zijn gesloten voordat u deze stap. Selecteer vervolgens **doorgaan**.
-5. In **configuratie valideren**, vereisten zijn gecontroleerd voordat u doorgaat.
-6. In **vCenter Server vSphere/ESXi-server configureren**, voer de FQDN-naam of IP-adres van de vCenter-server of vSphere-host, waarin de virtuele machines die u wilt repliceren bevinden. Geef de poort op die de server luistert en een beschrijvende naam voor de VMware-server in de kluis.
-7. Geef de referenties voor verbinding maken met de VMware-server worden gebruikt door de configuratieserver. Site Recovery gebruikt deze referenties voor het automatisch detecteren van VMware-VM’s die beschikbaar zijn voor replicatie. Selecteer **toevoegen**, en selecteer vervolgens **doorgaan**.
+2. Selecteer in **Selecteer Recovery Services-kluis** uw Azure-abonnement en de relevante resourcegroep en kluis.
+3. Accepteer de gebruiksrechtovereenkomst in **Software van derden installeren**. Selecteer **Downloaden en installeren** om MySQL Server te installeren.
+4. Selecteer **installeren VMware PowerLCI**. Zorg ervoor dat alle browservensters zijn gesloten voordat u deze stap. Selecteer vervolgens **Doorgaan**.
+5. In **De configuratie van het apparaat valideren** worden de vereisten gecontroleerd voordat u doorgaat.
+6. In **vCenter Server vSphere/ESXi-server configureren** voert u de FQDN of het IP-adres van de vCenter-server, of vSphere-host, in waar de VM's die u wilt repliceren zich bevinden. Geef de poort op die de server luistert en een beschrijvende naam voor de VMware-server in de kluis.
+7. Voer referenties in die door de configuratieserver moeten worden gebruikt voor verbinding met de VMware-server. Site Recovery gebruikt deze referenties voor het automatisch detecteren van VMware-VM’s die beschikbaar zijn voor replicatie. Selecteer **Toevoegen** en vervolgens **Doorgaan**.
 8. In **referenties voor de virtuele machine configureren**, geef de gebruikersnaam en wachtwoord moeten worden gebruikt voor de Mobility-Service van Azure Site Recovery automatisch wordt geïnstalleerd op computers, wanneer replicatie is ingeschakeld. Voor Windows-machines moet het account lokale administrator-machtigingen hebben op de machines die u wilt repliceren. Geef voor Linux de details voor de superuser op.
 9. Selecteer **Finalize configuratie** inschrijving voltooien. 
-10. Controleer nadat de registratie is voltooid in Azure Portal of de configuratieserver en de VMware-server worden weergegeven op de pagina **Bron** in de kluis. Selecteer vervolgens **OK** doelinstellingen configureren.
+10. Controleer nadat de registratie is voltooid in Azure Portal of de configuratieserver en de VMware-server worden weergegeven op de pagina **Bron** in de kluis. Selecteer vervolgens **OK** om de doelinstellingen te configureren.
 
 
 ## <a name="troubleshoot-deployment-issues"></a>Oplossen van implementatieproblemen

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: 1da7c064030501b5c6547b65c091b1a50da93899
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory Pass-through-verificatie: Snel starten
 
@@ -116,20 +116,38 @@ In deze fase van de beheerde domeinen in uw tenant kunnen gebruikers zich aanmel
 
 ## <a name="step-5-ensure-high-availability"></a>Stap 5: Hoge beschikbaarheid garanderen
 
-Als u van plan bent een Pass through-verificatie implementeren in een productieomgeving, moet u een zelfstandige verificatie-Agent installeren. Deze tweede verificatie-Agent installeren op een server _andere_ dan de één actief Azure AD Connect en de eerste verificatie-Agent. Deze instelling geeft u hoge beschikbaarheid voor aanvragen voor het aanmelden. Volg deze instructies voor het implementeren van een zelfstandige verificatie-Agent:
+Als u van plan bent een Pass through-verificatie implementeren in een productieomgeving, moet u ten minste één meer zelfstandige verificatie-Agent installeren. Deze verificatie de agents installeren op de server (s) _andere_ dan de één actief Azure AD Connect. Deze instelling geeft u hoge beschikbaarheid voor aanmelden gebruikersaanvragen.
 
-1. Download de nieuwste versie van de verificatie-Agent (versie 1.5.193.0 of hoger). Aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met uw globale tenantbeheerderreferenties.
+Volg deze instructies om de verificatie-Agent-software te downloaden:
+
+1. Voor het downloaden van de nieuwste versie van de verificatie-Agent (versie 1.5.193.0 of hoger), zich aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met uw globale tenantbeheerderreferenties.
 2. Selecteer **Azure Active Directory** in het linkerdeelvenster.
 3. Selecteer **Azure AD Connect**, selecteer **Pass through-verificatie**, en selecteer vervolgens **Agent downloaden**.
 4. Selecteer de **voorwaarden accepteren & downloaden** knop.
-5. Installeer de nieuwste versie van de Agent voor verificatie met behulp van het uitvoerbare bestand dat is gedownload in de vorige stap. Geef uw tenant hoofdbeheerdersreferenties wanneer u wordt gevraagd.
 
 ![Azure Active Directory-beheercentrum: knop verificatie-Agent downloaden](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Azure Active Directory-beheercentrum: deelvenster van de Agent downloaden](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->U kunt ook downloaden de [Azure Active Directory-verificatie Agent](https://aka.ms/getauthagent). Zorg ervoor dat u lees en accepteer de verificatie-Agent [servicevoorwaarden](https://aka.ms/authagenteula) _voordat_ te installeren.
+>U kunt ook rechtstreeks downloaden de verificatie-agentsoftware [hier](https://aka.ms/getauthagent). Lees en accepteer de verificatie-Agent [servicevoorwaarden](https://aka.ms/authagenteula) _voordat_ te installeren.
+
+Er zijn twee manieren voor het implementeren van een zelfstandige verificatie-Agent:
+
+Eerst, u kunt dit doen interactief door alleen de gedownloade uitvoerbare verificatie-Agent en uw tenant-hoofdbeheerder referenties opgeeft wanneer u wordt gevraagd.
+
+Ten tweede kunt u maken en uitvoeren van een script zonder toezicht implementatie. Dit is handig als u wilt implementeren meerdere verificatie Agents tegelijk of verificatie Agents installeren op Windows-servers hebt die geen gebruikersinterface is ingeschakeld of dat u kunt openen met extern bureaublad. Hier vindt u de instructies voor het gebruik van deze benadering:
+
+1. Voer de volgende opdracht om een verificatie-Agent te installeren: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
+2. U kunt de verificatie-Agent registreren met onze service met behulp van Windows PowerShell. Maak een object PowerShell-referenties `$cred` die een globale beheerder gebruikersnaam en wachtwoord voor uw tenant bevat. Voer de volgende opdracht vervangen  *\<gebruikersnaam\>*  en  *\<wachtwoord\>*:
+   
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+3. Ga naar **C:\Program Files\Microsoft Azure AD Connect verificatie Agent** en voer de volgende script uit via de `$cred` -object dat u hebt gemaakt:
+   
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Vergrendelen van smartcard](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): informatie over het configureren van de mogelijkheid slimme vergrendeling op uw tenant gebruikersaccounts te beveiligen.

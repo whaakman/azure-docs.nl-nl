@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: f4908963e0650be9b12b745f6868a1ba6ad933e4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: c0017b8759a1f01b010172be562ed869d1d51a25
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Een Windows-machine maken met versnelde toegang
 
 > [!IMPORTANT] 
-> Virtuele machines moeten worden gemaakt met de versnelde netwerken ingeschakeld. Deze functie kan niet worden ingeschakeld op de bestaande virtuele machines. U kunt de volgende stappen om in te schakelen versnelde netwerken
+> Virtuele machines moeten worden gemaakt met de versnelde netwerken ingeschakeld. Deze functie kan niet worden ingeschakeld op de bestaande virtuele machines. Voer de volgende stappen uit om in te schakelen versnelde netwerken:
 >   1. Verwijder de virtuele machine
 >   2. Maak de virtuele machine met versnelde netwerken is ingeschakeld
 >
@@ -60,6 +60,8 @@ De volgende beperkingen bestaan wanneer deze wordt met deze mogelijkheid:
 * **Interface maken van een netwerk:** Accelerated netwerken kan alleen worden ingeschakeld voor een nieuwe NIC. Deze kan niet worden ingeschakeld voor een bestaande NIC.
 * **Maken van VM:** een NIC met versnelde netwerken ingeschakeld kan alleen worden gekoppeld aan een VM wanneer de virtuele machine wordt gemaakt. De NIC kan niet worden gekoppeld aan een bestaande virtuele machine. Als de virtuele machine toe te voegen aan de bestaande beschikbaarheidsset is ingesteld, moeten alle virtuele machines in de beschikbaarheidsset ook versnelde netwerken ingeschakeld.
 * **Implementatie via Azure Resource Manager alleen:** virtuele machines (klassiek) kan niet worden geïmplementeerd met versnelde toegang.
+
+Hoewel dit artikel stappen bevat voor het maken van een virtuele machine met versnelde netwerken met Azure PowerShell, kunt u ook [maken van een virtuele machine met versnelde netwerken met de Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bij het maken van een virtuele machine met een ondersteund besturingssysteem en de VM-grootte in de portal onder **instellingen**, selecteer **ingeschakeld** onder **versnelde netwerken**. Nadat de virtuele machine is gemaakt, moet u de instructies in voltooien [Bevestig het stuurprogramma in het besturingssysteem is geïnstalleerd](#confirm-the-driver-is-installed-in-the-operating-system).
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
@@ -130,7 +132,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 ```
 
 ## <a name="create-a-network-interface-with-accelerated-networking"></a>Een netwerkinterface met versnelde netwerken maken
-Maken van een openbaar IP-adres met [nieuw AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/New-AzureRmPublicIpAddress). Een openbaar IP-adres is niet vereist als u niet van plan bent voor toegang tot de virtuele machine vanaf het Internet, maar de stappen in dit artikel uit te voeren, dit is vereist.
+Maak een openbaar IP-adres met [New-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/New-AzureRmPublicIpAddress). Een openbaar IP-adres is niet vereist als u niet van plan bent voor toegang tot de virtuele machine vanaf het Internet, maar de stappen in dit artikel uit te voeren, dit is vereist.
 
 ```powershell
 $publicIp = New-AzureRmPublicIpAddress `

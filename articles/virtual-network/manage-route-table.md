@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7edc73f337a72c24fd24d94468ee590b75dfa7df
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: f976832a857a35e9e0cea7a0eb731cb00492023f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Maken, wijzigen of verwijderen van een routetabel
 
-Azure automatisch routeert netwerkverkeer tussen Azure subnetten, virtuele netwerken en on-premises netwerken. Als u wijzigen van Azure standaard routering wilt, kunt u dat doen door het maken van een routetabel. Als u niet bekend met Azure routering bent, raden wij aan lezen de [Routering-overzicht](virtual-networks-udr-overview.md) en het uitvoeren van de [netwerkverkeer met een routetabel omgeleid](create-user-defined-route-portal.md) zelfstudie voordat taken in dit artikel is voltooid.
+Azure automatisch routeert netwerkverkeer tussen Azure subnetten, virtuele netwerken en on-premises netwerken. Als u wijzigen van Azure standaard routering wilt, kunt u dat doen door het maken van een routetabel. Als u niet bekend met Azure routering bent, raden wij aan lezen de [Routering-overzicht](virtual-networks-udr-overview.md) en het uitvoeren van de [netwerkverkeer met een routetabel omgeleid](tutorial-create-route-table-portal.md) zelfstudie voordat taken in dit artikel is voltooid.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

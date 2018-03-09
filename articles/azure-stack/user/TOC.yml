@@ -47,6 +47,8 @@
               href: azure-stack-vm-sizes.md
             - name: VM-schijven beheren
               href: azure-stack-manage-vm-disks.md
+            - name: Virtuele machines beschermen
+              href: azure-stack-manage-vm-backup.md
         - name: Storage
           items:
             - name: Overzicht

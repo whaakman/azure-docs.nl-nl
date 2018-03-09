@@ -15,29 +15,99 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 2f2125e739b738847e03ce429d65801969611685
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb36f79d6af66dfaceb63730d59713ab9da7c89e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Talen die worden ondersteund op de gegevens wetenschappelijke virtuele Machine 
 
 De gegevens wetenschappelijke virtuele Machine (DSVM) wordt geleverd met verschillende vooraf samengestelde talen en ontwikkelingsprogramma's voor het bouwen van uw AI-toepassingen. Hier zijn enkele van de meest kenmerkende die zijn. 
 
-## <a name="python"></a>Python
+## <a name="python-windows-server-2016-edition"></a>Python (Windows Server 2016 Edition)
+
+|    |           |
+| ------------- | ------------- |
+| Ondersteunde versies | 2.7 en 3.6 |
+| Ondersteunde DSVM edities      | Windows Server 2016     |
+| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Twee globale `conda` omgevingen worden gemaakt. <br /> * `root` omgeving zich bevindt op `/anaconda/` Python 3.6 is. <br/> * `python2` omgeving zich bevindt op `/anaconda/envs/python2`is Python 2.7       |
+| Koppelingen naar voorbeelden      | Voorbeeld Jupyter-notebooks voor Python zijn opgenomen     |
+| Bijbehorende hulpprogramma's op de DSVM      | PySpark, R, Julia      |
+
+> [!NOTE]
+> Windows Server 2016 gemaakt vóór maart 2018 bevat Python 3.5 en Python 2.7. Python 2.7 is ook de conda **hoofdmap** omgeving en **py35** is de 3.5 Python-omgeving. 
+
+### <a name="how-to-use--run-it"></a>Hoe gebruik / uitvoeren?    
+
+* Uitgevoerd in de opdrachtprompt
+
+Opdrachtprompt openen en doe het volgende, afhankelijk van de versie van Python die u wilt uitvoeren. 
+
+```
+# To run Python 2.7
+activate python2
+python --version
+
+# To run Python 3.6
+activate 
+python --version
+
+```
+* Gebruik in een IDE
+
+Gebruik Python-Tools voor Visual Studio (PTVS) in de Visual Studio Community-editie geïnstalleerd. De instellingen alleen omgeving automatisch in PTVS standaard is Python 3.6. 
+
+> [!NOTE]
+> De PTVS op Python 2.7 verwijst, moet u een aangepaste omgeving maken in PTVS. Navigeer naar deze omgeving paden in de Visual Studio Community Edition stelt **extra** -> **Python Tools** -> **Python-omgevingen** en klik vervolgens op **+ aangepaste**. Stel de locatie op `c:\anaconda\envs\python2` en klik vervolgens op _automatische detectie_. 
+
+* Gebruik in Jupyter
+
+Open Jupyter en klik op de `New` om te maken van een nieuwe notebook. Op dit moment kunt u het type van de kernel als _Python [Conda Root]_ voor Python 3.6 en _Python [Conda env:python2]_ voor Python 2.7-omgeving. 
+
+* Python-pakketten installeren
+
+De standaard Python-omgevingen op de DSVM zijn globale omgeving kan worden gelezen door alle gebruikers. Maar alleen beheerders kunnen schrijven / globale pakketten installeren. Activeren om het pakket naar de globale omgeving installeert, naar de hoofdmap of python2 omgeving met de `activate` opdracht als Administrator. Vervolgens kunt u de package manager zoals `conda` of `pip` te installeren of bijwerken van pakketten. 
+
+## <a name="python-linux-and-windows-server-2012-edition"></a>Python (Linux en Windows Server 2012 Edition)
 
 |    |           |
 | ------------- | ------------- |
 | Ondersteunde versies | 2.7 en 3.5 |
-| Ondersteunde DSVM edities      | Linux, Windows     |
-| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Twee globale `conda` omgevingen worden gemaakt. <br /> * `root`omgeving zich bevindt op `/anaconda/` Python 2.7 is. <br/> * `py35`omgeving zich bevindt op `/anaconda/envs/py35`Python 3.5 is       |
+| Ondersteunde DSVM edities      | Linux, Windows Server 2012    |
+| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Twee globale `conda` omgevingen worden gemaakt. <br /> * `root` omgeving zich bevindt op `/anaconda/` Python 2.7 is. <br/> * `py35` omgeving zich bevindt op `/anaconda/envs/py35`Python 3.5 is       |
 | Koppelingen naar voorbeelden      | Voorbeeld Jupyter-notebooks voor Python zijn opgenomen     |
-| Bijbehorende hulpprogramma's op de DSVM      | Julia PySpark, R,      |
+| Bijbehorende hulpprogramma's op de DSVM      | PySpark, R, Julia      |
 ### <a name="how-to-use--run-it"></a>Hoe gebruik / uitvoeren?    
 
-**Windows**:
+**Linux**
+* Uitgevoerd in terminal
 
+Open de terminal en doe het volgende, afhankelijk van de versie van Python die u wilt uitvoeren. 
+
+```
+# To run Python 2.7
+source activate 
+python --version
+
+# To run Python 3.5
+source activate py35
+python --version
+
+```
+* Gebruik in een IDE
+
+Gebruik PyCharm in de Visual Studio Community-editie geïnstalleerd. 
+
+* Gebruik in Jupyter
+
+Open Jupyter en klik op de `New` om te maken van een nieuwe notebook. Op dit moment kunt u het type van de kernel als _Python [Conda Root]_ voor Python 2.7 en _Python [Conda env:py35]_ voor 3.5 Python-omgeving. 
+
+* Python-pakketten installeren
+
+De standaard Python-omgevingen op de DSVM zijn globale omgevingen kan worden gelezen door alle gebruikers. Maar alleen beheerders kunnen schrijven / globale pakketten installeren. Activeren om het pakket naar de globale omgeving installeert, naar de hoofdmap of py35 omgeving met de `source activate` opdracht als beheerder of als een gebruiker met sudo-machtigingen. Vervolgens kunt u een Pakketbeheer zoals `conda` of `pip` te installeren of bijwerken van pakketten. 
+
+**Windows 2012**
 * Uitgevoerd in de opdrachtprompt
 
 Opdrachtprompt openen en doe het volgende, afhankelijk van de versie van Python die u wilt uitvoeren. 
@@ -66,44 +136,15 @@ Open Jupyter en klik op de `New` om te maken van een nieuwe notebook. Op dit mom
 
 De standaard Python-omgevingen op de DSVM zijn globale omgeving kan worden gelezen door alle gebruikers. Maar alleen beheerders kunnen schrijven / globale pakketten installeren. Activeren om het pakket naar de globale omgeving installeert, naar de hoofdmap of py35 omgeving met de `activate` opdracht als Administrator. Vervolgens kunt u de package manager zoals `conda` of `pip` te installeren of bijwerken van pakketten. 
 
-
-**Linux**:
-
-* Uitgevoerd in terminal
-
-Open de terminal en doe het volgende, afhankelijk van de versie van Python die u wilt uitvoeren. 
-
-```
-# To run Python 2.7
-source activate 
-python --version
-
-# To run Python 3.5
-source activate py35
-python --version
-
-```
-* Gebruik in een IDE
-
-Gebruik PyCharm in de Visual Studio Community-editie geïnstalleerd. 
-
-* Gebruik in Jupyter
-
-Open Jupyter en klik op de `New` om te maken van een nieuwe notebook. Op dit moment kunt u het type van de kernel als _Python [Conda Root]_ voor Python 2.7 en _Python [Conda env:py35]_ voor 3.5 Python-omgeving. 
-
-* Python-pakketten installeren
-
-De standaard Python-omgevingen op de DSVM zijn globale omgevingen kan worden gelezen door alle gebruikers. Maar alleen beheerders kunnen schrijven / globale pakketten installeren. Activeren om het pakket naar de globale omgeving installeert, naar de hoofdmap of py35 omgeving met de `source activate` opdracht als beheerder of als een gebruiker met sudo-machtigingen. Vervolgens kunt u een Pakketbeheer zoals `conda` of `pip` te installeren of bijwerken van pakketten. 
-
 ## <a name="r"></a>R
 
 |    |           |
 | ------------- | ------------- |
 | Ondersteunde versies | Microsoft R Open 3.x (100% compatibel is met CRAN R<br /> Microsoft R Server 9.x ontwikkelaarsversie (een schaalbare gereed R platform)|
 | Ondersteunde DSVM edities      | Linux, Windows     |
-| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Windows:`C:\Program Files\Microsoft\R Server\R_SERVER` <br />Linux:` /usr/lib64/microsoft-r/3.3/lib64/R`    |
+| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Koppelingen naar voorbeelden      | Voorbeeld Jupyter-notebooks voor R zijn opgenomen     |
-| Bijbehorende hulpprogramma's op de DSVM      | Julia SparkR, Python,      |
+| Bijbehorende hulpprogramma's op de DSVM      | SparkR, Python, Julia      |
 ### <a name="how-to-use--run-it"></a>Hoe gebruik / uitvoeren?    
 
 **Windows**:
@@ -147,9 +188,9 @@ R is geïnstalleerd op de DSVM in een globale-omgeving kan worden gelezen door a
 
 |    |           |
 | ------------- | ------------- |
-| Ondersteunde versies | 0.5 |
+| Ondersteunde versies | 0.6 |
 | Ondersteunde DSVM edities      | Linux, Windows     |
-| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Windows: Geïnstalleerd op`C:\JuliaPro-VERSION`<br /> Linux: Geïnstalleerd op`/opt/JuliaPro-VERSION`    |
+| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Windows: Geïnstalleerd op `C:\JuliaPro-VERSION`<br /> Linux: Geïnstalleerd op `/opt/JuliaPro-VERSION`    |
 | Koppelingen naar voorbeelden      | Voorbeeld Jupyter-notebooks voor Julia zijn opgenomen     |
 | Bijbehorende hulpprogramma's op de DSVM      | Python, R      |
 ### <a name="how-to-use--run-it"></a>Hoe gebruik / uitvoeren?    
@@ -165,7 +206,7 @@ Gebruik `Juno` de Julia IDE geïnstalleerd op de DSVM en beschikbaar zijn als ee
 
 * Gebruik in Jupyter
 
-Open Jupyter en klik op de `New` om te maken van een nieuwe notebook. Op dit moment kunt u het type van de kernel als`Julia VERSION` 
+Open Jupyter en klik op de `New` om te maken van een nieuwe notebook. Op dit moment kunt u het type van de kernel als `Julia VERSION` 
 
 * Julia pakketten installeren
 
@@ -182,7 +223,7 @@ Gebruik `Juno` de Julia IDE geïnstalleerd op de DSVM en beschikbaar zijn als ee
 
 * Gebruik in Jupyter
 
-Open Jupyter en klik op de `New` om te maken van een nieuwe notebook. Op dit moment kunt u het type van de kernel als`Julia VERSION` 
+Open Jupyter en klik op de `New` om te maken van een nieuwe notebook. Op dit moment kunt u het type van de kernel als `Julia VERSION` 
 
 * Julia pakketten installeren
 

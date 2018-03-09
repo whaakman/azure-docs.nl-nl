@@ -13,20 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 12/13/2017
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 224c0b9f12595ec6cdc65e3d397fb62dba504d06
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: cc4f8e1566ede1d730b40c2e5ce6364786c102d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Een Azure SQL Database of een failover naar een secundaire herstellen
 Azure SQL Database biedt de volgende mogelijkheden voor het herstellen van een storing:
 
 * [Actieve geo-replicatie en failover-groepen](sql-database-geo-replication-overview.md)
-* [Geo-herstel](sql-database-recovery-using-backups.md#point-in-time-restore)
+* [Geo-restore](sql-database-recovery-using-backups.md#point-in-time-restore)
+* [Zone-redundante databases](sql-database-high-availability.md)
 
 Zie voor meer informatie over zakelijke continuïteit-scenario's en de onderdelen van deze scenario's ondersteunen, [bedrijfscontinuïteit](sql-database-business-continuity.md).
 
@@ -36,7 +37,7 @@ Zie voor meer informatie over zakelijke continuïteit-scenario's en de onderdele
 ### <a name="prepare-for-the-event-of-an-outage"></a>Voorbereiden voor het geval er een storing
 Voor een correcte werking met herstel naar een ander gegevensgebied met behulp van failover-groepen of geografisch redundante back-ups, moet u een server voorbereiden in een ander datacenter onderbreking om te worden van de nieuwe primaire server indien nodig ook goed gedefinieerde beschreven stappen hebt ontstaan en getest om te controleren of een smooth herstel. Deze voorbereidende stappen omvatten:
 
-* Identificeer de logische server in een andere regio worden de nieuwe primaire server. Geo-Herstel dit in het algemeen is een server in de [gekoppelde regio](../best-practices-availability-paired-regions.md) voor de regio waar uw database zich bevindt. Hierdoor vermindert u de kosten van extra verkeer tijdens het herstellen van geo-bewerkingen.
+* Identificeer de logische server in een andere regio worden de nieuwe primaire server. Geo-herstel, doorgaans is dit een server in de [gekoppelde regio](../best-practices-availability-paired-regions.md) voor de regio waar uw database zich bevindt. Hierdoor is de kosten van extra verkeer tijdens het herstellen van geo-bewerkingen.
 * Identificeren en eventueel definieert, de firewallregels voor een niveau van de server nodig is voor gebruikers toegang krijgen tot de nieuwe primaire database op.
 * Bepalen hoe u gaat om gebruikers te leiden naar de nieuwe primaire server, zoals door verbindingsreeksen wijzigen of door het wijzigen van DNS-vermeldingen.
 * Identificeren en u kunt maken met de aanmeldingen die moeten worden gebruikt in de hoofddatabase op de nieuwe primaire server en zorg ervoor dat deze aanmeldingen geschikte machtigingen hebben in de database master, indien van toepassing. Zie voor meer informatie [beveiliging van SQL Database na het herstel na noodgevallen](sql-database-geo-replication-security-config.md)
@@ -58,10 +59,10 @@ U kunt de volgende herstelopties overwegen, afhankelijk van uw toepassing tolera
 Gebruik de [herstelbare Database ophalen](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) om op te halen van de meest recente herstelpunt voor Geo-replicatie.
 
 ## <a name="wait-for-service-recovery"></a>Wachttijd voor het herstel
-Het werk Azure teams naar eer en geweten om terug te zetten van de beschikbaarheid van services zoals snel, afhankelijk van de hoofdmap, maar mogelijk tot gevolg hebben dat kan uren of dagen duren.  Als uw toepassing aanzienlijke downtime tolereren kan kunt u gewoon wacht u totdat het herstel te voltooien. In dit geval is geen actie ondernemen vereist. U ziet de status van de huidige op onze [Azure Service Health Dashboard](https://azure.microsoft.com/status/). Na het herstel van de regio wordt van uw toepassing beschikbaarheid hersteld.
+Het werk Azure teams naar eer en geweten om terug te zetten van de beschikbaarheid van services zoals snel, afhankelijk van de hoofdmap, maar mogelijk tot gevolg hebben dat kan uren of dagen duren.  Als uw toepassing aanzienlijke downtime tolereren kan kunt u gewoon wacht u totdat het herstel te voltooien. In dit geval is geen actie ondernemen vereist. U ziet de status van de huidige op onze [Azure Service Health Dashboard](https://azure.microsoft.com/status/). Na het herstel van de regio van uw toepassing beschikbaarheid hersteld.
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>Failover naar de secundaire server in de groep failover geo-replicatie
-Als uitvaltijd van uw toepassing tot zakelijke aansprakelijkheid leiden kan moet u failover-groepen gebruiken. De toepassing voor snel herstel beschikbaarheid in een andere regio bij een stroomstoring wordt het ingeschakeld. Meer informatie over hoe [failover groepen configureren](sql-database-geo-replication-portal.md).
+Als uitvaltijd van uw toepassing leiden zakelijke aansprakelijkheid tot kan, moet u failover-groepen gebruiken. Hiermee kunt de toepassing voor snel herstel beschikbaarheid in een andere regio bij een stroomstoring. Meer informatie over hoe [failover groepen configureren](sql-database-geo-replication-portal.md).
 
 U moet Start de failover naar de secundaire server met een van de ondersteunde methoden voor het herstellen van de beschikbaarheid van de databases.
 
@@ -76,8 +77,8 @@ Als uw toepassing uitvaltijd niet in business aansprakelijkheid resulteert kunt 
 ## <a name="configure-your-database-after-recovery"></a>Uw database na herstel configureren
 Als u van geo-herstel gebruikmaakt van een storing wilt herstellen, moet u ervoor zorgen dat de verbinding met de nieuwe databases correct is geconfigureerd, zodat de normale toepassing-functie kan worden hervat. Dit is een controlelijst van taken bij het klaarstomen van uw productieomgeving herstelde database.
 
-### <a name="update-connection-strings"></a>Verbindingstekenreeksen bijwerken
-Omdat de herstelde database bevindt zich in een andere server, moet u de verbindingsreeks van uw toepassing om te verwijzen naar die server bijwerken.
+### <a name="update-connection-strings"></a>Verbindingsreeksen bijwerken
+Omdat de herstelde database zich in een andere server bevindt, moet u de verbindingsreeks van uw toepassing om te verwijzen naar die server bijwerken.
 
 Zie voor meer informatie over het wijzigen van tekenreeksen voor de ontwikkeling van de juiste taal voor uw [verbindingsbibliotheek](sql-database-libraries.md).
 

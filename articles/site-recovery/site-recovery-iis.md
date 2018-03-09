@@ -2,25 +2,19 @@
 title: Een meerlaagse op basis van een IIS-webtoepassing met Azure Site Recovery repliceren | Microsoft Docs
 description: Informatie over het repliceren van de IIS web farm virtuele machines met Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
 author: nsoneji
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1ed0184ac76b5fb3e607458559327da5e8fe90c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Een toepassing met meerdere lagen, op basis van een IIS-webserver repliceren met behulp van Site Recovery
+# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Een meerlaagse IIS-gebaseerde webtoepassing repliceren
 
 Toepassingssoftware is de engine van de zakelijke productiviteit in een organisatie. Verschillende webtoepassingen kunnen een ander doel in een organisatie. Het is mogelijk dat sommige toepassingen, zoals toepassingen die worden gebruikt voor de verwerking van salaris, financiële toepassingen en klantgerichte websites, essentieel is voor een organisatie. Om verlies van productiviteit te voorkomen, is het belangrijk voor de organisatie deze toepassingen continu up-to-date en worden uitgevoerd. Belangrijker is, kan moeten deze toepassingen continu beschikbaar en helpen voorkomen beschadiging van het merk of afbeelding van de organisatie.
 
@@ -36,7 +30,7 @@ Dit artikel wordt beschreven hoe u een webtoepassing die op basis van op Interne
 
 Voordat u begint, zorg ervoor dat u weet hoe u de volgende taken uitvoeren:
 
-* [Een virtuele machine repliceren naar Azure](site-recovery-vmware-to-azure.md)
+* [Een virtuele machine repliceren naar Azure](vmware-azure-tutorial.md)
 * [Een recovery netwerk ontwerpen](site-recovery-network-design.md)
 * [Voer een testfailover naar Azure](site-recovery-test-failover-to-azure.md)
 * [Voer een failover naar Azure](site-recovery-failover.md)
@@ -75,7 +69,7 @@ Azure|N.v.t.|Ja
 
 Volg de instructies in om te starten op alle IIS web farm virtuele machines repliceren naar Azure, [testfailover naar Azure in Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Als u een statisch IP-adres gebruikt, kunt u de IP-adres dat u wilt dat de virtuele machine te laten worden. Als u wilt het IP-adres instellen, gaat u naar **berekening en netwerk instellingen** > [**IP-adres doel**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties).
+Als u een statisch IP-adres gebruikt, kunt u de IP-adres dat u wilt dat de virtuele machine te laten worden. Als u wilt het IP-adres instellen, gaat u naar **berekening en netwerk instellingen** > **IP-adres doel**.
 
 ![Schermopname die laat zien hoe het doel-IP-adres in het deelvenster Site Recovery berekenen en netwerk instellen](./media/site-recovery-active-directory/dns-target-ip.png)
 

@@ -14,17 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/26/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ebfd44098a81b4a9d8863623458460ceb25f0d5d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Wat is Azure SQL Database Servicelagen?
 
-[Azure SQL Database](sql-database-technical-overview.md) biedt **Basic**, **standaard**, en **Premium** Servicelagen voor beide [databases eenmalige](sql-database-single-database-resources.md) en [elastische pools](sql-database-elastic-pool.md). Servicelagen worden voornamelijk onderscheiden door een bereik van het prestatieniveau en opties voor opslag en prijs.  Alle Servicelagen bieden flexibiliteit bij het wijzigen van de prestaties niveau en opslaggrootte.  Individuele databases en elastische pools wordt gefactureerd per uur op basis van de servicelaag, prestatieniveau en maximale grootte.   
+[Azure SQL Database](sql-database-technical-overview.md) biedt **Basic**, **standaard**, en **Premium** Servicelagen voor beide [databases eenmalige](sql-database-single-database-resources.md) en [elastische pools](sql-database-elastic-pool.md). SQL-Database biedt een servicelaag voor algemene doeleinden voor [Azure SQL Database-beheerd instantie](sql-database-managed-instance.md#managed-instance-service-tier). Servicelagen worden voornamelijk onderscheiden door een bereik van het prestatieniveau en opties voor opslag en prijs.  Alle Servicelagen bieden flexibiliteit bij het wijzigen van de prestaties niveau en opslaggrootte.  Individuele databases en elastische pools wordt gefactureerd per uur op basis van de servicelaag, prestatieniveau en maximale grootte.   
+
+> [!IMPORTANT]
+> Exemplaar van SQL Database-beheerd biedt die momenteel in de openbare preview een enkele algemene servicelaag. Zie voor meer informatie [Azure SQL Database-beheerd instantie](sql-database-managed-instance.md). De rest van dit artikel niet van toepassing op beheerde exemplaar.
 
 ## <a name="choosing-a-service-tier"></a>Het kiezen van een servicelaag
 
@@ -42,7 +45,7 @@ Het kiezen van een servicelaag is vooral afhankelijk van zakelijke continuïteit
 
 ## <a name="performance-level-and-storage-size-limits"></a>Maximale grootte van prestaties en de opslag
 
-Prestatieniveaus worden uitgedrukt in termen van de Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en edtu's [wat zijn dtu's en edtu's?](sql-database-what-is-a-dtu.md)
+Prestatieniveaus worden uitgedrukt in termen van DTU’s (DTU’s: Database Transaction Units) voor enkelvoudige databases en eDTU’s (eDTU’s: elastische DTU’s) voor elastische pools. Zie voor meer informatie over dtu's en edtu's [wat zijn dtu's en edtu's?](sql-database-what-is-a-dtu.md)
 
 ### <a name="single-databases"></a>Individuele databases
 

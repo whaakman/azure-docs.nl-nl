@@ -1,6 +1,6 @@
 ---
 title: Beveiligen van persoonlijke gegevens die onderweg met versleuteling in Azure | Microsoft Docs
-description: Met behulp van versleuteling persoonlijke gegevens te beveiligen in Azure
+description: informatie over Azure codering ter bescherming van persoonlijke gegevens kan handig inspanningen om te voldoen met algemene Data Protection regelgeving (GDPR) zijn.
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,20 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 461ddfda796bfe6639e27f6c4cd53e82b4e397d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6975358d40206a497a53de16731d16ef374db905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Azure versleutelingstechnologieën: beveiligen van persoonlijke gegevens die onderweg met versleuteling
 
-In dit artikel helpt u begrijpen en gebruiken van Azure versleutelingstechnologieën beveiligen van gegevens die worden verzonden. 
-
-De privacy van persoonlijke gegevens te beveiligen als ze via het netwerk is een essentieel onderdeel van een meerlaagse beveiliging van defense-in-depth-strategie. Versleuteling onderweg is ontworpen om te voorkomen dat een aanvaller die gegevensoverdrachten te geven of de gegevens kunnen worden onderschept.
+In dit artikel helpt u begrijpen en gebruiken van Azure versleutelingstechnologieën beveiligen van gegevens die worden verzonden. De privacy van persoonlijke gegevens te beveiligen als ze via het netwerk is een essentieel onderdeel van een meerlaagse beveiliging van defense-in-depth-strategie. Versleuteling onderweg is ontworpen om te voorkomen dat een aanvaller die gegevensoverdrachten te geven of de gegevens kunnen worden onderschept. De informatie in dit artikel kan nuttig zijn in een organisatie inspanningen om te voldoen met algemene Data Protection regelgeving (GDPR).
 
 ## <a name="scenario"></a>Scenario
 
@@ -107,7 +105,7 @@ Voor het versleutelen van gegevens tijdens de overdracht met [Azure File Storage
 
 Een andere optie voor het beveiligen van persoonlijke gegevens, terwijl deze wordt overgebracht tussen een client-toepassing en een Azure Storage is [clientzijde versleuteling](https://docs.microsoft.com/azure/storage/storage-client-side-encryption). De gegevens worden versleuteld voordat ze worden overgedragen naar de Azure-opslag en wanneer u de gegevens uit Azure Storage ophaalt, de gegevens worden ontsleuteld nadat het is ontvangen op de client.
 
-### <a name="azure-site-to-site-vpn"></a>Azure Site-naar-Site-VPN
+### <a name="azure-site-to-site-vpn"></a>Azure Site-to-Site VPN
 
 Een effectieve manier om persoonlijke gegevens onderweg tussen een bedrijfsnetwerk of de gebruiker en de virtuele Azure-netwerk te beveiligen is met een [site-naar-site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) of [punt-naar-site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal) virtuele particuliere netwerk (VPN). Een VPN-verbinding wordt gemaakt van een beveiligde tunnel versleutelde via Internet.
 

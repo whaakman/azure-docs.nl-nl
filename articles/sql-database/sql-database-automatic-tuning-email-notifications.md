@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/05/2018
 ms.author: v-daljep
-ms.openlocfilehash: a1b10c1a12d9a9215022cc77615901a0e4d144f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 611c30639b5fb36bb08ebd3e73c90f8aa2bd09d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-mailmeldingen voor automatische afstemming
 
 SQL-Database afstemmen aanbevelingen worden gegenereerd door Azure SQL Database [automatische afstemming](sql-database-automatic-tuning.md). Deze oplossing continu bewaakt en analyseert werkbelastingen van het SQL-Databases bieden aangepast aanbevelingen voor elke afzonderlijke database die betrekking hebben op het maken van een index, verwijderen van een index en optimalisatie van de uitvoering van queryplannen afstemmen.
 
-SQL Database automatische afstemming van aanbevelingen kunnen worden weergegeven in de [Azure-portal](sql-database-advisor-portal.md), opgehaald met [REST-API](https://docs.microsoft.com/en-us/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) aanroept of met behulp van [T-SQL](https://azure.microsoft.com/en-us/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) en [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) opdrachten. In dit artikel is gebaseerd op een PowerShell-script gebruiken om op te halen van automatische afstemmen aanbevelingen.
+SQL Database automatische afstemming van aanbevelingen kunnen worden weergegeven in de [Azure-portal](sql-database-advisor-portal.md), opgehaald met [REST-API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) aanroept of met behulp van [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) en [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) opdrachten. In dit artikel is gebaseerd op een PowerShell-script gebruiken om op te halen van automatische afstemmen aanbevelingen.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>E-mailmeldingen voor automatische afstemmen aanbevelingen automatiseren
 
@@ -34,7 +34,7 @@ De volgende oplossing automatiseert het verzenden van e-mailmeldingen met automa
 
 ## <a name="create-azure-automation-account"></a>Azure Automation-account maken
 
-Voor het gebruik van Azure Automation, is de eerste stap het maken van een automation-account en configureer dit met Azure-resources voor uitvoering van het PowerShell-script. Zie voor meer informatie over Azure Automation en de mogelijkheden ervan, [aan de slag met Azure automation](https://docs.microsoft.com/en-us/azure/automation/automation-offering-get-started).
+Voor het gebruik van Azure Automation, is de eerste stap het maken van een automation-account en configureer dit met Azure-resources voor uitvoering van het PowerShell-script. Zie voor meer informatie over Azure Automation en de mogelijkheden ervan, [aan de slag met Azure automation](https://docs.microsoft.com/azure/automation/automation-offering-get-started).
 
 Volg deze stappen voor het Azure Automation-Account maken met de methode te selecteren en configureren van Automation-app uit de Marketplace:
 
@@ -47,7 +47,7 @@ Volg deze stappen voor het Azure Automation-Account maken met de methode te sele
 
 - Eenmaal in het deelvenster 'Een Automation-Account maken' Klik op '**maken**'
 - De vereiste informatie invullen: Voer een naam voor dit automation-account, selecteert u uw Azure-abonnement-ID en het Azure-resources moet worden gebruikt voor de uitvoering van het PowerShell-script
-- Voor de '**Azure uitvoeren als-account maken**' optie, selecteer **Ja** voor het configureren van het type van welke PowerShell script wordt uitgevoerd met behulp van Azure Automation-account. Zie voor meer informatie over accounttypen, [Run As-account](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account)
+- Voor de '**Azure uitvoeren als-account maken**' optie, selecteer **Ja** voor het configureren van het type van welke PowerShell script wordt uitgevoerd met behulp van Azure Automation-account. Zie voor meer informatie over accounttypen, [Run As-account](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
 - Het maken van het automation-account sluiten door te klikken op **maken**
 
 > [!TIP]
@@ -58,7 +58,7 @@ Als u verschillende Azure-abonnementen waarvoor u wilt maken van de dezelfde aut
 
 ## <a name="update-azure-automation-modules"></a>Azure Automation-modules bijwerken
 
-Maakt gebruik van het PowerShell-script voor het ophalen van automatische afstemming aanbeveling [Get-AzureRmResource](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Get-AzureRmResource) en [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) -opdrachten voor welke bijwerken van de Azure-Modules mogen worden de versie 4 en hoger is vereist.
+Maakt gebruik van het PowerShell-script voor het ophalen van automatische afstemming aanbeveling [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmResource) en [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) -opdrachten voor welke bijwerken van de Azure-Modules mogen worden de versie 4 en hoger is vereist.
 
 Volg deze stappen voor het bijwerken van Azure PowerShell-modules:
 
@@ -195,7 +195,7 @@ Voor het voltooien van de oplossing voor de laatste stap maakt u een automation-
 2. "**Azure Automation - Get-taakuitvoer**': wordt gebruikt voor het ophalen van de uitvoer van het uitgevoerde PowerShell-script
 3. "**Outlook in office 365 – stuurt u een e-mailadres**': wordt gebruikt voor het verzenden van e-mail. E-mailberichten worden verzonden met behulp van de Office 365-account van de persoon die het maken van de stroom.
 
-Zie voor meer informatie over de mogelijkheden van Microsoft-Flow, [aan de slag met Microsoft-Flow](https://docs.microsoft.com/en-us/flow/getting-started).
+Zie voor meer informatie over de mogelijkheden van Microsoft-Flow, [aan de slag met Microsoft-Flow](https://docs.microsoft.com/flow/getting-started).
 
 Vereiste voor deze stap is dat u zich aanmelden voor [Microsoft Flow](https://flow.microsoft.com) account en aan te melden. Eenmaal in de oplossing als volgt te werk voor het instellen van een **nieuwe stroom**:
 

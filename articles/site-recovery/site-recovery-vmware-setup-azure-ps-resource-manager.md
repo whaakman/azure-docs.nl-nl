@@ -15,15 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 12/19/2017
 ms.author: anoopkv
 ms.openlocfilehash: 1b75acb13ac4c8990f99f7454a6de5483f6ca2f1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Beheren van een processerver worden uitgevoerd in Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
-> * [Klassieke](./site-recovery-vmware-setup-azure-ps-classic.md)
+> * [Klassieke ](./site-recovery-vmware-setup-azure-ps-classic.md)
 
 Tijdens de failback, is het raadzaam processerver in Azure implementeren als er hoge latentie tussen het virtuele netwerk van Azure en uw on-premises netwerk. Dit artikel wordt beschreven hoe u kunt instellen, configureren en beheren van de processervers worden uitgevoerd in Azure.
 

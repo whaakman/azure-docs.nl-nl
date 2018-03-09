@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/20/2017
+ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: c33cea62dac1c06dd1cb4031897af8c822e61661
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Met Azure Backup Server voorbereiden op het maken van back-ups van workloads
 > [!div class="op_single_selector"]
@@ -44,11 +44,11 @@ U kunt ook infrastructuur beveiligen als een Service (IaaS) werkbelastingen, zoa
 
 Azure Backup-Server neemt veel van de back-functionaliteit van de werkbelasting van Data Protection Manager (DPM). Dit artikel bevat koppelingen naar de DPM-documentatie bevatten uitleg over enkele van de gedeelde functionaliteit. Azure Backup-Server deelt Hoewel veel van dezelfde functionaliteit als DPM. Azure Backup-Server heeft geen back-up naar tape of is deze dan geïntegreerd met System Center.
 
-## <a name="1-choose-an-installation-platform"></a>1. Kies een installatieplatform
+## <a name="choose-an-installation-platform"></a>Kies een installatieplatform
 De eerste stap naar de Azure Backup-Server slag is voor het instellen van een Windows-Server. Uw server worden in Azure of on-premises.
 
 ### <a name="using-a-server-in-azure"></a>Gebruik van een server in Azure
-Bij het kiezen van een server voor het uitvoeren van Azure Backup-Server, kunt dat u beginnen met een afbeelding van Windows Server 2012 R2 Datacenter. Het artikel [uw eerste virtuele Windows-machine maken in de Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), bevat een zelfstudie voor het aan de slag met de aanbevolen virtuele machine in Azure, zelfs als u nooit Azure al eerder hebt gebruikt. De aanbevolen minimale vereisten voor de server virtuele machine (VM) moeten zijn: A2 Standard met twee kernen en 3.5 GB RAM-geheugen.
+Bij het kiezen van een server voor het uitvoeren van Azure Backup-Server, kunt dat u beginnen met een afbeelding van Windows Server 2012 R2 Datacenter of Windows Server 2016 Datacenter. Het artikel [uw eerste virtuele Windows-machine maken in de Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), bevat een zelfstudie voor het aan de slag met de aanbevolen virtuele machine in Azure, zelfs als u nooit Azure al eerder hebt gebruikt. De aanbevolen minimale vereisten voor de server virtuele machine (VM) moeten zijn: A2 Standard met twee kernen en 3.5 GB RAM-geheugen.
 
 Werklasten beveiligen met Azure Backup-Server heeft veel nuances. Het artikel [DPM installeren als een virtuele machine van Azure](https://technet.microsoft.com/library/jj852163.aspx), helpt deze nuances uitgelegd. Lees dit artikel volledig voordat de machine is geïmplementeerd.
 
@@ -75,7 +75,7 @@ U kunt de DPM-opslag met behulp van Windows Server-Ontdubbeling ontdubbelen. Mee
 
 Altijd Azure Backup-Server toevoegen aan een domein. Als u van plan bent de server naar een ander domein verplaatsen, is het raadzaam dat u de server aan het nieuwe domein toevoegen voordat u Azure Backup-Server installeert. Een bestaande back-upserver van Azure-machine verplaatsen naar een nieuw domein nadat implementatie *niet ondersteund*.
 
-## <a name="2-recovery-services-vault"></a>2. Recovery Services-kluis
+## <a name="recovery-services-vault"></a>Recovery Services-kluis
 Of u back-upgegevens naar Azure verzenden of lokaal houden, wordt de software moet zijn verbonden met Azure. Meer specifiek, de Azure Backup-Server-machine moet worden geregistreerd met een recovery services-kluis.
 
 Een Recovery Services-kluis maken:
@@ -112,7 +112,7 @@ De instelling voor opslagreplicatie bewerken:
 
     Nadat u de opslagoptie voor uw kluis hebt gekozen, bent u klaar om de VM aan de kluis te koppelen. Voordat u de VM aan de kluis koppelt, moet u eerst de virtuele Azure-machines detecteren en registreren.
 
-## <a name="3-software-package"></a>3. Softwarepakket
+## <a name="software-package"></a>Softwarepakket
 ### <a name="downloading-the-software-package"></a>Het softwarepakket downloaden
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Als u al een Recovery Services-kluis is geopend, gaat u verder met stap 3. Als er nog geen Recovery Services-kluis is geopend, maar Azure Portal wordt weergeven, klikt u in het menu Hub op **Bladeren**.
@@ -231,7 +231,7 @@ De eerste back-up wordt opgeslagen op opslag die is gekoppeld aan de Azure Backu
 >
 >
 
-## <a name="4-network-connectivity"></a>4. Netwerkverbinding
+## <a name="network-connectivity"></a>Netwerkverbinding
 Azure Backup-Server is vereist voor de verbinding met de Azure Backup-service voor het product werkt met succes. U kunt controleren of de machine de verbinding met Azure heeft, gebruiken de ```Get-DPMCloudConnection``` cmdlet in de Azure Backup-Server PowerShell-console. Als de uitvoer van de cmdlet TRUE is en vervolgens de verbinding is, anders er is geen netwerkverbinding.
 
 Op hetzelfde moment moet het Azure-abonnement in een foutloze toestand bevindt. De status van uw abonnement en beheert, meld u aan bij de [abonnement portal](https://account.windowsazure.com/Subscriptions).
@@ -241,11 +241,11 @@ Zodra u de status van de Azure-connectiviteit en het Azure-abonnement hebt, kunt
 | Status connectiviteit | Azure-abonnement | Back-up naar Azure | Back-up op schijf | Herstellen van Azure | Herstellen van de schijf |
 | --- | --- | --- | --- | --- | --- |
 | Verbonden |Actief |Toegestaan |Toegestaan |Toegestaan |Toegestaan |
-| Verbonden |Verlopen |Stopped |Stopped |Toegestaan |Toegestaan |
-| Verbonden |Gemaakt |Stopped |Stopped |Gestopt en Azure herstelpunten verwijderd |Stopped |
-| Verloren connectiviteit > 15 dagen |Actief |Stopped |Stopped |Toegestaan |Toegestaan |
-| Verloren connectiviteit > 15 dagen |Verlopen |Stopped |Stopped |Toegestaan |Toegestaan |
-| Verloren connectiviteit > 15 dagen |Gemaakt |Stopped |Stopped |Gestopt en Azure herstelpunten verwijderd |Stopped |
+| Verbonden |Verlopen |Gestopt |Gestopt |Toegestaan |Toegestaan |
+| Verbonden |Gemaakt |Gestopt |Gestopt |Gestopt en Azure herstelpunten verwijderd |Gestopt |
+| Verloren connectiviteit > 15 dagen |Actief |Gestopt |Gestopt |Toegestaan |Toegestaan |
+| Verloren connectiviteit > 15 dagen |Verlopen |Gestopt |Gestopt |Toegestaan |Toegestaan |
+| Verloren connectiviteit > 15 dagen |Gemaakt |Gestopt |Gestopt |Gestopt en Azure herstelpunten verwijderd |Gestopt |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Herstellen van het verlies van verbinding
 Als u een firewall of een proxy die is verhinderen van toegang tot Azure hebt, moet u goedgekeurde IP-adressen de volgende adressen domein in de firewall/proxy-profiel:

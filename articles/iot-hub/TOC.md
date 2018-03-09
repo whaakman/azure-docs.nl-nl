@@ -40,6 +40,9 @@
 ### [Apparaatbeheer met IoT-extensie voor Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Externe bewaking en meldingen met Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
+## MXChip IoT DevKit gebruiken
+### [Spraakberichten vertalen met Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
+
 # Handleidingen
 ## Plannen
 ### [IoT Hub en Event Hubs vergelijken](iot-hub-compare-event-hubs.md)

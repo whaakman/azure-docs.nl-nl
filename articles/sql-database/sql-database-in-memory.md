@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 98b4a0b4bcb271a68880359b1bb04655cae8d003
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren door technologieën voor In-Memory in SQL-Database
 
@@ -44,7 +44,7 @@ Azure SQL-Database heeft de volgende In het geheugen-technologieën:
 
 - *In het geheugen OLTP* verhoogt de doorvoer en vermindert de latentie voor de transactieverwerking. Scenario's die van de In-geheugen OLTP profiteren zijn: hoge gegevensdoorvoer transactieverwerking zoals handelspartners en games, gegevensopname uit gebeurtenissen of IoT-apparaten, opslaan in cache laden van gegevens en de tijdelijke tabel en de variabele scenario's voor een tabel.
 - *Geclusterde columnstore-indexen* (maximaal 10 keer) voor de opslag van kooldioxide verminderen en verbeterde prestaties voor query's voor rapportage en analyse. U kunt deze met feitentabellen in de datamarts meer gegevens in uw database passen en de prestaties verbeteren. Bovendien kunt u deze met historische gegevens in de operationele database te archiveren en kunnen maximaal 10 keer meer gegevens opvragen.
-- *Niet-geclusterde columnstore-indexen* voor HTAP helpt u bij de realtime inzicht in uw bedrijf via het opvragen van de operationele database rechtstreeks, zonder de noodzaak om uit te voeren een dure uitpakken, transformeren, en load (ETL)-proces en wacht tot het datawarehouse worden ingevuld. Niet-geclusterde columnstore-indexen uitvoering van zeer snel van analysequery's op de OLTP-database terwijl vermindert de gevolgen voor de operationele werkbelasting.
+- *Niet-geclusterde columnstore-indexen* voor HTAP helpt u bij de realtime inzicht in uw bedrijf via het opvragen van de operationele database rechtstreeks, zonder de noodzaak om uit te voeren een dure uitpakken, transformeren, en load (ETL)-proces en wacht tot de het datawarehouse worden ingevuld. Niet-geclusterde columnstore-indexen uitvoering van zeer snel van analysequery's op de OLTP-database terwijl vermindert de gevolgen voor de operationele werkbelasting.
 - U kunt ook de combinatie van een tabel geoptimaliseerd voor geheugen met een columnstore-index hebben. Deze combinatie kunt u zeer snel transactieverwerking, uitvoeren en *gelijktijdig* analysequery's zeer snel worden uitgevoerd op dezelfde gegevens.
 
 Columnstore-indexen zowel In-geheugen OLTP hebben sinds onderdeel van het product van de SQL Server 2012 en 2014, respectievelijk. Azure SQL Database en SQL Server delen de dezelfde implementatie van de technologieën In het geheugen. Voortaan kunt zijn nieuwe mogelijkheden voor deze technologieën uitgebracht in Azure SQL Database eerst voordat ze worden vrijgegeven in SQL Server.
@@ -229,7 +229,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 Het enige verschil tussen de volgende twee *opgeslagen procedures* is dat de eerste procedure maakt gebruik van versies van de tabellen geoptimaliseerd voor geheugen, terwijl de tweede procedure gebruikt u de gewone tabellen voor op schijf:
 
-- SalesLT**.** usp_InsertSalesOrder**_inmem**
+- SalesLT**.**usp_InsertSalesOrder**_inmem**
 - SalesLT**.** usp_InsertSalesOrder**_ondisk**
 
 
@@ -502,7 +502,7 @@ In een database met de prijscategorie P2, kunt u ongeveer negen keer de prestati
 - [Opslag van de monitor In-geheugen OLTP](sql-database-in-memory-oltp-monitoring.md) voor In-geheugen OLTP
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 #### <a name="deeper-information"></a>Meer gedetailleerde informatie
 

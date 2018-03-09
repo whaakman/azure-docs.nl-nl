@@ -3,21 +3,22 @@ title: Met behulp van SQL-databases op Azure-Stack | Microsoft Docs
 description: Meer informatie over hoe u SQL-databases kan implementeren als een service op Azure-Stack en de snelle stappen voor het implementeren van de SQL Server resource provider-adapter.
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
-manager: bradleyb
+author: mattbriggs
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
-ms.author: JeffGo
-ms.openlocfilehash: bf52ed4986b4e0930b57721c0e38bbf748045a36
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 03/06/2018
+ms.author: mabrigg
+ms.reviewer: jeffgo
+ms.openlocfilehash: 805e39dfdee3a23d4ddc196085be59788cee912a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL-databases op Microsoft Azure-Stack gebruiken
 
@@ -38,11 +39,14 @@ De resourceprovider bestaat uit drie onderdelen:
 - **De resourceprovider zelf**, die inrichting verzoeken verwerkt en resources van de database zichtbaar gemaakt.
 - **Servers waarop SQL Server worden gehost**, hosting-servers die een capaciteit voor databases worden aangeroepen.
 
-U moet een (of meer) intances van SQL Server maken en/of toegang tot de externe SQL Server-exemplaren.
+U moet een (of meer) exemplaren van SQL Server maken en/of toegang tot de externe SQL Server-exemplaren.
+
+> [!NOTE]
+> Hosting-servers die zijn geïnstalleerd op Azure-Stack moeten geïntegreerde systemen worden gemaakt van een tenantabonnement. Ze kunnen niet worden gemaakt van het standaard provider-abonnement. Ze moeten worden gemaakt vanuit de tenantportal of vanuit een PowerShell-sessie met een juiste aanmelden. Alle hosting-servers toerekenbare VM's zijn en moeten de juiste licenties hebt. De servicebeheerder kan de eigenaar van de tenant-abonnement zijn.
 
 ## <a name="deploy-the-resource-provider"></a>De resourceprovider implementeren
 
-1. Als u dit nog niet hebt gedaan, registreren van uw development kit en downloaden van de installatiekopie van het Windows Server 2016 Datacenter Core downloadbare via Marketplace-beheer. U kunt een installatiekopie van Windows Server 2016 Core moet gebruiken. U kunt ook een script maken van een [installatiekopie van Windows Server 2016](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Zorg ervoor dat de core-optie). De runtime .NET 3.5 is niet langer vereist.
+1. Als u dit nog niet hebt gedaan, registreren van uw development kit en downloaden van de installatiekopie van het Windows Server 2016 Datacenter Core downloadbare via Marketplace-beheer. U kunt een installatiekopie van Windows Server 2016 Core moet gebruiken. U kunt ook een script maken van een [installatiekopie van Windows Server 2016](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Zorg ervoor dat de core-optie te selecteren.)
 
 2. Aanmelden bij een host die toegang heeft tot de bevoegde VM-eindpunt.
 
@@ -57,16 +61,17 @@ U moet een (of meer) intances van SQL Server maken en/of toegang tot de externe 
 3. De SQL-resourceprovider binaire downloaden. Voer vervolgens de zelfstandig uitpakken om de inhoud naar een tijdelijke map te pakken.
 
     >[!NOTE] 
-    > De resource provider-build correspondeert met de Azure-Stack builds. Zorg ervoor dat het juiste binaire bestand voor de versie van Azure-Stack met downloaden.
+    > De resourceprovider heeft een minimale bijbehorende Azure-Stack bouwen. Zorg ervoor dat het juiste binaire bestand voor de versie van Azure-Stack met downloaden.
 
     | Azure Stack build | SQL resource provider-installatieprogramma |
     | --- | --- |
-    |1.0.180102.3, 1.0.180103.2 of 1.0.180106.1 (met meerdere knooppunten) | [SQL RP versie 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
-    | 1.0.171122.1 | [SQL RP versie 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
-    | 1.0.171028.1 | [SQL RP versie 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
+    | 1802: 1.0.180302.1 | [SQL RP versie 1.1.18.0](https://aka.ms/azurestacksqlrp1802) |
+    | 1712: 1.0.180102.3, 1.0.180103.2 of 1.0.180106.1 (met meerdere knooppunten) | [SQL RP versie 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
+    | 1711: 1.0.171122.1 | [SQL RP versie 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
+    | 1710: 1.0.171028.1 | [SQL RP versie 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
   
 
-4. Het Azure-Stack-basiscertificaat wordt opgehaald uit het bevoegde eindpunt. Voor de Stack Azure SDK een zelfondertekend certificaat gemaakt als onderdeel van dit proces. Voor meerdere knooppunten, moet u een geschikt certificaat opgeven.
+4. Het Azure-Stack-basiscertificaat wordt opgehaald uit het bevoegde eindpunt. Voor de Stack Azure SDK een zelfondertekend certificaat gemaakt als onderdeel van dit proces. Voor geïntegreerde systemen, moet u een geschikt certificaat opgeven.
 
    Voor uw eigen certificaat, plaatst u een .pfx-bestand in de **DependencyFilesLocalPath** als volgt:
 
@@ -74,7 +79,7 @@ U moet een (of meer) intances van SQL Server maken en/of toegang tot de externe 
 
     - Dit certificaat moet worden vertrouwd. Dat wil zeggen moet de keten van vertrouwensrelatie bestaan zonder tussenliggende certificaten.
 
-    - Een enkele certificaatbestand bestaat in de DependencyFilesLocalPath.
+    - Een enkele certificaatbestand kan in de map waarnaar wordt verwezen door de parameter DependencyFilesLocalPath bestaan.
 
     - De bestandsnaam moet de speciale tekens niet bevatten.
 
@@ -91,10 +96,10 @@ U moet een (of meer) intances van SQL Server maken en/of toegang tot de externe 
     - Een virtuele machine implementeert met behulp van de installatiekopie van het Windows Server 2016 die is gemaakt in stap 1 en vervolgens de resourceprovider wordt geïnstalleerd.
     - Registreert een lokale DNS-record dat is toegewezen aan uw VM-resourceprovider.
     - Registreert uw resourceprovider met de lokale Azure Resource Manager (gebruiker en beheer).
+    - Eventueel installeert één Windows update tijdens de installatie van de RP
 
-> [!NOTE]
-> Als de installatie van meer dan 90 minuten duurt, kan het mislukken. Als dit mislukt, wordt er een foutbericht op het scherm en in het logboekbestand, maar de implementatie van de mislukte stap wordt geprobeerd. Systemen die niet voldoen aan de aanbevolen specificaties voor geheugen en vCPU niet mogelijk voor het implementeren van de provider voor SQL resoure.
->
+8. Het is raadzaam dat u de installatiekopie van het meest recente Windows Server 2016 Core uit het beheer van de Marketplace downloaden. Als u een update installeert moet, kunt u één plaatsen. MSU-pakket in het pad van de lokale afhankelijkheid. Als meer dan één. MSU-bestand wordt gevonden, mislukt het script.
+
 
 Hier volgt een voorbeeld die u vanuit de PowerShell-prompt uitvoeren kunt. (Zorg ervoor dat de accountgegevens en -wachtwoorden zo nodig wijzigen.)
 
@@ -104,11 +109,11 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack and the default prefix is AzS.
-# For integrated systems, the domain and the prefix are the same.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
-$prefix = "AzS"
-$privilegedEndpoint = "$prefix-ERCS01"
+
+# For integrated systems, use the IP address of one of the ERCS virtual machines
+$privilegedEndpoint = "AzS-ERCS01"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -118,7 +123,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set credentials for the new Resource Provider VM.
+# Set credentials for the new resource provider VM local administrator account
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
@@ -170,14 +175,17 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of als 
 
 
 ## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Bijwerken van de SQL resource provider-adapter (met meerdere knooppunten alleen bij builds 1710 en hoger)
-Wanneer de Azure-Stack-build wordt bijgewerkt, wordt een nieuwe SQL-resource provider adapter uitgebracht. De bestaande adapter mogelijk blijven werken. We raden echter bijwerken naar de laatste build zo snel mogelijk nadat de Azure-Stack is bijgewerkt. 
+Een nieuwe SQL resource provider-adapter kan worden vrijgegeven wanneer Azure Stack-builds worden bijgewerkt. Terwijl de bestaande adapter werken blijven, wordt u aangeraden zo snel mogelijk naar de laatste build bijwerken. Updates moeten worden geïnstalleerd in volgorde: u kunt de versies niet overslaan (Zie de bovenstaande tabel).
 
 Het updateproces is vergelijkbaar met het installatieproces dat eerder beschreven. U kunt een nieuwe virtuele machine maken met de meest recente resource provider-code. Bovendien migreren u instellingen naar deze nieuwe instantie met inbegrip van de database en het hosten van servergegevens. U kunt ook de benodigde DNS-record migreren.
 
 Het script UpdateSQLProvider.ps1 gebruiken met dezelfde argumenten die we eerder beschreven. Geef hier het certificaat ook.
 
+Het is raadzaam dat u de installatiekopie van het meest recente Windows Server 2016 Core uit het beheer van de Marketplace downloaden. Als u een update installeert moet, kunt u één plaatsen. MSU-pakket in het pad van de lokale afhankelijkheid. Als meer dan één. MSU-bestand wordt gevonden, mislukt het script.
+
+
 > [!NOTE]
-> Dit updateproces wordt alleen ondersteund op systemen met meerdere knooppunten.
+> Het updateproces geldt alleen voor geïntegreerde systemen.
 
 ```
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
@@ -185,11 +193,11 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack and the default prefix is AzS.
-# For integrated systems, the domain and the prefix are the same.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
-$prefix = "AzS"
-$privilegedEndpoint = "$prefix-ERCS01"
+
+# For integrated systems, use the IP address of one of the ERCS virtual machines
+$privilegedEndpoint = "AzS-ERCS01"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -237,6 +245,103 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of als 
 | **DebugMode** | Voorkomt dat automatisch opschonen bij fouten. | Nee |
 
 
+## <a name="collect-diagnostic-logs"></a>Diagnostische logboeken verzamelen
+De SQL-resourceprovider is de virtuele machine een vergrendeld. Als het nodig zijn voor het verzamelen van Logboeken van de virtuele machine, een PowerShell net genoeg Administration (JEA)-eindpunt wordt _DBAdapterDiagnostics_ is opgegeven voor dit doel. Er zijn twee opdrachten beschikbaar via dit eindpunt:
+
+* Get-AzsDBAdapterLog - bereidt een zip-pakket met RP diagnostische logboeken en plaatst deze op de schijf van de sessie van de gebruiker. De opdracht kan worden aangeroepen zonder parameters en de laatste vier uur van Logboeken verzamelt.
+* Remove-AzsDBAdapterLog - ruimt bestaande logboek-pakketten op de resourceprovider VM
+
+Een gebruikersaccount aangeroepen _dbadapterdiag_ is gemaakt tijdens de RP-implementatie of update voor de verbinding met het eindpunt van de diagnostische gegevens voor het uitpakken van RP-Logboeken. Het wachtwoord van dit account is hetzelfde als het wachtwoord voor het lokale administrator-account tijdens de implementatie-update.
+
+Voor het gebruik van deze opdrachten moet u voor het maken van een externe PowerShell-sessie op de virtuele machine van de resource provider en de opdracht aanroepen. U kunt desgewenst FromDate en ToDate parameters opgeven. Als u een of beide van deze niet opgeeft, worden de FromDate vier uur vóór de huidige tijd en de ToDate worden de huidige tijd.
+
+Dit voorbeeldscript wordt getoond hoe het gebruik van deze opdrachten:
+
+```
+# Create a new diagnostics endpoint session.
+$databaseRPMachineIP = '<RP VM IP>'
+$diagnosticsUserName = 'dbadapterdiag'
+$diagnosticsUserPassword = '<see above>'
+
+$diagCreds = New-Object System.Management.Automation.PSCredential `
+        ($diagnosticsUserName, $diagnosticsUserPassword)
+$session = New-PSSession -ComputerName $databaseRPMachineIP -Credential $diagCreds `
+        -ConfigurationName DBAdapterDiagnostics
+
+# Sample captures logs from the previous one hour
+$fromDate = (Get-Date).AddHours(-1)
+$dateNow = Get-Date
+$sb = {param($d1,$d2) Get-AzSDBAdapterLog -FromDate $d1 -ToDate $d2}
+$logs = Invoke-Command -Session $session -ScriptBlock $sb -ArgumentList $fromDate,$dateNow
+
+# Copy the logs
+$sourcePath = "User:\{0}" -f $logs
+$destinationPackage = Join-Path -Path (Convert-Path '.') -ChildPath $logs
+Copy-Item -FromSession $session -Path $sourcePath -Destination $destinationPackage
+
+# Cleanup logs
+$cleanup = Invoke-Command -Session $session -ScriptBlock {Remove- AzsDBAdapterLog }
+# Close the session
+$session | Remove-PSSession
+```
+
+## <a name="maintenance-operations-integrated-systems"></a>Onderhoudsbewerkingen (geïntegreerde systemen)
+De SQL-resourceprovider is de virtuele machine een vergrendeld. Bijwerken van de resource provider van de virtuele machine kan worden uitgevoerd via het eindpunt PowerShell net genoeg Administration (JEA) _DBAdapterMaintenance_.
+
+Een script wordt geleverd bij de RP-installatiepakket te vergemakkelijken van deze bewerkingen.
+
+### <a name="update-the-virtual-machine-operating-system"></a>Werk het besturingssysteem van de virtuele machine
+Er zijn verschillende manieren om bij te werken van Windows Server-VM:
+* Installeer het meest recente resource provider-pakket met de installatiekopie van een momenteel patches Windows Server 2016 Core
+* Een Windows Update-pakket installeren tijdens de installatie of het bijwerken van de RP
+
+
+### <a name="update-the-virtual-machine-windows-defender-definitions"></a>De virtuele machine Windows Defender-definities bijwerken
+
+Volg deze stappen voor de Defender-definities bijwerken:
+
+1. Download de Windows Defender-definities vanuit bijwerken [Windows Defender-definitie](https://www.microsoft.com/en-us/wdsi/definitions)
+
+    Klik op deze pagina onder 'Handmatig downloaden en installeren van de definities' downloaden ' Windows Defender Antivirus voor Windows 10 en Windows 8.1 "64-bits bestand. 
+    
+    Direct link: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
+
+2. Een PowerShell-sessie naar SQL RP-adapter van de virtuele machine onderhoud eindpunt maken
+3. Kopieer het bestand van de update definities de DB-adapter-machine met de onderhoudsmodus endpoint-sessie
+4. Op het onderhoud PowerShell sessie aanroepen de _Update DBAdapterWindowsDefenderDefinitions_ opdracht
+5. Na de installatie, is het aanbevolen het updatebestand definities verwijderen. Het kan worden verwijderd op de onderhoud sessie met de _verwijderen ItemOnUserDrive)_ opdracht.
+
+
+Hier volgt een voorbeeld van een script om bij te werken de Defender definities (vervang deze door het adres of de naam van de virtuele machine met de werkelijke waarde):
+
+```
+# Set credentials for the diagnostic user
+$diagPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$diagCreds = New-Object System.Management.Automation.PSCredential `
+    ("dbadapterdiag", $vmLocalAdminPass)$diagCreds = Get-Credential
+
+# Public IP Address of the DB adapter machine
+$databaseRPMachine  = "XX.XX.XX.XX"
+$localPathToDefenderUpdate = "C:\DefenderUpdates\mpam-fe.exe"
+ 
+# Download Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions. 
+Invoke-WebRequest -Uri https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64 `
+    -Outfile $localPathToDefenderUpdate 
+
+# Create session to the maintenance endpoint
+$session = New-PSSession -ComputerName $databaseRPMachine `
+    -Credential $diagCreds -ConfigurationName DBAdapterMaintenance
+# Copy defender update file to the db adapter machine
+Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
+     -Destination "User:\mpam-fe.exe"
+# Install the update file
+Invoke-Command -Session $session -ScriptBlock `
+    {Update-AzSDBAdapterWindowsDefenderDefinitions -DefinitionsUpdatePackageFile "User:\mpam-fe.exe"}
+# Cleanup the definitions package file and session
+Invoke-Command -Session $session -ScriptBlock `
+    {Remove-AzSItemOnUserDrive -ItemPath "User:\mpam-fe.exe"}
+$session | Remove-PSSession
+```
 
 ## <a name="remove-the-sql-resource-provider-adapter"></a>Verwijder de adapter SQL resource provider
 

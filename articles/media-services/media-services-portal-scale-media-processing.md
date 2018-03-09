@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: d2312803a4471e207d3696ca8350a86e3c4761e6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f65ba489d70a3844169780c4680fcc43b3064b54
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="change-the-reserved-unit-type"></a>Het gereserveerde eenheidstype wijzigen
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 12/21/2017
 > 
 
 > [!NOTE]
-> Om de nieuwste versie van Java SDK en te beginnen met ontwikkelen met behulp van Java, Zie [aan de slag met de SDK voor Java-clients voor Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Voor het downloaden van de meest recente PHP SDK voor Media Services, zoekt u versie 0.5.7 van het pakket Microsoft/WindowAzure in de [Packagist opslagplaats](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Zie [Aan de slag met de SDK voor Java-clients voor Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use) om de nieuwste versie van de Java-SDK op te halen en te ontwikkelen met Java. <br/>
+> Als u de nieuwste PHP-SDK voor Media Services wilt downloaden, zoekt u versie 0.5.7 van het Microsoft/WindowAzure-pakket in de [Packagist-opslagplaats](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Overzicht
 
@@ -54,11 +54,10 @@ Als u wilt wijzigen van het type gereserveerde eenheid en het aantal gereserveer
 1. Selecteer uw Azure Media Services-account in [Azure Portal](https://portal.azure.com/).
 2. In de **instellingen** Selecteer **gereserveerde Media-eenheden**.
    
-    U kunt het aantal gereserveerde eenheden voor het type geselecteerde gereserveerde eenheid wijzigen met de **geleverd Media-eenheden** schuifregelaar.
+    U kunt het aantal gereserveerde eenheden voor het type geselecteerde gereserveerde eenheid wijzigen met de **geleverd Media-eenheden** schuifregelaar aan de bovenkant van het scherm.
    
-    Wijzigen van de **gereserveerde EENHEIDSTYPE**, drukt u op S1, S2 of S3.
+    Wijzigen van de **gereserveerde EENHEIDSTYPE**, klikt u op de **snelheid van gereserveerde verwerkingseenheden** balk. Selecteer de prijscategorie die u nodig: S1, S2 of S3.
    
-    ![Pagina processors](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 3. Klik op de knop OPSLAAN om uw wijzigingen op te slaan.
    
     De nieuwe gereserveerde eenheden zijn toegewezen wanneer u op opslaan.

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 66e3207898d6ad8ca9af2b969942e38321c191a5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-naslaginformatie voor voorwaardelijke toegang
 
@@ -137,8 +137,11 @@ Deze instelling werkt met alle browsers. Echter, om te voldoen aan een apparaatb
 
 
 > [!NOTE]
-> Voor ondersteuning van Chrome, moet u Windows 10 auteurs Update (versie 1703) of hoger.<br>
-> U kunt installeren [deze extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+> Voor Chrome-ondersteuning in Windows 10 auteurs Update (versie 1703) of later installeren [deze extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).<br>
+> Voor de Chrome-ondersteuning in Windows 8.1 en 7, maken de volgende registersleutel in **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls** <br>
+> Naam: 1<br>
+> Type: REG_SZ (tekenreeks)<br>
+> Data: {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
 
 Deze browsers ondersteuning voor verificatie van apparaten, waardoor het apparaat kan worden geïdentificeerd en gevalideerd op basis van een beleid. De apparaat-controle mislukt als de browser wordt uitgevoerd in de privé-modus. 
 

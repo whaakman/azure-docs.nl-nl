@@ -9,11 +9,11 @@ ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b66a699e4c58662cadd799cf6aec83b9d34b7e6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Opslaan van gegevens aan de rand met SQL Server-databases
 
@@ -48,7 +48,7 @@ Windows- en Linux-containers op x64 processorarchitecturen voor deze zelfstudie 
 
 ## <a name="deploy-a-sql-server-container"></a>Een SQL Server-container implementeren
 
-In deze sectie kunt u een MS SQL-database toevoegen aan uw gesimuleerde rand van de IoT-apparaat. De SQL Server 2017 docker-container afbeelding gebruiken, beschikbaar op [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) en [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/). 
+In deze sectie kunt u een MS SQL-database toevoegen aan uw gesimuleerde rand van de IoT-apparaat. De SQL Server 2017 docker-container afbeelding gebruiken, beschikbaar als een [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) container en als een [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/) container. 
 
 ### <a name="deploy-sql-server-2017"></a>Deploy SQL Server 2017
 
@@ -100,14 +100,14 @@ In stap 3, kunt u het maken van opties voor de SQL Server-container die belangri
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}"
       ```
 
    * Linux:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"MSSQL_SA_PASSWORD=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "/var/opt/mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
 4. Sla het bestand op. 
@@ -125,31 +125,31 @@ Deze sectie helpt u bij het instellen van de SQL-database voor het opslaan van d
 
 Verbinding maken met uw database in een opdrachtregelprogramma: 
 
-* Windows
+* Windows-container
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Linux-container
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 Open het hulpprogramma SQL-opdracht: 
 
-* Windows
+* Windows-container
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Linux-container
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
 Uw database maken: 
 
-* Windows
+* Windows-container
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -157,7 +157,7 @@ Uw database maken:
    GO
    ```
 
-* Linux
+* Linux-container
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -302,24 +302,24 @@ Zodra de containers opnieuw hebt gestart, worden de gegevens ontvangen van de te
 
 Verbinding maken met uw database in een opdrachtregelprogramma: 
 
-* Windows
+* Windows-container
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Linux-container
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 Open het hulpprogramma SQL-opdracht: 
 
-* Windows
+* Windows-container
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Linux-container
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
@@ -327,7 +327,7 @@ Open het hulpprogramma SQL-opdracht:
 Uw gegevens bekijken: 
 
    ```sql
-   Select * FROM MeasurementsDB.dbo.TemperatureMeasurements
+   SELECT * FROM MeasurementsDB.dbo.TemperatureMeasurements
    GO
    ```
 

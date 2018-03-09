@@ -1,6 +1,6 @@
 ---
 title: Azure beveiligen persoonlijke gegevens in rust met versleuteling | Microsoft Docs
-description: In dit artikel maakt deel uit van een reeks helpt u Azure gebruiken om persoonlijke gegevens te beveiligen
+description: In dit artikel kan worden gebruikt in effforts te voldoen aan vereisten voor de bedrijfstak of overheidsinstelling zoals algemene Data Protection regelgeving (GDPR).
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 37da3d91df4be871d6647b6290768ea4999a5010
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Azure versleutelingstechnologieën: beveiligen van persoonlijke gegevens in rust met versleuteling
 
 In dit artikel helpt u begrijpen en gebruiken van Azure versleutelingstechnologieën om gegevens in rust te beveiligen.
 
-Versleuteling van gegevens in rust is essentieel als een best practice om gevoelige of persoonlijke gegevens te beveiligen en om te voldoen aan nalevings- en privacy-vereisten.
-Codering in rust is ontworpen om te voorkomen dat de aanvaller toegang hebben tot de niet-versleutelde gegevens doordat de gegevens worden versleuteld op de schijf.
+Versleuteling van gegevens in rust is essentieel als een best practice om gevoelige of persoonlijke gegevens te beveiligen en om te voldoen aan nalevings- en privacy-vereisten. Codering in rust is ontworpen om te voorkomen dat de aanvaller toegang hebben tot de niet-versleutelde gegevens doordat de gegevens worden versleuteld op de schijf. Informatie in dit artikel kan worden gebruikt om te voldoen met algemene Data Protection regelgeving (GDPR).
 
 ## <a name="scenario"></a>Scenario 
 

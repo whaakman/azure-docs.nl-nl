@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: magoedte
-ms.openlocfilehash: daf3cc236ef04ae27731e023d35cfe2aa82fc70a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 10422af5a57fc4da77958f15af5b2db61c023e40
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Verbinding maken met computers zonder toegang tot het Internet met behulp van de OMS-Gateway
 Dit document beschrijft hoe u communicatie met Azure Automation configureert en verbonden met de OMS-Gateway als directe logboekanalyse of Operations Manager bewaakt computers hebben geen toegang tot Internet.  De OMS-Gateway een forward HTTP-proxy die ondersteuning biedt voor HTTP-tunneling met de opdracht HTTP-verbinding is, kunnen gegevens verzamelen en naar Azure Automation en Log Analytics namens hen verzonden.  
@@ -82,7 +82,7 @@ De OMS-Gateway is beschikbaar in de volgende talen:
 De OMS-Gateway ondersteunt alleen Transport Layer Security (TLS) 1.0, 1.1 en 1.2.  Secure Sockets Layer (SSL) worden niet ondersteund.
 
 ### <a name="supported-number-of-agent-connections"></a>Aantal ondersteunde agent-verbindingen
-De volgende tabel licht de het ondersteunde aantal agents een gatewayserver communiceert.  Deze ondersteuning is gebaseerd op agents ~ 200KB aan gegevens uploaden elke 6 seconden. Het gegevensvolume per agent getest is ongeveer 2.7GB per dag.
+De volgende tabel licht het ondersteunde aantal agents een gatewayserver communiceert.  Deze ondersteuning is gebaseerd op agents ~ 200KB aan gegevens uploaden elke 6 seconden. Het gegevensvolume per agent getest is ongeveer 2.7GB per dag.
 
 |Gateway |Ongeveer aantal agents die worden ondersteund|  
 |--------|----------------------------------|  
@@ -289,7 +289,7 @@ De volgende tabel ziet u de gebeurtenis-id's en beschrijvingen voor logboekgebeu
 | 103 |Een opdracht HTTP-verbinding ontvangen van client |
 | 104 |Niet een opdracht HTTP-verbinding |
 | 105 |Doelserver zich niet in de lijst met toegestane of de doelpoort is geen beveiligde poort (443) <br> <br> Zorg ervoor dat de MMA-agent op de gatewayserver en de agents die communiceren met de Gateway zijn verbonden met de dezelfde werkruimte voor logboekanalyse. |
-| 105 |Fout TcpConnection: ongeldige clientcertificaat: CN = Gateway <br><br> Zorg ervoor dat: <br>    <br> &#149; U gebruikt een Gateway met versienummer 1.0.395.0 of hoger. <br> &#149; De MMA-agent op de gatewayserver en de agents die communiceren met de Gateway zijn verbonden met de dezelfde werkruimte voor logboekanalyse. |
+| 105 |Fout TcpConnection: ongeldige clientcertificaat: CN = Gateway <br><br> Zorg ervoor dat: <br>    <br> &#149;U gebruikt een Gateway met versienummer 1.0.395.0 of hoger. <br> &#149;De MMA-agent op de gatewayserver en de agents die communiceren met de Gateway zijn verbonden met de dezelfde werkruimte voor logboekanalyse. |
 | 106 |De OMS-Gateway ondersteunt alleen TLS 1.0, TLS 1.1 en 1.2.  SSL ondersteunt niet. Voor een niet-ondersteunde TLS/SSL-protocolversie genereert OMS-Gateway gebeurtenis-ID 106.|
 | 107 |De TLS-sessie is geverifieerd |
 

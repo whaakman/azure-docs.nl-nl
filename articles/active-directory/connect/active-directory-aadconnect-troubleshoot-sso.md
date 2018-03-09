@@ -12,36 +12,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Problemen met Azure Active Directory naadloze eenmalige aanmelding
 
 Dit artikel helpt u bij het oplossen van problemen informatie over veelvoorkomende problemen met betrekking tot Azure Active Directory (Azure AD) naadloze eenmalige aanmelding (SSO naadloze).
 
-## <a name="known-problems"></a>Bekende problemen
+## <a name="known-issues"></a>Bekende problemen
 
 - In sommige gevallen kan naadloze eenmalige aanmelding inschakelen maximaal 30 minuten duren.
 - Als u uitschakelt en opnieuw naadloze eenmalige aanmelding voor uw tenant inschakelen, krijgen gebruikers niet de ervaring voor eenmalige aanmelding tot hun in de cache Kerberos-ticket, worden doorgaans geldig voor 10 uur zijn verlopen.
 - Edge-browser-ondersteuning is niet beschikbaar.
-- Starten van de Office-clients, met name in scenario's met gedeelde computer gebruikt, zorgt ervoor dat de extra aanmelden prompts voor gebruikers. Gebruikers moeten regelmatig hun gebruikersnamen, maar niet hun wachtwoord invoeren.
 - Als naadloze eenmalige aanmelding is gelukt, de gebruiker heeft geen selecteren **aangemeld blijven**. Vanwege dit probleem werken SharePoint en OneDrive toewijzing scenario's niet.
+- Office-clients onder versie 16.0.8730.xxxx ondersteunen geen niet-interactief aanmelden met naadloze eenmalige aanmelding. Op deze clients, moeten gebruikers hun gebruikersnamen, maar geen wachtwoorden, aanmelden invoeren.
 - Naadloze eenmalige aanmelding werkt niet in de privémodus Browse op Firefox.
 - Naadloze eenmalige aanmelding werkt niet in Internet Explorer als uitgebreide beveiligde modus is ingeschakeld.
 - Naadloze eenmalige aanmelding werkt niet op mobiele browsers op iOS en Android.
 - Als u 30 of meer Active Directory-forests synchroniseert, kunt u naadloze eenmalige aanmelding met Azure AD Connect niet inschakelen. Als een tijdelijke oplossing kunt u [handmatig inschakelen](#manual-reset-of-azure-ad-seamless-sso) de functie op uw tenant.
-- Azure AD-URL's (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) toe te voegen aan de zone Vertrouwde websites in plaats van de lokale intranetzone *voorkomen dat gebruikers aanmelden*.
+- De URL van het Azure AD-service (https://autologon.microsoftazuread-sso.com) toe te voegen aan de zone Vertrouwde websites in plaats van de lokale intranetzone *voorkomen dat gebruikers aanmelden*.
+- Het uitschakelen van het gebruik van de **RC4_HMAC_MD5** versleutelingstype voor Kerberos in uw Active Directory-instellingen naadloze eenmalige aanmelding wordt verbroken. In de Editor voor Groepsbeleidsbeheer hulpprogramma ervoor te zorgen dat de beleidswaarde voor **RC4_HMAC_MD5** onder **Computerconfiguratie -> Windows-instellingen -> Beveiligingsinstellingen -> lokaal beleid -> beveiligingsopties - > ' Netwerkbeveiliging: versleutelingstypen voor Kerberos toegestaan configureren '** is "ingeschakeld".
 
-## <a name="check-the-status-of-the-feature"></a>Controleer de status van de functie
+## <a name="check-status-of-feature"></a>Controleer de status van de functie
 
 Zorg ervoor dat de functie naadloze eenmalige aanmelding nog steeds is **ingeschakeld** op uw tenant. U kunt de status controleren door te gaan naar de **Azure AD Connect** deelvenster in de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/).
 
 ![Azure Active Directory-beheercentrum: deelvenster Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
+
+Klik in voor een overzicht van alle AD-forests die zijn ingeschakeld voor naadloze eenmalige aanmelding.
+
+![Azure Active Directory-beheercentrum: deelvenster naadloze eenmalige aanmelding](./media/active-directory-aadconnect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Aanmelding mislukt redenen in het Azure Active Directory-beheercentrum (een Premium-licentie vereist)
 
@@ -70,7 +75,7 @@ Gebruik de volgende controlelijst naadloze eenmalige aanmelding problemen oploss
 
 - Zorg ervoor dat de functie naadloze eenmalige aanmelding is ingeschakeld in Azure AD Connect. Als u de functie (bijvoorbeeld als gevolg van een geblokkeerde-poort) kan niet inschakelt, zorg ervoor dat u alle de [vereisten](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) aanwezig.
 - Als u beide hebt ingeschakeld [Azure AD Join](../active-directory-azureadjoin-overview.md) en naadloze eenmalige aanmelding op uw tenant, zorg ervoor dat het probleem niet met Azure AD Join. Eenmalige aanmelding van Azure AD Join heeft voorrang op naadloze eenmalige aanmelding als het apparaat geregistreerd bij Azure AD zowel domein is. Met eenmalige aanmelding van Azure AD Join ziet de gebruiker een tegel aanmelden met de tekst 'Verbonden voor Windows'.
-- Zorg ervoor dat beide Azure AD URL's (https://autologon.microsoftazuread-sso.com en https://aadg.windows.net.nsatc.net) deel van de gebruiker Intranet-beveiligingszone-instellingen uitmaken.
+- Zorg ervoor dat de URL van de Azure AD (https://autologon.microsoftazuread-sso.com) deel uit van de Intranet-beveiligingszone-instellingen van de gebruiker maakt.
 - Zorg ervoor dat het bedrijfsapparaat is toegevoegd aan het Active Directory-domein.
 - Zorg ervoor dat de gebruiker is aangemeld bij het apparaat via een Active Directory-domeinaccount.
 - Zorg ervoor dat het gebruikersaccount is van een Active Directory-forest waarbij naadloze eenmalige aanmelding is ingesteld.

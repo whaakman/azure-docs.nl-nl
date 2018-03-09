@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynchrone vernieuwen met de REST-API
 U kunt de gegevensvernieuwing asynchrone bewerkingen op uw Azure Analysis Services-modellen in tabelvorm uitvoeren met behulp van elke programmeertaal die REST-aanroepen ondersteunt. Dit omvat de synchronisatie van alleen-lezen-replica's voor query scale-out. 
@@ -67,8 +67,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 Alle aanroepen moeten worden geverifieerd met een geldig Azure Active Directory (2 OAuth)-token in autorisatie-header en moeten voldoen aan de volgende vereisten:
 
 - Het token moet een token of een service-principal van toepassing.
-- De gebruiker of toepassing moet voldoende machtigingen op de server of het model voor het aangevraagde gesprek hebben. Het machtigingsniveau wordt bepaald door rollen binnen het model of de administratorgroep op de server.
 - Het token moet hebben tot de juiste doelgroep ingesteld op `https://*.asazure.windows.net`.
+- De gebruiker of toepassing moet voldoende machtigingen op de server of het model voor het aangevraagde gesprek hebben. Het machtigingsniveau wordt bepaald door rollen binnen het model of de administratorgroep op de server.
+
+    > [!IMPORTANT]
+    > Op dit moment **serverbeheerder** rolmachtigingen zijn vereist.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 

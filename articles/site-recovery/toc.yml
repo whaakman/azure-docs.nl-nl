@@ -69,6 +69,8 @@
           href: physical-azure-architecture.md
         - name: Hyper-V naar secundaire site-architectuur
           href: hyper-v-vmm-architecture.md
+        - name: Overzicht van ondersteuning voor meerdere tenants voor herstel na noodgeval voor VMware
+          href: vmware-azure-multi-tenant-overview.md
     - name: Ondersteuningsmatrix voor vereisten
       items:
         - name: Ondersteuningsmatrix voor Azure naar Azure
@@ -84,7 +86,7 @@
         - name: Herstel na noodgeval voor workloads
           href: site-recovery-workload.md
         - name: Migratie naar Azure
-          href: site-recovery-migrate-to-azure.md
+          href: migrate-overview.md
     - name: Op rollen gebaseerde machtigingen
       href: site-recovery-role-based-linked-access-control.md
     - name: Azure Traffic Manager met Azure Site Recovery
@@ -101,7 +103,7 @@
           href: azure-to-azure-network-mapping.md
         - name: IP-adressering instellen na failover van virtuele Azure-machine
           href: site-recovery-retain-ip-azure-vm-failover.md
-        - name: Netwerkinterfaces beheren voor herstel na noodgevallen van on-premises naar Azure
+        - name: Netwerkinterfaces beheren voor replicatie van on-premises naar Azure
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
         - name: Netwerktoewijzing voorbereiden voor herstel na noodgevallen voor Hyper-V-VM
           href: hyper-v-vmm-network-mapping.md
@@ -123,8 +125,8 @@
           href: site-recovery-test-failover-to-azure.md
         - name: Een oefening voor herstel na noodgeval uitvoeren voor virtuele Hyper-V-machines naar een secundaire site
           href: hyper-v-vmm-test-failover.md
-        - name: Herstel na noodgeval voor virtuele VMware-machines met ondersteuning voor meerdere tenants naar Azure
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+        - name: Herstel na noodgeval voor virtuele VMware-machines met ondersteuning voor meerdere tenants en CSP
+          href: vmware-azure-multi-tenant-csp-disaster-recovery.md
     - name: Failover en failback
       items:
         - name: Herstelplannen instellen
@@ -133,6 +135,8 @@
           href: site-recovery-runbook-automation.md
         - name: VMM-scripts toevoegen aan herstelplannen
           href: hyper-v-vmm-recovery-script.md
+        - name: Processervers voor failback in Azure instellen en beheren
+          href: vmware-azure-set-up-process-server-azure.md
         - name: Failover
           items:
             - name: Over failover
@@ -146,19 +150,19 @@
             - name: Opnieuw beveiligen van een secundaire Azure-regio naar een primaire regio
               href: azure-to-azure-how-to-reprotect.md
             - name: Opnieuw beveiligen van Azure naar on-premises
-              href: site-recovery-how-to-reprotect.md
+              href: vmware-azure-reprotect.md
         - name: Failback van Azure
           items:
             - name: Failback van Azure naar VMware
-              href: site-recovery-how-to-failback-azure-to-vmware.md
+              href: vmware-azure-failback.md
             - name: Failback van Azure naar Hyper-V
               href: hyper-v-azure-failback.md
         - name: Een Linux-hoofddoelserver voor failback instellen
-          href: site-recovery-how-to-install-linux-master-target.md
+          href: vmware-azure-install-linux-master-target.md
     - name: Migreren
       items:
         - name: Info over migratie
-          href: site-recovery-migrate-to-azure.md
+          href: migrate-overview.md
         - name: Virtuele Azure-machines repliceren na migratie naar een andere regio
           href: azure-to-azure-replicate-after-migration.md
     - name: Capaciteit en schalen
@@ -177,7 +181,7 @@
             - name: Het rapport met kostenramingen analyseren
               href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Processervers voor VMware-replicatie uitschalen
-          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+          href: vmware-azure-set-up-process-server-scale.md
         - name: Hulpprogramma Deployment Planner voor Hyper-V-replicatie naar Azure
           href: null
           items:
@@ -196,23 +200,23 @@
         - name: De bronomgeving instellen
           items:
             - name: Bronomgeving voor VMware naar Azure
-              href: site-recovery-set-up-vmware-to-azure.md
+              href: vmware-azure-set-up-source.md
             - name: De configuratieserver voor herstel na noodgevallen voor VMware implementeren
-              href: how-to-deploy-configuration-server.md
+              href: vmware-azure-deploy-configuration-server.md
             - name: Bronomgeving voor fysiek naar Azure
-              href: site-recovery-set-up-physical-to-azure.md
+              href: physical-azure-set-up-source.md
         - name: De doelomgeving instellen
           items:
             - name: Doelomgeving voor VMware naar Azure
-              href: site-recovery-prepare-target-vmware-to-azure.md
+              href: vmware-azure-set-up-target.md
             - name: Doelomgeving voor fysiek naar Azure
-              href: site-recovery-prepare-target-physical-to-azure.md
+              href: physical-azure-set-up-target.md
         - name: Replicatie-instellingen configureren
           items:
             - name: Replicatie-instellingen voor VMware naar Azure configureren
-              href: site-recovery-setup-replication-settings-vmware.md
+              href: vmware-azure-set-up-replication.md
             - name: Schijven uitsluiten van replicatie voor VMware-naar-Azure
-              href: site-recovery-exclude-disk.md
+              href: vmware-azure-exclude-disk.md
             - name: Schijven uitsluiten van replicatie voor Hyper-V-naar-Azure
               href: hyper-v-exclude-disk.md
         - name: Replicatie inschakelen
@@ -220,19 +224,19 @@
             - name: Azure naar Azure-replicatie inschakelen
               href: azure-to-azure-how-to-enable-replication.md
             - name: VMware naar Azure-replicatie inschakelen
-              href: site-recovery-replicate-vmware-to-azure.md
+              href: vmware-azure-enable-replication.md
         - name: De Mobility-service voor VMware implementeren
           items:
             - name: Over de Mobility-service
-              href: site-recovery-vmware-to-azure-install-mob-svc.md
+              href: vmware-azure-install-mobility-service.md
             - name: De Mobility-service implementeren met behulp van System Center Configuration Manager
-              href: site-recovery-install-mobility-service-using-sccm.md
+              href: vmware-azure-mobility-install-configuration-mgr.md
             - name: De Mobility-service implementeren met behulp van Azure Automation DSC
-              href: site-recovery-automate-mobility-service-install.md
+              href: vmware-azure-mobility-deploy-automation-dsc.md
     - name: Automatiseren
       items:
         - name: Virtuele VMware-machines naar Azure repliceren met behulp van PowerShell
-          href: site-recovery-vmware-to-azure-powershell.md
+          href: vmware-azure-disaster-recovery-powershell.md
         - name: Hyper-V-replicatie naar Azure instellen (zonder VMM) met behulp van PowerShell
           href: hyper-v-azure-powershell-resource-manager.md
         - name: Hyper-V-replicatie naar Azure instellen (met VMM) met behulp van PowerShell
@@ -265,31 +269,29 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Beheren
       items:
-        - name: Processervers in Azure beheren
-          href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: De configuratieserver voor herstel na noodgevallen voor VMware beheren
-          href: site-recovery-vmware-to-azure-manage-configuration-server.md
+          href: vmware-azure-manage-configuration-server.md
         - name: De configuratieserver voor herstel na noodgevallen voor fysieke machines beheren
           href: physical-manage-configuration-server.md
         - name: vCenter-servers beheren
-          href: site-recovery-vmware-to-azure-manage-vCenter.md
-        - name: Multitenancy met CSP beheren
-          href: site-recovery-manage-multi-tenancy-with-csp.md
+          href: vmware-azure-manage-vcenter.md
+        - name: Processervers beheren
+          href: vmware-azure-manage-process-server.md
         - name: Servers verwijderen en beveiliging uitschakelen
           href: site-recovery-manage-registration-and-protection.md
         - name: Een kluis verwijderen
           href: delete-vault.md
     - name: Bewaken en problemen oplossen
       items:
-        - name: Problemen met Azure naar Azure-replicatie
+        - name: Problemen met replicatie van Azure naar Azure oplossen
           href: azure-to-azure-troubleshoot-errors.md
-        - name: Problemen met on-premises naar Azure-replicatie
-          href: site-recovery-vmware-to-azure-protection-troubleshoot.md
-        - name: Problemen met de Mobility-service
-          href: site-recovery-vmware-to-azure-push-install-error-codes.md
-        - name: Problemen met failover naar Azure
+        - name: Problemen met replicatie van VMware naar Azure oplossen
+          href: vmware-azure-troubleshoot-replication.md
+        - name: Problemen met de Mobility-service in VMware en fysieke serverreplicatie oplossen
+          href: vmware-azure-troubleshoot-push-install.md
+        - name: Problemen met failover naar Azure oplossen
           href: site-recovery-failover-to-azure-troubleshoot.md
-        - name: Problemen met opnieuw beveiligen en failback
+        - name: Problemen met opnieuw beveiligen en failback van virtuele VMware-machines van Azure oplossen
           href: vmware-azure-troubleshoot-failback-reprotect.md
         - name: Azure Site Recovery bewaken
           href: site-recovery-monitor-and-troubleshoot.md

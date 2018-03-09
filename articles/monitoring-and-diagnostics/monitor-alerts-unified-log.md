@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Logboek waarschuwingen in Azure Monitor - waarschuwingen (Preview)
-Dit artikel vindt u informatie over hoe waarschuwingsregels in Analytics query's voor werk in Azure waarschuwingen (Preview) en worden de verschillen tussen verschillende soorten logboek waarschuwingsregels beschreven.
+Dit artikel vindt u informatie over hoe waarschuwingsregels in Analytics query's voor werk in Azure waarschuwingen (Preview) en worden de verschillen tussen verschillende soorten logboek waarschuwingsregels beschreven. Raadpleeg voor meer informatie van metriek waarschuwingen met Logboeken [bijna realtime metriek waarschuwingen](monitoring-near-real-time-metric-alerts.md)
 
 Momenteel Azure waarschuwingen (Preview), ondersteunt Meld u waarschuwingen op query's van [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) en [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
@@ -45,7 +45,7 @@ Waarschuwingen worden gemaakt met Azure-waarschuwingen (Preview) automatisch log
 Waarschuwingsregels worden gedefinieerd door de volgende details:
 
 - **Meld u Query**.  De query die wordt uitgevoerd telkens als de waarschuwingsregel wordt geactiveerd.  De records geretourneerd door deze query worden gebruikt om te bepalen of een waarschuwing wordt gemaakt.
-- **Tijdvenster**.  Hiermee geeft u het tijdsbereik voor de query.  De query retourneert alleen de records die zijn gemaakt binnen dit bereik van de huidige tijd.  Tijdvenster is een waarde tussen 5 minuten en 1440 minuten of 24 uur. Bijvoorbeeld, als de periode is ingesteld op 60 minuten en de query wordt uitgevoerd om 1:15 uur, wordt alleen de records die zijn gemaakt tussen 12:15 uur en 1:15 PM geretourneerd.
+- **Tijdvenster**.  Hiermee geeft u het tijdsbereik voor de query.  De query retourneert alleen de records die zijn gemaakt binnen dit tijdsbereik.  Tijdvenster is een waarde tussen 5 minuten en 1440 minuten of 24 uur. Bijvoorbeeld, als de periode is ingesteld op 60 minuten en de query wordt uitgevoerd om 1:15 uur, wordt alleen de records die zijn gemaakt tussen 12:15 uur en 1:15 PM geretourneerd.
 - **Frequentie**.  Hiermee geeft u op hoe vaak de query moet worden uitgevoerd. Is een waarde tussen 5 minuten en 24 uur. Moet gelijk zijn aan of kleiner is dan de periode.  Als de waarde groter dan de periode is, risico u records wordt overgeslagen.<br>Neem bijvoorbeeld een tijdvenster van 30 minuten en een frequentie van 60 minuten.  Als de query wordt uitgevoerd om 1:00 uur, wordt er records tussen 12:30 en 13:00 uur.  De volgende keer dat de query werd uitgevoerd is 2:00 wanneer er records tussen 1:30 en 2:00 zou geretourneerd.  Alle records gemaakt tussen de 1:00 en 1:30 zou nooit worden geëvalueerd.
 - **Drempelwaarde**.  De resultaten van de zoekopdracht logboek worden geëvalueerd om te bepalen of een waarschuwing moet worden gemaakt.  De drempelwaarde is verschillend voor de verschillende typen regels voor waarschuwingen.
 
@@ -75,7 +75,7 @@ Neem bijvoorbeeld een scenario waarin u wilt weten wanneer uw web gebaseerde App
 **Waarschuwing frequentie:** vijf minuten<br>
 **De waarde voor drempel:** geweldige dan 0<br>
 
-Waarschuwing zou voert u de query om de 5 minuten met 30 minuten aan gegevens - gezocht naar een record waarop resultaatcode 500 is. Als een dergelijke record wordt gevonden, wordt deze geactiveerd de waarschuwing en de trigger de actie die is geconfigureerd.
+Waarschuwing zou voert u de query om de 5 minuten met 30 minuten aan gegevens - gezocht naar een record waarop resultaatcode 500 is. Als een dergelijke record wordt gevonden, wordt de waarschuwing wordt geactiveerd en activeert de actie die is geconfigureerd.
 
 ## <a name="metric-measurement-alert-rules"></a>Waarschuwingsregels metrische meting
 
@@ -96,7 +96,7 @@ Waarschuwing zou voert u de query om de 5 minuten met 30 minuten aan gegevens - 
 
 **Interval**: definieert de tijdsinterval waarover de gegevens worden samengevoegd.  Bijvoorbeeld, als u hebt opgegeven **vijf minuten**, een record voor elk exemplaar van het groepsveld om de 5 minuten gedurende de periode die is opgegeven voor de waarschuwing geaggregeerd zouden worden gemaakt.
 > [!NOTE]
-> Functie van de opslaglocatie moet worden gebruikt in query. Ook als ongelijke tijdsintervallen voor tijdvenster worden geproduceerd door het gebruik van de functie van de Bin - wordt waarschuwing in plaats daarvan gebruikt u bin_at functie om te controleren of dat er is een vast punt
+> Functie van de opslaglocatie moet worden gebruikt in query. Aangezien bin() leiden ongelijke tijdsintervallen tot kan - waarschuwing wordt in plaats daarvan bin_at functie gebruiken met de juiste tijd tijdens runtime, om ervoor te zorgen resultaten met een vaste point
 
 **Drempelwaarde**: de drempelwaarde voor waarschuwingsregels metrische meting wordt gedefinieerd door een cumulatieve waarde en een aantal schendingen.  Als alle gegevenspunten in de zoekopdracht logboek deze waarde overschrijdt, heeft deze beschouwd als een schending.  Als het aantal schendingen in voor elk object in de resultaten van de opgegeven waarde overschrijdt, wordt een waarschuwing gemaakt voor dat object.
 

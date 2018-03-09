@@ -12,15 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
+ms.workload: Inactive
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.workload: Inactive
-ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b2a8f897130c2bf21321366a727ce2e2ae9d1d99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Disaster recovery strategieën voor toepassingen met elastische pools SQL-Database
 In de afgelopen jaren hebt u geleerd dat cloudservices niet betrouwbare zijn en onherstelbare incidenten optreden. SQL-Database biedt verschillende mogelijkheden op te geven voor de bedrijfscontinuïteit van uw toepassing, wanneer deze incidenten optreden. [Elastische pools](sql-database-elastic-pool.md) en individuele databases ondersteunen dezelfde soort mogelijkheden voor herstel na noodgevallen. In dit artikel beschrijft enkele DR strategieën voor elastische pools die gebruikmaken van deze functies van SQL Database business continuity.
@@ -30,6 +30,9 @@ In dit artikel maakt gebruik van patroon van de volgende canonieke ISV SaaS-toep
 <i>Een moderne cloud-gebaseerde webtoepassing voorziet in een SQL-database voor elke gebruiker. De ISV veel klanten gebruikt, en daarom veel databases, tenant-databases genoemd. Omdat de tenant-databases doorgaans onvoorspelbare activiteit patronen hebben, gebruikt de ISV een elastische pool de database te maken kosten zeer voorspelbare gedurende langere perioden. De elastische groep vereenvoudigt u ook het prestatiebeheer wanneer de gebruikersactiviteit bereikt. Naast de tenant-databases gebruikt de toepassing ook verschillende databases beheren gebruikersprofielen, beveiliging, verzamelen gebruikspatronen enzovoort. Beschikbaarheid van de afzonderlijke tenants heeft geen gevolgen voor de beschikbaarheid van de toepassing als geheel. Echter, de beschikbaarheid en prestaties van databases management is essentieel voor een functie van de toepassing en als de databases management offline zijn de gehele toepassing offline is.</i>  
 
 Dit artikel wordt beschreven DR strategieën die betrekking hebben op een aantal scenario's uit kosten gevoelige starten van toepassingen met strenge beschikbaarheidsvereisten.
+
+> [!NOTE]
+> Als u Premium-databases en pools gebruikt, kunt u ze robuuste bij regionale uitval door deze te converteren naar zone redundant implementatieconfiguratie (momenteel in preview). Zie [Zone-redundante databases](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Scenario 1. Kosten gevoelige opstarten
 <i>Ik ben een bedrijf opstarten en zeer gevoelige ben kosten.  Ik wil eenvoudiger implementatie en beheer van de toepassing en kan ik een SLA beperkt hebben voor individuele klanten. Maar ik wil zorgen voor de toepassing als geheel nooit offline is.</i>
@@ -109,7 +112,7 @@ Wanneer de primaire regio worden hersteld door Azure *nadat* de toepassing in de
 De sleutel **profiteren** van deze strategie is dat u de hoogste SLA voor de betalende klanten. Ook wordt hiermee gegarandeerd dat de nieuwe proefversies geblokkeerd zijn als de proef DR-adresgroep is gemaakt. De **nadeel** klanten is dat deze installatie verhoogt de totale kosten van de databases van de tenant door de kosten van de secundaire DR-toepassingen voor betaald. Bovendien, als de secundaire groep een andere grootte heeft, de betalende klanten ondervinden lagere prestaties na een failover totdat de upgrade van toepassingen in de regio DR is voltooid. 
 
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Scenario 3. Geografisch verspreide toepassing met gelaagde service
-<i>Ik heb een goed ontwikkelde SaaS-toepassing met gelaagde service biedt. Ik wil een zeer agressief SLA aan mijn betaald klanten te bieden en het risico van impact minimaliseren wanneer er storingen optreden omdat zelfs korte onderbreking van de klant ergernis kan veroorzaken. Het is essentieel dat de betalende klant altijd toegang hun gegevens tot. De proefversies zijn gratis en een SLA niet tijdens de proefperiode wordt aangeboden.</i> 
+<i>Ik heb een goed ontwikkelde SaaS-toepassing met gelaagde service biedt. Ik wil een zeer agressief SLA aan mijn betaald klanten te bieden en het risico van impact minimaliseren wanneer er storingen optreden omdat zelfs korte onderbreking van de klant ergernis kan veroorzaken. Het is essentieel dat de betalende klant altijd toegang hun gegevens tot. De proefversies zijn gratis en een SLA niet tijdens de proefperiode wordt aangeboden. </i> 
 
 Gebruik ter ondersteuning van dit scenario, drie afzonderlijke elastische pools. Voorzien in twee groepen van gelijke grootte met hoge edtu's per database in twee verschillende regio's voor de betaalde klanten tenant databases bevatten. De derde-groep met de proeftenants kan lagere edtu's per database en in een van de twee regio's worden ingericht.
 

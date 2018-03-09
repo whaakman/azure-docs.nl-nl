@@ -4,7 +4,7 @@
 | Resource | Standaardlimiet | 
 | --- | --- | 
 | AMS-accounts (Azure Media Service) in één abonnement | 25 (vast) |
-| Gereserveerde media-eenheden (RU's) per AMS-account |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Gereserveerde media-eenheden (RU's) per AMS-account |25 (S1)<br/>10 (S2, S3) <sup>(1)</sup> | 
 | Taken per AMS-account | 50,000<sup>(2)</sup> |
 | Gekoppelde taken per taak | 30 (vast) |
 | Activa per AMS-account | 1.000.000|
@@ -20,7 +20,7 @@
 | Beleidsregels | 1,000,000<sup>(6)</sup> |
 | Bestandsgrootte| In bepaalde situaties geldt er een limiet voor de maximale bestandsgrootte voor de verwerking van Media Services wordt ondersteund. <sup>7</sup> |
   
-<sup>1</sup> S3-RU's zijn niet beschikbaar in India - west. Als u het type (bijvoorbeeld van S2 kan S1) wijzigt, wordt de maximale RU grenzen worden opnieuw ingesteld.
+<sup>1</sup> als u het type (bijvoorbeeld van S2 kan S1) wijzigt, de maximale RU grenzen worden opnieuw ingesteld.
 
 <sup>2</sup> Deze waarde omvat taken in de wachtrij, voltooide taken, actieve taken en geannuleerde taken. Deze bevat geen verwijderde taken. U kunt de oude taken verwijderen met **IJob.Delete** of de HTTP-aanvraag **DELETE**.
 

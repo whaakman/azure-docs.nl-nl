@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2018
+ms.date: 03/07/2018
 ms.author: rajanaki
-ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9c52ef47992474465111f106fc15779cadd825be
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery-ondersteuningsmatrix voor het repliceren van on-premises naar Azure
 
@@ -54,7 +54,7 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 
 **Implementatie** | **Ondersteuning**
 --- | ---
-**VMware-virtuele machine of fysieke server** | vSphere 6.5 6.0, 5.5
+**VMware-virtuele machine of fysieke server** | vSphere 6.5, 6.0, 5.5
 **Hyper-V (met/zonder Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 met de meest recente updates.<br></br>Als SCVMM wordt gebruikt, moeten Windows Server 2016-hosts worden beheerd door SCVMM 2016.
 
 
@@ -82,7 +82,7 @@ De volgende tabel geeft een overzicht van ondersteuning voor gerepliceerde bestu
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Ondersteunde versies van Ubuntu kernel voor VMware/fysieke servers
 
-**Release** | **De versie van de Mobility-service** | Kernelversie |
+**Release** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic naar 3.13.0-121-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic naar 3.13.0-128-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-91-generic |
@@ -96,9 +96,8 @@ De volgende tabel geeft een overzicht van ondersteuning voor gerepliceerde bestu
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Ondersteunde bestandssystemen en Gast opslagconfiguraties op Linux (VMware of fysieke servers)
 
 De volgende bestandssystemen en opslag configuratiesoftware worden op Linux-servers met VMware of fysieke servers ondersteund:
-* -Bestandssystemen: ext3, ext4, ReiserFS (Suse Linux Enterprise Server alleen), XFS
+* -Bestandssystemen: ext3, ext40, XFS
 * Volumebeheer: LVM2
-* Multipath-software: apparaat toewijzen
 
 Paravirtualized-opslagapparaten (apparaten die zijn geëxporteerd door paravirtualized stuurprogramma's) worden niet ondersteund.<br/>
 Meerdere wachtrij blok i/o-apparaten worden niet ondersteund.<br/>
@@ -134,7 +133,7 @@ Multi-NIC | Ja | Ja
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuratie van failover Azure VM-netwerken
 
-Azure-netwerken | **VMware of fysieke server** | **Hyper-V (met/zonder Virtual Machine Manager)**
+**Azure-netwerken** | **VMware of fysieke server** | **Hyper-V (met/zonder Virtual Machine Manager)**
 --- | --- | ---
 ExpressRoute | Ja | Ja
 ILB | Ja | Ja
@@ -220,15 +219,15 @@ U kunt Site Recovery implementeren voor het repliceren van virtuele machines en 
 **Gastbesturingssysteem** | Hyper-V naar Azure replicatie: Site Recovery ondersteunt alle besturingssystemen die zijn [ondersteund door Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Voor VMware en fysieke server-replicatie: Controleer de Windows- en Linux [vereisten](site-recovery-vmware-to-azure-classic.md) | Controle van vereisten mislukt als een niet-ondersteund.
 **Architectuur van de Gast-besturingssysteem** | 64-bits | Controle van vereisten mislukt als een niet-ondersteund
 **Grootte van de besturingssysteemschijf** | Maximaal 2048 GB als u repliceert **VMware-machines of fysieke servers naar Azure**.<br/><br/>Maximaal 2048 GB voor **Hyper-V Generation 1** virtuele machines.<br/><br/>Een Resourcegroepnaam 300 GB voor **Hyper-V Generation 2 virtuele machines**.  | Controle van vereisten mislukt als een niet-ondersteund
-**Het aantal schijven voor besturingssysteem** | 1 | Controle van vereisten mislukt als een niet-ondersteund.
+**Aantal besturingssysteemschijven** | 1 | Controle van vereisten mislukt als een niet-ondersteund.
 **Aantal gegevensschijven** | 64- of minder als u repliceert **virtuele VMware-machines naar Azure**; 16 of minder als u repliceert **Hyper-V-machines naar Azure** | Controle van vereisten mislukt als een niet-ondersteund
-**De grootte van VHD gegevensschijf** | 4095 GB | Controle van vereisten mislukt als een niet-ondersteund
+**Grootte van VHD-gegevensschijf** | Maximaal 4095 GB | Controle van vereisten mislukt als een niet-ondersteund
 **Netwerkadapters** | Meerdere netwerkadapters worden ondersteund |
 **Gedeelde VHD** | Niet ondersteund | Controle van vereisten mislukt als een niet-ondersteund
 **FC-schijf** | Niet ondersteund | Controle van vereisten mislukt als een niet-ondersteund
-**Harde schijf-indeling** | VHD <br/><br/> VHDX | Hoewel VHDX wordt momenteel niet ondersteund in Azure, Site Recovery automatisch geconverteerd VHDX naar VHD wanneer u een failover naar Azure. Wanneer u een failover naar on-premises blijven de virtuele machines gebruiken van de VHDX-indeling.
+**Harde-schijfindeling** | VHD <br/><br/> VHDX | Hoewel VHDX op dit moment niet wordt ondersteund in Azure, zet Site Recovery VHDX automatisch om in VHD wanneer u een failover-overschakeling uitvoert naar Azure. Wanneer u een failover naar on-premises blijven de virtuele machines gebruiken van de VHDX-indeling.
 **Bitlocker** | Niet ondersteund | BitLocker moet worden uitgeschakeld voordat u een virtuele machine beveiligt.
-**VM-naam** | Tussen 1 en 63 tekens. Alleen letters, cijfers en afbreekstreepjes. De VM-naam moet beginnen en eindigen met een letter of cijfer. | Werk de waarde in de eigenschappen van de virtuele machine in Site Recovery.
+**VM-naam** | 1 tot 63 tekens. Alleen letters, cijfers en afbreekstreepjes. De VM-naam moet beginnen en eindigen met een letter of cijfer. | Werk de waarde in de eigenschappen van de virtuele machine in Site Recovery.
 **VM-type** | Generatie 1<br/><br/> Generatie 2--Windows | Generatie 2 virtuele machines met een type besturingssysteem schijf basic (waaronder een of twee gegevensvolumes die zijn opgemaakt als VHDX) en minder dan 300 GB aan schijfruimte worden ondersteund.<br></br>Virtuele machines Linux generatie 2 worden niet ondersteund. [Meer informatie](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="support-for-recovery-services-vault-actions"></a>Ondersteuning voor Recovery Services-kluis acties

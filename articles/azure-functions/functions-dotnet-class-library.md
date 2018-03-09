@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 9e9aa8a36d363ce28d61c5ba3cfe758520a626cf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 70c4d6276970a781517fe49ec47e9b2ddb884c78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -134,7 +134,50 @@ De gegenereerde *function.json* bestand bevat een `configurationSource` eigensch
 }
 ```
 
-De *function.json* Bestandsgeneratie wordt uitgevoerd door het NuGet-pakket [Microsoft\.NET\.Sdk\.functies](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). De broncode is beschikbaar in de GitHub-repo [azure\-functies\-tegenover\-bouwen\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+### <a name="microsoftnetsdkfunctions-nuget-package"></a>Microsoft.NET.Sdk.Functions NuGet-pakket
+
+De *function.json* Bestandsgeneratie wordt uitgevoerd door het NuGet-pakket [Microsoft\.NET\.Sdk\.functies](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+
+Hetzelfde pakket wordt gebruikt voor beide versie 1.x en 2.x van de runtime functies. Het doel-framework is wat een project 1.x onderscheidt van een project 2.x. Hier worden de belangrijke onderdelen van *.csproj* bestanden, met andere frameworks en hetzelfde doel `Sdk` pakket:
+
+**Functies 1.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+**Functies 2.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netstandard2.0</TargetFramework>
+  <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+Tussen de `Sdk` pakketafhankelijkheden zijn triggers en bindingen. Een 1.x-project verwijst naar de 1.x-triggers en bindingen omdat die de .NET Framework als doel terwijl .NET Core 2.x triggers en bindingen zijn gericht.
+
+De `Sdk` pakket ook afhankelijk van [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json), en klik op indirect [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage). Deze afhankelijkheden Zorg ervoor dat uw project gebruikmaakt van de versies van de pakketten die met de versie van de runtime functies werken die de project-doelen. Bijvoorbeeld: `Newtonsoft.Json` versie 11 voor .NET Framework 4.6.1 is, maar de runtime van Functions die gericht is op .NET Framework 4.6.1 is alleen compatibel met `Newtonsoft.Json` 9.0.1. Zodat uw functiecode in dat project ook heeft gebruiken `Newtonsoft.Json` 9.0.1.
+
+De broncode voor `Microsoft.NET.Sdk.Functions` is beschikbaar in de GitHub-repo [azure\-functies\-tegenover\-bouwen\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+
+### <a name="runtime-version"></a>Runtime-versi
+
+Visual Studio gebruikt de [kernonderdelen van Azure Functions](functions-run-local.md#install-the-azure-functions-core-tools) projecten functies uitvoeren. De Core-hulpprogramma's is een opdrachtregelinterface voor de runtime van Functions.
+
+Als u de Core-hulpprogramma's installeert via npm, die niet van invloed op kernonderdelen die worden gebruikt door Visual Studio. Voor de functies runtimeversie 1.x, Visual Studio Tools Core-versies in slaat *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* en maakt er gebruik van de meest recente versie die is opgeslagen. Voor 2.x functies, de kernonderdelen zijn opgenomen in de **Azure-functies en hulpprogramma's voor Web-taken** extensie. Voor 1.x en 2.x, kunt u zien welke versie wordt gebruikt in de console-uitvoer wanneer u een project functies uitvoert:
+
+```terminal
+[3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
+```
 
 ## <a name="supported-types-for-bindings"></a>Ondersteunde typen voor bindingen
 

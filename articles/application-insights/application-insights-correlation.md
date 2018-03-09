@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>De correlatie telemetrie in Application Insights
 
@@ -57,8 +57,8 @@ In de resultaat-weergave opmerking dat alle telemetrie-items de hoofdmap delen `
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Vooraf gedefinieerde pagina                |              | STYz               | STYz         |
 | afhankelijkheid | GET-/Home/voorraad           | qJSXU        | STYz               | STYz         |
-| Aanvraag    | GET-startpagina/voorraad            | KqKwlrSt9PA = | qJSXU              | STYz         |
-| afhankelijkheid | /Api/stock/value ophalen      | bBrf2L7mm2g = | KqKwlrSt9PA =       | STYz         |
+| Aanvraag    | GET-startpagina/voorraad            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| afhankelijkheid | /Api/stock/value ophalen      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
 Nu wanneer de aanroep `GET /api/stock/value` aangebracht in een externe service die u wilt weten van de identiteit van die server. U kunt instellen `dependency.target` veld op de juiste wijze. Wanneer de externe service biedt geen ondersteuning voor het controle - `target` is ingesteld op de hostnaam van de service, zoals `stock-prices-api.com`. Echter als die service zichzelf identificeert door te retourneren van een vooraf gedefinieerde HTTP-header - `target` bevat van de service-identiteit waarmee Application Insights gedistribueerde trace verder door het uitvoeren van query's telemetrie van die service. 
 
@@ -66,8 +66,8 @@ Nu wanneer de aanroep `GET /api/stock/value` aangebracht in een externe service 
 
 We werken over RFC voorstel voor de [correlatie HTTP-protocol](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Dit voorstel definieert twee headers worden gebruikt:
 
-- `Request-Id`de globaal unieke id van de aanroep uitvoeren
-- `Correlation-Context`-de naam van waarde-paren verzameling van de gedistribueerde trace-eigenschappen uitvoeren
+- `Request-Id` de globaal unieke id van de aanroep uitvoeren
+- `Correlation-Context` -de naam van waarde-paren verzameling van de gedistribueerde trace-eigenschappen uitvoeren
 
 De standaard definieert ook twee schema's van `Request-Id` generatie - platte en hiërarchische. Met het schema platte, er is een bekende `Id` sleutel gedefinieerd voor de `Correlation-Context` verzameling.
 
@@ -77,11 +77,11 @@ Application Insights definieert de [extensie](https://github.com/lmolkova/correl
 
 [Open tracering](http://opentracing.io/) en Application Insights gegevens ziet er modellen 
 
-- `request`, `pageView` wordt toegewezen aan **Span** met`span.kind = server`
-- `dependency`toegewezen aan **Span** met`span.kind = client`
-- `id`van een `request` en `dependency` wordt toegewezen aan **Span.Id**
-- `operation_Id`toegewezen aan **TraceId**
-- `operation_ParentId`toegewezen aan **verwijzing** van het type`ChildOf`
+- `request`, `pageView` wordt toegewezen aan **Span** met `span.kind = server`
+- `dependency` toegewezen aan **Span** met `span.kind = client`
+- `id` van een `request` en `dependency` wordt toegewezen aan **Span.Id**
+- `operation_Id` toegewezen aan **TraceId**
+- `operation_ParentId` toegewezen aan **verwijzing** van het type `ChildOf`
 
 Zie [gegevensmodel](application-insights-data-model.md) voor Application Insights-typen en data model.
 
@@ -90,15 +90,15 @@ Zie [specificatie](https://github.com/opentracing/specification/blob/master/spec
 
 ## <a name="telemetry-correlation-in-net"></a>Telemetrie correlatie in .NET
 
-Na verloop van tijd gedefinieerd .NET verschillende manieren met elkaar correleren Telemetrie en diagnostische logboeken. Er is `System.Diagnostics.CorrelationManager` toestaan om bij te houden [LogicalOperationStack en ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource`en Windows (ETW) definieert u de methode [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger`maakt gebruik van [logboek Scopes](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). WCF- en HTTP-kabel van 'huidige' context doorgeven.
+Na verloop van tijd gedefinieerd .NET verschillende manieren met elkaar correleren Telemetrie en diagnostische logboeken. Er is `System.Diagnostics.CorrelationManager` toestaan om bij te houden [LogicalOperationStack en ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource` en Windows (ETW) definieert u de methode [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger` maakt gebruik van [logboek Scopes](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). WCF- en HTTP-kabel van 'huidige' context doorgeven.
 
-Deze methoden niet echter ondersteuning voor automatische gedistribueerde tracering inschakelen. `DiagnosticsSource`is een manier voor de ondersteuning van automatische cross-machine correlatie. .NET-bibliotheken ondersteunen diagnostische gegevens en automatische cross-machine doorgifte van de correlatie-context via het transport zoals http toestaan.
+Deze methoden niet echter ondersteuning voor automatische gedistribueerde tracering inschakelen. `DiagnosticsSource` is een manier voor de ondersteuning van automatische cross-machine correlatie. .NET-bibliotheken ondersteunen diagnostische gegevens en automatische cross-machine doorgifte van de correlatie-context via het transport zoals http toestaan.
 
 De [handleiding voor activiteiten](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) in de bron van de diagnostische gegevens vindt u de basisbeginselen van het bijhouden van activiteiten. 
 
 ASP.NET Core 2.0 ondersteunt extractie van Http-Headers en de nieuwe activiteit wordt gestart. 
 
-`System.Net.HttpClient`versie `<fill in>` ondersteunt automatische injectie van de correlatie Http-Headers en bijhouden van de http-aanroep als een activiteit.
+`System.Net.HttpClient` versie `4.1.0` ondersteunt automatische injectie van de correlatie Http-Headers en bijhouden van de http-aanroep als een activiteit.
 
 Er is een nieuwe Http-Module [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) voor het klassieke ASP.NET. Deze module implementeert telemetrie correlatie met DiagnosticsSource. Deze activiteit op basis van binnenkomende aanvraagheaders wordt gestart. Deze correleert ook telemetrie van de verschillende stadia van aanvraagverwerking. Ook voor gevallen wanneer elke fase van de verwerking van IIS wordt uitgevoerd op een andere beheren threads.
 

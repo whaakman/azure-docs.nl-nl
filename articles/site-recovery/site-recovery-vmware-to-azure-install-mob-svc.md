@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: anoopkv
 ms.openlocfilehash: 7210a6d754f2c13c915955f2b401d19f3a55649e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Installeren van de Mobility-Service (VMware of fysieke naar Azure)
 Azure Site Recovery Mobility-Service worden vastgelegd op een computer weggeschreven en ze doorstuurt naar de processerver. Implementeer Mobility-Service op elke computer (VMware VM of fysieke server) die u wilt repliceren naar Azure. U kunt de Mobility-Service implementeren op de servers die u beveiligen wilt met behulp van de volgende methoden:
