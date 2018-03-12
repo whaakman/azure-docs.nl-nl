@@ -1,30 +1,30 @@
 ---
-title: Ontwerp van uw eerste Azure-Database voor PostgreSQL met Azure portal | Microsoft Docs
-description: Deze zelfstudie laat zien hoe uw eerste Azure-Database voor PostgreSQL ontwerpen met de Azure portal.
+title: Zelfstudie - Uw eerste Azure Database for PostgreSQL ontwerpen met Azure Portal
+description: Deze zelfstudie laat zien hoe u uw eerste Azure Database for PostgreSQL ontwerpt met Azure Portal.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 11/03/2017
-ms.openlocfilehash: 1a210f813319a4f21c7c246002c968b8093f8a4e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.date: 02/28/2018
+ms.openlocfilehash: df8f308b17879d7fd22d033fb535b59bd8a85086
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Ontwerp van uw eerste Azure-Database voor PostgreSQL met de Azure portal
+# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Zelfstudie: uw eerste Azure Database for PostgreSQL ontwerpen met Azure Portal
 
-Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. Met de Azure portal, kunt u eenvoudig beheren van uw server en ontwerpen van een database.
+Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. Met behulp van Azure Portal kunt u eenvoudig uw server beheren en een database ontwerpen.
 
-In deze zelfstudie maakt u de Azure portal gebruiken voor meer informatie over hoe:
+In deze zelfstudie leert u hoe u Azure Portal kunt gebruiken voor deze bewerkingen:
 > [!div class="checklist"]
 > * Een Azure-database voor PostgreSQL-server maken
 > * De serverfirewall configureren
-> * Gebruik [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) hulpprogramma voor het maken van een database
+> * Het hulpprogramma [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) gebruiken om een database te maken
 > * Voorbeeldgegevens laden
 > * Querygegevens
 > * Gegevens bijwerken
@@ -41,72 +41,77 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 Een Azure Database voor PostgreSQL-server wordt gemaakt met een gedefinieerde set [reken- en opslagresources](./concepts-compute-unit-and-storage.md). De server wordt gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md).
 
 Volg deze stappen voor het maken van een Azure Database voor PostgreSQL-server:
-1.  Klik op de **+ nieuw** knop gevonden in de linkerbovenhoek van de Azure portal.
+1.  Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
 2.  Selecteer **Databases** op de pagina **Nieuw** en selecteer **Azure Database voor PostgreSQL** op de pagina **Databases**.
- ![Azure Database voor PostgreSQL - De database maken](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
+  ![Azure Database voor PostgreSQL - De database maken](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3.  Vul het formulier voor gegevens van nieuwe server in met de volgende informatie, zoals in de voorgaande afbeelding wordt weergegeven:
-    - Servernaam: **mypgserver-20170401** (de servernaam verwijst naar een DNS-naam en moet daarom wereldwijd uniek zijn) 
+3.  Vul het formulier voor de gegevens van de nieuwe server als volgt in:
+
+    ![Een server maken](./media/tutorial-design-database-using-azure-portal/2-create.png)
+
+    - Servernaam: **mydemoserver** (de servernaam verwijst naar een DNS-naam en moet daarom wereldwijd uniek zijn) 
     - Abonnement: als u meerdere abonnementen hebt, kiest u het abonnement waarin de resource bestaat of waarvoor wordt gefactureerd.
     - Resourcegroep: **myresourcegroup**
     - De aanmeldgegevens van de serverbeheerder (gebruikersnaam en wachtwoord)
     - Locatie
     - PostgreSQL-versie
 
-  > [!IMPORTANT]
-  > De aanmeldgegevens van serverbeheerder en het wachtwoord dat u hier opgeeft, zijn vereist voor aanmelding bij de server en de databases verderop in deze snelstartgids. Onthoud of noteer deze informatie voor later gebruik.
+   > [!IMPORTANT]
+   > De aanmeldgegevens en het wachtwoord van de serverbeheerder die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze zelfstudie. Onthoud of noteer deze informatie voor later gebruik.
 
-4.  Klik op **Prijscategorie** om de servicelaag en het prestatieniveau voor de nieuwe database op te geven. Selecteer voor deze snelstartgids **Basic** laag, **50 Compute eenheden** en **50 GB** opgenomen opslag.
- ![Azure Database voor PostgreSQL - De servicelaag kiezen](./media/tutorial-design-database-using-azure-portal/2-service-tier.png)
+4.  Klik op **Prijscategorie** om de prijscategorie voor de nieuwe server op te geven. Selecteer voor deze zelfstudie de prijscategorie **Algemeen**, **Gen 4** bij Bewerking voor compute, 2 bij **vCores**, 5 GB bij **Opslag** en 7 dagen bij **Bewaarperiode voor back-up**. Selecteer **Geografisch redundant** als redundantieoptie voor back-ups, zodat de automatische back-ups van uw server worden opgeslagen in een geografisch redundante opslag.
+ ![Azure Database for PostgreSQL - De prijscategorie kiezen](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
+
 5.  Klik op **OK**.
-6.  Klik op **Maken** om de server in te richten. De inrichting duurt een paar minuten.
 
-  > [!TIP]
-  > Schakel de optie **Vastmaken aan dashboard** in om uw implementaties eenvoudig te kunnen volgen.
+6.  Klik op **Maken** om de server in te richten. De inrichting duurt een paar minuten.
 
 7.  Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
  ![Azure Database voor PostgreSQL - Meldingen bekijken](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
-   
-  De database **postgres** wordt gemaakt op uw server. De database [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) is een standaarddatabase die kan worden gebruikt door gebruikers, hulpprogramma's en toepassingen van derden. 
+
+   > [!TIP]
+   > Schakel de optie **Vastmaken aan dashboard** in om uw implementaties eenvoudig te kunnen volgen.
+
+   De database **postgres** wordt gemaakt op uw server. De database [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) is een standaarddatabase die kan worden gebruikt door gebruikers, hulpprogramma's en toepassingen van derden. 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Een serverfirewallregel configureren
 
-De Azure-Database voor PostgreSQL-service maakt gebruik van een firewall op het serverniveau. Standaard deze firewall voorkomt u dat alle externe toepassingen en hulpprogramma's verbinding te maken met de server en alle databases op de server, tenzij een firewallregel is gemaakt om de firewall voor een specifiek IP-adresbereik te openen. 
+De Azure Database for PostgreSQL-service gebruikt een firewall op serverniveau. Standaard voorkomt deze firewall dat externe toepassingen en hulpprogramma's verbinding maken met de server of databases op de server, tenzij er een firewallregel wordt gemaakt om de firewall te openen voor een specifiek IP-adresbereik. 
 
-1.  Nadat de implementatie is voltooid, klikt u op **Alle resources** in het menu links en voert u de naam **mypgserver-20170401** in om te zoeken naar de zojuist gemaakte server. Klik op de servernaam in de zoekresultaten. De pagina **Overzicht** wordt geopend voor uw server en biedt opties voor verdere configuratie.
- 
- ![Azure Database voor PostgreSQL - Zoeken naar de server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+1.  Nadat de implementatie is voltooid, klikt u op **Alle resources** in het menu links en voert u de naam **mydemoserver** in om te zoeken naar de zojuist gemaakte server. Klik op de servernaam in de zoekresultaten. De pagina **Overzicht** wordt geopend voor uw server en biedt opties voor verdere configuratie.
+
+   ![Azure Database voor PostgreSQL - Zoeken naar de server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.  Selecteer **Verbindingsbeveiliging** op de serverpagina. 
-3.  Klik in het tekstvak onder **Regelnaam** en voeg een nieuwe firewallregel toe om het IP-bereik voor connectiviteit op de goedgekeurde lijst te plaatsen. Voor deze zelfstudie gaan we toestaan dat alle IP-adressen door te typen in **regelnaam = AllowAllIps**, **eerste IP-0.0.0.0 =** en **End-IP 255.255.255.255 =** en klik vervolgens op **opslaan** . U kunt een specifieke firewallregel die betrekking heeft op een kleinere IP-adresbereik om verbinding te maken van uw netwerk te kunnen instellen.
- 
- ![Azure Database voor PostgreSQL - Een firewallregel maken](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
-4.  Klik op **opslaan** en klik vervolgens op de **X** sluiten de **verbindingen beveiliging** pagina.
+3.  Klik in het tekstvak onder **Regelnaam** en voeg een nieuwe firewallregel toe om het IP-bereik voor connectiviteit op de goedgekeurde lijst te plaatsen. In deze zelfstudie gaat u alle IP-adressen toestaan door het volgende in te voeren: **Regelnaam = AllowAllIps**, **Begin-IP-adres = 0.0.0.0** en **Eind-IP-adres = 255.255.255.255**. Klik daarna op **Opslaan**. U kunt een specifieke firewallregel instellen voor een kleiner IP-bereik zodat u vanaf uw netwerk verbinding kunt maken.
 
-  > [!NOTE]
-  > De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. Zo ja, u geen verbinding maken met uw Azure SQL Database-server tenzij uw IT-afdeling poort 5432 wordt geopend.
-  >
+   ![Azure Database voor PostgreSQL - Een firewallregel maken](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
+4.  Klik op **Opslaan** en klik vervolgens op **X** om de pagina **Verbindingsbeveiliging** te sluiten.
+
+   > [!NOTE]
+   > De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u geen verbinding maken met uw Azure SQL Database-server, tenzij de IT-afdeling poort 5432 openstelt.
+   >
 
 ## <a name="get-the-connection-information"></a>De verbindingsgegevens ophalen
 
-Tijdens het maken van de Azure-Database voor PostgreSQL-server, de standaard **postgres** database ook is gemaakt. Als u verbinding met uw databaseserver wilt maken, moet u hostgegevens en toegangsreferenties opgeven.
+Toen u de Azure Database for PostgreSQL-server maakte, is de standaarddatabase **postgres** ook gemaakt. Als u verbinding met uw databaseserver wilt maken, moet u hostgegevens en toegangsreferenties opgeven.
 
-1. Klik in het menu links in de Azure portal op **alle resources** en zoek naar de server die u zojuist hebt gemaakt **mypgserver 20170401**.
+1. Klik in het menu links in Azure Portal op **Alle resources** en zoek de server die u zojuist hebt gemaakt.
 
-  ![Azure Database voor PostgreSQL - Zoeken naar de server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![Azure Database voor PostgreSQL - Zoeken naar de server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-3. Klik op de servernaam **mypgserver-20170401**.
+2. Klik op de servernaam **mydemoserver**.
 
-4. Selecteer de pagina **Overzicht** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
+3. Selecteer de pagina **Overzicht** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
 
- ![Azure Database voor PostgreSQL - Aanmeldgegevens van de serverbeheerder](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
+   ![Azure Database voor PostgreSQL - Aanmeldgegevens van de serverbeheerder](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
 
 
 ## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Verbinding maken met een PostgreSQL-database met behulp van psql in Cloud Shell
 
-We gaan nu gebruiken de [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) opdrachtregelprogramma verbinding maken met de Azure-Database voor PostgreSQL-server. 
+U gaat nu het opdrachtregelprogramma [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) gebruiken om verbinding te maken met de Azure Database for PostgreSQL-server. 
 1. Open Azure Cloud Shell via het terminalpictogram in het navigatiedeelvenster bovenaan.
 
    ![Azure Database voor PostgreSQL - Azure Cloud Shell-terminalpictogram](./media/tutorial-design-database-using-azure-portal/7-cloud-shell.png)
@@ -120,10 +125,10 @@ We gaan nu gebruiken de [psql](https://www.postgresql.org/docs/9.6/static/app-ps
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   Met de volgende opdracht maakt u bijvoorbeeld verbinding met de standaarddatabase **postgres** op uw PostgreSQL-server **mypgserver-20170401.postgres.database.azure.com** met behulp van toegangsreferenties. Voer het wachtwoord van de serverbeheerder in wanneer dat wordt gevraagd.
+   Met de volgende opdracht maakt u bijvoorbeeld verbinding met de standaarddatabase **postgres** op uw PostgreSQL-server **mydemoserver.postgres.database.azure.com** met behulp van toegangsreferenties. Voer het wachtwoord van de serverbeheerder in wanneer dat wordt gevraagd.
 
    ```bash
-   psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
 ## <a name="create-a-new-database"></a>Een nieuwe database maken
@@ -137,9 +142,9 @@ In het prompt voert u de volgende opdracht uit om verbinding te maken met de zoj
 \c mypgsqldb
 ```
 ## <a name="create-tables-in-the-database"></a>Tabellen maken in de database
-Nu dat u hoe u verbinding maken met de Azure-Database voor PostgreSQL weet, kunt u enkele eenvoudige taken voltooien:
+U weet nu hoe u verbinding kunt maken met de Azure Database for PostgreSQL en dus is het tijd om enkele eenvoudige taken uit te voeren:
 
-Eerst een tabel maken en deze met enkele gegevens te laden. We gaan een tabel maken die houdt inventarisgegevens met behulp van deze SQL-code:
+We gaan eerst een tabel maken en hierin enkele gegevens laden. We gaan een tabel maken die inventarisgegevens bijhoudt met behulp van deze SQL-code:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -148,22 +153,22 @@ CREATE TABLE inventory (
 );
 ```
 
-U kunt nu de zojuist gemaakte tabel in de lijst met tabellen zien door te typen:
+U kunt de zojuist gemaakte tabel nu in de lijst met tabellen zien door het volgende te typen:
 ```sql
 \dt
 ```
 
 ## <a name="load-data-into-the-tables"></a>Gegevens laden in de tabellen
-Nu dat u een tabel hebt, moet u enkele gegevens invoegen in het. Voer de volgende query voor het invoegen van een aantal rijen van de gegevens in het venster opdrachtprompt openen.
+De volgende stap bestaat uit het toevoegen van gegevens aan de tabel. Voer bij de opdrachtprompt de volgende query uit om enkele rijen met gegevens in te voegen.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-U hebt nu twee rijen van de voorbeeldgegevens in de inventaris-tabel die u eerder hebt gemaakt.
+U hebt nu twee rijen met voorbeeldgegevens in de inventaristabel die u eerder hebt gemaakt.
 
-## <a name="query-and-update-the-data-in-the-tables"></a>Vragen en de gegevens in de tabellen bijwerken
-De volgende query om informatie te halen uit de inventaris-databasetabel. 
+## <a name="query-and-update-the-data-in-the-tables"></a>De gegevens in de tabellen opvragen en bijwerken
+Voer de volgende query uit om gegevens op te halen uit de databasetabel met inventarisgegevens. 
 ```sql
 SELECT * FROM inventory;
 ```
@@ -173,34 +178,37 @@ U kunt ook de gegevens in de tabel bijwerken.
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-U kunt de bijgewerkte waarden zien wanneer u de gegevens worden opgehaald.
+U kunt de bijgewerkte waarden zien wanneer u de gegevens ophaalt.
 ```sql
 SELECT * FROM inventory;
 ```
 
-## <a name="restore-data-to-a-previous-point-in-time"></a>Gegevens naar een eerder tijdstip herstellen
-Stel dat u deze tabel per ongeluk hebt verwijderd. Deze situatie is iets dat die u eenvoudig niet vanuit herstellen. Azure PostgreSQL-Database kunt u teruggaan naar een punt-in-tijd (in de laatste tot 7 dagen (basis) en 35 dagen (standaard)) en dit punt in tijd naar een nieuwe server herstellen. U kunt deze nieuwe server gebruiken om uw verwijderde gegevens te herstellen. De volgende stappen uit herstellen de **mypgserver 20170401** server naar een punt voordat de tabel is toegevoegd.
+## <a name="restore-data-to-a-previous-point-in-time"></a>Gegevens herstellen naar een eerder tijdstip
+Stel dat u deze tabel per ongeluk hebt verwijderd. Dit is iets wat u niet eenvoudig kunt herstellen. Met Azure Database for PostgreSQL kunt u gegevens herstellen van elk tijdstip waarop een back-up van uw server is gemaakt (welke tijdstippen dat zijn, is afhankelijk van de geconfigureerde bewaarperiode voor back-ups) en dit tijdstip herstellen naar een nieuwe server. U kunt deze nieuwe server dan gebruiken om de verwijderde gegevens te herstellen. Met de volgende stappen wordt de server **mydemoserver** hersteld naar een tijdstip voordat de inventaristabel is toegevoegd.
 
-1.  In de Azure-Database voor PostgreSQL **overzicht** pagina voor uw server, klikt u op **herstellen** op de werkbalk. De **herstellen** pagina wordt geopend.
-  ![Azure portal - Formulieropties voor terugzetten](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
-2.  Vul de **herstellen** formulier met de vereiste informatie:
+1.  Klik op de pagina **Overzicht** van Azure Database for PostgreSQL voor uw server op de werkbalk op **Herstellen**. De**gelijknamige**pagina wordt geopend.
 
-  ![Azure portal - Formulieropties voor terugzetten](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
-  - **Herstelpunt**: Selecteer een point-in-time die deze gebeurtenis treedt op voordat de server is gewijzigd
-  - **Doelserver**: Geef een nieuwe servernaam die u terugzetten wilt naar
-  - **Locatie**: U kunt de regio niet selecteren, standaard is dit hetzelfde als de bronserver
-  - **Prijscategorie**: U kunt deze waarde niet wijzigen bij het herstellen van een server. Dit is hetzelfde als de bronserver. 
-3.  Klik op **OK** [de-server herstellen naar een punt in tijd](./howto-restore-server-portal.md) voordat de tabel is verwijderd. Herstellen van een server naar een ander punt in tijd maakt een dubbele nieuwe server als de oorspronkelijke server vanaf het punt in tijd die u opgeeft, mits dit binnen de bewaarperiode voor uw [servicelaag](./concepts-service-tiers.md).
+   ![Azure Portal: opties voor het herstellen van formulieren](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
+
+2.  Vul in het formulier **Restore** de vereiste gegevens in:
+
+   ![Azure Portal: opties voor het herstellen van formulieren](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
+
+   - **Herstelpunt**: selecteer een tijdstip voorafgaand aan het moment waarop de server is gewijzigd
+   - **Doelserver**: geef de naam op van de nieuwe server waarnaar u wilt herstellen
+   - **Locatie**: u kunt de regio niet selecteren, standaard is deze hetzelfde als die van de bronserver
+   - **Prijscategorie**: u kunt deze waarde niet wijzigen als u een server gaat herstellen. Deze is hetzelfde als de bronserver. 
+3.  Klik op **OK** om [de server te herstellen naar een tijdstip](./howto-restore-server-portal.md) voordat de tabel is toegevoegd. Als u een server herstelt naar een eerder tijdstip, wordt er een nieuw exemplaar gemaakt van de oorspronkelijke server met de inhoud zoals die aanwezig was op het tijdstip dat u opgeeft. Dit tijdstip moet wel binnen de bewaarperiode liggen die wordt gehanteerd voor uw [prijscategorie](./concepts-pricing-tiers.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u de Azure-portal en andere hulpprogramma's om te gebruiken:
+In deze zelfstudie hebt u geleerd hoe u Azure Portal en andere hulpprogramma's kunt gebruiken voor het volgende:
 > [!div class="checklist"]
 > * Een Azure-database voor PostgreSQL-server maken
 > * De serverfirewall configureren
-> * Gebruik [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) hulpprogramma voor het maken van een database
+> * Het hulpprogramma [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) gebruiken om een database te maken
 > * Voorbeeldgegevens laden
 > * Querygegevens
 > * Gegevens bijwerken
 > * Gegevens terugzetten
 
-Bekijk vervolgens voor informatie over het gebruik van de Azure CLI voor vergelijkbare taken, deze zelfstudie: [ontwerpen van uw eerste Azure-Database voor PostgreSQL met Azure CLI](tutorial-design-database-using-azure-cli.md)
+Als u meer informatie wilt over het gebruik van de Azure CLI voor vergelijkbare taken, gaat u verder met deze zelfstudie: [Uw eerste Azure Database for PostgreSQL ontwerpen met de Azure CLI](tutorial-design-database-using-azure-cli.md)

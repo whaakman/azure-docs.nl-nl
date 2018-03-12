@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 2/22/2018
-ms.openlocfilehash: 186a7b5632c1680e80e087e8f855eaacf3448207
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 33ced510dc9579248b75fb21520d55bd747a6a5c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Snelstart: Azure Machine Learning-services installeren en starten
 Azure Machine Learning-services (preview) zijn een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse. Het helpt professionele gegevenswetenschappers gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
@@ -29,7 +29,9 @@ In deze snelstartgids leert u het volgende:
 * De CLI (opdrachtregelinterface) openen
 
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+Azure Machine Learning-services maken deel uit van het portfolio van Microsoft Azure en vereisen een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+
+Bovendien moet u voldoende machtigingen hebben om activa zoals resourcegroepen en virtuele machines te maken. 
 
 <a name="prerequisites"></a>U kunt de Azure Machine Learning Workbench-toepassing op de volgende besturingssystemen installeren:
 - Windows 10 of Windows Server 2016
@@ -55,15 +57,15 @@ Gebruik Azure Portal om uw accounts voor Azure Machine Learning in te richten:
 
 1. Configureer in het venster **ML Experimenten** uw Machine Learning Experimenten-account. 
 
-   Instelling|Voorgestelde waarde voor zelfstudie|Beschrijving
+   Instelling|Aanbevolen waarde voor zelfstudie|Beschrijving
    ---|---|---
-   Naam experimenteeraccount | _Unieke naam_ |Voer een unieke naam in die uw account identificeert. U kunt uw eigen naam gebruiken, maar ook de naam van een afdeling of project waarmee het experiment is verbonden. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. 
+   Naam experimenteeraccount | _Unieke naam_ |Voer een unieke naam in die uw account aanduidt. U kunt uw eigen naam gebruiken, maar ook de naam van een afdeling of project waarmee het experiment is verbonden. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. 
    Abonnement | _Uw abonnement_ |Kies het Azure-abonnement dat u wilt gebruiken voor het experiment. Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resource wordt gefactureerd.
    Resourcegroep | _Uw resourcegroep_ | Gebruik een bestaande resourcegroep in uw abonnement of voer een naam in om een nieuwe resourcegroep te maken voor dit Experimenten-account. 
    Locatie | _De regio het dichtst bij uw gebruikers_ | Kies de locatie die zich het dichtst bij uw gebruikers en de gegevensresources bevindt.
    Aantal seats | 2 | Voer het aantal seats in. Meer informatie over [de invloed van seats op prijzen](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>Voor deze snelstart hebt u maar twee seats nodig. Seats kunnen naar behoefte worden toegevoegd of verwijderd in Azure Portal.
    Storage-account | _Unieke naam_ | Selecteer **Nieuwe maken** en geef een naam op om een [Azure-opslagaccount](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal) te maken. Of selecteer **Bestaande gebruiken** en kies een bestaand opslagaccount in de vervolgkeuzelijst. Het opslagaccount is vereist en wordt gebruikt voor het bewaren van projectartefacten en uitvoeringsgeschiedenisgegevens. 
-   Werkruimte voor Experimenten-account | IrisGarden | Geef een naam op voor een werkruimte voor dit account. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. Deze werkruimte bevat de hulpprogramma's die u nodig hebt om experimenten te maken, beheren en publiceren.
+   Werkruimte voor Experimenten-account | IrisGarden<br/>(naam gebruikt in zelfstudies) | Geef een naam op voor een werkruimte voor dit account. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. Deze werkruimte bevat de hulpprogramma's die u nodig hebt om experimenten te maken, beheren en publiceren.
    Eigenaar van de werkruimte toewijzen | _Uw account_ | Selecteer uw eigen account als de eigenaar van de werkruimte.
    Modelbeheer-account maken | **controleren** |Maak nu een Modelbeheer-account, zodat deze resource beschikbaar is wanneer u uw modellen als realtime webservices gaat implementeren en beheren. <br/><br/>Hoewel dit optioneel is, raden we aan het Modelbeheer-account tegelijk met het Experimenten-account te maken.
    Accountnaam | _Unieke naam_ | Kies een unieke naam die uw Modelbeheer-account identificeert. U kunt uw eigen naam gebruiken, maar ook de naam van een afdeling of project waarmee het experiment is verbonden. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. 
@@ -78,7 +80,7 @@ Gebruik Azure Portal om uw accounts voor Azure Machine Learning in te richten:
 
    Het maken van een account kan even duren. U kunt de status van het implementatieproces controleren door op de klok in de werkbalk van Azure Portal te klikken.
    
-   ![Meldingen in Azure-portal](media/quickstart-installation/portal-notification.png)
+   ![Meldingen in Azure Portal](media/quickstart-installation/portal-notification.png)
 
 
 ## <a name="install-and-log-in-to-workbench"></a>Workbench installeren en erbij aanmelden
@@ -137,16 +139,16 @@ Hier maken we een nieuw Workbench-project met behulp van een sjabloon die de [Ir
 
    ![Nieuwe werkruimte](media/tutorial-classifying-iris/new_ws.png)
 
-1. Vul de formuliervelden in en selecteer de knop **Maken** om een nieuw project te maken in de Workbench.
+1. Vul de formuliervelden in en selecteer de knop **Maken** om een nieuw project te maken in Workbench.
 
-   Veld|Voorgestelde waarde voor zelfstudie|Beschrijving
+   Veld|Aanbevolen waarde voor zelfstudie|Beschrijving
    ---|---|---
-   Projectnaam | myIris |Voer een unieke naam in die uw account identificeert. U kunt uw eigen naam gebruiken, maar ook de naam van een afdeling of project waarmee het experiment is verbonden. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. 
+   Projectnaam | myIris |Voer een unieke naam in die uw account aanduidt. U kunt uw eigen naam gebruiken, maar ook de naam van een afdeling of project waarmee het experiment is verbonden. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. 
    Projectmap | c:\Temp\ | Selecteer de map waarin het project moet worden gemaakt.
    Projectbeschrijving | _leeg laten_ | Optioneel veld, nuttig voor het beschrijven van de projecten.
-   Visualstudio.com |_leeg laten_ | Optioneel veld. Een project kan eventueel worden gekoppeld aan een Git-opslagplaats in Visual Studio Team Services voor broncodebeheer en samenwerking. [Informatie over het instellen daarvan.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Visualstudio.com |_leeg laten_ | Optioneel veld. Een project kan eventueel worden gekoppeld aan een Git-opslagplaats in Visual Studio Team Services voor broncodebeheer en samenwerking. [Informatie over het instellen daarvan](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Werkruimte | IrisGarden (indien aanwezig) | Kies een werkruimte die u hebt gemaakt voor uw Experimenten-account in Azure Portal. <br/>Als u de snelstart hebt gevolgd, hebt u een werkruimte met de naam IrisGarden. Selecteer anders de werkruimte die u hebt gemaakt bij het maken van uw Experimenten-account, of een andere werkruimte die u wilt gebruiken.
-   Projectsjabloon | Iris classificeren | Sjablonen bevatten scripts en gegevens die u kunt gebruiken om het product te verkennen. Deze sjabloon bevat de scripts en gegevens die u nodig hebt voor deze snelstartgids en andere zelfstudies op deze documentatiesite. 
+   Projectsjabloon | Iris classificeren | Sjablonen bevatten scripts en gegevens die u kunt gebruiken om het product te verkennen. Deze sjabloon bevat de scripts en gegevens die u nodig hebt voor deze snelstart en andere zelfstudies op deze documentatiesite. 
 
    ![Nieuw project](media/tutorial-classifying-iris/new_project.png)
  
@@ -165,7 +167,7 @@ Nu kunt u het script **iris_sklearn.py** op uw lokale computer uitvoeren. Dit sc
 
    ![Opdrachtbalk](media/quickstart-installation/run_control.png)
 
-1. Voer in het tekstvak **Argumenten** **0,01** in. Dit getal wordt gebruikt in de code om de regularisatiegraad in te stellen. Deze waarde wordt gebruikt om te configureren hoe het lineaire regressiemodel wordt getraind. 
+1. Voer in het tekstvak **Argumenten** **0.01** in. Dit getal wordt gebruikt in de code om de regularisatiegraad in te stellen. Deze waarde wordt gebruikt om te configureren hoe het lineaire regressiemodel wordt getraind. 
 
 1. Selecteer **Uitvoeren** om de uitvoering van het script op uw computer te starten. De taak **iris_sklearn** verschijnt onmiddellijk in het deelvenster **Taken** aan de rechterkant, zodat u de uitvoering van het script kunt volgen.
 

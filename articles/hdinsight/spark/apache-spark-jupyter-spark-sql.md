@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 03/01/2018
 ms.author: jgao
-ms.openlocfilehash: 1dbad36b7420791e70066263a566f1820823ad27
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: baad137a6f982df987faf95d7c7c595698e8e399
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Een Apache Spark-cluster maken in Azure HDInsight
 
@@ -47,8 +47,8 @@ U maakt een HDInsight Spark-cluster met behulp van een [Azure Resource Manager-s
     * **Resourcegroep**: maak een nieuwe resourcegroep of selecteer een bestaande. Deze resourcegroep wordt gebruikt om Azure-resources voor uw projecten te beheren.
     * **Locatie**: selecteer een locatie voor de resourcegroep. De sjabloon gebruikt deze locatie voor het maken van het cluster en als standaardclusteropslag.
     * **Clusternaam**: geef een naam op voor het HDInsight-cluster dat u wilt maken.
-    * **Clusteraanmeldgegevens**: de standaardaanmeldnaam is admin.
-    * **SSH-aanmeldgegevens**.
+    * **Clusteraanmeldgegevens**: de standaardaanmeldnaam is admin. Kies een wachtwoord voor de clusteraanmelding.
+    * **SSH-aanmeldgegevens**. Kies een wachtwoord voor de SSH-gebruiker.
 
 3. Selecteer **Ik ga akkoord met de bovenstaande voorwaarden**, selecteer **Vastmaken aan dashboard** en klik op **Kopen**. U ziet een nieuwe tegel met de titel **Implementatie van sjabloonimplementatie**. Het duurt ongeveer 20 minuten om het cluster te maken.
 
@@ -103,16 +103,17 @@ Zie [Interactieve query's uitvoeren op Apache Spark-clusters in HDInsight](apach
 
     ![Hive-query in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Hive-query in HDInsight Spark")
 
-2. Wanneer de kernel gereed is, plakt u de volgende code in een lege cel en drukt u op **Shift+Enter** om de code uit te voeren. In de uitvoer moet een `hivesampletable` worden vermeld die standaard in het cluster beschikbaar is.
+2. Wanneer de kernel gereed is, plakt u de volgende code in een lege cel en drukt u op **Shift+Enter** om de code uit te voeren. Met de opdracht worden de Hive-tabellen in het cluster weergegeven:
 
     ```PySpark
     %%sql
     SHOW TABLES
     ```
+    Als u een Jupyter Notebook gebruikt dat is geconfigureerd voor uw HDInsight Spark-cluster, krijgt u een vooraf ingestelde `sqlContext` waarmee u Hive-query's kunt uitvoeren met behulp van Apache Spark SQL. `%%sql` instrueert Jupyter Notebook gebruik te maken van de vooraf ingestelde `sqlContext` om de Hive-query uit te voeren. De query haalt de bovenste tien rijen op uit een Hive-tabel (**hivesampletable**) die standaard worden meegeleverd met alle HDInsight-clusters. Het duurt ongeveer 30 seconden om de resultaten op te halen. De uitvoer ziet er als volgt uit: 
 
     ![Hive-query in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Hive-query in HDInsight Spark")
 
-    Als u een Jupyter Notebook gebruikt dat is geconfigureerd voor uw HDInsight Spark-cluster, krijgt u een vooraf ingestelde `sqlContext` waarmee u Hive-query's kunt uitvoeren met behulp van Apache Spark SQL. `%%sql` instrueert Jupyter Notebook gebruik te maken van de vooraf ingestelde `sqlContext` om de Hive-query uit te voeren. De query haalt de bovenste tien rijen op uit een Hive-tabel (**hivesampletable**) die standaard worden meegeleverd met alle HDInsight-clusters. Voor meer informatie over de context van de '`%%sql` magic' en de vooraf ingestelde waarden raadpleegt u [Jupyter kernels available for an HDInsight cluster](apache-spark-jupyter-notebook-kernels.md) (Voor een HDInsight-cluster beschikbare Jupyter-kernels).
+    Voor meer informatie over de context van de '`%%sql` magic' en de vooraf ingestelde waarden raadpleegt u [Jupyter kernels available for an HDInsight cluster](apache-spark-jupyter-notebook-kernels.md) (Voor een HDInsight-cluster beschikbare Jupyter-kernels).
 
     Telkens wanneer u in Jupyter een query uitvoert, toont de venstertitel van uw webbrowser de status **(Bezet)** en de notebooktitel. Ook ziet u een gevulde cirkel naast de **PySpark**-tekst in de rechterbovenhoek.
     

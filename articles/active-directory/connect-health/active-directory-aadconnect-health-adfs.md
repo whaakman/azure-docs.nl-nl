@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 834dbbd0be30181de1a71df05d2867be0e1c59b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS bewaken met Azure AD Connect Health
 De volgende documentatie is specifiek voor het bewaken van uw Azure AD FS-infrastructuur met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md) (Engelstalig) voor informatie over het bewaken van Azure AD Connect (synchronisatie) met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -86,7 +86,7 @@ Een veelvoorkomende reden voor een mislukt verificatieverzoek op een AD FS-serve
 
 Maar er zijn andere redenen die kunnen leiden tot een onverwacht aantal aanvragen die worden verwerkt door uw AD FS-servers, zoals een toepassing die gebruikersreferenties in een cache plaatst en de referenties verlopen of wanneer een kwaadwillende gebruiker zich probeert aan te melden bij een account met een reeks bekende wachtwoorden. De volgende twee voorbeelden zijn geldige oorzaken die tot een piek in aanvragen kunnen leiden.
 
-Azure AD Connect Health voor AD FS biedt een rapport over top 50 van gebruikers met mislukte inlogpogingen vanwege een ongeldige gebruikersnaam of wachtwoord. Dit rapport komt tot stand door het verwerken van de controlegebeurtenissen die worden gegenereerd door de AD FS-servers in de farms
+Azure AD Connect Health voor AD FS biedt een rapport over top 50 van gebruikers met mislukte inlogpogingen vanwege een ongeldige gebruikersnaam of wachtwoord. Dit rapport komt tot stand door het verwerken van de controlegebeurtenissen die worden gegenereerd door de AD FS-servers in de farms.
 
 ![Portal voor Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
@@ -95,7 +95,7 @@ Met dit rapport hebt u een eenvoudig overzicht van de volgende informatie:
 * Totaal aantal mislukte verzoeken met een onjuiste gebruikersnaam en wachtwoord in de afgelopen 30 dagen
 * Gemiddeld aantal gebruikers per dag die zich proberen aan te melden met een onjuiste gebruikersnaam en wachtwoord.
 
-Door hier te klikken gaat u naar de blade met het hoofdrapport waar u meer informatie kunt vinden. Deze blade bevat een grafiek met trendinformatie waarmee u een basis kunt vastleggen voor aanvragen met een verkeerde gebruikersnaam of een verkeerd wachtwoord. Daarnaast biedt deze blade een lijst met de 50 belangrijkste gebruikers met het aantal mislukte pogingen.
+Door hier te klikken gaat u naar de blade met het hoofdrapport waar u meer informatie kunt vinden. Deze blade bevat een grafiek met trendinformatie waarmee u een basis kunt vastleggen voor aanvragen met een verkeerde gebruikersnaam of een verkeerd wachtwoord. Daarnaast biedt deze blade een lijst met vijftig gebruikers die de afgelopen week het meest last hadden van mislukte pogingen.
 
 Deze grafiek bevat de volgende informatie:
 
@@ -115,7 +115,7 @@ Dit rapport bevat de volgende informatie:
 | IP laatste fout |Toont het client-IP-adres uit de laatste ongeldige aanvraag. |
 
 > [!NOTE]
-> Dit rapport wordt elke twee uur automatisch bijgewerkt met de nieuwe informatie die in die tijd is verzameld. Als gevolg hiervan kunnen inlogpogingen van de laatste twee uur niet worden opgenomen in het rapport.
+> Dit rapport wordt elke 12 uur automatisch bijgewerkt met de nieuwe informatie die in die tijd is verzameld. Als gevolg hiervan kunnen inlogpogingen van de laatste twee uur niet worden opgenomen in het rapport.
 >
 >
 

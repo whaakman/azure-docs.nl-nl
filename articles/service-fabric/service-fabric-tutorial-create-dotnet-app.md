@@ -1,11 +1,27 @@
---titel: Maak een .NET-toepassing voor Service Fabric | Microsoft Docs beschrijving: In deze zelfstudie leert u hoe een toepassing met een front-ASP.NET Core en een stateful betrouwbare service back-end maken en implementeren van de toepassing naar een cluster.
-Services: service fabric-documentationcenter: .net auteur: rwike77 manager: timlt-editor: ''
-
-MS.AssetID: ms.service: service fabric-ms.devlang: dotNet ms.topic: zelfstudie ms.tgt_pltfrm: N.V.T. ms.workload: N.V.T. ms.date: 29-01/2018 ms.author: ryanwi ms.custom: mvc
-
 ---
-
-# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: maken en implementeren van een toepassing met een front-ASP.NET Core Web API-service en een stateful back-endservice
+title: Een .NET-toepassing maken voor Service Fabric | Microsoft Docs
+description: In deze zelfstudie vindt u informatie over het maken van een toepassing met een ASP.NET Core front-end en een betrouwbare stateful back-endservice en het implementeren van de toepassing in een cluster.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: 
+ms.assetid: 
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: tutorial
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/29/2018
+ms.author: ryanwi
+ms.custom: mvc
+ms.openlocfilehash: f8d9733b7dad4c6beeed9bcc950910ed6b426585
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/02/2018
+---
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: een toepassing met een ASP.NET Core web-API front-end service en een stateful back-endservice maken en implementeren
 Deze zelfstudie is deel één van een serie.  U leert hoe u een Azure Service Fabric-toepassing met een front-end van ASP.NET Core web-API en een stateful back-endservice maakt voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core-web-front-end die stemresultaten opslaat in een stateful back-endservice in het cluster. Als u de stemtoepassing niet handmatig wilt maken, kunt u [de broncode downloaden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en verdergaan met [Het voorbeeld van een stemtoepassing doorlopen](#walkthrough_anchor).
 
 ![Diagram van de toepassing](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
@@ -27,7 +43,7 @@ In deze zelfstudiereeks leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 Voor u met deze zelfstudie begint:
 - Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Installeer Visual Studio 2017](https://www.visualstudio.com/) versie 15.5 of hoger, waarop de **ontwikkelen van Azure** en **ASP.NET en web ontwikkeling** werkbelastingen.
+- [Installeer Visual Studio 2017](https://www.visualstudio.com/) versie 15.5 of hoger met de **Azure-ontwikkelworkload** en de **ASP.NET-ontwikkeling- en webontwikkelingsworkloads**.
 - [Installeer de Service Fabric-SDK](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Een ASP.NET web-API-service als een betrouwbare service maken

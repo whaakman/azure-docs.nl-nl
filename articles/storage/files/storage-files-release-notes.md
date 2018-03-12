@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 9b6dfec6465482efcbf55d0441e44a0278f44a22
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5f57edb33770acd7a97287d5cfd650b7fe8366f4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-file-sync-agent-release-notes"></a>Releaseopmerkingen Azure File Sync-agent
 Met Azure File Sync (preview) kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door de Windows-Servers om te zetten in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
@@ -30,11 +30,25 @@ De volgende versies worden ondersteund door Azure File Sync:
 
 | Versienummer agent | Releasedatum | Ondersteund tot |
 |----------------------|--------------|------------------|
+| 2.1.0.0 | 2018-02-28 | Huidige versie |
 | 2.0.11.0 | 2018-02-08 | Huidige versie |
 | 1.1.0.0 | 26-09-2017 | 2018-07-30 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Updatebeleid Azure File Sync-agent
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2100"></a>Agentversie 2.1.0.0
+De volgende releaseopmerkingen zijn voor agentversie 2.1.0 die is uitgebracht op 28 februari 2018. Deze zijn ter aanvulling op de onderstaande releaseopmerkingen voor versie 2.0.11.0
+
+Unieke wijzigingen in deze maandelijkse update zijn onder meer:
+- Verbetering van de verwerking van clusterfailover.
+- Verbetering van de verwerking van gelaagde bestanden, zodat deze betrouwbaarder zijn.
+- Het toestaan van agentinstallatie in domeincontrollermachines toegevoegd aan een 2008 R2-domeinomgeving.
+- Het genereren van overmatige diagnostische gegevens op servers met veel bestanden opgelost.
+- Verbetering van de foutafhandeling voor sessiefouten.
+- Verbetering van de foutafhandeling voor bestandsoverdrachtsproblemen.
+- Het standaardinterval voor het uitvoeren van cloudopslaglagen indien ingeschakeld op het servereindpunt gewijzigd in één uur. 
+- Tijdelijke blokkering van het verplaatsen van Azure File Sync-resources (opslagsynchronisatieservice) naar een nieuw Azure-abonnement
 
 ## <a name="agent-version-20110"></a>Agentversie 2.0.11.0
 De volgende releaseopmerkingen zijn voor agentversie 2.0.11.0 die is uitgebracht op 9 februari 2018. 

@@ -1,6 +1,6 @@
 ---
-title: Een gesimuleerd apparaat X.509 met Azure IoT Hub met Java en de inschrijving groepen inrichten | Microsoft Docs
-description: Zelfstudie voor Azure - maken en inrichten van een gesimuleerde X.509-apparaat met Java apparaat en de service SDK en de inschrijving van groepen voor IoT Hub apparaat inrichten van Service
+title: Een gesimuleerd X.509-apparaat inrichten in Azure IoT Hub met behulp van Java en registratiegroepen | Microsoft Docs
+description: 'Azure-zelfstudie: een gesimuleerd X.509-apparaat maken en inrichten voor IoT Hub Device Provisioning Service met de SDK voor Java-apparaten en -services en registratiegroepen'
 services: iot-dps
 keywords: 
 author: msebolt
@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 14e5e7613fd5df650625cf8997d569b754ceb689
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
-ms.translationtype: MT
+ms.openlocfilehash: 2f1ae92c05e02dffa22fb2c64c6c076a0adfc176
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Maken en inrichten van een gesimuleerde X.509-apparaat met behulp van Java-apparaat en de SDK-service en de groep inschrijvingen voor IoT Hub apparaat inrichten van Service
+# <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd X.509-apparaat maken en inrichten voor IoT Hub Device Provisioning Service met de SDK voor Java-apparaten en -services en registratiegroepen
 
-Deze stappen laten zien hoe u een X.509-apparaat op uw ontwikkelcomputer Windows-besturingssysteem uitgevoerd te simuleren en een voorbeeld van code gebruiken deze gesimuleerde apparaten verbinding met de Service voor het inrichten van apparaten en uw IoT-hub met groepen van de inschrijving. 
+In deze stappen wordt getoond hoe u een gesimuleerd X.509-apparaat maakt op een ontwikkelcomputer met Windows OS en het codevoorbeeld gebruikt om dit gesimuleerde apparaat te verbinden met de Device Provisioning Service en uw IoT-hub met behulp van registratiegroepen. 
 
 Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (IoT Hub Device Provisioning Service instellen met Azure Portal) voordat u verdergaat.
 
@@ -33,15 +33,13 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
 
 1. Zorg ervoor dat `git` op de computer wordt geïnstalleerd en toegevoegd aan de omgevingsvariabelen die voor het opdrachtvenster toegankelijk zijn. Zie [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) (Git-clienthulpprogramma's van Software Freedom Conservancy) om de nieuwste versie van `git`-hulpprogramma's te installeren, waaronder **Git Bash**, de opdrachtregel-app die u kunt gebruiken voor interactie met de lokale Git-opslagplaats. 
 
-1. Gebruik de volgende [certificaat overzicht](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) om uw testcertificaten te maken. Zie voor een meer diepgaande blik op het maken van certificaten, [PowerShell-scripts voor het beheren van CA ondertekend X.509-certificaten](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates).
+1. Gebruik het volgende [certificaatoverzicht](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) om uw testcertificaten te maken. Zie [PowerShell-scripts voor het beheren van CA ondertekende X.509-certificaten](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates) voor een meer diepgaande blik op het maken van certificaten.
 
     > [!NOTE]
-    > Deze stap moet u [OpenSSL](https://www.openssl.org/), die kunnen ofwel worden gebouwd en geïnstalleerd vanuit de bron of gedownload en geïnstalleerd vanaf een [3e partij](https://wiki.openssl.org/index.php/Binaries) zoals [dit](https://sourceforge.net/projects/openssl/). Als u al hebt gemaakt uw _hoofdmap_, _tussenliggende_ en _apparaat_ certificaten kunt u deze stap overslaan.
+    > Deze stap vereist [OpenSSL](https://www.openssl.org/), dat ofwel kan worden gebouwd en geïnstalleerd vanuit de bron of van [derden](https://wiki.openssl.org/index.php/Binaries) worden gedownload en geïnstalleerd zoals [deze](https://sourceforge.net/projects/openssl/). Als u al het _hoofd_-, _tussen_- en _apparaat_certificaat hebt gemaakt, kunt u deze stap overslaan.
     >
 
-1. Maak de informatie over de inschrijving:
-
-    1. Doorlopen **stap 1** en **stap 2** maken uw _hoofdmap_ en _tussenliggende_ certificaten.
+    1. Voer de eerste twee stappen uit om uw _basis_- en _tussen_certificaat te maken.
 
     1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **All resources** en open uw Provisioning-service.
 
@@ -49,23 +47,23 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
 
         1. Voer bij **Certificaat toevoegen** de volgende gegevens in:
             - Voer een unieke certificaatnaam in.
-            - Selecteer de  **_RootCA.pem_**  bestand dat u zojuist hebt gemaakt.
+            - Selecteer het bestand  **_RootCA.pem_**  dat u zojuist hebt gemaakt.
             - Klik op de knop **Save** als u klaar bent.
 
         ![Certificaat toevoegen](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. Selecteer het zojuist gemaakte netwerk:
             - Klik op **Verificatiecode genereren**. Kopieer de gegenereerde code.
-            - Doorlopen **stap 3**. Voer de _verificatiecode_ of klik met de rechtermuisknop te plakken in uw actieve PowerShell-venster.  Druk op **Enter**.
-            - Selecteer de zojuist gemaakte  **_verifyCert4.pem_**  bestand in de Azure-portal. Klik op **controleren**.
+            - Voer de verificatiestap uit. Voer de _verificatiecode_ in of klik met de rechtermuisknop om te plakken in het actieve PowerShell-venster.  Druk op **Enter**.
+            - Selecteer het zojuist gemaakte bestand **_verifyCert4.pem_** in Azure Portal. Klik op **Controleren**.
 
             ![Certificaat valideren](./media/tutorial-group-enrollments/validate-certificate.png)
 
-1. Voltooien door het uitvoeren van **stap 4** en **stap 5** om uw certificaten voor apparaten en resources opschonen te maken.
+    1. Voer als laatste de stappen uit voor het maken van uw certificaten voor apparaten en opschonen van resources.
 
-> [!NOTE]
-> Bij het maken van certificaten voor apparaten worden gebruik alleen kleine letters en cijfers en afbreekstreepjes in de apparaatnaam van uw.
->
+    > [!NOTE]
+    > Bij het maken van certificaten voor apparaten moet u alleen kleine letters en afbreekstreepjes in de apparaatnaam gebruiken.
+    >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>Een vermelding voor apparaatinschrijving maken
@@ -94,7 +92,7 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. Open de  **_RootCA.pem_**  bestand in een teksteditor. Wijs de waarde van het **Basiscertificaat** toe aan de parameter **PUBLIC_KEY_CERTIFICATE_STRING** zoals hieronder wordt weergegeven:
+    1. Open het bestand **_RootCA.pem_** in een teksteditor. Wijs de waarde van het **Basiscertificaat** toe aan de parameter **PUBLIC_KEY_CERTIFICATE_STRING** zoals hieronder wordt weergegeven:
 
         ```java
         private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -145,7 +143,7 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
 
 1. Houd het uitvoervenster in de gaten voor een geslaagde inschrijving.
 
-    ![geslaagde inschrijving](./media/tutorial-group-enrollments/enrollment.png) 
+    ![Geslaagde registratie](./media/tutorial-group-enrollments/enrollment.png) 
 
 1. Navigeer naar de inrichtingsservice in Azure Portal. Klik op **Inschrijvingen beheren**. U ziet dat de groep X.509-apparaten wordt weergegeven op het tabblad **Inschrijvingsgroepen** met een automatisch gegenereerde *GROEPSNAAM*. 
 
@@ -162,9 +160,9 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. Voer de informatie over de inschrijving in de volgende manier:
+1. Voer de informatie over de registratiegroep op de volgende manier in:
 
-    - Bewerk `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` om de eerder genoteerde waarden voor _Id-bereik_ en _Globaal eindpunt voor inrichtingsservice_ toe te voegen. Open uw  **_{deviceName}-public.pem_**  bestands- en deze waarde als uw _Client Cert_. Open uw  **_{deviceName}-all.pem_**  -bestand en kopieer de tekst van _---BEGIN persoonlijke sleutel---_ naar _---einde persoonlijke sleutel---_.  Gebruik deze als uw _Client Cert persoonlijke sleutel_.
+    - Bewerk `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` om de eerder genoteerde waarden voor _Id-bereik_ en _Globaal eindpunt voor inrichtingsservice_ toe te voegen. Open het bestand **_{deviceName}-public.pem_** en voeg deze waarde toe als uw _clientcertificaat_. Open het bestand **_{deviceName}-all.pem_** bestand en kopieer de tekst van _-----BEGIN PRIVATE KEY-----_ tot _-----END PRIVATE KEY-----_.  Gebruik deze als de _persoonlijke sleutel voor het clientcertificaat_.
 
         ```java
         private static final String idScope = "[Your ID scope here]";
@@ -211,13 +209,13 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
 Als u wilt blijven doorwerken met het voorbeeld van de apparaatclient en deze beter wilt leren kennen, wis de resources die in deze Snelstartgids zijn gemaakt dan niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources die via deze Snelstartgids zijn gemaakt, te verwijderen.
 
 1. Sluit het uitvoervenster van het voorbeeld van de apparaatclient op de computer.
-1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer uw Device Provisioning Service. Open de blade **Inschrijvingen beheren** voor uw service en klik vervolgens op het tabblad **Afzonderlijke inschrijvingen**. Selecteer de *registratie-id* van het apparaat dat u hebt ingeschreven met behulp van deze quickstart. Klik vervolgens bovenaan op de knop **Verwijderen**. 
-1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer vervolgens uw IoT-hub. Open de blade **IoT-apparaten** voor uw hub, selecteer de *apparaat-id* van het apparaat dat u hebt geregistreerd in deze quickstart en klik vervolgens bovenaan op de knop **Verwijderen**.
+1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer uw Device Provisioning Service. Open de blade **Inschrijvingen beheren** voor uw service en klik vervolgens op het tabblad **Afzonderlijke inschrijvingen**. Selecteer de *registratie-id* van het apparaat dat u hebt ingeschreven met behulp van deze snelstart. Klik vervolgens bovenaan op de knop **Verwijderen**. 
+1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer vervolgens uw IoT-hub. Open de blade **IoT-apparaten** voor uw hub, selecteer de *apparaat-id* van het apparaat dat u hebt geregistreerd in deze snelstart en klik vervolgens bovenaan op de knop **Verwijderen**.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u een gesimuleerde X.509-apparaat op uw Windows-computer gemaakt en deze naar uw iothub met behulp van de Azure IoT Hub apparaat inrichtingsservice en de inschrijving groepen ingericht. Voor meer informatie over het X.509-apparaat, doorgaan met het apparaat concepten. 
+In deze zelfstudie hebt u een gesimuleerd X.509-apparaat op uw Windows-computer gemaakt en het ingericht voor uw IoT-hub met de Azure IoT Hub Device Provisioning Service en registratiegroepen. Ga verder met apparaatconcepten voor meer informatie over het X.509-apparaat. 
 
 > [!div class="nextstepaction"]
-> [IoT Hub apparaat-inrichtingsservice apparaat concepten](concepts-device.md)
+> [Apparaatconcepten van de IoT Hub Device Provisioning Service](concepts-device.md)

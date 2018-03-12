@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: d7e07104153aed36a3e426e053847551d2b2093c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 761e7193cc64699e8aa25a1fd625ba45f65eed88
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Zelfstudie - Classificeren van Iris deel 3: een model implementeren
 Azure Machine Learning (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Gegevenswetenschappers kunnen de service gebruiken om gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
 
-Deze zelfstudie is deel 3 van een driedelige reeks. In dit deel van de zelfstudie gebruikt u Machine Learning (preview) om:
+Deze zelfstudie is **deel 3 van een driedelige reeks**. In dit deel van de zelfstudie gebruikt u Machine Learning (preview) om:
 
 > [!div class="checklist"]
 > * Het modelbestand te zoeken.

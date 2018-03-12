@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/16/2017
+ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8bbb06fd511321a67e01772caeaa316ddb6e2a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c53007530fe80f03cefbf138193cfad4b0e8292a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
 
@@ -171,13 +171,9 @@ Zie [Batch-prijzen](https://azure.microsoft.com/pricing/details/batch/) voor inf
 
 ### <a name="size-of-the-compute-nodes"></a>Grootte van de rekenknooppunten
 
-De grootte van rekenknooppunten met **Cloud Services-configuratie** wordt vermeld in [Groottes voor Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch ondersteunt Cloud Services van alle grootten met uitzondering van `ExtraSmall`, `STANDARD_A1_V2` en `STANDARD_A2_V2`.
+Wanneer u een Azure Batch-groep maakt, kunt u kiezen uit bijna alle reeksen en grootten virtuele machines die beschikbaar zijn in Azure. Azure biedt een bereik aan VM-grootten voor verschillende workloads, met inbegrip van VM-grootten die speciaal bedoeld zijn voor [HPC](../virtual-machines/linux/sizes-hpc.md) of [GPU](../virtual-machines/linux/sizes-gpu.md). 
 
-De grootte van rekenknooppunten met **virtuele-machineconfiguratie** wordt vermeld in [Groottes voor virtuele machines in Azure](../virtual-machines/linux/sizes.md) (Linux) en [Groottes voor virtuele machines in Azure](../virtual-machines/windows/sizes.md) (Windows). Batch ondersteunt alle Azure VM-groottes met uitzondering van `STANDARD_A0` en die met Premium Storage (de serie `STANDARD_GS`, `STANDARD_DS` en `STANDARD_DSV2`).
-
-Houd bij het selecteren van de grootte van een rekenknooppunt rekening met de kenmerken en vereisten van de toepassingen die u uitvoert op de knooppunten. Houd ook rekening met het feit of bijvoorbeeld de toepassing meerdere threads heeft en hoeveel geheugen deze gebruikt. Zo kunt u gemakkelijker de meest geschikte en voordeligste knooppuntgrootte bepalen. Meestal selecteert u een knooppuntgrootte in de veronderstelling dat er op het knooppunt één taak tegelijk wordt uitgevoerd. Het is echter mogelijk om meerdere taken te hebben (waarbij meerdere toepassingsinstanties [parallel worden uitgevoerd](batch-parallel-node-tasks.md)) op rekenknooppunten tijdens het uitvoeren van de taak. In dat geval kiest u meestal voor een groter knooppunt om te voldoen aan deze opdracht. Zie [Taak planningsbeleid](#task-scheduling-policy) voor meer informatie.
-
-Alle knooppunten in een pool zijn even groot. Als u toepassingen met verschillende systeemvereisten en/of workloadniveaus wilt uitvoeren, moet u afzonderlijke pools maken.
+Zie [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md) (Een VM-grootte voor rekenknooppunten in een Azure Batch-groep kiezen) voor meer informatie.
 
 ### <a name="scaling-policy"></a>Beleid voor vergroten/verkleinen
 
