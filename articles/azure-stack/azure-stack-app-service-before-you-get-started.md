@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: f400180bc71efc6766b73b098c1f82542eec86f7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App-Service op Azure-Stack
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+
+> [!IMPORTANT]
+> De update 1802 toepassen op uw Azure-Stack geïntegreerd systeem of de nieuwste Azure-Stack development kit implementeren voordat u Azure App Service implementeert.
+>
+>
 
 Voordat u Azure App Service op de Stack Azure implementeert, moet u voldoen aan de vereisten in dit artikel.
 
@@ -40,11 +45,11 @@ Voordat u Azure App Service op de Stack Azure implementeert, moet u voldoen aan 
    - Modules
      - GraphAPI.psm1
 
-## <a name="prepare-for-high-availability"></a>Voorbereiden voor hoge beschikbaarheid
+## <a name="high-availability"></a>Hoge beschikbaarheid
 
-Op Azure-Stack-Azure App Service kan niet op dit moment bieden voor hoge beschikbaarheid omdat Azure Stack werkbelastingen in slechts één domein met fouten implementeert.
+Vanwege de 1802 release van Azure-Stack toegevoegd ondersteuning voor domeinen met fouten en nieuwe implementaties van Azure App Service op Azure-Stack worden verdeeld over de domeinen met fouten en fouttolerantie.  Bestaande implementaties van Azure App Service op Azure-Stack die vóór de release van de 1802 zijn geïmplementeerd, raadpleegt u de documentatie (azure-stack-app-service-fault-domain-update.md) voor informatie over het opnieuw verdelen van de implementatie.
 
-Als u Azure App Service op Azure-Stack voorbereiden voor hoge beschikbaarheid, de vereiste bestandsserver en de SQL Server-exemplaar in een maximaal beschikbare configuratie te implementeren. Wanneer Azure Stack meerdere domeinen met fouten ondersteunt, wordt richtlijnen gegeven voor het inschakelen van Azure App Service op Azure-Stack in een maximaal beschikbare configuratie.
+Bovendien implementeren Azure App Service op Azure-Stack voor hoge beschikbaarheid, de vereiste bestandsserver en de SQL Server-exemplaar in een maximaal beschikbare configuratie. 
 
 ## <a name="get-certificates"></a>Certificaten ophalen
 
@@ -127,13 +132,17 @@ Het certificaat voor identiteit moet een onderwerpnaam die overeenkomt met de vo
 
 ## <a name="virtual-network"></a>Virtueel netwerk
 
-Op Azure-Stack-Azure App Service kunt u de resourceprovider implementeren in een bestaand virtueel netwerk.  Dit maakt het gebruik van interne IP-adressen verbinding maken met de bestandsserver en de SQL server in Azure App Service op Azure-Stack is vereist.  Het virtuele netwerk moet worden geconfigureerd met de volgende adresbereik en subnetten voor de installatie van Azure App Service op Azure-Stack:
+Op Azure-Stack-Azure App Service kunt u de resourceprovider implementeren in een op een bestaand virtueel netwerk of App Service wordt gemaakt als onderdeel van de implementatie.  Met behulp van een bestaand virtueel netwerk maakt het gebruik van interne IP-adressen verbinding maken met de bestandsserver en de SQL server in Azure App Service op Azure-Stack is vereist.  Het virtuele netwerk moet worden geconfigureerd met de volgende adresbereik en subnetten voor de installatie van Azure App Service op Azure-Stack:
 
 Virtueel netwerk - /16
 
 Subnetten
 
-ControllersSubnet /24 ManagementServersSubnet /24 FrontEndsSubnet /24 PublishersSubnet /24 WorkersSubnet /21
+* ControllersSubnet /24
+* ManagementServersSubnet /24
+* FrontEndsSubnet /24
+* PublishersSubnet /24
+* WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>De bestandsserver voorbereiden
 

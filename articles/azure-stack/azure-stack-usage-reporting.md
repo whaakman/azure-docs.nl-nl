@@ -6,25 +6,25 @@ documentationcenter:
 author: mattbriggs
 manager: femila
 editor: 
-ms.assetid: 2A397C83-1A6C-4290-B0EF-FDC34EE290CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: mabrigg;AlfredoPizzirani
-ms.openlocfilehash: 451e8c604e48d9cfc42284f2413fa5ed4fea03bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure Stack gebruiksgegevens rapporteren naar Azure 
 
 Gegevens over het gebruik, ook wel verbruiksgegevens, vertegenwoordigt de hoeveelheid resources die worden gebruikt. 
 
-Azure Stack met meerdere knooppunten systemen die gebruik maken op basis factureringsmodel verbruik moeten rapporteren gebruiksgegevens Azure voor facturering doel.  Azure Stack-operators moeten hun Azure Stack instantie geconfigureerd met gebruiksgegevens rapport naar Azure.
+Azure Stack met meerdere knooppunten systemen die gebruikmaken van facturering model op basis van verbruik moeten gebruiksgegevens rapporteren aan Azure voor facturering doel.  Azure Stack-operators moeten hun Azure Stack instantie geconfigureerd met gebruiksgegevens rapport naar Azure.
 
 > [!NOTE]
 > Gegevens gebruiksrapportage is vereist voor de Azure-Stack met meerdere knooppunten-gebruikers die een licentie onder het Pay-as-u-use-model. Dit is optioneel voor klanten die een licentie onder het model capaciteit (Zie de [aanschaffen pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Voor gebruikers van Azure Stack Development Kit Azure Stack operators gebruiksgegevens rapporteren en testen van de functie. Echter gebruikers wordt niet in rekening gebracht voor enig gebruik die ze rekening worden gebracht. 
@@ -108,3 +108,4 @@ Er is altijd een delaybetween de gebruiksgegevens die zijn gerapporteerd door he
 * [API voor providergebruik](azure-stack-provider-resource-api.md)  
 * [API voor tenantgebruik](azure-stack-tenant-resource-usage-api.md)
 * [Veelgestelde vragen over gebruik](azure-stack-usage-related-faq.md)
+* [Beheren van het gebruik en facturering als een Cloudserviceprovider](azure-stack-add-manage-billing-as-a-csp.md)

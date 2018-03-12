@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: d6471796863a80e69fdaf740b68fb27d59503453
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 680cb70777574d0ed88c5f83fb0a6fa20263b951
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App-Service op Azure-Stack: meer infrastructuur of worker rollen toevoegen
 
@@ -44,6 +44,7 @@ Azure App Service op Azure-Stack alle rollen met behulp van de virtuele-Machines
 ## <a name="add-additional-workers-with-powershell"></a>Toevoegen van extra werknemers met PowerShell
 
 1. [De beheerder van Azure-Stack-omgeving in PowerShell instellen](azure-stack-powershell-configure-admin.md)
+
 2. In dit voorbeeld moet worden uitgebreid in de schaalset gebruiken:
    ```powershell
    
@@ -59,7 +60,7 @@ Azure App Service op Azure-Stack alle rollen met behulp van de virtuele-Machines
     $ScaleSetName = "SharedWorkerTierScaleSet"
 
     ## TotalCapacity is sum of the instances needed at the end of operation. 
-    ## e.g. if you VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
+    ## e.g. if your VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
     $TotalCapacity = 2  
 
     # Get current scale set
@@ -68,51 +69,50 @@ Azure App Service op Azure-Stack alle rollen met behulp van de virtuele-Machines
     # Set and update the capacity
     $vmss.sku.capacity = $TotalCapacity
     Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
-  
-    '''
+   ```    
 
-> [!NOTE]
-> This step can take a number of hours to complete depending on the type of role and the number of instances.
->
->
+   > [!NOTE]
+   > Deze stap duurt enkele uren in beslag, afhankelijk van het type van de rol en het aantal exemplaren.
+   >
+   >
 
-3. Monitor the status of the new role instances in the App Service Administration, to check the status of an individual role instance click the role type in the list.
+3. Bewaakt de status van de nieuwe rolexemplaren van de in het App Service-beheer, om te controleren op de status van een afzonderlijke instantie van het type van de rol in de lijst.
 
-## Add additional workers directly within the App Service Resource Provider Admin.
+## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Toevoegen van extra werknemers rechtstreeks vanuit de App Service-beheerder met Resource-Provider.
 
-1. Log in to the Azure Stack administration portal as the service administrator.
+1. Meld u aan bij de Azure-Stack-beheerportal als de servicebeheerder.
 
-2. Browse to **App Services**.
+2. Blader naar **App Services**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Click **Roles**. Here you see the breakdown of all App Service roles deployed.
+3. Klik op **rollen**. Hier ziet u de verdeling van alle rollen in App Service geïmplementeerd.
 
-4. Right click on the row of the type you want to scale and then click **ScaleSet**.
+4. Klik met de rechtermuisknop op de rij van het type dat u wilt schalen en klik vervolgens op **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Click **Scaling**, select the number of instances you want to scale to, and then click **Save**.
+5. Klik op **schaal**, selecteer het aantal exemplaren dat u wilt aanpassen aan en klik vervolgens op **opslaan**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. App Service on Azure Stack will now add the additional VMs, configure them, install all the required software, and mark them as ready when this process is complete. This process can take approximately 80 minutes.
+6. App-Service op Azure-Stack wordt nu de extra virtuele machines toevoegen, om ze te configureren, de vereiste software installeren en gemarkeerd als gereed wanneer dit proces voltooid is. Dit kan ongeveer 80 minuten duren.
 
-7. You can monitor the progress of the readiness of the new roles by viewing the workers in the **Roles** blade.
+7. U kunt de voortgang van de gereedheid van de nieuwe rollen aan de hand van de werknemers in de **rollen** blade.
 
-## Result
+## <a name="result"></a>Resultaat
 
-After they are fully deployed and ready, the workers become available for users to deploy their workload onto them. The following shows an example of the multiple pricing tiers available by default. If there are no available workers for a particular worker tier, the option to choose the corresponding pricing tier is unavailable.
+Nadat ze volledig geïmplementeerde en klaar bent, worden de werknemers beschikbaar voor gebruikers van hun werkbelasting naar ze te implementeren. Hieronder ziet u een voorbeeld van de beschikbare meerdere Prijscategorieën standaard. Als er geen beschikbare werknemers voor een bepaalde worker-laag, is de optie voor het kiezen van de bijbehorende prijscategorie is niet beschikbaar.
 
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> To scale out Management, Front End or Publisher roles add you must scale out the corresponding role type. 
+> Als u wilt uitbreiden Management, toevoegen front-end- of Publisher rollen dat moet u het bijbehorende Roltype uitbreiden. 
 >
 >
 
-To scale out Management, Front End, or Publisher roles, follow the same steps selecting the appropriate role type. Controllers are not deployed as Scale Sets and therefore two should be deployed at Installation time for all production deployments.
+Als u wilt uitbreiden Management, Front-End of Publisher rollen, volgt u dezelfde stappen selecteren van het type van de juiste rol. Domeincontrollers worden niet geïmplementeerd als Schaalsets en dus twee moeten worden geïmplementeerd tijdens de installatie voor alle productie-implementaties.
 
-### Next steps
+### <a name="next-steps"></a>Volgende stappen
 
-[Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)
+[Implementatiebronnen configureren](azure-stack-app-service-configure-deployment-sources.md)

@@ -119,6 +119,8 @@
               href: azure-stack-deploy-template-powershell.md
             - name: Implementeren met Visual Studio
               href: azure-stack-deploy-template-visual-studio.md
+    - name: Een Cloud serviceprovider ingeschakeld
+      href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Referentie
   items:
     - name: PowerShell voor Azure Stack
