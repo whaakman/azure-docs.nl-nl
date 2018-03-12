@@ -264,14 +264,24 @@
           items:
             - name: Overzicht
               href: azure-stack-billing-and-chargeback.md
-            - name: Rapportage over gebruiksgegevens
-              href: azure-stack-usage-reporting.md
-            - name: API voor providergebruik
-              href: azure-stack-provider-resource-api.md
-            - name: API voor tenantgebruik
-              href: azure-stack-tenant-resource-usage-api.md
-            - name: Veelgestelde vragen over gebruik
-              href: azure-stack-usage-related-faq.md
+            - name: Beheren van het gebruik en facturering als een CSP
+              href: azure-stack-add-manage-billing-as-a-csp.md
+            - name: Toevoegen van tenants voor informatie over het gebruik en facturering
+              href: azure-stack-csp-howto-register-tenants.md
+            - name: Registratie van de tenant beheren
+              href: azure-stack-csp-ref-operations.md
+            - name: Gebruiks- en facturering verwijzing
+              items:
+                - name: Rapportage over gebruiksgegevens
+                  href: azure-stack-usage-reporting.md
+                - name: Infrastructuur voor gebruiksrapportage voor Cloudserviceproviders
+                  href: azure-stack-csp-ref-infrastructure.md
+                - name: API voor providergebruik
+                  href: azure-stack-provider-resource-api.md
+                - name: API voor tenantgebruik
+                  href: azure-stack-tenant-resource-usage-api.md
+                - name: Veelgestelde vragen over gebruik
+                  href: azure-stack-usage-related-faq.md
         - name: Verbinding maken met Azure
           items:
             - name: Verbinding maken via VPN

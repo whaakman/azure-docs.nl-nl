@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/07/2018
 ms.author: bonova
-ms.openlocfilehash: 721e94f2848a219c999c6bc6e5bba1fc49afa799
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
-ms.translationtype: HT
+ms.openlocfilehash: dc3c93a1a13f3e10f9159d26411d6337c0269722
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een exemplaar beheerd (preview)?
 
@@ -41,7 +41,7 @@ De volgende overzichten van de tabel van belangrijke verschillen en ontwikkelaar
 
 | | Gebruiksscenario | 
 | --- | --- | 
-|Managed Instance |Voor klanten die willen migreren van een groot aantal apps vanaf on-premises of IaaS, zelf is gebouwd, of ISV hebt opgegeven, met voorstellen als lage migratie inspanning mogelijk exemplaar beheerd. Met behulp van de volledig geautomatiseerde [gegevens migratie Service (DMS)](/sql/dma/dma-overview) in Azure, klanten kunnen lift- en hun lokale SQL Server verplaatsen naar een beheerde-exemplaar dat compatibiliteit met SQL Server on-premises en volledige isolatie van biedt de exemplaren van de klant met systeemeigen ondersteuning voor VNET.  Met Software Assurance, kun je de bestaande licenties voor kortingen op een beheerde exemplaar van SQL Database met de [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Beheerde exemplaar van SQL Database is de beste Migratiebestemming in de cloud voor SQL Server-exemplaren waarvoor hoge beveiliging en een uitgebreide programmeren voor aanvallen. |
+|Beheerd exemplaar |Voor klanten die willen migreren van een groot aantal apps vanaf on-premises of IaaS, zelf is gebouwd, of ISV hebt opgegeven, met voorstellen als lage migratie inspanning mogelijk exemplaar beheerd. Met behulp van de volledig geautomatiseerde [gegevens migratie Service (DMS)](/sql/dma/dma-overview) in Azure, klanten kunnen lift- en hun lokale SQL Server verplaatsen naar een beheerde-exemplaar dat compatibiliteit met SQL Server on-premises en volledige isolatie van biedt de exemplaren van de klant met systeemeigen ondersteuning voor VNET.  Met Software Assurance, kun je de bestaande licenties voor kortingen op een beheerde exemplaar van SQL Database met de [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Beheerde exemplaar van SQL Database is de beste Migratiebestemming in de cloud voor SQL Server-exemplaren waarvoor hoge beveiliging en een uitgebreide programmeren voor aanvallen. |
 |Azure SQL Database |Voor klanten voorstellen ontwikkelen van nieuwe multitenant SaaS-toepassingen of opzettelijk hun bestaande lokale apps omzetten in een multitenant SaaS-app elastische pools. Voordelen van dit model zijn: <br><ul><li>Conversie van het bedrijfsmodel te verkopen, licenties te verkopen abonnementen (voor ISV's)</li></ul><ul><li>Isolatie van tenants eenvoudig en opsommingsteken bewijs</li></ul><ul><li>Een vereenvoudigde database gericht programmeermodel</li></ul><ul><li>De mogelijkheid uit te schalen zonder een vaste maximum op</li></ul>Voor klanten ontwikkelen van nieuwe apps dan de multitenant SaaS, waarvan de werklast stabiel en voorspelbaar is, voorstellen individuele databases. Voordelen van dit model zijn:<ul><li>Een vereenvoudigde database gericht programmeermodel</li></ul>  <ul><li>Voorspelbare prestaties voor elke database</li></ul>|
 |SQL IaaS |Voor klanten die behoefte hebben aan voor het aanpassen van het besturingssysteem of de database-server, evenals klanten die de specifieke vereisten in termen van apps van derden door kant met SQL Server uitgevoerd (op dezelfde virtuele machine), SQL-VM's voorstellen / IaaS als de optimale oplossing|
 |||

@@ -3,22 +3,22 @@ title: Provider Resourcegebruik API | Microsoft Docs
 description: Verwijzing voor het gebruik van bronnen API, die informatie over het gebruik van Azure-Stack opgehaald
 services: azure-stack
 documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: b6055923-b6a6-45f0-8979-225b713150ae
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
-ms.author: alfredop
-ms.openlocfilehash: 0c45ce3bc93945ed8700464beebabcda07e8d77c
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 763b0af9c258a70392e8c7ebbb4c107e94fce5b2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="provider-resource-usage-api"></a>Resourcegebruik-API voor providers
 De term *provider* geldt voor de servicebeheerder en voor alle providers gedelegeerd. Azure Stack-operators en gedelegeerd providers kunnen u de provider gebruiks-API gebruiken om het gebruik van hun directe tenants weer te geven. Bijvoorbeeld, zoals in het diagram, P0 de serviceprovider-API voor van gebruiksinformatie over de P1 kunt aanroepen en rechtstreeks gebruik van P2 en P1 kunt bellen voor informatie over het gebruik van P3 en P4.
@@ -33,7 +33,7 @@ Dit gebruik API is een provider API, zodat de aanroeper moet een eigenaar, bijdr
 
 | **Methode** | **Aanvraag-URI** |
 | --- | --- |
-| TOEVOEGEN |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}& subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {token waarde} |
+| TOEVOEGEN |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### <a name="arguments"></a>Argumenten
 | **Argument** | **Beschrijving** |
@@ -48,7 +48,7 @@ Dit gebruik API is een provider API, zodat de aanroeper moet een eigenaar, bijdr
 | *continuationToken* |Token opgehaald uit de laatste aanroep aan de provider gebruiks-API. Dit token is vereist wanneer een antwoord groter dan 1000 regels is en het fungeert als een bladwijzer voor de voortgang. Als het token niet aanwezig is is, de gegevens worden opgehaald van het begin van de dag of uur, op basis van de granulatie doorgegeven. |
 
 ### <a name="response"></a>Antwoord
-/Subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime ophalen = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity = dagelijks & subscriberId = sub1.1 & api-versie 1.0 =
+GET /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&subscriberId=sub1.1&api-version=1.0
 
 ```json
 {
@@ -79,8 +79,8 @@ meterID1",
 ### <a name="response-details"></a>Details van de reactie
 | **Argument** | **Beschrijving** |
 | --- | --- |
-| *ID* |De unieke ID van de statistische informatie over het gebruik. |
-| *naam* |Naam van de statistische informatie over het gebruik. |
+| *id* |De unieke ID van de statistische informatie over het gebruik. |
+| *Naam* |Naam van de statistische informatie over het gebruik. |
 | *type* |Resourcedefinitie. |
 | *abonnements-id* |Abonnement-id van de Azure-Stack-gebruiker. |
 | *usageStartTime* |UTC begintijd van de informatie over het gebruik bucket waartoe deze aggregatie gebruik behoort.|
@@ -88,6 +88,18 @@ meterID1",
 | *instanceData* |Sleutel-waardeparen van het exemplaardetails (in een nieuwe indeling):<br> *resourceUri*: volledig gekwalificeerde resource-ID, waaronder de resourcegroepen en de exemplaarnaam. <br> *locatie*: regio waarin deze service is uitgevoerd. <br> *labels*: resourcetags die zijn opgegeven door de gebruiker. <br> *aanvullende informatie*: meer informatie over de bron die is verbruikt, bijvoorbeeld, het type besturingssysteem versie of image. |
 | *hoeveelheid* |Hoeveelheid resourceverbruik dat is opgetreden in deze periode. |
 | *meterId* |Unieke ID voor de resource die is verbruikt (ook wel *ResourceID*). |
+
+
+## <a name="retrieve-usage-information"></a>Ophalen van gebruiksgegevens
+
+Als de gebruiksgegevens worden gegenereerd, moet u de resources die zijn uitgevoerd en dat actief met behulp van het systeem, bijvoorbeeld, een actieve virtuele machine of een opslagaccount met bepaalde gegevens enzovoort hebben. Als u niet zeker weet of u bronnen die worden uitgevoerd in Azure Stack Marketplace, een virtuele machine (VM) te implementeren en controleren van de virtuele machine wordt bewaking blade om te controleren of deze uitgevoerd. De volgende PowerShell-cmdlets gebruiken om de gebruiksgegevens weer te geven:
+
+1. [Installeer PowerShell voor Azure-Stack.](azure-stack-powershell-install.md)
+2. [Configureren van de gebruiker van de Azure-Stack](user/azure-stack-powershell-configure-user.md) of de [Azure Stack-operator](azure-stack-powershell-configure-admin.md) PowerShell-omgeving 
+3. Voor het ophalen van de gebruiksgegevens, gebruiken de [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell-cmdlet:
+```powershell
+Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 [Tenant-Resourcegebruik API-referentiemateriaal](azure-stack-tenant-resource-usage-api.md)
