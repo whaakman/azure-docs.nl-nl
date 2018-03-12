@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
+ms.date: 03/07/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bc2c696dceb3ed4741c10a5c611bd2d438b71bd5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="understanding-cost-management-reports"></a>Understanding kosten-rapporten
 
@@ -76,6 +76,49 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
      - Toepassing
      - Omgeving
      - Kosten code
+
+    Hier volgt een lijst van ingebouwde groepen in rapporten beschikbaar:
+
+    - **Kostentype**
+      - Selecteer een kostentype of meerdere kostentypen of te selecteren. Kosten typen zijn:
+        - Eenmalige kosten
+        - Ondersteuning
+        - Gebruikskosten
+    - **De klant**
+        - Selecteer een specifieke klant meerdere klanten, of alle klanten.
+    - **Accountnaam**
+        - De naam van het account of abonnement. In Azure is de naam van het Azure-abonnement.
+    - **Er is geen account**
+        - Selecteer een account, meerdere accounts of alle accounts. In Azure is de GUID van het Azure-abonnement.
+    - **Bovenliggende Account**
+        - Selecteer de bovenliggende account, meerdere accounts of selecteren.
+    - **Service**
+        - Selecteer een service, meerdere services of alle services.
+    - **Provider**
+        - De cloudprovider waarin activa en kosten gekoppeld worden.
+    - **Regio**
+        - De regio waar de resource wordt gehost.
+    - **Beschikbaarheid Zone**
+        - AWS geïsoleerd locaties binnen een regio.
+    - **Resourcetype**
+        - Het type van de bron wordt gebruikt.
+    - **Sub-Type**
+        - Selecteer het subtype.
+    - **Bewerking**
+        - Selecteer de bewerking of **Alles weergeven**.
+    - **Prijsmodel**
+        - Alle tevoren
+        - Er is geen tevoren
+        - Gedeeltelijk tevoren
+        - Op aanvraag
+        - Reservering
+        - Positie
+    - **Kosten Type**
+        - Selecteer de kosten van het type negatief of positief of beide.
+    - **Tenancy**
+        - Hiermee wordt aangegeven of een machine wordt uitgevoerd als een specifieke computer.
+    -   **Gebruikstype**
+          - Gebruikstype kan eenmalige kosten of terugkerende kosten zijn.
 
 5. **Filters**
 

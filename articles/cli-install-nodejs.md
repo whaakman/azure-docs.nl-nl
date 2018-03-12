@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a1ca71a81f4fa6dd36b9ed3a2b16fcca0e29601c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-the-azure-cli-10"></a>Installeer de Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/21/2017
 
 > [!IMPORTANT]
 > Dit onderwerp beschrijft het installeren van de Azure CLI 1.0. Deze CLI is afgeschaft en mag alleen worden gebruikt voor ondersteuning bij de Azure Service Management (ASM)-model met resources op 'klassiek'.
-> Voor implementaties van Azure Resource Manager (ARM), gebruikt u [Azure CLI 2.0](/cli/azure/overview).
+> Gebruik voor Azure Resource Manager-implementaties, [Azure CLI 2.0](/cli/azure).
 
-Snel het Azure-opdrachtregelinterface (Azure CLI 1.0) voor het gebruik van een set van open-source shell-opdrachten voor het maken en beheren van resources in Microsoft Azure installeren. U hebt verschillende mogelijkheden voor het installeren van deze cross-platform-hulpprogramma's op uw computer:
+Installeer snel de Azure-opdrachtregelinterface (Azure CLI 1.0) voor een set open source shellopdrachten waarmee u resources in Microsoft Azure kunt maken en beheren. U hebt verschillende mogelijkheden voor het installeren van deze cross-platform-hulpprogramma's op uw computer:
 
 * **npm pakket** -npm (de package manager voor JavaScript) uitgevoerd voor het installeren van de nieuwste Azure CLI 1.0-pakket op uw Linux-distributie- of OS. Node.js en npm op uw computer vereist.
 * **Installatieprogramma** -een installatieprogramma voor een eenvoudige installatie op de Mac- of Windows te downloaden.

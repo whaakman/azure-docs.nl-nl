@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b139fbadb03ae2893331e763bc49b249c0dd05d7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Trigger - voorbeeld van C#-script
 
-Het volgende voorbeeld ziet u een blob-trigger binding in een *function.json* bestand en [C# script (.csx)](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie polls de `myqueue-items` wachtrij en schrijft een logboek telkens wanneer een wachtrij-item wordt verwerkt.
+Het volgende voorbeeld ziet u een wachtrij trigger binding in een *function.json* bestand en [C# script (.csx)](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie polls de `myqueue-items` wachtrij en schrijft een logboek telkens wanneer een wachtrij-item wordt verwerkt.
 
 Hier volgt de *function.json* bestand:
 
@@ -112,7 +112,7 @@ De [gebruik](#trigger---usage) sectie wordt uitgelegd `myQueueItem`, die door de
 
 ### <a name="trigger---javascript-example"></a>Trigger - JavaScript-voorbeeld
 
-Het volgende voorbeeld ziet u een blob-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie polls de `myqueue-items` wachtrij en schrijft een logboek telkens wanneer een wachtrij-item wordt verwerkt.
+Het volgende voorbeeld ziet u een wachtrij trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie polls de `myqueue-items` wachtrij en schrijft een logboek telkens wanneer een wachtrij-item wordt verwerkt.
 
 Hier volgt de *function.json* bestand:
 
@@ -223,9 +223,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 
 ## <a name="trigger---usage"></a>Trigger - usage
  
-In C# en C# script, toegang heeft tot de blob-gegevens met behulp van een methodeparameter zoals `Stream paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. U kunt koppelen aan een van de volgende typen:
+In C# en C# script, toegang krijgen tot de berichtgegevens met een methodeparameter als `string paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. U kunt koppelen aan een van de volgende typen:
 
-* Object - de runtime van Functions deserializes POCO een JSON-nettolading in een POCO-object. 
+* Object - de runtime van Functions deserializes een JSON-nettolading in een exemplaar van een willekeurige klasse is gedefinieerd in uw code. 
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -248,7 +248,7 @@ De trigger wachtrij bevat diverse [eigenschappen voor metagegevens](functions-tr
 
 ## <a name="trigger---poison-messages"></a>Trigger - verontreinigde berichten
 
-Wanneer een functie van de trigger wachtrij mislukt Azure Functions probeert opnieuw, voor de functie maximaal vijf keer een bepaalde wachtrij-bericht, met inbegrip van de eerste poging. Als alle vijf pogingen mislukken, wordt een bericht met de runtime van functions toegevoegd aan een wachtrij met de naam * &lt;originalqueuename >-verontreinigd*. U kunt schrijven om een functie verwerken van berichten uit de wachtrij verontreinigd door registratie of het verzenden van een melding dat handmatige aandacht nodig is.
+Wanneer een functie van de trigger wachtrij mislukt Azure Functions probeert opnieuw, voor de functie maximaal vijf keer een bepaalde wachtrij-bericht, met inbegrip van de eerste poging. Als alle vijf pogingen mislukken, wordt een bericht met de runtime van functions toegevoegd aan een wachtrij met de naam  *&lt;originalqueuename >-verontreinigd*. U kunt schrijven om een functie verwerken van berichten uit de wachtrij verontreinigd door registratie of het verzenden van een melding dat handmatige aandacht nodig is.
 
 Voor het afhandelen van verontreinigde berichten handmatig, Controleer de [dequeueCount](#trigger---message-metadata) van het bericht uit de wachtrij.
 
@@ -302,7 +302,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Output - voorbeeld van C#-script
 
-Het volgende voorbeeld ziet u een blob-trigger binding in een *function.json* bestand en [C# script (.csx)](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie maakt een wachtrij-item met een POCO-nettolading voor elke HTTP-aanvraag ontvangen.
+Het volgende voorbeeld ziet u een HTTP-trigger binding in een *function.json* bestand en [C# script (.csx)](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie maakt een wachtrij-item met een **CustomQueueMessage** nettolading van het object voor elke HTTP-aanvraag ontvangen.
 
 Hier volgt de *function.json* bestand:
 
@@ -353,17 +353,17 @@ U kunt meerdere berichten tegelijkertijd verzenden met behulp van een `ICollecto
 ```cs
 public static void Run(
     CustomQueueMessage input, 
-    ICollector<CustomQueueMessage> myQueueItem, 
+    ICollector<CustomQueueMessage> myQueueItems, 
     TraceWriter log)
 {
-    myQueueItem.Add(input);
-    myQueueItem.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
+    myQueueItems.Add(input);
+    myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
 }
 ```
 
 ### <a name="output---javascript-example"></a>Output - JavaScript-voorbeeld
 
-Het volgende voorbeeld ziet u een blob-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie maakt een wachtrij-item voor elke HTTP-aanvraag ontvangen.
+Het volgende voorbeeld ziet u een HTTP-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie maakt een wachtrij-item voor elke HTTP-aanvraag ontvangen.
 
 Hier volgt de *function.json* bestand:
 
@@ -459,7 +459,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
  
 In C# en C# script, schrijft u een enkel wachtrijbericht met behulp van een methodeparameter zoals `out T paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. U kunt het retourtype van methode in plaats van een `out` parameter, en `T` kan bestaan uit een van de volgende typen:
 
-* Een POCO serialiseerbaar als JSON
+* Een serialiseerbare als JSON-object
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 

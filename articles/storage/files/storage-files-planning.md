@@ -2,23 +2,17 @@
 title: Planning voor de implementatie van een Azure-bestanden | Microsoft Docs
 description: Meer informatie over wat u moet overwegen bij het plannen van de implementatie van een Azure-bestanden.
 services: storage
-documentationcenter: 
 author: wmgries
-manager: klaasl
-editor: jgerend
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 03/06/2018
 ms.author: wgries
-ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 017dd79e2d15fdd98ea020c686857d282bad244e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via het SMB-standaardprotocol. Omdat Azure Files volledig wordt beheerd, is het veel eenvoudiger dan implementeren en beheren van een bestandsserver of een NAS-apparaat dat u in productiescenario's implementeren. In dit artikel wordt de onderwerpen in overweging moet nemen bij het implementeren van een Azure-bestandsshare voor gebruik in productieomgevingen binnen uw organisatie.
@@ -45,7 +39,7 @@ ms.lasthandoff: 01/29/2018
 ## <a name="data-access-method"></a>Data access-methode
 Azure bestanden biedt twee ingebouwde, handige data access-methoden waarmee u kunt afzonderlijk of in combinatie met elkaar, toegang tot uw gegevens:
 
-1. **Directe toegang tot de cloud**: een Azure-bestandsshare kan worden gekoppeld door [Windows](storage-how-to-use-files-windows.md), [Mac OS](storage-how-to-use-files-mac.md), en/of [Linux](storage-how-to-use-files-linux.md) met de branche standaard Server Message Block ( SMB)-protocol of via de REST-API van het bestand. Lees- en schrijfbewerkingen op bestanden op de share met SMB, zijn er rechtstreeks op de bestandsshare in Azure. Koppelen door een virtuele machine in Azure, de SMB-client in het besturingssysteem moet ondersteuning van ten minste SMB 2.1. On-premises kunt koppelen, zoals op een gebruiker werkstation de SMB-client wordt ondersteund door het werkstation moet ondersteuning van ten minste SMB 3.0 (met versleuteling). Naast SMB, nieuwe toepassingen of services kunnen rechtstreeks toegang tot de bestandsshare via de REST-bestand, dat voorziet in een eenvoudige en schaalbare application programming interface voor de ontwikkeling van software.
+1. **Directe toegang tot de cloud**: een Azure-bestandsshare kan worden gekoppeld door [Windows](storage-how-to-use-files-windows.md), [Mac OS](storage-how-to-use-files-mac.md), en/of [Linux](storage-how-to-use-files-linux.md) met de industrie standaard Server Message Block (SMB) protocol of via de REST-API van het bestand. Lees- en schrijfbewerkingen op bestanden op de share met SMB, zijn er rechtstreeks op de bestandsshare in Azure. Koppelen door een virtuele machine in Azure, de SMB-client in het besturingssysteem moet ondersteuning van ten minste SMB 2.1. On-premises kunt koppelen, zoals op een gebruiker werkstation de SMB-client wordt ondersteund door het werkstation moet ondersteuning van ten minste SMB 3.0 (met versleuteling). Naast SMB, nieuwe toepassingen of services kunnen rechtstreeks toegang tot de bestandsshare via de REST-bestand, dat voorziet in een eenvoudige en schaalbare application programming interface voor de ontwikkeling van software.
 2. **Azure File-synchronisatie** (preview): met Azure bestand Sync shares kunnen worden gerepliceerd naar Windows-Servers on-premises of in Azure. Uw gebruikers zou zoals toegang tot de bestandsshare via de Windows-Server dat via een SMB- of NFS-share. Dit is nuttig voor scenario's waarin gegevens worden geopend en gewijzigd ver van een Azure-datacenter, zoals in een scenario voor het filiaal. Gegevens kunnen worden gerepliceerd tussen meerdere eindpunten voor Windows Server, zoals tussen meerdere filialen. Ten slotte gegevens mogelijk tiers worden verdeeld naar Azure-bestanden, zodat alle gegevens zijn nog steeds toegankelijk via de Server, maar de Server geen een volledige kopie van de gegevens heeft. In plaats daarvan gegevens naadloos teruggehaald wanneer geopend door de gebruiker.
 
 De volgende tabel ziet u hoe uw gebruikers en toepassingen toegang uw Azure-bestandsshare tot hebben:
@@ -63,7 +57,7 @@ Azure Files bevat verschillende ingebouwde opties voor optimale gegevensbeveilig
     * Clients die ondersteuning bieden voor versleuteling door SMB 3.0 verzenden en ontvangen van gegevens via een versleuteld kanaal.
     * Clients die geen ondersteuning bieden voor SMB 3.0 kunnen zonder versleuteling intra-datacenter communiceren via SMB 2.1 of SMB 3.0. Houd er rekening mee dat clients niet inter datacenter communiceren via SMB 2.1 of SMB 3.0 zonder versleuteling zijn toegestaan.
     * Clients kunnen communiceren via de REST-bestand met HTTP of HTTPS.
-* Codering in rust ([Azure Storage-Service: versleuteling](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): We zijn bezig met inschakelen van versleuteling voor opslag-Service (SSE) op de onderliggende opslag van de Azure-platform. Dit betekent dat versleuteling wordt standaard voor alle opslagaccounts worden ingeschakeld. Als u een nieuw opslagaccount in een regio met versleuteling in rust op standaard maakt, hebt u niet te ondernemen om in te schakelen. Gegevens in rust versleuteld met een volledig beheerde sleutels. Codering in rust niet opslagkosten verhogen of de prestaties negatief beïnvloeden. 
+* Codering in rust ([Azure Storage-Service: versleuteling](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): versleuteling voor opslag-Service (SSE) is standaard ingeschakeld voor alle opslagaccounts. Gegevens in rust versleuteld met een volledig beheerde sleutels. Codering in rust niet opslagkosten verhogen of de prestaties negatief beïnvloeden. 
 * Optionele vereiste van versleutelde gegevens in transit: wanneer u selecteert, Azure-bestanden wordt geweigerd voor toegang tot de gegevens via niet-versleutelde kanalen. In het bijzonder zijn alleen HTTPS en SMB 3.0 met versleuteling verbindingen toegestaan. 
 
     > [!Important]  

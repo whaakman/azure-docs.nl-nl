@@ -15,15 +15,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 0723f2c7c09029e99335f3a459c0ac86d84f9487
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5d90b2cd977522eab267c8c86a35e47bc61248a8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB Cosmos-bindingen voor Azure Functions
 
 Dit artikel wordt uitgelegd hoe u werkt met [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) bindingen in de Azure Functions. Azure Functions ondersteunt activeren, invoer en uitvoer van de bindingen voor Azure Cosmos DB.
+
+> [!NOTE]
+> Deze binding heette oorspronkelijk DocumentDB. In functies versie 1.x, alleen de trigger is gewijzigd van de Cosmos-DB. de binding invoer, uitvoer-binding en NuGet-pakket behoudt de naam van de DocumentDB. In [functies versie 2.x](functions-versions.md), de bindingen en het pakket zijn ook nieuwe naam Cosmos-DB. In dit artikel gebruikt de 1.x-namen.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -127,7 +130,7 @@ Hier volgt de JavaScript-code:
 
 ## <a name="trigger---attributes"></a>Trigger - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Het kenmerk constructor werkt met de databasenaam en verzamelingsnaam. Zie voor informatie over deze instellingen en andere eigenschappen die u kunt configureren, [Trigger - configuratie](#trigger---configuration). Hier volgt een `CosmosDBTrigger` kenmerk voorbeeld in een handtekening voor methode:
 
@@ -207,7 +210,7 @@ Eerst `Id` en `Maker` waarden voor een `CarReview` exemplaar worden doorgegeven 
             [FunctionName("SingleEntry")]
             public static void Run(
                 [QueueTrigger("car-reviews", Connection = "StorageConnectionString")] CarReview carReview,
-                [CosmosDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
+                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
                 TraceWriter log)
             {
                 log.Info( $"Selected Review - {document?.Review}"); 
@@ -373,7 +376,7 @@ Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md)
     [FunctionName("CosmosDBSample")]
     public static HttpResponseMessage Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestMessage req,
-        [CosmosDB("test", "test", ConnectionStringSetting = "CosmosDB", SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
+        [DocumentDB("test", "test", ConnectionStringSetting = "CosmosDB", SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
     {
         return req.CreateResponse(HttpStatusCode.OK, documents);
     }
@@ -455,13 +458,13 @@ Hier volgt de JavaScript-code:
 
 ## <a name="input---attributes"></a>Invoer - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Het kenmerk constructor werkt met de databasenaam en verzamelingsnaam. Zie voor informatie over deze instellingen en andere eigenschappen die u kunt configureren, [de volgende configuratiesectie](#input---configuration). 
 
 ## <a name="input---configuration"></a>Invoer - configuratie
 
-De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand en de `CosmosDB` kenmerk.
+De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand en de `DocumentDB` kenmerk.
 
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
@@ -470,7 +473,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**Naam**     || Naam van de binding-parameter die het document in de functie vertegenwoordigt.  |
 |**databaseName** |**DatabaseName** |De database met het document.        |
 |**collectionName** |**CollectionName** | De naam van de verzameling waarin het document. |
-|**id**    | **Id** | De ID van het document om op te halen. Deze eigenschap ondersteunt bindingen parameters. Zie voor meer informatie, [binden aan aangepaste eigenschappen voor de invoer in een expressie voor gegevensbinding](functions-triggers-bindings.md#bind-to-custom-input-properties). Stelt beide niet de **id** en **sqlQuery** eigenschappen. Als u een niet instelt, wordt de volledige verzameling worden opgehaald. |
+|**id**    | **Id** | De ID van het document om op te halen. Deze eigenschap ondersteunt [bindingsexpressies](functions-triggers-bindings.md#binding-expressions-and-patterns). Stelt beide niet de **id** en **sqlQuery** eigenschappen. Als u een niet instelt, wordt de volledige verzameling worden opgehaald. |
 |**sqlQuery**  |**SqlQuery**  | Een Azure Cosmos DB SQL-query die wordt gebruikt voor het ophalen van meerdere documenten. De eigenschap biedt ondersteuning voor bindingen van de runtime, zoals in dit voorbeeld: `SELECT * FROM c where c.departmentId = {departmentId}`. Stelt beide niet de **id** en **sqlQuery** eigenschappen. Als u een niet instelt, wordt de volledige verzameling worden opgehaald.|
 |**Verbinding**     |**ConnectionStringSetting**|De naam van de app-instelling met de verbindingsreeks voor Azure Cosmos DB.        |
 |**PartitionKey**|**PartitionKey**|Hiermee geeft u de waarde voor de partitiesleutel voor de zoekactie. Kan bindingparameters bevatten.|
@@ -510,7 +513,7 @@ Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md)
     [FunctionName("QueueToDocDB")]        
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         document = new { Text = myQueueItem, id = Guid.NewGuid() };
     }
@@ -715,7 +718,7 @@ Hier volgt de JavaScript-code:
 
 ## <a name="output---attributes"></a>Output - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Het kenmerk constructor werkt met de databasenaam en verzamelingsnaam. Zie voor informatie over deze instellingen en andere eigenschappen die u kunt configureren, [Output - configuratie](#output---configuration). Hier volgt een `CosmosDB` kenmerk voorbeeld in een handtekening voor methode:
 
@@ -723,7 +726,7 @@ Het kenmerk constructor werkt met de databasenaam en verzamelingsnaam. Zie voor 
     [FunctionName("QueueToDocDB")]        
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         ...
     }

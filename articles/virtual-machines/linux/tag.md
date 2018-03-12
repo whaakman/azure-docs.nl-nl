@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: 06d264ce9a058cc791d5f6258bcc0b07eab915d8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e68b97461e8630750462f2c640901511aa2f8676
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Het label van een virtuele Linux-machine in Azure
 In dit artikel beschrijft de verschillende manieren voor het taggen van een virtuele Linux-machine in Azure via het Resource Manager-implementatiemodel. Labels zijn de gebruiker gedefinieerde sleutel/waarde-paren die rechtstreeks op een resource of een resourcegroep kunnen worden geplaatst. Azure ondersteunt momenteel maximaal 15 tags per resource en resourcegroep. Labels kunnen worden geplaatst op een bron op het moment van maken of toegevoegd aan een bestaande resource. Houd er rekening mee,-labels worden ondersteund voor bronnen met behulp van het Resource Manager-implementatiemodel alleen gemaakt.
@@ -27,7 +27,7 @@ In dit artikel beschrijft de verschillende manieren voor het taggen van een virt
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>Met Azure CLI-tagging
-Om te beginnen, moet u de meest recente [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#az_login).
+Om te beginnen, moet u de meest recente [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login).
 
 U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

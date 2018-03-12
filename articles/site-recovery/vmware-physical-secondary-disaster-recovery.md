@@ -8,13 +8,13 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: c83f6142e70103ff4d99d9d2871c4ab747af8d99
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 7d172b89a0846c8ccf19896400e127a3bec0b55e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Instellen van herstel na noodgevallen van on-premises VMware-virtuele machines of fysieke servers naar een secundaire site
 
@@ -25,8 +25,8 @@ InMage Scout in [Azure Site Recovery](site-recovery-overview.md) biedt realtime 
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-- [Bekijk](site-recovery-support-matrix-to-sec-site.md) de ondersteuningsvereisten voor alle onderdelen.
-- Zorg ervoor dat de machines die u wilt repliceren voldoen [gerepliceerde machine ondersteuning](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- [Bekijk](vmware-physical-secondary-support-matrix.md) de ondersteuningsvereisten voor alle onderdelen.
+- Zorg ervoor dat de machines die u wilt repliceren voldoen [gerepliceerde machine ondersteuning](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 ## <a name="create-a-vault"></a>Een kluis maken

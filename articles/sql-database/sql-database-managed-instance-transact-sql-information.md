@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: jovanpop
 manager: cguyer
-ms.openlocfilehash: 6ecb6600e5e1462cce9d49ecd9a4ed2e43e2c455
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 699ac303c553e1f3b78f13fc12163f47a1e77941
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database beheerd exemplaar T-SQL-verschillen met SQL Server 
 
@@ -57,7 +57,7 @@ Zie voor meer informatie:
 ### <a name="backup"></a>Back-up maken 
 
 Beheerde exemplaar automatische back-ups en kunnen gebruikers volledige database maken `COPY_ONLY` back-ups. Differentiële, het logboek en bestand momentopnameback-ups worden niet ondersteund.  
-- Beheerde exemplaar kunt maken van een database alleen op Azure Blob Storage-account: 
+- Beheerde exemplaar kan back-up van een database alleen aan een Azure Blob Storage-account: 
  - Alleen `BACKUP TO URL` wordt ondersteund 
  - `FILE`, `TAPE`, en back-upapparaten worden niet ondersteund.  
 - De meeste van de algemene `WITH` opties worden ondersteund 
@@ -67,11 +67,11 @@ Beheerde exemplaar automatische back-ups en kunnen gebruikers volledige database
  - Logboek-specifieke opties: `NORECOVERY`, `STANDBY`, en `NO_TRUNCATE` worden niet ondersteund 
  
 Beperkingen:  
-- Beheerde exemplaar back-up een database naar een back-up met maximaal 32 striping die voldoende voor de databases is maximaal 4 TB.
-- Maximum aantal back-stripe-grootte is 195 GB (grootte van pagina-blob). Verhoog het aantal striping in de back-opdracht voor het distribueren van stripe-grootte. 
+- Beheerde exemplaar back-up een database naar een back-up met maximaal 32 striping die voldoende voor de databases is maximaal 4 TB als back-compressie wordt gebruikt.
+- Maximum aantal back-stripe-grootte is 195 GB (maximum aantal blobgrootte). Het aantal striping in de opdracht backup afzonderlijke stripe verkleinen en blijven binnen deze limiet verhogen. 
 
 > [!TIP]
-> Deze beperking on-premises back-up naar omzeilen `DISK` in plaats van de back-up naar `URL`, back-upbestand voor zet vervolgens blob uploaden. Ondersteuning voor grotere bestanden herstellen omdat een andere blob-type wordt gebruikt.  
+> Deze beperking on-premises back-up naar omzeilen `DISK` in plaats van de back-up naar `URL`, back-upbestand voor zet vervolgens blob uploaden. Biedt ondersteuning voor grotere bestanden niet herstellen omdat een andere blob-type wordt gebruikt.  
 
 ### <a name="buffer-pool-extension"></a>De buffergroepuitbreiding 
  
@@ -136,14 +136,14 @@ De serversortering van de wordt `SQL_Latin1_General_CP1_CI_AS` en kan niet worde
  
 - Meerdere logboekbestanden worden niet ondersteund. 
 - Objecten in het geheugen worden niet ondersteund in de servicetier voor algemene doeleinden.  
-- Er is een limiet van 280 bestanden per exemplaar: max 280 bestanden per database voor de overdracht. Gegevens en de logboekbestanden worden berekend op basis van deze limiet.  
-- Database kan geen bestandsgroepen met stream bestandsgegevens bevatten.  Herstel mislukt als .bak bevat `FILESTREAM` gegevens.  
-- Elk bestand wordt geplaatst op afzonderlijke Azure Premium-schijf. I/o en doorvoer, is afhankelijk van de grootte van elk afzonderlijk bestand. Zie [schijfprestaties Azure Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- Er is een limiet van 280 bestanden per exemplaar: max 280 bestanden per database voor de overdracht. Gegevens en de logboekbestanden tellen mee in deze limiet.  
+- Database kan geen bestandsgroepen met filestream-gegevens bevatten.  Herstel mislukt als .bak bevat `FILESTREAM` gegevens.  
+- Elk bestand is in Azure Premium-opslag geplaatst. I/o en doorvoer per bestand afhankelijk van de grootte van elk afzonderlijk bestand op dezelfde manier als bij Azure Premium-opslag-schijven. Zie [schijfprestaties Azure Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
  
 #### <a name="create-database-statement"></a>Instructie CREATE DATABASE
 
 Hieronder vindt u `CREATE DATABASE` beperkingen: 
-- Bestanden en bestandsgroepen kunnen niet worden gedefinieerd.  
+- Bestanden en bestandsgroepen kan niet worden gedefinieerd.  
 - `CONTAINMENT` optie wordt niet ondersteund.  
 - `WITH`opties worden niet ondersteund.  
    > [!TIP]
@@ -217,7 +217,7 @@ In-database R- en Python externe bibliotheken worden nog niet ondersteund. Zie [
 
 ### <a name="filestream-and-filetable"></a>FILESTREAM en bestandstabel
 
-- Bestandsgegevens van stroom wordt niet ondersteund. 
+- FILESTREAM-gegevens wordt niet ondersteund. 
 - Database mag niet bestandsgroepen met `FILESTREAM` gegevens
 - `FILETABLE` wordt niet ondersteund
 - Kunnen geen tabellen hebben `FILESTREAM` typen
@@ -237,7 +237,7 @@ Zie voor meer informatie [FILESTREAM](https://docs.microsoft.com/sql/relational-
 ### <a name="linked-servers"></a>Gekoppelde servers
  
 Gekoppelde servers in beheerde exemplaar ondersteunen een beperkt aantal doelen: 
-- Doelen ondersteund: SQL Server, beheerde exemplaar van SQL Database en SQL Server op een virtuele machine.
+- Doelen ondersteund: SQL Server, SQL-Database, exemplaar beheerd en SQL Server op een virtuele machine.
 - Niet ondersteund doelen: bestanden, Analysis Services en andere RDBMS.
 
 Bewerkingen
@@ -277,23 +277,23 @@ Replicatie is nog niet ondersteund. Zie voor meer informatie over replicatie [SQ
  - `FROM URL` (Azure-blobopslag) is alleen ondersteunde optie.
  - `FROM DISK`/`TAPE`-back-upapparaat wordt niet ondersteund.
  - Back-upsets worden niet ondersteund. 
-- `WITH` opties worden niet ondersteund (Er is geen verschil `STATS`, enz.)     
-- `ASYNC RESTORE` -Herstel wordt voortgezet zelfs als de clientverbinding wordt verbroken. Als u een verbinding wordt verbroken, kunt controleren `sys.dm_operation_status` weergave van de status van een herstelbewerking (evenals voor database maken en verwijderen). Zie [sys.dm_operation_status bevat](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
+- `WITH` opties worden niet ondersteund (Nee `DIFFERENTIAL`, `STATS`, enz.)     
+- `ASYNC RESTORE` -Herstel wordt voortgezet zelfs als de clientverbinding wordt verbroken. Als de verbinding wordt verbroken, kunt u controleren `sys.dm_operation_status` weergave van de status van een herstelbewerking (evenals voor database maken en verwijderen). Zie [sys.dm_operation_status bevat](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
  
-De volgende databaseopties die zijn ingesteld/genegeerd en later kunnen niet worden gewijzigd:  
+De volgende databaseopties zijn ingesteld/genegeerd en later kunnen niet worden gewijzigd:  
 - `NEW_BROKER` (als de broker is niet ingeschakeld in .bak-bestand)  
 - `ENABLE_BROKER` (als de broker is niet ingeschakeld in .bak-bestand)  
 - `AUTO_CLOSE=OFF` (als een database in .bak-bestand heeft `AUTO_CLOSE=ON`)  
 - `RECOVERY FULL` (als een database in .bak-bestand heeft `SIMPLE` of `BULK_LOGGED` herstelmodus)
-- De bestandsgroep geoptimaliseerd voor geheugen is toegevoegd en XTP aangeroepen als deze niet in het bronbestand .bak  
-- Een bestaande groep geoptimaliseerd voor geheugen is gewijzigd in XTP  
+- Geoptimaliseerd voor geheugen bestandsgroep is toegevoegd en XTP aangeroepen als deze niet in het bronbestand .bak  
+- Eventuele bestaande geoptimaliseerd voor geheugen-bestandsgroep is gewijzigd in XTP  
 - `SINGLE_USER` en `RESTRICTED_USER` opties worden geconverteerd naar `MULTI_USER`   
 Beperkingen:  
 - `.BAK` bestanden met meerdere back-upsets kunnen niet worden hersteld. 
 - `.BAK` bestanden met meerdere logboekbestanden kunnen niet worden hersteld. 
 - Herstel mislukt als .bak bevat `FILESTREAM` gegevens.
-- Back-ups met databases die actieve geheugen OLTP-objecten hebben kunnen niet op dit moment worden hersteld.  
-- Back-ups van databases met wanneer op een bepaald moment stond. objecten in het geheugen kunnen niet op dit moment worden hersteld.   
+- Back-ups met databases die objecten van de actieve geheugen hebben kunnen niet op dit moment worden hersteld.  
+- Back-ups met databases waar op een bepaald moment In-Memory objecten bestond kunnen niet momenteel worden hersteld.   
 - Back-ups met databases in de modus alleen-lezen kunnen niet op dit moment worden hersteld. Deze beperking wordt binnenkort verwijderd.   
  
 Zie voor meer informatie over herstel instructies [instructies RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
@@ -381,21 +381,21 @@ De volgende variabelen, taken en weergaven retourneren andere resultaten:
 - `@@SERVICENAME` retourneert NULL, omdat het geen zin in exemplaar beheerde omgeving. Zie [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` wordt ondersteund. Retourneert NULL als AAD-aanmelding niet in sys.syslogins is. Zie [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` wordt niet ondersteund. Retourneert onjuiste gegevens (tijdelijke bekend probleem). Zie [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
-- `GETDATE()` retourneert altijd datum in UTC-tijdzone. Zie [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
+- `GETDATE()` en andere functies ingebouwde datum/tijd altijd retourneert tijd in UTC-tijdzone. Zie [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Bekende problemen en beperkingen
 
 ### <a name="tempdb-size"></a>De grootte van TEMPDB
 
-`tempdb` 12 opgesplitst bestanden met de maximale grootte 14 GB per bestand. Deze maximale grootte per bestand kan niet worden gewijzigd en nieuwe bestanden kunnen niet worden toegevoegd aan `tempdb`. Deze beperking wordt binnenkort verwijderd. Sommige query's kunnen een fout geretourneerd als `tempdb` moet meer dan 168 GB.
+`tempdb` 12 opgesplitst bestanden met de maximale grootte 14 GB per bestand. Deze maximale grootte per bestand kan niet worden gewijzigd en nieuwe bestanden kunnen niet worden toegevoegd aan `tempdb`. Deze beperking wordt binnenkort verwijderd. Sommige query's mogelijk een fout geretourneerd als ze nodig hebben meer dan 168 GB in `tempdb`.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Meer dan opslagruimte met kleine databasebestanden
 
-Elk exemplaar beheerd heeft up 35 TB gereserveerd opslagruimte en elk databasebestand toewijzingseenheid van 128 GB opslag is geplaatst. Databases met een aantal kleine bestanden kunnen worden geplaatst op 128 GB eenheden die in totaal 35 TB limiet overschrijden. In dit geval kunnen geen nieuwe databases worden gemaakt of hersteld, zelfs als de totale grootte van alle databases de groottelimiet exemplaar niet bereiken. De fout die wordt geretourneerd is mogelijk niet wissen.
+Elk exemplaar beheerd heeft up 35 TB gereserveerd opslagruimte en elk databasebestand toewijzingseenheid van 128 GB opslagruimte in eerste instantie is geplaatst. Databases met een aantal kleine bestanden kunnen worden geplaatst op 128 GB eenheden die in totaal 35 TB limiet overschrijden. In dit geval kunnen geen nieuwe databases worden gemaakt of hersteld, zelfs als de totale grootte van alle databases niet aan de limiet voor het exemplaar komt. De fout die wordt geretourneerd in dat geval mogelijk niet wissen.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Onjuiste configuratie van SAS-sleutel tijdens de database herstellen
 
-`RESTORE DATABASE` dat leesbewerkingen .bak-bestand is mogelijk voortdurend opnieuw lezen .bak-bestand en de geretourneerde fout na lange periode als Shared Access Signature in `CREDENTIAL` is onjuist. UPSETS uitvoeren voordat het terugzetten van een database om er zeker van te zijn dat de SAS-sleutel juist is.
+`RESTORE DATABASE` die leest .bak-bestand mogelijk worden voortdurend wordt opnieuw geprobeerd te lezen .bak-bestand en de geretourneerde fout na lange periode als Shared Access Signature in `CREDENTIAL` is onjuist. UPSETS uitvoeren voordat het terugzetten van een database om er zeker van te zijn dat de SAS-sleutel juist is.
 Zorg ervoor dat u voorloopspaties verwijdert `?` van de SAS-sleutel gegenereerd met behulp van Azure-portal.
 
 ### <a name="tooling"></a>Tooling

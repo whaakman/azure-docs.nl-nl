@@ -6,13 +6,13 @@ author: bsiva
 manager: abhiag
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/08/2018
 ms.author: bsiva
-ms.openlocfilehash: 5269fa528b6c32576b9cf1fb945ebf85b41ce819
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 4304cad9dc6aab7eb95885815a3ceb636ca6ff52
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Herstel na noodgevallen naar Azure instellen voor Hyper-V-machines met behulp van PowerShell en Azure Resource Manager
 
@@ -41,7 +41,7 @@ Zorg ervoor dat u deze vereisten hebt voldaan:
 Het specifieke voorbeeld dat wordt beschreven in dit artikel heeft bovendien de volgende vereisten:
 
 * Een Hyper-V-host waarop Windows Server 2012 R2 of Microsoft Hyper-V Server 2012 R2 met een of meer virtuele machines. Hyper-V-servers moeten worden verbonden met Internet, rechtstreeks of via een proxy.
-* De virtuele machines die u wilt repliceren, moeten voldoen aan [deze vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+* De virtuele machines die u wilt repliceren, moeten voldoen aan [deze vereisten](hyper-v-azure-support-matrix.md#replicated-vms).
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Stap 1: Meld u aan bij uw Azure-account
 

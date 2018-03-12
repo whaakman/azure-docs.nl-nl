@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Gebeurtenis raster beveiligings- en -verificatie 
 
@@ -63,7 +63,7 @@ Om te bewijzen dat eindpunt eigendom, echo teruggestuurd de validatiecode in de 
 
 U kunt uw eindpunt webhook beveiligen door queryparameters toevoegen aan de webhook-URL bij het maken van een gebeurtenisabonnement. Stel één van deze queryparameters moeten een geheim, zoals een [toegangstoken](https://en.wikipedia.org/wiki/Access_token) dat de webhook kunt gebruiken voor het herkennen van de gebeurtenis afkomstig is van de gebeurtenis raster met geldige machtigingen. Gebeurtenis raster neemt deze queryparameters in elke gebeurtenis levering aan de webhook.
 
-Bij het bewerken van het abonnement van de gebeurtenis, de queryparameters wordt niet weergegeven of geretourneerd, tenzij de [--opnemen-volledige-eindpunt-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parameter wordt gebruikt in Azure [CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest).
+Bij het bewerken van het abonnement van de gebeurtenis, de queryparameters wordt niet weergegeven of geretourneerd, tenzij de [--opnemen-volledige-eindpunt-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parameter wordt gebruikt in Azure [CLI](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest).
 
 Ten slotte is het belangrijk te weten dat Azure gebeurtenis raster biedt alleen ondersteuning voor HTTPS-webhook-eindpunten.
 

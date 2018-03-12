@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 40a380a04088e948a7e81625963a5915980764c3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 90a3c51fa9acbcd9701d4c2b135688ef5148bbf8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Verbinding maken met virtuele netwerken vanuit verschillende implementatiemodellen via de portal
 
@@ -149,7 +149,7 @@ In deze sectie maakt u de virtuele netwerkgateway en de lokale netwerkgateway vo
 * -Adresbereik = 192.168.1.0/24 <br>
 
 
-Als u een Resource Manager VNet niet hebt en deze stappen als oefening maakt uitvoert, kunt u een VNet maken met behulp van [in dit artikel](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) en de voorbeeld-waarden.
+Als u een Resource Manager VNet niet hebt en u deze stappen als oefening maakt uitvoert, een virtueel netwerk maken met de stappen in [een virtueel netwerk maken](../virtual-network/quick-create-portal.md), met behulp van de voorbeeldwaarden.
 
 ### <a name="2-create-a-gateway-subnet"></a>2. Een gatewaysubnet maken
 

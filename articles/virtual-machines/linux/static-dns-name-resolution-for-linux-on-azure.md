@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: fd85ab12a552f83a407dfeeca7ee455dcf731989
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bb7234b6b046963a6b3a649cc521655b88cd9875
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Maken van virtuele netwerkinterfacekaarten en interne DNS gebruiken voor naamomzetting van de virtuele machine in Azure
 Dit artikel ziet u het instellen van statische interne DNS-namen voor virtuele Linux-machines met virtuele netwerkinterfacekaarten (vNics) en DNS-labelnamen met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Statische DNS-namen worden gebruikt voor permanente infrastructuurservices zoals een Jenkins build-server, die wordt gebruikt voor dit document of een Git-server.
@@ -30,7 +30,7 @@ De vereisten zijn:
 * [bestanden voor openbare en persoonlijke SSH-sleutels](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Snelle opdrachten
-Als u de taak snel uitvoeren moet, wordt de volgende sectie de opdrachten die nodig zijn. Meer gedetailleerde informatie en context voor elke stap u in de rest van het document vindt [vanaf hier](#detailed-walkthrough). Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#az_login).
+Als u de taak snel uitvoeren moet, wordt de volgende sectie de opdrachten die nodig zijn. Meer gedetailleerde informatie en context voor elke stap u in de rest van het document vindt [vanaf hier](#detailed-walkthrough). Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login).
 
 Randvoorwaarden voor: Resourcegroep, virtueel netwerk en subnet, Netwerkbeveiligingsgroep met SSH voor binnenkomend verkeer.
 
@@ -76,7 +76,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-the-virtual-network"></a>Het virtuele netwerk maken
 
-De volgende stap is het bouwen van een virtueel netwerk voor het starten van de virtuele machines in. Het virtuele netwerk bevat één subnet voor dit scenario. Zie voor meer informatie over virtuele netwerken van Azure [een virtueel netwerk maken met behulp van de Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+De volgende stap is het bouwen van een virtueel netwerk voor het starten van de virtuele machines in. Het virtuele netwerk bevat één subnet voor dit scenario. Zie voor meer informatie over virtuele netwerken van Azure [een virtueel netwerk maken](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
 Maken van het virtuele netwerk met [az network vnet maken](/cli/azure/network/vnet#az_network_vnet_create). Het volgende voorbeeld wordt een virtueel netwerk met de naam `myVnet` en subnet met de naam `mySubnet`:
 

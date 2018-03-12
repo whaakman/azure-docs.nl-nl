@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/07/2018
 ms.author: mimig
-ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f647387b4e80c36339a456b8e9a2cfade7ac8102
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Diagnostische logboekregistratie van Azure DB Cosmos
 
@@ -31,6 +31,13 @@ Voordat we krijgen tot uw account voor Azure Cosmos DB bewaking, kunnen een aant
 De volgende afbeelding toont de verschillende soorten Azure logboeken beschikbaar.
 
 ![Verschillende soorten Azure Logboeken](./media/logging/azurelogging.png)
+
+In de bovenstaande afbeelding **Rekenresources** vertegenwoordigen de Azure-resources waarvoor u toegang hebt tot het Gastbesturingssysteem. Bijvoorbeeld Azure Virtual Machines, virtuele-machineschaalsets, enz. Azure Container Service worden beschouwd als bronnen berekenen. COMPUTE resources activiteitenlogboeken, diagnostische logboeken en toepassingslogboeken genereren. Raadpleeg voor meer informatie de [Azure Monitoring – rekenresources](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset) artikel.
+
+**Niet-rekenresources** bronnen waarin u kan geen toegang tot het onderliggende besturingssysteem en samenwerken met resource. Bijvoorbeeld: Netwerkbeveiligingsgroepen Logic Apps enzovoort. **Cosmos DB** is een niet-compute-resource. U kunt de logboeken voor niet-rekenresources weergeven in het activiteitenlogboek of doordat de optie Logboeken met diagnostische gegevens in de portal. Raadpleeg voor meer informatie de [Azure Monitoring – niet rekenresources](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else) artikel.
+
+Het activiteitenlogboek registreert de bewerkingen op abonnementsniveau voor Cosmos DB, bewerkingen, zoals ListKeys, schrijven DatabaseAccounts enzovoort worden geregistreerd. Diagnostische logboeken bieden meer gedetailleerde logboekregistratie en kunt u aan te melden DataPlaneRequests (maken, lezen, Query... ) en MongoRequests.
+
 
 Voor onze bespreking kunt richten op de Azure-activiteit, Azure diagnostisch en metrische gegevens. Wat is dus het verschil tussen deze drie logboeken? 
 

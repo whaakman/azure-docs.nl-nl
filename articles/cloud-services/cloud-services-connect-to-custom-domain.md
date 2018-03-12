@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e2aadf6a103e92a4fbb11223a449280a36dea6b4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a50ae5e19ff9bf79b7f5361e5a274a2aba350f5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Verbinding maken met Azure Cloud Services-functies van een aangepaste gehost in Azure AD Domain-Controller
 Er wordt eerst een virtueel netwerk (VNet) instellen in Azure. Er wordt een Active Directory-domeincontroller (gehost op een virtuele Machine van Azure) toegevoegd aan het VNet. Er wordt vervolgens bestaande cloud service rollen toevoegen aan de vooraf gemaakte VNet en verbind ze met de domeincontroller.
@@ -33,7 +33,7 @@ Volg deze stapsgewijze handleiding en als u problemen ondervindt uitvoert, laat 
 Het netwerk waarnaar wordt verwezen door de cloudservice moet een **klassiek virtueel netwerk**.
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
-U kunt een virtueel netwerk maken in Azure met behulp van de Azure-portal of PowerShell. Voor deze zelfstudie gebruiken we PowerShell. Zie het maken van een virtueel netwerk met de Azure-portal [virtueel netwerk maken](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+U kunt een virtueel netwerk maken in Azure met behulp van de Azure-portal of PowerShell. Voor deze zelfstudie, wordt PowerShell gebruikt. Zie het maken van een virtueel netwerk met de Azure-portal [een virtueel netwerk maken](../virtual-network/quick-create-portal.md). Het artikel bevat informatie over het maken van een virtueel netwerk (Resource Manager), maar u moet een virtueel netwerk (klassiek) voor cloudservices maken. Hiertoe klikt u in de portal, selecteer **maken van een resource**, type *virtueel netwerk* in de **Search** vak en druk vervolgens op **Enter**. In de zoekresultaten onder **Alles**, selecteer **virtueel netwerk**. Onder **een implementatiemodel selecteren**, selecteer **klassieke**, selecteer daarna **maken**. U kunt vervolgens de stappen in het artikel.
 
 ```powershell
 #Create Virtual Network

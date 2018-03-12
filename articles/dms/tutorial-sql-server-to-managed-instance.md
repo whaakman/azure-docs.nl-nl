@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 6a581141a3d262416385d859d2f0e73228fe1734
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d74a273061912ea2bdcc39301ce9a727b07ade41
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance"></a>SQL-Server migreren naar beheerde Azure SQL Database-instantie
 De Service Azure Database migratie kunt u de databases van een lokale SQL Server-instantie migreren naar Azure SQL Database. In deze zelfstudie maakt u de migratie de **Adventureworks2012** database van een lokaal exemplaar van SQL Server naar een Azure SQL Database met behulp van de Service Azure Database migratie.
@@ -33,7 +33,7 @@ Voor deze zelfstudie hebt voltooid, moet u:
 - Een VNET maken voor de Azure-Service voor het migreren van Database met behulp van het Azure Resource Manager-implementatiemodel, waardoor site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Meer informatie over netwerktopologieën voor Azure SQL DB-beheerde exemplaar migraties met behulp van de migratie van Azure databaseservice](https://aka.ms/dmsnetworkformi).
 - Zorg ervoor dat uw Azure Virtual Network (VNET) Netwerkbeveiligingsgroep regels komen de volgende communicatie niet blokkeren 443, 53, 9354 poort, 445, 12000. Zie het artikel voor meer informatie over het Azure VNET NSG wordt verkeer gefilterd [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
 - Configureer uw [configureert u de Windows Firewall voor toegang tot de gegevensbron database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Open Windows firewall zodat de Service Azure Database migratie voor toegang tot de bron van SQL Server.
+- Open Windows Firewall zodat de Service Azure Database migratie voor toegang tot de bron van SQL Server.
 - Als u van een firewallapparaat voor uw brondatabases gebruikmaakt, moet u mogelijk firewallregels zodat de Service Azure Database migratie voor toegang tot de bron-databases voor migratie, evenals bestanden via het SMB-poort 445 toevoegen.
 - Geen exemplaar maken van Azure SQL Database-beheerd instantie aan de hand van de details in het artikel [maken van een Azure SQL Database beheerd-exemplaar in de Azure portal](https://aka.ms/sqldbmi).
 - Zorg ervoor dat de aanmeldingen gebruikt voor het verbinding maken met de bron van SQL Server en de doelinstantie van beheerde leden van de serverrol sysadmin.

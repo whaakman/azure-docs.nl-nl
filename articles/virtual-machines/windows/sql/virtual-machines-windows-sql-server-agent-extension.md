@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: 6510c4205234f5dfb98a7463af61b1293061bb4e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dd32975e085a0f67d66f2949d4757a974bd9a616
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatiseren beheertaken op Azure Virtual Machines met de SQL Server Agent-extensie (Resource Manager)
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ De uitbreiding met SQL Server IaaS-Agent ondersteunt de volgende beheertaken:
 | Beheer-functie | Beschrijving |
 | --- | --- |
 | **Automatische back-up van SQL** |Automatiseert de planning van de back-ups voor alle databases voor het standaardexemplaar van SQL Server in de virtuele machine. Zie voor meer informatie [automatische back-up voor SQL Server in Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-backup.md). |
-| **Automatisch patchen van SQL** |Hiermee configureert u een onderhoudsvenster waarbinnen updates voor uw virtuele machine kunnen worden uitgevoerd, zodat u voorkomen de updates tijdens piektijden voor uw workload dat kunt. Zie voor meer informatie [automatisch patchen voor SQL Server in Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
+| **Automatisch patchen van SQL** |Hiermee configureert u een onderhoudsvenster waarover belangrijke updates voor Windows met uw virtuele machine kunnen worden uitgevoerd, zodat u voorkomen de updates tijdens piektijden voor uw workload dat kunt. Zie voor meer informatie [automatisch patchen voor SQL Server in Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
 | **Integratie van Azure Key Vault** |Hiermee kunt u automatisch installeren en configureren van Azure Sleutelkluis op uw SQL Server-VM. Zie voor meer informatie [configureren Azure Sleutelkluis-integratie voor SQL Server op Azure Virtual machines (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md). |
 
 Eenmaal geïnstalleerd en uitgevoerd, maakt de uitbreiding met SQL Server IaaS-Agent deze beheerfuncties beschikbaar in het deelvenster SQL Server van de virtuele machine in de Azure-portal en via Azure PowerShell voor SQL Server marketplace-installatiekopieën en via Azure PowerShell voor handmatige installaties van de extensie. 

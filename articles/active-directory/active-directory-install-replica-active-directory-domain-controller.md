@@ -16,11 +16,11 @@ ms.date: 11/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 3f7624d588e958985a73c5b40e8010e18e8879cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f4e64fbc6c2fda026297b69bd54471d49b6785a1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Een replica Active Directory-domeincontroller installeren in een Azure-netwerk
 Dit artikel wordt beschreven hoe u voor het installeren van extra domeincontrollers (DC's) moet worden gebruikt als replica DC's voor lokale Active Directory-domein op Azure virtuele machines (VM's) in een Azure-netwerk. U kunt ook [een Windows Server Active Directory-forest installeren op een virtuele Azure-netwerk](active-directory-new-forest-virtual-machine.md). Voor informatie over het installeren van Active Directory Domain Services (AD DS) op een virtuele Azure-netwerk, Zie [richtlijnen voor het implementeren van Windows Server Active Directory op Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
@@ -62,7 +62,7 @@ Aanmelden bij een virtuele machine en controleer of dat er een verbinding via de
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>DNS-server voor het virtuele netwerk configureren
 1. Voor een lijst met namen van virtueel netwerk in de [Azure-portal](https://portal.azure.com), zoeken naar *virtuele netwerken*, selecteer daarna **virtuele netwerken** om de lijst weer te geven. 
-2. Open het virtuele netwerk dat u beheren wilt, en vervolgens [opnieuw configureren van de DNS-server IP-adressen voor het virtuele netwerk](../virtual-network/virtual-network-manage-network.md#dns-servers) gebruiken de statische IP-adressen toegewezen aan de replica-DC's in plaats van de IP-adressen voor on-premises DNS-servers.
+2. Open het virtuele netwerk dat u beheren wilt, en vervolgens [opnieuw configureren van de DNS-server IP-adressen voor het virtuele netwerk](../virtual-network/manage-virtual-network.md#change-dns-servers) gebruiken de statische IP-adressen toegewezen aan de replica-DC's in plaats van de IP-adressen voor on-premises DNS-servers.
 3. Het virtuele netwerk zijn om te controleren of alle replica DC VM's op voor het gebruik van DNS-servers op het virtuele netwerk geconfigureerd met:
   1. Selecteer **virtuele Machines**.
   2. Selecteer de virtuele machines, en selecteer vervolgens **opnieuw**. 
@@ -83,9 +83,9 @@ Nadat elke virtuele machine is ingericht, aanmelden en aan het domein toevoegt.
 1. In **Serverbeheer** &gt; **lokale Server** &gt; **werkgroep** &gt; **wijzigen...** , selecteer **domein**.
 2. Voer de naam van uw lokale domein. 
 3. Geef referenties op van een domeingebruiker.
-4. Start opnieuw op de virtuele machine.
+4. Start de VM opnieuw.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * Zie voor meer informatie over het gebruik van Windows PowerShell [aan de slag met Azure-Cmdlets](/powershell/azure/overview) en [Azure Cmdlet Reference](/powershell/azure/get-started-azureps).
 * [Richtlijnen voor het implementeren van Windows Server Active Directory op virtuele Machines in Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)

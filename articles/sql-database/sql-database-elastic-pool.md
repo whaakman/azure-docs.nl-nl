@@ -15,11 +15,11 @@ ms.date: 03/02/2018
 ms.author: carlrab
 ms.workload: Active
 ms.topic: article
-ms.openlocfilehash: 917b5cdd82b44c1993eebd16634257d5a6518c96
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: e89d348c4b21a249401254c64e3887ec36283022
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools helpen u te beheren en schalen van meerdere Azure SQL-databases
 
@@ -314,7 +314,7 @@ Als u wilt maken en beheren van elastische pools van de SQL-Database met Azure P
 
 ## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>Elastische pools en met de Azure CLI-databases beheren
 
-Maken en beheren van elastische pools van de SQL-Database met de [Azure CLI](/cli/azure/overview), gebruikt u de volgende [Azure CLI SQL Database](/cli/azure/sql/db) opdrachten. Gebruik de [Cloud Shell](/azure/cloud-shell/overview) om de CLI in uw browser uit te voeren of [installeer](/cli/azure/install-azure-cli) de CLI op macOS, Linux of Windows. 
+Maken en beheren van elastische pools van de SQL-Database met de [Azure CLI](/cli/azure), gebruikt u de volgende [Azure CLI SQL Database](/cli/azure/sql/db) opdrachten. Gebruik de [Cloud Shell](/azure/cloud-shell/overview) om de CLI in uw browser uit te voeren of [installeer](/cli/azure/install-azure-cli) de CLI op macOS, Linux of Windows. 
 
 > [!TIP]
 > Zie voor Azure CLI-voorbeeldscripts, [gebruik CLI verplaatsen van een Azure SQL database in een elastische SQL-groep](scripts/sql-database-move-database-between-pools-cli.md) en [gebruik Azure CLI voor het schalen van een elastische SQL-groep in Azure SQL Database](scripts/sql-database-scale-pool-cli.md).

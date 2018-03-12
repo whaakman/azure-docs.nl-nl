@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 61f84233b90cb3c82ed928d59ad2a090f7eb50b7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Richtlijnen voor het implementeren van Windows Server Active Directory op virtuele machines in Azure
 Dit artikel wordt uitgelegd dat de belangrijke verschillen tussen implementatie Windows Server Active Directory Domain Services (AD DS) en Active Directory Federation Services (AD FS) lokale versus implementeren op Microsoft Azure virtuele machines.
@@ -51,7 +51,7 @@ U kunt downloaden en voer de [Azure virtuele Machine Readiness Assessment](https
 
 We raden u ook eerst de zelfstudies, handleidingen en video's die betrekking hebben op de volgende onderwerpen:
 
-* [Een virtueel netwerk alleen in de Cloud in de Azure-Portal configureren](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* [Een virtueel netwerk alleen in de Cloud in de Azure-Portal configureren](../virtual-network/quick-create-portal.md)
 * [Een Site-naar-Site-VPN configureren in de Azure Portal](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Een nieuw Active Directory-forest installeren op een virtuele Azure-netwerk](active-directory-new-forest-virtual-machine.md)
 * [Een replica Active Directory-domeincontroller installeren in Azure](active-directory-install-replica-active-directory-domain-controller.md)

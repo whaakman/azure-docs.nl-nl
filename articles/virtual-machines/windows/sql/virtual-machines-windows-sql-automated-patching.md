@@ -13,24 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: ae722b4da9131d98e6dc3424fcd6b50e77ae672b
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 398e682db6c42bd7f4864113ddf10a6a75e2b65b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automated Patching voor SQL Server in virtuele machines van Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
 > * [Klassiek](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
-Geautomatiseerde Patching stelt u een onderhoudsvenster voor een virtuele Machine van Azure met SQL Server. Automatische Updates kunnen alleen worden geïnstalleerd tijdens deze periode. Voor SQL Server zorgt deze rescriction systeemupdates en eventuele bijbehorende opnieuw is opgestart bij de best mogelijke voor de database optreden. Geautomatiseerde Patching is afhankelijk van de [uitbreiding voor SQL Server IaaS-Agent](virtual-machines-windows-sql-server-agent-extension.md).
+Geautomatiseerde Patching stelt u een onderhoudsvenster voor een virtuele Machine van Azure met SQL Server. Automatische Updates kunnen alleen worden geïnstalleerd tijdens deze periode. Voor SQL Server zorgt deze rescriction systeemupdates en eventuele bijbehorende opnieuw is opgestart bij de best mogelijke voor de database optreden. 
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+> [!IMPORTANT]
+> Alleen Windows-updates zijn gemarkeerd **belangrijk** zijn geïnstalleerd. SQL Server-updates, zoals cumulatieve Updates, moeten handmatig worden geïnstalleerd. 
 
-De klassieke versie van dit artikel vindt u [automatisch patchen voor SQL Server in Azure virtuele Machines klassieke](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md).
+Geautomatiseerde Patching is afhankelijk van de [uitbreiding voor SQL Server IaaS-Agent](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="prerequisites"></a>Vereisten
 Voor het gebruik van automatisch patchen, kunt u overwegen de volgende vereisten:
@@ -65,7 +66,7 @@ De volgende tabel beschrijft de opties die kunnen worden geconfigureerd voor aut
 | **Onderhoudsplanning** |Dagelijks, maandag, dinsdag, woensdag, donderdag, vrijdag, zaterdag, zondag |De planning voor het downloaden en installeren van Windows, SQL Server en de Microsoft-updates voor uw virtuele machine. |
 | **Beginuur van het onderhoud** |0-24 |De lokale tijd voor het bijwerken van de virtuele machine start. |
 | **Duur van het venster Onderhoud** |30-180 |Het aantal minuten over toegangsrechten voor het downloaden en installeren van updates te voltooien. |
-| **Patch categorie** |Belangrijk |De categorie van updates te downloaden en installeren. |
+| **Patch categorie** |Belangrijk | De categorie van het Windows-updates downloaden en installeren.|
 
 ## <a name="configuration-in-the-portal"></a>De configuratie in de Portal
 U kunt de Azure-portal gebruiken voor het configureren van automatisch patchen tijdens het inrichten of voor een bestaande virtuele machines.
@@ -100,7 +101,7 @@ Als u automatisch patchen voor het eerst inschakelen wilt, configureert Azure de
 ## <a name="configuration-with-powershell"></a>Configuratie met PowerShell
 Na het inrichten van uw SQL VM PowerShell te gebruiken voor het configureren van automatisch patchen.
 
-In het volgende voorbeeld wordt PowerShell gebruikt automatisch patchen op een bestaande SQL Server-VM configureren. De **AzureRM.Compute\New AzureVMSqlServerAutoPatchingConfig** opdracht configureert u een nieuw onderhoudsvenster voor automatische updates.
+In het volgende voorbeeld wordt PowerShell gebruikt automatisch patchen op een bestaande SQL Server-VM configureren. De **AzureRM.Compute\New AzureRmVMSqlServerAutoPatchingConfig** opdracht configureert u een nieuw onderhoudsvenster voor automatische updates.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
@@ -118,11 +119,11 @@ Op basis van dit voorbeeld, beschrijft de volgende tabel de praktische gevolgen 
 | **DayOfWeek** |Patches elke donderdag geïnstalleerd. |
 | **MaintenanceWindowStartingHour** |Begin updates om 11:00 uur. |
 | **MaintenanceWindowsDuration** |Patches moeten worden geïnstalleerd binnen 120 minuten. Op basis van de begintijd, moeten ze volledig 13:00 uur. |
-| **PatchCategory** |De enige mogelijke-instelling voor deze parameter is **belangrijk**. |
+| **PatchCategory** |De enige mogelijke-instelling voor deze parameter is **belangrijk**. Hiermee installeert u Windows update is gemarkeerd als belangrijk; alle SQL Server-updates die niet zijn opgenomen in deze categorie wordt niet is geïnstalleerd. |
 
 Dit kan enige tijd duren om te installeren en configureren van de SQL Server IaaS-Agent.
 
-Schakel automatisch patchen uitvoeren hetzelfde script zonder de **-inschakelen** -parameter voor de **AzureRM.Compute\New AzureVMSqlServerAutoPatchingConfig**. Het ontbreken van de **-inschakelen** parameter geeft u de opdracht uit om de functie uitschakelen.
+Schakel automatisch patchen uitvoeren hetzelfde script zonder de **-inschakelen** -parameter voor de **AzureRM.Compute\New AzureRmVMSqlServerAutoPatchingConfig**. Het ontbreken van de **-inschakelen** parameter geeft u de opdracht uit om de functie uitschakelen.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over andere beschikbare automatiseringstaken [uitbreiding voor SQL Server IaaS-Agent](virtual-machines-windows-sql-server-agent-extension.md).

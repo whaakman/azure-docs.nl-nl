@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e96003de4a0dd4a5d8b060bb5883e51291827316
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Sqoop gebruiken met Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -55,7 +55,7 @@ HDInsight-cluster wordt geleverd met voorbeeldgegevens. U gebruikt de volgende t
   | devicemodel |tekenreeks |
   | state |tekenreeks |
   | Land |tekenreeks |
-  | querydwelltime |dubbel |
+  | querydwelltime |dubbele |
   | sessie-id |bigint |
   | sessionpagevieworder |bigint |
 
@@ -97,8 +97,8 @@ Als u liever Azure PowerShell gebruiken voor het maken van het cluster en de SQL
         |Naam|Waarde|
         |----|-----|
         | Naam van het standaardopslagaccount | &lt;CluterName > opslaan |
-        | Azure SQL database-servernaam | &lt;ClusterName > dbserver |
-        | Naam van een Azure SQL-database | &lt;ClusterName > db |
+        | Azure SQL database-servernaam | &lt;ClusterName>dbserver |
+        | Naam van een Azure SQL-database | &lt;ClusterName>db |
      
 3. Selecteer **ik ga akkoord met de voorwaarden en bepalingen bovengenoemde**.
 4. Klik op **Kopen**. U ziet een nieuwe tegel met de titel implementatie indienen voor sjabloonimplementatie. Het duurt ongeveer 20 minuten om het cluster en de SQL-database te maken.
@@ -118,7 +118,7 @@ Als u ervoor kiest om bestaande Azure SQL database of Microsoft SQL Server te ge
   > 
   > 
   
-  * Als u wilt maken en configureren van een virtueel netwerk, Zie [een virtueel netwerk maken met de Azure-portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+  * Als u wilt maken en configureren van een virtueel netwerk, Zie [een virtueel netwerk maken met de Azure-portal](../../virtual-network/quick-create-portal.md).
     
     * Wanneer u SQL Server in uw datacenter gebruikt, moet u het virtuele netwerk als configureren *site-naar-site* of *punt-naar-site*.
       

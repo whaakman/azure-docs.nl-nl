@@ -105,7 +105,7 @@ Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/) o
 Volg de instructies in [dit artikel](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) om het volgende te doen: 
 
 1. **Een Azure Active Directory-toepassing maken**. Maak een toepassing in Azure Active Directory die staat voor de .NET-toepassing die u in deze zelfstudie maakt. Voor de aanmeldings-URL kunt u een dummy-URL opgeven, zoals wordt getoond in het artikel (`https://contoso.org/exampleapp`).
-2. Haal de **toepassings-id** en **verificatiesleutel*** op met behulp van de instructies in de sectie **De toepassings-id en verificatiesleutel ophalen** in het artikel. Noteer deze waarden, zodat u ze later in deze zelfstudie kunt gebruiken. 
+2. Haal de **toepassings-id** en **verificatiesleutel**\*\* op met behulp van de instructies in de sectie **De toepassings-id en verificatiesleutel ophalen** in het artikel. Noteer deze waarden, zodat u ze later in deze zelfstudie kunt gebruiken. 
 3. Haal de **tenant-id** op met behulp van de instructies in de sectie **Tenant-id ophalen** in het artikel. Noteer deze waarde. 
 4. Wijs de toepassing toe aan de rol **Inzender** op het niveau van het abonnement, zodat met de toepassing gegevensfactory's in het abonnement kunnen worden gemaakt. Volg de instructies in de sectie **Toepassing toewijzen aan rol** in het artikel. 
 

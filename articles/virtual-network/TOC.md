@@ -63,11 +63,6 @@
 
 ### [Service-eindpunten voor virtueel netwerk](virtual-network-service-endpoints-configure.md)
 
-### Openbaar IP-adres - beschikbaarheidszone
-#### [Azure Portal](create-public-ip-availability-zone-portal.md)
-#### [Azure-CLI](create-public-ip-availability-zone-cli.md)
-#### [PowerShell](create-public-ip-availability-zone-powershell.md)
-
 ### Virtuele machines
 #### [Netwerkdoorvoer van virtuele machines](virtual-machine-network-throughput.md)
 #### Een virtuele machine met een statisch openbaar IP-adres maken
@@ -151,7 +146,7 @@
 ##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
 ## Beheren
-### [Virtuele netwerken](virtual-network-manage-network.md)
+### [Virtuele netwerken](manage-virtual-network.md)
 #### [Subnets](virtual-network-manage-subnet.md)
 #### [Peerings](virtual-network-manage-peering.md)
 #### Klassiek

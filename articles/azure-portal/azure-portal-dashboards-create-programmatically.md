@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: d2131a9fbb8fcb77a00045924169420773893f91
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 0e84ff61346f2788cf475cee2783ba2056a091ad
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure-Dashboards via een programma maken
 
@@ -27,7 +27,7 @@ Dit document begeleidt bij het proces van het programmatisch maken en publiceren
 
 ## <a name="overview"></a>Overzicht
 
-Dashboards in Azure worden gedeeld [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) net als bij virtuele machines en opslagaccounts.  Daarom deze kunnen worden beheerd via een programma de [Azure Resource Manager REST API's](/rest/api/), wordt de [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell-opdrachten](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0), en veel [ Azure-portal](https://portal.azure.com) functies Voortborduren deze API's voor het beheren van bronnen eenvoudiger.  
+Dashboards in Azure worden gedeeld [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) net als bij virtuele machines en opslagaccounts.  Daarom deze kunnen worden beheerd via een programma de [Azure Resource Manager REST API's](/rest/api/), wordt de [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell-opdrachten](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0), en veel [ Azure-portal](https://portal.azure.com) functies Voortborduren deze API's voor het beheren van bronnen eenvoudiger.  
 
 Elk van deze API's en hulpprogramma's voor biedt manieren om te maken, weergeven, ophalen, wijzigen en verwijderen van bronnen.  Aangezien dashboards bronnen, kunt u Kies uw favoriete API-hulpprogramma om te gebruiken.
 

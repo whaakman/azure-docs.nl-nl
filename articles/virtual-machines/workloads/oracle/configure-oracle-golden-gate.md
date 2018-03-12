@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 463cb6f320db1a3fab675a35211334c87e411f0f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c99023d794dfb3b78b26ef721d89302e126f5cb1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Oracle Golden Gate implementeren op een Azure Linux VM 
 
@@ -50,7 +50,7 @@ Hier volgt een samenvatting van de configuratie van de omgeving:
 
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
 
-Aanmelden bij uw Azure-abonnement met de [az aanmelding](/cli/azure/#az_login) opdracht. Volg de aanwijzingen op het scherm richtingen.
+Aanmelden bij uw Azure-abonnement met de [az aanmelding](/cli/azure/reference-index#az_login) opdracht. Volg de aanwijzingen op het scherm richtingen.
 
 ```azurecli
 az login

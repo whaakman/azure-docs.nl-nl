@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bb096f64a6bc41ad2e75c058c7a9f00bbe480207
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Een virtueel netwerk met een Azure Resource Manager-sjabloon maken
 
@@ -31,9 +31,9 @@ Azure heeft twee implementatiemodellen: Azure Resource Manager en klassiek. Micr
 Dit artikel wordt uitgelegd hoe u een VNet met het implementatiemodel van Resource Manager met een Azure Resource Manager-sjabloon maakt. U kunt via Resource Manager ook een VNet maken met andere hulpprogramma's. Bovendien kunt u een VNet maken via het klassieke implementatiemodel door in de volgende lijst een andere optie te selecteren:
 
 > [!div class="op_single_selector"]
-- [Portal](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [CLI](virtual-networks-create-vnet-arm-cli.md)
+- [Portal](quick-create-portal.md)
+- [PowerShell](quick-create-powershell.md)
+- [CLI](quick-create-cli.md)
 - [Sjabloon](virtual-networks-create-vnet-arm-template-click.md)
 - [Portal (klassiek)](virtual-networks-create-vnet-classic-pportal.md)
 - [PowerShell (klassiek)](virtual-networks-create-vnet-classic-netcfg-ps.md)
@@ -56,7 +56,6 @@ U kunt de bestaande sjabloon voor het maken van een VNet en twee subnets vanuit 
    
    | Parameter | Beschrijving |
    | --- | --- |
-   | **location** |Azure-regio waar de VNet wordt gemaakt |
    | **vnetName** |Naam voor het nieuwe VNet |
    | **addressPrefix** |Adresruimte voor het VNet, in CIDR-indeling |
    | **subnet1Name** |Naam voor het eerste VNet |
@@ -80,9 +79,6 @@ U kunt de bestaande sjabloon voor het maken van een VNet en twee subnets vanuit 
 
     ```json
         {
-          "location": {
-            "value": "Central US"
-          },
           "vnetName": {
               "value": "TestVNet"
           },

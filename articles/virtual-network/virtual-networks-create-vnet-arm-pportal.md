@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: d317d35e2b4e1a0cebb354e3b2b2e75fd9ca6976
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 898bdef779282d7312c76696f744b97ec2dfcded
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Een virtueel netwerk maken met meerdere subnetten met de Azure portal
 
@@ -56,7 +56,7 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
      
 3. In de **subnet toevoegen** dat verschijnt, voer *persoonlijke* voor **naam**, voer *10.0.1.0/24* voor **-adresbereik**, en selecteer vervolgens **OK**.  Een subnet-adresbereik overlappen niet met de adresbereiken van andere subnetten binnen een virtueel netwerk. 
 
-Voordat u deze implementeert in Azure virtuele netwerken en subnetten voor gebruik in productieomgevingen, het is raadzaam dat u zorgvuldig vertrouwd raken met de adresruimte [overwegingen](virtual-network-manage-network.md#create-a-virtual-network) en [virtueel netwerk limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Zodra resources zijn geïmplementeerd in subnetten, kunnen sommige virtueel netwerk en subnet wijzigingen, zoals het wijzigen van-adresbereiken opnieuw distribueren van bestaande Azure-resources geïmplementeerd in subnetten vereisen.
+Voordat u deze implementeert in Azure virtuele netwerken en subnetten voor gebruik in productieomgevingen, wordt aanbevolen dat u zorgvuldig vertrouwd raken met de adresruimte [overwegingen](manage-virtual-network.md#create-a-virtual-network) en [virtueel netwerk limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Zodra resources zijn geïmplementeerd in subnetten, kunnen sommige virtueel netwerk en subnet wijzigingen, zoals het wijzigen van-adresbereiken opnieuw distribueren van bestaande Azure-resources geïmplementeerd in subnetten vereisen.
 
 ## <a name="test-network-communication"></a>Test de netwerkcommunicatie
 

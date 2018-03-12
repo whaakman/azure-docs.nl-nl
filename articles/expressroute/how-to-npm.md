@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 4f3edb6879ff256b1b50a1437fe349084fe7de41
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 36cd2f106c39f1a6bdcb6ee33b96209974a06336
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configureren van netwerk-Prestatiemeter voor ExpressRoute
 
@@ -102,10 +102,7 @@ Maak een werkruimte in het abonnement waarvoor de VNets koppelen aan de ExpressR
 
 1. Ga naar de **algemene instellingen** tabblad van de **netwerkconfiguratie Performance Monitor** pagina voor uw resource. Klik op de agent die overeenkomt met de processor van de server van de **OMS-Agents installeren** sectie en het setup-bestand te downloaden.
 
-  >[!NOTE]
-  >De agent moet worden geïnstalleerd op een Windows Server (2008 SP1 of hoger). Bewaking van ExpressRoute-circuits met behulp van Windows Desktop-besturingssysteem- en Linux-besturingssysteem wordt niet ondersteund. 
-  >
-  >
+ 
 2. Kopieer de **werkruimte-ID** en **primaire sleutel** naar Kladblok.
 3. Van de **OMS-Agents configureren voor bewaking met TCP-protocol** sectie, het downloaden van het Powershell-Script. Het PowerShell-script kunt u de relevante firewallpoort voor de TCP-transacties te openen.
 
@@ -114,6 +111,16 @@ Maak een werkruimte in het abonnement waarvoor de VNets koppelen aan de ExpressR
 ### <a name="installagent"></a>2.2: een monitoring agent installeren op elke server monitoring (op elke VNET dat u wilt controleren)
 
 Het is raadzaam dat u ten minste twee agents voor elke zijde van de ExpressRoute-verbinding (dat wil zeggen, on-premises Azure VNETs) voor redundantie installeren. Gebruik de volgende stappen uit om agents te installeren:
+  
+  >[!NOTE]
+  >De agent moet worden geïnstalleerd op een Windows Server (2008 SP1 of hoger). Bewaking van ExpressRoute-circuits met behulp van Windows Desktop-besturingssysteem- en Linux-besturingssysteem wordt niet ondersteund. 
+  >
+  >
+  
+  >[!NOTE]
+  >SCOM-agents zijn mogelijk niet consistent detecteren als ze worden gehost in Azure.  U wordt aangeraden dat u gebruik geen SCOM-agents in Azure VNETs ExpressRoute bewaken.
+  >
+  >
 
 1. Voer **Setup** de agent te installeren op elke server die u gebruiken wilt voor het bewaken van ExpressRoute. De server die u voor het bewaken van gebruikt een virtuele machine of on-premises kan zijn en toegang tot Internet moet hebben. U moet ten minste één agent on-premises, en een agent installeren op elk netwerksegment dat u wilt bewaken in Azure.
 2. Klik op de pagina **Welkom** op **Volgende**.

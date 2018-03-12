@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: a64733b1969e2deae665f7a5f24a6653b216d94d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d7a7b0c8b3f9bf0279282dbf1fed4fc8163d9170
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Een virtuele machine configureren schaalset beheerde Service identiteit (MSI) met Azure CLI
 
@@ -43,7 +43,7 @@ De CLI script als voorbeelden wilt uitvoeren, hebt u drie opties:
 
 Als u wilt maken van een virtuele machine MSI ingeschakeld schaal instellen:
 
-1. Als u de Azure CLI in een lokale console, eerst aanmelden bij het gebruik van Azure [az aanmelding](/cli/azure/#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waarmee u wilt implementeren, de virtuele-machineschaalset:
+1. Als u de Azure CLI in een lokale console, eerst aanmelden bij het gebruik van Azure [az aanmelding](/cli/azure/reference-index#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waarmee u wilt implementeren, de virtuele-machineschaalset:
 
    ```azurecli-interactive
    az login
@@ -65,7 +65,7 @@ Als u wilt maken van een virtuele machine MSI ingeschakeld schaal instellen:
 
 Als u het inschakelen van MSI op een bestaande virtuele machine van Azure-scale set moet:
 
-1. Als u de Azure CLI in een lokale console, eerst aanmelden bij het gebruik van Azure [az aanmelding](/cli/azure/#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
+1. Als u de Azure CLI in een lokale console, eerst aanmelden bij het gebruik van Azure [az aanmelding](/cli/azure/reference-index#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
 
    ```azurecli-interactive
    az login
@@ -81,7 +81,7 @@ Als u het inschakelen van MSI op een bestaande virtuele machine van Azure-scale 
 
 Als u een virtuele-machineschaalset die een MSI-bestand niet meer nodig hebt:
 
-1. Als u de Azure CLI in een lokale console, eerst aanmelden bij het gebruik van Azure [az aanmelding](/cli/azure/#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
+1. Als u de Azure CLI in een lokale console, eerst aanmelden bij het gebruik van Azure [az aanmelding](/cli/azure/reference-index#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
 
    ```azurecli-interactive
    az login

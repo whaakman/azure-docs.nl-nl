@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: a82d803b51859f809ca5a39ce177697a1f66a008
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4a0280420132aad9f1e0b17d5998ec225bb0eaa1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Verbinding maken met een Amazon Web Services-account
 
@@ -73,7 +73,7 @@ De volgende secties helpt u bij het maken van een gebruiker alleen-lezen toegang
 2. Klik op **gebruiker toevoegen**.
 3. In de **gebruikersnaam** veld, typ de naam van een gebruiker.
 4. Voor **toegangstype**, selecteer **toegang op programmeerniveau** en klik op **volgende: machtigingen**.  
-    ![Gebruiker toevoegen](./media/connect-aws-account/add-user01.png)
+    ![gebruiker toevoegen](./media/connect-aws-account/add-user01.png)
 5. Selecteer voor machtigingen, **bestaande beleidsregels rechtstreeks koppelen**.
 6. Onder **koppelen van machtigingsbeleid**, in de **beleidstype** filter vak zoeken, type `ReadOnlyAccess`, selecteer **ReadOnlyAccess**, en klik vervolgens op **volgende : Bekijk**.  
     ![Machtigingen voor gebruiker instellen](./media/connect-aws-account/set-permission-for-user.png)
@@ -100,4 +100,4 @@ Kosten beheer begint verzamelen van de gegevens en rapporten in te vullen. Sommi
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Voor meer informatie over het beheer van Azure kosten door Cloudyn, blijven de [gebruik en kosten bekijken](tutorial-review-usage.md) zelfstudie voor het beheer van kosten.
+- Voor meer informatie over het beheer van Azure kosten, blijven de [gebruik en kosten bekijken](tutorial-review-usage.md) zelfstudie voor het beheer van kosten.

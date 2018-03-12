@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d3b22927017e445ee3b6cea3e92edc0fb786cd8c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Artikelen in de Azure AD-handleiding voor ontwikkelaars
 Hier volgt een lijst met alle onderwerpen in de Azure Active Directory-handleiding voor ontwikkelaars.
@@ -43,7 +43,7 @@ In deze artikelen worden specifieke concepten en functies van Azure Active Direc
 | [Office 365-verkopersdashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | Het publiceren van een toepassing op het verkoperdashboard O365 |
 | [Visual Studio Connected Services](vs-active-directory-dotnet-getting-started.md)                                               | Het gebruik van Azure AD-integratie met MVC-projecten in Visual Studio |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Integratie met lokale Active Directory met AD FS |
-| [Best practices voor foutafhandeling voor ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Integratie met lokale Active Directory met AD FS |
+| [Best practices voor foutafhandeling voor ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Het maken van flexibele foutafhandeling en logboekregistratie inschakelen |
 
 ## <a name="reference"></a>Referentie
 Deze artikelen bevatten een basis voor de REST en verificatiebibliotheken, protocollen, fouten, codevoorbeelden en eindpunten.

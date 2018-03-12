@@ -236,10 +236,6 @@
               href: azure-stack-app-service-deploy.md
             - name: App Service offline implementeren
               href: azure-stack-app-service-deploy-offline.md
-            - name: App Service-resourceprovider bijwerken
-              href: azure-stack-app-service-update.md
-            - name: App Service-resourceprovider offline bijwerken
-              href: azure-stack-app-service-update-offline.md
             - name: Meer webwerkrollen toevoegen
               href: azure-stack-app-service-add-worker-roles.md
             - name: Implementatiebronnen configureren

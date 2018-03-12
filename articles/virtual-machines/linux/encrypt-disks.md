@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 4a10df360249b4b0b28ecbe4762bbb165ef9bb8d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b87d187eadff98ba84aa6478c2d233f2ec1c203c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Het coderen van virtuele schijven op een Linux-VM
 Voor de uitgebreide virtuele machine (VM) beveiliging en naleving, kunnen virtuele schijven en de virtuele machine zelf worden versleuteld. Virtuele machines zijn versleuteld met behulp van de cryptografische sleutels die worden beveiligd in een Azure Sleutelkluis. U kunt het gebruik ervan controleren en beheren van deze cryptografische sleutels. Dit artikel wordt uitgelegd hoe u voor het versleutelen van virtuele schijven op een Linux-VM met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -27,7 +27,7 @@ Voor de uitgebreide virtuele machine (VM) beveiliging en naleving, kunnen virtue
 ## <a name="quick-commands"></a>Snelle opdrachten
 Als u nodig hebt voor de taak, de volgende sectie details snel de base-opdrachten voor het versleutelen van virtuele schijven op de virtuele machine. Meer gedetailleerde informatie en context voor elke stap u de rest van het document vindt [vanaf hier](#overview-of-disk-encryption).
 
-U moet de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#az_login). In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup*, *myKey*, en *myVM*.
+U moet de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login). In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup*, *myKey*, en *myVM*.
 
 De provider voor Azure Sleutelkluis in uw Azure-abonnement met eerst inschakelen [az provider registreren](/cli/azure/provider#az_provider_register) en maak een resourcegroep met [az groep maken](/cli/azure/group#az_group_create). Het volgende voorbeeld wordt een Resourcegroepnaam *myResourceGroup* in de *eastus* locatie:
 
@@ -158,7 +158,7 @@ Zie voor meer informatie over ondersteunde scenario's en beperkingen [Azure Disk
 
 
 ## <a name="create-azure-key-vault-and-keys"></a>Azure Sleutelkluis en de sleutels maken
-U moet de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#az_login). In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup*, *myKey*, en *myVM*.
+U moet de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login). In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup*, *myKey*, en *myVM*.
 
 De eerste stap is het maken van een Azure Key Vault voor het opslaan van uw cryptografische sleutels. Azure Sleutelkluis kunt opslaan sleutels, geheimen of wachtwoorden waarmee u kunt ze veilig implementeert in uw toepassingen en services. Voor versleuteling van de virtuele schijf, kunt u Sleutelkluis gebruiken voor het opslaan van een cryptografische sleutel die wordt gebruikt voor het versleutelen of ontsleutelen van de virtuele schijven.
 

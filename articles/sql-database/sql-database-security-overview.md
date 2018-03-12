@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: cf105dbc366b96dbb49484bffce9b81960cf41f4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="securing-your-sql-database"></a>Uw SQL Database beveiligen
 
@@ -31,7 +31,7 @@ Zie het [Beveiligingscentrum voor SQL Server Database Engine en Azure SQL Databa
 ## <a name="protect-data"></a>Gegevens beveiligen
 
 ### <a name="encryption"></a>Versleuteling
-SQL-Database beveiligt u gegevens dankzij de codering voor gegevens in beweging met [Transport Layer Security](https://support.microsoft.com/kb/3135244), voor gegevens in rust met [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), en voor gegevens die in gebruik en [ Altijd versleuteld](https://msdn.microsoft.com/library/mt163865.aspx). 
+SQL-Database beveiligt uw gegevens dankzij de codering voor gegevens in beweging met [Transport Layer Security](https://support.microsoft.com/kb/3135244), voor gegevens in rust met [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), en voor gegevens die in gebruik en [ Altijd versleuteld](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
 >Alle verbindingen met Azure SQL Database vereisen te allen tijde versleuteling (SSL/TLS) wanneer gegevens naar en vanuit de database worden verzonden. In de verbindingsreeks van uw toepassing, moet u de parameters voor het versleutelen van de verbinding opgeven en *niet* het servercertificaat (dit geldt voor u als u de verbindingsreeks buiten de Azure-portal kopieert), anders vertrouwt de verbinding verifieert de identiteit van de server niet en is vatbaar voor 'man-in-the-middle'-aanvallen. Voor het stuurprogramma ADO.NET zijn deze verbindingsreeksparameters bijvoorbeeld **Encrypt=True** en **TrustServerCertificate=False**. 

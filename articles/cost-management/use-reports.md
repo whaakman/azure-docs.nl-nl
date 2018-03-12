@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cost-management-reports"></a>Kostenbeheerrapporten gebruiken
 
@@ -103,7 +103,7 @@ De voorgaande afbeelding toont de afgeschreven kosten voor de kosten van de rese
 
 Kosten toewijzing Analysis rapporten zijn beschikbaar nadat u een kostprijsmodel met kosten toewijzing 360 maakt. Cloudyn kosten/factureringsgegevens verwerkt en overeenkomt met de gegevens op de informatie over het gebruik en code van uw cloud-accounts. Cloudyn vereist zodat deze overeenkomen met de gegevens, toegang tot uw gegevens over het gebruik. Accounts die ontbreken referenties, worden aangeduid als niet-gecategoriseerde resources.
 
-### <a name="cost-analysis-report"></a>Rapport analyse kosten
+### <a name="cost-analysis-report"></a>Kostenanalyserapport
 
 Het rapport analyse van kosten verschaft inzicht in uw cloud gebruiks- en uitgaven gedurende een geselecteerde periode. De beleidsregels voor kosten toewijzing Manager worden gebruikt in het rapport analyse van de kosten.
 
@@ -152,7 +152,7 @@ Het rapport kosten gedurende een periode om te gebruiken:
 3. Groepen toevoegen.
 4. Kies een kostprijsmodel die u eerder hebt gemaakt.
 5. Selecteer de werkelijke kosten of afgeschreven kosten.
-6. Kies of u toewijzingsregels toepassen op weergave onbewerkte gegevensweergave facturering of berekend naar kosten door Cloudyn weergave.
+6. Kies of u toewijzingsregels toepassen op weergave onbewerkte gegevensweergave facturering of berekend naar kosten weergeven.
 
 Hier volgt een voorbeeld van het rapport.
 

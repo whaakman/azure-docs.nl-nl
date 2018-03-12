@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36ff6d8fc956f5c863884e4591cbcb2909fcb200
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ee43bfd85bdda16cb496ec938c266c72f0d5688b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>Met de Azure CLI beveiligingsgroepen beheren
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/09/2018
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## <a name="prerequisite"></a>Vereiste
-Als u dit nog niet hebt nog installeren en configureren van de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#az_login). 
+Als u dit nog niet hebt nog installeren en configureren van de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/reference-index#az_login). 
 
 ## <a name="view-existing-nsgs"></a>Bestaande nsg's weergeven
 Voor de lijst met nsg's in een specifieke resourcegroep, voer de [az netwerk nsg lijst](/cli/azure/network/nsg#az_network_nsg_list) opdracht met een `-o table` uitvoerindeling:

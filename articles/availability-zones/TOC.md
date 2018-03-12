@@ -28,10 +28,7 @@
 #### [Een zoneredundante Load Balancer Standard maken met PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [Een zoneredundante, openbare Load Balancer Standard maken met CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
 
-### Openbaar IP-adres
-#### [Een openbaar IP-adres maken in een beschikbaarheidszone met Azure Portal](../virtual-network/create-public-ip-availability-zone-portal.md)
-#### [Een openbaar IP-adres maken in een beschikbaarheidszone met PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
-#### [Een openbaar IP-adres maken in een beschikbaarheidszone met CLI](../virtual-network/create-public-ip-availability-zone-cli.md)
+### [Openbaar IP-adres](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
 #### [Beschikbaarheidszones met SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)

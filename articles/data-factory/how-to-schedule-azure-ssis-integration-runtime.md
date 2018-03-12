@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 69eae46dc554911e0caadcf0aafbaec9e39f727d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Het starten en stoppen van de runtime van een Azure SSIS-integratie plannen 
 Met een Azure-SSIS (SQL Server Integration Services)-integratie-runtime heeft (IR) een kosten die gekoppeld. Daarom wilt u de IR alleen uitvoeren als u wilt SSIS-pakketten in Azure uitvoeren en stop de toepassing wanneer u deze niet nodig. U kunt de Data Factory-gebruikersinterface of Azure PowerShell om te gebruiken [handmatig starten of stoppen van een Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)). Dit artikel wordt beschreven hoe u plant starten en stoppen van een Azure-SSIS-integratie runtime (IR) met behulp van Azure Automation en Azure Data Factory. Hier volgen de stappen op hoog niveau beschreven in dit artikel:
@@ -279,11 +279,6 @@ Nadat u maken en testen van de pijplijn, kunt u de trigger van een planning make
     3. Voor **hoofdtekst**, voer `{"message":"hello world"}`. 
    
         ![Eerste Web-activiteit - tabblad instellingen](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-4. In de **activiteiten** werkset Vouw **herhaling & voorwaardelijke**, en slepen en neerzetten de **wacht** activiteit naar het ontwerpoppervlak pijplijn. In de **algemene** en wijzig de naam van de activiteit **WaitFor30Minutes**. 
-5. Overschakelen naar de **instellingen** tabblad de **eigenschappen** venster. Voor **wachttijd in seconden**, voer **1800**. 
-6. Verbinding maken met de **Web** activiteit en de **wacht** activiteit. Om deze verbinding, te beginnen met slepen op de groene vierkante vak gekoppeld aan de activiteit webpagina voor de activiteit wachten. 
-
-    ![Verbinding Web en wacht](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-wait.png)
 5. De activiteit opgeslagen Procedure van slepen en neerzetten de **algemene** sectie van de **activiteiten** werkset. De naam van de activiteit instellen **RunSSISPackage**. 
 6. Overschakelen naar de **-Account voor SQL** tabblad de **eigenschappen** venster. 
 7. Voor **gekoppelde service**, klikt u op **+ nieuw**.
@@ -296,7 +291,7 @@ Nadat u maken en testen van de pijplijn, kunt u de trigger van een planning make
     5. Voor **wachtwoord**, voer het wachtwoord van de gebruiker. 
     6. Test de verbinding met de database door te klikken op **verbinding testen** knop.
     7. Opslaan van de gekoppelde service door te klikken op de **opslaan** knop.
-1. In de **eigenschappen** venster overschakelen naar de **opgeslagen Procedure** TAB-toets van de **-Account voor SQL** tabblad en voer de volgende stappen uit: 
+9. In de **eigenschappen** venster overschakelen naar de **opgeslagen Procedure** TAB-toets van de **-Account voor SQL** tabblad en voer de volgende stappen uit: 
 
     1. Voor **opgeslagen procedurenaam**, selecteer **bewerken** optie en voer **sp_executesql**. 
     2. Selecteer **+ nieuw** in de **opgeslagen procedureparameters** sectie. 
@@ -307,12 +302,37 @@ Nadat u maken en testen van de pijplijn, kunt u de trigger van een planning make
         Geef in de SQL-query de juiste waarden voor de **mapnaam**, **projectnaam**, en **naam_van_pakket** parameters. 
 
         ```sql
-        DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END   
-        ```
-10. Verbinding maken met de **wacht** activiteit naar de **opgeslagen Procedure** activiteit. 
+        DECLARE       @return_value int, @exe_id bigint, @err_msg nvarchar(150)
 
-    ![Wacht even en opgeslagen Procedure activiteiten koppelen](./media/how-to-schedule-azure-ssis-integration-runtime/connect-wait-sproc.png)
-11. Slepen en neerzetten de **Web** activiteit aan de rechterkant van de **opgeslagen Procedure** activiteit. De naam van de activiteit instellen **StopIR**. 
+        -- Wait until Azure-SSIS IR is started
+        WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
+        BEGIN
+            WAITFOR DELAY '00:00:01';
+        END
+
+        EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
+            @project_name=N'YourProject', @package_name=N'YourPackage',
+            @use32bitruntime=0, @runincluster=1, @useanyworker=1,
+            @execution_id=@exe_id OUTPUT 
+
+        EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
+
+        EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
+
+        -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/failed (4)/
+        -- pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
+        IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
+        BEGIN
+            SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
+            RAISERROR(@err_msg, 15, 1)
+        END
+
+        ```
+10. Verbinding maken met de **Web** activiteit naar de **opgeslagen Procedure** activiteit. 
+
+    ![Verbinding maken met de Web- en opgeslagen Procedure activiteiten](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
+
+11. Slepen en neerzetten een andere **Web** activiteit aan de rechterkant van de **opgeslagen Procedure** activiteit. De naam van de activiteit instellen **StopIR**. 
 12. Overschakelen naar de **instellingen** tabblad de **eigenschappen** venster en voer de volgende acties: 
 
     1. Voor **URL**, plak de URL voor de webhook waarin de Azure SSIS-IR wordt gestopt 

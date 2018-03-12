@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6a5ab1ba44197c0103e1e7d353a116dc01dfc163
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS-bescherming standaard met de Azure portal beheren
 
@@ -31,9 +31,9 @@ Informatie over het inschakelen en uitschakelen van gedistribueerde denial-of se
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Standaard in DDoS-bescherming - nieuw virtueel netwerk inschakelen
 
 1. Meld u via http://portal.azure.com aan bij Azure Portal. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-2. Klik op **maken van een resource** in de linkerbovenhoek van de Azure portal.
+2. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
 3. Selecteer **Networking**, en selecteer vervolgens **virtueel netwerk**.
-4. Een virtueel netwerk maken met de gekozen instellingen. Zie voor meer informatie over het maken van virtuele netwerken [een virtueel netwerk maken](virtual-networks-create-vnet-arm-pportal.md). Onder **DDoS-bescherming**, klikt u op **ingeschakeld**, en klik vervolgens op **maken**. Als er geen **DDoS-bescherming**, een waarschijnlijke oorzaak is dat uw abonnement is niet geregistreerd voor de functie. U moet voltooien [registratie](http://aka.ms/ddosprotection), en melding dat uw abonnement is ingeschakeld voor de functie voordat **DDoS-bescherming** wordt weergegeven.
+4. Een virtueel netwerk maken met de gekozen instellingen. Zie voor meer informatie over het maken van virtuele netwerken [een virtueel netwerk maken](manage-virtual-network.md#create-a-virtual-network). Onder **DDoS-bescherming**, klikt u op **ingeschakeld**, en klik vervolgens op **maken**. Als er geen **DDoS-bescherming**, een waarschijnlijke oorzaak is dat uw abonnement is niet geregistreerd voor de functie. U moet voltooien [registratie](http://aka.ms/ddosprotection), en melding dat uw abonnement is ingeschakeld voor de functie voordat **DDoS-bescherming** wordt weergegeven.
 
     ![Virtueel netwerk maken](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 

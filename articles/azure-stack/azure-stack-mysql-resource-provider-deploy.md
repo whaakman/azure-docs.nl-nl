@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 067e478548ba840ece14737cdf3e6d5d4da28be0
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 15a1648193555ecc5847170ab65f48dfa4f6417b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-database gebruiken op Microsoft Azure-Stack
 
@@ -162,7 +162,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parameters
+### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parameters
 U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of als er parametervalidatie mislukt, wordt u gevraagd de vereiste parameters bevatten.
 
 | Parameternaam | Beschrijving | Opmerking of de standaardwaarde |
@@ -268,9 +268,13 @@ U kunt het wachtwoord wijzigen door eerst op de server-exemplaar van MySQL wijzi
 ## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Bijwerken van de MySQL resource provider-adapter (met meerdere knooppunten alleen bij builds 1710 en hoger)
 Een nieuwe SQL resource provider-adapter kan worden vrijgegeven wanneer Azure Stack-builds worden bijgewerkt. Terwijl de bestaande adapter werken blijft, wordt u aangeraden zo snel mogelijk naar de laatste build bijwerken. 
 
-Het updateproces is vergelijkbaar met het installatieproces die eerder is beschreven. U kunt een nieuwe virtuele machine maken met de meest recente resource provider-code. Vervolgens migreert u de instellingen voor dit nieuwe exemplaar, met inbegrip van de database en het hosten van servergegevens. U kunt ook de benodigde DNS-record migreren.
+Bijwerken van de resourceprovider die u gebruikt de *UpdateMySQLProvider.ps1* script. Het proces is vergelijkbaar met het proces dat wordt gebruikt voor het installeren van een resourceprovider, zoals beschreven in de [implementeert de bronprovider](#deploy-the-resource-provider) sectie van dit artikel. Het script is opgenomen in het downloaden van de resourceprovider.
 
-Het script UpdateMySQLProvider.ps1 gebruiken met dezelfde argumenten die eerder zijn beschreven. Geef het certificaat hier ook.
+De *UpdateMySQLProvider.ps1* script maakt een nieuwe virtuele machine met de meest recente code van de resource-provider en de instellingen van de oude virtuele machine naar de nieuwe virtuele machine wordt gemigreerd. De instellingen die worden gemigreerd database en het hosten van server-gegevens bevatten en de vereiste DNS-record.
+
+Het script vereist gebruik van dezelfde argumenten die worden beschreven voor het script DeployMySqlProvider.ps1. Geef het certificaat hier ook. 
+
+Hieronder volgt een voorbeeld van de *UpdateMySQLProvider.ps1* script dat u vanuit de PowerShell-prompt uitvoeren kunt. Zorg ervoor dat de accountgegevens en wachtwoorden zo nodig wijzigen: 
 
 > [!NOTE]
 > Het updateproces geldt alleen voor geïntegreerde systemen.

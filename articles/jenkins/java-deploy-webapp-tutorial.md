@@ -11,11 +11,11 @@ ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins, devcenter
-ms.openlocfilehash: 40d7e822b586e6f6b4addcd7d4e107eda9f4ab11
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Continue integratie en implementatie in Azure App Service met Jenkins instellen
 
@@ -36,8 +36,8 @@ U voert de volgende taken in deze zelfstudie:
 Voor deze zelfstudie hebt u het volgende nodig:
 
 * [Jenkins](https://jenkins.io/) JDK Maven hulpprogramma's voor en geconfigureerd. Als u een systeem Jenkins geen hebt, maakt u een nu in Azure uit de [Jenkins oplossingssjabloon](/azure/jenkins/install-jenkins-solution-template).
-* Een [GitHub](https://github.com) account.
-* [Azure CLI 2.0](/cli/azure/overview), vanaf uw lokale opdrachtregel of in de [Azure Cloud Shell](/azure/cloud-shell/overview)
+* Een [GitHub](https://github.com)-account.
+* [Azure CLI 2.0](/cli/azure), vanaf uw lokale opdrachtregel of in de [Azure Cloud Shell](/azure/cloud-shell/overview)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -72,10 +72,10 @@ Jenkins instellen voor het ontvangen van [GitHub webhooks](https://developer.git
 1. Open de [Spring opstarten voorbeeld toepassing opslagplaats](https://github.com/spring-guides/gs-spring-boot-docker) en deze op uw eigen GitHub-account te vertakken door te selecteren **Fork** in de rechterbovenhoek.   
     ![Fork vanuit GitHub](media/jenkins-java-quickstart/fork_github_repo.png)
 1. Selecteer in de webconsole Jenkins **Nieuw Item**, een naam geven **MyJavaApp**, selecteer **Freestyle project**, selecteer daarna **OK**.   
-    ![Nieuw Jenkins Freestyle-Project](media/jenkins-java-quickstart/jenkins_freestyle.png)
+    ![New Jenkins Freestyle Project](media/jenkins-java-quickstart/jenkins_freestyle.png)
 2. Onder de **algemene** sectie **GitHub** project en voer de URL van uw opslagplaats Gevorkte zoals https://github.com/raisa/gs-spring-boot-docker
 3. Onder de **Source code management** sectie **Git**, Voer uw Gevorkte opslagplaats `.git` URL, zoals https://github.com/raisa/gs-spring-boot-docker.git
-4. Onder de **bouwen Triggers** sectie **GitHub haakje trigger voor GITscm polling**.
+4. Onder de sectie **Triggers compileren** selecteert u **GitHub hook-trigger voor GITscm-polling**.
 5. Onder de **bouwen** sectie **toevoegen build stap** en kies **aanroepen op het hoogste niveau Maven doelen**. Voer `package` in de **doelstellingen** veld.
 6. Selecteer **Opslaan**. U kunt uw taak testen door het selecteren van **nu bouwen** van de projectpagina.
 

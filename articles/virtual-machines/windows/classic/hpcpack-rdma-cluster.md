@@ -4,7 +4,7 @@ description: Informatie over het maken van een cluster met Windows HPC Pack met 
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-service-management,hpc-pack
 ms.assetid: 7d9f5bc8-012f-48dd-b290-db81c7592215
@@ -13,28 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/01/2017
+ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 19be1d693fe13af0f6c1ab0cb6f7bc829b9fad5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 437c475735ec3823de51c5f9e996a5303fe9cfa7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Instellen van een cluster met Windows RDMA met HPC Pack MPI-toepassingen uitvoeren
-Instellen van een Windows-RDMA-cluster in Azure met [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) en [hoge prestaties compute-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) parallelle Message Passing Interface (MPI)-toepassingen uit te voeren. Wanneer u RDMA-functionaliteit, Windows Server gebaseerde knooppunten in een cluster HPC Pack instelt, wordt MPI-toepassingen efficiënt communiceren via een lage latentie en hoge doorvoersnelheid netwerk in Azure die is gebaseerd op remote direct memory access (RDMA)-technologie.
+Instellen van een Windows-RDMA-cluster in Azure met [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) en [RDMA-compatibele HPC VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) parallelle Message Passing Interface (MPI)-toepassingen uit te voeren. Wanneer u RDMA-functionaliteit, Windows Server gebaseerde knooppunten in een cluster HPC Pack instelt, wordt MPI-toepassingen efficiënt communiceren via een lage latentie en hoge doorvoersnelheid netwerk in Azure die is gebaseerd op remote direct memory access (RDMA)-technologie.
 
 Als u uitvoeren van MPI-werkbelastingen op Linux-virtuele machines die toegang tot het netwerk van Azure RDMA wilt, Zie [instellen van een cluster Linux RDMA MPI-toepassingen uitvoeren](../../linux/classic/rdma-cluster.md).
 
 ## <a name="hpc-pack-cluster-deployment-options"></a>HPC Pack cluster implementatieopties
 Microsoft HPC Pack is een hulpprogramma opgegeven zonder extra kosten maken HPC-clusters lokaal of in Azure Windows of Linux HPC-toepassingen uitvoeren. HPC Pack bevat een runtime-omgeving voor de Microsoft-implementatie van het bericht wordt doorgegeven Interface voor Windows (MS-MPI). Wanneer met RDMA-compatibel is met een ondersteund besturingssysteem voor Windows Server-exemplaren gebruikt, biedt HPC Pack een efficiënte optie Windows MPI-toepassingen die toegang het netwerk van Azure RDMA tot uit te voeren. 
 
-Dit artikel bevat twee scenario's en koppelingen naar gedetailleerde richtlijnen voor het instellen van een cluster met Windows RDMA met Microsoft HPC Pack. 
+Dit artikel bevat twee scenario's en koppelingen naar gedetailleerde richtlijnen voor het instellen van een cluster met Windows RDMA met Microsoft HPC Pack 2012 R2. 
 
 * Scenario 1. Rekenintensieve worker rolexemplaren (PaaS) implementeren
 * Scenario 2. Implementeer de rekenknooppunten in rekenintensieve VM's (IaaS)
-
-Raadpleeg voor algemene vereisten voor het gebruik van rekenintensieve exemplaren met Windows [hoge prestaties compute-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>Scenario 1: Rekenintensieve worker rolexemplaren (PaaS) implementeren
 Toevoegen van een bestaand cluster HPC Pack, extra rekenresources in Azure worker-rolexemplaren (Azure knooppunten) uitgevoerd in een cloudservice (PaaS). Deze functie wordt ook wel 'burst naar Azure' van HPC Pack ondersteunt een aantal formaten voor de worker-rolexemplaren. Wanneer u de Azure knooppunten toevoegt, Geef een van de grootte van de RDMA-functionaliteit.
@@ -51,13 +49,14 @@ Hieronder vindt u overwegingen en stappen voor het burst naar RDMA-compatibele A
 ### <a name="steps"></a>Stappen
 1. **Implementeer en configureer een hoofdknooppunt HPC Pack 2012 R2**
    
-    Download de meest recente installatiepakket van HPC Pack uit de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Zie voor vereisten en instructies voor het voorbereiden voor de implementatie van een Azure burst [Burst naar Azure Worker-exemplaren met Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
+    De HPC Pack installatie downloaden uit de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Zie voor vereisten en instructies voor het voorbereiden voor de implementatie van een Azure burst [Burst naar Azure Worker-exemplaren met Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 2. **Een beheercertificaat in het Azure-abonnement configureren**
    
     Een certificaat voor het beveiligen van de verbinding tussen het hoofdknooppunt en Azure configureren. Zie voor opties en -procedures, [scenario's voor het configureren van het Azure-Beheercertificaat voor HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). HPC Pack installeert voor testimplementaties een standaard Microsoft HPC Azure-Beheercertificaat u snel naar uw Azure-abonnement uploaden kunt.
 3. **Een nieuwe cloudservice en een opslagaccount maken**
    
-    De Azure portal gebruiken voor het maken van een cloudservice en een opslagaccount voor de implementatie in een regio waar de RDMA-compatibele exemplaren beschikbaar zijn.
+    De Azure portal gebruiken voor een cloudservice (klassiek) en een opslagaccount (klassiek) te maken voor de implementatie. Maak deze resources in een regio waar de H-serie, A8 of A9 grootte die u wilt gebruiken beschikbaar is. Zie [Azure producten per regio](https://azure.microsoft.com/regions/services/).
+
 4. **Een op Azure-knooppuntsjabloon maken**
    
     Gebruik de Wizard knooppunt maken in HPC Cluster Manager. Zie voor stappen [maken van een knooppuntsjabloon Azure](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) in 'Stappen voor implementatie van Azure knooppunten met Microsoft HPC Pack'.
@@ -91,19 +90,20 @@ In dit scenario wordt door de HPC Pack hoofdknooppunt en cluster rekenknooppunte
 ### <a name="steps"></a>Stappen
 1. **Maken van het hoofdknooppunt van een cluster en virtuele machines knooppunt berekenen door het implementatiescript HPC Pack IaaS uitgevoerd op een clientcomputer**
    
-    De HPC Pack IaaS-implementatiescript downloaden uit de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922).
+    De HPC Pack IaaS-implementatiescript downloaden uit de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949).
    
     Als u met het voorbereiden van de clientcomputer, maken het configuratie-scriptbestand en voer het script, Zie [een HPC-Cluster maken met het implementatiescript HPC Pack IaaS](hpcpack-cluster-powershell-script.md). 
    
-    Houd rekening met de volgende aanvullende overwegingen voor het implementeren van RDMA-compatibele rekenknooppunten:
+    Overwegingen voor het implementeren van RDMA-compatibele rekenknooppunten, kunt u [hoge prestaties compute-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) en Let op het volgende:
    
-   * **Virtueel netwerk**: Geef een nieuw virtueel netwerk in een regio waarin de RDMA-compatibele exemplaargrootte die u wilt gebruiken beschikbaar is.
-   * **Windows Server-besturingssysteem**: Geef een besturingssysteem Windows Server 2012 R2 of Windows Server 2012 voor het rekenknooppunt VM's ter ondersteuning van RDMA-netwerkverbinding.
-   * **Cloudservices**: het is raadzaam uw hoofdknooppunt in een cloudservice en uw rekenknooppunten in een andere cloudservice implementeren.
+   * **Virtueel netwerk**: Geef een nieuw virtueel netwerk in een regio waarin de H-serie, A8 of A9 grootte die u wilt gebruiken beschikbaar is. Zie [Azure producten per regio](https://azure.microsoft.com/regions/services/).
+
+   * **Windows Server-besturingssysteem**: Geef een compatibel besturingssysteem Windows Server zoals Windows Server 2012 R2 voor het rekenknooppunt VM's ter ondersteuning van RDMA-netwerkverbinding.
+   * **Cloudservices**: omdat het script maakt gebruik van het klassieke implementatiemodel, de cluster virtuele machines zijn geïmplementeerd met Azure-cloudservices (`ServiceName` instellingen in het configuratiebestand). Het is raadzaam om uw hoofdknooppunt in een cloudservice en uw rekenknooppunten in een andere cloudservice implementeren. 
    * **De grootte van knooppunt HEAD**: voor dit scenario kunt u een grootte van ten minste A4 (Extra groot) voor het hoofdknooppunt.
    * **De extensie HpcVmDrivers**: het implementatiescript de Azure VM-Agent en de extensie HpcVmDrivers wordt automatisch geïnstalleerd wanneer u de grootte van rekenknooppunten A8 of A9 met een Windows Server-besturingssysteem implementeert. HpcVmDrivers stuurprogramma's worden geïnstalleerd op het rekenknooppunt virtuele machines zodat ze verbinding met het netwerk RDMA maken kunnen. Op virtuele machines RDMA-compatibele H-serie, moet u de extensie HpcVmDrivers handmatig installeren. Zie [hoge prestaties compute-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
    * **De netwerkconfiguratie**: het cluster HPC Pack in de topologie 5 (alle knooppunten in het bedrijfsnetwerk) script voor de implementatie automatisch ingesteld. Deze topologie is vereist voor alle implementaties van HPC Pack cluster in virtuele machines. De netwerktopologie van het cluster niet later wijzigen.
-2. **De compute nodes online brengt taken uitvoeren**
+1. **De compute nodes online brengt taken uitvoeren**
    
     Selecteer de knooppunten en gebruik de **Online brengen** actie in HPC Cluster Manager. De knooppunten zijn gereed om uit te voeren taken.
 3. **Verzenden van taken naar het cluster**

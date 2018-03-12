@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: db7af48b4aaefefbea704cb87c2b7f3808fc5330
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a7771eebc8359a5de1c79328014f5ecc06c9673b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 Microsoft heeft de belofte aangebracht in de klanten die hoge beschikbaarheid (HA) is ingebouwd in de service en de klanten hoeven niet te werken, speciale logica voor het toevoegen of beslissingen rond HA vanaf het begin van de Azure SQL Database PaaS-aanbieding. Microsoft onderhoudt volledige controle over de HA-systeemconfiguratie en bewerking, biedt klanten een SLA. De HA-SLA van toepassing op een SQL-database in een regio en biedt geen bescherming in geval van een mislukking van de totale regio die wordt veroorzaakt door factoren buiten het beheer van Microsoft redelijkerwijs (bijvoorbeeld een natuurramp, war, besluiten van terrorisme, riots, overheids-actie of een netwerk- of apparaatstoring buiten de datacenters van Microsoft, waaronder op klant sites of tussen sites van de klant en Datacenter van Microsoft).
@@ -50,7 +50,7 @@ De belangrijkste voordelen:
 
 ## <a name="data-redundancy"></a>De gegevensredundantie
 
-De oplossing met hoge beschikbaarheid in SQL-Database is gebaseerd op [AlwaysON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) -technologie van SQL Server en maakt het werkt voor zowel LS RS databases met minimale verschillen. In LS is configuratie altijd die on wordt gebruikt voor persistentie in RS dat het voor beschikbaarheid (laag RTO) gebruikt. 
+De oplossing met hoge beschikbaarheid in SQL-Database is gebaseerd op [Always ON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) -technologie van SQL Server en maakt het werkt voor zowel LS RS databases met minimale verschillen. In LS is configuratie altijd die on wordt gebruikt voor persistentie in RS dat het voor beschikbaarheid (laag RTO) gebruikt. 
 
 ## <a name="local-storage-configuration"></a>Configuratie van de lokale opslag
 

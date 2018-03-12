@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 341ace1d9792aba3d6d525a2cde0d9b74367d214
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planning voor de implementatie van een Azure-bestand Sync (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -49,7 +49,7 @@ De Azure-bestand Sync-agent is een downloadbare pakket waarmee Windows-Server mo
 Een servereindpunt vertegenwoordigt een specifieke locatie op een geregistreerde server, zoals een map op een volume van de server. Meerdere server-eindpunten kunnen bestaan op hetzelfde volume als hun naamruimten elkaar niet overlappen (bijvoorbeeld `F:\sync1` en `F:\sync2`). U kunt de lagen beleid cloud afzonderlijk voor elk servereindpunt kunt configureren. Het is momenteel niet mogelijk om een servereindpunt voor de hoofdmap van een volume te maken (bijvoorbeeld `F:\` of `C:\myvolume`, als een volume is gekoppeld als een koppelpunt).
 
 > [!Note]  
-> Een servereindpunt kan zich bevinden op het systeemvolume van Windows. Cloud tiering wordt niet ondersteund op het systeemvolume.
+> Alleen niet-verwisselbaar volumes worden ondersteund.  Vanaf een externe share toegewezen stations worden niet ondersteund voor een pad naar het eindpunt van de server.  Bovendien een servereindpunt bevindt zich mogelijk Windows systeemvolume echter cloud tiering wordt niet ondersteund op het systeemvolume.
 
 Als u de locatie van een server met een bestaande set van bestanden als een servereindpunt aan een groep voor synchronisatie toevoegt, worden deze bestanden worden samengevoegd met andere bestanden die zich al op de andere eindpunten in de groep voor synchronisatie.
 

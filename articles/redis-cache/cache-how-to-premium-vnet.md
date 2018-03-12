@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba3a7ccc059dd5036753f471b762e27f22a179af
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Ondersteuning voor virtuele netwerken configureren voor een Premium Azure Redis-Cache
 Azure Redis-Cache heeft verschillende cache aanbiedingen die flexibiliteit bij de keuze van cachegrootte en -functies bieden, zoals de Premium-laag functies zoals clustering, persistentie en virtual network-ondersteuning. Een VNet is een particulier netwerk in de cloud. Wanneer een Azure Redis-Cache-exemplaar is geconfigureerd met een VNet, is niet openbaar toegankelijk en kan alleen worden benaderd vanuit virtuele machines en toepassingen binnen het VNet. In dit artikel wordt beschreven hoe het configureren van virtual network-ondersteuning voor een premium Azure Redis-Cache-exemplaar.
@@ -38,7 +38,7 @@ Ondersteuning voor Virtual Network (VNet) is geconfigureerd op de **nieuwe Redis
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Nadat u een premium-prijscategorie hebt geselecteerd, kunt u VNet Redis-integratie configureren door het selecteren van een VNet dat zich in hetzelfde abonnement en dezelfde locatie als uw cache. Voor het gebruik van een nieuw VNet maken eerst de stappen in [een virtueel netwerk maken met de Azure-portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) of [een virtueel netwerk (klassiek) maken met behulp van de Azure-portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) en ga daarna terug naar de **nieuwe Redis-Cache** blade maken en configureren van uw premium-cache.
+Nadat u een premium-prijscategorie hebt geselecteerd, kunt u VNet Redis-integratie configureren door het selecteren van een VNet dat zich in hetzelfde abonnement en dezelfde locatie als uw cache. Voor het gebruik van een nieuw VNet maken eerst de stappen in [een virtueel netwerk maken met de Azure-portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) of [een virtueel netwerk (klassiek) maken met behulp van de Azure-portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) en ga daarna terug naar de **nieuwe Redis-Cache** blade maken en configureren van uw premium-cache.
 
 U configureert het VNet voor de nieuwe cache door op **virtueel netwerk** op de **nieuwe Redis-Cache** blade en selecteer de gewenste VNet uit de vervolgkeuzelijst.
 

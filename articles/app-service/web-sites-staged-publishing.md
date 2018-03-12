@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 18f6ef3997ba60f588040f641ebe9e9aca8d091a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
 <a name="Overview"></a>
 
-Wanneer u uw web-app, web-app op Linux-, mobiele back-end- en API-app implementeert [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), u kunt implementeren op een afzonderlijke implementatiesleuf in plaats van de productiesite standaard bij uitvoering in de **standaard** of **Premium** modus van App Service-plan. Implementatiesites zijn daadwerkelijk live apps met hun eigen hostnamen. App-inhoud en configuratie-elementen worden ingewisseld tussen twee implementatiesites, met inbegrip van de productiesite. Uw toepassing om een implementatiesleuf te implementeren, heeft de volgende voordelen:
+Wanneer u uw web-app, web-app op Linux-, mobiele back-end- en API-app implementeert [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), u kunt implementeren op een afzonderlijke implementatiesleuf in plaats van de productiesite standaard bij uitvoering in de **standaard** of **Premium** laag van App Service-plan. Implementatiesites zijn daadwerkelijk live apps met hun eigen hostnamen. App-inhoud en configuratie-elementen worden ingewisseld tussen twee implementatiesites, met inbegrip van de productiesite. Uw toepassing om een implementatiesleuf te implementeren, heeft de volgende voordelen:
 
 * U kunt appwijzigingen in een gefaseerde installatie implementatiesleuf valideren voordat het wisselen met de productiesite.
 * Zorgt ervoor dat alle exemplaren van de sleuf zijn opgewarmd voordat gewisseld naar de productie implementeert eerst een app in een sleuf en deze in productie te wisselen. Hierdoor is er uitvaltijd wanneer u uw app implementeert. Het verkeer omleiden naadloze is en er zijn geen aanvragen worden verwijderd als gevolg van de wisseling bewerkingen. Deze volledige werkstroom kan worden geautomatiseerd door configureren [automatisch wisselen](#Auto-Swap) wanneer vooraf swap-validatie is niet nodig.
 * Als een wisseling heeft de sleuf met eerder voorbereide app de vorige productie-app. Als de gewisseld naar de productiesite wijzigingen zijn niet zoals u verwacht, kunt u de dezelfde swap onmiddellijk om uw "laatst bekende goede site" uitvoeren terug.
 
-Elke App Service plan modus ondersteunt een verschillend aantal implementatiesites. Sleuven om erachter te komen het nummer van uw app-modus ondersteunt, Zie [prijzen van App Service](https://azure.microsoft.com/pricing/details/app-service/).
+Elke laag van App Service plan ondersteunt een verschillend aantal implementatiesites. Sleuven om erachter te komen het nummer van uw app-laag ondersteunt, Zie [prijzen van App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
-* Wanneer uw app meerdere sleuven heeft, kunt u de modus niet wijzigen.
+* Wanneer uw app meerdere sleuven heeft, kunt u de laag niet wijzigen.
 * Schalen is niet beschikbaar voor niet-productieve sleuven.
-* Gekoppelde bronbeheer wordt niet ondersteund voor niet-productieve sleuven. In de [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) u kunt dit mogelijk invloed op een productiesite alleen voorkomen door het tijdelijk de-productiesite verplaatsen naar een andere modus voor App Service-plan. Houd er rekening mee dat de niet-productiesite nogmaals dezelfde modus met de productiesite delen moet voordat u kunt de twee sleuven omwisselen.
+* Gekoppelde bronbeheer wordt niet ondersteund voor niet-productieve sleuven. In de [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) u kunt dit mogelijk invloed op een productiesite alleen voorkomen door het tijdelijk de-productiesite verplaatsen naar een andere laag van de App Service-plan. Houd er rekening mee dat de niet-productiesite nogmaals dezelfde categorie met de productiesite delen moet voordat u kunt de twee sleuven omwisselen.
 
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>Een implementatiesleuf toevoegen
-De app moet worden uitgevoerd in de **standaard** of **Premium** modus zodat u meerdere implementatiesites inschakelen.
+De app moet worden uitgevoerd in de **standaard** of **Premium** laag zodat u meerdere implementatiesites inschakelen.
 
 1. In de [Azure Portal](https://portal.azure.com/), opent u uw app [resourceblade](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Kies de **implementatiesites** optie en klik vervolgens op **sleuf toevoegen**.
@@ -47,7 +47,7 @@ De app moet worden uitgevoerd in de **standaard** of **Premium** modus zodat u m
     ![Voeg een nieuwe implementatiesleuf][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Als de app nog niet in de **standaard** of **Premium** modus, ontvangt u een bericht met de ondersteunde modi voor het inschakelen van voorbereide publiceren. Op dit moment hebt u de optie te selecteren **Upgrade** en navigeer naar de **Scale** tabblad van uw app voordat u doorgaat.
+   > Als de app nog niet in de **standaard** of **Premium** laag, ontvangt u een bericht met de ondersteunde lagen voor het inschakelen van voorbereide publiceren. Op dit moment hebt u de optie te selecteren **Upgrade** en navigeer naar de **Scale** tabblad van uw app voordat u doorgaat.
    > 
    > 
 3. In de **toevoegen van een sleuf** blade een naam opgeven voor de sleuf en selecteren of u de configuratie van de app uit een andere bestaande implementatiesleuf klonen. Klik op het vinkje om door te gaan.

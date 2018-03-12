@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: c87455f43c6e580c52b3f772a1cbe0c1ac9c9f5b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fc84642050f4b7acfa2e3c5b4518135d6a97171
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Het doel van Azure Functions-runtime-versies
 
@@ -74,7 +74,7 @@ az functionapp config appsettings set --name <function_app> \
 ```
 Vervang in deze code `<function_app>` met de naam van de functie-app. Vervang ook `<my_resource_group>` met de naam van de resourcegroep voor de functie-app. Vervang `<version>` met een geldige versie van de runtime 1.x of `beta` voor versie 2.0. 
 
-U kunt uitvoeren met deze opdracht uit de [Azure Cloud Shell](../cloud-shell/overview.md) door te kiezen **Try it** in het vorige codevoorbeeld. U kunt ook de [Azure CLI lokaal](/cli/azure/install-azure-cli) deze opdracht wordt uitgevoerd na het uitvoeren van [az aanmelding](/cli/azure#az_login) aan te melden.
+U kunt uitvoeren met deze opdracht uit de [Azure Cloud Shell](../cloud-shell/overview.md) door te kiezen **Try it** in het vorige codevoorbeeld. U kunt ook de [Azure CLI lokaal](/cli/azure/install-azure-cli) deze opdracht wordt uitgevoerd na het uitvoeren van [az aanmelding](/cli/azure/reference-index#az_login) aan te melden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

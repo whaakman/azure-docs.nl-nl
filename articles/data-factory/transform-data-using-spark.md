@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 4aed91696b5853b56ab17d69753d20081c79cdf7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e4cc412f9c6e37d6e6c3b030a934d572a7319011
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformeer gegevens met behulp van de activiteit Spark in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie:
 | description           | Tekst die beschrijft wat de activiteit doet.  | Nee       |
 | type                  | Het activiteitstype is HDInsightSpark voor Spark-activiteit. | Ja      |
 | linkedServiceName     | Naam van de Spark gekoppelde HDInsight-Service op het Spark-programma wordt uitgevoerd. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
-| SparkJobLinkedService | Azure Storage gekoppelde service die de Spark taakbestand, afhankelijkheden en Logboeken bevat.  Als u een waarde op voor deze eigenschap niet opgeeft, wordt de opslag die is gekoppeld aan de HDInsight-cluster gebruikt. | Nee       |
+| SparkJobLinkedService | Azure Storage gekoppelde service die de Spark taakbestand, afhankelijkheden en Logboeken bevat.  Als u een waarde op voor deze eigenschap niet opgeeft, wordt de opslag die is gekoppeld aan de HDInsight-cluster gebruikt. De waarde van deze eigenschap kan alleen worden van een gekoppelde Azure Storage-service. | Nee       |
 | rootPath              | De Azure Blob-container en de map waarin het Spark-bestand. De bestandsnaam is hoofdlettergevoelig. Raadpleeg de mapstructuur sectie (volgende sectie) voor meer informatie over de structuur van deze map. | Ja      |
 | entryFilePath         | Relatief pad naar de hoofdmap van het Spark/codepakket. | Ja      |
 | className             | Belangrijkste Java/Spark-klasse van de toepassing      | Nee       |
@@ -87,8 +87,8 @@ De volgende mapstructuur maken in Azure Blob storage waarnaar wordt verwezen doo
 
 | Pad                  | Beschrijving                              | Vereist | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.`(root)            | Het pad naar de hoofdmap van de taak Spark in gekoppelde storage-service | Ja      | Map |
-| &lt;de gebruiker gedefinieerde&gt; | Het pad verwijst naar het bestand vermelding van de Spark-taak | Ja      | File   |
+| `.` (root)            | Het pad naar de hoofdmap van de taak Spark in gekoppelde storage-service | Ja      | Map |
+| &lt;De gebruiker gedefinieerde &gt; | Het pad verwijst naar het bestand vermelding van de Spark-taak | Ja      | File   |
 | . / jars                | Alle bestanden onder deze map worden geüpload en op de java-klassenpad van het cluster geplaatst | Nee       | Map |
 | . / pyFiles             | Alle bestanden onder deze map worden geüpload en op de PYTHONPATH van het cluster geplaatst | Nee       | Map |
 | . / bestanden               | Alle bestanden onder deze map worden geüpload en in de werkmap executor geplaatst | Nee       | Map |

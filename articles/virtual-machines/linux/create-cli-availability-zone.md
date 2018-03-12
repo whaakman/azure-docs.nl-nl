@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e31eb02fda7ade027225c428c5b15804ebc6f182
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Maken van een virtuele Linux-machine in een zone beschikbaarheid met de Azure CLI
 
@@ -28,7 +28,7 @@ In dit artikel wordt stapsgewijs via de Azure CLI gebruiken voor het maken van e
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Zorg ervoor dat de meest recente geïnstalleerd [Azure CLI 2.0](/cli/azure/install-az-cli2) en aangemeld bij een Azure-account met [az aanmelding](/cli/azure/#az_login).
+Zorg ervoor dat de meest recente geïnstalleerd [Azure CLI 2.0](/cli/azure/install-az-cli2) en aangemeld bij een Azure-account met [az aanmelding](/cli/azure/reference-index#az_login).
 
 
 ## <a name="check-vm-sku-availability"></a>Beschikbaarheid van VM-SKU controleren
@@ -63,7 +63,7 @@ virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
 
 Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create).  
 
-Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Een resourcegroep moet worden gemaakt voordat een virtuele machine. In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroupVM* wordt gemaakt in de *eastus2* regio. VS Oost 2 is een van de Azure-regio's die ondersteuning biedt voor beschikbaarheidszones in preview.
+Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Voordat een virtuele machine wordt gemaakt, moet een resourcegroep worden gemaakt. In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroupVM* wordt gemaakt in de *eastus2* regio. VS Oost 2 is een van de Azure-regio's die ondersteuning biedt voor beschikbaarheidszones in preview.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus2
@@ -73,15 +73,15 @@ De resourcegroep is opgegeven bij het maken of wijzigen van een virtuele machine
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-Maak een virtuele machine met de [az vm maken](/cli/azure/vm#az_vm_create) opdracht. 
+Maak een virtuele machine met de opdracht [az vm create](/cli/azure/vm#az_vm_create). 
 
-Wanneer u een virtuele machine maakt, er zijn diverse opties beschikbaar zoals besturingssysteemkopie schijf sizing en administratieve referenties. In dit voorbeeld wordt een virtuele machine gemaakt met de naam *myVM* Ubuntu Server uitgevoerd. De virtuele machine is gemaakt in de zone beschikbaarheid *1*. Standaard wordt de virtuele machine gemaakt de *Standard_DS1_v2* grootte. Deze grootte wordt ondersteund in de beschikbaarheid van zones preview.
+Wanneer u een virtuele machine maakt, zijn er diverse opties beschikbaar zoals besturingssysteeminstallatiekopie, schijfgrootte en beheerdersreferenties. In dit voorbeeld wordt een virtuele machine gemaakt met de naam *myVM* waarop Ubuntu-server wordt uitgevoerd. De virtuele machine is gemaakt in de zone beschikbaarheid *1*. Standaard wordt de virtuele machine gemaakt de *Standard_DS1_v2* grootte. Deze grootte wordt ondersteund in de beschikbaarheid van zones preview.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
-Het duurt enkele minuten voor het maken van de virtuele machine. Wanneer de virtuele machine is gemaakt, levert de Azure CLI informatie over de virtuele machine. Noteer de `zones` waarde waarmee wordt aangegeven van de beschikbaarheid zone waarin de virtuele machine wordt uitgevoerd. 
+Het maken van de virtuele machine kan een paar minuten duren. Wanneer de virtuele machine is gemaakt, biedt de Azure CLI informatie over de virtuele machine. Noteer de `zones` waarde waarmee wordt aangegeven van de beschikbaarheid zone waarin de virtuele machine wordt uitgevoerd. 
 
 ```azurecli-interactive 
 {
@@ -148,7 +148,7 @@ De uitvoer wordt weergegeven dat het IP-adres in dezelfde regio bevindt beschikb
 }
 ```
 
-Op dezelfde manier, Controleer of de VM-beheerde schijven in de zone beschikbaarheid. Gebruik de [az vm weergeven](/cli/azure/vm#az_vm_show) opdracht voor het retourneren van de schijf-id. In dit voorbeeld wordt de schijf-id opgeslagen in een variabele die wordt gebruikt in een latere stap. 
+Op dezelfde manier, Controleer of de VM-beheerde schijven in de zone beschikbaarheid. Gebruik de opdracht [az vm show](/cli/azure/vm#az_vm_show) om de schijf-id op te halen. In dit voorbeeld wordt de schijf-id opgeslagen in een variabele die wordt gebruikt in een latere stap. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

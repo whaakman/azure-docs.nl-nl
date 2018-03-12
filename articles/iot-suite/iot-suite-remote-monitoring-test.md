@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 9f51c35be09af6f3a8dde7061dcf57a9c4cc9fdb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Een nieuw gesimuleerd apparaat maken
 
@@ -104,7 +104,7 @@ De volgende taken uitvoeren om uw ontwikkelingsomgeving voor een nieuw gesimulee
 
 Tijdens het maken van uw oplossing voor externe controle op [www.azureiotsuite.com](https://www.azureiotsuite.com), u de naam van een oplossing hebt gekozen. Naam van de oplossing wordt de naam van de Azure-resourcegroep met de verschillende geïmplementeerde resources die gebruikmaakt van de oplossing. De volgende opdrachten gebruiken een resourcegroep met de naam **Contoso-01**, vervangt u **Contoso-01** met de naam van de resourcegroep.
 
-De volgende opdrachten gebruiken de `az` opdracht [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). U kunt Azure CLI 2.0 installeren op uw ontwikkelcomputer of gebruik de [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in de [Azure-portal](http://portal.azure.com). De Azure CLI 2.0 is vooraf geïnstalleerd in de Cloud-Shell.
+De volgende opdrachten gebruiken de `az` opdracht [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). U kunt Azure CLI 2.0 installeren op uw ontwikkelcomputer of gebruik de [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in de [Azure-portal](http://portal.azure.com). De Azure CLI 2.0 is vooraf geïnstalleerd in de Cloud-Shell.
 
 1. Om te controleren of de naam van de resourcegroep die uw externe controle resources bevat, voer de volgende opdracht:
 

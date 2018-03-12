@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Het maken van een installatiekopie van een virtuele machine of de VHD
 
@@ -37,7 +37,7 @@ Zorg ervoor dat u voldoet aan de volgende vereisten:
 
 * U moet een Azure VM gemaakt in het Resource Manager-implementatiemodel met beheerde schijven. Als u een Linux-VM nog niet hebt gemaakt, kunt u de [portal](quick-create-portal.md), wordt de [Azure CLI](quick-create-cli.md), of [Resource Manager-sjablonen](create-ssh-secured-vm-from-template.md). De virtuele machine naar wens configureren. Bijvoorbeeld: [gegevensschijven toevoegen](add-disk.md), toepassen van updates en toepassingen te installeren. 
 
-* U moet bovendien beschikken over de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en worden aangemeld bij een Azure-account met behulp van [az aanmelding](/cli/azure/#az_login).
+* U moet bovendien beschikken over de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en worden aangemeld bij een Azure-account met behulp van [az aanmelding](/cli/azure/reference-index#az_login).
 
 ## <a name="quick-commands"></a>Snelle opdrachten
 
@@ -45,7 +45,7 @@ Zie voor een vereenvoudigde versie van dit onderwerp voor het testen, evalueren 
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Stap 1: Inrichting ervan ongedaan maakt de virtuele machine
-U inrichting ervan ongedaan maakt de virtuele machine met behulp van de Azure VM-agent machine specifieke bestanden en gegevens te verwijderen. Gebruik de `waagent` opdracht met de *-deprovision + user* parameter bij de bron-Linux-VM. Zie voor meer informatie de [gebruikershandleiding voor Azure Linux Agent](../windows/agent-user-guide.md).
+U inrichting ervan ongedaan maakt de virtuele machine met behulp van de Azure VM-agent machine specifieke bestanden en gegevens te verwijderen. Gebruik de `waagent` opdracht met de *-deprovision + user* parameter bij de bron-Linux-VM. Zie de [Gebruikershandleiding voor Azure Linux Agent](../windows/agent-user-guide.md) voor meer informatie.
 
 1. Verbinding maken met uw Linux-VM met behulp van een SSH-client.
 2. Typ de volgende opdracht in het venster SSH:
@@ -143,4 +143,4 @@ U kunt meerdere virtuele machines maken van de bron-VM-installatiekopie. Als u w
 - Volg de stappen weer voor inrichting ervan ongedaan maakt, toewijzing generaliseren en een installatiekopie maken.
 - Deze nieuwe installatiekopie gebruiken voor toekomstige implementaties. Indien gewenst, verwijdert u de originele installatiekopie.
 
-Zie voor meer informatie over het beheren van uw virtuele machines met de CLI [Azure CLI 2.0](/cli/azure/overview).
+Zie voor meer informatie over het beheren van uw virtuele machines met de CLI [Azure CLI 2.0](/cli/azure).

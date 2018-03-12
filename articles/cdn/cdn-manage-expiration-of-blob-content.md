@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: f5609f98de7ce6967dd1ff502e88d798741384df
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bafb04a1a19c4436d8f6c1c21700e9463334b3de
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Vervaldatum van Azure Blob storage in Azure Content Delivery Network beheren
 > [!div class="op_single_selector"]
@@ -159,7 +159,7 @@ Bijwerken van de *CacheControl* eigenschap van een blob met Azure Storage Explor
 ![Azure Storage Explorer-eigenschappen](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Azure-opdrachtregelinterface
-Met de [Azure-opdrachtregelinterface](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), kunt u Azure blob-bronnen beheren vanaf de opdrachtregel. Om in te stellen van de header cache-control tijdens het uploaden van een blob met de Azure CLI het *cacheControl* eigenschap met behulp van de `-p` overschakelen. Het volgende voorbeeld laat zien hoe de TTL-waarde ingesteld op één uur (3600 seconden):
+Met de [Azure-opdrachtregelinterface](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) (CLI), kunt u Azure blob-bronnen beheren vanaf de opdrachtregel. Om in te stellen van de header cache-control tijdens het uploaden van een blob met de Azure CLI het *cacheControl* eigenschap met behulp van de `-p` overschakelen. Het volgende voorbeeld laat zien hoe de TTL-waarde ingesteld op één uur (3600 seconden):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>

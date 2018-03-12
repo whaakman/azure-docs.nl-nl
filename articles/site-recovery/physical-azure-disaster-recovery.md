@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d4c8dc8083fbffc46e94673230241075b763b444
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Herstel na noodgevallen in Azure voor on-premises fysieke servers instellen
 
@@ -32,8 +32,8 @@ Deze zelfstudie laat zien hoe u voor het instellen van herstel na noodgevallen v
 Vereisten voor het voltooien van deze zelfstudie:
 
 - Zorg ervoor dat u inzicht hebt in de [architectuur en onderdelen voor dit scenario](physical-azure-architecture.md).
-- Raadpleeg de [ondersteuningsvereisten](site-recovery-support-matrix-to-azure.md) voor alle onderdelen.
-- Zorg ervoor dat de servers die u wilt repliceren voldoen [vereisten van de virtuele machine van Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Raadpleeg de [ondersteuningsvereisten](vmware-physical-secondary-support-matrix.md) voor alle onderdelen.
+- Zorg ervoor dat de servers die u wilt repliceren voldoen [vereisten van de virtuele machine van Azure](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Voorbereiden op Azure. U moet een Azure-abonnement, een Azure-netwerk en een opslagaccount.
 - Bereid een account voor automatische installatie van de Mobility-service op elke server die u wilt repliceren.
 
@@ -171,7 +171,7 @@ Replicatie inschakelen voor elke server.
 8. Selecteer **Nu configureren voor geselecteerde machines** om de netwerkinstelling toe te passen op alle machines die u voor beveiliging selecteert. Selecteer **Later configureren** om per machine een Azure-netwerk te selecteren. 
 9. In **fysieke Machines**, en klik op **+ fysieke machine**. Geef de naam en IP-adres. Selecteer het besturingssysteem van de computer die u wilt repliceren. Het duurt enkele minuten voor de servers worden gedetecteerd en wordt vermeld. 
 10. In **eigenschappen** > **eigenschappen configureren**, selecteer het account dat wordt gebruikt door de processerver voor het installeren van de Mobility-service automatisch op de machine.
-11. In **replicatie-instellingen** > **replicatie-instellingen configureren**, Controleer of de juiste replicatiebeleid is geselecteerd. 
+11. Controleer of het juiste replicatiebeleid is geselecteerd in **Replicatie-instellingen** > **Replicatie-instellingen configureren**. 
 12. Klik op **Replicatie inschakelen**. U kunt de voortgang van de taak **Beveiliging inschakelen** volgen via **Instellingen** > **Taken** > **Site Recovery-taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
 
 

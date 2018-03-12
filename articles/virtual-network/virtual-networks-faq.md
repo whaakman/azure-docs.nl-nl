@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
-ms.openlocfilehash: 8800dc59306c349daba8f4d9703e0c713eed06ec
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a5b4bac9e0d8bc10defaff251557129a70d8a022
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) virtuele Azure-netwerk
 
@@ -57,7 +57,7 @@ U kunt de volgende hulpprogramma's gebruiken om te maken of een VNet configurere
 Alle IP-adresbereik is gedefinieerd in [RFC 1918](http://tools.ietf.org/html/rfc1918). Bijvoorbeeld: 10.0.0.0/16.
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Kan ik openbare IP-adressen in mijn vnet's hebben?
-Ja. Zie voor meer informatie over openbare IP-adresbereiken [een virtueel netwerk maken](virtual-network-manage-network.md#create-a-virtual-network). Openbare IP-adressen zijn niet rechtstreeks toegankelijk zijn vanaf internet.
+Ja. Zie voor meer informatie over openbare IP-adresbereiken [een virtueel netwerk maken](manage-virtual-network.md#create-a-virtual-network). Openbare IP-adressen zijn niet rechtstreeks toegankelijk zijn vanaf internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>Is er een limiet aan het aantal subnetten in mijn VNet?
 Ja. Zie [Azure beperkt](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) voor meer informatie. Subnet adresruimten elkaar niet overlappen elkaar.
@@ -151,7 +151,7 @@ Ja. Alle netwerkinterfaces (NIC) gekoppeld aan een virtuele machine te implement
 Nee. Een persoonlijke IP-adres kan niet worden gereserveerd. Als een persoonlijk IP-adres beschikbaar is, is het toegewezen aan een exemplaar van de virtuele machine of rol door de DHCP-server. De virtuele machine al dan niet die u wilt dat de privé IP-adres wordt toegewezen aan. U kunt echter het privé IP-adres van een bestaande VM om alle beschikbare privé IP-adres te wijzigen.
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>Persoonlijke IP-adressen wijzigen voor virtuele machines in een VNet doen?
-Dat hangt ervan af. Als de virtuele machine is geïmplementeerd via resourcemanager Nee, ongeacht of het IP-adres is toegewezen aan de statische of dynamische toewijzingsmethode. Als de virtuele machine is geïmplementeerd via het klassieke implementatiemodel, kunnen dynamische IP-adressen wijzigen wanneer een virtuele machine wordt gestart nadat zijn gestopt (toewijzing ongedaan gemaakt). Het adres wordt vrijgegeven van een virtuele machine te implementeren via beide implementatiemodel wanneer de virtuele machine wordt verwijderd.
+Dat hangt ervan af. Als de virtuele machine is geïmplementeerd via Resource Manager Nee, ongeacht of het IP-adres is toegewezen aan de statische of dynamische toewijzingsmethode. Als de virtuele machine is geïmplementeerd via het klassieke implementatiemodel, kunnen dynamische IP-adressen wijzigen wanneer een virtuele machine wordt gestart nadat zijn gestopt (toewijzing ongedaan gemaakt). Het adres wordt vrijgegeven van een virtuele machine te implementeren via beide implementatiemodel wanneer de virtuele machine wordt verwijderd.
 
 ### <a name="can-i-manually-assign-ip-addresses-to-nics-within-the-vm-operating-system"></a>Kan ik handmatig IP-adressen toewijzen aan NIC's in het besturingssysteem van de virtuele machine?
 Ja, maar deze wordt niet aanbevolen, tenzij nodig, zoals wanneer meerdere IP-toewijzen aan een virtuele machine adressen. Zie voor meer informatie [toe te voegen meerdere IP-adressen aan een virtuele machine](virtual-network-multiple-ip-addresses-portal.md#os-config). Als het IP-adres dat is toegewezen aan een Azure-NIC die is gekoppeld aan een VM wijzigingen en het IP-adres in het besturingssysteem van de virtuele machine anders is, u verbinding met de virtuele machine verliezen.
@@ -218,6 +218,6 @@ Ja. U kunt de REST-API's gebruiken voor vnet's binnen de [Azure Resource Manager
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Is er tooling ondersteuning voor VNets?
 Ja. Meer informatie over het gebruik van:
-- De Azure-portal voor het implementeren van VNets via de [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) en [klassieke](virtual-networks-create-vnet-classic-pportal.md) implementatiemodellen.
+- De Azure-portal voor het implementeren van VNets via de [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) en [klassieke](virtual-networks-create-vnet-classic-pportal.md) implementatiemodellen.
 - PowerShell voor het beheren van VNets die zijn geïmplementeerd via de [Resource Manager](/powershell/module/azurerm.network) en [klassieke](/powershell/module/azure/?view=azuresmps-3.7.0) implementatiemodellen.
 - De Azure-opdrachtregelinterface (CLI) te implementeren en beheren van de VNets die zijn geïmplementeerd via de [Resource Manager](/cli/azure/network/vnet) en [klassieke](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) implementatiemodellen.  

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e4fa38145ac21aaca8efa37250cc32ef1b1655c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Overzicht van Azure Load Balancer-standaard (preview)
 
@@ -327,7 +327,7 @@ Er zijn geen veranderlijke SKU's. Volg de stappen in deze sectie voor het verpla
 
 ## <a name="region-availability"></a>Beschikbaarheid in regio’s
 
-Load Balancer standaard is momenteel beschikbaar in alle openbare cloud-regio's.
+Load Balancer standaard is momenteel beschikbaar in alle openbare cloud-regio's, behalve VS-West.
 
 >[!IMPORTANT]
 > Voor een korte periode, toegang tot regio's buiten de eerste keer start regio's (VS-Oost 2, VS-midden, Noord-Europa, West-Centraal VS, West-Europa, Zuidoost-Azië) de registratie van het voor aanvullende Abonnementsfuncties vereist (AllowLBPreviewWave2 en AllowLBPreviewWave3).  [Volg de onderstaande stappen](#additionalpreviewregions). Voer deze zelfs als u hebt eerder hebt aangemeld voor AllowLBPreview al.
@@ -467,6 +467,7 @@ De volgende beperkingen toepassen op het moment van preview en nog worden gewijz
 - [Waarschuwingen van Azure controleren](../monitoring-and-diagnostics/monitoring-overview-alerts.md) worden niet ondersteund op dit moment.
 - Portal biedt nog geen ondersteuning voor de uitgebreide preview regio's.  Gebruik clienthulpprogramma's, zoals sjablonen, Azure CLI 2.0 of PowerShell als tijdelijke oplossing.
 - Verplaats de abonnement-bewerkingen worden niet ondersteund.
+- Niet beschikbaar in VS-West.
 
 
 ## <a name="next-steps"></a>Volgende stappen
