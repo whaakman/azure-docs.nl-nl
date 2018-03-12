@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Besturingssysteem-functionaliteit op Azure App Service
 In dit artikel wordt de algemene basislijn besturingssysteem functionaliteit beschreven die beschikbaar is voor alle apps die worden uitgevoerd op [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Deze functionaliteit omvat bestand, netwerk, en toegang tot het register en logboeken met diagnostische gegevens en gebeurtenissen. 
@@ -79,7 +79,7 @@ De basismap bevat een app-inhoud en toepassingscode kan schrijven. Als een app w
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Netwerktoegang
-Toepassingscode kan TCP/IP gebruiken en op basis van UDP-protocollen maken uitgaande netwerkverbindingen naar Internet toegankelijk eindpunten die externe services. Apps kunnen deze protocollen dezelfde verbinding maken met services in Azure & #151, bijvoorbeeld door het opstellen van HTTPS-verbindingen met SQL-Database gebruiken.
+Toepassingscode kan TCP/IP gebruiken en op basis van UDP-protocollen maken uitgaande netwerkverbindingen naar Internet toegankelijk eindpunten die externe services. Apps kunt deze dezelfde protocollen verbinding maken met services in Azure&#151;bijvoorbeeld door het opstellen van HTTPS-verbindingen met SQL-Database.
 
 Er is ook een beperkte capaciteit voor apps voor een lokale loopback-verbinding tot stand brengen en een app luisteren op die lokale loopback-socket hebben. Deze functie bestaat voornamelijk om apps te schakelen die op de lokale loopback-sockets als onderdeel van hun functionaliteit luisteren. Houd er rekening mee dat elke app een 'persoonlijke' loopback-verbinding ziet. App "A" kan niet luisteren naar een lokale loopback-socket tot stand gebracht door app "B".
 

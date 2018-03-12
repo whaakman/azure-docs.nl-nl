@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
 ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configureren en beheren van problemen voor Azure Cloud Services: veelgestelde vragen (FAQ's)
 
@@ -57,7 +57,7 @@ Dit artikel bevat veelgestelde vragen over het configureren en beheren van probl
 - [Ik kan niet worden uitgebreid dan X exemplaren](#i-cannot-scale-beyond-x-instances)
 - [Hoe kan ik automatisch geschaald op basis van geheugen metrische gegevens configureren?](#how-can-i-configure-auto-scale-based-on-memory-metrics)
 
-**Algemene**
+**Generic**
 
 - [Hoe kan ik 'nosniff' naar mijn website toevoegen](#how-do-i-add-nosniff-to-my-website)
 - [Hoe pas IIS voor een Webrol?](#how-do-i-customize-iis-for-a-web-role)
@@ -213,7 +213,7 @@ Microsoft volgt een strikte proces dat niet toe interne technici met extern bure
 Deze fout kan optreden als u het RDP-bestand van een machine die is gekoppeld aan Azure Active Directory. U lost dit probleem door de volgende stappen uit:
 
 1. Met de rechtermuisknop op het RDP-bestand dat u hebt gedownload en selecteer vervolgens **bewerken**.
-2. Voeg ' &#92; ' als voorvoegsel voordat de gebruikersnaam. Bijvoorbeeld: **. \username** in plaats van **gebruikersnaam**.
+2. Voeg '&#92;' als voorvoegsel voordat de gebruikersnaam. Bijvoorbeeld: **. \username** in plaats van **gebruikersnaam**.
 
 ## <a name="scaling"></a>Schalen
 
