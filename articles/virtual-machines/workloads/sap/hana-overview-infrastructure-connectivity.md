@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastructuur voor SAP HANA (grote exemplaren) en de verbindingen van Azure 
 
@@ -75,7 +75,7 @@ Ja, bekijken we iets dichter bij het maken van het Azure VNet voor grote HANA-ex
 >[!Note]
 >Het Azure VNet voor grote HANA-exemplaar moet worden gemaakt met het Azure Resource Manager-implementatiemodel. Het oudere model van Azure-implementatie, bekend als het klassieke implementatiemodel wordt niet ondersteund met de oplossing voor grote HANA-exemplaar.
 
-Het VNet kan worden gemaakt met de Azure-portal, PowerShell, Azure-sjabloon of Azure CLI (Zie [een virtueel netwerk maken met de Azure-portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). We bekijken in het volgende voorbeeld in een VNet gemaakt via de Azure portal.
+Het VNet kan worden gemaakt met de Azure-portal, PowerShell, Azure-sjabloon of Azure CLI (Zie [een virtueel netwerk maken met de Azure-portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). We bekijken in het volgende voorbeeld in een VNet gemaakt via de Azure portal.
 
 Als we in de definities van een Azure VNet via de Azure portal bekijken, bekijken we over een aantal van de definities en hoe die betrekking hebben op wat wij in de lijst van verschillende IP-adresbereiken. Als we bespreken de **adresruimte**, bedoelen we de adresruimte die het Azure VNet mag worden gebruikt. Deze adresruimte is ook het adresbereik op dat het VNet wordt gebruikt voor het doorgeven van de BGP-route. Dit **adresruimte** kunnen hier worden weergegeven:
 
@@ -250,7 +250,7 @@ Gebruik de Azure-portal, PowerShell of CLI bij het toevoegen van meer IP-adresse
 
 In dit geval is de aanbeveling het nieuwe IP-adresbereik toevoegen als nieuw bereik aan de VNet-adresruimte in plaats van een nieuw bereik geaggregeerde genereren. In beide gevallen moet u deze wijziging naar Microsoft connectiviteit buiten die nieuwe IP-adresbereik aan de eenheden grote HANA-exemplaar dat is toegestaan in de client verzenden. U kunt een aanvraag voor de ondersteuning van Azure ophalen van de nieuwe VNet adresruimte toegevoegd openen. Nadat u een bevestiging ontvangen, moet u de volgende stappen uitvoeren.
 
-Zie het artikel voor informatie over het maken van een ander subnet van de Azure-portal [een virtueel netwerk maken met de Azure-portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), en voor het maken van PowerShell, Zie [maken van een virtueel netwerk met behulp van PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Zie het artikel voor informatie over het maken van een ander subnet van de Azure-portal [een virtueel netwerk maken met de Azure-portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network), en voor het maken van PowerShell, Zie [maken van een virtueel netwerk met behulp van PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
 ## <a name="adding-vnets"></a>Vnet's toe te voegen
 
@@ -277,15 +277,13 @@ Nadat het nieuwe circuit is gemaakt en de SAP HANA van Azure Service Management-
 
 Als u wilt verwijderen van een VNet subnet, kan de Azure-portal, PowerShell of CLI worden gebruikt. Als uw Azure VNet IP-adres bereik/Azure VNet-adresruimte een cumulatieve bereik is, is er geen volgen voor u met Microsoft. Behalve dat het VNet is nog steeds de adresruimte van het BGP-route met het verwijderde subnet wordt doorgegeven. Als u het Azure VNet IP-adres bereik/Azure VNet-adresruimte gedefinieerd als meerdere IP-adresbereiken waarvan een is toegewezen aan uw verwijderde subnet, moet u die buiten uw VNet-adresruimte te verwijderen en vervolgens SAP HANA op Azure-servicebeheer te informeren verwijderen van de bereiken die SAP HANA in Azure (grote exemplaren) om te communiceren met is toegestaan.
 
-Terwijl er nog specifieke, toegewezen Azure.com richtlijnen over het verwijderen van subnetten, het proces voor het verwijderen van subnetten de achterzijde van het proces is voor deze toe te voegen. Zie het artikel [een virtueel netwerk maken met de Azure-portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie over het maken van subnetten.
+Zie het verwijderen van een subnet [verwijderen van een subnet](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet) voor meer informatie over het maken van subnetten.
 
 ## <a name="deleting-a-vnet"></a>Verwijderen van een VNet
 
-Gebruik de Azure-portal, PowerShell of CLI bij het verwijderen van een VNet. SAP HANA op Azure Service Management verwijdert de bestaande goedkeuringen op de SAP HANA op Azure (grote exemplaren) ExpressRoute-circuit en verwijderen van het Azure VNet IP-adres bereik/Azure VNet-adresruimte voor de communicatie met grote HANA-exemplaren.
+Zie het verwijderen van een virtueel netwerk [verwijderen van een virtueel netwerk](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network). SAP HANA op Azure Service Management verwijdert de bestaande goedkeuringen op de SAP HANA op Azure (grote exemplaren) ExpressRoute-circuit en verwijderen van het Azure VNet IP-adres bereik/Azure VNet-adresruimte voor de communicatie met grote HANA-exemplaren.
 
 Zodra het VNet is verwijderd, opent u een aanvraag voor ondersteuning van Azure om de IP-adresbereiken ruimte worden verwijderd.
-
-Terwijl er nog niet specifiek, speciale Azure.com richtlijnen over het verwijderen van vnet's, het proces voor het verwijderen van VNets is de achterzijde van het proces voor deze toe te voegen, die hierboven wordt beschreven. Zie de artikelen [een virtueel netwerk maken met de Azure-portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) en [maken van een virtueel netwerk met behulp van PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie over het maken van VNets.
 
 Om te controleren of dat alles is verwijderd, verwijdert u de volgende items:
 

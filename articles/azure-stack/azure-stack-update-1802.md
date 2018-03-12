@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b5e52e30b99e1d59c2f8bde17b31b0f1cb3d6d70
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure-Stack 1802 update
 
@@ -37,10 +37,6 @@ Het buildnummer van Azure Stack 1802 update **20180302.1**.
 ## <a name="before-you-begin"></a>Voordat u begint    
 > [!IMPORTANT]    
 > Probeer niet voor het maken van virtuele machines tijdens de installatie van deze update. Zie voor meer informatie over het beheren van updates, [beheren van updates in de Azure-Stack overzicht](/azure-stack-updates#plan-for-updates).
-
-> [!IMPORTANT]    
-> Als u werkt met [SQL](/azure-stack-sql-resource-provider-deploy) of [MySQL](/azure-stack-mysql-resource-provider-deploy) resourceproviders, versie 1712 voordat u begint met de installatie van Azure-Stack versie 1802 moet worden uitgevoerd. Als de providers versie 1711 of lager zijn en u Azure-Stack versie 1802 hebt geïnstalleerd, kunt u deze resourceproviders niet meer bijwerken naar een recentere versie.
-
 
 
 ### <a name="prerequisites"></a>Vereisten

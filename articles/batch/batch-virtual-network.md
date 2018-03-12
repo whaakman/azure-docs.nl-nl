@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: danlep
-ms.openlocfilehash: 9748ae5cc58c64412ab6e51e6cd502abc3505c51
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5a06ad5086a42bb00147e085227f3c71c357544e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Een Azure Batch-pool in een virtueel netwerk maken
 
@@ -32,7 +32,7 @@ Een Azure Batch-pool heeft instellingen om toe te staan van rekenknooppunten om 
 
 * **Authentication** (Verificatie). Het gebruik van een Azure VNet vereist dat de Batch-client-API gebruikmaakt van Azure Active Directory-verificatie (AD). Azure Batch-ondersteuning voor Azure AD wordt beschreven in [Oplossingen van Batch-service verifiëren met Active Directory](batch-aad-auth.md). 
 
-* **Een Azure VNet**. Als u van tevoren een VNet met een of meer subnetten, kunt u de Azure-portal, Azure PowerShell, de Azure-opdrachtregelinterface (CLI) of andere methoden. Zie het maken van een Azure Resource Manager gebaseerde VNet [een virtueel netwerk maken met meerdere subnetten](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Zie het maken van een klassiek VNet [een virtueel netwerk (klassiek) maken met meerdere subnetten](../virtual-network/create-virtual-network-classic.md).
+* **Een Azure VNet**. Als u van tevoren een VNet met een of meer subnetten, kunt u de Azure-portal, Azure PowerShell, de Azure-opdrachtregelinterface (CLI) of andere methoden. Zie het maken van een Azure Resource Manager gebaseerde VNet [een virtueel netwerk maken](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Zie het maken van een klassiek VNet [een virtueel netwerk (klassiek) maken met meerdere subnetten](../virtual-network/create-virtual-network-classic.md).
 
 ### <a name="vnet-requirements"></a>Vereisten voor VNet
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]

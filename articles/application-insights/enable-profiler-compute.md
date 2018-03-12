@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 278d8241ddd67b6df64b7280d4a17c6d3152f223
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Application Insights Profiler inschakelen voor virtuele machines in Azure Service Fabric en Azure-Cloudservices
 
@@ -46,8 +46,7 @@ U kunt Profiler, moet u de configuratie op drie locaties:
 
    ![Locatie van de instrumentatiesleutel](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Voor het voltooien van de Application Insights-exemplaar in te stellen voor de Profiler, voert u de procedure die wordt beschreven in [Profiler inschakelen](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler).  
-    U hoeft niet te koppelen van de web-apps, omdat de stappen specifiek voor de resource voor de app-services zijn. Zorg ervoor dat de Profiler is ingeschakeld in de **Profiler configureren** deelvenster.
+3. Voor het voltooien van de Application Insights-exemplaar in te stellen voor de Profiler, voert u de procedure die wordt beschreven in [Profiler inschakelen. U hoeft niet te koppelen van de web-apps, omdat de stappen specifiek voor de resource voor de app-services zijn. Zorg ervoor dat de Profiler is ingeschakeld in de **Profiler configureren** deelvenster.
 
 
 ## <a name="set-up-the-application-source-code"></a>De broncode van de toepassing instellen
@@ -157,6 +156,8 @@ Ga als volgt te werk om uw omgeving instellen:
 
       Zie voor meer informatie over het toevoegen van de extensie voor diagnostische gegevens naar uw implementatiesjabloon [Gebruik controle en diagnostische gegevens met een virtuele machine van Windows en Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+> [!TIP]
+> Voor virtuele Machines een alternatief voor de bovenstaande json op basis van stappen is om te navigeren in de Azure portal naar **virtuele Machines** > **diagnostische instellingen**  >   **Sinks** > Set diagnostische gegevens verzenden naar Application Insights naar **ingeschakeld** en selecteer een Application Insights-account of een specifieke ikey.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 
@@ -196,7 +197,7 @@ Ga als volgt te werk om uw omgeving instellen:
 
 1. De implementatiedefinitie gewijzigde omgeving implementeren.  
 
-   Om de wijzigingen toepast, meestal gebruikgemaakt van een volledige sjabloon-implementatie of een cloudservices publiceren via PowerShell-cmdlets of Visual Studio.  
+   De wijzigingen toepassen betekent doorgaans een volledige sjabloon-implementatie of een cloud-services op basis via PowerShell-cmdlets of Visual Studio publiceren.  
 
    Hier volgt een alternatieve methode voor bestaande virtuele machines die alleen de extensie Azure Diagnostics raakt:  
 

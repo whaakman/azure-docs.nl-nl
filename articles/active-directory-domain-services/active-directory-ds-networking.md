@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Overwegingen voor Azure AD Domain Services netwerken
 ## <a name="how-to-select-an-azure-virtual-network"></a>Het selecteren van een virtuele Azure-netwerk
@@ -53,6 +53,7 @@ De volgende richtlijnen kunnen u een virtueel netwerk gebruiken met Azure AD Dom
 * Nsg's zijn niet van toepassing met het toegewezen subnet voor uw beheerde domein. Als het nsg's moet u op het toegewezen subnet toepassen, moet u **niet de vereiste poorten voor service blokkeren en beheren van uw domein**.
 * Niet te beperken het aantal IP-adressen beschikbaar zijn binnen de toegewezen subnet voor uw beheerde domein. Deze beperking wordt voorkomen dat de service twee domeincontrollers beschikbaar maken voor uw beheerde domein.
 * **Schakel Azure AD Domain Services in het gatewaysubnet geen** van het virtuele netwerk.
+* Blokkeer niet uitgaande toegang vanuit het subnet waarin uw beheerde domein is ingeschakeld.
 
 > [!WARNING]
 > Als u koppelt een NSG aan een subnet waarin Azure AD Domain Services is ingeschakeld, u de mogelijkheid van Microsoft-service en beheren van het domein kan verstoren. Bovendien wordt de synchronisatie tussen uw Azure AD-tenant en uw beheerde domein onderbroken. **De SLA niet van toepassing op implementaties waarbij een NSG is toegepast, die blokkeert Azure AD Domain Services uit bijwerken en het beheren van uw domein.**
@@ -89,6 +90,8 @@ De volgende poorten zijn vereist voor de service Azure AD Domain Services en ond
 * Deze wordt gebruikt voor het inschakelen van beveiligde LDAP-toegang tot uw beheerde domein via internet.
 * Deze poort via uw NSG te openen is optioneel. Open de poort alleen als u beveiligde LDAP toegang via het internet is ingeschakeld.
 * U kunt binnenkomende toegang beperken tot deze poort voor de bron-IP-adressen van waaruit u verbinding maken via een veilige LDAP verwacht.
+
+**Uitgaande toegang** AAD Domain Services moet uitgaande toegang tot verschillende andere Azure-services om te kunnen beheren, back-up maken en bewaken van uw beheerde domein. Blokkeer niet uitgaande toegang vanuit het toegewezen subnet waarin uw beheerde domein is ingeschakeld.
 
 
 ## <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen

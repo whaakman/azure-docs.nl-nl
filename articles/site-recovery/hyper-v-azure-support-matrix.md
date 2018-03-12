@@ -3,15 +3,16 @@ title: De ondersteuningsmatrix voor Hyper-V-replicatie Azure | Microsoft Docs
 description: Geeft een overzicht van de ondersteunde onderdelen en de vereisten voor Hyper-V-replicatie naar Azure met Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 58d54c1e0e6aa88878b45400b9211396f5d1b9d5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 81983b9287a6b8073724f0cd973929f4b4677d4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>De ondersteuningsmatrix voor Hyper-V-replicatie naar Azure
 
@@ -141,18 +142,18 @@ Lokale virtuele machines die u naar Azure repliceert moeten voldoen aan de virtu
 
 **Onderdeel** | **Vereisten** | **Details**
 --- | --- | ---
-Gastbesturingssysteem | Site Recovery ondersteunt alle besturingssystemen die zijn [ondersteund door Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Controle van vereisten mislukt als een niet-ondersteund.
+**Gastbesturingssysteem** | Site Recovery ondersteunt alle besturingssystemen die zijn [ondersteund door Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Controle van vereisten mislukt als een niet-ondersteund.
 **Architectuur van de Gast-besturingssysteem** | 64-bits | Controle van vereisten mislukt als een niet-ondersteund.
 **Grootte van de besturingssysteemschijf** | Maximaal 2048 GB voor virtuele machines van generatie 1.<br/><br/> 300 GB voor virtuele machines van generatie 2.  | Controle van vereisten mislukt als een niet-ondersteund.
-**Het aantal schijven voor besturingssysteem** | 1 | Controle van vereisten mislukt als een niet-ondersteund.
+**Aantal besturingssysteemschijven** | 1 | Controle van vereisten mislukt als een niet-ondersteund.
 **Aantal gegevensschijven** | 16 of minder  | Controle van vereisten mislukt als een niet-ondersteund.
-**De grootte van VHD gegevensschijf** | 4095 GB | Controle van vereisten mislukt als een niet-ondersteund.
+**Grootte van VHD-gegevensschijf** | Maximaal 4095 GB | Controle van vereisten mislukt als een niet-ondersteund.
 **Netwerkadapters** | Meerdere netwerkadapters worden ondersteund |
 **Gedeelde VHD** | Niet ondersteund | Controle van vereisten mislukt als een niet-ondersteund.
 **FC-schijf** | Niet ondersteund | Controle van vereisten mislukt als een niet-ondersteund.
-**Harde schijf-indeling** | VHD <br/><br/> VHDX | VHDX site Recovery automatisch geconverteerd naar VHD wanneer u een failover naar Azure. Wanneer u een failover naar on-premises blijven de virtuele machines gebruiken van de VHDX-indeling.
+**Harde-schijfindeling** | VHD <br/><br/> VHDX | VHDX site Recovery automatisch geconverteerd naar VHD wanneer u een failover naar Azure. Wanneer u een failover naar on-premises blijven de virtuele machines gebruiken van de VHDX-indeling.
 **Bitlocker** | Niet ondersteund | BitLocker moet worden uitgeschakeld voordat u replicatie voor een virtuele machine inschakelt.
-**VM-naam** | Tussen 1 en 63 tekens. Alleen letters, cijfers en afbreekstreepjes. De VM-naam moet beginnen en eindigen met een letter of cijfer. | Werk de waarde in de VM-eigenschappen in Site Recovery.
+**VM-naam** | 1 tot 63 tekens. Alleen letters, cijfers en afbreekstreepjes. De VM-naam moet beginnen en eindigen met een letter of cijfer. | Werk de waarde in de VM-eigenschappen in Site Recovery.
 **VM-type** | Generatie 1<br/><br/> Generatie 2--Windows | Generatie 2 virtuele machines met een type besturingssysteem schijf basic (waaronder een of twee gegevensvolumes die zijn opgemaakt als VHDX) en minder dan 300 GB aan schijfruimte worden ondersteund.<br></br>Virtuele machines Linux generatie 2 worden niet ondersteund. [Meer informatie](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="recovery-services-vault-actions"></a>Recovery Services-kluis acties

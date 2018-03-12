@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 8ec733c01b19f01951d0b53265daaef32c3afe73
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 544fc1bcc9212fd38938d58447f5050df2a08796
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Verbinding maken met Azure-Stack in Azure maken met ExpressRoute
 
@@ -273,7 +273,7 @@ De voorbeeld-netwerk van Azure-infrastructuur is geconfigureerd in de volgende m
 3. Maken van de spoke VNet en een subnet met de 10.100.0.0/16-adresbereik.
 
 
-Zie voor meer informatie over het maken van virtuele netwerken in Azure [een virtueel netwerk maken met meerdere subnetten](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Zie voor meer informatie over het maken van virtuele netwerken in Azure [een virtueel netwerk maken](../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 ### <a name="configure-an-expressroute-circuit"></a>Een ExpressRoute-circuit configureren
 

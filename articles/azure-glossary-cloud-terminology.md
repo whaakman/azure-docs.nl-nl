@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: fd20405c284161a1a66493056f21c147efa632cb
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Verklarende woordenlijst voor Microsoft Azure: een dictionary van cloud-terminologie op de Azure-platform
 
@@ -28,7 +28,7 @@ De verklarende woordenlijst voor Microsoft Azure is een korte dictionary van clo
 * [Microsoft Azure en Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -definities van Azure-services en hun AWS-equivalenten.<!-- I propose to link to https://azure.microsoft.com/en-us/services/ instead of this -->
 * [Cloud computing voorwaarden](https://azure.microsoft.com/overview/cloud-computing-dictionary/) -algemeen bedrijfstak cloud voorwaarden.
 
-## <a name="account"></a>Account
+## <a name="account"></a>account
 Een account dat wordt gebruikt voor toegang tot en beheer van een Azure-abonnement. Dit wordt vaak aangeduid als een Azure-account Hoewel een account kunt elk van deze waarden zijn: een bestaand werk, school, of persoonlijke Microsoft-account of een Office 365-gebruikersnaam en wachtwoord. U kunt ook maken met een account voor het beheren van een Azure-abonnement als u zich registreert voor de [gratis proefversie](https://azure.microsoft.com).  
 Zie [aanmelden voor een Azure-abonnement met uw Office 365-account](billing/billing-use-existing-office-365-account-azure-subscription.md) en [Accounts kunt u aan te melden](active-directory/active-directory-how-subscriptions-associated-directory.md).
 
@@ -46,7 +46,7 @@ Zie [beheren van de beschikbaarheid van virtuele machines van Windows](virtual-m
 Twee [implementatiemodellen](resource-manager-deployment-model.md) gebruikt voor het implementeren van resources in Azure (het nieuwe model is Azure Resource Manager). Sommige Azure-services ondersteunt alleen het Resource Manager-implementatiemodel, sommige browsers ondersteunen het klassieke implementatiemodel en sommige ondersteunen beide. De documentatie voor elke Azure-service geeft aan welke modellen ondersteunen.
 
 ## <a name="cli"></a>Azure-opdrachtregelinterface (CLI)
-Een opdrachtregelinterface die kunnen worden gebruikt voor het beheren van Azure-services van Windows, Mac OS- en Linux.  Bepaalde services of functies van de service kunnen alleen via PowerShell of de CLI worden beheerd. Zie [Azure CLI 2.0](/cli/azure/overview)
+Een opdrachtregelinterface die kunnen worden gebruikt voor het beheren van Azure-services van Windows, Mac OS- en Linux.  Bepaalde services of functies van de service kunnen alleen via PowerShell of de CLI worden beheerd. See [Azure CLI 2.0](/cli/azure)
 
 ## <a name="powershell"></a>Azure PowerShell
 Een opdrachtregelinterface voor het beheren van Azure-services via een opdrachtregel van Windows-pc's. Bepaalde services of functies van de service kunnen alleen via PowerShell of de CLI worden beheerd.
@@ -82,7 +82,7 @@ Een bron die binnenkomend verkeer op de computers in een netwerk distribueert. I
 ## <a name="mobile-app"></a>mobiele app
 Een andere naam voor [App Service-App](#app-service-app).
 
-## <a name="offer"></a>Aanbieding
+## <a name="offer"></a>aanbieding
 De prijzen, tegoeden, en de bijbehorende voorwaarden van toepassing op een Azure-abonnement.  
 Zie de [detailpagina aanbieding voor Azure](https://azure.microsoft.com/support/legal/offer-details/)
 
@@ -105,11 +105,11 @@ Zie [overzicht van Azure Resource Manager](azure-resource-manager/resource-group
 Een JSON-bestand declaratief definiëren een of meer Azure-resources en de afhankelijkheden tussen de geïmplementeerde resources te definiëren. De sjabloon kan worden gebruikt om de resources consistent en herhaaldelijk te implementeren.  
 Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md)
 
-## <a name="resource-provider"></a>Resourceprovider
+## <a name="resource-provider"></a>resourceprovider
 Een service die de resources levert die u kunt implementeren en beheren via Resource Manager. Elke resourceprovider biedt bewerkingen voor het werken met de resources die zijn geïmplementeerd. Resourceproviders kunnen worden geopend via de Azure-portal, Azure PowerShell en diverse programming SDK's.  
 Zie [overzicht van Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
-## <a name="role"></a>Rol
+## <a name="role"></a>rol
 Een methode voor het beheren van toegang die kan worden toegewezen aan gebruikers, groepen en services. Rollen zijn uitvoeren van acties zoals maken, beheren, en gelezen op Azure-resources.  
 Zie [RBAC: ingebouwde rollen](active-directory/role-based-access-built-in-roles.md)
 
@@ -120,7 +120,7 @@ Zie [serviceovereenkomsten](https://azure.microsoft.com/support/legal/sla/)
 ## <a name="sas"></a>Shared access signature (SAS)
 Een handtekening waarmee u beperkte om toegang te verlenen tot een resource, zonder dat de sleutel van uw account. Bijvoorbeeld: [SAS maakt gebruik van Azure Storage](storage/common/storage-dotnet-shared-access-signature-part-1.md) clienttoegang verlenen tot objecten, zoals blobs. [IoT Hub gebruikt SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) apparaten machtiging verlenen om te verzenden van telemetrie.
 
-## <a name="storage-account"></a>Storage-account
+## <a name="storage-account"></a>opslagaccount
 Een account waarmee u toegang tot de Azure Blob, Queue, Table en bestand services in Azure Storage. Naam van het opslagaccount definieert een unieke naamruimte voor Azure Storage-gegevensobjecten.  
 Zie [over Azure storage-accounts](storage/common/storage-create-storage-account.md)
 
@@ -128,7 +128,7 @@ Zie [over Azure storage-accounts](storage/common/storage-create-storage-account.
 Een klant overeenkomst met Microsoft waarmee deze Azure-services krijgen. De abonnement-prijzen en de bijbehorende voorwaarden worden bepaald door de aanbieding voor het abonnement gekozen.
 Zie [Microsoft Online Subscription overeenkomst](https://azure.microsoft.com/support/legal/subscription-agreement/) en [hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
 
-## <a name="tag"></a>Label
+## <a name="tag"></a>tag
 Een indexering term waarmee u resources volgens uw vereisten voor beheer of facturering indelen. Wanneer u een complexe verzameling resources hebt, kunt u codes gebruiken voor het visualiseren van deze assets op de manier die het meest zinvol. U kunt bijvoorbeeld resources taggen die een vergelijkbare rol hebben in uw organisatie of bij dezelfde afdeling horen.  
 Zie [met labels om uw Azure-resources te organiseren](resource-group-using-tags.md)
 
@@ -136,7 +136,7 @@ Zie [met labels om uw Azure-resources te organiseren](resource-group-using-tags.
 De verzameling van virtuele machines in een beschikbaarheidsset die op hetzelfde moment worden bijgewerkt. Virtuele machines in hetzelfde updatedomein worden samen opnieuw gestart tijdens gepland onderhoud. Azure start nooit meer dan één updatedomein tegelijk. Ook aangeduid als een upgradedomein.  
 Zie [beheren van de beschikbaarheid van virtuele machines van Windows](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en [de beschikbaarheid van Linux virtuele machines beheren](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="vm"></a>virtuele machine
+## <a name="vm"></a>Virtuele machine
 De software-implementatie van een fysieke computer waarop een besturingssysteem wordt uitgevoerd. Meerdere virtuele machines kan tegelijkertijd worden uitgevoerd op dezelfde hardware. In Azure zijn virtuele machines in een aantal verschillende grootten beschikbaar.  
 Zie [documentatie Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
@@ -145,7 +145,7 @@ Een bron die gedrag of functies waarmee een andere programma's een werk- of bied
 <!-- This definition seems obscure to me; maybe a list of examples would work better than a conceptual definition? -->
 Zie [over uitbreidingen van de virtuele machine en -functies (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) of [over uitbreidingen van de virtuele machine en -functies (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="vnet"></a>virtueel netwerk
+## <a name="vnet"></a>Virtueel netwerk
 Een netwerk dat biedt connectiviteit tussen uw Azure-resources die is geïsoleerd van andere Azure tenants. Een [Azure VPN-Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) kunt u verbindingen maken tussen virtuele netwerken en [tussen een virtueel netwerk en een on-premises netwerk](vpn-gateway/vpn-gateway-plan-design.md). U kunt volledig de IP-adresblokken, DNS-instellingen, beveiligingsbeleidsregels en routetabellen binnen een virtueel netwerk beheren.  
 Zie [Virtual Network-overzicht](virtual-network/virtual-networks-overview.md)  
 

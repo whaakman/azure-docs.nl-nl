@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 27918e1d0b335613ea578a815fb3ae00df73ebaa
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 902c0eee88f0de8a20b9c8bf9c0dae6e3c3a7d79
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Toevoegen, wijzigen of een virtueel netwerksubnet verwijderen
 
-Informatie over het toevoegen, wijzigen of verwijderen van een virtueel netwerksubnet. Als u niet bekend met virtuele netwerken, bent voordat u toevoegen, wijzigen of verwijderen van een subnet, raden wij aan dat u leest [Azure Virtual Network-overzicht](virtual-networks-overview.md) en [maken, wijzigen of verwijderen van een virtueel netwerk](virtual-network-manage-network.md). Alle Azure-resources geïmplementeerd in een virtueel netwerk worden geïmplementeerd in een subnet binnen een virtueel netwerk.
+Informatie over het toevoegen, wijzigen of verwijderen van een virtueel netwerksubnet. Als u niet bekend met virtuele netwerken, bent voordat u toevoegen, wijzigen of verwijderen van een subnet, raden wij aan dat u leest [Azure Virtual Network-overzicht](virtual-networks-overview.md) en [maken, wijzigen of verwijderen van een virtueel netwerk](manage-virtual-network.md). Alle Azure-resources geïmplementeerd in een virtueel netwerk worden geïmplementeerd in een subnet binnen een virtueel netwerk.
  
 ## <a name="before-you-begin"></a>Voordat u begint
 

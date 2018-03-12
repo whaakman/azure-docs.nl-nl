@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: 8c6f577560442f28204b633d5f45f6d4c46ea4b8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5d1010a65a112b97124a8d7d46caceb3d61e2cac
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen (FAQ)
 Dit artikel bevat veelgestelde vragen over Azure Site Recovery. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -55,14 +55,14 @@ Als u repliceren naar een secundair datacenter wilt moet Hyper-V-machines op hos
 Ja. Kunt u virtuele machines in Hyper-V-servers in de VMM-cloud naar Azure repliceren of u kunt repliceren tussen VMM-clouds op dezelfde server. Voor on-premises lokale replicatie, we raden u aan een VMM-server in de primaire en secundaire sites.  
 
 ### <a name="what-physical-servers-can-i-protect"></a>Welke fysieke servers kan ik beveiligen?
-U kunt fysieke servers met Windows en Linux naar Azure of een secundaire site repliceren. [Meer informatie over](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) besturingssysteemvereisten.  Dezelfde vereisten toepassen of u fysieke servers naar Azure of naar een secundaire site repliceert.
+U kunt fysieke servers met Windows en Linux naar Azure of een secundaire site repliceren. Meer informatie over vereisten voor [replicatie naar Azure](vmware-physical-azure-support-matrix.md#replicated-machines), en [replicatie naar een secundaire site](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 Houd er rekening mee dat er fysieke servers als virtuele machines in Azure wordt uitgevoerd als de lokale server uitvalt. Failback naar een on-premises fysieke server wordt momenteel niet ondersteund. U kunt alleen een failback naar een virtuele machine van VMware beveiligd als fysieke machine.
 
 ### <a name="what-vmware-vms-can-i-protect"></a>Welke virtuele VMware-machines kan ik beveiligen?
 
-Als u virtuele VMware-machines wilt beveiligen, hebt u een vSphere-hypervisor nodig, evenals virtuele machines waarop VMware-hulpprogramma's worden uitgevoerd. We raden ook het gebruik aan van een VMware vCenter-server om de hypervisors te beheren. [Meer informatie](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) over de juiste vereisten voor het repliceren van VMware-servers en virtuele machines naar Azure of naar een secundaire site.
+Als u virtuele VMware-machines wilt beveiligen, hebt u een vSphere-hypervisor nodig, evenals virtuele machines waarop VMware-hulpprogramma's worden uitgevoerd. We raden ook het gebruik aan van een VMware vCenter-server om de hypervisors te beheren. Meer informatie over de vereisten voor [replicatie naar Azure](vmware-physical-azure-support-matrix.md#replicated-machines), of [replicatie naar een secundaire site](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 ### <a name="can-i-manage-disaster-recovery-for-my-branch-offices-with-site-recovery"></a>Kan ik met Site Recovery herstel na noodgeval voor mijn filialen beheren?
@@ -93,7 +93,7 @@ Azure Site Recovery repliceert gegevens naar een Azure storage-account via een o
 Ja, ExpressRoute kan worden gebruikt voor het repliceren van virtuele machines naar Azure. Azure Site Recovery repliceert gegevens naar een Azure Storage-Account via een openbaar eindpunt. U moet instellen [openbare peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) met ExpressRoute voor replicatie van Site Recovery. Nadat een virtuele Azure-netwerk is niet via de virtuele machines kunt u deze kunt openen met behulp van de [privépeering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) ingesteld voor de virtuele Azure-netwerk.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Zijn er vereisten voor het repliceren van virtuele machines naar Azure?
-Virtuele machines die u wilt repliceren naar Azure moet voldoen aan [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+[Virtuele VMware-machines](vmware-physical-azure-support-matrix.md#replicated-machines) en [Hyper-V-machines](hyper-v-azure-support-matrix.md#replicated-vms) u wilt repliceren naar Azure moet voldoen aan de Azure-vereisten.
 
 Uw Azure gebruikersaccount moet zijn bepaalde [machtigingen](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) replicatie van een nieuwe virtuele machine naar Azure in te schakelen.
 

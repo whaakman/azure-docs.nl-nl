@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Azure-abonnementen en accounts met Azure kosten Management activeren
 
@@ -76,7 +76,7 @@ Wanneer u een account update een abonnement toevoegt, kunt u Azure kosten Manage
 
     Als er geen een groen vinkje voor een of meer van de abonnementen, betekent dit dat u bent niet gemachtigd om de reader-app (CloudynCollector) voor het abonnement te maken. Herhaal dit proces moet een gebruiker met hogere machtigingen voor het abonnement.
 
-Bekijk de [verbinding te maken in Azure Resource Manager met Azure kosten Management door Cloudyn](https://youtu.be/oCIwvfBB6kk) video die bij het proces helpt.
+Bekijk de [verbinding te maken in Azure Resource Manager met Azure kosten Management](https://youtu.be/oCIwvfBB6kk) video die bij het proces helpt.
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 

@@ -1,23 +1,10 @@
 ---
-title: Microsoft Azure virtuele Data Center | Microsoft Docs
-description: Informatie over het bouwen van uw virtuele datacenter in Azure
-services: networking
-author: tracsman
-manager: rossort
-tags: azure-resource-manager
-ms.service: virtual-network
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/26/2017
-ms.author: jonor
-ms.openlocfilehash: 7dcc6b77bde8b8a7b485525105c1a07c53301f8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+titel: 'Microsoft Azure virtuele Datacenter: een netwerk perspectief' | Microsoft Docs beschrijving: informatie over het bouwen van uw virtuele datacenter in Azure-services: netwerken auteur: tracsman manager: rossort tags: azure-resource-manager
+
+MS.service: virtueel netwerk ms.tgt_pltfrm: n.v.t. ms.devlang: n.v.t. ms.topic: artikel ms.date: 05/26/2017 ms.author: jonor
 ---
-# <a name="microsoft-azure-virtual-data-center"></a>Microsoft Azure virtuele Data Center
+
+# <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Virtuele Microsoft Azure-Datacenter: Een netwerk-perspectief
 **Microsoft Azure**: sneller, geld besparen, integreren lokale apps en gegevens
 
 ## <a name="overview"></a>Overzicht
@@ -206,7 +193,7 @@ Perimeter-netwerkonderdelen bieden de volgende functies:
 -   [Virtuele netwerken][VNet], [UDR][UDR], [NSG][NSG]
 -   [Virtueel netwerkapparaat][NVA]
 -   [De Load Balancer][ALB]
--   [Toepassingsgateway][AppGW] / [WAF][WAF]
+-   [Application Gateway][AppGW] / [WAF][WAF]
 -   [Openbare IP-adressen][PIP]
 
 Normaal gesproken de centrale IT en beveiliging teams verantwoordelijkheid voor de Vereistedefinitie en bewerkingen van de perimeternetwerken hebben.
@@ -215,9 +202,9 @@ Normaal gesproken de centrale IT en beveiliging teams verantwoordelijkheid voor 
 
 Het voorgaande diagram toont het afdwingen van twee verbindingen met toegang tot het internet en een on-premises netwerk zowel residente in de hub. Het perimeternetwerk met internet kunt in een enkel hub opschalen ter ondersteuning van grote aantallen LOB's, met behulp van meerdere farms van Web Application Firewalls (WAFs) en/of firewalls.
 
-[**Virtuele netwerken** ] [ VNet] de hub wordt gewoonlijk samengesteld op een VNet met meerdere subnetten voor het hosten van de verschillende typen van services voor het filteren en verkeer naar of van het internet via NVAs WAFs en Azure Toepassingsgateways te bekijken.
+[**Virtuele netwerken** ] [ VNet] de hub wordt gewoonlijk samengesteld op een VNet met meerdere subnetten voor het hosten van de verschillende typen van services voor het filteren en verkeer naar of van het internet via NVAs, WAFs en Azure te bekijken Toepassingsgateways.
 
-[**UDR** ] [ UDR] UDR met behulp van klanten kunnen implementeren firewalls, -id's / IP-Adressen en andere virtuele apparaten en doorsturen van netwerkverkeer via deze beveiligingsapparaten voor beveiliging grens wordt afgedwongen, controle en controle. Udr's kunnen worden gemaakt in de hub en de spokes te waarborgen dat verkeer passages via de specifieke aangepaste virtuele machines, virtuele netwerkapparaten en gebruikt door de vDC netwerktaakverdelers. Om ervoor te zorgen dat verkeer naar de juiste virtuele apparaten gegenereerd op basis van virtuele machines in de doorvoer spoke woont, moet een UDR worden ingesteld in de subnetten van het spoke door het instellen van de front-end-IP-adres van de interne load balancer als de volgende hop. De interne load balancer distribueert het interne verkeer naar de virtuele apparaten (groep load balancer back-end).
+[**UDR** ] [ UDR] UDR met behulp van klanten kunnen implementeren firewalls, -id's / IP-Adressen en andere virtuele apparaten en doorsturen van netwerkverkeer via deze beveiligingsapparaten voor beveiliging grens wordt afgedwongen, controle- en controle. Udr's kunnen worden gemaakt in de hub en de spokes te waarborgen dat verkeer passages via de specifieke aangepaste virtuele machines, virtuele netwerkapparaten en gebruikt door de vDC netwerktaakverdelers. Om ervoor te zorgen dat verkeer naar de juiste virtuele apparaten gegenereerd op basis van virtuele machines in de doorvoer spoke woont, moet een UDR worden ingesteld in de subnetten van het spoke door het instellen van de front-end-IP-adres van de interne load balancer als de volgende hop. De interne load balancer distribueert het interne verkeer naar de virtuele apparaten (groep load balancer back-end).
 
 [![8]][8]
 
@@ -235,7 +222,7 @@ Meest grote ondernemingen beheren meerdere domeinen. Azure DNS kan worden gebrui
 
 Azure Load Balancer kan de status van de verschillende exemplaren van server ook probe en wanneer een test niet reageert niet meer de load balancer verkeer kunnen verzenden naar het exemplaar niet in orde. In een vDC hebben we de aanwezigheid van een externe load balancer in de hub (bijvoorbeeld verdelen het verkeer naar NVAs) en in de spokes (taken uit te voeren zoals het verkeer tussen verschillende virtuele machines van een toepassing met meerdere lagen balancing).
 
-[**Toepassingsgateway** ] [ AppGW] Microsoft Azure Application Gateway is een toegewezen virtueel apparaat toepassing levering controller (ADC) bieden als een service biedt u verschillende laag 7 taakverdeling mogelijkheden voor uw toepassing. Hiermee kunt u web-farm productiviteit optimaliseren door het offloaden van CPU intensief SSL-beëindiging aan de toepassingsgateway. Het bevat ook andere routeringsmogelijkheden voor laag 7, met inbegrip van round robin-distributie van inkomend verkeer, cookies op basis van sessieaffiniteit, routering van URL's op padbasis en de mogelijkheid voor het hosten van meerdere websites achter één toepassingsgateway. Een WAF (Web Application Firewall) is ook beschikbaar als onderdeel van de WAF SKU van de toepassingsgateway. De SKU biedt beveiliging voor webtoepassingen van algemene web beveiligingsproblemen en aanvallen. Application Gateway kan worden geconfigureerd als op internet gerichte gateway, interne enige gateway of een combinatie van beide. 
+[**Toepassingsgateway** ] [ AppGW] Microsoft Azure Application Gateway is een toegewezen virtueel apparaat toepassing levering controller (ADC) bieden als een service biedt verschillende laag 7 taakverdeling mogelijkheden voor uw toepassing. Hiermee kunt u web-farm productiviteit optimaliseren door het offloaden van CPU intensief SSL-beëindiging aan de toepassingsgateway. Het bevat ook andere routeringsmogelijkheden voor laag 7, met inbegrip van round robin-distributie van inkomend verkeer, cookies op basis van sessieaffiniteit, routering van URL's op padbasis en de mogelijkheid voor het hosten van meerdere websites achter één toepassingsgateway. Een WAF (Web Application Firewall) is ook beschikbaar als onderdeel van de WAF SKU van de toepassingsgateway. De SKU biedt beveiliging voor webtoepassingen van algemene web beveiligingsproblemen en aanvallen. Application Gateway kan worden geconfigureerd als op internet gerichte gateway, interne enige gateway of een combinatie van beide. 
 
 [**Openbare IP-adressen** ] [ PIP] sommige Azure-functies kunt u service-eindpunten naar een openbare IP-adres waarmee de bron worden geopend vanaf het internet te koppelen. Dit eindpunt maakt gebruik van NAT (Network Address Translation) voor het routeren van verkeer naar de interne adres en poort op de virtuele Azure-netwerk. Dit pad is de belangrijkste manier voor het externe verkeer door te geven in het virtuele netwerk. Het openbare IP-adressen kunnen worden geconfigureerd om te bepalen welk verkeer is doorgegeven en hoe en waar deze wordt omgezet naar het virtuele netwerk.
 
@@ -330,11 +317,11 @@ De volgende functies zijn in dit document besproken. Klik op de koppelingen voor
 | | | |
 |-|-|-|
 |Network-functies|Taakverdeling|Connectiviteit|
-|[Virtuele netwerken in Azure][VNet]</br>[Netwerkbeveiligingsgroepen][NSG]</br>[NSG-Logboeken][NSGLog]</br>[De gebruiker gedefinieerde routering][UDR]</br>[Virtuele netwerkapparaten][NVA]</br>[Openbare IP-adressen][PIP]|[Azure Load Balancer (N3)][ALB]</br>[Toepassingsgateway (N7)][AppGW]</br>[Web Application Firewall][WAF]</br>[Met Azure Traffic Manager][TM] |[VNet-Peering][VNetPeering]</br>[Virtueel particulier netwerk][VPN]</br>[ExpressRoute][ExR]
+|[Virtuele netwerken in Azure][VNet]</br>[Netwerkbeveiligingsgroepen][NSG]</br>[NSG Logs][NSGLog]</br>[De gebruiker gedefinieerde routering][UDR]</br>[Virtuele netwerkapparaten][NVA]</br>[Openbare IP-adressen][PIP]|[Azure Load Balancer (N3) ][ALB]</br>[Toepassingsgateway (N7) ][AppGW]</br>[Web Application Firewall][WAF]</br>[Azure Traffic Manager][TM] |[VNet-Peering][VNetPeering]</br>[Virtueel particulier netwerk][VPN]</br>[ExpressRoute][ExR]
 |Identiteit</br>|Bewaking</br>|Beste praktijken</br>|
-|[Azure Active Directory][AAD]</br>[Multi-factor Authentication][MFA]</br>[Role Base Access besturingselementen][RBAC]</br>[Standaardrollen AAD][Roles] |[Activiteitenlogboeken][ActLog]</br>[Diagnostische logboeken][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Aanbevolen procedures voor perimeter-netwerken][DMZ]</br>[Beheer van abonnementen][SubMgmt]</br>[Beheer van resourcegroep][RGMgmt]</br>[Limieten voor Azure-abonnement][Limits] |
+|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Role Base Access besturingselementen][RBAC]</br>[Standaardrollen AAD][Roles] |[Activiteitenlogboeken][ActLog]</br>[Diagnostische logboeken][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Aanbevolen procedures voor perimeter-netwerken][DMZ]</br>[Beheer van abonnementen][SubMgmt]</br>[Beheer van resourcegroep][RGMgmt]</br>[Limieten voor Azure-abonnement][Limits] |
 |Andere Azure-Services|
-|[Azure-Web-Apps][WebApps]</br>[HDInsights (Hadoop)][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
+|[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
 
 
@@ -347,7 +334,7 @@ De volgende functies zijn in dit document besproken. Klik op de koppelingen voor
 [0]: ./media/networking-virtual-datacenter/redundant-equipment.png "voorbeelden van onderdeel overlappen" 
 [1]: ./media/networking-virtual-datacenter/vdc-high-level.png "op hoog niveau voorbeeld van een hub en spoke vDC"
 [2]: ./media/networking-virtual-datacenter/hub-spokes-cluster.png "cluster met hubs en spaken"
-[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "spoke-spoke-"
+[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "Spoke-to-spoke"
 [4]: ./media/networking-virtual-datacenter/vdc-block-level-diagram.png "blok niveau diagram van de vDC"
 [5]: ./media/networking-virtual-datacenter/users-groups-subsciptions.png "gebruikers, groepen, abonnementen en projecten"
 [6]: ./media/networking-virtual-datacenter/infrastructure-high-level.png "op hoog niveau infrastructuurdiagram"

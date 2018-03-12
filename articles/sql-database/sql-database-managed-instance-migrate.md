@@ -11,11 +11,11 @@ ms.custom: managed instance
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: bonova
-ms.openlocfilehash: 44a02ac20a9e9e5fb7171d28e4852ab1a6e63881
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 87efa41ce74a0d571c8fd5f7a0ebfbd7bc6b626e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-exemplaar migratie naar Azure SQL Database-beheerd instantie
 
@@ -75,7 +75,7 @@ U moet zorgvuldig plannen voor het verplaatsen van SQL-exemplaren:
 
 Beheerde exemplaar is een volledig beheerde service waarmee u sommige van de reguliere DBA activiteiten voor het platform delegeren, zoals ze zijn ingebouwd in. Sommige niveau exemplaargegevens hoeft daarom niet worden gemigreerd, zoals onderhoudstaken voor regelmatige back-ups of altijd op configuratie als [hoge beschikbaarheid](sql-database-high-availability.md) is ingebouwd in.
 
-Beheerde exemplaar ondersteunt de volgende diverse opties voor de migratie van de database:
+Beheerde exemplaar ondersteunt de volgende migratie-opties voor database is (deze zijn momenteel de enige ondersteunde migratiemethoden):
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 

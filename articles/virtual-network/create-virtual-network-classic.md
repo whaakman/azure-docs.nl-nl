@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ec6d8d5327ec6d5ebb92e125cb4c52a7a929c0e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Een virtueel netwerk (klassiek) maken met meerdere subnetten
 
 > [!IMPORTANT]
-> Azure heeft twee [verschillende implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor het maken en werken met resources: Resource Manager en classic. Dit artikel gaat over het gebruik van het klassieke implementatiemodel. Microsoft raadt u aan het maken van de meeste nieuwe virtuele netwerken via de [Resource Manager](virtual-networks-create-vnet-arm-pportal.md) implementatiemodel.
+> Azure heeft twee [verschillende implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor het maken en werken met resources: Resource Manager en classic. Dit artikel gaat over het gebruik van het klassieke implementatiemodel. Microsoft raadt u aan het maken van de meeste nieuwe virtuele netwerken via de [Resource Manager](quick-create-portal.md) implementatiemodel.
 
 Informatie over het maken van een eenvoudige Azure-netwerk (klassiek) met afzonderlijke openbare en particuliere subnetten in deze zelfstudie. U kunt Azure-resources, zoals virtuele machines en cloudservices in een subnet maken. Resources die zijn gemaakt in virtuele netwerken (klassiek) kunnen communiceren met elkaar en met resources in andere netwerken die zijn verbonden met een virtueel netwerk.
 
-Meer informatie over alle [virtueel netwerk](virtual-network-manage-network.md) en [subnet](virtual-network-manage-subnet.md) instellingen.
+Meer informatie over alle [virtueel netwerk](manage-virtual-network.md) en [subnet](virtual-network-manage-subnet.md) instellingen.
 
 > [!WARNING]
 > Virtuele netwerken (klassiek), worden onmiddellijk verwijderd door Azure wanneer een [abonnement is uitgeschakeld](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Virtuele netwerken (klassiek) verwijderd, ongeacht of de bronnen in het virtuele netwerk bestaan. Als u later het abonnement opnieuw inschakelt, resources die beschikbaar in het virtuele netwerk waren moeten opnieuw worden gemaakt.
@@ -161,7 +161,7 @@ U een virtueel netwerk (klassiek) kunt maken met behulp van de [Azure-portal](#p
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over alle virtueel netwerk en subnetinstellingen, [virtuele netwerken beheren](virtual-network-manage-network.md) en [beheren van virtueel netwerksubnetten](virtual-network-manage-subnet.md). U beschikt over verschillende opties voor het gebruik van virtuele netwerken en subnetten in een productieomgeving om te voldoen aan verschillende vereisten.
+- Zie voor meer informatie over alle virtueel netwerk en subnetinstellingen, [virtuele netwerken beheren](manage-virtual-network.md) en [beheren van virtueel netwerksubnetten](virtual-network-manage-subnet.md). U beschikt over verschillende opties voor het gebruik van virtuele netwerken en subnetten in een productieomgeving om te voldoen aan verschillende vereisten.
 - Van binnenkomende en uitgaande subnetverkeer filteren, maken en toepassen [netwerkbeveiligingsgroepen](virtual-networks-nsg.md) aan subnetten.
 - Maak een [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of een [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuele machine en maak verbinding met een bestaand virtueel netwerk.
 - Voor verbinding twee virtuele netwerken in dezelfde Azure-locatie, maak een [virtueel netwerk peering](create-peering-different-deployment-models.md) tussen de virtuele netwerken. U kunt een virtueel netwerk (Resource Manager) peer met een virtueel netwerk (klassiek), maar u kunt geen maken een peering tussen twee virtuele netwerken (klassiek).

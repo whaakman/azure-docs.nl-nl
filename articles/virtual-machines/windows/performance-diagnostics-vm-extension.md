@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 5a7dc313f1d6453562e4d5a11ceca03e4459b043
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestaties van Azure Diagnostics VM-extensie voor Windows
 
@@ -29,7 +29,7 @@ Azure Diagnostics VM-extensie van prestaties kunt verzamelen van diagnostische g
 Deze uitbreiding kan worden geïnstalleerd op Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016. Het kan ook worden geïnstalleerd op Windows 8.1 en Windows 10.
 
 ## <a name="extension-schema"></a>Uitbreidingsschema
-De volgende JSON vindt u het schema voor VM-extensie voor Azure prestaties diagnostische gegevens. Deze uitbreiding is vereist voor de naam en de sleutel voor een opslagaccount voor het opslaan van de uitvoer van de diagnostische gegevens en het rapport. Deze waarden gevoelig zijn en moeten worden opgeslagen in de configuratie van een beveiligde instelling. Azure VM-extensie beveiligde instellingsgegevens worden versleuteld en wordt dit alleen ontsleuteld op de virtuele doelmachine. Houd er rekening mee dat **storageAccountName** en **storageAccountKey** zijn hoofdlettergevoelig. Andere vereiste parameters zijn vermeld in de volgende sectie.
+De volgende JSON vindt u het schema voor VM-extensie voor Azure prestaties diagnostische gegevens. Deze uitbreiding is vereist voor de naam en de sleutel voor een opslagaccount voor het opslaan van de uitvoer van de diagnostische gegevens en het rapport. Deze waarden zijn gevoelige. De opslagaccountsleutel moet worden opgeslagen in de configuratie van een beveiligde instelling. Azure VM-extensie beveiligde instellingsgegevens worden versleuteld en wordt dit alleen ontsleuteld op de virtuele doelmachine. Houd er rekening mee dat **storageAccountName** en **storageAccountKey** zijn hoofdlettergevoelig. Andere vereiste parameters zijn vermeld in de volgende sectie.
 
 ```JSON
     {
@@ -43,19 +43,19 @@ De volgende JSON vindt u het schema voor VM-extensie voor Azure prestaties diagn
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
 ```
@@ -65,22 +65,23 @@ De volgende JSON vindt u het schema voor VM-extensie voor Azure prestaties diagn
 |   **Naam**   |**Waarde / voorbeeld**|       **Beschrijving**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|De versie van de API.
-|Uitgever|Microsoft.Azure.Performance.Diagnostics|De naamruimte van de uitgever voor de extensie.
+|publisher|Microsoft.Azure.Performance.Diagnostics|De naamruimte van de uitgever voor de extensie.
 |type|AzurePerformanceDiagnostics|Het type van de VM-extensie.
 |typeHandlerVersion|1.0|De versie van de extensie-handler.
 |performanceScenario|standaard|Het scenario prestaties waarvoor u wilt vastleggen van gegevens. Geldige waarden zijn: **basic**, **vmslow**, **azurefiles**, en **aangepaste**.
 |traceDurationInSeconds|300|De duur van de traceringen, als een van de traceeropties zijn geselecteerd.
-|perfCounterTrace|P|De optie voor het inschakelen van de teller prestatietracering. Geldige waarden zijn **p** of lege waarde. Als u niet vastleggen van deze trace wilt, laat u de waarde als leeg.
-|networkTrace|n|De optie voor het inschakelen van netwerk-Trace. Geldige waarden zijn  **n**  of lege waarde. Als u niet vastleggen van deze trace wilt, laat u de waarde als leeg.
+|perfCounterTrace|p|De optie voor het inschakelen van de teller prestatietracering. Geldige waarden zijn **p** of lege waarde. Als u niet vastleggen van deze trace wilt, laat u de waarde als leeg.
+|networkTrace|n|De optie voor het inschakelen van netwerk-Trace. Geldige waarden zijn **n** of lege waarde. Als u niet vastleggen van deze trace wilt, laat u de waarde als leeg.
 |xperfTrace|x|De optie voor het inschakelen van XPerf Trace. Geldige waarden zijn **x** of lege waarde. Als u niet vastleggen van deze trace wilt, laat u de waarde als leeg.
 |storPortTrace|s|De optie StorPort-tracering inschakelen. Geldige waarden zijn **s** of lege waarde. Als u niet vastleggen van deze trace wilt, laat u de waarde als leeg.
 |srNumber|123452016365929|Het ticketnummer ondersteuning als deze beschikbaar is. Laat de waarde als leeg als u niet hebt.
+|requestTimeUtc|2017-09-28T22:08:53.736Z|De tijd van de huidige datum in Utc. Als u van de portal gebruikmaakt voor het installeren van deze extensie, hoeft u geen deze waarde opgeven.
 |storageAccountName|mystorageaccount|De naam van het opslagaccount voor het opslaan van de logboeken met diagnostische gegevens en de resultaten.
-|storageAccountKey|lDuVvxuZB28NNP... hAiRF3voADxLBTcc ==|De sleutel voor het opslagaccount.
+|storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|De sleutel voor het opslagaccount.
 
 ## <a name="install-the-extension"></a>De extensie installeren
 
-Volg deze stappen voor de uitbreiding te installeren op Windows virtuele machines:
+Volg deze instructies voor de uitbreiding te installeren op Windows virtuele machines:
 
 1. Meld u aan bij [Azure Portal](http://portal.azure.com).
 2. Selecteer de virtuele machine waarop u wilt installeren van deze extensie.
@@ -182,19 +183,19 @@ Uitbreidingen van de virtuele machine van Azure kunnen worden geïmplementeerd m
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {            
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
   ]
@@ -202,13 +203,13 @@ Uitbreidingen van de virtuele machine van Azure kunnen worden geïmplementeerd m
 ````
 
 ## <a name="powershell-deployment"></a>PowerShell-implementatie
-De `Set-AzureRmVMExtension` opdracht kan worden gebruikt voor het implementeren van VM-extensie voor Azure prestaties diagnostische gegevens naar een bestaande virtuele machine. Opslaan voordat u de opdracht uitvoert, de openbare en persoonlijke configuraties in een PowerShell-hash-tabel.
+De `Set-AzureRmVMExtension` opdracht kan worden gebruikt voor het implementeren van VM-extensie voor Azure prestaties diagnostische gegevens naar een bestaande virtuele machine.
 
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
+$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -218,7 +219,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS `
+    -Location WestUS
 ````
 
 ## <a name="information-on-the-data-captured"></a>Informatie over de gegevens die zijn vastgelegd
@@ -234,7 +235,7 @@ Om te helpen de ondersteuningstechnicus van uw ondersteuningsticket gewerkt, kan
 
 Als u het rapport, pak het zipbestand en open de **PerfInsights Report.html** bestand.
 
-U kunt mogelijk ook downloaden van het zip-bestand rechtstreeks vanuit de portal door te selecteren.
+Ook moet u kunnen downloaden van het zip-bestand rechtstreeks vanuit de portal door te selecteren.
 
 ![Schermopname van prestatiecontrole gedetailleerde status](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 

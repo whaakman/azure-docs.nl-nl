@@ -16,17 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: e143ed1e6bcece7efac9126c8e46408e7a88a5c0
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d3ee98253a69580e5ecafb4e117ef93f7c981416
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Uw Linux VM optimaliseren voor Azure
 Maken van virtuele Linux-machine (VM) is eenvoudig doen vanaf de opdrachtregel of in de portal. Deze zelfstudie laat zien hoe u om te controleren of u dit hebt ingesteld om de prestaties van het Microsoft Azure-platform te optimaliseren. In dit onderwerp maakt gebruik van een virtuele Ubuntu Server-machine, maar u kunt ook maken Linux virtuele machine met [uw eigen installatiekopieën die u als sjabloon](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Vereisten
-In dit onderwerp wordt ervan uitgegaan dat u hebt al een werkende Azure-abonnement ([gratis proefversie te registreren](https://azure.microsoft.com/pricing/free-trial/)) en u hebt al een virtuele machine ingericht in uw Azure-abonnement. Zorg ervoor dat u de meest recente hebt [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij uw Azure-abonnement met [az aanmelding](/cli/azure/#az_login) voordat u [een virtuele machine maken](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+In dit onderwerp wordt ervan uitgegaan dat u hebt al een werkende Azure-abonnement ([gratis proefversie te registreren](https://azure.microsoft.com/pricing/free-trial/)) en u hebt al een virtuele machine ingericht in uw Azure-abonnement. Zorg ervoor dat u de meest recente hebt [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij uw Azure-abonnement met [az aanmelding](/cli/azure/reference-index#az_login) voordat u [een virtuele machine maken](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure OS Disk
 Wanneer u een Linux-VM in Azure maakt, heeft deze twee schijven zijn gekoppeld. **/ dev/sda** staat voor de schijf OS **/dev/sdb** staat voor de tijdelijke schijf.  Gebruik niet de belangrijkste besturingssysteemschijf (**/dev/sda**) voor alles behalve het besturingssysteem die is geoptimaliseerd voor snelle VM-opstarten en biedt geen goede prestaties voor uw werkbelastingen. U wilt een of meer schijven toevoegen aan uw virtuele machine persistent ophalen en opslag van uw gegevens geoptimaliseerd. 

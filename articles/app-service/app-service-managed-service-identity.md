@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 736a82d282e5769fb403c66ffd5d44107c6d3218
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Het gebruik van Azure Managed Service-identiteit (openbare preview) in App Service en Azure Functions
 
@@ -56,7 +56,7 @@ Als u een beheerde service-identiteit met de Azure CLI instelt, moet u gebruiken
 
 De volgende stappen wordt beschreven hoe u een web-app maken en toewijzen van een identiteit met behulp van de CLI:
 
-1. Als u de Azure CLI in een lokale console, eerst aanmelden bij het gebruik van Azure [az aanmelding](/cli/azure/#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waarmee u wilt de toepassing implementeren:
+1. Als u de Azure CLI in een lokale console, eerst aanmelden bij het gebruik van Azure [az aanmelding](/cli/azure/reference-index#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waarmee u wilt de toepassing implementeren:
 
     ```azurecli-interactive
     az login
@@ -126,13 +126,13 @@ Waar `<TENANTID>` en `<PRINCIPALID>` worden vervangen door de GUID's. De eigensc
 Een app kan de identiteit gebruiken voor het ophalen van tokens, voor andere bronnen worden beveiligd door AAD, zoals Azure Sleutelkluis. Deze tokens vertegenwoordigen de toepassing toegang tot de bron en geen specifieke gebruiker van de toepassing. 
 
 > [!IMPORTANT]
-> Mogelijk moet u de doelresource voor toegang van uw toepassing configureren. Bijvoorbeeld, als u een token voor Sleutelkluis aanvraagt, moet u om ervoor te zorgen dat u een toegangsbeleid met de identiteit van uw toepassing hebt toegevoegd. Anders wordt wordt de aanroepen van Sleutelkluis geweigerd, zelfs als ze het token. Zie voor meer ondersteuning voor meer over welke resources beheerd Service-identiteit tokens [Azure-services die ondersteuning voor Azure AD authentication](../active-directory/msi-overview.md#which-azure-services-support-managed-service-identity).
+> Mogelijk moet u de doelresource voor toegang van uw toepassing configureren. Bijvoorbeeld, als u een token voor Sleutelkluis aanvraagt, moet u om ervoor te zorgen dat u een toegangsbeleid met de identiteit van uw toepassing hebt toegevoegd. Anders wordt wordt de aanroepen van Sleutelkluis geweigerd, zelfs als ze het token. Zie voor meer ondersteuning voor meer over welke resources beheerd Service-identiteit tokens [Azure-services die ondersteuning voor Azure AD authentication](../active-directory/pp/msi-overview.md#which-azure-services-support-managed-service-identity).
 
 Er is een eenvoudige REST-protocol voor het verkrijgen van een token in App Service en Azure Functions. Voor .NET-toepassingen, de Microsoft.Azure.Services.AppAuthentication-bibliotheek biedt een abstractie via dit protocol en biedt ondersteuning voor een lokale ontwikkeling biedt.
 
 ### <a name="asal"></a>Met behulp van de Microsoft.Azure.Services.AppAuthentication-bibliotheek voor .NET
 
-Voor .NET-toepassingen en -functies is de eenvoudigste manier om te werken met een beheerde service-identiteit via het Microsoft.Azure.Services.AppAuthentication-pakket. Deze bibliotheek, kunt u voor het testen van uw code lokaal op uw ontwikkelcomputer met uw gebruikersaccount vanuit Visual Studio de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest), of geïntegreerde verificatie van Active Directory. Zie voor meer informatie over opties voor lokale ontwikkeling met deze bibliotheek, de [Microsoft.Azure.Services.AppAuthentication verwijzing]. Deze sectie leest u hoe aan de slag met de bibliotheek in uw code.
+Voor .NET-toepassingen en -functies is de eenvoudigste manier om te werken met een beheerde service-identiteit via het Microsoft.Azure.Services.AppAuthentication-pakket. Deze bibliotheek, kunt u voor het testen van uw code lokaal op uw ontwikkelcomputer met uw gebruikersaccount vanuit Visual Studio de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), of geïntegreerde verificatie van Active Directory. Zie voor meer informatie over opties voor lokale ontwikkeling met deze bibliotheek, de [Microsoft.Azure.Services.AppAuthentication verwijzing]. Deze sectie leest u hoe aan de slag met de bibliotheek in uw code.
 
 1. Voeg verwijzingen naar de [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) en [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-pakketten voor uw toepassing.
 
@@ -169,7 +169,7 @@ De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u
 Een geslaagde 200 OK reactie bevat een JSON-hoofdtekst met de volgende eigenschappen:
 
 > [!div class="mx-tdBreakAll"]
-> |Naam van eigenschap|Beschrijving|
+> |De naam van eigenschap|Beschrijving|
 > |-------------|----------|
 > |access_token|Het aangevraagde toegangstoken. De webservice aanroepen kunt dit token voor verificatie aan de ontvangende webservice gebruiken.|
 > |expires_on|De tijd wanneer het toegangstoken is verlopen. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache.|

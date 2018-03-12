@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-ms.openlocfilehash: afb8fce7ce7ef432518c58cb6f58951337aebcff
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ed1a366819911302e70b2ebdce08f60920918593
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>Het instellen van de Sleutelkluis voor virtuele machines met de Azure CLI 2.0
 
 In de Azure Resource Manager-stack zijn geheimen/certificaten gemodelleerd als resources die worden geleverd door de Sleutelkluis. Zie voor meer informatie over Azure Sleutelkluis, [wat is Azure Sleutelkluis?](../../key-vault/key-vault-whatis.md) In de volgorde voor Sleutelkluis moet worden gebruikt met Azure Resource Manager virtuele machines, de *EnabledForDeployment* eigenschap voor Sleutelkluis moet zijn ingesteld op true. In dit artikel leest u hoe Sleutelkluis instellen voor gebruik met virtuele Azure-machines (VM's) met behulp van de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](key-vault-setup-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#az_login).
+Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login).
 
 ## <a name="create-a-key-vault"></a>Een sleutelkluis maken
 Een sleutelkluis maken en toewijzen van het implementatiebeleid voor met [az keyvault maken](/cli/azure/keyvault#az_keyvault_create). Het volgende voorbeeld wordt een sleutelkluis met de naam `myKeyVault` in de `myResourceGroup` resourcegroep:

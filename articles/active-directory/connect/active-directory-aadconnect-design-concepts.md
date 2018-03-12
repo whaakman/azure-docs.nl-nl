@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 510efc4ae6674a3987c2bb5d7cd155ea8c710c83
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Ontwerpconcepten
 Het doel van dit onderwerp is om gebieden die moeten worden beschouwd door bij het implementatieontwerp van Azure AD Connect te beschrijven. In dit onderwerp is een deep dive op bepaalde gebieden en deze concepten worden kort beschreven in andere onderwerpen ook.
@@ -42,10 +42,10 @@ De kenmerkwaarde moet de volgende regels volgen:
 
 * Minder dan 60 tekens bestaan
   * Tekens die niet wordt a-z, A-Z en 0-9 zijn gecodeerd en geteld als 3 tekens
-* Speciale tekens niet bevatten: &#92;! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
+* Speciale tekens niet bevatten: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Globaal uniek zijn
 * Moet een tekenreeks, geheel getal of binair
-* Moet niet zijn gebaseerd op de naam van gebruiker deze wijzigingen
+* Moet niet zijn gebaseerd op de naam van gebruiker deze wijziging
 * Niet mogen worden hoofdlettergevoelig en te voorkomen dat de waarden die per aanvraag verschillen kunnen
 * Moet worden toegewezen als het object is gemaakt
 
@@ -178,7 +178,7 @@ Bij het integreren van uw on-premises directory met Azure AD, is het belangrijk 
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>Het kenmerk voor userPrincipalName kiezen
 Bij het selecteren van het kenmerk voor het ontwikkelen van controleren de waarde van de UPN om te worden gebruikt in Azure een
 
-* De kenmerkwaarden weer in overeenstemming zijn met de syntaxis van de UPN (RFC 822), die dat deze moet de indelingusername@domain
+* De kenmerkwaarden weer in overeenstemming zijn met de syntaxis van de UPN (RFC 822), die dat deze moet de indeling username@domain
 * Het achtervoegsel in de waarden overeenkomt met een van de geverifieerde aangepaste domeinen in Azure AD
 
 In de express-instellingen wordt de veronderstelde keuze is voor het kenmerk userPrincipalName. Als het kenmerk userPrincipalName geen waarde u wilt dat gebruikers aan te melden bij Azure en vervolgens moet u **aangepaste installatie**.

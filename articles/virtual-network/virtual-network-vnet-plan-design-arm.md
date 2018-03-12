@@ -4,7 +4,7 @@ description: Informatie over het plannen en ontwerpen van virtuele netwerken in 
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Plannen en ontwerpen van virtuele netwerken van Azure
-Maken van een VNet om te experimenteren met eenvoudig genoeg is, maar waarschijnlijk hebt u meerdere VNets na verloop van tijd voor de ondersteuning van de productie-behoeften van uw organisatie gaat implementeren. Met een bepaalde planning en ontwerp, kunt u zich kan VNets implementeren en verbinding maken met de gewenste effectiever resources. Als u niet bekend bent met Vnetten, verdient het aanbeveling die u [meer informatie over VNets](virtual-networks-overview.md) en [implementeren](virtual-networks-create-vnet-arm-pportal.md) een voordat u doorgaat.
+Maken van een VNet om te experimenteren met eenvoudig genoeg is, maar waarschijnlijk hebt u meerdere VNets na verloop van tijd voor de ondersteuning van de productie-behoeften van uw organisatie gaat implementeren. Met een bepaalde planning en ontwerp, kunt u zich kan VNets implementeren en verbinding maken met de gewenste effectiever resources. Als u niet bekend bent met Vnetten, verdient het aanbeveling die u [meer informatie over VNets](virtual-networks-overview.md) en [implementeren](quick-create-portal.md) een voordat u doorgaat.
 
 ## <a name="plan"></a>Plannen
 Een goed begrip van de Azure-abonnementen, regio's en resources van netwerk is essentieel voor succes. U kunt de lijst met overwegingen hieronder als uitgangspunt gebruiken. Zodra u deze overwegingen begrijpt, kunt u de vereisten voor het netwerkontwerp van uw definiëren.
@@ -60,10 +60,10 @@ Vnet's bevatten de volgende eigenschappen.
 
 | Eigenschap | Beschrijving | Beperkingen |
 | --- | --- | --- |
-| **naam** |VNet-naam |Tekenreeks van maximaal 80 tekens. Kan bevatten letters, cijfers, onderstrepingstekens, punten of afbreekstreepjes. Moet beginnen met een letter of cijfer. Moet eindigen op een letter, cijfer of onderstrepingsteken. Kan bevat hoofdletter of kleine letters bestaan. |
+| **Naam** |VNet-naam |Tekenreeks van maximaal 80 tekens. Kan bevatten letters, cijfers, onderstrepingstekens, punten of afbreekstreepjes. Moet beginnen met een letter of cijfer. Moet eindigen op een letter, cijfer of onderstrepingsteken. Kan bevat hoofdletter of kleine letters bestaan. |
 | **location** |Azure-locatie (ook wel regio genoemd). |Moet een geldige Azure locaties. |
-| **de addressSpace** |Verzameling van adresvoorvoegsels waaruit het VNet in CIDR-notatie. |Moet een matrix van geldig CIDR-adresblokken, met inbegrip van openbare IP-adresbereiken. |
-| **subnetten** |Verzameling van subnetten die gezamenlijk de VNet |Zie de onderstaande subnet eigenschappentabel. |
+| **addressSpace** |Verzameling van adresvoorvoegsels waaruit het VNet in CIDR-notatie. |Moet een matrix van geldig CIDR-adresblokken, met inbegrip van openbare IP-adresbereiken. |
+| **subnets** |Verzameling van subnetten die gezamenlijk de VNet |Zie de onderstaande subnet eigenschappentabel. |
 | **dhcpOptions** |Object met een enkele vereiste eigenschap met de naam **dnsServers**. | |
 | **dnsServers** |Matrix van DNS-servers die worden gebruikt door het VNet. Als er geen server is opgegeven, wordt Azure interne naamomzetting gebruikt. |Moet een matrix van maximaal 10 DNS-servers IP-adres. |
 
@@ -73,11 +73,11 @@ Subnetten bevatten de volgende eigenschappen.
 
 | Eigenschap | Beschrijving | Beperkingen |
 | --- | --- | --- |
-| **naam** |Subnetnaam |Tekenreeks van maximaal 80 tekens. Kan bevatten letters, cijfers, onderstrepingstekens, punten of afbreekstreepjes. Moet beginnen met een letter of cijfer. Moet eindigen op een letter, cijfer of onderstrepingsteken. Kan bevat hoofdletter of kleine letters bestaan. |
+| **Naam** |Subnetnaam |Tekenreeks van maximaal 80 tekens. Kan bevatten letters, cijfers, onderstrepingstekens, punten of afbreekstreepjes. Moet beginnen met een letter of cijfer. Moet eindigen op een letter, cijfer of onderstrepingsteken. Kan bevat hoofdletter of kleine letters bestaan. |
 | **location** |Azure-locatie (ook wel regio genoemd). |Moet een geldige Azure locaties. |
 | **addressPrefix** |Één adresvoorvoegsel waaruit het subnet in CIDR-notatie |Moet een enkel CIDR-blok die deel uitmaakt van een van de VNet-adresruimten. |
 | **networkSecurityGroup** |NSG wordt toegepast op het subnet | |
-| **Migratiestatus** |De routetabel is toegepast op het subnet | |
+| **routeTable** |De routetabel is toegepast op het subnet | |
 | **ipConfigurations** |Verzameling van IP-configuratie-objecten die worden gebruikt door de NIC's die zijn verbonden met het subnet | |
 
 ### <a name="name-resolution"></a>Naamomzetting
@@ -112,10 +112,10 @@ De onderstaande tabel ziet enkele algemene ontwerppatronen voor abonnementen en 
 
 | Scenario | Diagram | Professionals | Nadelen |
 | --- | --- | --- | --- |
-| Abonnement van één, twee VNets per app |![Één abonnement](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Slechts één abonnement om te beheren. |Maximum aantal VNets per Azure-regio. Daarna moet u meer abonnementen. Controleer de [Azure beperkt](../azure-subscription-service-limits.md#networking-limits) artikel voor meer informatie. |
-| Met één abonnement per app, twee VNets per app |![Één abonnement](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Maakt gebruik van slechts twee VNets per abonnement. |Moeilijker te beheren wanneer er te veel apps zijn. |
-| Met één abonnement per bedrijfseenheid, twee VNets per app. |![Één abonnement](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Verhouding tussen aantal abonnementen en VNets. |Maximum aantal VNets per bedrijfseenheid (abonnement). Controleer de [Azure beperkt](../azure-subscription-service-limits.md#networking-limits) artikel voor meer informatie. |
-| Met één abonnement per bedrijfseenheid, twee VNets per groep van toepassingen. |![Één abonnement](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Verhouding tussen aantal abonnementen en VNets. |Apps moeten worden geïsoleerd met behulp van subnetten en nsg's. |
+| Abonnement van één, twee VNets per app |![Eén abonnement](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Slechts één abonnement om te beheren. |Maximum aantal VNets per Azure-regio. Daarna moet u meer abonnementen. Controleer de [Azure beperkt](../azure-subscription-service-limits.md#networking-limits) artikel voor meer informatie. |
+| Met één abonnement per app, twee VNets per app |![Eén abonnement](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Maakt gebruik van slechts twee VNets per abonnement. |Moeilijker te beheren wanneer er te veel apps zijn. |
+| Met één abonnement per bedrijfseenheid, twee VNets per app. |![Eén abonnement](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Verhouding tussen aantal abonnementen en VNets. |Maximum aantal VNets per bedrijfseenheid (abonnement). Controleer de [Azure beperkt](../azure-subscription-service-limits.md#networking-limits) artikel voor meer informatie. |
+| Met één abonnement per bedrijfseenheid, twee VNets per groep van toepassingen. |![Eén abonnement](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Verhouding tussen aantal abonnementen en VNets. |Apps moeten worden geïsoleerd met behulp van subnetten en nsg's. |
 
 ### <a name="number-of-subnets"></a>Aantal subnetten
 U moet rekening houden met meerdere subnetten in een VNet in de volgende scenario's:
@@ -202,7 +202,7 @@ De volgende vereisten zijn gerelateerd aan abonnementen en VNets:
 
 Op basis van deze vereisten, moet u een abonnement voor elk bedrijfsonderdeel. Op die manier verbruik van bronnen van een zakelijke eenheid niet meetelt limieten voor andere bedrijfseenheden. En omdat u beperken het aantal vnet's wilt, moet u overwegen de **met één abonnement per bedrijfseenheid, twee VNets per groep van toepassingen** patroon zoals hieronder wordt weergegeven.
 
-![Één abonnement](./media/virtual-network-vnet-plan-design-arm/figure9.png)
+![Eén abonnement](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
 U moet ook de adresruimte opgeven voor elk VNet. Omdat u moet connectiviteit tussen de on-premises gegevens wordt gecentreerd en de Azure-regio's, de adresruimte die wordt gebruikt voor Azure VNets kan niet conflicteren met de on-premises netwerk en de adresruimte die wordt gebruikt door elk VNet moet niet conflicteren met andere bestaande vnet's. U kunt de adresruimten in de onderstaande tabel gebruiken om te voldoen aan deze vereisten.  
 

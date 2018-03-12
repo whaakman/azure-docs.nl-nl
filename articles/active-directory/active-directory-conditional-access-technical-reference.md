@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 66e3207898d6ad8ca9af2b969942e38321c191a5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-naslaginformatie voor voorwaardelijke toegang
 
@@ -136,12 +136,19 @@ Deze instelling werkt met alle browsers. Echter, om te voldoen aan een apparaatb
 | macOS                  | Chrome, Safari                      | ![Selecteren][1] |
 
 
-> [!NOTE]
-> Voor Chrome-ondersteuning in Windows 10 auteurs Update (versie 1703) of later installeren [deze extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).<br>
-> Voor de Chrome-ondersteuning in Windows 8.1 en 7, maken de volgende registersleutel in **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls** <br>
-> Naam: 1<br>
-> Type: REG_SZ (tekenreeks)<br>
-> Data: {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
+
+#### <a name="chrome-support"></a>Chrome-ondersteuning
+
+Ondersteuning voor Chrome in **Windows 10 auteurs Update (versie 1703)** of later installeren [deze extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Ondersteuning voor Chrome in **Windows 8.1 en 7**, maken de volgende registersleutel:
+
+|    |    |
+|--- | ---|
+|Pad | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|Naam | 1 |
+|Type | REG_SZ (tekenreeks) |
+|Gegevens | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Deze browsers ondersteuning voor verificatie van apparaten, waardoor het apparaat kan worden geïdentificeerd en gevalideerd op basis van een beleid. De apparaat-controle mislukt als de browser wordt uitgevoerd in de privé-modus. 
 
@@ -186,6 +193,10 @@ U kunt in uw beleid voor voorwaardelijke toegang vereisen dat een toegang wilt d
 Deze instelling geldt voor de volgende ClientApps:
 
 
+- Microsoft Intune Managed Browser
+- Microsoft PowerBI
+- Microsoft facturering
+- Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 

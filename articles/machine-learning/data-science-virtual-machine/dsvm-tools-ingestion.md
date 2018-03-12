@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8526e949aee2935824a03a0972d9e45c71d6601b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Gegevens wetenschappelijke virtuele Machine gegevens opname hulpprogramma 's
 
@@ -35,7 +35,7 @@ Hier volgen enkele we hebt opgegeven op de DSVM verkeer hulpprogramma's.
 | Ondersteunde DSVM versies      | Windows      |
 | Doorgaans worden gebruikt      | Meerdere blobs van Azure storage te importeren in Azure Data Lake Store.      |
 |  Hoe gebruik / uitvoeren?    |   Open een opdrachtprompt, typ `adlcopy` om hulp te krijgen.    |
-| Koppelingen naar voorbeelden      | [Using AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Koppelingen naar voorbeelden      | [AdlCopy gebruiken](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Bijbehorende hulpprogramma's op de DSVM      | AzCopy, Azure vanaf de opdrachtregel     |
 
 ## <a name="azure-command-line"></a>Azure vanaf de opdrachtregel
@@ -46,7 +46,7 @@ Hier volgen enkele we hebt opgegeven op de DSVM verkeer hulpprogramma's.
 | Ondersteunde DSVM versies      | Windows, Linux     |
 | Doorgaans worden gebruikt      | U importeert, exporteren van gegevens naar en van Azure storage, Azure Data Lake Store      |
 |  Hoe gebruik / uitvoeren?    |   Open een opdrachtprompt, typ `az` om hulp te krijgen.    |
-| Koppelingen naar voorbeelden      | [Azure CLI gebruiken](https://docs.microsoft.com/cli/azure/?viee-cli-latest)     |
+| Koppelingen naar voorbeelden      | [Azure CLI gebruiken](https://docs.microsoft.com/cli/azure)     |
 | Bijbehorende hulpprogramma's op de DSVM      | AzCopy, AdlCopy      |
 
 
@@ -93,7 +93,7 @@ Hier volgen enkele we hebt opgegeven op de DSVM verkeer hulpprogramma's.
 | Ondersteunde DSVM versies      | Linux      |
 | Doorgaans worden gebruikt      | Lezen en schrijven naar de blobs in een container      |
 |  Hoe gebruik / uitvoeren?    |   Voer _blobfuse_ op een terminal.    |
-| Koppelingen naar voorbeelden      | [blobfuse on GitHub)[https://github.com/Azure/azure-storage-fuse]      |
+| Koppelingen naar voorbeelden      | [blobfuse op GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Bijbehorende hulpprogramma's op de DSVM      | Azure vanaf de opdrachtregel      |
 
 

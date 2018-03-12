@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 7bd8d17d5a2c918f2bef770c224398e7332785f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure PowerShell gebruiken met Azure Storage
 
@@ -136,8 +136,6 @@ Gebruik de instellingen voor een opslagaccount te wijzigen [Set AzureRmStorageAc
 * De **SKU** wordt de replicatie-instelling voor het opslagaccount, zoals LRS voor lokaal redundante opslag. U kunt bijvoorbeeld wijzigen van standaard\_LRS naar Standard\_GRS of standaard\_RAGRS. Opmerking u standaard niet wijzigen\_ZRS- of Premium\_LRS naar andere SKU's, of wijzig andere SKU's in deze.
 
 * De **toegangslaag** voor Blob storage-accounts. De waarde voor de toegangslaag is ingesteld op **hot** of **cool**, en kunt u uw kosten te minimaliseren door het selecteren van de toegangslaag die in overeenstemming brengt met hoe u het opslagaccount gebruiken. Zie voor meer informatie [Hot, koel, en archiveren van opslaglagen](../blobs/storage-blob-storage-tiers.md).
-
-* De storage-service versleutelingsinstelling voor blob-opslag-en/of opslag van bestanden. Zie voor meer informatie over SSE [Opslagversleuteling Service](storage-service-encryption.md).
 
 * Alleen HTTPS-verkeer toestaan. 
 

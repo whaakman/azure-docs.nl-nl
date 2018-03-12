@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 322514debd42714142434106748e4acac220ebee
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e86c323ac97ccc0d2a3da47fe1b1a9b3e9d16d0a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Maken en een schijfkopie OpenBSD uploaden naar Azure
 In dit artikel leest u hoe maken en uploaden van een virtuele harde schijf (VHD) die het besturingssysteem OpenBSD bevat. Nadat u deze uploaden, kunt u deze als uw eigen installatiekopie maken van een virtuele machine (VM) in Azure via Azure CLI.
@@ -29,7 +29,7 @@ In dit artikel leest u hoe maken en uploaden van een virtuele harde schijf (VHD)
 In dit artikel wordt ervan uitgegaan dat u de volgende items hebt:
 
 * **Een Azure-abonnement** -als u geen account hebt, kunt u een in een paar minuten. Als u een MSDN-abonnement hebt, raadpleegt u [maandelijkse Azure-tegoed voor Visual Studio-abonnees](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Anders wordt informatie over hoe [maken van een gratis proefaccount](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure CLI 2.0** -Zorg ervoor dat de meest recente [Azure CLI 2.0](/cli/azure/install-azure-cli) geïnstalleerd en aangemeld bij uw Azure-account met [az aanmelding](/cli/azure/#az_login).
+* **Azure CLI 2.0** -Zorg ervoor dat de meest recente [Azure CLI 2.0](/cli/azure/install-azure-cli) geïnstalleerd en aangemeld bij uw Azure-account met [az aanmelding](/cli/azure/reference-index#az_login).
 * **OpenBSD-besturingssysteem is geïnstalleerd in een .vhd-bestand** -een ondersteund besturingssysteem van OpenBSD (versie 6.1) moet worden geïnstalleerd op een virtuele harde schijf. Er bestaan meerdere hulpprogramma's voor het VHD-bestanden maken. Bijvoorbeeld, kunt u een oplossing voor netwerkvirtualisatie zoals Hyper-V te maken van het VHD-bestand en het besturingssysteem te installeren. Zie voor instructies over het installeren en gebruiken van Hyper-V [Hyper-V installeren en een virtuele machine maken](http://technet.microsoft.com/library/hh846766.aspx).
 
 
@@ -102,7 +102,7 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>Storage-resources maken en uploaden
-Maak eerst een resourcegroep met [az groep maken](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: ded90be3da52770a88dd1746fae2bd3584ba9280
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f717aca4f68811b5973fcee8791ac7db3a66e74a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Het uitbreiden van de virtuele harde schijven op een Linux-VM met de Azure CLI
 Grootte van de virtuele harde schijf voor het besturingssysteem (OS) is doorgaans 30 GB op een Linux virtuele machine (VM) in Azure. U kunt [gegevensschijven toevoegen](add-disk.md) te voorzien in extra opslagruimte, maar u kunnen ook desgewenst een bestaande gegevensschijf wilt uitbreiden. Dit artikel wordt uitgelegd hoe u beheerde schijven voor een Linux-VM met de Azure CLI 2.0 uitbreiden. U kunt ook uitbreiden met de niet-beheerde OS-schijf met de [Azure CLI 1.0](expand-disks-nodejs.md).
@@ -27,7 +27,7 @@ Grootte van de virtuele harde schijf voor het besturingssysteem (OS) is doorgaan
 > Zorg er altijd dat u maakt u een back-up van uw gegevens voordat u de schijf uitvoert de grootte van bewerkingen. Zie voor meer informatie [Back-up van Linux virtuele machines in Azure](tutorial-backup-vms.md).
 
 ## <a name="expand-azure-managed-disk"></a>Vouw beheerde Azure-schijf
-Zorg ervoor dat u de meest recente hebt [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#az_login).
+Zorg ervoor dat u de meest recente hebt [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login).
 
 In dit artikel is een bestaande virtuele machine in Azure met ten minste één schijf met gegevens die zijn gekoppeld en voorbereid vereist. Als u nog geen een virtuele machine die u kunt gebruiken, raadpleegt u [maken en voorbereiden van een virtuele machine met gegevensschijven](tutorial-manage-disks.md#create-and-attach-disks).
 
@@ -40,7 +40,7 @@ In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw 
     ```
 
     > [!NOTE]
-    > De virtuele machine moet ongedaan als u de virtuele harde schijf wilt uitbreiden. `az vm stop`Geeft de rekenresources niet vrij. Gebruik om rekenresources release `az vm deallocate`.
+    > De virtuele machine moet ongedaan als u de virtuele harde schijf wilt uitbreiden. `az vm stop` Geeft de rekenresources niet vrij. Gebruik om rekenresources release `az vm deallocate`.
 
 2. Een lijst met beheerde schijven weergeven in een resourcegroep met [az Schijflijst](/cli/azure/disk#az_disk_list). Het volgende voorbeeld wordt een lijst met beheerde schijven in de resourcegroep met de naam *myResourceGroup*:
 
@@ -118,7 +118,7 @@ Voor het gebruik van de uitgevouwen schijf, moet u de onderliggende partitie en 
     End?  [107GB]? 215GB
     ```
 
-    d. Voer om af te sluiten`quit`
+    d. Voer om af te sluiten `quit`
 
 3. Bij de partitie is gewijzigd, Controleer de consistentie van de partitie met `e2fsck`:
 

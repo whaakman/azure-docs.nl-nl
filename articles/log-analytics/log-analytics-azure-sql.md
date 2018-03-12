@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 624c861db9bb318c368cef04965da0a73dd028d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL Database met behulp van Azure SQL Analytics (Preview) in logboekanalyse bewaken
 
@@ -103,7 +103,7 @@ Klik op de **Azure SQL Analytics** tegel om de Azure SQL Analytics dashboard te 
 
 Als u een van de tegels selecteert, wordt een rapport zoomen geopend in de specifieke perspectief. Zodra het perspectief is geselecteerd, wordt het rapport zoomen geopend.
 
-![Azure SQL Analytics time-outs](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+![Azure SQL Analytics time-outs](./media/log-analytics-azure-sql/azure-sql-sol-metrics.png)
 
 Elk perspectief biedt samenvattingen op abonnement, server elastische pool en databaseniveau. Bovendien ziet elk perspectief u een perspectief specifiek zijn voor het rapport aan de rechterkant. Abonnement, server, groep of database selecteren in de lijst, blijft de inzoomen.
 
@@ -148,13 +148,19 @@ U kunt eenvoudig waarschuwingen maken met de gegevens die afkomstig zijn van Azu
 *Hoge DTU voor Azure SQL Database*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 *Hoge DTU op elastische Pool in Azure SQL Database*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 U kunt deze waarschuwing-query's gebruiken om te attenderen op specifieke drempelwaarden voor Azure SQL Database en elastische pools. Een waarschuwing voor uw werkruimte voor logboekanalyse configureren:
@@ -167,7 +173,7 @@ U kunt deze waarschuwing-query's gebruiken om te attenderen op specifieke drempe
 4. Voer een van de voorbeelden van query's.
 5. In logboek zoekopdracht, klikt u op **waarschuwing**.  
 ![waarschuwing in de zoekopdracht maken](./media/log-analytics-azure-sql/create-alert01.png)
-6. Op de **waarschuwingsregel toevoegen** pagina, configureert de toepasselijke eigenschappen en de specifieke drempelwaarden die u wilt en klik vervolgens op **opslaan**.  
+6. Op de **waarschuwingsregel toevoegen** pagina, configureert de toepasselijke eigenschappen en de specifieke drempelwaarden die u wilt en klik vervolgens op **opslaan**. 
 ![toevoegen van waarschuwingsregel](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Volgende stappen

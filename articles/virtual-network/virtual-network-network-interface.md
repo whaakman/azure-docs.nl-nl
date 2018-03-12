@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6c3fb08a43bce6193aa0094992616a290129bac8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Maken, wijzigen of verwijderen van een netwerkinterface
 
@@ -39,7 +39,7 @@ De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit ar
 
 ## <a name="create-a-network-interface"></a>Een netwerkinterface maken
 
-Wanneer u een virtuele machine met de Azure portal maakt, maakt de portal een netwerkinterface met de standaardinstellingen voor u. Als u liever uw instellingen voor de interface netwerk instelt, kunt u een netwerkinterface maken met aangepaste instellingen en de netwerkinterface koppelen aan een virtuele machine bij het maken van de virtuele machine (met PowerShell of Azure CLI). U kunt ook een netwerkinterface maken en toe te voegen aan een bestaande virtuele machine (met PowerShell of Azure CLI). Lees meer informatie over het maken van een virtuele machine met een bestaande netwerkinterface of toevoegen aan of verwijderen van netwerkinterfaces van de bestaande virtuele machines, de [toevoegen of verwijderen van netwerkinterfaces](virtual-network-network-interface-vm.md) artikel. Voordat u een netwerkinterface maakt, hebt u een bestaande [virtueel netwerk](virtual-networks-create-vnet-arm-pportal.md) in dezelfde locatie en abonnement maakt u een netwerkinterface in.
+Wanneer u een virtuele machine met de Azure portal maakt, maakt de portal een netwerkinterface met de standaardinstellingen voor u. Als u liever uw instellingen voor de interface netwerk instelt, kunt u een netwerkinterface maken met aangepaste instellingen en de netwerkinterface koppelen aan een virtuele machine bij het maken van de virtuele machine (met PowerShell of Azure CLI). U kunt ook een netwerkinterface maken en toe te voegen aan een bestaande virtuele machine (met PowerShell of Azure CLI). Lees meer informatie over het maken van een virtuele machine met een bestaande netwerkinterface of toevoegen aan of verwijderen van netwerkinterfaces van de bestaande virtuele machines, de [toevoegen of verwijderen van netwerkinterfaces](virtual-network-network-interface-vm.md) artikel. Voordat u een netwerkinterface maakt, hebt u een bestaande [virtueel netwerk](manage-virtual-network.md#create-a-virtual-network) in dezelfde locatie en abonnement maakt u een netwerkinterface in.
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met een account is toegewezen (minimaal) machtigingen voor de rol Inzender netwerk voor uw abonnement. Lees de [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikel voor meer informatie over het toewijzen van rollen en machtigingen aan accounts.
 2. In het vak dat de tekst bevat *zoeken bronnen* aan de bovenkant van de Azure-portal, typ *netwerkinterfaces*. Wanneer **netwerkinterfaces** wordt weergegeven in de zoekresultaten, klik erop.

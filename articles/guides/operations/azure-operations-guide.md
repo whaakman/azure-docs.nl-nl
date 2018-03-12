@@ -1,6 +1,6 @@
 ---
 title: Instructiehandleiding voor Azure IT-operators | Microsoft Docs
-description: Korte handleiding voor Azure IT-operators
+description: Introductiehandleiding voor Azure IT-operators
 services: 
 documentationcenter: 
 author: neilpeterson
@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Inleiding tot cloudcomputing en Microsoft Azure
 
@@ -128,7 +128,7 @@ Services voor netwerken in Azure, en ook tussen Azure en on-premises datacenters
 
 -   ExpressRoute van Azure
 
--   Azure DNS-
+-   Azure-provided DNS
 
 -   Azure Traffic Manager
 
@@ -491,19 +491,19 @@ Er zijn verschillende opties voor het implementeren van een virtueel netwerk.
 
 **Portal**
 
-Implementatie van een Azure-netwerk met behulp van de Azure-portal vereist alleen een actief Azure-abonnement en de toegang tot een webbrowser. U kunt een nieuw virtueel netwerk kunt implementeren in een nieuwe of bestaande resourcegroep. Wanneer u een nieuwe virtuele machine vanuit de portal maakt, kunt u een bestaand virtueel netwerk selecteren of een nieuwe maken. Zie voor meer informatie [een virtueel netwerk maken met de Azure-portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Implementatie van een Azure-netwerk met behulp van de Azure-portal vereist alleen een actief Azure-abonnement en de toegang tot een webbrowser. U kunt een nieuw virtueel netwerk kunt implementeren in een nieuwe of bestaande resourcegroep. Wanneer u een nieuwe virtuele machine vanuit de portal maakt, kunt u een bestaand virtueel netwerk selecteren of een nieuwe maken. Zie voor meer informatie [een virtueel netwerk maken met de Azure-portal](../../virtual-network/quick-create-portal.md).
 
 Naast het implementeren van een Azure-netwerk van de Azure-portal, kunt u vanuit de portal een Azure Resource Manager-sjabloon implementeren. Dit laten implementeren en configureren van alle resources, zoals gedefinieerd in de sjabloon, met inbegrip van alle resources van het virtuele netwerk. Zie voor meer informatie [implementeren van resources met Resource Manager-sjablonen en Azure-portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-Kan een virtuele Azure-netwerk implementeren met behulp van PowerShell voor automatisering van de volledige implementatie van het opslagaccount. Zie voor meer informatie [een virtueel netwerk maken met behulp van PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+Kan een virtuele Azure-netwerk implementeren met behulp van PowerShell voor automatisering van de volledige implementatie van het opslagaccount. Zie voor meer informatie [een virtueel netwerk maken met behulp van PowerShell](../../virtual-network/quick-create-powershell.md).
 
 Naast het Azure-resources afzonderlijk implementeren, kunt u de Azure PowerShell-module voor het implementeren van een Azure Resource Manager-sjabloon. Zie voor meer informatie [implementeren van resources met Resource Manager-sjablonen en Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **Opdrachtregelinterface (CLI)**
 
-Net als bij de PowerShell-module is de Azure-opdrachtregelinterface implementatie automation biedt en kan worden gebruikt op Windows-, OS X- of Linux-systemen. U kunt de Azure CLI **network vnet maken** opdracht voor het maken van een virtueel netwerk. Zie voor meer informatie [een virtueel netwerk maken met behulp van de Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md).
+Net als bij de PowerShell-module is de Azure-opdrachtregelinterface implementatie automation biedt en kan worden gebruikt op Windows-, OS X- of Linux-systemen. U kunt de Azure CLI **network vnet maken** opdracht voor het maken van een virtueel netwerk. Zie voor meer informatie [een virtueel netwerk maken met behulp van de Azure CLI](../../virtual-network/quick-create-cli.md).
 
 U kunt ook de Azure CLI gebruiken om een Azure Resource Manager-sjabloon te implementeren. Zie voor meer informatie [implementeren van resources met Resource Manager-sjablonen en Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
 

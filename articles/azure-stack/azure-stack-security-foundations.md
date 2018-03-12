@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c1d92f8f2ed9e8ab504afc65bab861e1f7bb3689
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure beveiligingspostuur van Stack-infrastructuur
 
@@ -31,8 +31,12 @@ In Azure-Stack zijn er twee houding beveiligingslagen die naast elkaar bestaan. 
 ## <a name="security-approach"></a>Beveiliging benadering
 Azure-Stack is ontworpen met een beveiligingspostuur als bescherming tegen actieve bedreigingen en is ontworpen om te voldoen aan de vereisten van de belangrijkste nalevingsstandaards. Als gevolg hiervan is de beveiligingsstatus van de Azure-Stack-infrastructuur gebaseerd op twee stijlen:
 
- - **Stel dat inbreuk.** Vanaf de veronderstelling dat het systeem al is geschonden, ligt de nadruk op *detecteren en het beperken van de gevolgen van inbreuk* versus alleen probeert om aanvallen te voorkomen. 
- - **Standaard gehard.**  Aangezien de infrastructuur worden uitgevoerd op een goed gedefinieerde hardware en software, *inschakelen, configureren en valideren van beveiligingsfuncties* die worden van links naar klanten te implementeren.
+ - **Stel dat inbreuk.**  
+Vanaf de veronderstelling dat het systeem al is geschonden, ligt de nadruk op *detecteren en het beperken van de gevolgen van inbreuk* versus alleen probeert om aanvallen te voorkomen. 
+ - **Standaard gehard.**  
+Aangezien de infrastructuur worden uitgevoerd op een goed gedefinieerde hardware en software, we *inschakelen, configureren en valideren van de beveiligingsfuncties* standaard.
+
+
 
 Omdat Azure-Stack is geleverd als een geïntegreerde systeem, wordt de beveiligingsstatus van de Azure-Stack-infrastructuur wordt gedefinieerd door Microsoft. Net als in Azure zijn tenants verantwoordelijk voor het definiëren van de beveiligingsstatus van de tenantwerkbelastingen. Dit document bevat fundamentele kennis over de beveiligingsstatus van de Azure-Stack-infrastructuur.
 

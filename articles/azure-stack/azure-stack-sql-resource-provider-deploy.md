@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 805e39dfdee3a23d4ddc196085be59788cee912a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d2a00f04e5b07aeb3585fb3ab6c8966e0de7e19
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL-databases op Microsoft Azure-Stack gebruiken
 
@@ -175,14 +175,17 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of als 
 
 
 ## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Bijwerken van de SQL resource provider-adapter (met meerdere knooppunten alleen bij builds 1710 en hoger)
-Een nieuwe SQL resource provider-adapter kan worden vrijgegeven wanneer Azure Stack-builds worden bijgewerkt. Terwijl de bestaande adapter werken blijven, wordt u aangeraden zo snel mogelijk naar de laatste build bijwerken. Updates moeten worden geïnstalleerd in volgorde: u kunt de versies niet overslaan (Zie de bovenstaande tabel).
+Een nieuwe SQL resource provider-adapter kan worden vrijgegeven wanneer Azure Stack-builds worden bijgewerkt. Terwijl de bestaande adapter werken blijft, wordt u aangeraden zo snel mogelijk naar de laatste build bijwerken. Updates moeten worden geïnstalleerd in volgorde: u kunt de versies niet overslaan (Zie de tabel in stap 3 van [implementeert de bronprovider](#deploy-the-resource-provider)).
 
-Het updateproces is vergelijkbaar met het installatieproces dat eerder beschreven. U kunt een nieuwe virtuele machine maken met de meest recente resource provider-code. Bovendien migreren u instellingen naar deze nieuwe instantie met inbegrip van de database en het hosten van servergegevens. U kunt ook de benodigde DNS-record migreren.
+Bijwerken van de resourceprovider die u gebruikt de *UpdateSQLProvider.ps1* script. Het proces is vergelijkbaar met het proces dat wordt gebruikt voor het installeren van een resourceprovider, zoals beschreven in de [implementeert de bronprovider](#deploy-the-resource-provider) sectie van dit artikel. Het script is opgenomen in het downloaden van de resourceprovider.
 
-Het script UpdateSQLProvider.ps1 gebruiken met dezelfde argumenten die we eerder beschreven. Geef hier het certificaat ook.
+De *UpdateSQLProvider.ps1* script maakt een nieuwe virtuele machine met de meest recente code van de resource-provider en de instellingen van de oude virtuele machine naar de nieuwe virtuele machine wordt gemigreerd. De instellingen die worden gemigreerd database en het hosten van server-gegevens bevatten en de vereiste DNS-record.
+
+Het script vereist gebruik van dezelfde argumenten die worden beschreven voor het script DeploySqlProvider.ps1. Geef het certificaat hier ook. 
 
 Het is raadzaam dat u de installatiekopie van het meest recente Windows Server 2016 Core uit het beheer van de Marketplace downloaden. Als u een update installeert moet, kunt u één plaatsen. MSU-pakket in het pad van de lokale afhankelijkheid. Als meer dan één. MSU-bestand wordt gevonden, mislukt het script.
 
+Hieronder volgt een voorbeeld van de *UpdateSQLProvider.ps1* script dat u vanuit de PowerShell-prompt uitvoeren kunt. Zorg ervoor dat de accountgegevens en wachtwoorden zo nodig wijzigen: 
 
 > [!NOTE]
 > Het updateproces geldt alleen voor geïntegreerde systemen.

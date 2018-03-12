@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: 180cf891611f148a1b9acd112fbcddab8eb54de3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 725e1717110ebfe52e2b45ab0c45edc36055704f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Maak een openbare Load Balancer Standard met zone-redundante frontend met Azure CLI
 
@@ -41,7 +41,7 @@ Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereis
 
 Voordat u selecteert een zone of zone-redundante optie voor de frontend openbaar IP-adres voor de Load Balancer, moet u eerst de stappen in uitvoeren [registreren voor de beschikbaarheid van zones preview](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Zorg ervoor dat de meest recente geïnstalleerd [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)en u bent aangemeld bij een Azure-account met [az aanmelding](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#az_login).
+Zorg ervoor dat de meest recente geïnstalleerd [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en u bent aangemeld bij een Azure-account met [az aanmelding](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -87,7 +87,7 @@ az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalan
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over hoe [maken van een openbaar IP-adres in een zone beschikbaarheid](../virtual-network/create-public-ip-availability-zone-cli.md)
+- Meer informatie over hoe [maken van een openbaar IP-adres in een zone beschikbaarheid](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 
 

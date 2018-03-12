@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 3c040f677aa25656148081d533e87cc55f1e22e7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8b6a4abdb7677417462392feade0c7cfdf99246f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-portal"></a>Een virtueel netwerk maken met Azure Portal
 
-In dit artikel leert u hoe u een virtueel netwerk maken. Na het maken van een virtueel netwerk, kunt u twee virtuele machines implementeren in het virtuele netwerk om communicatie tussen deze twee particuliere netwerk te testen.
+In dit artikel leert u hoe u een virtueel netwerk maken. Na het maken van een virtueel netwerk, moet u twee virtuele machines implementeren in het virtuele netwerk en privé communiceren tussen hen, en met het internet.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -36,77 +36,83 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
 1. Selecteer **+ maken van een resource** op het bovenste linkerbovenhoek van de Azure-portal.
 2. Selecteer **Networking**, en selecteer vervolgens **virtueel netwerk**.
-3. Zoals u in de volgende afbeelding, voer *myVirtualNetwork* voor **naam**, *myResourceGroup* voor **resourcegroep**, selecteert u een  **Locatie** en uw **abonnement**, accepteer de standaardinstellingen van de resterende en selecteer vervolgens **maken**. 
+3. Voer, of selecteert, worden de volgende informatie en selecteer vervolgens **maken**:
+    - **Name**: *myVirtualNetwork*
+    - **Adresruimte**: Accepteer de standaardgrootte. De adresruimte is opgegeven in CIDR-notatie.
+    - **Abonnement**: uw abonnement te selecteren.
+    - **Resourcegroep**: Selecteer **nieuw** en voer *myResourceGroup*.
+    - **Locatie**: Selecteer * Oost-VS **.
+    - **De naam van het subnet**: Accepteer de standaardinstelling.
+    - **Subnet, adresbereik**: Accepteer de standaardinstelling.
+    - **Service-eindpunten**: Accepteer de standaardinstelling.
 
     ![Geef algemene informatie over het virtuele netwerk](./media/quick-create-portal/virtual-network.png)
 
-    De **adresruimte** is opgegeven in CIDR-notatie. Het adresruimte 10.0.0.0/16 omvat 10.0.0.0-10.0.255.254. Een virtueel netwerk bevat nul of meer subnetten. Het opgegeven subnet **-adresbereik** bevat het IP-adressen 10.0.0.0-10.0.0.255. Alleen 10.0.0.4-10.0.0.254 zijn echter beschikbaar omdat Azure reserveert de eerste vier adressen (0-3) en het laatste adres in elk subnet. De beschikbare IP-adressen zijn toegewezen aan resources die zijn geïmplementeerd in een virtueel netwerk.
+## <a name="create-virtual-machines"></a>Virtuele machines maken
 
-## <a name="test-network-communication"></a>Test de netwerkcommunicatie
-
-Een virtueel netwerk kunt verschillende soorten Azure-bronnen te privé met elkaar communiceren. Een type resource dat u in een virtueel netwerk implementeren kunt is een virtuele machine. Twee virtuele machines maken in het virtuele netwerk, zodat u persoonlijke communicatie tussen deze in een later stadium kunt valideren.
-
-### <a name="create-virtual-machines"></a>Virtuele machines maken
+Een virtueel netwerk kunt verschillende soorten Azure-resources privé communiceren met elkaar en met het internet. Een type resource dat u in een virtueel netwerk implementeren kunt is een virtuele machine.
 
 1. Selecteer **+ maken van een resource** gevonden in de linkerbovenhoek hoek van de Azure-portal.
 2. Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**.
-3. Geef informatie op virtuele machine die wordt weergegeven in de volgende afbeelding. De **gebruikersnaam** en **wachtwoord** u zich aanmelden bij de virtuele machine in een latere stap worden gebruikt. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). Selecteer uw **abonnement**, gebruikt de bestaande *myResourceGroup* resource groep en zorg ervoor dat de **locatie** geselecteerd is de dezelfde locatie die u hebt gemaakt de virtueel netwerk in. Als u klaar selecteren **OK**.
+3. Voer, of selecteert, worden de volgende informatie en selecteer vervolgens **OK**:
+    - **Name**: *myVm1*
+    - **Gebruikersnaam**: Voer een gebruikersnaam van uw keuze.
+    - **Wachtwoord**: Voer een wachtwoord van uw keuze. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+    - **Abonnement**: uw abonnement te selecteren.
+    - **Resourcegroep**: Selecteer **gebruik bestaande** en selecteer **myResourceGroup**.
+    - **Locatie**: Selecteer *VS-Oost*.
 
     ![Geef algemene informatie over een virtuele machine](./media/quick-create-portal/virtual-machine-basics.png)
-4. Selecteer een grootte voor de virtuele machine en selecteer vervolgens **Selecteer**. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. De grootten die worden weergegeven voor u mogelijk anders dan het volgende voorbeeld: 
-
-    ![Selecteer een grootte voor een virtuele machine](./media/quick-create-portal/virtual-machine-size.png)
+4. Selecteer een grootte voor de virtuele machine en selecteer vervolgens **Selecteer**.
 5. Onder **instellingen**, *myVirtualNetwork* moet al zijn geselecteerd voor **virtueel netwerk**, maar als dit niet het geval is, selecteert u **virtueel netwerk** , selecteer vervolgens *myVirtualNetwork*. Laat *standaard* voor geselecteerde **Subnet**, en selecteer vervolgens **OK**.
 
     ![Een virtueel netwerk selecteren](./media/quick-create-portal/virtual-machine-network-settings.png)
-6. Op de **samenvatting** pagina **maken** implementatie van virtuele machine te starten. 
-7. De virtuele machine duurt een paar minuten maken. Na het maken, de virtuele machine is vastgemaakt aan de Azure-portaldashboard en de samenvatting van de virtuele machine automatisch wordt geopend. Selecteer **Networking**.
+6. Op de **samenvatting** pagina **maken** implementatie van virtuele machine te starten. De virtuele machine duurt een paar minuten om te implementeren. 
+7. Stappen 1-6 opnieuw, maar in stap 3, de virtuele machine naam *myVm2*.
 
-    ![Netwerkgegevens voor virtuele machine](./media/quick-create-portal/virtual-machine-networking.png)
+## <a name="connect-to-a-virtual-machine"></a>Verbinding maken met een virtuele machine
 
-    U ziet dat de **particuliere IP** adres *10.0.0.4*. In stap 5, onder **instellingen**, u hebt geselecteerd de *myVirtualNetwork* virtueel netwerk en het subnet met de naam geaccepteerd *standaard* voor **Subnet**. Wanneer u [gemaakt van het virtuele netwerk](#create-a-virtual-network), geaccepteerd van de standaardwaarde van 10.0.0.0/24 voor het subnet **-adresbereik**. Het eerste beschikbare adres voor het subnet dat u Azure DHCP-server toegewezen aan de virtuele machine. Omdat Azure de eerste vier adressen (0-3) van elk subnet gereserveerd, is het 10.0.0.4 het eerste beschikbare IP-adres beschikbaar is voor het subnet.
-
-    De **openbare IP-adres** -adres is toegewezen, is anders dan het adres dat is toegewezen aan de virtuele machine. Een openbaar, Internet routeerbare IP-adres in Azure met elke virtuele machine standaard wordt toegewezen. Het openbare IP-adres is toegewezen aan de virtuele machine vanuit een [groep adressen toegewezen aan elke Azure-regio](https://www.microsoft.com/download/details.aspx?id=41653). Terwijl Azure welk openbare IP-adres is toegewezen aan een virtuele machine weet, is het besturingssysteem in een virtuele machine geen bewust te maken van een openbaar IP-adres toegewezen.
-8. Stappen 1-7 opnieuw, maar in stap 3, de virtuele machine naam *myVm2*. 
-9. Nadat de virtuele machine is gemaakt, selecteert u **Networking**, zoals stap 7. U ziet de **particuliere IP** adres *10.0.0.5*. Omdat Azure het eerste bruikbare adres van de eerder toegewezen *10.0.0.4* in het subnet de *myVm1* virtuele machine toegewezen *10.0.0.5* naar de  *myVm2* virtuele machine, omdat het adres van de volgende beschikbaar in het subnet.
-
-### <a name="connect-to-a-virtual-machine"></a>Verbinding maken met een virtuele machine
-
-1. Extern verbinding maken met de *myVm1* virtuele machine. Aan de bovenkant van de Azure-portal, voer *myVm1*. Wanneer **myVm1** wordt weergegeven in de zoekresultaten, selecteer deze. Selecteer de **Connect** knop.
+1. Na *myVm1* is gemaakt, op afstand verbinding mee maken. Aan de bovenkant van de Azure-portal, voer *myVm1*. Wanneer **myVm1** wordt weergegeven in de zoekresultaten, selecteer deze. Selecteer de **Connect** knop.
 
     ![Overzicht van virtuele machines](./media/quick-create-portal/virtual-machine-overview.png)
+
 2. Na het selecteren van de **Connect** knop, een Remote Desktop Protocol (RDP)-bestand wordt gemaakt en gedownload op uw computer.  
-3. Open het gedownloade rdp-bestand. Als u wordt gevraagd, selecteert u **Connect**. Geef de gebruikersnaam en wachtwoord die u hebt opgegeven bij het maken van de virtuele machine en selecteer vervolgens **OK**. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Selecteer **Ja** of **doorgaan** om door te gaan met de verbinding.
+3. Open het gedownloade rdp-bestand. Als u wordt gevraagd, selecteert u **Connect**. Geef de gebruikersnaam en wachtwoord die u hebt opgegeven bij het maken van de virtuele machine (mogelijk moet u selecteren **meer opties**, vervolgens **gebruik een ander account**, om op te geven de referenties die u hebt ingevoerd wanneer u de virtuele machine gemaakt), schakelt u op OK. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Selecteer **Ja** of **doorgaan** om door te gaan met de verbinding.
 
-### <a name="validate-communication"></a>Communicatie valideren
+## <a name="communicate-between-vms"></a>Communicatie tussen virtuele machines
 
-Probeert te pingen van een Windows-virtuele machine mislukt, omdat ping niet is toegestaan via de Windows firewall standaard. Om toe te staan ping naar *myVm1*, voer de volgende opdracht uit vanaf de opdrachtprompt:
+1. Voer vanaf een opdrachtprompt `ping myvm2`. Ping mislukt, omdat het gebruik van ping ICMP- en ICMP is niet toegestaan via de Windows firewall standaard. Om toe te staan *myVm2* te pingen *myVm1* in een latere stap, voert u de volgende opdracht vanaf een opdrachtprompt:
 
-```
-netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-```
+    ```
+    netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+    ```
 
-Valideren van de communicatie met *myVm2*, voer de volgende opdracht vanaf een opdrachtprompt op de *myVm1* virtuele machine. Geef de referenties die u hebt gebruikt toen u de virtuele machine gemaakt en voltooi vervolgens de verbinding:
+2. Sluit de verbinding met extern bureaublad naar *myVm1*. 
 
-```
-mstsc /v:myVm2
-```
+3. Voer de stappen in [verbinding maken met een virtuele machine](#connect-to-a-virtual-machine), maar verbinding maken met *myVm2*. Voer vanaf een opdrachtprompt `ping myvm1`.
 
-Verbinding met extern bureaublad is mislukt omdat beide virtuele machines privé IP-adressen toegewezen vanuit de *standaard* subnet en omdat de extern bureaublad openen via de Windows-firewall standaard is. U bent geen verbinding maken met *myVm2* door hostnaam omdat Azure automatisch DNS-naamomzetting voor alle hosts binnen een virtueel netwerk biedt. Pingen vanaf een opdrachtprompt *myVm1*, van *myVm2*.
+    Kan wel worden wel pingen de *myVm1* virtuele machine van de *myVm2* virtuele machine omdat:
 
-```
-ping myvm1
-```
+    - u ICMP toegestaan via de Windows firewall op de *myVm1* virtuele machine in de vorige stap.
+    - Standaard kan Azure al het netwerkverkeer tussen resources in hetzelfde virtuele netwerk.
 
-Ping is voltooid, omdat deze toegestaan via de Windows firewall op de *myVm1* virtuele machine in de vorige stap. Om te bevestigen uitgaande communicatie met Internet, voer de volgende opdracht:
+## <a name="communicate-to-the-internet"></a>Communicatie met internet
 
-```
-ping bing.com
-```
+1. Tijdens het nog wordt verbonden met de *myVm2* invoeren van de virtuele machine vanaf een opdrachtprompt `ping bing.com`.
 
-U ontvangt vier reacties van bing.com. Standaard kan een virtuele machine in een virtueel netwerk uitgaand naar het Internet communiceren. 
+    U ontvangt vier reacties van bing.com. 
 
-De extern bureaublad-sessiehost af te sluiten.
+    Kan wel worden wel pingen een internet-bron van de *myVm2* virtuele machine, omdat een virtuele machine standaard uitgaand naar het internet kan communiceren.
+
+2. De extern bureaublad-sessiehost af te sluiten.
+
+## <a name="communicate-from-the-internet"></a>Communiceren via internet
+
+1. Ophalen van het openbare IP-adres van de *myVm1* virtuele machine. Stap in de afbeelding die wordt weergegeven onder 1 in [verbinding maken met een virtuele machine](#connect-to-a-virtual-machine), ziet u een openbaar IP-adres. In de afbeelding, het adres is *13.90.241.247*. Een ander wordt adres voor uw virtuele machine. 
+
+2. Pingen vanaf uw computer, het openbare IP-adres van uw *myVm1* virtuele machine. Pingen mislukt, ondanks dat ICMP geopend met behulp van Windows firewall is.
+
+    Ping mislukt, omdat alle verkeer naar virtuele machines van Windows, met uitzondering van extern bureaublad-verbindingen via poort 3389 standaard door Azure, is geweigerd. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

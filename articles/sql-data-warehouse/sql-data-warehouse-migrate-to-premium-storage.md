@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 751f553c277cec579327771beb2f3256664452b1
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 1e216da55a4c425fe112215464cdedb59c8db585
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Uw datawarehouse migreren naar premium-opslag
 Azure SQL Data Warehouse onlangs geïntroduceerd [premium-opslag voor groter prestaties, voorspelbaarheid][premium storage for greater performance predictability]. Bestaande datawarehouses momenteel op standaardopslag kunnen nu worden gemigreerd naar de premium-opslag. U kunt profiteren van de automatische migratie van of als u liever om te beheren wanneer voor het migreren van (dit heeft betrekking op enige downtime), kunt u de migratie zelf doen.
@@ -31,13 +31,13 @@ Als u een datawarehouse hebt gemaakt voordat de volgende datums, u standaardopsl
 
 | **Regio** | **Datawarehouse gemaakt voor deze datum** |
 |:--- |:--- |
-| Australië - oost |Premium-opslag is nog niet beschikbaar |
+| Australië - oost |1 januari 2018 |
 | China East |1 november 2016 |
 | China - noord |1 november 2016 |
 | Duitsland - centraal |1 november 2016 |
 | Duitsland - noordoost |1 november 2016 |
-| India - west |Premium-opslag is nog niet beschikbaar |
-| Japan - west |Premium-opslag is nog niet beschikbaar |
+| India - west |1 februari 2018 |
+| Japan - west |1 februari 2018 |
 | Noord-centraal VS |10 november 2016 |
 
 ## <a name="automatic-migration-details"></a>Details van de automatische migratie
@@ -69,14 +69,14 @@ Automatische migraties optreden tussen 18:00 uur en 6:00 uur (lokale tijd per re
 
 | **Regio** | **Geschatte begindatum** | **Geschatte einddatum** |
 |:--- |:--- |:--- |
-| Australië - oost |Nog niet worden vastgesteld |Nog niet worden vastgesteld |
-| China East |9 januari 2017 |13 januari 2017 |
-| China - noord |9 januari 2017 |13 januari 2017 |
-| Duitsland - centraal |9 januari 2017 |13 januari 2017 |
-| Duitsland - noordoost |9 januari 2017 |13 januari 2017 |
-| India - west |Nog niet worden vastgesteld |Nog niet worden vastgesteld |
-| Japan - west |Nog niet worden vastgesteld |Nog niet worden vastgesteld |
-| Noord-centraal VS |9 januari 2017 |13 januari 2017 |
+| Australië - oost |19 maart 2018 |20 maart 2018 |
+| China East |Al gemigreerd |Al gemigreerd |
+| China - noord |Al gemigreerd |Al gemigreerd |
+| Duitsland - centraal |Al gemigreerd |Al gemigreerd |
+| Duitsland - noordoost |Al gemigreerd |Al gemigreerd |
+| India - west |19 maart 2018 |20 maart 2018 |
+| Japan - west |19 maart 2018 |20 maart 2018 |
+| Noord-centraal VS |Al gemigreerd |Al gemigreerd |
 
 ## <a name="self-migration-to-premium-storage"></a>Zelfstandige migratie naar de premium-opslag
 Als u bepalen wilt wanneer uw uitvaltijd wordt uitgevoerd, kunt u de volgende stappen uit om te migreren van een bestaand datawarehouse op een standard-opslag naar de premium-opslag. Als u deze optie kiest, moet u de zelfstandige migratie voltooien voordat de automatische migratie in deze regio begint. Dit zorgt ervoor dat u het risico van de automatische migratie een conflict veroorzaken vermijden (Raadpleeg de [schema voor automatische migratie][automatic migration schedule]).
@@ -84,11 +84,14 @@ Als u bepalen wilt wanneer uw uitvaltijd wordt uitgevoerd, kunt u de volgende st
 ### <a name="self-migration-instructions"></a>Zelfstandige migratie-instructies
 Migreren van uw datawarehouse, gebruikt u de back-up en herstellen van functies. Het gedeelte voor herstel van de migratie is ongeveer één uur per terabyte van opslag verwacht per datawarehouse. Als u wilt behouden dezelfde naam na de migratie is voltooid, voert u de [stappen om te wijzigen tijdens de migratie][steps to rename during migration].
 
-1. [Onderbreken] [ Pause] uw datawarehouse. Dit vindt een automatische back-up.
+1. [Onderbreken] [ Pause] uw datawarehouse. 
 2. [Herstellen] [ Restore] van uw meest recente momentopname.
 3. Verwijder het bestaande datawarehouse op een standard-opslag. **Als u niet in deze stap doet, wordt in rekening gebracht voor beide datawarehouses.**
 
 > [!NOTE]
+>
+> Bij het herstellen van uw datawarehouse, moet u controleren dat de meest recente beschikbare herstelpunt vindt plaats nadat het datawarehouse is onderbroken.
+>
 > De volgende instellingen uitvoeren als onderdeel van de migratie niet via:
 >
 > * Controle op het databaseniveau van de moet opnieuw worden ingeschakeld.
@@ -105,60 +108,13 @@ Stel in dit voorbeeld of uw bestaande datawarehouse op een standard-opslag is mo
    ```
    ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
    ```
-2. [Onderbreken] [ Pause] 'MyDW_BeforeMigration'. Dit vindt een automatische back-up.
+2. [Onderbreken] [ Pause] 'MyDW_BeforeMigration'. 
 3. [Herstellen] [ Restore] van de meest recente momentopname maken van een nieuwe database met de naam die wordt gebruikt om te worden (bijvoorbeeld 'MyDW').
 4. Verwijderen van 'MyDW_BeforeMigration'. **Als u niet in deze stap doet, wordt in rekening gebracht voor beide datawarehouses.**
 
 
 ## <a name="next-steps"></a>Volgende stappen
 Met het wijzigen naar premium-opslag hebt u ook een toenemend aantal blob-databasebestanden in de onderliggende architectuur van uw datawarehouse. Om de prestatievoordelen maximaliseren van deze wijziging, kunt u uw geclusterde columnstore-indexen met behulp van het volgende script opnieuw maken. Het script werkt door af te dwingen een deel van uw bestaande gegevens voor de aanvullende blobs. Als u geen actie onderneemt, wordt de gegevens natuurlijk na verloop van tijd distribueren, als u meer gegevens in de tabellen laden.
-
-**Vereisten:**
-
-- Het datawarehouse moet worden uitgevoerd met 1000 datawarehouse eenheden of hoger (Zie [scale rekenkracht][scale compute power]).
-- De gebruiker uitvoeren van het script moet in de [mediumrc rol] [ mediumrc role] of hoger. Een gebruiker toevoegen aan deze rol, uitvoeren van het volgende: ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
-
-````sql
--------------------------------------------------------------------------------
--- Step 1: Create table to control index rebuild
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
-
---------------------------------------------------------------------------------
--- Step 2: Execute index rebuilds. If script fails, the below can be re-run to restart where last left off.
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
-go
--------------------------------------------------------------------------------
--- Step 3: Clean up table created in Step 1
---------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
 
 Als u problemen ondervindt met uw datawarehouse [Maak een ondersteuningsticket] [ create a support ticket] en verwijzing 'migratie naar de premium-opslag' als de mogelijke oorzaak.
 

@@ -3,8 +3,8 @@ title: Scale-out werkrollen in App Services - Stack in Azure | Microsoft Docs
 description: Gedetailleerde richtlijnen voor het schalen van Azure Stack App Services
 services: azure-stack
 documentationcenter: 
-author: brenduns
-manager: femila
+author: apwestgarth
+manager: stefsch
 editor: 
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
 ms.service: azure-stack
@@ -12,22 +12,23 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: brenduns
-ms.reviewer: anwestg
-ms.openlocfilehash: ddd9820715e964218db8b88fb5211b3725c808b9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/08/2018
+ms.author: anwestg
+ms.reviewer: brenduns
+ms.openlocfilehash: d6471796863a80e69fdaf740b68fb27d59503453
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App-Service op Azure-Stack: meer infrastructuur of worker rollen toevoegen
+
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*  
 
 Dit document bevat instructies over het schalen van App Service voor Azure-Stack infrastructuur- en werkrollen rollen. Deze bevat stappen voor het maken van aanvullende werkrollen ter ondersteuning van toepassingen van elke grootte.
 
 > [!NOTE]
-> Als uw Azure-Stack-omgeving geen meer dan 96 GB RAM-geheugen heeft mogelijk hebt u problemen bij het toevoegen van extra capaciteit.
+> Als uw Azure-Stack-omgeving niet meer dan 96 GB RAM-geheugen heeft, mogelijk hebt u problemen bij het toevoegen van extra capaciteit.
 
 App-Service op Azure-Stack standaard ondersteunt gratis en gedeelde worker lagen. Als u wilt toevoegen andere worker-laag, moet u meer werkrollen toevoegen.
 
@@ -35,37 +36,83 @@ Als u niet zeker wat is geïmplementeerd met de standaard-App Service op Azure-S
 
 Azure App Service op Azure-Stack alle rollen met behulp van de virtuele-Machineschaalsets implementeert en als zodanig wordt gebruikgemaakt van de mogelijkheden voor vergroten/verkleinen van deze workload. Daarom wordt alle schalen van de werknemer lagen uitgevoerd via de App Service-beheerder.
 
-Toevoegen van extra werknemers rechtstreeks vanuit de App Service-beheerder met Resource-Provider.
+> [!IMPORTANT]
+> Het is momenteel niet mogelijk om te schalen van virtuele-machineschaalsets in de portal, zoals aangegeven in de Azure-Stack release-opmerkingen, Gebruik daarom het PowerShell-voorbeeld uit te schalen.
+>
+>
 
-1. Meld u aan bij de Azure-Stack-beheerportal als de servicebeheerder.
+## <a name="add-additional-workers-with-powershell"></a>Toevoegen van extra werknemers met PowerShell
 
-2. Blader naar **App Services**.
+1. [De beheerder van Azure-Stack-omgeving in PowerShell instellen](azure-stack-powershell-configure-admin.md)
+2. In dit voorbeeld moet worden uitgebreid in de schaalset gebruiken:
+   ```powershell
+   
+    ##### Scale out the AppService Role instances ######
+   
+    # Set context to AzureStack admin.
+    Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+                                                 
+    ## Name of the Resource group where AppService is deployed.
+    $AppServiceResourceGroupName = "AppService.local"
+
+    ## Name of the ScaleSet : e.g. FrontEndsScaleSet, ManagementServersScaleSet, PublishersScaleSet , LargeWorkerTierScaleSet,      MediumWorkerTierScaleSet, SmallWorkerTierScaleSet, SharedWorkerTierScaleSet
+    $ScaleSetName = "SharedWorkerTierScaleSet"
+
+    ## TotalCapacity is sum of the instances needed at the end of operation. 
+    ## e.g. if you VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
+    $TotalCapacity = 2  
+
+    # Get current scale set
+    $vmss = Get-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
+
+    # Set and update the capacity
+    $vmss.sku.capacity = $TotalCapacity
+    Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
+  
+    '''
+
+> [!NOTE]
+> This step can take a number of hours to complete depending on the type of role and the number of instances.
+>
+>
+
+3. Monitor the status of the new role instances in the App Service Administration, to check the status of an individual role instance click the role type in the list.
+
+## Add additional workers directly within the App Service Resource Provider Admin.
+
+1. Log in to the Azure Stack administration portal as the service administrator.
+
+2. Browse to **App Services**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Klik op **rollen**. Hier ziet u de verdeling van alle rollen in App Service geïmplementeerd.
+3. Click **Roles**. Here you see the breakdown of all App Service roles deployed.
 
-4. Klik met de rechtermuisknop op de rij van het type dat u wilt schalen en klik vervolgens op **ScaleSet**.
+4. Right click on the row of the type you want to scale and then click **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Klik op **schaal**, selecteer het aantal exemplaren dat u wilt aanpassen aan en klik vervolgens op **opslaan**.
+5. Click **Scaling**, select the number of instances you want to scale to, and then click **Save**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. App-Service op Azure-Stack wordt nu de extra virtuele machines toevoegen, om ze te configureren, de vereiste software installeren en gemarkeerd als gereed wanneer dit proces voltooid is. Dit kan ongeveer 80 minuten duren.
+6. App Service on Azure Stack will now add the additional VMs, configure them, install all the required software, and mark them as ready when this process is complete. This process can take approximately 80 minutes.
 
-7. U kunt de voortgang van de gereedheid van de nieuwe rollen aan de hand van de werknemers in de **rollen** blade.
+7. You can monitor the progress of the readiness of the new roles by viewing the workers in the **Roles** blade.
 
-Nadat ze volledig geïmplementeerde en klaar bent, worden de werknemers beschikbaar voor gebruikers van hun werkbelasting naar ze te implementeren. Hieronder ziet u een voorbeeld van de beschikbare meerdere Prijscategorieën standaard. Als er geen beschikbare werknemers voor een bepaalde worker-laag, is de optie voor het kiezen van de bijbehorende prijscategorie is niet beschikbaar.
+## Result
+
+After they are fully deployed and ready, the workers become available for users to deploy their workload onto them. The following shows an example of the multiple pricing tiers available by default. If there are no available workers for a particular worker tier, the option to choose the corresponding pricing tier is unavailable.
 
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> Als u wilt uitbreiden Management, toevoegen front-end- of Publisher rollen dat moet u de bijbehorende VM-schaalset uitbreiden. We zullen de mogelijkheid voor het schalen van deze rollen via de App Service-beheer in een toekomstige release toevoegen.
+> To scale out Management, Front End or Publisher roles add you must scale out the corresponding role type. 
+>
+>
 
-Als u wilt uitbreiden Management, Front-End of Publisher rollen, volgt u dezelfde stappen selecteren van het type van de juiste rol. Domeincontrollers worden niet geïmplementeerd als Schaalsets en dus twee moeten worden geïmplementeerd tijdens de installatie voor alle productie-implementaties.
+To scale out Management, Front End, or Publisher roles, follow the same steps selecting the appropriate role type. Controllers are not deployed as Scale Sets and therefore two should be deployed at Installation time for all production deployments.
 
-### <a name="next-steps"></a>Volgende stappen
+### Next steps
 
-[Implementatiebronnen configureren](azure-stack-app-service-configure-deployment-sources.md)
+[Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)

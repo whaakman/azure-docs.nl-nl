@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c791f335bfa9ec6073eb83149068571ceb253f82
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b54aba19ecb92867bc817cbbb921f4e6537ef70c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Cosmos DB met Azure Data Factory
 
@@ -125,7 +125,7 @@ Om gegevens te kopiëren van Azure Cosmos DB, stelt u het brontype in de kopieer
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **DocumentDbCollectionSource** |Ja |
-| query |Geef de Cosmos-DB-query om te lezen van gegevens.<br/><br/>Voorbeeld:`SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nee <br/><br/>Als niet wordt opgegeven, de SQL-instructie die is uitgevoerd:`select <columns defined in structure> from mycollection` |
+| query |Geef de Cosmos-DB-query om te lezen van gegevens.<br/><br/>Voorbeeld: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nee <br/><br/>Als niet wordt opgegeven, de SQL-instructie die is uitgevoerd: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Speciaal teken om aan te geven dat het document is genest en hoe flattern het resultaat ingesteld.<br/><br/>Bijvoorbeeld, als een Cosmos-DB-query retourneert een geneste resultaat `"Name": {"First": "John"}`, kopieeractiviteit wordt geïdentificeerd kolomnaam als 'Name.First' met de waarde 'John' wanneer de nestedSeparator punt. |Nee (standaard is dit punt `.`) |
 
 **Voorbeeld:**
@@ -162,7 +162,7 @@ Om gegevens te kopiëren van Azure Cosmos DB, stelt u het brontype in de kopieer
 
 ### <a name="azure-cosmos-db-as-sink"></a>Azure Cosmos DB als sink
 
-Om gegevens te kopiëren van Azure Cosmos DB, stelt u het sink-type in de kopieerbewerking te **DocumentDbCollectionSink**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
+Om gegevens te kopiëren naar Azure Cosmos DB, stelt u het sink-type in de kopieerbewerking naar **DocumentDbCollectionSink**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |

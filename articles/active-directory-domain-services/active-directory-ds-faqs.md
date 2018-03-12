@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 1963931f30808e861445c9555a04f933514239c3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Veelgestelde vragen (FAQ's)
 Deze pagina antwoorden op veelgestelde vragen over Azure Active Directory Domain Services. Houd regelmatig op updates controleren.
@@ -39,7 +39,7 @@ Momenteel niet. Microsoft levert een mechanisme voor het migreren van uw bestaan
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Kan ik Azure AD Domain Services in een Azure-CSP (Cloud Solution Provider)-abonnement inschakelen?
 Ja. Zie het inschakelen van [Azure AD Domain Services in Azure CSP abonnementen](active-directory-ds-csp.md).
 
-### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Kan ik inschakelen Azure AD Domain Services in een federatieve Azure AD-directory? Ik gebruik van AD FS voor verificatie van gebruikers voor toegang tot Office 365 en wachtwoord-hashes naar Azure AD niet synchroniseren. Kan ik Azure AD Domain Services voor deze directory inschakelen?
+### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Kan ik inschakelen Azure AD Domain Services in een federatieve Azure AD-directory? Ik Synchroniseer geen wachtwoord-hashes naar Azure AD. Kan ik Azure AD Domain Services voor deze directory inschakelen?
 Nee. Azure AD Domain Services moet toegang tot de wachtwoord-hashes van gebruikersaccounts, gebruikers verifiëren via NTLM of Kerberos. In een federatieve map worden wachtwoord-hashes niet opgeslagen in de Azure AD-directory. Azure AD Domain Services werkt daarom niet met dergelijke Azure AD-mappen.
 
 ### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Kan ik Azure AD Domain Services beschikbaar maken in meerdere virtuele netwerken in mijn abonnement?
@@ -53,6 +53,9 @@ Ja. Zie [hoe het inschakelen van Azure AD Domain Services met behulp van PowerSh
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Kan ik domeincontrollers toevoegen aan een beheerd domein van Azure AD Domain Services
 Nee. Het domein dat is verstrekt door Azure AD Domain Services is een beheerd domein. U hoeft niet inrichten, configureren of anderszins beheren domeincontrollers voor dit domein - worden deze activiteiten management als een service door Microsoft geleverd. U kunt extra domeincontrollers (alleen-lezen of alleen-lezen) voor het beheerde domein daarom niet toevoegen.
+
+### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Kunnen gastgebruikers uitgenodigd voor mijn directory Azure AD Domain Services gebruiken?
+Nee. Gastgebruikers uitgenodigd voor uw Azure AD-directory via de [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) uitnodiging proces zijn sycned in uw beheerde domein van Azure AD Domain Services. Wachtwoorden voor deze gebruikers worden echter niet opgeslagen in uw Azure AD-directory. Daarom Azure AD Domain Services heeft geen manier om te synchroniseren van NTLM en Kerberos-hashes voor deze gebruikers in uw beheerde domein. Als gevolg hiervan kunnen niet dergelijke gebruikers aanmelden bij het beheerde domein of computers koppelen aan het beheerde domein.
 
 ## <a name="administration-and-operations"></a>Beheer en bewerkingen
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Kan ik verbinden met de domeincontroller voor mijn beheerde domein maken met extern bureaublad?
@@ -75,6 +78,9 @@ Nee. Het schema wordt beheerd door Microsoft voor het beheerde domein. Schema-ui
 
 ### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>Kan ik wijzigen of de DNS-records toevoegen aan mijn beheerde domein?
 Ja. Leden van de groep 'AAD DC Administrators' krijgen ' DNS-beheerder '-rechten voor het wijzigen van DNS-records in het beheerde domein. De console DNS-beheer kan worden gebruikt op een computer met Windows Server is toegevoegd aan het beheerde domein voor het beheren van DNS. Voor het gebruik van de console DNS-beheer, DNS-Server hulpprogramma's installeren ', dat deel uitmaakt van de optionele functie 'Remote Server Administration Tools' op de server. Meer informatie over [hulpprogramma's voor beheer, bewaking en probleemoplossing van DNS](https://technet.microsoft.com/library/cc753579.aspx) is beschikbaar op TechNet.
+
+### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Wat is het wachtwoordbeleid van de levensduur van een beheerd domein?
+De standaardlevensduur wachtwoord op een Azure AD Domain Services beheerd domein is 90 dagen. De levensduur van dit wachtwoord is niet gesynchroniseerd met de levensduur van het wachtwoord in Azure AD is geconfigureerd. Mogelijk hebt u daarom een situatie waarbij wachtwoorden van gebruikers verloopt in uw beheerde domein, maar nog steeds geldig zijn in Azure AD. In dergelijke scenario's, moeten gebruikers hun wachtwoord wijzigen in Azure AD en het nieuwe wachtwoord wordt gesynchroniseerd met uw beheerde domein. Bovendien worden de 'wachtwoord-biedt-niet-verloopt' en 'user-must-change-password-at-next-logon' kenmerken voor gebruikersaccounts niet gesynchroniseerd met uw beheerde domein.
 
 ## <a name="billing-and-availability"></a>Facturering en beschikbaarheid
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Is dat Azure AD Domain Services een betaalde service?

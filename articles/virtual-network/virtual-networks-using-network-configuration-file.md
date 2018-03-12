@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bb75b8bd1d525f3104fb517cb4a09b2e33caaca
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Een virtueel netwerk (klassiek) met een configuratiebestand netwerk configureren
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ U kunt PowerShell of Azure CLI gebruiken voor het exporteren van een netwerk-con
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>Maken of een configuratiebestand netwerk wijzigen
 
-Een configuratiebestand netwerk is een XML-bestand (als u PowerShell) of een json-bestand (als u de Azure CLI). U kunt het bestand in een tekst- of XML-/ json-editor kunt bewerken. De [netwerk-instellingen voor het configuratiebestand schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) artikel bevat informatie voor alle instellingen. Zie voor aanvullende uitleg van de instellingen [virtuele netwerken en instellingen weergeven](virtual-network-manage-network.md#view-vnet). De wijzigingen die u in het bestand aanbrengt:
+Een configuratiebestand netwerk is een XML-bestand (als u PowerShell) of een json-bestand (als u de Azure CLI). U kunt het bestand in een tekst- of XML-/ json-editor kunt bewerken. De [netwerk-instellingen voor het configuratiebestand schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) artikel bevat informatie voor alle instellingen. Zie voor aanvullende uitleg van de instellingen [virtuele netwerken en instellingen weergeven](manage-virtual-network.md#view-virtual-networks-and-settings). De wijzigingen die u in het bestand aanbrengt:
 
 - Moet voldoen aan het schema of het importeren van die het configuratiebestand van het netwerk mislukt.
 - Overschrijf de bestaande netwerkinstellingen voor uw abonnement, dus Wees daarom uiterst voorzichtig als u wijzigingen aanbrengt. Verwijs bijvoorbeeld naar de configuratiebestanden van de voorbeeld-netwerk die volgen. Stel het oorspronkelijke bestand bevat twee **VirtualNetworkSite** exemplaren en u gewijzigd, zoals wordt weergegeven in de voorbeelden. Wanneer u het bestand importeert, Azure worden verwijderd van het virtuele netwerk voor de **VirtualNetworkSite** exemplaar dat u in het bestand verwijderd. Dit scenario vereenvoudigde wordt ervan uitgegaan dat er zijn geen bronnen in het virtuele netwerk alsof er, het virtuele netwerk kan niet worden verwijderd en het importeren mislukt.

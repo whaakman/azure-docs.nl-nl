@@ -1,14 +1,14 @@
-| Resource | Gratis | Gedeeld (preview) | Basic | Standard | Premium (Preview)</th> |
+| Resource | Gratis | Gedeeld (preview) | Basic | Standard | Premium </th> |
 | --- | --- | --- | --- | --- | --- |
 | [Web-, mobiele of API-apps](https://azure.microsoft.com/services/app-service/) per [App Service-abonnement](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Onbeperkte<sup>2</sup> |Onbeperkte<sup>2</sup> |Onbeperkte<sup>2</sup> |
 | [Logische apps](https://azure.microsoft.com/services/app-service/logic/) per [App Service-abonnement](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup> |10 |10 |10 |20 per core |20 per core |
 | [App Service-plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |1 per regio |10 per resourcegroep |100 per resourcegroep |100 per resourcegroep |100 per resourcegroep |
 | Rekenuren voor type sjabloonexemplaar |Gedeeld |Gedeeld |Toegewezen<sup>3</sup> |Toegewezen<sup>3</sup> |Toegewezen<sup>3</sup></p> |
 | [Scale-Out](../articles/app-service/web-sites-scale.md) (max. exemplaren) |1 gedeeld |1 gedeeld |3-specifieke<sup>3</sup> |10 toegewezen<sup>3</sup> |20 (50 in as-omgeving) toegewezen<sup>3,4</sup> |
-| Opslag<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |
+| Storage<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |
 | CPU-tijd (5 min)<sup>6</sup> |3 minuten |3 minuten |Onbeperkte, betaalde op standaard [tarieven](https://azure.microsoft.com/pricing/details/app-service/)</a> |Onbeperkt, betalen tegen standaardtarieven |Onbeperkt, betalen tegen standaardtarieven |
 | CPU-tijd (dagen)<sup>6</sup> |60 minuten |240 minuten |Onbeperkte, betaalde op standaard [tarieven](https://azure.microsoft.com/pricing/details/app-service/)</a> |Onbeperkt, betalen tegen standaardtarieven |Onbeperkt, betalen tegen standaardtarieven |
-| Geheugen (1 uur) |1024 MB per App Service-abonnement |1024 MB per app |N.v.t. |N.v.t. |N.v.t. |
+| Geheugen (1 uur) |1024 MB per App Service-abonnement |1024 MB per app |N/A |N/A |N/A |
 | Bandbreedte |165 MB |Onbeperkte, [tarieven voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) toepassen |Onbeperkt, gegevensoverdracht tarieven toepassen |Onbeperkt, gegevensoverdracht tarieven toepassen |Onbeperkt, gegevensoverdracht tarieven toepassen |
 | Toepassingsarchitectuur |32-bits |32-bits |32-bits/64-bits |32-bits/64-bits |32-bits/64-bits |
 | Web-Sockets per exemplaar<sup>7</sup> |5 |35 |350 |Onbeperkt |Onbeperkt |

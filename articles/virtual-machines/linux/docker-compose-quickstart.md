@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 9f8c9a32be9b889ced4fdc7065acd09e6700afd5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 387f3095e8eebce3fa6c2f47ffc87995e65bfe2b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Aan de slag met Docker en opstellen om te definiëren en een toepassing met meerdere container in Azure uitvoeren
 Met [opstellen](http://github.com/docker/compose), u een eenvoudige tekstbestand gebruiken voor het definiëren van een toepassing die bestaat uit meerdere Docker-containers. U vervolgens spin van uw toepassing in één opdracht dat alles voor het implementeren van uw omgeving gedefinieerde werkt. Een voorbeeld: in dit artikel leest u hoe snel een WordPress-blog met een back-end MariaDB SQL-database op een VM Ubuntu instellen. U kunt ook Compose gebruiken voor het instellen van complexe toepassingen.
@@ -32,7 +32,7 @@ Wanneer u de Docker-VM-extensie, uw virtuele machine is automatisch geconfiguree
 
 
 ### <a name="create-docker-host-with-azure-cli-20"></a>Docker-host te maken met Azure CLI 2.0
-Installeer de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#az_login).
+Installeer de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/reference-index#az_login).
 
 Maak eerst een resourcegroep voor uw omgeving Docker met [az groep maken](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 

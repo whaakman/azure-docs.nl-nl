@@ -6,17 +6,17 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: bf6d7c8b831e670db9fff28218c8f36391a73c9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13dcc0794c1d89bd27c79cbe6636397da4f008f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Instellen van herstel na noodgevallen voor Hyper-V-machines naar een secundaire on-premises site
 
-De [Azure Site Recovery](site-recovery-overview.md) service draagt bij aan uw strategie voor noodherstel door te beheren en te organiseren replicatie, failover en failback van on-premises machines en virtuele Azure-machines (VM's).
+De [Azure Site Recovery](site-recovery-overview.md)-service draagt bij aan uw strategie voor herstel na noodgevallen door de replicatie, failover en failback van on-premises machines en virtuele Azure-machines te beheren en in te delen.
 
 Dit artikel ziet u het instellen van herstel na noodgevallen naar een secundaire site voor lokale Hyper-V-machines in System Center Virtual Machine Manager (VMM)-clouds worden beheerd. In dit artikel leert u hoe:
 
@@ -26,16 +26,15 @@ Dit artikel ziet u het instellen van herstel na noodgevallen naar een secundaire
 > * Instellen van de bron en doel van de replicatie-omgevingen. 
 > * Netwerktoewijzing instellen 
 > * Een replicatiebeleid maken
-> * Replicatie inschakelen voor een virtuele machine
+> * Replicatie inschakelen voor een VM
 
 ## <a name="prerequisites"></a>Vereisten
 
 Dit scenario voltooien:
 
 - Controleer de [scenario-architectuur en onderdelen](hyper-v-vmm-architecture.md).
-- Controleer de [ondersteuningsvereisten](site-recovery-support-matrix-to-sec-site.md) voor alle onderdelen.
-- Zorg ervoor dat VMM-servers en Hyper-V-hosts voldoen [ondersteuningsvereisten](site-recovery-support-matrix-to-sec-site.md).
-- Controleer of de virtuele machines die u wilt repliceren voldoen [gerepliceerde machine ondersteuning](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- Zorg ervoor dat VMM-servers en Hyper-V-hosts voldoen [ondersteuningsvereisten](hyper-v-vmm-secondary-support-matrix.md).
+- Controleer of de virtuele machines die u wilt repliceren voldoen [gerepliceerde machine ondersteuning](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support).
 - VMM-servers voorbereiden op netwerktoewijzing.
 
 ### <a name="prepare-for-network-mapping"></a>Voorbereiden op netwerktoewijzing
@@ -118,7 +117,7 @@ Selecteer de doel-VMM-server en de cloud:
    ![Doel](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
-## <a name="set-up-a-replication-policy"></a>Instellen van een beleid voor wachtwoordreplicatie
+## <a name="set-up-a-replication-policy"></a>Een replicatiebeleid instellen
 
 Voordat u begint, zorg er dan voor dat alle hosts met het beleid hebben hetzelfde besturingssysteem. Als hosts verschillende versies van Windows Server worden uitgevoerd, moet u meerdere beleidsregels voor replicatie.
 
@@ -145,13 +144,13 @@ Voordat u begint, zorg er dan voor dat alle hosts met het beleid hebben hetzelfd
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
-1. Klik op **toepassing repliceren** > **bron**. 
+1. Klik op **Toepassing repliceren** > **Bron**. 
 2. In **bron**, selecteert u de VMM-server en de cloud waarin u wilt repliceren Hyper-V-hosts zich bevinden. Klik vervolgens op **OK**.
 3. In **doel**, controleert u de secundaire VMM-server en de cloud.
 4. In **virtuele machines**, selecteert u de virtuele machines die u wilt beveiligen in de lijst.
 
 
-U kunt de voortgang van volgen de **beveiliging inschakelen** actie in **taken** > **Site Recovery-taken**. Na de **beveiliging voltooien** taak is voltooid, de initiële replicatie is voltooid en de virtuele machine is gereed voor failover.
+U kunt de voortgang van de actie **Beveiliging inschakelen** volgen via **Taken** > **Site Recovery-taken**. Na de **beveiliging voltooien** taak is voltooid, de initiële replicatie is voltooid en de virtuele machine is gereed voor failover.
 
 ## <a name="next-steps"></a>Volgende stappen
 

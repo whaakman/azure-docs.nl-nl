@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f41bfec3c9f950893b69c90a86c2e4a254b72a8b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Een volledige virtuele Linux-machine maken met de Azure CLI
 U maakt snel een virtuele machine (VM) in Azure, kunt u één Azure CLI opdracht dat standaardwaarden gebruikt voor het maken van alle vereiste ondersteunende resources. Resources, zoals een virtueel netwerk, openbare IP-adres en netwerkbeveiligingsgroepen worden automatisch gemaakt. Voor meer controle over uw omgeving in de productieomgeving gebruikt, u kunt deze resources tevoren maken en vervolgens uw VM's toe te voegen aan deze. In dit artikel begeleidt u bij het maken van een virtuele machine en elk van de ondersteunende resources één voor één.
 
-Zorg ervoor dat de meest recente geïnstalleerd [Azure CLI 2.0](/cli/azure/install-az-cli2) en geregistreerd in een Azure-account met [az aanmelding](/cli/azure/#az_login).
+Zorg ervoor dat de meest recente geïnstalleerd [Azure CLI 2.0](/cli/azure/install-az-cli2) en geregistreerd in een Azure-account met [az aanmelding](/cli/azure/reference-index#az_login).
 
 In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup*, *myVnet*, en *myVM*.
 
@@ -35,7 +35,7 @@ Een Azure-resourcegroep is een logische container waarin Azure-resources worden 
 az group create --name myResourceGroup --location eastus
 ```
 
-Standaard is de uitvoer van de Azure CLI-opdrachten in JSON (JavaScript Object Notation). Als u de uitvoer naar een lijst of tabel standaard, bijvoorbeeld gebruiken [az configureren--uitvoer](/cli/azure/#az_configure). U kunt ook toevoegen `--output` elke opdracht voor een eenmalige wijzigen in de indeling van uitvoer. Het volgende voorbeeld ziet u de JSON-uitvoer van de `az group create` opdracht:
+Standaard is de uitvoer van de Azure CLI-opdrachten in JSON (JavaScript Object Notation). Als u de uitvoer naar een lijst of tabel standaard, bijvoorbeeld gebruiken [az configureren--uitvoer](/cli/azure/reference-index#az_configure). U kunt ook toevoegen `--output` elke opdracht voor een eenmalige wijzigen in de indeling van uitvoer. Het volgende voorbeeld ziet u de JSON-uitvoer van de `az group create` opdracht:
 
 ```json                       
 {
@@ -49,7 +49,7 @@ Standaard is de uitvoer van de Azure CLI-opdrachten in JSON (JavaScript Object N
 }
 ```
 
-## <a name="create-a-virtual-network-and-subnet"></a>Een virtueel netwerk en subnet maken
+## <a name="create-a-virtual-network-and-subnet"></a>Een virtueel netwerk en een subnet maken
 Volgende die u een virtueel netwerk maken in Azure en een subnet in waarop u uw virtuele machines kunt maken. Gebruik [az network vnet maken](/cli/azure/network/vnet#az_network_vnet_create) voor het maken van een virtueel netwerk met de naam *myVnet* met de *192.168.0.0/16* adresvoorvoegsel. U ook een subnet met de naam toevoegen *mySubnet* met het adresvoorvoegsel van *192.168.1.0/24*:
 
 ```azurecli
@@ -444,7 +444,7 @@ Update domeinen duiden op groepen van virtuele machines en de onderliggende fysi
 
 Virtuele machines distribueert Azure automatisch in domeinen met fouten en update domeinen wanneer ze worden geplaatst in een beschikbaarheidsset. Zie voor meer informatie [het beheren van de beschikbaarheid van virtuele machines](manage-availability.md).
 
-Maken van een beschikbaarheidsset voor uw virtuele machine met [az vm beschikbaarheidsset maken](/cli/azure/vm/availability-set#az_vm_availability_set_create). Het volgende voorbeeld wordt een benoemde beschikbaarheidsset *myAvailabilitySet*:
+Maken van een beschikbaarheidsset voor uw virtuele machine met [az vm beschikbaarheidsset maken](/cli/azure/vm/availability-set#az_vm_availability_set_create). In het volgende voorbeeld wordt een beschikbaarheidsset met de naam *myAvailabilitySet* gemaakt:
 
 ```azurecli
 az vm availability-set create \
@@ -481,7 +481,7 @@ U kunt de netwerkbronnen ter ondersteuning van Internet toegankelijke VM's hebt 
 
 Geef een SSH-sleutel moet worden gebruikt voor verificatie. Als u een openbare SSH-sleutelpaar niet hebt, kunt u [maken ze](mac-create-ssh-keys.md) of gebruik de `--generate-ssh-keys` -parameter voor deze voor u gemaakt. Als er al een sleutelpaar, deze parameter wordt gebruikt voor bestaande sleutels in `~/.ssh`.
 
-De virtuele machine maken doordat de resources en informatie samen met de [az vm maken](/cli/azure/vm#az_vm_create) opdracht. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM*:
+De virtuele machine maken doordat de resources en informatie samen met de [az vm maken](/cli/azure/vm#az_vm_create) opdracht. In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt:
 
 ```azurecli
 az vm create \

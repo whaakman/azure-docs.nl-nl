@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f976832a857a35e9e0cea7a0eb731cb00492023f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Maken, wijzigen of verwijderen van een routetabel
 
@@ -38,7 +38,7 @@ De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit ar
 
 Er is een limiet aan hoeveel routetabellen per Azure-locatie en abonnement kunt u. Zie [Netwerkenlimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie.
 
-1. Selecteer in de linkerbovenhoek van de portal **+ nieuw**.
+1. Selecteer in de linkerbovenhoek van de portal **+ maken van een resource**.
 2. Selecteer **Networking**, selecteer daarna **routetabel**.
 3. Voer een **naam** voor de routetabel, selecteert u uw **abonnement**, maak een nieuwe **resourcegroep**, of Selecteer een bestaande resourcegroep, selecteer een **locatie** , selecteer daarna **maken**. De **uitschakelen BGP route doorgeven** optie kiest, kunnen lokale routes van wordt doorgegeven aan een virtuele Azure-netwerk via BGP. Als het virtuele netwerk niet is verbonden met de gateway van een Azure-netwerk (VPN- of ExpressRoute), laat u de optie *uitgeschakelde*. 
 

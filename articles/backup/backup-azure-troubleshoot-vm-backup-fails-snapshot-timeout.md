@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: c205023b025a477ee05ddcbfc536573f31426167
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup-fout oplossen: problemen met de agent of de extensie
 
@@ -30,9 +30,6 @@ Dit artikel bevat stappen voor probleemoplossing waarmee u kunnen Azure Backup f
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM-agent kan niet communiceren met Azure Backup
 
 Foutbericht weergegeven: 'VM-Agent kan niet communiceren met Azure Backup'
-
-> [!NOTE]
-> Als uw Azure Linux VM back-ups mislukken vanwege de volgende fout vanaf 4 januari 2018, voer de volgende opdracht in de virtuele machine en probeer de back-ups:`sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
 
 Nadat u registreren en plannen van een virtuele machine voor de Backup-service, initieert back-up van de taak door de communicatie met de VM-agent de momentopname van een punt in tijd. Een van de volgende voorwaarden kan voorkomen dat de momentopname wordt geactiveerd. Wanneer een momentopname is niet geactiveerd, mislukken de back-up. De volgende stappen voor probleemoplossing in de volgorde en probeer de bewerking vervolgens opnieuw:
 
@@ -58,9 +55,8 @@ Foutbericht weergegeven: 'VMSnapshot extensie bewerking is mislukt'
 Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-service, initieert back-up van de taak door de communicatie met de Backup-extensie van de VM om een punt in tijd momentopname. Een van de volgende voorwaarden kan voorkomen dat de momentopname wordt geactiveerd. Als de momentopname is niet geactiveerd, optreden een back-upfouten. De volgende stappen voor probleemoplossing in de volgorde en probeer de bewerking vervolgens opnieuw:  
 **1 oorzaak: [de status van de momentopname kan niet worden opgehaald, of een momentopname kan niet worden gemaakt.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **2 oorzaak: [de Backup-extensie niet bijwerken of laden](#the-backup-extension-fails-to-update-or-load)**  
-**3 oorzaak: [de virtuele machine heeft geen toegang tot internet](#the-vm-has-no-internet-access)**  
-**4 oorzaak: [de agent is geïnstalleerd in de virtuele machine, maar het niet-reagerende (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**5 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**3 oorzaak: [de agent is geïnstalleerd in de virtuele machine, maar het niet-reagerende (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**4 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Back-up is mislukt omdat de VM-agent reageert niet
 
@@ -151,12 +147,12 @@ Meest agent gerelateerde of extensie-gerelateerde fouten voor virtuele Linux-mac
  > [!NOTE]
  > We *aangeraden* dat u de agent beperken tot een opslagplaats distributiepunten bijwerken. We raden niet downloaden van de code van de agent rechtstreeks vanuit GitHub en wordt bijgewerkt. Als u de nieuwste agent voor de distributie is geen distributiepunt beschikbaar is, neem contact op met ondersteuning voor instructies over hoe u deze installeert. Om te controleren of de meest recente agent, gaat u naar de [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) pagina in de GitHub-opslagplaats.
 
-2. Zorg ervoor dat de Azure-agent wordt uitgevoerd op de virtuele machine met de volgende opdracht:`ps -e`
+2. Zorg ervoor dat de Azure-agent wordt uitgevoerd op de virtuele machine met de volgende opdracht: `ps -e`
 
  Als het proces wordt uitgevoerd, start u deze opnieuw met behulp van de volgende opdrachten:
 
- * Voor Ubuntu:`service walinuxagent start`
- * Voor andere distributies:`service waagent start`
+ * Voor Ubuntu: `service walinuxagent start`
+ * Voor andere distributies: `service waagent start`
 
 3. [Configureren van de agent van automatisch opnieuw opstarten](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Voer een nieuwe test back-up. Als de fout zich blijft voordoen, moet u de volgende logboeken verzamelen van de virtuele machine:
@@ -168,7 +164,7 @@ Meest agent gerelateerde of extensie-gerelateerde fouten voor virtuele Linux-mac
 Als we uitgebreide logboekregistratie is vereist voor waagent, volg deze stappen:
 
 1. Zoek de volgende regel in het bestand /etc/waagent.conf: **uitgebreide logboekregistratie inschakelen (y | n)**
-2. Wijzig de **Logs.Verbose** waarde uit de  *n*  naar *y*.
+2. Wijzig de **Logs.Verbose** waarde uit de *n* naar *y*.
 3. Sla de wijziging op en start waagent via de stappen die eerder in deze sectie worden beschreven.
 
 ###  <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>De status van de momentopname kan niet worden opgehaald, of een momentopname kan niet worden gemaakt.
@@ -179,7 +175,6 @@ De volgende voorwaarden kunnen ertoe leiden dat de momentopname-taak niet worden
 
 | Oorzaak | Oplossing |
 | --- | --- |
-| De virtuele machine heeft de SQL Server back-up is geconfigureerd. | Standaard back-up van de virtuele machine wordt uitgevoerd een Volume Shadow Copy Service (VSS) volledige back-ups op VM's van Windows. Op virtuele machines die worden uitgevoerd op basis van SQL Server-servers en op welke SQL-Server worden de back-up geconfigureerd, is de momentopname uitvoering vertragingen optreden.<br><br>Als u een back-upfouten vanwege een probleem met de momentopname optreden, stelt u de volgende registersleutel:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | De status van de virtuele machine is niet juist gerapporteerd, omdat de virtuele machine wordt afgesloten in Remote Desktop Protocol (RDP). | Als u de virtuele machine in RDP afsluit, controleert u de portal om te bepalen of de status van de VM juist is. Als dit niet juist is, sluit u de virtuele machine in de portal met behulp van de **afsluiten** optie op de VM-dashboard. |
 | De virtuele machine ontvangen geen adres van de host of fabric van DHCP. | DHCP moet binnen het gastbesturingssysteem voor de back-up van IaaS VM werken zijn ingeschakeld. Als de virtuele machine niet het adres van de host of fabric uit DHCP-antwoord 245, kan het downloaden of uitvoeren van de uitbreidingen. Als u een statisch privé IP-adres nodig hebt, kunt u deze via het platform configureren. De DHCP-optie in de virtuele machine moet naar links worden ingeschakeld. Zie voor meer informatie [instellen van een statische interne persoonlijke IP-adres](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
@@ -188,12 +183,7 @@ Als de uitbreidingen kunnen niet worden geladen, worden back-up mislukt omdat ee
 
 #### <a name="solution"></a>Oplossing
 
-**Voor Windows-gasten:** controleren dat de iaasvmprovider-service is ingeschakeld en het opstarttype van *automatische*. Als de service niet is geconfigureerd op deze manier, schakel de service om te bepalen of de volgende back-up is geslaagd.
-
-**Voor Linux-gasten:** Controleer of de nieuwste versie van VMSnapshot voor Linux (de extensie die wordt gebruikt door de back-up) 1.0.91.0.<br>
-
-
-Als de Backup-extensie wordt nog steeds niet bijwerken of laden, verwijdert u de extensie om af te dwingen de extensie VMSnapshot om opnieuw te laden. De volgende back-poging wordt opnieuw geladen met de extensie.
+Verwijder de extensie om af te dwingen de extensie VMSnapshot om opnieuw te laden. De volgende back-poging wordt opnieuw geladen met de extensie.
 
 De extensie verwijderen:
 
@@ -220,7 +210,7 @@ U lost het probleem door de volgende stappen voor het verwijderen van de verzame
 4. De verzameling van herstelpunt die overeenkomt met de virtuele machine ophalen: <br>
     `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
-    Voorbeeld:`.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+    Voorbeeld: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
 5. Verwijder de verzameling van de punt herstellen: <br>
     `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
 6. De volgende geplande back-up maakt automatisch een punt-verzameling van herstel en nieuwe herstelpunten.
