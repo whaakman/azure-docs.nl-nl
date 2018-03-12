@@ -1,10 +1,10 @@
 ---
-title: Een Azure Service Fabric-toepassing implementeren in een cluster | Microsoft Docs
-description: In deze zelfstudie leert u hoe u een toepassing implementeert in een Service Fabric-cluster.
+title: Een Azure Service Fabric-toepassing vanuit Visual Studio implementeren naar een cluster | Microsoft Docs
+description: Lees hoe u vanuit Visual Studio een toepassing implementeert naar een cluster
 services: service-fabric
 documentationcenter: .net
-author: mikkelhegn
-manager: msfussell
+-author: mikkelhegn
+-manager: msfussell
 editor: 
 ms.assetid: 
 ms.service: service-fabric
@@ -12,29 +12,31 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
-ms.author: mikhegn
+ms.date: 02/21/2018
+ms.author: mikkelhegn
 ms.custom: mvc
-ms.openlocfilehash: 35ddf77b1e9a9b355ed2cee4731e3c5d87c4a701
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 21c991a4e3f9ae19a4ad4a96427fdc1c91c55a1c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Zelfstudie: een toepassing implementeren in een Service Fabric-cluster in Azure
-Deze zelfstudie is deel twee van een reeks en laat zien hoe u een Azure Service Fabric-toepassing implementeert in een cluster die in Azure wordt uitgevoerd.
+# <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Zelfstudie: een toepassing implementeren naar een Service Fabric-cluster in Azure
+Deze zelfstudie is deel twee van een reeks en laat zien hoe u direct vanuit Visual Studio een Azure Service Fabric-toepassing implementeert naar een nieuw cluster in Azure.
 
-In deel twee van de reeks zelfstudies leert u het volgende:
+In deze zelfstudie leert u het volgende:
+> [!div class="checklist"]
+> * Een cluster maken vanuit Visual Studio
+> * Een toepassing implementeren in een extern cluster met behulp van Visual Studio
+
+
+In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 > * [Een .NET Service Fabric-toepassing bouwen](service-fabric-tutorial-create-dotnet-app.md)
 > * De toepassing implementeren in een extern cluster
 > * [CI/CD configureren met behulp van Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Controle en diagnostische gegevens voor de toepassing instellen](service-fabric-tutorial-monitoring-aspnet.md)
 
-In deze zelfstudiereeks leert u het volgende:
-> [!div class="checklist"]
-> * Een toepassing implementeren in een extern cluster met behulp van Visual Studio
-> * Een toepassing verwijderen uit een cluster met behulp van Service Fabric Explorer
 
 ## <a name="prerequisites"></a>Vereisten
 Voor u met deze zelfstudie begint:
@@ -49,84 +51,56 @@ Als u in [deel één van deze zelfstudiereeks](service-fabric-tutorial-create-do
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="set-up-a-party-cluster"></a>Een Party-cluster instellen
-Clusters van derden zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform. Helemaal gratis!
+## <a name="deploy-the-sample-application"></a>De voorbeeldtoepassing implementeren
 
-Als u toegang wilt tot een Party-cluster, gaat u naar deze site: http://aka.ms/tryservicefabric en volgt u de instructies om toegang te krijgen tot een cluster. U hebt een Facebook- of GitHub-account nodig voor toegang tot een Party-cluster.
+### <a name="select-a-service-fabric-cluster-to-which-to-publish"></a>Selecteer een Service Fabric-cluster waarnaar u wilt publiceren
+Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio implementeren naar een cluster.
 
-Als u wilt, kunt u ook uw eigen cluster gebruiken in plaats van het Party-cluster.  De web-front-end van ASP.NET Core gebruikt de reverse proxy om te communiceren met de back-end van de stateful service.  Reverse proxy is standaard ingeschakeld voor Party-clusters en het lokale ontwikkelcluster.  Als u de voorbeeldtoepassing om te stemmen in uw eigen cluster implementeert, moet u [de reverse proxy inschakelen in het cluster](service-fabric-reverseproxy.md#setup-and-configuration).
+U hebt twee opties voor implementatie:
+- Een cluster maken vanuit Visual Studio. Met deze optie kunt u een beveiligd cluster rechtstreeks vanuit Visual Studio met de configuraties van uw voorkeur maken. Dit type cluster is ideaal voor testscenario's, waar u het cluster kunt maken en er vervolgens direct naar kunt publiceren binnen Visual Studio.
+- Publiceren naar een bestaand cluster in uw abonnement.
 
+In deze zelfstudie worden de stappen gevolgd om vanuit Visual Studio een cluster te maken. Voor de andere opties kunt u uw verbindingseindpunt kopiëren en plakken, of kunt u het kiezen vanuit uw abonnement.
 > [!NOTE]
-> Party-clusters zijn niet beveiligd, wat betekent dat uw toepassingen en gegevens in de clusters mogelijk zichtbaar zijn voor anderen. Implementeer dus geen inhoud die anderen niet mogen zien. Lees voor uitgebreide informatie onze gebruiksvoorwaarden (Engelstalig).
+> Veel services gebruiken de omgekeerde proxy om met elkaar te communiceren. Clusters die zijn gemaakt vanuit Visual Studio en clusters van derden hebben omgekeerde proxy standaard ingeschakeld.  Als u een bestaand cluster gebruikt, moet u [de omgekeerde proxy in het cluster inschakelen](service-fabric-reverseproxy.md#setup-and-configuration).
 
-Meld u aan en [neem deel aan een Windows-cluster](http://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Het certificaat en de waarde van het **verbindingseindpunt** worden in volgende stappen gebruikt.
+### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>De app in het Service Fabric-cluster implementeren
 
-![PFX en verbindingseindpunt](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+1. Klik met de rechtermuisknop op het toepassingsproject in Solution Explorer en kies **Publiceren**.
 
-Op een Windows-computer installeert u het PFX-bestand in het certificaatarchief *CurrentUser\My*.
+2. Meld u aan met behulp van uw Azure-account, zodat u toegang hebt tot uw abonnement(en). Deze stap is optioneel als u een cluster van derden gebruikt.
 
-```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
-\CurrentUser\My
+3. Selecteer de vervolgkeuzelijst voor het **verbindingseindpunt** en selecteer de optie '<Create New Cluster...>'.
+    
+    ![Het dialoogvenster Publiceren](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    
+4. Wijzig in het dialoogvenster 'Cluster maken' de volgende instellingen:
 
+    1. Geef de naam van het cluster op in het veld 'Clusternaam', evenals het abonnement en de locatie die u wilt gebruiken.
+    2. Optioneel: u kunt het aantal knooppunten wijzigen. Standaard beschikt u over drie knooppunten, het minimale aantal dat is vereist om Service Fabric-scenario's te kunnen testen.
+    3. Selecteer het tabblad 'Certificaat'. Typ op dit tabblad een wachtwoord dat u wilt gebruiken om het certificaat van uw cluster te beschermen. Met dit certificaat is uw cluster beter beveiligd. U kunt ook het pad wijzigen waar u het certificaat wilt opslaan. Visual Studio kan het certificaat voor u importeren, aangezien dit een vereiste stap is om de toepassing naar het cluster te kunnen publiceren.
+    4. Selecteer het tabblad 'VM-details'. Geef het wachtwoord op dat u wilt gebruiken voor de virtuele machines (VM's) die het cluster vormen. De gebruikersnaam en het wachtwoord kunnen worden gebruikt om een externe verbinding met de virtuele machines tot stand te brengen. U moet ook een VM-machinegrootte selecteren, en u kunt indien nodig de VM-installatiekopie wijzigen.
+    5. Optioneel: op het tabblad 'Geavanceerd' kunt u de lijst met poorten wijzigen die u wilt openen op de load balancer die samen met het cluster wordt gemaakt. U kunt ook een bestaande Application Insights-sleutel toevoegen die moet worden gebruikt om logboekbestanden naar door te sturen.
+    6. Wanneer u klaar bent met het wijzigen van de instellingen, selecteert u de knop 'Maken'. Het maakproces duurt maar een paar minuten; in het uitvoervenster wordt aangegeven wanneer het cluster helemaal klaar is.
+    
+    ![Dialoogvenster Cluster maken](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
-
-Thumbprint                                Subject
-----------                                -------
-3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
-```
-
-
-## <a name="deploy-the-app-to-the-azure"></a>De app implementeren in Azure
-Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio implementeren naar het Party-cluster.
-
-1. Klik met de rechtermuisknop op **Voting** in Solution Explorer en kies **Publiceren**. 
-
-    ![Het dialoogvenster Publiceren](./media/service-fabric-quickstart-containers/publish-app.png)
-
-2. Kopieer het **verbindingseindpunt** van het cluster van derden naar het veld **Verbindingseindpunt**. Bijvoorbeeld `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klik op **Advanced Connection Parameters** en vul de volgende gegevens in.  De waarden *FindValue* en *ServerCertThumbprint* moeten overeenkomen met de vingerafdruk van het certificaat dat in de vorige stap is geïnstalleerd. Klik op **Publish**. 
+4. Zodra het cluster dat u wilt gebruiken gereed is, klikt u met de rechtermuisknop op het toepassingsproject en kiest u **Publiceren**.
 
     Nadat het publiceren is voltooid, moet u via een browser een aanvraag kunnen verzenden naar de toepassing.
 
-3. Open de browser van uw voorkeur en typ het adres van het cluster (het verbindingseindpunt zonder de poortgegevens, bijvoorbeeld win1kw5649s.westus.cloudapp.azure.com).
+5. Open de browser van uw voorkeur en typ het adres van het cluster (het verbindingseindpunt zonder de poortgegevens, bijvoorbeeld win1kw5649s.westus.cloudapp.azure.com).
 
     U moet nu hetzelfde resultaat zien als bij het lokaal uitvoeren van de toepassing.
 
     ![API-reactie van cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
 
-## <a name="remove-the-application-from-a-cluster-using-service-fabric-explorer"></a>De toepassing verwijderen uit een cluster met behulp van Service Fabric Explorer
-Service Fabric Explorer is een grafische gebruikersinterface voor het verkennen en beheren van toepassingen in een Service Fabric-cluster.
-
-De toepassing verwijderen uit het Party-cluster:
-
-1. Ga naar de Service Fabric Explorer, via de koppeling die is gepubliceerd op de aanmeldingspagina van het Party-cluster, zoals Bijvoorbeeld: https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
-
-2. Ga in Service Fabric Explorer naar het knooppunt **fabric:/Voting** in de boomstructuur aan de linkerkant.
-
-3. Klik op de knop **Actions** in het deelvenster **Essentials** aan de rechterkant en kies **Delete Application**. Bevestig dat u het exemplaar van de toepassing wilt verwijderen, waarna het exemplaar wordt verwijderd van onze toepassing die wordt uitgevoerd in het cluster.
-
-![Toepassing verwijderen in Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
-
-## <a name="remove-the-application-type-from-a-cluster-using-service-fabric-explorer"></a>Het toepassingstype verwijderen uit een cluster met behulp van Service Fabric Explorer
-Toepassingen worden als toepassingstypen geïmplementeerd in een Service Fabric-cluster. Hierdoor is het mogelijk om meerdere exemplaren en versies van de toepassing uit te voeren binnen het cluster. Nadat het actieve exemplaar van onze toepassing is verwijderd, kunnen we ook het type verwijderen om zo de implementatie helemaal te wissen.
-
-Meer informatie over het toepassingsmodel in Service Fabric kunt u lezen in [Een toepassing modelleren in Service Fabric](service-fabric-application-model.md).
-
-1. Ga naar het knooppunt **VotingType** in de boomstructuur.
-
-2. Klik op de knop **Actions** in het deelvenster **Essentials** aan de rechterkant en kies **Unprovision Type**. Bevestig dat u het toepassingstype wilt verwijderen.
-
-![Toepassingstype verwijderen in Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/unprovision-type.png)
-
-Hiermee zijn we aan het einde gekomen van de zelfstudie.
-
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
+> * Een cluster maken vanuit Visual Studio
 > * Een toepassing implementeren in een extern cluster met behulp van Visual Studio
-> * Een toepassing verwijderen uit een cluster met behulp van Service Fabric Explorer
 
 Ga door naar de volgende zelfstudie:
 > [!div class="nextstepaction"]

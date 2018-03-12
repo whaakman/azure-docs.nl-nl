@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdaf1349ddf623e2634360e891d959105c504093
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6cd6e9ba575a0efe6e612a2185076d5a6c189525
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Back-ups maken van virtuele Azure-machines naar Recovery Services-kluizen
 
@@ -77,7 +77,7 @@ Voer de volgende stappen uit als u de back-uptaak wilt configureren vanaf de VM-
 
   ![Wizard Back-up inschakelen](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-  Als er geen Recovery Services-kluizen zijn of als u een nieuw kluis wilt gebruiken, klikt u op **Nieuwe maken** en geeft u de naam op voor de nieuwe kluis. Een nieuwe kluis wordt in dezelfde resourcegroep en op dezelfde locatie als de virtuele machine gemaakt. Als u een Recovery Services-kluis met verschillende waarden wilt maken, raadpleeg dan de sectie over [het maken van een Recovery Services-kluis](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
+  Als er geen Recovery Services-kluizen zijn of als u een nieuw kluis wilt gebruiken, klikt u op **Nieuwe maken** en geeft u de naam op voor de nieuwe kluis. Er wordt een nieuwe kluis in dezelfde resourcegroep en in dezelfde regio als de virtuele machine gemaakt. Als u een Recovery Services-kluis met verschillende waarden wilt maken, raadpleeg dan de sectie over [het maken van een Recovery Services-kluis](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
 
 6. Klik op **Back-up beleid** als u de details van het back-upbeleid wilt bekijken.
 
@@ -124,7 +124,7 @@ Als u de back-uptaak wilt configureren, moet u de volgende stappen voltooien.
 Een Recovery Services-kluis is een entiteit waarmee alle back-ups en herstelpunten worden opgeslagen die in de loop van de tijd zijn gemaakt. De Recovery Services-kluis bevat ook het back-upbeleid dat wordt toegepast op de beveiligde VM's.
 
 > [!NOTE]
-> Het maken van back-ups van VM's is een lokaal proces. Het is niet mogelijk van VM's op de ene locatie een back-up in een Recovery Services-kluis op een andere locatie te maken. Daarom moet er voor elke Azure-locatie met VM's waarvoor u een back-up wilt maken, ten minste één Recovery Services-kluis op die locatie bestaan.
+> Het maken van back-ups van VM's is een lokaal proces. Het is niet mogelijk van VM's in de ene regio een back-up in een Recovery Services-kluis in een andere regio te maken. Daarom moet er voor elke Azure-regio met VM's waarvoor u een back-up wilt maken ten minste één Recovery Services-kluis in die regio bestaan.
 >
 >
 
@@ -161,7 +161,7 @@ Een Recovery Services-kluis maken:
 7. Klik op **Locatie** om de geografische regio voor de kluis te selecteren. Deze keuze bepaalt de geografische regio waar uw back-upgegevens naartoe worden verzonden.
 
   > [!IMPORTANT]
-  > Als u niet zeker weet op welke locatie uw VM zich bevindt, sluit u het dialoogvenster voor het maken van de kluis en gaat u naar de lijst met virtuele machines in de portal. Als u virtuele machines in meerdere regio's hebt, moet u in elke regio een Recovery Services-kluis maken. Maak de kluis op de eerste locatie voordat u verdergaat met de volgende locatie. U hoeft geen opslagaccounts voor het opslaan van de back-upgegevens op te geven. Dit wordt automatisch door de Recovery Services-kluis en de Azure Backup-service afgehandeld.
+  > Als u niet zeker weet in welke regio uw VM zich bevindt, sluit u het dialoogvenster voor het maken van de kluis en gaat u naar de lijst met virtuele machines in de portal. Als u virtuele machines in meerdere regio's hebt, moet u in elke regio een Recovery Services-kluis maken. Maak de kluis in de eerste regio voordat u verdergaat met de volgende regio. U hoeft geen opslagaccounts voor het opslaan van de back-upgegevens op te geven. Dit wordt automatisch door de Recovery Services-kluis en de Azure Backup-service afgehandeld.
   >
 
 8. Klik onder aan de blade Recovery Services-kluis op **Maken**.

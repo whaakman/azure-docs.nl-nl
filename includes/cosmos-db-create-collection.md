@@ -15,6 +15,8 @@ U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een datab
     Opslagcapaciteit| Vast (10 GB)|Wijzig de waarde in **Vast (10 GB)**. Deze waarde is de opslagcapaciteit van de database.
     Doorvoer|400 RU|Wijzig de doorvoer in 400 aanvraageenheden per seconde (RU/s). Capaciteit moet worden ingesteld op **Vast (10 GB)** om de doorvoer in te stellen op 400 RU/s. U kunt de doorvoer later opschalen als u de latentie wilt beperken. 
     
+    Naast de voornoemde instellingen kunt u indien gewenst **unieke sleutels** voor de verzameling toevoegen. In dit voorbeeld laten we het veld leeg. Unieke sleutels bieden ontwikkelaars de mogelijkheid om een gegevensintegriteitslaag aan de database toe te voegen. Door een beleid met unieke sleutels te maken als u een verzameling maakt, zorgt u ervoor dat een of meer waarden per partitiesleutel uniek zijn. Raadpleeg het artikel [Unique keys in Azure Cosmos DB](../articles/cosmos-db/unique-keys.md) (Unieke sleutels in Azure Cosmos DB) voor meer informatie.
+    
     Klik op **OK**.
 
     In Data Explorer worden de nieuwe database en verzameling weergegeven.

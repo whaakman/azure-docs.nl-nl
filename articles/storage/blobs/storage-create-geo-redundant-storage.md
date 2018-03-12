@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Uw toepassingsgegevens maximaal beschikbaar maken met Azure-opslag
 
@@ -69,7 +69,7 @@ Volg deze stappen om een account voor geografisch redundante opslag met leestoeg
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Naam** | mystorageaccount | Een unieke naam voor uw opslagaccount |
    | **Implementatiemodel** | Resource Manager  | Resource Manager bevat de nieuwste functies.|
-   | **Type account** | Algemeen doel | Zie [Typen opslagaccounts](../common/storage-introduction.md#types-of-storage-accounts) voor meer informatie over de verschillende typen accounts |
+   | **Type account** | StorageV2 | Zie [Typen opslagaccounts](../common/storage-introduction.md#types-of-storage-accounts) voor meer informatie over de verschillende typen accounts |
    | **Prestaties** | Standard | Standard is voldoende voor het voorbeeldscenario. |
    | **Replicatie**| Geografisch redundante opslag met leestoegang (RA-GRS) | Dit is nodig om het voorbeeld te laten werken. |
    |**Veilige overdracht vereist** | Uitgeschakeld| Veilige overdracht is niet vereist voor dit scenario. |
@@ -77,7 +77,7 @@ Volg deze stappen om een account voor geografisch redundante opslag met leestoeg
    |**ResourceGroup** | myResourceGroup |Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen. |
    |**Locatie** | VS - oost | Kies een locatie. |
 
-![opslagaccount maken](media/storage-create-geo-redundant-storage/figure1.png)
+![opslagaccount maken](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
@@ -102,7 +102,7 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 
 In de toepassing moet u de verbindingsreeks voor uw opslagaccount opgeven. U wordt aangeraden deze verbindingsreeks binnen een omgevingsvariabele op te slaan op de lokale computer waarop de toepassing wordt uitgevoerd. Volg een van de onderstaande voorbeelden afhankelijk van uw besturingssysteem voor het maken van de omgevingsvariabele.
 
-Ga in Azure Portal naar het nieuwe opslagaccount. Selecteer in het menu**Instellingen** van uw opslagaccount de optie **Toegangssleutels**. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Vervang \<yourconnectionstring\> door uw werkelijke verbindingsreeks door afhankelijk van uw besturingssysteem een van de volgende opdrachten uit te voeren. Met deze opdracht slaat u een omgevingsvariabele naar de lokale machine op. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **-opdrachtprompt** of shell die u gebruikt opnieuw laadt. Vervang **\<storageConnectionString\>** in het volgende voorbeeld:
+Ga in Azure Portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Vervang \<yourconnectionstring\> door uw werkelijke verbindingsreeks door afhankelijk van uw besturingssysteem een van de volgende opdrachten uit te voeren. Met deze opdracht slaat u een omgevingsvariabele naar de lokale machine op. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **-opdrachtprompt** of shell die u gebruikt opnieuw laadt. Vervang **\<storageConnectionString\>** in het volgende voorbeeld:
 
 # <a name="linux-tablinux"></a>[Linux] (#tab/linux) 
 export storageconnectionstring=\<yourconnectionstring\> 

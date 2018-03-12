@@ -1,6 +1,6 @@
 ---
 title: 'Snelstart: een Azure Database for MySQL-server maken - Azure CLI'
-description: In deze Quick Start wordt beschreven hoe u Azure CLI gebruikt om een Azure-database voor MySQL-server in een Azure-resourcegroep te maken.
+description: In deze snelstart wordt beschreven hoe u Azure CLI gebruikt om een Azure-database voor MySQL-server in een Azure-resourcegroep te maken.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -11,14 +11,14 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: a2efce07dac65eb8af59e6bc1bd5a51bfc62d69e
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2cd867f09550f922479955b885f10ff329715c1c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Een Azure-database voor MySQL-server maken met behulp van Azure CLI
-In deze Quick Start wordt beschreven hoe u Azure CLI gebruikt om binnen ongeveer vijf minuten een Azure-database voor MySQL-server in een Azure-resourcegroep te maken. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts.
+In deze snelstart wordt beschreven hoe u Azure CLI gebruikt om binnen ongeveer vijf minuten een Azure-database voor MySQL-server in een Azure-resourcegroep te maken. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -46,6 +46,25 @@ Voeg de bijgewerkte Azure Database for MySQL-beheerextensie toe met de volgende 
 az extension add --name rdbms
 ``` 
 
+Controleer of de juiste versie van de extensie is geïnstalleerd. 
+```azurecli-interactive
+az extension list
+```
+
+Het geretourneerde JSON-script moet het volgende bevatten: 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.3"
+}
+```
+
+Als versie 0.0.3 niet wordt geretourneerd, voert u het volgende script uit om de extensie bij te werken: 
+```azurecli-interactive
+az extension update --name rdbms
+```
+
 ## <a name="create-an-azure-database-for-mysql-server"></a>Een Azure-database voor MySQL-server maken
 Maak een Azure Database for MySQL-server met de opdracht **[az mysql server create](/cli/azure/mysql/server#az_mysql_server_create)**. Een server kan meerdere databases beheren. Een aparte database wordt doorgaans gebruikt voor elk project of voor elke gebruiker.
 
@@ -70,7 +89,7 @@ Het toestaan van alle IP-adressen is niet veilig. Dit voorbeeld wordt gemakshalv
 
 
 ## <a name="configure-ssl-settings"></a>SSL-instellingen configureren
-Standaard worden SSL-verbindingen tussen uw server en clienttoepassingen afgedwongen. Deze standaardinstelling zorgt voor beveiliging van gegevens 'in beweging' door de gegevensstroom via internet te versleutelen. Om deze Quickstart makkelijker te maken, schakelen we SSL-verbindingen uit voor uw server. Dit wordt afgeraden voor productieservers. Zie [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (SSL-connectiviteit in uw toepassing configureren om veilig verbinding te maken met Azure-database voor MySQL) voor meer informatie.
+Standaard worden SSL-verbindingen tussen uw server en clienttoepassingen afgedwongen. Deze standaardinstelling zorgt voor beveiliging van gegevens 'in beweging' door de gegevensstroom via internet te versleutelen. Om deze snelstart makkelijker te maken, schakelen we SSL-verbindingen uit voor uw server. Dit wordt afgeraden voor productieservers. Zie [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (SSL-connectiviteit in uw toepassing configureren om veilig verbinding te maken met Azure-database voor MySQL) voor meer informatie.
 
 In het volgende voorbeeld wordt het afdwingen van SSL op uw MySQL-server uitgeschakeld.
  
@@ -195,13 +214,13 @@ Klik op **Verbinding testen** om te controleren of alle parameters juist zijn ge
 U kunt nu op de verbinding klikken om verbinding te maken met de server.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Als u deze resources niet voor een andere Quickstart of zelfstudie nodig hebt, kunt u ze verwijderen met de volgende opdracht: 
+Als u deze resources niet voor een andere snelstart of zelfstudie nodig hebt, kunt u ze verwijderen met de volgende opdracht: 
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
 ```
 
-Als u alleen de zojuist gemaakte server wilt verwijderen, kunt u de opdracht [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete) uitvoeren.
+Als u alleen de zojuist gemaakte server wilt verwijderen, kunt u de opdracht **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)** uitvoeren.
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```

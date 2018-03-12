@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: 779e6b48a20dd49967a189293ed37b07bc5e1cda
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a609bbdf70599d0cceaf988a9a0bef51bc28716d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Uw eerste Azure Database voor MySQL-database ontwerpen
 
@@ -54,6 +54,26 @@ Voeg de bijgewerkte Azure Database for MySQL-beheerextensie toe met de volgende 
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 
+
+Controleer of de juiste versie van de extensie is geïnstalleerd. 
+```azurecli-interactive
+az extension list
+```
+
+Het geretourneerde JSON-script moet het volgende bevatten: 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.3"
+}
+```
+
+Als versie 0.0.3 niet wordt geretourneerd, voert u het volgende script uit om de extensie bij te werken: 
+```azurecli-interactive
+az extension update --name rdbms
+```
+
 ## <a name="create-an-azure-database-for-mysql-server"></a>Een Azure-database voor MySQL-server maken
 Maak een Azure Database for MySQL-server met de opdracht az mysql server create. Een server kan meerdere databases beheren. Een aparte database wordt doorgaans gebruikt voor elk project of voor elke gebruiker.
 
@@ -63,7 +83,7 @@ In het volgende voorbeeld wordt een Azure-database voor MySQL-server gemaakt die
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
 > [!IMPORTANT]
-> De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze quickstart. Onthoud of noteer deze informatie voor later gebruik.
+> De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze snelstart. Onthoud of noteer deze informatie voor later gebruik.
 
 
 ## <a name="configure-firewall-rule"></a>Firewallregel configureren
@@ -190,7 +210,7 @@ De opdracht `az mysql server restore` vereist de volgende parameters:
 
 Wanneer u een server naar een bepaald tijdstip herstelt, wordt er een nieuwe server gemaakt, die een kopie is van de oorspronkelijke server vanaf het opgegeven tijdstip. De locatie en prijscategorie van de herstelde server zijn hetzelfde als die van de bronserver.
 
-De opdracht is synchroon en gaat terug nadat de server is hersteld. Nadat het herstel is voltooid, zoekt u de nieuwe server. Controleer of de gegevens zijn hersteld zoals verwacht.
+De opdracht is synchroon en keert terug nadat de server is hersteld. Nadat het herstel is voltooid, zoekt u de nieuwe server. Controleer of de gegevens zijn hersteld zoals verwacht.
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u het volgende geleerd:

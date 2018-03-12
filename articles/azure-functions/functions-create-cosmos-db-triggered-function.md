@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: ff0c468179ef7b71151b64426bf2e6701d5032fe
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9ee3eddda53052c47f2cecff80f971f5eadac414
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Een door Azure Cosmos DB geactiveerde functie maken
 
@@ -48,7 +48,7 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
 1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
 
-    ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
+    ![De snelstartpagina van Functions in Azure Portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
 2. Typ `cosmos` in het zoekveld en kies vervolgens de gewenste taal voor de trigger-sjabloon voor de Azure Cosmos DB.
 
@@ -75,7 +75,7 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Naam van de database | Unieke id voor de Azure Cosmos DB-database  |
     | **API** | SQL (DocumentDB) | In dit onderwerp wordt gebruikgemaakt van de documentdatabase-API.  |
-    | **Abonnement** | Azure-abonnement | Azure-abonnement  |
+    | **Abonnement** | Azure-abonnement | Het abonnement waarmee deze nieuwe Cosmos DB-account is gemaakt.  |
     | **Resourcegroep** | myResourceGroup |  Gebruik de bestaande resourcegroep die uw functie-app bevat. |
     | **Locatie**  | West-Europa | Selecteer een locatie die zich in de buurt van uw functie-app bevindt of van andere apps die gebruikmaken van de opgeslagen documenten.  |
 

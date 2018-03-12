@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Netwerkverkeer filteren met netwerkbeveiligingsgroepen
 
@@ -32,7 +32,7 @@ NSG's bevatten de volgende eigenschappen:
 
 | Eigenschap | Beschrijving | Beperkingen | Overwegingen |
 | --- | --- | --- | --- |
-| Naam |Naam voor de NSG |Moet uniek zijn binnen de regio.<br/>Kan letters, cijfers, onderstrepingstekens, punten en afbreekstreepjes bevatten.<br/>Moet beginnen met een letter of cijfer.<br/>Moet eindigen op een letter, cijfer of onderstrepingsteken.<br/>Mag niet meer dan 80 tekens bevatten. |Omdat u mogelijk meerdere NSG's moet maken, is het raadzaam namen te gebruiken die aangeven wat het doel van de NSG is. |
+| Name |Naam voor de NSG |Moet uniek zijn binnen de regio.<br/>Kan letters, cijfers, onderstrepingstekens, punten en afbreekstreepjes bevatten.<br/>Moet beginnen met een letter of cijfer.<br/>Moet eindigen op een letter, cijfer of onderstrepingsteken.<br/>Mag niet meer dan 80 tekens bevatten. |Omdat u mogelijk meerdere NSG's moet maken, is het raadzaam namen te gebruiken die aangeven wat het doel van de NSG is. |
 | Regio |Azure-[regio](https://azure.microsoft.com/regions) waar de NSG wordt gemaakt. |NSG's kunnen alleen worden gekoppeld aan resources binnen dezelfde regio als de NSG. |Voor meer informatie over hoeveel NSG's u per regio kunt hebben, leest u het artikel over [Azure-limieten](../azure-subscription-service-limits.md#virtual-networking-limits-classic).|
 | Resourcegroep |De [resourcegroep](../azure-resource-manager/resource-group-overview.md#resource-groups) waarin de NSG bestaat. |Hoewel een NSG bestaat in een resourcegroep, kan deze worden gekoppeld aan resources in elke willekeurige resourcegroep, mits de resource tot dezelfde Azure-regio als de NSG behoort. |Resourcegroepen worden gebruikt voor het beheren van meerdere resources tegelijk, als een implementatie-eenheid.<br/>U kunt de NSG desgewenst groeperen met resources waaraan deze is gekoppeld. |
 | Regels |Regels voor binnenkomend of uitgaand verkeer die bepalen welk verkeer wordt toegestaan of geweigerd. | |Zie de sectie [NSG-regels](#Nsg-rules) in dit artikel. |
@@ -66,7 +66,7 @@ In de vorige afbeelding ziet u hoe NSG-regels worden verwerkt.
 Standaardtags zijn systeem-id's voor een bepaalde categorie IP-adressen. U kunt standaardtags gebruiken in de eigenschappen voor het **voorvoegsel voor het bronadres** en het **voorvoegsel voor het doeladres** van een regel. Er zijn drie standaardtags die u kunt gebruiken:
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** voor klassiek): deze tag omvat de adresruimte van het virtuele netwerk (CIDR-bereiken die in Azure zijn gedefinieerd) en alle verbonden on-premises adresruimten en verbonden Azure VNet's (lokale netwerken).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** voor klassiek): met deze tag wordt de load balancer voor de infrastructuur van Azure aangeduid. De tag wordt omgezet in het IP-adres van een Azure-datacenter van waaruit statuscontroles van Azure worden uitgevoerd.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** voor klassiek): met deze tag wordt de load balancer voor de infrastructuur van Azure aangeduid. De tag wordt omgezet in het IP-adres van een Azure-datacenter van waaruit statuscontroles van Azure Load Balancer worden uitgevoerd.
 * **Internet** (Resource Manager) (**INTERNET** voor klassiek): met deze tag wordt de IP-adresruimte aangeduid die zich buiten het virtuele netwerk bevindt en bereikbaar is via internet. Dit bereik omvat ook de [openbare IP-adresruimte van Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="default-rules"></a>Standaardregels
@@ -75,7 +75,7 @@ Alle NSG's bevatten een set met standaardregels. De standaardregels kunnen niet 
 De standaardregels kunnen verkeer als volgt toestaan en weigeren:
 - **Virtueel netwerk:** Verkeer dat afkomstig is van en eindigt in een virtueel netwerk wordt toegestaan in zowel binnenkomende als uitgaande richting.
 - **Internet:** Uitgaand verkeer is toegestaan, maar binnenkomend verkeer wordt geblokkeerd.
-- **Load balancer:** Toestaan dat de load balancer van Azure de status van uw VM's en rolexemplaren controleert. Als u geen set met taakverdeling gebruikt, kunt u deze regel onderdrukken.
+- **Load balancer:**: toestaan dat Azure Load Balancer de status van uw VM's en rolexemplaren controleert. Als u deze regel overschrijft, mislukken de statuscontroles van Azure Load Balancer, hetgeen een negatieve invloed heeft op uw service.
 
 **Standaardregels voor binnenkomend verkeer**
 
@@ -87,7 +87,7 @@ De standaardregels kunnen verkeer als volgt toestaan en weigeren:
 
 **Standaardregels voor uitgaand verkeer**
 
-| Naam | Prioriteit | Bron-IP | Bronpoort | Doel-IP | Doelpoort | Protocol | Access |
+| Name | Prioriteit | Bron-IP | Bronpoort | Doel-IP | Doelpoort | Protocol | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | Toestaan |
 | AllowInternetOutBound | 65001 | * | * | Internet | * | * | Toestaan |
@@ -163,7 +163,8 @@ In de huidige NSG-regels worden alleen de protocollen *TCP* en *UDP* ondersteund
 ### <a name="load-balancers"></a>Load balancers
 * Overweeg regels voor taakverdeling en netwerkadresomzetting (Network Address Translation, NAT) voor elke load balancer die wordt gebruikt door elk van uw workloads. NAT-regels zijn gebonden aan een back-end-groep die NIC's (Resource Manager) of VM's/Cloud Services-rolexemplaren (klassiek) bevat. Overweeg een NSG te maken voor elke back-end-groep, zodat alleen verkeer wordt toegestaan dat is gedefinieerd in de regels die zijn geïmplementeerd in de load balancers. Als u een NSG maakt voor elke back-end-groep, zorgt u ervoor dat verkeer dat rechtstreeks naar de back-end-groep gaat, in plaats van via de load balancer, ook wordt gefilterd.
 * In klassieke implementaties maakt u eindpunten waarop poorten van een load balancer worden afgestemd met poorten van uw VM's of rolexemplaren. U kunt ook uw eigen individuele openbare load balancer maken via Resource Manager. De doelpoort voor binnenkomend verkeer is de daadwerkelijke poort in de VM of het rolexemplaar, niet de poort die wordt weergegeven door een load balancer. De bronpoort en het bronadres voor de verbinding met de VM zijn een poort en adres op de externe computer op internet, en niet de poort en het adres die beschikbaar zijn gemaakt door de load balancer.
-* Wanneer u NSG's maakt om verkeer te filteren dat afkomstig is van een interne load balancer (ILB), worden de bronpoort en het bronadresbereik toegepast van de computer waarvan de oproep afkomstig is en niet die van de load balancer. De doelpoort en het doeladresbereik zijn die van de doelcomputer, niet van de load balancer.
+* Wanneer u NSG's maakt om verkeer te filteren dat afkomstig is van Azure Load Balancer, worden de bronpoort en het bronadresbereik toegepast van de computer waarvan de oproep afkomstig is en niet die van de frontend van de load balancer. De doelpoort en het doeladresbereik zijn die van de doelcomputer, niet van de frontend van de load balancer.
+* Als u de tag AzureLoadBalancer blokkeert, mislukken de statuscontroles van Azure Load Balancer, hetgeen van invloed kan zijn op uw service.
 
 ### <a name="other"></a>Overige
 * ACL's voor eindpunten en NSG's worden niet ondersteund op een en hetzelfde VM-exemplaar. Als u een NSG wilt gebruiken en er al een ACL voor eindpunten is geïmplementeerd, moet u eerst de ACL voor eindpunten verwijderen. Voor meer informatie over het verwijderen van een eindpunt-ACT leest u het artikel [Eindpunt-ACL's beheren](virtual-networks-acl-powershell.md).
@@ -193,7 +194,7 @@ Vereisten 1-6 (behalve vereisten 3 en 4) zijn alle beperkt tot de subnetruimten.
 ### <a name="frontend"></a>FrontEnd
 **Regels voor binnenkomend verkeer**
 
-| Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
+| Regel | Access | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-HTTP-Internet | Toestaan | 100 | Internet | * | * | 80 | TCP |
 | Allow-Inbound-RDP-Internet | Toestaan | 200 | Internet | * | * | 3389 | TCP |
@@ -201,20 +202,20 @@ Vereisten 1-6 (behalve vereisten 3 en 4) zijn alle beperkt tot de subnetruimten.
 
 **Regels voor uitgaand verkeer**
 
-| Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
+| Regel | Access | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deny-Internet-All |Weigeren |100 | * | * | Internet | * | * |
 
 ### <a name="backend"></a>BackEnd
 **Regels voor binnenkomend verkeer**
 
-| Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
+| Regel | Access | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deny-Internet-All | Weigeren | 100 | Internet | * | * | * | * |
 
 **Regels voor uitgaand verkeer**
 
-| Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
+| Regel | Access | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deny-Internet-All | Weigeren | 100 | * | * | Internet | * | * |
 
@@ -223,20 +224,20 @@ De volgende NSG's worden gemaakt en gekoppeld aan NIC's in de volgende VM’s:
 ### <a name="web1"></a>WEB1
 **Regels voor binnenkomend verkeer**
 
-| Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
+| Regel | Access | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-RDP-Internet | Toestaan | 100 | Internet | * | * | 3389 | TCP |
 | Allow-Inbound-HTTP-Internet | Toestaan | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> Het bronadresbereik voor de vorige regels is **Internet**, niet het virtuele IP-adres van de load balancer. De bronpoort is *, niet 500001. NAT-regels voor load balancers zijn niet hetzelfde als NSG-beveiligingsregels. NSG-beveiligingsregels hebben altijd betrekking op de bron van herkomst en de bestemming van het verkeer, **niet** op de load balancer ertussen. 
+> Het bronadresbereik voor de vorige regels is **Internet**, niet het virtuele IP-adres van de load balancer. De bronpoort is *, niet 500001. NAT-regels voor load balancers zijn niet hetzelfde als NSG-beveiligingsregels. NSG-beveiligingsregels hebben altijd betrekking op de bron van herkomst en de bestemming van het verkeer, **niet** op de load balancer ertussen. Azure Load Balancer bewaart altijd het IP-bronadres en de bronpoort.
 > 
 > 
 
 ### <a name="web2"></a>WEB2
 **Regels voor binnenkomend verkeer**
 
-| Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
+| Regel | Access | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deny-Inbound-RDP-Internet | Weigeren | 100 | Internet | * | * | 3389 | TCP |
 | Allow-Inbound-HTTP-Internet | Toestaan | 200 | Internet | * | * | 80 | TCP |
@@ -244,14 +245,14 @@ De volgende NSG's worden gemaakt en gekoppeld aan NIC's in de volgende VM’s:
 ### <a name="db-servers-management-nic"></a>DB-servers (beheer-NIC)
 **Regels voor binnenkomend verkeer**
 
-| Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
+| Regel | Access | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-RDP-Front-end | Toestaan | 100 | 192.168.1.0/24 | * | * | 3389 | TCP |
 
 ### <a name="db-servers-database-traffic-nic"></a>DB-servers (NIC voor databaseverkeer)
 **Regels voor binnenkomend verkeer**
 
-| Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
+| Regel | Access | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-SQL-Front-end | Toestaan | 100 | 192.168.1.0/24 | * | * | 1433 | TCP |
 

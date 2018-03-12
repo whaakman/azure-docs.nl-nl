@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal | Microsoft Docs'
-description: De quickstart laat zien hoe er met Azure Portal een Azure Databricks-werkruimte en een Apache Spark-cluster kan worden gemaakt, en hoe een Spark-taak kan worden uitgevoerd.
+title: 'Snelstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal | Microsoft Docs'
+description: De snelstart laat zien hoe er met Azure Portal een Azure Databricks-werkruimte en een Apache Spark-cluster kan worden gemaakt, en hoe een Spark-taak kan worden uitgevoerd.
 services: azure-databricks
 documentationcenter: 
 author: nitinme
@@ -11,18 +11,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 03/01/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: f7ec8872849ad7881fb46bca5831c2985d003c13
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0112e5bf53f24150708b9c03440cd6183601f069
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Quickstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snelstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal
 
-Deze quickstart laat zien hoe een Azure Databricks-werkruimte wordt gemaakt en hoe binnen die werkruimte een Apache Spark-cluster kan worden gemaakt. Tot slot leert u hoe u een Spark-taak op het Databricks-cluster kunt uitvoeren. Zie [Wat is Azure Databricks?](what-is-azure-databricks.md) voor meer informatie over Azure Databricks.
+Deze snelstart laat zien hoe een Azure Databricks-werkruimte wordt gemaakt en hoe binnen die werkruimte een Apache Spark-cluster kan worden gemaakt. Tot slot leert u hoe u een Spark-taak op het Databricks-cluster kunt uitvoeren. Zie [Wat is Azure Databricks?](what-is-azure-databricks.md) voor meer informatie over Azure Databricks.
+
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
@@ -62,7 +64,8 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
     ![Een Databricks Spark-cluster maken in Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Een Databricks Spark-cluster maken in Azure")
 
     * Voer een naam in voor het cluster.
-    * Zorg ervoor dat u het selectievakje **Beëindigen na ___ minuten van activiteit** is ingeschakeld. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
+    * Voor dit artikel maakt u een cluster met een **4.0 (bèta)**-runtime. 
+    * Zorg ervoor dat u het selectievakje **Beëindigen na ____ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
     * Accepteer alle overige standaardwaarden. 
     * Klik op **Cluster maken**. Zodra het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Spark-taken uitvoeren.
 
@@ -70,7 +73,7 @@ Zie [Een Spark-cluster maken in Azure Databricks](https://docs.azuredatabricks.n
 
 ## <a name="run-a-spark-sql-job"></a>Een Spark SQL-taak uitvoeren
 
-Voordat u met deze sectie begint, moet u eerst het volgende doen:
+Voordat u met deze sectie begint, moet u eerst aan de volgende vereisten voldoen:
 
 * [Maak een Azure Storage-account](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
 * Download een voorbeeld-JSON-bestand [vanuit Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
@@ -88,10 +91,26 @@ Voer de volgende stappen uit om een notitieblok in Databricks te maken. Configur
 
     Klik op **Create**.
 
-3. Vervang in het volgende codefragment `{YOUR STORAGE ACCOUNT NAME}` door de naam van het Azure Storage-account dat u hebt gemaakt en `{YOUR STORAGE ACCOUNT ACCESS KEY}` door de toegangssleutel voor uw opslagaccount. Plak het volgende codefragment in een lege cel en druk op Shift+Enter om de codecel uit te voeren. Dit codefragment configureert het notitieblok zodat hiermee gegevens uit een Azure Blob Storage kunnen worden gelezen.
+3. In deze stap koppelt u het Storage-account aan het Databricks Apache Spark-cluster. U kunt dit op twee manieren doen. Koppel het Storage-account rechtstreeks aan het Databricks Filesystem (DBFS) of open het Storage-account rechtstreeks vanuit de toepassing die u maakt.  
 
-       spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
-    
+    > [!IMPORTANT]
+    >In dit artikel wordt gebruikgemaakt van de **methode waarbij de opslag aan DBFS wordt gekoppeld**. Hierdoor wordt gegarandeerd dat de gekoppelde opslag aan het bestandssysteem van het cluster zelf wordt gekoppeld. Vandaar dat een toepassing die toegang tot het cluster heeft, ook gebruik kan maken van de gekoppelde opslag. De methode met de rechtstreekse toegang is beperkt tot de toepassing van waaruit u de toegang configureert.
+    >
+    > Als u de methode met de koppeling wilt gebruiken, dient u een Spark-cluster te maken met Databricks-runtimeversie **4.0 (bèta)**, wat u in dit artikel gekozen hebt.
+
+    In het volgende codefragment vervangt u `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` en `{YOUR STORAGE ACCOUNT ACCESS KEY}` door de desbetreffende waarden voor uw Azure Storage-account. Plak het volgende codefragment in een lege cel en druk op Shift+Enter om de codecel uit te voeren.
+
+    * **Het opslagaccount koppelen aan DBFS (aanbevolen)**. Met dit codefragment wordt het pad voor het Azure Storage-account gekoppeld aan `/mnt/mypath`. Als u later het Azure Storage-account opent, hoeft u het volledige pad niet meer op te geven. U kunt gewoon `/mnt/mypath` gebruiken.
+
+          dbutils.fs.mount(
+            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+            mountPoint = "/mnt/mypath",
+            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+
+    * **Het opslagaccount rechtstreeks openen**
+
+          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+
     Zie [Toegangssleutels beheren voor uw opslagaccount](../storage/common/storage-create-storage-account.md#manage-your-storage-account) voor instructies over het ophalen van de toegangssleutel voor uw opslagaccount.
 
     > [!NOTE]
@@ -101,10 +120,11 @@ Voer de volgende stappen uit om een notitieblok in Databricks te maken. Configur
 
     ```sql
     %sql 
-    CREATE TEMPORARY TABLE radio_sample_data
+    DROP TABLE IF EXISTS radio_sample_data
+    CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/small_radio_json.json"
+     path "/mnt/mypath/small_radio_json.json"
     )
     ```
 
