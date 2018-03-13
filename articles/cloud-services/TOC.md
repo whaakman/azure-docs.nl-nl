@@ -35,6 +35,7 @@
 ### Extern bureaublad configureren
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## Implementeren
 ### [Een cloudservice maken en implementeren in de portal](cloud-services-how-to-create-deploy-portal.md)
