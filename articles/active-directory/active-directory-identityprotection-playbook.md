@@ -23,15 +23,15 @@ ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Playbook voor Azure Active Directory: Identity Protection
 
-Deze playbook helpt u bij:
+Deze playbook helpt u:
 
-* Gegevens in de Identity Protection omgeving vullen door risicogebeurtenissen en beveiligingsproblemen te simuleren
-* Beleid voor voorwaardelijke toegang op basis van risico's instellen en de gevolgen van het beleid testen
+* Gegevens in de omgeving Identity Protection te vullen door risicogebeurtenissen en beveiligingsproblemen te simuleren
+* Een beleid voor voorwaardelijke toegang op basis van risico's in te stellen en de gevolgen van het beleid te testen
 
 
 ## <a name="simulating-risk-events"></a>Risico's te simuleren
 
-Deze sectie bevat stappen voor het simuleren van de volgende type risico-gebeurtenissen:
+Deze sectie bevat stappen voor het simuleren van de volgende typen risico-gebeurtenissen:
 
 * Aanmeldingen vanaf anonieme IP-adressen (eenvoudig)
 * Aanmeldingen vanaf onbekende locaties (gemiddeld)
@@ -45,21 +45,21 @@ Zie voor meer informatie over deze risicogebeurtenis [aanmeldingen vanaf anoniem
 
 De volgende procedure te voltooien, moet u gebruiken:
 
-- De [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) om te simuleren anonieme IP-adressen. Mogelijk moet u een virtuele machine gebruiken als uw organisatie het gebruik van de Tor-browser beperkt.
+- De [Tor-browser] om anonieme IP-adressen te simuleren. Mogelijk moet u een virtuele machine gebruiken als uw organisatie het gebruik van de Tor-browser beperkt.
 - Een testaccount dat nog niet is geregistreerd voor multi-factor authentication.
 
 **De volgende stappen uitvoeren om te simuleren een aanmeldingspagina van een anoniem IP,**:
 
 1. Met behulp van de [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), gaat u naar [https://myapps.microsoft.com](https://myapps.microsoft.com).   
-2. Gebruik de referenties van het account dat moet worden weergegeven in het **aanmeldingen vanaf anonieme IP-adressen** rapport.
+2. Gebruik de referenties van het account dat moet worden weergegeven in het rapport **aanmeldingen vanaf anonieme IP-adressen**.
 
-De aanmeldingspagina wordt binnen 10-15 minuten weergegeven op het Identity Protection dashboard. 
+De aanmeldingspagina wordt binnen 10-15 minuten weergegeven op het Identity Protection-dashboard. 
 
 ### <a name="sign-ins-from-unfamiliar-locations"></a>Aanmeldingen vanaf onbekende locaties
 
 Zie voor meer informatie over deze risicogebeurtenis [aanmeldingen vanaf onbekende locaties](active-directory-reporting-risk-events.md#sign-in-from-unfamiliar-locations). 
 
-Om aanmeldingen vanaf onbekende locaties te simuleren dient u aan te melden vanaf een locatie en een apparaat waar uw testaccount nog niet eerder is aangemeld.
+Om aanmeldingen vanaf onbekende locaties te simuleren, dient zich u aan te melden vanaf een locatie en een apparaat waar u zich nog niet eerder hebt aangemeld met uw testaccount.
 
 De volgende procedure maakt gebruik van een nieuw gemaakte:
 
@@ -73,7 +73,7 @@ Om de volgende procedure te voltooien, moet u een gebruikersaccount gebruiken da
 - Multi-factor authentication is ingeschakeld.
 
 
-**De volgende stappen uitvoeren om een aanmelding vanaf een onbekende locatie te simuleren,**:
+**Voer de volgende stappen uit om een aanmelding vanaf een onbekende locatie te simuleren:**
 
 1. Laat bij het aanmelden met uw testaccount de MFA-controle mislukken.
 2. Navigeer met uw nieuwe VPN naar [https://myapps.microsoft.com](https://myapps.microsoft.com) en voer de referenties van uw testaccount in.
@@ -91,15 +91,15 @@ Het is moeilijk om de onmogelijke reis te simuleren omdat het machine learning a
 **De volgende stappen uitvoeren om te simuleren van een onmogelijke reis naar ongewone locatie,**:
 
 1. Navigeer met uw standaardbrowser naar [https://myapps.microsoft.com](https://myapps.microsoft.com).  
-2. Voer de referenties van het account dat u wilt gebruiken voor het genereren van een onmogelijke reis risicogebeurtenis.
-3. Wijzig uw gebruikersagent. U kunt uw gebruikersagent in Internet Explorer van hulpprogramma's voor ontwikkelaars wijzigen of uw gebruikersagent in Firefox of Chrome met de invoegtoepassing van een gebruikersagent schakelbaar wijzigen.
+2. Voer de referenties in van het account dat u wilt gebruiken om een risicogebeurtenis voor een onmogelijke reis te genereren.
+3. Wijzig uw gebruikersagent. U kunt uw gebruikersagent in Internet Explorer wijzigen vanuit Ontwikkelhulpprogramma's of in Firefox of Chrome door een invoegtoepassing voor het wisselen van de gebruikersagent te gebruiken.
 4. Wijzig het IP-adres. U kunt uw IP-adres wijzigen met behulp van een VPN, een invoegtoepassing Tor, of van een nieuwe machine in Azure in een ander datacenter draait.
-5. Meldt u aan bij [https://myapps.microsoft.com](https://myapps.microsoft.com) met dezelfde referenties als in de eerdere stap. Zorg er ook voor dat het binnen een paar minuten na de vorige aanmelding is.
+5. Meld u aan bij [https://myapps.microsoft.com] met dezelfde referenties als hiervoor. Zorg ook dat u dit doet binnen een paar minuten na de vorige aanmelding.
 
 De aanmeldingspagina wordt weergegeven in het dashboard Identity Protection binnen 2-4 uur.
 
 ## <a name="simulating-vulnerabilities"></a>Beveiligingsproblemen simuleren
-Zwakke plekken zijn zwakke punten in een Azure AD-omgeving die door een kwaadwillende kan worden misbruikt. Momenteel worden 3 typen zwakke plekken opgehaald in Azure AD Identity Protection die gebruikmaken van andere functies van Azure AD. Deze beveiligingslekken worden automatisch weergegeven op het Identity Protection dashboard zodra deze functies zijn ingesteld.
+Zwakke plekken zijn zwakke punten in een Azure AD-omgeving die door een kwaadwillend persoon kunnen worden misbruikt. Momenteel zijn er 3 typen zwakke plekken in Azure AD Identity Protection bekend die gebruikmaken van andere functies van Azure AD. Deze beveiligingslekken worden automatisch weergegeven op het Identity Protection-dashboard zodra deze functies zijn ingesteld.
 
 * Azure AD [multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
