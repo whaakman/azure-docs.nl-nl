@@ -36,10 +36,10 @@ De volgende fouten zijn tijdelijk en moeten opnieuw worden geprobeerd in toepass
 
 | Foutcode | Ernst | Beschrijving |
 | ---:| ---:|:--- |
-| 4060 |16 |Kan database niet openen '%. & #x2a; ls' aangevraagd door de aanmelding. De aanmelding is mislukt. |
+| 4060 |16 |Kan database niet openen '%.&#x2a;ls' aangevraagd door de aanmelding. De aanmelding is mislukt. |
 | 40197 |17 |De service heeft een fout bij het verwerken van uw aanvraag aangetroffen. Probeer het opnieuw. Foutcode: %d.<br/><br/>U ontvangt deze foutmelding wanneer de service uitgeschakeld als gevolg van de software of hardware-upgrades, hardwarefouten of andere problemen met betrekking tot failover is. De foutcode (%d) dat is ingesloten in het bericht van fout 40197 bevat aanvullende informatie over het type fout of failover die is opgetreden. Enkele voorbeelden van de fout codes zijn ingesloten in het bericht van fout 40197 zijn 40020, 40143 40166 en 40540.<br/><br/>Automatisch opnieuw verbinding te maken met uw SQL Database-server, maakt u verbinding met een gezonde kopie van uw database. Uw toepassing moet catch 40197, foutenlogboek de ingesloten foutcode (%d) binnen het bericht voor het oplossen van problemen en probeer opnieuw verbinding te maken met SQL-Database tot de resources beschikbaar zijn en de verbinding tot stand is gebracht opnieuw. |
 | 40501 |20 |De service is momenteel bezet. De aanvraag opnieuw proberen na tien seconden. Incident-ID: %ls. Code: %d.<br/><br/>Zie voor meer informatie:<br/>• [Limieten voor azure SQL Database](sql-database-service-tiers.md). |
-| 40613 |17 |Database '%. & #x2a; ls' op server '%. & #x2a; ls' is momenteel niet beschikbaar. Probeer het later opnieuw verbinding. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID '%. & #x2a; ls'. |
+| 40613 |17 |Database '%.&#x2a;ls' op server '%.&#x2a;ls' is momenteel niet beschikbaar. Probeer het later opnieuw verbinding. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID '%.&#x2a;ls'. |
 | 49918 |16 |Kan aanvraag niet verwerken. Onvoldoende resources om aanvraag te verwerken.<br/><br/>De service is momenteel bezet. Probeer de aanvraag later opnieuw. |
 | 49919 |16 |Proces kan geen aanvraag maken of bijwerken. Te veel bewerkingen maken of bijwerken uitgevoerd voor abonnement ' % ld '.<br/><br/>De service is bezet verwerking van meerdere maken of bijwerken van aanvragen voor uw abonnement of de server. Aanvragen die momenteel is geblokkeerd voor optimalisatie van de resource. Query [sys.dm_operation_status bevat](https://msdn.microsoft.com/library/dn270022.aspx) voor bewerkingen die in behandeling. Wacht tot de in behandeling zijnde maken of bijwerken aanvragen zijn voltooid of verwijder een van de in behandeling genomen aanvragen en uw aanvraag later opnieuw. |
 | 49920 |16 |Kan aanvraag niet verwerken. Te veel bewerkingen uitgevoerd voor abonnement ' % ld '.<br/><br/>De service is bezig met de verwerking van meerdere aanvragen voor dit abonnement. Aanvragen die momenteel is geblokkeerd voor optimalisatie van de resource. Query [sys.dm_operation_status bevat](https://msdn.microsoft.com/library/dn270022.aspx) voor de bewerkingsstatus van de. Wacht totdat aanvragen in behandeling zijn voltooid of verwijder een van de in behandeling zijnde aanvragen en uw aanvraag later opnieuw. |
@@ -50,7 +50,7 @@ De volgende fouten kunnen opgetreden bij het kopiëren van een database in Azure
 
 | Foutcode | Ernst | Beschrijving |
 | ---:| ---:|:--- |
-| 40635 |16 |Client met IP-adres '%. & #x2a; ls' is tijdelijk uitgeschakeld. |
+| 40635 |16 |Client met IP-adres '%.&#x2a;ls' is tijdelijk uitgeschakeld. |
 | 40637 |16 |Maken van database-exemplaar is momenteel uitgeschakeld. |
 | 40561 |16 |Kopiëren van de database is mislukt. De bron-of doeldatabase bestaat niet. |
 | 40562 |16 |Kopiëren van de database is mislukt. De brondatabase is verwijderd. |
@@ -126,35 +126,35 @@ De volgende fouten vallen niet in de vorige categorieën.
 | Foutcode | Ernst | Beschrijving |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) is niet een geldige naam omdat deze ongeldige tekens bevat. |
-| 18452 |14 |Aanmelden is mislukt. De aanmelding is afkomstig uit een niet-vertrouwd domein en kan niet worden gebruikt met Windows authentication.%. & #x2a; ls (Windows-aanmeldingen worden niet ondersteund in deze versie van SQL Server.) |
-| 18456 |14 |Aanmelding mislukt voor gebruiker ' % #x2a;ls'.%. & #x2a; % ls. & #x2a; ls (de aanmelding is mislukt voor gebruiker '%. & #x2a; ls'. Wijzigen van het wachtwoord is mislukt. Wijzigen van wachtwoorden tijdens het aanmelden wordt niet ondersteund in deze versie van SQL Server.) |
-| 18470 |14 |Aanmelding mislukt voor gebruiker '%. & #x2a; ls'. Reden: Het account is disabled.%. & #x2a; ls |
+| 18452 |14 |Aanmelden is mislukt. De aanmelding is afkomstig uit een niet-vertrouwd domein en kan niet worden gebruikt met Windows authentication.%.&#x2a;ls (Windows-aanmeldingen worden niet ondersteund in deze versie van SQL Server.) |
+| 18456 |14 |Aanmelding mislukt voor gebruiker '%.&#x2a;ls'.%.&#x2a;ls%.&#x2a;ls (de aanmelding is mislukt voor gebruiker '%.&#x2a;ls'. Wijzigen van het wachtwoord is mislukt. Wijzigen van wachtwoorden tijdens het aanmelden wordt niet ondersteund in deze versie van SQL Server.) |
+| 18470 |14 |Aanmelding mislukt voor gebruiker '%.&#x2a;ls'. Reden: Het account is disabled.%.&#x2a;ls |
 | 40014 |16 |Meerdere databases kunnen niet worden gebruikt in dezelfde transactie. |
 | 40054 |16 |Tabellen zonder geclusterde index worden niet ondersteund in deze versie van SQL Server. Een geclusterde index maken en probeer het opnieuw. |
 | 40133 |15 |Deze bewerking wordt niet ondersteund in deze versie van SQL Server. |
 | 40506 |16 |De opgegeven SID is ongeldig voor deze versie van SQL Server. |
-| 40507 |16 |' %. & #x2a; ls kunnen niet worden aangeroepen met parameters in deze versie van SQL Server. |
+| 40507 |16 |' %.&#x2a;ls kunnen niet worden aangeroepen met parameters in deze versie van SQL Server. |
 | 40508 |16 |De instructie USE wordt niet ondersteund voor schakelen tussen databases. Een nieuwe verbinding om verbinding met een andere database te gebruiken. |
-| 40510 |16 |De instructie '%. & #x2a; ls' wordt niet ondersteund in deze versie van SQL Server |
-| 40511 |16 |De ingebouwde functie '%. & #x2a; ls' wordt niet ondersteund in deze versie van SQL Server. |
+| 40510 |16 |De instructie '%.&#x2a;ls' wordt niet ondersteund in deze versie van SQL Server |
+| 40511 |16 |De ingebouwde functie '%.&#x2a;ls' wordt niet ondersteund in deze versie van SQL Server. |
 | 40512 |16 |Afgeschafte functie '%ls' wordt niet ondersteund in deze versie van SQL Server. |
-| 40513 |16 |Server variabele '%. & #x2a; ls' wordt niet ondersteund in deze versie van SQL Server. |
+| 40513 |16 |Server variabele '%.&#x2a;ls' wordt niet ondersteund in deze versie van SQL Server. |
 | 40514 |16 |'%ls' wordt niet ondersteund in deze versie van SQL Server. |
-| 40515 |16 |Verwijzing naar de database en/of de server-naam in '%. & #x2a; ls' wordt niet ondersteund in deze versie van SQL Server. |
+| 40515 |16 |Verwijzing naar de database en/of de server-naam in '%.&#x2a;ls' wordt niet ondersteund in deze versie van SQL Server. |
 | 40516 |16 |Globale, tijdelijke objecten worden niet ondersteund in deze versie van SQL Server. |
-| 40517 |16 |Trefwoord-of instructieoptie '%. & #x2a; ls' wordt niet ondersteund in deze versie van SQL Server. |
-| 40518 |16 |DBCC-opdracht '%. & #x2a; ls' wordt niet ondersteund in deze versie van SQL Server. |
+| 40517 |16 |Trefwoord-of instructieoptie '%.&#x2a;ls' wordt niet ondersteund in deze versie van SQL Server. |
+| 40518 |16 |DBCC-opdracht '%.&#x2a;ls' wordt niet ondersteund in deze versie van SQL Server. |
 | 40520 |16 |De beveiligbare klasse '% S_MSG' wordt niet ondersteund in deze versie van SQL Server. |
 | 40521 |16 |De beveiligbare klasse '% S_MSG' wordt niet ondersteund in het serverbereik in deze versie van SQL Server. |
-| 40522 |16 |Database-principal '%. & #x2a; ls'-type wordt niet ondersteund in deze versie van SQL Server. |
-| 40523 |16 |Maken van het impliciete gebruiker '%. & #x2a; ls' wordt niet ondersteund in deze versie van SQL Server. Maak de gebruiker expliciet voordat u deze gebruikt. |
-| 40524 |16 |Gegevenstype '%. & #x2a; ls' wordt niet ondersteund in deze versie van SQL Server. |
+| 40522 |16 |Database-principal '%.&#x2a;ls'-type wordt niet ondersteund in deze versie van SQL Server. |
+| 40523 |16 |Maken van het impliciete gebruiker '%.&#x2a;ls' wordt niet ondersteund in deze versie van SQL Server. Maak de gebruiker expliciet voordat u deze gebruikt. |
+| 40524 |16 |Gegevenstype '%.&#x2a;ls' wordt niet ondersteund in deze versie van SQL Server. |
 | 40525 |16 |MET '%.ls' wordt niet ondersteund in deze versie van SQL Server. |
-| 40526 |16 |' %. & #x2a; rijensetprovider ls niet ondersteund in deze versie van SQL Server. |
+| 40526 |16 |' %.&#x2a; rijensetprovider ls niet ondersteund in deze versie van SQL Server. |
 | 40527 |16 |Gekoppelde servers worden niet ondersteund in deze versie van SQL Server. |
 | 40528 |16 |Gebruikers kunnen niet worden toegewezen aan certificaten, asymmetrische sleutels of Windows-aanmeldingen in deze versie van SQL Server. |
-| 40529 |16 |De ingebouwde functie '%. & #x2a; ls' in imitatie context niet wordt ondersteund in deze versie van SQL Server. |
-| 40532 |11 |Server kan niet worden geopend '%. & #x2a; ls' aangevraagd door de aanmelding. De aanmelding is mislukt. |
+| 40529 |16 |De ingebouwde functie '%.&#x2a;ls' in imitatie context niet wordt ondersteund in deze versie van SQL Server. |
+| 40532 |11 |Server kan niet worden geopend '%.&#x2a;ls' aangevraagd door de aanmelding. De aanmelding is mislukt. |
 | 40553 |16 |De sessie is beëindigd vanwege een uitzonderlijk groot geheugengebruik. Probeer de query voor het verwerken van minder rijen te wijzigen.<br/><br/> Het aantal te verminderen `ORDER BY` en `GROUP BY` bewerkingen in uw code Transact-SQL reduceert de geheugenvereisten van de query. |
 | 40604 |16 |Kan geen CREATE/ALTER DATABASE omdat deze het quotum van de server overschreden. |
 | 40606 |16 |Databases koppelen wordt niet ondersteund in deze versie van SQL Server. |
@@ -164,12 +164,12 @@ De volgende fouten vallen niet in de vorige categorieën.
 | 40615 |16 |Kan de server '{0}' is aangevraagd door de aanmelding niet openen. Client met IP-adres '{1}' is niet toegestaan voor toegang tot de server.<br /><br />Voor toegang, gebruik van de SQL Database-Portal of voer sp\_ingesteld\_firewall\_-regel op de database master om een firewallregel voor dit IP-adres of -adresbereik te maken. Duurt maximaal vijf minuten om deze wijziging van kracht te laten worden. |
 | 40617 |16 |Naam van de firewallregel die begint met (regelnaam) is te lang. Maximale lengte is 128. |
 | 40618 |16 |Naam van de firewallregel mag niet leeg zijn. |
-| 40620 |16 |De aanmelding is mislukt voor gebruiker '%. & #x2a; ls'. Wijzigen van het wachtwoord is mislukt. Wijzigen van wachtwoorden tijdens het aanmelden wordt niet ondersteund in deze versie van SQL Server. |
+| 40620 |16 |De aanmelding is mislukt voor gebruiker '%.&#x2a;ls'. Wijzigen van het wachtwoord is mislukt. Wijzigen van wachtwoorden tijdens het aanmelden wordt niet ondersteund in deze versie van SQL Server. |
 | 40627 |20 |Bewerking op server '{0}' en de database '{1}' wordt uitgevoerd. Wacht een paar minuten en probeer het opnieuw. |
 | 40630 |16 |Wachtwoordvalidatie is mislukt. Het wachtwoord voldoet niet aan de beleidseisen omdat het te kort is. |
 | 40631 |16 |Het wachtwoord die u hebt opgegeven, is te lang. Het wachtwoord moet langer zijn dan 128 tekens hebben. |
 | 40632 |16 |Wachtwoordvalidatie is mislukt. Het wachtwoord voldoet niet aan de beleidseisen omdat het niet complex genoeg is. |
-| 40636 |16 |Een gereserveerde databasenaam niet gebruiken '%. & #x2a; ls' in deze bewerking. |
+| 40636 |16 |Een gereserveerde databasenaam niet gebruiken '%.&#x2a;ls' in deze bewerking. |
 | 40638 |16 |Ongeldige abonnements-id (abonnement-id). Abonnement bestaat niet. |
 | 40639 |16 |Aanvraag voldoet niet aan schema: (Schemafout). |
 | 40640 |20 |De server heeft een onverwachte uitzondering aangetroffen. |
