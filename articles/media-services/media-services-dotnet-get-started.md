@@ -154,7 +154,7 @@ In Media Services moet u uw digitale bestanden uploaden naar (of opnemen in) een
 
 Met de methode **UploadFile**, zoals hieronder gedefinieerd, wordt **CreateFromFile** (gedefinieerd in .NET SDK Extensions) aangeroepen. Met **CreateFromFile** wordt een nieuwe asset gemaakt waarnaar het opgegeven bestand wordt geüpload.
 
-De methode **CreateFromFile** maakt gebruik van **AssetCreationOptions, waarmee u een van de volgende opties voor het maken van assets kunt opgeven:
+De methode **CreateFromFile** maakt gebruik van \*\*AssetCreationOptions, waarmee u een van de volgende opties voor het maken van assets kunt opgeven:
 
 * **Geen**: er wordt geen versleuteling gebruikt. Dit is de standaardwaarde. Houd er rekening mee dat bij gebruik van deze optie de inhoud tijdens de overdracht of in de opslag niet is beveiligd.
   Als u een MP4-bestand wilt leveren via progressief downloaden, gebruikt u deze optie.
