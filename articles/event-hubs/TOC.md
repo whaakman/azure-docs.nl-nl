@@ -27,6 +27,7 @@
 ### [Overzicht van authenticatie- en beveiligingsmodellen](event-hubs-authentication-and-security-model-overview.md)
 ### [Beschikbaarheid en consistentie](event-hubs-availability-and-consistency.md)
 ### [Doorvoereenheden automatisch schalen](event-hubs-auto-inflate.md)
+### [Apache Spark integreren met Event Hubs](event-hubs-spark-connector.md)
 ## Ontwikkelen
 ### [Gebeurtenissen verzenden met behulp van .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Gebeurtenissen ontvangen met behulp van .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)

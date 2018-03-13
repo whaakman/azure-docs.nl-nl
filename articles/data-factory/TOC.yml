@@ -290,6 +290,8 @@
           href: transform-data-using-stored-procedure.md
         - name: Data Lake U-SQL-activiteit
           href: transform-data-using-data-lake-analytics.md
+        - name: Databricks Notebook-activiteit
+          href: transform-data-using-databricks-notebook.md
         - name: Aangepaste activiteit
           href: transform-data-using-dotnet-custom-activity.md
         - name: Gekoppelde services berekenen
