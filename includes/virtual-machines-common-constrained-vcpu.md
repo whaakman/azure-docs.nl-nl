@@ -11,19 +11,27 @@ De licentie kosten in rekening gebracht voor SQL Server of Oracle zijn beperkt t
 
 | Naam                | vCPU | Specificaties           |
 |---------------------|------|-----------------|
-| Standard_M64 32ms   | 32   | Zelfde als M64ms   |
-| Standard_M64-16 MS   | 16   | Zelfde als M64ms   |
-| Standard_M128 64ms  | 64   | Zelfde als M128ms  |
-| Standard_M128 32ms  | 32   | Zelfde als M128ms  |
-| Standard_E32 16_v3  | 16   | Zelfde als E32s_v3 |
-| Standard_E32 8s_v3  | 8    | Zelfde als E32s_v3 |
-| Standard_E64 32s_v3 | 32   | Zelfde als E64s_v3 |
-| Standard_E64 16s_v3 | 16   | Zelfde als E64s_v3 |
-| Standard_GS4 8      | 8    | Zelfde als GS4     |
-| Standard_GS4 4      | 4    | Zelfde als GS4     |
+| Standard_M64-32ms   | 32   | Zelfde als M64ms   |
+| Standard_M64-16ms   | 16   | Zelfde als M64ms   |
+| Standard_M128-64ms  | 64   | Zelfde als M128ms  |
+| Standard_M128-32ms  | 32   | Zelfde als M128ms  |
+| Standard_E4-2s_v3   | 2    | Same as E4s_v3  |
+| Standard_E8-4s_v3   | 4    | Same as E8s_v3  |
+| Standard_E8-2s_v3   | 2    | Same as E8s_v3  |
+| Standard_E16-8s_v3  | 8    | Same as E16s_v3 |
+| Standard_E16-4s_v3  | 4    | Same as E16s_v3 |
+| Standard_E32-16_v3  | 16   | Zelfde als E32s_v3 |
+| Standard_E32-8s_v3  | 8    | Zelfde als E32s_v3 |
+| Standard_E64-32s_v3 | 32   | Zelfde als E64s_v3 |
+| Standard_E64-16s_v3 | 16   | Zelfde als E64s_v3 |
+| Standard_GS4-8      | 8    | Zelfde als GS4     |
+| Standard_GS4-4      | 4    | Zelfde als GS4     |
 | Standard_GS5-16     | 16   | Zelfde als GS5     |
-| Standard_GS5 8      | 8    | Zelfde als GS5     |
-| Standard_DS13 4_v2  | 4    | Zelfde als DS13_v2 |
-| Standard_DS13 2_v2  | 2    | Zelfde als DS13_v2 |
-| Standard_DS14 8_v2  | 8    | Zelfde als DS14_v2 |
-| Standard_DS14 4_v2  | 4    | Zelfde als DS14_v2 |
+| Standard_GS5-8      | 8    | Zelfde als GS5     |
+| Standard_DS11-1_v2  | 1    | Zelfde als DS11_v2 |
+| Standard_DS12-2_v2  | 2    | Same as DS12_v2 |
+| Standard_DS12-1_v2  | 1    | Same as DS12_v2 |
+| Standard_DS13-4_v2  | 4    | Same as DS13_v2 |
+| Standard_DS13-2_v2  | 2    | Same as DS13_v2 |
+| Standard_DS14-8_v2  | 8    | Zelfde als DS14_v2 |
+| Standard_DS14-4_v2  | 4    | Zelfde als DS14_v2 |

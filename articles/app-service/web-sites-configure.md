@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Web-apps configureren in Azure App Service
 
@@ -76,8 +76,8 @@ Deze instellingen zijn beschikbaar als omgevingsvariabelen tijdens runtime, voor
 
 * SQL Server: `SQLCONNSTR_`
 * MySQL: `MYSQLCONNSTR_`
-* SQL-Database:`SQLAZURECONNSTR_`
-* Aangepaste:`CUSTOMCONNSTR_`
+* SQL-Database: `SQLAZURECONNSTR_`
+* Aangepaste: `CUSTOMCONNSTR_`
 
 Bijvoorbeeld, als u een MySql-verbindingsreeks zijn met de naam `connectionstring1`, deze zou worden geopend via de omgevingsvariabele `MYSQLCONNSTR_connectionString1`.
 
@@ -129,12 +129,12 @@ De volledige naam van de FTP-gebruiker is 'app\username' waar *app* is de naam v
 
 ## <a name="other-configuration-tasks"></a>Andere configuratietaken
 ### <a name="ssl"></a>SSL
-U kunt SSL-certificaten voor een aangepast domein uploaden in de basis- of Standard-modus. Zie voor meer informatie [HTTPS inschakelen voor een web-app]. 
+U kunt SSL-certificaten voor een aangepast domein uploaden in de basis- of Standard-modus. Zie voor meer informatie [HTTPS inschakelen voor een web-app](app-service-web-tutorial-custom-ssl.md). 
 
 Als u wilt weergeven van uw geüploade certificaten **alle instellingen** > **aangepaste domeinen en SSL**.
 
 ### <a name="domain-names"></a>Domeinnamen
-Aangepaste domeinnamen voor uw web-app toevoegen. Zie voor meer informatie [configureren voor een web-app in Azure App Service een aangepaste domeinnaam].
+Aangepaste domeinnamen voor uw web-app toevoegen. Zie voor meer informatie [een aangepaste domeinnaam configureren voor een web-app in Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 U kunt uw domeinnamen op **alle instellingen** > **aangepaste domeinen en SSL**.
 

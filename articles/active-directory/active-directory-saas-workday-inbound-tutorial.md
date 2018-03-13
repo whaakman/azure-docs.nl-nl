@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten configureren
 
@@ -768,12 +768,27 @@ Om dit te doen, moet u [Workday Studio](https://community.workday.com/studio-dow
 
 * Een vorige probleem met de controlelogboeken verschijnt niet in Azure AD-tenants die zich in de Europese Unie is opgelost. Aanvullende agentconfiguratie is echter vereist voor Azure AD-tenants in de EU. Zie voor meer informatie [deel 3: de lokale synchronisatie-agent configureren](#Part 3: Configure the on-premises synchronization agent)
 
+## <a name="gdpr-compliance"></a>GDPR naleving
 
-## <a name="additional-resources"></a>Aanvullende resources
-* [Zelfstudie: Eenmalige aanmelding tussen Workday en Azure Active Directory configureren](active-directory-saas-workday-tutorial.md)
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[Algemene gegevens beveiliging regelgeving (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is van een Europese Unie beveiliging en privacy-wet. De GDPR legt regels voor bedrijven, overheidsinstanties, non-profitorganisaties en andere organisaties die waren en diensten aan te aan mensen in de EU of die bieden verzamelen en analyseren van gegevens die zijn gekoppeld aan de EU inwoners. 
+
+De inrichting Azure AD-service is GDPR compatibele samen met de rest van de services en functies van Microsoft. Zie voor meer informatie over Microsoft GDPR verhaal, de [servicevoorwaarden](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+
+Omdat voor de inrichting Workday-oplossing voor Active Directory vereist een synchronisatieagent moet worden geïnstalleerd op een server voor het domein, zijn er evenwel sommige gebeurtenissen die u moet controleren om te blijven ook GDPR compatibel.
+ 
+De agent maakt Logboeken in de **Windows-gebeurtenislogboek**, die kunnen persoonlijke gegevens bevatten.
+
+Er zijn twee manieren om te blijven voldoen aan het beleid GDPR:
+
+1. Gegevens ophalen voor een persoon en verwijderen van gegevens van die persoon uit de Windows-gebeurtenislogboeken op verzoek. 
+2. Houd bewaren van Windows-gebeurtenislogboeken die afkomstig is van het proces AADSyncAgent onder 48 uur
+
+Zie voor meer informatie over het bewaren van gegevens van de Windows-gebeurtenislogboeken configureren de [instellingen voor gebeurtenislogboeken](https://technet.microsoft.com/en-us/library/cc952132.aspx). Raadpleeg voor algemene informatie op het Windows-gebeurtenislogboek [in dit artikel](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Informatie over het bekijken van Logboeken en rapporten over het inrichten van de activiteit ophalen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
+* [Meer informatie over het configureren van eenmalige aanmelding tussen Workday en Azure Active Directory](active-directory-saas-workday-tutorial.md)
+* [Meer informatie over het integreren van andere SaaS-toepassingen met Azure Active Directory](active-directory-saas-tutorial-list.md)
+

@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: a6cccfa5097847429d3e402e3d522addc14b8c31
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b0cbd3c232e5df831031cc8e436f8dbb24b0e72c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Los de fouten voor de SKU is niet beschikbaar
 
@@ -37,13 +37,9 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 U ontvangt deze foutmelding wanneer de SKU die u hebt geselecteerd (zoals VM-grootte) van de resource is niet beschikbaar voor de locatie die u hebt geselecteerd.
 
-## <a name="solution"></a>Oplossing
+## <a name="solution-1---powershell"></a>Oplossing 1 - PowerShell
 
-U lost dit probleem, moet u bepalen welke SKU's zijn beschikbaar in een regio. U kunt PowerShell, de portal of REST-bewerking gebruiken om te zoeken naar beschikbare SKU's.
-
-### <a name="solution-1"></a>Oplossing 1
-
-Gebruik de [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) opdracht in PowerShell. Filter de resultaten worden op locatie. U kunt de nieuwste versie van PowerShell voor deze opdracht moet hebben.
+Om te bepalen die SKU's beschikbaar zijn in een regio, gebruikt de [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) opdracht. Filter de resultaten worden op locatie. U kunt de nieuwste versie van PowerShell voor deze opdracht moet hebben.
 
 ```powershell
 Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
@@ -61,9 +57,9 @@ virtualMachines      Standard_A1 southcentralus
 virtualMachines      Standard_A2 southcentralus
 ```
 
-### <a name="solution-2"></a>Oplossing 2
+## <a name="solution-2---azure-cli"></a>Oplossing 2: Azure CLI
 
-In de Azure CLI, gebruikt u de `az vm list-skus` opdracht. Vervolgens kunt u `grep` of een vergelijkbaar hulpprogramma voor het filteren van de uitvoer.
+Om te bepalen die SKU's beschikbaar zijn in een regio, gebruikt de `az vm list-skus` opdracht. Vervolgens kunt u `grep` of een vergelijkbaar hulpprogramma voor het filteren van de uitvoer.
 
 ```bash
 $ az vm list-skus --output table
@@ -79,15 +75,15 @@ availabilitySets  centralus           Classic                 MaximumPlatformFau
 availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
 ```
 
-### <a name="solution-3"></a>Oplossing 3
+## <a name="solution-3---azure-portal"></a>Oplossing 3 - Azure-portal
 
-Gebruik de [portal](https://portal.azure.com). Aanmelden bij de portal en voeg een bron via de interface. Als u de waarden instelt, ziet u de beschikbare SKU's voor die bron. U hoeft niet om de implementatie te vervolledigen.
+Om te bepalen die SKU's beschikbaar zijn in een regio, gebruikt de [portal](https://portal.azure.com). Aanmelden bij de portal en voeg een bron via de interface. Als u de waarden instelt, ziet u de beschikbare SKU's voor die bron. U hoeft niet om de implementatie te vervolledigen.
 
 ![beschikbare SKU 's](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### <a name="solution-4"></a>Oplossing 4
+## <a name="solution-4---rest"></a>4 - REST-oplossing
 
-De REST-API gebruiken voor virtuele machines. De volgende aanvraag verzenden:
+Om te bepalen die SKU's beschikbaar zijn in een regio, gebruikt u de REST-API voor virtuele machines. De volgende aanvraag verzenden:
 
 ```HTTP 
 GET

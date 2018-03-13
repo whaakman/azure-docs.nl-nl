@@ -3,8 +3,8 @@ title: Hoe Queue storage gebruiken met Node.js | Microsoft Docs
 description: Informatie over het gebruik van de Azure Queue-service maken en verwijderen van wachtrijen, en invoegen, ophalen en verwijderen van berichten. Voorbeelden die zijn geschreven in Node.js.
 services: storage
 documentationcenter: nodejs
-author: tamram
-manager: timlt
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: tamram
-ms.openlocfilehash: 97522abd05d60eeaa2cc8dd07d3ab81d7f1d5fb9
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: cshoe
+ms.openlocfilehash: 2565f56324a070368c499a62ab54bb98830d8c20
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Queue Storage gebruiken met Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -33,7 +33,7 @@ Deze handleiding wordt getoond hoe u veelvoorkomende scenario's met behulp van d
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
-Maak een lege Node.js-toepassing. Zie voor instructies over het maken van een Node.js-toepassing [een Node.js-web-app maken in Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [bouwen en implementeren van een Node.js-toepassing naar een Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) met Windows PowerShell of [bouwen en implementeren van een Node.js-web-app in Azure met behulp van Web Matrix](https://www.microsoft.com/web/webmatrix/).
+Maak een lege Node.js-toepassing. Zie voor instructies over het maken van een Node.js-toepassing [een Node.js-web-app maken in Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [bouwen en implementeren van een Node.js-toepassing naar een Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) met Windows PowerShell of [ Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## <a name="configure-your-application-to-access-storage"></a>Uw toepassing configureren voor toegang tot opslag
 Voor het gebruik van Azure-opslag, moet u de Azure-opslag-SDK voor Node.js, waaronder een set van gemak bibliotheken die met de storage REST-services communiceren.
@@ -42,7 +42,7 @@ Voor het gebruik van Azure-opslag, moet u de Azure-opslag-SDK voor Node.js, waar
 1. Een opdrachtregelinterface gebruiken zoals **PowerShell** (Windows), **Terminal** (Mac), of **Bash** (Unix), gaat u naar de map waar u uw voorbeeldtoepassing gemaakt.
 2. Type **npm Installeer azure-opslag** in het opdrachtvenster. Uitvoer van de opdracht is vergelijkbaar met het volgende voorbeeld.
  
-    ```
+    ```bash
     azure-storage@0.5.0 node_modules\azure-storage
     +-- extend@1.2.1
     +-- xmlbuilder@0.4.3
@@ -60,26 +60,26 @@ Voor het gebruik van Azure-opslag, moet u de Azure-opslag-SDK voor Node.js, waar
 ### <a name="import-the-package"></a>Het pakket importeren
 In Kladblok of een andere teksteditor en voeg het volgende toe boven de **server.js** -bestand van de toepassing waarin u van plan bent opslag gebruiken:
 
-```
+```javascript
 var azure = require('azure-storage');
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Een Azure-opslag-verbinding instellen
 De azure-module leest de omgevingsvariabelen AZURE\_opslag\_ACCOUNT en AZURE\_opslag\_toegang\_sleutel of AZURE\_opslag\_verbinding\_tekenreeks voor de benodigde informatie om te verbinden met uw Azure storage-account. Als deze omgevingsvariabelen zijn niet ingesteld, moet u de accountgegevens opgeven bij het aanroepen van **createQueueService**.
 
-Voor een voorbeeld van de omgevingsvariabelen instellen in de [Azure Portal](https://portal.azure.com) Zie [Node.js web-app met de Azure-tabel-Service] voor een Azure-Website.
+Voor een voorbeeld van de omgevingsvariabelen instellen in de [Azure Portal](https://portal.azure.com) Zie voor een Azure-Website [Node.js-web-app met behulp van de Service Azure-tabel](../../cosmos-db/table-storage-cloud-service-nodejs.md).
 
 ## <a name="how-to-create-a-queue"></a>Procedure: Een wachtrij maken
 De volgende code maakt een **QueueService** object, waarmee u werkt met wachtrijen.
 
-```
+```javascript
 var queueSvc = azure.createQueueService();
 ```
 
 Gebruik de **createQueueIfNotExists** methode, die de opgegeven wachtrij retourneert als dit al bestaat of maakt een nieuwe wachtrij met de opgegeven naam als deze niet al bestaat.
 
-```
-queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
+```javascript
+queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
   if(!error){
     // Queue created or exists
   }
@@ -91,13 +91,13 @@ Als de wachtrij is gemaakt, `result.created` is ingesteld op true. Als de wachtr
 ### <a name="filters"></a>Filters
 Optionele filteren bewerkingen kunnen worden toegepast op de bewerkingen die worden uitgevoerd met behulp van **QueueService**. Bewerkingen voor het filteren kunt opnemen logboekregistratie, automatisch opnieuw, enzovoort. Filters zijn objecten die een methode met de handtekening implementeren:
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 Hierna moet u de voorverwerking van de aanvraag-opties, moet de methode aanroepen 'volgende' doorgeven van een retouraanroep met de volgende handtekening:
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -105,7 +105,7 @@ In deze retouraanroep en na het verwerken van de returnObject (de reactie van de
 
 Twee filters die Pogingslogica implementeren zijn opgenomen in de Azure SDK voor Node.js, **ExponentialRetryPolicyFilter** en **LinearRetryPolicyFilter**. De volgende code maakt een **QueueService** -object dat gebruikmaakt van de **ExponentialRetryPolicyFilter**:
 
-```
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
@@ -113,8 +113,8 @@ var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Procedure: Een bericht in een wachtrij invoegen
 Voor het invoegen van een bericht in een wachtrij, gebruikt u de **createMessage** methode voor het maken van een nieuw bericht en voeg deze toe aan de wachtrij.
 
-```
-queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
+```javascript
+queueSvc.createMessage('myqueue', "Hello world!", function(error, results, response){
   if(!error){
     // Message inserted
   }
@@ -124,10 +124,10 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, result, respon
 ## <a name="how-to-peek-at-the-next-message"></a>Procedure: Bekijken van het volgende bericht
 U kunt het bericht vooraan in een wachtrij bekijken zonder het te verwijderen uit de wachtrij door het aanroepen van de **peekMessages** methode. Standaard **peekMessages** geeft een enkel bericht weer.
 
-```
-queueSvc.peekMessages('myqueue', function(error, result, response){
+```javascript
+queueSvc.peekMessages('myqueue', function(error, results, response){
   if(!error){
-    // Message text is in messages[0].messageText
+    // Message text is in results[0].messageText
   }
 });
 ```
@@ -147,11 +147,11 @@ Verwerken van een bericht is een proces in twee fasen:
 
 Gebruiken om een bericht uit de wachtrij halen, **getMessages**. Dit maakt de berichten onzichtbaar in de wachtrij, zodat er geen andere clients kunnen verwerken. Wanneer een bericht is verwerkt door uw toepassing, aanroepen **deleteMessage** te verwijderen uit de wachtrij. Het volgende voorbeeld wordt een bericht en vervolgens wordt verwijderd:
 
-```
-queueSvc.getMessages('myqueue', function(error, result, response){
+```javascript
+queueSvc.getMessages('myqueue', function(error, results, response){
   if(!error){
-    // Message text is in messages[0].messageText
-    var message = result[0];
+    // Message text is in results[0].messageText
+    var message = results[0];
     queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
       if(!error){
         //message deleted
@@ -172,12 +172,12 @@ queueSvc.getMessages('myqueue', function(error, result, response){
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedure: De inhoud van een bericht in de wachtrij wijzigen
 U kunt de inhoud van een bericht in-place in de wachtrij met behulp wijzigen **updateMessage**. De tekst van een bericht wordt bijgewerkt door het volgende voorbeeld:
 
-```
-queueSvc.getMessages('myqueue', function(error, result, response){
+```javascript
+queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
   if(!error){
     // Got the message
-    var message = result[0];
-    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, result, response){
+    var message = getResults[0];
+    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, updateResults, updateResponse){
       if(!error){
         // Message updated successfully
       }
@@ -189,19 +189,19 @@ queueSvc.getMessages('myqueue', function(error, result, response){
 ## <a name="how-to-additional-options-for-dequeuing-messages"></a>Procedure: Aanvullende opties voor waarbij berichten
 Er zijn twee manieren u ophalen van berichten uit een wachtrij kunt aanpassen:
 
-* `options.numOfMessages`-Ophalen van een batch met berichten (maximaal 32).
-* `options.visibilityTimeout`-Er is een time-out voor onzichtbaarheid langer of korter zijn ingesteld.
+* `options.numOfMessages` -Ophalen van een batch met berichten (maximaal 32).
+* `options.visibilityTimeout` -Er is een time-out voor onzichtbaarheid langer of korter zijn ingesteld.
 
 Het volgende voorbeeld wordt de **getMessages** methode 15 berichten in één aanroep ophalen. Vervolgens wordt verwerkt elke bericht met een for-lus. De time-out voor onzichtbaarheid wordt ingesteld op vijf minuten voor alle berichten die zijn geretourneerd door deze methode.
 
-```
-queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
+```javascript
+queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
   if(!error){
     // Messages retrieved
     for(var index in result){
       // text is available in result[index].messageText
-      var message = result[index];
-      queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, response){
+      var message = results[index];
+      queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, deleteResponse){
         if(!error){
           // Message deleted
         }
@@ -214,10 +214,10 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 ## <a name="how-to-get-the-queue-length"></a>Procedure: De lengte van de wachtrij ophalen
 De **getQueueMetadata** retourneert metagegevens over de wachtrij, waaronder het geschatte aantal berichten in de wachtrij.
 
-```
-queueSvc.getQueueMetadata('myqueue', function(error, result, response){
+```javascript
+queueSvc.getQueueMetadata('myqueue', function(error, results, response){
   if(!error){
-    // Queue length is available in result.approximateMessageCount
+    // Queue length is available in results.approximateMessageCount
   }
 });
 ```
@@ -225,10 +225,10 @@ queueSvc.getQueueMetadata('myqueue', function(error, result, response){
 ## <a name="how-to-list-queues"></a>Procedure: Lijst wachtrijen
 Gebruik voor het ophalen van een lijst van wachtrijen, **listQueuesSegmented**. Gebruik voor het ophalen van een lijst gefilterd op een bepaald voorvoegsel **listQueuesSegmentedWithPrefix**.
 
-```
-queueSvc.listQueuesSegmented(null, function(error, result, response){
+```javascript
+queueSvc.listQueuesSegmented(null, function(error, results, response){
   if(!error){
-    // result.entries contains the list of queues
+    // results.entries contains the list of queues
   }
 });
 ```
@@ -238,7 +238,7 @@ Als alle wachtrijen kunnen niet worden geretourneerd, `result.continuationToken`
 ## <a name="how-to-delete-a-queue"></a>Procedure: Een wachtrij verwijderen
 Aanroepen voor het verwijderen van een wachtrij en alle berichten hierin de **deleteQueue** methode voor het object in de wachtrij.
 
-```
+```javascript
 queueSvc.deleteQueue(queueName, function(error, response){
   if(!error){
     // Queue has been deleted
@@ -255,7 +255,7 @@ Een vertrouwde toepassing zoals een cloud-gebaseerde service genereert een SAS m
 
 Het volgende voorbeeld genereert een nieuw beleid voor gedeelde toegang die ervoor zorgen dat de SAS-houder berichten toevoegen aan de wachtrij en 100 minuten na het tijdstip waarop dat deze is gemaakt is verlopen.
 
-```
+```javascript
 var startDate = new Date();
 var expiryDate = new Date(startDate);
 expiryDate.setMinutes(startDate.getMinutes() + 100);
@@ -277,7 +277,7 @@ Houd er rekening mee dat de informatie over de host moet ook worden opgegeven al
 
 Vervolgens kunt u de clienttoepassing gebruikmaakt van de SAS met **QueueServiceWithSAS** bewerkingen op basis van de wachtrij uit te voeren. Het volgende voorbeeld maakt verbinding met de wachtrij en een bericht wordt gemaakt.
 
-```
+```javascript
 var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
 sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
   if(!error){
@@ -293,7 +293,7 @@ U kunt ook een lijst met ACL (Access Control) het toegangsbeleid instellen voor 
 
 Een ACL die is geïmplementeerd met behulp van een matrix van toegangsbeleid, met een ID die is gekoppeld aan elk beleid. Het volgende voorbeeld definieert twee beleidsregels; een voor 'gebruiker1' en één voor 'gebruiker2':
 
-```
+```javascript
 var sharedAccessPolicy = {
   user1: {
     Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
@@ -310,7 +310,7 @@ var sharedAccessPolicy = {
 
 Het volgende voorbeeld wordt de huidige ACL voor **rapportberichten**, voegt u vervolgens het nieuwe beleid met behulp van **setQueueAcl**. Met deze aanpak kunt:
 
-```
+```javascript
 var extend = require('extend');
 queueSvc.getQueueAcl('myqueue', function(error, result, response) {
   if(!error){
@@ -326,7 +326,7 @@ queueSvc.getQueueAcl('myqueue', function(error, result, response) {
 
 Als de ACL is ingesteld, kunt u vervolgens een SAS op basis van de ID voor een beleid maken. Het volgende voorbeeld wordt een nieuwe SAS voor 'gebruiker2':
 
-```
+```javascript
 queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ```
 

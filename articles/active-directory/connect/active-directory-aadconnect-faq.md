@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2017
+ms.date: 03/09/2017
 ms.author: billmath
-ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b0209ef94f91c00b98b8801323a58cd9d14494
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Veelgestelde vragen over Azure Active Directory Connect
 
@@ -57,7 +57,7 @@ Nee, Azure AD Connect biedt geen ondersteuning voor lokale forests/domeinen waar
 **V: is pure IPv6-omgeving ondersteund?**  
 Nee, Azure AD Connect biedt geen ondersteuning voor pure IPv6-omgeving.
 
-## <a name="federation"></a>Federation
+## <a name="federation"></a>Federatie
 **V: wat moet ik doen als ik een e-mailbericht ontvangen die vragen om mijn Office 365-certificaat te vernieuwen**  
 Gebruik de richtlijnen die wordt beschreven in de [certificaten vernieuwen](active-directory-aadconnect-o365-certs.md) onderwerp over het vernieuwen van het certificaat.
 
@@ -78,7 +78,7 @@ Zie de volgende artikelen:
 U kunt ook configureren met Azure AD, zodat de synchronisatie-engine de userPrincipalName bijwerken zoals beschreven in [functies van de service Azure AD Connect-synchronisatie](active-directory-aadconnectsyncservice-features.md).
 
 **V: is het ondersteund op zachte overeenkomst met lokale AD-groep/Contact objecten met bestaande Azure AD-groep/Contact objecten?**  
-Nee, dit wordt momenteel niet ondersteund.
+Ja, wordt dit wordt gebaseerd op de proxyAddress.  Voorlopig overeenkomende wordt niet ondersteund voor groepen die zijn geen e-mailfunctionaliteit.
 
 **V: is het handmatig instellen ondersteund onveranderbare id genoemd-kenmerk op bestaande Azure AD-groep/Contact objecten hard overeenkomen met het lokale AD-groep/Contact objecten?**  
 Nee, dit wordt momenteel niet ondersteund.
@@ -106,7 +106,7 @@ Nee.
 
 * Zoek in de Microsoft Knowledge Base (KB) voor technische oplossingen voor problemen schadevergoedings over ondersteuning voor Azure AD Connect.
 
-[Microsoft Azure Active Directory-Forums](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+[Microsoft Azure Active Directory Forums](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 
 * U kunt zoeken en bladeren voor technische vragen en van de community antwoorden of uw eigen vraag door te klikken op [hier](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>De Microsoft Azure Import/Export-service gebruiken om gegevens overdragen naar Azure Storage
 In dit artikel bieden we Stapsgewijze instructies over het gebruik van Azure Import/Export-service veilig grote hoeveelheden gegevens overdragen naar Azure Blob storage en Azure-bestanden door de back-upfunctie schijven naar een Azure-Datacenter. Deze service kan ook worden gebruikt gegevens overdragen naar Azure storage naar harde schijven en verzenden naar uw on-premises-sites. Gegevens uit een enkele interne SATA harde schijf kunnen worden geïmporteerd naar Azure Blob storage of Azure-bestanden. 
@@ -294,7 +294,7 @@ De volgende tabel beschrijft de statussen van de fout station en de acties die v
 | N/A | Een station dat geen deel uitmaakt van elke taak komt in het datacenter als onderdeel van een andere taak. | Het station wordt gemarkeerd als een extra schijf en naar de klant wordt geretourneerd wanneer de taak die is gekoppeld aan het oorspronkelijke pakket is voltooid. |
 
 ### <a name="time-to-process-job"></a>Tijd tot verwerkingstaak
-De hoeveelheid tijd die nodig is voor een taak van import/export, afhankelijk van verschillende factoren, zoals back-ups van tijd varieert, proces taak type, type en grootte van de gegevens worden gekopieerd en de grootte van de schijven die zijn opgegeven. De Import/Export-service beschikt niet over een SLA maar nadat de schijven worden ontvangen. de service wil de kopie in 7 tot 10 dagen voltooien. De REST-API kunt u de voortgang van de taak nauwkeuriger te volgen. Er is een percentage voltooid parameter in de lijst met taken bewerking waarmee een indicatie van de voortgang van de kopie. Bereiken voor ons. Als u een schatting maken om een tijd kritieke voor importeren/exporteren taak te voltooien.
+De hoeveelheid tijd die nodig is voor het verwerken van een taak van import/export varieert op basis van een aantal factoren zoals verzendtijd, de belasting op het DataCenter, het taaktype en de grootte van de gegevens worden gekopieerd en het aantal schijven in een taak. Import/Export-service beschikt niet over een SLA, maar de service wil de kopie in 7 tot 10 dagen na van de schijven ontvangst te voltooien. Naast de status die wordt gepost op Azure-Portal, kan de REST-API's worden gebruikt om de voortgang van de taak te volgen. Het percentage voltooid parameter in de lijst met taken bewerking API-aanroep biedt de voortgang van de kopie percentage.
 
 ### <a name="pricing"></a>Prijzen
 **Station kosten verwerken**

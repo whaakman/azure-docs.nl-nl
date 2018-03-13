@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: d5e3f3db4726bfb16cbb389cf99b9bf7c511da97
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5efb666652bf124160df836b5d12305903d907ba
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Maken van een omgeving met volledige Linux virtuele machines in Azure met Ansible
 Ansible kunt u de implementatie en configuratie van resources in uw omgeving automatiseren. U kunt Ansible gebruiken voor het beheren van uw virtuele machines (VM's) in Azure, net als elke andere bron dezelfde. In dit artikel leest u hoe een volledige Linux-omgeving en de ondersteunende resources met Ansible maken. U kunt ook meer te weten hoe [maken van een basis-VM met Ansible](ansible-create-vm.md).
@@ -44,7 +44,7 @@ De volgende sectie in een playbook Ansible maakt een virtueel netwerk met de naa
   azure_rm_virtualnetwork:
     resource_group: myResourceGroup
     name: myVnet
-    address_prefixes: "10.10.0.0/16"
+    address_prefixes: "10.0.0.0/16"
 ```
 
 Als u wilt toevoegen in een subnet, maakt de volgende sectie een subnet met de naam *mySubnet* in de *myVnet* virtueel netwerk:
@@ -81,7 +81,7 @@ Netwerkbeveiligingsgroepen regelen de stroom van netwerkverkeer binnen en buiten
     name: myNetworkSecurityGroup
     rules:
       - name: SSH
-        protocol: TCP
+        protocol: Tcp
         destination_port_range: 22
         access: Allow
         priority: 1001

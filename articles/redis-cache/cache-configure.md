@@ -14,14 +14,14 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Het configureren van Azure Redis-Cache
-Dit onderwerp wordt beschreven hoe u om te controleren en bijwerken van de configuratie voor uw Azure Redis-Cache-exemplaren en bevat informatie over de configuratie standaard Redis-server voor Azure Redis-Cache-exemplaren.
+Dit onderwerp beschrijft de configuraties die beschikbaar zijn voor uw Azure Redis-Cache-exemplaren. Dit onderwerp worden ook de configuratie standaard Redis-server voor Azure Redis-Cache-exemplaren.
 
 > [!NOTE]
 > Zie voor meer informatie over het configureren en het gebruik van Premiumfuncties cache [persistentie configureren](cache-how-to-premium-persistence.md), [clustering configureren](cache-how-to-premium-clustering.md), en [het configureren van Virtual Network-ondersteuning ](cache-how-to-premium-vnet.md).
@@ -66,7 +66,7 @@ U kunt bekijken en configureren van de volgende instellingen met behulp van de *
     * [Diagnostics](#diagnostics)
 * [Ondersteuning en probleemoplossing van instellingen](#support-amp-troubleshooting-settings)
     * [Resourcestatus](#resource-health)
-    * [Nieuw ondersteuningsverzoek](#new-support-request)
+    * [nieuw ondersteuningsverzoek](#new-support-request)
 
 
 ## <a name="overview"></a>Overzicht
@@ -79,7 +79,7 @@ Klik op **activiteitenlogboek** om acties die worden uitgevoerd op uw cache weer
 
 ### <a name="access-control-iam"></a>Toegangsbeheer (IAM)
 
-De **toegangsbeheer (IAM)** sectie biedt ondersteuning voor op rollen gebaseerde toegangsbeheer (RBAC) in de Azure portal om te voldoen aan de beheervereisten toegang eenvoudig en nauwkeurig organisaties. Zie voor meer informatie [toegangsbeheer op basis van rollen in Azure portal](../active-directory/role-based-access-control-configure.md).
+De **toegangsbeheer (IAM)** sectie biedt ondersteuning voor op rollen gebaseerde toegangsbeheer (RBAC) in de Azure-portal. Deze configuratie helpt organisaties die voldoen aan de beheervereisten toegang eenvoudig en nauwkeurig. Zie voor meer informatie [toegangsbeheer op basis van rollen in Azure portal](../active-directory/role-based-access-control-configure.md).
 
 ### <a name="tags"></a>Tags
 
@@ -136,7 +136,7 @@ De **Maxmemory beleid**, **maxmemory gereserveerd**, en **maxfragmentationmemory
 
 **Beleid voor Maxmemory** configureert u het beleid verwijderen voor de cache en kunt u kiezen uit de volgende beleidsregels voor verwijdering:
 
-* `volatile-lru`-Dit is de standaardinstelling.
+* `volatile-lru` -Dit is het standaardbeleid voor verwijdering.
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
@@ -145,11 +145,11 @@ De **Maxmemory beleid**, **maxmemory gereserveerd**, en **maxfragmentationmemory
 
 Voor meer informatie over `maxmemory` beleid, Zie [Taakverwijdering beleid](http://redis.io/topics/lru-cache#eviction-policies).
 
-De **maxmemory gereserveerd** instelling configureert u de hoeveelheid geheugen in MB die is gereserveerd voor niet-cache-bewerkingen zoals replicatie tijdens failover. Als u deze waarde instelt, kunt u een consistente gebruikerservaring voor Redis-server hebben als de belasting van uw varieert. Deze waarde moet worden ingesteld voor de werkbelastingen die zijn geschreven zware hoger. Wanneer het geheugen is gereserveerd voor dergelijke bewerkingen, is het niet beschikbaar voor de opslag van gegevens in de cache.
+De **maxmemory gereserveerd** instelling configureert u de hoeveelheid geheugen, in MB, die is gereserveerd voor niet-cache-bewerkingen, zoals replicatie tijdens failover. Als u deze waarde instelt, kunt u een consistente gebruikerservaring voor Redis-server hebben als de belasting van uw varieert. Deze waarde moet worden ingesteld voor de werkbelastingen die zijn geschreven zware hoger. Wanneer het geheugen is gereserveerd voor dergelijke bewerkingen, is het niet beschikbaar voor de opslag van gegevens in de cache.
 
-De **maxfragmentationmemory gereserveerd** instelling configureert u de hoeveelheid geheugen in MB die is gereserveerd voor geheugenfragmentatie. Als u deze waarde instelt, kunt u een consistente ervaring bieden bij de cache vol is of bijna vol is en de fragmentatie verhouding ook hoge is Redis-server hebben. Wanneer het geheugen is gereserveerd voor dergelijke bewerkingen, is het niet beschikbaar voor de opslag van gegevens in de cache.
+De **maxfragmentationmemory gereserveerd** instelling configureert u de hoeveelheid geheugen in MB die is gereserveerd voor geheugenfragmentatie. Als u deze waarde instelt, kunt u een consistente gebruikerservaring voor Redis-server hebben wanneer de cache vol is of bijna vol is en de fragmentatie verhouding hoog is. Wanneer het geheugen is gereserveerd voor dergelijke bewerkingen, is het niet beschikbaar voor de opslag van gegevens in de cache.
 
-Één ding rekening moet houden bij het kiezen van een nieuwe waarde voor geheugen reservering (**maxmemory gereserveerd** of **maxfragmentationmemory gereserveerd**) is hoe deze wijziging van invloed kan zijn op een cache die al wordt uitgevoerd met grote hoeveelheden gegevens. Als u een cache 53 GB met 49 GB aan gegevens, wijzig de waarde van de reservering in 8 GB, wordt dit bijvoorbeeld de maximale hoeveelheid beschikbaar geheugen voor het systeem naar beneden 45 GB verwijderen. Als uw huidige `used_memory` of uw `used_memory_rss` waarden hoger zijn dan de nieuwe limiet van 45 GB en vervolgens het systeem heeft onbeschikbaar maken van gegevens tot beide `used_memory` en `used_memory_rss` hieronder 45 GB zijn. Verwijderen kan de fragmentatie van de belasting en geheugen van de server te verhogen. Voor meer informatie over metrische gegevens cache zoals `used_memory` en `used_memory_rss`, Zie [beschikbare metrische gegevens en de rapportage van intervallen](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+Één ding rekening moet houden bij het kiezen van een nieuwe waarde voor geheugen reservering (**maxmemory gereserveerd** of **maxfragmentationmemory gereserveerd**) is hoe deze wijziging van invloed kan zijn op een cache die al wordt uitgevoerd met grote hoeveelheden gegevens. Als u een cache 53 GB met 49 GB aan gegevens, wijzig de waarde van de reservering in 8 GB, wordt deze wijziging bijvoorbeeld de maximale hoeveelheid beschikbaar geheugen voor het systeem naar beneden 45 GB verwijderen. Als uw huidige `used_memory` of uw `used_memory_rss` waarden hoger zijn dan de nieuwe limiet van 45 GB en vervolgens het systeem heeft onbeschikbaar maken van gegevens tot beide `used_memory` en `used_memory_rss` hieronder 45 GB zijn. Verwijderen kan de fragmentatie van de belasting en geheugen van de server te verhogen. Voor meer informatie over metrische gegevens cache zoals `used_memory` en `used_memory_rss`, Zie [beschikbare metrische gegevens en de rapportage van intervallen](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 > [!IMPORTANT]
 > De **maxmemory gereserveerd** en **maxfragmentationmemory gereserveerd** instellingen zijn alleen beschikbaar voor Standard en Premium in cache opgeslagen.
@@ -269,11 +269,13 @@ De **virtueel netwerk** sectie kunt u de instellingen van het virtuele netwerk v
 
 ### <a name="firewall"></a>Firewall
 
-Klik op **Firewall** bekijken en firewallregels configureren voor uw Premium Azure Redis-Cache.
+Configuratie van de firewall-regels is beschikbaar voor alle lagen van de Azure Redis-Cache.
+
+Klik op **Firewall** weergeven en configureren van de firewallregels voor de cache.
 
 ![Firewall](./media/cache-configure/redis-firewall-rules.png)
 
-U kunt firewallregels opgeven met een begin- en IP-adresbereik. Firewallregels zijn geconfigureerd, alleen clientverbindingen van het opgegeven IP-adresbereiken verbinding kunnen maken met de cache. Wanneer een firewallregel wordt opgeslagen. is er een korte vertraging optreden voordat de regel is van kracht. Dit uitstel is meestal minder dan een minuut.
+U kunt firewallregels opgeven met een begin- en IP-adresbereik. Firewallregels zijn geconfigureerd, alleen clientverbindingen van het opgegeven IP-adresbereiken verbinding kunnen maken met de cache. Wanneer een firewallregel wordt opgeslagen, is er een korte vertraging optreden voordat de regel is van kracht. Dit uitstel is meestal minder dan een minuut.
 
 > [!IMPORTANT]
 > Verbindingen van Azure Redis-Cache bewaken altijd toegestaan, zelfs als de firewallregels zijn geconfigureerd.
@@ -365,7 +367,7 @@ De instellingen in de **ondersteuning + probleemoplossing** sectie bieden u opti
 ![Ondersteuning en probleemoplossing](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Resourcestatus](#resource-health)
-* [Nieuw ondersteuningsverzoek](#new-support-request)
+* [nieuw ondersteuningsverzoek](#new-support-request)
 
 ### <a name="resource-health"></a>Status van resources
 **Resourcestatus** controleert uw resource en geeft u aan als deze wordt uitgevoerd zoals verwacht. Zie voor meer informatie over de health-service van Azure Resource [overzicht van Azure Resource health](../resource-health/resource-health-overview.md).
@@ -383,10 +385,10 @@ Klik op **nieuw ondersteuningsverzoek** om ondersteuning te vragen voor uw cache
 
 
 ## <a name="default-redis-server-configuration"></a>Standaardconfiguratie van het Redis-server
-Nieuwe exemplaren van Azure Redis-Cache zijn geconfigureerd met de volgende Redis configuratie standaardwaarden.
+Nieuwe exemplaren van Azure Redis-Cache zijn geconfigureerd met de volgende Redis configuratie standaardwaarden:
 
 > [!NOTE]
-> De instellingen in deze sectie kunnen niet worden gewijzigd met de `StackExchange.Redis.IServer.ConfigSet` methode. Als deze methode wordt aangeroepen met een van de opdrachten in deze sectie, een vergelijkbaar met de volgende uitzondering:  
+> De instellingen in deze sectie kunnen niet worden gewijzigd met de `StackExchange.Redis.IServer.ConfigSet` methode. Als deze methode wordt aangeroepen met een van de opdrachten in deze sectie, wordt een vergelijkbaar met het volgende voorbeeld uitzondering gegenereerd:  
 > 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 > 
@@ -397,10 +399,10 @@ Nieuwe exemplaren van Azure Redis-Cache zijn geconfigureerd met de volgende Redi
 | Instelling | Standaardwaarde | Beschrijving |
 | --- | --- | --- |
 | `databases` |16 |Het aantal databases 16 is, maar u kunt een ander nummer is gebaseerd op de prijscategorie configureren. <sup>1</sup> de standaarddatabase DB 0 is, kunt u een andere naam op een afzonderlijke verbinding basis met `connection.GetDatabase(dbid)` waar `dbid` is een getal tussen `0` en `databases - 1`. |
-| `maxclients` |Afhankelijk van de prijscategorie<sup>2</sup> |Dit is het maximum aantal verbonden clients tegelijk toegestaan. Zodra de limiet is bereikt Redis Hiermee sluit u de nieuwe verbindingen, een 'maximum aantal clients bereikt'-fout. |
+| `maxclients` |Afhankelijk van de prijscategorie<sup>2</sup> |Deze waarde is het maximum aantal verbonden clients tegelijk toegestaan. Zodra de limiet is bereikt Redis Hiermee sluit u de nieuwe verbindingen, een 'maximum aantal clients bereikt'-fout. |
 | `maxmemory-policy` |`volatile-lru` |Beleid voor Maxmemory is de instelling voor hoe Redis geselecteerd wat u moet verwijderen wanneer `maxmemory` (de grootte van de cache die u hebt geselecteerd bij het maken van de cache van de aanbieding) is bereikt. Met Azure Redis-Cache de standaardinstelling is `volatile-lru`, waarbij de sleutels worden verwijderd met een vervaldatum instellen met behulp van een LRU-algoritme. Deze instelling kan worden geconfigureerd in de Azure portal. Zie voor meer informatie [geheugen beleid](#memory-policies). |
 | `maxmemory-samples` |3 |Voor het opslaan van geheugen zijn LRU- en minimale TTL-algoritmes redelijk algoritmen in plaats van nauwkeurige algoritmen. Standaard Redis controles drie sleutels en aanbiedingen die minder recent is gebruikt. |
-| `lua-time-limit` |5,000 |Maximale uitvoeringstijd van een script Lua in milliseconden. Als de maximale uitvoeringstijd is bereikt, registreert Redis dat een script nog steeds uitgevoerd na de maximale toegestane tijd wordt en begint te reageren op query's met een fout. |
+| `lua-time-limit` |5.000 |Maximale uitvoeringstijd van een script Lua in milliseconden. Als de maximale uitvoeringstijd is bereikt, registreert Redis dat een script nog steeds uitgevoerd na de maximale toegestane tijd wordt en begint te reageren op query's met een fout. |
 | `lua-event-limit` |500 |Maximale grootte van de wachtrij script. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |De limieten van de client uitvoer buffer kunnen worden gebruikt om af te dwingen verbreken van de verbinding van clients die niet van gegevens van de server snel genoeg voor een bepaalde reden lezen zijn (een veelvoorkomende reden is dat een client Pub subitems berichten zo snel als de publisher kan ze produceren kan niet gebruiken). Zie voor meer informatie [http://redis.io/topics/clients](http://redis.io/topics/clients). |
 
@@ -495,7 +497,7 @@ Wanneer met de Redis-Console met een premium cache voor geclusterde, kunt u opdr
 
 ![Redis-console](./media/cache-configure/redis-console-premium-cluster.png)
 
-Als u probeert te krijgen tot een sleutel die is opgeslagen in een andere shard dan de verbonden shard, ontvangt u een foutbericht weergegeven dat vergelijkbaar is met het volgende bericht.
+Als u probeert te krijgen tot een sleutel die is opgeslagen in een andere shard dan de verbonden shard, ontvangt u een foutbericht weergegeven dat vergelijkbaar is met het volgende bericht:
 
 ```
 shard1>get myKey

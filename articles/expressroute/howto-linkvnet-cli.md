@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 03/08/2018
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: fa55cbad9fca799faff4e4cef87f9eedb8d2023f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5e8d1739aa3d7f5be6c6450edcad43bc83db71fb
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Een virtueel netwerk verbinden met een ExpressRoute-circuit met CLI
 
@@ -36,7 +36,9 @@ In dit artikel helpt u bij virtuele netwerken (vnet's) koppelen aan Azure Expres
 ## <a name="configuration-prerequisites"></a>Configuratievereisten
 
 * U moet de meest recente versie van de opdrachtregelinterface (CLI). Zie voor meer informatie [2.0 voor Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
 * U moet controleren de [vereisten](expressroute-prerequisites.md), [routeringsvereisten](expressroute-routing.md), en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
+
 * U moet een actief ExpressRoute-circuit hebben. 
   * Volg de instructies voor [maken van een ExpressRoute-circuit](howto-circuit-cli.md) en laat het circuit inschakelen door de connectiviteitsprovider. 
   * Zorg ervoor dat u persoonlijke Azure-peering voor uw circuit is geconfigureerd. Zie de [routering configureren](howto-routing-cli.md) artikel voor routering instructies. 
@@ -44,6 +46,8 @@ In dit artikel helpt u bij virtuele netwerken (vnet's) koppelen aan Azure Expres
   * Zorg ervoor dat u hebt een virtueel netwerk en een virtuele netwerkgateway gemaakt en volledig is ingericht. Volg de instructies voor [configureren van een virtuele netwerkgateway voor ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Zorg ervoor dat u `--gateway-type ExpressRoute`.
 
 * U kunt maximaal 10 virtuele netwerken koppelen aan een standaard ExpressRoute-circuit. Alle virtuele netwerken moet in dezelfde geopolitieke regio bij gebruik van een standaard ExpressRoute-circuit. 
+
+* Een enkele VNet kan worden gekoppeld aan maximaal vier ExpressRoute-circuits. Gebruik de onderstaande procedure voor het maken van een nieuw verbindingsobject voor elk ExpressRoute-circuit dat u verbinding maakt. De ExpressRoute-circuits kunnen zich in hetzelfde abonnement, verschillende abonnementen of een combinatie van beide.
 
 * Als u de invoegtoepassing ExpressRoute premium inschakelt, kunt u een virtueel netwerk buiten de geopolitieke regio van het ExpressRoute-circuit koppelen of verbinding maken met een groter aantal virtuele netwerken aan uw ExpressRoute-circuit. Zie voor meer informatie over de premium-invoegtoepassing, de [Veelgestelde vragen over](expressroute-faqs.md).
 

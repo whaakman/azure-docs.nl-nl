@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/09/2018
 ms.author: billmath
-ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d6d6eadf0ae8996b019a0564715f843913101944
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -31,6 +31,7 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
   * U kunt ook de [Azure-portal](https://portal.azure.com). Deze portal is niet vereist voor een Azure AD-licentie.
 * [Toevoegen en controleren van het domein](../active-directory-domains-add-azure-portal.md) u van plan bent te gebruiken in Azure AD. Bijvoorbeeld, als u van plan bent te contoso.com gebruiken voor uw gebruikers, moet u ervoor zorgen in dit domein is geverifieerd en u niet alleen het standaarddomein contoso.onmicrosoft.com gebruikt.
 * Een Azure AD-tenant kan door 50k-standaardobjecten. Bij het controleren van uw domein, wordt de limiet is verhoogd tot 300 k-objecten. Als u nog meer objecten in Azure AD, moet u een ondersteuningsaanvraag om het maximum verhoogd nog verder te openen. Als u meer dan 500 kB-objecten, moet u een licentie, zoals Office 365, Azure AD Basic, Azure AD Premium of Enterprise Mobility en beveiliging.
+* ADSyncPrep is een PowerShell-script-module die voorziet in functies die worden gebruikt voor uw Active Directory-omgeving voorbereiden voor Azure AD Connect.  ADSyncPrep vereist de [Azure AD Microsoft Online v1.1 PowerShell-Module](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Versie 2 werkt niet.  U kunt installeert de module met behulp van de `Install-Module` cmdlet.  Zie de koppeling voor meer informatie.
 
 ### <a name="prepare-your-on-premises-data"></a>Uw on-premises gegevens voorbereiden
 * Gebruik [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) fouten zoals duplicaten en opmaak problemen in uw directory identificeren voordat u met Azure AD synchroniseren en Office 365.

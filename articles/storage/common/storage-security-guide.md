@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: e365c1c8abb3799805e715945e8b74292995c5ec
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d1a81a9029f2e9b8a36ecebdcc4be44984e82515
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
@@ -214,7 +214,7 @@ Bijvoorbeeld, met onze URL, zou als de URL die naar een bestand in plaats van ee
 * Een SAS serviceniveau kan worden gebruikt voor toegang tot specifieke bronnen in een opslagaccount. Enkele voorbeelden hiervan zijn bij het ophalen van een lijst met blobs in een container, downloaden van een blob, bijwerken van een entiteit in een tabel, berichten toe te voegen aan een wachtrij of een bestand uploadt naar een bestandsshare.
 * Een SAS niveau kan worden gebruikt voor toegang tot alles die een SAS serviceniveau voor kan worden gebruikt. Bovendien kan deze opties naar bronnen die niet zijn toegestaan als een service level SAS, zoals de mogelijkheid voor het maken van containers, tabellen, wachtrijen en bestandsshares geven. U kunt ook toegang tot meerdere services in één keer opgeven. Bijvoorbeeld, u iemand mogelijk geeft toegang tot blobs en -bestanden in uw opslagaccount.
 
-#### <a name="creating-an-sas-uri"></a>Maken van een SAS-URI
+#### <a name="creating-a-sas-uri"></a>Maken van een SAS-URI
 1. U kunt een URI maken op verzoek, alle van de queryparameters telkens definiëren.
 
    Deze aanpak is flexibel, maar als er een logische set parameters die vergelijkbaar telkens zijn, een beter idee krijgen met behulp van een toegangsbeleid opgeslagen is.
@@ -376,7 +376,7 @@ Versleuteling aan clientzijde meer belasting van de client is en u moet voor dit
 
 #### <a name="storage-service-encryption-sse"></a>Versleuteling van opslag-Service (SSE)
 
-SSE wordt beheerd door Azure Storage. SSE biedt geen voor de beveiliging van de gegevens onderweg, maar deze de gegevens Hiermee versleutelen zoals naar Azure Storage geschreven. Er zijn geen gevolgen op de prestaties van SSE.
+SSE wordt beheerd door Azure Storage. SSE biedt geen voor de beveiliging van de gegevens onderweg, maar deze de gegevens Hiermee versleutelen zoals naar Azure Storage geschreven. SSE heeft geen invloed op prestaties van de Azure-opslag.
 
 U kunt elk soort gegevens van het opslagaccount met behulp van SSE versleutelen (blok-blobs, toevoeg-blobs, pagina-blobs, tabelgegevens, wachtrijgegevens en bestanden).
 

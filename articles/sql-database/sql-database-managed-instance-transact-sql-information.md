@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: jovanpop
 manager: cguyer
-ms.openlocfilehash: 699ac303c553e1f3b78f13fc12163f47a1e77941
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 27be2b9a5f2b9aaf2d4464a6c927ec2a1694131a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database beheerd exemplaar T-SQL-verschillen met SQL Server 
 
@@ -34,7 +34,7 @@ Deze sectie bevat een overzicht van de belangrijkste verschillen in T-SQL-syntax
  - [BESCHIKBAARHEIDSGROEP MAKEN](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql.md)
  - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql.md)
  - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql.md)
- - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) -component van de instructie ALTER DATABASE
+ - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) -component van de [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) instructie
 
 ### <a name="auditing"></a>Controleren 
  
@@ -72,6 +72,8 @@ Beperkingen:
 
 > [!TIP]
 > Deze beperking on-premises back-up naar omzeilen `DISK` in plaats van de back-up naar `URL`, back-upbestand voor zet vervolgens blob uploaden. Biedt ondersteuning voor grotere bestanden niet herstellen omdat een andere blob-type wordt gebruikt.  
+
+Zie voor meer informatie over back-ups met T-SQL [back-up](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
 ### <a name="buffer-pool-extension"></a>De buffergroepuitbreiding 
  
@@ -367,7 +369,7 @@ Het volgende worden niet ondersteund:
 - `EXTERNAL TABLE` 
 - `MEMORY_OPTIMIZED`  
 
-Zie voor meer informatie over het maken van tabellen [CREATE TABLE-instructie](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql).
+Zie voor meer informatie over het maken en wijzigen van tabellen [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) en [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
  
 ## <a name="Changes"></a> Gedragswijzigingen 
  

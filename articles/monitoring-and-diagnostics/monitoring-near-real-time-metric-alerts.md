@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/26/2018
 ms.author: snmuvva, vinagara
 ms.custom: 
-ms.openlocfilehash: 3ffc96b19d4601756530d7f9dd959d05ef5fa000
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 88995b1f3350fe485e28efccc93779ae0a42eb97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Bijna realtime metrische waarschuwingen (preview)
 Monitor voor Azure biedt ondersteuning voor een nieuwe Waarschuwingstype bijna realtime metrische waarschuwingen (preview) genoemd. Deze functie is momenteel in de openbare preview.
@@ -37,7 +37,7 @@ Bijna realtime metriek verschillen waarschuwingen van reguliere metrische waarsc
 >
 
 ## <a name="metrics-and-dimensions-supported"></a>Metrische gegevens en dimensies die worden ondersteund
-Ondersteuning voor waarschuwingen voor de metrische gegevens die gebruikmaken van dimensies bijna realtime metrische waarschuwingen. U kunt dimensies gebruiken voor het filteren van uw metric naar het juiste niveau. Alle ondersteunde metrische gegevens samen met de toepasselijke dimensies kunnen worden verkend en gevisualiseerd van [ *Azure Monitor - **metrische gegevens (Preview)***](monitoring-metric-charts.md).
+Ondersteuning voor waarschuwingen voor de metrische gegevens die gebruikmaken van dimensies bijna realtime metrische waarschuwingen. U kunt dimensies gebruiken voor het filteren van uw metric naar het juiste niveau. Alle ondersteunde metrische gegevens samen met de toepasselijke dimensies kunnen worden verkend en gevisualiseerd van [Azure Monitor - Metrics Explorer (Preview)](monitoring-metric-charts.md).
 
 Hier volgt een volledige lijst met Azure monitor op basis van metrische bronnen die worden ondersteund voor near realtime metrische waarschuwingen:
 
@@ -65,7 +65,7 @@ Hier volgt een volledige lijst met Azure monitor op basis van metrische bronnen 
 
 
 Metrische gegevens uit logboeken, ondersteunt momenteel de volgende populaire OMS-Logboeken:
-- [Prestatiemeteritems](../log-analytics/https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-sources-performance-counters.md) voor Windows en Linux-machines
+- [Prestatiemeteritems](../log-analytics/log-analytics-data-sources-performance-counters.md) voor Windows en Linux-machines
 - Heartbeat-records voor machines
 - [Updatebeheer](../operations-management-suite/oms-solution-update-management.md) records
 

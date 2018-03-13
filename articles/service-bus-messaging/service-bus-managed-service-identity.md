@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 6965e80cf10b732d4d0a8fb78447f188c133979d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="managed-service-identity-preview"></a>Beheerde Service-identiteit (preview)
 
@@ -62,17 +62,17 @@ De webtoepassing beheerde service-identiteit heeft nu toegang tot de Service Bus
 
 ### <a name="run-the-app"></a>De app uitvoeren
 
-Nu wijzigen de standaardpagina van de ASP.NET-toepassing die u hebt gemaakt. U kunt ook de code van de web application [deze GitHub-opslagplaats](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity). 
+Nu wijzigen de standaardpagina van de ASP.NET-toepassing die u hebt gemaakt. U kunt ook de code van de web application [deze GitHub-opslagplaats](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
 
 De pagina Default.aspx is uw startpagina. De code kan worden gevonden in het bestand Default.aspx.cs. Het resultaat is een minimale webtoepassing met enkele invoervelden en met **verzenden** en **ontvangen** knoppen die verbinding met Service Bus maken te verzenden of ontvangen van berichten.
 
-Opmerking hoe de [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) -object is geïnitialiseerd. In plaats van de tokenprovider Shared Access Token (SAS), de code maakt een tokenprovider voor de identiteit van de beheerde service met de `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)` aanroepen. Er zijn als zodanig geen geheimen te behouden en te gebruiken. De stroom van de context van de identiteit beheerde service naar Service Bus en de autorisatie-handshake worden automatisch verwerkt door de tokenprovider is een eenvoudiger dan het gebruik van SAS-model.
+Opmerking hoe de [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) -object is geïnitialiseerd. In plaats van de tokenprovider Shared Access Token (SAS), de code maakt een tokenprovider voor de identiteit van de beheerde service met de `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` aanroepen. Er zijn als zodanig geen geheimen te behouden en te gebruiken. De stroom van de context van de identiteit beheerde service naar Service Bus en de autorisatie-handshake worden automatisch verwerkt door de tokenprovider is een eenvoudiger dan het gebruik van SAS-model.
 
 Zodra u deze wijzigingen hebt aangebracht, publiceren en voer de toepassing. Er is een eenvoudige manier om op te halen van de juiste gegevens te publiceren om te downloaden en vervolgens importeren een publicatieprofiel in Visual Studio:
 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
-Als u wilt verzenden of ontvangen van berichten, voer de naam van de naamruimte en de naam van de entiteit die u hebt gemaakt, en klik vervolgens op een **verzenden** of **ontvangen**. 
+Als u wilt verzenden of ontvangen van berichten, voer de naam van de naamruimte en de naam van de entiteit die u hebt gemaakt, en klik vervolgens op een **verzenden** of **ontvangen**.
  
 Houd er rekening mee dat de identiteit van de beheerde service alleen werkt in de Azure-omgeving, en alleen in de App Service-implementatie waarin u het hebt geconfigureerd. Houd er ook rekening mee dat beheerde service-identiteiten niet met App Service-implementatiesites op dit moment werken.
 
