@@ -4,13 +4,13 @@ description: In dit artikel biedt een overzicht van de onderdelen en de architec
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: e8a5f4fad75ea6211e96ba216c8b506306dcfa34
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a8af2ee4a32925603d24aee2403ab504a0ca05a8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Fysieke server naar Azure replicatie-architectuur
 
@@ -27,7 +27,7 @@ De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderde
 **Configuratieserver** | Één on-premises fysieke machine of VMware-VM is geïmplementeerd als u wilt uitvoeren van alle van de on-premises onderdelen van Site Recovery. De virtuele machine wordt uitgevoerd voor de configuratieserver, de processerver en de hoofddoelserver. | De configuratieserver coördineert de communicatie tussen on-premises en Azure, en beheert de gegevensreplicatie.
  **Processerver**:  | Samen met de configuratieserver standaard geïnstalleerd. | Fungeert als replicatiegateway. Dit onderdeel ontvangt replicatiegegevens, optimaliseert de gegevens met caching, compressie en codering, en verzendt ze naar de Azure-opslag.<br/><br/> De Mobility-service de processerver ook geïnstalleerd op servers die u wilt repliceren.<br/><br/> Naarmate uw implementatie groeit, kunt u het voor afzonderlijke processervers voor het afhandelen van grotere hoeveelheden replicatieverkeer kunt toevoegen.
  **Hoofddoelserver** | Samen met de configuratieserver standaard geïnstalleerd. | Hier worden de replicatiegegevens tijdens de failback vanuit Azure afgehandeld.<br/><br/> U kunt een afzonderlijke hoofddoelserver voor failback toevoegen voor grote implementaties.
-**Gerepliceerde servers** | De Mobility-service is geïnstalleerd op elke server die u wilt repliceren. | U wordt aangeraden toestaan van automatische installatie van de processerver. U kunt ook handmatig installeren van de service of gebruik de methode geautomatiseerde implementatie zoals System Center Configuration Manager. 
+**Gerepliceerde servers** | De Mobility-service is geïnstalleerd op elke server die u wilt repliceren. | U wordt aangeraden toestaan van automatische installatie van de processerver. U kunt ook handmatig installeren van de service of gebruik de methode geautomatiseerde implementatie zoals System Center Configuration Manager.
 
 **Fysieke aan Azure-architectuur**
 

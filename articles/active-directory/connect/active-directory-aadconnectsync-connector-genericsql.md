@@ -38,7 +38,7 @@ Vanuit een perspectief op hoog niveau, worden de volgende functies worden onders
 
 | Functie | Ondersteuning |
 | --- | --- |
-| Gekoppelde gegevensbron |De Connector wordt ondersteund met alle 64-bits ODBC-stuurprogramma's. Het is getest met de volgende opties: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 &11;g</li><li>MySQL 5.x</li> |
+| Gekoppelde gegevensbron |De Connector wordt ondersteund met alle 64-bits ODBC-stuurprogramma's. Het is getest met de volgende opties: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li> |
 | Scenario's |<li>Object levenscyclusbeheer</li><li>Wachtwoordbeheer</li> |
 | Bewerkingen |<li>Volledige Import- en Delta-Import, Export</li><li>Voor het exporteren: Toevoegen, verwijderen, bijwerken en vervangen</li><li>Wachtwoord instellen, wachtwoord wijzigen</li> |
 | Schema |<li>Dynamische detectie van objecten en kenmerken</li> |
