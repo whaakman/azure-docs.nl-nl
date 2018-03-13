@@ -66,6 +66,7 @@
 ### [Een nieuw gesimuleerd apparaat maken](iot-suite-remote-monitoring-test.md)
 ### [De oplossing aanpassen](iot-suite-remote-monitoring-customize.md)
 ### [Implementeren met behulp van de CLI](iot-suite-remote-monitoring-deploy-cli.md)
+### [Lokaal implementeren](iot-suite-remote-monitoring-deploy-local.md)
 ### Een fysiek apparaat verbinden
 #### [C op Windows](iot-suite-connecting-devices.md)
 #### [C op Linux](iot-suite-connecting-devices-linux.md)

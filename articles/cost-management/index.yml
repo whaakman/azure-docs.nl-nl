@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Documentatie voor Kostenbeheer van Azure
 metadata:
-  title: 'Documentatie voor Kostenbeheer van Azure - zelfstudies, API-verwijzing | Microsoft Docs'
-  description: 'Kostenbeheer van Azure door Cloudyn is een kostenbeheeroplossing met meerdere clouds voor het gebruik van Azure en andere cloudresources. Ontdek met onze snelstartgidsen en zelfstudies hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert.'
+  title: Documentatie voor Kostenbeheer van Azure - zelfstudies, API-verwijzing | Microsoft Docs
+  description: Kostenbeheer van Azure is een kostenbeheeroplossing voor meerdere clouds, zodat u eenvoudig Azure- en andere cloudresources kunt gebruiken. Ontdek met onze snelstartgidsen en zelfstudies hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert.
   services: cost-management
   author: czeumault
   manager: carolz
@@ -13,28 +13,33 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/18/2017
   ms.author: carolz
+  ms.openlocfilehash: c88a093c75122c2ff32060ff2780bd4bf4d83f34
+  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 03/09/2018
 abstract:
-  description: 'Kostenbeheer van Azure door Cloudyn is een kostenbeheeroplossing met meerdere clouds waarmee u op de beste manier Azure en andere cloudresources kunt gebruiken en beheren. Ontdek met onze snelstartgidsen en zelfstudies hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert.'
+  description: Kostenbeheer van Azure is gelicentieerd door Cloudyn, een dochterbedrijf van Microsoft. Het is een kostenbeheeroplossing voor meerdere clouds waarmee u op de beste manier Azure- en andere cloudresources kunt gebruiken en beheren. Ontdek met onze snelstartgidsen en zelfstudies hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert.
 sections:
-  - title: QuickStarts van vijf minuten
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Ontdek hoe u uw overeenkomst of abonnementsgegevens van Azure kunt registreren met Kostenbeheer en de kostengegevens kunt weergeven.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Ontdek hoe u uw overeenkomst of abonnementsgegevens van Azure kunt registreren met Kostenbeheer en de kostengegevens kunt weergeven.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Kostengegevens weergeven
-            href: quick-register-azure-sub
-  - title: Stapsgewijze zelfstudies
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Kostengegevens weergeven
+      href: quick-register-azure-sub
+- title: Stapsgewijze zelfstudies
+  items:
+  - type: paragraph
+    text: Ontdek hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert met behulp van Kostenbeheer.
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Ontdek hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert met behulp van Kostenbeheer.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-review-usage">Gebruik en kosten bekijken om afwijkingen en efficiëntie te detecteren</a>
-          - html: <a href="tutorial-user-access">Toegang tot gegevens van Kostenbeheer toewijzen</a>
-          - html: <a href="tutorial-forecast-spending">Toekomstige uitgaven voorspellen</a>
-          - html: <a href="tutorial-manage-costs">Kosten beheren met kostentoewijzing en rapporten over showback en chargeback</a>
+    - html: "<a href=\"tutorial-review-usage\">Gebruik en kosten bekijken om afwijkingen en efficiëntie te detecteren</a>"
+    - html: <a href="tutorial-user-access">Toegang tot gegevens van Kostenbeheer toewijzen</a>
+    - html: <a href="tutorial-forecast-spending">Toekomstige uitgaven voorspellen</a>
+    - html: <a href="tutorial-manage-costs">Kosten beheren met kostentoewijzing en rapporten over showback en chargeback</a>

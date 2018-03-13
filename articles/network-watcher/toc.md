@@ -73,7 +73,9 @@
 ### [Netwerkverkeerspatronen visualiseren met open-sourcehulpprogramma's](network-watcher-using-open-source-tools.md)
 ## NSG-stroomlogboeken lezen
 ### [NSG-stroomlogboeken lezen](network-watcher-read-nsg-flow-logs.md)
-### [Traffic Analytics gebruiken](traffic-analytics.md)
+### Traffic Analytics
+#### [Traffic Analytics gebruiken](traffic-analytics.md)
+#### [Veelgestelde vragen](traffic-analytics-faq.md)
 ### [Power BI gebruiken](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Elastic Stack gebruiken](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Grafana gebruiken](network-watcher-nsg-grafana.md)

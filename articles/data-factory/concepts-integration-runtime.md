@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7308c8754198ea3e7533b8a9c378cfaac1b5bbd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 18792d8dc8b232ad048db2440c5b52428c50f92e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime in Azure Data Factory
 De Integratie Runtime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt om de volgende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen te bieden:
@@ -123,7 +123,7 @@ In het volgende diagram ziet u twee voorbeelden voor de kopieeractiviteit:
 ![Welke IR u moet gebruiken](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>Locatie van Integration Runtime
-De Data Factory-locatie is waar de metagegevens van de data factory worden opgeslagen en waar van het activeren van de pijplijn wordt gestart. De ondersteunde locaties voor Data Factory zijn momenteel: VS - oost, VS -oost 2 en West-Europa. Een gegevensfactory heeft echter wel toegang tot gegevensarchieven en Compute Services in andere Azure-regio’s om gegevens te verplaatsen tussen gegevensarchieven of om gegevens te verwerken middels Compute Services. Dit gedrag wordt gerealiseerd via de IR die algemeen beschikbaar is in meerdere regio's om de gegevensnaleving, efficiëntie en verminderde kosten voor uitgaand netwerkverkeer te realiseren.
+De Data Factory-locatie is waar de metagegevens van de data factory worden opgeslagen en waar van het activeren van de pijplijn wordt gestart. De ondersteunde locaties voor Data Factory zijn momenteel: VS - oost, VS -oost 2, Zuidoost-Azië en West-Europa. Een gegevensfactory heeft echter wel toegang tot gegevensarchieven en Compute Services in andere Azure-regio’s om gegevens te verplaatsen tussen gegevensarchieven of om gegevens te verwerken middels Compute Services. Dit gedrag wordt gerealiseerd via de IR die algemeen beschikbaar is in meerdere regio's om de gegevensnaleving, efficiëntie en verminderde kosten voor uitgaand netwerkverkeer te realiseren.
 
 De locatie van de IR definieert de locatie van de back-end rekenkracht en in wezen de locatie waar de verplaatsing van gegevens, het verzenden van activiteit en de uitvoering van het SSIS-pakket worden uitgevoerd. De locatie van de IR kan afwijken van de locatie van de data factory waar hij bij hoort. Het volgende diagram toont de locatie-instellingen van Data Factory en het aantal keren dat de integratie wordt uitgevoerd:
 
@@ -176,7 +176,7 @@ De zelf-hostende IR is logisch geregistreerd bij de Data Factory en de rekenkrac
 Wanneer de zelf-hostende IR wordt gebruikt voor het uitvoeren van de gegevensverplaatsing, haalt deze gegevens uit de bron en schrijft naar de bestemming.
 
 ### <a name="azure-ssis-ir"></a>Azure-SSIS IR
-Het selecteren van de juiste locatie voor uw Azure-SSIS IR is essentieel voor het bereiken van hoge prestaties in uw ETL-werkstromen (extract-transform-load).  Er zijn twee locaties beschikbaar voor preview (VS - oost en Noord-Europa).
+Het selecteren van de juiste locatie voor uw Azure-SSIS IR is essentieel voor het bereiken van hoge prestaties in uw ETL-werkstromen (extract-transform-load).  Er zijn in eerste instantie zes locaties beschikbaar voor de preview (VS - oost, VS - oost 2, VS - midden, Australië - oost, Noord-Europa en West-Europa).
 
 - De locatie van uw Azure-SSIS IR hoeft niet gelijk te zijn aan de locatie van uw data factory, maar moet wel gelijk zijn aan de locatie van uw eigen Azure SQL Database-/MI-server (privépreview) waarop SSISDB wordt gehost. Op deze manier heeft uw Azure-SSIS Integration Runtime eenvoudig toegang tot SSISDB, zonder overmatig verkeer tussen verschillende locaties.
 - Als u geen bestaande Azure SQL Database-/MI-server (privépreview) hebt om SSISDB op te hosten, maar u on-premises gegevensbronnen/bestemmingen hebt, moet u een nieuwe Azure SQL Database-/MI-server (privépreview) maken op de locatie van een VNet dat is verbonden met uw on-premises netwerk.  Op deze manier kunt u uw Azure-SSIS IR maken met behulp van de nieuwe Azure SQL Database-/MI-server (privépreview) en deze koppelen aan het VNet op dezelfde locatie. Zo minimaliseert u het aantal verplaatsingen van gegevens op verschillende locaties.

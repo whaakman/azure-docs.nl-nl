@@ -87,6 +87,8 @@
       items:
         - name: Toegang van SSH-knooppunt
           href: aks-ssh.md
+        - name: Kubelet-logboeken ophalen
+          href: kubelet-logs.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

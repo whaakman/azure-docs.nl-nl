@@ -290,9 +290,10 @@
 ### [Beheerdersrollen](active-directory-assign-admin-roles-azure-portal.md)
 #### [Een beheerdersrol toewijzen aan een gebruiker](active-directory-users-assign-role-azure-portal.md)
 #### [Gebruikersmachtigingen voor leden en voor gasten vergelijken](users-default-permissions.md)
+### [Uitgebreide toegang beveiligen](admin-roles-best-practices.md) 
+### [Beheerdersaccounts voor noodtoegang maken](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Beheereenheden](active-directory-administrative-units-management.md)
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
-### [Beheerdersaccounts voor noodtoegang beheren](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Toegangsbeoordelingen
 ### [Overzicht toegangsbeoordelingen](active-directory-azure-ad-controls-access-reviews-overview.md)
