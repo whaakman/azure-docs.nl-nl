@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/03/2017
+ms.date: 03/09/2018
 ms.author: genli
-ms.openlocfilehash: 2e821c0369c6f01a7f09361c1093259429a79fa6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5a9efa6b807e933726104e7af315589ede5d9b74
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Fout bij het bronbeleid Azure RequestDisallowedByPolicy
 
@@ -25,7 +25,7 @@ In dit artikel beschrijft de oorzaak van de fout RequestDisallowedByPolicy, het 
 
 ## <a name="symptom"></a>Symptoom
 
-Wanneer u een actie wordt uitgevoerd tijdens de implementatie probeert, verschijnt er een **RequestDisallowedByPolicy** fout waardoor de actie voltooid. Het volgende voorbeeld ziet u de volgende fout:
+Tijdens de implementatie, verschijnt er een **RequestDisallowedByPolicy** fout waardoor het maken van de resources. Het volgende voorbeeld ziet u de volgende fout:
 
 ```json
 {
@@ -40,7 +40,7 @@ Wanneer u een actie wordt uitgevoerd tijdens de implementatie probeert, verschij
 
 Voor het ophalen van gegevens over het beleid dat uw implementatie geblokkeerd, gebruik de volgende methoden:
 
-### <a name="method-1"></a>Methode 1
+### <a name="powershell"></a>PowerShell
 
 In PowerShell bieden die beleids-id als de `Id` parameter voor het ophalen van informatie over het beleid dat uw implementatie geblokkeerd.
 
@@ -48,9 +48,9 @@ In PowerShell bieden die beleids-id als de `Id` parameter voor het ophalen van i
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-### <a name="method-2"></a>Methode 2 
+### <a name="azure-cli"></a>Azure-CLI
 
-Geef de naam van de beleidsdefinitie in Azure CLI 2.0: 
+Geef de naam van de beleidsdefinitie in Azure CLI 2.0:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -58,10 +58,10 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Oplossing
 
-Voor beveiliging of naleving uw IT-afdeling kan resource beleid afdwingen dat verbiedt het openbare IP-adressen, Netwerkbeveiligingsgroepen, door de gebruiker gedefinieerde Routes of routetabellen maken. Het foutbericht in de **symptomen** sectie ziet u een beleid met de naam **regionPolicyDefinition**. Uw beleid mogelijk een andere naam.
-U lost dit probleem, werken met uw IT-afdeling om te controleren van de resource-beleidsregels en bepalen hoe u kunt de aangevraagde actie in overeenstemming met deze beleidsregels uitvoeren.
+Voor beveiliging of naleving wijst de abonnementbeheerders van uw mogelijk beleidsregels die beperken hoe resources worden geïmplementeerd. Uw abonnement kan bijvoorbeeld een beleid waardoor het niet openbaar IP-adressen, Netwerkbeveiligingsgroepen, door de gebruiker gedefinieerde Routes maken of routetabellen. Het foutbericht in de **symptomen** sectie ziet u de naam van het beleid.
+U lost dit probleem, Controleer de bronbeleid en bepalen hoe resources die aan deze beleidsregels voldoen implementeren.
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Overzicht van de resource-beleid](resource-manager-policy.md)
-- [Beleidstoewijzingen weergeven via de portal](resource-manager-policy-portal.md)
+- [Wat is Azure beleid?](../azure-policy/azure-policy-introduction.md)
+- [Beleidsregels voor het afdwingen van compatibiliteit maken en beheren](../azure-policy/create-manage-policy.md)

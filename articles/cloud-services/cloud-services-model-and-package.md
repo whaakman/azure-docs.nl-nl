@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: b7210c944e2f99aacdc2f554409552007286c5da
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 0589f2efeaaafc35bcb9d869c391a0533fe6e502
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Wat is het Cloudservice-model en hoe ik dit pakket?
 Een cloudservice is gemaakt op basis van drie onderdelen, de servicedefinitie *(.csdef)*, de serviceconfiguratie *(.cscfg)*, en een servicepakket *(.cspkg)*. Zowel de **ServiceDefinition.csdef** en **ServiceConfig.cscfg** bestanden zijn XML- en beschrijven de structuur van de cloudservice en de manier waarop deze geconfigureerd; genoemd op het model. De **ServicePackage.cspkg** is een zipbestand dat is gegenereerd op basis van de **ServiceDefinition.csdef** en onder andere bevat alle vereiste binaire gebaseerde afhankelijkheden. Azure maakt een cloudservice van zowel de **ServicePackage.cspkg** en de **ServiceConfig.cscfg**.
@@ -270,7 +270,7 @@ Waar worden de variabelen als volgt gedefinieerd:
 | \[DirectoryName\] |De submap onder de hoofdmap van het project die het csdef-bestand van de Azure-project bevat. |
 | \[ServiceDefinition\] |De naam van het servicedefinitiebestand. Standaard is dit bestand ServiceDefinition.csdef naam. |
 | \[OutputFileName\] |De naam van het gegenereerde pakketbestand. Dit is normaal gesproken ingesteld op de naam van de toepassing. Als er geen bestandsnaam is opgegeven, wordt het toepassingspakket gemaakt als \[ApplicationName\].cspkg. |
-| \[Rolnaam\] |De naam van de rol, zoals gedefinieerd in het servicedefinitiebestand. |
+| \[RoleName\] |De naam van de rol, zoals gedefinieerd in het servicedefinitiebestand. |
 | \[RoleBinariesDirectory] |De locatie van de binaire bestanden voor de rol. |
 | \[VirtualPath\] |De fysieke mappen voor elke virtuele pad dat is gedefinieerd in de sectie Sites van de definitie van de service. |
 | \[PhysicalPath\] |De fysieke mappen van de inhoud voor elke virtuele pad dat is gedefinieerd in het siteknooppunt van de definitie van de service. |
@@ -291,7 +291,7 @@ Ik gebruik Visual Studio en ik wil...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
-[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md

@@ -1,5 +1,5 @@
 ---
-title: "Gegevens kopiëren van Google BigQuery met behulp van Azure Data Factory (bèta) | Microsoft Docs"
+title: "Gegevens kopiëren van Google BigQuery met behulp van Azure Data Factory | Microsoft Docs"
 description: "Ontdek hoe u gegevens kopiëren van Google BigQuery naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een data factory-pijplijn."
 services: data-factory
 documentationcenter: 
@@ -13,21 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 35f61f6bd38b59a2df0613ba2506d047c1daeaaa
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 955de6cf4b17f1df1e545ccc196856c7c898edfe
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Gegevens kopiëren van Google BigQuery met behulp van Azure Data Factory (bèta)
+# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Gegevens kopiëren van Google BigQuery met behulp van Azure Data Factory
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens van Google BigQuery kopiëren. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service, die in het algemeen beschikbaar is, Zie [Kopieeractiviteit in versie 1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Deze connector is momenteel in de bètaversie. U kunt uit te proberen en ons feedback te geven. Gebruik deze niet in een productieomgeving.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 

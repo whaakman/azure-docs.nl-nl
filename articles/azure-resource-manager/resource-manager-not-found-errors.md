@@ -11,17 +11,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: c76c965c43ca8217faa9488c01975ce09a21daaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6844c1c2938873b0a74fe66e846dc733a4bd6ff7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Los fouten niet worden gevonden voor de Azure-resources
 
-In dit artikel beschrijft de fouten die optreden kunnen wanneer een resource kan niet worden gevonden tijdens de implementatie. 
+In dit artikel beschrijft de fouten die optreden kunnen wanneer een resource kan niet worden gevonden tijdens de implementatie.
 
 ## <a name="symptom"></a>Symptoom
 
@@ -44,11 +44,9 @@ group {resource group name} was not found.
 
 Resource Manager hoeft op te halen van de eigenschappen voor een bron, maar de bron in uw abonnement kan niet worden geïdentificeerd.
 
-## <a name="solution"></a>Oplossing
+## <a name="solution-1---set-dependencies"></a>Oplossing 1 - set afhankelijkheden
 
-### <a name="solution-1"></a>Oplossing 1
-
-Als u probeert de ontbrekende resource in de sjabloon te implementeren, controleert u of u moet een afhankelijkheid toevoegen. Resource Manager optimaliseert implementatie door het maken van resources parallel indien mogelijk. Als een resource moet worden geïmplementeerd nadat een andere resource, moet u de **dependsOn** element in de sjabloon voor het maken van een afhankelijkheid op de andere resource. Bijvoorbeeld, wanneer u een web-app implementeert, moet de App Service-abonnement bestaan. Als de web-app is afhankelijk van de App Service-abonnement is niet opgegeven, wordt met Resource Manager beide resources maakt op hetzelfde moment. U ontvangt een foutmelding weergegeven dat de resource voor de App Service-abonnement kan niet worden gevonden, omdat deze niet bestaat nog bij een poging tot een eigenschap instellen voor de web-app. U kunt deze fout voorkomen door het instellen van de afhankelijkheid in de web-app.
+Als u de ontbrekende resource in de sjabloon implementeert probeert, controleert u of u moet een afhankelijkheid toevoegen. Resource Manager optimaliseert implementatie door het maken van resources parallel indien mogelijk. Als een resource moet worden geïmplementeerd nadat een andere resource, moet u de **dependsOn** element in de sjabloon. Bijvoorbeeld, wanneer u een web-app implementeert, moet de App Service-abonnement bestaan. Als u dit nog niet hebt opgegeven dat de web-app, afhankelijk van de App Service-abonnement, maakt Resource Manager beide resources op hetzelfde moment. U krijgt een fout met de mededeling dat de App Service plan bron kan niet worden gevonden, omdat deze nog niet bestaat bij een poging tot een eigenschap instellen voor de web-app. U kunt deze fout voorkomen door het instellen van de afhankelijkheid in de web-app.
 
 ```json
 {
@@ -61,9 +59,27 @@ Als u probeert de ontbrekende resource in de sjabloon te implementeren, controle
 }
 ```
 
-Zie voor suggesties over het oplossen van afhankelijkheidsfouten [volgorde van de implementatie controleren](resource-manager-troubleshoot-tips.md#check-deployment-sequence).
+Maar u wilt voorkomen dat afhankelijkheden die nodig zijn niet instellen. Wanneer u onnodige afhankelijkheden hebt, kunt u de duur van de implementatie verlengen door te voorkomen dat de bronnen die niet afhankelijk van elkaar worden geïmplementeerd parallel. U kunt bovendien circulaire afhankelijkheden die de implementatie blokkeren maken. De [verwijzing](resource-group-template-functions-resource.md#reference) functie maakt een impliciete afhankelijkheid voor de bron waarnaar wordt verwezen, wanneer deze resource is geïmplementeerd in dezelfde sjabloon. Daarom kunnen er meer afhankelijkheden dan de afhankelijkheden die zijn opgegeven de **dependsOn** eigenschap. De [resourceId](resource-group-template-functions-resource.md#resourceid) functie niet maken van een impliciete afhankelijkheid of valideren dat de resource bestaat.
 
-### <a name="solution-2"></a>Oplossing 2
+Wanneer u afhankelijkheid problemen ondervindt, moet u meer inzicht krijgen in de volgorde van de resource-implementatie. De volgorde van implementatiebewerkingen weergeven:
+
+1. Selecteer de geschiedenis van de implementatie voor de resourcegroep.
+
+   ![Geschiedenis van implementatie selecteren](./media/resource-manager-not-found-errors/select-deployment.png)
+
+2. Selecteer een implementatie van de geschiedenis en selecteer **gebeurtenissen**.
+
+   ![gebeurtenissen van de implementatie selecteren](./media/resource-manager-not-found-errors/select-deployment-events.png)
+
+3. Controleer de volgorde van gebeurtenissen voor elke resource. Let op de status van elke bewerking. De volgende afbeelding ziet u bijvoorbeeld drie storage-accounts die geïmplementeerd parallel. U ziet dat de drie storage-accounts op hetzelfde moment worden gestart.
+
+   ![Parallelle implementatie](./media/resource-manager-not-found-errors/deployment-events-parallel.png)
+
+   De volgende afbeelding ziet u drie opslagaccounts die niet zijn geïmplementeerd parallel. Het tweede storage-account is afhankelijk van het eerste storage-account en het derde storage-account is afhankelijk van de tweede storage-account. Het eerste opslagaccount wordt gestart, geaccepteerd en voltooid voordat de volgende is gestart.
+
+   ![sequentiële implementatie](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
+
+## <a name="solution-2---get-resource-from-different-resource-group"></a>Oplossing 2 - resource ophalen uit de andere resourcegroep
 
 Wanneer de bron in een andere resourcegroep dan de versie die wordt geïmplementeerd bestaat, gebruiken de [resourceId functie](resource-group-template-functions-resource.md#resourceid) ophalen van de volledig gekwalificeerde naam van de resource.
 
@@ -74,7 +90,7 @@ Wanneer de bron in een andere resourcegroep dan de versie die wordt geïmplement
 }
 ```
 
-### <a name="solution-3"></a>Oplossing 3
+## <a name="solution-3---check-reference-function"></a>Oplossing 3 - controle van verwijzing naar functie
 
 Zoek naar een expressie met de [verwijzing](resource-group-template-functions-resource.md#reference) functie. De waarden die u opgeeft variëren, afhankelijk van of de resource in de sjabloon, resourcegroep en -abonnement is. Controleer dat u de vereiste parameterwaarden voor uw scenario opgeeft. Als de bron in een andere resourcegroep is, geeft u de volledige resource-ID. Bijvoorbeeld, om te verwijzen naar een opslagaccount in een andere resourcegroep, gebruiken:
 

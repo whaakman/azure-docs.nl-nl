@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar de nieuwe resourcegroep of abonnement
 
@@ -99,7 +99,7 @@ Neem contact op met [ondersteunen](https://portal.azure.com/#blade/Microsoft_Azu
 * Uw resources verplaatsen naar een nieuwe Azure-account (en Azure Active Directory-tenant) en u hulp nodig bij de instructies in de vorige sectie.
 * Klassieke resources verplaatsen, maar hebben problemen met de beperkingen.
 
-## <a name="services-that-enable-move"></a>Services waarmee verplaatsen
+## <a name="services-that-can-be-moved"></a>Services die kunnen worden verplaatst
 
 De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement zijn:
 
@@ -123,7 +123,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * HDInsight-clusters - Zie [HDInsight-beperkingen](#hdinsight-limitations)
 * IoT Hubs
 * Key Vault
-* Taakverdelers
+* Load Balancers
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -149,7 +149,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * Virtuele netwerken - Zie [beperkingen van de virtuele netwerken](#virtual-networks-limitations)
 * VPN Gateway
 
-## <a name="services-that-do-not-enable-move"></a>Services die niet verplaatsen inschakelen
+## <a name="services-that-cannot-be-moved"></a>Services die kunnen niet worden verplaatst
 
 De services die op dit moment niet inschakelen voor het verplaatsen van een resource zijn:
 
@@ -165,7 +165,7 @@ De services die op dit moment niet inschakelen voor het verplaatsen van een reso
 * Beheerde schijven - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Recovery Services-kluis - ook komen niet verplaatsen van de Compute, Network en Storage-resources die zijn gekoppeld aan de Recovery Services-kluis, Zie [Recovery Services-beperkingen](#recovery-services-limitations).
 * Beveiliging
-* StorSimple-Apparaatbeheer
+* StorSimple-apparaatbeheerfunctie
 * Virtuele netwerken (klassiek) - Zie [klassieke implementatie beperkingen](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>Beperkingen van de virtuele Machines
@@ -307,7 +307,7 @@ Stel dat u de replicatie van uw lokale machines naar een opslagaccount (Storage1
 Verplaatsen van een virtuele machine geregistreerd bij **Azure backup** tussen resourcegroepen:
  1. Tijdelijk stoppen van de back-up en bewaren van back-upgegevens
  2. Verplaats de VM naar de doelresourcegroep
- 3. Opnieuw beveiligen met de dezelfde/nieuwe kluis die gebruikers met de beschikbare herstelpunten gemaakt vóór de verplaatsing herstellen kunnen.
+ 3. Beveiligt onder de dezelfde/nieuwe kluis die gebruikers met de beschikbare herstelpunten gemaakt vóór de verplaatsing herstellen kunnen.
 Als de gebruiker de virtuele machine van een back-up voor abonnementen verplaatst, blijven stap 1 en 2 hetzelfde. Gebruiker moet de virtuele machine met een nieuwe kluis aanwezig / worden gemaakt in het doelabonnement beveiligen in stap 3. Recovery Services-kluis biedt geen ondersteuning voor back-ups van cross-abonnement.
 
 ## <a name="hdinsight-limitations"></a>HDInsight-beperkingen

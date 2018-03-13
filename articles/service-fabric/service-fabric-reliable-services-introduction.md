@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="reliable-services-overview"></a>Overzicht van Reliable Services
 Azure Service Fabric vereenvoudigt schrijven en staatloze en stateful Reliable Services beheren. Dit onderwerp wordt beschreven:
@@ -87,10 +87,6 @@ Een voorbeeld van hoe stateless services worden gebruikt Service Fabric is als e
 Een stateful service is een die een gedeelte van de status behouden consistent en aanwezig is in de volgorde voor de service naar de functie nodig hebt. Houd rekening met een service die voortdurend berekent een oplopende gemiddelde van een bepaalde waarde op basis van updates die het ontvangt. U doet dit door moet de huidige set van inkomende aanvragen worden proces en de huidige gemiddelde moet hebben. Alle services die worden opgehaald, verwerkt en wordt informatie opgeslagen in een externe winkel (zoals een Azure-blob of tabel store vandaag) is stateful. De status blijven alleen in het externe gegevensarchief.
 
 De meeste services opslaan vandaag hun status extern, omdat het externe archief wat biedt betrouwbaarheid, beschikbaarheid, schaalbaarheid en consistentie voor die status. Services worden niet in Service Fabric is vereist voor het opslaan van hun status extern. Service Fabric zorgt voor deze vereisten voor zowel de code van de status van de service.
-
-> [!NOTE]
-> Ondersteuning voor betrouwbare Stateful Services is niet beschikbaar op Linux nog (voor C# of Java).
->
 
 Stel, dat we willen schrijven van een service waarmee afbeeldingen worden verwerkt. U doet dit door maakt de service in een afbeelding en de reeks conversies uitvoeren op die installatiekopie. Deze service retourneert een communicatie-listener (we Stel dat het is een WebAPI) dat gegarandeerd een API, zoals `ConvertImage(Image i, IList<Conversion> conversions)`. Wanneer een aanvraag ontvangt, de service wordt opgeslagen in een `IReliableQueue`, en retourneert een id voor de client zodat deze de aanvraag kunt bijhouden.
 

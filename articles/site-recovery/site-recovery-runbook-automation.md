@@ -12,13 +12,13 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4802215f903eb196afbf05637ad5e38dbbbc09a3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Azure Automation-runbooks aan herstelplannen toevoegen
 In dit artikel wordt beschreven hoe Azure Site Recovery kan worden geïntegreerd met Azure Automation kunt u uw herstelplannen uitbreiden. Plannen voor herstel kunnen herstel van virtuele machines die zijn beveiligd met Site Recovery indelen. Plannen voor herstel werkt zowel voor replicatie naar een secundaire cloud, en voor replicatie naar Azure. De herstelplannen ook zorgt u ervoor dat het herstel **accuraat**, **herhaalbare**, en **geautomatiseerde**. Als u uw virtuele machines in Azure een failover, uitgebreid integratie met Azure Automation uw plannen voor herstel. U kunt het uitvoeren van runbooks die krachtige automatiseringstaken bieden.
@@ -193,7 +193,7 @@ Voor elke herstelplan onafhankelijke variabelen te maken zodat u het script opni
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>Een complex-variabele gebruiken voor het opslaan van meer informatie
 
-Overweeg een scenario waarin u wilt dat één script om in te schakelen op een openbaar IP-adres op specifieke virtuele machines. In een ander scenario wilt u mogelijk verschillende nsg's toepassen op andere virtuele machines (niet op alle VM's). U kunt een script dat opnieuw kan worden gebruikt voor een herstelplan maken. Elke herstelplan kan een variabele aantal VM's hebben. Een SharePoint-herstelbewerking heeft bijvoorbeeld twee front-ends. Een basic line-of-business (LOB)-toepassing heeft slechts één front-end. U kunt afzonderlijke variabelen voor elke herstelplan kan niet maken. 
+Overweeg een scenario waarin u wilt dat één script om in te schakelen op een openbaar IP-adres op specifieke virtuele machines. In een ander scenario wilt u mogelijk verschillende nsg's toepassen op andere virtuele machines (niet op alle VM's). U kunt een script dat opnieuw kan worden gebruikt voor een herstelplan maken. Elke herstelplan kan een variabele aantal VM's hebben. Een SharePoint-herstelbewerking heeft bijvoorbeeld twee front-ends. Een basic line-of-business (LOB)-toepassing heeft slechts één front-end. U kunt afzonderlijke variabelen voor elke herstelplan kan niet maken.
 
 In het volgende voorbeeld wordt een nieuwe techniek gebruiken en maak een [complex variabele](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) in de Azure Automation-account. U doet dit door geven meerdere waarden. U moet Azure PowerShell gebruiken om de volgende stappen uit:
 

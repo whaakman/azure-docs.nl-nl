@@ -1,9 +1,22 @@
 ---
-titel: 'Microsoft Azure virtuele Datacenter: een netwerk perspectief' | Microsoft Docs beschrijving: informatie over het bouwen van uw virtuele datacenter in Azure-services: netwerken auteur: tracsman manager: rossort tags: azure-resource-manager
-
-MS.service: virtueel netwerk ms.tgt_pltfrm: n.v.t. ms.devlang: n.v.t. ms.topic: artikel ms.date: 05/26/2017 ms.author: jonor
+title: 'Virtuele Microsoft Azure-Datacenter: Een netwerk perspectief | Microsoft Docs'
+description: Informatie over het bouwen van uw virtuele datacenter in Azure
+services: networking
+author: tracsman
+manager: rossort
+tags: azure-resource-manager
+ms.service: virtual-network
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/26/2017
+ms.author: jonor
+ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/12/2018
 ---
-
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Virtuele Microsoft Azure-Datacenter: Een netwerk-perspectief
 **Microsoft Azure**: sneller, geld besparen, integreren lokale apps en gegevens
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: a7771eebc8359a5de1c79328014f5ecc06c9673b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86a839102e98a1b8e7cd9927c697cacf1f41a1a6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 Microsoft heeft de belofte aangebracht in de klanten die hoge beschikbaarheid (HA) is ingebouwd in de service en de klanten hoeven niet te werken, speciale logica voor het toevoegen of beslissingen rond HA vanaf het begin van de Azure SQL Database PaaS-aanbieding. Microsoft onderhoudt volledige controle over de HA-systeemconfiguratie en bewerking, biedt klanten een SLA. De HA-SLA van toepassing op een SQL-database in een regio en biedt geen bescherming in geval van een mislukking van de totale regio die wordt veroorzaakt door factoren buiten het beheer van Microsoft redelijkerwijs (bijvoorbeeld een natuurramp, war, besluiten van terrorisme, riots, overheids-actie of een netwerk- of apparaatstoring buiten de datacenters van Microsoft, waaronder op klant sites of tussen sites van de klant en Datacenter van Microsoft).
@@ -56,7 +56,7 @@ De oplossing met hoge beschikbaarheid in SQL-Database is gebaseerd op [Always ON
 
 In deze configuratie, elke database wordt online gezet door de management-service (MS) in de besturingselement-ring. Eén primaire replica en ten minste twee secundaire replica's (quorum-set) bevinden zich in een tenant ring die drie onafhankelijke fysieke subsystemen binnen hetzelfde datacenter omvat. Lees- en schrijfbewerkingen worden verzonden door de gateway (GW) naar de primaire replica en de geschreven asynchroon worden gerepliceerd naar de secundaire replica's. SQL-Database gebruikt een schema op basis van een quorum doorvoeren waarbij gegevens worden geschreven naar de primaire en ten minste één secundaire replica voordat de transactie-doorvoeracties.
 
-De [Service Fabric](/azure/service-fabric/service-fabric-overview.md) system failover automatisch opnieuw opgebouwd replica's als knooppunten uitvallen en behoudt het lidmaatschap van een quorum-set als knooppunten afwijken en deelnemen aan het systeem. Gepland onderhoud wordt zorgvuldig gecoördineerd om te voorkomen dat het quorum-set gaan omlaag dan een minimale replica telling (meestal 2). Dit model geschikt is voor Premium-databases, maar het vereist dat de redundantie van zowel berekenings- en -onderdelen en resulteert in een hogere kosten.
+De [Service Fabric](/service-fabric/service-fabric-overview.md) system failover automatisch opnieuw opgebouwd replica's als knooppunten uitvallen en behoudt het lidmaatschap van een quorum-set als knooppunten afwijken en deelnemen aan het systeem. Gepland onderhoud wordt zorgvuldig gecoördineerd om te voorkomen dat het quorum-set gaan omlaag dan een minimale replica telling (meestal 2). Dit model geschikt is voor Premium-databases, maar het vereist dat de redundantie van zowel berekenings- en -onderdelen en resulteert in een hogere kosten.
 
 ## <a name="remote-storage-configuration"></a>Configuratie van de externe opslag
 
@@ -77,7 +77,7 @@ Voor de configuraties externe opslag gebruikt SQL-Database Always ON functionali
 
 ## <a name="zone-redundant-configuration-preview"></a>Zone-redundante configuratie (preview)
 
-Standaard worden de quorum-set replica's voor de lokale opslagconfiguraties gemaakt in hetzelfde datacenter. Dankzij de introductie van [Azure beschikbaarheid Zones](/azure/availability-zones/az-overview.md), hebt u de mogelijkheid om de andere replica's in het quorum-stelt aan andere beschikbaarheid zones in dezelfde regio. Om te voorkomen een potentieel risico, is de besturingselement-ring ook gedupliceerd in meerdere zones als drie gateway ringen (GW). De routering naar een specifieke gateway ring wordt beheerd door [Azure Traffic Manager](/traffic-manager/traffic-manager-overview.md) (ATM). Omdat de configuratie van de zone-redundante geen extra databaseredundantie maakt, het gebruik van beschikbaarheid Zones in de Premium servicecategorie is beschikbaar op zonder extra kosten. Als u een zone redundant database selecteert, kunt u uw Premium-databases robuuste naar een veel grotere set van fouten, met inbegrip van datacenter catastrofale uitval, zonder eventuele wijzigingen van de toepassingslogica. U kunt ook alle bestaande Premium-databases of groep aan de zone-redundante configuratie converteren.
+Standaard worden de quorum-set replica's voor de lokale opslagconfiguraties gemaakt in hetzelfde datacenter. Dankzij de introductie van [Azure beschikbaarheid Zones](../availability-zones/az-overview.md), hebt u de mogelijkheid om de andere replica's in het quorum-stelt aan andere beschikbaarheid zones in dezelfde regio. Om te voorkomen een potentieel risico, is de besturingselement-ring ook gedupliceerd in meerdere zones als drie gateway ringen (GW). De routering naar een specifieke gateway ring wordt beheerd door [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Omdat de configuratie van de zone-redundante geen extra databaseredundantie maakt, het gebruik van beschikbaarheid Zones in de Premium servicecategorie is beschikbaar op zonder extra kosten. Als u een zone redundant database selecteert, kunt u uw Premium-databases robuuste naar een veel grotere set van fouten, met inbegrip van datacenter catastrofale uitval, zonder eventuele wijzigingen van de toepassingslogica. U kunt ook alle bestaande Premium-databases of groep aan de zone-redundante configuratie converteren.
 
 Omdat de redundante zone quorum-set replica's in verschillende datacenters met sommige afstand tussen deze twee heeft, mag de toegenomen netwerklatentie vergroot de toegewezen tijd en dus invloed op de prestaties van sommige OLTP-werkbelastingen. Altijd kunt u terugkeren naar de configuratie met één zone door het uitschakelen van de instelling van de redundantie van de zone. Dit proces heeft een grootte van gegevens en is vergelijkbaar met de reguliere service level objective (SLO)-update. De database of de groep van toepassingen aan het einde van het proces is gemigreerd uit een zone redundant-ring naar een enkele zone ring of vice versa.
 
@@ -93,6 +93,6 @@ Azure SQL Database is nauw geïntegreerd met het Azure-platform en maximaal afha
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [Azure beschikbaarheid Zones](/azure/availability-zones/az-overview.md)
-- Meer informatie over [Fabric-Service](/azure/service-fabric/service-fabric-overview.md)
-- Meer informatie over [met Azure Traffic Manager](/traffic-manager/traffic-manager-overview.md) 
+- Meer informatie over [Azure beschikbaarheid Zones](../availability-zones/az-overview.md)
+- Meer informatie over [Fabric-Service](../service-fabric/service-fabric-overview.md)
+- Meer informatie over [met Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) 

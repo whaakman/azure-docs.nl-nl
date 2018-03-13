@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager oplossen
 
@@ -37,14 +37,15 @@ In dit artikel beschrijft een aantal veelvoorkomende fouten Azure-implementatie 
 | BadRequest | U verzonden implementatie-waarden die niet overeenkomen met wat er wordt verwacht door Resource Manager. Controleer de binnenste statusbericht voor meer informatie over het oplossen van problemen. | [Verwijzing naar de sjabloon](/azure/templates/) en [locaties ondersteund](resource-manager-templates-resources.md#location) |
 | Conflict | U hebt aangevraagd een bewerking die niet is toegestaan in de huidige status van de resource. De schijfgrootte is mag bijvoorbeeld alleen bij het maken van een virtuele machine of wanneer de toewijzing van de VM ongedaan is gemaakt. | |
 | DeploymentActive | Wacht voor gelijktijdige implementatie aan deze resourcegroep te voltooien. | |
+| Implementatie mislukt | De implementatie mislukt-fout is een algemene fout die biedt geen informatie die u nodig hebt voor het oplossen van de fout. Raadpleeg de foutdetails voor een foutcode die vindt u meer informatie. | [Foutcode vinden](#find-error-code) |
 | DnsRecordInUse | De DNS-recordnaam moet uniek zijn. Geef een andere naam, of de bestaande record wijzigen. | |
 | ImageNotFound | Controleer de instellingen van de VM-installatiekopie. |  |
 | InUseSubnetCannotBeDeleted | U kunt deze fout kan optreden bij het bijwerken van een bron, maar de aanvraag wordt verwerkt door verwijderen en het maken van de resource. Zorg ervoor dat alle ongewijzigde waarden opgeven. | [Bron bijwerken](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Haal het toegangstoken voor de juiste tenant. U kunt alleen het token ophalen van de tenant die uw account hoort bij. | |
-| InvalidContentLink | U hebt waarschijnlijk geprobeerd om te koppelen aan een geneste sjabloon die niet beschikbaar. Controleer de URI die u hebt opgegeven voor de geneste sjabloon. Als de sjabloon in een opslagaccount bestaat, zorg er dan voor dat de URI is toegankelijk. U moet mogelijk een SAS-token doorgeven. | [Gekoppelde sjablonen](resource-group-linked-templates.md) |
+| InvalidContentLink | U hebt waarschijnlijk geprobeerd om te koppelen aan een geneste sjabloon die niet beschikbaar. Controleer de URI die u hebt opgegeven voor de geneste sjabloon. Als de sjabloon in een opslagaccount bestaat, zorg er dan voor dat de URI is toegankelijk. U moet mogelijk een SAS-token doorgeven. | [gekoppelde sjablonen](resource-group-linked-templates.md) |
 | InvalidParameter | Een van de waarden die u hebt opgegeven voor een resource komt niet overeen met de verwachte waarde. Deze fout kan leiden tot uit veel verschillende voorwaarden. Bijvoorbeeld, een wachtwoord is mogelijk onvoldoende of een blob-naam is mogelijk onjuist. Controleer het foutbericht om te bepalen welke waarde moet worden gecorrigeerd. | |
 | InvalidRequestContent | De waarden van uw implementatie die hetzij bevatten waarden die niet wordt verwacht of ontbreken vereiste waarden. Controleer de waarden voor het brontype. | [Verwijzing naar de sjabloon](/azure/templates/) |
-| InvalidRequestFormat | Logboekregistratie voor foutopsporing in te schakelen wanneer de implementatie wordt uitgevoerd en controleer de inhoud van de aanvraag. | [Logboekregistratie voor foutopsporing](resource-manager-troubleshoot-tips.md#enable-debug-logging) |
+| InvalidRequestFormat | Logboekregistratie voor foutopsporing in te schakelen wanneer de implementatie wordt uitgevoerd en controleer de inhoud van de aanvraag. | [Logboekregistratie voor foutopsporing](#enable-debug-logging) |
 | InvalidResourceNamespace | Controleer de resourcenaamruimte die u hebt opgegeven in de **type** eigenschap. | [Verwijzing naar de sjabloon](/azure/templates/) |
 | InvalidResourceReference | De resource nog niet bestaat of niet juist wordt verwezen. Controleer of u moet een afhankelijkheid toevoegen. Controleer uw gebruik van de **verwijzing** functie bevat de vereiste parameters voor uw scenario. | [Afhankelijkheden moeten worden opgelost](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Controleer de resource typt u hebt opgegeven in de **type** eigenschap. | [Verwijzing naar de sjabloon](/azure/templates/) |
@@ -75,7 +76,124 @@ In dit artikel beschrijft een aantal veelvoorkomende fouten Azure-implementatie 
 
 ## <a name="find-error-code"></a>Foutcode vinden
 
-Wanneer er een fout tijdens de implementatie optreden, retourneert Resource Manager een foutcode. Hier ziet u het foutbericht via de portal, PowerShell of Azure CLI. Het buitenste foutbericht mogelijk te algemeen voor het oplossen van problemen. Zoek naar het interne bericht dat gedetailleerde informatie over de fout bevat. Zie voor meer informatie [bepalen foutcode](resource-manager-troubleshoot-tips.md#determine-error-code).
+Er zijn twee typen fouten die u kunt ontvangen:
+
+* Validatiefouten
+* Implementatiefouten
+
+Validatiefouten worden veroorzaakt door scenario's die vóór de implementatie kunnen worden bepaald. Ze bevatten syntaxisfouten in de sjabloon of het implementeren van resources die uw abonnement quota's zou overschrijden. Implementatiefouten worden veroorzaakt door de voorwaarden die tijdens de implementatie optreden. Ze bevatten toegang wilt krijgen tot een resource die parallel wordt geïmplementeerd.
+
+Beide soorten fouten retourneren een foutcode die u gebruikt voor het oplossen van de implementatie. Beide soorten fouten worden weergegeven in de [activiteitenlogboek](resource-group-audit.md). Validatiefouten worden echter niet weergegeven in de geschiedenis van uw implementatie omdat de implementatie is nooit gestart.
+
+### <a name="validation-errors"></a>Validatiefouten
+
+Bij het implementeren via de portal, ziet u een validatiefout opgetreden na het verzenden van uw waarden.
+
+![Fout bij de portal validatie weergeven](./media/resource-manager-common-deployment-errors/validation-error.png)
+
+Selecteer het bericht voor meer informatie. In de volgende afbeelding ziet u een **InvalidTemplateDeployment** fout en een bericht verschijnt dat een beleid voor implementatie wordt geblokkeerd.
+
+![validatie details weergeven](./media/resource-manager-common-deployment-errors/validation-details.png)
+
+### <a name="deployment-errors"></a>Implementatiefouten
+
+Als de bewerking is geslaagd, maar niet tijdens de implementatie, ziet u de fout in de meldingen. Selecteer de melding.
+
+![Fout bij wijzigingsbericht](./media/resource-manager-common-deployment-errors/notification.png)
+
+Er is meer informatie over de implementatie. Selecteer de optie voor meer informatie over de fout.
+
+![implementatie is mislukt](./media/resource-manager-common-deployment-errors/deployment-failed.png)
+
+Ziet u de foutmelding en foutcodes. Er zijn twee foutcodes. De eerste foutcode (**implementatie mislukt**) is een algemene fout die geen biedt informatie die u nodig hebt voor het oplossen van de fout. De tweede foutcode (**StorageAccountNotFound**) bevat de details die u nodig hebt. 
+
+![foutgegevens](./media/resource-manager-common-deployment-errors/error-details.png)
+
+## <a name="enable-debug-logging"></a>Inschakelen van logboekregistratie voor foutopsporing
+
+Soms moet u meer informatie over de aanvraag en -antwoord voor meer informatie over wat er mis ging. U kunt met behulp van PowerShell of Azure CLI aanvragen dat aanvullende informatie wordt geregistreerd tijdens een implementatie.
+
+- PowerShell
+
+   In PowerShell, stelt u de **DeploymentDebugLogLevel** parameter naar alle, ResponseContent of RequestContent.
+
+  ```powershell
+  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```
+
+   Controleer de aanvraag van inhoud met de volgende cmdlet:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```
+
+   Of het antwoord inhoud met:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```
+
+   Deze informatie kunt u bepalen of een waarde in de sjabloon niet correct wordt ingesteld.
+
+- Azure-CLI
+
+   Controleer de implementatiebewerkingen met de volgende opdracht:
+
+  ```azurecli
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
+  ```
+
+- Geneste sjabloon
+
+   Meld u foutopsporingsgegevens voor een geneste sjabloon met de **debugSetting** element.
+
+  ```json
+  {
+      "apiVersion": "2016-09-01",
+      "name": "nestedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+              "uri": "{template-uri}",
+              "contentVersion": "1.0.0.0"
+          },
+          "debugSetting": {
+             "detailLevel": "requestContent, responseContent"
+          }
+      }
+  }
+  ```
+
+## <a name="create-a-troubleshooting-template"></a>Maken van een sjabloon voor het oplossen van problemen
+
+In sommige gevallen is de eenvoudigste manier om op te lossen, de sjabloon voor het testen van de onderdelen hiervan. U kunt maken als een vereenvoudigde sjabloon waarmee u zich kunt richten op het onderdeel dat u denkt dat de fout wordt veroorzaakt. Stel bijvoorbeeld dat u ontvangt een fout opgetreden bij het verwijzen naar een resource. In plaats van te moeten omgaan met een volledige sjabloon, een sjabloon die als resultaat geeft het onderdeel dat wordt veroorzaakt door het probleem te maken. Dit kunt u bepalen of u doorgeeft aan de juiste parameters met sjabloonfuncties correct en ophalen van de resource die u verwacht.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+        "type": "string"
+    },
+    "storageResourceGroup": {
+        "type": "string"
+    }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "exampleOutput": {
+        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+        "type" : "object"
+    }
+  }
+}
+```
+
+Of stel fouten implementatie die u van mening zijn gerelateerd bent aan afhankelijkheden niet correct instellen. Test uw sjabloon door in vereenvoudigde sjablonen op te splitsen. Maak eerst een sjabloon die slechts één bron (zoals een SQL-Server) implementeert. Als u zeker dat u die correct gedefinieerd resource hebt, kunt u een resource die afhankelijk zijn van deze (zoals een SQL-Database) toevoegen. Wanneer u deze twee bronnen onjuist is gedefinieerd hebt, moet u andere afhankelijke resources (zoals controlebeleid) toevoegen. Verwijder de resourcegroep om te controleren of u voldoende testen van de afhankelijkheden tussen elke testimplementatie.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over het controleren van acties, [bewerkingen met Resource Manager controleren](resource-group-audit.md).

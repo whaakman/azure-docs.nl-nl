@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: bfeefde53aa2b3645934f068d580c0714714dd69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c2645be73c4b6e34d194d6b2444a700e3900d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Plannen van capaciteit voor het beveiligen van Hyper-V-machines met Site Recovery
 
-Een nieuwe uitgebreide versie van [Azure Site Recovery implementatie Planner voor Hyper-V naar Azure-implementatie](site-recovery-hyper-v-deployment-planner.md) is nu beschikbaar. Het oude hulpprogramma vervangt. Het nieuwe hulpprogramma gebruiken voor het plannen van uw implementatie. Het hulpprogramma biedt de volgende richtlijnen:
+Een nieuwe uitgebreide versie van [Azure Site Recovery implementatie Planner voor Hyper-V naar Azure-implementatie](site-recovery-hyper-v-deployment-planner.md) is nu beschikbaar. Het oude hulpprogramma vervangt. Het nieuwe hulpprogramma gebruiken voor het plannen van uw implementatie.
+Het hulpprogramma biedt de volgende richtlijnen:
 
 * Evaluatie van VM in aanmerking komt, op basis van het aantal schijven, schijfgrootte IOP's, verloop en enkele VM-kenmerken
 * Netwerkbandbreedte moet versus RPO assessment
@@ -45,7 +46,7 @@ U kunt het hulpprogramma uitvoeren in twee modi:
 
 * Gegevens verzamelen over uw omgeving, inclusief virtuele machines, schijven per virtuele machine, opslag per schijf.
 * De snelheid van uw dagelijkse wijzigen (verloop) voor gerepliceerde gegevens identificeren. Download de [Hyper-V-hulpprogramma voor capaciteitsplanning](https://www.microsoft.com/download/details.aspx?id=39057) de wijzigingssnelheid ophalen. [Meer informatie](site-recovery-capacity-planning-for-hyper-v-replication.md) over dit hulpprogramma. Het is raadzaam dat u dit hulpprogramma uitvoeren via een week om vast te leggen gemiddelden.
-   
+
 
 ## <a name="run-the-quick-planner"></a>De snelle Planner uitvoeren
 1. Download en open [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). U moet uitvoeren van macro's. Wanneer u wordt gevraagd, moet u selecties inschakelen bewerken en inhoud.
@@ -58,7 +59,7 @@ U kunt het hulpprogramma uitvoeren in twee modi:
 
    a. In **selecteert u uw scenario**, kies **Hyper-V naar Azure** of **VMware of fysieke naar Azure**.
 
-   b. In **gemiddelde dagelijkse gegevens snelheid (%) wijzigen**, voert u de verzamelde informatie met behulp van de [Hyper-V-hulpprogramma voor capaciteitsplanning](site-recovery-capacity-planning-for-hyper-v-replication.md) of [Site Recovery implementatie Planner](./site-recovery-deployment-planner.md). 
+   b. In **gemiddelde dagelijkse gegevens snelheid (%) wijzigen**, voert u de verzamelde informatie met behulp van de [Hyper-V-hulpprogramma voor capaciteitsplanning](site-recovery-capacity-planning-for-hyper-v-replication.md) of [Site Recovery implementatie Planner](./site-recovery-deployment-planner.md).
 
    c. De **compressie** instelling wordt niet gebruikt wanneer u Hyper-V-machines naar Azure repliceren. Gebruik een toestel van derden zoals Riverbed voor compressie.
 
@@ -147,7 +148,7 @@ Nadat alle gegevens zijn ingevoerd, selecteert u **gegevens verzenden naar het h
 ### <a name="submit-data-in-capacity-planner"></a>Verzenden van gegevens in Capacity Planner
 1. Wanneer u opent de **Capacity Planner** werkblad dit ingevuld op basis van de instellingen die u hebt opgegeven. Het woord 'Werkbelasting' wordt weergegeven in de **Infra invoer bron** cel aangeven dat de invoer is de **werkbelasting kwalificatie** werkblad.
 
-2. Als u wijzigingen aanbrengen wilt, moet u wijzigt de **werkbelasting kwalificatie** werkblad. Selecteer vervolgens **gegevens verzenden naar het hulpprogramma planner** opnieuw. 
+2. Als u wijzigingen aanbrengen wilt, moet u wijzigt de **werkbelasting kwalificatie** werkblad. Selecteer vervolgens **gegevens verzenden naar het hulpprogramma planner** opnieuw.
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 

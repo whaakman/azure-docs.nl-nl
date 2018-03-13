@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 60f6c45b7dacd26e0dea7b8b69c52534dcb5fec9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Maken, weergeven en waarschuwingen beheren met behulp van Azure Monitor - waarschuwingen (Preview)
 
@@ -65,7 +65,7 @@ Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van Azure-w
 
     > Unified waarschuwingen (Preview) biedt ook ondersteuning voor activiteitenlogboek van waarschuwingen. [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Metrische waarschuwingen*: Zorg ervoor dat **brontype** geselecteerde platform of de monitor-service is (anders dan *logboekanalyse*), klikt u vervolgens één keer juiste **resource** is door u gekozen, klikt u op *gedaan* terug te keren naar waarschuwing maken. Vervolgens gebruikt de **criteria toevoegen** knop kiezen die het signaal specifieke lijst met opties signaal, hun monitoring-service en het type vermeld - die beschikbaar zijn voor de resource die eerder hebt geselecteerd.
+5. *Metrische waarschuwingen*: Zorg ervoor dat **brontype** is geselecteerd als signaaltype als **metriek**, klikt u vervolgens één keer juiste **resource** gekozen Klik  *Gedaan* terug te keren naar waarschuwing maken. Vervolgens gebruikt de **criteria toevoegen** knop kiezen die het signaal specifieke lijst met opties signaal, hun monitoring-service en het type vermeld - die beschikbaar zijn voor de resource die eerder hebt geselecteerd.
 
     ![Een resource selecteren](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -81,7 +81,7 @@ Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van Azure-w
 
     ![Signaal logica voor multidimensionale metrische gegevens configureren](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Meld u waarschuwingen*: Zorg ervoor dat **brontype** is een bron analytics zoals *logboekanalyse* of *Application Insights*, klikt u vervolgens één keer juiste  **resource** is gekozen, klikt u op *gedaan*. Vervolgens gebruikt de **criteria toevoegen** om de lijst met signaal opties die beschikbaar zijn voor de bron- en uit de lijst signaal **aangepaste logboek zoekactie** optie voor het gekozen Meld monitor-service, zoals *logboek Analytics* of *Application Insights*.
+8. *Meld u waarschuwingen*: Zorg ervoor dat **brontype** is een bron analytics zoals *logboekanalyse* of *Application Insights* en aan te geven type als **logboek** , klikt u vervolgens één keer juiste **resource** is gekozen, klikt u op *gedaan*. Vervolgens gebruikt de **criteria toevoegen** om de lijst met signaal opties die beschikbaar zijn voor de bron- en uit de lijst signaal **aangepaste logboek zoekactie** optie voor het gekozen Meld monitor-service, zoals *logboek Analytics* of *Application Insights*.
 
    ![Selecteer een resource - het aangepaste logboek zoeken](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
@@ -121,8 +121,8 @@ Voor **logboek waarschuwingen** waarschuwingen kunnen worden gebaseerd op:
 
     Voor **logboek waarschuwingen** aanvullende functionaliteit is beschikbaar voor de standaardacties overschrijven:
 
-    - **E-mailmeldingen**: onderdrukkingen onderwerp in het e-mailbericht verzonden via de actie-groep. U kunt de hoofdtekst van het e-mailbericht niet wijzigen.
-    - **Aangepaste Json-nettolading opnemen**: overschrijft de webhook Json die wordt gebruikt door de actiegroepen en in plaats daarvan de nettolading van de standaard vervangen door een aangepaste nettolading. Zie voor meer informatie over webhook indelingen [webhook-actie voor logboek-waarschuwingen](monitor-alerts-unified-log-webhook.md)
+    - **E-mailmeldingen**: overschrijft *e-mailonderwerp* in het e-mailbericht verzonden via de actie groep; als een of meer e-actie aanwezig zijn in de groep met deze actie. U kunt de hoofdtekst van het e-mailbericht niet wijzigen en dit veld is **niet** voor e-mailadres.
+    - **Aangepaste Json-nettolading opnemen**: de webhook JSON die wordt gebruikt door de actiegroepen; onderdrukt als een of meer webhook actie aanwezig zijn in de groep met deze actie. De gebruiker kan nader indeling van JSON moet worden gebruikt voor alle webhooks die zijn geconfigureerd in de bijbehorende actie groep; Zie voor meer informatie over webhook indelingen [webhook-actie voor het logboek waarschuwingen](monitor-alerts-unified-log-webhook.md). Test Webhook-optie is opgegeven voor de indeling en verwerking door bestemming JSON-voorbeeld controleren en deze optie als u met het label bedoeld alleen voor **testen** doeleinden.
 
         ![Actie overschrijvingen voor logboek-waarschuwingen](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 

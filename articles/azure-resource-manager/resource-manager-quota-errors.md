@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/27/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d2cc760bf516e8ee96629886120a1bb092932a82
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Los de fouten voor de resource-quota
 
@@ -47,9 +47,9 @@ please delete some resources of this type before creating a new one.
 Quota's zijn per resourcegroep, abonnementen, accounts en andere scopes toegepast. Uw abonnement kan bijvoorbeeld worden geconfigureerd om te beperken het aantal kernen voor een regio. Als u een virtuele machine met meer cores dan de toegestane hoeveelheid implementeren probeert, ontvangt u een foutmelding weergegeven dat het quotum is overschreden.
 Zie voor informatie voltooid quotum [Azure-abonnement en Servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md).
 
-## <a name="solution"></a>Oplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
-### <a name="solution-1"></a>Oplossing 1
+### <a name="azure-cli"></a>Azure-CLI
 
 Voor Azure CLI, gebruikt u de `az vm list-usage` opdracht quota van de virtuele machine vinden.
 
@@ -73,7 +73,7 @@ Die wordt geretourneerd:
 ]
 ```
 
-### <a name="solution-2"></a>Oplossing 2
+### <a name="powershell"></a>PowerShell
 
 Voor PowerShell, gebruikt u de **Get-AzureRmVMUsage** opdracht quota van de virtuele machine vinden.
 
@@ -91,7 +91,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-### <a name="solution-3"></a>Oplossing 3
+## <a name="solution"></a>Oplossing
 
 Om aan te vragen een verhoging van het quotum, gaat u naar de portal en bestanden van een probleem met ondersteuning. In het probleem ondersteuning verzoeken om een verhoging van uw quotum voor de regio waarin u wilt implementeren.
 

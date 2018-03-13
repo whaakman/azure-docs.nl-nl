@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 312e8ee3b924fe76e770d8e24e4fc8221e31bffb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3b0afd52ccfa3aa637a64e57601cd5f43fe8df10
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Zelfstudie: Azure Active Directory-integratie met CylancePROTECT
 
@@ -110,11 +110,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     | Regio | URL-waarde |
     |----------|---------|
-    | Azië en Stille Oceaan noordoosten (APNE1)| ` https://login-apne1.cylance.com`|
-    | Azië en Stille Oceaan Zuidoost (AU) | `https://login-au.cylance.com` |
-    | Europa centraal (EUC1)|`https://login-euc1.cylance.com`|
-    | Noord-Amerika|`https://login.cylance.com`|
-    | Zuid-Amerika (SAE1)|`https://login-sae1.cylance.com`|
+    | Azië en Stille Oceaan noordoosten (APNE1)| ` https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Azië en Stille Oceaan Zuidoost (AU) | `https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml` |
+    | Europa centraal (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Noord-Amerika|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Zuid-Amerika (SAE1)|`https://login-sae1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     
     b. In de **antwoord-URL** textbox, typ de URL:
     

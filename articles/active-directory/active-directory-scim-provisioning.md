@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Systeem voor het identiteitsbeheer van verschillende domeinen gebruiken voor het automatisch inrichten van gebruikers en groepen van Azure Active Directory voor toepassingen
 
@@ -685,7 +685,7 @@ De volgende afbeelding ziet u de Azure Active Directory voor het beheren van de 
 ## <a name="group-provisioning-and-de-provisioning"></a>Groep inrichting en ongedaan inrichten
 De volgende afbeelding ziet u de berichten dat Azure AcD naar een service SCIM verzendt voor het beheren van de levenscyclus van een groep in een andere identiteit store.  Deze berichten verschillen van de berichten die betrekking hebben op gebruikers op drie manieren: 
 
-* Het schema van een bron wordt geïdentificeerd als http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+* Het schema van een bron wordt geïdentificeerd als `http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group`.  
 * Aanvragen voor het ophalen van groepen kunt u bepalen dat het kenmerk leden moeten worden uitgesloten van een resource in het antwoord op de aanvraag is.  
 * Aanvragen om te bepalen of een verwijzingskenmerk een bepaalde waarde zijn aanvragen over het kenmerk leden.  
 

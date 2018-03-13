@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
-ms.author: pratshar
-ms.openlocfilehash: 5e1f9a0298c2abd542d7687778716f644a1d0a47
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 03/09/2018
+ms.author: ponatara
+ms.openlocfilehash: 5c94e26c4639284f7e4c53d924f16040118d996c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Fouten bij failover van een virtuele machine in Azure oplossen
 U wordt een van de volgende fouten tijdens de failover van een virtuele machine in Azure. Voor het oplossen, kunt u de stappen beschreven voor elke fout.
@@ -29,10 +29,10 @@ U wordt een van de volgende fouten tijdens de failover van een virtuele machine 
 Site Recovery is niet een mislukte maken via de virtuele machine in Azure. Dit kan gebeuren vanwege een van de volgende redenen:
 
 * Is er niet voldoende quotum beschikbaar voor het maken van de virtuele machine: U kunt de beschikbare quota controleren door te gaan naar de abonnement -> Gebruik + quota's. U kunt openen een [nieuw ondersteuningsverzoek](http://aka.ms/getazuresupport) het quotum te verhogen.
-     
+
 * U probeert te failover virtuele machines van verschillende grootte families in dezelfde beschikbaarheidsset. Zorg ervoor dat u dezelfde familie van de grootte voor alle virtuele machines in dezelfde beschikbaarheidsset kiezen. Grootte wijzigen door te gaan naar berekenings- en instellingen van de virtuele machine en probeer vervolgens de failover.
-  
-* Er is een beleid voor het abonnement dat voorkomt het maken van een virtuele machine. Wijzig het beleid voor het toestaan van het maken van een virtuele machine en probeer de failover. 
+
+* Er is een beleid voor het abonnement dat voorkomt het maken van een virtuele machine. Wijzig het beleid voor het toestaan van het maken van een virtuele machine en probeer de failover.
 
 ## <a name="failover-failed-with-error-id-28092"></a>Failover is mislukt met fout-ID 28092
 
@@ -42,7 +42,7 @@ Site Recovery is niet een netwerkinterface voor de mislukte maken via de virtuel
 
 Site Recovery is niet een mislukte maken via de klassieke virtuele machine in Azure. Deze fout kan optreden omdat:
 
-* Een van de resources, zoals een virtueel netwerk dat is vereist voor de virtuele machine moet worden gemaakt bestaat niet. Maken van het virtuele netwerk, zoals bepaald in de berekenings- en instellingen van de virtuele machine of wijzig de instelling voor een virtueel netwerk dat al bestaat en voer vervolgens de failover opnieuw uit. 
+* Een van de resources, zoals een virtueel netwerk dat is vereist voor de virtuele machine moet worden gemaakt bestaat niet. Maken van het virtuele netwerk, zoals bepaald in de berekenings- en instellingen van de virtuele machine of wijzig de instelling voor een virtueel netwerk dat al bestaat en voer vervolgens de failover opnieuw uit.
 
 
 ## <a name="next-steps"></a>Volgende stappen

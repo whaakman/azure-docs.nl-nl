@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
 Nu beschikbaar: Azure Cosmos DB [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner). Meer informatie [schatting van de doorvoer moet](request-units.md#estimating-throughput-needs).
@@ -35,9 +35,9 @@ Om te bieden voorspelbare prestaties, die u wilt reserveren doorvoer in eenheden
 Na het lezen van dit artikel, hebt u mogelijk de volgende vragen beantwoorden:  
 
 * Wat zijn aanvraageenheden en kosten aanvragen?
-* Hoe geef ik aanvraag eenheid capaciteit voor een verzameling?
+* Hoe geef ik aanvraag eenheid capaciteit voor een container?
 * Hoe u schat dat mijn toepassing aanvraag heeft?
-* Wat gebeurt er als ik aanvraag eenheid capaciteit voor een verzameling overschrijdt?
+* Wat gebeurt er als ik aanvraag eenheid capaciteit voor een container overschrijdt?
 
 Als Azure Cosmos DB een meerdere model-database is, is het belangrijk te weten dat in dit artikel naar een verzameling/document voor een document een grafiek/knooppunt voor de API van een grafiek en een Tabelentiteit voor de tabel-API-API verwijst. Dit artikel verwijst naar het concept van een verzameling, de grafiek of de tabel als een container en een document, een knooppunt of een entiteit als een item.
 
@@ -53,14 +53,14 @@ Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij 
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Capaciteit van de aanvraag-eenheid opgeven in Azure Cosmos-DB
-Bij het starten van een nieuwe verzameling, de tabel of de grafiek, u het aantal aanvraageenheden per seconde (ru/s per seconde) die u wilt gereserveerd. Op basis van de ingerichte doorvoer, Azure Cosmos DB toegewezen fysieke partities voor het hosten van uw verzameling en splitsingen/rebalances gegevens meerdere partities wanneer deze groeit.
+Bij het starten van een nieuwe container u opgeven dat het aantal aanvraageenheden per seconde (ru/s per seconde) die u wilt gereserveerd. Op basis van de ingerichte doorvoer, Azure Cosmos DB toegewezen fysieke partities voor het hosten van de container en splitsingen/rebalances gegevens meerdere partities wanneer deze groeit.
 
-Azure DB Cosmos-containers kunnen worden gemaakt als vast of onbeperkt. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Een container voor onbeperkte maken moet u een minimale doorvoer van 1000 RU/s en een [partitiesleutel](partition-data.md). Aangezien uw gegevens hebben mogelijk om te worden verdeeld over meerdere partities, is het nodig om het kiezen van een partitiesleutel met een hoge kardinaliteit (100 tot miljoenen afzonderlijke waarden). Selecteren van een partitiesleutel met veel afzonderlijke waarden zorgt u ervoor dat uw tabel-verzameling/grafiek en aanvragen kunnen worden geschaald op uniforme wijze door Azure Cosmos DB. 
+Azure DB Cosmos-containers kunnen worden gemaakt als vast of onbeperkt. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Een container voor onbeperkte maken moet u een minimale doorvoer van 1000 RU/s en een [partitiesleutel](partition-data.md). Aangezien uw gegevens hebben mogelijk om te worden verdeeld over meerdere partities, is het nodig om het kiezen van een partitiesleutel met een hoge kardinaliteit (100 tot miljoenen afzonderlijke waarden). Selecteren van een partitiesleutel met veel afzonderlijke waarden zorgt u ervoor dat uw tabel-container/grafiek en aanvragen kunnen worden geschaald op uniforme wijze door Azure Cosmos DB. 
 
 > [!NOTE]
 > Een partitiesleutel is een grens van een logische en niet een fysieke. Daarom hoeft u niet wilt beperken het aantal afzonderlijke partitie sleutelwaarden. In feite is het beter om meer afzonderlijke partitie sleutelwaarden dan minder Azure Cosmos DB beschikt over meer opties voor taakverdeling.
 
-Hier volgt een codefragment voor het maken van een verzameling met 3000 aanvraageenheden per tweede met de .NET SDK:
+Hier volgt een codefragment voor het maken van een container met 3000 aanvraageenheden per tweede met de .NET SDK:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -75,7 +75,7 @@ await client.CreateDocumentCollectionAsync(
 
 Azure Cosmos-database is van invloed op een model reservering op doorvoer. Dat wil zeggen, u wordt gefactureerd voor de hoeveelheid doorvoer *gereserveerde*, ongeacht hoeveel waarop doorvoer is actief *gebruikt*. Als uw toepassing de belasting, gegevens en gebruiksgegevens patronen wijzigen kunt u eenvoudig de schaal omhoog en omlaag de hoeveelheid gereserveerd RUs via SDK's of met behulp van de [Azure Portal](https://portal.azure.com).
 
-Elke verzameling, de tabel/het grafiek zijn toegewezen aan een `Offer` resource in Azure Cosmos DB met metagegevens over de ingerichte doorvoer. U kunt de toegewezen doorvoer wijzigen door op de overeenkomende resource in de aanbieding voor een container te zoeken en vervolgens bijgewerkt met de nieuwe waarde voor de doorvoer. Hier volgt een codefragment voor het wijzigen van de doorvoer van een verzameling in 5000 aanvraageenheden per tweede met de .NET SDK:
+Elke container is toegewezen aan een `Offer` resource in Azure Cosmos DB met metagegevens over de ingerichte doorvoer. U kunt de toegewezen doorvoer wijzigen door op de overeenkomende resource in de aanbieding voor een container te zoeken en vervolgens bijgewerkt met de nieuwe waarde voor de doorvoer. Hier volgt een codefragment voor het wijzigen van de doorvoer van een container in 5000 aanvraageenheden per tweede met de .NET SDK:
 
 ```csharp
 // Fetch the resource to be updated
@@ -334,10 +334,10 @@ Met deze informatie kunt u schat de RU-vereisten voor deze toepassing gezien het
 | Selecteer door de Voedingsgroep |10 |700 |
 | Selecteer top 10 |15 |150 totaal |
 
-In dit geval verwacht u dat de vereiste van een gemiddelde doorvoersnelheid van 1,275 RU/s.  Afronden naar de dichtstbijzijnde 100, zou u 1.300 RU/s voor de verzameling van deze toepassing inrichten.
+In dit geval verwacht u dat de vereiste van een gemiddelde doorvoersnelheid van 1,275 RU/s.  Afronden naar de dichtstbijzijnde 100, zou u 1.300 RU/s voor deze toepassing container inrichten.
 
 ## <a id="RequestRateTooLarge"></a> Overschrijding van gereserveerde doorvoer grenzen in Azure Cosmos-DB
-Intrekken dat verzoek eenheidsverbruik wordt beoordeeld als een percentage per seconde als het budget leeg is. Voor toepassingen die groter zijn dan de frequentie van de eenheid ingerichte aanvraag voor een container, worden aanvragen voor deze verzameling beperkt tot de snelheid onder het niveau van de gereserveerde zakt. Wanneer er een vertraging optreedt, de server optie preventief eindigt de aanvraag met RequestRateTooLargeException (HTTP-statuscode 429) en retourneert de x-ms-opnieuw-na-ms-header die aangeeft van de hoeveelheid tijd in milliseconden, dat de gebruiker alvorens nogmaals te proberen wachten moet de de aanvraag.
+Intrekken dat verzoek eenheidsverbruik wordt beoordeeld als een percentage per seconde als het budget leeg is. Voor toepassingen die groter zijn dan de frequentie van de eenheid ingerichte aanvraag voor een container, worden aanvragen voor die container beperkt tot de snelheid onder het niveau van de gereserveerde zakt. Wanneer er een vertraging optreedt, de server optie preventief eindigt de aanvraag met RequestRateTooLargeException (HTTP-statuscode 429) en retourneert de x-ms-opnieuw-na-ms-header die aangeeft van de hoeveelheid tijd in milliseconden, dat de gebruiker alvorens nogmaals te proberen wachten moet de de aanvraag.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
@@ -348,7 +348,7 @@ Als u gebruikmaakt van de Client-SDK voor .NET en LINQ-query's en vervolgens de 
 Als er meer dan één client cumulatief werken boven het percentage aanvragen het standaardgedrag voor opnieuw proberen niet toereikend zijn en de client genereert een DocumentClientException met statuscode 429 tot de toepassing. In dergelijke gevallen overweegt u verwerken gedrag voor het opnieuw en logica in uw toepassing fout routines voor het afhandelen of een uitbreiding van de gereserveerde doorvoer voor de container.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Overschrijding van gereserveerde doorvoer grenzen in de MongoDB-API
-Toepassingen die groter is dan de ingerichte aanvraageenheden voor een verzameling wordt pas de frequentie waarmee het niveau van de gereserveerde worden beperkt. Wanneer er een vertraging optreedt, de back-end optie preventief beëindigd wanneer de aanvraag met een *16500* foutcode - *te veel aanvragen*. Standaard de MongoDB-API wordt automatisch opnieuw geprobeerd maximaal 10 keer voordat er een *te veel aanvragen* foutcode. Als er veel *te veel aanvragen* foutcodes, kunt u ook beide toe te voegen gedrag voor het opnieuw in routines voor foutafhandeling van uw toepassing of [waardoor de gereserveerde doorvoer voor de verzameling](set-throughput.md).
+Toepassingen die groter is dan de aanvraageenheden ingerichte voor een container wordt pas de frequentie waarmee het niveau van de gereserveerde worden beperkt. Wanneer er een vertraging optreedt, de back-end optie preventief beëindigd wanneer de aanvraag met een *16500* foutcode - *te veel aanvragen*. Standaard de MongoDB-API wordt automatisch opnieuw geprobeerd maximaal 10 keer voordat er een *te veel aanvragen* foutcode. Als er veel *te veel aanvragen* foutcodes, kunt u ook beide toe te voegen gedrag voor het opnieuw in routines voor foutafhandeling van uw toepassing of [waardoor de gereserveerde doorvoer voor de container](set-throughput.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees deze informatiebronnen voor meer informatie over gereserveerde doorvoer met Azure Cosmos DB databases:

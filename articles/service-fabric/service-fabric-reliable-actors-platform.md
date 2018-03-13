@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee248cb656eeb54e259ff1adf45080a207b5a866
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Hoe Reliable Actors het Service Fabric-platform gebruiken
 In dit artikel wordt uitgelegd hoe Reliable Actors op de Azure Service Fabric-platform. Reliable Actors uitvoeren in een framework dat wordt gehost in een implementatie van een betrouwbare stateful service aangeroepen de *actor service*. De service actor bevat alle componenten die vereist zijn voor het beheren van de levenscyclus van en het bericht tijdens het verzenden van uw gebruiken:
@@ -41,9 +41,6 @@ In Reliable Services uw service neemt over de `StatefulService` klasse. Deze kla
 * Service back-up en herstel.
 * Gedeelde functionaliteit voor alle actoren, bijvoorbeeld een Circuitonderbreker.
 * Externe procedureaanroepen weer dat op de actor-service zelf en op elke afzonderlijke actor.
-
-> [!NOTE]
-> Stateful services worden momenteel niet ondersteund in Java-/ Linux.
 
 ### <a name="using-the-actor-service"></a>Met behulp van de service actor
 Actor-exemplaren hebben toegang tot de actor-service waarin ze worden uitgevoerd. Actor-exemplaren kunnen via de service actor programmatisch verkrijgen de servicecontext. De servicecontext heeft de partitie-ID, de servicenaam, de toepassingsnaam en andere Service Fabric-platform-specifieke informatie:
@@ -347,7 +344,7 @@ Actorservices zijn gepartitioneerde stateful services. Elke partitie van een act
 Reliable Services kunnen worden gemaakt met verschillende partitieschema's en partitie sleutelbereiken. De actor-service gebruikt het partitieschema Int64 alle belangrijke functies Int64 actoren toewijzen aan partities.
 
 ### <a name="actor-id"></a>Actor-ID
-Elke actor dat gemaakt in de service heeft een unieke ID die is gekoppeld, vertegenwoordigd door de `ActorId` klasse. `ActorId`is een ondoorzichtige ID-waarde die voor gelijkmatige verdeling van actoren kan worden gebruikt tussen de servicepartities door het genereren van willekeurige id's:
+Elke actor dat gemaakt in de service heeft een unieke ID die is gekoppeld, vertegenwoordigd door de `ActorId` klasse. `ActorId` is een ondoorzichtige ID-waarde die voor gelijkmatige verdeling van actoren kan worden gebruikt tussen de servicepartities door het genereren van willekeurige id's:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());

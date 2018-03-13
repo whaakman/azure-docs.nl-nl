@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d6a99917e732a3439a31cafa5608348694014054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303b3ae0ee7b4baeda974d2b3c62fefa0a68796f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Los de fouten voor registratie resourceprovider
 
@@ -40,6 +40,8 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
+Het foutbericht geeft suggesties voor de ondersteunde locaties en API-versies. U kunt uw sjabloon wijzigen in een van de voorgestelde waarden. De meeste providers zijn geregistreerde automatisch door de Azure-portal of de opdrachtregelinterface die u gebruikt, maar niet alle. Als u niet een bepaalde bron-provider voorafgaand aan hebt gebruikt, moet u wellicht dat de provider te registreren.
+
 ## <a name="cause"></a>Oorzaak
 
 U ontvangt deze fouten voor een van drie redenen:
@@ -48,11 +50,7 @@ U ontvangt deze fouten voor een van drie redenen:
 1. API-versie niet ondersteund voor het brontype
 1. Locatie niet ondersteund voor het brontype
 
-## <a name="solution"></a>Oplossing
-
-Het foutbericht geeft suggesties voor de ondersteunde locaties en API-versies. U kunt uw sjabloon wijzigen in een van de voorgestelde waarden. De meeste providers zijn geregistreerde automatisch door de Azure-portal of de opdrachtregelinterface die u gebruikt, maar niet alle. Als u niet een bepaalde bron-provider voorafgaand aan hebt gebruikt, moet u wellicht dat de provider te registreren. U kunt meer informatie over resourceproviders via PowerShell of Azure CLI detecteren.
-
-### <a name="solution-1"></a>Oplossing 1
+## <a name="solution-1---powershell"></a>Oplossing 1 - PowerShell
 
 Gebruik voor PowerShell **Get-AzureRmResourceProvider** om uw registratiestatus te bekijken.
 
@@ -78,9 +76,7 @@ Als u de ondersteunde API-versies voor een bepaald type resource, gebruikt u:
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
-### <a name="solution-2"></a>Oplossing 2
-
-**Azure CLI**
+## <a name="solution-2---azure-cli"></a>Oplossing 2: Azure CLI
 
 U kunt controleren of de provider is geregistreerd, gebruiken de `az provider list` opdracht.
 
@@ -100,7 +96,7 @@ Overzicht van de ondersteunde locaties en API-versies voor een brontype gebruike
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-### <a name="solution-3"></a>Oplossing 3
+## <a name="solution-3---azure-portal"></a>Oplossing 3 - Azure-portal
 
 U kunt de registratiestatus zien en de naamruimte via de portal een resourceprovider registreren.
 

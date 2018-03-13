@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 888740b434292c2ccc36fc90e0a9baaec96e2033
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 55946915573f53bb7e1917d4705e6d8e74abf448
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -37,8 +37,6 @@ ms.lasthandoff: 03/08/2018
 > 
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
-Dit pakket is afgeschaft en vervangen door Microsoft.Azure.DocumentDB https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/
 
 <table>
 
@@ -61,12 +59,6 @@ De Azure Cosmos DB .NET Core SDK heeft functie pariteit met de nieuwste versie v
 
 > [!NOTE] 
 > De Azure Cosmos DB .NET Core SDK is nog niet compatibel met Universal Windows Platform (UWP)-apps. Als u geïnteresseerd in de .NET Core-SDK die ondersteuning biedt voor UWP-apps bent, e-mailbericht verzendt [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
-
-### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
-
-* Dit pakket is afgeschaft en vervangen door Microsoft.Azure.DocumentDB https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/
-* Vaste KeyNotFoundException voor cross-partitie order by-query's in complexere cases.
-* Vaste bug waar JsonPropery kenmerk in de component select voor LINQ-query's niet wordt wordt gehonoreerd.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
@@ -178,7 +170,6 @@ Als u vragen met betrekking tot deze SDK hebt, posten naar [StackOverflow](http:
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
-| [1.9.0](#1.9.0) |05 maart 2018 |--- |
 | [1.8.2](#1.8.2) |21 februari 2018 |--- |
 | [1.8.1](#1.8.1) |05 februari 2018 |--- |
 | [1.7.1](#1.7.1) |16 november 2017 |--- |

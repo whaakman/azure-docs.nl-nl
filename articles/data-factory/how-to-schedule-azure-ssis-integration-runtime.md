@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 69eae46dc554911e0caadcf0aafbaec9e39f727d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Het starten en stoppen van de runtime van een Azure SSIS-integratie plannen 
 Met een Azure-SSIS (SQL Server Integration Services)-integratie-runtime heeft (IR) een kosten die gekoppeld. Daarom wilt u de IR alleen uitvoeren als u wilt SSIS-pakketten in Azure uitvoeren en stop de toepassing wanneer u deze niet nodig. U kunt de Data Factory-gebruikersinterface of Azure PowerShell om te gebruiken [handmatig starten of stoppen van een Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)). Dit artikel wordt beschreven hoe u plant starten en stoppen van een Azure-SSIS-integratie runtime (IR) met behulp van Azure Automation en Azure Data Factory. Hier volgen de stappen op hoog niveau beschreven in dit artikel:
@@ -25,7 +25,7 @@ Met een Azure-SSIS (SQL Server Integration Services)-integratie-runtime heeft (I
 1. **Maken en testen van een Azure Automation-runbook.** In deze stap maakt maken u een PowerShell-runbook met het script dat wordt gestart of gestopt een Azure SSIS-IR Vervolgens het runbook testen in scenario's voor zowel starten en stoppen en Bevestig dat IR wordt gestart of gestopt. 
 2. **Maak twee schema's voor het runbook.** Voor de eerste planning configureert u het runbook met gestart als de bewerking. Voor de tweede planning, configureert u het runbook met stoppen als de bewerking. Voor zowel de planningen geeft u de frequentie waarmee het runbook wordt uitgevoerd. U wilt bijvoorbeeld plannen van het eerste beheerpunt voor uitvoering op 8 uur, dagelijks en de tweede op 23: 00 uur dagelijks wordt uitgevoerd. Wanneer de eerste runbook wordt uitgevoerd, wordt de Azure SSIS-IR gestart Wanneer het tweede runbook wordt uitgevoerd, stopt de SSIS-IR van Azure 
 3. **Maken van twee webhooks voor het runbook**, één voor het opnieuw starten en de andere voor de bewerking uit te stoppen. U kunt de URL's van deze webhooks gebruiken bij het configureren van webactiviteiten in een Data Factory-pijplijn. 
-4. **Maken van een Data Factory-pijplijn**. De pijplijn die u maakt, bestaat uit vier activiteiten. De eerste **Web** activiteit roept de eerste webhook voor het starten van de Azure SSIS-IR De **wacht** activiteit wacht gedurende 30 minuten (1800 seconden) voor de Azure SSIS-IR te starten. De **opgeslagen Procedure** activiteit wordt uitgevoerd voor een SQL-script dat wordt uitgevoerd het SSIS-pakket. De tweede **Web** activiteit stopt de SSIS-IR van Azure Zie voor meer informatie over het aanroepen van een SSIS-pakket van een Data Factory-pijplijn met behulp van de activiteit opgeslagen Procedure [aanroepen van een pakket SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Vervolgens maakt u een schema-trigger voor het plannen van de pijplijn om uit te voeren met de frequentie die u opgeeft.
+4. **Maken van een Data Factory-pijplijn**. De pijplijn die u maakt, bestaat uit drie activiteiten. De eerste **Web** activiteit roept de eerste webhook voor het starten van de Azure SSIS-IR De **opgeslagen Procedure** activiteit wordt uitgevoerd voor een SQL-script dat wordt uitgevoerd het SSIS-pakket. De tweede **Web** activiteit stopt de SSIS-IR van Azure Zie voor meer informatie over het aanroepen van een SSIS-pakket van een Data Factory-pijplijn met behulp van de activiteit opgeslagen Procedure [aanroepen van een pakket SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Vervolgens maakt u een schema-trigger voor het plannen van de pijplijn om uit te voeren met de frequentie die u opgeeft.
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [aanroepen SSIS-pakketten met behulp van de activiteit opgeslagen procedure in versie 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -223,12 +223,11 @@ U moet beschikken over twee URL's, één voor de **StartAzureSsisIR** webhook en
 ## <a name="create-and-schedule-a-data-factory-pipeline-that-startsstops-the-ir"></a>Maken en plannen van een Data Factory-pijplijn die de IR starten/stoppen
 Deze sectie wordt beschreven hoe u een webactiviteit gebruiken om aan te roepen de webhooks die u in de vorige sectie hebt gemaakt.
 
-De pijplijn die u maakt, bestaat uit vier activiteiten. 
+De pijplijn die u maakt, bestaat uit drie activiteiten. 
 
 1. De eerste **Web** activiteit roept de eerste webhook voor het starten van de Azure SSIS-IR 
-2. De **wacht** activiteit wacht gedurende 30 minuten (1800 seconden) voor de Azure SSIS-IR te starten. 
-3. De **opgeslagen Procedure** activiteit wordt uitgevoerd voor een SQL-script dat wordt uitgevoerd het SSIS-pakket. De tweede **Web** activiteit stopt de SSIS-IR van Azure Zie voor meer informatie over het aanroepen van een SSIS-pakket van een Data Factory-pijplijn met behulp van de activiteit opgeslagen Procedure [aanroepen van een pakket SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). 
-4. De tweede **Web** activiteit roept de webhook om te stoppen van de Azure SSIS-IR 
+2. De **opgeslagen Procedure** activiteit wordt uitgevoerd voor een SQL-script dat wordt uitgevoerd het SSIS-pakket. De tweede **Web** activiteit stopt de SSIS-IR van Azure Zie voor meer informatie over het aanroepen van een SSIS-pakket van een Data Factory-pijplijn met behulp van de activiteit opgeslagen Procedure [aanroepen van een pakket SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). 
+3. De tweede **Web** activiteit roept de webhook om te stoppen van de Azure SSIS-IR 
 
 Nadat u maken en testen van de pijplijn, kunt u de trigger van een planning maken en koppelen aan de pijplijn. De schema-trigger definieert een planning voor de pijplijn. Stel dat u een trigger die is gepland op 23: 00 uur per dag maken. De trigger wordt de pijplijn op 23 uur, dagelijks uitgevoerd. De pijplijn wordt gestart van de Azure SSIS-IR SSIS-pakket wordt uitgevoerd en stopt het Azure SSIS-IR 
 
@@ -392,7 +391,7 @@ Nu dat de pijplijn als u verwacht werkt, kunt u een trigger die u kunt deze pipe
 6. Gebruik voor het controleren van de trigger wordt uitgevoerd en wordt uitgevoerd met pipeline, de **Monitor** tabblad aan de linkerkant. Zie voor gedetailleerde stappen [bewaken van de pijplijn](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Pijplijnuitvoeringen](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. Als u wilt weergeven van de activiteit wordt uitgevoerd die zijn gekoppeld aan een pijplijn uitvoeren, selecteert u de eerste koppeling (**weergave activiteit wordt uitgevoerd**) in de **acties** kolom. U ziet de vier activiteit wordt uitgevoerd die zijn gekoppeld aan elke activiteit in de pijplijn (eerste Web-activiteit, wachtactiviteit activiteit opgeslagen Procedure en de tweede Web-activiteit). Als u wilt overschakelen terug om weer te geven van de pijplijn wordt uitgevoerd, selecteert u **pijplijnen** koppeling aan de bovenkant.
+7. Als u wilt weergeven van de activiteit wordt uitgevoerd die zijn gekoppeld aan een pijplijn uitvoeren, selecteert u de eerste koppeling (**weergave activiteit wordt uitgevoerd**) in de **acties** kolom. U ziet de drie activiteit wordt uitgevoerd die zijn gekoppeld aan elke activiteit in de pijplijn (eerste Web-activiteit, de activiteit opgeslagen Procedure en de tweede Web-activiteit). Als u wilt overschakelen terug om weer te geven van de pijplijn wordt uitgevoerd, selecteert u **pijplijnen** koppeling aan de bovenkant.
 
     ![Uitvoering van activiteiten](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 8. U kunt de trigger wordt uitgevoerd ook weergeven door te selecteren **activeren wordt uitgevoerd** uit de vervolgkeuzelijst die naast de **pijplijn uitgevoerd** aan de bovenkant. 
