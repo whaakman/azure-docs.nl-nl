@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 695824ef2537a97ea0530f2c33ad24d5cd9e20f8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Belangrijke overwegingen: met behulp van services of het ontwikkelen van apps voor Azure-Stack
 
@@ -49,7 +49,7 @@ De volgende tabel beschrijft de belangrijke verschillen tussen Azure-Stack en Az
 | Wie kan u contact opnemen voor ondersteuning? | Microsoft | Een geïntegreerd systeem contact op met uw Azure-Stack-operator (bij uw organisatie of service provider) voor ondersteuning.<br><br>Voor ondersteuning van Azure Stack Development Kit, gaat u naar de [Microsoft forums](https://social.msdn.microsoft.com/Forums/home?forum=azurestack). Omdat de development kit een evaluatieomgeving is, is geen officiële ondersteuning wordt aangeboden via Microsoft Customer ondersteunen Services (CSS).
 | Beschikbare services | Overzicht van de [Azure producten](https://azure.microsoft.com/services/?b=17.04b). Beschikbare services verschillen per Azure-regio. | Azure-Stack ondersteunt een subset van de Azure-services. Werkelijke services variëren, afhankelijk van uw organisatie of service provider kiest te bieden.
 | Azure Resource Manager-eindpunt * | https://management.azure.com | Gebruik het eindpunt dat uw Azure-Stack-operator opgegeven voor een systeem Azure Stack geïntegreerd.<br><br>Gebruik voor de development kit: https://management.local.azurestack.external
-| Portal-URL * | [https://Portal.Azure.com](https://portal.azure.com) | Ga naar de URL die uw Azure-Stack-operator opgegeven voor een systeem Azure Stack geïntegreerd.<br><br>Gebruik voor de development kit: https://portal.local.azurestack.external
+| Portal-URL * | [https://portal.azure.com](https://portal.azure.com) | Ga naar de URL die uw Azure-Stack-operator opgegeven voor een systeem Azure Stack geïntegreerd.<br><br>Gebruik voor de development kit: https://portal.local.azurestack.external
 | Regio | U kunt selecteren welke regio die u implementeren wilt op. | Gebruik voor een Azure-Stack geïntegreerd, de regio die beschikbaar is op uw systeem.<br><br>Voor de development kit worden regio altijd **lokale**.
 | Resourcegroepen | Een resourcegroep kan regio's omspannen. | Er is slechts één regio voor zowel geïntegreerde systemen en de development kit.
 |Ondersteunde naamruimten, resourcetypen en API-versies | De meest recente (of eerdere versies die nog niet zijn afgeschaft). | Azure-Stack ondersteunt specifieke versies. Zie de sectie 'Vereisten versie' van dit artikel.

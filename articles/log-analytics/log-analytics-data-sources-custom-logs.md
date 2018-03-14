@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: bwren
 ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Aangepaste logboeken in Log Analytics
 De gegevensbron voor de aangepaste logboeken in Log Analytics kunt u het verzamelen van gebeurtenissen uit tekstbestanden op Windows- en Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog.  Zodra verzameld, kunt u elke record in de aanmelding bij afzonderlijke velden met parseren de [aangepaste velden](log-analytics-custom-fields.md) functie van logboekanalyse.
@@ -29,7 +29,7 @@ De logboekbestanden moeten worden verzameld, moeten overeenkomen met de volgende
 
 - Het logboek moet hebben één vermelding per regel of een tijdstempel die overeenkomt met een van de volgende indelingen aan het begin van elke vermelding te gebruiken.
 
-    JJJJ-MM-DD: MM: SS<br>M/D/JJJJ UU: MM: SS AM/PM <br>Ma DD JJJJ: mm: ss
+    YYYY-MM-DD HH:MM:SS<br>M/D/JJJJ UU: MM: SS AM/PM <br>Ma DD JJJJ: mm: ss
 
 - Het logboekbestand mag geen circulaire updates toestaan waar het bestand wordt overschreven met nieuwe gegevens.
 - Het logboekbestand moet gebruiken ASCII- of UTF-8-codering.  Andere indelingen zoals UTF-16 worden niet ondersteund.

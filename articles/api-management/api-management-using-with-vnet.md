@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
 ms.openlocfilehash: fe5e26a957d18f1f7f5ed360a27bb1f9c9826718
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Virtuele netwerken van Azure (vnet's) kunt u een van uw Azure-resources in een internet-routeable netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over virtuele netwerken van Azure beginnen met de informatie hier: [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
@@ -39,7 +39,7 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
 + Een exemplaar APIM. Zie voor meer informatie [Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 + VNET-connectiviteit is beschikbaar in alleen de lagen Premium en ontwikkelaars. Overschakelen naar een van deze lagen volgens de aanwijzingen in de [upgraden en schalen](upgrade-and-scale.md#upgrade-and-scale) onderwerp.
 
-## <a name="enable-vpn"></a>Inschakelen VNET-verbinding
+## <a name="enable-vpn"> </a>VNET-verbinding inschakelen
 
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>VNET-connectiviteit met de Azure portal inschakelen
 
@@ -81,19 +81,19 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
 > [!IMPORTANT]
 > Als u API Management uit een VNET verwijderen of de machine is geïmplementeerd in een wijzigt, kan de eerder gebruikte VNET tot twee uur te blijven vergrendeld. Tijdens deze periode wordt het niet mogelijk zijn om te verwijderen van het VNET of implementeren van een nieuwe resource toe.
 
-## <a name="enable-vnet-powershell"></a>Inschakelen VNET-verbinding met PowerShell-cmdlets
+## <a name="enable-vnet-powershell"> </a>VNET-verbinding met PowerShell-cmdlets inschakelen
 U kunt ook inschakelen met behulp van de PowerShell-cmdlets voor VNET-connectiviteit
 
 * **Maak een API Management-service binnen een VNET**: Gebruik de cmdlet [nieuw AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) om een Azure API Management-service binnen een VNET te maken.
 
 * **Implementeren van een bestaande API Management-service binnen een VNET**: Gebruik de cmdlet [Update AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) verplaatsen van een bestaande Azure API Management-service in een virtueel netwerk.
 
-## <a name="connect-vnet"></a>Verbinding maken met een webservice die wordt gehost in een virtueel netwerk
+## <a name="connect-vnet"> </a>Verbinding maken met een webservice die wordt gehost in een virtueel netwerk
 Nadat uw API Management-service is verbonden met het VNET, gaat toegang tot services in het back-end niet anders zijn dan de toegang tot openbare services zijn. Typ in het lokale IP-adres of de hostnaam (als een DNS-server is geconfigureerd voor het VNET) van uw web-service in de **webservice-URL** veld bij het maken van een nieuwe API of een bestaande bewerkt.
 
 ![API via VPN-netwerk toevoegen][api-management-setup-vpn-add-api]
 
-## <a name="network-configuration-issues"></a>Algemene configuratie netwerkproblemen
+## <a name="network-configuration-issues"> </a>Algemene configuratie netwerkproblemen
 Hier volgt een lijst met veelvoorkomende configuratiefouten die optreden kunnen tijdens het implementeren van API Management-service in een virtueel netwerk.
 
 * **Aangepaste DNS-server setup**: de API Management-service is afhankelijk van verschillende Azure-services. Wanneer API Management wordt gehost in een VNET met een aangepaste DNS-server, moet het omzetten van de hostnamen van deze Azure-services. Volg [dit](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) hulp bij het aangepaste DNS-instellingen. Zie de onderstaande tabel voor poorten en andere netwerkvereisten ter referentie.
@@ -139,7 +139,7 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 >Azure API Management wordt niet ondersteund met ExpressRoute-configuraties die **onjuist cross-adverteert routes van het pad voor openbare peering naar het pad voor persoonlijke peering**. ExpressRoute-configuraties waarvoor openbare peering is geconfigureerd, ontvangen route-advertisements van Microsoft voor een groot aantal Microsoft Azure-IP-adresbereiken. Als deze adresbereiken onjuist cross aangekondigd op het pad voor persoonlijke peering, is het eindresultaat dat alle uitgaande pakketten van het Azure API Management-exemplaar subnet onjuist force via een tunnel naar een klant on-premises netwerk infrastructuur. Deze stroom van het netwerk verbreekt Azure API Management. De oplossing voor dit probleem is cross-adverteert routes van het pad voor openbare peering naar het pad voor persoonlijke peering stoppen.
 
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"> </a>Het oplossen van problemen
 * **Initiële Setup**: wanneer de eerste implementatie van API Management-service in een subnet niet slaagt, wordt u aangeraden eerst een virtuele machine implementeren in hetzelfde subnet. Extern bureaublad van de volgende in de virtuele machine en controleer of er verbinding met een van elke resource hieronder in uw azure-abonnement 
     * Azure Storage-blob
     * Azure SQL Database
@@ -151,26 +151,26 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 
 * **Resourcenavigatiekoppelingen**: bij het implementeren in Resource Manager stijl vnet subnet, API Management het subnet zijn gereserveerd door het maken van een resource-navigatie koppeling. Als het subnet al een resource van een andere provider bevat, implementatie zal **mislukken**. Op dezelfde manier als u een API Management-service naar een ander subnet verplaatsen of verwijderen, wordt verwijderd die resource navigatie-koppeling. 
 
-## <a name="subnet-size"></a> Vereiste subnet
+## <a name="subnet-size"> </a> De vereiste grootte subnet
 Azure bepaalde IP-adressen binnen elk subnet gereserveerd en deze adressen kunnen niet worden gebruikt. De eerste en laatste IP-adressen van de subnetten die zijn gereserveerd voor protocol overeenstemming, samen met drie meer adressen voor Azure-services gebruikt. Zie voor meer informatie [zijn er beperkingen voor het gebruik van IP-adressen binnen deze subnetten?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
 Naast de IP-adressen die worden gebruikt door de Azure-VNET-infrastructuur, gebruikt elk exemplaar van Api Management in het subnet twee IP-adressen per eenheid van Premium-SKU of één IP-adres voor de SKU van de ontwikkelaar. Elk exemplaar reserveert een extra IP-adres voor de externe load balancer. Bij het implementeren in de interne vnet, is een extra IP-adres voor de interne load balancer vereist.
 
 Opgegeven van de berekening boven de minimale grootte van het subnet waarin API Management kunnen worden geïmplementeerd, is slechts/29 waarmee 3 IP-adressen.
 
-## <a name="routing"></a> Routering
+## <a name="routing"> </a> Routering
 + Een taakverdeling openbare IP-adres (VIP) gereserveerd voor toegang tot alle service-eindpunten.
 + Een IP-adres van een subnet IP-adresbereik (DIP) wordt gebruikt voor toegang tot resources binnen het vnet en een openbare IP-adres (VIP) wordt gebruikt voor toegang tot bronnen buiten het vnet.
 + Openbare IP-adres met gelijke taakverdeling adres vindt u op de blade overzicht/Essentials in de Azure portal.
 
-## <a name="limitations"></a>Beperkingen
+## <a name="limitations"> </a>Beperkingen
 * Een subnet met exemplaren van API Management kan geen andere Azure-brontypen bevatten.
 * Het subnet en het API Management-service moeten zich in hetzelfde abonnement.
 * Een subnet met exemplaren van API Management kan niet worden verplaatst tussen abonnementen.
 * Gebruikers zijn verantwoordelijk voor het beheren van de taakverdeling tussen meerdere regio's, zoals ze eigenaar zijn van de routering voor meerdere landen/regio API Management-implementaties in de modus intern virtueel netwerk geconfigureerd.
 
 
-## <a name="related-content"></a>Verwante inhoud
+## <a name="related-content"> </a>Gerelateerde inhoud
 * [Een virtueel netwerk verbinding te maken met back-end via VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Verbinding maken met een virtueel netwerk vanuit verschillende implementatiemodellen](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Het gebruik van de API-Inspector te traceren aanroepen in Azure API Management](api-management-howto-api-inspector.md)

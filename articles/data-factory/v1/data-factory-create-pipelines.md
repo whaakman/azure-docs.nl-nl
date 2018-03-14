@@ -16,10 +16,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: c8ddd2b49ca48f3bf232a8650d870a8b7159f66a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pijplijnen en activiteiten in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,7 +102,7 @@ We gaan dieper in op hoe een pijplijn wordt gedefinieerd in JSON-indeling. De al
 | einde | Einddatum en-tijd voor de pijplijn. Als in de ISO-indeling moet worden opgegeven. Bijvoorbeeld: `2016-10-14T17:32:41Z` <br/><br/>Het is mogelijk om op te geven van een lokale tijd, bijvoorbeeld een geschatte tijd. Hier volgt een voorbeeld: `2016-02-27T06:00:00-05:00`, namelijk 6 AM EST.<br/><br/>Als u wilt de pijplijn voor onbepaalde tijd uitvoeren, geef 9999-09-09 als de waarde voor de end-eigenschap. <br/><br/> Er is een pijplijn active alleen tussen de begintijd en eindtijd. Het is niet uitgevoerd vóór de begintijd of na de eindtijd. Als de pijplijn wordt onderbroken, wordt deze niet uitgevoerd ongeacht de begin- en -tijd. Voor een pijplijn om uit te voeren, moet deze niet worden onderbroken. Zie [planning en uitvoering](data-factory-scheduling-and-execution.md) om te begrijpen hoe plannen en uitvoeren in Azure Data Factory werkt. |Nee <br/><br/>Als u een waarde voor de start-eigenschap opgeeft, moet u de waarde voor de end-eigenschap opgeven.<br/><br/>Zie de opmerkingen voor de **start** eigenschap. |
 | isPaused | Indien ingesteld op true, de pijplijn wordt niet uitgevoerd. Het is in de status onderbroken. Standaardwaarde = false. U kunt deze eigenschap in- of uitschakelen van een pijplijn. |Nee |
 | pipelineMode | De methode voor de planning wordt uitgevoerd voor de pijplijn. Toegestane waarden zijn: (standaard), gepland eenmalige.<br/><br/>De geplande' geeft aan dat de pijplijn met een opgegeven tijdsinterval volgens de actieve periode (begin- en -tijd) wordt uitgevoerd. 'Eenmalige' geeft aan dat de pijplijn wordt slechts één keer uitgevoerd. Eenmalige pijplijnen eenmaal gemaakt kunnen niet worden gewijzigd/bijgewerkt op dit moment. Zie [Onetime pijplijn](#onetime-pipeline) voor meer informatie over het instellen van eenmalige. |Nee |
-| expirationTime | Tijdsduur na het maken waarvoor de [eenmalige pijplijn](#onetime-pipeline) is geldig en moet worden ingericht. Als er geen elk actief is, is mislukt, of in behandeling wordt uitgevoerd, de pijplijn automatisch is bereikt één keer verwijderd de verlooptijd. De standaardwaarde:`"expirationTime": "3.00:00:00"`|Nee |
+| expirationTime | Tijdsduur na het maken waarvoor de [eenmalige pijplijn](#onetime-pipeline) is geldig en moet worden ingericht. Als er geen elk actief is, is mislukt, of in behandeling wordt uitgevoerd, de pijplijn automatisch is bereikt één keer verwijderd de verlooptijd. De standaardwaarde: `"expirationTime": "3.00:00:00"`|Nee |
 | Gegevenssets |Lijst met gegevenssets kunnen worden gebruikt door de activiteiten die zijn gedefinieerd in de pijplijn. Deze eigenschap kan worden gebruikt voor het definiëren van gegevenssets die specifiek zijn voor deze pipeline en niet gedefinieerd in de gegevensfactory. Gegevenssets die zijn gedefinieerd in deze pijplijn kan alleen worden gebruikt door deze pipeline en kan niet worden gedeeld. Zie [binnen het bereik van gegevenssets](data-factory-create-datasets.md#scoped-datasets) voor meer informatie. |Nee |
 
 ## <a name="activity-json"></a>Activity in JSON

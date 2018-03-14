@@ -18,7 +18,7 @@ ms.openlocfilehash: 5ac8aff7e302a255efb86606416131ecf8088137
 ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Algemene technische documentatie van SQL-Connector
 Dit artikel worden de algemene SQL-Connector. Het artikel is van toepassing op de volgende producten:

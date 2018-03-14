@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Active Directory: Identity Protection playbook | Microsoft Docs'
 description: Meer informatie over hoe Azure AD Identity Protection kunt u de mogelijkheid van een aanvaller misbruik maakt van een verdachte identiteit of het apparaat en voor het beveiligen van een identiteit of een apparaat dat eerder is verdacht of bekend is dat inbreuk wordt gepleegd beperken.
 services: active-directory
@@ -45,7 +45,7 @@ Zie voor meer informatie over deze risicogebeurtenis [aanmeldingen vanaf anoniem
 
 De volgende procedure te voltooien, moet u gebruiken:
 
-- De [Tor-browser] om anonieme IP-adressen te simuleren. Mogelijk moet u een virtuele machine gebruiken als uw organisatie het gebruik van de Tor-browser beperkt.
+- De [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) om anonieme IP-adressen te simuleren. Mogelijk moet u een virtuele machine gebruiken als uw organisatie het gebruik van de Tor-browser beperkt.
 - Een testaccount dat nog niet is geregistreerd voor multi-factor authentication.
 
 **De volgende stappen uitvoeren om te simuleren een aanmeldingspagina van een anoniem IP,**:
@@ -73,13 +73,13 @@ Om de volgende procedure te voltooien, moet u een gebruikersaccount gebruiken da
 - Multi-factor authentication is ingeschakeld.
 
 
-**Voer de volgende stappen uit om een aanmelding vanaf een onbekende locatie te simuleren:**
+**Voer de volgende stappen uit om een aanmelding vanaf een onbekende locatie te simuleren**:
 
 1. Laat bij het aanmelden met uw testaccount de MFA-controle mislukken.
 2. Navigeer met uw nieuwe VPN naar [https://myapps.microsoft.com](https://myapps.microsoft.com) en voer de referenties van uw testaccount in.
    
 
-De aanmeldingspagina wordt weergegeven op het dashboard Identity Protection binnen 10-15 minuten.
+De aanmeldingspagina wordt binnen 10-15 minuten weergegeven op het Identity Protection-dashboard.
 
 ### <a name="impossible-travel-to-atypical-location"></a>Onmogelijke reis naar ongewone locatie
 
@@ -94,12 +94,13 @@ Het is moeilijk om de onmogelijke reis te simuleren omdat het machine learning a
 2. Voer de referenties in van het account dat u wilt gebruiken om een risicogebeurtenis voor een onmogelijke reis te genereren.
 3. Wijzig uw gebruikersagent. U kunt uw gebruikersagent in Internet Explorer wijzigen vanuit Ontwikkelhulpprogramma's of in Firefox of Chrome door een invoegtoepassing voor het wisselen van de gebruikersagent te gebruiken.
 4. Wijzig het IP-adres. U kunt uw IP-adres wijzigen met behulp van een VPN, een invoegtoepassing Tor, of van een nieuwe machine in Azure in een ander datacenter draait.
-5. Meld u aan bij [https://myapps.microsoft.com] met dezelfde referenties als hiervoor. Zorg ook dat u dit doet binnen een paar minuten na de vorige aanmelding.
+5. Meld u aan bij [https://myapps.microsoft.com](https://myapps.microsoft.com) met dezelfde referenties als hiervoor. Zorg ook dat u dit doet binnen een paar minuten na de vorige aanmelding.
 
 De aanmeldingspagina wordt weergegeven in het dashboard Identity Protection binnen 2-4 uur.
 
 ## <a name="simulating-vulnerabilities"></a>Beveiligingsproblemen simuleren
 Zwakke plekken zijn zwakke punten in een Azure AD-omgeving die door een kwaadwillend persoon kunnen worden misbruikt. Momenteel zijn er 3 typen zwakke plekken in Azure AD Identity Protection bekend die gebruikmaken van andere functies van Azure AD. Deze beveiligingslekken worden automatisch weergegeven op het Identity Protection-dashboard zodra deze functies zijn ingesteld.
+
 
 * Azure AD [multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).

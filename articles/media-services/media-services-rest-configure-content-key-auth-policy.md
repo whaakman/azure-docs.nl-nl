@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: 3f3972232a4342bfb7d8579d747d0cc4250963bc
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dynamische versleuteling: een autorisatiebeleid voor inhoudssleutels configureren
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -30,7 +30,7 @@ Als u Media Services voor het versleutelen van een asset wilt, moet u een versle
 
 Wanneer een stream is aangevraagd door een speler, gebruikt Media Services de opgegeven sleutel voor het dynamisch versleutelen van uw inhoud met behulp van AES of PlayReady-versleuteling. Voor het ontsleutelen van de stroom, vraagt Windows media player de sleutel van de service sleutellevering. De service beoordeelt om te bepalen of de gebruiker is gemachtigd om op te halen van de sleutel, de autorisatie-beleidsregels die u hebt opgegeven voor de sleutel.
 
-Media Services ondersteunt meerdere manieren om gebruikers te verifiëren die sleutels aanvragen. Het autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen worden hebben met behulp van de beperking voor openen of token. Het beleid token beperkte vergezeld van een token dat is uitgegeven door een beveiligingstokenservice (STS). Media Services ondersteunt tokens in het eenvoudige web token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) en JSON Web Token (JWT) geformatteerd.
+Media Services ondersteunt meerdere manieren om gebruikers te verifiëren die sleutels aanvragen. Het autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen worden hebben met behulp van de beperking voor openen of token. Het beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door een beveiligingstokenservice (STS). Media Services ondersteunt tokens in het eenvoudige web token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) en JSON Web Token (JWT) geformatteerd.
 
 Media Services biedt niet STS. U kunt een aangepaste STS maken of gebruiken van Azure Active Directory (Azure AD) voor het probleem van tokens. De STS moeten worden geconfigureerd voor het maken van een token dat is ondertekend met de opgegeven sleutel- en claims die u hebt opgegeven in de configuratie van de tokenbeperking (zoals beschreven in dit artikel). Als het token geldig is en de claims in het token overeenkomen met die zijn geconfigureerd voor de inhoudssleutel, retourneert de sleutellevering van Media Services de versleutelingssleutel voor de client.
 
@@ -44,7 +44,7 @@ Raadpleeg voor meer informatie de volgende artikelen:
 * Upload en uw assets coderen met de optie AssetCreationOptions.StorageEncrypted.
 * Als u meerdere inhoudssleutels die dezelfde beleidsconfiguratie nodig hebt wilt, raden wij aan dat u een enkel verificatiebeleid maken en deze opnieuw te met meerdere inhoudssleutels gebruiken.
 * De service sleutellevering caches ContentKeyAuthorizationPolicy en de verwante objecten (beleidsopties en beperkingen) gedurende 15 minuten. U kunt ContentKeyAuthorizationPolicy maken en aangeven dat u wilt gebruiken een token beperking, testen en het beleid vervolgens bijwerken naar de beperking die wordt geopend. Dit proces duurt ongeveer 15 minuten voordat de beleid-switches op de geopende versie van het beleid.
-* Als u toevoegt of leveringsbeleid voor uw assets bijwerkt, moet u een bestaande locator verwijderen en een nieuwe locator maken.
+* Als u het leveringsbeleid voor uw asset toevoegt of bijwerkt, moet u een eventuele locator verwijderen en een nieuwe locator maken.
 * U kunt progressief downloaden op dit moment niet coderen.
 * Media Services streaming-eindpunt stelt u de waarde van de header CORS Access Control-toestaan-oorsprong in voorbereidende antwoord als het jokerteken '\*. " Deze waarde werkt goed samen met de meeste spelers, waaronder Azure Media Player, Roku en JWPlayer en anderen. Evenwel sommige spelers die gebruikmaken van dash.js werken niet omdat de referenties modus ingesteld op "bevatten" XMLHttpRequest in hun dash.js het jokerteken mag geen '\*' als de waarde van de Access Control-toestaan-oorsprong. Als een oplossing voor deze beperking in dash.js als host van de client uit één domein: kunt Media Services opgeven dat domein in de voorbereidende response-header. Open een ondersteuningsticket via de Azure portal voor assistentie.
 

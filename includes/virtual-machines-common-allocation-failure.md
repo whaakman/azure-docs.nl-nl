@@ -20,7 +20,7 @@ Deze stappen oplossen veel toewijzingsfouten in virtuele machines:
 
 ## <a name="background-information"></a>Achtergrondinformatie
 ### <a name="how-allocation-works"></a>De werking van toewijzing
-De servers in Azure-datacenters worden in clusters gepartitioneerd. Normaal gesproken een toewijzingsaanvraag wordt uitgevoerd in meerdere clusters, maar het is mogelijk dat bepaalde beperkingen van de aanvraag voor geheugentoewijzing de Azure-platform dwingen om de aanvraag in slechts één cluster. In dit artikel verwijzen we naar dit zoals "vastgemaakt aan een cluster." Afbeelding 1 hieronder ziet u dat het geval van een normale toewijzing waartoe in meerdere clusters. Diagram 2 ziet u dat het geval van een toewijzing die is vastgemaakt aan Cluster 2 omdat waar de bestaande Cloud Service CS_1 of beschikbaarheid set wordt gehost.
+De servers in Azure-datacenters worden in clusters gepartitioneerd. Normaal gesproken wordt er een toewijzingsaanvraag in meerdere clusters uitgevoerd, maar het is mogelijk dat bepaalde beperkingen van de toewijzingsaanvraag het Azure-platform ertoe dwingen de aanvraag in slechts één cluster uit te voeren. In dit artikel verwijzen we naar dit zoals "vastgemaakt aan een cluster." Afbeelding 1 hieronder ziet u dat het geval van een normale toewijzing waartoe in meerdere clusters. Diagram 2 ziet u dat het geval van een toewijzing die is vastgemaakt aan Cluster 2 omdat waar de bestaande Cloud Service CS_1 of beschikbaarheid set wordt gehost.
 ![Diagram van toewijzing](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
 ### <a name="why-allocation-failures-happen"></a>Waarom toewijzingsfouten gebeuren
