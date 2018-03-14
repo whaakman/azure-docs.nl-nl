@@ -16,10 +16,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Gegevenssets in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +86,7 @@ De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:
 | type |Het type van de gegevensset. Geef een van de typen die door Data Factory worden ondersteund (bijvoorbeeld: AzureBlob, AzureSqlTable). <br/><br/>Zie voor meer informatie [gegevensettype](#Type). |Ja |N.v.t. |
 | structuur |Schema voor de gegevensset.<br/><br/>Zie voor meer informatie [gegevenssetstructuur](#Structure). |Nee |N.v.t. |
 | typeProperties | De type-eigenschappen zijn verschillend voor elk type (bijvoorbeeld: Azure Blob, Azure SQL-tabel). Zie voor meer informatie over de ondersteunde typen en hun eigenschappen [gegevensettype](#Type). |Ja |N.v.t. |
-| external | Booleaanse vlag om op te geven of een gegevensset expliciet wordt geproduceerd door een data factory-pijplijn of niet. Als de invoergegevensset voor een activiteit niet door de huidige pipeline gemaakt wordt, moet u deze vlag ingesteld op true. Deze vlag ingesteld op true voor de invoer gegevensset van de eerste activiteit in de pijplijn.  |Nee |onwaar |
+| external | Booleaanse vlag om op te geven of een gegevensset expliciet wordt geproduceerd door een data factory-pijplijn of niet. Als de invoergegevensset voor een activiteit niet door de huidige pipeline gemaakt wordt, moet u deze vlag ingesteld op true. Deze vlag ingesteld op true voor de invoer gegevensset van de eerste activiteit in de pijplijn.  |Nee |false |
 | availability | Definieert het venster verwerking (bijvoorbeeld elk uur of dagelijks) of het segmenteringshulplijnen model voor de gegevensset voor productie. Elke eenheid gegevens verbruikt en die wordt geproduceerd door het uitvoeren van een activiteit wordt een gegevenssegment genoemd. Als de beschikbaarheid van een uitvoergegevensset is ingesteld op dagelijks (frequentie - dag, interval - 1), wordt dagelijks een segment geproduceerd. <br/><br/>Zie voor meer informatie [gegevensset beschikbaarheid](#Availability). <br/><br/>Zie voor informatie over de gegevensset segmentering model, de [planning en uitvoering](data-factory-scheduling-and-execution.md) artikel. |Ja |N.v.t. |
 | policy |Definieert de criteria of de conditie van de segmenten van de gegevensset moeten voldoen. <br/><br/>Zie voor meer informatie de [gegevensset beleid](#Policy) sectie. |Nee |N.v.t. |
 
@@ -145,7 +145,7 @@ Zoals u ziet, definieert de gekoppelde service verbinding maken met een SQL-data
 > Tenzij een gegevensset wordt geproduceerd door de pijplijn, moet dit worden gemarkeerd als **externe**. Deze instelling is algemeen van toepassing op invoer van de eerste activiteit in een pijplijn.   
 
 
-## <a name="Type"></a>Gegevensettype
+## <a name="Type"></a> Gegevensettype
 Het type van de gegevensset is afhankelijk van het gegevensarchief die u gebruikt. Zie de volgende tabel voor een lijst met opgeslagen gegevens die door Data Factory worden ondersteund. Klik op een gegevensarchief voor meer informatie over het maken van een gekoppelde service en een gegevensset voor die gegevensopslag.
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

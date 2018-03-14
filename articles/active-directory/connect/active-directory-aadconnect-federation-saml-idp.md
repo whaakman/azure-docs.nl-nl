@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Gebruik van SAML 2.0-identiteitsprovider (IdP) voor eenmalige aanmelding in
 
@@ -45,8 +45,8 @@ Dit onderwerp bevat gedetailleerde vereisten op het protocol en de berichtindeli
 
 Het is raadzaam dat u zorgen dat uw SAML 2.0-identiteitsprovider Uitvoerberichten worden als vergelijkbaar met de opgegeven voorbeeld traceringen mogelijk. Gebruik tevens specifieke kenmerkwaarden van de opgegeven Azure AD-metagegevens waar mogelijk. Wanneer u tevreden met uw Uitvoerberichten bent, kunt u testen met de Microsoft connectiviteit Analyzer zoals hieronder wordt beschreven.
 
-De metagegevens van de Azure AD kan worden gedownload vanaf deze URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
-Voor klanten in China via het China-specifieke exemplaar van Office 365, het volgende federation-eindpunt moet worden gebruikt: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
+De metagegevens van de Azure AD kan worden gedownload vanaf deze URL: [ https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml ](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
+Voor klanten in China via het China-specifieke exemplaar van Office 365, het volgende federation-eindpunt moet worden gebruikt: [ https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml ](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
 
 ## <a name="saml-protocol-requirements"></a>Vereisten voor SAML-protocol
 Deze sectie details hoe in de aanvraag en -antwoord berichtenparen zijn geplaatst om te helpen u om uw berichten correct.
@@ -182,12 +182,12 @@ De volgende procedure begeleidt u bij het converteren van een bestaand domein st
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-Zie voor meer informatie over 'Set MsolDomainAuthentication': [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx).
+Zie voor meer informatie over 'Set MsolDomainAuthentication': [ http://technet.microsoft.com/library/dn194112.aspx ](http://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Gebruik moet worden uitgevoerd ' $ecpUrl 'https://WS2012R2-0.contoso.com/PAOS' = ' alleen als u een uitbreiding ECP ingesteld voor de id-provider. Exchange Online-clients, met uitzondering van Outlook Web Application (OWA) zijn afhankelijk van een bericht op basis van actieve eindpunt. Als uw SAML 2.0 STS een actieve eindpunt die vergelijkbaar met de Shibboleth ECP uitvoering van een actieve eindpunt implementeert mogelijk voor deze uitgebreide clients om te communiceren met de Exchange Online-service.
+>Gebruik moet worden uitgevoerd ' $ecpUrl = 'https://WS2012R2-0.contoso.com/PAOS' ' alleen als u een uitbreiding ECP ingesteld voor de id-provider. Exchange Online-clients, met uitzondering van Outlook Web Application (OWA) zijn afhankelijk van een bericht op basis van actieve eindpunt. Als uw SAML 2.0 STS een actieve eindpunt die vergelijkbaar met de Shibboleth ECP uitvoering van een actieve eindpunt implementeert mogelijk voor deze uitgebreide clients om te communiceren met de Exchange Online-service.
 
-Zodra federation is geconfigureerd, kunt u terug naar 'niet-gefedereerde' (of 'beheerde'), maar deze wijziging wordt van maximaal twee uur en nieuwe willekeurige wachtwoorden voor aanmelding bij in de cloud toewijzen aan elke gebruiker is vereist. Overschakelen naar 'beheerde' kan in sommige scenario's vereist een fout in de instellingen opnieuw instellen. Zie voor meer informatie over domein-conversie: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Zodra federation is geconfigureerd, kunt u terug naar 'niet-gefedereerde' (of 'beheerde'), maar deze wijziging wordt van maximaal twee uur en nieuwe willekeurige wachtwoorden voor aanmelding bij in de cloud toewijzen aan elke gebruiker is vereist. Overschakelen naar 'beheerde' kan in sommige scenario's vereist een fout in de instellingen opnieuw instellen. Zie voor meer informatie over domein-conversie: [ http://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Inrichten van de gebruiker principals naar Azure AD / Office 365
 Voordat u kunt uw gebruikers op Office 365 verifiëren, moet u Azure AD inrichten met gebruiker principals die met de bevestiging van de claim SAML 2.0 overeenkomen. Als deze gebruiker principals niet bekend zijn bij Azure AD van tevoren kunnen niet vervolgens zij worden gebruikt voor federatieve aanmelding. Azure AD Connect of Windows PowerShell kan worden gebruikt voor het inrichten van principals die gebruiker.
@@ -242,7 +242,7 @@ Microsoft is een hulpprogramma dat u gebruiken kunt voor het testen van uw gebas
 
 
 
-1. Downloaden van de analysefunctie voor connectiviteit van [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client).
+1. Downloaden van de analysefunctie voor connectiviteit van [ https://testconnectivity.microsoft.com/?tabid=Client ](https://testconnectivity.microsoft.com/?tabid=Client).
 2.  Klik op Nu installeren om te beginnen met het downloaden en installeren van het hulpprogramma.
 3.  Selecteer 'Ik kan geen instellen Federatie met Office 365, Azure of andere services die gebruikmaken van Azure Active Directory'.
 4.  Nadat het hulpprogramma gedownload en wordt uitgevoerd is, ziet u het connectiviteit Diagnostics-venster. Het hulpprogramma wordt u stapsgewijs uw federation-verbinding testen.

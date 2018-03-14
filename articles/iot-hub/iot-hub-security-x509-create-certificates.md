@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/10/2017
 ms.author: dkshir
 ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>PowerShell-scripts voor het beheren van CA ondertekend X.509-certificaten
 
@@ -279,7 +279,7 @@ Voer `New-CADevice "<yourTestDevice>"` in uw PowerShell-venster met behulp van d
 
 ## <a name="clean-up-certificates"></a>Opschonen van certificaten
 
-In de startbalk of **instellingen** app, zoek en selecteer **computercertificaten beheren**. Verwijder certificaten uitgegeven door **Azure IoT CA TestOnly***. Deze certificaten moeten bestaan in de volgende drie locaties: 
+In de startbalk of **instellingen** app, zoek en selecteer **computercertificaten beheren**. Verwijder certificaten uitgegeven door ** Azure IoT CA TestOnly ***. Deze certificaten moeten bestaan in de volgende drie locaties: 
 
 * Certificaten - lokale Computer > persoonlijke > certificaten
 * Certificaten - lokale Computer > vertrouwde basiscertificeringsinstanties > certificaten

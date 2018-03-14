@@ -17,7 +17,7 @@ ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
 ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten configureren
 
