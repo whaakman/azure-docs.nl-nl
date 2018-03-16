@@ -2,29 +2,26 @@
 title: Azure SQL-Database beheerd exemplaar overzicht | Microsoft Docs
 description: In dit onderwerp worden beschreven van een Azure SQL Database beheerd-instantie en wordt uitgelegd hoe het werkt en wat is het verschil tussen een individuele database in Azure SQL Database.
 services: sql-database
-documentationcenter: na
 author: bonova
 ms.reviewer: carlrab
-manager: cguyer
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-ms.openlocfilehash: dc3c93a1a13f3e10f9159d26411d6337c0269722
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 77d421e9c97f3baa3541040494fb91e0297edb5a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een exemplaar beheerd (preview)?
 
 Azure SQL Database beheerd-instantie (preview) is een nieuwe functie van Azure SQL Database, die in de buurt van 100% compatibel met SQL Server on-premises, bieden een systeemeigen [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md) implementatie die zijn gericht algemene beveiligingskwesties weergegeven, en een [bedrijfsmodel](https://azure.microsoft.com/pricing/details/sql-database/) gunstig voor lokale SQL Server-klanten. Beheerde exemplaar kan bestaande SQL Server-klanten en hun on-premises toepassingen naar de cloud met minimale wijzigingen voor toepassings- en verschuiven. Beheerde exemplaar van bewaart op hetzelfde moment alle PaaS mogelijkheden (automatische patchen en versie-updates, back-up, hoge beschikbaarheid), die aanzienlijk minder beheeroverhead en totale Eigendomskosten.
+
+> [!IMPORTANT]
+> Zie voor een lijst met regio's waarin beheerd exemplaar momenteel beschikbaar is, [uw databases migreren naar een volledig beheerde service met Azure SQL Database-beheerd instantie](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
 Het volgende diagram geeft een overzicht van de belangrijkste functies van het exemplaar worden beheerd.
 

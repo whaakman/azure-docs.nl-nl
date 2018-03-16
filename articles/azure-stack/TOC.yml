@@ -232,14 +232,22 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Voordat u aan de slag gaat
               href: azure-stack-app-service-before-you-get-started.md
+            - name: Het distribueren van Azure App Service op Azure-Stack in domeinen met fouten
+              href: azure-stack-app-service-fault-domain-update.md
             - name: App Service-resourceprovider implementeren
               href: azure-stack-app-service-deploy.md
             - name: App Service offline implementeren
               href: azure-stack-app-service-deploy-offline.md
+            - name: App Service bijwerken
+              href: azure-stack-app-service-update.md
+            - name: App Service Offline bijwerken
+              href: azure-stack-app-service-update-offline.md
             - name: Meer webwerkrollen toevoegen
               href: azure-stack-app-service-add-worker-roles.md
             - name: Implementatiebronnen configureren
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: App Service bijwerken één releaseopmerkingen
+              href: azure-stack-app-service-release-notes-update-one.md
         - name: De Marketplace vullen
           items:
             - name: Overzicht van Marketplace
