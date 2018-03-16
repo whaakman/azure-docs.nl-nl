@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: bb5361022e4c9693812753ae33df5aeb037b5aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01e85290f00dc70323a16056ca8e73bfba72c975
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API's in duurzame functies (Azure-functies)
 
@@ -28,7 +28,8 @@ De extensie duurzame taak beschrijft een reeks HTTP APIs die kunnen worden gebru
 * Een gebeurtenis verzenden naar een exemplaar van de orchestration wachten.
 * Een actief exemplaar van de orchestration worden beëindigd.
 
-Elk van deze APIs HTTP zijn webhook-bewerkingen die rechtstreeks door de uitbreiding voor duurzame taak worden verwerkt. Ze zijn niet specifiek zijn voor een functie in de functie-app.
+
+Elk van deze APIs HTTP is een webhook-bewerking die rechtstreeks door de uitbreiding voor duurzame taak wordt verwerkt. Ze zijn niet specifiek zijn voor een functie in de functie-app.
 
 > [!NOTE]
 > Deze bewerkingen kunnen ook worden aangeroepen rechtstreeks met de exemplaar-management API's op de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse. Zie voor meer informatie [Instantiebeheer](durable-functions-instance-management.md).
@@ -78,7 +79,7 @@ Het HTTP-antwoord dat eerder is ontworpen om u te helpen langlopende HTTP async 
 Met dit protocol kunnen coördineren langlopende processen met externe clients of services die ondersteuning bieden voor polling van een HTTP-eindpunt Volg de `Location` header. De fundamentele onderdelen zijn al ingebouwd in duurzame functies HTTP API's.
 
 > [!NOTE]
-> Standaard worden alle acties die HTTP-gebaseerde geleverd door [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) ondersteunen het patroon standaard asynchrone bewerking. Dit maakt het mogelijk voor het insluiten van een duurzame functie langlopende als onderdeel van een werkstroom Logic Apps. Meer informatie over Logic Apps ondersteuning voor asynchrone HTTP patronen vindt u in de [Azure Logic Apps werkstroom acties en triggers documentatie](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
+> Standaard worden alle acties die HTTP-gebaseerde geleverd door [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) ondersteunen het patroon standaard asynchrone bewerking. Deze mogelijkheid kan voor het insluiten van een duurzame functie langlopende als onderdeel van een werkstroom Logic Apps. Meer informatie over Logic Apps ondersteuning voor asynchrone HTTP patronen vindt u in de [Azure Logic Apps werkstroom acties en triggers documentatie](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
 
 ## <a name="http-api-reference"></a>HTTP-API-referentiemateriaal
 
@@ -86,12 +87,14 @@ Alle HTTP APIs geïmplementeerd door de uitbreiding nemen de volgende parameters
 
 | Parameter  | Parametertype  | Beschrijving |
 |------------|-----------------|-------------|
-| Exemplaar-id | URL             | De ID van de orchestration-exemplaar. |
-| taskHub    | Queryreeks    | De naam van de [taak hub](durable-functions-task-hubs.md). Als niet wordt opgegeven, wordt de taaknaam hub van de huidige functie-app gebruikt. |
-| verbinding | Queryreeks    | De **naam** van de verbindingsreeks voor de storage-account. Als niet wordt opgegeven, wordt de standaard-verbindingsreeks voor de functie-app gebruikt. |
-| systemKey  | Queryreeks    | De autorisatiesleutel is vereist voor het aanroepen van de API. |
+| instanceId | URL             | De ID van de orchestration-exemplaar. |
+| taskHub    | Querytekenreeks    | De naam van de [taak hub](durable-functions-task-hubs.md). Als niet wordt opgegeven, wordt de taaknaam hub van de huidige functie-app gebruikt. |
+| verbinding | Querytekenreeks    | De **naam** van de verbindingsreeks voor de storage-account. Als niet wordt opgegeven, wordt de standaard-verbindingsreeks voor de functie-app gebruikt. |
+| systemKey  | Querytekenreeks    | De autorisatiesleutel is vereist voor het aanroepen van de API. |
+| showHistory| Querytekenreeks    | Een optionele parameter. Indien ingesteld op `true`, de geschiedenis van de orchestration-uitvoering wordt opgenomen in de nettolading van de reactie.| 
+| showHistoryOutput| Querytekenreeks    | Een optionele parameter. Indien ingesteld op `true`, uitvoer van de activiteit worden opgenomen in de geschiedenis van de orchestration-uitvoering.| 
 
-`systemKey`een autorisatiesleutel is automatisch gegenereerd door de Azure Functions-host. Deze specifiek verleent toegang tot de extensie duurzame taak API's en kunnen worden beheerd dezelfde manier als [andere sleutels autorisatie](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). De eenvoudigste manier om te detecteren de `systemKey` waarde is met behulp van de `CreateCheckStatusResponse` API eerder is vermeld.
+`systemKey` een autorisatiesleutel is automatisch gegenereerd door de Azure Functions-host. Deze specifiek verleent toegang tot de extensie duurzame taak API's en kunnen worden beheerd dezelfde manier als [andere sleutels autorisatie](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). De eenvoudigste manier om te detecteren de `systemKey` waarde is met behulp van de `CreateCheckStatusResponse` API eerder is vermeld.
 
 De volgende secties hebben betrekking op de specifieke HTTP APIs ondersteund door de uitbreiding en vindt u voorbeelden van hoe ze kunnen worden gebruikt.
 
@@ -110,7 +113,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 De functies 2.0-indeling heeft dezelfde parameters, maar heeft een iets andere URL-voorvoegsel:
 
 ```http
-GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>Antwoord
@@ -122,29 +125,68 @@ Verschillende mogelijke status code-waarden kunnen worden geretourneerd.
 * **HTTP-fout 400 (ongeldige aanvraag)**: het opgegeven exemplaar is mislukt of is beëindigd.
 * **HTTP 404 (niet gevonden)**: het opgegeven exemplaar bestaat niet of is niet gestart.
 
-De nettolading van de reactie voor de **HTTP 200** en **HTTP 202** gevallen is een JSON-object met de volgende velden.
+De nettolading van de reactie voor de **HTTP 200** en **HTTP 202** gevallen is een JSON-object met de volgende velden:
 
 | Veld           | Gegevenstype | Beschrijving |
 |-----------------|-----------|-------------|
-| runtimeStatus   | Tekenreeks    | De runtimestatus van het exemplaar. Mogelijke waarden zijn *met*, *in behandeling*, *mislukt*, *geannuleerd*, *beëindigd*, *Voltooid*. |
+| runtimeStatus   | tekenreeks    | De runtimestatus van het exemplaar. Mogelijke waarden zijn *met*, *in behandeling*, *mislukt*, *geannuleerd*, *beëindigd*, *Voltooid*. |
 | Invoer           | JSON      | De JSON-gegevens die wordt gebruikt voor het initialiseren van het exemplaar. |
-| Uitvoer          | JSON      | De JSON-uitvoer van het exemplaar. Dit veld is `null` als het exemplaar niet in een voltooide status is. |
-| createdTime     | Tekenreeks    | De tijd waarop het exemplaar is gemaakt. Maakt gebruik van ISO 8601-notatie wordt uitgebreid. |
-| LastUpdatedTime | Tekenreeks    | De tijd waarop het exemplaar is opgeslagen. Maakt gebruik van ISO 8601-notatie wordt uitgebreid. |
+| output          | JSON      | De JSON-uitvoer van het exemplaar. Dit veld is `null` als het exemplaar niet in een voltooide status is. |
+| createdTime     | tekenreeks    | De tijd waarop het exemplaar is gemaakt. Maakt gebruik van ISO 8601-notatie wordt uitgebreid. |
+| lastUpdatedTime | tekenreeks    | De tijd waarop het exemplaar is opgeslagen. Maakt gebruik van ISO 8601-notatie wordt uitgebreid. |
+| historyEvents   | JSON      | Een JSON-matrix met de geschiedenis van de orchestration-uitvoering. Dit veld is `null` tenzij de `showHistory` querytekenreeksparameter is ingesteld op `true`.  | 
 
-Hier volgt een voorbeeld antwoord nettolading (indeling voor de leesbaarheid):
+Hier volgt een voorbeeld antwoord nettolading met inbegrip van de orchestration uitvoering geschiedenis en activiteit uitvoer (indeling voor de leesbaarheid):
 
 ```json
 {
-  "runtimeStatus": "Completed",
-  "input": null,
-  "output": [
-    "Hello Tokyo!",
-    "Hello Seattle!",
-    "Hello London!"
+  "createdTime": "2018-02-28T05:18:49Z",
+  "historyEvents": [
+      {
+          "EventType": "ExecutionStarted",
+          "FunctionName": "E1_HelloSequence",
+          "Timestamp": "2018-02-28T05:18:49.3452372Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Tokyo!",
+          "ScheduledTime": "2018-02-28T05:18:51.3939873Z",
+          "Timestamp": "2018-02-28T05:18:52.2895622Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Seattle!",
+          "ScheduledTime": "2018-02-28T05:18:52.8755705Z",
+          "Timestamp": "2018-02-28T05:18:53.1765771Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello London!",
+          "ScheduledTime": "2018-02-28T05:18:53.5170791Z",
+          "Timestamp": "2018-02-28T05:18:53.891081Z"
+      },
+      {
+          "EventType": "ExecutionCompleted",
+          "OrchestrationStatus": "Completed",
+          "Result": [
+              "Hello Tokyo!",
+              "Hello Seattle!",
+              "Hello London!"
+          ],
+          "Timestamp": "2018-02-28T05:18:54.3660895Z"
+      }
   ],
-  "createdTime": "2017-10-06T18:30:24Z",
-  "lastUpdatedTime": "2017-10-06T18:30:30Z"
+  "input": null,
+  "lastUpdatedTime": "2018-02-28T05:18:54Z",
+  "output": [
+      "Hello Tokyo!",
+      "Hello Seattle!",
+      "Hello London!"
+  ],
+  "runtimeStatus": "Completed"
 }
 ```
 
@@ -168,12 +210,12 @@ De functies 2.0-indeling heeft dezelfde parameters, maar heeft een iets andere U
 POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
-Aanvraag parameters voor deze API bevatten de standaardset die eerder is vermeld en de volgende unieke parameters.
+Aanvragen parameters voor deze API bevatten de standaardset die eerder is vermeld en de volgende unieke parameters:
 
 | Veld       | Parametertype  | Gegevens tType | Beschrijving |
 |-------------|-----------------|-----------|-------------|
-| EventName   | URL             | Tekenreeks    | De naam van de gebeurtenis die het doelexemplaar orchestration wacht op. |
-| {inhoud}   | Inhoud opvragen | JSON      | De JSON-indeling nettolading. |
+| eventName   | URL             | tekenreeks    | De naam van de gebeurtenis die het doelexemplaar orchestration wacht op. |
+| {content}   | Inhoud opvragen | JSON      | De JSON-indeling nettolading. |
 
 #### <a name="response"></a>Antwoord
 
@@ -218,7 +260,7 @@ Aanvraag parameters voor deze API bevatten de standaardset die eerder is vermeld
 
 | Veld       | Parametertype  | Gegevenstype | Beschrijving |
 |-------------|-----------------|-----------|-------------|
-| Reden      | Queryreeks    | Tekenreeks    | Optioneel. De reden voor de orchestration-exemplaar wordt beëindigd. |
+| reason      | Querytekenreeks    | tekenreeks    | Optioneel. De reden voor de orchestration-exemplaar wordt beëindigd. |
 
 #### <a name="response"></a>Antwoord
 

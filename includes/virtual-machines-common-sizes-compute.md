@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 9602e8d73e5aca650dd20da34a9aa675b508ada7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/16/2018
+---
 <!-- F-series, Fs-series* -->
 
 COMPUTE geoptimaliseerde VM-grootten hebben een ratio van hoog CPU-naar-geheugen en geschikt zijn voor webservers gemiddeld verkeer, netwerkapparaten, batchprocessen en toepassingsservers. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven, en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering.

@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 193003cef0aed464596e913c0df86e6123292b9f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/16/2018
+---
 Azure voert regelmatig updates ter verbetering van de betrouwbaarheid, prestaties en beveiliging van de infrastructuur van de host voor virtuele machines. Deze updates tussen softwareonderdelen in de hosting-omgeving (zoals het besturingssysteem, hypervisor en verschillende agents die zijn geïmplementeerd op de host) patching bijwerken netwerkonderdelen, naar hardware buiten gebruik stellen. De meeste van deze updates worden uitgevoerd zonder nadelige gevolgen voor de gehoste virtuele machines. Er zijn echter gevallen bekend waarbij updates gevolgen:
 
 - Als het onderhoud niet opnieuw worden opgestart hoeft, gebruikt Azure in-place migratie voor het onderbreken van de virtuele machine, terwijl de host is bijgewerkt.

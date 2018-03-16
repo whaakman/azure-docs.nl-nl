@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eacb4b7d0e33768e0da6ecd43ce1458a4a3bfaa8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Het gebruik van de communicatie met Reliable Services API 's
 Azure Service Fabric als platform is volledig agnostisch over de communicatie tussen services. Alle protocollen en stacks zijn aanvaardbaar van UDP naar HTTP. Het is aan de ontwikkelaar van de service om te kiezen hoe services moeten communiceren. Het framework Reliable Services biedt ingebouwde communicatie stacks, alsmede de API's die u gebruiken kunt voor het bouwen van uw aangepaste communicatie-onderdelen.
@@ -54,7 +54,7 @@ Vervolgens kunt u uw communicatie-listener-implementatie toevoegen door deze ter
 Voor stateless services:
 
 ```csharp
-class MyStatelessService : StatelessService
+public class MyStatelessService : StatelessService
 {
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -85,7 +85,7 @@ Voor stateful services:
 ```
 
 ```csharp
-class MyStatefulService : StatefulService
+public class MyStatefulService : StatefulService
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
@@ -275,7 +275,7 @@ De communicatie factory bibliotheek implementeert een typische opnieuw patroon v
 De client communicatie wordt alleen een adres ontvangt en gebruikt deze verbinding maken met een service. De client kan elk protocol dat deze wil gebruiken.
 
 ```csharp
-class MyCommunicationClient : ICommunicationClient
+public class MyCommunicationClient : ICommunicationClient
 {
     public ResolvedServiceEndpoint Endpoint { get; set; }
 

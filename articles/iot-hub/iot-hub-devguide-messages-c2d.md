@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Cloud-naar-apparaat-berichten uit IoT Hub verzenden
 
@@ -75,25 +75,25 @@ Wanneer u een cloud-naar-apparaat-bericht verzendt, kunnen de levering van per b
 
 | ACK-eigenschap | Gedrag |
 | ------------ | -------- |
-| **positief** | Als het cloud-naar-apparaat-bericht bereikt de **voltooid** staat, IoT-Hub genereert een feedbackbericht. |
+| **Positief** | Als het cloud-naar-apparaat-bericht bereikt de **voltooid** staat, IoT-Hub genereert een feedbackbericht. |
 | **negative** | Als het cloud-naar-apparaat-bericht bereikt de **dode lettered** staat, IoT-Hub genereert een feedbackbericht. |
-| **volledige**     | IoT Hub genereert een feedbackbericht in beide gevallen. |
+| **Volledige**     | IoT Hub genereert een feedbackbericht in beide gevallen. |
 
 Als **Ack** is **volledige**, en u niet een feedbackbericht ontvangt, betekent dit dat het Feedbackbericht is verlopen. De service kan niet weet wat is er gebeurd met het oorspronkelijke bericht. In de praktijk kan een service Zorg ervoor dat de feedback verwerken kan voordat deze verloopt. De maximale verlooptijd is twee dagen, die tijd om de service blijft nogmaals uit te voeren als er een fout optreedt.
 
-Zoals uitgelegd in [eindpunten][lnk-endpoints], IoT-Hub levert feedback via een gerichte service-eindpunt (**/messages/servicebound/feedback**) als berichten. De semantiek voor het ontvangen van feedback zijn hetzelfde als voor cloud-naar-apparaat-berichten en dezelfde [bericht lifecycle][lnk-lifecycle]. Indien mogelijk batch bericht feedback wordt verwerkt in één bericht met de volgende indeling:
+Zoals uitgelegd in [eindpunten][lnk-endpoints], IoT-Hub levert feedback via een gerichte service-eindpunt (**/messages/servicebound/feedback**) als berichten. De semantiek voor het ontvangen van feedback zijn hetzelfde als voor cloud-naar-apparaat-berichten. Indien mogelijk batch bericht feedback wordt verwerkt in één bericht met de volgende indeling:
 
 | Eigenschap     | Beschrijving |
 | ------------ | ----------- |
-| EnqueuedTime | De tijdstempel die aangeeft wanneer het bericht is gemaakt. |
-| UserId       | `{iot hub name}` |
+| EnqueuedTime | De tijdstempel die aangeeft wanneer het Feedbackbericht is ontvangen door de hub. |
+| Gebruikers-id       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
 De hoofdtekst is een JSON-geserialiseerd matrix met records, elk met de volgende eigenschappen:
 
 | Eigenschap           | Beschrijving |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | De tijdstempel die aangeeft wanneer het resultaat van het bericht is er gebeurd. Bijvoorbeeld, verlopen het apparaat is voltooid of het bericht. |
+| EnqueuedTimeUtc    | De tijdstempel die aangeeft wanneer het resultaat van het bericht is er gebeurd. Bijvoorbeeld, de hub de Feedbackbericht ontvangen of het oorspronkelijke bericht is verlopen. |
 | OriginalMessageId  | **MessageId** van het cloud-naar-apparaat-bericht waarop deze informatie feedback betrekking heeft. |
 | StatusCode         | Een vereiste tekenreeks. In de feedbackberichten die gegenereerd worden door de IoT Hub gebruikt. <br/> 'Success' <br/> 'Expired' <br/> 'DeliveryCountExceeded' <br/> 'Geweigerd' <br/> 'Purged' |
 | Beschrijving        | Waarden voor de tekenreeks **StatusCode**. |

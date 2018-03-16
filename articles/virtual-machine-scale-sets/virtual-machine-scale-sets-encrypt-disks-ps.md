@@ -1,6 +1,6 @@
 ---
-title: Virtuele Machine van Azure-Schaalsets schijven versleutelen | Microsoft Docs
-description: Informatie over het versleutelen van de gekoppelde schijven in virtuele-machineschaalsets.
+title: Azure virtuele-machineschaalsets schijfversleuteling | Microsoft Docs
+description: Informatie over het gebruik van Azure PowerShell voor het versleutelen van VM-exemplaren en de gekoppelde schijven in virtuele-machineschaalsets
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
@@ -13,90 +13,146 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/09/2018
 ms.author: iainfou
-ms.openlocfilehash: dddcece9f7566961b256369330661e5dbd5d4665
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 856d4bc7dd636b3a2f3d072a10989cafd7efd6a6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>OS- en bijgesloten gegevensschijven in een virtuele-machineschaalset coderen
-Azure [virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) biedt ondersteuning voor Azure disk encryption (ADE).  Azure-schijfversleuteling kan worden ingeschakeld voor Windows en Linux-virtuele-machineschaalsets beveiligen en bescherming van de schaal stelt gegevens in rust met toonaangevende standaard versleuteling technologie. Lees voor meer informatie Azure Disk Encryption for Windows- en Linux virtuele machines.
+Als u wilt beveiligen en bescherming van gegevens in rust met toonaangevende standaard versleuteling technologie, ondersteuning voor virtuele-machineschaalsets Azure schijf versleuteling (ADE). Versleuteling kan worden ingeschakeld voor Windows en Linux virtuele machine sets schalen. Zie voor meer informatie [Azure Disk Encryption for Windows- en Linux](../security/azure-security-disk-encryption.md).
 
 > [!NOTE]
->  Versleuteling van de Azure-schijf voor virtuele-machineschaalsets is momenteel in de openbare preview beschikbaar in alle openbare Azure-regio.
+>  Azure Disk Encryption voor virtuele-machineschaalsets is momenteel in preview beschikbaar in alle openbare Azure-regio. 
+>
+> Scale set VM terugzetten van de installatiekopie en upgrade-bewerkingen worden niet ondersteund in de huidige preview. Preview-versie verdient scale set versleuteling alleen in een testomgeving. In de preview schijfversleuteling in productieomgevingen waar mogelijk moet u een installatiekopie van het besturingssysteem bijwerken niet is ingeschakeld.
 
 De schijf van Azure-versleuteling wordt ondersteund:
 - voor schaal sets met beheerde schijven gemaakt en niet ondersteund voor systeemeigen (of niet-beheerde) schijf-schaalsets.
 - voor OS- en gegevensvolumes in Windows-schaalsets. Schakel versleuteling wordt ondersteund voor OS- en gegevensvolumes voor Windows-schaalsets.
 - voor de gegevensvolumes in Linux-schaalsets. OS-schijfversleuteling wordt niet ondersteund in het huidige voorbeeld voor Linux-schaalsets.
 
-Scale set VM terugzetten van de installatiekopie en upgrade-bewerkingen worden niet ondersteund in de huidige preview. De Azure disk encryption voor virtuele machine scale sets preview wordt aanbevolen in een testomgeving. In de preview schijfversleuteling in productieomgevingen waar mogelijk moet u een installatiekopie van het besturingssysteem in een versleutelde schaalset upgrade niet is ingeschakeld.
 
 ## <a name="prerequisites"></a>Vereisten
-Installeer de nieuwste versies van [Azure Powershell](https://github.com/Azure/azure-powershell/releases), die de versleuteling-opdrachten bevat.
+In dit artikel is vereist voor de Azure PowerShell-moduleversie 5.3.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
-De Azure disk encryption voor virtuele machine scale sets preview moet u uw abonnement met de volgende PowerShell-opdrachten zichzelf registreren: 
+Hiermee stelt u uw Azure subsription voor de evaluatieversie van de schijfversleuteling voor virtuele-machineschaalset met registreren [registreren AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature): 
 
 ```powershell
 Login-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-Wacht ongeveer tien minuten totdat de status 'Geregistreerde' wordt geretourneerd door de volgende opdracht: 
+Wacht ongeveer tien minuten totdat de *geregistreerde* status wordt geretourneerd door [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature), registreert u deze opnieuw de `Microsoft.Compute` provider: 
 
 ```powershell
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Maken van een Azure sleutelkluis is ingeschakeld voor schijfversleuteling
-Maak een nieuwe sleutelkluis in hetzelfde abonnement en dezelfde regio als de schaal instellen en stelt u het toegangsbeleid 'EnabledForDiskEncryption'.
+
+## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Maken van een Azure Key Vault ingeschakeld voor schijfversleuteling
+Azure Sleutelkluis kunt opslaan sleutels, geheimen of wachtwoorden waarmee u kunt ze veilig implementeert in uw toepassingen en services. Cryptografische sleutels worden opgeslagen in Azure Key Vault met software-beveiliging, of u kunt importeren of genereren van uw sleutels in Hardware Security Modules (HSM's) die is gecertificeerd voor FIPS 140-2 level 2-standaarden. Deze cryptografische sleutels worden gebruikt voor het versleutelen en ontsleutelen van virtuele schijven gekoppeld aan uw virtuele machine. U beheer behouden over deze cryptografische sleutels en het gebruik ervan kunt controleren.
+
+Maken van een Sleutelkluis met [nieuwe AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Instellen zodat de Sleutelkluis moet worden gebruikt voor schijfversleuteling de *EnabledForDiskEncryption* parameter. Het volgende voorbeeld definieert ook variabelen voor de naam van een resourcegroep, de naam Sleutelkluis en de locatie. Geef uw eigen unieke naam van de Sleutelkluis:
 
 ```powershell
-$rgname="windatadiskencryptiontest"
-$VaultName="encryptionvault321"
+$rgName="myResourceGroup"
+$vaultName="myuniquekeyvault"
+$location = "EastUS"
 
-New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $rgName -Location southcentralus -EnabledForDiskEncryption
-``` 
-
-Of het inschakelen van een bestaande sleutelkluis in hetzelfde abonnement en dezelfde regio als de schaal voor schijfversleuteling instelt.
-
-```powershell
-$VaultName="encryptionvault321"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $VaultName -EnabledForDiskEncryption
+New-AzureRmResourceGroup -Name $rgName -Location $location
+New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgName -Location $location -EnabledForDiskEncryption
 ```
+
+
+### <a name="use-an-existing-key-vault"></a>Gebruik een bestaande Sleutelkluis
+Deze stap is alleen vereist als u een bestaande Sleutelkluis die u wilt gebruiken met schijfversleuteling hebt. Deze stap overslaan als u een Sleutelkluis hebt gemaakt in de vorige sectie.
+
+U kunt een bestaande Sleutelkluis in hetzelfde abonnement en dezelfde regio als de schaal voor de schijfversleuteling met instelt inschakelen [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/AzureRM.KeyVault/Set-AzureRmKeyVaultAccessPolicy). Definieer de naam van uw bestaande Sleutelkluis in de *$vaultName* variabele als volgt:
+
+```powershell
+$vaultName="myexistingkeyvault"
+Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
+```
+
+
+## <a name="create-a-scale-set"></a>Een schaalset maken
+Een beheerder eerst Stel gebruikersnaam en wachtwoord voor de VM-exemplaren met [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+
+```powershell
+$cred = Get-Credential
+```
+
+Maak nu een virtuele-machineschaalset met [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Een load balancer wordt ook gemaakt voor het distribueren van het verkeer naar de afzonderlijke VM-exemplaren. De load balancer bevat regels voor het distribueren van verkeer op TCP-poort 80, evenals extern bureaublad-verkeer op TCP-poort 3389 en PowerShell voor externe toegang op TCP-poort 5985 toestaan:
+
+```powershell
+$vmssName="myScaleSet"
+
+New-AzureRmVmss `
+    -ResourceGroupName $rgName `
+    -VMScaleSetName $vmssName `
+    -Location $location `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -PublicIpAddressName "myPublicIPAddress" `
+    -LoadBalancerName "myLoadBalancer" `
+    -UpgradePolicy "Automatic" `
+    -Credential $cred
+```
+
 
 ## <a name="enable-encryption"></a>Versleuteling inschakelen
-De volgende opdrachten versleutelen een gegevensschijf in een actieve schaal ingesteld met een sleutelkluis in dezelfde resourcegroep. U kunt ook sjablonen gebruiken voor het versleutelen van de schijven in een actieve [Windows schaalset](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) of [Linux schaalset](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+Voor het versleutelen van de VM-exemplaren in een schaalset u eerst enkele gegevens op de URI van Key-kluis en resource-ID met [Get-AzureRmKeyVault](/powershell/module/AzureRM.KeyVault/Get-AzureRmKeyVault). Deze variabelen worden gebruikt voor start het versleutelingsproces met [Set AzureRmVmssDiskEncryptionExtension](/powershell/module/AzureRM.Compute/Set-AzureRmVmssDiskEncryptionExtension):
 
 ```powershell
-$rgname="windatadiskencryptiontest"
-$VmssName="nt1vm"
-$DiskEncryptionKeyVaultUrl="https://encryptionvault321.vault.azure.net"
-$KeyVaultResourceId="/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/windatadiskencryptiontest/providers/Microsoft.KeyVault/vaults/encryptionvault321"
+$diskEncryptionKeyVaultUrl=(Get-AzureRmKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
+$keyVaultResourceId=(Get-AzureRmKeyVault -ResourceGroupName $rgName -Name $vaultName).ResourceId
 
-Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName `
-    -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId –VolumeType Data
+Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vmssName `
+    -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId –VolumeType "All"
 ```
+
+Wanneer u wordt gevraagd, typt u *y* om door te gaan met het versleutelingsproces schijf op de schaal ingesteld VM-exemplaren.
+
 
 ## <a name="check-encryption-progress"></a>Versleuteling voortgang controleren
-Gebruik de volgende opdrachten om coderingsstatus van de schaalaanpassingsset weer te geven.
+Gebruiken om te controleren op de status van schijfversleuteling, [Get-AzureRmVmssDiskEncryption](/powershell/module/AzureRM.Compute/Get-AzureRmVmssDiskEncryption):
 
 ```powershell
-$rgname="windatadiskencryptiontest"
-$VmssName="nt1vm"
-Get-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
-
-Get-AzureRmVmssVMDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName -InstanceId "4"
+Get-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
+
+Wanneer de VM-exemplaren zijn versleuteld, de *EncryptionSummary* code rapporten *ProvisioningState/geslaagd* zoals weergegeven in de volgende voorbeelduitvoer:
+
+```powershell
+ResourceGroupName            : myResourceGroup
+VmScaleSetName               : myScaleSet
+EncryptionSettings           :
+  KeyVaultURL                : https://myuniquekeyvault.vault.azure.net/
+  KeyEncryptionKeyURL        :
+  KeyVaultResourceId         : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myuniquekeyvault
+  KekVaultResourceId         :
+  KeyEncryptionAlgorithm     :
+  VolumeType                 : All
+  EncryptionOperation        : EnableEncryption
+EncryptionSummary[0]         :
+  Code                       : ProvisioningState/succeeded
+  Count                      : 2
+EncryptionEnabled            : True
+EncryptionExtensionInstalled : True
+```
+
 
 ## <a name="disable-encryption"></a>Versleuteling uitschakelen
-Schakel versleuteling in op een actieve virtuele-machineschaalset ingesteld met de volgende opdrachten uit. U kunt ook sjablonen gebruiken om uit te schakelen versleuteling uitgevoerd [Windows schaalset](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows) of [Linux schaalset](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux).
+Als u niet langer wenst versleutelde VM-exemplaren schijven te gebruiken, kunt u uitschakelen versleuteling met [uitschakelen AzureRmVmssDiskEncryption](/powershell/module/AzureRM.Compute/Disable-AzureRmVmssDiskEncryption) als volgt:
 
 ```powershell
-$rgname="windatadiskencryptiontest"
-$VmssName="nt1vm"
-Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
+Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
+
+
+## <a name="next-steps"></a>Volgende stappen
+In dit artikel kunt u Azure PowerShell gebruikt voor het versleutelen van een virtuele-machineschaalset. U kunt ook de [Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md) of sjablonen voor [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) of [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).

@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: b7292514e72476f38e9a0572b201be8468f0030a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Een Linux-hoofddoel-server installeren
 Nadat u uw virtuele machines in Azure een failover, u kunt een failback uit op de virtuele machines naar de lokale site. Als u wilt een failback uit, moet u beveiligt u de virtuele machine van Azure naar de lokale site opnieuw. Voor dit proces moet u de doelserver van een lokale voor het ontvangen van het verkeer. 
@@ -41,7 +41,7 @@ Opmerkingen of vragen plaatsen aan het einde van dit artikel of op de [Azure Rec
 
 Het hoofddoel in overeenstemming met de volgende richtlijnen voor schaling maken:
 - **RAM-geheugen**: 6 GB of meer
-- **OS-schijfgrootte**: 100 GB of meer (om te installeren CentOS6.6)
+- **OS-schijfgrootte**: 100 GB of meer (om te installeren besturingssysteem)
 - **Aanvullende schijfgrootte voor bewaarstation**: 1 TB
 - **CPU-kernen**: 4 kernen of meer
 
@@ -112,24 +112,31 @@ Ubuntu 16.04.2 minimaal 64-bits ISO houden in het DVD-station en start het syste
 
 1.  Selecteer **Ja** schrijven van de wijzigingen naar schijf en selecteer vervolgens **Enter**.
 
-1.  Selecteer de standaardoptie in de selectie van de proxy configureren, selecteert u **doorgaan**, en selecteer vervolgens **Enter**.
+    ![Selecteer de standaardoptie](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-     ![Selecteer de standaardoptie](./media/vmware-azure-install-linux-master-target/image17.png)
+1.  Selecteer de standaardoptie in de selectie van de proxy configureren, selecteert u **doorgaan**, en selecteer vervolgens **Enter**.
+     
+     ![Selecteer het beheren van upgrades](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Selecteer **geen automatische updates** optie in de selectie voor het beheren van upgrades op uw systeem en selecteer vervolgens **Enter**.
 
-     ![Selecteer het beheren van upgrades](./media/vmware-azure-install-linux-master-target/image18.png)
+     ![Selecteer het beheren van upgrades](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Omdat de Azure Site Recovery hoofddoelserver een specifieke versie van de Ubuntu vereist, moet u ervoor te zorgen dat de kernel upgrades zijn uitgeschakeld voor de virtuele machine. Als ze zijn ingeschakeld, dan eventuele reguliere upgrades voor zorgen dat de hoofddoelserver is niet goed. Zorg ervoor dat u selecteert de **geen automatische updates** optie.
 
 1.  Selecteer de standaardopties te gebruiken. Als u openSSH wilt voor SSH-verbinding maken, selecteer de **OpenSSH server** optie en selecteer vervolgens **doorgaan**.
 
-    ![Selecteer de software](./media/vmware-azure-install-linux-master-target/image19.png)
+    ![Selecteer de software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
 1. Selecteer in de selction voor het installeren van het opstartlaadprogramma GRUB **Ja**, en selecteer vervolgens **Enter**.
+     
+    ![WORMGATEN opstarten installatieprogramma](./media/vmware-azure-install-linux-master-target/image20.png)
+
 
 1. Selecteer het juiste apparaat voor de installatie van het laadprogramma voor opstarten (bij voorkeur **/dev/sda**), en selecteer vervolgens **Enter**.
+     
+    ![Selecteer de juiste apparaatstuurprogramma](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. Selecteer **doorgaan**, en selecteer vervolgens **Enter** om de installatie te voltooien.
 
@@ -154,7 +161,7 @@ De ID ophalen voor elke harde SCSI-schijf in een virtuele Linux-machine, de **sc
 
 4. Selecteer in het linkerdeelvenster **Geavanceerd** > **algemene**, en selecteer vervolgens de **configuratieparameters** knop in het gedeelte rechts van het scherm.
 
-    ![Tabblad Opties](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![Open configuratieparameter](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
     De **configuratieparameters** optie is niet beschikbaar wanneer de machine wordt uitgevoerd. Sluit de virtuele machine om op dit tabblad te activeren.
 
@@ -168,7 +175,7 @@ De ID ophalen voor elke harde SCSI-schijf in een virtuele Linux-machine, de **sc
 
     - Voeg in de naamkolom **schijf. EnableUUID**, en stel de waarde op **TRUE**.
 
-    ![Controleren of schijf. Er bestaat al een EnableUUID](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![Controleren of schijf. Er bestaat al een EnableUUID](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Kernel-upgrades uitschakelen
 
@@ -244,7 +251,7 @@ Gebruik de volgende stappen voor het maken van een schijf bewaren:
     
     `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
     
-    ![Een bestandssysteem maken op het station](./media/vmware-azure-install-linux-master-target/media/image23.png)
+    ![Een bestandssysteem maken op het station](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. Nadat u het bestandssysteem gemaakt, moet u de bewaarperiode schijf koppelen.
 
@@ -252,7 +259,6 @@ Gebruik de volgende stappen voor het maken van een schijf bewaren:
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-    ![De retentie-schijf koppelen](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. Maak de **fstab** vermelding koppelen van het bewaarstation telkens wanneer het systeem wordt gestart.
     

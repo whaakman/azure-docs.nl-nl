@@ -2,24 +2,18 @@
 title: Taken voor elastische database installeren | Microsoft Docs
 description: Installatie van de functie elastische taak doorlopen.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: ddove
-editor: 
-ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: 7e5258e0ccb88c8e2f3fe3277f69444ae5424cd0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Overzicht van de taken installeren elastische Database
 [**Elastische Database taken** ](sql-database-elastic-jobs-overview.md) kan worden geïnstalleerd via PowerShell of via de Azure portal. U kunt toegang krijgen als u wilt maken en beheren van taken met de PowerShell-API alleen als u het PowerShell-pakket installeert. De PowerShell APIs Geef ook aanzienlijk meer functionaliteit dan de portal op dit moment.
@@ -29,7 +23,7 @@ Als u al hebt geïnstalleerd **elastische Database taken** via de Portal van een
 ## <a name="prerequisites"></a>Vereisten
 * Een Azure-abonnement. Zie voor een gratis proefversie [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Installeer de nieuwste versie met de [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Zie voor gedetailleerde informatie [Installeren en configureren van Azure PowerShell](/powershell/azure/overview).
-* [NuGet-opdrachtregelprogramma](https://nuget.org/nuget.exe) wordt gebruikt om de taken elastische Database pakket te installeren. Zie http://docs.nuget.org/docs/start-here/installing-nuget voor meer informatie.
+* [NuGet-opdrachtregelprogramma](https://nuget.org/nuget.exe) wordt gebruikt om de taken elastische Database pakket te installeren. Zie voor meer informatie http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Downloaden en importeren van de elastische Database taken PowerShell-pakket
 1. Start Microsoft Azure PowerShell-opdrachtvenster en navigeer naar de map waar u NuGet-opdrachtregelprogramma (nuget.exe) gedownload.
@@ -68,7 +62,7 @@ De parameters die worden geleverd op voor dit voorbeeld aanroepen kunnen worden 
   </tr>
 
 <tr>
-    <td>resourceGroupName</td>
+    <td>ResourceGroupName</td>
     <td>Bevat de naam van de Azure-resourcegroep gemaakt om de zojuist gemaakte Azure onderdelen bevatten. Deze parameter wordt standaard ingesteld op '__ElasticDatabaseJob'. Het is niet raadzaam om deze waarde te wijzigen.</td>
     </tr>
 
@@ -129,7 +123,7 @@ Voer het volgende script met de parameters die zijn bijgewerkt met de waarden va
 </tr>
 
   <tr>
-    <td>resourceGroupName</td>
+    <td>ResourceGroupName</td>
     <td>Geeft de naam van de Azure-resourcegroep gebruikt wanneer de onderdelen van de taak elastische Database in eerste instantie zijn geïnstalleerd. Deze parameter wordt standaard ingesteld op '__ElasticDatabaseJob'. Aangezien het niet aangeraden wordt om deze waarde te wijzigen, mag u geen om op te geven van deze parameter.</td>
     </tr>
 </tr>

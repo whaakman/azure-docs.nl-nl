@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten configureren
 
@@ -35,7 +35,7 @@ De [Azure Active Directory-gebruikers inrichten van service](active-directory-sa
 
 * **Write-back van e-adressen aan Workday** -de inrichting van de service Azure AD-gebruiker kan schrijven geselecteerd kenmerken van de Azure AD-gebruiker terug naar de werkdag, zoals het e-mailadres.
 
-### <a name="scenarios-covered"></a>Scenario's worden behandeld
+### <a name="what-human-resources-scenarios-does-it-cover"></a>Welke scenario's voor personeelszaken voldoet?
 
 De Workday gebruiker inrichting werkstromen worden ondersteund door de service van Azure AD-gebruiker-inrichting inschakelen automatisering van de volgende human resources en de identiteit van de levenscyclus van scenario's voor beheer:
 
@@ -46,6 +46,20 @@ De Workday gebruiker inrichting werkstromen worden ondersteund door de service v
 * **Werknemer afsluitingen worden** : wanneer een werknemer wordt beëindigd in werkdag, hun gebruikersaccount wordt automatisch uitgeschakeld in Active Directory, Azure Active Directory en eventueel Office 365 en [andere SaaS-toepassingen die worden ondersteund door Azure AD](active-directory-saas-app-provisioning.md).
 
 * **Werknemer opnieuw huurt** : wanneer een werknemer is rehired in werkdag, hun oude account kan worden automatisch geactiveerd of opnieuw worden ingericht (afhankelijk van uw voorkeur) naar Active Directory, Azure Active Directory, en desgewenst Office 365 en [andere SaaS-toepassingen die worden ondersteund door Azure AD](active-directory-saas-app-provisioning.md).
+
+### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Wie is deze gebruiker inrichting oplossing het beste geschikt voor?
+
+Deze oplossing inrichten Workday-gebruiker is op dit moment in de openbare preview en is ideaal voor:
+
+* Organisaties die behoefte hebben aan een vooraf samengestelde, cloud-gebaseerde oplossing voor het inrichten van Workday-gebruiker
+
+* Organisaties die direct gebruikers inrichten van Workday in Active Directory of Azure Active Directory vereisen
+
+* Organisaties die gebruikers moeten worden ingericht met behulp van gegevens die zijn verkregen via de module Workday HCM (Zie [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)) 
+
+* Organisaties waarvoor lid te worden verplaatst, en laat gebruikers worden gesynchroniseerd naar een of meer Active Directory-Forests en domeinen en organisatie-eenheden op alleen op basis van informatie over de gedetecteerd in de module Workday HCM wijzigen (Zie [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
+
+* Organisaties met behulp van Office 365 voor e-mail
 
 
 ## <a name="planning-your-solution"></a>Plannen van uw oplossing
@@ -62,10 +76,9 @@ Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items
 * Voor gebruikers inrichten met Active Directory, een domein-server met Windows-Service 2012 of hoger is vereist op host de [lokale synchronisatie-agent](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](connect/active-directory-aadconnect.md) voor de synchronisatie tussen Active Directory en Azure AD
 
-
 ### <a name="solution-architecture"></a>Oplossingsarchitectuur
 
-Azure AD levert een uitgebreide set voor het leveren van connectors om u te helpen bij het oplossen van de inrichting en de levenscyclus van identiteitsbeheer uit Workday voor Active Directory, Azure AD, SaaS-apps en meer. Onderdelen die u gebruikt en hoe u de oplossing hebt ingesteld, hangt af van de omgeving en vereisten van uw organisatie. Als een eerste stap rijtje hoeveel van de volgende aanwezig en geïmplementeerd in uw organisatie zijn:
+Azure AD levert een uitgebreide set voor het leveren van connectors om u te helpen bij het oplossen van de inrichting en identiteit levenscyclusbeheer uit Workday voor Active Directory, Azure AD, SaaS-apps en meer. Onderdelen die u gebruikt en hoe u de oplossing hebt ingesteld, hangt af van de omgeving en vereisten van uw organisatie. Als een eerste stap rijtje hoeveel van de volgende aanwezig en geïmplementeerd in uw organisatie zijn:
 
 * Hoeveel Active Directory-Forests worden gebruikt?
 * Hoeveel Active Directory-domeinen worden gebruikt?
@@ -74,6 +87,7 @@ Azure AD levert een uitgebreide set voor het leveren van connectors om u te help
 * Zijn er gebruikers die moeten worden ingericht op Active Directory en Azure Active Directory (bijvoorbeeld 'hybride' gebruikers)?
 * Zijn er gebruikers die moeten worden ingericht op Azure Active Directory, maar niet in Active Directory (bijvoorbeeld 'alleen in de cloud' gebruikers)?
 * Moeten gebruiker e-mailadressen worden teruggeschreven naar Workday?
+
 
 Zodra u antwoorden op deze vragen hebt, kunt u uw werkdag implementatie inrichten door de onderstaande richtlijnen te volgen plannen.
 
@@ -144,7 +158,7 @@ U moet een onbeperkte integratie systeembeveiligingsgroep maken en aan de gebrui
    
     ![Groep CreateSecurity](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity groep")
 2. Voltooi de **beveiligingsgroep maken** taak.  
-3. Selecteer integratie Systeembeveiligingsgroep: onbeperkte uit de **Type van verpachte beveiligingsgroep** vervolgkeuzelijst.
+3. Selecteer **integratie Systeembeveiligingsgroep (onbeperkt)** van de **Type van verpachte beveiligingsgroep** vervolgkeuzelijst.
 4. Maak een beveiligingsgroep waarmee leden expliciet worden toegevoegd. 
    
     ![Groep CreateSecurity](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity groep")
@@ -164,21 +178,11 @@ U moet een onbeperkte integratie systeembeveiligingsgroep maken en aan de gebrui
     ![Systeembeveiligingsgroep](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "Systeembeveiligingsgroep")  
 
 ### <a name="configure-security-group-options"></a>Configureer de beveiligingsopties voor groep
-In deze stap hebt u domeinbeveiliging beleid machtigingen voor de worker-gegevens worden beveiligd door het volgende beveiligingsbeleid voor domein verlenen:
-
-
-| Bewerking | Beveiligingsbeleid voor domein |
-| ---------- | ---------- | 
-| Ophalen en plaatsen |  Extern Account inrichten |
-| Ophalen en plaatsen | Werknemersgegevens: Openbare Worker rapporten |
-| Ophalen en plaatsen | Werknemersgegevens: Alle posities |
-| Ophalen en plaatsen | Werknemersgegevens: Huidige bezetting van informatie |
-| Ophalen en plaatsen | Werknemersgegevens: Functie in werknemersprofiel |
-| Weergeven en wijzigen | Werknemersgegevens: Werke-mailadres |
+In deze stap maakt hebt u machtigingen domeinbeveiliging beleid voor de worker-gegevens aan de beveiligingsgroep.
 
 **Groep Beveiligingsopties configureren:**
 
-1. Beveiligingsbeleid voor domein invoeren in het zoekvak en klik vervolgens op de koppeling **domein beveiligingsbeleid voor functiegebied**.  
+1. Voer **beveiligingsbeleid voor domein** in het zoekvak en klik vervolgens op de koppeling **domein beveiligingsbeleid voor functiegebied**.  
    
     ![Beveiligingsbeleid voor domein](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "beveiligingsbeleid voor domein")  
 2. Zoeken naar het systeem en selecteer de **System** functiegebied.  Klik op **OK**.  
@@ -190,23 +194,17 @@ In deze stap hebt u domeinbeveiliging beleid machtigingen voor de worker-gegeven
 4. Klik op **machtigingen bewerken**, en klik op de **machtigingen bewerken** dialoogvenster pagina, de nieuwe beveiligingsgroep toevoegen aan de lijst met beveiligingsgroepen met **ophalen** en **plaatsen**  integratie machtigingen. 
    
     ![Machtigingen bewerken](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "machtigingen bewerken")  
-5. Herhaal stap 1 hierboven om terug te keren naar het scherm voor het selecteren van functiegebieden en deze keer zoeken voor bezetting, selecteer de **personeel functiegebied** en klik op **OK**.
+    
+5. Herhaal stap 1-4 hierboven voor elk van deze resterende beveiligingsbeleid:
+
+| Bewerking | Beveiligingsbeleid voor domein |
+| ---------- | ---------- | 
+| Ophalen en plaatsen | Werknemersgegevens: Openbare Worker rapporten |
+| Ophalen en plaatsen | Werknemersgegevens: Neem contact op met werkgegevens |
+| Ophalen | Werknemersgegevens: Alle posities |
+| Ophalen | Werknemersgegevens: Huidige bezetting van informatie |
+| Ophalen | Werknemersgegevens: Functie in werknemersprofiel |
    
-    ![Beveiligingsbeleid voor domein](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "beveiligingsbeleid voor domein")  
-6. Vouw in de lijst van beveiligingsbeleid voor het personeel functiegebied **werknemersgegevens: personeel** en Herhaal stap 4 hierboven voor elk van deze resterende beveiligingsbeleid:
-
-   * Werknemersgegevens: Openbare Worker rapporten
-   * Werknemersgegevens: Alle posities
-   * Werknemersgegevens: Huidige bezetting van informatie
-   * Werknemersgegevens: Functie in werknemersprofiel
-   
-7. Herhaal stap 1, hierboven om terug te keren naar het scherm voor het selecteren van functionele gebieden en deze keer zoeken naar **contactgegevens**, selecteert u het functionele gebied personeel en klikt u op **OK**.
-
-8.  Vouw in de lijst van beveiligingsbeleid voor het personeel functiegebied **werknemersgegevens: contactgegevens werk**, en Herhaal stap 4 hierboven voor beveiligingsbeleid van het onderstaande:
-
-    * Werknemersgegevens: Werke-mailadres
-
-    ![Beveiligingsbeleid voor domein](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "beveiligingsbeleid voor domein")  
     
 ### <a name="activate-security-policy-changes"></a>Wijzigingen in het beveiligingsbeleid activeren
 
@@ -225,6 +223,41 @@ In deze stap hebt u domeinbeveiliging beleid machtigingen voor de worker-gegeven
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Gebruikers inrichten van Workday naar Active Directory configureren
 Volg deze instructies voor het inrichten van Workday voor elk Active Directory-forest die u nodig hebt met het inrichten van gebruikersaccount configureren.
 
+### <a name="planning"></a>Planning
+
+Overweeg de volgende vragen voordat het configureren van gebruikers aan een Active Directory-forest inrichten. De antwoorden op deze vragen kunnen bepalen hoe uw bereik filters en kenmerktoewijzingen moeten worden ingesteld. 
+
+* **Wat gebruikers in Workday moeten worden ingericht op deze Active Directory-forest?**
+
+   * *Voorbeeld: Gebruikers waarbij het kenmerk Workday 'Bedrijf' bevat de waarde 'Contoso' en het kenmerk 'Worker_Type' bevat 'Standaard'*
+
+* **Hoe worden gebruikers gerouteerd naar de andere organisatie-eenheden (OE's)?**
+
+   * *Voorbeeld: Gebruikers worden doorgestuurd naar de organisatie-eenheden die met een office-locatie overeenkomen, zoals gedefinieerd in de Workday 'Gemeente' en 'Country_Region_Reference' kenmerken*
+
+* **Hoe moeten de volgende kenmerken worden ingevuld in de Active Directory?**
+
+   * Algemene naam (cn)
+      * *Voorbeeld: Gebruik de waarde van Workday User_ID, zoals ingesteld door human resources*
+      
+   * Werknemer-ID (werknemer-id)
+      * *Voorbeeld: Gebruik de waarde van Workday Worker_ID*
+      
+   * SAM-accountnaam (sAMAccountName)
+      * *Voorbeeld: Gebruik de waarde van Workday User_ID, via een Azure AD expressie inrichting verwijderen van ongeldige tekens worden gefilterd*
+      
+   * User Principal Name (userPrincipalName)
+      * *Voorbeeld: Gebruik de waarde Workday User_ID met een Azure AD inrichting expressie de domeinnaam van een toe te voegen*
+
+* **Hoe gebruikers overeenkomt tussen Workday en Active Directory?**
+
+  * *Voorbeeld: De gebruikers met een specifieke werkdag 'Worker_ID' waarde worden vergeleken met Active Directory-gebruikers waarbij "werknemer-ID" dezelfde waarde heeft. Als de waarde Worker_ID niet in Active Directory gevonden is, maakt u een nieuwe gebruiker.*
+  
+* **Bevat het Active Directory-forest al de gebruikers-id voor de overeenkomende logica is vereist om te werken?**
+
+  * *Voorbeeld: Als dit een nieuwe implementatie van de werkdag, het is raadzaam dat Active Directory vooraf ingevuld met de juiste Workday Worker_ID waarden (of de unieke ID-waarde van keuze worden) moet de overeenkomende logica zo eenvoudig mogelijk houden.*
+    
+    
 ### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Deel 1: De inrichting connector app toe te voegen en het maken van de verbinding met Workday
 
 **Werkdag configureren voor het inrichten van Active Directory:**
@@ -320,39 +353,38 @@ In deze sectie configureert u hoe gebruikersgegevens uit Workday loopt naar Acti
 
 **Hieronder volgen enkele voorbeelden kenmerktoewijzingen tussen Workday en Active Directory met een aantal veelgebruikte expressies**
 
--   De expressie die is toegewezen aan de parentDistinguishedName AD-kenmerk kan worden gebruikt voor het inrichten van een gebruiker aan een specifieke organisatie-eenheid op basis van een of meer Workday bronkenmerken. In dit voorbeeld plaatst gebruikers in verschillende organisatie-eenheden, afhankelijk van hun gegevens plaats in Workday.
+-   De expressie die is toegewezen aan het kenmerk parentDistinguishedName wordt gebruikt voor het inrichten van een gebruiker aan verschillende organisatie-eenheden op basis van een of meer Workday bronkenmerken. In dit voorbeeld hier plaatst gebruikers in verschillende organisatie-eenheden die zijn gebaseerd op welke plaats ze zich in.
 
--   De expressie die is toegewezen aan het kenmerk userPrincipalName AD maken een UPN van firstName.LastName@contoso.com. Ook vervangt deze ongeldige tekens.
+-   Het kenmerk userPrincipalName in Active Directory wordt gegenereerd door de gebruikers-ID van Workday met een domeinachtervoegsel cookievalidatie
 
--   [Er is documentatie over het schrijven van expressies hier](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+-   [Er is documentatie over het schrijven van expressies hier](active-directory-saas-writing-expressions-for-attribute-mappings.md). Dit omvat voorbeelden voor het verwijderen van speciale tekens.
 
   
 | WERKDAG KENMERK | ACTIVE DIRECTORY-KENMERK |  OVEREENKOMENDE ID? | MAKEN / BIJWERKEN |
 | ---------- | ---------- | ---------- | ---------- |
-|  **WorkerID**  |  Werknemer-id | **Ja** | Geschreven op alleen maken | 
-|  **Gemeente**   |   l   |     | Maken en bijwerken |
-|  **Bedrijf**         | Bedrijf   |     |  Maken en bijwerken |
-|  **CountryReferenceTwoLetter**      |   CO |     |   Maken en bijwerken |
-| **CountryReferenceTwoLetter**    |  c  |     |         Maken en bijwerken |
-| **SupervisoryOrganization**  | Afdeling  |     |  Maken en bijwerken |
-|  **PreferredNameData**  |  displayName |     |   Maken en bijwerken |
-| **Werknemer-id**    |  algemene naam    |   |   Geschreven op alleen maken |
-| **Fax**      | facsimileTelephoneNumber     |     |    Maken en bijwerken |
-| **FirstName**   | givenName       |     |    Maken en bijwerken |
+| **WorkerID**  |  Werknemer-id | **Ja** | Geschreven op alleen maken | 
+| **UserID**    |  algemene naam    |   |   Geschreven op alleen maken |
+| **Join (' @ ', [gebruikersnaam] 'contoso.com')**   | userPrincipalName     |     | Geschreven op alleen maken 
+| **Vervang (Mid (Vervang (\[UserID\],, ' (\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[ \\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ', ' ',), 1, 20), ' ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Geschreven op alleen maken |
 | **Switch (\[Active\],, '0', 'True', '1')** |  accountDisabled      |     | Maken en bijwerken |
-| **Mobile**  |    mobiele       |     |       Maken en bijwerken |
-| **EmailAddress**    | E-mail    |     |     Maken en bijwerken |
+| **FirstName**   | givenName       |     |    Maken en bijwerken |
+| **LastName**   |   SN   |     |  Maken en bijwerken |
+| **PreferredNameData**  |  displayName |     |   Maken en bijwerken |
+| **Bedrijf**         | Bedrijf   |     |  Maken en bijwerken |
+| **SupervisoryOrganization**  | Afdeling  |     |  Maken en bijwerken |
 | **ManagerReference**   | manager  |     |  Maken en bijwerken |
+| **BusinessTitle**   |  titel     |     |  Maken en bijwerken | 
+| **AddressLineData**    |  StreetAddress  |     |   Maken en bijwerken |
+| **Gemeente**   |   l   |     | Maken en bijwerken |
+| **CountryReferenceTwoLetter**      |   CO |     |   Maken en bijwerken |
+| **CountryReferenceTwoLetter**    |  c  |     |         Maken en bijwerken |
+| **CountryRegionReference** |  St     |     | Maken en bijwerken |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Maken en bijwerken |
 | **PostalCode**  |   postalCode  |     | Maken en bijwerken |
-| **LocalReference** |  preferredLanguage  |     |  Maken en bijwerken |
-| **Vervang (Mid (Vervang (\[werknemer-id\],, ' (\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ', ' ',), 1, 20), ' ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Geschreven op alleen maken |
-| **LastName**   |   SN   |     |  Maken en bijwerken |
-| **CountryRegionReference** |  St     |     | Maken en bijwerken |
-| **AddressLineData**    |  StreetAddress  |     |   Maken en bijwerken |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Maken en bijwerken |
-| **BusinessTitle**   |  titel     |     |  Maken en bijwerken |
-| **Join (' @ ', vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (Vervang ((vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen (vervangen () Vervangen (deelnemen aan ('. ', [Voornaam], [Achternaam]), '([Øø])', 'oe',), '[Ææ]', 'ae',), '([äãàâãåáąÄÃÀÂÃÅÁĄA])', "a",), '[B]', "b",), '([CçčćÇČĆ])', "c",), '([ďĎD])', "d",), '([ëèéêęěËÈÉÊĘĚE])', 'e',), '[F]', 'f',), '([G])' ,, 'g',), '[H]', "h",), '([ïîìíÏÎÌÍI])', 'i',), '[J]', 'j',), '([K])', 'k',), '([ľłŁĽL])', "l",), '([M])', ''M',), '([ñńňÑŃŇN])', "n",), '([öòőõôóÖÒŐÕÔÓO])', "o",), '([P])', 'p',), '([Q])', 'q',),  '([ŘŘR])', 'r',), '([ßšśŠŚS])', "s",), '([TŤť])', "t",), '([üùûúůűÜÙÛÚŮŰU])', "u",), '([V])', 'v',), '([B])', 'w',), '([ýÿýŸÝY])', 'y',), '([źžżŹŽŻZ])', 'z',), ' ',,, ' ',), 'contoso.com')**   | userPrincipalName     |     | Geschreven op alleen maken                                                   
+| **Fax**      | facsimileTelephoneNumber     |     |    Maken en bijwerken |
+| **Mobile**  |    mobiele       |     |       Maken en bijwerken |
+| **LocalReference** |  preferredLanguage  |     |  Maken en bijwerken |                                               
 | **Switch (\[gemeente\], ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = = standaard, organisatie-eenheid locaties, DC = = contoso, DC = com ', 'Dallas', ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Dallas, OU = locaties, DC = = contoso, DC = com ', 'Austin', ' organisatie-eenheid standaardgebruikers, OU = Gebruikers, OU = Austin, OU = locaties, DC = = contoso, DC = com ","Seattle"' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Seattle, OU = locaties, DC = = contoso, DC = com ', 'Londen', ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Londen, OU = locaties, DC = = contoso, DC = com ')**  | parentDistinguishedName     |     |  Maken en bijwerken |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Deel 3: De lokale synchronisatie-agent configureren
@@ -696,6 +728,7 @@ Om dit te doen, moet u [Workday Studio](https://community.workday.com/studio-dow
             <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
             <wd:Include_Photo>true</wd:Include_Photo>
             <wd:Include_User_Account>true</wd:Include_User_Account>
+            <wd:Include_Roles>true</wd:Include_Roles>
           </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>

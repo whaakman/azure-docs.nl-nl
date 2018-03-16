@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: a6453c8d84b7025f1f510db5e675cde8685c23ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 83d0427a3ba8c634699608c38ab22efb1f275e52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Verbind het apparaat met de vooraf geconfigureerde oplossing voor externe controle (Windows)
 
@@ -95,7 +95,7 @@ Toevoegen van de bibliotheek Parson JSON naar de **RMDevice** project en voeg de
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
     > [!NOTE]
@@ -103,7 +103,7 @@ Toevoegen van de bibliotheek Parson JSON naar de **RMDevice** project en voeg de
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
-## <a name="build-and-run-the-sample"></a>Bouwen en uitvoeren van de steekproef
+## <a name="build-and-run-the-sample"></a>Het voorbeeldproject compileren en uitvoeren
 
 Voeg code aan te roepen de **externe\_bewaking\_uitvoeren** functioneren, en vervolgens bouwen en uitvoeren van de apparaattoepassing:
 
@@ -117,7 +117,7 @@ Voeg code aan te roepen de **externe\_bewaking\_uitvoeren** functioneren, en ver
     }
     ```
 
-1. Kies **bouwen** en vervolgens **Build Solution** de apparaattoepassing te bouwen. Negeer de waarschuwing over de **gmtime** functie.
+1. Kies **bouwen** en vervolgens **Build Solution** de apparaattoepassing te bouwen.
 
 1. In **Solution Explorer**, met de rechtermuisknop op de **RMDevice** project, kies **Debug**, en kies vervolgens **nieuw exemplaar gestart** om uit te voeren van het voorbeeld . De console worden berichten weergegeven:
 

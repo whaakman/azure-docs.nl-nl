@@ -1,5 +1,5 @@
 ---
-title: Azure Table storage gebruiken met C++ | Microsoft Docs
+title: Het gebruik van Azure Table Storage en Azure Cosmos DB met C++ | Microsoft Docs
 description: Sla gestructureerde gegevens op in de cloud met Azure Table Storage, een oplossing voor NoSQL-gegevensopslag.
 services: cosmos-db
 documentationcenter: .net
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/12/2018
 ms.author: mimig
-ms.openlocfilehash: a71098583af8722f2e191e0e665ac87ebd30f355
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 69d56c79320931419ff8d71373ec578af2dec921
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="how-to-use-azure-table-storage-with-c"></a>Azure Table storage gebruiken met C++
+# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Het gebruik van Azure Table storage en Azure Cosmos DB tabel API met C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's uitvoeren met behulp van de service Azure Table storage. De voorbeelden zijn geschreven in C++ en gebruik de [Azure Storage-clientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). De scenario's worden behandeld: **maken en het verwijderen van een tabel** en **werken met tabelentiteiten**.
+Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's uitvoeren met behulp van de service Azure Table storage of Azure Cosmos DB tabel-API. De voorbeelden zijn geschreven in C++ en gebruik de [Azure Storage-clientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). De scenario's worden behandeld: **maken en het verwijderen van een tabel** en **werken met tabelentiteiten**.
 
 > [!NOTE]
 > Deze handleiding is bedoeld voor de Azure Storage-clientbibliotheek voor C++ versie 1.0.0 en hoger. De aanbevolen versie is Storage-clientbibliotheek 2.2.0, die beschikbaar is via [NuGet](http://www.nuget.org/packages/wastorage) of [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -46,7 +46,7 @@ Voor het installeren van de Azure Storage-clientbibliotheek voor C++, kunt u de 
   
      Install-Package wastorage
 
-## <a name="configure-your-application-to-access-table-storage"></a>Uw toepassing configureren voor toegang tot Table storage
+## <a name="configure-access-to-the-table-client-library"></a>Configureer de toegang tot de clientbibliotheek tabel
 Toevoegen aan dat de volgende instructies op de bovenkant van het bestand C++ is waar u de Azure storage-API's gebruiken voor toegang tot tabellen bevatten:  
 
 ```cpp
@@ -54,13 +54,24 @@ Toevoegen aan dat de volgende instructies op de bovenkant van het bestand C++ is
 #include <was/table.h>
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Een Azure-opslag-verbindingsreeks instellen
-Een Azure-opslag-client gebruikt een verbindingsreeks voor opslag voor het opslaan van eindpunten en referenties voor toegang tot gegevens beheerservices. Wanneer een client-toepassing wordt uitgevoerd, moet u de verbindingsreeks voor opslag in de volgende indeling opgeven. De naam van uw opslagaccount en de toegangssleutel voor opslag gebruiken voor het opslagaccount wordt vermeld in de [Azure Portal](https://portal.azure.com) voor de *AccountName* en *AccountKey* waarden. Zie voor informatie over de storage-accounts en toegangstoetsen, [over Azure storage-accounts](../storage/common/storage-create-storage-account.md). Dit voorbeeld ziet hoe u een statisch veld voor het opslaan van de verbindingsreeks kunt declareren:  
+Een Azure Storage client of een Cosmos-DB-client gebruikt een verbindingsreeks voor het opslaan van eindpunten en referenties voor toegang tot gegevens management services. Wanneer een client-toepassing wordt uitgevoerd, moet u de verbindingsreeks voor opslag of Azure Cosmos DB-verbindingsreeks in de juiste notatie opgeven.
+
+## <a name="set-up-an-azure-storage-connection-string"></a>Een Azure Storage-verbindingsreeks instellen
+ Gebruik de naam van uw opslagaccount en de toegangssleutel voor het opslagaccount die worden vermeld in de [Azure Portal](https://portal.azure.com) voor de *AccountName* en *AccountKey* waarden. Zie voor informatie over de Storage-accounts en toegangstoetsen, [over Azure Storage-accounts](../storage/common/storage-create-storage-account.md). Dit voorbeeld ziet hoe u een statisch veld voor het opslaan van de Azure Storage-verbindingsreeks kunt declareren:  
 
 ```cpp
-// Define the connection string with your values.
+// Define the Storage connection string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
+
+## <a name="set-up-an-azure-cosmos-db-connection-string"></a>Een Azure DB die Cosmos-verbindingsreeks instellen
+Gebruik de naam van uw Azure DB die Cosmos-account, uw primaire sleutel en een eindpunt die worden vermeld in de [Azure Portal](https://portal.azure.com) voor de *accountnaam*, *primaire sleutel*, en  *Eindpunt* waarden. Dit voorbeeld ziet hoe u een statisch veld voor het opslaan van de Azure DB die Cosmos-verbindingsreeks kunt declareren:
+
+```cpp
+// Define the Azure Cosmos DB connection string with your values.
+const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_cosmos_db_account;AccountKey=your_cosmos_db_account_key;TableEndpoint=your_cosmos_db_endpoint"));
+```
+
 
 Testen van uw toepassing in uw lokale Windows-computer, kunt u de Azure [opslagemulator](../storage/common/storage-use-emulator.md) die is geïnstalleerd met de [Azure SDK](https://azure.microsoft.com/downloads/). De opslagemulator is een hulpprogramma dat de Azure Blob, wachtrijen en tabellen services beschikbaar zijn op uw lokale ontwikkelcomputer simuleert. Het volgende voorbeeld ziet u hoe u een statisch veld voor het opslaan van de verbindingsreeks naar uw lokale opslagemulator kunt declareren:  
 
@@ -74,7 +85,7 @@ De Azure-opslagemulator starten, klikt u op de **Start** knop of druk op de Wind
 De volgende voorbeelden wordt ervan uitgegaan dat u een van deze twee methoden hebt gebruikt om op te halen van de verbindingsreeks voor opslag.  
 
 ## <a name="retrieve-your-connection-string"></a>De verbindingsreeks ophalen
-U kunt de **cloud_storage_account** klasse vertegenwoordigt de gegevens van uw storage-account. Voor het ophalen van gegevens over uw storage-account van de verbindingsreeks voor opslag, kunt u de parseermethode.
+U kunt de **cloud_storage_account** klasse vertegenwoordigt de gegevens van uw storage-account. Voor het ophalen van gegevens over uw storage-account van de verbindingsreeks voor opslag, kunt u de **parseren** methode.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -198,6 +209,9 @@ Een aantal zaken te weten over batchbewerkingen:
 ## <a name="retrieve-all-entities-in-a-partition"></a>Alle entiteiten in een partitie ophalen
 Gebruiken om te vragen een tabel voor alle entiteiten in een partitie, een **table_query** object. Het volgende codevoorbeeld geeft een filter voor entiteiten waarbij 'Smith' de partitiesleutel is. In dit voorbeeld worden de velden van elke entiteit in de queryresultaten naar de console afgedrukt.  
 
+> [!NOTE]
+> Deze methoden zijn momenteel niet ondersteund voor C++ in Azure Cosmos DB.
+
 ```cpp
 // Retrieve the storage account from the connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -232,6 +246,9 @@ De query in dit voorbeeld wordt de entiteiten die overeenkomen met de filtercrit
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Een bereik van entiteiten in een partitie ophalen
 Als u geen query wilt uitvoeren op alle entiteiten in een partitie, kunt u een bereik opgeven door het partitiesleutelfilter te combineren met een rijsleutelfilter. Het volgende codevoorbeeld maakt gebruik van twee filters om alle entiteiten met de partitie 'Smith' op te halen waarbij de rijsleutel (voornaam) begint met een letter die in het alfabet vóór de 'E' komt. Vervolgens worden de resultaten van de query afgedrukt.  
+
+> [!NOTE]
+> Deze methoden zijn momenteel niet ondersteund voor C++ in Azure Cosmos DB.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -436,23 +453,30 @@ azure::storage::cloud_table_client table_client = storage_account.create_cloud_t
 // Create a cloud table object for the table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
-azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
-azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
-
-// Create an operation to delete the entity.
-azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
-
-// Submit the delete operation to the Table service.
-azure::storage::table_result delete_result = table.execute(delete_operation);
+// Delete the table if it exists
+if (table.delete_table_if_exists())
+    {
+        std::cout << "Table deleted!";
+    }
+    else
+    {
+        std::cout << "Table didn't exist";
+    }
 ```
 
-## <a name="next-steps"></a>Volgende stappen
-Nu u de basisprincipes van table storage hebt geleerd, volgt u deze koppelingen voor meer informatie over Azure Storage:  
+## <a name="troubleshooting"></a>Problemen oplossen
+* Fouten in Visual Studio 2017 Community Edition bouwen
 
+  Als uw project opgehaald fouten in de build vanwege de include-bestanden storage_account.h en table.h, verwijdert u de **/ strikte-** compiler-switch. 
+  - In **Solution Explorer**, met de rechtermuisknop op uw project en selecteer **eigenschappen**.
+  - In de **eigenschappenvensters** dialoogvenster Vouw **configuratie-eigenschappen**, vouw **C/C++**, en selecteer **taal**.
+  - Stel **overeenstemming modus** naar **Nee**.
+   
+## <a name="next-steps"></a>Volgende stappen
+Volg deze koppelingen voor meer informatie over Azure Storage en de tabel-API in Azure Cosmos DB: 
+
+* [Inleiding tot de tabel-API](table-introduction.md)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.
-* [Het Blob storage gebruiken met C++](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Hoe Queue storage gebruiken met C++](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Lijst van Azure Storage-resources in C++](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Opslagclientbibliotheek voor C++-verwijzing](http://azure.github.io/azure-storage-cpp)
 * [Documentatie bij Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

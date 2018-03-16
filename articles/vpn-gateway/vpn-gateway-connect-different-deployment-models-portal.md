@@ -1,6 +1,6 @@
 ---
 title: 'Klassieke virtuele netwerken verbinden met Azure Resource Manager VNets: Portal | Microsoft Docs'
-description: Een VPN-verbinding maken tussen klassieke vnet's en Resource Manager-VNets met behulp van VPN-Gateway en de portal
+description: Stappen voor het klassieke vnet's verbinden met Resource Manager VNets met behulp van VPN-Gateway en de portal
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2018
+ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 90a3c51fa9acbcd9701d4c2b135688ef5148bbf8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ad6b33b5411d3e38f099726df01fcafc8dc90d38
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Verbinding maken met virtuele netwerken vanuit verschillende implementatiemodellen via de portal
 
@@ -157,9 +157,9 @@ Als u een Resource Manager VNet niet hebt en u deze stappen als oefening maakt u
 
 Voordat u een virtuele netwerkgateway maakt, moet u eerst het gatewaysubnet maken. Een gatewaysubnet maken met CIDR-telling van/28 of groter (/ 27, / 26, enz.). Als u dit als onderdeel van een oefening maakt, kunt u de voorbeeld-waarden.
 
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
-
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
+
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ### <a name="creategw"></a>3. De gateway van een virtueel netwerk maken
 

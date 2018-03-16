@@ -16,11 +16,11 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8a52d80f32f822691be862d566c17c84efc73c26
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Op kenmerken gebaseerde regels maken voor dynamisch lidmaatschap in Azure Active Directory
 In Azure Active Directory (Azure AD), kunt u geavanceerde regels om in te schakelen van complexe op kenmerken gebaseerde dynamisch lidmaatschap voor groepen maken. In dit artikel beschrijft de kenmerken en de syntaxis voor het maken van regels voor dynamisch lidmaatschap voor gebruikers of apparaten.
@@ -35,6 +35,8 @@ Wanneer alle kenmerken van een gebruiker of apparaat wijzigt, evalueert het syst
 > U kunt een dynamische groep voor apparaten of gebruikers maken, maar u een regel waarmee zowel gebruikersclaims als apparaatobjecten bevat kan niet maken.
 > 
 > Op dit moment is het niet mogelijk te maken van een groep apparaten op basis van kenmerken van de eigenaar van de gebruiker. Apparaat lidmaatschapsregels kunnen alleen verwijzen naar het onmiddellijke kenmerken van apparaatobjecten in de map.
+> 
+> Microsoft-Teams biedt nog geen ondersteuning voor dynamisch lidmaatschap. U kunt controleren of de fout in de logboeken die zijn gekoppeld aan 'Kan niet dynamisch lidmaatschapsgroep migreren'
 
 ## <a name="to-create-an-advanced-rule"></a>Geavanceerde regels maken
 1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een account dat is een globale beheerder of de beheerder van een gebruiker.

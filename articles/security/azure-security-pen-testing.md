@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/08/2017
-ms.author: yurid
-ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.date: 03/13/2018
+ms.author: barclayn
+ms.openlocfilehash: 5f2a72d133218e72d1db86b787c998cc50269d3a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="pen-testing"></a>Pen testen
 Een van de voordelen van het gebruik van Azure voor de implementatie en het testen van toepassingen is dat u snel omgevingen gemaakt kunt krijgen.  U hoeft te hoeven maken over aanschaf, ophalen, en ' bekabeld en stapelen ' uw eigen lokale hardware.
@@ -31,7 +31,7 @@ We niet pen testen van uw toepassing, maar we begrijpen dat u wilt en moet pen t
 
 Hoe pakt u dit aan?
 
-Op 15 juni 2017 Microsoft niet langer vooraf is goedkeuring vereist voor het uitvoeren van een binnendringen tests met Azure-resources. Klanten die willen formeel document toekomstige binnendringen testen betrokkenheid tegen Microsoft Azure, wordt aangeraden om in te vullen de [formulier Azure Service binnendringen testen aanmelding](https://portal.msrc.microsoft.com/engage/pentest). Dit proces alleen betrekking heeft op Microsoft Azure en niet van toepassing op een andere Microsoft-Cloudservice. 
+Op 15 juni 2017 Microsoft niet langer vooraf is goedkeuring vereist voor het uitvoeren van een binnendringen tests met Azure-resources. Klanten die willen formeel document toekomstige binnendringen testen betrokkenheid tegen Microsoft Azure, wordt aangeraden om in te vullen de [formulier Azure Service binnendringen testen aanmelding](https://portal.msrc.microsoft.com/en-us/engage/pentest). Dit proces alleen betrekking heeft op Microsoft Azure en niet van toepassing op een andere Microsoft-Cloudservice. 
 
 >[!IMPORTANT] 
 >Tijdens het verwittigen van Microsoft van pen activiteiten testen is niet langer vereist klanten nog steeds moeten voldoen aan de [Microsoft Cloud Unified binnendringen testen regels van Engagement](https://technet.microsoft.com/en-us/mt784683). 

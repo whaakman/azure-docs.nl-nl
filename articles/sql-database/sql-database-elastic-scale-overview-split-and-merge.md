@@ -2,23 +2,18 @@
 title: Verplaatsen van gegevens tussen cloud uitgebreide databases | Microsoft Docs
 description: Legt uit hoe manipuleren shards en verplaatsen van gegevens via een zelf gehoste service met behulp van API's van elastische database.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 328989c4fc1f9a404d4c048eb148a95e9105bdf5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 9e2b231ad2e9fc5ab07532daef44da9870cef4ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Gegevens verplaatsen tussen uitgeschaalde clouddatabases
 Als u een Software als een Service-ontwikkelaar bent en plotseling uw app grote vraag ondergaat, moet u ruimte is voor de groei. Zodat toevoegen u meer databases (shards). Hoe u opnieuw distribueren de gegevens naar de nieuwe databases zonder te onderbreken van de integriteit van gegevens? Gebruik de **gesplitste merge tool** gegevens van beperkte databases naar de nieuwe databases verplaatsen.  

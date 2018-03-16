@@ -2,24 +2,19 @@
 title: Intelligent Insights diagnostics prestatielogboek - Azure SQL Database | Microsoft Docs
 description: Intelligent Insights voorziet in een logboek diagnostische gegevens van prestatieproblemen met de Azure SQL Database
 services: sql-database
-documentationcenter: 
 author: danimir
-manager: drasumic
-editor: carlrab
-ms.assetid: 
+manager: craigg
+ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b380d3a8a35750602a4a0d20d595f71b125fc118
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>De Intelligent Insights Azure SQL Database prestaties diagnostische logboeken gebruikt
 
@@ -92,7 +87,7 @@ Afhankelijk van het prestatieprobleem gedetecteerd, de details in de diagnostisc
 | Nieuwe query | <li>Query-hash van de nieuwe query 's</li> |
 | Ongebruikelijke wacht statistiek | <li>Ongebruikelijke wacht typen</li><li>Query-hashes</li><li>Wachttijden query</li> |
 | TempDB conflicten | <li>Query-hashes van query's veroorzaken conflicten</li><li>Toekenning van de query voor de algehele database pagelatch conflicten wachttijd [%]</li> |
-| DTU tekort aan resources van elastische groep | <li>Elastische pool</li><li>Bovenste DTU verbruikende database</li><li>Percentage van de groep van toepassingen die worden gebruikt door de bovenste consument DTU</li> |
+| DTU tekort aan resources van elastische groep | <li>Elastische groep</li><li>Bovenste DTU verbruikende database</li><li>Percentage van de groep van toepassingen die worden gebruikt door de bovenste consument DTU</li> |
 | Regressie plannen | <li>Query-hashes</li><li>Goed plan-id 's</li><li>Ongeldige abonnement-id 's</li> |
 | Database-Scoped waarde configuratiewijziging | <li>Database-scoped configuratiewijzigingen vergeleken met de standaardwaarden</li> |
 | Trage Client | <li>Query-hashes</li><li>Wachttijden</li> |

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 03/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 201734661873c7ac7f7a5dd710009eb324cedc86
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7d353adcafed02832243277118da8480e54544ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>NVIDIA GPU-stuurprogramma's installeren op N-reeks virtuele machines waarop Linux wordt uitgevoerd
 
@@ -106,12 +106,12 @@ sudo reboot
   
   sudo reboot
 
-2. Install the latest Linux Integration Services for Hyper-V.
+2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
+  wget https://aka.ms/lis
  
-  tar xvzf lis-rpms-4.2.4.tar.gz
+  tar xvzf lis
  
   cd LISISO
  
@@ -158,7 +158,7 @@ Als het stuurprogramma is geïnstalleerd, ziet u uitvoer ziet er als volgt. Houd
 
 ## <a name="rdma-network-connectivity"></a>RDMA-netwerkverbinding
 
-RDMA-netwerkverbinding kan worden ingeschakeld op virtuele machines van RDMA-compatibele N-serie, zoals NC24r geïmplementeerd in dezelfde beschikbaarheidsset. Het netwerk RDMA ondersteunt Message Passing Interface (MPI)-verkeer voor toepassingen die worden uitgevoerd met Intel MPI 5.x of een latere versie. Aanvullende vereisten als volgt:
+RDMA-netwerkverbinding kan worden ingeschakeld op virtuele machines RDMA-compatibele N-serie, zoals NC24r geïmplementeerd in de dezelfde beschikbaarheidsset of VM-schaalset bevatten. Het netwerk RDMA ondersteunt Message Passing Interface (MPI)-verkeer voor toepassingen die worden uitgevoerd met Intel MPI 5.x of een latere versie. Aanvullende vereisten als volgt:
 
 ### <a name="distributions"></a>Distributies
 
@@ -255,12 +255,12 @@ Een SSH-verbinding maken met elke VM wilt NVIDIA RASTER stuurprogramma's install
   blacklist lbm-nouveau
   ```
  
-3. De virtuele machine opnieuw opstarten, opnieuw verbinding maken en installeer de meest recente Linux-integratieservices voor Hyper-V:
+3. De virtuele machine opnieuw opstarten, opnieuw verbinding maken en installeer de meest recente [Linux-integratieservices voor Hyper-V en Azure](https://www.microsoft.com/download/details.aspx?id=55106).
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
+  wget https://aka.ms/lis
 
-  tar xvzf lis-rpms-4.2.4.tar.gz
+  tar xvzf lis
 
   cd LISISO
 

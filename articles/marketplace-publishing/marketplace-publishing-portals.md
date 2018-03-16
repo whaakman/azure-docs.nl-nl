@@ -3,8 +3,8 @@ title: Overzicht van de verschillende portals die nodig zijn voor het maken van 
 description: Overzicht van de verschillende portals die nodig zijn voor het maken van een aanbieding voor de Marketplace
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 89ce82b3-c28a-4b0d-b37a-db3112160a4e
 ms.service: marketplace
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: hascipio
-ms.openlocfilehash: 093d3ee3ecce89c86a12e7e216072ece57f82f9d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 663d9a01b80b0c41e37037b0cbec10c93511d24c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="portals-you-will-need"></a>U moet portals
 Voordat u het proces van een aanbieding publiceren, je krijgt toegevoegd aan de verschillende portals die u nodig hebt. Hieronder vindt u de korte samenvatting van de portals--Developer Center Azure Publishing Portal en Azure-Portal in de volgorde die u met hen communiceren.                                                                            
 
 ## <a name="developer-center"></a>Ontwikkelaarscentrum
-[http://dev.Windows.com/Registration?accountprogram=Azure](http://dev.windows.com/registration?accountprogram=azure)
+[http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
 ### <a name="description"></a>Beschrijving
 Maken van uw Microsoft Developer Center-account is een eenmalige taak. Zorg ervoor dat het bedrijf nog geen een Developer Center-account voordat u probeert te maken. Tijdens het proces verzamelen wij bankgegevens belastinggegevens en adresgegevens bedrijf.
@@ -43,7 +43,7 @@ In het ideale geval is dit een distributielijst of een beveiligingsgroep (bijv, 
 > 
 
 ## <a name="publishing-portal"></a>Portal voor publiceren
-[https://Publish.windowsazure.com](https://publish.windowsazure.com)
+[https://publish.windowsazure.com](https://publish.windowsazure.com)
 
 ### <a name="description"></a>Beschrijving
 Dit is de portal die u gebruikt om te werken op de aanbieding en publiceren (marketing, prijzen, publiceert, certificering, indien van toepassing, enzovoort).
@@ -51,8 +51,8 @@ Dit is de portal die u gebruikt om te werken op de aanbieding en publiceren (mar
 ### <a name="identityaccount-used"></a>Identiteit/account dat wordt gebruikt
 De bovenstaande lijst of beveiliging distributiegroep moet worden gebruikt voor het eerst aan te melden bij de portal voor publiceren. Andere gebruikers kunnen later worden toegevoegd als co-beheerders. Dit is hoe deze wordt toegewezen aan de registratiegegevens Developer Center.
 
-## <a name="azure-portal"></a>Azure Portal
-[https://Portal.Azure.com](https://portal.azure.com)
+## <a name="azure-portal"></a>Azure-portal
+[https://portal.azure.com](https://portal.azure.com)
 
 ### <a name="description"></a>Beschrijving
 Dit is de portal waar u uw voorbereide en gepubliceerde aanbiedingen in de Azure Marketplace (van toepassing voor virtuele machines, oplossingssjablonen en Azure Resource Manager gebaseerde ontwikkelaarsservices bekijken kunt).

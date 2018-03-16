@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: 08d0e557f03f771901c9ac92fb080e74e5966452
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Aangepaste weergaven maken met behulp van de ontwerpfunctie voor weergaven in Log Analytics
 Met behulp van de ontwerpfunctie voor weergaven in [Azure Log Analytics](log-analytics-overview.md), kunt u tal van aangepaste weergaven maken in de Azure-portal kunt u gegevens in de werkruimte voor logboekanalyse visualiseren. Dit artikel biedt een overzicht van Designer bekijken en procedures voor het maken en bewerken van aangepaste weergaven.
@@ -28,8 +28,6 @@ Zie voor meer informatie over Designer bekijken:
 * [Tegel verwijzing](log-analytics-view-designer-tiles.md): biedt een Naslaggids voor de instellingen voor elk van de beschikbare tegels in aangepaste weergaven.
 * [Visualisatie onderdeelverwijzing](log-analytics-view-designer-parts.md): biedt een Naslaggids voor de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
 
->[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [querytaal van nieuwe logboekanalyse](log-analytics-log-search-upgrade.md), query's in alle weergaven moeten worden geschreven in de [nieuwe querytaal](https://go.microsoft.com/fwlink/?linkid=856078). De weergaven die zijn gemaakt voordat de werkruimte werd bijgewerkt, worden automatisch geconverteerd.
 
 ## <a name="concepts"></a>Concepten
 Weergaven worden weergegeven op de **overzicht** pagina van de werkruimte voor logboekanalyse in de Azure portal. De tegels in elke aangepaste weergave alfabetische volgorde worden weergegeven en de tegels voor de oplossingen die zijn geïnstalleerd dezelfde werkruimte.

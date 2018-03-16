@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: c8f3c0e87a052b327e9949acd3e7db1d28c1eb46
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute-circuits en Routeringsdomeinen
  U moet bestellen een *ExpressRoute-circuit* uw on-premises infrastructuur verbinding te maken met Microsoft via een connectiviteitsprovider. De volgende afbeelding ziet een logische representatie van de verbinding tussen uw WAN en Microsoft.
@@ -60,19 +60,19 @@ Connectiviteit wordt altijd gestart vanuit uw WAN met Microsoft Azure-services. 
 
 U kunt aangepaste routefilters definiëren in uw netwerk alleen de routes die u moet gebruiken. Raadpleeg de [routering](expressroute-routing.md) pagina voor gedetailleerde informatie over de configuratie van de routering. 
 
-Zie de [pagina met veelgestelde vragen](expressroute-faqs.md) voor meer informatie over services die worden ondersteund via openbare peering routeringsdomein. 
+Zie voor meer informatie over services die worden ondersteund via openbare peering routeringsdomein de [Veelgestelde vragen over](expressroute-faqs.md).
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-Er is een verbinding met alle andere Microsoft online services (Office 365, Dynamics 365 en Azure PaaS-services) via de Microsoft-peering. We inschakelen bidirectionele connectiviteit tussen uw WAN- en Microsoft cloud-services via het Microsoft peering routeringsdomein. U moet verbinding maken met Microsoft cloud-services alleen via het openbare IP-adressen die eigendom zijn van u of uw connectiviteitsprovider en moet u voldoen aan alle gedefinieerde regels. Zie de [vereisten voor ExpressRoute](expressroute-prerequisites.md) pagina voor meer informatie.
+Er is een verbinding met Microsoft online services (Office 365, Dynamics 365 en Azure PaaS-services) via de Microsoft-peering. We inschakelen bidirectionele connectiviteit tussen uw WAN- en Microsoft cloud-services via het Microsoft peering routeringsdomein. U moet verbinding maken met Microsoft cloud-services alleen via het openbare IP-adressen die eigendom zijn van u of uw connectiviteitsprovider en moet u voldoen aan alle gedefinieerde regels. Zie voor meer informatie de [vereisten voor ExpressRoute](expressroute-prerequisites.md) pagina.
 
 Zie de [pagina met veelgestelde vragen](expressroute-faqs.md) voor meer informatie over services die worden ondersteund, kosten en configuratie-informatie. Zie de [ExpressRoute-locaties](expressroute-locations.md) pagina voor informatie over de lijst van connectiviteitsproviders met Microsoft ondersteuning.
 
 ## <a name="routing-domain-comparison"></a>Vergelijking van routering domein
 De volgende tabel vergelijkt de drie Routeringsdomeinen:
 
-|  | **Persoonlijke Peering** | **Openbare Peering** | **Microsoft-Peering*** |
+|  | **Persoonlijke Peering** | **Openbare Peering** | **Microsoft Peering*** |
 | --- | --- | --- | --- |
 | **Max. # voorvoegsels per peering ondersteund** |4000 standaard 10.000 met ExpressRoute Premium |200 |200 |
 | **IP-adresbereiken ondersteund** |Een geldig IP-adres binnen uw WAN. |Openbare IP-adressen die eigendom zijn van door u of uw connectiviteitsprovider. |Openbare IP-adressen die eigendom zijn van door u of uw connectiviteitsprovider. |

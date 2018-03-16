@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 38d4281dfadaefdf331e493745363e8b4152209d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c9a7fc0025e6f4f2b793f0616b4bc41c22c2a498
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Met gekoppelde en geneste sjablonen bij het implementeren van Azure-resources
 
@@ -27,8 +27,6 @@ Voor het implementeren van uw oplossing, kunt u één sjabloon of een belangrijk
 Voor kleine tot middelgrote oplossingen is één sjabloon gemakkelijker te begrijpen en onderhouden. U zijn kunt zien van de resources en waarden in een enkel bestand. Voor geavanceerde scenario's, gekoppelde sjablonen kunnen u de oplossing in de betreffende onderdelen uitgesplitst en sjablonen hergebruiken.
 
 Wanneer met behulp van gekoppelde sjabloon maakt u een belangrijkste sjabloon die de parameterwaarden die tijdens de implementatie ontvangt. De belangrijkste sjabloon bevat de gekoppelde sjablonen en waarden doorgegeven aan deze sjablonen naar behoefte.
-
-![gekoppelde sjablonen](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
 ## <a name="link-or-nest-a-template"></a>Een sjabloon nesten of koppelen
 
@@ -486,9 +484,9 @@ De volgende voorbeelden ziet veelvoorkomende toepassingen van gekoppelde sjablon
 
 |Belangrijkste sjabloon  |Gekoppelde sjabloon |Beschrijving  |
 |---------|---------| ---------|
-|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[gekoppelde sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retourneert de tekenreeks van gekoppelde sjabloon. |
-|[Load Balancer met openbare IP-adres](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[gekoppelde sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Openbaar IP-adres van de gekoppelde sjabloon retourneert en stelt die waarde in de load balancer. |
-|[Meerdere IP-adressen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [gekoppelde sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Meerdere openbare IP-adressen maakt in de gekoppelde sjabloon.  |
+|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[Gekoppelde sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retourneert de tekenreeks van gekoppelde sjabloon. |
+|[Load Balancer met openbare IP-adres](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[Gekoppelde sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Openbaar IP-adres van de gekoppelde sjabloon retourneert en stelt die waarde in de load balancer. |
+|[Meerdere IP-adressen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [Gekoppelde sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Meerdere openbare IP-adressen maakt in de gekoppelde sjabloon.  |
 
 ## <a name="next-steps"></a>Volgende stappen
 

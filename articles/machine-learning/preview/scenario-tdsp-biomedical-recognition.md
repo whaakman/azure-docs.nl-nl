@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4e8450cc20718185a3cea02bf8fbb6b97dd91ddb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Biomedische entiteit erkenning met behulp van de sjabloon Team gegevens wetenschap proces (TDSP)
 
@@ -32,19 +32,19 @@ Uitpakken van de entiteit is een subtaak van informatie extractie (ook wel beken
 
 4. De volgende mogelijkheden in Azure Machine Learning Workbench demonstreren:
 
-    * Instantiëring van [Team gegevens wetenschap proces (TDSP) structuur en sjablonen](how-to-use-tdsp-in-azure-ml.md).
+    * Instantiëring van [Team gegevens wetenschap proces (TDSP) structuur en sjablonen](how-to-use-tdsp-in-azure-ml.md)
     * Automatisch beheer van de afhankelijkheden van uw project met inbegrip van het downloaden en installeren
-    * Uitvoering van scripts op differetn Python compute omgevingen.
-    * Wijzigingsoverzicht voor Python-scripts worden uitgevoerd.
-    * De uitvoering van taken op de externe Spark berekenen met behulp van clusters in HDInsight Spark 2.1 context.
-    * De uitvoering van taken in externe GPU-virtuele machines in Azure.
-    * Eenvoudig uitoefening van grondige learning-modellen als webservices op Azure Container Services (ACS).
+    * Uitvoering van scripts op verschillende berekeningsomgevingen Python
+    * Geschiedenis bijhouden voor Python-scripts uitvoeren
+    * De uitvoering van taken op de externe Spark berekenen met behulp van clusters in HDInsight Spark 2.1 contexten
+    * De uitvoering van taken in externe GPU-virtuele machines in Azure
+    * Eenvoudig uitoefening van grondige learning-modellen als webservices op Azure Container Services (ACS)
 
 ## <a name="use-case-overview"></a>Gebruik van de case-overzicht
 Herkenning biomedische benoemde entiteit is een essentiële stap voor complexe biomedische NLP taken, zoals: 
 * De vermeldingen van benoemde eenheden uitpakken dergelijke ziekten, middelen, chemicaliën en symptomen van elektronische medische of health records.
 * Medicijn detectie
-* Informatie over de interacties tussen verschillende entiteit van het type zoals medicijn medicijn interactie, medicijn ziekte relatie en gen eiwit relatie.
+* Informatie over de interacties tussen verschillende entiteit van het type zoals medicijn medicijn interactie en medicijn ziekte relatie gen eiwit relatie.
 
 Ons gebruik case-scenario is gericht op hoe een grote hoeveelheid corpus zoals Medline PubMed samenvattingen ongestructureerde gegevens kan worden geanalyseerd om te een woord insluiten van het model te trainen. De uitvoer-insluitingen worden vervolgens beschouwd als de automatisch gegenereerde functies voor het trainen van een neural entiteit zelfstandig uitpakken.
 
@@ -79,7 +79,7 @@ We eerst de onbewerkte MEDLINE abstracte gegevens uit gedownload [MEDLINE](https
 
 ### <a name="2-lstm-model-training-data"></a>2. LSTM model trainingsgegevens
 
-Het uitpakken van neural entiteitsmodel is getraind en geëvalueerd op publiclly beschikbare gegevenssets. Als u een gedetailleerde beschrijving van deze gegevenssets, kan u de volgende bronnen raadplegen:
+Het uitpakken van neural entiteitsmodel is getraind en geëvalueerd op openbaar beschikbare gegevenssets. Als u een gedetailleerde beschrijving van deze gegevenssets, kan u de volgende bronnen raadplegen:
  * [Biografie entiteit erkenning taak BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR taak corpus](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 - taak 9.1 (medicijn Recognition)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -93,8 +93,8 @@ Hieronder vindt u de koppeling naar de openbare GitHub-opslagplaats van het werk
 ## <a name="prerequisites"></a>Vereisten 
 
 * Een Azure [abonnement](https://azure.microsoft.com/free/)
-* Azure Machine Learning-Workbench. Zie [installatiehandleiding](quickstart-installation.md). De Azure Machine Learning-Workbench kan op dit moment worden geïnstalleerd op alleen de volgende besturingssystemen: 
-    * Windows 10 of WindowsServer 2016
+* Azure Machine Learning Workbench. Zie [installatiehandleiding](quickstart-installation.md). De Azure Machine Learning-Workbench kan op dit moment worden geïnstalleerd op alleen de volgende besturingssystemen: 
+    * Windows 10 of Windows Server 2016
     * Mac OS Sierra (of nieuwer)
 
 
@@ -106,7 +106,7 @@ Hieronder vindt u de koppeling naar de openbare GitHub-opslagplaats van het werk
 
 ### <a name="python-packages"></a>Python-pakketten
 
-De vereiste afhankelijkheden zijn gedefinieerd in het bestand aml_config/conda_dependencies.yml in de projectmap scenario. De afhankelijkheden die zijn gedefinieerd in dit bestand automatisch worden ingericht voor uitgevoerd tegen docker, VM en HDI-cluster doelen. Raadpleeg voor meer informatie over de bestandsindeling van Conda omgeving [hier](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
+De vereiste afhankelijkheden zijn gedefinieerd in het bestand aml_config/conda_dependencies.yml in de projectmap scenario. De afhankelijkheden die zijn gedefinieerd in dit bestand automatisch worden ingericht voor wordt uitgevoerd tegen docker, VM en HDI-cluster doelen. Raadpleeg voor meer informatie over de bestandsindeling van Conda omgeving [hier](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
 
 * [TensorFlow](https://www.tensorflow.org/install/)
 * [CNTK 2.0](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras)
@@ -139,14 +139,14 @@ De onbewerkte MEDLINE corpus heeft een totaal van 27 miljoen samenvattingen waar
 * de abstracte tekst waaronder zin splitsen, tokeniseren en case normalisatie voorverwerken.
 * artikelen waar abstracte veld is leeg of korte tekst heeft uitsluiten 
 * de woordenlijst word maken vanuit de training samenvattingen
-* het woord insluiten neural model trainen. Raadpleeg voor meer informatie [GitHub code koppeling](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) aan de slag.
+* het woord insluiten neural model trainen. Zie voor meer informatie [GitHub code koppeling](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) aan de slag.
 
 
 Na het parseren van XML-bestanden, heeft gegevens de volgende indeling: 
 
 ![Steekproef](./media/scenario-tdsp-biomedical-recognition/datasample.png)
 
-Het uitpakken van neural entiteitsmodel is getraind en geëvalueerd op publiclly beschikbare gegevenssets. Als u een gedetailleerde beschrijving van deze gegevenssets, kan u de volgende bronnen raadplegen:
+Het uitpakken van neural entiteitsmodel is getraind en geëvalueerd op openbaar beschikbare gegevenssets. Als u een gedetailleerde beschrijving van deze gegevenssets, kan u de volgende bronnen raadplegen:
  * [Biografie entiteit erkenning taak BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR taak corpus](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 - taak 9.1 (medicijn Recognition)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -167,7 +167,7 @@ Word2Vec is het woord zonder supervisie learning-algoritme dat een neurale netwe
 
 ![SKIP-Gram-Model](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-Het model maakt gebruik van hiërarchische Softmax en negatieve steekproeven om de prestaties te optimaliseren. Hiërarchische SoftMax (H SoftMax) is een benadering die is geïnspireerd op binaire structuren. De platte SoftMax laag vervangt H SoftMax in wezen door een hiërarchische laag waarvoor de woorden is als verlaat. Deze manier kunnen wij om af te breken berekenen van de waarschijnlijkheid van één woord in een reeks kans berekeningen, waarin wordt ons opgeslagen bij de berekening van de dure normalisering voor alle woorden opheft. Aangezien een evenwichtige binaire-structuur een diepte van log2 heeft (| V |) (V is de woordenlijst), moeten we alleen evalueren maximaal log2 (| V |) de knooppunten om op te halen van de laatste kans op een woord. De kans op een word-w gegeven van de context-c is dan gewoon het product van de waarschijnlijkheid van de juiste duurt en links schakelt respectievelijk die leiden tot het leafknooppunt. We kunt een Huffman-boomstructuur op basis van de frequentie van de woorden in de gegevensset om ervoor te zorgen dat vaker woorden korter verklaringen krijgen maken. Raadpleeg voor meer informatie [deze koppeling](http://sebastianruder.com/word-embeddings-softmax/).
+Het model maakt gebruik van hiërarchische Softmax en negatieve steekproeven om de prestaties te optimaliseren. Hiërarchische SoftMax (H SoftMax) is een benadering die is geïnspireerd op binaire structuren. De platte SoftMax laag vervangt H SoftMax in wezen door een hiërarchische laag waarvoor de woorden is als verlaat. Deze manier kunnen wij om af te breken berekenen van de waarschijnlijkheid van één woord in een reeks kans berekeningen, waarin wordt ons opgeslagen bij de berekening van de dure normalisering voor alle woorden opheft. Aangezien een evenwichtige binaire-structuur een diepte van log2 heeft (| V |) (V is de woordenlijst), moeten we alleen evalueren maximaal log2 (| V |) de knooppunten om op te halen van de laatste kans op een woord. De kans op een word-w gegeven van de context-c is dan gewoon het product van de waarschijnlijkheid van de juiste duurt en links schakelt respectievelijk die leiden tot het leafknooppunt. We kunt een Huffman-boomstructuur op basis van de frequentie van de woorden in de gegevensset om ervoor te zorgen dat vaker woorden korter verklaringen krijgen maken. Zie voor meer informatie [deze koppeling](http://sebastianruder.com/word-embeddings-softmax/).
 Afbeelding die afkomstig zijn uit [hier](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/).
 
 ##### <a name="visualization"></a>Visualisatie
@@ -188,7 +188,7 @@ Zoals u in de volgende afbeelding, biedt de visualisatie t GND meer scheiding va
 
 * Visualisatie met t-GND
 
-![t GND](./media/scenario-tdsp-biomedical-recognition/tsne.png)
+![t-SNE](./media/scenario-tdsp-biomedical-recognition/tsne.png)
 
 * Punten die het dichtst bij 'Kanker' (ze zijn alle subtypen van kanker)
 
@@ -198,7 +198,7 @@ Zoals u in de volgende afbeelding, biedt de visualisatie t GND meer scheiding va
 
 Zie [trainen van de entiteit neural zelfstandig uitpakken](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation/ReadMe.md).
 
-De feed doorsturen neural netwerkarchitectuur lijden onder blokkering van een probleem dat ze elke invoer behandelen en uitvoer als onafhankelijk van de andere invoer en uitvoer. Deze architectuur kan geen model sequence naar sequence labeling taken zoals vertalen en uitpakken van de entiteit. Modellen terugkerende neurale netwerk wordt oplossen dit probleem als kunnen informatie berekend totdat nu naar het volgende knooppunt doorgeven. Deze eigenschap wordt aangeroepen met geheugen in het netwerk omdat het gebruiken van de eerder berekende informatie zoals weergegeven in de volgende afbeelding:
+De architectuur van de feed doorsturen neurale netwerk wordt gekenmerkt door een probleem dat ze elke invoer behandelen en uitvoer als onafhankelijk van de andere invoer en uitvoer. Deze architectuur kan geen model sequence naar sequence labeling taken zoals vertalen en uitpakken van de entiteit. Modellen terugkerende neurale netwerk wordt oplossen dit probleem als kunnen informatie berekend totdat nu naar het volgende knooppunt doorgeven. Deze eigenschap wordt aangeroepen met geheugen in het netwerk omdat het gebruiken van de eerder berekende informatie zoals weergegeven in de volgende afbeelding:
 
 ![RNN](./media/scenario-tdsp-biomedical-recognition/rnn-expanded.png)
 
@@ -227,7 +227,7 @@ Hieronder volgt een vergelijking tussen de nauwkeurigheid van de twee typen van 
 
 We de evaluatie van de word-insluitingen uitvoeren op andere gegevenssets op soortgelijke wijze en Zie dat model in het domein is altijd beter.
 
-* Taak #2: Eiwitten, cel regel, celtype, DNA en RNA detectie
+* Taak #2: Eiwitten, cel regel celtype, DNA en RNA detectie
 
 ![Vergelijking model 2](./media/scenario-tdsp-biomedical-recognition/mc2.png)
 
@@ -244,7 +244,7 @@ We de evaluatie van de word-insluitingen uitvoeren op andere gegevenssets op soo
 ![Vergelijking model 5](./media/scenario-tdsp-biomedical-recognition/mc5.png)
 
 #### <a name="tensorflow-versus-cntk"></a>TensorFlow versus CNTK
-Het gerapporteerde model zijn getraind met Keras TensorFlow als back-end. Keras met CNTK back-end biedt geen ondersteuning voor 'omgekeerde' op het moment dat deze taak is uitgevoerd. Daarom voor vergelijking, hebben we een unidirectionele LSTM model met de back-end CNTK getraind en ten opzichte van een unidirectionele LSTM model met TensorFlow back-end. Installeer CNTK 2.0 voor Keras van [hier](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
+De gerapporteerde modellen worden getraind Keras die met TensorFlow als back-end. Keras met CNTK back-end biedt geen ondersteuning voor 'omgekeerde' op het moment dat deze taak is uitgevoerd. Daarom voor vergelijking, hebben we een unidirectionele LSTM model met de back-end CNTK getraind en ten opzichte van een unidirectionele LSTM model met TensorFlow back-end. Installeer CNTK 2.0 voor Keras van [hier](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
 
 ![Vergelijking model 6](./media/scenario-tdsp-biomedical-recognition/mc6.png)
 
@@ -266,7 +266,7 @@ Er is een fout over de details van hoe u kan een word-model insluiten met Word2V
 
 * Tomas Mikolov, Kai Chen, Greg Corrado en Jeffrey Dean. 2013a. Efficiënte schatting van word verklaringen in vector ruimte. In de procedures van ICLR.
 * Tomas Mikolov, Ilya Sutskever Kai Chen, Greg S Corrado en Jeff Dean. 2013b. Gedistribueerde weergaven van woorden en woordgroepen en hun compositionality. Pagina in de procedure van NIPS 3111 – 3119.
-* Billy Chiu, Gamal Crichton, Anna Korhonen en Sampo Pyysalo. 2016. [Hoe goed Word insluitingen voor biomedische NLP Train](http://aclweb.org/anthology/W/W16/W16-2922.pdf), 166 – 174-pagina's In procedures van de 15 Workshop op biomedische verwerking van natuurlijke taal.
+* Billy Chiu, Gamal Crichton, Anna Korhonen en Sampo Pyysalo. 2016. [Hoe goed Word insluitingen voor biomedische NLP Train](http://aclweb.org/anthology/W/W16/W16-2922.pdf), 166 – 174-pagina's In procedures van de vijftiende Workshop op biomedische verwerking van natuurlijke taal.
 * [Vector representaties van woorden](https://www.tensorflow.org/tutorials/word2vec)
 * [Terugkerende Neural Networks](https://www.tensorflow.org/tutorials/recurrent)
 * [Problemen met Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/)

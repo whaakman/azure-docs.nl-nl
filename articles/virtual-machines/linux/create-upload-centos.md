@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: f649067590dc990c962aa0c9df8c76080fc2a0b8
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 11876b1d178eceb209a36fcc0eeae5779b90a4e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Een op CentOS gebaseerde virtuele Azure-machine voorbereiden
 * [Een CentOS 6.x virtuele machine voorbereiden voor Azure](#centos-6x)
@@ -38,7 +38,7 @@ In dit artikel wordt ervan uitgegaan dat u al een CentOS hebt geïnstalleerd (of
 * Kernel-ondersteuning voor het koppelen van UDF-bestandssysteem is vereist. De configuratie van de inrichting wordt op de eerste keer opstarten op Azure via media UDF-indeling die is gekoppeld aan de Gast doorgegeven aan de Linux-VM. De Azure Linux-agent moet kunnen de UDF-bestandssysteem voor het lezen van de configuratie en inrichten van de virtuele machine te koppelen.
 * Kernel-versies van Linux onder 2.6.37 ondersteunen geen NUMA op Hyper-V met grotere virtuele machine. Dit probleem voornamelijk effecten oudere distributies met behulp van de upstream Red Hat 2.6.32 kernel, en is vastgesteld in RHEL 6.6 (kernel 2.6.32 504). Systemen met aangepaste kernels die ouder zijn dan 2.6.37 of op basis van RHEL kernels die ouder zijn dan 2.6.32-504 moet de parameter opstarten ingesteld `numa=off` op de opdrachtregel in grub.conf kernel. Zie voor meer informatie Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Configureer een partitie van de wisseling niet op de schijf met het besturingssysteem. De Linux-agent kan worden geconfigureerd voor het maken van een wisselbestand op de tijdelijke schijf.  Meer informatie hierover vindt u in de volgende stappen uit.
-* Alle van de VHD's moeten grootten die veelvouden van 1 MB hebben.
+* Alle VHD's in Azure, moeten een virtuele grootte die is afgestemd op 1MB hebben. Bij het converteren van een onbewerkte schijf naar VHD moet u ervoor zorgen dat de grootte voor onbewerkte schijven een veelvoud van 1MB vóór de conversie is. Zie [opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer informatie.
 
 ## <a name="centos-6x"></a>CentOS 6.x
 

@@ -2,23 +2,18 @@
 title: Overzicht van Azure SQL Database elastische query | Microsoft Docs
 description: Elastische query kunt u een Transact-SQL-query die meerdere databases omvat uit te voeren.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: MladjoA
-ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 6389702b1be5e52c7191e6e57d17b48289e800b2
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 76a8332b99639bacee994824b69624d7fd457a7f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Overzicht Azure SQL Database elastische query (preview)
 De functie elastische query (in preview) kunt u een verspreid over meerdere databases in Azure SQL Database Transact-SQL-query uitvoeren. Hiermee kunt u cross-databasequery's voor toegang tot externe tabellen, en verbinding maken met Microsoft en derden hulpprogramma's (Excel, Power BI, Tableau, enz.) om op te vragen over gegevenslagen met meerdere databases. Met deze functie kunt u query's kunnen grote hoeveelheden gegevenslagen in SQL-Database uitbreiden en de resultaten weergeven in business intelligence (BI)-rapporten.

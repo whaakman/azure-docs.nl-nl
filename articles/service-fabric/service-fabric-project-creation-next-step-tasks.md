@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: rwike77
-ms.openlocfilehash: 17eb1e7c2184fe9cae19685a47ea80716292b754
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 1e5b8523422aae00655b003bf15103d5467b4177
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Uw Service Fabric-toepassing en de volgende stappen
 Uw Azure Service Fabric-toepassing is gemaakt. Dit artikel worden enkele zelfstudies om uit te proberen, de samenstelling van uw project en sommige informatie die u mogelijk geïnteresseerd in mogelijke volgende stappen.
@@ -32,7 +32,7 @@ Een van de volgende zelfstudies uitproberen of maken van uw eerste...
 - [C# Reliable Services-service op Windows](service-fabric-reliable-services-quick-start.md) 
 - [C# Reliable Actors service in Windows](service-fabric-reliable-actors-get-started.md) 
 - [Gast uitvoerbare service in Windows](quickstart-guest-app.md) 
-- [Windows-container-toepassing](service-fabric-get-started-containers.md) 
+- [Windows-containertoepassing](service-fabric-get-started-containers.md) 
 
 Hebt u mogelijk ook geïnteresseerd in het uitproberen van onze [voorbeeldtoepassingen](http://aka.ms/servicefabricsamples).
 
@@ -55,7 +55,7 @@ Het toepassingsproject bestaat uit:
 
 
 ## <a name="learn-more-about-the-programming-models"></a>Meer informatie over de programmeermodellen
-Service Fabric biedt verschillende manieren om te schrijven en beheren van uw services.  Hier volgt overzicht en algemene informatie op [staatloze en stateful Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [containers](service-fabric-containers-overview.md), [Gast uitvoerbare bestanden ](service-fabric-deploy-existing-app.md), en [staatloze en stateful ASP.NET Core services](service-fabric-reliable-services-communication-aspnetcore.md).
+Service Fabric biedt verschillende manieren om te schrijven en beheren van uw services.  Hier volgt overzicht en algemene informatie op [staatloze en stateful Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [containers](service-fabric-containers-overview.md), [Gast uitvoerbare bestanden ](service-fabric-guest-executables-introduction.md), en [staatloze en stateful ASP.NET Core services](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="learn-about-service-communication"></a>Meer informatie over servicecommunicatie
 Een Service Fabric-toepassing bestaat uit verschillende services, waarbij elke service een speciale taak uitvoert. Deze services met elkaar kunnen communiceren en kunnen er clienttoepassingen buiten het cluster die verbinding maken met en communiceren met de services. Meer informatie over hoe [communicatie met en tussen uw services instellen](service-fabric-connect-and-communicate-with-services.md) in Service Fabric. 

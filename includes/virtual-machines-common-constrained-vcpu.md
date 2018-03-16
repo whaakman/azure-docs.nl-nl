@@ -1,5 +1,19 @@
-
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 0b6846a68806354a58516fcbc87913815af87343
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/16/2018
+---
 Sommige werkbelastingen database zoals SQL Server- of Oracle vereisen veel geheugen, opslag, en i/o-bandbreedte, maar niet op een hoog core-telling. Veel werkbelastingen van de database zijn geen CPU-intensief. Azure biedt bepaalde VM-grootten waar u het aantal VM vCPU's te verlagen de kosten van de software licensing behoud van hetzelfde geheugen-, opslag- en i/o-bandbreedte kunt beperken.
 
 Het aantal vCPU kan worden beperkt tot kwartaal helft of een van de oorspronkelijke VM-grootte. Deze nieuwe VM-grootten een achtervoegsel hebben die het aantal actieve vcpu's geeft zodat ze gemakkelijker kunt identificeren.

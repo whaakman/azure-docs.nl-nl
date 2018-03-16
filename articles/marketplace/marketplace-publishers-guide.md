@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>AppSource Publisher handleiding en Azure Marketplace
 
@@ -51,7 +51,7 @@ Profiteren van marketplace-mogelijkheden voor uitbreiding van uw bedrijf:
 
 ## <a name="what-are-azure-marketplace-and-appsource"></a>Wat zijn Azure Marketplace en AppSource?
 
-Microsoft biedt twee afzonderlijke marketplace winkelobjecten waarmee partners lijst aanbiedingen, proefversies inschakelen en transact rechtstreeks met Microsoft klanten en ecosysteem: Azure Marketplace (https://azuremarketplace.microsoft.com) en () [AppSource] https://appsource.Microsoft.com). Deze winkelobjecten kunnen klanten te vinden, en probeer kopen van toepassingen en services die hun digitale transformatie te versnellen, en uitgevers helpen hun bedrijf vergroten door te verhogen, toegang tot de klanten van Microsoft en de ecosysteem voor partners.
+Microsoft biedt twee afzonderlijke marketplace winkelobjecten waarmee partners lijst aanbiedingen, proefversies inschakelen en transact rechtstreeks met Microsoft klanten en ecosysteem: [Azure Marketplace] (https://azuremarketplace.microsoft.com) en [AppSource] (https://appsource.microsoft.com). Deze winkelobjecten kunnen klanten te vinden, en probeer kopen van toepassingen en services die hun digitale transformatie te versnellen, en uitgevers helpen hun bedrijf vergroten door te verhogen, toegang tot de klanten van Microsoft en de ecosysteem voor partners.
  
 De marketplace-winkelobjecten zijn afgestemd op doelgroepen en Microsoft cloud-producten waarmee klanten kunnen vinden die ze nodig hebben. Elke winkel biedt speciale publicatieopties, kunt u uw publishing maximaliseren door de volgende tabel samengevat:
 
@@ -112,7 +112,7 @@ Deze sectie helpt u bij de opties die beschikbaar zijn voor u in beide winkelobj
 
 |**Publicatieoptie**  | **Het Aanbiedingtype** | **Storefront**  |
 |---------|---------|---------|
-|lijst    |    Contact met Me advies Service     |  Azure Marketplace, AppSource       |
+|**lijst**    |    Contact met Me advies Service     |  Azure Marketplace, AppSource       |
 |**Proefversie**   |     Gratis proefversie, SaaS-proefversie, interactieve Demo, uitproberen    |  Azure Marketplace, AppSource       |
 |**Transact**     |   Virtuele Machine, oplossingssjabloon voor de voor beheerde toepassing      |    Azure Marketplace     |
 
@@ -172,7 +172,7 @@ Gebruik een **oplossingssjabloon Azure** als een oplossing voor extra automation
 Gebruik een **Azure beheerde App** bij het implementeren van een virtuele Machine of een volledige IaaS-oplossing voor het abonnement een klant wanneer de uitgever of de klant de oplossing worden beheerd door een 3e partij, bijvoorbeeld een SI- of MSP wenst. Meer informatie over [hier beheerde Apps bouwen](https://docs.microsoft.com/azure/managed-applications/overview). Zie voor een lijst met veelgestelde vragen, de [Marketplace Veelgestelde vragen over Azure](https://azure.microsoft.com/marketplace/faq/).
 
 >[!NOTE]
-> Beheerde Apps moeten worden geïmplementeerd via de marketplace. Als klant communicatie sites een probleem is, houd er rekening mee dat u zich aan geïnteresseerd klanten bereiken als u lead delen is ingeschakeld hebt.
+> Beheerde Apps moeten worden geïmplementeerd via de marketplace. Als klant-communicatie een probleem is, houd er rekening mee dat u zich aan geïnteresseerd klanten bereiken als u lead delen is ingeschakeld hebt.
 
 ### <a name="azure-certified"></a>Azure Certified
 
@@ -210,11 +210,11 @@ Als u daarentegen als u inschakelt Bring Your Own License als een optie:
 |De kosten van uw licentie     | Licentiekosten onderhandeld en gefactureerd door uitgever        |
 |---------|---------|
 |Azure-gebruikskosten (1-D1-Core)    | $0.14 per uur         |
-|**De klant wordt gefactureerd door Microsoft**     | $0.14 per uur        |
+|**De klant wordt gefactureerd door Microsoft**     | **$0.14 per uur**        |
 
 In dit scenario stuklijsten Microsoft $0.14 per uur voor het gebruik van uw gepubliceerde installatiekopie van de virtuele Machine. 
 
-|**Microsoft facturen**    |   $0.14 per uur      |
+|**Microsoft facturen**    |   **$0.14 per uur**      |
 |---------|---------|
 |Microsoft houdt de kosten voor het gebruik van Azure     |    $0.14 per uur     |
 |Microsoft houdt 0% van de kosten van uw licentie     |  0,00 $ per uur       |
@@ -240,7 +240,7 @@ Elke klant met een Enterprise Agreement kan Azure toevoegen aan de overeenkomst 
 |---------|---------|---------|
 |**Deelname-beleid**    | Azure Marketplace deelname beleid [hier] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lijst, proefversie Transact        |
 |**Integratie met Microsoft**    | Azure Marketplace-aanbiedingen moeten gebruikmaken van of Microsoft Azure-services zoals Compute, netwerk of opslag uitbreiden en uitgelijnd met een bestaande Azure Marketplace-categorie, zoals Databases, beveiliging, netwerken, enzovoort. De volledige lijst [hier](https://azuremarketplace.microsoft.com/marketplace/apps).        | Lijst, proefversie Transact        |
-|doelgroep    | Azure Marketplace-aanbiedingen moeten zijn voor IT-professionals, Cloud ontwikkelaars of andere technische klantrollen.       |  Lijst, proefversie Transact 
+|**doelgroep**    | Azure Marketplace-aanbiedingen moeten zijn voor IT-professionals, Cloud ontwikkelaars of andere technische klantrollen.       |  Lijst, proefversie Transact 
 |**Lead Management**    | Voor het ontvangen leads van Marketplace, moet u uw CRM (Marketo, Microsoft Dynamics of Salesforce) leadgegevens accepteert inschakelen.        |   Lijst, proefversie Transact      |
 |**Het privacybeleid en gebruiksvoorwaarden**     |   Uw privacybeleid moet beschikbaar zijn via een openbare URL en de gebruiksvoorwaarden moet worden ingevoerd als tekst tijdens de publicatie.      |   Lijst, proefversie Transact      |
 |**Ondersteuning**     |  Uw aanbieding omvat een openbaar ondersteunings-URL waar klanten help kunnen vinden. Voor proefversies, moet ondersteuning worden opgegeven zonder extra kosten voor de proefperiode.       |  Proefversie Transact       |
@@ -260,7 +260,7 @@ Elke klant met een Enterprise Agreement kan Azure toevoegen aan de overeenkomst 
 |**Vereiste**  |**Details** |**Publicatieoptie**  |
 |---------|---------|---------|
 |**Facturerings- en softwarelicentiecontrole**    |  De virtuele Machine moet ondersteuning bieden voor beide Bring Your Own License of op basis van gebruik, maandelijks facturering.       |    Transact    |
-|**Azure-compatibele virtuele harde schijf (VHD)**     |   Virtuele Machines moet worden gebaseerd op [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) of [Linux] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
+|**Azure-compatibele virtuele harde schijf (VHD)**     |   Virtuele Machines moet worden gebaseerd op [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) of () [Linux]https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>De specifieke vereisten voor het advies Services publiceren
 
@@ -268,12 +268,12 @@ Elke klant met een Enterprise Agreement kan Azure toevoegen aan de overeenkomst 
 |**Vereisten** |**Details**  |**Publicatieoptie**  |
 |---------|---------|---------|
 |**Services bieden kenmerken**     | Uw Service advies moet worden geleverd als een vaste bereik, vaste duur, prijs vaste (of gratis) engagement, voornamelijk voorverkoop gericht, beperkt tot één klant en uitgevoerd op de locatie        |    Lijst     |
-|**Vereisten voor adviesdiensten partner**    |   **AppSource.**  Dynamics 365 voor betrokkenheid van de klant [zilver of Gold Cloud klant relatie Management competentie](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 voor Financiën en bewerkingen Enterprise edition: zilver of [resourceplanning] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) Gold-competentie en een minimale omzet van $25K in de Cloud Bewerkingen in de afsluitende twaalf maanden. Dynamics 365 voor Financiën en bewerkingen, Business edition: fungeren als [Cloud Services Provider (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) of [digitale Partner van Record (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) voor ten minste één klant. Power BI: Voldoen aan de [Solution Partner] (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf). PowerApps: Een Partner toepassingen (https://powerapps.microsoft.com/en-us/partner-showcase/)-oplossing hebt |    Lijst     |
+|**Vereisten voor adviesdiensten partner**    |   **AppSource.**  Dynamics 365 voor betrokkenheid van de klant [zilver of Gold Cloud klant relatie Management competentie](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 voor Financiën en bewerkingen Enterprise edition: zilver of goud [resourceplanning] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) competentie en een minimale omzet van $25 K in Cloud-bewerkingen in de afsluitende twaalf maanden. Dynamics 365 voor Financiën en bewerkingen, Business edition: fungeren als [Cloud Services Provider (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) of [digitale Partner van Record (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) voor ten minste één klant. Power BI: Voldoen aan de [Solution Partner] (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf). PowerApps: Hebben [Partner toepassingen] (https://powerapps.microsoft.com/en-us/partner-showcase/) oplossing |    Lijst     |
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Met behulp van Azure Active Directory proefversies inschakelen
 Azure Active Directory (AAD) is een cloud identity-service waarmee verificatie met een Microsoft-werk of school-account met behulp van de protocollen volgens de industrienorm: OAuth en OpenID Connect. Meer informatie over AAD [hier](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
 
-Microsoft verifieert alle Marketplace gebruikers met AAD, dus als een geverifieerde gebruiker klikt op via uw proefversie aanbieding in Marketplace en wordt omgeleid naar uw omgeving proefversie, kunt u de gebruiker rechtstreeks in een proefversie inrichten zonder een aanvullende aanmelden stap. Het [token dat uw app van AAD tijdens verificatie ontvangt] waardevolle gebruikersgegevens die u gebruiken kunt voor het maken van (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) bevat een het gebruikersaccount in uw app, zodat u kunt de ervaring voor de inrichting automatiseren en vergroot de kans van conversie. 
+Microsoft verifieert alle Marketplace gebruikers met AAD, dus als een geverifieerde gebruiker klikt op via uw proefversie aanbieding in Marketplace en wordt omgeleid naar uw omgeving proefversie, kunt u de gebruiker rechtstreeks in een proefversie inrichten zonder een aanvullende aanmelden stap. Het [token dat uw app van AAD tijdens verificatie ontvangt] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) waardevolle gebruikersgegevens die u gebruiken kunt voor het maken van een gebruikersaccount in uw app zodat u kunt de ervaring voor de inrichting automatiseren en verhoogt de kans op bevat conversie. 
 
 Met behulp van AAD 1 Klik verificatie aan uw app of de evaluatieversie in te schakelen:
 
@@ -295,7 +295,7 @@ Als u vandaag AAD ondersteunen
 Als u niet bekend met AAD federatieve SSO bent
 
 - Uw toepassing registreren in de Azure-portal
-- Ontwikkel-SSO met AAD met [OpenID Connect] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) of [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)
+- Eenmalige aanmelding bij AAD met [OpenID Connect] ontwikkelen (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) of [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)
 - Inschakelen van ondersteuning van multi-tenancymodus in AAD ophalen van een enkele klik evaluatiesoftware
 - [Meer weten](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified)
 
@@ -303,7 +303,7 @@ Voor één Tenant toepassingen:
 
 Er zijn meerdere opties voor één tenant toepassingen:
 
-- Gebruikers toevoegen aan uw directory als gastgebruikers met [Azure B2B] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+- Gebruikers toevoegen aan uw directory als gastgebruikers met () [Azure B2B]https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 - Handmatig inrichten proefversies voor klanten via 'Contact Me'
 - Ontwikkel een per klant Test-station
 - Een voorbeeld van multitenant-demo-app met eenmalige aanmelding bouwen
@@ -392,7 +392,7 @@ Voordat u begint het publicatieproces, is het handig om te begrijpen van de onde
 
 |U hebt deze nodig voor het publiceren van artefacten  |Voor dit Aanbiedingtype  |
 |---------|---------|
-|Versienummer     |    Transact ' Apps van Azure (Oplossingssjablonen en beheerde Apps)     |
+|**Versienummer**     |    Transact ' Apps van Azure (Oplossingssjablonen en beheerde Apps)     |
 |**Met de sjabloonbestanden en createUIDefinitionFile pakketbestand**   |Transact ' Apps van Azure (Oplossingssjablonen en beheerde Apps)         |
 |**Details van het besturingssysteem**    |   Transact ' virtuele Machines      |
 |**Poorten en protocollen die in gebruik**    |  Transact ' virtuele Machines       |
@@ -510,7 +510,7 @@ Bij het maken van een bedrijfsaccount, volgt u deze richtlijnen als meer dan é�
 - Het telefoonnummer van een bedrijf die geen extensie vereist en toegankelijk is voor de sleutel teamleden toevoegen.
 - In het algemeen hebben ontwikkelaars vertrouwde apparaten gebruiken voor aanmelding bij developer-account van uw bedrijf. Alle belangrijke teamleden moeten toegang hebben tot deze vertrouwde apparaten. Zo beperkt u de noodzaak van beveiligingscodes bij het openen van het account worden verzonden.
 - Als u nodig hebt om toegang te verlenen aan het account van een niet-vertrouwde PC, die toegang beperken tot maximaal vijf ontwikkelaars. In het ideale geval deze ontwikkelaars moeten toegang tot het account van de machines die hetzelfde geografische en netwerklocatie.
-- Controleer regelmatig de beveiligingsgegevens van uw bedrijf op [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) om ervoor te zorgen dat alle huidige is.
+- Controleer regelmatig de beveiligingsgegevens van uw bedrijf op [ https://account.live.com/proofs/Manage ](https://account.live.com/proofs/Manage) om ervoor te zorgen dat alle huidige is.
 
 Uw ontwikkelaarsaccount moet worden benaderd voornamelijk van vertrouwde pc's. Dit is essentieel omdat er een limiet aan het aantal codes die worden gegenereerd per account per week. Ook kunt de meest naadloze aanmeldingservaring.
 Klik voor meer informatie over aanvullende developer-account richtlijnen en beveiliging [hier](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
@@ -521,7 +521,7 @@ Uw bedrijfsaccount kan worden gefedereerd met [Azure Active Directory](https://d
 
 Het is raadzaam maken van een nieuw e-mailadres in de  **@outlook.com**  domein. Volg deze stappen:
 
-1. Ga naar [https://signup.live.com/signup](https://signup.live.com/signup) en selecteer **ophalen van een nieuw e-mailadres**
+1. Ga naar [ https://signup.live.com/signup ](https://signup.live.com/signup) en selecteer **ophalen van een nieuw e-mailadres**
 
 
 2. Maak het nieuwe e-mailadres en een wachtwoord invoeren. Hiermee maakt u zowel een nieuwe Microsoft-ID en een postvak in de outlook.com-service. Het registratieproces blijven totdat het account is gemaakt.
@@ -538,7 +538,7 @@ Nadat deze laatste stap is voltooid, hebt u alle e-mailberichten/communicatie va
 ### <a name="instructions-on-how-to-register-in-the-development-center"></a>Instructies over het registreren in het midden-ontwikkeling
 
 1. Open een nieuw Internet Explorer InPrivate- of Incognito van Chrome browsersessie om ervoor te zorgen dat u bent niet aangemeld bij een persoonlijk account.
-2. Ga naar [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) zelf registreren als een verkoper in het Developer Center. Lees de volgende belangrijke opmerking toe voordat u doorgaat.
+2. Ga naar [ http://dev.windows.com/registration?accountprogram=azure ](http://dev.windows.com/registration?accountprogram=azure) zelf registreren als een verkoper in het Developer Center. Lees de volgende belangrijke opmerking toe voordat u doorgaat.
 
    ![Dev Center e](./media/marketplace-publishers-guide/registerdevcenteremail.png)
 
@@ -548,7 +548,7 @@ Nadat deze laatste stap is voltooid, hebt u alle e-mailberichten/communicatie va
    ![Accountgegevens](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)
    
    >[!WARNING]
-   >'Verkopen van' landen: uw services op Azure Marketplace verkopen, uw geregistreerde entiteit moet van een van de goedgekeurde 'verkopen-van' landen hierboven. Deze beperking is voor toekenning en belasting redenen. Zie voor meer informatie de https://azure.microsoft.com/support/legal/marketplace/participation-policies/ [Marketplace deelname beleidsregels].
+   >'Verkopen van' landen: uw services op Azure Marketplace verkopen, uw geregistreerde entiteit moet van een van de goedgekeurde 'verkopen-van' landen hierboven. Deze beperking is voor toekenning en belasting redenen. Zie voor meer informatie de [Marketplace deelname beleidsregels]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
 
 5. Selecteer het Type' Account' als **bedrijf** en klik vervolgens op de **volgende** knop.
 
@@ -614,7 +614,7 @@ Als u publiceren commerciële aanbiedingen voor aankoop wilt, moet u ook toekenn
 
 Als u problemen met Developer Center-registratie hebt, meld u een ondersteuningsticket zoals hieronder:
 
-1. Ga naar de koppeling ondersteuning https://developer.microsoft.com/windows/support
+1. Ga naar de koppeling support https://developer.microsoft.com/windows/support
 2. Onder **Contact met ons** sectie, klikt u op de knop **indienen van een incident** zoals weergegeven in de schermafbeelding hieronder.
 3. Kies 'Help met Dev Center' als **probleemtype** en ' publiceren en beheren van apps ' als **categorie**. Nadat die klikt u op de knop 'Start e'.
 

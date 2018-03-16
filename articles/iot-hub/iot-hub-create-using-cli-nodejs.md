@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: boltean
-ms.openlocfilehash: 5e37c6c5e8625ce446ab203f19f9a8b2f1cd5a46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Een iothub met de Azure CLI maken
 
@@ -87,9 +87,9 @@ Vereiste parameters:
 azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u <units>
 ```
 
-* **resourcegroep**. De naam van de resourcegroep. De indeling is niet hoofdlettergevoelig alfanumerieke, onderstrepingstekens en liggende streepjes, 1-64-lengte.
-* **Naam**. De naam van de iothub worden gemaakt. De indeling is niet hoofdlettergevoelig alfanumerieke, onderstrepingstekens en liggende streepjes, de lengte 3-50.
-* **locatie**. De locatie (azure-regio/datacenter) voor het inrichten van de IoT-hub.
+* **resource-group**. De naam van de resourcegroep. De indeling is niet hoofdlettergevoelig alfanumerieke, onderstrepingstekens en liggende streepjes, 1-64-lengte.
+* **Naam**. De naam van de iothub worden gemaakt. De indeling is niet hoofdlettergevoelig alfanumerieke en afbreekstreepjes, de lengte 3 50.
+* **Locatie**. De locatie (azure-regio/datacenter) voor het inrichten van de IoT-hub.
 * **SKU-naam**. De naam van de sku, een van: [F1, S1, S2, S3]. Raadpleeg de pagina met prijzen voor IoT Hub voor de laatste volledige lijst.
 * **eenheden**. Het aantal ingerichte eenheden. -Bereik: F1 [1-1]: S1, S2 [1-200]: [1-10] S3. IoT Hub-eenheden zijn gebaseerd op het totale aantal berichten en het aantal apparaten dat u verbinding wilt maken.
 
@@ -118,7 +118,7 @@ azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1
 
 Zie het volgende artikel voor meer informatie over het ontwikkelen voor IoT-Hub:
 
-* [IoT SDK 's][lnk-sdks]
+* [IoT SDKs][lnk-sdks]
 
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 

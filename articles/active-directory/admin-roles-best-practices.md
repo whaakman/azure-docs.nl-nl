@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 0231dc8336bb2442099984947897e5005767a8f5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Bevoegde toegang voor hybride en cloud-implementaties beveiligen in Azure AD
 
@@ -118,7 +118,7 @@ Denk na over de accounts die toegewezen of komt in aanmerking voor de rol global
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Meervoudige verificatie inschakelen en alle andere maximaal bevoegdheden één gebruiker niet-gefedereerde beheerdersaccounts registreren 
 
-Azure multi-factor Authentication (MFA) vereist bij het aanmelden voor alle afzonderlijke gebruikers die permanent zijn toegewezen aan een of meer van de Azure AD-beheerdersrollen: hoofdbeheerder, beheerder met bevoorrechte rol beheerder van Exchange Online en SharePoint Online-beheerder. De gids gebruiken om in te schakelen [multi-factor Authentication (MFA) voor uw beheerdersaccounts](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) en zorg ervoor dat alle gebruikers hebt geregistreerd bij [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Meer informatie vindt u in stap 2 en 3 van de handleiding [beveiligen van toegang tot gegevens en services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Azure multi-factor Authentication (MFA) vereist bij het aanmelden voor alle afzonderlijke gebruikers die permanent zijn toegewezen aan een of meer van de Azure AD-beheerdersrollen: hoofdbeheerder, beheerder met bevoorrechte rol beheerder van Exchange Online en SharePoint Online-beheerder. De gids gebruiken om in te schakelen [multi-factor Authentication (MFA) voor uw beheerdersaccounts](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) en zorg ervoor dat alle gebruikers hebt geregistreerd bij [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Meer informatie vindt u in stap 2 en 3 van de handleiding [beveiligen van toegang tot gegevens en services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Stap 2: De meest gebruikte aanval technieken beperken
 
@@ -176,16 +176,16 @@ Azure AD Identity Protection is een algoritme gebaseerde controle en rapportage 
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Verkrijgen van uw Office 365 Secure Score (als u Office 365)
 
-Beveiligde Score afbeeldingen welke Office 365-services u gebruikt (zoals OneDrive, SharePoint en Exchange) en vervolgens uw instellingen en activiteiten wordt bekeken en vergelijkt ze met een basislijn voor het tot stand gebracht door Microsoft. U krijgt een score op basis van hoe uitgelijnde u zich met best practices voor beveiliging. Iedereen met beheerdersmachtigingen (globale beheerder of een aangepaste beheerdersrol) voor een Office 365 Business Premium of Enterprise-abonnement toegang tot de Score beveiligen op [https://securescore.office.com](https://securescore.office.com/).
+Beveiligde Score afbeeldingen welke Office 365-services u gebruikt (zoals OneDrive, SharePoint en Exchange) en vervolgens uw instellingen en activiteiten wordt bekeken en vergelijkt ze met een basislijn voor het tot stand gebracht door Microsoft. U krijgt een score op basis van hoe uitgelijnde u zich met best practices voor beveiliging. Iedereen met beheerdersmachtigingen (globale beheerder of een aangepaste beheerdersrol) voor een Office 365 Business Premium of Enterprise-abonnement toegang tot de Score beveiligen op [ https://securescore.office.com ](https://securescore.office.com/).
 
-#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office365"></a>Bekijk de Office 365-richtlijnen voor beveiliging en naleving (als u Office365)
+#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Bekijk de Office 365-richtlijnen voor beveiliging en naleving (als u Office 365)
 
 De [plannen voor beveiliging en naleving](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) geeft een overzicht van de aanpak voor hoe een Office 365-klant moet configureren van Office 365 en gebruikmaken van andere mogelijkheden van EMS. Vervolgens, revisie 3-6 van hoe u stappen [beveiligen van toegang tot gegevens en services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) en de handleiding voor het [beveiliging en naleving in Office 365 controleren](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
 
 #### <a name="configure-office-365-activity-monitoring-if-using-office-365"></a>Bewaking van Office 365 activiteit te configureren (als u Office 365)
 
-U kunt controleren hoe mensen in uw organisatie zijn met Office 365-services, zodat u kunt gebruikers die een Administrator-account hebben en die mogelijk niet nodig Office 365 gebruiken vanwege niet aanmelden bij deze portals identificeren. Zie voor meer informatuon [activiteit rapporten in het Office 365-beheercentrum](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
+U kunt controleren hoe mensen in uw organisatie zijn met Office 365-services, zodat u kunt gebruikers die een Administrator-account hebben en die mogelijk niet nodig Office 365 gebruiken vanwege niet aanmelden bij deze portals identificeren. Zie voor meer informatie [activiteit rapporten in het Office 365-beheercentrum](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### <a name="establish-incidentemergency-response-plan-owners"></a>Incident/emergency response plan eigenaars tot stand brengen
 
@@ -201,7 +201,7 @@ Volg de instructies in als uw Azure Active Directory-tenant is gesynchroniseerd 
 
 De Enterprise portal en de Azure portal gebruiken om te identificeren van de abonnementen in uw organisatie die productietoepassingen hosten. 
 
-#### <a name="remove-microsoft-ccounts-from-admin-roles"></a>Verwijder Microsoft ccounts uit beheerdersrollen
+#### <a name="remove-microsoft-accounts-from-admin-roles"></a>Microsoft-accounts uit beheerdersrollen verwijderen
 
 Microsoft-accounts van andere programma's, zoals Xbox Live en Outlook mag niet worden gebruikt als administrator-accounts voor organisatie-abonnementen. Verwijder admin status van alle Microsoft-accounts en vervang met Active Directory (bijvoorbeeld chris@contoso.com) werk of school accounts.
 
@@ -227,7 +227,7 @@ Fase 3 is gebaseerd op de beperkingen van fase 2 en is ontworpen om te worden ge
 
 #### <a name="complete-an-access-review-of-users-in-administrator-roles"></a>Een beoordeling van de toegang van gebruikers in beheerdersrollen voltooien
 
-Meer zakelijke gebruikers hun bevoorrechte toegang via cloud-services, wat tot een toenemende onbeheerde platform leiden kan. Dit omvat gebruikers om globale beheerders voor Office365, Azure-abonnementbeheerders en gebruikers die beheerderstoegang in virtuele machines of via de SaaS-apps hebben. Organisaties moeten in plaats daarvan alle werknemers vooral beheerders, dagelijkse zakelijke transacties als niet-gemachtigd gebruikers verwerken en beheerdersrechten alleen ondernemen zo nodig hebben. Omdat het aantal gebruikers in beheerdersrollen mogelijk gegroeid sinds de eerste toepassing, controleert de volledige toegang om te identificeren en elke gebruiker die in aanmerking komt voor het activeren van beheerdersbevoegdheden bevestigen. 
+Meer zakelijke gebruikers hun bevoorrechte toegang via cloud-services, wat tot een toenemende onbeheerde platform leiden kan. Dit omvat gebruikers om globale beheerders voor Office 365, Azure-abonnementbeheerders en gebruikers met beheerderstoegang voor virtuele machines of via de SaaS-apps. Organisaties moeten in plaats daarvan alle werknemers vooral beheerders, dagelijkse zakelijke transacties als niet-gemachtigd gebruikers verwerken en beheerdersrechten alleen ondernemen zo nodig hebben. Omdat het aantal gebruikers in beheerdersrollen mogelijk gegroeid sinds de eerste toepassing, controleert de volledige toegang om te identificeren en elke gebruiker die in aanmerking komt voor het activeren van beheerdersbevoegdheden bevestigen. 
 
 Ga als volgt te werk:
 
@@ -244,7 +244,7 @@ Aanvallers kunnen proberen toe te passen bevoegde accounts toegang krijgen tot g
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Bekijk National Institute of Standards en technologie aanbevelingen voor het afhandelen van incidenten 
 
-Het National Institute of Standards and van Technology (NIST) bevat richtlijnen voor het afhandelen van incidenten, met name voor incident-gerelateerde gegevens te analyseren en de juiste reactie op elk incident te bepalen. Zie voor meer informatiin [(NIST) de Computer Security Incident Handling Guide (SP 800 61, revisie 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+Het National Institute of Standards and van Technology (NIST) bevat richtlijnen voor het afhandelen van incidenten, met name voor incident-gerelateerde gegevens te analyseren en de juiste reactie op elk incident te bepalen. Zie voor meer informatie [(NIST) de Computer Security Incident Handling Guide (SP 800 61, revisie 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>Privileged Identity Management (PIM) implementeren voor JIT tot extra beheerderrollen
 
@@ -305,7 +305,7 @@ MCAS kunt u onderzoeken van bestanden en beleidsregels op basis van de classific
 
 #### <a name="configure-conditional-access"></a>Voorwaardelijke toegang configureren
 
-Configureren van voorwaardelijke toegang op basis van de groep, de locatie en de toepassing gevoeligheid voor [SaaS-apps](https://azure.microsoft.com/overview/what-is-saas/) en Azure AD verbonden apps. 
+Configureren van voorwaardelijke toegang op basis van een groep, de locatie en de toepassing gevoeligheid voor [SaaS-apps](https://azure.microsoft.com/overview/what-is-saas/) en Azure AD verbonden apps. 
 
 #### <a name="monitor-activity-in-connected-cloud-apps"></a>Activiteit in de gekoppelde cloud-apps bewaken
 
@@ -318,7 +318,6 @@ Toegang van gebruikers in verbonden toepassingen ook is beveiligd, zodat het is 
 * Minimaliseren risico en geautomatiseerde dreiging te voorkomen en afdwingen van beleid
 
 De Cloud App Security SIEM-agent Cloud App Security is geïntegreerd met uw SIEM-server gecentraliseerde bewaking van Office 365-waarschuwingen en activiteiten wilt inschakelen. Deze wordt uitgevoerd op uw server en waarschuwingen en activiteiten ophaalt uit de Cloud App Security en ze streamt in de SIEM-server. Zie voor meer informatie [SIEM integratie](https://docs.microsoft.com/cloud-app-security/siem).
-
 
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>Stap 4: Gaan met het samenstellen van beveiliging voor een meer proactieve beveiligingspostuur
 
@@ -357,7 +356,7 @@ Als u werkt met Office 365.
 Als u wilt een betere beveiliging dan uw plan, raadt Microsoft dat u regelmatig valideren dat uw plan werkt zoals verwacht:
 
 * Ga via uw bestaande routekaart om te zien wat is overgeslagen
-* Op basis van de analyse van de keuring post, herzien bestaande of nieuwe aanbevolen procedures definiëren
+* Op basis van de postmortem analyse, herzien bestaande of nieuwe aanbevolen procedures definiëren
 * Zorg ervoor dat uw bijgewerkte beveiligingsplan en best practices binnen uw organisatie worden gedistribueerd
 
 
@@ -438,16 +437,16 @@ Zie voor meer informatie over hoe Microsoft Office 365 omgaat met beveiligingsin
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Microsoft Trust Center voor de beveiliging van het Product](https://www.microsoft.com/trustcenter/security) – beveiligingsfuncties van Microsoft cloud-producten en services
+* [Microsoft Trust Center voor de beveiliging van het Product](https://www.microsoft.com/en-us/trustcenter/security) – beveiligingsfuncties van Microsoft cloud-producten en services
 
-* [Microsoft Trust Center - naleving](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – uitgebreide reeks naleving aanbiedingen voor cloudservices van Microsoft
+* [Microsoft Trust Center - naleving](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – uitgebreide reeks naleving aanbiedingen voor cloudservices van Microsoft
 
-* [Richtlijnen voor het uitvoeren van een risicoanalyse](https://www.microsoft.com/trustcenter/guidance/risk-assessment) -beveiliging en naleving vereisten voor Microsoft-cloudservices beheren
+* [Richtlijnen voor het uitvoeren van een risicoanalyse](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) -beveiliging en naleving vereisten voor Microsoft-cloudservices beheren
 
 ### <a name="other-ms-online-services"></a>Andere onlineservices MS 
 
-* [Microsoft Intune Security](https://www.microsoft.com/trustcenter/security/intune-security) – Intune mobile device management, beheer van mobiele toepassingen en PC-beheermogelijkheden vanuit de cloud biedt.
+* [Microsoft Intune Security](https://www.microsoft.com/en-us/trustcenter/security/intune-security) – Intune mobile device management, beheer van mobiele toepassingen en PC-beheermogelijkheden vanuit de cloud biedt.
 
-* [Beveiliging van Microsoft Dynamics 365](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365 is de Microsoft cloud-gebaseerde oplossing die bundelt customer relationship management (CRM) en ERP-mogelijkheden (ERP).
+* [Beveiliging van Microsoft Dynamics 365](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) – Dynamics 365 is de Microsoft cloud-gebaseerde oplossing die bundelt customer relationship management (CRM) en ERP-mogelijkheden (ERP).
 
  

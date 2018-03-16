@@ -4,7 +4,7 @@ description: Referentiegegevens gebruiken in een Stream Analytics-query
 keywords: referentiegegevens opzoektabel
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 438ec565f3c6e06ab7ec92cf1bbfbdde88f99b6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f7366b4b7d78add47ebab4a6fc72717107814f1f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Met behulp van verwijzingsdimensies of opzoeken van gegevens in een Stream Analytics-invoerstroom
 Referentiegegevens (ook wel bekend als een opzoektabel) is een beperkte verzameling die is statisch of vertraging wijzigen van aard gebruikt om een zoekopdracht uitvoert of correleren met de gegevensstroom. Om ervoor te gebruiken van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u doorgaans een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw Query. Stream Analytics maakt gebruik van Azure Blob storage als de storage-laag voor referentiegegevens en met Azure Data Factory-verwijzing gegevens kunnen worden omgezet en/of gekopieerd naar Azure Blob-opslag voor gebruik als referentie-gegevens van [alle cloud-gebaseerde aantal en de on-premises gegevensopslagexemplaren](../data-factory/copy-activity-overview.md). Referentiegegevens is gemodelleerd als een reeks blobs (gedefinieerd in de configuratie van de invoer) in oplopende volgorde van de datum/tijd opgegeven in de blob-naam. Deze **alleen** ondersteunt toe te voegen aan het einde van de reeks met behulp van een datum/tijd **groter** dan die is opgegeven door de laatste blob in de reeks.
@@ -46,7 +46,7 @@ Als u wilt uw referentiegegevens configureren, moet u eerst voor het maken van e
 <td>De naam van het opslagaccount waar uw BLOB's zich bevinden. Als deze zich binnen hetzelfde abonnement als uw Stream Analytics-taak, kunt u het selecteren in de vervolgkeuzelijst.</td>
 </tr>
 <tr>
-<td>De sleutel van opslagaccount</td>
+<td>Opslagaccountsleutel</td>
 <td>De geheime sleutel die is gekoppeld aan het opslagaccount. Dit wordt automatisch ingevuld als het opslagaccount zich in hetzelfde abonnement als uw Stream Analytics-taak.</td>
 </tr>
 <tr>
@@ -55,7 +55,7 @@ Als u wilt uw referentiegegevens configureren, moet u eerst voor het maken van e
 </tr>
 <tr>
 <td>Het pad</td>
-<td>Het pad dat wordt gebruikt om uw blobs in de opgegeven container te vinden. U kunt kiezen binnen het pad naar een of meer exemplaren van de volgende 2 variabelen opgeven:<BR>{date} {time}<BR>Voorbeeld 1: products/{date}/{time}/product-list.csv<BR>Voorbeeld 2: products/{date}/product-list.csv
+<td>Het pad dat wordt gebruikt om uw blobs in de opgegeven container te vinden. U kunt kiezen binnen het pad naar een of meer exemplaren van de volgende 2 variabelen opgeven:<BR>{date}, {time}<BR>Voorbeeld 1: products/{date}/{time}/product-list.csv<BR>Voorbeeld 2: products/{date}/product-list.csv
 </tr>
 <tr>
 <td>[Optioneel] datumnotatie</td>
@@ -67,7 +67,7 @@ Als u wilt uw referentiegegevens configureren, moet u eerst voor het maken van e
 </tr>
 <tr>
 <td>Gebeurtenis serialisatie-indeling</td>
-<td>Om ervoor te zorgen dat uw query's werken zoals verwacht, Stream Analytics moet weten welke serialisatie-indeling gebruikt u voor inkomende gegevensstromen. De ondersteunde indelingen zijn voor referentiegegevens, CSV en JSON.</td>
+<td>Er moet in Stream Analytics zijn aangegeven welke serialisatie-indeling wordt gebruikt voor inkomende gegevensstromen om te controleren of uw query's werken zoals verwacht. De ondersteunde indelingen zijn voor referentiegegevens, CSV en JSON.</td>
 </tr>
 <tr>
 <td>Encoding</td>
@@ -95,7 +95,7 @@ Als uw referentiegegevens een langzaam veranderende gegevensset is, wordt onders
 ## <a name="tips-on-refreshing-your-reference-data"></a>Tips voor het vernieuwen van uw verwijzingsgegevens
 1. Stream Analytics om opnieuw te laden van de blob leidt niet tot verwijzing gegevensblobs overschrijven en in sommige gevallen kan dit leiden tot de taak is mislukt. De aanbevolen manier om te wijzigen van referentiegegevens is een nieuwe blob met behulp van de container en het pad patroon gedefinieerd in de invoer van de taak toevoegen en gebruiken van een datum/tijd **groter** dan die is opgegeven door de laatste blob in de reeks.
 2. Verwijzing naar gegevensblobs zijn **niet** besteld door het tijdstip van de blob 'Laatst gewijzigd', maar alleen door de tijd en datum is opgegeven in de blob naam weergeven met de {date} en {time} vervangingen.
-3. In enkele gevallen kan een taak moet teruggaan in tijd, daarom verwijzing gegevensblobs mag niet worden gewijzigd of verwijderd.
+3. Overweeg om te voorkomen dat groot aantal blobs lijst, het verwijderen van oude blobs waarvoor de verwerking niet langer worden uitgevoerd. Houd er rekening mee dat ASA mogelijk gaan moet een kleine hoeveelheid in sommige scenario's zoals een herstart opnieuw verwerken.
 
 ## <a name="get-help"></a>Help opvragen
 Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: 725f12a6b5dcf4b66109512336e8a617013c5974
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54580abdca8b6be10576cf74ad23e8ff2665341c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager-sjabloonfuncties
-Dit onderwerp beschrijft de functies die u in een Azure Resource Manager-sjabloon gebruiken kunt.
+In dit artikel beschrijft de functies die u in een Azure Resource Manager-sjabloon gebruiken kunt.
 
 U functies in uw sjablonen toevoegen door deze tekst tussen vierkante haken: `[` en `]`respectievelijk. De expressie wordt geëvalueerd tijdens de implementatie. Hoewel geschreven als een letterlijke tekenreeks, zijn het resultaat van evaluatie van de expressie van een ander JSON-type, zoals een matrix, een object of een geheel getal. Net zoals in JavaScript-functieaanroepen die zijn opgemaakt als `functionName(arg1,arg2,arg3)`. U verwijzen naar eigenschappen met behulp van de punt en [index] operators.
 
@@ -37,6 +37,7 @@ Sjabloonfuncties en de bijbehorende parameters zijn niet hoofdlettergevoelig. Bi
 <a id="empty" />
 <a id="first" />
 <a id="intersection" />
+<a id="json" />
 <a id="last" />
 <a id="length" />
 <a id="min" />
@@ -49,23 +50,23 @@ Sjabloonfuncties en de bijbehorende parameters zijn niet hoofdlettergevoelig. Bi
 ## <a name="array-and-object-functions"></a>Matrix en object-functies
 Resource Manager biedt een aantal functies voor het werken met matrices en objecten.
 
-* [matrix](resource-group-template-functions-array.md#array)
-* [coalesce](resource-group-template-functions-array.md#coalesce)
+* [array](resource-group-template-functions-array.md#array)
+* [Coalesce](resource-group-template-functions-array.md#coalesce)
 * [concat](resource-group-template-functions-array.md#concat)
-* [bevat](resource-group-template-functions-array.md#contains)
+* [contains](resource-group-template-functions-array.md#contains)
 * [createArray](resource-group-template-functions-array.md#createarray)
 * [leeg](resource-group-template-functions-array.md#empty)
 * [eerste](resource-group-template-functions-array.md#first)
-* [snijpunt](resource-group-template-functions-array.md#intersection)
-* [JSON](resource-group-template-functions-array.md#json)
+* [intersection](resource-group-template-functions-array.md#intersection)
+* [json](resource-group-template-functions-array.md#json)
 * [laatste](resource-group-template-functions-array.md#last)
 * [lengte](resource-group-template-functions-array.md#length)
 * [min](resource-group-template-functions-array.md#min)
-* [maximale](resource-group-template-functions-array.md#max)
+* [max](resource-group-template-functions-array.md#max)
 * [bereik](resource-group-template-functions-array.md#range)
-* [overslaan](resource-group-template-functions-array.md#skip)
+* [skip](resource-group-template-functions-array.md#skip)
 * [duren](resource-group-template-functions-array.md#take)
-* [Union](resource-group-template-functions-array.md#union)
+* [union](resource-group-template-functions-array.md#union)
 
 <a id="equals" />
 <a id="less" />
@@ -79,7 +80,7 @@ Resource Manager biedt een aantal functies voor het maken van vergelijkingen in 
 * [is gelijk aan](resource-group-template-functions-comparison.md#equals)
 * [minder](resource-group-template-functions-comparison.md#less)
 * [lessOrEquals](resource-group-template-functions-comparison.md#lessorequals)
-* [groter](resource-group-template-functions-comparison.md#greater)
+* [greater](resource-group-template-functions-comparison.md#greater)
 * [greaterOrEquals](resource-group-template-functions-comparison.md#greaterorequals)
 
 <a id="deployment" />
@@ -89,9 +90,24 @@ Resource Manager biedt een aantal functies voor het maken van vergelijkingen in 
 ## <a name="deployment-value-functions"></a>Waarde van de implementaties
 Resource Manager biedt de volgende functies voor het ophalen van waarden van de secties van de sjabloon en de waarden die betrekking hebben op de implementatie:
 
-* [implementatie](resource-group-template-functions-deployment.md#deployment)
+* [Implementatie](resource-group-template-functions-deployment.md#deployment)
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variabelen](resource-group-template-functions-deployment.md#variables)
+
+<a id="and" />
+<a id="bool" />
+<a id="if" />
+<a id="not" />
+<a id="or" />
+
+## <a name="logical-functions"></a>Logische functies
+Resource Manager biedt de volgende functies voor het werken met logische voorwaarden:
+
+* [and](resource-group-template-functions-logical.md#and)
+* [bool](resource-group-template-functions-logical.md#bool)
+* [if](resource-group-template-functions-logical.md#if)
+* [niet](resource-group-template-functions-logical.md#not)
+* [or](resource-group-template-functions-logical.md#or)
 
 <a id="add" />
 <a id="copyindex" />
@@ -104,28 +120,19 @@ Resource Manager biedt de volgende functies voor het ophalen van waarden van de 
 <a id="mul" />
 <a id="sub" />
 
-## <a name="logical-functions"></a>Logische functies
-Resource Manager biedt de volgende functies voor het werken met logische voorwaarden:
-
-* [en](resource-group-template-functions-logical.md#and)
-* [BOOL](resource-group-template-functions-logical.md#bool)
-* [Als](resource-group-template-functions-logical.md#if)
-* [niet](resource-group-template-functions-logical.md#not)
-* [of](resource-group-template-functions-logical.md#or)
-
 ## <a name="numeric-functions"></a>Numerieke functies
 Resource Manager biedt de volgende functies voor het werken met gehele getallen zijn:
 
-* [toevoegen](resource-group-template-functions-numeric.md#add)
+* [add](resource-group-template-functions-numeric.md#add)
 * [copyIndex](resource-group-template-functions-numeric.md#copyindex)
 * [div](resource-group-template-functions-numeric.md#div)
 * [Float](resource-group-template-functions-numeric.md#float)
 * [int](resource-group-template-functions-numeric.md#int)
 * [min](resource-group-template-functions-numeric.md#min)
-* [maximale](resource-group-template-functions-numeric.md#max)
+* [max](resource-group-template-functions-numeric.md#max)
 * [Mod](resource-group-template-functions-numeric.md#mod)
 * [mul](resource-group-template-functions-numeric.md#mul)
-* [Sub](resource-group-template-functions-numeric.md#sub)
+* [sub](resource-group-template-functions-numeric.md#sub)
 
 <a id="listkeys" />
 <a id="list" />
@@ -140,7 +147,7 @@ Resource Manager biedt de volgende functies voor het ophalen van waarden van de 
 
 * [listKeys en de lijst {Value}](resource-group-template-functions-resource.md#listkeys)
 * [providers](resource-group-template-functions-resource.md#providers)
-* [verwijzing](resource-group-template-functions-resource.md#reference)
+* [Verwijzing](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
 * [abonnement](resource-group-template-functions-resource.md#subscription)
@@ -155,6 +162,7 @@ Resource Manager biedt de volgende functies voor het ophalen van waarden van de 
 <a id="emptystring" />
 <a id="endswith" />
 <a id="firststring" />
+<a id="guid" />
 <a id="indexof" />
 <a id="laststring" />
 <a id="lastindexof" />
@@ -178,11 +186,11 @@ Resource Manager biedt de volgende functies voor het ophalen van waarden van de 
 ## <a name="string-functions"></a>Tekenreeks-functies
 Resource Manager biedt de volgende functies voor het werken met tekenreeksen:
 
-* [Base64](resource-group-template-functions-string.md#base64)
+* [base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
 * [base64ToString](resource-group-template-functions-string.md#base64tostring)
 * [concat](resource-group-template-functions-string.md#concat)
-* [bevat](resource-group-template-functions-string.md#contains)
+* [contains](resource-group-template-functions-string.md#contains)
 * [dataUri](resource-group-template-functions-string.md#datauri)
 * [dataUriToString](resource-group-template-functions-string.md#datauritostring)
 * [leeg](resource-group-template-functions-string.md#empty)
@@ -195,17 +203,17 @@ Resource Manager biedt de volgende functies voor het werken met tekenreeksen:
 * [lengte](resource-group-template-functions-string.md#length)
 * [padLeft](resource-group-template-functions-string.md#padleft)
 * [vervangen](resource-group-template-functions-string.md#replace)
-* [overslaan](resource-group-template-functions-string.md#skip)
+* [skip](resource-group-template-functions-string.md#skip)
 * [split](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [tekenreeks](resource-group-template-functions-string.md#string)
+* [Tekenreeks](resource-group-template-functions-string.md#string)
 * [de subtekenreeks](resource-group-template-functions-string.md#substring)
 * [duren](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
 * [toUpper](resource-group-template-functions-string.md#toupper)
-* [Trim](resource-group-template-functions-string.md#trim)
+* [trim](resource-group-template-functions-string.md#trim)
 * [uniqueString](resource-group-template-functions-string.md#uniquestring)
-* [URI](resource-group-template-functions-string.md#uri)
+* [uri](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 

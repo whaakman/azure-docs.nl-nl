@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynchrone vernieuwen met de REST-API
 U kunt de gegevensvernieuwing asynchrone bewerkingen op uw Azure Analysis Services-modellen in tabelvorm uitvoeren met behulp van elke programmeertaal die REST-aanroepen ondersteunt. Dit omvat de synchronisatie van alleen-lezen-replica's voor query scale-out. 
@@ -36,7 +36,7 @@ De basis-URL volgt deze indeling:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Neem bijvoorbeeld een model met de naam AdventureWorks, op een server met de naam MijnServer, zich in de regio West ons Azure de servernaam is:
+Neem bijvoorbeeld een model met de naam AdventureWorks op een server met de naam MijnServer, zich in de regio West ons Azure. De servernaam van de is:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -48,7 +48,7 @@ De basis-URL voor deze servernaam is:
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
 ```
 
-Met behulp van de basis-URL, kunnen bronnen en bewerkingen worden toegevoegd op basis van de volgende: 
+Met behulp van de basis-URL, kunnen bronnen en bewerkingen worden toegevoegd op basis van de volgende parameters: 
 
 ![Asynchrone vernieuwen](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
@@ -56,7 +56,7 @@ Met behulp van de basis-URL, kunnen bronnen en bewerkingen worden toegevoegd op 
 - Alles wat eindigt op **()** is een functie.
 - Overige is een bronobject.
 
-Bijvoorbeeld, kunt u de POST-bewerking voor de verzameling wordt vernieuwd een vernieuwingsbewerking als volgt uitvoeren:
+Bijvoorbeeld, kunt u de POST-bewerking voor de verzameling wordt vernieuwd vernieuwen:
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
@@ -71,7 +71,7 @@ Alle aanroepen moeten worden geverifieerd met een geldig Azure Active Directory 
 - De gebruiker of toepassing moet voldoende machtigingen op de server of het model voor het aangevraagde gesprek hebben. Het machtigingsniveau wordt bepaald door rollen binnen het model of de administratorgroep op de server.
 
     > [!IMPORTANT]
-    > Op dit moment **serverbeheerder** rolmachtigingen zijn vereist.
+    > Op dit moment **serverbeheerder** rolmachtigingen nodig zijn.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 
@@ -106,7 +106,7 @@ Het opgeven van parameters is niet vereist. De standaardwaarde is toegepast.
 |---------|---------|---------|---------|
 |Type     |  Enum       |  Het type verwerking moet worden uitgevoerd. De typen worden afgestemd op de TMSL [de opdracht refresh](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typen: volledige, clearValues, dataOnly, automatische berekening, toevoegen en defragmenteren.       |   Automatisch      |
 |CommitMode     |  Enum       |  Hiermee wordt bepaald of de objecten worden doorgevoerd in batches of alleen als u klaar. Modi omvatten: standaard transactionele, partialBatch.  |  transactionele       |
-|MaxParallelism     |   Int      |  Deze waarde bepaalt het maximum aantal threads waarop de verwerking van opdrachten parallel worden uitgevoerd. Dit uitgelijnd met de eigenschap MaxParallelism die kan worden ingesteld in de TMSL [opdracht sequentiëren](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) of andere methoden gebruiken.       | 10        |
+|MaxParallelism     |   Int      |  Deze waarde bepaalt het maximum aantal threads waarop de verwerking van opdrachten parallel worden uitgevoerd. Deze waarde wordt uitgelijnd met de eigenschap MaxParallelism die kan worden ingesteld in de TMSL [opdracht sequentiëren](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) of andere methoden gebruiken.       | 10        |
 |RetryCount    |    Int     |   Geeft het aantal keren dat de bewerking zal opnieuw worden geprobeerd voordat deze is mislukt.      |     0    |
 |Objecten     |   Matrix      |   Een matrix met objecten die moeten worden verwerkt. Elk object bevat: "tabel" bij het verwerken van de gehele tabel of 'tabel' en 'partitie' bij het verwerken van een partitie. Als er geen objecten worden opgegeven, wordt het hele model wordt vernieuwd. |   Het gehele model verwerken      |
 
@@ -188,7 +188,7 @@ Als u wilt controleren van de status van een synchronisatiebewerking, gebruiken 
 }
 ```
 
-Waarden voor de synchronisatiestatus:
+Waarden voor `syncstate`:
 
 - 0: Bezig met repliceren. Databasebestanden worden gerepliceerd naar een doelmap.
 - 1: rehydrating. De database is wordt zijn gerehydrateerd op alleen-lezen-server-exemplaren.
@@ -228,7 +228,7 @@ Deze vorm van verificatie vereist een Azure-toepassing worden gemaakt met de ben
 
     ![API-toegang toevoegen](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.  In **selecteert u een API**, type **SQL Server Analysis Services** in het zoekvak en selecteer vervolgens **Azure Analysis Services (SQL Server Analysis Services Azure)**.
+5.  In **selecteert u een API**, type **Azure Analysis Services** in de zoekopdracht vak en selecteer vervolgens het.
 
     ![API selecteren](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
@@ -242,7 +242,7 @@ Deze vorm van verificatie vereist een Azure-toepassing worden gemaakt met de ben
 
 #### <a name="service-principal"></a>Service-principal
 
-Zie de [automatisering van Azure Analysis Services met Service-Principals en PowerShell](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/) blogbericht voor het instellen van een service-principal en toewijzen van de benodigde machtiging in Azure Analysis Services. Nadat u de stappen uiteengezet in de blogbericht hebt voltooid, kunt u de volgende aanvullende stappen uitvoeren:
+Zie [service principle - Azure-portal maken](../azure-resource-manager/resource-group-create-service-principal-portal.md) en [een principe service toevoegen aan de serverbeheerdersrol](analysis-services-addservprinc-admins.md) voor meer informatie over het instellen van een service-principal en de benodigde machtiging in Azure AS toewijzen . Nadat u de stappen hebt voltooid, kunt u de volgende aanvullende stappen uitvoeren:
 
 1.  Zoek in het codevoorbeeld **string autoriteit =...** , Vervang **algemene** met uw organisatie tenant-ID.
 2.  Opmerking/Opmerking verwijderen zodat het ClientCredential-klasse wordt gebruikt voor het exemplaar van de Ref-object maken. Zorg ervoor dat de \<App-ID > en \<App-sleutel > waarden in een veilige manier worden geopend of verificatie op basis van certificaten gebruiken voor service-principals.

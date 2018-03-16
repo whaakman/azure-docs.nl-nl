@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar de nieuwe resourcegroep of abonnement
 
@@ -123,7 +123,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * HDInsight-clusters - Zie [HDInsight-beperkingen](#hdinsight-limitations)
 * IoT Hubs
 * Key Vault
-* Load Balancers
+* Load Balancers - Zie [Load Balancer-beperkingen](#lb-limitations)
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -132,6 +132,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * Operational Insights
 * Operations Management
 * Power BI
+* Openbare IP - Zie [openbare IP-beperkingen](#pip-limitations)
 * Redis Cache
 * Scheduler
 * Search
@@ -161,8 +162,10 @@ De services die op dit moment niet inschakelen voor het verplaatsen van een reso
 * ExpressRoute
 * DevTest Labs - te verplaatsen naar een nieuwe resourcegroep in hetzelfde abonnement is ingeschakeld, maar cross abonnement verplaatsen is niet ingeschakeld.
 * Dynamics LCS
+* Load Balancers - Zie [Load Balancer-beperkingen](#lb-limitations)
 * Beheerde toepassingen
 * Beheerde schijven - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
+* Openbare IP - Zie [openbare IP-beperkingen](#pip-limitations)
 * Recovery Services-kluis - ook komen niet verplaatsen van de Compute, Network en Storage-resources die zijn gekoppeld aan de Recovery Services-kluis, Zie [Recovery Services-beperkingen](#recovery-services-limitations).
 * Beveiliging
 * StorSimple-apparaatbeheerfunctie
@@ -320,6 +323,16 @@ Wanneer u een HDInsight-cluster naar een nieuw abonnement verplaatst, moet u eer
 
 U kunt meerdere zoeken in resources in één keer in verschillende regio's geplaatst niet verplaatsen.
 In dat geval moet u deze afzonderlijk verplaatsen.
+
+## <a name="lb-limitations"></a> Load Balancer-beperkingen
+
+Basic SKU Load Balancer kan worden verplaatst.
+Standaard SKU Load Balancer kan niet worden verplaatst.
+
+## <a name="pip-limitations"></a> Openbare IP-beperkingen
+
+Basic SKU openbare IP-adres kan worden verplaatst.
+Standaard SKU openbare IP-adres kan niet worden verplaatst.
 
 ## <a name="use-portal"></a>De portal gebruiken
 

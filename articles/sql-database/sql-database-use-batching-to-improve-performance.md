@@ -2,24 +2,18 @@
 title: Het gebruik van batchverwerking voor het verbeteren van de toepassingsprestaties Azure SQL Database
 description: Het onderwerp bevat bewijs dat batchen databasebewerkingen aanzienlijk imroves de snelheid en schaalbaarheid van uw Azure SQL Database-toepassingen. Hoewel deze batchen technieken voor elke SQL Server-database werken, is de focus van het artikel op Azure.
 services: sql-database
-documentationcenter: na
 author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/12/2016
 ms.author: sstein
-ms.openlocfilehash: 8622bddc809c9d95f7acf359ff708d5ab31cf620
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 5c7846fdd8d6a7584cab2b4f3811151332171ba4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Het gebruik van batchverwerking voor het verbeteren van de toepassingsprestaties SQL-Database
 Batchverwerking van bewerkingen met Azure SQL Database aanzienlijk verbetert de prestaties en schaalbaarheid van uw toepassingen. Om te begrijpen wat de voordelen, het eerste deel van dit artikel bevat informatie over sommige voorbeeld testresultaten die sequentieel en batch aanvragen voor een SQL-Database te vergelijken. De rest van het artikel ziet u de technieken, scenario's en om te gebruiken met succes batchverwerking in uw Azure-toepassingen.
@@ -295,7 +289,7 @@ Daarom is het gebruik van XML voor batch-query's niet aanbevolen.
 ## <a name="batching-considerations"></a>Batchverwerking overwegingen
 De volgende secties bevatten meer richtlijnen voor het gebruik van batchverwerking in toepassingen met SQL-Database.
 
-### <a name="tradeoffs"></a>Voor-en nadelen
+### <a name="tradeoffs"></a>Tradeoffs
 Afhankelijk van uw architectuur batchverwerking kan betrekking hebben op een afweging tussen de prestaties en tolerantie. Neem bijvoorbeeld het scenario waar uw rol onverwacht uitvalt. Als u één rij met gegevens verliest, is de impact kleiner dan de gevolgen van het verlies van een grote batch van niet-verzonden rijen. Er is een groter risico wanneer u rijen worden gebufferd voordat ze worden verzonden naar de database in een opgegeven periode.
 
 Vanwege deze afweging evalueren het type van bewerkingen die u batch. Batch-agressiever (grotere batches en langer tijdvensters) met gegevens die minder kritiek is.

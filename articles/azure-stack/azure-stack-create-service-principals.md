@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2018
+ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Toepassingen toegang bieden tot Azure-Stack
 
@@ -51,14 +51,14 @@ In deze sectie maakt u een toepassing (service-principal) in Azure AD dat uw toe
 U hebt een service-principal gemaakt voor uw toepassing.
 
 ### <a name="get-credentials"></a>Referenties ophalen
-Wanneer u programmatisch zich aanmeldt, kunt u de ID gebruiken voor uw toepassing en een verificatiesleutel. Als u deze waarden, gebruikt u de volgende stappen uit:
+Wanneer u programmatisch zich aanmeldt, u de ID gebruiken voor uw toepassing, en voor een Web-app / API, een verificatiesleutel. Als u deze waarden, gebruikt u de volgende stappen uit:
 
 1. Van **App registraties** in Active Directory, selecteer uw toepassing.
 
 2. Kopieer de **toepassings-ID** en op te slaan in uw toepassingscode. De toepassingen in de [voorbeeldtoepassingen](#sample-applications) sectie verwijzen naar deze waarde als de client-ID.
 
      ![client-id](./media/azure-stack-create-service-principal/image12.png)
-3. Selecteer voor het genereren van een verificatiesleutel **sleutels**.
+3. Voor het genereren van een verificatiesleutel voor een Web-app / API, selecteer **instellingen** > **sleutels**. 
 
 4. Geef een beschrijving van de sleutel en een duur voor de sleutel. Wanneer u klaar bent, selecteer **opslaan**.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager oplossen
 
@@ -38,6 +38,7 @@ In dit artikel beschrijft een aantal veelvoorkomende fouten Azure-implementatie 
 | Conflict | U hebt aangevraagd een bewerking die niet is toegestaan in de huidige status van de resource. De schijfgrootte is mag bijvoorbeeld alleen bij het maken van een virtuele machine of wanneer de toewijzing van de VM ongedaan is gemaakt. | |
 | DeploymentActive | Wacht voor gelijktijdige implementatie aan deze resourcegroep te voltooien. | |
 | Implementatie mislukt | De implementatie mislukt-fout is een algemene fout die biedt geen informatie die u nodig hebt voor het oplossen van de fout. Raadpleeg de foutdetails voor een foutcode die vindt u meer informatie. | [Foutcode vinden](#find-error-code) |
+| DeploymentQuotaExceeded | Als u de limiet van 800 implementaties per resourcegroep bereiken, kunt u implementaties verwijderd uit de geschiedenis die niet langer nodig zijn. U kunt items verwijderen uit de geschiedenis met [az implementatie verwijderen](/cli/azure/group/deployment#az_group_deployment_delete) voor Azure CLI of [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) in PowerShell. Verwijderen van een vermelding uit de implementatiegeschiedenis van de heeft geen invloed op de resources implementeren. | |
 | DnsRecordInUse | De DNS-recordnaam moet uniek zijn. Geef een andere naam, of de bestaande record wijzigen. | |
 | ImageNotFound | Controleer de instellingen van de VM-installatiekopie. |  |
 | InUseSubnetCannotBeDeleted | U kunt deze fout kan optreden bij het bijwerken van een bron, maar de aanvraag wordt verwerkt door verwijderen en het maken van de resource. Zorg ervoor dat alle ongewijzigde waarden opgeven. | [Bron bijwerken](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,10 +50,13 @@ In dit artikel beschrijft een aantal veelvoorkomende fouten Azure-implementatie 
 | InvalidResourceNamespace | Controleer de resourcenaamruimte die u hebt opgegeven in de **type** eigenschap. | [Verwijzing naar de sjabloon](/azure/templates/) |
 | InvalidResourceReference | De resource nog niet bestaat of niet juist wordt verwezen. Controleer of u moet een afhankelijkheid toevoegen. Controleer uw gebruik van de **verwijzing** functie bevat de vereiste parameters voor uw scenario. | [Afhankelijkheden moeten worden opgelost](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Controleer de resource typt u hebt opgegeven in de **type** eigenschap. | [Verwijzing naar de sjabloon](/azure/templates/) |
+| InvalidSubscriptionRegistrationState | Uw abonnement bij de resourceprovider registreren. | [Inschrijving oplossen](resource-manager-register-provider-errors.md) |
 | InvalidTemplate | Controleer de sjabloonsyntaxis van de op fouten. | [Ongeldige sjabloon oplossen](resource-manager-invalid-template-errors.md) |
+| InvalidTemplateCircularDependency | Verwijder overbodige afhankelijkheden. | [Circulaire afhankelijkheden moeten worden opgelost](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Controleer of uw account hoort bij dezelfde tenant als de resourcegroep die u implementeert. | |
 | LinkedInvalidPropertyId | De resource-ID voor een bron is niet correct kan omzetten. Controleer dat u alle vereiste waarden voor de resource-ID opgeven, met inbegrip van de abonnements-ID, naam van een resourcegroep, resourcetype, bovenliggende Resourcenaam (indien nodig) en resourcenaam. | |
 | LocationRequired | Geef een locatie voor uw resource. | [Locatie instellen](resource-manager-templates-resources.md#location) |
+| MismatchingResourceSegments | Zorg ervoor dat de geneste resource heeft een juiste aantal segmenten in de naam en type. | [Resource segmenten oplossen](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Controleer de registratiestatus van de resource-provider en de ondersteunde locaties. | [Inschrijving oplossen](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Uw abonnement bij de resourceprovider registreren. | [Inschrijving oplossen](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Registratiestatus resource provider. | [Inschrijving oplossen](resource-manager-register-provider-errors.md) |
@@ -73,6 +77,8 @@ In dit artikel beschrijft een aantal veelvoorkomende fouten Azure-implementatie 
 | StorageAccountAlreadyTaken | Geef een unieke naam voor het opslagaccount. | [Naam van het opslagaccount oplossen](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | Controleer het abonnement, de resourcegroep en de naam van het opslagaccount dat u probeert te gebruiken. | |
 | SubnetsNotInSameVnet | Een virtuele machine kan slechts één virtueel netwerk hebben. Bij het implementeren van meerdere NIC's, zorg er dan voor dat ze deel uitmaken van hetzelfde virtuele netwerk. | [Meerdere NIC 's](../virtual-machines/windows/multiple-nics.md) |
+| TemplateResourceCircularDependency | Verwijder overbodige afhankelijkheden. | [Circulaire afhankelijkheden moeten worden opgelost](resource-manager-invalid-template-errors.md#circular-dependency) |
+| TooManyTargetResourceGroups | Verminder het aantal resourcegroepen voor een enkele implementatie. | [Implementatie in meerdere resourcegroepen](resource-manager-cross-resource-group-deployment.md) |
 
 ## <a name="find-error-code"></a>Foutcode vinden
 

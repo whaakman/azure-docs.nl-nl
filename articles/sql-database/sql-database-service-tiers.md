@@ -1,26 +1,19 @@
 ---
 title: Azure SQL Database-service | Microsoft Docs
 description: "Meer informatie over Servicelagen voor één en groep databases prestatieniveaus en opslaggrootte opgeven."
-keywords: 
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 02/28/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: ebfd44098a81b4a9d8863623458460ceb25f0d5d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: de04e54c290657bc4e2ca20bbf10ba03f883dd42
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Wat is Azure SQL Database Servicelagen?
 
@@ -69,7 +62,7 @@ Prestatieniveaus worden uitgedrukt in termen van DTU’s (DTU’s: Database Tran
 > [!IMPORTANT]
 > \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie [de prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor meer informatie. 
 >
-> \* In de Premium-laag is momenteel ruim 1 TB opslag beschikbaar voor de volgende regio's: Australië - oost, Australië - zuidoost, Brazilië - zuid, Canada - centraal, Canada - oost, VS - midden, Frankrijk - centraal, Duitsland - centraal, Japan - oost, Japan - west, Korea - centraal, VS Noord-Centraal, Noord-Europa, VS Zuid-Centraal, Zuidoost-Azië, UK - zuid, UK - west, VS - oost2, VS - west, VS (overheid) - Virginia, en West-Europa. Zie [P11-P15: huidige beperkingen](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> \* In de laag Premium meer dan 1 TB aan opslag is momenteel beschikbaar in de volgende gebieden: Brazilië-Zuid, Canada centraal, Canada Oost, VS-midden, Frankrijk centraal, Duitsland centraal, Japan-Oost, Japan-West, Korea centraal, Noordelijk Centraal, VS, Noord-Europa, Zuid VS-midden, Zuidoost-Azië, VK Zuid, VK West, VS East2, VS-West, VS Gov Virginia en West-Europa. Zie [P11-P15: huidige beperkingen](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
 Zie voor meer informatie over specifieke prestatieniveaus en opslag beschikbare keuzen [limieten voor SQL-Database](sql-database-resource-limits.md).

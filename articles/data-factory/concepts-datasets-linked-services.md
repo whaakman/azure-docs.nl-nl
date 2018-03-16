@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 98d58b97457cc64954094d7e8d8b4defca7e05ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Gegevenssets en gekoppelde services in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,31 +184,37 @@ In het voorbeeld in de vorige sectie, het type van de gegevensset is ingesteld o
 }
 ```
 ## <a name="dataset-structure"></a>Structuur van de gegevensset
-De **structuur** sectie is optioneel. Hiermee definieert u het schema van de gegevensset door dat een verzameling van namen en gegevenstypen van de kolommen bevat. De structuur sectie kunt u type informatie dat wordt gebruikt voor het converteren van de typen en het toewijzen van kolommen van de bron naar de bestemming. In het volgende voorbeeld wordt de gegevensset heeft drie kolommen: timestamp, projectname, en pageviews. Zijn van het type String, String en Decimal, respectievelijk.
-
-```json
-[
-    { "name": "timestamp", "type": "String"},
-    { "name": "projectname", "type": "String"},
-    { "name": "pageviews", "type": "Decimal"}
-]
-```
+De **structuur** sectie is optioneel. Hiermee definieert u het schema van de gegevensset door dat een verzameling van namen en gegevenstypen van de kolommen bevat. De structuur sectie kunt u type informatie dat wordt gebruikt voor het converteren van de typen en het toewijzen van kolommen van de bron naar de bestemming.
 
 Elke kolom in de structuur bevat de volgende eigenschappen:
 
 Eigenschap | Beschrijving | Vereist
 -------- | ----------- | --------
 naam | De naam van de kolom. | Ja
-type | Het gegevenstype van de kolom. | Nee
+type | Het gegevenstype van de kolom. Data Factory ondersteunt de volgende tussentijdse gegevenstypen als toegestane waarden: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], Booleaanse waarde, String, Guid, Datetime, Datetimeoffset en Timespan** | Nee
 Cultuur | . NET-gebaseerde cultuur moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. | Nee
-Indeling | Indeling van tekenreeks moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. | Nee
+Indeling | Indeling van tekenreeks moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. Raadpleeg [aangepaste datum en tijd-indeling tekenreeksen](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) op datum/tijd opmaken. | Nee
 
-De volgende richtlijnen te bepalen wanneer gegevens van de structuur en wat u wilt opnemen de **structuur** sectie.
+### <a name="example"></a>Voorbeeld
+Stel dat de bron-Blob-gegevens in CSV-indeling en bevat drie kolommen in het volgende voorbeeld: gebruikers-id, naam en lastlogindate. Ze zijn van het type Int64, String en Datetime-waarde met een aangepaste datum / tijdindeling met behulp van Franse afkortingen voor dag van de week.
 
-- **Voor gestructureerde gegevensbronnen**, de sectie structuur alleen opgeven als u toewijzen bronkolommen wilt voor het opvangen van kolommen en hun namen niet overeen komen. Dit soort gegevensbron gestructureerde slaat schema en het type informatie samen met de gegevens zelf. Voorbeelden van gestructureerde gegevensbronnen zijn SQL Server, Oracle en Azure SQL Database.<br/><br/>Als het type informatie is al beschikbaar voor gestructureerde gegevensbronnen, moet u type-informatie niet opnemen wanneer u de sectie structuur opneemt.
-- **Voor schema op lezen gegevensbronnen (specifiek Blob-opslag)**, kunt u gegevens opslaan zonder een schema of het type informatie met de gegevens op te slaan. Voor deze typen gegevensbronnen, structuur opnemen wanneer u toewijzen bronkolommen wilt voor het opvangen van kolommen. Structuur ook bevatten wanneer de dataset de invoer voor een kopieeractiviteit is en gegevenstypen van de gegevensset bron moeten worden geconverteerd naar native-typen voor de sink.<br/><br/> Data Factory ondersteunt de volgende waarden voor het type informatie in de structuur: `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`. 
+De structuur van de gegevensset Blob als volgt samen met de definities voor de kolommen te definiëren:
 
-Meer informatie over hoe data factory brongegevens opvangen van toegewezen [Schema en de toewijzing van het type]( copy-activity-schema-and-type-mapping.md) en het opgeven van informatie van de structuur.
+```json
+"structure":
+[
+    { "name": "userid", "type": "Int64"},
+    { "name": "name", "type": "String"},
+    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+]
+```
+
+### <a name="guidance"></a>Richtlijnen
+
+De volgende richtlijnen te begrijpen wanneer structuur informatie op te nemen en wat u wilt opnemen de **structuur** sectie. Meer informatie over hoe gegevensfactory brongegevens opvangen toegewezen en het opgeven van informatie van de structuur van [Schema en de toewijzing van het type](copy-activity-schema-and-type-mapping.md).
+
+- **Voor de gegevensbronnen sterk schema**, de sectie structuur alleen opgeven als u toewijzen bronkolommen wilt voor het opvangen van kolommen en hun namen niet overeen komen. Dit soort gegevensbron gestructureerde slaat schema en het type informatie samen met de gegevens zelf. Voorbeelden van gestructureerde gegevensbronnen zijn SQL Server, Oracle en Azure SQL Database.<br/><br/>Als het type informatie is al beschikbaar voor gestructureerde gegevensbronnen, moet u type-informatie niet opnemen wanneer u de sectie structuur opneemt.
+- **Voor Nee/weak schema gegevensbronnen bijvoorbeeld tekstbestand in blobopslag**, structuur opnemen wanneer de dataset de invoer voor een kopieeractiviteit is en gegevenstypen van de gegevensset bron moeten worden geconverteerd naar native-typen voor de sink. En structuur opnemen wanneer u toewijzen bronkolommen wilt voor sink kolommen...
 
 ## <a name="create-datasets"></a>Gegevenssets maken
 U kunt de gegevenssets maken met behulp van een van deze hulpprogramma's of de SDK's: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST-API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager-sjabloon en de Azure-portal

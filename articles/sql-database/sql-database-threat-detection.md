@@ -2,23 +2,18 @@
 title: Bedreigingendetectie - Azure SQL Database | Microsoft Docs
 description: Met detectie van bedreigingen worden afwijkende databaseactiviteiten gedetecteerd die kunnen duiden op beveiligingsdreigingen voor de database.
 services: sql-database
-documentationcenter: 
 author: rmatchoro
-manager: shaik
-editor: v-romcal
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4cb31eef4ba4b85ea28a58bb9b947b4e07cb0b58
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-threat-detection"></a>Detectie van dreigingen van SQL Database
 
@@ -33,7 +28,7 @@ SQL-injectie is bijvoorbeeld een van de algemene Web application beveiligingspro
 Detectie van dreigingen SQL integreert waarschuwingen met [Azure Security Center](https://azure.microsoft.com/services/security-center/), en elke beveiligde SQL Database-server wordt gefactureerd op dezelfde prijs als Azure Security Center Standard-laag op $15/knooppunt/maand, waar elke SQL-Database hebt beveiligd Server worden geteld als één knooppunt.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Detectie van dreigingen voor uw database in de Azure portal instellen
-1. Starten van de Azure portal op [https://portal.azure.com](https://portal.azure.com).
+1. Starten van de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
 2. Navigeer naar de configuratiepagina van de SQL-Database die u wilt bewaken. Selecteer in de pagina instellingen **controle en detectie van dreigingen**. 
     ![Navigatiedeelvenster][1]
 3. In de **controle en detectie van dreigingen** configuratiepagina inschakelen **ON** controle, waarin de threat detectie-instellingen worden weergegeven.

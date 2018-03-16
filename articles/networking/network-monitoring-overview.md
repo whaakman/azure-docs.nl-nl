@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 6d93821b59e1f69a48c3d5eeda96dad2edddb188
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 66e6b49dd3e3c7d0f2cbd7547b68733e1d4959ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-monitoring-solutions"></a>Oplossingen voor netwerkbeheer 
 
@@ -82,6 +82,36 @@ Raadpleeg voor meer informatie de volgende artikelen:
 
 * [Prestatiemeter netwerk configureren voor het bewaken van de Service-eindpunten](https://aka.ms/applicationconnectivitymonitorguide)
 * [blogbericht](https://aka.ms/svcendptmonitor)
+
+## <a name="traffic-analytics"></a>Traffic Analytics
+Verkeer Analytics is een cloudoplossing die inzicht in gebruikers- en activiteiten op uw cloud-netwerken biedt. NSG Flow logboeken zijn geanalyseerd om te bieden inzicht in:
+
+* Verkeersstromen tussen uw netwerken tussen Azure en Internet, openbare cloud-regio, vnet's en subnetten
+* Toepassingen en protocollen die in uw netwerk, zonder de noodzaak voor sniffers of speciale stroom collector toestellen
+* Bovenste talkers, chatty toepassingen conversaties in de cloud, VM verkeer hotspots
+* Bronnen en bestemmingen van verkeer tussen VNETs, onderlinge relaties tussen kritische zakelijke services en toepassingen
+* Beveiliging – schadelijk verkeer, poorten openen met het Internet, toepassingen of virtuele machines toegang tot Internet proberen...
+
+Verkeer Analytics vormt bruikbare informatie die helpt bij het controleren van uw organisatie netwerkactiviteit, beveiligde toepassingen en gegevens, optimaliseren van de werkbelasting en compatibel te blijven.
+
+![Geo-kaart weer verkeer tussen regio 's](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+
+Verwante koppelingen:
+* [Blogbericht](https://aka.ms/trafficanalytics), [documentatie](https://aka.ms/trafficanalyticsdocs), [Veelgestelde vragen](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+
+## <a name="dns-analytics"></a>DNS-analyse
+Gebouwd voor DNS-beheerders, deze oplossing verzamelt, analyseert en correleert DNS-logboeken voor de beveiliging, bewerkingen en prestaties gerelateerd insights.  Enkele van de mogelijkheden zijn:
+
+* Identificatie van clients die proberen op te lossen schadelijke domeinen
+* Identificatie van verlopen bronrecords
+* Zichtbaarheid van domeinnamen vaak worden aangevraagd en interactie DNS-clients
+* Inzicht in de werklast op DNS-servers
+* Bewaking van dynamische DNS-registratiefouten
+
+![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
+
+Verwante koppelingen:
+* [Blogbericht](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [documentatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
 ## <a name="next-steps"></a>Volgende stappen
 

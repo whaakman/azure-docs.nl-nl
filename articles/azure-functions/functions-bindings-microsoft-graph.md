@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 346fd26696480b6226c5e836e9876685fb408f96
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d774f0ca644793235a8c423b052b559d26e289c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindingen voor Azure Functions
 
@@ -33,7 +33,13 @@ De uitbreiding voor Microsoft Graph biedt de volgende bindingen:
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Microsoft Graph-bindingen zijn momenteel in preview.
+> Microsoft Graph-bindingen zijn momenteel in preview voor Azure Functions versie 2.x. Ze worden niet ondersteund in functies versie 1.x.
+
+## <a name="packages"></a>Pakketten
+
+De binding auth token voor invoer is opgegeven de [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/) NuGet-pakket. De Microsoft Graph-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) pakket. Broncode voor de pakketten is in de [azure-functies-microsoftgraph-extensie](https://github.com/Azure/azure-functions-microsoftgraph-extension/) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="setting-up-the-extensions"></a>Instellen van de extensies
 
@@ -54,9 +60,7 @@ In beide gevallen wordt een waarschuwing weergegeven waarmee de extensie te kunn
 > [!Note] 
 > Een plan verbruik kan 10 minuten duren voordat het installatieproces van het in de portal.
 
-Als u Visual Studio gebruikt, kunt u de uitbreidingen kunt krijgen door het installeren van deze NuGet-pakketten:
-- [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)
-- [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/)
+Als u Visual Studio gebruikt, kunt u de uitbreidingen krijgen door het installeren van [de NuGet-pakketten die eerder in dit artikel worden vermeld](#packages).
 
 ### <a name="configuring-authentication--authorization"></a>Configureren van verificatie / autorisatie
 
@@ -199,7 +203,7 @@ module.exports = function (context, req) {
 
 ### <a name="auth-token---attributes"></a>Auth-token - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) kenmerk.
 
 ### <a name="auth-token---configuration"></a>Auth-token - configuratie
 
@@ -332,7 +336,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-input---attributes"></a>Excel invoer - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) kenmerk.
 
 ### <a name="excel-input---configuration"></a>Excel-invoer - configuratie
 
@@ -492,7 +496,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-output---attributes"></a>Excel output - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) kenmerk.
 
 ### <a name="excel-output---configuration"></a>Excel-uitvoer - configuratie
 
@@ -636,7 +640,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-input---attributes"></a>Invoer - bestand kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) kenmerk.
 
 ### <a name="file-input---configuration"></a>Bestand van de invoer - configuratie
 
@@ -781,7 +785,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-output---attributes"></a>Output - bestand kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) kenmerk.
 
 ### <a name="file-output---configuration"></a>Bestand uitvoer - configuratie
 
@@ -930,7 +934,7 @@ module.exports = function (context, req) {
 
 ### <a name="outlook-output---attributes"></a>Outlook output - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) kenmerk.
 
 ### <a name="outlook-output---configuration"></a>Uitvoer van de Outlook - configuratie
 
@@ -1071,7 +1075,7 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Webhook trigger - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) kenmerk.
 
 ### <a name="webhook-trigger---configuration"></a>Webhook-trigger - configuratie
 
@@ -1222,7 +1226,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Invoer - Webhook kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) kenmerk.
 
 ### <a name="webhook-input---configuration"></a>Webhook-invoer - configuratie
 
@@ -1362,7 +1366,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Output - Webhook kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) kenmerk.
 
 ### <a name="webhook-output---configuration"></a>Uitvoer van de Webhook - configuratie
 
@@ -1377,7 +1381,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**userId**|**UserId**  |Indien nodig en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een gebruiker eerder is geregistreerd.|
 |**userToken**|**UserToken**|Indien nodig en alleen als _identiteit_ is ingesteld op `userFromToken`. Een token geldig voor de functie-app. |
 |**Actie**|**Actie**|Vereist: Hiermee geeft u de binding van de actie moet uitvoeren. Een van de volgende waarden kan zijn:<ul><li><code>create</code> -Registreert een nieuw abonnement.</li><li><code>delete</code> -Worden verwijderd van een opgegeven abonnement.</li><li><code>refresh</code> -Een opgegeven abonnement om te voorkomen dat deze verlopen vernieuwt.</li></ul>|
-|**subscriptionResource**|**SubscriptionResource**|Indien nodig en alleen als de _actie_ is ingesteld op `create`. Hiermee geeft u de Microsoft Graph-resource die wordt gecontroleerd op wijzigingen. Zie [werken met webhooks in Microsoft Graph]. |
+|**SubscriptionResource**|**SubscriptionResource**|Indien nodig en alleen als de _actie_ is ingesteld op `create`. Hiermee geeft u de Microsoft Graph-resource die wordt gecontroleerd op wijzigingen. Zie [werken met webhooks in Microsoft Graph]. |
 |**changeType**|**ChangeType**|Indien nodig en alleen als de _actie_ is ingesteld op `create`. Geeft het type wijziging in de geabonneerde resource die wordt er een melding. De ondersteunde waarden zijn: `created`, `updated`, `deleted`. Meerdere waarden kunnen worden gecombineerd met behulp van een door komma's gescheiden lijst.|
 
 ### <a name="webhook-output---usage"></a>Webhook output - gebruik

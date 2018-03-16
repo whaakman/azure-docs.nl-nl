@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: ee8334cbe9256b7a5ecd5e96afa2f15d6389afa8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Het gebruik van PerfInsights 
 
@@ -238,11 +238,11 @@ Voor het uitvoeren van het hulpprogramma PerfInsights, de volgende stappen uit:
     >
     >Als de duur overschakelt **/d** niet is opgegeven, PerfInsights wordt u gevraagd om te reproduceren het probleem tijdens het uitvoeren van aangepaste scenario's, azurefiles en vmslow. 
 
-Wanneer de traceringen of bewerkingen zijn voltooid, een nieuw bestand wordt weergegeven in D:\\logboek\_verzameling (of het tijdelijke station). De naam van het bestand is **CollectedData\_jjjj-MM-dd\_hh\_mm\_ss.zip.** U kunt dit bestand naar de agent ondersteuning voor analyse sturen of opent u het rapport in het zip-bestand om te controleren bevindingen en aanbevelingen.
+Wanneer de traceringen of bewerkingen zijn voltooid, verschijnt er een nieuw bestand in dezelfde map als PerfInsights. De naam van het bestand is **CollectedData\_jjjj-MM-dd\_hh mm-ss fff.zip.** U kunt dit bestand naar de agent ondersteuning voor analyse sturen of opent u het rapport in het zip-bestand om te controleren bevindingen en aanbevelingen.
 
 ## <a name="review-the-diagnostics-report"></a>Bekijk het rapport diagnostische gegevens
 
-Binnen de **CollectedData\_jjjj-MM-dd\_hh\_mm\_ss.zip** -bestand, kunt u een HTML-rapport met details van de resultaten van PerfInsights vinden. Als u wilt controleren in het rapport, vouw de **CollectedData\_jjjj-MM-dd\_hh\_mm\_ss.zip** bestand en open vervolgens de **PerfInsights Report.html** het bestand.
+Binnen de **CollectedData\_jjjj-MM-dd\_hh mm-ss fff.zip** -bestand, kunt u een HTML-rapport met details van de resultaten van PerfInsights vinden. Als u wilt controleren in het rapport, vouw de **CollectedData\_jjjj-MM-dd\_hh mm-ss fff.zip** bestand en open vervolgens de **PerfInsights Report.html** bestand.
 
 Selecteer de **bevindingen** tabblad.
 
@@ -307,4 +307,4 @@ De volgende schermafbeelding ziet een bericht vergelijkbaar met wat kan worden w
 
 Volg de instructies in het bericht voor de overdracht bestand werkruimte. Voor extra beveiliging die u moet uw wachtwoord wijzigen op het eerste gebruik.
 
-Nadat u zich aanmeldt, vindt u een dialoogvenster voor het uploaden van de **CollectedData\_jjjj-MM-dd\_hh\_mm\_ss.zip** -bestand dat is verzameld door PerfInsights.
+Nadat u zich aanmeldt, vindt u een dialoogvenster voor het uploaden van de **CollectedData\_jjjj-MM-dd\_hh mm-ss fff.zip** -bestand dat is verzameld door PerfInsights.

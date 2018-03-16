@@ -3,8 +3,8 @@ title: De installatiekopie van een virtuele machine maken voor Azure Marketplace
 description: Gedetailleerde instructies voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace voor anderen om aan te schaffen.
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Handleiding voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace
 In dit artikel **stap 2**, wordt u begeleid bij het voorbereiden van de virtuele harde schijven (VHD's) dat u naar Azure Marketplace implementeren wilt. Uw VHD's vormen de basis van uw SKU. Het proces is afhankelijk van of u een SKU op basis van Linux of op basis van Windows biedt. In dit artikel komen beide scenario's. Dit proces kan worden uitgevoerd in combinatie met [accountaanmaking en registratie][link-acct-creation].
@@ -28,8 +28,8 @@ In deze sectie leert u de aanbiedingen en hun bijbehorende SKU's definiëren.
 
 Een aanbieding fungeert als "ouder" voor alle bijbehorende SKU's. U kunt meerdere aanbiedingen hebben. Het is aan u om te besluiten hoe u uw aanbiedingen wilt structureren. Wanneer een aanbieding wordt doorgestuurd voor fasering, wordt deze samen met alle bijbehorende SKU's doorgestuurd. Overweeg zorgvuldig de SKU-id's, omdat ze zichtbaar in de URL:
 
-* Azure.com: http://azure.microsoft.com/marketplace/partners/ {PartnerNamespace} / {OfferIdentifier}-{SKUidentifier}
-* Azure preview-portal: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {SKUIDdentifier}  
+* Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
+* Azure preview-portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
 Een SKU is de naam van de commerciële voor een VM-installatiekopie. Een VM-installatiekopie bevat de schijf van een besturingssysteem en nul of meer gegevensschijven. In essentie is dit het volledige opslagprofiel voor een virtuele machine. Een VHD is per schijf nodig. Zelfs leeg gegevensschijven vereisen een VHD moet worden gemaakt.
 
@@ -372,7 +372,7 @@ Hierna volgen de stappen voor het genereren van SAS-URL met behulp van Azure Sto
 
 Hierna volgen de stappen voor het genereren van SAS-URL met behulp van Microsoft Azure Storage Explorer
 
-1.  Downloaden van Microsoft Azure Storage Explorer formulier [http://storageexplorer.com/](http://storageexplorer.com/) website. Ga naar [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) en klik op **'Downloaden voor Windows'**.
+1.  Downloaden van Microsoft Azure Storage Explorer formulier [ http://storageexplorer.com/ ](http://storageexplorer.com/) website. Ga naar [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) en klik op **'Downloaden voor Windows'**.
 
     ![tekenen](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
@@ -474,7 +474,7 @@ Hierna volgen de stappen voor het genereren van SAS-URL met Azure CLI
 
     Voorbeeld:
 
-    TestRGVM201631920152.vhd is de naam van de VHD en vervolgens de URL van de VHD-SAS 
+    TestRGVM201631920152.vhd is de naam van de VHD en vervolgens de URL van de VHD-SAS
 
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

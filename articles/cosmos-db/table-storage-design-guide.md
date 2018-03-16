@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: a5511b8b2e76c6c651a8e05bda1322293601c92c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: fadb81e16a6c641ca15efb4f910a51de4fe7c997
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Ontwerphandleiding voor Azure Storage-tabel: Het ontwerpen van schaalbare en de zodat tabellen
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -51,8 +51,8 @@ Het volgende voorbeeld ziet een eenvoudige tabelontwerp voor het opslaan van ent
 <td>
 <table>
 <tr>
-<th>Voornaam</th>
-<th>Achternaam</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Leeftijd</th>
 <th>E-mail</th>
 </tr>
@@ -71,14 +71,14 @@ Het volgende voorbeeld ziet een eenvoudige tabelontwerp voor het opslaan van ent
 <td>
 <table>
 <tr>
-<th>Voornaam</th>
-<th>Achternaam</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Leeftijd</th>
 <th>E-mail</th>
 </tr>
 <tr>
 <td>jun</td>
-<td>CaO</td>
+<td>Cao</td>
 <td>47</td>
 <td>junc@contoso.com</td>
 </tr>
@@ -108,8 +108,8 @@ Het volgende voorbeeld ziet een eenvoudige tabelontwerp voor het opslaan van ent
 <td>
 <table>
 <tr>
-<th>Voornaam</th>
-<th>Achternaam</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Leeftijd</th>
 <th>E-mail</th>
 </tr>
@@ -206,9 +206,9 @@ De volgende voorbeelden wordt ervan uitgegaan dat de tabelservice werknemer enti
 | --- | --- |
 | **PartitionKey** (naam van de afdeling) |Tekenreeks |
 | **RowKey** (werknemer-Id) |Tekenreeks |
-| **Voornaam** |Tekenreeks |
-| **Achternaam** |Tekenreeks |
-| **Leeftijd** |Geheel getal |
+| **FirstName** |Tekenreeks |
+| **LastName** |Tekenreeks |
+| **leeftijd** |Geheel getal |
 | **EmailAddress** |Tekenreeks |
 
 De vorige sectie [overzicht van de service Azure Table](#overview) beschrijft een aantal van de belangrijkste functies van de service Azure Table waarvoor een directe invloed op ontwerpen voor query. Deze leiden tot de volgende algemene richtlijnen voor het ontwerpen van query's tabel-service. De filtersyntaxis gebruikt in de volgende voorbeelden wordt uit de tabelservice REST API, Zie voor meer informatie [Query entiteiten](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
@@ -232,7 +232,7 @@ Voor voorbeelden van clientcode dat meerdere Entiteitstypen die zijn opgeslagen 
 * [Werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types)  
 
 ### <a name="choosing-an-appropriate-partitionkey"></a>Een juiste PartitionKey kiezen
-Uw keuze van **PartitionKey** moet worden verdeeld moet maakt het gebruik van EGTs (consistentie te garanderen) de vereiste voor de distributie van de entiteiten over meerdere partities (zodat een schaalbare oplossing).  
+Uw keuze van **PartitionKey** moet een balans vinden tussen de noodzaak om het gebruik van EGTs (consistentie te garanderen) de vereiste voor de distributie van de entiteiten over meerdere partities (zodat een schaalbare oplossing).  
 
 Op één extreme u alle entiteiten in uw kan opslaan in een enkele partitie, maar dit kan de schaalbaarheid van uw oplossing beperken en zou voorkomen dat de tabelservice kunnen verdelen aanvragen. Het andere uiterste, kunt u één entiteit per partitie, die wel uiterst schaalbare en waardoor de tabelservice op aanvragen voor taakverdeling, maar dat zou voorkomen dat u entiteitstransacties opslaan.  
 
@@ -260,8 +260,8 @@ De tabel-service retourneert entiteiten in oplopende volgorde op basis van gesor
 Veel toepassingen hebben vereisten voor het gebruik van gegevens in verschillende volgorden gesorteerd: werknemers bijvoorbeeld sorteren op naam of door datum. De volgende patronen in de sectie [ontwerppatronen voor tabel](#table-design-patterns) hoe de sorteervolgorde voor uw entiteiten alternatieve adres:  
 
 * [Intra-partitie secundaire index patroon](#intra-partition-secondary-index-pattern) : opslaan van meerdere exemplaren van elke entiteit die gebruikmaken van verschillende RowKey waarden (in dezelfde partitie) waarmee snel en efficiënt zoekacties en alternatieve sorteren orders met behulp van verschillende RowKey waarden.  
-* [Secundaire tussen partitioneren van index patroon](#inter-partition-secondary-index-pattern) : opslaan van meerdere exemplaren van elke entiteit met verschillende waarden voor de RowKey in afzonderlijke partities in afzonderlijke tabellen inschakelen snel en efficiënt zoekacties en alternatieve sorteren bestellingen met behulp van verschillende RowKey waarden.
-* [Logboek tail patroon](#log-tail-pattern) -ophalen van de  *n*  entiteiten die onlangs zijn toegevoegd aan een partitie met behulp van een **RowKey** waarde die in omgekeerde datum en tijd volgorde worden gesorteerd.  
+* [Secundaire tussen partitioneren van index patroon](#inter-partition-secondary-index-pattern) : opslaan van meerdere exemplaren van elke entiteit met verschillende waarden voor de RowKey in afzonderlijke partities in afzonderlijke tabellen inschakelen snel en efficiënt zoekacties en alternatieve sorteren bestellingen met behulp van verschillende RowKey waarden .
+* [Logboek tail patroon](#log-tail-pattern) -ophalen van de *n* entiteiten die onlangs zijn toegevoegd aan een partitie met behulp van een **RowKey** waarde die in omgekeerde datum en tijd volgorde worden gesorteerd.  
 
 ## <a name="design-for-data-modification"></a>Ontwerp voor wijziging van gegevens
 Deze sectie richt zich op de ontwerpoverwegingen voor het optimaliseren van toevoegingen, updates, en worden verwijderd. In sommige gevallen moet u de verhouding tussen ontwerpen die optimaliseren voor een query op modellen die voor wijziging van gegevens, optimaliseren net als in ontwerpen voor relationele databases (Hoewel de technieken voor het beheren van de ontwerp-en nadelen andere in een relationele database) evalueren. De sectie [ontwerppatronen voor tabel](#table-design-patterns) beschrijft een aantal gedetailleerde ontwerppatronen voor de tabel-service en worden enkele deze verschillen. In de praktijk vindt u veel ontwerpen die zijn geoptimaliseerd voor het uitvoeren van query's entiteiten ook geschikt voor entiteiten wijzigen.  
@@ -296,7 +296,7 @@ Een ontwerp voor een efficiënte query resulteert in efficiënt wijzigingen, maa
 De volgende patronen in de sectie [ontwerppatronen voor tabel](#table-design-patterns) adres verschillen tussen ontwerpen voor efficiënt query's en ontwerpen voor wijziging van efficiënte gegevens:  
 
 * [Samengestelde sleutelpatroon](#compound-key-pattern) -gebruik samengestelde **RowKey** waarden om in te schakelen van een client voor het opzoeken van gerelateerde gegevens met een query één punt.  
-* [Logboek tail patroon](#log-tail-pattern) -ophalen van de  *n*  entiteiten die onlangs zijn toegevoegd aan een partitie met behulp van een **RowKey** waarde die in omgekeerde datum en tijd volgorde worden gesorteerd.  
+* [Logboek tail patroon](#log-tail-pattern) -ophalen van de *n* entiteiten die onlangs zijn toegevoegd aan een partitie met behulp van een **RowKey** waarde die in omgekeerde datum en tijd volgorde worden gesorteerd.  
 
 ## <a name="encrypting-table-data"></a>Versleuteling van tabelgegevens
 De .NET Azure Storage-clientbibliotheek biedt ondersteuning voor versleuteling van entiteitseigenschappen tekenreeks voor invoegen en vervang bewerkingen. De versleutelde tekenreeksen worden opgeslagen op de service als binaire eigenschappen en ze worden geconverteerd naar tekenreeksen na de decodering.    
@@ -443,7 +443,7 @@ Als u een query voor een bereik van de werknemer entiteiten uitvoert, kunt u een
   Opmerking: de filtersyntaxis gebruikt in de bovenstaande voorbeelden uit de tabelservice REST API, Zie voor meer informatie is [Query entiteiten](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
 
 * Table storage is relatief goedkope gebruiken zodat de overhead van de kosten voor het opslaan van dubbele gegevens mag geen groot belang. U moet echter altijd de kosten van het ontwerp op basis van de verwachte opslagvereisten geëvalueerd en alleen toevoegen dubbele entiteiten ter ondersteuning van de query's die de clienttoepassing wordt uitgevoerd.  
 * Omdat de secundaire index entiteiten worden opgeslagen in dezelfde partitie als de oorspronkelijke entiteiten, moet u ervoor zorgen dat u de schaalbaarheidsdoelen voor een afzonderlijke partitie niet overschrijden.  
@@ -456,11 +456,11 @@ Houd rekening met de volgende punten bij het bepalen van het implementeren van d
 
 * Is het doorgaans beter dubbele gegevens opslaan en ervoor te zorgen dat u alle gegevens die u nodig hebt met een enkele query kunt ophalen dan het gebruik van een query naar een entiteit en een andere voor het opzoeken van de vereiste gegevens.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
+#### <a name="when-to-use-this-pattern"></a>Wanneer dit patroon gebruiken
 Gebruik dit patroon wanneer uw clienttoepassing moet met een aantal verschillende sleutels wanneer de client hoeft op te halen van entiteiten in een andere sorteervolgorde entiteiten ophalen en waar u elke entiteit met een aantal unieke waarden kunt identificeren. U moet echter zeker van te zijn dat de limieten voor schaalbaarheid van partitie niet te overschrijden wanneer u de entiteit zoekacties met behulp van de verschillende uitvoert **RowKey** waarden.  
 
-#### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+#### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
+De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
 * [Secundaire tussen partitioneren van index patroon](#inter-partition-secondary-index-pattern)
 * [Samengestelde sleutel patroon](#compound-key-pattern)
@@ -497,7 +497,7 @@ Als u een query voor een bereik van de werknemer entiteiten uitvoert, kunt u een
 Opmerking: de filtersyntaxis gebruikt in de bovenstaande voorbeelden uit de tabelservice REST API, Zie voor meer informatie is [Query entiteiten](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
 
 * U uw dubbele entiteiten uiteindelijk consistent is met elkaar kunt houden met behulp van de [uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern) onderhouden van de primaire en secundaire index-entiteiten.  
 * Table storage is relatief goedkope gebruiken zodat de overhead van de kosten voor het opslaan van dubbele gegevens mag geen groot belang. U moet echter altijd de kosten van het ontwerp op basis van de verwachte opslagvereisten geëvalueerd en alleen toevoegen dubbele entiteiten ter ondersteuning van de query's die de clienttoepassing wordt uitgevoerd.  
@@ -508,11 +508,11 @@ Houd rekening met de volgende punten bij het bepalen van het implementeren van d
   ![][11]
 * Is het doorgaans beter dubbele gegevens opslaan en ervoor te zorgen dat u alle gegevens die u nodig hebt met één query dan te gebruiken één query vinden van een entiteit met behulp van de secundaire index en een andere lookup de vereiste gegevens in de primaire index kunt ophalen.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
+#### <a name="when-to-use-this-pattern"></a>Wanneer dit patroon gebruiken
 Gebruik dit patroon wanneer uw clienttoepassing moet met een aantal verschillende sleutels wanneer de client hoeft op te halen van entiteiten in een andere sorteervolgorde entiteiten ophalen en waar u elke entiteit met een aantal unieke waarden kunt identificeren. Dit patroon gebruiken wanneer u voorkomen dat de partitie-limieten voor schaalbaarheid dan wilt wanneer u de entiteit zoekacties met behulp van de verschillende uitvoert **RowKey** waarden.  
 
-#### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+#### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
+De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
 * [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern)  
 * [Intra-partitie secundaire index patroon](#intra-partition-secondary-index-pattern)  
@@ -549,17 +549,17 @@ Als de werkrol nooit stap voltooit **6**, en vervolgens verschijnt het bericht o
 Er zijn fouten van de tabel en Queue-services zijn tijdelijke fouten en uw clienttoepassing bevatten geschikte Pogingslogica om deze te verwerken.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
 
 * Deze oplossing biedt geen voor het isoleren van de transactie. Bijvoorbeeld, een client kan lezen de **huidige** en **archief** tabellen wanneer de werkrol werd tussen stappen **4** en **5**, en een inconsistente weergave van de gegevens ziet. Houd er rekening mee dat de gegevens zal consistent uiteindelijk.  
 * U moet ervoor dat de stappen 4 en 5 idempotent zijn om de uiteindelijke consistentie te garanderen.  
 * U kunt de oplossing met behulp van meerdere wachtrijen en rolinstanties worker schalen.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
+#### <a name="when-to-use-this-pattern"></a>Wanneer dit patroon gebruiken
 Gebruik dit patroon als u wilt garanderen uiteindelijke consistentie tussen entiteiten die aanwezig zijn in verschillende partities of tabellen. U kunt dit patroon om ervoor te zorgen uiteindelijke consistentie voor bewerkingen in de tabel-service en de Blob-service en andere Azure Storage gegevensbronnen zoals database of het bestandssysteem uitbreiden.  
 
-#### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+#### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
+De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
 * [Entiteit groep transacties](#entity-group-transactions)  
 * [Samenvoegen of vervangen](#merge-or-replace)  
@@ -623,7 +623,7 @@ De **EmployeeIDs** eigenschap bevat een lijst van de werknemer-id's voor werknem
 Met de derde optie, kunt u EGTs niet gebruiken om consistentie te behouden omdat de index-entiteiten in een afzonderlijke partitie van de werknemer entiteiten. U moet ervoor zorgen dat de index entiteiten uiteindelijk consistent is met de werknemer entiteiten.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
 
 * Deze oplossing vereist ten minste twee query's naar het overeenkomende entiteiten ophalen: een query uitvoeren op de index-entiteiten voor de lijst van **RowKey** waarden en query's voor het ophalen van elke entiteit in de lijst.  
 * Gezien het feit dat een afzonderlijke entiteit een maximale grootte van 1 MB heeft, optie #2 en de optie #3 in de oplossing wordt ervan uitgegaan dat de lijst met werknemer-id's voor een bepaalde achternaam nooit groter dan 1 MB is. Als de lijst met werknemer-id's kunnen niet groter zijn dan 1 MB groot is, gebruik van optie #1 en opslaan van de indexgegevens in de blob-opslag.  
@@ -631,11 +631,11 @@ Houd rekening met de volgende punten bij het bepalen van het implementeren van d
 * Optie #2 in deze oplossing wordt ervan uitgegaan dat u wilt zoeken op achternaam binnen een afdeling: bijvoorbeeld, u wilt ophalen van een lijst met werknemers met een achternaam Jones van de verkoopafdeling. Als u zoeken naar alle werknemers met een achternaam Jones over de hele organisatie wilt, optie #1 of optie #3 gebruiken.
 * U kunt een oplossing op basis van wachtrijen die zorgt voor uiteindelijke consistentie implementeren (Zie de [uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern) voor meer informatie).  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
+#### <a name="when-to-use-this-pattern"></a>Wanneer dit patroon gebruiken
 Gebruik dit patroon als u wilt voor het opzoeken van een set van entiteiten met algemene waarde van een eigenschap, zoals alle werknemers die over de achternaam Jones dezelfde.  
 
-#### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+#### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
+De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
 * [Samengestelde sleutel patroon](#compound-key-pattern)  
 * [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern)  
@@ -658,16 +658,16 @@ In plaats van de gegevens worden opgeslagen in twee afzonderlijke entiteiten, de
 Met de afdeling entiteiten met deze eigenschappen worden opgeslagen, kunt u nu alle gegevens die u moet over een afdeling in een query punt ophalen.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
 
 * Er is enige kosten overhead die is gekoppeld aan twee keer sommige gegevens op te slaan. De prestatievoordelen (die voortvloeien uit minder aanvragen aan de storage-service) doorgaans belangrijker is dan de marginale toename van de kosten voor opslag (en deze kosten is gedeeltelijk gecompenseerd door een vermindering van het aantal transacties die u nodig hebt voor het ophalen van de details van een afdeling).  
 * U moet de consistentie van de twee entiteiten die voor het opslaan van informatie over beheerders onderhouden. U kunt het probleem consistentiecontrole verwerkt met behulp van EGTs meerdere entiteiten in één transactie atomic bijwerken: in dit geval wordt de entiteit afdeling en de werknemer entiteit voor de afdelingsmanager worden opgeslagen in dezelfde partitie.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
+#### <a name="when-to-use-this-pattern"></a>Wanneer dit patroon gebruiken
 Dit patroon gebruikt als u regelmatig om verwante informatie te zoeken. Dit patroon vermindert het aantal query's die de client aanbrengen moet in de gegevens die vereist worden opgehaald.  
 
-#### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+#### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
+De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
 * [Samengestelde sleutel patroon](#compound-key-pattern)  
 * [Entiteit groep transacties](#entity-group-transactions)  
@@ -701,27 +701,27 @@ Het volgende voorbeeld ziet hoe u alle controle-gegevens kunt ophalen voor een b
 $filter = (PartitionKey eq 'Sales') en (RowKey ge 'empid_000123') en (RowKey lt 'empid_000124') & $select = RowKey, beoordeling door Manager, beoordeling van de Peer, opmerkingen  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
 
 * U moet een geschikte scheidingsteken waarmee u gemakkelijk parseren gebruiken de **RowKey** waarde: bijvoorbeeld **000123_2012**.  
 * U ook opslaat deze entiteit in dezelfde partitie als andere entiteiten die gerelateerde gegevens bevatten voor dezelfde werknemer, wat betekent dat u kunt EGTs sterke consistentie.
 * U moet overwegen hoe vaak u een query uit op de gegevens om te bepalen of dit patroon geschikt is.  Bijvoorbeeld, als u toegang hebben tot de gegevens van revisie zelden en vaak de belangrijkste werknemersgegevens bewaar ze als afzonderlijke entiteiten.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
+#### <a name="when-to-use-this-pattern"></a>Wanneer dit patroon gebruiken
 Gebruik dit patroon wanneer u wilt opslaan op een of meer entiteiten die query u vaak gerelateerde.  
 
-#### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+#### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
+De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
 * [Entiteit groep transacties](#entity-group-transactions)  
 * [Werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types)  
 * [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>Patroon voor logboekbestand staart
-Ophalen van de  *n*  entiteiten die onlangs zijn toegevoegd aan een partitie met behulp van een **RowKey** waarde die in omgekeerde datum en tijd volgorde worden gesorteerd.  
+Ophalen van de *n* entiteiten die onlangs zijn toegevoegd aan een partitie met behulp van een **RowKey** waarde die in omgekeerde datum en tijd volgorde worden gesorteerd.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-Een algemene vereiste is mogelijk het meest recent gemaakte entiteiten ophalen, bijvoorbeeld de meest recente tien claims die zijn ingediend door een werknemer onkosten. Tabel ondersteuning vraagt een **$top** querybewerking te retourneren van de eerste  *n*  entiteiten uit een set: Er is geen equivalent querybewerking te retourneren van de laatste n entiteiten in een set.  
+Een algemene vereiste is mogelijk het meest recent gemaakte entiteiten ophalen, bijvoorbeeld de meest recente tien claims die zijn ingediend door een werknemer onkosten. Tabel ondersteuning vraagt een **$top** querybewerking te retourneren van de eerste *n* entiteiten uit een set: Er is geen equivalent querybewerking te retourneren van de laatste n entiteiten in een set.  
 
 #### <a name="solution"></a>Oplossing
 Opslaan van de entiteiten met een **RowKey** dat natuurlijk sorteren in volgorde van de omgekeerde datum/tijd met behulp van zodat de meest recente vermelding is altijd de eerste rij in de tabel.  
@@ -739,16 +739,16 @@ De tabelquery ziet er als volgt:
 `https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
 
 * U moet de waarde van de omgekeerde maatstreepjes met nullen om te controleren of dat de tekenreekswaarde sorteert zoals verwacht toonaangevende opgevuld.  
 * U moet rekening houden met de schaalbaarheidsdoelen op het niveau van een partitie. Wees voorzichtig hotspot partities niet maken.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
+#### <a name="when-to-use-this-pattern"></a>Wanneer dit patroon gebruiken
 Dit patroon gebruikt als u toegang tot entiteiten in volgorde van de omgekeerde datum/tijd- of wanneer u toegang wilt tot de meest recent toegevoegde entiteiten.  
 
-#### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+#### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
+De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
 * [Toevoegen / antivirusprogramma patroon toevoegen](#prepend-append-anti-pattern)  
 * [Entiteiten ophalen](#retrieving-entities)  
@@ -769,18 +769,18 @@ Deze aanpak voorkomt partitie hotspots omdat de toepassing kunt invoegen en verw
 Een afzonderlijke tabel gebruiken voor elke dag van aanmeldingspogingen. U kunt het ontwerp van de entiteit bovenstaande hotspots voorkomen wanneer entiteiten invoegen en verwijderen van oude entiteiten nu gewoon een vraag is van het verwijderen van één tabel elke dag (een enkele opslagbewerking) in plaats van zoeken en verwijderen van honderden en duizenden afzonderlijke aanmelding entiteiten elke dag.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
 
 * Uw ontwerp biedt ondersteuning voor andere manieren de gegevens zoals het opzoeken van specifieke entiteiten, koppelen aan andere gegevens of genereren verzamelde gegevens zullen worden gebruikt door uw toepassing?  
 * Uw ontwerp hotspots voorkomen tijdens het invoegen van nieuwe entiteiten  
 * Een vertraging verwachten als u gebruiken als de naam van de dezelfde tabel wilt na het verwijderen. Het is beter gebruik altijd uniek tabelnamen.  
 * Verwachten dat sommige beperking wanneer u eerst een nieuwe tabel terwijl de tabelservice de toegangspatronen leert en distributie van de partities over knooppunten. U moet rekening houden hoe vaak moet u nieuwe tabellen maken.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
+#### <a name="when-to-use-this-pattern"></a>Wanneer dit patroon gebruiken
 Dit patroon gebruiken wanneer u een groot aantal entiteiten die op hetzelfde moment moet u verwijderen.  
 
-#### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+#### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
+De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
 * [Entiteit groep transacties](#entity-group-transactions)
 * [Entiteiten wijzigen](#modifying-entities)  
@@ -803,16 +803,16 @@ Het ontwerp van de volgende voor het opslaan van het aantal berichten voor elk u
 Bij dit ontwerp kunt u een samenvoegbewerking voor het aantal berichten voor een werknemer bijwerken voor een specifiek uur. U kunt nu alle informatie die u nodig hebt om het gebruik van een aanvraag voor een enkele entiteit diagram te tekenen ophalen.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
 
 * Als de volledige reeks past niet in één entiteit (een entiteit kan maximaal 252 eigenschappen hebben), gebruikt u een alternatieve gegevensarchief, zoals een blob.  
 * Als u meerdere clients tegelijkertijd bijwerken van een entiteit hebt, moet u gebruik van de **ETag** optimistische gelijktijdigheid implementeren. Als u veel clients hebt, kunt u hoge conflicten ondervinden.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
+#### <a name="when-to-use-this-pattern"></a>Wanneer dit patroon gebruiken
 Dit patroon gebruiken als u wilt bijwerken en ophalen van een reeks die is gekoppeld aan een afzonderlijke entiteit.  
 
-#### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+#### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
+De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
 * [Grote entiteiten patroon](#large-entities-pattern)  
 * [Samenvoegen of vervangen](#merge-or-replace)  
@@ -832,15 +832,15 @@ De tabel-service gebruikt, kunt u meerdere entiteiten ter vertegenwoordiging van
 U kunt een EGT gebruiken als u een wijziging aanbrengt die is vereist voor het bijwerken van beide entiteiten wilt zodat ze zijn gesynchroniseerd met elkaar. Anders kunt u één samenvoegbewerking bijwerken van het aantal berichten voor een specifieke dag. Alle gegevens ophalen voor een afzonderlijke werknemer moet u beide entiteiten, kunt u doen met twee efficiënte aanvragen die gebruikmaken van beide ophalen een **PartitionKey** en een **RowKey** waarde.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
 
 * Bij het ophalen van een volledige logische entiteit ten minste twee opslagtransacties omvat: een voor elke fysieke entiteit ophalen.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
+#### <a name="when-to-use-this-pattern"></a>Wanneer dit patroon gebruiken
 Gebruik dit patroon wanneer nodig voor het opslaan van entiteiten waarvan de grootte van of het aantal eigenschappen de grenzen voor een afzonderlijke entiteit in de tabel-service overschrijdt.  
 
-#### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+#### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
+De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
 * [Entiteit groep transacties](#entity-group-transactions)
 * [Samenvoegen of vervangen](#merge-or-replace)
@@ -857,16 +857,16 @@ Als uw entiteit 1 MB groot overschrijdt omdat een of meer eigenschappen een grot
 ![][25]
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
 
 * Gebruiken om te blijven uiteindelijke consistentie tussen de entiteit in de tabel-service en de gegevens in de Blob-service, de [uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern) uw entiteiten onderhouden.
 * Bij het ophalen van een volledige entiteit ten minste twee opslagtransacties omvat: één voor het ophalen van de entiteit en één voor het ophalen van de blob-gegevens.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
+#### <a name="when-to-use-this-pattern"></a>Wanneer dit patroon gebruiken
 Dit patroon gebruikt als u voor het opslaan van entiteiten waarvan de grootte de grenzen voor een afzonderlijke entiteit in de tabel-service overschrijdt.  
 
-#### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+#### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
+De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
 * [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern)  
 * [Wide entiteiten patroon](#wide-entities-pattern)
@@ -889,16 +889,16 @@ De volgende alternatieve entiteit structuur voorkomt een hotspot op een bepaalde
 Kennisgeving met dit voorbeeld van hoe beide de **PartitionKey** en **RowKey** samengestelde sleutels. De **PartitionKey** gebruikt de afdeling en de werknemer-id om de logboekregistratie verdelen over meerdere partities.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:  
 
 * Ondersteunt de alternatieve sleutelstructuur die voorkomt efficiënt hot partities maken op voegt de query's kunt u de clienttoepassing?  
 * Het verwachte volume van transacties betekent dat u waarschijnlijk de schaalbaarheidsdoelen voor een afzonderlijke partitie bereiken en worden beperkt door de storage-service?  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
+#### <a name="when-to-use-this-pattern"></a>Wanneer dit patroon gebruiken
 Vermijd het prepend/append anti-patroon wanneer het volume van transacties kunnen ertoe leiden dat door de storage-service beperken wanneer u een hot partitie is.  
 
-#### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+#### <a name="related-patterns-and-guidance"></a>Gerelateerde patronen en richtlijnen
+De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementatie van dit patroon:  
 
 * [Samengestelde sleutel patroon](#compound-key-pattern)  
 * [Patroon voor logboekbestand staart](#log-tail-pattern)  
@@ -940,7 +940,7 @@ Houd rekening met de volgende punten wanneer u beslist het opslaan van gegevens 
 * Voor het verwerken van gegevens aan het logboek moet een client vaak veel records laden.  
 * Hoewel logboekgegevens is vaak opgebouwd, kan de blob-opslag een betere oplossing zijn.  
 
-### <a name="implementation-considerations"></a>Overwegingen bij de implementatie
+### <a name="implementation-considerations"></a>Afwegingen bij de implementatie
 Deze sectie worden enkele van de overwegingen op moet letten wanneer u de patronen die zijn beschreven in de vorige secties implementeert beschreven. De meeste van deze sectie bevat voorbeelden geschreven in C# en die gebruikmaken van de Storage-clientbibliotheek (versie 4.3.0 op het moment van schrijven).  
 
 ### <a name="retrieving-entities"></a>Entiteiten ophalen
@@ -1117,8 +1117,8 @@ De tabel-service is een *schema minder* tabel archief dat betekent dat één tab
 <td>
 <table>
 <tr>
-<th>Voornaam</th>
-<th>Achternaam</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Leeftijd</th>
 <th>E-mail</th>
 </tr>
@@ -1137,8 +1137,8 @@ De tabel-service is een *schema minder* tabel archief dat betekent dat één tab
 <td>
 <table>
 <tr>
-<th>Voornaam</th>
-<th>Achternaam</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Leeftijd</th>
 <th>E-mail</th>
 </tr>
@@ -1174,8 +1174,8 @@ De tabel-service is een *schema minder* tabel archief dat betekent dat één tab
 <td>
 <table>
 <tr>
-<th>Voornaam</th>
-<th>Achternaam</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Leeftijd</th>
 <th>E-mail</th>
 </tr>
@@ -1210,8 +1210,8 @@ Denk eraan dat elke entiteit moet nog steeds **PartitionKey**, **RowKey**, en **
 <table>
 <tr>
 <th>EntityType</th>
-<th>Voornaam</th>
-<th>Achternaam</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Leeftijd</th>
 <th>E-mail</th>
 </tr>
@@ -1232,8 +1232,8 @@ Denk eraan dat elke entiteit moet nog steeds **PartitionKey**, **RowKey**, en **
 <table>
 <tr>
 <th>EntityType</th>
-<th>Voornaam</th>
-<th>Achternaam</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Leeftijd</th>
 <th>E-mail</th>
 </tr>
@@ -1273,8 +1273,8 @@ Denk eraan dat elke entiteit moet nog steeds **PartitionKey**, **RowKey**, en **
 <table>
 <tr>
 <th>EntityType</th>
-<th>Voornaam</th>
-<th>Achternaam</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Leeftijd</th>
 <th>E-mail</th>
 </tr>

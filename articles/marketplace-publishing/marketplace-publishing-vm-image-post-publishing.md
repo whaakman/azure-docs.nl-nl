@@ -3,8 +3,8 @@ title: Het beheren van uw installatiekopie van de virtuele machine in Azure Mark
 description: "Gedetailleerde richtlijnen voor het beheren van uw installatiekopie van de virtuele machine in Azure Marketplace na de initiële publicatie"
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
-ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin;
+ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Na productie-handleiding voor aanbiedingen van de virtuele machine in Azure Marketplace
 Dit artikel wordt uitgelegd hoe u een aanbieding live virtuele machine in Azure Marketplace kunt bijwerken. Dit leidt u door het proces van een of meer nieuwe SKU's toevoegen aan een bestaande aanbieding. Ook leidt u door het proces van het verwijderen van een aanbieding van live virtuele machine of de SKU van de Marketplace.
@@ -27,13 +27,13 @@ Nadat een aanbieding/SKU tijdelijk worden opgeslagen de [Azure-portal](http://po
 
 * **ID bieden**: In de portal voor publiceren, gaat u naar **virtuele machines** en selecteer uw aanbieding. Klik vervolgens op **VM-INSTALLATIEKOPIEËN** > **bieden id**.
 * **SKU-id**: In de portal voor publiceren, gaat u naar **virtuele machines** en selecteer uw aanbieding. Klik vervolgens op **SKU's** > **toevoegen van een SKU**.
-* **Publisher Namespace**: In de portal voor publiceren, gaat u naar **virtuele machines** > **scenario** > **Vertel ons over uw bedrijf** (te vinden onder 'Stap 2 registreren van uw bedrijf') > **Publisher Namespace** > **Namespace**.
+* **Publisher Namespace**: In de portal voor publiceren, gaat u naar **virtuele machines** > **scenario** > **Vertel ons over uw bedrijf**(te vinden onder 'Stap 2 registreren van uw bedrijf') > **Publisher Namespace** > **Namespace**.
 
 Nadat de aanbieding/SKU wordt vermeld in de [Marketplace](http://azure.microsoft.com/marketplace), kunt u de volgende tekstvakken niet wijzigen:
 
 * **ID bieden**: In de portal voor publiceren, gaat u naar **virtuele machines** en selecteer uw aanbieding. Klik vervolgens op **VM-INSTALLATIEKOPIEËN** > **bieden id**.
 * **SKU-id**: In de portal voor publiceren, gaat u naar **virtuele machines** en selecteer uw aanbieding. Klik vervolgens op **SKU's** > **toevoegen van een SKU**.
-* **Publisher Namespace**: In de portal voor publiceren, gaat u naar **virtuele machines** > **scenario** > **Vertel ons over uw bedrijf** (te vinden onder "Stap 2 registreren") **Publisher Namespace** > **Namespace**.
+* **Publisher Namespace**: In de portal voor publiceren, gaat u naar **virtuele machines** > **scenario** > **Vertel ons over uw bedrijf**(te vinden onder "Stap 2 registreren") **Publisher Namespace** > **Namespace**.
 * **Poorten**: In de portal voor publiceren, gaat u naar **virtuele machines** en selecteer uw aanbieding. Klik vervolgens op **VM-INSTALLATIEKOPIEËN** > **poorten openen**.
 * **Wijziging van de vermelde SKU(s) prijzen**
 * **Facturering model wijziging van de vermelde SKU(s)**
@@ -89,7 +89,7 @@ De details van de aanbieding bijwerken en uw aanbieding publiceren, als volgt te
 7. Ga naar de **publiceren** tabblad en klik op **PUSH FASERING**. Zie voor gedetailleerde instructies over het testen van uw aanbieding in de testomgeving [testen van uw VM-aanbieding voor de Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
 8. Nadat u uw aanbieding in fasering getest hebt, gaat u naar de **publiceren** tabblad in de publicatie van de portal. Klik op **aanvragen goedkeuring te PUSHEN naar productie** uw aanbieding in de Marketplace opnieuw te publiceren.
 
-    ![Logo 's](media/marketplace-publishing-vm-image-post-publishing/img02.1_08.png)
+    ![Logos](media/marketplace-publishing-vm-image-post-publishing/img02.1_08.png)
 
 ### <a name="update-the-sku-description"></a>De SKU-beschrijving van update
 De details van de SKU bijwerken en uw aanbieding publiceren, als volgt te werk:
@@ -220,7 +220,7 @@ U een nieuwe SKU toevoegen aan uw live aanbieding; de volgende stappen uit:
 8. Ga naar de **publiceren** tabblad en klik op **PUSH FASERING**. Zie voor gedetailleerde instructies over het testen van uw aanbieding in de testomgeving [testen van uw VM-aanbieding voor de Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
 9. Nadat u uw aanbieding in fasering getest hebt, gaat u naar de **publiceren** tabblad in de publicatie van de portal. Klik op **aanvragen goedkeuring te PUSHEN naar productie** uw aanbieding in de Marketplace opnieuw te publiceren.
 
-    ![SKU 's](media/marketplace-publishing-vm-image-post-publishing/img03_09-01.png)
+    ![Voorraadeenheden](media/marketplace-publishing-vm-image-post-publishing/img03_09-01.png)
 
     ![Toevoegen van een SKU](media/marketplace-publishing-vm-image-post-publishing/img03_09-02.png)
 

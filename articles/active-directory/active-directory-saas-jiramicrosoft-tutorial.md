@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 710aa59fb3cc69cb1f5a20389eca13b1be93d223
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ceb36b78b72c45e9af59724d1f1c79789ef24b24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira"></a>Zelfstudie: Azure Active Directory-integratie met Microsoft Azure Active Directory eenmalige aanmelding voor JIRA
 
@@ -61,6 +61,7 @@ Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 *   JIRA Core en Software: 6.0-7.2.0
 *   Servicedesk JIRA 3.0 en 3.2
+*   JIRA ondersteunt ook 5.2. Klik voor meer informatie [Microsoft Azure Active Directory eenmalige aanmelding voor JIRA 5.2](./active-directory-saas-jira52microsoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
@@ -121,11 +122,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Microsoft Azure Active Directory eenmalige aanmelding voor JIRA domein- en URL's één aanmelding](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<domain:port>/plugins/servlet/saml/auth`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<domain:port>/`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<domain:port>/`
 
-    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<domain:port>/plugins/servlet/saml/auth`
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. Poort is optioneel, mocht dat een benoemde URL. Deze waarden worden ontvangen tijdens de configuratie van de invoegtoepassing Jira, die verderop in de zelfstudie wordt beschreven.
@@ -160,7 +161,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     ![Eenmalige aanmelding configureren](.\media\active-directory-saas-msaadssojira-tutorial\addon1.png)
 
-8. Download de invoegtoepassing van [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56506). De opgegeven met behulp van Microsoft-invoegtoepassing handmatig uploaden **uploaden invoegtoepassing** menu.
+8. Download de invoegtoepassing van [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56506). De opgegeven met behulp van Microsoft-invoegtoepassing handmatig uploaden **uploaden invoegtoepassing** menu. Het downloaden van de invoegtoepassing valt onder [Microsoft serviceovereenkomst](https://www.microsoft.com/en-us/servicesagreement/).
 
     ![Eenmalige aanmelding configureren](.\media\active-directory-saas-msaadssojira-tutorial\addon12.png)
 
@@ -195,6 +196,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     h. Controleer **eenmalige aanmelding inschakelen uit** als u zich afmelden bij Azure AD wanneer een gebruiker zich wilt afmeldt van JIRA. 
 
     i. Klik op **opslaan** knop de instellingen op te slaan.
+
+    > [!NOTE]
+    > Voor meer informatie over installatie en probleemoplossing, gaat u naar [MS JIRA SSO Connector Admin handleiding](ms-confluence-jira-plugin-adminguide.md) en er ook [Veelgestelde vragen over](ms-confluence-jira-plugin-faq.md) voor uw hulp
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

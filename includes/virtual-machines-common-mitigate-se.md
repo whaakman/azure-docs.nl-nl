@@ -1,6 +1,19 @@
-
-
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: bf4adf075842effeb26aa5a600c09f7bd1866264
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/16/2018
+---
 **Laatste document update**: 6 maart 10:00 AM PST.
 
 De recente openbaarmaking van een [nieuwe klasse van CPU-beveiligingsproblemen](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) die bekend staat als speculatieve uitvoering side-kanaal aanvallen heeft geleid tot vragen van klanten meer duidelijkheid te zoeken.  

@@ -1,4 +1,19 @@
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 3652e26bb775ae6ac1897bea529e7ae69d77cdbd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/16/2018
+---
 Geoptimaliseerd voor geheugen aanbieding voor VM-grootten een hoge ratio van geheugen voor CPU die zijn ideaal voor relationele database-servers, middelgrote tot grote caches en in het geheugen analytics. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering. 
 
 * De M-reeks biedt het hoogste vCPU aantal (maximaal 128 vcpu's) en de grootste geheugen (maximaal 3,8 TiB) van een virtuele machine in de cloud.  Dit is ideaal voor zeer grote databases of andere toepassingen die zo kunnen profiteren van een groot aantal vCPU’s en grote hoeveelheden geheugen.

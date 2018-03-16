@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Plannen en ontwerpen van virtuele netwerken van Azure
 Maken van een VNet om te experimenteren met eenvoudig genoeg is, maar waarschijnlijk hebt u meerdere VNets na verloop van tijd voor de ondersteuning van de productie-behoeften van uw organisatie gaat implementeren. Met een bepaalde planning en ontwerp, kunt u zich kan VNets implementeren en verbinding maken met de gewenste effectiever resources. Als u niet bekend bent met Vnetten, verdient het aanbeveling die u [meer informatie over VNets](virtual-networks-overview.md) en [implementeren](quick-create-portal.md) een voordat u doorgaat.
@@ -248,7 +248,7 @@ De volgende vereisten zijn gerelateerd aan het toegangsbeheer:
 Op basis van deze vereisten, kan u gebruikers van het VPN-team toevoegen aan de ingebouwde **Network Contributor** rol in elk abonnement; en een aangepaste beveiligingsrol maken voor de toepassingsontwikkelaars in elk abonnement door ze te machtigen virtuele machines toevoegen aan bestaande subnetten.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Implementeren van een virtueel netwerk](virtual-networks-create-vnet-arm-template-click.md) op basis van een scenario.
+* [Implementeren van een virtueel netwerk](quick-create-portal.md).
 * Begrijpen hoe [verdelen](../load-balancer/load-balancer-overview.md) IaaS VM's en [beheren van routering via meerdere Azure-regio's](../traffic-manager/traffic-manager-overview.md).
-* Meer informatie over [nsg's en het plannen en ontwerpen](virtual-networks-nsg.md) een NSG-oplossing.
+* Meer informatie over [netwerkbeveiligingsgroepen](security-overview.md) een NSG-oplossing.
 * Meer informatie over uw [cross-premises en VNet-connectiviteitsopties](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).

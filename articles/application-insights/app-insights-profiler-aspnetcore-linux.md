@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7f3a0a1a22e14f12b86474dd5b1985029074444e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2d7405baee84b53311f01e748ca7975147c107d8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profiel ASP.NET Core Azure Linux-Web-Apps met Application Insights Profiler
 
@@ -144,5 +144,7 @@ Hier ziet u uitvoer die vergelijkbaar is met het volgende:
 
     ![Weergave traceringen](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
 
-## <a name="report-issues-to-project-github-repository"></a>Problemen rapporteren naar project Github-opslagplaats
+## <a name="next-steps"></a>Volgende stappen
+Als u aangepaste containers die worden gehost door App Services gebruikt, volg de instructies uit [ Serviceprofiler inschakelen voor beperkte ASP.NET Core toepassing](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) App Insights Profiler inschakelen
+
 Als u problemen of suggesties hebt, meld u aan onze github-opslagplaats: [ApplicationInsights-Profiler-AspNetCore: problemen](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues)

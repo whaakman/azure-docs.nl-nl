@@ -2,24 +2,18 @@
 title: Algemene verbindingsfouten oplossen Azure SQL-database
 description: Stappen voor het identificeren en oplossen van veelvoorkomende fouten voor Azure SQL Database.
 services: sql-database
-documentationcenter: 
 author: dalechen
-manager: cshepard
-editor: 
-ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: 1d756aa023ae143608acc988ddd0ae8acee1a113
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 56ebe6876d621e190b4e808804113ff80cb3f50c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Verbindingsproblemen met Azure SQL Database oplossen
 Wanneer de verbinding met Azure SQL Database is mislukt, krijgt u [foutberichten](sql-database-develop-error-messages.md). Dit artikel is een gecentraliseerde onderwerp helpt u problemen met Azure SQL Database. Dit introduceert [algemene oorzaken](#cause) van verbindingsproblemen, raadt [een hulpprogramma voor het oplossen van problemen](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) die helpt u bij de identiteit van het probleem en bevat de stappen voor probleemoplossing voor het oplossen van [tijdelijke fouten](#troubleshoot-transient-errors) en [permanente of tijdelijke fouten](#troubleshoot-persistent-errors). 
@@ -85,7 +79,7 @@ Als de toepassing niet permanent verbinding maken met Azure SQL Database, dit ge
 * [Zoeken in de documentatie op Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [De meest recente updates voor de Azure SQL Database-service weergeven](http://azure.microsoft.com/updates/?service=sql-database)
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 * [Overzicht van SQL Database-ontwikkeling](sql-database-develop-overview.md)
 * [Algemene richtlijnen voor tijdelijke afhandeling van fouten](../best-practices-retry-general.md)
 * [Verbindingsbibliotheken voor SQL-Database en SQL Server](sql-database-libraries.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0c6a0c43eb7d0187120c3264f1f439af66d73978
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen zijn van toepassing op alle doelgroepen.
@@ -36,8 +36,19 @@ Vereiste machtigingen | Zie voor de vereiste machtigingen voor een update van to
 
 Download | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117500"></a>1.1.750.0
+Status: Uitgegeven Schakel klanten die deze release op dit moment wordt gedistribueerd naar een kleine en willekeurige selectie van AADConnect tenants waarop automatische clientupdate is ingeschakeld. We zullen deze groep van tenants uitvouwen in de komende weken tot 100 procent van onze klanten automatische clientupdate hebben ontvangen deze release. Hierna boekt we de build voor algemene downloaden op de bovenstaande koppeling.
+>[!NOTE]
+>Wanneer de upgrade naar deze nieuwe versie is voltooid, wordt deze automatisch een volledige synchronisatie en de volledige import voor de Azure AD-connector en een volledige synchronisatie voor de AD-connector activeren. Omdat dit enige tijd, afhankelijk van de grootte van uw Azure AD Connect-omgeving duren kan, zorg dat u de benodigde stappen voor de ondersteuning van dit of houd uit op het upgraden van totdat u handige even de tijd om dit te doen hebt gevonden hebt genomen.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Opgeloste problemen
+
+* De cmdlet Set-ADSyncAutoUpgrade zou Autoupgrade eerder geblokkeerd als status voor automatische clientupdate is ingesteld op uitgesteld. Dit is nu gewijzigd zodat AutoUpgrade van toekomstige builds worden niet geblokkeerd.
+
 ## <a name="117490"></a>1.1.749.0
-Status: Uitgegeven Schakel klanten die deze release is gedistribueerd naar een kleine en willekeurige sectie van AADConnect tenants waarop automatische clientupdate is ingeschakeld. We zullen deze groep van tenants uitvouwen in de komende weken tot 100 procent van onze klanten automatische clientupdate hebben ontvangen deze release. De build voor algemene downloaden op de bovenstaande koppeling - hierna boekt momenteel geplande voor mid van maart 2018.
+Status: Beschikbaar voor klanten selecteren
+
 >[!NOTE]
 >Wanneer de upgrade naar deze nieuwe versie is voltooid, wordt deze automatisch een volledige synchronisatie en de volledige import voor de Azure AD-connector en een volledige synchronisatie voor de AD-connector activeren. Omdat dit enige tijd, afhankelijk van de grootte van uw Azure AD Connect-omgeving duren kan, zorg ervoor dat u de benodigde stappen voor de ondersteuning van dit of houd uit op het upgraden van totdat u handige even de tijd om dit te doen hebt gevonden hebt genomen.
 
@@ -45,15 +56,15 @@ Status: Uitgegeven Schakel klanten die deze release is gedistribueerd naar een k
 #### <a name="fixed-issues"></a>Opgeloste problemen
 * Los op achtergrondtaken voor partitie filteren pagina tijdvenster wanneer u overschakelt naar de volgende pagina.
 
-* Een fout die toegangsfout tijdens de aangepaste actie ConfigDB veroorzaakt vast
+* Een fout die toegangsfout tijdens de aangepaste actie ConfigDB veroorzaakt vast.
 
 * Heeft een fout bij het herstellen van de time-out van de SQL-verbinding.
 
-* Een bug vast waar de certificaten met jokertekens SAN een controle van vereisten is mislukt
+* Een bug vast waar de certificaten met jokertekens SAN een controle van vereisten is mislukt.
 
 * Heeft een fout die ervoor zorgt miiserver.exe vastlopen tijdens het exporteren van een Azure AD-connector dat.
 
-* Een bug geregistreerd welke poging ongeldig wachtwoord vast op DC bij het uitvoeren van de wizard Azure AD Connect-configuratie wijzigen
+* Vaste op DC een bug welke poging onjuist wachtwoord in het logboek geregistreerd wanneer u de Azure AD Connect-wizard uitvoert om configuratie te wijzigen.
 
 
 #### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
@@ -787,8 +798,8 @@ Uitgebracht: Februari 2016
 
 * [Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) functie voor snelle instellingen klanten.
 * Ondersteuning voor de globale beheerder met behulp van Azure multi-factor Authentication en Privileged Identity Management in de installatiewizard.
-  * U wilt toestaan dat de proxy waarmee u verkeer naar https://secure.aadcdn.microsoftonline-p.com ook als u multi-factor Authentication gebruikt.
-  * U moet https://secure.aadcdn.microsoftonline-p.com toevoegen aan de lijst met vertrouwde sites voor multi-factor Authentication goed werkt.
+  * U wilt toestaan dat de proxy waarmee u ook het verkeer naar https://secure.aadcdn.microsoftonline-p.com als u multi-factor Authentication gebruikt.
+  * U moet toevoegen https://secure.aadcdn.microsoftonline-p.com aan de lijst met vertrouwde sites voor multi-factor Authentication goed werkt.
 * Het wijzigen van de gebruiker aanmelden methode na de eerste installatie toegestaan.
 * Toestaan dat [domein en OE filteren](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in de installatiewizard. Hierdoor kunnen ook verbinding maken met forests waarin niet alle domeinen beschikbaar zijn.
 * [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) is ingebouwd in de synchronisatie-engine.

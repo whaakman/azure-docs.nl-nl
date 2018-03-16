@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies voor kenmerktoewijzingen schrijven in Azure Active Directory
 Wanneer u configureert het inrichten van een SaaS-toepassing, is een van de soorten kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Hiervoor moet u een script-achtige expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -36,7 +36,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 * Voor tekenreeksconstanten, als u een backslash (\) of een aanhalingsteken (") in de tekenreeks, moet moet deze worden voorafgegaan door het symbool backslash (\). Bijvoorbeeld: ' Bedrijfsnaam: \"Contoso\"'
 
 ## <a name="list-of-functions"></a>Lijst met functies
-[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [koppelen](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch)
+[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Toevoegen
@@ -48,7 +48,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk van het bronobject |
+| **Bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk van het bronobject |
 | **suffix** |Vereist |Tekenreeks |De tekenreeks die u wilt toevoegen aan het einde van de bronwaarde. |
 
 - - -
@@ -61,8 +61,8 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk van het bronobject. |
-| **inputFormat** |Vereist |Tekenreeks |De verwachte notatie van de bronwaarde. Zie voor ondersteunde indelingen [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **Bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk van het bronobject. |
+| **inputFormat** |Vereist |Tekenreeks |De verwachte notatie van de bronwaarde. Zie voor ondersteunde indelingen [ http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Vereist |Tekenreeks |Indeling van de uitvoerdatum. |
 
 - - -
@@ -90,7 +90,7 @@ Als een van de bronwaarden is een kenmerk met meerdere waarden wordt elke waarde
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk. |
+| **Bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk. |
 | **start** |Vereist |geheel getal |Index in de **bron** tekenreeks waar subtekenreeks moet beginnen. Eerste teken in de tekenreeks heeft de index van 1, tweede teken wordt index 2 hebben, enzovoort. |
 | **lengte** |Vereist |geheel getal |Lengte van de subtekenreeks. Als de lengte buiten eindigt de **bron** tekenreeks, functie substring van resultaat **start** index tot het einde van **bron** tekenreeks. |
 
@@ -104,11 +104,11 @@ Als een van de bronwaarden is een kenmerk met meerdere waarden wordt elke waarde
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Booleaanse tekenreeks |Verwacht **bron** waarden zijn 'True' of 'False'... |
+| **Bron** |Vereist |Booleaanse tekenreeks |Verwacht **bron** waarden zijn 'True' of 'False'... |
 
 - - -
 ### <a name="replace"></a>Vervangen
-**Functie:**<br> ObsoleteReplace (bron, oldValue, regexPattern, regexGroupName, vervangende waarde, replacementAttributeName, sjabloon)
+**Functie:**<br> Vervang (bron, oldValue, regexPattern, regexGroupName, vervangende waarde, replacementAttributeName, sjabloon)
 
 **Beschrijving:**<br>
 Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opgegeven parameters:
@@ -119,25 +119,25 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 * Wanneer **oldValue** en **sjabloon** zijn beschikbaar:
   
   * Vervangt alle instanties van de **oldValue** in de **sjabloon** met de **bron** waarde
-* Wanneer **oldValueRegexPattern**, **oldValueRegexGroupName**, **vervangende waarde** zijn beschikbaar:
+* Wanneer **regexPattern**, **regexGroupName**, **vervangende waarde** zijn beschikbaar:
   
   * Vervangt alle waarden die overeenkomen met oldValueRegexPattern in de brontekenreeks met de vervangende waarde
-* Wanneer **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName** zijn beschikbaar:
+* Wanneer **regexPattern**, **regexGroupName**, **replacementPropertyName** zijn beschikbaar:
   
-  * Als **bron** waarde heeft, **bron** wordt geretourneerd
-  * Als **bron** heeft geen waarde, gebruikt de **oldValueRegexPattern** en **oldValueRegexGroupName** vervangende waarde ophalen uit de eigenschap met  **replacementPropertyName**. Vervangende waarde wordt geretourneerd als resultaat
+  * Als **bron** heeft geen waarde **bron** wordt geretourneerd
+  * Als **bron** een waarde heeft, gebruikt de **regexPattern** en **regexGroupName** vervangende waarde ophalen uit de eigenschap met **replacementPropertyName** . Vervangende waarde wordt geretourneerd als resultaat
 
 **Parameters:**<br> 
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk van het bronobject. |
+| **Bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk van het bronobject. |
 | **oldValue** |Optioneel |Tekenreeks |Waarde moet worden vervangen **bron** of **sjabloon**. |
 | **regexPattern** |Optioneel |Tekenreeks |Regex-patroon voor de waarde moet worden vervangen **bron**. Of, als replacementPropertyName wordt gebruikt, patroon Haal de waarde van eigenschap vervanging. |
 | **regexGroupName** |Optioneel |Tekenreeks |Naam van de groep binnen **regexPattern**. Alleen wanneer replacementPropertyName wordt gebruikt, wordt er Haal de waarde van deze groep als vervangende waarde van eigenschap vervanging. |
 | **replacementValue** |Optioneel |Tekenreeks |Nieuwe waarde ter vervanging van oude met. |
 | **replacementAttributeName** |Optioneel |Tekenreeks |De naam van het kenmerk moet worden gebruikt voor de vervangende waarde wanneer de bron heeft geen waarde. |
-| **sjabloon** |Optioneel |Tekenreeks |Wanneer **sjabloon** waarde wordt opgegeven, gaan we voor **oldValue** in de sjabloon en vervang deze door de bronwaarde. |
+| **Sjabloon** |Optioneel |Tekenreeks |Wanneer **sjabloon** waarde wordt opgegeven, gaan we voor **oldValue** in de sjabloon en vervang deze door de bronwaarde. |
 
 - - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
@@ -161,7 +161,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Tekenreeks |**bron** waarde om te werken. |
+| **Bron** |Vereist |Tekenreeks |**Bron** waarde om te werken. |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -173,9 +173,9 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Tekenreeks |**Bron** waarde om te werken. |
+| **Bron** |Vereist |Tekenreeks |**Bron** waarde om te werken. |
 | **defaultValue** |Optioneel |Tekenreeks |De standaardwaarde moet worden gebruikt als bron komt niet overeen met alle sleutels. Lege tekenreeks (""). |
-| **sleutel** |Vereist |Tekenreeks |**Sleutel** vergelijken **bron** waarde met. |
+| **Sleutel** |Vereist |Tekenreeks |**Sleutel** vergelijken **bron** waarde met. |
 | **value** |Vereist |Tekenreeks |Vervangende waarde voor de **bron** die overeenkomt met de sleutel. |
 
 ## <a name="examples"></a>Voorbeelden
@@ -213,6 +213,17 @@ U moet een gebruiker alias genereren door middel van eerste 3 letters van de voo
 * **INVOER** (givenName): "Jan"
 * **INVOER** (voornaam): 'De Vries'
 * **OUTPUT**:  "JohDoe"
+
+### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Diakritische tekens verwijderen uit een tekenreeks en converteren naar kleine letters
+Moet u speciale tekens verwijderen uit een tekenreeks en omzetten van hoofdletters in kleine letters.
+
+**Expressie:** <br>
+`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+
+**I/o-voorbeeld:** <br>
+
+* **INPUT** (givenName): "Zoë"
+* **UITVOER**: 'zoe'
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Uitvoerdatum als een tekenreeks in een bepaalde indeling
 Wilt u datums verzenden naar een SaaS-toepassing in een bepaalde indeling. <br>

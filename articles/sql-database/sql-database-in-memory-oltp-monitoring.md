@@ -2,24 +2,18 @@
 title: XTP geheugenopslag bewaken | Microsoft Docs
 description: Schatting en monitor XTP geheugenopslag gebruiken, capaciteit; capaciteit fout 41823 oplossen
 services: sql-database
-documentationcenter: 
 author: jodebrui
-manager: jhubbard
-editor: 
-ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: 1e7088e80cc86e3c7cf8ae8ea180d797de613e71
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c1adc6e98f7d101a6e5f3227f44b0035d9b9d157
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Monitor In-geheugen OLTP-opslag
 Wanneer u [In het geheugen OLTP](sql-database-in-memory.md), gegevens in tabellen geoptimaliseerd voor geheugen en tabelvariabelen bevindt zich in In het geheugen OLTP-opslag. Elke servicelaag Premium heeft een maximale In het geheugen OLTP opslaggrootte, die wordt beschreven in [één database limieten](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) en [limieten elastische pool](sql-database-resource-limits.md#elastic-pool-change-storage-size). Wanneer deze limiet wordt overschreden, invoegen en bijwerken operations kunnen mislukken met fout 41823 voor zelfstandige databases en de fout 41840 voor elastische pools. Op dat moment moet aan gegevens om geheugen vrij te verwijderen, of upgrade van de prestatielaag van uw database.

@@ -3,7 +3,7 @@ title: RSS-connector in Azure Logic Apps | Microsoft Docs
 description: Logic apps maken met Azure App service. RSS-connector kunt de gebruikers om te publiceren en feed items ophalen. Deze kan gebruikers ook bewerkingen activeren wanneer een nieuw item naar de feed is gepubliceerd.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: fca2b9983e70b754e3b4cb736023c47c598bedfc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 493ee8a961e5d5a57c6276868a55b524dec28018
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-rss-connector"></a>Aan de slag met de RSS-connector
 RSS is een populaire web syndication-indeling gebruikt voor het publiceren van regelmatig bijgewerkte inhoud – zoals blogberichten en nieuws.  Veel uitgevers bieden een RSS-feed zodat gebruikers kunnen abonneren.  De RSS-connector gebruiken voor het ophalen van de feed informatie en trigger stromen wanneer nieuwe items worden gepubliceerd in een RSS-feed.

@@ -4,7 +4,7 @@ description: Informatie over het implementeren van een HPC Pack 2016-cluster in 
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3dde6a68-e4a6-4054-8b67-d6a90fdc5e3f
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 12/15/2016
+ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: 88d1f4e29f38ba1a6bef57c2da43bee205575eee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Een HPC Pack 2016-cluster in Azure implementeren
 
-Volg de stappen in dit artikel voor het implementeren van een [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) cluster in Azure virtuele machines. HPC Pack is oplossing van Microsoft gratis HPC gebaseerd op Microsoft Azure en Windows Server-technologieën en biedt ondersteuning voor een breed bereik van HPC-workloads.
+Volg de stappen in dit artikel voor het implementeren van een [Microsoft HPC Pack 2016 Update 1](https://technet.microsoft.com/library/cc514029) cluster in Azure virtuele machines. HPC Pack is oplossing van Microsoft gratis HPC gebaseerd op Microsoft Azure en Windows Server-technologieën en biedt ondersteuning voor een breed bereik van HPC-workloads.
 
-Gebruik een van de [Azure Resource Manager-sjablonen](https://github.com/MsHpcPack/HPCPack2016) voor het implementeren van het cluster HPC Pack 2016. U hebt verschillende mogelijkheden van de clustertopologie met verschillende aantallen head clusterknooppunten en met beide Linux of Windows rekenknooppunten.
+Gebruik een van de [Azure Resource Manager-sjablonen](https://github.com/MsHpcPack/HPCPack2016) voor het implementeren van het cluster HPC Pack 2016. U hebt verschillende mogelijkheden van de clustertopologie met verschillende aantallen en typen van cluster hoofdknooppunten en rekenknooppunten.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -37,7 +37,7 @@ Een cluster met Microsoft HPC Pack 2016 vereist een Personal Information Exchang
 * Sleutelgebruik bevat digitale handtekening en sleutelcodering
 * Uitgebreid sleutelgebruik bevat clientverificatie en serververificatie
 
-Als u geen al een certificaat dat aan deze vereisten voldoet, kunt u het certificaat aanvragen bij een certificeringsinstantie (CA). U kunt ook de volgende opdrachten gebruiken voor het genereren van het zelfondertekende certificaat op basis van het besturingssysteem waarop u de opdracht uitvoert en de indeling een PFX-certificaat met persoonlijke sleutel exporteert.
+Als u geen al een certificaat dat aan deze vereisten voldoet, kunt u het certificaat aanvragen bij een certificeringsinstantie (CA). Ook de volgende opdrachten gebruiken voor het genereren van het zelfondertekende certificaat op basis van het besturingssysteem waarop u de opdracht uitvoert. Vervolgens het certificaat exporteren als een PFX-bestand met wachtwoord zijn beveiligd met persoonlijke sleutel.
 
 * **Voor Windows 10 of Windows Server 2016**, moet u de **nieuw SelfSignedCertificate** PowerShell-cmdlet als volgt:
 
@@ -52,11 +52,13 @@ Als u geen al een certificaat dat aan deze vereisten voldoet, kunt u het certifi
     New-SelfSignedCertificateEx -Subject "CN=HPC Pack 2016 Communication" -KeySpec Exchange -KeyUsage "DigitalSignature,KeyEncipherment" -EnhancedKeyUsage "Server Authentication","Client Authentication" -StoreLocation CurrentUser -Exportable -NotAfter (Get-Date).AddYears(5)
     ```
 
+Nadat het certificaat is gemaakt in het archief van de huidige gebruiker, gebruikt u de module Certificaten het certificaat te exporteren als een PFX-bestand met wachtwoord zijn beveiligd met persoonlijke sleutel. U kunt ook exporteren voor het certificaat met behulp van de [Export Pfxcertificate](/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps) PowerShell-cmdlet.
+
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>Upload het certificaat naar een Azure sleutelkluis
 
-Voordat u het HPC-cluster implementeert, uploadt u het certificaat moet een [Azure sleutelkluis](../../key-vault/index.md) als een geheim en de volgende informatie voor gebruik tijdens de implementatie-record: **kluisnaam**, **kluis resourcegroep**, **certificaat-URL**, en **certificaatvingerafdruk**.
+Voordat u het HPC-cluster implementeert, uploadt u het PFX-certificaat moet een [Azure sleutelkluis](../../key-vault/index.md) als een geheim en de volgende informatie voor gebruik tijdens de implementatie-record: **kluisnaam**, **kluis resourcegroep**, **certificaat-URL**, en **certificaatvingerafdruk**.
 
-Hier volgt een PowerShell-voorbeeldscript om het certificaat te uploaden. Zie voor meer informatie over het uploaden van een certificaat naar een Azure sleutelkluis [aan de slag met Azure Key Vault](../../key-vault/key-vault-get-started.md).
+Hier volgt een PowerShell-voorbeeldscript voor het certificaat uploaden, maken van de sleutelkluis en de vereiste gegevens te genereren. Zie voor meer informatie over het uploaden van een certificaat naar een Azure sleutelkluis [aan de slag met Azure Key Vault](../../key-vault/key-vault-get-started.md).
 
 ```powershell
 #Give the following values
@@ -108,12 +110,11 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 
 ## <a name="supported-topologies"></a>Ondersteunde topologieën
 
-Kies een van de [Azure Resource Manager-sjablonen](https://github.com/MsHpcPack/HPCPack2016) voor het implementeren van het cluster HPC Pack 2016. Hieronder vindt u op hoog niveau van de drie ondersteunde clustertopologieën-architecturen. Hoge beschikbaarheid topologieën bevatten meerdere head clusterknooppunten.
+Kies een van de [Azure Resource Manager-sjablonen](https://github.com/MsHpcPack/HPCPack2016) voor het implementeren van het cluster HPC Pack 2016. Hieronder vindt u op hoog niveau architecturen van drie voorbeeldtopologieën cluster. Hoge beschikbaarheid topologieën bevatten meerdere head clusterknooppunten.
 
 1. Cluster met hoge beschikbaarheid met Active Directory-domein
 
     ![HA-cluster in AD-domein](./media/hpcpack-2016-cluster/haad.png)
-
 
 
 2. Cluster met hoge beschikbaarheid zonder Active Directory-domein
@@ -131,7 +132,7 @@ Kies een sjabloon voor het maken van het cluster en klik op **implementeren in A
 
 ### <a name="step-1-select-the-subscription-location-and-resource-group"></a>Stap 1: Selecteer het abonnement, de locatie en de resourcegroep
 
-De **abonnement** en de **locatie** moet hetzelfde zijn die u hebt opgegeven dat wanneer u het PFX-certificaat geüpload (Zie vereisten). Het is raadzaam dat u maakt een **resourcegroep** voor de implementatie.
+De **abonnement** en de **locatie** moet hetzelfde zijn die u hebt opgegeven dat wanneer u het PFX-certificaat geüpload (Zie vereisten). Het is raadzaam dat u een andere maakt **resourcegroep** voor de implementatie.
 
 ### <a name="step-2-specify-the-parameter-settings"></a>Stap 2: Geef de parameterinstellingen
 
@@ -139,19 +140,21 @@ Invoeren of wijzigen van waarden voor de sjabloonparameters. Klik op het pictogr
 
 Geef de waarden die u hebt vastgelegd in de vereisten voor de volgende parameters: **kluisnaam**, **kluis resourcegroep**, **certificaat-URL**, en **certificaatvingerafdruk**.
 
-### <a name="step-3-review-legal-terms-and-create"></a>Stap 3. Juridische voorwaarden bekijken en maken
-Klik op **juridische voorwaarden bekijken** om te controleren van de voorwaarden. Als u akkoord gaat, klikt u op **aankoop**, en klik vervolgens op **maken** implementatie te starten.
+### <a name="step-3-review-terms-and-create"></a>Stap 3. Voorwaarden controleren en maken
+Bekijk de voorwaarden en bepalingen die zijn gekoppeld aan de sjabloon. Als u akkoord gaat, klikt u op **aankoop** implementatie te starten.
+
+Afhankelijk van de clustertopologie kan implementatie 30 minuten duren of langer duren.
 
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 1. Nadat het cluster HPC Pack wordt geïmplementeerd, gaat u naar de [Azure-portal](https://portal.azure.com). Klik op **resourcegroepen**, en zoek de resourcegroep waarin het cluster is geïmplementeerd. U vindt het hoofdknooppunt van virtuele machines.
 
     ![De hoofdknooppunten cluster in de portal](./media/hpcpack-2016-cluster/clusterhns.png)
 
-2. Klik op één hoofdknooppunt (in een cluster met hoge beschikbaarheid, klik op een van de hoofdknooppunten). In **Essentials**, vindt u de openbare IP-adres of de volledige DNS-naam van het cluster.
+2. Klik op één hoofdknooppunt (in een cluster met hoge beschikbaarheid, klik op een van de hoofdknooppunten). In **overzicht**, vindt u de openbare IP-adres of de volledige DNS-naam van het cluster.
 
     ![Cluster-verbindingsinstellingen](./media/hpcpack-2016-cluster/clusterconnect.png)
 
-3. Klik op **Connect** Meld u aan bij een van de hoofdknooppunten met extern bureaublad met uw beheerder van de opgegeven gebruikersnaam. Als het cluster dat u hebt geïmplementeerd in een Active Directory-domein, de gebruikersnaam van het formulier is <privateDomainName> \<adminUsername > (bijvoorbeeld hpc.local\hpcadmin).
+3. Klik op **Connect** Meld u aan bij een van de hoofdknooppunten met extern bureaublad met uw beheerder van de opgegeven gebruikersnaam. Als het cluster dat u hebt geïmplementeerd in een Active Directory-domein, de gebruikersnaam van het formulier is \<privateDomainName >\\\<adminUsername > (bijvoorbeeld hpc.local\hpcadmin).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Verzenden van taken naar uw cluster. Zie [taken verzenden naar een HPC Pack HPC-cluster in Azure](hpcpack-cluster-submit-jobs.md) en [een HPC Pack 2016-cluster in Azure met Azure Active Directory beheren](hpcpack-cluster-active-directory.md).

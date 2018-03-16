@@ -2,24 +2,18 @@
 title: Bewaken en verbeterde prestaties - Azure SQL Database | Microsoft Docs
 description: De Azure SQL Database biedt prestatiehulpprogramma's om te identificeren gebieden die u kunnen de huidige queryprestaties verbeteren.
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: monicar
-ms.assetid: a60b75ac-cf27-4d73-8322-ee4d4c448aa2
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 07/19/2016
 ms.author: sstein
-ms.openlocfilehash: 49b24619372d41ff25f815ca493ca7e6ce69ef9c
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 1d327e33a84917688e70f234df311e7b7cf4b30b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-improve-performance"></a>Prestaties bewaken en verbeteren
 Azure SQL Database identificeert potentiële problemen in uw database en raadt aan om de acties die de prestaties van uw werkbelasting verbeteren kunnen door intelligent afstemmen acties en aanbevelingen.
@@ -46,7 +40,7 @@ Deze weergave bevat een samenvatting van de databaseprestaties van uw en helpt u
 * De **automatische afstemming** tegel toont de [automatische afstemming configuratie](sql-database-automatic-tuning-enable.md) voor uw database (tuning opties die automatisch worden toegepast op uw database). Op deze tegel klikt, opent het dialoogvenster van de configuratie van automation.
 * De **databasequery's** tegel ziet u de samenvatting van de prestaties van query's voor uw database (algehele DTU-gebruik en de bovenkant resource verbruikt query's). Op deze tegel klikt, gaat u naar  **[Query Performance Insight](#query-performance-insight)**.
 
-## <a name="performance-recommendations"></a>Aanbevelingen voor prestaties
+## <a name="performance-recommendations"></a>Prestatieaanbevelingen
 Deze pagina bevat intelligent [afstemmen aanbevelingen](sql-database-advisor.md) die de prestaties van uw database kunt verbeteren. De volgende soorten aanbevelingen worden weergegeven op deze pagina:
 
 * Aanbevelingen over welke indexen te maken of verwijderen.
@@ -73,7 +67,7 @@ Azure SQL-Databases kunt automatisch afstemmen van de databaseprestaties door to
 
 Meer informatie over deze pagina niet vinden in het artikel  **[het gebruik van de Query Performance Insight](sql-database-query-performance.md)**.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 * [Azure SQL Database-prestaties richtlijnen voor individuele databases](sql-database-performance-guidance.md)
 * [Wanneer een elastische groep moet worden gebruikt?](sql-database-elastic-pool-guidance.md)
 

@@ -3,8 +3,8 @@ title: Vooraf goedgekeurd via het programma gecertificeerd voor Microsoft Azure 
 description: Meer informatie over het Microsoft Azure Certified partner-programma en het ophalen van de installatiekopie van virtuele machine, oplossingssjabloon, developer-service of data-service op Azure Marketplace verkopen
 services: marketplace-publishing
 documentationcenter: na
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 tags: 
 ms.assetid: 7e9ebf17-07a1-4796-921f-d1d62046892d
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: hascipio
-ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 6db5c8dc6aba4246b3672cf7931a266b26ad11db
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Vooraf goedgekeurd via het programma gecertificeerd voor Microsoft Azure
-In dit artikel vindt u instructies voor hoe u Microsoft Azure-gecertificeerd zodat u kunt uw oplossing in Azure Marketplace publiceert en in aanmerking voor marketing voordelen komen. Voor een gedetailleerd overzicht van het programma Microsoft Azure-gecertificeerd en de voordelen, gaat u naar [http://azure.com/certified](http://azure.com/certified).
+In dit artikel vindt u instructies voor hoe u Microsoft Azure-gecertificeerd zodat u kunt uw oplossing in Azure Marketplace publiceert en in aanmerking voor marketing voordelen komen. Voor een gedetailleerd overzicht van het programma Microsoft Azure-gecertificeerd en de voordelen, gaat u naar [ http://azure.com/certified ](http://azure.com/certified).
 
 > [!IMPORTANT]
 > Het Azure-certificaat is alleen van toepassing als u wilt maken van een virtuele machine of een oplossingssjabloon voor Azure Marketplace.

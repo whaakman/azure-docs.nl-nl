@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: b76fe7c0caa4a9aca76a9a3f50d1fced0ab67cba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 444803eeb77e79a8bfe3271ddf27bd428042c875
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>SSL inschakelen op een Azure Machine Learning berekenen (MLC)-cluster 
 
@@ -31,7 +31,7 @@ Deze instructies kunnen u voor het instellen van SSL voor score berekenen voor a
 
 U hebt twee bestanden na het voltooien van de vereisten:
 
-* Een bestand voor het certificaat, bijvoorbeeld: `cert.pem`
+* Een bestand voor het certificaat, bijvoorbeeld `cert.pem`. Zorg ervoor dat het bestand heeft de volledige certificaatketen.
 * Een bestand voor de sleutel, bijvoorbeeld: `key.pem`
 
 
@@ -55,7 +55,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>De CNAME- en het IP-adres toewijzen
 
-Maak een toewijzing tussen de CNAME-u hebt geselecteerd in de vereisten en het IP-adres van de realtime front-end (FE). Voer de onderstaande opdracht voor het detecteren van de IP-adres van de FE. De uitvoer geeft een veld met de naam 'publicIpAddress' waarin het IP-adres van de realtime-front-cluster. Raadpleeg de documentatie van uw DNS-provider voor het instellen van een CNAME-record.
+Maak een toewijzing tussen de CNAME-u hebt geselecteerd in de vereisten en het IP-adres van de realtime front-end (FE). Voer de onderstaande opdracht voor het detecteren van de IP-adres van de FE. De uitvoer geeft een veld met de naam 'publicIpAddress' waarin het IP-adres van de realtime-front-cluster. Raadpleeg de documentatie van uw DNS-provider voor het instellen van een record van de FQDN-naam in CNAME gebruikt voor het openbare IP-adres.
 
 
 

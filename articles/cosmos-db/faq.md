@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -211,6 +211,7 @@ Er zijn enkele gedrag van die afkomstig zijn van Azure Table storage gebruikers 
 * CORS wordt momenteel niet ondersteund.
 * Namen van tabellen in de Azure Table storage zijn niet hoofdlettergevoelig, maar ze zijn in Azure Cosmos DB tabel-API
 * Sommige Azure Cosmos DB interne indelingen voor codering informatie, zoals binaire velden zijn momenteel niet zo efficiënt als een mogelijk nodig hebt. Daarom kan dit onverwachte beperkingen op gegevensgrootte veroorzaken. Bijvoorbeeld: momenteel een kan niet gebruiken de volledige 1 Meg van een Tabelentiteit voor het opslaan van binaire gegevens omdat de codering van de gegevens groter wordt.
+* Naam van de eigenschap entiteit 'Id' momenteel niet ondersteund
 
 Er zijn een aantal eindpunten/query-opties die niet worden ondersteund door Azure Cosmos DB tabel API in termen van de REST-API:
 | Rest-methode(n) | Rest-eindpunt/Query-optie | Doc-URL 's | Uitleg |
@@ -282,7 +283,7 @@ Ja, u kunt verbinding maken met het maken van twee afzonderlijke exemplaren van 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>Hoe Migreer ik een bestaande Azure Table storage-toepassing op deze aanbieding
 [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) en de [Azure Cosmos DB hulpprogramma voor gegevensmigratie](import-data.md) worden beide ondersteund.
 
-### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Wat is het uitbreiden van de grootte van de opslagruimte voor deze service wordt uitgevoerd als er bijvoorbeeld wordt gestart met  *n*  GB aan gegevens en Mijn gegevens na verloop van tijd tot 1 TB zal toenemen? 
+### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Wat is het uitbreiden van de grootte van de opslagruimte voor deze service wordt uitgevoerd als er bijvoorbeeld wordt gestart met *n* GB aan gegevens en Mijn gegevens na verloop van tijd tot 1 TB zal toenemen? 
 Azure Cosmos DB is zodanig ontworpen dat onbeperkte opslag via het gebruik van horizontaal schalen. De service kunt bewaken en effectief meer opslagruimte. 
 
 ### <a name="how-do-i-monitor-the-table-api-offering"></a>Hoe bewaak ik het aanbod van de tabel-API
@@ -377,7 +378,7 @@ Van de .NET SDK kan deze worden verstuurd in het bestand app.config:
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure Cosmos-database als een platform waarschijnlijk veel mogelijkheden, zoals sorteren, statistische functies, hiërarchie en andere functionaliteit. Gaat u deze mogelijkheden toevoegen aan de tabel-API? 
-De tabel-API biedt dezelfde queryfunctionaliteit als Azure Table storage. Azure Cosmos DB biedt ook ondersteuning voor sorteren, statistische functies, georuimtelijke query hiërarchie en een groot aantal ingebouwde functies. We bieden aanvullende functionaliteit in de tabel-API in een toekomstige service-update. Zie voor meer informatie [SQL-query's](sql-api-sql-query.md).
+De tabel-API biedt dezelfde queryfunctionaliteit als Azure Table storage. Azure Cosmos DB biedt ook ondersteuning voor sorteren, statistische functies, georuimtelijke query, hiërarchie en een groot aantal ingebouwde functies. We bieden aanvullende functionaliteit in de tabel-API in een toekomstige service-update. Zie voor meer informatie [SQL-query's](sql-api-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Wanneer moet ik TableThroughput wijzigen voor de tabel-API?
 Wanneer een van de volgende voorwaarden van toepassing is, moet u TableThroughput wijzigen:

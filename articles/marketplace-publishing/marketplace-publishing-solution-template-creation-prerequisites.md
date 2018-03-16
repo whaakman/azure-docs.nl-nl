@@ -3,8 +3,8 @@ title: Technische vereisten voor het maken van een oplossingssjabloon voor de Ma
 description: Begrip van de vereisten voor het maken van een oplossingssjabloon om te implementeren en te verkopen op Azure Marketplace
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: bbcc12dd-1c2f-4ce6-830c-f0e06524aa38
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 0aa9ab99aea08f5e368efbb97d8a1be7fbb79552
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.author: mbaldwin
+ms.openlocfilehash: 4de9f66b4632f2573299757b2e40fae65f86f7d6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Technische vereisten voor het maken van een oplossingssjabloon voor Azure Marketplace
 Het proces zorgvuldig door voordat u begint lees en begrijp waar en waarom elke stap wordt uitgevoerd. Zo veel mogelijk, u moet voorbereiden van uw bedrijfsgegevens en andere gegevens, vereiste hulpprogramma's downloaden en/of technische onderdelen maken voordat u begint met een proces voor het maken van de aanbieding.  

@@ -14,7 +14,7 @@ Als u wilt maken en beheren van virtuele Azure-machines (VM's) in een consistent
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) is een automatiseringsengine voor het beheer van de configuratie of maken van VM-toepassingsimplementatie. Ansible maakt gebruik van een agent minder, meestal met SSH-sleutels, om te verifiëren en beheren van de doelmachines. Configuratietaken zijn gedefinieerd in runbooks, met een aantal Ansible modules beschikbaar specifieke taken uit te voeren. Zie voor meer informatie [hoe Ansible werkt](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) is een automatiseringsengine voor het beheer van de configuratie of maken van VM-toepassingsimplementatie. Ansible maakt gebruik van een agent minder, meestal met SSH-sleutels, om te verifiëren en beheren van de doelmachines. Configuratietaken zijn gedefinieerd in de hulpmiddelen marketing, en verkoop, met een aantal Ansible modules beschikbaar specifieke taken uit te voeren. Zie voor meer informatie [hoe Ansible werkt](https://www.ansible.com/how-ansible-works).
 
 Leer hoe u het volgende doet:
 
@@ -41,19 +41,19 @@ Leer hoe u het volgende doet:
 
 
 ## <a name="cloud-init"></a>Cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud init gebruiken voor het installeren van pakketten en bestanden schrijven of om gebruikers en beveiliging te configureren. Omdat cloud init wordt aangeroepen tijdens het opstartproces, zijn er geen extra stappen of de vereiste agents naar uw configuratie toe te passen.  Voor meer informatie over de juiste indeling uw `#cloud-config` bestanden, Zie de [documentatiesite voor cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`bestanden zijn tekstbestanden gecodeerd in base64.
+[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud-init gebruiken voor het installeren van pakketten en schrijven van bestanden, of om gebruikers en beveiliging te configureren. Omdat cloud init wordt aangeroepen tijdens het opstartproces, zijn er geen extra stappen of de vereiste agents naar uw configuratie toe te passen.  Voor meer informatie over de juiste indeling uw `#cloud-config` bestanden, Zie de [documentatiesite voor cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` bestanden zijn tekstbestanden gecodeerd in base64.
 
-Cloud-init werkt ook via distributies. Bijvoorbeeld, u niet gebruikt **apt get-installatie** of **yum installeren** om een pakket te installeren. In plaats daarvan kunt u een lijst met pakketten te installeren. Het hulpprogramma voor systeemeigen pakket cloud init automatisch gebruikt voor de distro die u selecteert.
+Cloud-init werkt ook in distributies. U gebruikt bijvoorbeeld niet **apt-get install** of **yum install** om een pakket te installeren. In plaats daarvan kunt u een lijst definiëren met te installeren pakketten. Cloud-init maakt automatisch gebruik van het hulpprogramma voor systeemeigen pakketbeheer voor de distro die u selecteert.
 
  Er wordt om beschikbare installatiekopieën van het cloud-init zijn ingeschakeld in de Azure marketplace gewerkt met onze aangebracht Linux distro partners. Deze installatiekopieën Controleer uw cloud-init-implementaties en configuraties naadloos werken met virtuele machines en virtuele-machineschaalsets. De volgende tabel geeft een overzicht van de huidige beschikbaarheid van de installatiekopieën van cloud-init zijn ingeschakeld op de Azure-platform:
 
 | Uitgever | Aanbieding | SKU | Versie | cloud-init gereed
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04 TNS |meest recente |ja | 
+|Canonical |UbuntuServer |16.04-LTS |meest recente |ja | 
 |Canonical |UbuntuServer |14.04.5-LTS |meest recente |ja |
 |CoreOS |CoreOS |Stabiel |meest recente |ja |
-|OpenLogic |CentOS |7 CI |meest recente |preview |
-|RedHat |RHEL |7 ONBEWERKTE CI |meest recente |preview |
+|OpenLogic |CentOS |7-CI |meest recente |preview |
+|RedHat |RHEL |7-RAW-CI |meest recente |preview |
 
 Meer informatie over cloud-init op Azure meer:
 
@@ -103,14 +103,14 @@ Leer hoe u het volgende doet:
 
 
 ## <a name="azure-automation"></a>Azure Automation
-[Azure Automation](https://azure.microsoft.com/services/automation/) runbooks gebruikt om te verwerken van een set taken op de virtuele machines is gericht. Azure Automation wordt gebruikt voor het beheren van bestaande virtuele machines in plaats van te maken van een infrastructuur. Azure Automation kan worden uitgevoerd op zowel Linux en Windows-VM's, evenals on-premises virtuele of fysieke machines met een hybride runbook worker. Runbooks kunnen worden opgeslagen in een resourcebeheerbibliotheek zoals GitHub. Deze runbooks kunnen vervolgens handmatig uitvoeren of volgens een ingesteld schema.
+[Azure Automation](https://azure.microsoft.com/services/automation/) runbooks gebruikt om te verwerken van een set taken op de virtuele machines is gericht. Azure Automation wordt gebruikt voor het beheren van bestaande virtuele machines in plaats van te maken van een infrastructuur. Azure Automation kan worden uitgevoerd op zowel Linux en Windows-VM's, evenals lokale virtuele of fysieke machines met een hybride runbook worker. Runbooks kunnen worden opgeslagen in een resourcebeheerbibliotheek zoals GitHub. Deze runbooks kunnen vervolgens handmatig uitvoeren of volgens een ingesteld schema.
 
 Azure Automation biedt ook een Desired State Configuration (DSC)-service die u maken van de definities kunt voor hoe een bepaalde set van virtuele machines moet worden geconfigureerd. DSC zorgt er daarna dat de vereiste configuratie wordt toegepast en de virtuele machine consistent blijft. Azure Automation DSC wordt uitgevoerd op Windows- en Linux-machines.
 
 Leer hoe u het volgende doet:
 
 - [Maken van een PowerShell-runbook](../articles/automation/automation-first-runbook-textual-powershell.md).
-- [Hybride Runbook Worker gebruiken om on-premises resources te beheren](../articles/automation/automation-hybrid-runbook-worker.md).
+- [Hybride Runbook Worker gebruiken voor het beheren van lokale bronnen](../articles/automation/automation-hybrid-runbook-worker.md).
 - [Gebruik Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
 
 

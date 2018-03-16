@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: d3a0dd70a03f97a9b6bfb243eda7cbd470b0c239
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Overzicht van Azure Data Lake Store
+# <a name="best-practices-for-using-azure-data-lake-store"></a>Aanbevolen procedures voor het gebruik van Azure Data Lake Store
 In dit artikel leert u over aanbevolen procedures en overwegingen voor het werken met Azure Data Lake Store. Dit artikel bevat informatie over beveiliging, prestaties, tolerantie en bewaking voor Data Lake Store. Werken met echte big data in services zoals Azure HDInsight is voordat u Data Lake Store complex. Moest u gegevens verdelen over meerdere Blob storage-accounts zodat petabyte opslag en optimale prestaties op deze schaal kunnen worden gerealiseerd. Met Data Lake Store worden de meeste van de vaste limieten voor de grootte en de prestaties verwijderd. Er zijn echter nog steeds bepaalde overwegingen die van dit artikel behandelt zodat u de beste prestaties met Data Lake Store kunt ophalen. 
 
 ## <a name="security-considerations"></a>Beveiligingsoverwegingen
@@ -139,7 +139,7 @@ Als Data Lake Store-upfunctie voor logboekbestanden niet is ingeschakeld, Azure 
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Als deze optie is ingesteld en de knooppunten worden opnieuw opgestart, Data Lake Store diagnostics wordt geschreven naar de YARN-logboeken op de knooppunten (/tmp/<user>/yarn.log), en belangrijke informatie, zoals fouten of beperking (foutcode HTTP 429) kan worden bewaakt. Deze informatie kan ook worden bewaakt in OMS of waar logboeken worden verzonden in de [Diagnostics](data-lake-store-diagnostic-logs.md) blade van het Data Lake Store-account. Het verdient aanbeveling met ten minste clientzijde logboekregistratie is ingeschakeld, of gebruikmaken van de optie met Data Lake Store voor operationeel inzicht en gemakkelijker foutopsporing-upfunctie voor logboekbestanden.
+Als de eigenschap is ingesteld en de knooppunten worden opnieuw opgestart, Data Lake Store diagnostics wordt geschreven naar de YARN-logboeken op de knooppunten (/tmp/<user>/yarn.log), en belangrijke informatie, zoals fouten of beperking (foutcode HTTP 429) kan worden bewaakt. Deze informatie kan ook worden bewaakt in OMS of waar logboeken worden verzonden in de [Diagnostics](data-lake-store-diagnostic-logs.md) blade van het Data Lake Store-account. Het verdient aanbeveling met ten minste clientzijde logboekregistratie is ingeschakeld, of gebruikmaken van de optie met Data Lake Store voor operationeel inzicht en gemakkelijker foutopsporing-upfunctie voor logboekbestanden.
 
 ### <a name="run-synthetic-transactions"></a>Synthetische transacties worden uitgevoerd 
 
@@ -155,7 +155,7 @@ In de IoT-werkbelastingen, kan er een grote hoeveelheid gegevens wordt bevindt z
 
     {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Bijvoorbeeld: telemetrie voor een vliegtuig-engine binnen het Verenigd Koninkrijk aanvoer als volgt uitzien: 
+Bijvoorbeeld telemetrie voor een vliegtuig-engine binnen het Verenigd Koninkrijk aanvoer kan er uitzien zoals de volgende structuur: 
 
     UK/Planes/BA1293/Engine1/2017/08/11/12/ 
 
@@ -163,7 +163,7 @@ Er is een belangrijke reden voor het plaatsen van de datum die aan het einde van
 
 ### <a name="batch-jobs-structure"></a>Structuur van batch-taken 
 
-Vanuit een hoog niveau is een veelgebruikte methode in batch-verwerking op grond van gegevens in een map 'in'. Vervolgens, nadat de gegevens is verwerkt, plaats de nieuwe gegevens in een map 'out' voor downstream-processen te gebruiken. Dit wordt soms gezien voor taken die op afzonderlijke bestanden worden verwerkt nodig en kunnen niet massively parallelle processing vereisen via grote gegevenssets. Als de IoT-structuur hierboven aanbevolen, heeft een goede mapstructuur de bovenliggende mappen voor dingen zoals regio en onderwerp zaken (bijvoorbeeld, organisatie, product/producent). Dit helpt bij het beveiligen van de gegevens over uw organisatie en beter beheer van de gegevens in uw werkbelastingen. Overweeg daarnaast datum en tijd in de structuur, zodat betere ordening, gefilterde zoekopdrachten, beveiliging en automatisering bij de verwerking. De mate van detail voor de datumstructuur wordt bepaald door het interval waarop de gegevens worden geüpload of verwerkt, zoals elk uur, dagelijks of zelfs maandelijks. 
+Vanuit een hoog niveau is een veelgebruikte methode in batch-verwerking op grond van gegevens in een map 'in'. Vervolgens, nadat de gegevens is verwerkt, plaats de nieuwe gegevens in een map 'out' voor downstream-processen te gebruiken. Deze directorystructuur wordt soms gebruikt voor taken die de verwerking voor afzonderlijke bestanden vereisen en mogelijk niet massively parallelle verwerking via grote gegevenssets. Als de IoT-structuur hierboven aanbevolen, heeft een goede mapstructuur de bovenliggende mappen voor dingen zoals regio en onderwerp zaken (bijvoorbeeld, organisatie, product/producent). Deze structuur helpt bij het beveiligen van de gegevens over uw organisatie en beter beheer van de gegevens in uw werkbelastingen. Overweeg daarnaast datum en tijd in de structuur, zodat betere ordening, gefilterde zoekopdrachten, beveiliging en automatisering bij de verwerking. De mate van detail voor de datumstructuur wordt bepaald door het interval waarop de gegevens worden geüpload of verwerkt, zoals elk uur, dagelijks of zelfs maandelijks. 
 
 Soms bestand verwerking is mislukt vanwege gegevensbeschadiging of onverwachte indeling. In dergelijke gevallen mapstructuur kan profiteren van een **/slechte** map u de bestanden voor meer controle wilt verplaatsen. De batch-job mogelijk ook moet u de rapportage of melding van deze *onjuiste* bestanden handmatig kunt ingrijpen. Houd rekening met de structuur van de volgende sjabloon: 
 
@@ -171,7 +171,7 @@ Soms bestand verwerking is mislukt vanwege gegevensbeschadiging of onverwachte i
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Bijvoorbeeld, een marketing bedrijf dagelijkse gegevens uitgepakt van klant updates ontvangen van hun clients in Noord-Amerika als volgt uitzien voor en na wordt verwerkt: 
+Bijvoorbeeld, ontvangt een marketing bedrijf dagelijkse gegevens uitgepakt van updates van de klant van hun clients in Noord-Amerika. Het lijkt op het volgende fragment voor en na wordt verwerkt: 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 

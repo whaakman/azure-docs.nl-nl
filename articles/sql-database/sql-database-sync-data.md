@@ -2,25 +2,19 @@
 title: Synchroniseren van Azure SQL-gegevens (Preview) | Microsoft Docs
 description: Dit overzicht introduceert Azure SQL-gegevenssynchronisatie (Preview)
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
-ms.custom: load & move data
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.custom: data-sync
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 5abe3e5a56dfca263f109b86f473ac490da3eac7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronisatie van gegevens over meerdere cloud en on-premises databases met SQL synchroniseren van gegevens (Preview)
 
@@ -78,7 +72,7 @@ Synchroniseren van gegevens is niet geschikt is voor de volgende scenario's:
     -   Als u selecteert *Hub wins*, de wijzigingen in de hub altijd overschreven, wijzigingen in het lid.
     -   Als u selecteert *lid wins*, de wijzigingen in de wijzigingen voor het overschrijven van lid in de hub. Als er meer dan één lid, afhankelijk van de uiteindelijke waarde waarvoor de eerste wordt gesynchroniseerd.
 
-## <a name="sync-req-lim"></a>Vereisten en beperkingen
+## <a name="sync-req-lim"></a> Vereisten en beperkingen
 
 ### <a name="general-considerations"></a>Algemene overwegingen
 
@@ -122,7 +116,7 @@ Gegevens synchroniseren gebruikt invoegen, bijwerken en verwijderen van triggers
 | Database-, tabel-, schema-en kolomnamen                       | 50 tekens per naam |                             |
 | Tabellen in een groep voor synchronisatie                                          | 500                    | Meerdere synchronisatiegroepen maken |
 | Kolommen in een tabel in een groep voor synchronisatie                              | 1000                   |                             |
-| Grootte van de rij gegevens in een tabel                                        | 24 mb                  |                             |
+| Grootte van de rij gegevens in een tabel                                        | 24 Mb                  |                             |
 | Minimale synchronisatie-interval                                           | 5 minuten              |                             |
 |||
 

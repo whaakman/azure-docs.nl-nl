@@ -1,26 +1,19 @@
 ---
 title: Azure SQL Database back-ups opslaan voor maximaal tien jaar | Microsoft Docs
 description: Meer informatie over hoe Azure SQL Database opslaan back-ups ondersteunt maximaal tien jaar.
-keywords: 
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: 
-ms.assetid: 66fdb8b8-5903-4d3a-802e-af08d204566e
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 12/22/2016
 ms.author: sashan
-ms.openlocfilehash: e44c92c3f37b3f1e3397d1c8cdb8c8f6d0f9942e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2f31e89fce2746e57d6a670aef949d0d534af4c1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL Database back-ups voor maximaal tien jaar opslaan
 Veel toepassingen hebben regelgeving, compatibiliteit of andere zakelijke doeleinden die vereisen dat u voor het bewaren van back-ups buiten de 7 35 dagen geleverd door de Azure SQL Database [automatische back-ups](sql-database-automated-backups.md). Met behulp van de lange termijn bewaren van back-functie kunt u uw back-ups van SQL database opslaan in een Azure Recovery Services-kluis voor maximaal tien jaar. U kunt maximaal 1000 databases per kluis opslaan. Vervolgens kunt u back-up selecteren in de kluis om het te herstellen als een nieuwe database.

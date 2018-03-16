@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 502bfa128422a029878513d6aa4533718bdddbb5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>Wat is het v2.0-eindpunt anders?
 Als u bekend met Azure Active Directory bent of apps hebt geïntegreerd met Azure AD in het verleden, kan er een paar verschillen in het v2.0-eindpunt dat u niet verwacht.  Dit document, illustreert die verschillen voor uw begrip.
@@ -56,10 +56,10 @@ Ons doel is dat hiermee tot een meer vereenvoudigd appbeheer en ontwikkeling bie
 ## <a name="scopes-not-resources"></a>Bereiken, geen resources
 In Azure Active Directory een app kan functioneren als een **resource**, of een ontvanger van tokens.  Een bron kan een aantal definiëren **scopes** of **oAuth2Permissions** die wordt begrepen, zodat de clientcomputers van apps voor het aanvragen van tokens, voor die bron voor een bepaalde set van bereiken.  Houd rekening met de Azure AD Graph API als een voorbeeld van een resource:
 
-* Bron-id of `AppID URI`:`https://graph.windows.net/`
+* Bron-id of `AppID URI`: `https://graph.windows.net/`
 * Bereiken, of `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, enzovoort.  
 
-Dit alles geldt voor de het v2.0-eindpunt.  Een app kan nog steeds zich gedragen bereik definiëren als resource, en worden geïdentificeerd door een URI.  Client-apps kunnen nog steeds toegang tot deze bereiken aanvragen.  De manier waarop een client een aanvraag die machtigingen heeft echter gewijzigd.  In het verleden een OAuth 2.0 autoriseren aanvraag naar Azure AD mogelijk hebt gezien zoals:
+Dit alles geldt voor het v2.0-eindpunt.  Een app kan nog steeds zich gedragen bereik definiëren als resource, en worden geïdentificeerd door een URI.  Client-apps kunnen nog steeds toegang tot deze bereiken aanvragen.  De manier waarop een client een aanvraag die machtigingen heeft echter gewijzigd.  In het verleden een OAuth 2.0 autoriseren aanvraag naar Azure AD mogelijk hebt gezien zoals:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/authorize?

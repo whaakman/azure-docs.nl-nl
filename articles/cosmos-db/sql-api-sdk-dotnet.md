@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 825b2657cc6aa7b4e116f44020767beff911b1fc
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5dd2fb353246120f58840914e8a4e5527d7a4486
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK voor SQL-API: downloaden en release-opmerkingen
 > [!div class="op_single_selector"]
@@ -54,6 +54,11 @@ ms.lasthandoff: 03/12/2018
 </table></br>
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
+
+* Vaste KeyNotFoundException voor cross-partitie order by-query's in complexere cases.
+* Vaste bug waar JsonPropery kenmerk in de component select voor LINQ-query's niet wordt wordt gehonoreerd.
+
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * Vaste fout die is bereikt, wordt onder bepaalde omstandigheden race die in onregelmatige resulteert ' Microsoft.Azure.Documents.NotFoundException: de lezen-sessie is niet beschikbaar voor de invoer sessietoken ' fouten bij het gebruik van de sessie consistentieniveau.
@@ -75,7 +80,7 @@ ms.lasthandoff: 03/12/2018
 
 * Wijzigingen van de Azure DocumentDB naar Azure Cosmos-database in de API-verwijzing huisstijl documentatie, informatie over de metagegevens in assembly's en het NuGet-pakket. 
 * Diagnostische gegevens en de latentie van de respons van aanvragen die worden verzonden met directe verbinding modus worden blootgesteld. De namen van eigenschappen zijn RequestDiagnosticsString en RequestLatency voor ResourceResponse-klasse.
-* Deze SDK-versie moet de meest recente versie van Azure Cosmos DB Emulator die beschikbaar is voor downloaden van https://aka.ms/cosmosdb-emulator. 
+* Deze SDK-versie vereist dat de nieuwste versie van Azure Cosmos DB Emulator die beschikbaar is voor downloaden van https://aka.ms/cosmosdb-emulator. 
 
 ### <a name="a-name11811181"></a><a name="1.18.1"/>1.18.1 
 
@@ -290,6 +295,8 @@ De aanvragen die naar Azure Cosmos DB met behulp van een buiten gebruik gestelde
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.21.1](#1.20.1) |09 maart 2018 |--- |
+| [1.20.2](#1.20.1) |21 februari 2018 |--- |
 | [1.20.1](#1.20.1) |05 februari 2018 |--- |
 | [1.19.1](#1.19.1) |16 november 2017 |--- |
 | [1.19.0](#1.19.0) |10 november 2017 |--- |

@@ -15,17 +15,23 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: b139fbadb03ae2893331e763bc49b249c0dd05d7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 63d466425a524316236998cb4ff954de272808f2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
 Dit artikel wordt uitgelegd hoe u werkt met Azure Queue storage bindingen in de Azure Functions. Azure Functions ondersteunt activeren en uitvoer van de bindingen voor wachtrijen.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pakketten
+
+De Queue storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Trigger
 
@@ -155,7 +161,7 @@ De [gebruik](#trigger---usage) sectie wordt uitgelegd `myQueueItem`, die door de
  
 In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenmerken gebruiken voor het configureren van een trigger wachtrij:
 
-* [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)
 
   De constructor van het kenmerk wordt de naam van de wachtrij te bewaken, zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -183,7 +189,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenme
  
   Zie voor een compleet voorbeeld [Trigger - C#-voorbeeld](#trigger---c-example).
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   Biedt een andere manier om op te geven van de storage-account te gebruiken. De constructor, wordt de naam van een app-instelling met een verbindingsreeks voor opslag. Het kenmerk kan worden toegepast op het parameter, klasseniveau of methode. Het volgende voorbeeld ziet u klasseniveau en methode:
 
@@ -413,7 +419,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Output - kenmerken
  
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
 
 Het kenmerk is van toepassing op een `out` parameter of de retourwaarde van de functie. De constructor van het kenmerk wordt de naam van de wachtrij, zoals wordt weergegeven in het volgende voorbeeld:
 

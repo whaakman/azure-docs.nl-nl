@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 7f9defc1f414819cf856fc92f5eb51eafdc67be9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88a141922f113caf7ad67c89de48f84a821f7ba3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Cloud-init gebruiken voor het configureren van een wisselbestand op een Linux-VM
 Dit artikel laat zien hoe u [cloud init](https://cloudinit.readthedocs.io) het wisselbestand configureren op verschillende Linux-distributies. Het wisselbestand is door de Linux Agent (WALA) op basis van welke distributies een vereist oudsher geconfigureerd.  Dit document wordt een overzicht van het proces voor het bouwen van het wisselbestand op aanvraag tijdens inrichting met behulp van cloud-init.  Zie voor meer informatie over hoe cloud init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud init-overzicht](using-cloud-init.md)
@@ -28,23 +28,23 @@ Ubuntu-afbeeldingen maken standaard op Azure, geen wisselbestanden. Configuratie
 
 ## <a name="create-swapfile-for-redhat-and-centos-based-images"></a>Wisselbestand voor RedHat maken en CentOS op basis van installatiekopieën
 
-Maak een bestand in uw huidige shell met de naam *cloud_init_swapfile.txt* en plak de volgende configuratie. Bijvoorbeeld, het bestand te maken in de Cloud-Shell niet op uw lokale machine. U kunt een editor die u wilt gebruiken. Voer `sensible-editor cloud_init_swapfile.txt` in voor het maken van het bestand en om een overzicht van beschikbare editors te zien. Kies #1 gebruiken de **nano** editor. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel.  
+Maak een bestand in uw huidige shell met de naam *cloud_init_swapfile.txt* en plak de volgende configuratie. Bijvoorbeeld, het bestand te maken in de Cloud-Shell niet op uw lokale machine. U kunt elke editor die u wilt gebruiken. Voer `sensible-editor cloud_init_swapfile.txt` in voor het maken van het bestand en om een overzicht van beschikbare editors te zien. Kies #1 gebruiken de **nano** editor. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel.  
 
 ```yaml
 #cloud-config
 disk_setup:
-ephemeral0:
-table_type: gpt
-layout: [66, [33,82]]
-overwrite: True
+  ephemeral0:
+    table_type: gpt
+    layout: [66, [33,82]]
+    overwrite: true
 fs_setup:
-- device: ephemeral0.1
-filesystem: ext4
-- device: ephemeral0.2
-filesystem: swap
+  - device: ephemeral0.1
+    filesystem: ext4
+  - device: ephemeral0.2
+    filesystem: swap
 mounts:
-- ["ephemeral0.1", "/mnt"]
-- ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+  - ["ephemeral0.1", "/mnt"]
+  - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
 Voordat u deze installatiekopie implementeert, moet u maken van een resourcegroep met de [az groep maken](/cli/azure/group#az_group_create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.

@@ -3,7 +3,7 @@ title: De connector Oracle-Database in Azure Logic Apps toevoegen | Microsoft Do
 description: De connector Oracle-Database in een logische app gebruiken
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 57931b6c2f96debeb9ab7f1a3b6700f23e7d2a7e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Aan de slag met de Oracle-Database-connector
 
@@ -28,7 +28,7 @@ De connector Oracle-Database maakt, u organisatie werkstromen die gebruikmaken v
 * Uw werkstroom door een nieuwe klant toe te voegen aan een database klanten of bijwerken van een order in een orderdatabase is opgebouwd.
 * Acties voor een rij met gegevens ophalen, een nieuwe rij invoegen en verwijderen van zelfs gebruiken. Bijvoorbeeld, wanneer een record in Dynamics CRM Online (een trigger) wordt gemaakt, klikt u vervolgens een rij invoegen in een Oracle-Database (een actie). 
 
-Dit onderwerp leest u hoe u de connector Oracle-Database in een logische app.
+Dit artikel laat zien hoe u de connector Oracle-Database in een logische app.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -46,7 +46,7 @@ Dit onderwerp leest u hoe u de connector Oracle-Database in een logische app.
   [64-bits ODAC 12c versie 4 (12.1.0.2.4) voor Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > Als de Oracle-client niet is geïnstalleerd, wordt er een fout optreedt wanneer u probeert te maken of de verbinding wilt gebruiken. Zie de veelvoorkomende fouten in dit onderwerp.
+    > Als de Oracle-client niet is geïnstalleerd, wordt er een fout optreedt wanneer u probeert te maken of de verbinding wilt gebruiken. Zie de veelvoorkomende fouten in dit artikel.
 
 
 ## <a name="add-the-connector"></a>De connector toevoegen
@@ -104,7 +104,7 @@ Dit onderwerp leest u hoe u de connector Oracle-Database in een logische app.
 
 **Risicobeperking**: Zorg ervoor dat uw gateway wordt uitgevoerd op de on-premises machine waar u het hebt geïnstalleerd en dat deze verbinding kan maken met internet.  Het is raadzaam om de gateway niet is geïnstalleerd op een computer die kan worden uitgeschakeld of de slaapstand. U kunt ook de lokale data gateway-service (PBIEgwService) opnieuw.
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-please-visit-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Fout**: de gebruikte provider is verouderd: ' voor System.Data.OracleClient is vereist voor Oracle-clientsoftware version 8.1.7 of hoger.'. Ga naar [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) om de officiële provider te installeren.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Fout**: de gebruikte provider is verouderd: ' voor System.Data.OracleClient is vereist voor Oracle-clientsoftware version 8.1.7 of hoger.'. Zie [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) om de officiële provider te installeren.
 
 **Oorzaak**: de Oracle-client SDK niet is geïnstalleerd op de computer waarop de lokale data gateway wordt uitgevoerd.  
 
@@ -130,8 +130,8 @@ Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u o
 
 De [Azure Logic Apps-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) is een goede plaats om te vragen, beantwoorden van vragen en zien wat anderen Logic Apps doen. 
 
-U kunt logische Apps en connectors verbeteren door uw stem en verzenden van uw ideeën op [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
+U kunt logische Apps en connectors verbeteren door uw stem en verzenden van uw ideeën op [ http://aka.ms/logicapps-wish ](http://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md), en bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
+[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md), en bekijk de beschikbare connectors in Logic Apps op [API's lijst](apis-list.md).

@@ -3,8 +3,8 @@ title: Testen van uw VM-aanbieding voor de Marketplace | Microsoft Docs
 description: Begrijpen hoe u voor het testen van uw VM-installatiekopie voor Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: hascipio
-ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 7f225f113dd465f79d5d195b59a809fe3be6a1f8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Testen van uw VM-aanbieding voor Azure Marketplace in fasering
 Fasering betekent dat uw SKU in een particulier 'sandbox"waar u kunt testen en valideren van de functionaliteit ervan voordat u deze implementeert in de Marketplace te implementeren. De SKU wordt weergegeven in de faseringsmodus net zoals voor een klant die is geïmplementeerd. Uw VM-installatiekopie moet worden doorgegeven voor fasering worden gecertificeerd.
@@ -47,7 +47,7 @@ Fasering betekent dat uw SKU in een particulier 'sandbox"waar u kunt testen en v
    * Zorg ervoor dat inhoud marketing correct in de Marketplace weergegeven.
    * End-to-end-implementatie van de VM-installatiekopie.
      
-      ![IMG-kaart-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
+      ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
 > [!IMPORTANT]
 > Uw aanbieding blijft in de faseringsmodus totdat u Microsoft via het Publishing Portal waarschuwen [**publiceren** tabblad > Klik op de knop **'Aanvragen goedkeuring naar Push naar productie'**] bent u klaar om naar te pushen productie. Dit is een ideale tijd dat alle leden van de controle van uw team via alles ter voorbereiding op uw aanbieding gaat van vermelde.

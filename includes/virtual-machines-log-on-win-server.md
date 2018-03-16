@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 100e0457627a04414ad2f0780a346933b11f4376
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/16/2018
+---
 1. Als u op **Verbinden** klikt, wordt een Remote Desktop Protocol-bestand (.rdp) gemaakt en gedownload. Klik op **Openen** om dit bestand te gebruiken.
 2. U ontvangt een waarschuwing dat het `.rdp`-bestand van een onbekende uitgever is. Dit is normaal. Klik in het venster Extern bureaublad op **Verbinden** om door te gaan.
    

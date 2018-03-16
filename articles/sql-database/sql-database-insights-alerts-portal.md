@@ -2,24 +2,18 @@
 title: Azure portal gebruiken om waarschuwingen van de SQL-Database maken | Microsoft Docs
 description: De Azure portal gebruiken voor het maken van waarschuwingen van de SQL-Database, die meldingen of automation activeren kunnen wanneer de door u opgegeven voorwaarden wordt voldaan.
 author: aamalvea
-manager: jhubbard
-editor: 
+manager: craigg
 services: sql-database
-documentationcenter: 
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: aamalvea
-ms.openlocfilehash: fd21c9b5e573ac6a47fef88c2a9d31c52618ecb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 611b88c540902bc7a72d53671dacd098d9798b48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure portal gebruiken om waarschuwingen te maken voor Azure SQL Database en datawarehouse
 
@@ -41,8 +35,8 @@ U kunt configureren en informatie ophalen over met behulp van regels voor waarsc
 
 * [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [opdrachtregelinterface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [Monitor voor Azure REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Opdrachtregelinterface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Een waarschuwingsregel maken op een waarde met de Azure-portal
 1. In de [portal](https://portal.azure.com/), zoekt de resource die u geïnteresseerd bent in de bewaking en selecteert u deze.
@@ -78,45 +72,45 @@ Wanneer u een waarschuwing hebt gemaakt, kunt u deze selecteren en:
 
 ## <a name="sql-database-alert-values"></a>Waarschuwing waarden SQL-Database
 
-| Resourcetype | Metrische naam | Beschrijvende naam | Samenvoegingstype | Minimale waarschuwing tijdvenster|
+| Resourcetype | Naam van meetwaarde | Beschrijvende naam | Samenvoegingstype | Minimale waarschuwing tijdvenster|
 | --- | --- | --- | --- | --- |
-| SQL-database | cpu_percent | CPU-percentage | Gemiddelde | 5 minuten |
-| SQL-database | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddelde | 5 minuten |
-| SQL-database | log_write_percent | Percentage van logboek-i/o | Gemiddelde | 5 minuten |
-| SQL-database | dtu_consumption_percent | DTU-percentage | Gemiddelde | 5 minuten |
-| SQL-database | Opslag | Totale grootte | Maximum | 30 minuten |
+| SQL-database | cpu_percent | CPU-percentage | Gemiddeld | 5 minuten |
+| SQL-database | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 5 minuten |
+| SQL-database | log_write_percent | Percentage van logboek-i/o | Gemiddeld | 5 minuten |
+| SQL-database | dtu_consumption_percent | DTU-percentage | Gemiddeld | 5 minuten |
+| SQL-database | opslag | Totale grootte | Maximum | 30 minuten |
 | SQL-database | connection_successful | Geslaagde verbindingen | Totaal | 10 minuten |
 | SQL-database | connection_failed | Mislukte verbindingen | Totaal | 10 minuten |
 | SQL-database | blocked_by_firewall | Geblokkeerd door een Firewall | Totaal | 10 minuten |
 | SQL-database | impasse | Impassen | Totaal | 10 minuten |
 | SQL-database | storage_percent | Databaseomvangpercentage | Maximum | 30 minuten |
-| SQL-database | xtp_storage_percent | In het geheugen OLTP opslag percent(Preview) | Gemiddelde | 5 minuten |
-| SQL-database | workers_percent | Percentage van de werknemers | Gemiddelde | 5 minuten |
-| SQL-database | sessions_percent | Percentage van sessies | Gemiddelde | 5 minuten |
-| SQL-database | dtu_limit | DTU limiet | Gemiddelde | 5 minuten |
-| SQL-database | dtu_used | DTU gebruikt | Gemiddelde | 5 minuten |
+| SQL-database | xtp_storage_percent | In het geheugen OLTP opslag percent(Preview) | Gemiddeld | 5 minuten |
+| SQL-database | workers_percent | Percentage van de werknemers | Gemiddeld | 5 minuten |
+| SQL-database | sessions_percent | Percentage van sessies | Gemiddeld | 5 minuten |
+| SQL-database | dtu_limit | DTU limiet | Gemiddeld | 5 minuten |
+| SQL-database | dtu_used | DTU gebruikt | Gemiddeld | 5 minuten |
 ||||||
-| Elastische pool | cpu_percent | CPU-percentage | Gemiddelde | 10 minuten |
-| Elastische pool | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddelde | 10 minuten |
-| Elastische pool | log_write_percent | Percentage van logboek-i/o | Gemiddelde | 10 minuten |
-| Elastische pool | dtu_consumption_percent | DTU-percentage | Gemiddelde | 10 minuten |
-| Elastische pool | storage_percent | Opslagpercentage | Gemiddelde | 10 minuten |
-| Elastische pool | workers_percent | Percentage van de werknemers | Gemiddelde | 10 minuten |
-| Elastische pool | eDTU_limit | limiet voor eDTU | Gemiddelde | 10 minuten |
-| Elastische pool | storage_limit | Opslaglimiet bereikt | Gemiddelde | 10 minuten |
-| Elastische pool | eDTU_used | eDTU gebruikt | Gemiddelde | 10 minuten |
-| Elastische pool | storage_used | Gebruikte opslag | Gemiddelde | 10 minuten |
+| Elastische groep | cpu_percent | CPU-percentage | Gemiddeld | 10 minuten |
+| Elastische groep | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 10 minuten |
+| Elastische groep | log_write_percent | Percentage van logboek-i/o | Gemiddeld | 10 minuten |
+| Elastische groep | dtu_consumption_percent | DTU-percentage | Gemiddeld | 10 minuten |
+| Elastische groep | storage_percent | Opslagpercentage | Gemiddeld | 10 minuten |
+| Elastische groep | workers_percent | Percentage van de werknemers | Gemiddeld | 10 minuten |
+| Elastische groep | eDTU_limit | limiet voor eDTU | Gemiddeld | 10 minuten |
+| Elastische groep | storage_limit | Opslaglimiet bereikt | Gemiddeld | 10 minuten |
+| Elastische groep | eDTU_used | eDTU gebruikt | Gemiddeld | 10 minuten |
+| Elastische groep | storage_used | Gebruikte opslag | Gemiddeld | 10 minuten |
 ||||||               
-| SQL-datawarehouse | cpu_percent | CPU-percentage | Gemiddelde | 10 minuten |
-| SQL-datawarehouse | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddelde | 10 minuten |
-| SQL-datawarehouse | Opslag | Totale grootte | Maximum | 10 minuten |
-| SQL-datawarehouse | connection_successful | Geslaagde verbindingen | Totaal | 10 minuten |
-| SQL-datawarehouse | connection_failed | Mislukte verbindingen | Totaal | 10 minuten |
-| SQL-datawarehouse | blocked_by_firewall | Geblokkeerd door een Firewall | Totaal | 10 minuten |
-| SQL-datawarehouse | service_level_objective | Serviceniveaudoelstelling van de database | Totaal | 10 minuten |
-| SQL-datawarehouse | dwu_limit | dwu-limiet | Maximum | 10 minuten |
-| SQL-datawarehouse | dwu_consumption_percent | DWU-percentage | Gemiddelde | 10 minuten |
-| SQL-datawarehouse | dwu_used | DWU gebruikt | Gemiddelde | 10 minuten |
+| SQL data warehouse | cpu_percent | CPU-percentage | Gemiddeld | 10 minuten |
+| SQL data warehouse | physical_data_read_percent | Gegevens-I/O-percentage | Gemiddeld | 10 minuten |
+| SQL data warehouse | opslag | Totale grootte | Maximum | 10 minuten |
+| SQL data warehouse | connection_successful | Geslaagde verbindingen | Totaal | 10 minuten |
+| SQL data warehouse | connection_failed | Mislukte verbindingen | Totaal | 10 minuten |
+| SQL data warehouse | blocked_by_firewall | Geblokkeerd door een Firewall | Totaal | 10 minuten |
+| SQL data warehouse | service_level_objective | Serviceniveaudoelstelling van de database | Totaal | 10 minuten |
+| SQL data warehouse | dwu_limit | dwu-limiet | Maximum | 10 minuten |
+| SQL data warehouse | dwu_consumption_percent | DWU-percentage | Gemiddeld | 10 minuten |
+| SQL data warehouse | dwu_used | DWU gebruikt | Gemiddeld | 10 minuten |
 ||||||
 
 

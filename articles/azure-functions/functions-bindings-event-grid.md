@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5039798d76017d93b77d724b2e6bca6712af0370
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gebeurtenis raster trigger voor Azure Functions
 
@@ -37,11 +37,11 @@ Als u liever, kunt u een HTTP-trigger voor het afhandelen van gebeurtenis raster
 
 De gebeurtenis raster trigger is opgegeven de [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-pakket. De broncode voor het pakket bevindt zich in de [azure-functies-eventgrid-extensie](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub-opslagplaats.
 
-Het pakket wordt gebruikt voor [C# class library ontwikkeling](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) en [functies van registratie van de uitbreiding v2 binding](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
-
 <!--
 If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
 -->
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Voorbeeld
 
@@ -348,7 +348,7 @@ Wanneer u klaar bent testen, kunt u hetzelfde abonnement voor productie door het
 
 ### <a name="create-a-requestbin-endpoint"></a>Een RequestBin-eindpunt maken
 
-RequestBin is een open source-hulpprogramma dat HTTP-aanvragen accepteert en een overzicht van de aanvraagtekst. De URL http://requestb.in opgehaald speciale behandeling door Azure gebeurtenis raster. Om te bevorderen testen, verzendt gebeurtenis raster gebeurtenissen naar de URL RequestBin zonder een juiste reactie op aanvragen voor abonnement-validatie. Twee andere testen van hulpprogramma's zijn opgegeven dezelfde behandeling: http://webhookinbox.com en http://hookbin.com.
+RequestBin is een open source-hulpprogramma dat HTTP-aanvragen accepteert en een overzicht van de aanvraagtekst. De http://requestb.in URL speciale behandeling door Azure gebeurtenis raster opgehaald. Om te bevorderen testen, verzendt gebeurtenis raster gebeurtenissen naar de URL RequestBin zonder een juiste reactie op aanvragen voor abonnement-validatie. Twee andere testen van hulpprogramma's zijn opgegeven dezelfde behandeling: http://webhookinbox.com en http://hookbin.com.
 
 RequestBin is niet bedoeld voor gebruik met hoge doorvoer. Als u meer dan een gebeurtenis tegelijk pusht, ziet u mogelijk niet alle gebeurtenissen in het hulpprogramma.
 

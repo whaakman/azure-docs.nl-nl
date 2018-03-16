@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 03/12/2018
 ms.author: jeedes
-ms.openlocfilehash: e999e375d11f5d2a4657b360cf774ae10c28b0e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e7bd01c9c0f79a2cf96d7fd38dba57c4a407960
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Zelfstudie: Azure Active Directory-integratie met duidelijke revisie
 
@@ -108,9 +108,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Schakel controleren domein en de URL's eenmalige aanmelding informatie](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<customer name>.clearreview.com/sso/metadata`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<customer>.clearreview.com/sso/acs/`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<customer name>.clearreview.com/sso/acs/`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
@@ -119,31 +119,36 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<customer name>.clearreview.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [wissen revisie ondersteuningsteam](https://clearreview.com/contact/) ophalen van deze waarden.
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke aanmeldings-URL, de id en de antwoord-URL. Neem contact op met [wissen revisie ondersteuningsteam](https://clearreview.com/contact/) ophalen van deze waarden.
 
-5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+5. Schakel controleren toepassing verwachten dat de unieke gebruikers-id-waarde in de claim-naam-id. U moet de gebruiker-id-waarde moet worden toegewezen **user.mail**.
+
+    ![De kenmerk-sectie](./media/active-directory-saas-clearreview-tutorial/attribute.png)
+
+
+6. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_certificate.png)
 
-6. Klik op **opslaan** knop.
+7. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
 
-7. Op de **configuratie wissen controleren** sectie, klikt u op **wissen revisie configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+8. Op de **configuratie wissen controleren** sectie, klikt u op **wissen revisie configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
     ![Wissen van de configuratie controleren](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_configure.png) 
 
-8. Eenmalige aanmelding configureren op **wissen revisie** aan clientzijde, open de **wissen revisie** portal met beheerdersreferenties.
+9. Eenmalige aanmelding configureren op **wissen revisie** aan clientzijde, open de **wissen revisie** portal met beheerdersreferenties.
 
-9. Selecteer **Admin** van de linkernavigatiebalk.
+10. Selecteer **Admin** van de linkernavigatiebalk.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-10. Selecteer **wijziging** aan de onderkant van de pagina.
+11. Selecteer **wijziging** aan de onderkant van de pagina.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-11. Voert u de volgende stappen uit op **instellingen voor eenmalige aanmelding** pagina
+12. Voert u de volgende stappen uit op **instellingen voor eenmalige aanmelding** pagina
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
@@ -155,7 +160,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     d. Het gedownloade certificaat openen in Kladblok en plak de inhoud in de **X.509-certificaat** textbox.   
 
-12. Klik op **Opslaan**.
+13. Klik op **Opslaan**.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -233,7 +238,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel wissen controleren in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing wissen controleren.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
@@ -253,4 +258,3 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_203.png
-

@@ -11,24 +11,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2018
+ms.date: 03/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 40b2d04fe829c51a58fb3bec1519a590a12cfdb8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 90cb87b3fe94b7b3b0eba1b261d29a1c8f4348d6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Azure-resources implementeren op meer dan één abonnement of resourcegroep
 
 Normaal gesproken het implementeren van alle resources in uw sjabloon met een afzonderlijke [resourcegroep](resource-group-overview.md). Er zijn echter scenario's waarin u wilt implementeren van een set resources samen, maar in verschillende resourcegroepen of abonnementen plaatsen. U wilt bijvoorbeeld de back-virtuele machine voor Azure Site Recovery implementeert naar een afzonderlijke resourcegroep en locatie. Resource Manager kunt u geneste sjablonen voor doel verschillende abonnementen en resourcegroepen dan het abonnement en resourcegroep gebruikt voor de bovenliggende sjabloon gebruiken.
 
 > [!NOTE]
-> U kunt implementeren op slechts vijf resourcegroepen in een enkele implementatie.
+> U kunt implementeren op slechts vijf resourcegroepen in een enkele implementatie. Deze beperking betekent doorgaans dat u aan één resourcegroep die is opgegeven voor de sjabloon voor de bovenliggende en maximaal vier resourcegroepen in geneste of gekoppelde implementaties kunt implementeren. Echter, als uw bovenliggende sjabloon alleen geneste of gekoppelde sjablonen bevat en biedt zelf niet alle resources implementeren, u kunt maximaal vijf resourcegroepen in opnemen geneste of gekoppelde implementaties.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Geef een abonnement en de resource
 
 Als u wilt richten op een andere resource, een sjabloon geneste of gekoppelde te gebruiken. De `Microsoft.Resources/deployments` brontype biedt parameters voor `subscriptionId` en `resourceGroup`. Deze eigenschappen kunnen u Geef een ander abonnement en de resource voor de geneste implementatie. Alle brongroepen moeten bestaan voordat de implementatie wordt uitgevoerd. Als u de abonnement-ID of resourcegroep groep, het abonnement en de resourcegroep van de bovenliggende sjabloon niet opgeeft, wordt gebruikt.
+
+Het account dat u gebruikt voor het implementeren van de sjabloon moet gemachtigd zijn om te implementeren op de opgegeven abonnements-ID. Als het opgegeven abonnement in een andere Azure Active Directory-tenant bestaat, moet u [gastgebruikers toevoegen van een andere map](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
 Geef een andere resourcegroep en een abonnement door gebruiken:
 
@@ -175,7 +177,7 @@ De volgende sjablonen demonstreren meerdere resourcegroepimplementaties. Scripts
 
 Voor PowerShell voor het implementeren van twee storage-accounts op twee resourcegroepen in de **hetzelfde abonnement**, gebruiken:
 
-```powershell
+```azurepowershell-interactive
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
@@ -192,7 +194,7 @@ New-AzureRmResourceGroupDeployment `
 
 Voor PowerShell twee storage-accounts te implementeren **twee abonnementen**, gebruiken:
 
-```powershell
+```azurepowershell-interactive
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
@@ -216,7 +218,7 @@ New-AzureRmResourceGroupDeployment `
 
 Voor PowerShell om te testen hoe de **resource group-object** wordt omgezet voor het gebruik van de bovenliggende sjabloon, de inline-sjabloon en de gekoppelde sjabloon:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
 New-AzureRmResourceGroup -Name inlineGroup -Location southcentralus
 New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
@@ -224,6 +226,37 @@ New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
 New-AzureRmResourceGroupDeployment `
   -ResourceGroupName parentGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
+```
+
+In het voorgaande voorbeeld beide **parentRG** en **inlineRG** omzetten in **parentGroup**. **linkedRG** wordt omgezet naar **linkedGroup**. De uitvoer van het vorige voorbeeld is:
+
+```powershell
+ Name             Type                       Value
+ ===============  =========================  ==========
+ parentRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
+ inlineRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
+ linkedRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
+                                               "name": "linkedGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
 ```
 
 ### <a name="azure-cli"></a>Azure-CLI
@@ -276,6 +309,48 @@ az group deployment create \
   --name ExampleDeployment \
   --resource-group parentGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json 
+```
+
+In het voorgaande voorbeeld beide **parentRG** en **inlineRG** omzetten in **parentGroup**. **linkedRG** wordt omgezet naar **linkedGroup**. De uitvoer van het vorige voorbeeld is:
+
+```azurecli
+...
+"outputs": {
+  "inlineRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+      "location": "southcentralus",
+      "name": "parentGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  },
+  "linkedRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
+      "location": "southcentralus",
+      "name": "linkedGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  },
+  "parentRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+      "location": "southcentralus",
+      "name": "parentGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  }
+},
+...
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

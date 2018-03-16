@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 931dfae740996325cc62071a861e81ef5f67548b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 89f95753248f74c7f6cb9ca1f680a01b07dd43d1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-model-management"></a>Machine Learning Modelbeheer van Azure
 
@@ -99,27 +99,27 @@ De volledige werkstroom met een beschrijving van deze begrippen is vastgelegd in
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen 
-- Welke gegevenstypen worden ondersteund? Kan ik matrices NumPy rechtstreeks als invoer voor de webservice?
+- **Welke gegevenstypen worden ondersteund? Kan ik matrices NumPy rechtstreeks als invoer voor de webservice?**
 
    Als u schemabestand dat is gemaakt met behulp van generate_schema SDK biedt, kunt klikt u vervolgens u doorgeven NumPy en/of Pandas DF. U kunt ook een serialiseerbare JSON-invoer doorgeven. Afbeelding kan worden doorgegeven als ook binaire gecodeerde tekenreeks.
 
-- De webservice ondersteuning voor meerdere invoer of andere invoer parseren? 
+- **De webservice ondersteuning voor meerdere invoer of andere invoer parseren?**
 
    Ja, kunt u meerdere invoer verpakt in een JSON-aanvraag als een woordenboek nemen. Elke invoer zou komen overeen met een sleutel één unieke woordenlijst.
 
-- Is de aanroep geactiveerd door een aanvraag naar de web service een aanroep van blokkerende of een asynchrone aanroep?
+- **Is de aanroep geactiveerd door een aanvraag naar de web service een aanroep van blokkerende of een asynchrone aanroep?**
 
    Als de service is gemaakt met behulp van de optie realtime als onderdeel van de CLI of API, is het een blokkeren/synchrone aanroep. Naar verwachting worden snel realtime. Hoewel blokkeren aan de clientzijde die u met behulp van asynchrone HTTP-bibliotheek aanroepen kunt om te voorkomen dat de client-thread.
 
-- Hoeveel aanvragen de webservice tegelijk kan verwerken?
+- **Hoeveel aanvragen de webservice tegelijk kan verwerken?**
 
    Dit is afhankelijk van de cluster en web service schaal. U kunt uw service tot 100 x van replica's uitbreiden en vervolgens het gelijktijdig veel aanvragen kan verwerken. U kunt ook de maximum aantal gelijktijdige aanvragen per replica hogere service doorvoersnelheid configureren.
 
-- Hoeveel aanvragen kan de webservice in de wachtrij?
+- **Hoeveel aanvragen kan de webservice in de wachtrij?**
 
    Het kan worden geconfigureerd. Standaard is ingesteld op 10 ~ per één replica, maar u kunt vergroten of verkleinen het aan de toepassingsvereisten van uw. Normaal gesproken verhogen deze het aantal aanvragen in de wachtrij verhoogt de doorvoer service maar maakt de latenties erger op hogere percentielen. Als u wilt de latenties consistent te houden, mag u wilt instellen op het in de wachtrij op een lage waarde (1-5) en verhoog het aantal replica's voor het afhandelen van de doorvoer. U kunt ook automatisch schalen aanbrengen het aantal replica's aanpassen automatisch op basis van load inschakelen. 
 
-- Kan de dezelfde machine of het cluster worden gebruikt voor meerdere webservice-eindpunten?
+- **Kan de dezelfde machine of het cluster worden gebruikt voor meerdere webservice-eindpunten?**
 
    Absoluut. U kunt 100 x van de services-eindpunten uitvoeren in hetzelfde cluster. 
 

@@ -3,23 +3,18 @@ title: Gesplitste samenvoegen Beveiligingsconfiguratie | Microsoft Docs
 description: Instellen van x409 certificaten voor codering met de service gesplitste/merge voor elastisch uitschalen.
 metakeywords: Elastic Database certificates security
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: c07ba1e74daace546bae4f4209842312136914a3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="split-merge-security-configuration"></a>Gesplitste samenvoegen Beveiligingsconfiguratie
 Als u wilt de splitsing/Merge-service gebruikt, moet u correct beveiliging configureren. De service maakt deel uit van de functie van de elastische Schaalfunctionaliteit van Microsoft Azure SQL Database. Zie voor meer informatie [elastische Scale splitsen en Merge-zelfstudie](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -36,7 +31,7 @@ Certificaten kunnen worden opgehaald van openbare certificeringsinstanties (CA's
 Als u deze opties niet beschikbaar zijn, kunt u genereren **zelfondertekende certificaten**.
 
 ## <a name="tools-to-generate-certificates"></a>Hulpprogramma's voor het genereren van certificaten
-* [MakeCert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
+* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>De hulpprogramma's uitvoeren

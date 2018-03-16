@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1bcaf350fc6c1ba4a5f998c35f0c3a9d351c9c4d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a5126bc4c5e7c9cd9832f33fc908e6c8b9e02b91
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Permanente volumes met Azure-bestanden
 
@@ -97,7 +97,7 @@ spec:
 Maken van de claim permanente volume met de [kubectl maken] [ kubectl-create] opdracht.
 
 ```azurecli-interactive
-kubectl create -f azure-file-sc.yaml
+kubectl create -f azure-file-pvc.yaml
 ```
 
 Zodra de voltooid, kunt u de bestandsshare wordt gemaakt. Een geheim Kubernetes wordt ook gemaakt waarin de verbindingsgegevens en referenties.

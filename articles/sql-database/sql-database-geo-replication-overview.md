@@ -2,24 +2,18 @@
 title: Failover groepen en actieve geo-replicatie - Azure SQL Database | Microsoft Docs
 description: Gebruik automatische failover groepen met actieve geo-replicatie en failover autoomatic inschakelen in het geval van een storing.
 services: sql-database
-documentationcenter: na
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 2a29f657-82fb-4283-9a83-e14a144bfd93
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 45ddc4070e2162715eefab21841d75f1fa2a29e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Overzicht: Failover-groepen en actieve geo-replicatie
 Actieve geo-replicatie kunt u maximaal vier leesbare secundaire databases in de locaties van dezelfde of verschillende data center (regio's) configureren. Secundaire databases zijn beschikbaar voor het uitvoeren van query's en voor failover als er een datacentrum of het onvermogen om verbinding met de primaire database. De failover moet handmatig worden gestart door de toepassing van de gebruiker. Na een failover heeft de nieuwe primaire het eindpunt van een andere verbinding. 
@@ -155,11 +149,11 @@ Zoals eerder besproken automatische failover-groepen (in preview) en active kan 
 
 | Cmdlet | Beschrijving |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Hiermee haalt u een of meer databases. |
-| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Hiermee maakt u een secundaire database voor een bestaande database en start gegevensreplicatie. |
-| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Een secundaire database als primaire initiëren failover verandert. |
-| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Beëindigt gegevensreplicatie tussen een SQL-Database en de opgegeven secundaire database. |
-| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Hiermee haalt u de geo-replicatiekoppelingen tussen een Azure SQL Database en een resourcegroep of SQL Server. |
+| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Hiermee haalt u een of meer databases op. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Hiermee maakt u een secundaire database voor een bestaande database en wordt gegevensreplicatie gestart. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Hiermee wordt overgeschakeld op een secundaire database als primaire om de failover te initiëren. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Hiermee wordt gegevensreplicatie tussen een SQL Database en de opgegeven secundaire database beëindigd. |
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Hiermee haalt u de geo-replicatiekoppelingen tussen een Azure SQL Database en een resourcegroep of SQL Server op. |
 | [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Deze opdracht maakt een failover-groep en registreert deze op de primaire en secundaire servers|
 | [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Hiermee verwijdert u de groep failover van de server en verwijdert u alle secundaire databases opgenomen in de groep |
 | [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Haalt de configuratie van de failover |

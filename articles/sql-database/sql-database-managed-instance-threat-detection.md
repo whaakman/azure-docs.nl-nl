@@ -3,18 +3,18 @@ title: Bedreigingendetectie - Azure SQL-Database beheerd exemplaar | Microsoft D
 description: Met detectie van bedreigingen worden afwijkende databaseactiviteiten gedetecteerd die kunnen duiden op beveiligingsdreigingen voor de database.
 services: sql-database
 author: rmatchoro
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: security, managed instance
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: ronmat
 ms.reviewer: carlrab
-ms.openlocfilehash: f8c08bc16d622516958b8bd182179d07edfa4891
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2112a0a3997af478de6b8c80abcf7924a66302f0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-managed-instance-threat-detection"></a>Azure SQL-Database beheerd Bedreigingsdetectie exemplaar
 
@@ -29,7 +29,7 @@ Detectie van dreigingen biedt een nieuwe laag van beveiliging, waarmee klanten o
 Detectie van dreigingen SQL integreert waarschuwingen met [Azure Security Center](https://azure.microsoft.com/services/security-center/), en elke beveiligde beheerd instantie wordt gefactureerd op dezelfde prijs als Azure Security Center Standard-laag op $15/knooppunt/maand, waarbij elk exemplaar beheerd beveiligd worden geteld als één knooppunt.  
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Detectie van dreigingen instellen voor uw beheerde exemplaar in de Azure portal
-1. Starten van de Azure portal op [https://portal.azure.com](https://portal.azure.com).
+1. Starten van de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
 2. Navigeer naar de configuratiepagina van het beheerde exemplaar u wilt beveiligen. In de **instellingen** pagina **Bedreigingsdetectie**. 
 3. In de configuratiepagina van de detectie van dreigingen 
    - Schakel **ON** Bedreigingendetectie.

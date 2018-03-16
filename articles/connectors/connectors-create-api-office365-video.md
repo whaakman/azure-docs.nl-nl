@@ -3,7 +3,7 @@ title: De Video voor Office 365-connector in uw logische apps gebruiken | Micros
 description: Aan de slag met de Video voor Office 365-connector in Microsoft Azure App service Logic apps
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 5c037f0bdb4e80d92f9ef51601ea331b3aba870c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 30ec8c7aa55013668d2ec0897278d435b9e864c7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office365-video-connector"></a>Aan de slag met de Office365 Video-connector
 Verbinding maken met Office 365 Video om informatie ophalen over een Office 365 video, een lijst met video's en meer te vinden. U kunt met Office 365 Video:

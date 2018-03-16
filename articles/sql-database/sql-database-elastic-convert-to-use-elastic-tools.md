@@ -2,24 +2,18 @@
 title: Migreren van bestaande databases uit te schalen | Microsoft Docs
 description: Shard databases voor het gebruik van hulpprogramma's voor elastische database door het maken van een shard-toewijzing manager converteren
 services: sql-database
-documentationcenter: 
-author: ddove
-manager: jhubbard
-editor: 
-ms.assetid: 8c851d8e-8fd5-4327-89c1-9178b20ddd69
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 356c4223ff3ae844552b7bee40aa3ffc6aad7ea0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: d82994f3ab925fa3ace0d0dbe1631a01dd1df586
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migreren van bestaande databases uit te schalen
 Uw bestaande uitgebreid shard databases met hulpprogramma's van Azure SQL Database database eenvoudig te beheren (zoals de [clientbibliotheek voor elastische Database](sql-database-elastic-database-client-library.md)). Converteert u eerst een bestaande set van databases moeten worden gebruikt de [shard kaart manager](sql-database-elastic-scale-shard-map-management.md). 
@@ -160,7 +154,7 @@ De hulpprogramma's zijn ook op GitHub: [/elastische-db-hulpprogramma's van Azure
 
 Het samenvoegen van gesplitste-hulpprogramma gebruiken om gegevens te verplaatsen naar of van een multi-tenant model naar een model voor één tenant. Zie [gesplitste merge tool](sql-database-elastic-scale-get-started.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 Zie voor informatie over algemene gegevensarchitectuurpatronen van multitenant software as a service (SaaS)-databasetoepassingen, [Ontwerppatronen voor multitenant SaaS-toepassingen met Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ## <a name="questions-and-feature-requests"></a>Vragen en Functieaanvragen

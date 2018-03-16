@@ -3,24 +3,18 @@ title: Bewaking van prestaties van een shard multitenant Azure SQL database in e
 description: Bewaken en beheren van de prestaties van shard multitenant Azure SQL database in een multitenant SaaS-app
 keywords: zelfstudie sql-database
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 3e97f0635a856256dd08c29d33d8058be9c8d8b4
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 53d8c099d68fd7eb3f00fb4d1be7ec54404521ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Bewaken en beheren van de prestaties van shard multitenant Azure SQL database in een multitenant SaaS-app
 
@@ -172,7 +166,7 @@ In deze oefening simuleert het effect van Salix Salsa overbelast wanneer tickets
 
 1. Open de... \\ *Demo PerformanceMonitoringAndManagement.ps1* script.
 1. Stel **$DemoScenario = 5**, _genereren van een normale belasting plus een hoge belasting van een enkele tenant (ongeveer 90 DTU)._
-1. Stel **$SingleTenantName Salix Salsa =**
+1. Set **$SingleTenantName = Salix Salsa**
 1. Voer het script uit met **F5**.
 
 Ga naar de portal en navigeer naar **salixsalsa** > **overzicht** om de bewaking grafieken weer te geven. 
@@ -197,7 +191,7 @@ In deze zelfstudie leert u het volgende:
 > * De database in reactie op de belasting van de hogere database opschalen
 > * Een tenant in te richten in een één-tenant-database
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 <!--* [Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 * [Azure Automation](../automation/automation-intro.md)

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning-Workbench - bekende problemen en oplossen 
 In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aangetroffen als onderdeel van het gebruik van de toepassing Azure Machine Learning-Workbench. 
@@ -23,7 +23,7 @@ In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aa
 Om te communiceren met het ondersteuningsteam, is het belangrijk dat u het build-nummer van de Workbench-app. In Windows, kunt u het build-nummer uitzoeken door te klikken op de **Help** menu en kies **over Azure ML-Workbench**. Op Mac OS, kunt u klikken op de **Azure ML-Workbench** menu en kies **over Azure ML-Workbench**.
 
 ## <a name="machine-learning-msdn-forum"></a>Machine Learning MSDN-Forum
-We hebben een MSDN-Forum dat u vragen kunt plaatsen. Het productteam bewaakt het forum actief. Het forum-URL is [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
+We hebben een MSDN-Forum dat u vragen kunt plaatsen. Het productteam bewaakt het forum actief. Het forum-URL is [ https://aka.ms/azureml-forum ](https://aka.ms/azureml-forum). 
 
 ## <a name="gather-diagnostics-information"></a>Diagnostische informatie verzamelen
 Soms kan het handig zijn als u diagnostische gegevens opgeven kunt wanneer u hulp vragen. Hier volgt de woonplaats van de logboekbestanden:
@@ -99,10 +99,10 @@ U kunt de update al hebt geïnstalleerd. Maar uw vastgemaakte snelkoppeling naar
 
 ### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>U hebt geïnstalleerd via de koppeling 'Azure ML-Workbench installeren' aan een Windows-DSVM Workbench
 Er is helaas geen eenvoudig correctie dit project. U hebt de volgende stappen uitvoeren om te verwijderen van de geïnstalleerde bits en het meest recente installatieprogramma om nieuwe-Installeer de Workbench te downloaden: 
-   - de map verwijderen`C:\Users\<Username>\AppData\Local\amlworkbench`
-   - script verwijderen`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - de map verwijderen `C:\Users\<Username>\AppData\Local\amlworkbench`
+   - script verwijderen `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - verwijderen van snelkoppeling op het bureaublad waarmee het bovenstaande script wordt gestart
-   - het installatieprogramma https://aka.ms/azureml-wb-msi downloaden en te installeren.
+   - het installatieprogramma downloaden https://aka.ms/azureml-wb-msi en opnieuw installeren.
 
 ## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Op het scherm "Experimenteren account controleren" is vastgelopen na het aanmelden
 Na het aanmelden, kan de Workbench-app op een leeg scherm ophalen vastgelopen met een bericht weergegeven met 'Controleren experimenteren account' met een draaiende wheel. U lost dit probleem, moet u de volgende stappen uitvoeren:
@@ -185,7 +185,7 @@ Waar _gebruikersnaam_ is de naam van Azure Machine Learning Workbench wordt gebr
 
 De regel moet worden geplaatst na #includedir ' / etc/sudoers.d ', anders kunnen worden overschreven door een andere regel.
 
-Als u een complexere sudo-configuratie hebt, kunt u documentatie te raadplegen sudo voor Ubuntu beschikbaar hier: https://help.ubuntu.com/community/Sudoers
+Als u een complexere sudo-configuratie hebt, kunt u kunt de documentatie van sudo voor Ubuntu beschikbaar hier: https://help.ubuntu.com/community/Sudoers
 
 Deze fout kan ook gebeuren als u niet een VM op basis van Ubuntu Linux in Azure als een doel kan worden uitgevoerd. Alleen ondersteund op basis van Ubuntu Linux VM voor uitvoering op afstand. 
 
@@ -203,11 +203,14 @@ U kunt ook een gegevensschijf toevoegen en configureren van Docker-engine voor h
 Of u de schijf met het besturingssysteem kunt uitbreiden en u hoeft te touch configuratie van de Docker-engine. Hier volgt [hoe u de schijf met het besturingssysteem kunt uitbreiden](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
-#Deallocate VM (stopping will not work)
+# Deallocate VM (stopping will not work)
 $ az vm deallocate --resource-group myResourceGroup  --name myVM
 
-# Update Disc Size
-$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+# Get VM's Disc Name
+az disk list --resource-group myResourceGroup --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+
+# Update Disc Size using above name
+$ az disk update --resource-group myResourceGroup --name myVMdisc --size-gb 250
     
 # Start VM    
 $ az vm start --resource-group myResourceGroup  --name myVM

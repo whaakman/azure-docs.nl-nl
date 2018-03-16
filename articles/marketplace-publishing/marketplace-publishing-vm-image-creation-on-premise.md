@@ -3,8 +3,8 @@ title: Maken van een installatiekopie van een lokale virtuele machine voor Azure
 description: Inzicht en voer de stappen voor de installatiekopie van een lokale virtuele machine maken en implementeren in Azure Marketplace voor anderen om aan te schaffen.
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: 6b927ce6032092ce258eeebca49da0571439dbfb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Een installatiekopie van een lokale virtuele machine ontwikkelen voor Azure Marketplace
 Wij raden u aan Azure virtuele harde schijven (VHD's) rechtstreeks in de cloud te ontwikkelen met behulp van Remote Desktop Protocol. Als u moet is het echter mogelijk te downloaden van een VHD en het ontwikkelen met behulp van on-premises infrastructuur.  
@@ -75,7 +75,7 @@ Naast de Azure-portal gebruikt, kunt u de [opslaan AzureVhd](http://msdn.microso
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-Bijvoorbeeld opslaan-AzureVhd-bron "https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd" - LocalFilePath 'C:\Users\Administrator\Desktop\baseimagevm.vhd' - StorageKey <String>
+Bijvoorbeeld opslaan-AzureVhd-bron 'https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd"- LocalFilePath 'C:\Users\Administrator\Desktop\baseimagevm.vhd' - StorageKey <String>
 
 > [!NOTE]
 > **Opslaan AzureVhd** heeft ook een **NumberOfThreads** -optie die kan worden gebruikt voor het verhogen van parallelle uitvoering om optimaal gebruik van de beschikbare bandbreedte voor het downloaden.
@@ -92,7 +92,7 @@ Als u wilt een opslagaccount maakt, kunt u de [Microsoft Azure-portal](https://p
 
 **Een opslagaccount maken vanuit de Microsoft Azure-portal**
 
-1. Klik op **maken van een resource**.
+1. Klik op **Een resource maken**.
 2. Selecteer **opslag**.
 3. Vul de opslagaccountnaam en selecteer vervolgens een locatie.
    

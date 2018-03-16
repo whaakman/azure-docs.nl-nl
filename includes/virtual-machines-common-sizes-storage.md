@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: c2209a06921ffd6a8efb6fc38dacfa88fc87fa05
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/16/2018
+---
 Opslag geoptimaliseerd VM-grootten bieden hoge doorvoer en i/o en zijn ideaal voor Big Data, SQL en NoSQL-databases. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering. 
 
 De Ls-serie biedt maximaal 32 vCPU's en maakt gebruik van een [Intel Xeon®-processor uit de E5 v3-familie](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). De Ls-serie heeft dezelfde CPU-prestaties als de G/GS-serie en wordt geleverd met 8 GiB geheugen per vCPU.  

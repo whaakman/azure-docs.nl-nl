@@ -3,8 +3,8 @@ title: Maken en registreren van het account van de uitgever | Microsoft Docs
 description: Instructies voor het maken van een Microsoft Developer-account zodat na goedkeuring, u verschillende verkopen kunt typen op Azure Marketplace bieden.
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Een Microsoft Developer-account maken
 Dit artikel begeleidt u bij het maken van de benodigde rekening en het registratieproces om te worden van een goedgekeurde Microsoft Developer voor Azure Marketplace.
 
-## <a name="1-create-a-microsoft-account"></a>1. Microsoft-account maken
+## <a name="1-create-a-microsoft-account"></a>1. Een Microsoft-account maken
 U moet een Microsoft-account maken voor het starten van het publicatieproces. Dit account wordt gebruikt om te registreren zowel de **Microsoft Developer Center** en **Azure Publishing Portal**. U hebt slechts één Microsoft-account voor uw Azure Marketplace-aanbiedingen. Mag niet specifiek zijn voor de services of aanbiedingen.
 
 Het adres dat vormt van de gebruikersnaam moet in uw domein en beheerd door uw IT-team. De publicerende gerelateerde activiteiten moeten worden uitgevoerd via dit account.
@@ -45,7 +45,7 @@ Bij het maken van een bedrijfsaccount, volgt u deze richtlijnen als meer dan é�
 * Het telefoonnummer van een bedrijf die geen extensie vereist en toegankelijk is voor de sleutel teamleden toevoegen.
 * In het algemeen hebben ontwikkelaars vertrouwde apparaten gebruiken voor aanmelding bij developer-account van uw bedrijf. Alle belangrijke teamleden moeten toegang hebben tot deze vertrouwde apparaten. Zo beperkt u de noodzaak van beveiligingscodes bij het openen van het account worden verzonden.
 * Als u nodig hebt om toegang te verlenen aan het account van een niet-vertrouwde PC, die toegang beperken tot maximaal vijf ontwikkelaars. In het ideale geval deze ontwikkelaars moeten toegang tot het account van de machines die hetzelfde geografische en netwerklocatie.
-* Controleer regelmatig de beveiligingsgegevens van uw bedrijf op [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) om ervoor te zorgen dat alle huidige is.
+* Controleer regelmatig de beveiligingsgegevens van uw bedrijf op [ https://account.live.com/proofs/Manage ](https://account.live.com/proofs/Manage) om ervoor te zorgen dat alle huidige is.
 
 Uw ontwikkelaarsaccount moet worden benaderd voornamelijk van vertrouwde pc's. Dit is essentieel omdat er een limiet aan het aantal codes die worden gegenereerd per account per week. Ook kunt de meest naadloze aanmeldingservaring.
 
@@ -53,7 +53,7 @@ Klik voor meer informatie over aanvullende developer-account richtlijnen en beve
 
 ### <a name="instructions"></a>Instructies
 1. Open een nieuwe Chrome Incognito of Internet Explorer InPrivate-browsing sessie om ervoor te zorgen dat u bent niet aangemeld bij een bestaand account.
-2. Registreren van het e-mailbericht (per de bovenstaande richtlijnen bijvoorbeeld windowsapp@fabrikam.com) als een Microsoft-account via de koppeling [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Volg de onderstaande instructies.
+2. Registreren van het e-mailbericht (per de bovenstaande richtlijnen bijvoorbeeld windowsapp@fabrikam.com) als een Microsoft-account via de koppeling [ https://signup.live.com/signup.aspx ](https://signup.live.com/signup.aspx). Volg de onderstaande instructies.
 
    1. Tijdens het registreren van uw account als een Microsoft-account, moet u een geldig telefoonnummer in voor het systeem om een account verificatiecode als SMS-bericht of een automatische oproep verzenden opgeven.
    2. Tijdens het registreren van uw account als een Microsoft-account, moet u een geldig e-id voor het ontvangen van een geautomatiseerd e-mailbericht voor accountverificatie opgeven.
@@ -68,7 +68,7 @@ Het Microsoft Developer Center wordt gebruikt voor het registreren van de bedrij
 >
 >
 
-| Developer-profiel | Concept starten | Fasering | Gratis publiceren en oplossingssjabloon | Commerciële publiceren |
+| Developer-profiel | Concept starten | Faseren | Gratis publiceren en oplossingssjabloon | Commerciële publiceren |
 | --- | --- | --- | --- | --- |
 | Bedrijfsregistratie |Moet hebben |Moet hebben |Moet hebben |Moet hebben |
 | Belasting profiel-ID |Optioneel |Optioneel |Optioneel |Moet hebben |
@@ -81,7 +81,7 @@ Het Microsoft Developer Center wordt gebruikt voor het registreren van de bedrij
 
 ### <a name="register-your-company-account"></a>Account van uw bedrijf te registreren
 1. Open een nieuw Internet Explorer InPrivate- of Incognito van Chrome browsersessie om ervoor te zorgen dat u bent niet aangemeld bij een persoonlijk account.
-2. Ga naar [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) zelf registreren als een verkoper in het Developer Center. Lees de volgende belangrijke opmerking toe voordat u doorgaat.
+2. Ga naar [ http://dev.windows.com/registration?accountprogram=azure ](http://dev.windows.com/registration?accountprogram=azure) zelf registreren als een verkoper in het Developer Center. Lees de volgende belangrijke opmerking toe voordat u doorgaat.
 
    > [!IMPORTANT]
    > Zorg ervoor dat de e-id of distributie lijst (een distributielijst wordt aanbevolen om te verwijderen van afhankelijkheid van personen) die u gebruiken wilt voor het registreren in het Developer Center op voor het eerst geregistreerd als een Microsoft-account. Als dit niet het geval is, klikt u vervolgens registreert gebruik van deze [koppeling](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Bovendien **een e-mail-id onder het domein van de Microsoft-bedrijf dat wil zeggen @microsoft.com kan niet worden gebruikt** voor registratie van de Dev Center.

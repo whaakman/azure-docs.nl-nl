@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 3bb023cfd94c7b87550d692101d30f922de80bf9
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 778810001952daf9ac63a7f1f880b05234549965
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows-computers verbinding met de Log Analytics-service in Azure
 
@@ -38,7 +38,7 @@ Raadpleeg voor informatie over de netwerk- en vereisten voor het implementeren v
 ## <a name="obtain-workspace-id-and-key"></a>Werkruimte-ID en -sleutel ophalen
 Voordat u de MMA (Microsoft Monitoring Agent) voor Windows installeert, hebt u eerst de werkruimte-id en -sleutel voor uw Log Analytics-werkruimte nodig.  Deze informatie is vereist tijdens de installatie van elke installatiemethode correct configureren van de agent en ervoor zorgen dat deze kan communiceren met logboekanalyse in Azure commerciële en -US Government-cloud.  
 
-1. Klik in de Azure-portal op **alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
+1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. Selecteer in de lijst met Log Analytics-werkruimten, de werkruimte die u van plan bent over het configureren van de agent om aan te melden.
 3. Selecteer **Geavanceerde instellingen**.<br><br> ![Geavanceerde instellingen van Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecteer **Verbonden bronnen** en selecteer vervolgens **Windows-servers**.   
@@ -63,7 +63,7 @@ De volgende stappen installeren en configureren van de agent voor logboekanalyse
 Als u klaar bent wordt de **MMA** in het **Configuratiescherm** weergegeven. Om te bevestigen meldt met Log Analytics, Bekijk [controleren of de verbinding van de agent met logboekanalyse](#verify-agent-connectivity-to-log-analytics). 
 
 ## <a name="install-the-agent-using-the-command-line"></a>Installeer de agent via de opdrachtregel
-Het gedownloade bestand voor de agent is een zelfstandig installatiepakket dat is gemaakt met IExpress.  Het installatieprogramma voor de agent en de ondersteunende bestanden zijn opgenomen in het pakket en moet worden geëxtraheerd correct wilt installeren via de opdrachtregel die wordt weergegeven in de volgende voorbeelden.    
+Het gedownloade bestand voor de agent is een zelfstandig installatiepakket.  Het installatieprogramma voor de agent en de ondersteunende bestanden zijn opgenomen in het pakket en moet worden geëxtraheerd correct wilt installeren via de opdrachtregel die wordt weergegeven in de volgende voorbeelden.    
 
 >[!NOTE]
 >Als u een agent bijwerken wilt, moet u de logboekanalyse scripting API gebruiken. Zie het onderwerp [beheren en onderhouden van de agent Log Analytics voor Windows en Linux](log-analytics-agent-manage.md) voor meer informatie.
@@ -72,6 +72,7 @@ De volgende tabel licht de specifieke Log Analytics-parameters ondersteund door 
 
 |MMA-specifieke opties                   |Opmerkingen         |
 |---------------------------------------|--------------|
+| NOAPM=1                               | Een optionele parameter. Installeert de agent zonder .NET Application Performance Monitoring.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = de agent voor het rapporteren van een werkruimte configureren                |
 |OPINSIGHTS_WORKSPACE_ID                | Werkruimte-Id (guid) voor de werkruimte toevoegen                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Werkruimtesleutel in eerste instantie wordt geverifieerd met de werkruimte |
@@ -80,7 +81,7 @@ De volgende tabel licht de specifieke Log Analytics-parameters ondersteund door 
 |OPINSIGHTS_PROXY_USERNAME               | Gebruikersnaam voor toegang tot een geverifieerde proxyserver |
 |OPINSIGHTS_PROXY_PASSWORD               | Wachtwoord voor toegang tot een geverifieerde proxyserver |
 
-1. De installatiebestanden van agent ophalen uit een verhoogde opdrachtprompt uitgevoerd `extract MMASetup-<platform>.exe` en krijgt u voor het pad naar de bestanden moeten worden uitgepakt.  U kunt ook het pad opgeven door de argumenten `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`.  Zie voor meer informatie over het opdrachtregelprogramma switches wordt ondersteund door IExpress [opdrachtregelopties voor IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) en werk vervolgens in het voorbeeld aan uw behoeften.
+1. De installatiebestanden van agent ophalen uit een verhoogde opdrachtprompt uitgevoerd `MMASetup-<platform>.exe /c` en krijgt u voor het pad naar de bestanden moeten worden uitgepakt.  U kunt ook het pad opgeven door de argumenten `MMASetup-<platform>.exe /c /t:<Path>`.  
 2. Voor de achtergrond de agent installeren en configureren van deze rapporteert aan een werkruimte in de commerciële Azure-cloud, vanuit de map uitgepakt u de setup-bestanden naar het type: 
    
      ```dos
@@ -99,8 +100,8 @@ Het volgende scriptvoorbeeld kunt u de agent installeert met Azure Automation DS
 
 Het volgende voorbeeld installeert de 64-bits agent, geïdentificeerd door de `URI` waarde. U kunt ook de 32-bits versie door de URI-waarde te vervangen. De URI voor beide versies zijn:
 
-- Windows 64-bits agent - https://go.microsoft.com/fwlink/?LinkId=828603
-- Windows 32-bits agent - https://go.microsoft.com/fwlink/?LinkId=828604
+- Windows 64-bits agent- https://go.microsoft.com/fwlink/?LinkId=828603
+- Windows 32-bits agent- https://go.microsoft.com/fwlink/?LinkId=828604
 
 
 >[!NOTE]
@@ -108,9 +109,9 @@ Het volgende voorbeeld installeert de 64-bits agent, geïdentificeerd door de `U
 
 De 32-bits en 64-bits versies van het agentpakket hebben verschillende productcodes en nieuwe versies uitgebracht ook een unieke waarde hebben.  De productcode is een GUID die de principal-id van een toepassing of product en wordt vertegenwoordigd door de Windows Installer **ProductCode** eigenschap.  De `ProductId value` in de **MMAgent.ps1** script moet overeenkomen met de productcode uit het 32-bits of 64-bits agent-installatiepakket.
 
-Als u wilt de productcode rechtstreeks vanaf het agent-installatiepakket ophalen, kunt u Orca.exe uit de [Windows SDK-onderdelen voor Windows Installer-ontwikkelaars](https://msdn.microsoft.com/library/windows/desktop/aa370834%27v=vs.85%28.aspx) is een onderdeel van Windows Software Development Kit of met behulp van De volgende PowerShell een [voorbeeldscript](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) geschreven door een Microsoft waardevolle Professional (MVP).
+Als u wilt de productcode rechtstreeks vanaf het agent-installatiepakket ophalen, kunt u Orca.exe uit de [Windows SDK-onderdelen voor Windows Installer-ontwikkelaars](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) is een onderdeel van Windows Software Development Kit of met behulp van De volgende PowerShell een [voorbeeldscript](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) geschreven door een Microsoft waardevolle Professional (MVP).  Voor beide methode, moet u eerst uitpakken van de **MOMagent.msi** bestand van het installatiepakket MMASetup.  Dit wordt weergegeven in de eerste stap in de sectie eerder [de agent installeert met de opdrachtregel](#install-the-agent-using-the-command-line).  
 
-1. Importeer de DSC xPSDesiredStateConfiguration Module op basis van [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) in Azure Automation.  
+1. Importeer de DSC xPSDesiredStateConfiguration Module op basis van [ http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) in Azure Automation.  
 2.  Maken van Azure Automation-variabele assets voor *OPSINSIGHTS_WS_ID* en *OPSINSIGHTS_WS_KEY*. Ingesteld *OPSINSIGHTS_WS_ID* tot uw Log Analytics-werkruimte-ID en een set *OPSINSIGHTS_WS_KEY* op de primaire sleutel van uw werkruimte.
 3.  Kopieer het script en sla deze op als MMAgent.ps1
 
@@ -161,7 +162,7 @@ Bij de computer in **Configuratiescherm**, het item opzoeken **Microsoft Monitor
 
 U kunt ook een eenvoudige logboek zoekopdracht uitvoeren in de Azure portal.  
 
-1. Klik in de Azure-portal op **alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.  
+1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.  
 2. Selecteer de doelwerkruimte op de pagina van de werkruimte Log Analytics en selecteer vervolgens de **logboek zoeken** tegel. 
 2. Klik in het deelvenster logboek zoeken in het veld querytype:  
 

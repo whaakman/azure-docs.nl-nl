@@ -2,24 +2,18 @@
 title: Limieten voor Azure SQL Database | Microsoft Docs
 description: Deze pagina beschrijft enkele algemene resource beperkingen voor Azure SQL Database.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 02/28/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: eea4362e33ff2587758601758db463ffa82382b3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6e6aaeea0375e92d7913e47c6b929a469ceb5c94
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limieten voor Azure SQL Database
 
@@ -64,7 +58,7 @@ De duur van het volledige proces voor omhoog schalen is afhankelijk van de groot
 
 ## <a name="single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>Individuele database: beperkingen van P11 en P15 wanneer de maximale grootte groter is dan 1 TB
 
-Een maximale grootte groter is dan 1 TB voor P11 en P15 database wordt ondersteund in de volgende gebieden: ons East2, VS-West, Gov ons Virginia, West-Europa, Duitsland centraal, Zuid-Oost-Azië, Japan-Oost, Australië-Oost, Canada centraal en Canada-Oost. De volgende overwegingen en beperkingen van toepassing op P11 en P15 databases met een maximale grootte groter is dan 1 TB:
+Een maximale grootte groter is dan 1 TB voor P11 en P15 database wordt ondersteund in de volgende gebieden: ons East2, VS-West, Gov ons Virginia, West-Europa, Duitsland centraal, Zuid-Oost-Azië, Japan-Oost, Canada centraal en Canada-Oost. De volgende overwegingen en beperkingen van toepassing op P11 en P15 databases met een maximale grootte groter is dan 1 TB:
 
 - Als u kiest een maximale grootte groter is dan 1 TB bij het maken van een database (met behulp van een waarde van 4 TB en 4096 GB), mislukt de opdracht maken met een fout als de database in een niet-ondersteunde regio is ingericht.
 - Voor bestaande P11 en P15 databases zich bevinden in een van de ondersteunde regio's, kunt u de maximale opslag naar dan 1 TB in stappen van 256 GB verhogen maximaal 4 TB. Als u wilt weten of een groter formaat wordt ondersteund in uw regio, gebruiken de [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) functioneren of controleren van de grootte van de database in de Azure portal. Upgraden van een bestaande P11 of P15 kan database alleen worden uitgevoerd door een principal-aanmelding op serverniveau of door leden van de databaserol dbmanager. 
@@ -161,4 +155,4 @@ Wanneer zich voordoen tijdens een hoog gebruik van sessie- of worker, wordt een 
 - Zie voor meer informatie over elastische pools [elastische pools](sql-database-elastic-pool.md).
 - Zie voor meer informatie over de algemene Azure limieten [Azure-abonnement en Servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md).
 - Zie voor meer informatie over dtu's en edtu's [dtu's en edtu's](sql-database-what-is-a-dtu.md).
-- Zie https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database voor informatie over de maximale grootte tempdb.
+- Zie voor meer informatie over de maximale grootte tempdb https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

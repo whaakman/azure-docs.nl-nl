@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 8b9e79a2be26cf279abe0d29db1738b695622e9f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 50a6004d6b52e48fe762a896f7ab1a523cee4f32
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure service van de metagegevens van het exemplaar
 
@@ -36,7 +36,7 @@ De service is beschikbaar in het algemeen beschikbaar Azure-regio's. Niet alle A
 
 Regio's                                        | Beschikbaarheid?                                 | Ondersteunde versies
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Alle in het algemeen beschikbare globale Azure-regio 's](https://azure.microsoft.com/regions/)     | Algemeen beschikbaar   | 2017-04-02 2017-12-01(This version is not available in UK regions) 2017-08-01
+[Alle in het algemeen beschikbare globale Azure-regio 's](https://azure.microsoft.com/regions/)     | Algemeen beschikbaar   | 2017-04-02, 2017-08-01, 2017-12-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Algemeen beschikbaar | 2017-04-02,2017-08-01
 [Azure China](https://www.azure.cn/)                                                           | Algemeen beschikbaar | 2017-04-02,2017-08-01
 [Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | Algemeen beschikbaar | 2017-04-02,2017-08-01
@@ -406,7 +406,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 5. Waarom krijg ik de fout `500 Internal Server Error`?
    * Probeer uw aanvraag op basis van de exponentiële back uit het systeem. Neem contact op met de ondersteuning van Azure als het probleem zich blijft voordoen.
 6. Waar kan ik aanvullende vragen/opmerkingen delen
-   * Uw opmerkingen over http://feedback.azure.com verzenden.
+   * Stuur uw opmerkingen op http://feedback.azure.com.
 7. Dit werkt voor virtuele Machine Scale ingesteld exemplaar, zou?
    * Ja is metagegevens-service beschikbaar voor Scale-exemplaren instellen. 
 8. Hoe krijg ik ondersteuning voor de service

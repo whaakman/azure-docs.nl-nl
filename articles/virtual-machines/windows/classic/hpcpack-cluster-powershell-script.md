@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 85b125ab19671b61d2541af6378c95feb88bf952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82aa2942a6a4fe6a3ac1c3ec2c0710e39f4282b1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Maken van een Windows cluster-high performance computing (HPC) met het implementatiescript HPC Pack IaaS
-De implementatie van HPC Pack IaaS PowerShell-script voor het implementeren van een volledige HPC Pack 2012 R2-cluster voor Windows werkbelasting in Azure virtuele machines worden uitgevoerd. Het cluster bestaat uit een op die lid zijn van Active Directory hoofdknooppunt met Windows Server en Microsoft HPC Pack en aanvullende Windows-rekenresources die u opgeeft. Als u een HPC Pack cluster in Azure voor Linux-werkbelastingen implementeren wilt, Zie [een Linux-HPC-cluster maken met het implementatiescript HPC Pack IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). U kunt ook een Azure Resource Manager-sjabloon gebruiken voor het implementeren van een cluster HPC Pack. Zie voor voorbeelden [maken van een HPC-cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) en [een HPC-cluster maken met een installatiekopie van het knooppunt aangepaste rekenservice](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
+De implementatie van HPC Pack IaaS PowerShell-script voor het implementeren van een volledige HPC Pack 2012 R2-cluster voor Windows werkbelasting in Azure virtuele machines worden uitgevoerd. Het cluster bestaat uit een op die lid zijn van Active Directory hoofdknooppunt met Windows Server en Microsoft HPC Pack en aanvullende Windows-rekenresources die u opgeeft. Als u een HPC Pack cluster in Azure voor Linux-werkbelastingen implementeren wilt, Zie [een Linux-HPC-cluster maken met het implementatiescript HPC Pack IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). 
 
 > [!IMPORTANT] 
 > Het PowerShell-script dat wordt beschreven in dit artikel maakt een Microsoft HPC Pack 2012 R2-cluster in Azure met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
-> Het script dat wordt beschreven in dit artikel biedt bovendien geen ondersteuning voor HPC Pack 2016.
+> Het script dat wordt beschreven in dit artikel biedt bovendien geen ondersteuning voor HPC Pack 2016. Zie voor meer informatie over het Resource Manager-sjablonen voor HPC Pack 2012 R2 en HPC Pack 2016 de [HPC Pack cluster implementatieopties in Azure](../hpcpack-cluster-options.md).
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 

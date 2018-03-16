@@ -16,17 +16,23 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ff31f8b265452b6864e36323e770f808f87de019
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-binding voor Azure Functions
 
 In dit artikel wordt uitgelegd hoe u om berichten te verzenden met behulp van [Twilio](https://www.twilio.com/) bindingen in de Azure Functions. Azure Functions ondersteunt uitvoer bindingen voor Twilio.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pakketten
+
+De Twilio-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-pakket. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Voorbeeld
 
@@ -195,7 +201,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>Kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) kenmerk.
 
 Zie voor meer informatie over de kenmerkeigenschappen die u kunt configureren, [configuratie](#configuration). Hier volgt een `TwilioSms` kenmerk voorbeeld in een handtekening voor methode:
 
@@ -222,13 +228,13 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
 |**type**|| moet worden ingesteld op `twilioSms`.|
-|**richting**|| moet worden ingesteld op `out`.|
-|**naam**|| Naam van de variabele in functiecode gebruikt voor de Twilio SMS-bericht. |
+|**direction**|| moet worden ingesteld op `out`.|
+|**Naam**|| Naam van de variabele in functiecode gebruikt voor de Twilio SMS-bericht. |
 |**accountSid**|**AccountSid**| Deze waarde moet worden ingesteld op de naam van een app-instelling van de Sid van uw Twilio-Account.|
 |**authToken**|**AuthToken**| Deze waarde moet worden ingesteld op de naam van een app-instelling die uw Twilio-verificatietoken bevat.|
-|**Aan**|**Aan**| Deze waarde is ingesteld op het telefoonnummer dat naar de SMS-tekst wordt verzonden.|
-|**Van**|**Van**| Deze waarde is ingesteld op het telefoonnummer dat door de SMS-tekst wordt verzonden.|
-|**hoofdtekst**|**Hoofdtekst**| Deze waarde kan worden gebruikt voor de SMS-bericht harde code als u niet hoeft worden dynamisch ingesteld in de code voor de functie. |
+|**to**|**Aan**| Deze waarde is ingesteld op het telefoonnummer dat naar de SMS-tekst wordt verzonden.|
+|**from**|**From**| Deze waarde is ingesteld op het telefoonnummer dat door de SMS-tekst wordt verzonden.|
+|**body**|**Hoofdtekst**| Deze waarde kan worden gebruikt voor de SMS-bericht harde code als u niet hoeft worden dynamisch ingesteld in de code voor de functie. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

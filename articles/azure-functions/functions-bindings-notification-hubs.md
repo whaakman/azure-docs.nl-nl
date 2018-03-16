@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 6be75035247f05995949734cd4f4f0d934e30685
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 292c8295cbc2705c12365a20cee0e80b6da639a5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hubs uitvoer binding voor Azure Functions
 
@@ -28,6 +28,12 @@ Dit artikel wordt uitgelegd hoe u pushmeldingen verzendt met behulp van [Azure N
 Azure Notification Hubs moet worden geconfigureerd voor het Platform meldingen Service (PNS) u wilt gebruiken. Zie voor meer informatie over hoe u pushmeldingen in uw clientapp van Notification Hubs, [aan de slag met Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) en selecteert u het doelplatform voor de client in de vervolgkeuzelijst aan de bovenkant van de pagina.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pakketten
+
+De Notification Hubs-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet-pakket. De broncode voor het pakket bevindt zich in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example---template"></a>Voorbeeld - sjabloon
 
@@ -266,7 +272,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## <a name="attributes"></a>Kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) kenmerk.
 
 Constructorparameters en de eigenschappen van het kenmerk worden beschreven in de [configuratie](#configuration) sectie.
 
@@ -278,10 +284,10 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** |N.v.t.| Moet worden ingesteld op 'notificationHub'. |
 |**direction** |N.v.t.| Moet worden ingesteld op 'out'. | 
-|**naam** |N.v.t.| Naam van de variabele in functiecode gebruikt voor de notification hub-bericht. |
+|**Naam** |N.v.t.| Naam van de variabele in functiecode gebruikt voor de notification hub-bericht. |
 |**tagExpression** |**TagExpression** | Code-expressies kunnen u opgeven dat meldingen worden geleverd aan een verzameling apparaten die zijn geregistreerd voor het ontvangen van meldingen die overeenkomen met de code-expressie.  Zie voor meer informatie [Routering en code-expressies](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Naam van de notification hub-resource in de Azure-portal. |
-|**verbinding** | **ConnectionStringSetting** | De naam van een app-instelling die een Notification Hubs-verbindingsreeks bevat.  De verbindingsreeks moet worden ingesteld op de *DefaultFullSharedAccessSignature* waarde voor uw notification hub. Zie [verbinding tekenreeks instellen](#connection-string-setup) verderop in dit artikel.|
+|**Verbinding** | **ConnectionStringSetting** | De naam van een app-instelling die een Notification Hubs-verbindingsreeks bevat.  De verbindingsreeks moet worden ingesteld op de *DefaultFullSharedAccessSignature* waarde voor uw notification hub. Zie [verbinding tekenreeks instellen](#connection-string-setup) verderop in dit artikel.|
 |**platform** | **Platform** | De platform-eigenschap geeft het clientplatform uw doelen melding. Standaard, als de eigenschap platform wordt weggelaten uit de uitvoer-binding kunnen Sjabloonmeldingen worden gebruikt als doel in elk platform dat is geconfigureerd op de Azure Notification Hub. Zie voor meer informatie over het gebruik van sjablonen in het algemeen verzenden cross-platform meldingen met een Azure Notification Hub [sjablonen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Als de waarde, **platform** moet een van de volgende waarden: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Zie voor meer informatie over het configureren van de notification hub voor APNS en ontvangst van de melding in een client-app [pushmeldingen verzenden naar iOS met Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Zie voor meer informatie over het configureren van de notification hub voor ADM en ontvangst van de melding in een Kindle-app [aan de slag met Notification Hubs voor Kindle-apps](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging, dat de nieuwe versie van GCM is, wordt ook ondersteund. Zie voor meer informatie [pushmeldingen verzenden naar Android met Azure Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Windows Push Notification Services](https://msdn.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) die gericht is op Windows-platforms. Windows Phone 8.1 en hoger wordt ook ondersteund door WNS. Zie voor meer informatie [aan de slag met Notification Hubs voor universele Windows-Platform-Apps](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft Push Notification Service](https://msdn.microsoft.com/library/windows/apps/ff402558.aspx). Dit platform biedt ondersteuning voor Windows Phone 8 en eerdere Windows Phone-platforms. Zie voor meer informatie [pushmeldingen verzenden met Azure Notification Hubs op Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

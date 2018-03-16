@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: a592dfbc6f19afe255cee1a8dfb48e3c96d7baf8
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 52771c8cf401bb60339182644cd8755637650140
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Een virtuele Oracle Linux-machine voor Azure voorbereiden
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -35,7 +35,7 @@ In dit artikel wordt ervan uitgegaan dat u al een Oracle Linux-besturingssysteem
 * Bij het installeren van de Linux-systeem wordt het aanbevolen dat u standaard partities in plaats van LVM (vaak de standaardinstelling voor vele installaties gebruikt). Dit voorkomt LVM naam conflicteert met de gekloonde virtuele machines, met name als een besturingssysteemschijf ooit worden gekoppeld aan een andere virtuele machine moet voor het oplossen van problemen. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mag worden gebruikt voor gegevensschijven als voorkeur.
 * NUMA wordt niet ondersteund voor grotere virtuele machine vanwege een fout in de kernel-versies van Linux onder 2.6.37. Dit probleem hoofdzakelijk van invloed is op distributies met behulp van de upstream Red Hat 2.6.32 kernel. Handmatige installatie van de Azure Linux-agent (waagent) wordt automatisch NUMA uitgeschakeld in de configuratie GRUB voor de Linux-kernel. Meer informatie hierover vindt u in de volgende stappen uit.
 * Configureer een partitie van de wisseling niet op de schijf met het besturingssysteem. De Linux-agent kan worden geconfigureerd voor het maken van een wisselbestand op de tijdelijke schijf.  Meer informatie hierover vindt u in de volgende stappen uit.
-* Alle van de VHD's moeten grootten die veelvouden van 1 MB hebben.
+* Alle VHD's in Azure, moeten een virtuele grootte die is afgestemd op 1MB hebben. Bij het converteren van een onbewerkte schijf naar VHD moet u ervoor zorgen dat de grootte voor onbewerkte schijven een veelvoud van 1MB vóór de conversie is. Zie [opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer informatie.
 * Zorg ervoor dat de `Addons` opslagplaats is ingeschakeld. Bewerk het bestand `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) of `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux), en wijzigt u de regel `enabled=0` naar `enabled=1` onder **[ol6_addons]** of **[ol7_addons]** in dit bestand.
 
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4 +

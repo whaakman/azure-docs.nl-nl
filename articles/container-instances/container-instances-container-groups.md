@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 7e8a5014ce9168ba3d67d175935649bfd9fec511
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Containergroepen in Azure Containerexemplaren
 
@@ -35,7 +35,11 @@ In dit voorbeeld containergroep:
 * Bevat twee Azure bestandsshares als volume koppelingen en elke container koppelt een van de shares lokaal.
 
 > [!NOTE]
-> Meerdere container groepen zijn momenteel beperkt tot Linux containers. Terwijl we proberen te zorgen dat alle functies op Windows-containers, vindt u de huidige platform verschillen in [quota en beschikbaarheid in regio's voor exemplaren van Azure-Container](container-instances-quotas.md).
+> Meerdere container groepen zijn momenteel beperkt tot Linux containers. Hoewel we ons best doen om alle functies beschikbaar te maken voor Windows-containers, kunnen de [quota en beschikbaarheid in regio´s voor Azure Container Instances](container-instances-quotas.md) variëren op de verschillende platforms.
+
+### <a name="deployment"></a>Implementatie
+
+**Containergroepen** een minimale brontoewijzing 1 vCPU en 1 GB geheugen hebben. Afzonderlijke **containers** kunnen worden ingericht met behulp van minder dan 1 vCPU en 1 GB geheugen. Binnen een containergroep kan de distributie van bronnen aan meerdere containers binnen de grenzen op het niveau van de groep container worden aangepast. Bijvoorbeeld twee containers met 0,5 vCPU die zich binnen een containergroep 1 vCPU toegewezen.
 
 ### <a name="networking"></a>Netwerken
 

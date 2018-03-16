@@ -3,23 +3,18 @@ title: Multitenant-apps met RLS en hulpmiddelen voor elastische databases | Micr
 description: Gebruik hulpprogramma's voor elastische database met beveiliging op rijniveau voor het bouwen van een toepassing met een hoge mate schaalbaar gegevenslaag.
 metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: tmullaney
-ms.assetid: e72d3cfe-e9be-4326-b776-9c6d96c0a18e
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: thmullan;torsteng
-ms.openlocfilehash: f874800e8647eac6ed94945d79e904df86207b0f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.author: thmullan
+ms.openlocfilehash: 62213eeeee0b1d93cabc32101ad6fe51bf394080
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Multitenant-toepassingen met elastische database-hulpprogramma's en beveiliging
 
@@ -350,7 +345,7 @@ GO
 
 Elastische database-hulpprogramma's en de beveiliging kunnen worden gebruikt samen voor scale-out van de toepassing gegevenslaag met ondersteuning voor beide multitenant en één tenant shards. Multitenant shards kunnen worden gebruikt voor het opslaan van gegevens efficiënter. Deze efficiëntie wordt verergerd waarbij een groot aantal tenants slechts een paar rijen van de gegevens hebben. Single-tenant shards biedt ondersteuning voor premium-tenants die strenger prestaties en vereisten voor netwerkisolatie.  Zie voor meer informatie [beveiliging verwijzing][rls].
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 - [Wat is een Azure elastische groep?](sql-database-elastic-pool.md)
 - [Uitbreiden met Azure SQL Database](sql-database-elastic-scale-introduction.md)

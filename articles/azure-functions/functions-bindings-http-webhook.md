@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP- en webhook bindingen
 
@@ -30,6 +30,12 @@ Een HTTP-trigger kan worden aangepast om te reageren op [webhooks](https://en.wi
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+## <a name="packages"></a>Pakketten
+
+De HTTP-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet-pakket. De broncode voor het pakket bevindt zich in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Trigger
 
@@ -361,7 +367,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Trigger - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) kenmerk, gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) kenmerk.
 
 U kunt de autorisatie niveau en toegestane HTTP-methoden instellen in kenmerk constructorparameters en er zijn eigenschappen van het type en de route sjabloon webhook. Zie voor meer informatie over deze instellingen [Trigger - configuratie](#trigger---configuration). Hier volgt een `HttpTrigger` kenmerk in een handtekening voor methode:
 
@@ -385,7 +391,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 | **type** | N.v.t.| Vereist - moet worden ingesteld op `httpTrigger`. |
 | **direction** | N.v.t.| Vereist - moet worden ingesteld op `in`. |
-| Naam | N.v.t.| Vereist: de naam van de variabele in functiecode gebruikt voor de aanvraag of de hoofdtekst van de aanvraag. |
+| **Naam** | N.v.t.| Vereist: de naam van de variabele in functiecode gebruikt voor de aanvraag of de hoofdtekst van de aanvraag. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Hiermee bepaalt u wat sleutels, indien van toepassing, aanwezig zijn op de aanvraag moeten om de functie aanroepen. Het machtigingsniveau kan een van de volgende waarden zijn: <ul><li><code>anonymous</code>&mdash;Er is geen API-sleutel is vereist.</li><li><code>function</code>&mdash;Een specifieke functies API-sleutel is vereist. Dit is de standaardwaarde als niets wordt opgegeven.</li><li><code>admin</code>&mdash;De hoofdsleutel is vereist.</li></ul> Zie de sectie voor meer informatie over [autorisatie sleutels](#authorization-keys). |
 | **Methoden** |**Methoden** | Een matrix met de HTTP-methoden waarop de functie reageert. Als niet wordt opgegeven, wordt de functie reageert op alle HTTP-methoden. Zie [aanpassen van het http-eindpunt](#trigger---customize-the-http-endpoint). |
 | **route** | **Route** | Definieert het Routesjabloon aanvragen waarmee uw functie reageert URL's beheren. De standaardwaarde als niets wordt opgegeven is `<functionname>`. Zie voor meer informatie [aanpassen van het http-eindpunt](#customize-the-http-endpoint). |
@@ -564,7 +570,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|
 | **type** |moet worden ingesteld op `http`. |
 | **direction** | moet worden ingesteld op `out`. |
-|Naam | De naam van de variabele in functiecode gebruikt voor het antwoord. |
+|**Naam** | De naam van de variabele in functiecode gebruikt voor het antwoord. |
 
 ## <a name="output---usage"></a>Output - gebruik
 

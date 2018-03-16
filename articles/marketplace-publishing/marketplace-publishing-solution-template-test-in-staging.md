@@ -3,8 +3,8 @@ title: Testen van uw oplossing sjabloon aanbieding voor de Marketplace | Microso
 description: Begrijpen hoe u voor het testen van uw oplossing sjabloon aanbieding voor Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: ef8f9b5e-b98c-49f3-913f-cdf772c14c12
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2015
-ms.author: hascipio; v-divte
-ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: e789d0996e72c935ed9d5f456f9868b73d5ef4ee
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Testen van uw oplossing sjabloon aanbieding in fasering
 Fasering betekent het implementeren van uw aanbieding in een particulier 'sandbox"waar u kunt testen en de functionaliteit ervan controleren voordat u deze naar productie. De aanbieding wordt weergegeven in de faseringsmodus net zoals voor een klant die is geïmplementeerd. Uw aanbieding moet worden doorgegeven voor fasering worden gecertificeerd.

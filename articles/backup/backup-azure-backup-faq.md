@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 2e829ae90aa0366964f96b3c43f88503c7f3e894
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 39e7c95f236f53d7b7c4de0e5b792debe5c0c6f6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Vragen over de Azure Backup-service
 In dit artikel antwoorden op veelgestelde vragen over de Azure Backup-onderdelen. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt via **Opmerkingen** (aan de rechterkant) vragen stellen over Azure Backup. De opmerkingen worden onder aan dit artikel weergegeven. Er is een Livefyre-account vereist om opmerkingen te kunnen plaatsen. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -132,8 +132,7 @@ In de volgende tabel wordt uitgelegd hoe de grootte voor elke gegevensbron wordt
 | Microsoft Exchange |De som van alle Exchange-databases in een Exchange-server waarvan een back-up wordt gemaakt. |
 | BMR/systeemstatus |Elke afzonderlijke kopie van de BMR of systeemstatus van de machine waarvan een back-up wordt gemaakt. |
 
-Voor back-up van virtuele machine in Azure, kan elke virtuele machine maximaal 16 gegevensschijven met elke gegevensschijf wordt van de grootte van 1.024 GB of minder hebben. <br>
-We hebben een [private preview](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) voor de ondersteuning van schijven maximaal 4 TB. 
+Voor back-up van virtuele machine in Azure, kan elke virtuele machine maximaal 16 gegevensschijven met elke gegevensschijf wordt van de grootte van 4095GB of minder hebben. <br>
 
 ## <a name="retention-policy-and-recovery-points"></a>Retentiebeleid en herstelpunten
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Is er een verschil tussen het retentie- of bewaarbeleid voor DPM en Windows Server of de Windows-client (dat wil zeggen op Windows Server zonder DPM)?<br/>

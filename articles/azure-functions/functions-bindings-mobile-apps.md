@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c5fb7bdd88691c9aeab6b348507901c34502b28b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps-bindingen voor Azure Functions 
 
@@ -28,6 +28,12 @@ Dit artikel wordt uitgelegd hoe u werkt met [Azure Mobile Apps](../app-service-m
 De Mobile Apps-bindingen kunnen u lezen en bijwerken van gegevenstabellen in mobiele apps.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pakketten
+
+Mobile Apps-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet-pakket. De broncode voor het pakket bevindt zich in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="input"></a>Invoer
 
@@ -128,7 +134,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Invoer - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) kenmerk.
 
 Zie voor meer informatie over de kenmerkeigenschappen die u kunt configureren, [de volgende configuratiesectie](#input---configuration).
 
@@ -139,11 +145,11 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
 | **type**|| Moet worden ingesteld op 'mobileTable'|
-| **richting**||Moet worden ingesteld op 'in'|
-| **naam**|| De naam van de invoerparameter in functiehandtekening.|
-|**tableName** |**TableName**|Naam van de tabel met de mobiele app|
-| **ID**| **ID** | De id van de record om op te halen. Kan niet statisch of op basis van de trigger die de functie activeert. Bijvoorbeeld, als u een wachtrij-trigger voor de functie vervolgens `"id": "{queueTrigger}"` de tekenreekswaarde van het bericht uit de wachtrij als de record-ID gebruikt om op te halen.|
-|**verbinding**|**Verbinding**|De naam van een app-instelling met de mobiele app-URL. De functie gebruikt deze URL om de REST-bewerkingen op basis van uw mobiele app samen te stellen. Maken van een app-instelling in uw app in de functie die de mobiele app-URL bevat, geeft u vervolgens de naam van de app-instelling in de `connection` eigenschap in de binding van uw invoer. De URL ziet eruit als `http://<appname>.azurewebsites.net`.
+| **direction**||Moet worden ingesteld op 'in'|
+| **Naam**|| De naam van de invoerparameter in functiehandtekening.|
+|**TableName** |**TableName**|Naam van de tabel met de mobiele app|
+| **id**| **Id** | De id van de record om op te halen. Kan niet statisch of op basis van de trigger die de functie activeert. Bijvoorbeeld, als u een wachtrij-trigger voor de functie vervolgens `"id": "{queueTrigger}"` de tekenreekswaarde van het bericht uit de wachtrij als de record-ID gebruikt om op te halen.|
+|**Verbinding**|**Verbinding**|De naam van een app-instelling met de mobiele app-URL. De functie gebruikt deze URL om de REST-bewerkingen op basis van uw mobiele app samen te stellen. Maken van een app-instelling in uw app in de functie die de mobiele app-URL bevat, geeft u vervolgens de naam van de app-instelling in de `connection` eigenschap in de binding van uw invoer. De URL ziet eruit als `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKey**|De naam van een appinstelling met uw mobiele app API-sleutel. Geef de API-sleutel als u [implementeren van een API-sleutel in uw mobiele app Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), of [een API-sleutel in uw mobiele app voor .NET implementeren](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Als u de sleutel, het maken van een app-instelling in uw app in de functie die de API-sleutel bevat, en voeg vervolgens de `apiKey` eigenschap in uw invoer binding met de naam van de app-instelling. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -274,7 +280,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Output - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) kenmerk.
 
 Zie voor meer informatie over de kenmerkeigenschappen die u kunt configureren, [Output - configuratie](#output---configuration). Hier volgt een `MobileTable` kenmerk voorbeeld in een handtekening voor methode:
 
@@ -298,10 +304,10 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
 | **type**|| Moet worden ingesteld op 'mobileTable'|
-| **richting**||Moet worden ingesteld op 'out'|
-| **naam**|| Naam van de uitvoerparameter bij functiehandtekening.|
-|**tableName** |**TableName**|Naam van de tabel met de mobiele app|
-|**verbinding**|**MobileAppUriSetting**|De naam van een app-instelling met de mobiele app-URL. De functie gebruikt deze URL om de REST-bewerkingen op basis van uw mobiele app samen te stellen. Maken van een app-instelling in uw app in de functie die de mobiele app-URL bevat, geeft u vervolgens de naam van de app-instelling in de `connection` eigenschap in de binding van uw invoer. De URL ziet eruit als `http://<appname>.azurewebsites.net`.
+| **direction**||Moet worden ingesteld op 'out'|
+| **Naam**|| Naam van de uitvoerparameter bij functiehandtekening.|
+|**TableName** |**TableName**|Naam van de tabel met de mobiele app|
+|**Verbinding**|**MobileAppUriSetting**|De naam van een app-instelling met de mobiele app-URL. De functie gebruikt deze URL om de REST-bewerkingen op basis van uw mobiele app samen te stellen. Maken van een app-instelling in uw app in de functie die de mobiele app-URL bevat, geeft u vervolgens de naam van de app-instelling in de `connection` eigenschap in de binding van uw invoer. De URL ziet eruit als `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|De naam van een appinstelling met uw mobiele app API-sleutel. Geef de API-sleutel als u [implementeren van een API-sleutel in uw back-end voor Node.js mobiele app](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), of [implementeren van een API-sleutel in uw back-end .NET mobiele app](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Als u de sleutel, het maken van een app-instelling in uw app in de functie die de API-sleutel bevat, en voeg vervolgens de `apiKey` eigenschap in uw invoer binding met de naam van de app-instelling. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -313,9 +319,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 
 Gebruik in C# scriptfuncties, een benoemde output-parameter van het type `out object` de uitvoer-record te openen. In C# klassenbibliotheken de `MobileTable` kenmerk kan worden gebruikt met een van de volgende typen:
 
-* `ICollector<T>`of `IAsyncCollector<T>`, waarbij `T` is `JObject` of een type met een `public string Id` eigenschap.
+* `ICollector<T>` of `IAsyncCollector<T>`, waarbij `T` is `JObject` of een type met een `public string Id` eigenschap.
 * `out JObject`
-* `out T`of `out T[]`, waarbij `T` is een Type met een `public string Id` eigenschap.
+* `out T` of `out T[]`, waarbij `T` is een Type met een `public string Id` eigenschap.
 
 Gebruik in Node.js-functies, `context.bindings.<name>` de uitvoer-record te openen.
 

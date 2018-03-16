@@ -2,19 +2,19 @@
 title: Instellingen voor beheer van Azure Machine Learning-Model en configuratie | Microsoft Docs
 description: Dit document beschrijft de stappen en -concepten betrokken bij het instellen en configureren van Model Management in Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: AashishB
+ms.author: AashishB
 manager: hjerez
-ms.reviewer: jmartens,jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: 4e2ac548ee08f1a20cf2c1744242ee13535e55cc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c3efc7373e8825115af9b08f3f46e55e8490758a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="model-management-setup"></a>Instellingen voor het beheer van model
 
@@ -37,7 +37,7 @@ U moet de CLIs installeren op andere systemen.
 
 ### <a name="installing-or-updating-on-windows"></a>Installeren (of bijwerken) in Windows
 
-Python van https://www.python.org/ installeren. Zorg ervoor dat u hebt geselecteerd voor het installeren van pip.
+Installeren van Python van https://www.python.org/. Zorg ervoor dat u hebt geselecteerd voor het installeren van pip.
 
 Open een opdrachtprompt met als Administrator uitvoeren en voer de volgende opdrachten:
 
@@ -70,7 +70,7 @@ Beginnen met een lokale implementatie, te valideren dat uw model en code werkt, 
 Als u wilt starten, moet u uw implementatieomgeving instellen. De instelling van de omgeving is een taak. Zodra de installatie voltooid is, kunt u de omgeving voor toekomstige implementaties opnieuw gebruiken. Zie de volgende sectie voor meer informatie.
 
 Wanneer de omgeving-installatie te voltooien:
-- U wordt gevraagd aan te melden bij Azure. Als u wilt aanmelden, moet u een webbrowser gebruiken op de pagina https://aka.ms/devicelogin opent en voert u de opgegeven code om te verifiëren.
+- U wordt gevraagd aan te melden bij Azure. Als u wilt aanmelden, kunt u een webbrowser gebruiken om de pagina te openen https://aka.ms/devicelogin en voer de opgegeven code om te verifiëren.
 - U wordt gevraagd tijdens het verificatieproces voor een account te verifiëren met. Belangrijk: Selecteer een account met voldoende machtigingen om resources te maken in het account en een geldige Azure-abonnement. Als het aanmelden voltooid is, wordt uw abonnementsgegevens wordt weergegeven en u wordt gevraagd of u wilt doorgaan met het geselecteerde account.
 
 ### <a name="environment-setup"></a>Instellen van de omgeving

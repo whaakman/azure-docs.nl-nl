@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: ecc9038cf895ddaeb06dd0e4e9852d5ef4a4513a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 0206a9a486e3511834a23b3cc3f20f236a1cc261
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-hosting-model"></a>Service Fabric-hostingmodel
 In dit artikel biedt een overzicht van modellen die worden geleverd door de Service Fabric-toepassing en beschrijft de verschillen tussen de **gedeeld proces** en **exclusieve proces** modellen. Hierin wordt beschreven hoe een geïmplementeerde toepassing eruitziet op een Service Fabric-knooppunt en de relatie tussen de replica's (of exemplaren) van de service en het hostproces van de service.
@@ -26,31 +26,31 @@ Voordat u doorgaat, zorg ervoor dat u bekend met bent [Service Fabric-toepassing
 > [!NOTE]
 > In dit artikel, ter vereenvoudiging tenzij expliciet wordt vermeld:
 >
-> - Al het gebruik van word *replica* verwijst naar zowel een replica van een stateful service of een exemplaar van een staatloze service.
+> - Al het gebruik van het woord *replica* verwijst naar zowel een replica van een stateful service of een exemplaar van een staatloze service.
 > - *CodePackage* wordt behandeld is gelijk aan *ServiceHost* proces dat registreert een *ServiceType* en hosts replica's van services van die *ServiceType*.
 >
 
-Voor informatie over het hostingmodel, kunt u een voorbeeld laat het ons doorlopen. Laat het ons spreken we hebben een *ApplicationType* MyAppType' met een *ServiceType* MyServiceType' die wordt geleverd door *ServicePackage* MyServicePackage' met een *CodePackage* MyCodePackage, waardoor wordt geregistreerd *ServiceType* MyServiceType wanneer deze wordt uitgevoerd.
+Voor informatie over het hostingmodel, kunt u een voorbeeld laat het ons doorlopen. Laat het ons spreken we hebben een *ApplicationType* 'MyAppType', heeft een *ServiceType* 'MyServiceType'.  'MyServiceType' wordt geleverd door de *ServicePackage* 'MyServicePackage', heeft een *CodePackage* 'MyCodePackage'. Registreert de 'MyCodePackage' *ServiceType* MyServiceType wanneer deze wordt uitgevoerd.
 
-Stel dat we hebben een cluster met 3 knooppunten en maken we een *toepassing* **fabric: / App1** van het type 'MyAppType'. In dit *toepassing* **fabric: / App1** maken we een service **fabric: / App1/ServiceA** van het type MyServiceType' dat 2 partities is (spreken **P1** & **P2**) en 3 replica's per partitie. Het volgende diagram toont de weergave van deze toepassing zoals deze belandt geïmplementeerd op een knooppunt.
+Stel dat we hebben een cluster met drie knooppunten en maken we een *toepassing* **fabric: / App1** van het type 'MyAppType'. In dit *toepassing* **fabric: / App1** maken we een service **fabric: / App1/ServiceA** van het type MyServiceType' die met twee partities (spreken **P1**   &  **P2**) en drie replica's per partitie. Het volgende diagram toont de weergave van deze toepassing zoals deze belandt geïmplementeerd op een knooppunt.
 
 <center>
 ![Knooppunt-weergave van geïmplementeerde toepassing][node-view-one]
 </center>
 
-Service Fabric geactiveerd MyServicePackage' die gestart MyCodePackage' die als host voor replica's van zowel de partities dat wil zeggen fungeert **P1** & **P2**. Houd er rekening mee dat alle knooppunten in het cluster wordt dezelfde weergave omdat we hebt gekozen voor het aantal replica's per partitie gelijk zijn aan het aantal knooppunten in het cluster. We gaan maken van een andere service **fabric: / App1/ServiceB** in toepassing **fabric: / App1** die 1 partitie heeft (spreken **P3**) en 3 replica's per partitie. Volgende diagram toont de nieuwe weergave op het knooppunt:
+Service Fabric geactiveerd MyServicePackage' die MyCodePackage' die als host voor replica's van zowel de partities fungeert gestart.  Bijvoorbeeld: **P1** & **P2**. Alle knooppunten in het cluster heeft dezelfde weergave omdat we het aantal replica's per partitie mag niet gelijk zijn aan het aantal knooppunten in het cluster hebt gekozen. We gaan maken van een andere service **fabric: / App1/ServiceB** in de toepassing **fabric: / App1**, die één partitie heeft (spreken **P3**) en drie replica's per partitie. Het volgende diagram toont de nieuwe weergave op het knooppunt:
 
 <center>
 ![Knooppunt-weergave van geïmplementeerde toepassing][node-view-two]
 </center>
 
-Zoals we zien Service Fabric de nieuwe replica voor partitie geplaatst **P3** van service **fabric: / App1/XPb** in de bestaande 'MyServicePackage'-activering. Nu kunt maken van een andere *toepassing* **fabric: / App2** van het type 'MyAppType' en binnen **fabric: / App2** service maken **fabric: / App2/ServiceA** die 2 partities heeft (spreken **P4** & **P5**) en 3 replica's per partitie. Diagrammen, ziet u het nieuwe knooppunt weergave in:
+Zoals we zien Service Fabric de nieuwe replica voor partitie geplaatst **P3** van service **fabric: / App1/XPb** in de bestaande 'MyServicePackage'-activering. Nu kunt maken van een andere *toepassing* **fabric: / App2** van het type 'MyAppType'. Binnen **fabric: / App2**, een service maken **fabric: / App2/ServiceA** heeft twee partities (spreken **P4** & **P5**) en drie replica's per partitie. Het volgende diagram ziet u de nieuwe weergave van knooppunt:
 
 <center>
 ![Knooppunt-weergave van geïmplementeerde toepassing][node-view-three]
 </center>
 
-Deze tijd Service Fabric is geactiveerd op een nieuw exemplaar van MyServicePackage' die wordt gestart van een nieuw exemplaar van 'MyCodePackage' en replica's van beide partities van de service **fabric: / App2/ServiceA** (dat wil zeggen **P4** & **P5**) in deze nieuwe kopie 'MyCodePackage' worden geplaatst.
+Service Fabric Hiermee activeert u een nieuw exemplaar van 'MyServicePackage', die een nieuw exemplaar van 'MyCodePackage' begint. Replica's van beide partities van de service **fabric: / App2/ServiceA** (bijvoorbeeld **P4** & **P5**) in deze nieuwe kopie 'MyCodePackage' worden geplaatst.
 
 ## <a name="shared-process-model"></a>Gedeelde procesmodel
 We zagen hierboven is de standaard hostingmodel geleverd door de Service Fabric en wordt aangeduid als **gedeeld proces** model. In dit model voor een gegeven *toepassing*, slechts één kopiëren van een bepaalde *ServicePackage* is geactiveerd op een *knooppunt* (Hiermee start u alle de *CodePackages* die dit) en alle replica's van alle services van een opgegeven *ServiceType* worden geplaatst de *CodePackage* die wordt geregistreerd dat *ServiceType*. Met andere woorden, alle replica's van alle services op een knooppunt van een bepaalde *ServiceType* delen hetzelfde proces.
@@ -58,7 +58,7 @@ We zagen hierboven is de standaard hostingmodel geleverd door de Service Fabric 
 ## <a name="exclusive-process-model"></a>Exclusieve procesmodel
 Het andere geleverd door de Service Fabric hostingmodel is **exclusieve proces** model. In dit model op een gegeven *knooppunt*, voor de plaatsing van elke replica Service Fabric Hiermee activeert u een nieuw exemplaar van *ServicePackage* (dat alle begint de *CodePackages* die dit) en replica wordt geplaatst in de *CodePackage* dat geregistreerd de *ServiceType* van de service welke replica behoort. Met andere woorden, woont elke replica in een eigen toegewezen proces. 
 
-Dit model wordt ondersteund vanaf versie 5.6 van Service Fabric. **Exclusieve proces** model kan worden gekozen op het moment van de service maakt (met behulp van [PowerShell][p1], [REST] [ r1] of [FabricClient][c1]) door te geven **ServicePackageActivationMode** als 'ExclusiveProcess'.
+Dit model wordt ondersteund vanaf versie 5.6 van Service Fabric. **Exclusieve proces** model kan worden gekozen op het moment van de service maakt (met behulp van [PowerShell][p1], [REST][r1], of [FabricClient][c1]) door te geven **ServicePackageActivationMode** als 'ExclusiveProcess'.
 
 ```powershell
 PS C:\>New-ServiceFabricService -ApplicationName "fabric:/App1" -ServiceName "fabric:/App1/ServiceA" -ServiceTypeName "MyServiceType" -Stateless -PartitionSchemeSingleton -InstanceCount -1 -ServicePackageActivationMode "ExclusiveProcess"
@@ -90,45 +90,45 @@ Als u een standaardservice in het manifest van uw toepassing hebt, kunt u kiezen
   </Service>
 </DefaultServices>
 ```
-U kunt doorgaan met het bovenstaande voorbeeld, kunt maken van een andere service **fabric: / App1/ServiceC** in toepassing **fabric: / App1** die 2 partities heeft (spreken **P6** & **P7**) en 3 replica's per partitie met **ServicePackageActivationMode** ingesteld op 'ExclusiveProcess'. Volgende diagram toont de nieuwe weergave op het knooppunt:
+U kunt doorgaan met het voorgaande voorbeeld, kunt maken van een andere service **fabric: / App1/ServiceC** in toepassing **fabric: / App1** heeft twee partities (spreken **P6**  &  **P7**) en drie replica's per partitie met **ServicePackageActivationMode** ingesteld op 'ExclusiveProcess'. Volgende diagram toont de nieuwe weergave op het knooppunt:
 
 <center>
 ![Knooppunt-weergave van geïmplementeerde toepassing][node-view-four]
 </center>
 
-Zoals u ziet, Service Fabric twee nieuwe exemplaren van 'MyServicePackage' geactiveerd (één voor elke replica van partitie **P6** & **P7**) en elke replica geplaatst in een speciale van *CodePackage*. Iets anders te worden hier, wanneer **exclusieve proces** model wordt gebruikt, voor een bepaalde *toepassing*, meerdere exemplaren van een bepaalde *ServicePackage* actief zijn op een *knooppunt*. In bovenstaande voorbeeld zien we drie kopieën van 'MyServicePackage' zijn actief voor **fabric: / App1**. Elk van deze actieve kopieën van 'MyServicePackage' heeft een **ServicePackageActivationId** gekoppeld waarmee wordt aangegeven dat exemplaar binnen *toepassing* **fabric: / App1**.
+Zoals u ziet, Service Fabric twee nieuwe exemplaren van 'MyServicePackage' geactiveerd (één voor elke replica van partitie **P6** & **P7**) en elke replica geplaatst in een speciale van *CodePackage*. Iets anders te worden hier, wanneer **exclusieve proces** model wordt gebruikt, voor een bepaalde *toepassing*, meerdere exemplaren van een bepaalde *ServicePackage* actief zijn op een *knooppunt*. In bovenstaande voorbeeld zien we drie kopieën van 'MyServicePackage' zijn actief voor **fabric: / App1**. Elk van deze actieve kopieën van 'MyServicePackage' heeft een **ServicePackageActivationId** die zijn gekoppeld aan die het identificeert die kopie in *toepassing* **fabric: / App1**.
 
 Wanneer alleen **gedeeld proces** model wordt gebruikt voor een *toepassing*, bijvoorbeeld **fabric: / App2** in bovenstaande voorbeeld is slechts één actieve kopie van *ServicePackage*  op een *knooppunt* en **ServicePackageActivationId** voor deze activering van *ServicePackage* ' lege tekenreeks '.
 
 > [!NOTE]
 >- **Gedeeld proces** hostingmodel komt overeen met **ServicePackageActivationMode** gelijk **SharedProcess**. Dit is de standaardinstelling hostingmodel en **ServicePackageActivationMode** niet op het moment van het maken van de service moet worden opgegeven.
 >
->- **Exclusieve proces** hostingmodel komt overeen met **ServicePackageActivationMode** gelijk **ExclusiveProcess** en moeten expliciet worden opgegeven op het moment van het maken van de service. 
+>- **Exclusieve proces** hostingmodel komt overeen met **ServicePackageActivationMode** ingesteld op **ExclusiveProcess** en moet expliciet worden opgegeven op het moment van het maken van de service. 
 >
 >- HostingModel van een service kan worden herkend door het uitvoeren van query's de [servicebeschrijving] [ p2] en waarde van kijken **ServicePackageActivationMode**.
 >
 >
 
 ## <a name="working-with-deployed-service-package"></a>Werken met geïmplementeerd servicepakket
-Een actieve kopie van een *ServicePackage* op een knooppunt wordt aangeduid als [geïmplementeerd servicepakket][p3]. Zoals eerder opgemerkt hierboven, wanneer **exclusieve proces** model wordt gebruikt voor het maken van services voor een bepaalde *toepassing*, er zijn meerdere geïmplementeerde servicepakketten voor dezelfde *ServicePackage*. Tijdens het uitvoeren van bewerkingen die specifiek zijn voor geïmplementeerd servicepakket zoals [status van een pakket geïmplementeerde service reporting] [ p4] of [codepakket van een geïmplementeerde servicepakket opnieuw te starten] [ p5] enz., **ServicePackageActivationId** moet worden opgegeven voor het identificeren van een specifiek geïmplementeerd servicepakket.
+Een actieve kopie van een *ServicePackage* op een knooppunt wordt aangeduid als [geïmplementeerd servicepakket][p3]. Zoals eerder vermeld, wanneer **exclusieve proces** model wordt gebruikt voor het maken van services voor een bepaalde *toepassing*, er zijn meerdere geïmplementeerde servicepakketten voor dezelfde  *ServicePackage*. Tijdens het uitvoeren van bewerkingen die specifiek zijn voor een geïmplementeerde service-pakket (bijvoorbeeld [status van een pakket geïmplementeerde service reporting] [ p4] of [codepakket van een geïmplementeerde service opnieuw te starten pakket][p5]), **ServicePackageActivationId** moet worden opgegeven voor het identificeren van een specifiek geïmplementeerd servicepakket.
 
- **ServicePackageActivationId** van een geïmplementeerde service pakket kan worden verkregen door het opvragen van de lijst met [geïmplementeerde servicepakketten] [ p3] op een knooppunt. Tijdens het opvragen van [geïmplementeerd servicetypen][p6], [replica's geïmplementeerd] [ p7] en [code pakketten geïmplementeerd] [ p8] op een knooppunt, bevat het queryresultaat ook de **ServicePackageActivationId** van pakket met de bovenliggende geïmplementeerde service.
+**ServicePackageActivationId** van een geïmplementeerde service pakket kan worden verkregen door het opvragen van de lijst met [geïmplementeerde servicepakketten] [ p3] op een knooppunt. Tijdens het opvragen van [geïmplementeerd servicetypen][p6], [replica's geïmplementeerd][p7], en [geïmplementeerd code pakketten] [ p8] op een knooppunt, bevat het queryresultaat ook de **ServicePackageActivationId** van het pakket met de bovenliggende geïmplementeerde service.
 
 > [!NOTE]
->- Onder **gedeeld proces** hostingmodel, op een gegeven *knooppunt*, voor een bepaalde *toepassing*, slechts één exemplaar van een *ServicePackage* is geactiveerd. Deze heeft **ServicePackageActivationId** gelijk zijn aan *lege tekenreeks* en moet niet worden opgegeven tijdens bewerkingen met betrekking tot presterende geïmplementeerd servicepakket. 
+>- Onder **gedeeld proces** hostingmodel, op een gegeven *knooppunt*, voor een bepaalde *toepassing*, slechts één exemplaar van een *ServicePackage* is geactiveerd. Deze heeft **ServicePackageActivationId** gelijk zijn aan *lege tekenreeks* en niet tijdens het uitvoeren van de geïmplementeerde service pakket gerelateerde bewerkingen moeten worden opgegeven. 
 >
-> - Onder **exclusieve proces** hostingmodel, op een gegeven *knooppunt*, voor een bepaalde *toepassing*, een of meer exemplaren van een *ServicePackage* kan actief zijn. Elke activering heeft een *niet-lege* **ServicePackageActivationId** en moet worden opgegeven tijdens het uitvoeren van de geïmplementeerde service pakket gekoppelde bewerkingen. 
+> - Onder **exclusieve proces** hostingmodel, op een gegeven *knooppunt*, voor een bepaalde *toepassing*, een of meer exemplaren van een *ServicePackage* kan actief zijn. Elke activering heeft een *niet-lege* **ServicePackageActivationId**, opgegeven tijdens het uitvoeren van de geïmplementeerde service pakket gerelateerde bewerkingen. 
 >
 > - Als **ServicePackageActivationId** wordt weggelaten wordt standaard ingesteld op 'lege string'. Als u een geïmplementeerde service die het pakket is geactiveerd onder **gedeeld proces** model aanwezig is, wordt de bewerking wordt uitgevoerd op het, anders de bewerking mislukt.
 >
-> - Het wordt niet aangeraden eenmaal doorzoeken en cache **ServicePackageActivationId** naar dynamisch wordt gegenereerd en om verschillende redenen kunt wijzigen. Voordat u een bewerking die behoeften uitvoert **ServicePackageActivationId**, u moet eerst de lijst met query [geïmplementeerde servicepakketten] [ p3] op een knooppunt en gebruik vervolgens  **ServicePackageActivationId** uit het queryresultaat de oorspronkelijke bewerking uit te voeren.
+> - Geen query uitvoeren eenmaal en cache **ServicePackageActivationId**, omdat het dynamisch wordt gegenereerd en om verschillende redenen kunt wijzigen. Voordat u een bewerking die behoeften uitvoert **ServicePackageActivationId**, u moet eerst de lijst met query [geïmplementeerde servicepakketten] [ p3] op een knooppunt en gebruik vervolgens  **ServicePackageActivationId** uit het queryresultaat de oorspronkelijke bewerking uit te voeren.
 >
 >
 
 ## <a name="guest-executable-and-container-applications"></a>Het uitvoerbare bestand en de container toepassingen Gast
-Service Fabric behandelt [Gast uitvoerbaar bestand] [ a2] en [container] [ a3] toepassingen als statless services die ingesloten zijn dus er is geen Service Fabric-runtime in *ServiceHost* (een proces of container). Aangezien deze services zelfstandig zijn, aantal replica's per *ServiceHost* is niet van toepassing voor deze services. De configuratie van de meest voorkomende gebruikt in combinatie met deze services is één partitie met [InstanceCount] [ c2] gelijk aan-1 (dat wil zeggen een kopie van de servicecode die wordt uitgevoerd op elk knooppunt van het cluster). 
+Service Fabric behandelt [Gast uitvoerbaar bestand] [ a2] en [container] [ a3] toepassingen als zelfstandig stateless services: Er is geen Service Fabric-runtime in *ServiceHost* (een proces of container). Aangezien deze services zelfstandig zijn, aantal replica's per *ServiceHost* is niet van toepassing voor deze services. De configuratie van de meest voorkomende gebruikt in combinatie met deze services is één partitie met [InstanceCount] [ c2] gelijk aan-1 (dat wil zeggen een kopie van de servicecode die wordt uitgevoerd op elk knooppunt van het cluster). 
 
-De standaardwaarde **ServicePackageActivationMode** is voor deze services **SharedProcess** Service Fabric activeert in dat geval slechts één exemplaar van *ServicePackage* op een *knooppunt* voor een bepaalde *toepassing* wat betekent dat slechts één exemplaar van de servicecode wordt uitgevoerd een *knooppunt*. Als u wilt dat meerdere exemplaren van uw servicecode uit te voeren op een *knooppunt* wanneer u meerdere services maakt (*Service1* naar *ServiceN*) van *ServiceType* (opgegeven in *ServiceManifest*) of als uw service multi gepartitioneerd, moet u **ServicePackageActivationMode** als **ExclusiveProcess** op het moment van het maken van de service.
+De standaardwaarde **ServicePackageActivationMode** is voor deze services **SharedProcess**, Service Fabric activeert in dat geval slechts één exemplaar van *ServicePackage* op een  *Knooppunt* voor een bepaalde *toepassing*.  Dit betekent dat slechts één exemplaar van de servicecode wordt uitgevoerd een *knooppunt*. Als u wilt dat meerdere exemplaren van uw servicecode uit te voeren op een *knooppunt* wanneer u meerdere services maakt (*Service1* naar *ServiceN*) van *ServiceType* (opgegeven in *ServiceManifest*) of als uw service multi gepartitioneerd, moet u **ServicePackageActivationMode** als **ExclusiveProcess** op het moment van het maken van de service.
 
 ## <a name="changing-hosting-model-of-an-existing-service"></a>HostingModel van een bestaande service wijzigen
 HostingModel van een bestaande service vanuit wijzigen **gedeeld proces** naar **exclusieve proces** en vice versa via upgraden of bijwerken van mechanisme (of specificatie van het in het toepassingsmanifest in service) wordt momenteel niet ondersteund. Ondersteuning voor deze functie wordt geleverd in toekomstige versies.
@@ -136,7 +136,7 @@ HostingModel van een bestaande service vanuit wijzigen **gedeeld proces** naar *
 ## <a name="choosing-between-shared-process-and-exclusive-process-model"></a>Kiezen tussen gedeeld proces en exclusieve procesmodel
 Deze hosting modellen hebben de voor- en nadelen en gebruiker nodig om te beoordelen welke beste hun behoeften past. **Gedeeld proces** model stelt beter gebruik van de OS-bronnen omdat er minder processen worden geïnitieerd, meerdere replica's in hetzelfde proces kunnen delen poorten, enzovoort. Echter, als een van de replica's bij een fout waar moet worden buiten de ServiceHost aankomt, dat invloed op alle andere replica's in hetzelfde proces.
 
- **Exclusieve proces** model voorziet in betere isolatie met elke replica in een eigen proces en andere replica's heeft geen invloed op een replica zich niet normaal gedraagt. Deze goed van pas komt voor gevallen waarin delen van de poort wordt niet ondersteund door het communicatieprotocol. Dit vereenvoudigt de mogelijkheid om toe te passen resource governance op niveau van de replica. Aan de andere kant **exclusieve proces** verbruikt meer OS-bronnen omdat deze Hiermee wordt een proces voor elke replica op het knooppunt.
+ **Exclusieve proces** model voorziet in betere isolatie met elke replica in een eigen proces en andere replica's heeft geen invloed op een replica zich niet normaal gedraagt. Deze goed van pas komt voor gevallen waarin delen van de poort wordt niet ondersteund door het communicatieprotocol. Dit vereenvoudigt de mogelijkheid om toe te passen resource governance op niveau van de replica. Echter, **exclusieve proces** verbruikt meer OS-bronnen omdat deze Hiermee wordt een proces voor elke replica op het knooppunt.
 
 ## <a name="exclusive-process-model-and-application-model-considerations"></a>Exclusieve procesmodel en toepassing modelleren overwegingen
 De aanbevolen manier om het model van uw toepassing in Service Fabric is dat een *ServiceType* per *ServicePackage* en dit model geschikt is voor de meeste van de toepassingen. 
@@ -147,17 +147,17 @@ Die bestemd zijn voor bepaalde gebruiksvoorbeelden, Service Fabric kunt ook meer
 - Replica's van verschillende ServiceTypes moeten een aantal algemene gegevens met een hoge initialisatie of geheugen kosten delen.
 - U hebt een gratis serviceaanbieding en u wilt opnemen een limiet van Resourcegebruik door de gegevens van alle replica's van de service in hetzelfde proces.
 
-**Exclusieve proces** hostingmodel is geen samenhangende met meerdere toepassingsmodel *ServiceTypes* per *ServicePackage*. Dit komt doordat meerdere *ServiceTypes* per *ServicePackage* is ontworpen om u te bereiken hogere resource delen van replica's en hogere replica dichtheid per proces maakt. Dit is in strijd is met wat **exclusieve proces** model is ontworpen om te bereiken.
+**Exclusieve proces** hostingmodel is geen samenhangende met meerdere toepassingsmodel *ServiceTypes* per *ServicePackage*. Dit komt doordat meerdere *ServiceTypes* per *ServicePackage* zijn ontworpen voor hogere resource delen tussen de replica's en schakelt hogere replica dichtheid per proces. Dit is in strijd is met wat **exclusieve proces** model is ontworpen om te bereiken.
 
-Neem het geval van meerdere *ServiceTypes* per *ServicePackage* met andere *CodePackage* registreren van elk *ServiceType*. Laten we een *ServicePackage* MultiTypeServicePackge' met twee *CodePackages*:
+Neem het geval van meerdere *ServiceTypes* per *ServicePackage* met andere *CodePackage* registreren van elk *ServiceType*. Laten we een *ServicePackage* 'MultiTypeServicePackge', met twee *CodePackages*:
 
-- MyCodePackageA, waardoor wordt geregistreerd *ServiceType* 'MyServiceTypeA'.
-- MyCodePackageB, waardoor wordt geregistreerd *ServiceType* 'MyServiceTypeB'.
+- 'MyCodePackageA', waardoor wordt geregistreerd *ServiceType* 'MyServiceTypeA'.
+- 'MyCodePackageB', waardoor wordt geregistreerd *ServiceType* 'MyServiceTypeB'.
 
 Nu kunt spreken, maken we een *toepassing* **fabric: / SpecialApp** en binnen **fabric: / SpecialApp** maken we de volgende twee services met **exclusieve proces** model:
 
-- Service **fabric: / SpecialApp/ServiceA** van het type 'MyServiceTypeA' met twee partities (spreken **P1** en **P2**) en 3 replica's per partitie.
-- Service **fabric: / SpecialApp/ServiceB** van het type 'MyServiceTypeB' met twee partities (spreken **P3** en **P4**) en 3 replica's per partitie.
+- Service **fabric: / SpecialApp/ServiceA** van het type 'MyServiceTypeA' met twee partities (spreken **P1** en **P2**) en drie replica's per partitie.
+- Service **fabric: / SpecialApp/ServiceB** van het type 'MyServiceTypeB' met twee partities (spreken **P3** en **P4**) en drie replica's per partitie.
 
 Beide de services wordt elke twee replica's hebben op een bepaald knooppunt. Aangezien we gebruikt **exclusieve proces** model voor het maken van de services, Service Fabric een nieuw exemplaar van 'MyServicePackge' voor elke replica worden geactiveerd. Elke activering van 'MultiTypeServicePackge' wordt een kopie van 'MyCodePackageA' en 'MyCodePackageB' gestart. Slechts één van de 'MyCodePackageA' of 'MyCodePackageB' host echter de replica waarvoor 'MultiTypeServicePackge' is geactiveerd. Volgende diagram toont de weergave van knooppunt:
 
@@ -165,15 +165,15 @@ Beide de services wordt elke twee replica's hebben op een bepaald knooppunt. Aan
 ![Knooppunt-weergave van geïmplementeerde toepassing][node-view-five]
 </center>
 
- Zoals we in het activeren van 'MultiTypeServicePackge' voor de replica van partitie zien kunt **P1** van service **fabric: / SpecialApp/ServiceA**, de replica wordt gehost door 'MyCodePackageA' en 'MyCodePackageB' net actief is. Op deze manier bij activering van 'MultiTypeServicePackge' voor de replica van partitie **P3** van service **fabric: / SpecialApp/XPb**, 'MyCodePackageB' als host fungeert voor de replica en 'MyCodePackageA' is zojuist lucht enzovoort. Daarom meer het aantal *CodePackages* (registreren verschillende *ServiceTypes*) per *ServicePackage*, hogere worden redundante Resourcegebruik. 
+In het activeren van 'MultiTypeServicePackge' voor de replica van partitie **P1** van service **fabric: / SpecialApp/ServiceA**, de replica wordt gehost door 'MyCodePackageA' en 'MyCodePackageB' actief is . Op deze manier bij activering van 'MultiTypeServicePackge' voor de replica van partitie **P3** van service **fabric: / SpecialApp/XPb**, 'MyCodePackageB' als host fungeert voor de replica en 'MyCodePackageA' is zojuist lucht enzovoort. Daarom meer het aantal *CodePackages* (registreren verschillende *ServiceTypes*) per *ServicePackage*, hogere worden redundante Resourcegebruik. 
  
- Anderzijds als we services maakt **fabric: / SpecialApp/ServiceA** en **fabric: / SpecialApp/ServiceB** met **gedeeld proces** model, Service Fabric wordt slechts één exemplaar van 'MultiTypeServicePackge' activeren voor *toepassing* **fabric: / SpecialApp** (zoals u hebt gezien eerder). Alle replica's voor service fungeert als host voor 'MyCodePackageA' **fabric: / SpecialApp/ServiceA** (of een service van het type 'MyServiceTypeA' nauwkeuriger) en 'MyCodePackageB' fungeert als host voor alle replica's voor service **fabric: / SpecialApp/XPb** (of een service van het type 'MyServiceTypeB' nauwkeuriger). Volgende diagram toont de weergave van het knooppunt in deze instelling: 
+ Echter als we services maakt **fabric: / SpecialApp/ServiceA** en **fabric: / SpecialApp/ServiceB** met **gedeeld proces** model, Service Fabric wordt slechts één activeren exemplaar van 'MultiTypeServicePackge' voor *toepassing* **fabric: / SpecialApp** (zoals u hebt gezien eerder). Alle replica's voor service fungeert als host voor 'MyCodePackageA' **fabric: / SpecialApp/ServiceA** (of een service van het type 'MyServiceTypeA' nauwkeuriger). Alle replica's voor service fungeert als host voor 'MyCodePackageB' **fabric: / SpecialApp/XPb** (of een service van het type 'MyServiceTypeB' nauwkeuriger). Het volgende diagram toont de weergave van het knooppunt in deze instelling: 
 
 <center>
 ![Knooppunt-weergave van geïmplementeerde toepassing][node-view-six]
 </center>
 
-In het bovenstaande voorbeeld kunt u overwegen als 'MyCodePackageA' zowel 'MyServiceTypeA' en 'MyServiceTypeB registreert' en er is geen 'MyCodePackageB', dan zal er geen redundante *CodePackage* uitgevoerd. Dit klopt, echter, zoals eerder vermeld, dit toepassingsmodel komt niet overeen met **exclusieve proces** hostingmodel. Als het doel is om elke replica in een eigen toegewezen verwerkt, registreren, zowel *ServiceTypes* van dezelfde *CodePackage* is niet nodig en stellen elke *ServiceType* in een eigen *ServicePacakge* is een natuurlijke keuze.
+In het voorgaande voorbeeld kunt u overwegen als 'MyCodePackageA' zowel 'MyServiceTypeA' en 'MyServiceTypeB registreert' en er is geen 'MyCodePackageB', dan zal er geen redundante *CodePackage* uitgevoerd. Dit is eerder juist is, maar zoals vermeld. Dit toepassingsmodel komt niet overeen met **exclusieve proces** hostingmodel. Als het doel is om elke replica in een eigen toegewezen proces, registreren, beide *ServiceTypes* van dezelfde *CodePackage* is niet nodig. Elk plaatsen *ServiceType* in een eigen *ServicePacakge* is een natuurlijke keuze.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Een toepassing van het pakket] [ a4] en voorbereidingen te implementeren.
@@ -190,7 +190,7 @@ In het bovenstaande voorbeeld kunt u overwegen als 'MyCodePackageA' zowel 'MySer
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [a1]: service-fabric-application-model.md
-[a2]: service-fabric-deploy-existing-app.md
+[a2]: service-fabric-guest-executables-introduction.md
 [a3]: service-fabric-containers-overview.md
 [a4]: service-fabric-package-apps.md
 [a5]: service-fabric-deploy-remove-applications.md

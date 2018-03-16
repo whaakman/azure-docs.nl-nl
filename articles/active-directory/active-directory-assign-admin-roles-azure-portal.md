@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8ba4787852902f194deb3eee27ff9f0fc28fa5aa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -61,9 +61,9 @@ De volgende beheerdersrollen zijn beschikbaar:
   >
   >
 
-* **Gast uitnodiging antwoorden**: gebruikers met deze rol kunnen Azure Active Directory B2B Gast gebruiker uitnodigingen beheren wanneer de instelling 'Leden kunnen uitnodigen' gebruiker is ingesteld op Nee. Meer informatie over B2B-samenwerking op [over de Azure AD B2B-samenwerking preview](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Dit omvat geen andere machtigingen.
+* **Gast uitnodiging antwoorden**: gebruikers met deze rol kunnen Azure Active Directory B2B Gast gebruiker uitnodigingen beheren wanneer de instelling 'Leden kunnen uitnodigen' gebruiker is ingesteld op Nee. Meer informatie over B2B-samenwerking op [over Azure AD B2B-samenwerking](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Dit omvat geen andere machtigingen.
 
-* **Information Protection-beheerder (preview)**: hebt gebruikersrechten hebben gebruikers met deze rol alleen op de Azure Information Protection-service. Ze worden gebruikersrechten op Identity Protection Center, Privileged Identity Management, controleprogramma Office 365-Service de status, of Office 365-beveiliging en naleving Center niet verleend. Ze kunnen labels voor het Azure Information Protection-beleid configureren, beheren van sjablonen voor beveiliging en bescherming activeren.
+* **Information Protection-beheerder**: hebt gebruikersrechten hebben gebruikers met deze rol alleen op de Azure Information Protection-service. Ze worden gebruikersrechten op Identity Protection Center, Privileged Identity Management, controleprogramma Office 365-Service de status, of Office 365-beveiliging en naleving Center niet verleend. Ze kunnen labels voor het Azure Information Protection-beleid configureren, beheren van sjablonen voor beveiliging en bescherming activeren.
 
 * **Intune-servicebeheerder**: gebruikers met deze rol globale machtigingen in Microsoft Intune Online zijn wanneer de service aanwezig is. Daarnaast bevat deze rol de mogelijkheid voor het beheren van gebruikers en apparaten om te koppelen van beleid, evenals groepen maken en beheren.
 
@@ -127,7 +127,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 | --- | --- |
 | <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Wachtwoorden voor gebruikers en andere Helpdesk-beheerders alleen wijzigen</p>|<p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>Rapporten weergeven</p>|
 
-### <a name="information-protection-administrator-preview"></a>Information Protection-beheerder (preview)
+### <a name="information-protection-administrator"></a>Information Protection-beheerder
 in | Kan doen
 -------- | ---------
 Azure Information Protection | <li>Labels en instellingen configureren in het beleid voor globale en bereik<li>Configureren en beheren van sjablonen voor beveiliging<li>Activeren of deactiveren beveiliging--

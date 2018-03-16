@@ -2,24 +2,18 @@
 title: Met behulp van de clientbibliotheek voor elastische database met Entity Framework | Microsoft Docs
 description: Gebruik van de clientbibliotheek voor elastische Database en Entity Framework voor het coderen van databases
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: torsteng
-ms.openlocfilehash: 1fc61657419f1f4581c5c67639d7bc2e4b0d509f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 5f215c6c6f65804785e35ae1b3ec9cce24e2a976
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastische Database-clientbibliotheek met Entity Framework
 Dit document bevat de wijzigingen in een Entity Framework-toepassing die nodig zijn om te integreren met de [hulpmiddelen voor elastische databases](sql-database-elastic-scale-introduction.md). De focus is het samenstellen van [shard kaart management](sql-database-elastic-scale-shard-map-management.md) en [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) met de Entity Framework **Code First** benadering. De [Code eerst - nieuwe Database](http://msdn.microsoft.com/data/jj193542.aspx) zelfstudie voor EF fungeert als het actieve voorbeeld in dit hele document. De voorbeeldcode die bij dit document is onderdeel van de hulpmiddelen voor elastische databases ingesteld van de voorbeelden in de Visual Studio-codevoorbeelden.
@@ -173,7 +167,7 @@ Het volgende codevoorbeeld ziet u hoe een SQL-beleid voor opnieuw proberen kan w
 
 **SqlDatabaseUtils.SqlRetryPolicy** in de bovenstaande code wordt gedefinieerd als een **SqlDatabaseTransientErrorDetectionStrategy** met een aantal nieuwe pogingen van 10 en 5 seconden wachttijd tussen nieuwe pogingen. Deze aanpak is vergelijkbaar met de richtlijnen voor EF en transacties gebruiker gestart (Zie [beperkingen in de uitvoering van strategieën opnieuw uit te voeren (EF6 en hoger)](http://msdn.microsoft.com/data/dn307226). Beide situaties is vereist dat de toepassing kan bepalen het bereik waarvoor de tijdelijke uitzondering geretourneerd: aan de transactie opnieuw of maak de context van de juiste constructor (zoals) die gebruikmaakt van de clientbibliotheek voor elastische database.
 
-De noodzaak om te bepalen waar tijdelijke uitzonderingen in beslag terug in bereik sluit ook het gebruik van de ingebouwde **SqlAzureExecutionStrategy** die wordt geleverd met EF. **SqlAzureExecutionStrategy** zou opnieuw een verbinding openen maar niet **OpenConnectionForKey** en daarom omzeilen alle validatietests die wordt uitgevoerd als onderdeel van de **OpenConnectionForKey** aanroepen. In plaats daarvan de voorbeeldcode maakt gebruik van de ingebouwde **DefaultExecutionStrategy** die wordt geleverd met EF. Niet **SqlAzureExecutionStrategy**, deze correct werkt in combinatie met het beleid voor opnieuw proberen van afhandeling van tijdelijke fout. Het uitvoeringsbeleid is ingesteld in de **ElasticScaleDbConfiguration** klasse. Let op: we besloten geen gebruik te **DefaultSqlExecutionStrategy** omdat er wordt verwezen met behulp van **SqlAzureExecutionStrategy** als tijdelijke uitzonderingen optreden - die zou leiden tot onjuiste gedrag zoals besproken. Zie voor meer informatie over de verschillende retry-beleid en de EF [Verbindingstolerantie in EF](http://msdn.microsoft.com/data/dn456835.aspx).     
+De noodzaak om te bepalen waar tijdelijke uitzonderingen in beslag terug in bereik sluit ook het gebruik van de ingebouwde **SqlAzureExecutionStrategy** die wordt geleverd met EF. **SqlAzureExecutionStrategy** zou opnieuw een verbinding openen maar niet **OpenConnectionForKey** en daarom omzeilen alle validatietests die wordt uitgevoerd als onderdeel van de **OpenConnectionForKey**aanroepen. In plaats daarvan de voorbeeldcode maakt gebruik van de ingebouwde **DefaultExecutionStrategy** die wordt geleverd met EF. Niet **SqlAzureExecutionStrategy**, deze correct werkt in combinatie met het beleid voor opnieuw proberen van afhandeling van tijdelijke fout. Het uitvoeringsbeleid is ingesteld in de **ElasticScaleDbConfiguration** klasse. Let op: we besloten geen gebruik te **DefaultSqlExecutionStrategy** omdat er wordt verwezen met behulp van **SqlAzureExecutionStrategy** als tijdelijke uitzonderingen optreden - die zou leiden tot onjuiste gedrag zoals besproken. Zie voor meer informatie over de verschillende retry-beleid en de EF [Verbindingstolerantie in EF](http://msdn.microsoft.com/data/dn456835.aspx).     
 
 #### <a name="constructor-rewrites"></a>Constructor regeneraties
 De bovenstaande codevoorbeelden ziet u de standaard-constructor herschrijft vereist is voor uw toepassing om te kunnen gebruiken gegevensafhankelijke routering met de Entity Framework. De volgende tabel generaliseert deze benadering van andere constructors. 
@@ -182,11 +176,11 @@ De bovenstaande codevoorbeelden ziet u de standaard-constructor herschrijft vere
 | --- | --- | --- | --- |
 | MyContext() |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |De verbinding moet een functie van de shard-toewijzing en het gegevensafhankelijke routering sleutel. U moet maken van de automatische verbinding omzeilen door EF en in plaats daarvan broker van de verbinding met de shard-toewijzing. |
 | MyContext(string) |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |De verbinding is een functie van de shard-toewijzing en het gegevensafhankelijke routering sleutel. Een vaste databaserol of verbindingstekenreeks werkt niet als ze validatie omzeilen door de shard-toewijzing. |
-| MyContext(DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |De verbinding wordt gemaakt voor de opgegeven shard-toewijzing en sharding-sleutel met het model. Het gecompileerde model wordt doorgegeven aan de basis c'tor. |
+| MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |De verbinding wordt gemaakt voor de opgegeven shard-toewijzing en sharding-sleutel met het model. Het gecompileerde model wordt doorgegeven aan de basis c'tor. |
 | MyContext (DbConnection, bool) |ElasticScaleContext (ShardMap, TKey, bool) |DbContext (DbConnection, bool) |De verbinding moet worden afgeleid van de shard-toewijzing en de sleutel. Deze kan niet worden opgegeven als invoer (tenzij deze invoer al voor de shard-toewijzing en de sleutel gebruikt is). De Booleaanse waarde is doorgegeven. |
-| MyContext (string, DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |De verbinding moet worden afgeleid van de shard-toewijzing en de sleutel. Deze kan niet worden opgegeven als invoer (tenzij deze invoer is de shard-toewijzing en de sleutel). Het gecompileerde model is doorgegeven. |
+| MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |De verbinding moet worden afgeleid van de shard-toewijzing en de sleutel. Deze kan niet worden opgegeven als invoer (tenzij deze invoer is de shard-toewijzing en de sleutel). Het gecompileerde model is doorgegeven. |
 | MyContext (ObjectContext, bool) |ElasticScaleContext (ShardMap TKey, ObjectContext, bool) |DbContext (ObjectContext, bool) |De nieuwe constructor moet om ervoor te zorgen dat een verbinding in de ObjectContext is doorgegeven als invoer omgeleid naar een verbinding die wordt beheerd door elastisch schalen wordt. Een gedetailleerde discussie over ObjectContexts valt buiten het bereik van dit document. |
-| MyContext (DbConnection, DbCompiledModel, bool) |ElasticScaleContext (ShardMap TKey, DbCompiledModel, bool) |DbContext (DbConnection, DbCompiledModel, bool); |De verbinding moet worden afgeleid van de shard-toewijzing en de sleutel. De verbinding kan niet worden opgegeven als invoer (tenzij deze invoer al voor de shard-toewijzing en de sleutel gebruikt is). Model en Booleaanse waarde worden doorgegeven aan de constructor basisklasse. |
+| MyContext (DbConnection, DbCompiledModel, bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool) |DbContext (DbConnection, DbCompiledModel, bool); |De verbinding moet worden afgeleid van de shard-toewijzing en de sleutel. De verbinding kan niet worden opgegeven als invoer (tenzij deze invoer al voor de shard-toewijzing en de sleutel gebruikt is). Model en Booleaanse waarde worden doorgegeven aan de constructor basisklasse. |
 
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>Implementatie van de shard-schema via EF-migraties
 Automatische Schemabeheer is voor uw gemak geleverd door de Entity Framework. In de context van toepassingen met elastische database-hulpprogramma's die u wilt bewaren van deze mogelijkheid voor het automatisch inrichten van het schema voor de zojuist gemaakte shards wanneer databases worden toegevoegd aan de shard-toepassing. Er is een voornamelijk gebruikt om te verhogen voor shard-toepassingen met EF-capaciteit op de gegevenslaag. De database beheer inspanning vertrouwen op de EF mogelijkheden voor het Schemabeheer van het met een shard toepassing die is gebouwd op EF worden beperkt. 

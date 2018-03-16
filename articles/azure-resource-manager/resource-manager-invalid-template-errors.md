@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c6712eaf17cf55c1422baca355ce99ed319df28
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9626b3caaa7188a4e9a37f83d1fbf091951714f4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Los de fouten voor ongeldige sjabloon
 
@@ -38,6 +38,8 @@ Het foutbericht is afhankelijk van het type fout.
 
 Deze fout kan leiden tot verschillende typen fouten. Ze hebben meestal betrekking op een syntaxis of structurele fout in de sjabloon.
 
+<a id="syntax-error" />
+
 ## <a name="solution-1---syntax-error"></a>Oplossing 1 - syntaxisfout
 
 Als u een foutbericht dat aangeeft de validatie van de sjabloon is mislukt ontvangt dat, hebt u mogelijk een probleem met de syntaxis in de sjabloon.
@@ -56,6 +58,8 @@ Dit is een fout gemakkelijk maken omdat sjabloonexpressies kunnen ingewikkeld zi
 Als u de syntaxis van de overeenkomende niet opgeeft, wordt in de sjabloon een waarde die is anders dan uw bedoeling produceert.
 
 Wanneer u dit type fout ontvangt, zorgvuldig door de expressiesyntaxis van de. Overweeg het gebruik van een JSON-editor, zoals [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) of [Visual Studio Code](resource-manager-vs-code.md), die u kunt gewaarschuwd over syntaxisfouten.
+
+<a id="incorrect-segment-lengths" />
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>Oplossing 2 - onjuist segment lengten
 
@@ -116,6 +120,8 @@ Ophalen van de segmenten rechts is lastig met Resource Manager-typen die worden 
 }
 ```
 
+<a id="parameter-not-valid" />
+
 ## <a name="solution-3---parameter-is-not-valid"></a>Oplossing 3 - parameter is niet geldig
 
 Als u een parameterwaarde die is niet een van de toegestane waarden opgeven, ontvangt u een bericht dat lijkt op de volgende fout:
@@ -129,9 +135,13 @@ part of the allowed values
 
 Dubbele de toegestane waarden in de sjabloon en geef een tijdens de implementatie. Zie voor meer informatie over de toegestane parameterwaarden [sectie opdrachtregelparameters van Azure Resource Manager-sjablonen](resource-manager-templates-parameters.md).
 
+<a id="too-many-resource-groups" />
+
 ## <a name="solution-4---too-many-target-resource-groups"></a>Oplossing 4: te veel doel resourcegroepen
 
 Als u meer dan vijf doel resourcegroepen in een implementatie met één opgeeft, ontvangt deze foutmelding. Houd rekening met het aantal resourcegroepen in uw implementatie of implementeren van sommige sjablonen als afzonderlijke-implementaties. Zie voor meer informatie [implementeren Azure-resources aan meer dan één abonnement of resourcegroep](resource-manager-cross-resource-group-deployment.md).
+
+<a id="circular-dependency" />
 
 ## <a name="solution-5---circular-dependency-detected"></a>Oplossing 5 - circulaire afhankelijkheid gedetecteerd
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ead8edcefa8705af82f4b223512a671c1245718a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Analyse van gevoel met grondige Learning met Azure Machine Learning
 
@@ -69,7 +69,7 @@ De volgorde van praktijkcursussen bij het uitvoeren van de oplossing is als volg
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
 | 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py' |
-| 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
+| 3 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
 ## <a name="conclusion"></a>Conclusie
 

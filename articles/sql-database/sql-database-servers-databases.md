@@ -2,24 +2,18 @@
 title: Maken en beheren van Azure SQL-servers en databases | Microsoft Docs
 description: Meer informatie over Azure SQL Database-server en database-concepten en over het maken en beheren van servers en -databases.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 0e2dabc5cc0b816f2623fce5f8fb09a7004039c7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a6e1b6230742c1c2f065418110f76932306a9588
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database-servers en databases maken en beheren
 
@@ -208,7 +202,7 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls, gebrui
 |[Databases - verkrijgen door de elastische groep](/rest/api/sql/databases/getbyelasticpool)|Hiermee haalt u een database in een elastische pool.|
 |[Databases - verkrijgen door aanbevolen elastische Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Hiermee haalt u een database binnen een recommented elastische pool.|
 |[Databases - lijst door de elastische groep](/rest/api/sql/databases/listbyelasticpool)|Retourneert een lijst met databases in een elastische pool.|
-|[Databases - lijst met aanbevolen elastische Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourneert een lijst met databases binnen een recommented elastische pool.|
+|[Databases - lijst met aanbevolen elastische Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourneert een lijst met databases binnen een aanbevolen elastische pool.|
 |[Databases - lijst per Server](/rest/api/sql/databases/listbyserver)|Retourneert een lijst met databases in een server.|
 |[Databases - Update](/rest/api/sql/databases/update)|Een bestaande database-updates.|
 |[Firewall-regels - maken of bijwerken](/rest/api/sql/firewallrules/createorupdate)|Maken of bijwerken van een firewallregel.|

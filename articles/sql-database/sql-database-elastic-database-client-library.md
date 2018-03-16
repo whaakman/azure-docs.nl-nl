@@ -2,24 +2,18 @@
 title: Schaalbare cloud databases bouwen | Microsoft Docs
 description: Schaalbare apps van .NET-database met de clientbibliotheek voor elastische database maken
 services: sql-database
-documentationcenter: 
 manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 1f11c52d-13c1-4994-b9b1-5b1ae2f9255f
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
-ms.author: ddove
-ms.openlocfilehash: 0674aba66b48b26b70b3ab32d9283de5c63a267a
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.author: sstein
+ms.openlocfilehash: e15254fd529d98f2b92acea8dd1ed908a82841ea
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="building-scalable-cloud-databases"></a>Schaalbare clouddatabases bouwen
 Databases uitbreiden kan gemakkelijk worden gedaan met behulp van schaalbare hulpprogramma's en functies voor Azure SQL Database. U kunt in het bijzonder de **clientbibliotheek voor elastische Database** maken en beheren van uitgebreide databases. Deze functie kunt u eenvoudig shard toepassingen ontwikkelen met honderden, of zelfs duizenden — van Azure SQL-databases. [Elastische taken](sql-database-elastic-jobs-powershell.md) kan vervolgens worden gebruikt voor het beheer te vereenvoudigen voor deze databases.

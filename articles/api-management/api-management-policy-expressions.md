@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a5bcd03e71a69928fa1e02a5286801c4933d17ef
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 0ecfade830b2123257b8039d5f0c26f19f3f3fc6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="api-management-policy-expressions"></a>Expressies voor API Management-beleid
-Dit artikel wordt beschreven beleid expressies syntaxis is C# 6.0. Elke expressie toegang heeft tot de opgegeven impliciet [context](api-management-policy-expressions.md#ContextVariables) variabele en een toegestane [subset](api-management-policy-expressions.md#CLRTypes) van .NET Framework-typen.  
+Dit artikel wordt beschreven beleid expressies syntaxis is C# 7. Elke expressie toegang heeft tot de opgegeven impliciet [context](api-management-policy-expressions.md#ContextVariables) variabele en een toegestane [subset](api-management-policy-expressions.md#CLRTypes) van .NET Framework-typen.  
 
 Voor meer informatie:
 

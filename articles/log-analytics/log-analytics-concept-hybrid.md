@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 85fde471f0d99b976e319d552c6a031d63854cf4
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Verzamel gegevens van computers in uw omgeving met Log Analytics
 
@@ -77,14 +77,14 @@ De volgende Linux-distributies worden officieel ondersteund.  De Linux-agent kan
 * SUSE Linux Enterprise Server 11 en 12 (x86/x64)
 
 #### <a name="network-configuration"></a>Netwerkconfiguratie
-Gegevens van de onderstaande lijst de vereist voor de Linux-agent om te communiceren met logboekanalyse proxy- en firewall-configuratie-informatie. Verkeer is uitgaand vanaf het netwerk naar het Log Analytics-service. 
+Gegevens van de onderstaande lijst de vereist voor de Linux-agent om te communiceren met logboekanalyse proxy- en firewall-configuratie-informatie.  
 
-|Agentresource| Poorten |  
-|------|---------|  
-|*.ods.opinsights.azure.com | Poort 443|   
-|*.oms.opinsights.azure.com | Poort 443|   
-|*.blob.core.windows.net | Poort 443|   
-|*.azure-automation.net | Poort 443|  
+|Agentresource| Poorten | Richting |  
+|------|---------|--------|  
+|*.ods.opinsights.azure.com | Poort 443 | Binnenkomend en uitgaand|  
+|*.oms.opinsights.azure.com | Poort 443 | Binnenkomend en uitgaand|  
+|*.blob.core.windows.net | Poort 443 | Binnenkomend en uitgaand|  
+|*.azure-automation.net | Poort 443 | Binnenkomend en uitgaand|  
 
 De Linux-agent ondersteunt communiceren via een proxy of Gateway naar de Log Analytics-service met behulp van het HTTPS-protocol OMS.  Zowel anonieme verificatie en basisverificatie (gebruikersnaam en wachtwoord) worden ondersteund.  De proxy-server kan worden opgegeven tijdens de installatie of door het wijzigen van het configuratiebestand proxy.conf na de installatie.  
 

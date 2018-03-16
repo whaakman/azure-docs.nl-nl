@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 0b19071bf871029b488b26d3f125d08d7d2a2dd4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 71eadc08aeb4ac197f55b6d3aac8eb6009be9107
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: Aan de slag met de SQL-API en .NET Core
 > [!div class="op_single_selector"]
@@ -173,7 +173,7 @@ static void Main(string[] args)
 
 Druk op de knop **DocumentDBGettingStarted** om de toepassing te bouwen en uit te voeren.
 
-Gefeliciteerd. U hebt verbinding gemaakt met een Azure Cosmos DB-account. U gaat nu aan de slag met Azure Cosmos DB-resources.  
+Gefeliciteerd! U hebt verbinding gemaakt met een Azure Cosmos DB-account. U gaat nu aan de slag met Azure Cosmos DB-resources.  
 
 ## <a name="step-4-create-a-database"></a>Stap 4: een database maken
 Voordat u de code voor het maken van een database toevoegt, moet u een Help-methode toevoegen om naar de console te kunnen schrijven.
@@ -205,7 +205,7 @@ private async Task GetStartedDemo()
 
 Druk op de knop **DocumentDBGettingStarted** om de toepassing uit te voeren.
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-database gemaakt.  
+Gefeliciteerd! U hebt een Azure Cosmos DB-database gemaakt.  
 
 ## <a id="CreateColl"></a>Stap 5: een verzameling maken
 > [!WARNING]
@@ -218,7 +218,7 @@ Kopieer de volgende code en plak deze in de methode **GetStartedDemo** onder de 
 ```csharp
     this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-    await this.client.CreateDatabaseIfNotExists("FamilyDB_oa");
+    await this.client.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
 
     // ADD THIS PART TO YOUR CODE
     await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
@@ -226,7 +226,7 @@ Kopieer de volgende code en plak deze in de methode **GetStartedDemo** onder de 
 
 Druk op de knop **DocumentDBGettingStarted** om de toepassing uit te voeren.
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-documentverzameling gemaakt.  
+Gefeliciteerd! U hebt een Azure Cosmos DB-documentverzameling gemaakt.  
 
 ## <a id="CreateDoc"></a>Stap 6: JSON-documenten maken
 U kunt een [document](sql-api-resources.md#documents) maken met de methode [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) van de klasse **DocumentClient**. Documenten bestaan uit door gebruikers gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een of meer documenten invoegen. Als u gegevens die u wilt opslaan in de database al hebt, kunt u Azure Cosmos DB [hulpprogramma voor gegevensmigratie](import-data.md).
@@ -318,7 +318,7 @@ En voeg twee documenten in, één voor de Andersen Family en één voor de Wakef
 Kopieer de code die volgt op `// ADD THIS PART TO YOUR CODE` en plak deze in de methode **GetStartedDemo**, onder de code voor het verzamelen van documenten.
 
 ```csharp
-await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+await this.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
 
 await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
@@ -391,7 +391,7 @@ await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa",
 
 Druk op de knop **DocumentDBGettingStarted** om de toepassing uit te voeren.
 
-Gefeliciteerd. U hebt twee Azure Cosmos DB-documenten gemaakt.  
+Gefeliciteerd! U hebt twee Azure Cosmos DB-documenten gemaakt.  
 
 ![Diagram waarin u de hiërarchische relatie ziet tussen het account, de online database, de verzameling en de documenten die in de NoSQL-zelfstudie worden gebruikt om een a C#-consoletoepassing te maken](./media/sql-api-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
@@ -447,7 +447,7 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Druk op de knop **DocumentDBGettingStarted** om de toepassing uit te voeren.
 
-Gefeliciteerd. U hebt een query uitgevoerd op een Azure Cosmos DB-verzameling.
+Gefeliciteerd! U hebt een query uitgevoerd op een Azure Cosmos DB-verzameling.
 
 In het volgende diagram ziet u hoe de Azure Cosmos DB SQL-querysyntaxis wordt aangeroepen voor de verzameling die u hebt gemaakt. Dezelfde logica is ook van toepassing op de LINQ-query.
 
@@ -464,15 +464,8 @@ Kopieer de methode **ReplaceFamilyDocument** en plak deze onder de methode **Exe
 // ADD THIS PART TO YOUR CODE
 private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
 {
-    try
-    {
-        await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
-        this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
-    }
-    catch (DocumentClientException de)
-    {
-        throw;
-    }
+    await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
+    this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
 }
 ```
 
@@ -494,7 +487,7 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Druk op de knop **DocumentDBGettingStarted** om de toepassing uit te voeren.
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-document vervangen.
+Gefeliciteerd! U hebt een Azure Cosmos DB-document vervangen.
 
 ## <a id="DeleteDocument"></a>Stap 9: JSON-document verwijderen
 Azure Cosmos DB biedt ondersteuning voor het verwijderen van JSON-documenten.  
@@ -505,15 +498,8 @@ Kopieer de methode **DeleteFamilyDocument** en plak deze onder de methode **Repl
 // ADD THIS PART TO YOUR CODE
 private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
 {
-    try
-    {
-        await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-        Console.WriteLine("Deleted Family {0}", documentName);
-    }
-    catch (DocumentClientException de)
-    {
-        throw;
-    }
+    await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+    Console.WriteLine("Deleted Family {0}", documentName);
 }
 ```
 
@@ -530,7 +516,7 @@ await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.
 
 Druk op de knop **DocumentDBGettingStarted** om de toepassing uit te voeren.
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-document verwijderd.
+Gefeliciteerd! U hebt een Azure Cosmos DB-document verwijderd.
 
 ## <a id="DeleteDatabase"></a>Stap 10: de database verwijderen
 Als u de gemaakte database verwijdert, worden de database en alle onderliggende resources (verzamelingen, documenten, enz.) verwijderd.
@@ -549,7 +535,7 @@ await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"
 
 Druk op de knop **DocumentDBGettingStarted** om de toepassing uit te voeren.
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-database verwijderd.
+Gefeliciteerd! U hebt een Azure Cosmos DB-database verwijderd.
 
 ## <a id="Run"></a>Stap 11: uw C#-consoletoepassing volledig uitvoeren
 Druk op de knop **DocumentDBGettingStarted** in Visual Studio om de toepassing te bouwen in de foutopsporingsmodus.
@@ -579,7 +565,7 @@ Deleted Family Andersen.1
 End of demo, press any key to exit.
 ```
 
-Gefeliciteerd. U hebt de zelfstudie voltooid en beschikt nu over een werkende C#-consoletoepassing.
+Gefeliciteerd! U hebt de zelfstudie voltooid en beschikt nu over een werkende C#-consoletoepassing.
 
 ## <a id="GetSolution"></a> De volledige zelfstudieoplossing ophalen
 Als u een GetStarted-oplossing wilt bouwen die alle voorbeelden uit dit artikel bevat, hebt u het volgende nodig:

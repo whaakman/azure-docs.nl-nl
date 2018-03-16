@@ -2,32 +2,28 @@
 title: Het bijhouden van wijzigingen met Azure Automation | Microsoft Docs
 description: De oplossing voor wijzigingen bijhouden kunt u identificeren van software- en Windows-Service-wijzigingen die in uw omgeving plaatsvinden.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
 ms.service: automation
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79c5f354c3e63856474e46e2b6928af829604e15
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: fcee2956d2d33133c5d1a5bf367643a2095cad71
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in de software in uw omgeving met de oplossing voor wijzigingen bijhouden
+# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Het bijhouden van wijzigingen in uw omgeving met de oplossing voor wijzigingen bijhouden
 
 In dit artikel helpt u de oplossing voor wijzigingen bijhouden gebruiken voor het herkennen van wijzigingen in uw omgeving. De oplossing houdt de wijzigingen voor Windows en Linux-software, Windows en Linux-bestanden, registersleutels voor Windows, Windows-services en Linux-daemons. Wijzigingen in de configuratie te identificeren, kunt u operationele problemen te lokaliseren.
 
 Wijzigingen in de geïnstalleerde software, Windows-services, Windows-register en bestanden en Linux-daemons op de bewaakte servers worden verzonden naar de Log Analytics-service in de cloud voor verwerking. Logica wordt toegepast op de ontvangen gegevens en registreert de gegevens van de cloudservice. Met behulp van de informatie op het dashboard bijhouden, kunt u eenvoudig de wijzigingen die zijn aangebracht in uw serverinfrastructuur bekijken.
 
-## <a name="enable-change-tracking-and-inventory"></a>Bijhouden van wijzigingen en inventarisatie inschakelen
+## <a name="enable-change-tracking-and-inventory"></a>Wijzigingen bijhouden en Inventaris inschakelen
 
 
 Om te beginnen met het bijhouden van wijzigingen, moet u de oplossing voor wijzigingen bijhouden en inventarisatie inschakelen voor uw Automation-Account.
@@ -53,16 +49,16 @@ Gebruik de volgende stappen voor het bestand bijhouden configureren op Linux-com
 |Eigenschap  |Beschrijving  |
 |---------|---------|
 |Ingeschakeld     | Hiermee wordt bepaald of de instelling is toegepast.        |
-|De itemnaam van het     | Beschrijvende naam van het bestand moet worden gevolgd.        |
+|Itemnaam     | Beschrijvende naam van het bestand moet worden gevolgd.        |
 |Groep     | De groepsnaam van een voor bestanden logisch groeperen.        |
-|Voer pad     | Het pad naar het bestand controleert. Bijvoorbeeld: '/etc/*.conf'       |
+|Pad invoeren     | Het pad naar het bestand controleert. Bijvoorbeeld: '/etc/*.conf'       |
 |Padtype     | Type item moet worden bijgehouden, mogelijke waarden zijn bestanden en mappen.        |
-|Recursie     | Hiermee wordt bepaald als recursie bij het zoeken naar het item wordt gebruikt om te worden bijgehouden.        |
-|Sudo gebruiken     | Deze instelling bepaalt als sudo wordt gebruikt bij het controleren op het item.         |
-|Koppelingen     | Deze instelling bepaalt hoe symbolische koppelingen afgehandeld wanneer mappen passeert.<br> **Negeren** - symbolische koppelingen worden genegeerd en de bestanden/mappen waarnaar wordt verwezen niet bevat.<br>**Ga als volgt** - volgt u de symbolische koppelingen tijdens recursie en omvat ook de bestanden/mappen waarnaar wordt verwezen.<br>**Beheren** - volgt de symbolische koppelingen en kunt wijzigen van de geretourneerde inhoud.     |
+|Recursie     | Bepaalt of recursie wordt gebruikt bij het zoeken naar het item dat moet worden bijgehouden.        |
+|Sudo gebruiken     | Deze instelling bepaalt of sudo wordt gebruikt bij het controleren op het item.         |
+|Koppelingen     | Deze instelling bepaalt hoe symbolische koppelingen worden afgehandeld bij het doorlopen van mappen.<br> **Negeren** - symbolische koppelingen worden genegeerd en de bestanden/mappen waarnaar wordt verwezen niet bevat.<br>**Ga als volgt** - volgt u de symbolische koppelingen tijdens recursie en omvat ook de bestanden/mappen waarnaar wordt verwezen.<br>**Beheren** - volgt de symbolische koppelingen en kunt wijzigen van de geretourneerde inhoud.     |
 
 > [!NOTE]
-> De optie 'Beheren' koppelingen wordt niet aanbevolen. Inhoud ophalen van bestand wordt niet ondersteund.
+> Het gebruik van de optie 'Beheren' voor koppelingen wordt niet aanbevolen. Het ophalen van bestandsinhoud wordt niet ondersteund.
 
 ### <a name="configure-windows-files-to-track"></a>Windows-bestanden bijhouden configureren
 
@@ -75,9 +71,9 @@ Gebruik de volgende stappen voor het configureren van de bestanden bijhouden op 
 |Eigenschap  |Beschrijving  |
 |---------|---------|
 |Ingeschakeld     | Hiermee wordt bepaald of de instelling is toegepast.        |
-|De itemnaam van het     | Beschrijvende naam van het bestand moet worden gevolgd.        |
+|Itemnaam     | Beschrijvende naam van het bestand moet worden gevolgd.        |
 |Groep     | De groepsnaam van een voor bestanden logisch groeperen.        |
-|Voer pad     | Het pad om te controleren of het bestand bijvoorbeeld: 'c:\temp\myfile.txt'       |
+|Pad invoeren     | Het pad voor het controleren op het bestand, bijvoorbeeld: "C:\temp\myfile.txt"       |
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Windows-registersleutels bijhouden configureren
 
@@ -90,7 +86,7 @@ Gebruik de volgende stappen uit register sleutel bijhouden configureren op Windo
 |Eigenschap  |Beschrijving  |
 |---------|---------|
 |Ingeschakeld     | Hiermee wordt bepaald of de instelling is toegepast.        |
-|De itemnaam van het     | Beschrijvende naam van het bestand moet worden gevolgd.        |
+|Itemnaam     | Beschrijvende naam van het bestand moet worden gevolgd.        |
 |Groep     | De groepsnaam van een voor bestanden logisch groeperen.        |
 |Windows-registersleutel   | Het pad naar het bestand controleert. Bijvoorbeeld: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common opstarten'      |
 
@@ -195,8 +191,8 @@ De volgende tabel bevat de voorbeeld-logboek zoekt records verzameld door deze o
 
 |Query’s uitvoeren  |Beschrijving  |
 |---------|---------|
-|ConfigurationData<br>&#124; waar ConfigDataType == 'WindowsServices' en SvcStartupType == 'Auto'<br>&#124; waar SvcState == 'Gestopt'<br>&#124; overzicht van arg_max(TimeGenerated, *) door SoftwareName, Computer         | Bevat de meest recente inventarisrecords voor Windows-Services die zijn ingesteld op Auto, maar die zijn gerapporteerd als wordt gestopt<br>Resultaten zijn beperkt tot de meest recente record voor die SoftwareName en Computer      |
-|Configuratiewijziging<br>&#124; waar ConfigChangeType == 'Software' en ChangeCategory == 'Verwijderd'<br>&#124; order by-TimeGenerated desc|De wijzigingsrecords voor verwijderde software bevat|
+|ConfigurationData<br>&#124;waar ConfigDataType == 'WindowsServices' en SvcStartupType == 'Auto'<br>&#124;waar SvcState == 'Gestopt'<br>&#124;overzicht van arg_max(TimeGenerated, *) door SoftwareName, Computer         | Bevat de meest recente inventarisrecords voor Windows-Services die zijn ingesteld op Auto, maar die zijn gerapporteerd als wordt gestopt<br>Resultaten zijn beperkt tot de meest recente record voor die SoftwareName en Computer      |
+|Configuratiewijziging<br>&#124;waar ConfigChangeType == 'Software' en ChangeCategory == 'Verwijderd'<br>&#124;order by-TimeGenerated desc|De wijzigingsrecords voor verwijderde software bevat|
 
 ## <a name="next-steps"></a>Volgende stappen
 

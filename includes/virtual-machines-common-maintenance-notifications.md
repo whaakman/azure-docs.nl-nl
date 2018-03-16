@@ -1,4 +1,19 @@
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: zivraf
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: zivr
+ms.custom: include file
+ms.openlocfilehash: 9666a8fde808981dd798ff712b96a7c620c9003a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Weergave virtuele machines die zijn gepland voor onderhoud in de portal
 
 Zodra een golf gepland onderhoud is gepland en meldingen worden verzonden, kunt u de lijst met virtuele machines die worden beïnvloed door het aanstaande onderhoud wave kunt zien. 
@@ -17,10 +32,10 @@ U kunt de Azure portal gebruiken en zoekt u naar virtuele machines die zijn gepl
       
       | Waarde | Beschrijving |
       |-------|-------------|
-      | Nu beginnen | De VM bevindt zich binnen het onderhoudsvenster selfservice waarmee u de onderhoudsmodus starten zelf. Hieronder vindt u voor het onderhoud op de virtuele machine starten | 
-      | Gepland | De virtuele machine is gepland voor onderhoud geen optie waarmee u onderhoud initiëren. U leert van het onderhoudsvenster door te selecteren van het venster automatisch gepland in deze weergave of door te klikken op de virtuele machine | 
+      | Nu beginnen | De VM bevindt zich in het selfservice-onderhoudsvenster waarin u het onderhoud zelf kunt starten. Hieronder vindt u voor het onderhoud op de virtuele machine starten | 
+      | Gepland | Er is onderhoud gepland voor uw virtuele machine, zonder mogelijkheid dit onderhoud zelf te starten. U leert van het onderhoudsvenster door te selecteren van het venster automatisch gepland in deze weergave of door te klikken op de virtuele machine | 
       | Voltooid | U hebt gestart en onderhoud voltooid op de virtuele machine. | 
-      | Overgeslagen| U hebt geselecteerd om te initiëren onderhoud met niets succes. Niet mogelijk de onderhoudsoptie selfservice gebruiken. Uw virtuele machine moet opnieuw worden opgestart door Azure tijdens de fase gepland onderhoud. | 
+      | Overgeslagen| U hebt onderhoud gestart, maar dit is mislukt. Niet mogelijk de onderhoudsoptie selfservice gebruiken. Uw virtuele machine moet opnieuw worden opgestart door Azure tijdens de fase gepland onderhoud. | 
 
    **Onderhoud proactief** -het tijdvenster ziet wanneer u onderhoud zelf op uw virtuele machines kunt starten.
    

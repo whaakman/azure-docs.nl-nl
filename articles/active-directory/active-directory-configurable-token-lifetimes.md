@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 553283f246b701b5084f0a3a9914d7ceb8826fe4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Configureerbare token levensduur in Azure Active Directory (openbare Preview)
 U kunt de levensduur van een token dat is uitgegeven door Azure Active Directory (Azure AD) opgeven. Token levensduur voor alle apps in uw organisatie, voor een multitenant (meerdere organisatie)-toepassing of voor een specifieke service-principal kunt u instellen in uw organisatie.
@@ -276,7 +276,7 @@ In dit voorbeeld maakt u een beleid waarbij gebruikers om te verifiëren vaker i
 
 2.  Het beleid aan uw service-principal toewijzen. Ook moet u de **ObjectId** van uw service-principal. 
 
-    1.  Overzicht van de service-principals van uw organisatie, kunt u een query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Of in [Explorer van Azure AD Graph](https://graphexplorer.cloudapp.net/), zich aanmelden bij uw Azure AD-account.
+    1.  Als u wilt zien van uw organisatie service-principals, u kunt een query ofwel de [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) of de [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ook, u kunt dit testen in de [Explorer van Azure AD Graph](https://graphexplorer.cloudapp.net/), en de [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) met behulp van uw Azure AD-account.
 
     2.  Wanneer u hebt de **ObjectId** van uw service-principal, voer de volgende opdracht:
 
@@ -332,7 +332,7 @@ In dit voorbeeld maakt u een paar beleidsregels, voor meer informatie over de we
 
     U hebt nu een beleid dat van toepassing op de hele organisatie. U kunt dit beleid 30 dagen voor een specifieke service-principal te behouden, maar het standaardbeleid organisatie wijzigen in de bovengrens van "tot ingetrokken."
 
-    1.  Overzicht van de service-principals van uw organisatie, kunt u een query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Of in [Explorer van Azure AD Graph](https://graphexplorer.cloudapp.net/), meld u aan met uw Azure AD-account.
+    1.  Als u wilt zien van uw organisatie service-principals, u kunt een query ofwel de [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) of de [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ook, u kunt dit testen in de [Explorer van Azure AD Graph](https://graphexplorer.cloudapp.net/), en de [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) met behulp van uw Azure AD-account.
 
     2.  Wanneer u hebt de **ObjectId** van uw service-principal, voer de volgende opdracht:
 

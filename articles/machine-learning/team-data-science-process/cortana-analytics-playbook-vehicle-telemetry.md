@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 8584cade8e12b4f06ae455227e702844a06f512a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 02b3e0e0808cb9a1a8a2186b1abe6da7dd13e56e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Vehicle telemetrie Analytics-oplossing playbook
 Dit menu is gekoppeld aan de hoofdstukken in deze playbook: 
@@ -26,9 +26,9 @@ Dit menu is gekoppeld aan de hoofdstukken in deze playbook:
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 ## <a name="overview"></a>Overzicht
-Supercomputers worden buiten de testomgeving hebt verplaatst en nu in garages. Deze geavanceerde auto's bevatten allerlei sensoren, waardoor ze de mogelijkheid om te volgen en controleren van miljoenen gebeurtenissen per seconde. De meeste van deze voertuigen wordt door 2020 verbonden met Internet. Toegang te krijgen tot deze schat aan gegevens kan bieden meer veiligheid, betrouwbaarheid en een beter aangedreven ervaring. Microsoft is dit een situatie met Cortana Intelligence aan het einde.
+Super computers worden buiten de testomgeving hebt verplaatst en nu in garages. Deze worden nu in geavanceerde auto's met allerlei sensoren wordt geplaatst. Deze sensoren bieden ze de mogelijkheid te volgen en controleren van miljoenen gebeurtenissen per seconde. De meeste van deze voertuigen wordt door 2020 verbonden met Internet. Toegang te krijgen tot deze schat van gegevens biedt meer veiligheid, betrouwbaarheid, en dus beter groot optreden. Microsoft is dit een situatie met Cortana Intelligence aan het einde.
 
-Cortana Intelligence is een volledig beheerde big data en geavanceerde analyses suite kunt u uw gegevens transformeren naar intelligent actie. De sjabloon Cortana Intelligence Vehicle telemetrie Analytics-oplossing wordt gedemonstreerd hoe auto dealerbedrijven, auto fabrikanten en ondernemingen realtime krijgen kunnen en voorspellende insights op de drager gezondheid en groot gewoonten. 
+Cortana Intelligence is een volledig beheerde big data en geavanceerde analyses suite kunt u uw gegevens transformeren naar intelligent actie. De sjabloon Cortana Intelligence Vehicle telemetrie Analytics-oplossing wordt gedemonstreerd hoe auto dealerbedrijven, auto fabrikanten en ondernemingen kunnen verkrijgen realtime zijn en gewoonten voorspellende insights op de drager gezondheid en groot.
 
 De oplossing is geïmplementeerd als een [lambda architectuur patroon](https://en.wikipedia.org/wiki/Lambda_architecture), waarin de volledige potentiële van de Cortana Intelligence-platform voor realtime en batchverwerking.
 
@@ -38,7 +38,7 @@ De architectuur Vehicle telemetrie Analytics-oplossing wordt weergegeven in dit 
 ![Architectuurdiagram van de oplossing](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
 
 
-Deze oplossing omvat de volgende onderdelen van de Cortana Intelligence en gepresenteerd de end-to-end-integratie:
+Deze oplossing omvat de volgende onderdelen van de Cortana Intelligence en gepresenteerd hun integratie:
 
 * **Azure Event Hubs** miljoenen vehicle telemetrische gebeurtenissen opgenomen in Azure.
 * **Azure Stream Analytics** biedt realtime-inzichten op vehicle health en dat de gegevens zich blijft voordoen in langdurige opslag voor uitgebreidere batch analyses.
@@ -50,5 +50,5 @@ Deze oplossing omvat de volgende onderdelen van de Cortana Intelligence en gepre
 Deze oplossing gebruikt twee verschillende gegevensbronnen: 
 
 * **Vehicle signalen en diagnostische gegevens in de simulatie**: een vehicle telematica simulator verzendt de diagnostische gegevens en signalen die overeenkomen met de status van de drager en het aangedreven patroon op een bepaald tijdstip. 
-* **Vehicle catalogus**: deze gegevensset verwijzing VINs toegewezen aan modellen.
+* **Vehicle catalogus**: deze gegevensset verwijzing VIN cijfers toegewezen aan modellen.
 

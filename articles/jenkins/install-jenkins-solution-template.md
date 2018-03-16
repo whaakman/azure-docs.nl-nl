@@ -1,20 +1,20 @@
 ---
 title: Een Jenkins-server maken in Azure
 description: Op basis van de sjabloon voor de Jenkins-oplossing een virtuele Linux-machine van Azure installeren en een Java-voorbeeldtoepassing bouwen.
-author: mlearned
-manager: douge
+author: tomarcher
+manager: rloutlaw
 ms.service: multiple
 ms.workload: web
-ms.devlang: java
+ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
-ms.author: mlearned
+ms.date: 03/12/2018
+ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: 422d133841a380b1ef02e95245207c464089138d
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Vanuit Azure Portal een Jenkins-server maken op een Azure-VM met Linux
 
@@ -28,32 +28,13 @@ Deze Quick Start laat zien hoe u [Jenkins](https://jenkins.io) installeert op ee
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-jenkins-vm-from-the-solution-template"></a>De virtuele machine met Jenkins maken van de oplossingssjabloon
+Jenkins ondersteuning biedt voor een model waarin de server gemachtigden op een of meer agents werken waarmee één Jenkins installatie voor het hosten van een groot aantal projecten of om verschillende omgevingen die nodig zijn voor Jenkins bouwt of test. De stappen in deze sectie helpt u bij het installeren en configureren van een Jenkins-server op Azure.
 
-Open in uw webbrowser de [installatiekopie voor Jenkins in de Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) en selecteer **Nu downloaden** aan de linkerkant van de pagina. Controleer de prijsinformatie en selecteer **Doorgaan**. Selecteer vervolgens **Maken** om de Jenkins-server te configureren in Azure Portal. 
-   
-![Dialoogvenster Azure-portal](./media/install-jenkins-solution-template/ap-create.png)
-
-Vul de volgende velden in op het tabblad **Basisinstellingen configureren**:
-
-![Basisinstellingen configureren](./media/install-jenkins-solution-template/ap-basic.png)
-
-* Geef **Jenkins** op bij **Naam**.
-* Voer een gebruikersnaam in bij **Gebruikersnaam**. De gebruikersnaam moet voldoen aan [specifieke vereisten](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
-* Selecteer **Wachtwoord** bij **Verificatietype** en voer een wachtwoord in. Het wachtwoord moet een hoofdletter, een cijfer en één speciaal teken bevatten.
-* Geef **myJenkinsResourceGroup** op voor **Resourcegroep**.
-* Kies de [Azure-regio](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) **VS-Oost** in de vervolgkeuzelijst **Locatie**.
-
-Selecteer **OK** om naar het tabblad **Extra opties configureren** te gaan. Geef een unieke domeinnaam op om de Jenkins-server te identificeren en selecteer **OK**.
-
-![selecteer aanvullende opties](./media/install-jenkins-solution-template/ap-addtional.png)  
-
- Als de validatie is geslaagd, selecteert u **OK** op het tabblad **Samenvatting**. Selecteer ten slotte **Kopen** om de virtuele Jenkins-machine te maken. U ziet een melding in Azure Portal wanneer de server klaar is:   
-
-![Melding dat de Jenkins-server klaar is](./media/install-jenkins-solution-template/jenkins-deploy-notification-ready.png)
+[!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
 ## <a name="connect-to-jenkins"></a>Verbinding maken met Jenkins
 
-Navigeer in uw webbrowser naar de virtuele machine (bijvoorbeeld http://jenkins2517454.eastus.cloudapp.azure.com/). De Jenkins-console is niet toegankelijk via onbeveiligde HTTP. Om die reden bevat de pagina instructies om de console veilig vanaf uw computer te gebruiken via een SSH-tunnel.
+Navigeer naar de virtuele machine (bijvoorbeeld http://jenkins2517454.eastus.cloudapp.azure.com/) in uw webbrowser. De Jenkins-console is niet toegankelijk via onbeveiligde HTTP. Om die reden bevat de pagina instructies om de console veilig vanaf uw computer te gebruiken via een SSH-tunnel.
 
 ![Jenkins ontgrendelen](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 

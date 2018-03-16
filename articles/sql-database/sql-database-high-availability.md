@@ -1,23 +1,19 @@
 ---
 title: Hoge beschikbaarheid - service van Azure SQL Database | Microsoft Docs
 description: Meer informatie over de functies en mogelijkheden voor hoge beschikbaarheid van Azure SQL Database-service
-keywords: 
 services: sql-database
 author: anosov1960
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
-ms.custom: 
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 86a839102e98a1b8e7cd9927c697cacf1f41a1a6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5e0d0166377f80c1f43782156fa735915cbc31f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 Microsoft heeft de belofte aangebracht in de klanten die hoge beschikbaarheid (HA) is ingebouwd in de service en de klanten hoeven niet te werken, speciale logica voor het toevoegen of beslissingen rond HA vanaf het begin van de Azure SQL Database PaaS-aanbieding. Microsoft onderhoudt volledige controle over de HA-systeemconfiguratie en bewerking, biedt klanten een SLA. De HA-SLA van toepassing op een SQL-database in een regio en biedt geen bescherming in geval van een mislukking van de totale regio die wordt veroorzaakt door factoren buiten het beheer van Microsoft redelijkerwijs (bijvoorbeeld een natuurramp, war, besluiten van terrorisme, riots, overheids-actie of een netwerk- of apparaatstoring buiten de datacenters van Microsoft, waaronder op klant sites of tussen sites van de klant en Datacenter van Microsoft).

@@ -2,25 +2,19 @@
 title: Uitgebreide gebeurtenissen in SQL-Database | Microsoft Docs
 description: Beschrijft uitgebreide gebeurtenissen (XEvents) in Azure SQL Database en hoe gebeurtenissessies kunnen enigszins verschillen van de event-sessies in Microsoft SQL Server.
 services: sql-database
-documentationcenter: 
 author: MightyPen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 3b28cf15-f820-4b3c-8310-908d6d5b9d0c
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.openlocfilehash: f4e41d340b38a5f29387d75b8f65b68c5fb31eb9
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: dc4660b33d8df28fd59929838e054f6703c48107
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="extended-events-in-sql-database"></a>Uitgebreide gebeurtenissen in SQL-Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -199,12 +193,12 @@ De **gebeurtenisbestand** doel tegenkomen netwerklatentie of fouten bij het vast
 - [Azure PowerShell gebruiken met Azure Storage](../storage/common/storage-powershell-guide-full.md) -bevat uitgebreide informatie over PowerShell en de Azure Storage-service.
 - [Het Blob storage gebruiken met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [MAKEN van de EVENT-sessie (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 - [De Jonathan Kehayias blogberichten over uitgebreide gebeurtenissen in Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
 - De Azure *Service-Updates* webpagina, teruggebracht door parameter naar Azure SQL Database:
-    - [https://Azure.Microsoft.com/updates/?service=SQL-database](https://azure.microsoft.com/updates/?service=sql-database)
+    - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 
 
 Er zijn andere onderwerpen voor het voorbeeld van code voor uitgebreide gebeurtenissen beschikbaar op de volgende koppelingen. Echter, moet u een voorbeeld om te zien of het voorbeeld is bedoeld voor Microsoft SQL Server versus Azure SQL Database regelmatig controleren. U kunt vervolgens beslissen of kleine wijzigingen nodig zijn om uit te voeren van het voorbeeld.

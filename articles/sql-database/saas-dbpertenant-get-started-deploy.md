@@ -3,24 +3,18 @@ title: Zelfstudie voor database per tenant SaaS - Azure SQL Database | Microsoft
 description: Implementeer en Verken de Wingtip Tickets SaaS multitenant-toepassing, die u laat zien van de Database per Tenant en andere SaaS-patronen met Azure SQL Database.
 keywords: zelfstudie sql-database
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: genemi
-ms.openlocfilehash: cbe8a04abbf2dada7cc43e57e823c3a41bf83fe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8aa4c8691093779bd8febee80fca88efad93dc00
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementeren en een multitenant SaaS-toepassing die gebruikmaakt van de database per tenant patroon met Azure SQL Database verkennen
 
@@ -53,7 +47,7 @@ U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt vold
 #### <a name="plan-the-names"></a>De namen plannen
 
 In de stappen van deze sectie bieden u een *gebruiker* waarde die wordt gebruikt om ervoor te zorgen resourcenamen globaal uniek zijn en een naam voor de *resourcegroep* waarin alle resources die zijn gemaakt door een implementatie van de app. Voor een persoon met de naam *Anne Finley*, het is raadzaam:
-- *Gebruiker:* **af1***(haar initialen, plus een cijfer.   Gebruik een andere waarde (bijvoorbeeld af2) als u een tweede keer de app implementeren.)*
+- *Gebruiker:* **af1***(haar initialen, plus een cijfer. Gebruik een andere waarde (bijvoorbeeld af2) als u een tweede keer de app implementeren.)*
 - *Resourcegroep:* **wingtip-dpt-af1** *(wingtip dpt geeft aan dat dit is de app database per tenant. De naam van gebruiker af1 voegen correleert naam van de resourcegroep met de namen van de resources die deze bevat.)*
 
 Kies nu uw namen en schrijf ze op. 

@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 9769b3968f841334aebdc4a371ecd59e64d5ebc2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 2c48f95306ddce5d51100e869cc4ac80a4b55c20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Een op Red Hat gebaseerde virtuele machine voor Azure voorbereiden
 In dit artikel leert u hoe u een virtuele machine van Red Hat Enterprise Linux (RHEL) voorbereidt voor gebruik in Azure. De versies van RHEL die worden beschreven in dit artikel zijn 6.7 + en 7.1 +. De hypervisors voor voorbereiding die worden besproken in dit artikel zijn Hyper-V, op basis van de kernel virtuele machine (KVM) en VMware. Zie voor meer informatie over de vereisten voor in aanmerking komt voor deelname aan het programma voor toegang tot de Cloud van Red Hat [Red Hat van toegang tot de Cloud website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) en [RHEL uitgevoerd op Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -38,7 +38,7 @@ Deze sectie wordt ervan uitgegaan dat u hebt al een ISO-bestand van de website v
 * Kernel-ondersteuning voor het koppelen van bestandssystemen Universal UDF (Disk Format) is vereist. Op de eerste keer opstarten op Azure geeft de UDF-indeling media die is gekoppeld aan de Gast de configuratie van de inrichting aan de virtuele Linux-machine. De Azure Linux Agent moet kunnen de UDF-bestandssysteem voor het lezen van de configuratie en inrichten van de virtuele machine te koppelen.
 * Versies van de kernel Linux die ouder dan 2.6.37 zijn ondersteunen geen niet-uniforme geheugentoegang (NUMA) op Hyper-V met grotere virtuele machine. Dit probleem voornamelijk effecten oudere distributies die gebruikmaken van de upstream-kernel Red Hat 2.6.32 en is vastgesteld in RHEL 6.6 (kernel 2.6.32 504). Systemen met aangepaste kernels die ouder zijn dan 2.6.37 of RHEL-kernels die ouder dan 2.6.32-504 zijn moeten ingesteld de `numa=off` parameter op de opdrachtregel van de kernel in grub.conf opstart. Zie voor meer informatie, Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Configureer een partitie van de wisseling niet op de schijf van het besturingssysteem. De Linux-Agent kan worden geconfigureerd voor het maken van een wisselbestand op de tijdelijke schijf.  Meer informatie hierover vindt u in de volgende stappen uit.
-* Alle VHD's moeten hebben-groottes met veelvouden van 1 MB zijn.
+* Alle VHD's in Azure, moeten een virtuele grootte die is afgestemd op 1MB hebben. Bij het converteren van een onbewerkte schijf naar VHD moet u ervoor zorgen dat de grootte voor onbewerkte schijven een veelvoud van 1MB vóór de conversie is. In de onderstaande stappen vindt u meer informatie. Zie ook [opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer informatie.
 
 ### <a name="prepare-a-rhel-6-virtual-machine-from-hyper-v-manager"></a>Voorbereiden van een RHEL 6 virtuele machine vanuit Hyper-V-beheer
 
@@ -344,7 +344,7 @@ Deze sectie wordt ervan uitgegaan dat u hebt al een ISO-bestand van de website v
 19. De installatiekopie van het qcow2 converteren naar het VHD-indeling.
 
 > [!NOTE]
-> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Verwijzing: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Naslaginformatie: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -493,7 +493,7 @@ Deze sectie wordt ervan uitgegaan dat u hebt al een ISO-bestand van de website v
 19. De installatiekopie van het qcow2 converteren naar het VHD-indeling.
 
 > [!NOTE]
-> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Verwijzing: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Naslaginformatie: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -620,7 +620,7 @@ Deze sectie wordt ervan uitgegaan dat u al een RHEL virtuele machine in VMware h
 15. Sluit de virtuele machine en het bestand VMDK converteren naar een .vhd-bestand.
 
 > [!NOTE]
-> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Verwijzing: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Naslaginformatie: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -734,7 +734,7 @@ Deze sectie wordt ervan uitgegaan dat u al een RHEL virtuele machine in VMware h
 14. Sluit de virtuele machine en het VMDK-bestand naar de VHD-indeling converteren.
 
 > [!NOTE]
-> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Verwijzing: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Naslaginformatie: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 

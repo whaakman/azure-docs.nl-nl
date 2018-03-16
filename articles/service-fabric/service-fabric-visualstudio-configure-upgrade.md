@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 314b29a56e4651222822f40a116af97a7372ff2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ff85991e87a4996890520a566b3909d331ed27f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>De upgrade van een Service Fabric-toepassing in Visual Studio configureren
 Visual Studio tools voor Azure Service Fabric bieden upgrade ondersteuning voor publicatie naar de lokale of externe clusters. Er zijn drie scenario's waarin u upgraden van uw toepassing naar een nieuwere versie in plaats van de toepassing wilt tijdens het testen en foutopsporing vervangen:
@@ -86,4 +86,4 @@ Het volgende voorbeeld laat zien hoe een unieke controle van het statusbeleid vo
 </Policies>
 ```
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het implementeren van een toepassing [implementeren van een bestaande toepassing in Azure Service Fabric](service-fabric-deploy-existing-app.md).
+Zie voor meer informatie over het upgraden van een toepassing [upgraden van een toepassing met Visual Studio](service-fabric-application-upgrade-tutorial.md).

@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/12/2018
 ms.author: juluk
-ms.openlocfilehash: 3f605645e7a53f285cb7e508034ebab0daa0d335
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e48c54216c5c4ae8e53d4802aafce8883ee97c11
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Snelstartgids voor Bash in de Azure-Cloud-Shell
 
@@ -28,53 +28,74 @@ In dit document worden Bash gebruiken in Azure Cloud-Shell op de [Azure-portal](
 > Een [PowerShell in Azure Cloud-Shell](quickstart-powershell.md) Quick Start is ook beschikbaar.
 
 ## <a name="start-cloud-shell"></a>Cloud-Shell starten
-1. Start **Cloud Shell** van de bovenste navigatiebalk van de Azure portal <br>
+1. Start **Cloud Shell** van de bovenste navigatiebalk van de Azure portal. <br>
 ![](media/quickstart/shell-icon.png)
-2. Selecteer een abonnement om een opslagaccount te maken en Microsoft Azure-bestanden delen
+
+2. Selecteer een abonnement om een opslagaccount te maken en delen van Microsoft Azure-bestanden.
 3. Selecteer 'Opslag maken'
 
 > [!TIP]
-> U bent automatisch geverifieerd voor Azure CLI 2.0 in elke sesssion.
+> U bent automatisch geverifieerd voor Azure CLI 2.0 in elke sessie.
 
 ### <a name="select-the-bash-environment"></a>Selecteer de Bash-omgeving
-1. Selecteer de omgeving vervolgkeuzelijst vanaf de linkerkant van de shell-venster <br>
+Controleer of de omgeving vervolgkeuzelijst vanaf de linkerkant van het venster shell zegt `Bash`. <br>
 ![](media/quickstart/env-selector.png)
-2. Selecteer Bash
 
 ### <a name="set-your-subscription"></a>Stel uw abonnement
-1. Lijst met abonnementen u toegang tot hebt: <br>
-`az account list`
+1. Lijst met abonnementen u toegang tot hebt.
+```azurecli-interactive
+az account list
+```
+
 2. Stel uw voorkeur abonnement: <br>
-`az account set --subscription my-subscription-name`
+```azurecli-interactive
+az account set --subscription my-subscription-name`
+```
 
 > [!TIP]
 > Uw abonnement worden opgeslagen voor toekomstige sessies met behulp van `/home/<user>/.azure/azureProfile.json`.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
-Maak een nieuwe resourcegroep in WestUS met de naam 'MyRG': <br>
-`az group create -l westus -n MyRG` <br>
+Maak een nieuwe resourcegroep in WestUS met de naam 'MyRG'.
+```azurecli-interactive
+az group create --location westus --name MyRG
+```
 
 ### <a name="create-a-linux-vm"></a>Een Linux-VM maken
-Maak een VM Ubuntu in uw nieuwe resourcegroep. De Azure CLI 2.0 maakt SSH-sleutels en de virtuele machine met deze installatie. <br>
-`az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
+Maak een VM Ubuntu in uw nieuwe resourcegroep. De Azure CLI 2.0 maakt SSH-sleutels en de virtuele machine met hen instellen. <br>
+
+```azurecli-interactive
+az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
+```
 
 > [!NOTE]
-> De openbare en persoonlijke sleutels gebruikt voor het verifiëren van uw virtuele machine worden geplaatst `/home/<user>/.ssh/id_rsa` en `/home/<user>/.ssh/id_rsa.pub` door Azure CLI 2.0 standaard. De SSH-map wordt bewaard in de gekoppelde Azure-bestanden delen van 5 GB installatiekopie.
+> Met behulp van `--generate-ssh-keys` Hiermee geeft u Azure CLI 2.0 maken en instellen van openbare en persoonlijke sleutels in uw virtuele machine en `$Home` directory. Standaard sleutels worden geplaatst in de Cloud-Shell op `/home/<user>/.ssh/id_rsa` en `/home/<user>/.ssh/id_rsa.pub`. Uw `.ssh` map blijft behouden in uw gekoppelde bestandsshare 5 GB-installatiekopie die wordt gebruikt om vast te leggen `$Home`.
 
 Uw gebruikersnaam op deze virtuele machine worden uw gebruikersnaam die wordt gebruikt in de Cloud-Shell ($User@Azure:).
 
 ### <a name="ssh-into-your-linux-vm"></a>SSH in uw virtuele Linux-machine
-1. Zoeken naar de naam van uw virtuele machine in de Azure portal zoekbalk
-2. Klik op "Connect" en voer: `ssh username@ipaddress`
-
+1. Zoek de naam van uw virtuele machine in de Azure portal zoekbalk.
+2. Klik op 'Connect' om uw VM-naam en het openbare IP-adres. <br>
 ![](media/quickstart/sshcmd-copy.png)
+
+3. SSH in uw virtuele machine met de `ssh` cmd.
+```
+ssh username@ipaddress
+```
 
 Bij het tot stand brengen van de SSH-verbinding, ziet u de Welkom Ubuntu-prompt. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Opschonen 
-De resourcegroep en alle resources binnen deze verwijderen: <br>
-Voer `az group delete -n MyRG` uit.
+1. Sluit uw ssh sessie.
+```azurecli-interactive
+exit
+```
+
+2. De resourcegroep en alle resources daarin verwijderd.
+```azurecli-interactive
+Run `az group delete -n MyRG`
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 [Meer informatie over persistent maken van bestanden voor Bash in de Cloud-Shell](persisting-shell-storage.md) <br>

@@ -3,24 +3,18 @@ title: Bewaking van prestaties van veel Azure SQL-databases in een multitenant S
 description: Bewaken en beheren van de prestaties van Azure SQL-databases en opslaggroepen in een multitenant SaaS-app
 keywords: zelfstudie sql-database
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 352b0d48ab223a236b96c633526f792b6f8a703d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Bewaken en beheren van de prestaties van Azure SQL-databases en opslaggroepen in een multitenant SaaS-app
 
@@ -181,7 +175,7 @@ In plaats van de pool omhoog te schalen, kunt u ook een tweede pool maken en dat
     1. Klik op **databases toevoegen** voor een overzicht van databases op de server die kan worden toegevoegd aan *Pool2*.
     1. Selecteer elke 10 databases verplaats deze naar de nieuwe groep en klik vervolgens op **Selecteer**. Als u hebt de load-generator uitgevoerd, wordt de service al weet dat uw profiel prestaties een grotere groep dan de standaardgrootte voor de 50 eDTU vereist en raadt aan om te beginnen met een 100 eDTU-instelling.
 
-    ![Aanbeveling](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+    ![aanbeveling](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
     1. Voor deze zelfstudie laat de standaardwaarde op 50 edtu's en klik op **Selecteer** opnieuw.
     1. Selecteer **OK** om de nieuwe groep te maken en de geselecteerde databases verplaatsen in de App.
@@ -245,7 +239,7 @@ In deze zelfstudie leert u het volgende:
 [Zelfstudie Een individuele tenant herstellen](saas-dbpertenant-restore-single-tenant.md)
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * Aanvullende [zelfstudies waarin voort op de toepassingsimplementatie Wingtip Tickets SaaS Database Per Tenant bouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastische SQL-pools](sql-database-elastic-pool.md)

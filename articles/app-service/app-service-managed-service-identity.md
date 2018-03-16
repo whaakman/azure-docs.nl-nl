@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 736a82d282e5769fb403c66ffd5d44107c6d3218
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 09e848abaf09811ff3f2b8ad009cd23dedb6645d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Het gebruik van Azure Managed Service-identiteit (openbare preview) in App Service en Azure Functions
 
 > [!NOTE] 
 > Beheerde Service-identiteit voor App Service en Azure Functions is momenteel in preview.
 
-In dit onderwerp leest u hoe u de identiteit van een beheerde app voor toepassingen van App Service en Azure Functions maakt en het gebruik ervan voor toegang tot andere resources. Een beheerde service-identiteit van Azure Active Directory kan uw app eenvoudig toegang tot andere AAD beveiligde bronnen zoals Azure Sleutelkluis. De identiteit wordt beheerd door de Azure-platform en vereist niet dat u in te richten of geen geheimen draaien. Zie voor meer informatie over Service-identiteit beheerd, de [overzicht van de Service-identiteit beheerd](../active-directory/msi-overview.md).
+In dit onderwerp leest u hoe u de identiteit van een beheerde app voor toepassingen van App Service en Azure Functions maakt en het gebruik ervan voor toegang tot andere resources. Een beheerde service-identiteit van Azure Active Directory kan uw app eenvoudig toegang tot andere AAD beveiligde bronnen zoals Azure Sleutelkluis. De identiteit wordt beheerd door de Azure-platform en vereist niet dat u in te richten of geen geheimen draaien. Zie voor meer informatie over Service-identiteit beheerd, de [overzicht van de Service-identiteit beheerd](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Een app maken met een identiteit
 
@@ -126,7 +126,7 @@ Waar `<TENANTID>` en `<PRINCIPALID>` worden vervangen door de GUID's. De eigensc
 Een app kan de identiteit gebruiken voor het ophalen van tokens, voor andere bronnen worden beveiligd door AAD, zoals Azure Sleutelkluis. Deze tokens vertegenwoordigen de toepassing toegang tot de bron en geen specifieke gebruiker van de toepassing. 
 
 > [!IMPORTANT]
-> Mogelijk moet u de doelresource voor toegang van uw toepassing configureren. Bijvoorbeeld, als u een token voor Sleutelkluis aanvraagt, moet u om ervoor te zorgen dat u een toegangsbeleid met de identiteit van uw toepassing hebt toegevoegd. Anders wordt wordt de aanroepen van Sleutelkluis geweigerd, zelfs als ze het token. Zie voor meer ondersteuning voor meer over welke resources beheerd Service-identiteit tokens [Azure-services die ondersteuning voor Azure AD authentication](../active-directory/pp/msi-overview.md#which-azure-services-support-managed-service-identity).
+> Mogelijk moet u de doelresource voor toegang van uw toepassing configureren. Bijvoorbeeld, als u een token voor Sleutelkluis aanvraagt, moet u om ervoor te zorgen dat u een toegangsbeleid met de identiteit van uw toepassing hebt toegevoegd. Anders wordt wordt de aanroepen van Sleutelkluis geweigerd, zelfs als ze het token. Zie voor meer ondersteuning voor meer over welke resources beheerd Service-identiteit tokens [Azure-services die ondersteuning voor Azure AD authentication](../active-directory/managed-service-identity/overview.md#which-azure-services-support-managed-service-identity).
 
 Er is een eenvoudige REST-protocol voor het verkrijgen van een token in App Service en Azure Functions. Voor .NET-toepassingen, de Microsoft.Azure.Services.AppAuthentication-bibliotheek biedt een abstractie via dit protocol en biedt ondersteuning voor een lokale ontwikkeling biedt.
 

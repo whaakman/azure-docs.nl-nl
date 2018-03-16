@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b383a081141d2fde90cfc574ec4b9ffb16940158
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Problemen met Azure Active Directory naadloze eenmalige aanmelding
 
@@ -34,8 +34,9 @@ Dit artikel helpt u bij het oplossen van problemen informatie over veelvoorkomen
 - Naadloze eenmalige aanmelding werkt niet in de privémodus Browse op Firefox.
 - Naadloze eenmalige aanmelding werkt niet in Internet Explorer als uitgebreide beveiligde modus is ingeschakeld.
 - Naadloze eenmalige aanmelding werkt niet op mobiele browsers op iOS en Android.
+- Als een gebruiker deel van te veel groepen in Active Directory uitmaakt, Kerberos-ticket van de gebruiker waarschijnlijk te groot om te verwerken en hierdoor naadloze eenmalige aanmelding mislukt. Azure AD-HTTPS-aanvragen kunnen headers met een maximale grootte van 16 KB; hebben Kerberos-tickets moeten veel kleiner is dan dat dit aantal ruimte is voor andere Azure AD-artefacten, zoals cookies. Onze aanbeveling is om te verkleinen groepslidmaatschappen van gebruiker en probeer het opnieuw.
 - Als u 30 of meer Active Directory-forests synchroniseert, kunt u naadloze eenmalige aanmelding met Azure AD Connect niet inschakelen. Als een tijdelijke oplossing kunt u [handmatig inschakelen](#manual-reset-of-azure-ad-seamless-sso) de functie op uw tenant.
-- De URL van het Azure AD-service (https://autologon.microsoftazuread-sso.com) toe te voegen aan de zone Vertrouwde websites in plaats van de lokale intranetzone *voorkomen dat gebruikers aanmelden*.
+- Toevoegen van de URL van het Azure AD-service (https://autologon.microsoftazuread-sso.com) aan de zone Vertrouwde websites in plaats van de lokale intranetzone *voorkomen dat gebruikers aanmelden*.
 - Het uitschakelen van het gebruik van de **RC4_HMAC_MD5** versleutelingstype voor Kerberos in uw Active Directory-instellingen naadloze eenmalige aanmelding wordt verbroken. In de Editor voor Groepsbeleidsbeheer hulpprogramma ervoor te zorgen dat de beleidswaarde voor **RC4_HMAC_MD5** onder **Computerconfiguratie -> Windows-instellingen -> Beveiligingsinstellingen -> lokaal beleid -> beveiligingsopties - > ' Netwerkbeveiliging: versleutelingstypen voor Kerberos toegestaan configureren '** is "ingeschakeld".
 
 ## <a name="check-status-of-feature"></a>Controleer de status van de functie
@@ -75,7 +76,7 @@ Gebruik de volgende controlelijst naadloze eenmalige aanmelding problemen oploss
 
 - Zorg ervoor dat de functie naadloze eenmalige aanmelding is ingeschakeld in Azure AD Connect. Als u de functie (bijvoorbeeld als gevolg van een geblokkeerde-poort) kan niet inschakelt, zorg ervoor dat u alle de [vereisten](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) aanwezig.
 - Als u beide hebt ingeschakeld [Azure AD Join](../active-directory-azureadjoin-overview.md) en naadloze eenmalige aanmelding op uw tenant, zorg ervoor dat het probleem niet met Azure AD Join. Eenmalige aanmelding van Azure AD Join heeft voorrang op naadloze eenmalige aanmelding als het apparaat geregistreerd bij Azure AD zowel domein is. Met eenmalige aanmelding van Azure AD Join ziet de gebruiker een tegel aanmelden met de tekst 'Verbonden voor Windows'.
-- Zorg ervoor dat de URL van de Azure AD (https://autologon.microsoftazuread-sso.com) deel uit van de Intranet-beveiligingszone-instellingen van de gebruiker maakt.
+- Zorg ervoor dat de URL van de Azure AD (https://autologon.microsoftazuread-sso.com) maakt deel uit van de Intranet-beveiligingszone-instellingen van de gebruiker.
 - Zorg ervoor dat het bedrijfsapparaat is toegevoegd aan het Active Directory-domein.
 - Zorg ervoor dat de gebruiker is aangemeld bij het apparaat via een Active Directory-domeinaccount.
 - Zorg ervoor dat het gebruikersaccount is van een Active Directory-forest waarbij naadloze eenmalige aanmelding is ingesteld.

@@ -2,24 +2,18 @@
 title: Een service gesplitste samenvoegen implementeren | Microsoft Docs
 description: Samenvoegen van de gesplitste ook gebruiken om gegevens te verplaatsen tussen shard-databases.
 services: sql-database
-documentationcenter: 
-author: ddove
-manager: jhubbard
-editor: 
-ms.assetid: 9a993c0f-7052-46cd-aa59-073bea8d535a
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: sstein
+ms.openlocfilehash: ed5545df8d09192eeed21dd2ac379e255b049e30
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Een service voor splitsen en samenvoegen implementeren
 De splitsing merge-hulpprogramma kunt u gegevens verplaatsen tussen shard-databases. Zie [verplaatsen van gegevens tussen cloud uitgebreide databases](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -149,7 +143,7 @@ Als uw werkrol mislukt online worden gezet, maar de Webrol is geslaagd, is het z
    ```
 
 * Zorg ervoor dat de naam van de server begint niet met **https://**.
-* Zorg ervoor dat uw Azure SQL DB-server kan Azure-Services tot stand te brengen. U doet dit door https://manage.windowsazure.com openen, klikt u op 'SQL Databases' aan de linkerkant, klikt u boven 'Servers' en selecteer uw server. Klik op **configureren** aan de bovenkant en zorg ervoor dat de **Azure Services** is ingesteld op "Ja". (Zie de sectie vereisten aan het begin van dit artikel).
+* Zorg ervoor dat uw Azure SQL DB-server kan Azure-Services tot stand te brengen. Open hiervoor https://manage.windowsazure.com, klikt u op 'SQL Databases' aan de linkerkant, klikt u boven 'Servers' en selecteer uw server. Klik op **configureren** aan de bovenkant en zorg ervoor dat de **Azure Services** is ingesteld op "Ja". (Zie de sectie vereisten aan het begin van dit artikel).
 
 ## <a name="test-the-service-deployment"></a>De service-implementatie testen
 ### <a name="connect-with-a-web-browser"></a>Verbinding maken met een webbrowser

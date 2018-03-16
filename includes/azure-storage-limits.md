@@ -11,7 +11,7 @@
 
 <sup>1</sup>bevat standaard- en Premium storage-accounts. Als u meer dan 200 opslagaccounts nodig hebt, dient u een aanvraag in te dienen via de [ondersteuning van Azure](https://azure.microsoft.com/support/faq/). Het Azure Storage-team bekijkt dan uw bedrijfsscenario en kan tot 250 opslagaccounts goedkeuren. 
 
-<sup>2</sup> maken om uw accounts standaardopslag groeien voorbij de grenzen aangekondigd in de frequentie van capaciteit, inkomend en uitgaand en aanvraag, een aanvraag via [ondersteuning van Azure](https://azure.microsoft.com/support/faq/). Het Azure Storage-team worden de aanvragen controleren en hogere limieten op basis van geval tot geval kan goedkeuren.
+<sup>2</sup> als u uitgebreide limieten voor uw opslagaccount, contact op met [ondersteuning van Azure](https://azure.microsoft.com/support/faq/). Het Azure Storage-team worden de aanvragen controleren en hogere limieten op basis van geval tot geval kan goedkeuren. Zowel algemeen Blob storage-accounts op aanvraag van de grotere capaciteit, inkomend en uitgaand en snelheid van aanvragen voor ondersteunen. Zie voor de nieuwe maximumwaarden voor Blob storage-accounts [storage-accounts voor grotere, hogere schaal aangekondigd](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 <sup>3</sup> beperkt alleen door het account inkomend en uitgaand limieten. *Inkomend* verwijst naar alle gegevens (aanvragen) verstuurd naar een opslagaccount. *Uitgaand* verwijst naar alle gegevens (reacties) die worden ontvangen van een opslagaccount.  
 

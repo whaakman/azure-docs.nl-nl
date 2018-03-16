@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ee04fc3338dec7893f9f33322bd6b9af932199e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnose van uitzonderingen in uw web-apps met Application Insights
 Uitzonderingen in uw live web-app worden gerapporteerd door [Application Insights](app-insights-overview.md). U kunt mislukte aanvragen correleren met uitzonderingen en andere gebeurtenissen op de client en de server, zodat u kunt snel de oorzaken te analyseren.
@@ -33,7 +33,7 @@ Uitzonderingen in uw live web-app worden gerapporteerd door [Application Insight
   * [Webformulieren](#web-forms)
   * [MVC](#mvc)
   * [Web-API-1.*](#web-api-1x)
-  * [Web-API 2.*](#web-api-2x)
+  * [Web API 2.*](#web-api-2x)
   * [WCF](#wcf)
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnose van uitzonderingen met Visual Studio
@@ -102,7 +102,7 @@ Gegevens voor de aanvraag bevatten niet de gegevens die worden verzonden naar uw
 
 ![In detail analyseren](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-## <a name="exceptions"></a>Vastleggen van uitzonderingen en verwante diagnostische gegevens
+## <a name="exceptions"></a> Vastleggen van uitzonderingen en verwante diagnostische gegevens
 Aanvankelijk ziet u niet in de portal alle uitzonderingen die ontstaan in uw app problemen. Ziet u alle browseruitzonderingen (als u de [JavaScript SDK](app-insights-javascript.md) in uw webpagina's). Maar de meeste serveruitzonderingen zijn opgepikt door IIS en u moet schrijven van een deel van de code te zien.
 
 U kunt:
@@ -113,8 +113,7 @@ U kunt:
 ## <a name="reporting-exceptions-explicitly"></a>Uitzonderingen expliciet rapportage
 De eenvoudigste manier is een aanroep naar TrackException() invoegen in een uitzonderings-handler.
 
-Javascript
-
+```javascript
     try
     { ...
     }
@@ -124,9 +123,9 @@ Javascript
         {Game: currentGame.Name,
          State: currentGame.State.ToString()});
     }
+```
 
-C#
-
+```csharp
     var telemetry = new TelemetryClient();
     ...
     try
@@ -144,9 +143,9 @@ C#
        // Send the exception telemetry:
        telemetry.TrackException(ex, properties, measurements);
     }
+```
 
-VB
-
+```VB
     Dim telemetry = New TelemetryClient
     ...
     Try
@@ -162,6 +161,7 @@ VB
       ' Send the exception telemetry:
       telemetry.TrackException(ex, properties, measurements)
     End Try
+```
 
 De eigenschappen en metingen parameters zijn optioneel, maar zijn handig voor [filtering en toe te voegen](app-insights-diagnostic-search.md) extra informatie. Als u een app hebt die verschillende games kunt uitvoeren, kan u bijvoorbeeld alle uitzonderingenrapporten die betrekking hebben op een bepaald spel vinden. U kunt zoveel objecten als u elke woordenlijst wilt toevoegen.
 
@@ -175,8 +175,7 @@ Voor webformulieren, de HTTP-Module kan worden de uitzonderingen verzamelen als 
 
 Maar als u actieve omleidingen, voegt u de volgende regels toe aan de functie Application_Error in Global.asax.cs. (Het bestand Global.asax toevoegen als u er nog geen hebt).
 
-*C#*
-
+```csharp
     void Application_Error(object sender, EventArgs e)
     {
       if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError  () != null)
@@ -186,11 +185,28 @@ Maar als u actieve omleidingen, voegt u de volgende regels toe aan de functie Ap
          ai.TrackException(Server.GetLastError());
       }
     }
-
+```
 
 ## <a name="mvc"></a>MVC
+Beginnen met Application Insights Web SDK versie 2.6 (Bèta3 en hoger), Application Insights verzamelt niet-verwerkte uitzonderingen in de MVC 5 + domeincontrollers methoden automatisch. Als u een aangepaste handler om bij te houden van zulke uitzonderingen (zoals beschreven in de volgende voorbeelden) eerder hebt toegevoegd, kunt u om te voorkomen dat dubbele bijhouden van uitzonderingen kunt verwijderen.
+
+Er zijn een aantal cases dat de filters uitzondering kunnen niet worden verwerkt. Bijvoorbeeld:
+
+* Uitzonderingen uit controller constructors.
+* Uitzonderingen uit bericht handlers.
+* Uitzonderingen bij routering.
+* Uitzonderingen tijdens de serialisatie van reacties inhoud.
+* Uitzondering opgetreden tijdens het opstarten van de toepassing.
+* Uitzondering opgetreden in de achtergrondtaken.
+
+Alle uitzonderingen *verwerkt* door toepassing nog moet handmatig worden bijgehouden. Niet-verwerkte uitzonderingen die afkomstig zijn van domeincontrollers doorgaans leidt tot 500 'Interne serverfout' antwoord. Als het antwoord handmatig is gemaakt als gevolg van een uitzondering verwerkt (of er geen uitzondering gegenereerd helemaal) dit wordt bijgehouden in de bijbehorende aanvraagtelemetrie met `ResultCode` 500, Application Insights-SDK is echter kan geen overeenkomstige uitzonderingen bijhouden.
+
+### <a name="prior-versions-support"></a>Ondersteuning voor eerdere versies
+Als u MVC 4 (en vóór) van Application Insights Web SDK 2.5 (en vóór) gebruikt, raadpleegt u de volgende voorbeelden voor het bijhouden van uitzonderingen.
+
 Als de [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configuratie is `Off`, en vervolgens uitzonderingen zijn beschikbaar voor de [HTTP-Module](https://msdn.microsoft.com/library/ms178468.aspx) te verzamelen. Echter, als het `RemoteOnly` (standaard), of `On`, wordt de uitzondering gewist en niet beschikbaar voor Application Insights voor het automatisch verzamelen. U kunt dit oplossen door het overschrijven van de [System.Web.Mvc.HandleErrorAttribute klasse](http://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx), en het toepassen van de klasse overschreven zoals wordt weergegeven voor de andere onderstaande MVC-versies ([github-bron](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
+```csharp
     using System;
     using System.Web.Mvc;
     using Microsoft.ApplicationInsights;
@@ -215,22 +231,26 @@ Als de [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configur
         }
       }
     }
+```
 
 #### <a name="mvc-2"></a>MVC 2
 Het kenmerk HandleError vervangen door uw nieuw kenmerk in uw domeincontrollers.
 
+```csharp
     namespace MVC2App.Controllers
     {
        [AiHandleError]
        public class HomeController : Controller
        {
     ...
+```
 
-[Voorbeeld](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
+[voorbeeld](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
 Registreren `AiHandleErrorAttribute` als globaal filter in Global.asax.cs:
 
+```csharp
     public class MyMvcApplication : System.Web.HttpApplication
     {
       public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -238,12 +258,14 @@ Registreren `AiHandleErrorAttribute` als globaal filter in Global.asax.cs:
          filters.Add(new AiHandleErrorAttribute());
       }
      ...
+```
 
-[Voorbeeld](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
+[voorbeeld](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 Registreer AiHandleErrorAttribute als globaal filter in FilterConfig.cs:
 
+```csharp
     public class FilterConfig
     {
       public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -252,12 +274,31 @@ Registreer AiHandleErrorAttribute als globaal filter in FilterConfig.cs:
         filters.Add(new AiHandleErrorAttribute());
       }
     }
+```
 
-[Voorbeeld](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
+[voorbeeld](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
-## <a name="web-api-1x"></a>Web-API 1.x
-System.Web.Http.Filters.ExceptionFilterAttribute overschrijven:
+## <a name="web-api"></a>Web-API
+Beginnen met Application Insights Web SDK versie 2.6 (Bèta3 en hoger), Application Insights verzamelt niet-verwerkte uitzonderingen in de controllermethoden automatisch voor WebAPI 2 +. Als u een aangepaste handler om bij te houden van zulke uitzonderingen (zoals beschreven in de volgende voorbeelden) eerder hebt toegevoegd, kunt u om te voorkomen dat dubbele bijhouden van uitzonderingen kunt verwijderen.
 
+Er zijn een aantal cases dat de filters uitzondering kunnen niet worden verwerkt. Bijvoorbeeld:
+
+* Uitzonderingen uit controller constructors.
+* Uitzonderingen uit bericht handlers.
+* Uitzonderingen bij routering.
+* Uitzonderingen tijdens de serialisatie van reacties inhoud.
+* Uitzondering opgetreden tijdens het opstarten van de toepassing.
+* Uitzondering opgetreden in de achtergrondtaken.
+
+Alle uitzonderingen *verwerkt* door toepassing nog moet handmatig worden bijgehouden. Niet-verwerkte uitzonderingen die afkomstig zijn van domeincontrollers doorgaans leidt tot 500 'Interne serverfout' antwoord. Als het antwoord handmatig is gemaakt als gevolg van een uitzondering verwerkt (of er geen uitzondering gegenereerd helemaal) dit wordt bijgehouden in een overeenkomstige aanvraagtelemetrie met `ResultCode` 500, Application Insights-SDK is echter kan geen overeenkomstige uitzonderingen bijhouden.
+
+### <a name="prior-versions-support"></a>Ondersteuning voor eerdere versies
+Als u WebAPI-1 (en vóór) van Application Insights Web SDK 2.5 (en vóór) gebruikt, raadpleegt u de volgende voorbeelden voor het bijhouden van uitzonderingen.
+
+#### <a name="web-api-1x"></a>Web-API 1.x
+Override System.Web.Http.Filters.ExceptionFilterAttribute:
+
+```csharp
     using System.Web.Http.Filters;
     using Microsoft.ApplicationInsights;
 
@@ -276,9 +317,11 @@ System.Web.Http.Filters.ExceptionFilterAttribute overschrijven:
         }
       }
     }
+```
 
 U kunt dit overschreven kenmerk toevoegen aan specifieke domeincontrollers of toe te voegen aan de configuratie van de globaal filter in de klasse WebApiConfig:
 
+```csharp
     using System.Web.Http;
     using WebApi1.x.App_Start;
 
@@ -298,19 +341,14 @@ U kunt dit overschreven kenmerk toevoegen aan specifieke domeincontrollers of to
         }
       }
     }
+```
 
-[Voorbeeld](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
+[voorbeeld](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-Er zijn een aantal cases dat de filters uitzondering kunnen niet worden verwerkt. Bijvoorbeeld:
-
-* Uitzonderingen uit controller constructors.
-* Uitzonderingen uit bericht handlers.
-* Uitzonderingen bij routering.
-* Uitzonderingen tijdens de serialisatie van reacties inhoud.
-
-## <a name="web-api-2x"></a>Web-API 2.x
+#### <a name="web-api-2x"></a>Web-API 2.x
 Voeg een implementatie van IExceptionLogger toe:
 
+```csharp
     using System.Web.Http.ExceptionHandling;
     using Microsoft.ApplicationInsights;
 
@@ -329,9 +367,11 @@ Voeg een implementatie van IExceptionLogger toe:
         }
       }
     }
+```
 
 Voeg dit toe aan de services in WebApiConfig:
 
+```csharp
     using System.Web.Http;
     using System.Web.Http.ExceptionHandling;
     using ProductsAppPureWebAPI.App_Start;
@@ -355,9 +395,10 @@ Voeg dit toe aan de services in WebApiConfig:
             config.Services.Add(typeof(IExceptionLogger), new AiExceptionLogger());
         }
       }
-  }
+     }
+```
 
-[Voorbeeld](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
+[voorbeeld](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
 Als alternatief, kunt u het volgende doen:
 
@@ -367,6 +408,7 @@ Als alternatief, kunt u het volgende doen:
 ## <a name="wcf"></a>WCF
 Toevoegen van een klasse met kenmerk uitbreidt en IErrorHandler en IServiceBehavior implementeert.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -416,7 +458,7 @@ Toevoegen van een klasse met kenmerk uitbreidt en IErrorHandler en IServiceBehav
       }
     }
 
-Het kenmerk toevoegen aan de service-implementaties:
+Add the attribute to the service implementations:
 
     namespace WcfService4
     {
@@ -424,8 +466,9 @@ Het kenmerk toevoegen aan de service-implementaties:
         public class Service1 : IService1
         {
          ...
+```
 
-[Voorbeeld](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
+[voorbeeld](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>Uitzondering-prestatiemeteritems
 Als u hebt [de Application Insights-Agent geïnstalleerd](app-insights-monitor-performance-live-website-now.md) op uw server, kunt u een grafiek zien van de frequentie van uitzonderingen, gemeten door .NET krijgen. Dit omvat verwerkte en onverwerkte uitzonderingen voor .NET.

@@ -15,17 +15,23 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 7f82083cd18f762d1037da2ccf43e9d0c220fe09
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8c028bd20518a07a5fb35e36d0819c001eb2a7d5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindingen voor Azure Functions
 
 Dit artikel wordt uitgelegd hoe u werkt met Azure Table storage bindingen in de Azure Functions. Azure Functions ondersteunt invoer en uitvoer van de bindingen voor Azure Table storage.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pakketten
+
+De bindingen van de opslag tabel vindt u in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="input"></a>Invoer
 
@@ -288,7 +294,7 @@ module.exports = function (context, myQueueItem) {
  
 In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenmerken gebruiken voor het configureren van een tabel invoer binding:
 
-* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)
 
   De constructor van het kenmerk werkt met de tabelnaam, partitiesleutel en rijsleutel. Deze kan worden gebruikt op een out-parameter of op de geretourneerde waarde van de functie, zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -318,7 +324,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenme
 
   Zie voor een compleet voorbeeld [invoer - C#-voorbeeld](#input---c-example).
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   Biedt een andere manier om op te geven van de storage-account te gebruiken. De constructor, wordt de naam van een app-instelling met een verbindingsreeks voor opslag. Het kenmerk kan worden toegepast op het parameter, klasseniveau of methode. Het volgende voorbeeld ziet u klasseniveau en methode:
 
@@ -567,7 +573,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Output - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs).
 
 De constructor van het kenmerk wordt de tabelnaam. Kan worden gebruikt op een `out` parameter of op de geretourneerde waarde van de functie, zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -625,7 +631,7 @@ De Table storage uitvoer binding ondersteunt de volgende scenario's:
 
 * **Een of meer rijen in C# of C# schrijven**
 
-  In C# en C# script, toegang krijgen tot de entiteit van de tabel uitvoer met een methodeparameter `ICollector<T> paramName` of `ICollectorAsync<T> paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` Hiermee geeft u het schema van de entiteiten die u wilt toevoegen. Normaal gesproken `T` is afgeleid van `TableEntity` of implementeert `ITableEntity`, maar heeft geen aan. De partitiesleutel en rij waarden in sleutel *function.json* of de `Table` kenmerkconstructor worden niet gebruikt in dit scenario.
+  In C# en C# script, toegang krijgen tot de entiteit van de tabel uitvoer met een methodeparameter `ICollector<T> paramName` of `IAsyncCollector<T> paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` Hiermee geeft u het schema van de entiteiten die u wilt toevoegen. Normaal gesproken `T` is afgeleid van `TableEntity` of implementeert `ITableEntity`, maar heeft geen aan. De partitiesleutel en rij waarden in sleutel *function.json* of de `Table` kenmerkconstructor worden niet gebruikt in dit scenario.
 
   Een alternatief is een `CloudTable paramName` methodeparameter om te schrijven naar de tabel met behulp van de Azure-opslag-SDK.
 
