@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
 ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Een SSL-certificaat kopen en configureren voor uw Azure App Service
 
@@ -122,7 +122,7 @@ Op dit moment moet u kunnen bezoeken uw app met `HTTPS://` in plaats van `HTTP:/
 
 ## <a name="step-6---management-tasks"></a>Stap 6: beheertaken
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure-CLI
 
 [!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
@@ -159,7 +159,7 @@ Selecteer deze optie alleen voor [een App Service-domein dat u hebt aangeschaft 
 
 1. Inhoud van dit bestand moet de exacte naam van het domein verificatie-Token. (U kunt het token van de pagina domein verificatiestatus kopiëren)
 
-1. Dit bestand in de hoofdmap van de webserver die als host fungeert voor uw domein niet uploaden`/.well-known/pki-validation/starfield.html`
+1. Dit bestand in de hoofdmap van de webserver die als host fungeert voor uw domein niet uploaden `/.well-known/pki-validation/starfield.html`
 
 1. Klik op **vernieuwen** wilt bijwerken van de certificaatstatus nadat de verificatie is voltooid. Het duurt enkele minuten voor verificatie te voltooien.
 

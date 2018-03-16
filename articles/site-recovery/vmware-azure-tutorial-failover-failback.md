@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dec4beef44e4086e1b41e3c20bea6585db385c9c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Failover- en failback-overschakeling uitvoeren van naar Azure gerepliceerde VMware-VM’s en fysieke servers
 
@@ -48,7 +48,7 @@ Failover en failback bestaat uit vier fasen:
 
 ## <a name="verify-vm-properties"></a>VM-eigenschappen verifiëren
 
-Verifieer de VM-eigenschappen en zorg ervoor dat de VM voldoet aan de [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Verifieer de VM-eigenschappen en zorg ervoor dat de VM voldoet aan de [Azure-vereisten](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 1. Klik in **Beveiligde items** op **Gerepliceerde items** > VM.
 
@@ -88,7 +88,7 @@ De processerver ontvangt gegevens van de Azure VM en verzendt deze naar de on-pr
 
 - Als u een Azure ExpressRoute-verbinding hebt, kunt u voor testdoeleinden de on-premises processerver gebruiken die automatisch wordt geïnstalleerd op de configuratieserver.
 - Als u een VPN-verbinding hebt of als u failback in een productieomgeving uitvoert, moet u een Azure VM instellen als een Azure-processerver voor failback.
-- Volg de instructies in [dit artikel](site-recovery-vmware-setup-azure-ps-resource-manager.md) om een processerver in te stellen in Azure.
+- Volg de instructies in [dit artikel](vmware-azure-set-up-process-server-azure.md) om een processerver in te stellen in Azure.
 
 ## <a name="configure-the-master-target-server"></a>De hoofddoelserver configureren
 

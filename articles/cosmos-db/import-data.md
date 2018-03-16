@@ -17,10 +17,10 @@ ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
 ms.openlocfilehash: cf8b0e6a06f787c5b38622e9343e893d5d7daa12
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Hulpprogramma voor gegevensmigratie
 
@@ -196,7 +196,7 @@ Vergelijkbaar met de SQL-bron, het aantal geneste scheidingsteken-eigenschap kan
 
 Noteer de aliassen zoals DomainInfo.Domain_Name en RedirectInfo.Redirecting. Door op te geven van een geneste scheidingsteken van '.', maakt het hulpprogramma voor importeren DomainInfo en RedirectInfo subdocumenten tijdens het importeren. Hier volgt een voorbeeld van een resulterende document in Azure Cosmos DB:
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{"DomainInfo": {'Domeinnaam': 'ACUS.GOV', 'Domain_Name_Address': 'http://www.ACUS.GOV'}, 'Federale instantie': ' beheerdersrechten Conferentie van de Verenigde Staten ', 'RedirectInfo': {'Omleiden': '0', 'Redirect_Destination': ' "}, 'id': ' 9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"}*
 
 Het hulpprogramma voor importeren probeert het afleiden van type-informatie voor zonder aanhalingstekens waarden in CSV-bestanden (tussen aanhalingstekens waarden worden altijd behandeld als tekenreeksen).  Typen worden geïdentificeerd in de volgende volgorde: getal, datum/tijd, Booleaanse waarde.  
 

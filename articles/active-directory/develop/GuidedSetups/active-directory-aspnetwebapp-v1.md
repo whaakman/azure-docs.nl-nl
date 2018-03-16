@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 12/08/2017
 ms.author: andret
 ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Aanmelden met Microsoft toevoegen aan een ASP.NET-web-app
@@ -66,14 +66,14 @@ Deze sectie bevat de stappen voor het installeren en configureren van de verific
 > Voorkeur voor het downloaden van dit voorbeeld Visual Studio-project in plaats daarvan? [Downloaden van een project](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip) en doorgaan met de [configuratiestap](#configure-your-webconfig-and-register-an-application) voor het configureren van het codevoorbeeld voordat wordt uitgevoerd.
 
 ## <a name="create-your-aspnet-project"></a>Uw ASP.NET-project maken
-1. In Visual Studio:`File` > `New` > `Project`<br/>
+1. In Visual Studio: `File` > `New` > `Project`<br/>
 2. Onder *Visual C# \Web*, selecteer `ASP.NET Web Application (.NET Framework)`.
 3. Naam van uw toepassing en klik op *OK*
 4. Selecteer `Empty` en selecteer vervolgens het selectievakje in om toe te voegen `MVC` verwijzingen
 
 ## <a name="add-authentication-components"></a>Verificatieonderdelen toevoegen
 
-1. In Visual Studio:`Tools` > `Nuget Package Manager` > `Package Manager Console`
+1. In Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
 2. Voeg *OWIN middleware NuGet-pakketten* door het volgende te typen in het venster Package Manager-Console:
 
     ```powershell
@@ -92,8 +92,8 @@ De volgende stappen gebruikt bij het maken van een OWIN-middleware *Opstartklass
 
 > [!TIP]
 > Als uw project beschikt niet over een `Startup.cs` bestand in de hoofdmap:<br/>
-> 1. Met de rechtermuisknop op de hoofdmap van het project: >`Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Geef deze de naam`Startup.cs`<br/>
+> 1. Met de rechtermuisknop op de hoofdmap van het project: >    `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 2. Geef deze de naam `Startup.cs`<br/>
 >
 >> Zorg ervoor dat de geselecteerde klasse is een OWIN-Opstartklasse en niet een standaard C#-klasse. Dit controleren door te controleren of er `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` boven de naamruimte.
 
@@ -119,7 +119,7 @@ De volgende stappen gebruikt bij het maken van een OWIN-middleware *Opstartklass
 
 Deze stap ziet een nieuwe domeincontroller om aan- en afmeldingsaanvragen methoden zichtbaar te maken.
 
-1.  Met de rechtermuisknop op de `Controllers` map en selecteer`Add` > `Controller`
+1.  Met de rechtermuisknop op de `Controllers` map en selecteer `Add` > `Controller`
 2.  Selecteer `MVC (.NET version) Controller – Empty`.
 3.  Klik op *toevoegen*
 4.  Naam `HomeController` en klik op *toevoegen*
@@ -135,7 +135,7 @@ Deze stap ziet een nieuwe domeincontroller om aan- en afmeldingsaanvragen method
 
 Maak een nieuwe weergave voor het toevoegen van de knop aanmelden en gebruikersgegevens na verificatie weergeven in Visual Studio:
 
-1.  Met de rechtermuisknop op de `Views\Home` map en selecteer`Add View`
+1.  Met de rechtermuisknop op de `Views\Home` map en selecteer `Add View`
 2.  Noem deze `Index`.
 3.  De volgende HTML-code, waaronder de knop aanmelden toevoegen aan het bestand:
 
@@ -149,10 +149,10 @@ Maak een nieuwe weergave voor het toevoegen van de knop aanmelden en gebruikersg
 ## <a name="display-users-claims-by-adding-a-controller"></a>Claims van de gebruiker weergeven door het toevoegen van een domeincontroller
 Deze domeincontroller ziet u het gebruik van de `[Authorize]` kenmerk voor het beveiligen van een domeincontroller. Dit kenmerk wordt toegang tot de controller beperken door alleen geverifieerde gebruikers. De volgende code maakt gebruik van het kenmerk om claims van de gebruiker die zijn opgehaald als onderdeel van de aanmeldingspagina weer te geven.
 
-1.  Met de rechtermuisknop op de `Controllers` map:`Add` > `Controller`
+1.  Met de rechtermuisknop op de `Controllers` map: `Add` > `Controller`
 2.  Selecteer `MVC {version} Controller – Empty`.
 3.  Klik op *toevoegen*
-4.  Geef deze de naam`ClaimsController`
+4.  Geef deze de naam `ClaimsController`
 5.  Vervang de code van de klasse van uw domeincontroller met de volgende code - Hiermee voegt u de `[Authorize]` kenmerk aan de klasse:
 
     [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
@@ -166,7 +166,7 @@ Deze domeincontroller ziet u het gebruik van de `[Authorize]` kenmerk voor het b
 
 Maak een nieuwe weergave voor de claims van de gebruiker in een webpagina in Visual Studio:
 
-1.  Met de rechtermuisknop op de `Views\Claims` map en:`Add View`
+1.  Met de rechtermuisknop op de `Views\Claims` map en: `Add View`
 2.  Noem deze `Index`.
 3.  De volgende HTML-code toevoegen aan het bestand:
 
@@ -186,7 +186,7 @@ Maak een nieuwe weergave voor de claims van de gebruiker in een webpagina in Vis
     <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
     ```
 2. Selecteer het project in Solution Explorer en bekijk de <i>eigenschappen</i> venster (als er geen een venster met eigenschappen, druk op F4)
-3. SSL ingeschakeld om te wijzigen<code>True</code>
+3. SSL ingeschakeld om te wijzigen <code>True</code>
 4. SSL-URL van het project naar het Klembord kopiëren:<br/><br/>![Projecteigenschappen](media/active-directory-aspnetwebapp-v1/visual-studio-project-properties.png)<br />
 5. In <code>web.config</code>, Vervang <code>Enter_the_Redirect_URL_here</code> met de SSL-URL van uw project 
 
@@ -213,8 +213,8 @@ U kunt uw toepassing configureren voor dat alleen gebruikers die deel uitmaken v
 Volg de volgende stappen uit als u wilt accepteren aanmeldingen van werk- en schoolaccounts accounts van een bedrijf of organisatie die is geïntegreerd met Azure Active Directory. Dit is een veelvoorkomend scenario voor *SaaS-toepassingen*:
 
 1. Ga terug naar [Microsoft Azure Portal - App registraties](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) en zoek de toepassing die u zojuist hebt geregistreerd
-2. Onder `All Settings` selecteren`Properties`
-3. Wijziging `Multi-tenanted` eigenschap `Yes` en klikt u op`Save`
+2. Onder `All Settings` selecteren `Properties`
+3. Wijziging `Multi-tenanted` eigenschap `Yes` en klikt u op `Save`
 
 Zie voor meer informatie over deze instelling en het concept van multitenant-toepassingen [in dit artikel](../active-directory-devhowto-multi-tenant-overview.md "multitenant overzicht").
 
@@ -271,7 +271,7 @@ Selecteer de hyperlink om te zien van claims van de gebruiker. Deze actie leidt 
 |---|---|---|
 | Naam | {De volledige gebruikersnaam} | De voor- en achternaam van de gebruiker
 |Gebruikersnaam | <span>user@domain.com</span>| De gebruikersnaam die wordt gebruikt voor het identificeren van de aangemelde gebruiker
-| Onderwerp| {Onderwerp}|Een tekenreeks als unieke identificatie van de aanmelding van de gebruiker op het web|
+| Onderwerp| {Subject}|Een tekenreeks als unieke identificatie van de aanmelding van de gebruiker op het web|
 | Tenant-id| {Guid}| Een *guid* uniek vertegenwoordigt de organisatie Azure Active Directory van de gebruiker.|
 
 Bovendien ziet u een tabel met inbegrip van alle gebruikersclaims in verificatieaanvraag opgenomen. Zie voor een lijst van alle claims in een ID Token en de bijbehorende uitleg [artikel](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims "lijst van Claims in ID Token").

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 34d9d207225327758d535a11c870019f3db31cb0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Met behulp van de beheerdersportal in Azure-Stack
 
@@ -35,7 +35,7 @@ Toegang tot de beheerdersportal Blader naar de portal-URL en meld u aan met de r
 | Omgeving | Beheerder Portal-URL |   
 | -- | -- | 
 | Development kit| https://adminportal.local.azurestack.external  |
-| Geïntegreerde systemen | https://adminportal. &lt; *regio*&gt;.&lt; *FQDN-naam*&gt; | 
+| Geïntegreerde systemen | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
  ![De beheerdersportal](media/azure-stack-manage-portals/image1.png)

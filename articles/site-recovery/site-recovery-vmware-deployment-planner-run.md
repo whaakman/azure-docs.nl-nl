@@ -12,20 +12,20 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9aedd5561397c78622a43f39f423c618000a2a33
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 87e124b1dc14ad34d1d790d463ce1f5ded18f74b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>De Azure Site Recovery-implementatieplanner voor VMware naar Azure uitvoeren
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner voor productie-installaties van het type VMware-naar-Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Modi waarin de implementatieplanner kan worden uitgevoerd
-U kunt het opdrachtregelprogramma (ASRDeploymentPlanner.exe) in de volgende drie modi uitvoeren: 
+U kunt het opdrachtregelprogramma (ASRDeploymentPlanner.exe) in de volgende drie modi uitvoeren:
 
 1.  [Profileren](#profile-vmware-vms)
 2.  [Rapporten genereren](#generate-report)
@@ -49,8 +49,8 @@ U moet eerst een lijst maken met de virtuele machines die u wilt profileren. U k
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
 4. U kunt desgewenst de volgende opdracht uitvoeren als Connect VIServer niet wordt herkend als de naam van de cmdlet.
- 
-            Add-PSSnapin VMware.VimAutomation.Core 
+
+            Add-PSSnapin VMware.VimAutomation.Core
 
 5. Als u alle namen wilt ophalen van de virtuele machines op een vCenter-server of vSphere ESXi-host en de lijst wilt opslaan in een TXT-bestand, voert u de volgende twee opdrachten uit.
 Vervang &lsaquo;servernaam&rsaquo;, &lsaquo;gebruikersnaam&rsaquo;, &lsaquo;wachtwoord&rsaquo;, &lsaquo;outputfile.txt&rsaquo;; door uw invoer.
@@ -101,7 +101,7 @@ Standaard is het hulpprogramma geconfigureerd om maximaal 1000 virtuele machines
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Met de standaardinstellingen worden er twee VMList.txt-bestanden gemaakt om bijvoorbeeld 1500 VM's te profileren. Een met 1000 VM's en een ander met 500 VM's. Voer de twee exemplaren van ASR Deployment Planner uit, één met VMList1.txt en een ander met VMList2.txt. U kunt hetzelfde directorypad gebruiken om de geprofileerde gegevens van beide VMList-VM's op te slaan. 
+Met de standaardinstellingen worden er twee VMList.txt-bestanden gemaakt om bijvoorbeeld 1500 VM's te profileren. Een met 1000 VM's en een ander met 500 VM's. Voer de twee exemplaren van ASR Deployment Planner uit, één met VMList1.txt en een ander met VMList2.txt. U kunt hetzelfde directorypad gebruiken om de geprofileerde gegevens van beide VMList-VM's op te slaan.
 
 Op basis van de hardwareconfiguratie hebben we gezien dat de bewerking kan mislukken vanwege onvoldoende geheugen, met name wat de omvang betreft van het RAM van de server waarop het hulpprogramma wordt uitgevoerd om het rapport te genereren. Als u goede hardware hebt, kunt u de waarde MaxVMsSupported verhogen.  
 
@@ -293,4 +293,3 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Het gegenereerde rapport analyseren](site-recovery-vmware-deployment-planner-analyze-report.md).
-

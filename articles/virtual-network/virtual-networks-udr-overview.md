@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -39,13 +39,13 @@ Elke route bevat een adresvoorvoegsel en het volgende hoptype. Wanneer uitgaand 
 |Standaard|Uniek voor het virtuele netwerk                           |Virtueel netwerk|
 |Standaard|0.0.0.0/0                                               |Internet       |
 |Standaard|10.0.0.0/8                                              |None           |
-|Standaard|172.16.0.0/12                                           |None           |
+|Standaard|172.16.0.0/12                                           |Geen           |
 |Standaard|192.168.0.0/16                                          |None           |
 |Standaard|100.64.0.0/10                                           |None           |
 
 De 'volgende hoptypen' in de bovenstaande tabel bepalen hoe Azure verkeer routeert dat bestemd is voor het vermelde adresvoorvoegsel. Hieronder worden de 'volgende hoptypen' toegelicht:
 
-- **Virtueel netwerk**: routeert verkeer tussen adresbereiken in de [adresruimte](virtual-network-manage-network.md#add-address-spaces) van een virtueel netwerk. Azure maakt een route met een adresvoorvoegsel dat overeenkomt met elk-adresbereik dat is gedefinieerd in de adresruimte van een virtueel netwerk. Als in de adresruimte van het virtuele netwerk meerdere adresbereiken zijn gedefinieerd, maakt Azure een afzonderlijke route voor elk adresbereik. Verkeer tussen subnetten wordt door Azure automatisch gerouteerd met behulp van de routes die voor elk adresbereik zijn gemaakt. U hoeft geen gateways te definiëren voor Azure voor het routeren van verkeer tussen subnetten. Hoewel een virtueel netwerk subnetten bevat, en elk subnet een gedefinieerd adresbereik heeft, worden er door Azure *geen* standaardroutes gemaakt voor adresbereiken van een subnet. De reden hiervoor is dat elk adresbereik van een subnet binnen een adresbereik valt van de adresruimte van een virtueel netwerk.
+- **Virtueel netwerk**: routeert verkeer tussen adresbereiken in de [adresruimte](manage-virtual-network.md#add-or-remove-an-address-range) van een virtueel netwerk. Azure maakt een route met een adresvoorvoegsel dat overeenkomt met elk-adresbereik dat is gedefinieerd in de adresruimte van een virtueel netwerk. Als in de adresruimte van het virtuele netwerk meerdere adresbereiken zijn gedefinieerd, maakt Azure een afzonderlijke route voor elk adresbereik. Verkeer tussen subnetten wordt door Azure automatisch gerouteerd met behulp van de routes die voor elk adresbereik zijn gemaakt. U hoeft geen gateways te definiëren voor Azure voor het routeren van verkeer tussen subnetten. Hoewel een virtueel netwerk subnetten bevat, en elk subnet een gedefinieerd adresbereik heeft, worden er door Azure *geen* standaardroutes gemaakt voor adresbereiken van een subnet. De reden hiervoor is dat elk adresbereik van een subnet binnen een adresbereik valt van de adresruimte van een virtueel netwerk.
 
 - **Internet**: routeert verkeer dat is opgegeven met het adresvoorvoegsel naar internet. De standaardsysteemroute is gekoppeld aan het adresvoorvoegsel 0.0.0.0/0. Als u de standaardroutes van Azure niet overschrijft, stuurt Azure verkeer voor een adres dat niet is opgegeven door een adresbereik binnen een virtueel netwerk, naar internet. Met één uitzondering. Als het doeladres hoort bij een service van Azure, stuurt Azure het verkeer rechtstreeks naar de service. Het verkeer loopt dan via het backbone-netwerk van Azure en wordt dus niet naar internet gerouteerd. Verkeer tussen Azure-services loopt niet via internet, ongeacht de Azure-regio waarin het virtuele netwerk zich bevindt of in welke Azure-regio een instantie van de Azure-service is geïmplementeerd. U kunt de standaardsysteemroute van Azure voor het adresvoorvoegsel 0.0.0.0/0 vervangen door een [aangepaste route](#custom-routes).
 
@@ -207,7 +207,7 @@ De routetabel voor *Subnet1* in de afbeelding bevat de volgende routes:
 |3   |Gebruiker   |Actief |10.0.0.0/24         |Virtueel netwerk        |                   |Within-Subnet1|
 |4   |Standaard|Ongeldig|10.1.0.0/16         |VNet-peering           |                   |              |
 |5   |Standaard|Ongeldig|10.2.0.0/16         |VNet-peering           |                   |              |
-|6   |Gebruiker   |Actief |10.1.0.0/16         |None                   |                   |ToVNet2-1-Drop|
+|6   |Gebruiker   |Actief |10.1.0.0/16         |Geen                   |                   |ToVNet2-1-Drop|
 |7   |Gebruiker   |Actief |10.2.0.0/16         |None                   |                   |ToVNet2-2-Drop|
 |8   |Standaard|Ongeldig|10.10.0.0/16        |Gateway van een virtueel netwerk|[X.X.X.X]          |              |
 |9   |Gebruiker   |Actief |10.10.0.0/16        |Virtueel apparaat      |10.0.100.4         |To-On-Prem    |
@@ -241,16 +241,16 @@ De routetabel voor *Subnet2* in de afbeelding bevat de volgende routes:
 |Standaard |Actief |10.2.0.0/16         |VNet-peering              |                   |
 |Standaard |Actief |10.10.0.0/16        |Gateway van een virtueel netwerk   |[X.X.X.X]          |
 |Standaard |Actief |0.0.0.0/0           |Internet                  |                   |
-|Standaard |Actief |10.0.0.0/8          |Geen                      |                   |
+|Standaard |Actief |10.0.0.0/8          |None                      |                   |
 |Standaard |Actief |100.64.0.0/10       |None                      |                   |
 |Standaard |Actief |172.16.0.0/12       |None                      |                   |
-|Standaard |Actief |192.168.0.0/16      |None                      |                   |
+|Standaard |Actief |192.168.0.0/16      |Geen                      |                   |
 
 De routetabel voor *Subnet2* bevat alle standaardroutes van Azure, plus de optionele routes Virtual network peering en VPN Gateway. Azure heeft de optionele routes toegevoegd aan alle subnetten in het virtuele netwerk op het moment dat de gateway en peering werden toegevoegd aan het virtuele netwerk. Azure heeft de routes voor de adresvoorvoegsels 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 en 100.64.0.0/10 verwijderd uit de routetabel van *Subnet1* op het moment dat de door de gebruiker gedefinieerde route voor het adresvoorvoegsel 0.0.0.0/0 werd toegevoegd aan *Subnet1*.  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Maken van een gebruiker gedefinieerde route - Azure-portal](create-user-defined-route-portal.md)
+- [Maken van een gebruiker gedefinieerde route - Azure-portal](tutorial-create-route-table-portal.md)
 - [Het configureren van BGP op Azure VPN-Gateways met behulp van PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [BGP gebruiken met ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Alle routes weergeven voor een subnet](virtual-network-routes-troubleshoot-portal.md). Een door de gebruiker gedefinieerde routetabel bevat alleen door de gebruiker gedefinieerde routes, niet de standaard- en BGP-routes voor een subnet. Als u alle routes weergeeft, ziet u de standaardroutes, de BGP-routes en de door de gebruiker gedefinieerde routes voor het subnet waarin een netwerkinterface zich bevindt.

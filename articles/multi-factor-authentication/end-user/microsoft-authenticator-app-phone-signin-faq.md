@@ -16,10 +16,10 @@ ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.openlocfilehash: 86cf6ba2f2ec86a609b4ec60cc143b07d9e542b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Meld u aan met uw telefoon niet uw wachtwoord
 
@@ -72,7 +72,7 @@ U niet Nee, het volgende geval. Aanmelden bij je Microsoft-account met uw telefo
 
 ### <a name="what-if-i-lose-my-phone-or-dont-have-it-with-me-how-can-i-access-my-account"></a>Wat gebeurt er als ik mijn telefoon verlies of met me niet hebt, hoe kan ik toegang tot mijn account?  
 
-U kunt altijd klikken op **gebruik in plaats daarvan een wachtwoord** op de aanmeldingspagina overschakelen naar je wachtwoord. Houd er rekening mee dat als u verificatie in twee stappen hebt gebruikt, moet u toch een tweede methode om te controleren of uw aanmelden. Daarom wordt ten zeerste aangeraden om ervoor te zorgen dat er extra, up-to-date beveiligingsgegevens voor je account. U kunt de beveiligingsgegevens voor je op https://account.live.com/proofs/manage beheren.
+U kunt altijd klikken op **gebruik in plaats daarvan een wachtwoord** op de aanmeldingspagina overschakelen naar je wachtwoord. Houd er rekening mee dat als u verificatie in twee stappen hebt gebruikt, moet u toch een tweede methode om te controleren of uw aanmelden. Daarom wordt ten zeerste aangeraden om ervoor te zorgen dat er extra, up-to-date beveiligingsgegevens voor je account. U kunt de beveiligingsgegevens voor je op beheren https://account.live.com/proofs/manage.
  
 ### <a name="how-do-i-stop-using-this-feature-and-go-back-to-entering-my-password"></a>Hoe stoppen met het gebruik van deze functie en ik ga terug naar mijn wachtwoord invoeren?
 

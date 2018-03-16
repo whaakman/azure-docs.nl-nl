@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 17f2afb0aaf3b899784a504b77f33a1284f0a232
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Koppelingen op de pagina werken niet voor een toepassing toepassingsproxy
 
@@ -42,7 +42,7 @@ Er zijn drie manieren om dit probleem te verhelpen. De opties hieronder in staan
 
 3.  Als geen van beide opties haalbaar is, kunt u het voorbeeld voor een nieuwe functie die URL-omzetting/herschrijven koppelen. Met deze optie interne URL's of koppelingen die aanwezig zijn in de hoofdtekst HTML van uw toepassingen worden vertaald of 'toegewezen', aan de gepubliceerde externe App Proxy-URL's. Dit werkt alleen voor de koppelingen in de HTML-indeling of CSS en dit niet helpt, als de koppeling wordt gegenereerd via JS. 
 
-Als gevolg hiervan wordt aangeraden met behulp van de [aangepaste domeinen](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) oplossing indien mogelijk. Als u deelnemen aan de preview wilt, e- < aadapfeedback@microsoft.com > met de applicationId(s).
+Als gevolg hiervan wordt aangeraden met behulp van de [aangepaste domeinen](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) oplossing indien mogelijk. Als u deelnemen aan de preview wilt, e- <aadapfeedback@microsoft.com> met de applicationId(s).
 
 ## <a name="next-steps"></a>Volgende stappen
 [Werken met bestaande lokale proxyservers](application-proxy-working-with-proxy-servers.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
 ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: snel starten
 
@@ -87,7 +87,7 @@ Bovendien moet u een Intranet zone beleidsinstelling opgeroepen inschakelen **to
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Waarom moet u gebruikers Intranet-beveiligingszone-instellingen wijzigen?
 
-De browser berekent standaard automatisch de juiste zone Internet- of intranethosts van een specifieke URL. Bijvoorbeeld 'http://contoso/' worden toegewezen aan de zone Internet, terwijl "http://intranet.contoso.com/" wordt toegewezen aan de zone Internet (omdat de URL een periode bevat). Browsers wordt Kerberos-tickets niet verzonden naar een cloudeindpunt, zoals de URL van de Azure AD, tenzij u expliciet de URL aan de zone Lokaal Intranet van de browser toevoegen.
+De browser berekent standaard automatisch de juiste zone Internet- of intranethosts van een specifieke URL. Bijvoorbeeld 'http://contoso/' toegewezen aan de zone Internet, terwijl 'http://intranet.contoso.com/' toegewezen aan de zone Internet (omdat de URL een periode bevat). Browsers wordt Kerberos-tickets niet verzonden naar een cloudeindpunt, zoals de URL van de Azure AD, tenzij u expliciet de URL aan de zone Lokaal Intranet van de browser toevoegen.
 
 ### <a name="detailed-steps"></a>Gedetailleerde stappen
 
@@ -101,7 +101,7 @@ De browser berekent standaard automatisch de juiste zone Internet- of intranetho
 
     Het resultaat ziet er als volgt:
 
-    Waarde: https://autologon.microsoftazuread-sso.com
+    Waarde:https://autologon.microsoftazuread-sso.com
   
     Gegevens: 1
 
@@ -138,7 +138,7 @@ Zorg ervoor dat de machine met de Mac OS wordt gekoppeld aan Azure AD. Zie voor 
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (alle platforms)
 
-Als u onderdrukt hebt de [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) of de [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) beleidsinstellingen in uw omgeving, zorg ervoor dat u Azure AD URL toevoegen (https://autologon.microsoftazuread-sso.com) aan hen ook.
+Als u onderdrukt hebt de [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) of de [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) beleidsinstellingen in uw omgeving, zorg ervoor dat u de URL van Azure AD toevoegt (https://autologon.microsoftazuread-sso.com) voor hen als.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (alleen Mac OS)
 

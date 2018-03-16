@@ -9,17 +9,17 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 600689dfe2d572a83382522f6bea1ec5bf0f3883
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-storage-account"></a>Een opslagaccount maken
 
 Een Azure-opslagaccount biedt een unieke naamruimte in de cloud voor het opslaan en openen van uw gegevensobjecten in Azure Storage. Een opslagaccount bevat alle blobs, bestanden, wachtrijen, tabellen en schijven die u in dit account maakt. 
 
-Als u aan de slag wilt gaan met Azure Storage, moet u eerst een nieuw opslagaccount maken. U kunt een Azure Storage-account maken met behulp van [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) of [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Deze snelstartgids laat zien hoe u elk van deze opties kunt gebruiken om uw nieuwe opslagaccount te maken. 
+Als u aan de slag wilt gaan met Azure Storage, moet u eerst een nieuw opslagaccount maken. U kunt een Azure Storage-account maken met behulp van [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) of [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Deze snelstartgids laat zien hoe u elk van deze opties kunt gebruiken om uw nieuwe opslagaccount te maken. 
 
 
 ## <a name="prerequisites"></a>Vereisten

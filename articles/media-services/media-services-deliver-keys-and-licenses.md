@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
 ms.openlocfilehash: 0f934cc572409462ca1a35ff3cce49be2f82a9bd
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Azure Media Services gebruiken om te leveren van DRM-licenties of AES-sleutels
 Azure Media Services kunt u opnemen, coderen, beveiliging van inhoud toevoegen en de inhoud streamen. Zie voor meer informatie [gebruik PlayReady en/of Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md). Sommige klanten willen Media Services gebruiken alleen voor het leveren van licenties en/of sleutels en coderen, coderen en streamen met behulp van hun lokale servers. Dit artikel wordt beschreven hoe u Media Services kunt gebruiken voor het leveren van PlayReady en/of Widevine-licenties, maar de overige doen met uw on-premises servers. 
@@ -41,7 +41,7 @@ Zie voor het downloaden van de steekproef die worden beschreven in dit artikel [
 
 2. Voeg de volgende elementen toe aan **appSettings** dat in het bestand app.config is gedefinieerd:
 
-    add key="Issuer" value="http://testacs.com"/
+    sleutel = "Verlener" value = "http://testacs.com" /
     
     sleutel = waarde 'Doelgroep' = 'urn: test' /
 

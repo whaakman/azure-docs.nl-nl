@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure AD-verificatie gebruiken voor toegang tot de Azure Media Services-API met REST
 
@@ -59,10 +59,10 @@ Voor toegang tot API voor Media Services, moet u de volgende gegevenspunten verz
 
 |Instelling|Voorbeeld|Beschrijving|
 |---|-------|-----|
-|Azure Active Directory-tenantdomein|Microsoft.onmicrosoft.com|Azure AD als een Secure Token Service (STS)-eindpunt is gemaakt met de volgende notatie: https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD geeft een JWT voor toegang tot resources (een toegangstoken).|
-|REST API-eindpunt|https://amshelloworld.restv2.westus.Media.Azure.NET/API/|Dit is het eindpunt met welke alle REST API voor Media Services in uw toepassing worden aangeroepen.|
+|Azure Active Directory-tenantdomein|microsoft.onmicrosoft.com|Azure AD als een Secure Token Service (STS)-eindpunt is gemaakt met de volgende notatie: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD geeft een JWT voor toegang tot resources (een toegangstoken).|
+|REST API-eindpunt|https://amshelloworld.restv2.westus.media.azure.net/api/|Dit is het eindpunt met welke alle REST API voor Media Services in uw toepassing worden aangeroepen.|
 |Client-ID (toepassings-ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD (client) toepassings-ID. De client-ID is vereist voor het ophalen van het toegangstoken. |
-|Clientgeheim|mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Azure AD-toepassing-sleutels (clientgeheim). Het clientgeheim is vereist voor het ophalen van het toegangstoken.|
+|Clientgeheim|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD-toepassing-sleutels (clientgeheim). Het clientgeheim is vereist voor het ophalen van het toegangstoken.|
 
 ### <a name="get-aad-auth-info-from-the-azure-portal"></a>AAD auth info ophalen uit de Azure-portal
 
@@ -123,7 +123,7 @@ Deze sectie wordt beschreven hoe u **Postman** uitvoeren van een REST-API die al
 2. Selecteer **POST**.
 3. Voer de URL in met de tenantnaam van uw met de volgende indeling: naam van de tenant moet eindigen met **. onmicrosoft.com** en de URL moet eindigen met **oauth2/tokens**: 
 
-    https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token
+    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
 4. Selecteer de **Headers** tabblad.
 5. Voer de **Headers** gegevens door middel van het gegevensraster ' Sleutel/waarde'. 
@@ -159,7 +159,7 @@ Deze sectie wordt beschreven hoe u toegang tot de **activa** API kunnen doen met
 
 1. Open **Postman**.
 2. Selecteer **GET**.
-3. Plak het REST-API-eindpunt (bijvoorbeeld https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+3. Plak het REST-API-eindpunt (bijvoorbeeld: https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Selecteer de **autorisatie** tabblad. 
 5. Selecteer **Bearer-Token**.
 6. Plak het token dat is gemaakt in de vorige sectie.
