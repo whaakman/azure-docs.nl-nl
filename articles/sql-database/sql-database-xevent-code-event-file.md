@@ -2,25 +2,18 @@
 title: XEvent-gebeurtenisbestand code voor de SQL-Database | Microsoft Docs
 description: PowerShell en Transact-SQL biedt voor een in twee fasen voorbeeldcode die laat zien van het doel van de gebeurtenisbestand in een uitgebreide gebeurtenis op Azure SQL Database. Azure Storage is een vereist onderdeel van dit scenario.
 services: sql-database
-documentationcenter: 
 author: MightyPen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: genemi
-ms.openlocfilehash: abf660e3fafd1a5020cdf9a6beb5b73252b72cfc
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 630e0ca84479757d3bb4397aa63ee8a440e69427
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Bestand doel gebeurteniscode voor uitgebreide gebeurtenissen in SQL-Database
 
@@ -531,7 +524,7 @@ Stel dat u wilt de voorgaande Transact-SQL-voorbeeld uitvoeren op Microsoft SQL 
 Zie voor meer informatie over accounts en containers in de Azure Storage-service:
 
 * [Het Blob storage gebruiken met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [Naamgeving en verwijzen naar Containers, Blobs en metagegevens](http://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [Naamgeving van en verwijzen naar containers, blobs en metagegevens](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [Werken met het Root-Container](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 * [Les 1: Een toegangsbeleid opgeslagen en een shared access signature maken op een Azure-container](http://msdn.microsoft.com/library/dn466430.aspx)
   * [Les 2: Een SQL Server-referentie met een shared access signature maken](http://msdn.microsoft.com/library/dn466435.aspx)

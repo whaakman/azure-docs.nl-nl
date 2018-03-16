@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e2f8be0f77e220da483dcfb18d6b324d3f203ed
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestaties van Azure Diagnostics VM-extensie voor Windows
 
@@ -227,9 +227,7 @@ Het hulpprogramma PerfInsights verzamelt verschillende logboeken, configuratie e
 
 ## <a name="view-and-share-the-results"></a>Bekijken en delen van de resultaten
 
-De uitvoer van de uitbreiding wordt opgeslagen in een map. De map met de naam log_collection en vindt u onder het tijdelijke station (meestal D:\log_collection) standaard. Onder deze map ziet u het zip-bestanden met de diagnostische logboeken en een rapport met bevindingen en aanbevelingen.
-
-U kunt ook het zip-bestand vinden in het opslagaccount dat is opgegeven tijdens de installatie. Deze 30 dagen wordt gedeeld met behulp van [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Een tekstbestand met de naam *zipfilename*_saslink.txt ook in de map log_collection is gemaakt. Dit bestand bevat de SAS-koppeling voor het downloaden van het zip-bestand gemaakt. Iedereen die deze koppeling heeft kan downloaden van het zip-bestand.
+De uitvoer van de extensie vindt u in een zip-bestand geüpload naar het opslagaccount dat is opgegeven tijdens de installatie en 30 dagen wordt gedeeld met behulp van [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Dit zipbestand bevat diagnostische logboeken en een rapport met bevindingen en aanbevelingen. Een SAS-koppeling naar het zip-bestand voor uitvoer vindt u in een tekstbestand met de naam *zipfilename*_saslink.txt onder de map **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<versie >**. Iedereen die deze koppeling heeft kan downloaden van het zip-bestand.
 
 Om te helpen de ondersteuningstechnicus van uw ondersteuningsticket gewerkt, kan Microsoft deze SAS-koppeling gebruikt voor het downloaden van de diagnostics-gegevens.
 
@@ -240,7 +238,7 @@ Ook moet u kunnen downloaden van het zip-bestand rechtstreeks vanuit de portal d
 ![Schermopname van prestatiecontrole gedetailleerde status](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> De SAS-koppeling weergegeven in de portal werkt mogelijk niet. Dit kan worden veroorzaakt door een verkeerd ingedeelde URL tijdens de bewerkingen coderen en decoderen. In plaats daarvan kunt u de koppeling rechtstreeks vanuit het bestand *_saslink.txt van de virtuele machine ophalen.
+> De SAS-koppeling weergegeven in de portal werkt mogelijk niet soms. Dit kan worden veroorzaakt door een verkeerd ingedeelde URL tijdens de bewerkingen coderen en decoderen. In plaats daarvan kunt u de koppeling rechtstreeks vanuit het bestand *_saslink.txt van de virtuele machine ophalen.
 
 ## <a name="troubleshoot-and-support"></a>Oplossen van problemen en ondersteunen
 
@@ -249,6 +247,6 @@ Ook moet u kunnen downloaden van het zip-bestand rechtstreeks vanuit de portal d
     Dit probleem kan worden genegeerd, zolang de status van extensie geeft aan dat de uitbreiding met succes wordt ingericht.
 - U kunt sommige problemen oplossen tijdens de installatie met behulp van de logboeken van de extensie. De uitvoer van de extensie-uitvoering wordt vastgelegd in bestanden gevonden in de volgende map:
 
-        C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics
+        C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
 Als u meer hulp op elk gewenst moment in dit artikel nodig hebt, kunt u de Azure-experts raadplegen op de [MSDN Azure en Stack Overflow-forums](https://azure.microsoft.com/support/forums/). U kunt ook een incident voor ondersteuning van Azure indienen. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/), en selecteer **ondersteuning krijgen**. Voor meer informatie over het gebruik van de ondersteuning van Azure de [ondersteuning van Microsoft Azure Veelgestelde vragen over](https://azure.microsoft.com/support/faq/).

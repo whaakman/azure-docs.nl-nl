@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 4151811a74fc0e58f6171e11d77e070f3cb40f95
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5b81ca4f5a9f30b2882d86639ca9386e7bbc09e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met samenloop SAML SSO door Microsoft
 
@@ -125,11 +125,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<domain:port>/plugins/servlet/saml/auth`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<domain:port>/`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<domain:port>/`
 
-    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<domain:port>/plugins/servlet/saml/auth`
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. Poort is optioneel, mocht dat een benoemde URL. Deze waarden worden ontvangen tijdens de configuratie van de invoegtoepassing samenloop, die verderop in de zelfstudie wordt beschreven.
@@ -200,6 +200,8 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     i. Klik op **opslaan** knop de instellingen op te slaan.
 
+    > [!NOTE]
+    > Voor meer informatie over installatie en probleemoplossing, gaat u naar [MS samenloop SSO Connector Admin handleiding](ms-confluence-jira-plugin-adminguide.md) en er ook [Veelgestelde vragen over](ms-confluence-jira-plugin-faq.md) voor uw hulp
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

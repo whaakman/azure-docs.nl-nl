@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Het configureren van Azure Redis-Cache
 Dit onderwerp beschrijft de configuraties die beschikbaar zijn voor uw Azure Redis-Cache-exemplaren. Dit onderwerp worden ook de configuratie standaard Redis-server voor Azure Redis-Cache-exemplaren.
@@ -280,8 +280,6 @@ U kunt firewallregels opgeven met een begin- en IP-adresbereik. Firewallregels z
 > [!IMPORTANT]
 > Verbindingen van Azure Redis-Cache bewaken altijd toegestaan, zelfs als de firewallregels zijn geconfigureerd.
 > 
-> Firewallregels zijn alleen beschikbaar voor Premium-laag caches.
-> 
 > 
 
 ### <a name="properties"></a>Eigenschappen
@@ -404,7 +402,7 @@ Nieuwe exemplaren van Azure Redis-Cache zijn geconfigureerd met de volgende Redi
 | `maxmemory-samples` |3 |Voor het opslaan van geheugen zijn LRU- en minimale TTL-algoritmes redelijk algoritmen in plaats van nauwkeurige algoritmen. Standaard Redis controles drie sleutels en aanbiedingen die minder recent is gebruikt. |
 | `lua-time-limit` |5.000 |Maximale uitvoeringstijd van een script Lua in milliseconden. Als de maximale uitvoeringstijd is bereikt, registreert Redis dat een script nog steeds uitgevoerd na de maximale toegestane tijd wordt en begint te reageren op query's met een fout. |
 | `lua-event-limit` |500 |Maximale grootte van de wachtrij script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |De limieten van de client uitvoer buffer kunnen worden gebruikt om af te dwingen verbreken van de verbinding van clients die niet van gegevens van de server snel genoeg voor een bepaalde reden lezen zijn (een veelvoorkomende reden is dat een client Pub subitems berichten zo snel als de publisher kan ze produceren kan niet gebruiken). Zie voor meer informatie [http://redis.io/topics/clients](http://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |De limieten van de client uitvoer buffer kunnen worden gebruikt om af te dwingen verbreken van de verbinding van clients die niet van gegevens van de server snel genoeg voor een bepaalde reden lezen zijn (een veelvoorkomende reden is dat een client Pub subitems berichten zo snel als de publisher kan ze produceren kan niet gebruiken). Zie voor meer informatie [ http://redis.io/topics/clients ](http://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>de limiet voor `databases` verschilt voor elk Azure Redis-Cache prijscategorie en kan worden ingesteld bij het maken van de cache. Als er geen `databases` instelling is opgegeven tijdens het maken van de cache, de standaardwaarde is 16.
@@ -471,14 +469,14 @@ Zie voor meer informatie over databases [wat Redis-databases zijn?](cache-faq.md
 > 
 > 
 
-Zie voor meer informatie over Redis opdrachten [http://redis.io/commands](http://redis.io/commands).
+Zie voor meer informatie over Redis opdrachten [ http://redis.io/commands ](http://redis.io/commands).
 
 ## <a name="redis-console"></a>Redis-console
 Opdrachten kunnen veilig worden verleend aan uw Azure Redis-Cache-exemplaren die gebruikmaken van de **Redis-Console**, die beschikbaar is in de Azure-portal voor alle cachelagen.
 
 > [!IMPORTANT]
 > - De Redis-Console werkt niet met [VNET](cache-how-to-premium-vnet.md). Wanneer uw cache deel van een VNET uitmaakt, alleen de clients in het VNET, hebben toegang tot de cache. Omdat Redis-Console wordt uitgevoerd in uw lokale browser, die zich buiten het VNET, kan het verbinden met uw cache.
-> - Niet alle Redis-opdrachten worden ondersteund in Azure Redis-Cache. Voor een lijst met Redis-opdrachten die zijn uitgeschakeld voor Azure Redis-Cache, Zie de vorige [Redis opdrachten niet ondersteund in Azure Redis-Cache](#redis-commands-not-supported-in-azure-redis-cache) sectie. Zie voor meer informatie over Redis opdrachten [http://redis.io/commands](http://redis.io/commands).
+> - Niet alle Redis-opdrachten worden ondersteund in Azure Redis-Cache. Voor een lijst met Redis-opdrachten die zijn uitgeschakeld voor Azure Redis-Cache, Zie de vorige [Redis opdrachten niet ondersteund in Azure Redis-Cache](#redis-commands-not-supported-in-azure-redis-cache) sectie. Zie voor meer informatie over Redis opdrachten [ http://redis.io/commands ](http://redis.io/commands).
 > 
 > 
 

@@ -14,14 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 6dc89bda31af35e4c7eb0f2255db301b39ac05eb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aeda1184610398c0445238ea2e7ccbea866ed418
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="scaling-in-service-fabric"></a>Schalen in Service Fabric
-Azure Service Fabric kunt eenvoudig schaalbare toepassingen bouwen door het beheer van de services, partities en replica's op de knooppunten van een cluster. Veel werkbelastingen op dezelfde hardware uitgevoerd kunt maximale Resourcegebruik, maar ook biedt flexibiliteit in termen van hoe u kiest voor het schalen van uw werkbelastingen. 
+Azure Service Fabric kunt eenvoudig schaalbare toepassingen bouwen door het beheer van de services, partities en replica's op de knooppunten van een cluster. Veel werkbelastingen op dezelfde hardware uitgevoerd kunt maximale Resourcegebruik, maar ook biedt flexibiliteit in termen van hoe u kiest voor het schalen van uw werkbelastingen. Deze Channel 9 video wordt beschreven hoe u toepassingen voor schaalbare microservices kunt samenstellen:
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T116/player]
 
 In Service Fabric schalen, is het moet worden uitgevoerd op verschillende manieren:
 
@@ -33,7 +35,7 @@ In Service Fabric schalen, is het moet worden uitgevoerd op verschillende manier
 6. Schalen met behulp van de Cluster Resource Manager metrische gegevens
 
 ## <a name="scaling-by-creating-or-removing-stateless-service-instances"></a>Schalen door te maken of te verwijderen van staatloze service-exemplaren
-Een van de meest eenvoudige manieren schalen in Service Fabric werkt met stateless services. Als u een stateless service maakt, krijgt u de kans te definiëren een `InstanceCount`. `InstanceCount`Hiermee definieert u hoeveel actieve exemplaren van de code van de service worden gemaakt wanneer de service wordt gestart. Stel bijvoorbeeld dat er 100 knooppunten beschikbaar in het cluster zijn. Stel dat een service hebt gemaakt met een `InstanceCount` van 10. Tijdens runtime, die 10 actieve exemplaren van de code zou kunnen alle worden bezet (of kunnen niet genoeg bezet). Een manier schalen werkbelasting is het aantal exemplaren te wijzigen. Bijvoorbeeld, een blok van code voor bewaking of management die het bestaande aantal exemplaren van kunt wijzigen, 50 of 5, afhankelijk van of de werkbelasting moet in of uit te schalen op basis van de belasting. 
+Een van de meest eenvoudige manieren schalen in Service Fabric werkt met stateless services. Als u een stateless service maakt, krijgt u de kans te definiëren een `InstanceCount`. `InstanceCount` Hiermee definieert u hoeveel actieve exemplaren van de code van de service worden gemaakt wanneer de service wordt gestart. Stel bijvoorbeeld dat er 100 knooppunten beschikbaar in het cluster zijn. Stel dat een service hebt gemaakt met een `InstanceCount` van 10. Tijdens runtime, die 10 actieve exemplaren van de code zou kunnen alle worden bezet (of kunnen niet genoeg bezet). Een manier schalen werkbelasting is het aantal exemplaren te wijzigen. Bijvoorbeeld, een blok van code voor bewaking of management die het bestaande aantal exemplaren van kunt wijzigen, 50 of 5, afhankelijk van of de werkbelasting moet in of uit te schalen op basis van de belasting. 
 
 C#:
 
@@ -69,7 +71,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Schalen door te maken of verwijderen van nieuwe services met de naam
 Een benoemd exemplaar van een specifiek exemplaar van een servicetype is (Zie [levenscyclus van de Service Fabric-toepassing](service-fabric-application-lifecycle.md)) binnen een aantal benoemde exemplaar in het cluster. 
 
-Nieuwe benoemde service-exemplaren kunnen worden gemaakt (of verwijderd) als services komen meer of minder bezet. Dit kan aanvragen worden verdeeld over meer service-exemplaren, meestal waardoor de belasting van bestaande services te verlagen. Bij het maken van services, plaatst de resourcebeheer voor Service Fabric-Cluster de services in het cluster in een gedistribueerde wijze. De exacte beslissingen worden bepaald door de [metrische gegevens](service-fabric-cluster-resource-manager-metrics.md) in het cluster en andere plaatsingsregels. Services kunnen op verschillende manieren worden gemaakt, maar de meest voorkomende zijn via beheeracties als iemand het aanroepen van [ `New-ServiceFabricService` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), of door code aanroepen [ `CreateServiceAsync` ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync`kan zelfs worden aangeroepen vanuit binnen andere services die worden uitgevoerd in het cluster.
+Nieuwe benoemde service-exemplaren kunnen worden gemaakt (of verwijderd) als services komen meer of minder bezet. Dit kan aanvragen worden verdeeld over meer service-exemplaren, meestal waardoor de belasting van bestaande services te verlagen. Bij het maken van services, plaatst de resourcebeheer voor Service Fabric-Cluster de services in het cluster in een gedistribueerde wijze. De exacte beslissingen worden bepaald door de [metrische gegevens](service-fabric-cluster-resource-manager-metrics.md) in het cluster en andere plaatsingsregels. Services kunnen op verschillende manieren worden gemaakt, maar de meest voorkomende zijn via beheeracties als iemand het aanroepen van [ `New-ServiceFabricService` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), of door code aanroepen [ `CreateServiceAsync` ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` kan zelfs worden aangeroepen vanuit binnen andere services die worden uitgevoerd in het cluster.
 
 Maken van services dynamisch kunnen worden gebruikt in allerlei scenario's en is een algemene patroon. Neem bijvoorbeeld een stateful service die staat voor een bepaalde workflow. Aanroepen werk die gaat worden weergegeven bij deze service en deze service wilt uitvoeren van de stappen voor die voortgang van de werkstroom en registreren. 
 

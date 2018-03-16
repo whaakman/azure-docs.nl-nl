@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b32838dfaf83ea3acfb7125322bb99124370bd8e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Ondersteuning van Azure DB-Gremlin Cosmos-grafiek
 Biedt ondersteuning voor Azure Cosmos DB [van Apache Tinkerpop](http://tinkerpop.apache.org) graph traversal taal, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), namelijk een Graph-API voor het maken van de grafiek entiteiten en grafiek querybewerkingen uitvoert. U kunt de taal Gremlin grafiek entiteiten (hoekpunten en randen) maken, aanpassen van eigenschappen binnen deze entiteiten, uitvoeren van query's en traversals en entiteiten te verwijderen. 
@@ -84,8 +84,8 @@ De volgende tabel bevat de TinkerPop-functies die worden geïmplementeerd door A
 | Variabele functies | Ondersteunt Booleaans, Integer, Byte, dubbelklik, Float, Integer, Long, tekenreeks | Biedt ondersteuning voor primitieve typen, is compatibel met complexe typen via gegevensmodel |
 | Hoekpunt functies | Ondersteunt RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Ondersteunt het maken, wijzigen en verwijderen van hoekpunten |
 | Hoekpunt eigenschap functies | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Ondersteunt het maken, wijzigen en verwijderen van hoekpunt eigenschappen |
-| Edge-functies | AddEges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Ondersteunt het maken, wijzigen en verwijderen van randen |
-| Rand eigenschap functies | Eigenschappen van BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Ondersteunt het maken, wijzigen en verwijderen van eigenschappen van rand |
+| Edge-functies | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Ondersteunt het maken, wijzigen en verwijderen van randen |
+| Rand eigenschap functies | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Ondersteunt het maken, wijzigen en verwijderen van eigenschappen van rand |
 
 ## <a name="gremlin-wire-format-graphson"></a>Gremlin draadindeling: GraphSON
 
@@ -135,7 +135,7 @@ De eigenschappen die worden gebruikt door GraphSON voor hoekpunten zijn als volg
 | Eigenschap | Beschrijving |
 | --- | --- |
 | id | De ID voor het hoekpunt. Moet uniek zijn (in combinatie met de waarde van _partition indien van toepassing) |
-| Label | Het label van het hoekpunt. Dit is optioneel en gebruikt voor het beschrijven van het entiteitstype. |
+| label | Het label van het hoekpunt. Dit is optioneel en gebruikt voor het beschrijven van het entiteitstype. |
 | type | Gebruikt om te onderscheiden van de hoekpunten van documenten voor niet-grafiek |
 | properties | De eigenschappenverzameling van de gebruiker gedefinieerde eigenschappen die zijn gekoppeld aan het hoekpunt. Elke eigenschap kan meerdere waarden hebben. |
 | _partition (configureren) | De partitiesleutel van het hoekpunt. Kan worden gebruikt voor scale-out grafieken met meerdere servers |
@@ -146,8 +146,8 @@ En de rand bevat de volgende informatie om te helpen bij navigatie naar andere o
 | Eigenschap | Beschrijving |
 | --- | --- |
 | id | De ID voor de rand. Moet uniek zijn (in combinatie met de waarde van _partition indien van toepassing) |
-| Label | Het label van de rand. Deze eigenschap is optioneel en gebruikt voor het beschrijven van het relatietype. |
-| Geïnventariseerde | Dit document bevat een lijst met in hoekpunten voor een edge. Het opslaan van de informatie Aangrenzing met de rand kunt u snel de uitvoering van traversals. Hoekpunten worden gegroepeerd op basis van hun labels. |
+| label | Het label van de rand. Deze eigenschap is optioneel en gebruikt voor het beschrijven van het relatietype. |
+| inV | Dit document bevat een lijst met in hoekpunten voor een edge. Het opslaan van de informatie Aangrenzing met de rand kunt u snel de uitvoering van traversals. Hoekpunten worden gegroepeerd op basis van hun labels. |
 | properties | De eigenschappenverzameling van de gebruiker gedefinieerde eigenschappen die zijn gekoppeld aan de rand. Elke eigenschap kan meerdere waarden hebben. |
 
 Elke eigenschap kunnen meerdere waarden binnen een matrix worden opgeslagen. 
@@ -171,9 +171,9 @@ Nu we bekijken de Gremlin stappen ondersteund door Azure Cosmos DB. Zie voor een
 | `addV` | Voegt een hoekpunt toe aan de grafiek | [addV stap](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
 | `and` | Zorgt ervoor dat alle traversals een waarde retourneren | [en stap](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | Een stap modulator een variabele toewijzen aan de uitvoer van een stap | [Als stap](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
-| `by` | Een stap modulator gebruikt met `group` en`order` | [door stap](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
+| `by` | Een stap modulator gebruikt met `group` en `order` | [door stap](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
 | `coalesce` | Retourneert de eerste traversal die een resultaat retourneert | [coalesce-stap](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
-| `constant` | Retourneert een constante waarde. Gebruikt met`coalesce`| [constante stap](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
+| `constant` | Retourneert een constante waarde. Gebruikt met `coalesce`| [constante stap](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
 | `count` | Retourneert de telling van het transport | [aantal stap](http://tinkerpop.apache.org/docs/current/reference/#count-step) | |
 | `dedup` | De waarden worden geretourneerd met de dubbele waarden zijn verwijderd | [Ontdubbeling stap](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) | |
 | `drop` | Verwijdert de waarden (hoekpunt/zijde) | [stap verwijderen](http://tinkerpop.apache.org/docs/current/reference/#drop-step) | |

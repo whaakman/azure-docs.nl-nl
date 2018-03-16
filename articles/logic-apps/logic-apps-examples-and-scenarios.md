@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 02690284e5487dba8e5fb5d973958f944bfa339f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Algemene scenario's, voorbeelden, zelfstudies en scenario's voor Azure Logic Apps
 
@@ -81,7 +81,7 @@ Logische apps bevatten uitgebreide mogelijkheden voor geavanceerde Controlestroo
 
 U kunt volledig ontwikkelen en logic apps implementeren met Visual Studio, Visual Studio Team Services, of een andere broncodebeheer en geautomatiseerde build tools. Logische apps gebruiken ter ondersteuning van implementatie voor werkstromen en afhankelijke verbindingen in de sjabloon van een resource, implementatiesjablonen Azure-resource. Deze sjablonen die u broncodebeheer voor versiebeheer controleren kunt automatisch worden gegenereerd in Visual Studio-hulpprogramma's.
 
-* [Bouwen en implementeren van logische apps vanuit Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Logic apps met Visual Studio maken en implementeren](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Bewaking, logboekregistratie en waarschuwingen voor bestaande logische apps inschakelen](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Een sjabloon voor automatische implementatie maken](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -91,7 +91,7 @@ Toegang tot, converteren en transformatie van verschillende typen inhoud met beh
 
 * [De werking van expressies in logic apps](../logic-apps/logic-apps-author-definitions.md)
 * [Typen niet JSON-inhoud verwerken](../logic-apps/logic-apps-content-type.md), bijvoorbeeld `application/xml`, `application/octet-stream`, en `multipart/formdata`
-* [Referentie: Definitietaal van de werkstroom met logische Apps van Azure](http://aka.ms/logicappsdocs)
+* [Werkstroom Definition Language-schema voor Azure Logic Apps](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Andere integraties en mogelijkheden
 

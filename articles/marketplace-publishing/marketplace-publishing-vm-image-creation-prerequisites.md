@@ -3,8 +3,8 @@ title: Technische vereisten voor het maken van de installatiekopie van een virtu
 description: Begrip van de vereisten voor het maken en implementeren van de installatiekopie van een virtuele machine naar de Azure Marketplace voor anderen om aan te schaffen.
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: cf1f061c28dd0c106823d34ad39aac5e577c8b41
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Technische vereisten voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace
 Het proces zorgvuldig door voordat u begint lees en begrijp waar en waarom elke stap wordt uitgevoerd. Zo veel mogelijk, u moet voorbereiden van uw bedrijfsgegevens en andere gegevens, vereiste hulpprogramma's downloaden en/of technische onderdelen maken voordat u begint met een proces voor het maken van de aanbieding. Deze items moeten worden van de hand van dit artikel.  
@@ -29,7 +29,7 @@ U hebt de volgende items gereed is voordat u begint met het proces:
 * Afhankelijk van het besturingssysteem die u ontwikkelt, installeert u de [Azure PowerShell-cmdlets](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) of [Linux opdrachtregelinterface hulpprogramma](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) van de [Azure downloadt](https://azure.microsoft.com/downloads/) pagina.
 * Azure Opslagverkenner van CodePlex installeren.
 * Download en installeer het hulpprogramma certificeringsinstantie Test voor Azure gecertificeerd:
-  * [http://go.Microsoft.com/fwlink/?LinkId=526913](http://go.microsoft.com/fwlink/?LinkID=526913). U moet een Windows-computer het certificeringsinstantie-hulpprogramma uitvoert. Als u een computer op basis van Windows niet hebt, kunt u het hulpprogramma voor het gebruik van een VM op basis van Windows in Azure uitvoeren.
+  * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). U moet een Windows-computer het certificeringsinstantie-hulpprogramma uitvoert. Als u een computer op basis van Windows niet hebt, kunt u het hulpprogramma voor het gebruik van een VM op basis van Windows in Azure uitvoeren.
 
 ## <a name="platforms-supported"></a>Ondersteunde platforms
 U kunt ontwikkelen op basis van een Azure-machines op Windows of Linux. Bepaalde elementen van het publicatieproces--zoals het maken van een Azure-compatibele virtuele harde schijf (VHD)--Gebruik verschillende hulpprogramma's en stappen, afhankelijk van welk besturingssysteem u gebruikt:  

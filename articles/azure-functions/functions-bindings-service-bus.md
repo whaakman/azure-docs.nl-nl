@@ -16,17 +16,23 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 472d61debff016cfd3df79bae1f63e176c14849d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d7eb31a8a6f95383d88b020a6f79eb66f258993c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindingen voor Azure Functions
 
 Dit artikel wordt uitgelegd hoe u werkt met Azure Service Bus-bindingen in de Azure Functions. Azure Functions ondersteunt activeren en uitvoer van de bindingen voor Service Bus-wachtrijen en onderwerpen.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pakketten
+
+De Service Bus-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet-pakket. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="trigger"></a>Trigger
 
@@ -150,7 +156,7 @@ module.exports = function(context, myQueueItem) {
 
 In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenmerken gebruiken voor het configureren van een Service Bus-trigger:
 
-* [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
+* [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs)
 
   De constructor van het kenmerk wordt de naam van de wachtrij of het onderwerp en een abonnement. In Azure Functions versie 1.x, kunt u ook rechten van de verbinding opgeven. Als u geen toegangsrechten opgeeft, wordt standaard `Manage`. Zie voor meer informatie de [Trigger - configuratie](#trigger---configuration) sectie.
 
@@ -179,7 +185,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenme
 
   Zie voor een compleet voorbeeld [Trigger - C#-voorbeeld](#trigger---c-example).
 
-* [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
+* [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs)
 
   Biedt een andere manier om op te geven van de Service Bus-account moet worden gebruikt. De constructor, wordt de naam van een app-instelling die een Service Bus-verbindingsreeks bevat. Het kenmerk kan worden toegepast op het parameter, klasseniveau of methode. Het volgende voorbeeld ziet u klasseniveau en methode:
 
@@ -216,7 +222,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**Naam** | N.v.t. | De naam van de variabele die staat voor de wachtrij of onderwerp bericht in de functiecode. Ingesteld op '$return' om te verwijzen naar de retourwaarde van de functie. | 
 |**queueName**|**QueueName**|De naam van de wachtrij om te controleren.  Alleen ingesteld als een wachtrij, niet voor een onderwerp bewaking.
 |**topicName**|**TopicName**|De naam van het onderwerp om te controleren. Alleen ingesteld als een onderwerp, voor een wachtrij niet controleren.|
-|SubscriptionName|**SubscriptionName**|Naam van het abonnement om te controleren. Alleen ingesteld als een onderwerp, voor een wachtrij niet controleren.|
+|**SubscriptionName**|**SubscriptionName**|Naam van het abonnement om te controleren. Alleen ingesteld als een onderwerp, voor een wachtrij niet controleren.|
 |**Verbinding**|**Verbinding**|De naam van een app-instelling met de Service Bus-verbindingsreeks moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam opgeven. Als u bijvoorbeeld `connection` naar 'MyServiceBus', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyServiceBus'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard Service Bus-verbindingsreeks in de app-instelling met de naam 'AzureWebJobsServiceBus'.<br><br>Als u een verbindingsreeks, volgt u de stappen die wordt weergegeven op [Beheerreferenties](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). De verbindingsreeks moet voor een Service Bus-naamruimte niet beperkt tot een specifieke wachtrij of onderwerp. |
 |**accessRights**|**Toegang**|Toegangsrechten voor de verbindingsreeks. Beschikbare waarden zijn `manage` en `listen`. De standaardwaarde is `manage`, wat aangeeft dat de `connection` heeft de **beheren** machtiging. Als u een verbindingsreeks die u niet beschikt over de **beheren** , machtigingenset `accessRights` ' luisteren '. De runtime mislukken kan voor bewerkingen waarvoor probeert functies beheren anders rechten. In Azure Functions versie 2.x deze eigenschap is niet beschikbaar omdat de nieuwste versie van de opslag-SDK biedt geen ondersteuning voor bewerkingen beheren.|
 
@@ -416,7 +422,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="output---attributes"></a>Output - kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs).
 
 De constructor van het kenmerk wordt de naam van de wachtrij of het onderwerp en een abonnement. U kunt ook de toegangsrechten voor de verbinding opgeven. Het kiezen van de instelling rechten wordt uitgelegd in de [Output - configuratie](#output---configuration) sectie. Hier volgt een voorbeeld waarin het kenmerk dat wordt toegepast op de geretourneerde waarde van de functie:
 
@@ -455,7 +461,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**Naam** | N.v.t. | De naam van de variabele die staat voor de wachtrij of onderwerp in de functiecode. Ingesteld op '$return' om te verwijzen naar de retourwaarde van de functie. | 
 |**queueName**|**QueueName**|De naam van de wachtrij.  Alleen ingesteld als Wachtrijberichten, niet voor een onderwerp verzenden.
 |**topicName**|**TopicName**|De naam van het onderwerp om te controleren. Alleen ingesteld als onderwerp berichten, niet voor een wachtrij te verzenden.|
-|SubscriptionName|**SubscriptionName**|Naam van het abonnement om te controleren. Alleen ingesteld als onderwerp berichten, niet voor een wachtrij te verzenden.|
+|**SubscriptionName**|**SubscriptionName**|Naam van het abonnement om te controleren. Alleen ingesteld als onderwerp berichten, niet voor een wachtrij te verzenden.|
 |**Verbinding**|**Verbinding**|De naam van een app-instelling met de Service Bus-verbindingsreeks moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam opgeven. Als u bijvoorbeeld `connection` naar 'MyServiceBus', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyServiceBus'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard Service Bus-verbindingsreeks in de app-instelling met de naam 'AzureWebJobsServiceBus'.<br><br>Als u een verbindingsreeks, volgt u de stappen die wordt weergegeven op [Beheerreferenties](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). De verbindingsreeks moet voor een Service Bus-naamruimte niet beperkt tot een specifieke wachtrij of onderwerp.|
 |**accessRights**|**Toegang**|Toegangsrechten voor de verbindingsreeks. Beschikbare waarden zijn `manage` en `listen`. De standaardwaarde is `manage`, wat aangeeft dat de `connection` heeft de **beheren** machtiging. Als u een verbindingsreeks die u niet beschikt over de **beheren** , machtigingenset `accessRights` ' luisteren '. De runtime mislukken kan voor bewerkingen waarvoor probeert functies beheren anders rechten. In Azure Functions versie 2.x deze eigenschap is niet beschikbaar omdat de nieuwste versie van de opslag-SDK biedt geen ondersteuning voor bewerkingen beheren.|
 

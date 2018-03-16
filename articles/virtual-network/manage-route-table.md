@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7e45d6bccfd8113157eba63d311b6609bf35aaa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Maken, wijzigen of verwijderen van een routetabel
 
@@ -30,7 +30,7 @@ Azure automatisch routeert netwerkverkeer tussen Azure subnetten, virtuele netwe
 De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit artikel:
 
 - Als u nog een Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
-- Als u de portal gebruikt, open https://portal.azure.com en meld u aan met uw Azure-account.
+- Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
 - Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.2.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` de geïnstalleerde versie vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 - Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.26 of hoger. Voer `az --version` de geïnstalleerde versie vinden. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
 
@@ -40,7 +40,7 @@ Er is een limiet aan hoeveel routetabellen per Azure-locatie en abonnement kunt 
 
 1. Selecteer in de linkerbovenhoek van de portal **+ maken van een resource**.
 2. Selecteer **Networking**, selecteer daarna **routetabel**.
-3. Voer een **naam** voor de routetabel, selecteert u uw **abonnement**, maak een nieuwe **resourcegroep**, of Selecteer een bestaande resourcegroep, selecteer een **locatie** , selecteer daarna **maken**. De **uitschakelen BGP route doorgeven** optie kiest, kunnen lokale routes van wordt doorgegeven aan een virtuele Azure-netwerk via BGP. Als het virtuele netwerk niet is verbonden met de gateway van een Azure-netwerk (VPN- of ExpressRoute), laat u de optie *uitgeschakelde*. 
+3. Voer een **naam** voor de routetabel, selecteert u uw **abonnement**, maak een nieuwe **resourcegroep**, of Selecteer een bestaande resourcegroep, selecteer een **locatie** , selecteer daarna **maken**. De **uitschakelen BGP route doorgeven** optie kiest, kunnen lokale routes van via BGP wordt doorgegeven aan de netwerkinterfaces in elk subnet dat de routetabel is gekoppeld. Als het virtuele netwerk niet is verbonden met de gateway van een Azure-netwerk (VPN- of ExpressRoute), laat u de optie *uitgeschakelde*.
 
 **Opdrachten**
 

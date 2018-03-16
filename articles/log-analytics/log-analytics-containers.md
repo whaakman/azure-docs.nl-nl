@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container bewaking oplossing in Log Analytics
 
@@ -51,7 +51,7 @@ De volgende tabel licht de Docker-orchestration en het besturingssysteem onderst
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Service<br>Fabric | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Service<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat openen<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(zelfstandig) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux-server<br>(zelfstandig) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -103,7 +103,7 @@ Gebruik de volgende informatie om te installeren en configureren van de oplossin
     - Als u een Kubernetes-cluster met behulp van de Azure Container Service hebt, raadpleegt u [configureren van een OMS-agent voor Kubernetes](#configure-an-oms-agent-for-kubernetes).
     - Als u een Azure Container Service DC/OS-cluster hebt, meer informatie op [bewaken van een Azure Container Service DC/OS-cluster met Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Als u een omgeving met de modus Docker Swarm hebt, meer informatie op [configureren van een OMS-agent voor Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
-    - Als u containers met Service Fabric gebruikt, meer op [overzicht van Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+    - Als u een Service Fabric-cluster hebt, meer informatie op [bewaken containers met OMS Log Analytics](../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Controleer de [Docker-Engine op Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) artikel voor meer informatie over het installeren en configureren van uw Docker-Engines op computers waarop Windows wordt uitgevoerd.
 
@@ -544,7 +544,7 @@ De volgende tabel ziet u voorbeelden van records die door de bewaking van de Con
 
 | Gegevenstype | Het gegevenstype in logboek zoeken | Velden |
 | --- | --- | --- |
-| Prestaties voor hosts en -containers | `Type=Perf` | Computer, ObjectName, CounterName &#40; percentage processortijd schijf leest MB, schijf schrijft MB geheugen gebruik MB netwerk ontvangen Bytes, netwerk verzenden Bytes Processor gebruik seconde, netwerk &#41; tegenwaarde, TimeGenerated, itempad, SourceSystem |
+| Prestaties voor hosts en -containers | `Type=Perf` | Computer, objectnaam, CounterName &#40;percentage processortijd, de schijf leest MB, schijf schrijft MB geheugen gebruik MB netwerk ontvangen Bytes, netwerk verzenden Bytes Processor gebruik seconde, netwerk&#41;, tegenwaarde, TimeGenerated, itempad, SourceSystem |
 | Inventarisatie van de container | `Type=ContainerInventory` | TimeGenerated, Computer, containernaam ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, opdracht, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | Container installatiekopie inventarisatie | `Type=ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, uitvoering is onderbroken, gestopt, is mislukt, SourceSystem, ImageID, TotalContainer |
 | Container-logboek | `Type=ContainerLog` | TimeGenerated, Computer, afbeeldings-ID, containernaam LogEntrySource, LogEntry, SourceSystem, ContainerID |

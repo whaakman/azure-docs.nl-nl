@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: ac085bf972885819f7c79996b0f6638fc01fc00d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3e533b8b23c095a3de845d9b26a96aea9d8ee086
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory Pass-through-verificatie: Huidige beperkingen
 
@@ -29,24 +29,25 @@ ms.lasthandoff: 03/08/2018
 
 De volgende scenario's worden volledig ondersteund:
 
-- Gebruikersaanmeldingen voor alle web browser gebaseerde toepassingen
-- Gebruikersaanmeldingen aan Office-toepassingen die ondersteuning bieden voor [moderne verificatie](https://aka.ms/modernauthga): Office 2016 of Office 2013 _met_ moderne verificatie
+- Gebruikersaanmeldingen voor alle web browser gebaseerde toepassingen.
+- Gebruikersaanmeldingen aan Office-toepassingen die ondersteuning bieden voor [moderne verificatie](https://aka.ms/modernauthga): Office 2016 of Office 2013 _met_ moderne verificatie.
 - Gebruikersaanmeldingen met Outlook-clients met behulp van verouderde protocollen zoals Exchange ActiveSync-, SMTP-, POP- en IMAP.
-- Gebruikersaanmeldingen tot Skype voor bedrijven die moderne authenticatie van ondersteuning, met inbegrip van Online- en hybride topologieën. Meer informatie over ondersteunde topologieën [hier](https://technet.microsoft.com/library/mt803262.aspx).
-- Azure AD-domein wordt toegevoegd aan voor Windows 10-apparaten
+- Gebruikersaanmeldingen tot Skype voor bedrijven die ondersteuning bieden voor moderne verificatie, met inbegrip van online- en hybride topologieën. Meer informatie over ondersteunde topologieën [hier](https://technet.microsoft.com/library/mt803262.aspx).
+- Azure AD-domein koppelt voor Windows 10-apparaten.
 - App-wachtwoorden voor multi-factor Authentication.
 
 ## <a name="unsupported-scenarios"></a>Niet-ondersteunde scenario 's
 
 De volgende scenario's zijn _niet_ ondersteund:
 
-- Gebruikersaanmeldingen voor oudere Office-clienttoepassingen, met uitzondering van Outlook: Office 2010 en Office 2013 _zonder_ moderne verificatie. Organisaties aangemoedigd overschakelen naar moderne verificatie, indien mogelijk. Moderne verificatie maakt ondersteuning voor Pass-through-verificatie. Ook kunt u uw gebruikersaccounts beveiligen met behulp van [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) functies, zoals Azure multi-factor Authentication.
+- Gebruikersaanmeldingen voor oudere Office-clienttoepassingen, met uitzondering van Outlook (Zie **scenario's ondersteund** hierboven): Office 2010 en Office 2013 _zonder_ moderne verificatie. Organisaties aangemoedigd overschakelen naar moderne verificatie, indien mogelijk. Moderne verificatie maakt ondersteuning voor Pass-through-verificatie. Ook kunt u uw gebruikersaccounts beveiligen met behulp van [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) functies, zoals Azure multi-factor Authentication.
+- Toegang tot delen van agenda's en beschikbaarheidsinfo Exchange hybride omgevingen op Office 2010 alleen.
 - Gebruikersaanmeldingen tot Skype voor bedrijven-clienttoepassingen _zonder_ moderne verificatie.
 - Gebruikersaanmeldingen naar PowerShell versie 1.0. Het is raadzaam dat u PowerShell versie 2.0.
 - Detectie van gebruikers met [gelekte referenties](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services moet zijn ingeschakeld op de tenant synchronisatie van wachtwoordhash. Daarom huurders die gebruikmaken van Pass-through-verificatie _alleen_ werken niet voor scenario's waarvoor Azure AD Domain Services.
 - Pass through-verificatie is niet geïntegreerd met [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
-- Het Apple Device Enrollment Program (DEP van Apple) biedt geen ondersteuning voor moderne verificatie.  Apple DEP-apparaten mislukt inschrijven in Intune voor domeinen die gebruikmaken van Pass-through-verificatie.
+- Het Apple Device Enrollment Program (DEP van Apple) met behulp van de iOS-Configuratieassistent biedt geen ondersteuning voor moderne verificatie. Dit zal mislukken Apple DEP-apparaten inschrijven in Intune voor beheerde domeinen met behulp van Pass through-verificatie. Overweeg het gebruik van de [bedrijfsportal-app](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/) als alternatief.
 
 >[!IMPORTANT]
 >Als een oplossing voor niet-ondersteunde scenario's _alleen_, synchronisatie van wachtwoordhash inschakelen op de [optionele functies](active-directory-aadconnect-get-started-custom.md#optional-features) pagina in de Azure AD Connect-wizard.

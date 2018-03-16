@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e65371396b91c1dc97f504bac8b969093f5c518
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-naslaginformatie voor voorwaardelijke toegang
 
@@ -148,7 +148,7 @@ Ondersteuning voor Chrome in **Windows 8.1 en 7**, maken de volgende registersle
 |Pad | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |Naam | 1 |
 |Type | REG_SZ (tekenreeks) |
-|Gegevens | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
+|Gegevens | {'patroon': 'https://device.login.microsoftonline.com',' filter': {"VERLENER": {'CN': 'MS organisatie toegang'}}}|
 
 Deze browsers ondersteuning voor verificatie van apparaten, waardoor het apparaat kan worden geïdentificeerd en gevalideerd op basis van een beleid. De apparaat-controle mislukt als de browser wordt uitgevoerd in de privé-modus. 
 
@@ -164,24 +164,25 @@ In uw beleid voor voorwaardelijke toegang, kunt u **mobiele apps en bureaublad-c
 Deze instelling heeft gevolgen op toegangspogingen tot van de volgende apps voor mobiele en bureaublad-clients: 
 
 
-|Client-apps|Target-Service|Platform|
-|---|---|---|
-|Azure RemoteApp|Azure RemoteApp-service|Windows 10, Windows 8.1, Windows 7, iOS, Android en Mac OS X|
-|Dynamics CRM-app|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS en Android|
-|Agenda-mail/mensen app, Outlook 2016 Outlook 2013 (met moderne verificatie)|Office 365 Exchange Online|Windows 10|
-|Beleid voor apps MFA en locatie. Apparaten op basis van beleid worden niet ondersteund. |Alle services van de app mijn Apps|Android en iOS|
-|Services van Microsoft-Teams - Hiermee bepaalt u alle services die ondersteuning bieden voor Microsoft-Teams en alle bijbehorende Client-Apps - Windows-bureaublad, iOS, Android, WP en webclient|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android en Mac OS |
-|Apps van Office 2016, Office 2013 (met moderne verificatie), OneDrive synchroniseren client (Zie [notities](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Apps van Office 2016, Office Universal-apps, Office 2013 (met moderne verificatie), OneDrive sync-client (Zie [notities](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office-groepen ondersteuning voor de toekomst zijn gepland, ondersteuning voor SharePoint-app is gepland voor de toekomst|Office 365 SharePoint Online|Windows 10|
-|Office 2016 voor Mac OS (Word, Excel, PowerPoint, OneNote alleen). OneDrive voor bedrijven ondersteuning voor de toekomst worden gepland|Office 365 SharePoint Online|Mac OS X|
-|Office mobile-apps|Office 365 SharePoint Online|Android, iOS|
-|De app Yammer Office|Office 365 Yammer|Windows 10, iOS, Android|
-|Outlook 2016 (Office voor Mac OS)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013 (met moderne verificatie), Skype voor bedrijven (met moderne verificatie)|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Mobiele app voor Outlook|Office 365 Exchange Online|Android, iOS|
-|Power BI-app|Power BI-service|Windows 10, Windows 8.1, Windows 7 en iOS|
-|Skype voor Bedrijven|Office 365 Exchange Online|Android, IOS |
-|Visual Studio Team Services-app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS en Android|
+| Client-apps| Target-Service| Platform |
+| --- | --- | --- |
+| Azure RemoteApp| Azure RemoteApp-service| Windows 10, Windows 8.1, Windows 7, iOS, Android en Mac OS X|
+| Dynamics CRM-app| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS en Android|
+| Agenda-mail/mensen app, Outlook 2016 Outlook 2013 (met moderne verificatie)| Office 365 Exchange Online| Windows 10|
+| Beleid voor apps MFA en locatie. Apparaten op basis van beleid worden niet ondersteund.| Alle services van de app mijn Apps| Android en iOS|
+| Services van Microsoft-Teams - Hiermee bepaalt u alle services die ondersteuning bieden voor Microsoft-Teams en alle bijbehorende Client-Apps - Windows-bureaublad, iOS, Android, WP en webclient| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android en Mac OS|
+| Apps van Office 2016, Office 2013 (met moderne verificatie), OneDrive synchroniseren client (Zie [notities](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Apps van Office 2016, Office Universal-apps, Office 2013 (met moderne verificatie), OneDrive sync-client (Zie [notities](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office-groepen ondersteuning voor de toekomst zijn gepland, ondersteuning voor SharePoint-app is gepland voor de toekomst| Office 365 SharePoint Online| Windows 10|
+| Office 2016 voor Mac OS (Word, Excel, PowerPoint, OneNote alleen). OneDrive voor bedrijven ondersteuning voor de toekomst worden gepland| Office 365 SharePoint Online| Mac OS X|
+| Office mobile-apps| Office 365 SharePoint Online| Android, iOS|
+| De app Yammer Office| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2016 (Office voor Mac OS)| Office 365 Exchange Online| Mac OS X|
+| Outlook 2016, Outlook 2013 (met moderne verificatie), Skype voor bedrijven (met moderne verificatie)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Mobiele app voor Outlook| Office 365 Exchange Online| Android, iOS|
+| Power BI-app| Power BI-service| Windows 10, Windows 8.1, Windows 7, Android en iOS|
+| Skype voor Bedrijven| Office 365 Exchange Online| Android, IOS|
+| Visual Studio Team Services-app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS en Android|
+
 
 
 ## <a name="approved-client-app-requirement"></a>Goedgekeurde app vereiste 
@@ -221,10 +222,6 @@ Deze instelling geldt voor de volgende ClientApps:
 - De **goedgekeurde app vereist** vereiste:
 
     - Biedt alleen ondersteuning voor het iOS- en Android voor [apparaat platform voorwaarde](#device-platforms-condition).
-
-    - Biedt geen ondersteuning voor de **Browser** optie voor de [client apps voorwaarde](#supported-browsers).
-    
-    - Vervangt de **mobiele apps en bureaublad-clients** optie voor de [client apps voorwaarde](#supported-mobile-apps-and-desktop-clients) wanneer deze optie is geselecteerd.
 
 
 ## <a name="next-steps"></a>Volgende stappen

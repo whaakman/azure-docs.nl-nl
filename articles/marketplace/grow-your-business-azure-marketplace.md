@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 51cc413d61e4951f28e9247efcee934af23572e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 85baba61d5603539641f45f7ab1d722ca98514ad
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>Uw bedrijf uitbreiden met behulp van Azure Marketplace
 
@@ -129,7 +129,8 @@ Optimaliseer de impact van deze activiteiten, raden we u aan uw plan starten kan
 >[!NOTE]
 >Een commerciële Partner catalogus (OCP-catalogus) is een voordeel van het lidmaatschap van het Microsoft Partner Network. 
 
-![Marketplace GTM voordelen](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
+[Marketplace GTM voordelen](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
+
 
 Voor ondersteuning gaat u naar [Microsoft gaat u naar markt](https://www.microsoftgotomarket.com). U kunt er, sjablonen, webinhoud, training en hulpprogramma's voor uw bedrijf promoten vinden.
 

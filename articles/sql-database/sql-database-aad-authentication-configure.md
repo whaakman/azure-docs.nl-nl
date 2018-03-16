@@ -3,17 +3,17 @@ title: Azure Active Directory - SQL-verificatie configureren | Microsoft Docs
 description: Informatie over het verbinding maken met SQL-Database, exemplaar beheerd en SQL Data Warehouse met behulp van Azure Active Directory-verificatie - na het configureren van Azure AD.
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 00b5be9863e2bff9e5b82845f99d6829e1bcdf13
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configureren en beheren van Azure Active Directory-verificatie met SQL-Database, exemplaar beheerd of SQL Data Warehouse
 
@@ -193,7 +193,7 @@ Zie voor meer informatie over de CLI-opdrachten, [SQL - az sql](https://docs.mic
 ## <a name="configure-your-client-computers"></a>De clientcomputers configureren
 U moet de volgende software installeren op alle clientcomputers waarvan uw toepassingen of gebruikers verbinding maken met Azure SQL Database of Azure SQL Data Warehouse met behulp van Azure AD-identiteiten:
 
-* .NET framework 4.6 of hoger van [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+* .NET framework 4.6 of hoger van [ https://msdn.microsoft.com/library/5a4x27ek.aspx ](https://msdn.microsoft.com/library/5a4x27ek.aspx).
 * Azure Active Directory Authentication Library voor SQL Server (**ADALSQL. DLL-bestand**) is beschikbaar in meerdere talen (x x86- en amd64) uit het Downloadcentrum op [Microsoft Active Directory Authentication Library voor Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 U kunt voldoen aan deze voorwaarden voldoet:

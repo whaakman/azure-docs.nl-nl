@@ -3,7 +3,7 @@ title: SMTP-connector in Azure Logic Apps | Microsoft Docs
 description: Logic apps maken met Azure App service. Verbinding maken met SMTP om e-mail te verzenden.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 6544a8e81a1c84fbd09e60b3f06c5fd308a18dcf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 9bf7c9b7c3e775ab03b071d13d792f4b2d8fb3e3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Aan de slag met de SMTP-connector
 Verbinding maken met SMTP om e-mail te verzenden.
@@ -37,13 +37,13 @@ Om uw logische app toegang alle services tot, moet u eerst maken een *verbinding
 ## <a name="use-an-smtp-trigger"></a>Gebruik een SMTP-trigger
 Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-In dit voorbeeld omdat SMTP niet over een trigger van een eigen beschikt, gebruiken we de **Salesforce - wanneer een object wordt gemaakt** trigger. Deze trigger wordt geactiveerd wanneer een nieuw object in Salesforce maakt. In ons voorbeeld stellen we het zo dat elke keer wanneer een nieuwe lead wordt gemaakt in Salesforce, een *e-mail verzenden* actie plaatsvindt via de SMTP-connector met een melding van de nieuwe lead wordt gemaakt.
+In dit voorbeeld SMTP beschikt niet over van een trigger van een eigen. Dus gebruiken de **Salesforce - wanneer een object wordt gemaakt** trigger. Deze trigger wordt geactiveerd wanneer een nieuw object in Salesforce maakt. Bijvoorbeeld, het is het zo instellen dat telkens wanneer een nieuwe lead wordt gemaakt in Salesforce, een *e-mail verzenden* actie vindt plaats met behulp van de SMTP-connector met een melding van de nieuwe lead wordt gemaakt.
 
 1. Voer *salesforce* in het zoekvak op de ontwerpfunctie van logic apps selecteert u vervolgens de **Salesforce - wanneer een object wordt gemaakt** trigger.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 2. De **wanneer een object wordt gemaakt** besturingselement wordt weergegeven.
    ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. Selecteer de **objecttype** Selecteer *leiden* uit de lijst met objecten. In deze stap geeft u aan dat u een trigger die uw logische app ontvangt een melding maakt wanneer er een nieuwe lead wordt gemaakt in Salesforce.  
+3. Selecteer de **objecttype** Selecteer *leiden* uit de lijst met objecten. In deze stap maakt u een trigger die uw logische app ontvangt een melding wanneer er een nieuwe lead wordt gemaakt in Salesforce.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 4. De trigger is gemaakt.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
@@ -51,7 +51,7 @@ In dit voorbeeld omdat SMTP niet over een trigger van een eigen beschikt, gebrui
 ## <a name="use-an-smtp-action"></a>Gebruik een SMTP-actie
 Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Nu dat de trigger is toegevoegd, volg deze stappen uit om een SMTP-actie die wordt uitgevoerd wanneer een nieuwe lead in Salesforce wordt gemaakt.
+Nu de trigger is toegevoegd, gebruiken de volgende stappen uit om een SMTP-actie die wordt uitgevoerd wanneer een nieuwe lead wordt gemaakt in Salesforce toevoegen.
 
 1. Selecteer **+ een nieuwe stap** om toe te voegen van de actie die u uitvoeren wilt wanneer een nieuwe lead wordt gemaakt.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  

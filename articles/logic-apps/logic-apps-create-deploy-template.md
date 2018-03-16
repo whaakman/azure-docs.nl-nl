@@ -1,10 +1,10 @@
 ---
 title: Implementatiesjablonen maken voor Azure Logic Apps | Microsoft Docs
-description: Implementatie en release management voor Azure Resource Manager-sjablonen voor logic apps maken
+description: Azure Resource Manager-sjablonen voor het implementeren van logische apps maken
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: anneta
+author: ecfan
+manager: SyntaxC4
 editor: 
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.service: logic-apps
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 9cfbb294010d48deaf4b4c78c6a6bcd59a387d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: LADocs; estfan
+ms.openlocfilehash: 91d93a02bb9bf48c5bda0304c9d3d52c22e30209
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="create-templates-for-logic-apps-deployment-and-release-management"></a>Sjablonen maken voor logische apps implementatie en release management
+# <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Azure Resource Manager-sjablonen voor het implementeren van logische apps maken
 
 Nadat een logische app is gemaakt, is het raadzaam deze als een Azure Resource Manager-sjabloon te maken.
 Op deze manier u kunt logische Apps eenvoudig implementeren met elke omgeving of de resourcegroep waar u deze moet mogelijk.
@@ -46,7 +46,7 @@ Of u mogelijk wilt implementeren in verschillende abonnementen of resourcegroepe
 
 ## <a name="create-a-logic-app-deployment-template"></a>Maken van een sjabloon logic app-implementatie
 
-De eenvoudigste manier om een geldige logic app-implementatiesjabloon is met de [Visual Studio Tools voor Logic Apps](logic-apps-deploy-from-vs.md).
+De eenvoudigste manier om een geldige logic app-implementatiesjabloon is met de [Visual Studio Tools voor Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
 De Visual Studio tools genereren een geldige implementatie-sjabloon die via een abonnement of een locatie kan worden gebruikt.
 
 Enkele andere hulpprogramma's kunnen u helpen bij het maken van een sjabloon logic app-implementatie.
@@ -74,10 +74,106 @@ Nadat u PowerShell is geïnstalleerd, kunt u een sjabloon genereren met behulp v
 
 `armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp MyApp -ResourceGroup MyRG -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json`
 
-`$SubscriptionId`is de Azure-abonnement-ID. Deze regel voor de eerste keer een access token via ARMClient, en vervolgens deze via doorgesluisd naar de PowerShell-script en maakt vervolgens de sjabloon in een JSON-bestand.
+`$SubscriptionId` is de Azure-abonnement-ID. Deze regel voor de eerste keer een access token via ARMClient, en vervolgens deze via doorgesluisd naar de PowerShell-script en maakt vervolgens de sjabloon in een JSON-bestand.
 
 ## <a name="add-parameters-to-a-logic-app-template"></a>Voeg parameters toe aan een sjabloon voor logic Apps
 Nadat u uw logische app-sjabloon maakt, kunt u toevoegen of wijzigen van de parameters die u moet doorgaan. Bijvoorbeeld, als de definitie van de bevat een resource-ID moet een Azure functie of geneste werkstroom die u wilt implementeren in een implementatie met één, kunt u meer resources toevoegen aan uw sjabloon en voorzien van id's, indien nodig. Hetzelfde geldt voor alle verwijzingen naar aangepaste API's of Swagger eindpunten die u verwacht te implementeren met elke resourcegroep.
+
+### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Verwijzingen voor afhankelijke resources toevoegen aan Visual Studio-implementatiesjablonen
+
+Als u wilt dat uw logische app om te verwijzen naar afhankelijke resources, kunt u [Azure Resource Manager-sjabloonfuncties](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) in uw sjabloon logic app-implementatie. Bijvoorbeeld, kunt u uw logische app om te verwijzen naar een Azure-functie of integratiepakket account die u samen met uw logische app wilt implementeren. Volg deze richtlijnen over het gebruik van parameters in de implementatiesjabloon voor, zodat de Logic App Designer correct wordt gerenderd. 
+
+U kunt logische app parameters in deze soorten triggers en acties:
+
+*   Onderliggende werkstroom
+*   Functie-app
+*   APIM aanroep
+*   De URL van de runtime verbinding API
+*   Verbindingspad API
+
+En u kunt een sjabloonfuncties, zoals parameters, variabelen, resourceId, concat, enzovoort. Dit is hoe u de resource-ID van het Azure-functie kunt vervangen:
+
+```
+"parameters":{
+    "functionName": {
+        "type":"string",
+        "minLength":1,
+        "defaultValue":"<FunctionName>"
+    }
+},
+```
+
+En waar u parameters wilt gebruiken:
+
+```
+"MyFunction": {
+    "type": "Function",
+    "inputs": {
+        "body":{},
+        "function":{
+            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+        }
+    },
+    "runAfter":{}
+}
+```
+Als een ander voorbeeld kunt u de Service Bus-verzendbewerking bericht voorzien:
+
+```
+"Send_message": {
+    "type": "ApiConnection",
+        "inputs": {
+            "host": {
+                "connection": {
+                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                }
+            },
+            "method": "post",
+            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+            "body": {
+                "ContentData": "@{base64(triggerBody())}"
+            },
+            "queries": {
+                "systemProperties": "None"
+            }
+        },
+        "runAfter": {}
+    }
+```
+> [!NOTE] 
+> host.runtimeUrl is optioneel en kan worden verwijderd uit de sjabloon, indien aanwezig.
+> 
+
+
+> [!NOTE] 
+> Voor Logic App Designer werken wanneer u parameters gebruiken, moet u standaardwaarden, bijvoorbeeld opgeven:
+> 
+> ```
+> "parameters": {
+>     "IntegrationAccount": {
+>     "type":"string",
+>     "minLength":1,
+>     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
+>     }
+> },
+> ```
+
+## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>Uw logische app toevoegen aan een bestaande resourcegroep-project
+
+Als u een bestaand project voor de resourcegroep hebt, kunt u uw logische app toevoegen aan het project in het venster JSON-overzicht. U kunt ook een andere logische app naast de app die u eerder hebt gemaakt toevoegen.
+
+1. Open het `<template>.json`-bestand.
+
+2. De JSON-overzicht om venster te openen, gaat u naar **weergave** > **overige vensters** > **JSON-overzicht**.
+
+3. Als u wilt een resource toevoegen aan het sjabloonbestand, klikt u op **Resource toevoegen** aan de bovenkant van het venster JSON-overzicht. Of in het venster JSON-overzicht met de rechtermuisknop op **resources**, en selecteer **nieuwe Resource toevoegen**.
+
+    ![Venster JSON-overzicht](./media/logic-apps-create-deploy-template/jsonoutline.png)
+    
+4. In de **Resource toevoegen** in het dialoogvenster, zoeken en selecteert u **logische App**. Naam van uw logische app en kies **toevoegen**.
+
+    ![Resource toevoegen](./media/logic-apps-create-deploy-template/addresource.png)
+
 
 ## <a name="deploy-a-logic-app-template"></a>Een logische app-sjabloon implementeren
 

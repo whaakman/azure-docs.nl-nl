@@ -3,8 +3,8 @@ title: Voorbereiden en testen van uw aanbieding voor implementatie naar Azure Ma
 description: Gedetailleerde instructies voor het verstrekken inhoud marketing, prijscategorie plannen te configureren en testen van uw aanbieding voordat u implementeert naar Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
-ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5bec9ac89487a824b9de9209547f0b96fa5fe678
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Het maken van de aanbieding met marketing inhoud voltooien
 In deze stap van het publicatieproces moet u bepaalde marketing inhoud en gegevens over uw aanbieding en/of in Azure Marketplace-SKU's bieden. Bijvoorbeeld, krijgt u een beschrijving van het product, bedrijfslogo prijs plannen, details van plannen en andere gegevens die nodig zijn voor de push-aanbieding en/of SKU voor fasering. Deze informatie wordt gebruikt als marketing inhoud in de Azure portal. Nu begint u dit proces in de [publishing portal][link-pubportal].
@@ -26,7 +26,7 @@ In deze stap van het publicatieproces moet u bepaalde marketing inhoud en gegeve
 ## <a name="step-1-provide-marketplace-marketing-content"></a>Stap 1: Geef Marketplace marketing inhoud
 **Engels is de standaardinstelling en wordt alleen ondersteund taal.** Zorg ervoor dat alle informatie in de velden in het Engels. U kunt alle informatie op elk gewenst moment bewerken totdat u overgaat tot fasering.
 
-1. Ga naar de publishing portal [https://publish.windowsazure.com](https://publish.windowsazure.com).
+1. Ga naar de publishing portal [ https://publish.windowsazure.com ](https://publish.windowsazure.com).
 2. Klik in het menu links op de **Marketing** tabblad.
 3. Klik in het hoofdpaneel op de **Engels (V.S.)** knop.
    
@@ -228,9 +228,9 @@ Plannen kunnen een combinatie van base + verbruik, waarbij base maandelijks tari
 | Brons |$10/ maand |Basic-functionaliteit en een quotum van 1.000 van functie X. |Kunt migreren naar Brons Plus, Zilver en goud plannen |
 | Brons Plus |Gratis proefperiode: $0/ maand + $0/meter01 |Basic-functionaliteit en een quotum van 10.000 van functie X.  Zodra het quotum voor functie X wordt gebruikt, kan de klant betalen per gebruik via meter01. |Kunt migreren naar zilver Plus en goud plannen |
 | Brons Plus |Periode betaald (ook gratis proefversie is verlopen): $10/maand + $ 0,05/meter01 |Basic-functionaliteit en een quotum van 10.000 van functie X.  Zodra het quotum voor functie X wordt gebruikt, kan de klant betalen per gebruik via meter01. |Kunt migreren naar zilver Plus en goud plannen |
-| Zilver |$ 0,15/meter01 |De klant kunt betalen per gebruik via meter01 dat voor de functie X. |Kunt migreren naar brons en goud plannen |
+| Zilver |$0.15/meter01 |De klant kunt betalen per gebruik via meter01 dat voor de functie X. |Kunt migreren naar brons en goud plannen |
 | Zilver Plus |$20/ maand + $ 0,15/meter01 + $ 0,01/meter02 |Basic-functionaliteit en een quotum van 10.000 van functie X en 100 liggen van Y-functie.  Zodra het quotum voor functie X wordt gebruikt, moet de klant kunt betalen per gebruik via meter01.  Zodra het quotum voor functie Y wordt gebruikt, moet de klant kunt betalen per gebruik via meter02. |Kunt migreren naar Brons Plus en goud plannen |
-| Goud |$ 1.000/maand |Quotum van 10.000 van functie X, 1000 van functie Y, en van functie Z onbeperkt. |Alle plannen, behalve gratis kunt migreren |
+| Goudkleurig |$ 1.000/maand |Quotum van 10.000 van functie X, 1000 van functie Y, en van functie Z onbeperkt. |Alle plannen, behalve gratis kunt migreren |
 
 ## <a name="step-3-provide-support-information"></a>Stap 3: Ondersteuning bieden informatie
 De contactgegevens worden gebruikt voor interne communicatie tussen de partner en Microsoft alleen. De URL voor ondersteuning is beschikbaar voor de end-klanten.
@@ -261,7 +261,7 @@ Hieronder vindt u een gedetailleerde weergave van hoe de marketinggegevens aanbi
 
 *Beschrijving prijsinformatie op de website van de Azure Marketplace aanbieding*
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portal
 ![tekenen](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
 *Overzicht van aanbiedingen in de Azure Portal*

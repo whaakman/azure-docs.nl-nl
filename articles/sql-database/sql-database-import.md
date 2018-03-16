@@ -2,31 +2,25 @@
 title: Een Bacpac-bestand importeren om te maken van een Azure SQL database | Microsoft Docs
 description: Maak een newAzure SQL-database door een Bacpac-bestand te importeren.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
+manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.devlang: NA
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.workload: Active
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: a37fa94df794487969dfbaebf7a001de16857ea7
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9d829bd312bb1ae2468258bc2ec8619b2858394e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Een Bacpac-bestand importeren in een nieuwe Azure SQL Database
 
 Wanneer moet u een database te importeren vanuit een archief of wanneer u migreert vanaf een ander platform, kunt u het databaseschema en de gegevens van importeren een [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) bestand. Een Bacpac-bestand is een ZIP-bestand met de extensie BACPAC die de metagegevens en gegevens uit een SQL Server-database. Een Bacpac-bestand kan worden geïmporteerd uit Azure blob storage (standard-opslag alleen) of van lokale opslag in een on-premises locatie. Als u wilt de import-snelheid maximaliseren, wordt aangeraden dat u een hogere prijscategorie en prestatieniveau serviceniveau, zoals een P6 opgeven en vervolgens te schalen om omlaag naar gelang van toepassing na het importeren geslaagd is. Ook het databasecompatibiliteitsniveau na het importeren is gebaseerd op het compatibiliteitsniveau van de brondatabase. 
 
 > [!IMPORTANT] 
-> Nadat u de database naar Azure SQL Database migreert, kunt u de werking van de database op het huidige compatibiliteitsniveau (level 100 voor de database AdventureWorks2008R2) of op een hoger niveau. Zie voor meer informatie over de gevolgen en opties voor de werking van een database op een specifieke compatibiliteitsniveau [databasecompatibiliteitsniveau ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Zie ook [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) voor meer informatie over aanvullende databaseniveau instellingen met betrekking tot compatibiliteitsniveaus.   >
+> Nadat u de database naar Azure SQL Database migreert, kunt u de werking van de database op het huidige compatibiliteitsniveau (level 100 voor de database AdventureWorks2008R2) of op een hoger niveau. Zie [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) (Compatibiliteitsniveau ALTER DATABASE) voor meer informatie over de implicaties en opties bij het hanteren van een database op een bepaald compatibiliteitsniveau. Zie ook [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) voor informatie over aanvullende instellingen op databaseniveau in verband met compatibiliteitsniveaus.   >
 
 ## <a name="import-from-a-bacpac-file-using-azure-portal"></a>Importeren uit een Bacpac-bestand met Azure portal
 

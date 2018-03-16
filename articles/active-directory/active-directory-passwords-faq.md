@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Veelgestelde vragen over wachtwoordbeheer
 
@@ -40,7 +40,7 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 
 * **V: kunnen mijn gebruikers registreren hun eigen wachtwoord opnieuw instellen van gegevens?**
 
-  > **A:** Ja. Zolang wachtwoord opnieuw instellen is ingeschakeld en worden ze in licentie gegeven, gaat u naar de registratieportal voor wachtwoordherstel (https://aka.ms/ssprsetup) registreren hun verificatiegegevens gebruikers. Gebruikers kunnen ook registreren via het toegangsvenster (http://myapps.microsoft.com). Als u wilt registreren via het toegangsvenster, moeten ze hun profielfoto selecteert, selecteert u **profiel**, en selecteer vervolgens de **registreren voor wachtwoordherstel** optie.
+  > **A:** Ja. Zolang wachtwoord opnieuw instellen is ingeschakeld en worden ze in licentie gegeven, gebruikers kunnen gaat u naar de registratieportal voor wachtwoordherstel (https://aka.ms/ssprsetup) registreren hun verificatiegegevens. Gebruikers kunnen ook registreren via het toegangsvenster (http://myapps.microsoft.com). Als u wilt registreren via het toegangsvenster, moeten ze hun profielfoto selecteert, selecteert u **profiel**, en selecteer vervolgens de **registreren voor wachtwoordherstel** optie.
   >
   >
 * **V: als ik wachtwoord opnieuw instellen voor een groep en vervolgens besluit in te schakelen voor iedereen zijn mijn gebruikers vereiste opnieuw registreren?**
@@ -269,7 +269,7 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
   >
 * **V: wat typen accounts werkt wachtwoord terugschrijven voor?**
 
-  > **A:** wachtwoord terugschrijven werkt voor federatieve en wachtwoord-hash gebruikers gesynchroniseerd.
+  > **A:** wachtwoord terugschrijven werkt voor gebruikersaccounts die gesynchroniseerd zijn van lokale Active Directory naar Azure AD, met inbegrip van gefedereerd, wachtwoordhash gesynchroniseerd en Pass Through-Autentication gebruikers.
   >
   >
 * **V: bevat wachtwoord terugschrijven mijn domein wachtwoordbeleid afdwingen?**

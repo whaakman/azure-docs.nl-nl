@@ -3,7 +3,7 @@ title: De SharePoint-Server-Connector in uw logische Apps gebruiken | Microsoft 
 description: Aan de slag met de de SharePoint-Server-Connector in Logic apps
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: da863e0249cb46e4e569812a851f3199d57b2107
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: d342b3c4f84c5dab212b9327d6a72759934d0ae5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Aan de slag met de SharePoint-connector
 De SharePoint-Connector biedt een manier om te werken met lijsten in SharePoint.
@@ -33,9 +33,9 @@ Voor het gebruik van de SharePoint-Connector maakt u eerst een **verbinding** Ge
 | --- | --- | --- |
 | Token |Ja |SharePoint-referenties opgeven |
 
-Verbinding maken met **SharePoint**, voert u uw identiteit (gebruikersnaam en wachtwoord, smart card-referenties, enz.) naar SharePoint. Zodra u hebt geverifieerd, kunt u doorgaan met het gebruik van de SharePoint-connector in uw logische app. 
+Verbinding maken met **SharePoint**, voer je identiteit (gebruikersnaam en wachtwoord, smartcard-referenties, enzovoort). Zodra u hebt geverifieerd, kunt u doorgaan met het gebruik van de SharePoint-connector in uw logische app. 
 
-Volg deze stappen voor aanmelding bij SharePoint om de verbinding te maken terwijl op de ontwerper van uw logische app, **verbinding** voor gebruik in uw logische app:
+Terwijl op de ontwerper van uw logische app, gebruikt u de volgende stappen aanmelden en maken het **verbinding** voor gebruik in uw logische app:
 
 1. Voer SharePoint in het zoekvak en wacht totdat de zoekopdracht te retourneren van alle vermeldingen met SharePoint in de naam:   
    ![SharePoint configureren][1]  
@@ -44,10 +44,10 @@ Volg deze stappen voor aanmelding bij SharePoint om de verbinding te maken terwi
    ![SharePoint configureren][2]    
 4. Geef uw SharePoint-referenties om aan te melden om te verifiëren met SharePoint   
    ![SharePoint configureren][3]     
-5. Nadat de verificatie is voltooid wordt u omgeleid naar uw logische app om deze te voltooien door het configureren van SharePoint **wanneer een bestand wordt gemaakt** dialoogvenster.          
+5. Nadat de verificatie is voltooid, wordt u doorgestuurd naar uw logische app om deze te voltooien door het configureren van SharePoint **wanneer een bestand wordt gemaakt** dialoogvenster.          
    ![SharePoint configureren][4]  
 6. Vervolgens kunt u andere triggers en acties die u moet voltooien van uw logische app toevoegen.   
-7. Sla uw werk door te selecteren **opslaan** boven in het menu.  
+7. Sla uw werk door te selecteren **opslaan** in het menu (boven).
 
 ## <a name="connector-specific-details"></a>Connector-specifieke details
 

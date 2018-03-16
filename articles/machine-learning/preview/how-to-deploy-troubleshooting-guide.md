@@ -2,8 +2,8 @@
 title: Azure Machine Learning-implementatie oplossen | Microsoft Docs
 description: Gids voor probleemoplossing voor implementatie en het maken van de service
 services: machine-learning
-author: raymondl
-ms.author: raymondl
+author: AashishB
+ms.author: AashishB
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 4cf372f17c3ded5c25a6ebde70b17b2c095a7169
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 614767840f8781c3c30c358dcf3ffc366aa3c0d6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Problemen met implementatie van de service en de omgeving in te stellen
 De volgende informatie kunt de oorzaak van fouten bij het instellen van de model-omgeving.
@@ -87,7 +87,7 @@ Python-voorbeeld:
 ```
 
 ## <a name="other-common-problems"></a>Andere veelvoorkomende problemen
-- Als pip-installatie van azure cli ml met de fout mislukt `cannot find the path specified` op een Windows-machine, moet u lang pad ondersteuning inschakelen. See https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/. 
+- Als pip-installatie van azure cli ml met de fout mislukt `cannot find the path specified` op een Windows-machine, moet u lang pad ondersteuning inschakelen. Zie https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/. 
 - Als de `env setup` mislukt met de opdracht `LocationNotAvailableForResourceType`, gebruikt u waarschijnlijk de verkeerde locatie (regio) voor de machine learning-resources. Zorg ervoor dat de locatie die is opgegeven met de `-l` parameter `eastus2`, `westcentralus`, of `australiaeast`.
 - Als de `env setup` mislukt met de opdracht `Resource quota limit exceeded`, Controleer of u voldoende kernen beschikbaar in uw abonnement hebt en dat uw resources niet worden gebruikt boven in andere processen.
 - Als de `env setup` mislukt met de opdracht `Invalid environment name. Name must only contain lowercase alphanumeric characters`, zorg ervoor dat de servicenaam geen hoofdletters, symbolen of het onderstrepingsteken (_) (zoals in *my_environment*).

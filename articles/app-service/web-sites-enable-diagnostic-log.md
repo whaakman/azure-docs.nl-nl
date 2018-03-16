@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a5ac6c02e28c19346abae9e5ea3dba9af4022dde
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e82bbff908ea5499765edc71e52caa573c816a62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Logboekregistratie van diagnostische gegevens van web-apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -88,7 +88,7 @@ Terwijl alle drie opslaglocaties de dezelfde basisgegevens voor vastgelegde gebe
 >
 >
 
-## <a name="download"></a>Hoe: Logboeken downloaden
+## <a name="download"></a> Hoe: Logboeken downloaden
 Diagnostische gegevens die zijn opgeslagen in het bestandssysteem van de web-app toegankelijk zijn rechtstreeks met FTP. Het kan ook worden gedownload als een Zip-archief met Azure PowerShell of Azure-opdrachtregelinterface.
 
 De mapstructuur die de logboeken worden opgeslagen in is als volgt:
@@ -97,7 +97,7 @@ De mapstructuur die de logboeken worden opgeslagen in is als volgt:
 * **Kan aanvraag traceringen** -logboekbestanden/W3SVC ### /. Deze map bevat een XSL-bestand en een of meer XML-bestanden. Zorg ervoor dat het XSL-bestand te downloaden in dezelfde map als het XML-bestand nodig omdat het XSL-bestand functionaliteit biedt voor het formatteren en het filteren van de inhoud van de XML-bestanden ziet er in Internet Explorer.
 * **Gedetailleerde foutenlogboeken** -/LogFiles/DetailedErrors /. Deze map bevat een of meer htm-bestanden met uitgebreide informatie voor een HTTP-fouten dat is opgetreden.
 * **Web Server-logboeken** -/LogFiles/http/RawLogs. Deze map bevat een of meer tekstbestanden geformatteerd met het [uitgebreide W3C-logboekbestandsindeling](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
-* **Implementatielogboeken** -logboekbestanden/Git. Deze map bevat de logboeken die worden gegenereerd door de van interne implementatieprocessen die worden gebruikt door de Azure-web-apps, evenals de logboeken voor Git-implementaties.
+* **Implementatielogboeken** -logboekbestanden/Git. Deze map bevat de logboeken die worden gegenereerd door de van interne implementatieprocessen die worden gebruikt door de Azure-web-apps, evenals de logboeken voor Git-implementaties. U kunt ook de logboeken van de implementatie onder D:\home\site\deployments vinden.
 
 ### <a name="ftp"></a>FTP
 
@@ -141,7 +141,7 @@ Visual Studio Application Insights biedt hulpprogramma's voor het filteren en zo
 
 [Meer informatie over prestaties bijhouden met Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="streamlogs"></a>Hoe: Logboeken Stream
+## <a name="streamlogs"></a> Hoe: Logboeken Stream
 Tijdens het ontwikkelen van een toepassing, is het vaak nuttig om gegevens in bijna realtime logboekregistratie te bekijken. U kunt informatie logboekregistratie op uw ontwikkelomgeving met behulp van Azure PowerShell of Azure-opdrachtregelinterface streamen.
 
 > [!NOTE]
@@ -194,7 +194,7 @@ Gebruiken om te filteren op specifieke logboek typen, zoals HTTP, de **--pad** p
 >
 >
 
-## <a name="understandlogs"></a>Hoe: inzicht in Logboeken met diagnostische gegevens
+## <a name="understandlogs"></a> Hoe: inzicht in Logboeken met diagnostische gegevens
 ### <a name="application-diagnostics-logs"></a>Diagnostische logboeken
 Application diagnostics wordt informatie opgeslagen in een specifieke indeling voor .NET-toepassingen, afhankelijk van of het opslaan van logboeken naar het bestandssysteem, table storage of blob-opslag. De basisset van opgeslagen gegevens is hetzelfde voor alle drie opslagtypen - de datum en tijd die de gebeurtenis heeft plaatsgevonden, de proces-ID die de gebeurtenis, het gebeurtenistype (informatie, waarschuwing, fout) en het gebeurtenisbericht geproduceerd.
 
@@ -214,7 +214,7 @@ Logboekregistratie naar het bestandssysteem biedt de meest elementaire informati
 
 Bij het aanmelden naar table storage, worden aanvullende eigenschappen gebruikt ter bevordering van de gegevens die zijn opgeslagen in de tabel evenals meer gedetailleerde informatie over de gebeurtenis te zoeken. De volgende eigenschappen (kolommen) worden gebruikt voor elke entiteit (rij) opgeslagen in de tabel.
 
-| Naam van eigenschap | Waarde/indeling |
+| De naam van eigenschap | Waarde/indeling |
 | --- | --- |
 | PartitionKey |Datum/tijd van de gebeurtenis in de indeling yyyyMMddHH |
 | RowKey |Een GUID-waarde die is uniek voor deze entiteit |
@@ -225,14 +225,14 @@ Bij het aanmelden naar table storage, worden aanvullende eigenschappen gebruikt 
 | Gebeurtenis-id |De gebeurtenis-ID van deze gebeurtenis<p><p>De standaardwaarde is 0 als er geen opgegeven |
 | Instantie-id |Exemplaar van de web-app die de gebeurtenis is opgetreden op |
 | PID |Proces-id |
-| TID |De thread-ID van de thread die de gebeurtenis geproduceerd |
+| Tid |De thread-ID van de thread die de gebeurtenis geproduceerd |
 | Bericht |Detail gebeurtenisbericht |
 
 **Blob Storage**
 
 Tijdens de registratie naar de blob storage, kunnen gegevens worden opgeslagen in de indeling met door komma's gescheiden waarden (CSV). Vergelijkbare naar table storage aanvullende velden om meer gedetailleerde informatie over de gebeurtenis worden vastgelegd. De volgende eigenschappen worden voor elke rij in de CSV gebruikt:
 
-| Naam van eigenschap | Waarde/indeling |
+| De naam van eigenschap | Waarde/indeling |
 | --- | --- |
 | Date |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden |
 | Niveau |Gebeurtenisniveau (bijvoorbeeld fout, waarschuwing, informatie) |
@@ -241,7 +241,7 @@ Tijdens de registratie naar de blob storage, kunnen gegevens worden opgeslagen i
 | EventTickCount |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden, in de indeling van de maatstreepjes (nauwkeuriger) |
 | Gebeurtenis-id |De gebeurtenis-ID van deze gebeurtenis<p><p>De standaardwaarde is 0 als er geen opgegeven |
 | PID |Proces-id |
-| TID |De thread-ID van de thread die de gebeurtenis geproduceerd |
+| Tid |De thread-ID van de thread die de gebeurtenis geproduceerd |
 | Bericht |Detail gebeurtenisbericht |
 
 De gegevens die zijn opgeslagen in een blob eruit als in het volgende voorbeeld:

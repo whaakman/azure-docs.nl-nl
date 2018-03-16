@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 631557e0ad712827bb3375c4f152c0e2185fda18
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b06144e6ad3df1626022edd856e14d6c47494336
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informatie voor niet-aanbevolen distributies
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -50,7 +50,7 @@ De rest van dit artikel wordt de nadruk gelegd op algemene richtlijnen voor het 
 * Kernel-ondersteuning voor het koppelen van UDF-bestandssysteem is vereist. De configuratie van de inrichting wordt op de eerste keer opstarten op Azure via media UDF-indeling die is gekoppeld aan de Gast doorgegeven aan de Linux-VM. De Azure Linux-agent moet kunnen de UDF-bestandssysteem voor het lezen van de configuratie en inrichten van de virtuele machine te koppelen.
 * Kernel-versies van Linux onder 2.6.37 ondersteunen geen NUMA op Hyper-V met grotere virtuele machine. Dit probleem voornamelijk effecten oudere distributies met behulp van de upstream Red Hat 2.6.32 kernel, en is vastgesteld in RHEL 6.6 (kernel 2.6.32 504). Systemen met aangepaste kernels die ouder zijn dan 2.6.37 of op basis van RHEL kernels die ouder zijn dan 2.6.32-504 moet de parameter opstarten ingesteld `numa=off` op de opdrachtregel in grub.conf kernel. Zie voor meer informatie Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Configureer een partitie van de wisseling niet op de schijf met het besturingssysteem. De Linux-agent kan worden geconfigureerd voor het maken van een wisselbestand op de tijdelijke schijf.  Meer informatie hierover vindt u in de volgende stappen uit.
-* Alle van de VHD's moeten grootten die veelvouden van 1 MB hebben.
+* Alle VHD's in Azure, moeten een virtuele grootte die is afgestemd op 1MB hebben. Bij het converteren van een onbewerkte schijf naar VHD moet u ervoor zorgen dat de grootte voor onbewerkte schijven een veelvoud van 1MB vóór de conversie is. In de onderstaande stappen vindt meer informatie.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Kernelmodules zonder Hyper-V installeren
 Azure wordt uitgevoerd op de Hyper-V-hypervisor, dus Linux vereist dat bepaalde kernelmodules zijn geïnstalleerd om te kunnen uitvoeren in Azure. Als u een virtuele machine die is gemaakt buiten de Hyper-V hebt, installatieprogramma's voor de Linux mag bevatten de stuurprogramma's voor Hyper-V in de eerste ramdisk (initrd of initramfs) tenzij er wordt gedetecteerd dat deze wordt uitgevoerd een een Hyper-V-omgeving. Als u een andere virtualisatie-systeem (dat wil zeggen Virtualbox, KVM, enz.) voor het voorbereiden van uw Linux-installatiekopie, mogelijk moet u opnieuw opbouwen van de initrd om ervoor te zorgen dat ten minste de `hv_vmbus` en `hv_storvsc` kernelmodules zijn beschikbaar op de eerste ramdisk.  Dit is een bekend probleem ten minste op systemen die op basis van de upstream Red Hat distributie.
@@ -75,7 +75,7 @@ VHD-installatiekopieën in Azure, moeten een virtuele grootte die is afgestemd o
 U verhelpt dit u kunt de grootte van de virtuele machine met de Hyper-V Manager-console of de [formaat VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell-cmdlet.  Als u niet worden uitgevoerd in een Windows-omgeving wordt aanbevolen qemu img om te converteren (indien nodig) en het formaat van de VHD.
 
 > [!NOTE]
-> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Verwijzing: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Naslaginformatie: https://bugs.launchpad.net/qemu/+bug/1490611.
 > 
 > 
 

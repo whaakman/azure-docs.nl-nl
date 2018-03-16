@@ -3,7 +3,7 @@ title: De Outlook van Office 365-connector in uw logische Apps toevoegen | Micro
 description: 'Logic apps maken met Office 365-connector voor het inschakelen van interactie met Office 365. Bijvoorbeeld: maken, bewerken en bijwerken van contactpersonen en agenda-items.'
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Aan de slag met de Outlook van Office 365-connector
 De Outlook van Office 365-connector wordt interactie met Outlook in Office 365. Met deze connector kunt maken, bewerken, en contactpersonen en agenda-items, bijwerken en ook krijgen, verzenden en e-mailbericht beantwoordt.
@@ -30,7 +30,7 @@ Met Office 365 Outlook u:
 * Met triggers kunt u uw werkstroom starten als er een nieuw e-mailadres, wanneer een agenda-item wordt bijgewerkt en meer.
 * Acties gebruiken om te e-mailbericht verzenden, maakt u een nieuwe gebeurtenis en meer. Bijvoorbeeld, wanneer er een nieuw object in Salesforce (een trigger), een e-mail sturen naar uw Office 365 Outlook (een actie). 
 
-In dit onderwerp leest u het gebruik van de Outlook van Office 365-connector in een logische app, en vermeldt tevens de triggers en acties.
+In dit artikel leest u het gebruik van de Outlook van Office 365-connector in een logische app, en vermeldt tevens de triggers en acties.
 
 > [!NOTE]
 > Deze versie van het artikel is van toepassing op Logic Apps algemene beschikbaarheid (GA).

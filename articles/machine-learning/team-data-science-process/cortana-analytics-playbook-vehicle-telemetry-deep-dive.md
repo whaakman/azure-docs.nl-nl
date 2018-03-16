@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: a21316ef6ab05918f07a09243b5ce04950ecd9dc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 370ab807ef85240238c51d1693796c26981edb15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Vehicle telemetrie Analytics-oplossing playbook: Deep Duik in de oplossing
 Dit menu is gekoppeld aan de secties van dit playbook: 
@@ -42,14 +42,14 @@ Deze gegevensset JSON-indeling bevat het volgende schema.
 
 | Kolom | Beschrijving | Waarden |
 | --- | --- | --- |
-| CHASSISNUMMER |Willekeurig gegenereerde VIN |Verkregen van een master lijst 10.000 willekeurig gegenereerde VINs |
+| VIN |Willekeurig gegenereerde VIN |Verkregen van een master lijst 10.000 willekeurig gegenereerde VINs |
 | Externe temperatuur |De externe temperatuur waar het besturen van de drager |Willekeurig gegenereerd nummer tussen 0 en 100 |
 | Engine temperatuur |De engine temperatuur van de drager |Willekeurig gegenereerde getal tussen 0 en 500 |
 | Snelheid |De engine-snelheid waarmee het besturen van de drager |Willekeurig gegenereerd nummer tussen 0 en 100 |
 | Brandstof |De brandstofpeil van de drager |Gegenereerde willekeurig getal tussen 0 en 100 (geeft brandstof niveau percentage) |
 | EngineOil |De engine olie-niveau van de drager |Gegenereerde willekeurig getal tussen 0 en 100 (geeft engine olie niveau percentage) |
 | Druk band |Druk op de band van de drager |Gegenereerde willekeurig getal tussen 0 en 50 (geeft band zware belasting op het niveau percentage) |
-| Kilometerstand |De kilometerstand van de drager |Willekeurig gegenereerde getal tussen 0 en 200.000 |
+| Odometer |De kilometerstand van de drager |Willekeurig gegenereerde getal tussen 0 en 200.000 |
 | Accelerator_pedal_position |De accelerator vorm positie van de drager |Gegenereerde willekeurig getal tussen 0 en 100 (geeft accelerator niveau percentage) |
 | Parking_brake_status |Hiermee wordt aangegeven of de drager geparkeerd of niet |True of False |
 | Headlamp_status |Hiermee wordt aangegeven of het licht op of niet |True of False |
@@ -63,7 +63,7 @@ Deze gegevensset JSON-indeling bevat het volgende schema.
 
 De gegevensset vehicle model verwijzing toegewezen VINs aan modellen. 
 
-| CHASSISNUMMER | Model |
+| VIN | Model |
 | --- | --- |
 | FHL3O1SA4IEHB4WU1 |Sedan |
 | 8J0U8XCPRGW4Z3NQE |Hybride |

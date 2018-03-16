@@ -2,24 +2,18 @@
 title: Query performance insights voor Azure SQL Database | Microsoft Docs
 description: Query-prestaties bewaken, identificeert de meeste CPU verbruikt query's voor een Azure SQL Database.
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: monicar
-ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 015f3255d0ff9691168899df1e983e70f35215b1
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL Database Query Performance Insight
 Is een uitdaging waarvoor aanzienlijke expertise en investeringen tijd beheren en het afstemmen van de prestaties van relationele databases. Inzicht in queryprestaties kunt u minder tijd databaseprestaties oplossen door het volgende nodig:
@@ -37,7 +31,7 @@ Is een uitdaging waarvoor aanzienlijke expertise en investeringen tijd beheren e
 ## <a name="permissions"></a>Machtigingen
 De volgende [toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-what-is.md) machtigingen zijn vereist voor Query Performance Insight gebruiken: 
 
-* **Lezer**, **eigenaar**, **Inzender**, **SQL DB Contributor**, of **SQL Server Inzender** machtigingen zijn vereist de bovenste bron verbruikt query's en grafieken weer te geven. 
+* **Lezer**, **eigenaar**, **Inzender**, **SQL DB Contributor**, of **SQL Server Inzender** machtigingen zijn vereist bron weer te geven de bovenste verbruikt query's en -grafieken. 
 * **Eigenaar**, **Inzender**, **SQL DB Contributor**, of **SQL Server Inzender** machtigingen zijn vereist om querytekst weer te geven.
 
 ## <a name="using-query-performance-insight"></a>Met behulp van de Query Performance Insight
@@ -93,7 +87,7 @@ Om Querydetails te bekijken:
 
 1. Klik op een query in de lijst met de meest gebruikte query's.
    
-    ![Meer informatie](./media/sql-database-query-performance/details.png)
+    ![details](./media/sql-database-query-performance/details.png)
 2. De detailweergave wordt geopend en het aantal query's CPU-verbruik/duur/uitvoering is onderverdeeld gedurende een bepaalde periode.
 3. Klik op rond de grafiek voor meer informatie.
    

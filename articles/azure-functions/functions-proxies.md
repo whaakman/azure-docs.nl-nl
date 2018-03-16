@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Werken met Azure Functions-proxy 's
 
@@ -106,7 +106,7 @@ Bijvoorbeeld, een back-end-URL van *https://%ORDER_PROCESSING_HOST%/api/orders* 
 
 ## <a name="debugProxies"></a>Proxy's oplossen
 
-Door de vlag toe te voegen `"debug":true` naar een proxy in uw `proxy.json` hanteert u logboekregistratie voor foutopsporing. Logboeken worden opgeslagen in `D:\home\LogFiles\Application\Proxies\DetailedTrace` en toegankelijk is via de geavanceerde tools (kudu). Geen HTTP-antwoorden bevat ook een `Proxy-Trace-Location` koptekst met een URL voor toegang tot het logboekbestand.
+Door de vlag toe te voegen `"debug":true` naar een proxy in uw `proxies.json` hanteert u logboekregistratie voor foutopsporing. Logboeken worden opgeslagen in `D:\home\LogFiles\Application\Proxies\DetailedTrace` en toegankelijk is via de geavanceerde tools (kudu). Geen HTTP-antwoorden bevat ook een `Proxy-Trace-Location` koptekst met een URL voor toegang tot het logboekbestand.
 
 U kunt fouten opsporen in een proxy vanaf de client door toe te voegen een `Proxy-Trace-Enabled` header ingesteld op `true`. Dit wordt ook een tracering Meld u aan het bestandssysteem en de trace-URL als een kop in het antwoord retourneren.
 
@@ -114,7 +114,7 @@ U kunt fouten opsporen in een proxy vanaf de client door toe te voegen een `Prox
 
 Uit veiligheidsoverwegingen kunt u niet wilt laten iedereen die uw service voor het genereren van een tracering aanroepen. Ze kan niet worden de trace-inhoud zonder uw referenties voor aanmelden, maar voor het genereren van de tracering systeembronnen en beschrijft dat u van de functie proxy's gebruikmaakt.
 
-Traceringen helemaal uitschakelen door toe te voegen `"debug":false` naar een bepaalde proxy in uw `proxy.json`.
+Traceringen helemaal uitschakelen door toe te voegen `"debug":false` naar een bepaalde proxy in uw `proxies.json`.
 
 ## <a name="advanced-configuration"></a>Geavanceerde configuratie
 

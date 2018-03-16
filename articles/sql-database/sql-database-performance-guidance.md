@@ -2,24 +2,18 @@
 title: Azure SQL Database-prestaties afstemmen richtlijnen | Microsoft Docs
 description: Meer informatie over het gebruik van aanbevelingen om Azure SQL Database-query-prestaties te verbeteren.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: dd8d95fa-24b2-4233-b3f1-8e8952a7a22b
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 63a8b9f8c81ad3dc122bf25d8a06cdf242a0f35b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Afstemming van de prestaties in Azure SQL Database
 
@@ -262,7 +256,7 @@ Bijvoorbeeld, als een database heeft de naam van de klant, volgorde en de detail
 
 Hoewel sharding van de database niet de capaciteit van de cumulatieve bron voor een oplossing te verminderen, is het zeer effectief te ondersteunen van zeer grote oplossingen die worden verdeeld over meerdere databases. Elke database kunt uitvoeren op een andere prestatieniveau voor de ondersteuning van zeer grote 'effectieve' databases met hoge benodigde middelen.
 
-### <a name="functional-partitioning"></a>Functionele partities
+### <a name="functional-partitioning"></a>Functionele partitionering
 SQL Server-gebruikers combineren vaak veel functies in één database. Bijvoorbeeld, als een toepassing logica heeft voor het beheren van de inventaris voor een winkel, wellicht dat de database logica die is gekoppeld aan Voorraadbeheer, inkoop, opgeslagen procedures en geïndexeerde of gerealiseerde weergaven die het einde van de maand rapportage beheren. Op deze manier kunt eenvoudiger te beheren van de database voor bewerkingen zoals back-up, maar ook moet u het formaat van de hardware voor het afhandelen van de piekbelasting over alle functies van een toepassing.
 
 Als u een uitbreidbare architectuur in Azure SQL Database gebruikt, is het een goed idee om op te splitsen verschillende functies van een toepassing in andere databases. Met deze techniek kunnen schaalt elke toepassing onafhankelijk van elkaar. Als een toepassing veelgebruikte wordt (en de belasting van de database verhoogt), kan de beheerder kan onafhankelijk prestatieniveaus voor elke functie kiezen in de toepassing. De bereikt, klikt u met deze architectuur kan een toepassing niet groter zijn dan een machine één product verwerken kan, omdat de belasting wordt verdeeld over meerdere machines.

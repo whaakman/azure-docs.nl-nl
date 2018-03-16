@@ -9,11 +9,11 @@ ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 792e754b84f1dc03a32780ed94d274c833be68f5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Opslaan van gegevens aan de rand met SQL Server-databases
 
@@ -67,7 +67,7 @@ In stap 3, kunt u het maken van opties voor de SQL Server-container die belangri
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "localhost:5000/filterfunction:latest",
+              "image": "<docker registry address>/filterfunction:latest",
               "createOptions": "{}"
             }
           },
@@ -94,7 +94,12 @@ In stap 3, kunt u het maken van opties voor de SQL Server-container die belangri
         }
    ```
 
-3. Afhankelijk van het besturingssysteem die u gebruikt, moet u de instellingen voor de SQL-module bijwerken met de volgende code: 
+3. Vervang de `<docker registry address>` met het adres op de voltooide zelfstudie ingevuld [Azure-functie implementeren als een module van de rand van de IoT - voorbeeld](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)
+
+   >[!NOTE]
+   >De Register-adres van de container is hetzelfde als de aanmeldingsserver die u hebt gekopieerd uit het register. Deze moet de vorm van `<your container registry name>.azurecr.io`
+
+4. Afhankelijk van het besturingssysteem die u gebruikt, moet u de instellingen voor de SQL-module bijwerken met de volgende code: 
 
    * Windows:
 
@@ -110,11 +115,11 @@ In stap 3, kunt u het maken van opties voor de SQL Server-container die belangri
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-4. Sla het bestand op. 
-5. Selecteer in het palet tegenover Code opdracht **rand: implementatie voor randapparaat maken**. 
-6. Selecteer uw IoT-Edge-apparaat-ID.
-7. Selecteer de `deployment.json` bestand dat u hebt bijgewerkt. In het venster output ziet u bijbehorende uitvoer voor uw implementatie. 
-8. Voor het starten van de runtime van de rand, selecteer **rand: Start rand** in het palet opdracht.
+5. Sla het bestand op. 
+6. Selecteer in het palet tegenover Code opdracht **rand: implementatie voor randapparaat maken**. 
+7. Selecteer uw IoT-Edge-apparaat-ID.
+8. Selecteer de `deployment.json` bestand dat u hebt bijgewerkt. In het venster output ziet u bijbehorende uitvoer voor uw implementatie. 
+9. Voor het starten van de runtime van de rand, selecteer **rand: Start rand** in het palet opdracht.
 
 >[!TIP]
 >Elke keer dat u een SQL Server-container in een productieomgeving maken, moet u [wijzigen wachtwoord van de systeembeheerder standaard](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).

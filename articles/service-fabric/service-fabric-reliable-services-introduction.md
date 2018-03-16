@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reliable-services-overview"></a>Overzicht van Reliable Services
 Azure Service Fabric vereenvoudigt schrijven en staatloze en stateful Reliable Services beheren. Dit onderwerp wordt beschreven:
@@ -34,7 +34,7 @@ Service Fabric de levensduur van de services van de inrichting en implementatie 
 ## <a name="what-are-reliable-services"></a>Wat zijn Reliable Services?
 Reliable Services biedt een eenvoudige, krachtige, op het hoogste niveau programmeermodel kunt u express wat belangrijk is voor uw toepassing is. Met de Reliable Services programmeermodel gebruikt, beschikt u over:
 
-* Toegang tot de rest van de Service Fabric programming API's. In tegenstelling tot Service Fabric-Services is gemodelleerd als [Gast uitvoerbare bestanden](service-fabric-deploy-existing-app.md), Reliable Services krijgen tot de rest van de Service Fabric-API's rechtstreeks gebruiken. Hierdoor kunnen services:
+* Toegang tot de rest van de Service Fabric programming API's. In tegenstelling tot Service Fabric-Services is gemodelleerd als [Gast uitvoerbare bestanden](service-fabric-guest-executables-introduction.md), Reliable Services krijgen tot de rest van de Service Fabric-API's rechtstreeks gebruiken. Hierdoor kunnen services:
   * query op het systeem
   * rapport health over entiteiten in het cluster
   * meldingen ontvangen over configuratie-en code

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Verplaatsen van een openbare peering voor het Microsoft-peering
 
@@ -52,7 +52,7 @@ Controleer of de Microsoft-peering is ingeschakeld en de aangekondigde openbare 
 
   * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md#getmsft)
   * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)
-  * [Azure CLI](howto-routing-cli.md#getmsft)
+  * [Azure-CLI](howto-routing-cli.md#getmsft)
 
 ## <a name="routefilter"></a>3. Configureren en een routefilter koppelen aan het circuit
 
@@ -73,6 +73,10 @@ Nadat u hebt gecontroleerd of de Microsoft-peering is geconfigureerd en de voorv
   * [Openbare Azure-peering met Azure portal verwijderen](expressroute-howto-routing-portal-resource-manager.md#deletepublic)
   * [Verwijderen van openbare Azure-peering met Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)
   * [Verwijderen van openbare Azure-peering met CLI](howto-routing-cli.md#deletepublic)
+  
+## <a name="view"></a>5. Weergave peerings
+  
+Hier ziet u een lijst met alle ExpressRoute-circuits en peerings in de Azure portal. Zie voor meer informatie [details van de weergave-Microsoft-peering](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 
 ## <a name="next-steps"></a>Volgende stappen
 

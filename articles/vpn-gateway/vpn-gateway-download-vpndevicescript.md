@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2018
 ms.author: yushwang
-ms.openlocfilehash: ebff881cdaa7dd3e14fa1687588408cd9a911553
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2ec428bc5d2cdfb376db3c27b9899014c7ffa2af
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Downloaden van de VPN-apparaat configuratiescripts voor S2S-VPN-verbindingen
 
@@ -103,4 +103,4 @@ Nadat u hebt gedownload en het configuratiescript gevalideerd, wordt de volgende
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Een virtuele machine maken](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor de stappen.
+Doorgaan met het configureren van uw [Site-naar-Site-verbinding](vpn-gateway-howto-site-to-site-resource-manager-portal.md).

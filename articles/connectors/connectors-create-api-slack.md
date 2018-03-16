@@ -3,7 +3,7 @@ title: Gebruik van de Connector Slack in Azure logic apps | Microsoft Docs
 description: Verbinding maken met Slack in logic apps
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 73c512c70f1c135bd791d93cecc42bd6f4c06b3d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>Aan de slag met de toegestane connector
-Slack is een communicatieprogramma voor teams waarbij alle communicatie van uw team op één plaats wordt samengebracht waar deze direct doorzoekbaar en beschikbaar is vanaf elke locatie. 
+Vertraging is een hulpprogramma team communicatie, die samenbrengt alle van uw team communicatie in een plaatst, onmiddellijk doorzoekbare en beschikbaar waar u ook bent. 
 
 Aan de slag door het maken van een logische app nu; Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -33,7 +33,7 @@ Voor het gebruik van de toegestane connector maakt u eerst een **verbinding** Ge
 | --- | --- | --- |
 | Token |Ja |Slack-referenties opgeven |
 
-Volg deze stappen voor het aanmelden bij de vertraging en voltooi de configuratie van de toegestane vertraging **verbinding** in uw logische app:
+Aanmelden met Slack met behulp van de volgende stappen uit en voltooid de configuratie van de toegestane vertraging **verbinding** in uw logische app:
 
 1. Selecteer **terugkeerpatroon**
 2. Selecteer een **frequentie** en voer een **Interval**
@@ -45,11 +45,11 @@ Volg deze stappen voor het aanmelden bij de vertraging en voltooi de configurati
    ![Vertraging configureren][2]
 7. De toegestane referenties opgeven voor het aanmelden bij de toepassing    
    ![Vertraging configureren][3]  
-8. U moet worden omgeleid naar de aanmeldingspagina van uw organisatie. **Autoriseren** Slack om te communiceren met uw logische app:      
+8. U zult omgeleid naar de aanmeldingspagina van uw organisatie. **Autoriseren** Slack om te communiceren met uw logische app:      
    ![Vertraging configureren][5] 
-9. Nadat de autorisatie is voltooid wordt u omgeleid naar uw logische app om deze te voltooien door het configureren van de **vertraging - alle berichten ophalen** sectie. Toevoegen van andere triggers en acties die u nodig hebt.  
+9. Nadat de autorisatie is voltooid, wordt u doorgestuurd naar uw logische app om deze te voltooien door het configureren van de **vertraging - alle berichten ophalen** sectie. Toevoegen van andere triggers en acties die u nodig hebt.  
    ![Vertraging configureren][6]
-10. Sla uw werk door te selecteren **opslaan** boven in het menu.
+10. Sla uw werk door te selecteren **opslaan** in het menu (boven).
 
 ## <a name="connector-specific-details"></a>Connector-specifieke details
 

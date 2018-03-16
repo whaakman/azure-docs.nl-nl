@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/14/2018
 ms.author: jgao
-ms.openlocfilehash: 290e600b7be4a6f9fb57afa50bb771e42e6a0624
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: c74e02ea32a5aacf1a5208c0e194a25b0b6bcb48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Interactieve Hive-Query gegevens visualiseren met Microsoft Power BI met behulp van directe query in Azure HDInsight
 
@@ -28,7 +28,7 @@ Informatie over het verbinding maken met Microsoft Power BI interactieve Query v
 
 ![HDInsight Power BI het rapport kaart](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-Voor het verbinding maken met Hive via ODBC, Zie [gegevens visualiseren Hive met Microsoft Power BI in Azure HDInsight met behulp van ODBC](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
+U kunt gebruikmaken van de [Hive ODBC-stuurprogramma](../hadoop/apache-hadoop-connect-hive-power-bi.md) importeren via de algemene ODBC-connector in Power BI Desktop. Het is echter niet aangeraden voor BI werkbelastingen vanwege niet-interactieve aard van de Hive-query-engine. [HDInsight interactieve Query connector](./apache-hadoop-connect-hive-power-bi-directquery.md) en [HDInsight Spark connector](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) betere keuzes voor de prestaties zijn.
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u verdergaat met dit artikel, hebt u de volgende items:

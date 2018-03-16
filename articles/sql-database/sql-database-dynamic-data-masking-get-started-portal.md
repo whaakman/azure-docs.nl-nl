@@ -2,24 +2,18 @@
 title: 'Azure-portal: SQL-Database dynamische-gegevensmaskering | Microsoft Docs'
 description: Hoe u aan de slag met SQL-Database dynamische gegevensmaskering in de Azure portal
 services: sql-database
-documentationcenter: 
 author: ronitr
-manager: jhubbard
-editor: 
-ms.assetid: "2"
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 11/22/2016
 ms.author: ronitr
-ms.openlocfilehash: 20d344bc6ae971012bd181d14d130432263a3b76
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2db546d8165956dc6f9fad21f66af315ba301c11
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Aan de slag met SQL-Database van de dynamische gegevens maskeren met de Azure-portal
 
@@ -27,7 +21,7 @@ Dit artikel laat zien hoe u implementeert [dynamische gegevensmaskering](sql-dat
 
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Dynamische-gegevensmaskering voor uw database met de Azure portal instellen
-1. Starten van de Azure portal op [https://portal.azure.com](https://portal.azure.com).
+1. Starten van de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
 2. Navigeer naar de instellingenpagina van de database met de gevoelige gegevens die u wilt maskeren.
 3. Klik op de **dynamische-Gegevensmaskering** tegel die start de **dynamische-Gegevensmaskering** configuratiepagina.
    

@@ -1,26 +1,19 @@
 ---
 title: Operationele Query Store in Azure SQL Database
 description: Meer informatie over het werken met de queryopslag in Azure SQL Database
-keywords: 
 services: sql-database
-documentationcenter: 
 author: bonova
-manager: jhubbard
-editor: 
-ms.assetid: 0cccf6bd-1327-44f7-a6f9-8eff0c210463
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: sqldb-performance
-ms.workload: Inactive
 ms.date: 11/08/2016
 ms.author: bonova
-ms.openlocfilehash: e57f1c51ef5c551f3b2e5d0f0a51a1f462b6c1af
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f0c3780f6efe87437742af7c1b8f6a3e6d0ee243
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Besturingssysteem van de queryopslag in Azure SQL Database
 Query Store in Azure is een volledig beheerde databasefunctie die voortdurend verzamelt en toont gedetailleerde historische informatie over alle query's. U kunt zien over Query Store als vergelijkbaar met een vliegtuig zwarte gegevens doos die aanzienlijk vereenvoudigt queryprestaties probleemoplossing voor cloud en on-premises-klanten. Dit artikel wordt uitgelegd dat bepaalde aspecten van het besturingssysteem van de Query Store in Azure. Met deze vooraf verzamelde querygegevens kunt u snel te analyseren en oplossen van prestatieproblemen en dus besteden meer tijd aan hun bedrijf. 
@@ -55,7 +48,7 @@ Als u blijven met de aangepaste instellingen wilt, gebruikt u [ALTER DATABASE me
 ## <a name="next-steps"></a>Volgende stappen
 [SQL Database Performance Insight](sql-database-performance.md)
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 Voor meer informatie het uitchecken van de volgende artikelen:
 
 * [Een data zwarte doos voor uw database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Operations Management Suite Log Analytics voor een cluster instellen
 
@@ -48,7 +48,7 @@ Als u van Windows gebruikmaakt, gaat u verder met de volgende stappen uit om met
 >[!NOTE]
 >Inschakelen van deze ervaring voor Linux-clusters is nog niet beschikbaar. 
 
-### <a name="add-the-oms-agent-to-your-cluster"></a>De OMS-Agent aan het cluster toevoegen 
+### <a name="connect-the-oms-workspace-to-your-cluster"></a>Verbinding maken met de OMS-werkruimte van het cluster 
 
 1. De werkruimte moet worden verbonden met de diagnostics-gegevens die afkomstig zijn van uw cluster. Ga naar de resourcegroep waarin u de Service Fabric Analytics-oplossing hebt gemaakt. Selecteer **ServiceFabric\<nameOfOMSWorkspace\>**  en Ga naar de overzichtspagina. U kunt daar instellingen, werkruimte-instellingen wijzigen en toegang tot de OMS-portal.
 

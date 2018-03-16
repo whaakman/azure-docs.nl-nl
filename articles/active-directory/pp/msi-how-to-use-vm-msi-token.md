@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Verkrijgen van een toegangstoken voor een beheerde Service identiteit (MSI) gebruiker toegewezen VM
 
@@ -26,9 +26,7 @@ ms.lasthandoff: 02/03/2018
 Dit artikel bevat verschillende voorbeelden van code en scripts voor het token verkrijgen, evenals richtlijnen over belangrijke onderwerpen, zoals het verwerken van verlopen van het token en HTTP-fouten.
 
 ## <a name="prerequisites"></a>Vereisten
-
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
-
 Als u gebruiken in de Azure PowerShell-voorbeelden in dit artikel wilt, moet u Installeer de nieuwste versie van [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
 > [!IMPORTANT]
@@ -48,21 +46,28 @@ Een clienttoepassing een MSI-bestand kan aanvragen [app alleen-lezen toegangstok
 
 ## <a name="get-a-token-using-http"></a>Een met behulp van HTTP-token ophalen 
 
-De fundamentele interface voor het ophalen van een toegangstoken is gebaseerd op REST, toegankelijk maken voor elke clienttoepassing uitgevoerd op de virtuele machine die u kunt u HTTP REST-aanroepen. Dit is vergelijkbaar met het Azure AD-programmeermodel, met uitzondering van de client gebruikt een localhost-eindpunt op de virtuele machine (tegenover een Azure AD-eindpunt).
+De fundamentele interface voor het ophalen van een toegangstoken is gebaseerd op REST, toegankelijk maken voor elke clienttoepassing uitgevoerd op de virtuele machine die u kunt u HTTP REST-aanroepen. Dit is vergelijkbaar met het Azure AD-programmeermodel, met uitzondering van de client gebruikt een eindpunt op de virtuele machine (tegenover een Azure AD-eindpunt).
 
-Voorbeeld van een aanvraag:
+Voorbeeld van een aanvraag met behulp van het exemplaar metagegevens Service (IMDS)-eindpunt:
 
 ```
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1
-Metadata: true
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
+```
+
+Voorbeeld van een aanvraag met behulp van het eindpunt van MSI VM-extensie (toekomstige afschaffing):
+
+```
+GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
 ```
 
 | Element | Beschrijving |
 | ------- | ----------- |
 | `GET` | De HTTP-term waarmee u gegevens wilt ophalen van het eindpunt. In dit geval een OAuth-toegangstoken. | 
-| `http://localhost:50342/oauth2/token` | Het MSI-eindpunt, waarbij 50342 is de standaardpoort en kan worden geconfigureerd. |
-| `resource` | Een queryreeksparameter opgeven, die aangeeft van de App ID URI van de doelbron. Dit wordt ook weergegeven de `aud` (doelgroep) claim van het gepubliceerde token. In dit voorbeeld vraagt een token voor toegang tot Azure Resource Manager, die een App ID URI van https://management.azure.com/ heeft. |
-| `client_id` | Een queryreeksparameter opgeven, die de client-ID (ook wel bekend als een App-ID) voor de service-principal voor de gebruiker toegewezen MSI aangeeft. Deze waarde wordt geretourneerd als de `clientId` eigenschap tijdens het maken van een MSI gebruiker toegewezen. In dit voorbeeld vraagt een token voor client-ID '712eac09-e943-418c-9be6-9fd5c91078bl'. |
+| `http://169.254.169.254/metadata/identity/oauth2/token` | Het MSI-eindpunt voor de Service-exemplaar voor metagegevens. |
+| `http://localhost:50342/oauth2/token` | Het MSI-eindpunt voor de VM-extensie, waarbij 50342 is de standaardpoort en kan worden geconfigureerd. |
+| `api-version`  | Een queryreeksparameter opgeven, die de API-versie voor het eindpunt IMDS aangeeft.  |
+| `resource` | Een queryreeksparameter opgeven, die aangeeft van de App ID URI van de doelbron. Dit wordt ook weergegeven de `aud` (doelgroep) claim van het gepubliceerde token. In dit voorbeeld vraagt een token voor toegang tot Azure Resource Manager, die een App ID URI van heeft https://management.azure.com/. |
+| `client_id` |  Een *optionele* querytekenreeksparameter, die wijzen op de client-ID (ook wel bekend als een App-ID) van de service-principal die vertegenwoordigt een MSI gebruiker toegewezen. Deze parameter is niet vereist als u het systeem toegewezen MSI. Deze waarde wordt geretourneerd als de `clientId` eigenschap tijdens het maken van een MSI gebruiker toegewezen. In dit voorbeeld vraagt een token voor client-ID '712eac09-e943-418c-9be6-9fd5c91078bl'. |
 | `Metadata` | Een HTTP-aanvraagveld header wordt vereist door MSI als een risicobeperking tegen aanvallen van Server Side aanvraag kunnen worden vervalst (SSRF). Deze waarde moet worden ingesteld op 'true', in alle kleine letters.
 
 Voorbeeldreactie:
@@ -94,6 +99,16 @@ Content-Type: application/json
 ## <a name="get-a-token-using-curl"></a>Een token met CURL ophalen
 
 Zorg ervoor dat de vervangen door de client-ID (ook wel bekend als een App-ID) van de gebruiker toegewezen MSI service-principal voor de <MSI CLIENT ID> waarde van de `client_id` parameter. Deze waarde wordt geretourneerd als de `clientId` eigenschap tijdens het maken van een MSI gebruiker toegewezen.
+  
+Voorbeeld van een aanvraag met behulp van het exemplaar metagegevens Service (IMDS)-eindpunt:
+
+   ```bash
+   response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>")
+   access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   echo The MSI access token is $access_token
+   ```
+   
+Voorbeeld van een aanvraag met behulp van het eindpunt van MSI VM-extensie (toekomstige afschaffing):
 
    ```bash
    response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
@@ -104,7 +119,7 @@ Zorg ervoor dat de vervangen door de client-ID (ook wel bekend als een App-ID) v
    Voorbeeld van antwoorden:
 
    ```bash
-   user@vmLinux:~$ response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl" -H Metadata:true -s)
+   user@vmLinux:~$ response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl")
    user@vmLinux:~$ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
    user@vmLinux:~$ echo The MSI access token is $access_token
    The MSI access token is eyJ0eXAiOiJKV1QiLCJhbGciO...
@@ -112,7 +127,7 @@ Zorg ervoor dat de vervangen door de client-ID (ook wel bekend als een App-ID) v
 
 ## <a name="handling-token-expiration"></a>Verlopen van het token verwerken
 
-Het lokale MSI-subsysteem caches tokens. Daarom kunt u deze aanroepen zo vaak als u wilt en een aanroep van de kabel naar Azure AD resulteert alleen als:
+Het MSI-subsysteem caches tokens. Daarom kunt u deze aanroepen zo vaak als u wilt en een aanroep van de kabel naar Azure AD resulteert alleen als:
 - een cache ontbreekt deze gebeurtenis treedt op omdat het geen token in de cache
 - het token is verlopen
 
@@ -142,7 +157,7 @@ In dit gedeelte worden de mogelijke foutberichten. Een ' 200 OK ' status is een 
 | ----------- | ----- | ----------------- | -------- |
 | 400 onjuiste aanvraag | invalid_resource | AADSTS50001: De toepassing met de naam  *\<URI\>*  is niet gevonden in de tenant met de naam  *\<TENANT-ID\>*. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant of toestemming gegeven om deze door een gebruiker in de tenant. Misschien hebt u verzonden authenticatie-aanvraag naar de verkeerde tenant. \ | (Alleen voor Linux) |
 | 400 onjuiste aanvraag | bad_request_102 | Vereiste metagegevens-header is niet opgegeven | Ofwel de `Metadata` aanvraag-header-veld uit uw aanvraag ontbreken of onjuist is ingedeeld. De waarde moet worden opgegeven als `true`, in alle kleine letters. Zie 'voorbeeldaanvraag' in de [ophalen van een token met behulp van HTTP](#get-a-token-using-http) sectie voor een voorbeeld.|
-| 401-niet toegestaan | unknown_source | Onbekende bron  *\<URI\>* | Controleer of uw HTTP GET-aanvraag URI is juist geformatteerd. De `scheme:host/resource-path` gedeelte moet worden opgegeven als `http://localhost:50342/oauth2/token`. Zie 'voorbeeldaanvraag' in de [ophalen van een token met behulp van HTTP](#get-a-token-using-http) sectie voor een voorbeeld.|
+| 401-niet toegestaan | unknown_source | Onbekende bron  *\<URI\>* | Controleer of uw HTTP GET-aanvraag URI is juist geformatteerd. De `scheme:host/resource-path` gedeelte moet worden opgegeven als `http://169.254.169.254/metadata/identity/oath2/token` of `http://localhost:50342/oauth2/token`. Zie 'voorbeeldaanvraag' in de [ophalen van een token met behulp van HTTP](#get-a-token-using-http) sectie voor een voorbeeld.|
 |           | invalid_request | De aanvraag ontbreekt een vereiste parameter, bevat een ongeldige parameterwaarde, bevat een parameter meer dan één keer of anders is onjuist gevormd. |  |
 |           | unauthorized_client | De client is niet gemachtigd om aan te vragen van een toegangstoken die met deze methode. | Veroorzaakt door een aanvraag die lokale loopback niet gebruiken voor het aanroepen van de extensie, of op een virtuele machine die niet een MSI-bestand juist geconfigureerd. Zie [configureren van een VM beheerde Service identiteit (MSI) met de Azure portal](msi-qs-configure-portal-windows-vm.md) als u hulp bij het VM-configuratie nodig. |
 |           | ACCESS_DENIED | De resource-eigenaar of autorisatie de aanvraag is geweigerd. |  |

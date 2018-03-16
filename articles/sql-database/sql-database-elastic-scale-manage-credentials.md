@@ -2,24 +2,18 @@
 title: Het beheer van referenties in de clientbibliotheek voor elastische database | Microsoft Docs
 description: Het instellen van het juiste niveau van de referenties van beheerder zijn om de alleen-lezen, voor apps voor elastische database
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: ddove
-ms.openlocfilehash: 0f266f3be8bf8c1699b3b19bea96c83d32f1bd69
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: sstein
+ms.openlocfilehash: 26d83779b218f8c936c020d63651861f45bafa2f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Referenties gebruikt voor toegang tot de clientbibliotheek voor elastische Database
 De [clientbibliotheek voor elastische Database](sql-database-elastic-database-client-library.md) drie verschillende soorten referenties gebruikt voor toegang tot de [shard kaart manager](sql-database-elastic-scale-shard-map-management.md). Gebruik de referenties met het laagste niveau van toegang mogelijk afhankelijk van de behoeften.
@@ -46,7 +40,7 @@ De variabele **smmAdminConnectionString** een verbindingsreeks die de beheerrefe
 
 Gebruik geen waarden in de vorm van "username@server', in plaats daarvan de waarde 'gebruikersnaam' gebruiken.  Dit komt doordat de referenties moeten werken op basis van de shard-toewijzing manager-database en de afzonderlijke shards die mogelijk op verschillende servers.
 
-## <a name="access-credentials"></a>Referenties voor toegang
+## <a name="access-credentials"></a>Toegangsreferenties
 Gebruik referenties met alleen-lezen-machtigingen voor de globale shard-toewijzing bij het maken van een shard kaart manager in een toepassing die wordt shard-kaarten niet beheren. De gegevens opgehaald uit de globale shard-toewijzing onder deze referenties worden gebruikt voor [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) en voor het vullen van de shard-toewijzing-cache op de client. De referenties worden geleverd via hetzelfde patroon aanroep naar **GetSqlShardMapManager**: 
 
 ```

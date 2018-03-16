@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/13/2017
+ms.date: 08/12/2018
 ms.author: eugenesh
-ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 5f85b81e894cba7354fb146d6e9a1aa987be7dc5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Verbinding maken met Azure SQL Database in Azure Search met indexeerfuncties
 
@@ -57,6 +57,9 @@ Afhankelijk van verschillende factoren, met betrekking tot uw gegevens, het gebr
 | Gegevenstypen zijn compatibel | De meeste, maar niet alle de SQL-typen worden ondersteund in een Azure Search-index. Zie voor een lijst [toewijzing gegevenstypen](#TypeMapping). |
 | Synchronisatie van realtime gegevens is niet vereist | Een indexeerfunctie kan de tabel opnieuw indexeren van maximaal vijf minuten. Als uw gegevens vaak worden gewijzigd en de wijzigingen worden weergegeven in de index binnen enkele seconden of minuten op één moeten, wordt u aangeraden de [REST-API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) of [.NET SDK](search-import-data-dotnet.md) voor de bijgewerkte rijen direct push. |
 | Incrementele indexeren is mogelijk | Als u een grote gegevensset en plannen voor de indexeerfunctie uitvoeren op een planning hebt, is Azure Search moet kunnen nieuwe, gewijzigde of verwijderde rijen efficiënt te identificeren. Niet-incrementele indexeren is alleen toegestaan als u indexeren op aanvraag (niet op schema), of minder dan 100.000 rijen te indexeren. Zie voor meer informatie [vastleggen gewijzigd en verwijderd rijen](#CaptureChangedRows) hieronder. |
+
+> [!NOTE] 
+> Azure Search biedt ondersteuning voor SQL Server-verificatie. Als u ondersteuning nodig voor Azure Active Directory-wachtwoordverificatie hebt, neem stemmen voor dit [UserVoice suggestie](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
 
 ## <a name="create-an-azure-sql-indexer"></a>Maak een Azure SQL-indexeerfunctie
 
@@ -221,7 +224,7 @@ Beleid voor deze wijziging is afhankelijk van een 'high-water mark' kolom voor h
 * Alle voegt een waarde opgeven voor de kolom.
 * Alle updates aan een item wordt ook de waarde van de kolom wijzigen.
 * De waarde van deze kolom wordt verhoogd met elke invoegen of bijwerken.
-* Query's met het volgende waar en ORDER BY-componenten efficiënt kunnen worden uitgevoerd:`WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
+* Query's met het volgende waar en ORDER BY-componenten efficiënt kunnen worden uitgevoerd: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
 > Wij raden met behulp van de [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) gegevenstype voor de kolom high-water mark. Als een ander gegevenstype wordt gebruikt, wordt tracering van wijzigingen niet gegarandeerd voor het vastleggen van alle wijzigingen in de aanwezigheid van transacties dat gelijktijdig loopt met een indexeerfunctie-query wordt uitgevoerd. Wanneer u **rowversion** in een configuratie met alleen-lezen-replica's, moet u de indexeerfunctie aanwijst op de primaire replica. Alleen een primaire replica kan worden gebruikt voor scenario's voor het synchroniseren van gegevens.
@@ -290,7 +293,7 @@ De **softDeleteMarkerValue** moet een tekenreeks-de tekenreeksweergave van uw we
 | bigint |Edm.Int64, Edm.String | |
 | reële float |Edm.Double, Edm.String | |
 | smallmoney, geld decimale numerieke |Edm.String |Azure Search biedt geen ondersteuning voor het decimale typen converteren naar Edm.Double omdat dit precisie verliezen |
-| CHAR, nchar, varchar, nvarchar |Edm.String<br/>Collection(EDM.String) |Een SQL-tekenreeks kan worden gebruikt voor het vullen van een veld verzameling (EDM.String) als de tekenreeks een JSON-matrix van tekenreeksen vertegenwoordigt:`["red", "white", "blue"]` |
+| CHAR, nchar, varchar, nvarchar |Edm.String<br/>Collection(EDM.String) |Een SQL-tekenreeks kan worden gebruikt voor het vullen van een veld verzameling (EDM.String) als de tekenreeks een JSON-matrix van tekenreeksen vertegenwoordigt: `["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Geografie |Edm.GeographyPoint |Alleen Geografie exemplaren van het type punt met SRID 4326 (dit is de standaardinstelling) worden ondersteund |
@@ -303,7 +306,7 @@ SQL-indexeerfunctie beschrijft de verschillende configuratie-instellingen:
 | Instelling | Gegevenstype | Doel | Standaardwaarde |
 | --- | --- | --- | --- |
 | queryTimeout |tekenreeks |Hiermee stelt u de time-out voor de uitvoering van de SQL-query |5 minuten (' 00: 05:00 ") |
-| disableOrderByHighWaterMarkColumn |BOOL |Zorgt ervoor dat de SQL-query die wordt gebruikt door het beleid high-water mark weglaten de component ORDER BY. Zie [High-Water Mark beleid](#HighWaterMarkPolicy) |onwaar |
+| disableOrderByHighWaterMarkColumn |BOOL |Zorgt ervoor dat de SQL-query die wordt gebruikt door het beleid high-water mark weglaten de component ORDER BY. Zie [High-Water Mark beleid](#HighWaterMarkPolicy) |false |
 
 Deze instellingen worden gebruikt de `parameters.configuration` -object in de definitie van de indexeerfunctie. Bijvoorbeeld, als u wilt de querytime-out ingesteld op 10 minuten, maken of bijwerken van de indexeerfunctie met de volgende configuratie:
 

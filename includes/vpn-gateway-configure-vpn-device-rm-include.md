@@ -1,10 +1,14 @@
-**Zie de volgende koppelingen voor configuratie-informatie:**
+**Scripts voor het downloaden van configuratie van VPN-apparaat:**
+
+Afhankelijk van het VPN-apparaat die u hebt, kunt u mogelijk een configuratie van VPN-apparaatscript downloaden. Zie voor meer informatie [downloaden VPN-apparaat configuratiescripts](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).
+
+**Zie de volgende koppelingen voor meer informatie over configuratie:**
 
 - Zie [Over VPN-apparaten](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) voor meer informatie over compatibele VPN-apparaten.
 
 - Controleer voordat u uw VPN-apparaat configureert of er [bekende compatibiliteitsproblemen](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) zijn met het VPN-apparaat dat u wilt gebruiken.
 
-- Zie [Gevalideerde VPN-apparaten](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) voor koppelingen naar configuratie-instellingen. De koppelingen over apparaatconfiguratie worden naar beste vermogen geleverd. Het is altijd verstandig om de actuele configuratie-informatie op te vragen bij de fabrikant van uw apparaat. De lijst bieden we bevat de versies die we hebben getest. Als uw besturingssysteem niet op deze lijst staat, is het nog steeds mogelijk is de versie is compatibel. Neem contact op met de fabrikant van uw apparaat om te controleren dat de versie van het besturingssysteem voor het VPN-apparaat compatibel is.
+- Zie [Gevalideerde VPN-apparaten](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) voor koppelingen naar configuratie-instellingen. De koppelingen over apparaatconfiguratie worden naar beste vermogen geleverd. Het is altijd verstandig om de actuele configuratie-informatie op te vragen bij de fabrikant van uw apparaat. De lijst bevat de versies die we hebben getest. Als uw besturingssysteem niet op deze lijst staat, is het nog steeds mogelijk is de versie is compatibel. Neem contact op met de fabrikant van uw apparaat om te controleren dat de versie van het besturingssysteem voor het VPN-apparaat compatibel is.
 
 - Zie [Overview of 3rd party VPN device configurations](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md) (Overzicht van VPN-apparaatconfiguraties van derden) voor een overzicht van VPN-apparaatconfiguraties.
 

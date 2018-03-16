@@ -2,24 +2,18 @@
 title: Toepassen van aanbevelingen voor prestaties - Azure SQL Database | Microsoft Docs
 description: De Azure portal gebruiken om te zoeken prestaties aanbevelingen die u kunnen de prestaties van uw Azure SQL Database optimaliseren.
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: monicar
-ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a5772e67d5b91ff989ac6d049b14b1ccad5c952e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
 
@@ -123,7 +117,7 @@ Toepassen van een aanbeveling kan niet direct gebeuren. De portal biedt informat
 | Status | Beschrijving |
 |:--- |:--- |
 | In behandeling |Aanbeveling opdracht is ontvangen en is gepland voor uitvoering toepassen. |
-| Uitvoeren |De aanbeveling wordt toegepast. |
+| In uitvoering |De aanbeveling wordt toegepast. |
 | Controleren |Aanbeveling is toegepast en de service is de voordelen te meten. |
 | Geslaagd |Aanbeveling is toegepast en voordelen zijn gemeten. |
 | Fout |Er is een fout opgetreden tijdens het toepassen van de aanbeveling. Dit is een tijdelijk probleem of mogelijk een schema wijzigen in de tabel en het script is niet meer geldig. |

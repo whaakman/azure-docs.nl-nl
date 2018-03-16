@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6b8aa174f7c25f04393de9dd32718a5078cba4ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
@@ -160,7 +160,7 @@ Klik op de **updatebeheer** op uw automation-account om de status van uw apparat
 
 Deze weergave bevat informatie over uw machines ontbrekende updates, update-implementaties en geplande update-implementaties.
 
-U kunt een zoekopdracht met logboekbestanden die informatie geeft de machine, update of implementatie door het selecteren van het item in de lijst uitvoeren. Hiermee opent u de **logboek zoeken** pagina met een query voor het geselecteerde item.
+U kunt een zoekopdracht met logboekbestanden die informatie over de machine, update of implementatie geeft door het selecteren van het item in de lijst uitvoeren. Hiermee opent u de **logboek zoeken** pagina met een query voor het geselecteerde item.
 
 ## <a name="installing-updates"></a>Updates installeren
 
@@ -207,13 +207,13 @@ De volgende tabel bevat een voorbeeld-logboek zoekt bijwerkrecords die door deze
 
 | Query’s uitvoeren | Beschrijving |
 | --- | --- |
-|Update<br>&#124; waar UpdateState == 'Vereist' en een optionele == false<br>&#124; Computer, titel, KBID, classificatie, PublishedDate project |Alle computers met ontbrekende updates<br>Voeg een van de volgende opties om te beperken van het besturingssysteem:<br>Besturingssysteemtype = 'Windows'<br>Besturingssysteemtype == 'Linux' |
-| Update<br>&#124; waar UpdateState == 'Vereist' en een optionele == false<br>&#124; waar Computer == "ContosoVM1.contoso.com"<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Ontbrekende updates voor een specifieke computer (vervang de waarde door de naam van uw eigen computer)|
-| Gebeurtenis<br>&#124; waar EventLevelName == "error" en elke Computer in ((&#124; bijwerken waar (classificatie == 'Beveiligingsupdates' of classificatie == 'Essentiële Updates')<br>&#124; waar UpdateState == 'Vereist' en een optionele == false <br>&#124; distinct Computer)) |Foutgebeurtenissen voor machines met ontbrekende essentiële of beveiligingsupdates |
-| Update<br>&#124; waar UpdateState == 'Vereist' en een optionele == false<br>&#124; afzonderlijke titel |Afzonderlijke ontbrekende updates op alle computers | 
-| UpdateRunProgress<br>&#124; waar InstallationStatus == "is mislukt" <br>&#124; overzicht van AggregatedValue count() door de Computer, de titel, UpdateRunName = |Computers met updates die niet in een update-uitvoering<br>Voeg een van de volgende opties om te beperken van het besturingssysteem:<br>Besturingssysteemtype = 'Windows'<br>Besturingssysteemtype == 'Linux' | 
-| Update<br>&#124; waar besturingssysteemtype == 'Linux'<br>&#124; waar UpdateState! = 'Niet nodig' en (classificatie == 'Essentiële Updates' of de indeling 'Beveiligingsupdates' ==)<br>&#124; overzicht van AggregatedValue = count() door Computer |Lijst met alle Linux machines, die een pakketupdate beschikbaar hebben, welke essentiële of beveiligingsupdates beveiligingslek adressen | 
-| UpdateRunProgress<br>&#124; waar UpdateRunName == "DeploymentName"<br>&#124; overzicht van AggregatedValue = count() door Computer|Computers die zijn bijgewerkt tijdens het uitvoeren van updates (vervang de waarde met de naam van uw update-implementatie) | 
+|Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;Computer, titel, KBID, classificatie, PublishedDate project |Alle computers met ontbrekende updates<br>Voeg een van de volgende opties om te beperken van het besturingssysteem:<br>Besturingssysteemtype = 'Windows'<br>Besturingssysteemtype == 'Linux' |
+| Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;waar Computer == "ContosoVM1.contoso.com"<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Ontbrekende updates voor een specifieke computer (vervang de waarde door de naam van uw eigen computer)|
+| Gebeurtenis<br>&#124;waar EventLevelName == "error" en elke Computer in ((Update &#124; waar (classificatie == 'Beveiligingsupdates' of classificatie == 'Essentiële Updates')<br>&#124;waar UpdateState == 'Vereist' en een optionele == false <br>&#124; distinct Computer)) |Foutgebeurtenissen voor machines met ontbrekende essentiële of beveiligingsupdates |
+| Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;afzonderlijke titel |Afzonderlijke ontbrekende updates op alle computers | 
+| UpdateRunProgress<br>&#124;waar InstallationStatus == "is mislukt" <br>&#124;overzicht van AggregatedValue count() door de Computer, de titel, UpdateRunName = |Computers met updates die niet in een update-uitvoering<br>Voeg een van de volgende opties om te beperken van het besturingssysteem:<br>Besturingssysteemtype = 'Windows'<br>Besturingssysteemtype == 'Linux' | 
+| Update<br>&#124;waar besturingssysteemtype == 'Linux'<br>&#124;waar UpdateState! = 'Niet nodig' en (classificatie == 'Essentiële Updates' of de indeling 'Beveiligingsupdates' ==)<br>&#124;overzicht van AggregatedValue = count() door Computer |Lijst met alle Linux machines, die een pakketupdate beschikbaar hebben, welke essentiële of beveiligingsupdates beveiligingslek adressen | 
+| UpdateRunProgress<br>&#124;waar UpdateRunName == "DeploymentName"<br>&#124;overzicht van AggregatedValue = count() door Computer|Computers die zijn bijgewerkt tijdens het uitvoeren van updates (vervang de waarde met de naam van uw update-implementatie) | 
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integreren met System Center Configuration Manager
 

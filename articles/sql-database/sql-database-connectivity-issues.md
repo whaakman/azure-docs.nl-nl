@@ -3,24 +3,18 @@ title: Een SQL-verbindingsfout, een tijdelijke fout oplossen | Microsoft Docs
 description: Informatie over het oplossen van, diagnoses stellen en voorkomen dat een SQL-fout of een tijdelijke fout in Azure SQL Database.
 keywords: SQL-verbinding, verbindingsreeks, problemen met de netwerkverbinding, tijdelijke fout, is een verbindingsfout
 services: sql-database
-documentationcenter: 
 author: dalechen
-manager: cshepard
-editor: 
-ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: 7d393cd08ef5c20ef680e4e1ab3aded191abe932
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f6b5f825d7f8111075fe37b5dc29d174928d913e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Oplossen, opsporen en voorkomen van SQL-verbindingsfouten en tijdelijke fouten voor SQL-database
 In dit artikel wordt beschreven hoe voorkomen, oplossen, analyseren en beperken verbindingsfouten en tijdelijke fouten die uw clienttoepassing tegenkomt wanneer deze met Azure SQL Database samenwerkt. Informatie over het configureren van Pogingslogica, de verbindingsreeks en andere verbindingsinstellingen aanpassen.
@@ -83,7 +77,7 @@ Als u wilt testen uw Pogingslogica, moet u simuleren of treedt er een fout die k
 #### <a name="test-by-disconnecting-from-the-network"></a>Testen door het netwerk verbreekt
 Een manier kunt u uw Pogingslogica testen is op uw computer loskoppelen van het netwerk terwijl het programma wordt uitgevoerd. De fout is:
 
-* **SqlException.Number** 11001 =
+* **SqlException.Number** = 11001
 * Bericht: "Er is geen host is onbekend'
 
 Als onderdeel van de eerste nieuwe poging, uw programma de onjuist gespeld corrigeren en vervolgens probeert om verbinding te.
@@ -100,7 +94,7 @@ Als u deze test praktische, moet u uw computer via het netwerk loskoppelen voord
 #### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Testen door de databasenaam bevat een typefout wanneer verbinding wordt gemaakt
 Het programma kan de naam van de gebruiker voordat de eerste verbindingspoging opzettelijk Maak een typefout. De fout is:
 
-* **SqlException.Number** 18456 =
+* **SqlException.Number** = 18456
 * Bericht: 'aanmelding is mislukt voor gebruiker 'WRONG_MyUserName'.'
 
 Als onderdeel van de eerste nieuwe poging, uw programma de onjuist gespeld corrigeren en vervolgens probeert om verbinding te.

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 953ee3932ac1acad5cc41fba9bd5e168a94d7db7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Aan de slag met Azure Table Storage met .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -83,10 +83,10 @@ Alle codevoorbeelden in deze zelfstudie kunnen worden toegevoegd aan de methode 
 U kunt de Azure CosmosDB tabel bibliotheek in elk type .NET-toepassing, met inbegrip van een Azure-cloud service of web-app en desktop- en mobiele toepassingen. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>NuGet gebruiken om de vereiste pakketten te installeren
-Er zijn drie pakketten die u nodig hebt om te verwijzen naar in uw project om deze zelfstudie te voltooien:
+Er zijn drie aanbevolen pakketten die u nodig hebt om te verwijzen naar in uw project om deze zelfstudie te voltooien:
 
-* [Algemene bibliotheek Azure Storage voor .NET (8.6.0-preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview). 
-* [Microsoft Azure CosmosDB tabel-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Dit pakket biedt programmatisch toegang tot gegevensbronnen in uw Azure Cosmos DB tabel API-account of Azure Table storage-account.
+* [Azure Storage algemene bibliotheek voor .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
+* [Microsoft Azure Cosmos DB tabel bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Dit pakket biedt programmatisch toegang tot gegevensbronnen in uw Azure Cosmos DB tabel API-account of Azure Table storage-account.
 * [Configuration Manager-bibliotheek van Microsoft Azure voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): dit pakket biedt een klasse voor het parseren van een verbindingsreeks in een configuratiebestand, ongeacht waar de toepassing wordt uitgevoerd.
 
 Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:
@@ -100,6 +100,11 @@ Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:
 > De ODataLib-afhankelijkheden in de opslag algemene bibliotheek voor .NET worden opgelost door de ODataLib-pakketten beschikbaar zijn op NuGet niet van WCF Data Services. U kunt de ODataLib-bibliotheken rechtstreeks downloaden of u kunt er via NuGet in uw codeproject naar verwijzen. De specifieke ODataLib-pakketten die door de Storage-clientbibliotheek worden gebruikt, zijn [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) en [Spatial](http://nuget.org/packages/System.Spatial/). Hoewel deze bibliotheken door de Azure Table-Opslagklassen worden gebruikt, zijn ze vereiste afhankelijkheden voor het programmeren met de algemene bibliotheek-opslag.
 > 
 > 
+
+> [!TIP]
+> Ontwikkelaars die al bekend zijn met Azure Table storage mogelijk gebruikt de [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) pakket in het verleden. Het verdient aanbeveling dat alle nieuwe tabel toepassingen gebruiken het [Azure Storage algemene bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) en de [Azure Cosmos DB tabel Library](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), maar het pakket WindowsAzure.Storage wordt nog steeds ondersteund. Als u de bibliotheek WindowsAzure.Storage, kunt u Microsoft.WindowsAzure.Storage.Table opnemen in uw met instructies.
+>
+>
 
 ### <a name="determine-your-target-environment"></a>De doelomgeving bepalen
 U kunt de voorbeelden in deze gids in twee omgevingen uitvoeren:

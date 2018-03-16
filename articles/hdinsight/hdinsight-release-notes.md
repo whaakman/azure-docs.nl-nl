@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/08/2018
 ms.author: nitinme
-ms.openlocfilehash: e0977417ec8678db54d91677b1f9bdc709e196b5
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 38a33056ccd908b43319125b3fe517988b1507c6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Releaseopmerkingen voor Hadoop-onderdelen op Azure HDInsight
 
@@ -29,14 +29,17 @@ In dit artikel bevat informatie over de **meest recente** Azure HDInsight LDR-up
 > [!IMPORTANT]
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie [HDInsight versioning artikel](hdinsight-component-versioning.md).
 
+## <a name="notes-for-03082018---release-of-spark-22-on-hdinsight-36"></a>Opmerkingen voor 08-03/2018 - Release van 2.2 Spark in HDInsight 3.6
+
+- Spark 2.2.0 verbetert de stabiliteit via Spark Core, SQL, ML en brengt gestructureerde Streaming met GA status. Spark 2.2.0 is nu beschikbaar op HDInsight 3.6.
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>Opmerkingen bij de release 01/08/2017 van HDInsight
 
 | Titel | Beschrijving | Betrokken gebied  | Clustertype  | 
 | --- | --- | --- | --- | --- |
 | Versie van Microsoft R Server 9.1 in HDInsight |HDInsight biedt nu ondersteuning voor inrichting R Server 9.1 clusters in HDInsight. Zie voor meer informatie over Microsoft R Server 9.1 release [deze blog](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Service |R Server |
-| HDInsight 3.6 bevat nu nieuwere versies van de Hadoop-stack|<ul><li>Zie voor een gedetailleerde lijst met bijgewerkte versies, [Hadoop component versies beschikbaar zijn in HDInsight](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>Zie voor een lijst van fouten die in de nieuwste versies van de Hadoop-stack is verholpen, [informatie over de Apache-beveiligingspatch](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>Zie voor een lijst met wijzigingen tussen HDP 2.6.1 (dit is nu beschikbaar in HDInsight 3.6) op te splitsen, [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>Zie voor een lijst met bekende problemen in HDP 2.6.1 [bekende problemen](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Service |Alle |N.v.t. |
-| Updates voor clusters interactieve Hive (Preview) |<ul><li><b>Verbetering van de functie.</b> Implementatie van cache metastore en wordt de belasting van de back-end SQL door de metagegevens van de cache te plaatsen en verbetert de prestaties voor alle bewerkingen voor metagegevens.  Dankzij deze verbetering is nu een standaard op alle clusters interactieve Hive. Zie voor meer informatie [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Verbetering van de functie.</b> Laden van de dynamische partitie is geoptimaliseerd. Zie [https://issues.apache.org/jira/browse/HIVE-14204] (https://issues.apache.org/jira/browse/HIVE-14204) voor meer informatie.</li><li><b>Verbetering van de functie.</b> De optimalisatie van de configuratie voor HDInsight op Linux.</li><li><b>Fout te herstellen.</b> `CredentialProviderFactory$getProviders`is geen thread-safe. Dit probleem is nu opgelost. Zie voor meer informatie [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Fout te herstellen.</b> Hoog CPU-gebruik met WASB stuurprogramma `liststatus` leiden tot slechte prestaties van ATS API. Dit probleem is nu opgelost. Zie voor meer informatie [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Service |Interactieve Hive (Preview) |
+| HDInsight 3.6 bevat nu nieuwere versies van de Hadoop-stack|<ul><li>Zie voor een gedetailleerde lijst met bijgewerkte versies, [Hadoop component versies beschikbaar zijn in HDInsight](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>Zie voor een lijst van fouten die in de nieuwste versies van de Hadoop-stack is verholpen, [informatie over de Apache-beveiligingspatch](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>Zie voor een lijst met wijzigingen tussen HDP 2.6.1 (dit is nu beschikbaar in HDInsight 3.6) op te splitsen, [ https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html ](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>Zie voor een lijst met bekende problemen in HDP 2.6.1 [bekende problemen](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Service |Alle |N/A |
+| Updates voor clusters interactieve Hive (Preview) |<ul><li><b>Verbetering van de functie.</b> Implementatie van cache metastore en wordt de belasting van de back-end SQL door de metagegevens van de cache te plaatsen en verbetert de prestaties voor alle bewerkingen voor metagegevens.  Dankzij deze verbetering is nu een standaard op alle clusters interactieve Hive. Zie voor meer informatie [ https://issues.apache.org/jira/browse/HIVE-16520 ](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Verbetering van de functie.</b> Laden van de dynamische partitie is geoptimaliseerd. Zie voor meer informatie [https://issues.apache.org/jira/browse/HIVE-14204] (https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Verbetering van de functie.</b> De optimalisatie van de configuratie voor HDInsight op Linux.</li><li><b>Fout te herstellen.</b> `CredentialProviderFactory$getProviders` is geen thread-safe. Dit probleem is nu opgelost. Zie voor meer informatie [ https://issues.apache.org/jira/browse/HADOOP-14195 ](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Fout te herstellen.</b> Hoog CPU-gebruik met WASB stuurprogramma `liststatus` leiden tot slechte prestaties van ATS API. Dit probleem is nu opgelost. Zie voor meer informatie [ https://github.com/Azure/azure-storage-java/pull/154 ](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Service |Interactieve Hive (Preview) |
 | Updates voor Hadoop-clusters |Templeton taak bewerking betrouwbaarheid is verbeterd. Zie voor meer informatie [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |Service |Hadoop |
 | YARN-updates | HDInsight maakt nu een 250 GB Ambari database (zonder kosten verhogen), wat tot een betere ervaring voor klanten leidt. Deze wijziging te voorkomen dat ATS ophalen gevuld en hebt waarschijnlijk een betere prestaties. |Service |Alle |
 | Spark-updates | De release van Spark 2.1.1. Zie voor meer informatie [Spark Release 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html). | Service | Spark |

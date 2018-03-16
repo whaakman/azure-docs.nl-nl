@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2f4983f918eccd2ae1adb4ec2c88133465f47e07
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 4c49cbefafe71646ba08dd049baf50ff04463fdc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Een virtuele Ubuntu-machine voor Azure voorbereiden
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="official-ubuntu-cloud-images"></a>Officiële Ubuntu cloud installatiekopieën
-Ubuntu publiceert nu officiële Azure VHD's worden gedownload op [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Als u nodig hebt om uw eigen gespecialiseerde Ubuntu installatiekopie ontwikkelen voor Azure, in plaats daarvan dan de handmatige procedure hieronder gebruiken het verdient aanbeveling om te starten met deze bekende VHD's werkt en indien nodig aanpassen. De nieuwste versies van de installatiekopie kunnen altijd worden gevonden op de volgende locaties:
+Ubuntu publiceert nu officiële Azure VHD's worden gedownload op [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/). Als u nodig hebt om uw eigen gespecialiseerde Ubuntu installatiekopie ontwikkelen voor Azure, in plaats daarvan dan de handmatige procedure hieronder gebruiken het verdient aanbeveling om te starten met deze bekende VHD's werkt en indien nodig aanpassen. De nieuwste versies van de installatiekopie kunnen altijd worden gevonden op de volgende locaties:
 
 * Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
@@ -40,11 +40,11 @@ In dit artikel wordt ervan uitgegaan dat u al een Ubuntu Linux-besturingssysteem
 * De VHDX-indeling wordt niet ondersteund in Azure, alleen **vaste VHD**.  U kunt de schijf converteren naar VHD-indeling met behulp van Hyper-V-beheer of de cmdlet convert-vhd.
 * Bij het installeren van de Linux-systeem wordt het aanbevolen dat u standaard partities in plaats van LVM (vaak de standaardinstelling voor vele installaties gebruikt). Dit voorkomt LVM naam conflicteert met de gekloonde virtuele machines, met name als een besturingssysteemschijf ooit worden gekoppeld aan een andere virtuele machine moet voor het oplossen van problemen. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mag worden gebruikt voor gegevensschijven als voorkeur.
 * Configureer een partitie van de wisseling niet op de schijf met het besturingssysteem. De Linux-agent kan worden geconfigureerd voor het maken van een wisselbestand op de tijdelijke schijf.  Meer informatie hierover vindt u in de volgende stappen uit.
-* Alle van de VHD's moeten grootten die veelvouden van 1 MB hebben.
+* Alle VHD's in Azure, moeten een virtuele grootte die is afgestemd op 1MB hebben. Bij het converteren van een onbewerkte schijf naar VHD moet u ervoor zorgen dat de grootte voor onbewerkte schijven een veelvoud van 1MB vóór de conversie is. Zie [opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer informatie.
 
 ## <a name="manual-steps"></a>Handmatige stappen
 > [!NOTE]
-> Voordat u uw eigen aangepaste Ubuntu-afbeelding voor Azure maken, u kunt overwegen de installatiekopieën van het vooraf samengestelde en geteste van [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) in plaats daarvan.
+> Voordat u uw eigen aangepaste Ubuntu-afbeelding voor Azure maken, u kunt overwegen de installatiekopieën van het vooraf samengestelde en geteste van [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/) in plaats daarvan.
 > 
 > 
 

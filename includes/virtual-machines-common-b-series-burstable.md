@@ -1,4 +1,19 @@
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 95a78df20f5bed07213dfa3cc2c9b35e283f54e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/16/2018
+---
 De B-serie VM-familie kunt u kiezen welke VM-grootte biedt u de prestaties van de vereiste base-niveau voor uw workload met de mogelijkheid om het CPU-prestaties tot wel 100% van een Intel® Broadwell E5-2673 v4 burst 2.3 GHz of een Intel® Haswell 2,4 GHz E5-2673 v3-processor vCPU.
 
 De B-serie VM's zijn ideaal voor workloads die niet moet de volledige prestaties van de CPU continu, zoals webservers, kleine databases en ontwikkeling en testen van omgevingen. Deze werkbelastingen hebben doorgaans burstable prestatie-eisen. De B-reeks biedt u de mogelijkheid om aan te schaffen van een VM-grootte van de basislijn en de VM-instantie wordt opgebouwd tegoed bij het gebruik van minder dan de basislijn. Wanneer de virtuele machine zijn tegoed verzameld, kan de virtuele machine burst boven de basislijn met maximaal 100% van de vCPU wanneer uw toepassing hoger CPU-prestaties vereist.
@@ -20,11 +35,11 @@ De B-reeks wordt geleverd in de volgende zes VM-grootten:
 ## <a name="q--a"></a>Vragen en antwoorden 
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>V: hoe krijgt u 135% basislijnprestaties van een virtuele machine?
-**Een**: de 135% wordt gedeeld tussen de 8 vCPU van waaruit de VM-grootte. Als uw toepassing maakt gebruik van 4 van de 8 kernen werkt batchverwerking en elk van deze 4 vCPU worden uitgevoerd op 30% gebruik zou de totale hoeveelheid VM CPU-prestaties 120% gelijk.  Dit betekent dat uw virtuele machine op basis van de delta 15% van de basislijnprestaties van uw tegoed-tijd zou bouwen.  Maar het betekent ook dat wanneer er tegoed beschikbaar waarmee dezelfde virtuele machine kunt 100% van alle 8 vCPU de geeft die VM een maximale CPU-prestaties van 800%.
+**Een**: de 135% wordt gedeeld tussen de 8 vCPU van waaruit de VM-grootte. Als uw toepassing gebruikmaakt van 4 van de 8 kernen werkt batchverwerking en elk van deze 4 vCPU worden uitgevoerd op 30% gebruik zou de totale hoeveelheid VM CPU-prestaties 120% gelijk.  Dit betekent dat uw virtuele machine op basis van de delta 15% van de basislijnprestaties van uw tegoed-tijd zou bouwen.  Maar het betekent ook dat wanneer er tegoed beschikbaar waarmee dezelfde virtuele machine kunt 100% van alle 8 vCPU de geeft die VM een maximale CPU-prestaties van 800%.
 
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>V: hoe kan ik mijn saldo en het verbruik van controleren
-**Een**: We 2 nieuwe metrische gegevens introductie in de komende weken de **tegoed** metrische gegevens kunt u om weer te geven hoeveel tegoed uw virtuele machine heeft gestort en de **ConsumedCredit** metriek wordt weergegeven hoeveel CPU-tegoed uw virtuele machine van de bank is verbruikt.    U mag deze metrische gegevens in het deelvenster metrische gegevens weergeven in de portal of programmatisch via de Azure-Monitor API's.
+**Een**: We 2 nieuwe metrische gegevens introductie in de komende weken de **tegoed** metrische gegevens kunt u om weer te geven hoeveel tegoed uw virtuele machine heeft gestort en de **ConsumedCredit** metriek wordt weergegeven hoeveel CPU tegoed die uw virtuele machine van de bank is verbruikt.    U mag deze metrische gegevens in het deelvenster metrische gegevens weergeven in de portal of programmatisch via de Azure-Monitor API's.
 
 Zie voor meer informatie over toegang krijgen tot de metrische gegevens voor Azure [overzicht van metrische gegevens in Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
 

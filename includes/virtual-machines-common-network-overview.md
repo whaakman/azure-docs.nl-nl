@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 03/11/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 6729c4281f4aa10b653d1c4f29104fd10a08a96e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/16/2018
+---
 Wanneer u een virtuele Azure-machine maakt, moet u een [virtueel netwerk](../articles/virtual-network/virtual-networks-overview.md) (VNet) maken of een bestaand VNet gebruiken. U moet ook bepalen hoe uw virtuele machines kunnen worden geopend via de VNet. Het is belangrijk om [een planning te maken voordat u resources maakt](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) en ervoor te zorgen dat u op de hoogte bent van de [limieten van netwerkresources](../articles/azure-subscription-service-limits.md#networking-limits).
 
 Op de volgende afbeelding worden virtuele machines weergegeven als webservers en databaseservers. Elke set van virtuele machines is toegewezen aan afzonderlijke subnetten in de VNet.
@@ -75,7 +91,7 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een VNet en
 | [Azure Portal](../articles/virtual-network/quick-create-portal.md) | Als u een VNet laat maken door Azure wanneer u een virtuele machine maakt, is de naam een combinatie van de naam van de resourcegroep die de VNet bevat en **-vnet**. De adresruimte is 10.0.0.0/24, de vereiste subnetnaam is **default** en het adresbereik van het subnet is 10.0.0.0/24. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | U gebruikt [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) en [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) om een subnet en een VNet te maken. U kunt ook [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) gebruiken om een subnet toe te voegen aan een bestaande VNet. |
 | [Azure-CLI](../articles/virtual-network/quick-create-cli.md) | Het subnet en de VNet worden op hetzelfde moment gemaakt. Geef een **--subnet-name**-parameter op voor [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) met de subnetnaam. |
-| [Sjabloon](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md) | De eenvoudigste manier om een VNet en subnetten te maken is door een bestaande sjabloon te downloaden, zoals [Virtueel netwerk met twee subnetten](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), en deze aan uw behoeften aan te passen. |
+| Template | De eenvoudigste manier om een VNet en subnetten te maken voor het downloaden van een bestaande sjabloon, zoals is [virtueel netwerk met twee subnetten](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), en voor uw behoeften te wijzigen. |
 
 ## <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen
 

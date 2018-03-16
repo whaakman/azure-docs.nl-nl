@@ -3,24 +3,18 @@ title: Multitenant SaaS patronen - Azure SQL Database | Microsoft Docs
 description: Meer informatie over de vereisten en algemene gegevens architectuur patronen van meerdere tenants software als een dienst (SaaS)-database-toepassingen die worden uitgevoerd in de Azure-cloud-omgeving.
 keywords: zelfstudie sql-database
 services: sql-database
-documentationcenter: 
 author: billgib
 manager: craigg
-editor: MightyPen,srinia
-ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ac4eceb2265850b18682b38141f24b18ca0f9b4b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Multitenant SaaS-database tenancymodus patronen
 

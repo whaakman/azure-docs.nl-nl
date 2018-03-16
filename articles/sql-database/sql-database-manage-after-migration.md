@@ -2,27 +2,21 @@
 title: Na de migratie - Azure SQL Database beheren | Microsoft Docs
 description: Informatie over het beheren van uw database na de migratie naar Azure SQL Database.
 services: sql-database
-documentationcenter: 
 author: joesackmsft
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 12/06/2016
-ms.author: Joe.Sack
+ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: ee1d847e04e1f1fa0472d8702c7022d622b9fe0f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ae16e70d92b33a3f420d0880bc264dcad97b272e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud: uw database in Azure SQL Database beheren
 
@@ -135,7 +129,7 @@ In SQL-Database, standaard uw gegevens in rust in de gegevens en logboekbestande
 |**Codering in beslag neemt**|End-to-end|Gegevens in rust|
 |**Databaseserver heeft toegang tot gevoelige gegevens**|Nee|Ja, omdat versleuteling voor de gegevens in rust|
 |**Toegestane T-SQL-bewerkingen**|Gelijkheidsvergelijking|Alle T-SQL-oppervlak is beschikbaar|
-|**Appwijzigingen die zijn vereist om de functie te gebruiken**|minimale|Minimale|
+|**Appwijzigingen die zijn vereist om de functie te gebruiken**|Minimaal|Minimale|
 |**Versleuteling granulatie**|Kolomniveau|Databaseniveau|
 ||||
 

@@ -4,22 +4,17 @@ description: Meer informatie over het configureren van Azure SQL Database voor h
 services: sql-database
 documentationcenter: 
 author: veljko-msft
-manager: jhubbard
-editor: 
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 03/13/2018
 ms.author: vvasic
-ms.openlocfilehash: 2d0a2d5966c8c99e7d71d97d4819d58a1474c2fe
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3ac0c87ca41315eb3b63ddfab2736f68bac8dbee
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database metrische gegevens en logboekregistratie van diagnostische gegevens 
 Azure SQL Database kunt verzenden metrische gegevens en diagnostische logboeken voor het bewaken van eenvoudiger. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
@@ -257,7 +252,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="download-metrics-and-logs-from-storage"></a>Metrische gegevens en logboeken downloaden uit Storage
 
-Meer informatie over hoe [metrische gegevens en diagnostische logboeken downloaden uit Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+Meer informatie over hoe [metrische gegevens en diagnostische logboeken downloaden uit Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## <a name="metrics-and-logs-available"></a>Metrische gegevens en logboeken beschikbaar
 
@@ -478,4 +473,4 @@ Voor meer informatie over Event Hubs, lezen:
 * [Wat is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Aan de slag met Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-Zie voor meer informatie over opslag, hoe [metrische gegevens en diagnostische logboeken downloaden uit Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+Zie voor meer informatie over opslag, hoe [metrische gegevens en diagnostische logboeken downloaden uit Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 80d7e39b284554ebfa8cac4488e1663b3e3648e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Het oplossen van problemen met het Linux-agent voor logboekanalyse
 
@@ -37,12 +37,12 @@ Dit artikel bevat help het oplossen van problemen die u mogelijk ondervindt met 
 2. Raadpleeg de sectie [proxy-instellingen bijwerken](log-analytics-agent-manage.md#update-proxy-settings) om te controleren of u de agent communiceren via een proxyserver correct hebben geconfigureerd.    
 * Controleer of de volgende Log Analytics-service-eindpunten goedgekeurde lijst zijn:
 
-    |Agentresource| Poorten |  
-    |------|---------|  
-    |*.ods.opinsights.azure.com | Poort 443|   
-    |*.oms.opinsights.azure.com | Poort 443|   
-    |ods.systemcenteradvisor.com | Poort 443|   
-    |*.blob.core.windows.net/ | Poort 443|   
+    |Agentresource| Poorten | Richting |
+    |------|---------|----------|  
+    |*.ods.opinsights.azure.com | Poort 443| Binnenkomend en uitgaand |  
+    |*.oms.opinsights.azure.com | Poort 443| Binnenkomend en uitgaand |  
+    |*.blob.core.windows.net | Poort 443| Binnenkomend en uitgaand |  
+    |*.azure-automation.net | Poort 443| Binnenkomend en uitgaand | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Probleem: U ontvangt een fout 403 bij een poging om vrij te geven
 
@@ -68,7 +68,7 @@ Dit is een bekend probleem dat op de eerste uploaden van gegevens van Linux in e
 - OMS-Agent voor Linux-gegevens back-up is gemaakt
 
 ### <a name="resolutions"></a>Oplossingen
-1. Controleer als voorbereiding op de Log Analytics-service gelukt is door te controleren of het volgende bestand bestaat:`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+1. Controleer als voorbereiding op de Log Analytics-service gelukt is door te controleren of het volgende bestand bestaat: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Reonboard met behulp van de `omsadmin.sh` opdrachtregelinstructies
 3. Als u een proxy gebruikt, raadpleegt u de stappen voor het oplossen van proxy die eerder is verkregen.
 4. In sommige gevallen wanneer de OMS-Agent voor Linux kan niet met de service communiceren, gegevens op de agent zich in de wachtrij voor de volledige buffergrootte, 50 MB. De OMS-Agent voor Linux moet opnieuw worden gestart met de volgende opdracht: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 

@@ -2,24 +2,18 @@
 title: Scale-out een Azure SQL database | Microsoft Docs
 description: Het gebruik van de ShardMapManager, clientbibliotheek voor elastische database
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 0e9d647a-9ba9-4875-aa22-662d01283439
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: ddove
-ms.openlocfilehash: fe4c8b7b2a9d199c85faf11fcd35382d586fc009
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: sstein
+ms.openlocfilehash: beddb3d9ac4a8c1ec5bd034c959c6b734c5b4403
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Databases met de shard-toewijzing manager uitbreiden
 Gebruik gemakkelijk als u wilt uitbreiden databases op SQL Azure, een manager shard-toewijzing. De shard-toewijzing manager is een speciale database waarin gegevens over alle shards (databases) in een set shard globale toewijzing worden bijgehouden. De metagegevens kan een toepassing verbinding maken met de juiste database op basis van de waarde van de **sharding sleutel**. Bovendien elke shard in de set bevat kaarten die bijhouden van de lokale shard-gegevens (ook wel **shardlets**). 
@@ -56,10 +50,10 @@ De volgende typen elastisch schalen ondersteunen als sharding sleutels:
 | geheel getal |geheel getal |
 | lang |lang |
 | GUID |UUID |
-| Byte]  |Byte] |
-| Datum/tijd | tijdstempel |
+| byte[]  |byte[] |
+| datum/tijd | tijdstempel |
 | TimeSpan | Duur|
-| DateTimeOffset |offsetdatetime |
+| datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Lijst met en bereik shard-kaarten
 Shard maps kunnen worden opgesteld met **lijsten met afzonderlijke sharding waarden sleutel**, of ze kunnen worden opgesteld met **bereiken van sharding waarden sleutel**. 

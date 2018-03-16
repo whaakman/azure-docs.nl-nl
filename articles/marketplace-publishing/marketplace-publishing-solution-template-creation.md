@@ -3,8 +3,8 @@ title: Handleiding voor het maken van een oplossingssjabloon voor de Marketplace
 description: Gedetailleerde instructies voor het maken, certificeren en implementeren van een oplossingssjabloon Multi-VM-installatiekopie voor aanschaffen op Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
 ms.service: marketplace
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 675316b97e821a81ca4946d57a76d7bce978361b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.author: mbaldwin
+ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Handleiding voor het maken van een oplossingssjabloon voor Azure Marketplace
 Na het voltooien van stap 1, [accountaanmaking en registratie][link-acct-creation], wij u op het maken van een Azure-compatibele oplossingssjabloon op begeleide [technische vereisten voor het maken van een oplossingssjabloon](marketplace-publishing-solution-template-creation-prerequisites.md). Nu we u stapsgewijs door de stappen begeleidt voor het maken van een oplossingssjabloon voor meerdere virtuele machines op de [Publishing Portal] [ link-pubportal] voor Azure Marketplace.
 
 ## <a name="create-your-solution-template-offer-in-the-publishing-portal"></a>Maken van uw oplossing sjabloon aanbieding in de Portal publiceren
-Ga naar [https://publish.windowsazure.com](http://publish.windowsazure.com). Als u zich aanmeldt voor het eerst naar de [Publishing Portal](https://publish.windowsazure.com/), gebruik hetzelfde account gebruiken met de verkoper-profiel van uw bedrijf is geregistreerd. Later kunt u alle werknemers van uw bedrijf toevoegen als een co-beheerder in de Portal voor publiceren.
+Ga naar [ https://publish.windowsazure.com ](http://publish.windowsazure.com). Als u zich aanmeldt voor het eerst naar de [Publishing Portal](https://publish.windowsazure.com/), gebruik hetzelfde account gebruiken met de verkoper-profiel van uw bedrijf is geregistreerd. Later kunt u alle werknemers van uw bedrijf toevoegen als een co-beheerder in de Portal voor publiceren.
 
 ### <a name="1-select-solution-templates"></a>1. Selecteer "Oplossingssjablonen"
   ![tekenen][img-pubportal-menu-sol-templ]
@@ -37,9 +37,9 @@ Een oplossingssjabloon is een bovenliggende topologie voor alle bijbehorende top
 
 * Een topologie maakt: "Topologie id" is doorgaans de naam van de topologie voor de oplossingssjabloon. De topologie-id wordt gebruikt in de URL, zoals hieronder wordt weergegeven:
 
-  Azure Marketplace: http://azure.microsoft.com/marketplace/partners/ {PublisherNamespace} / {OfferIdentifier} {TopologyIdentifier}
+  Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Azure-Portal: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {TopologyIdentifier}
+  Azure-Portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 * Voeg een nieuwe versie toe.
 
 ### <a name="4-get-your-topology-versions-certified"></a>4. De versies van uw topologie gecertificeerd ophalen

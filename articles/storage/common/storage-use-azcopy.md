@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Gegevensoverdracht met het AzCopy in Windows
 AzCopy is een opdrachtregelprogramma dat is ontworpen voor het kopiëren van gegevens uit Microsoft Azure Blob-, bestands- en tabel opslag, met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
@@ -56,7 +56,7 @@ Houd er rekening mee dat als de map `C:\myfolder` niet bestaat, AzCopy maakt het
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>Één blob downloaden van de secundaire regio
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 Houd er rekening mee dat u geografisch redundante opslag met leestoegang ingeschakeld voor toegang tot de secundaire regio nodig hebt.
@@ -106,7 +106,7 @@ Na het opnieuw downloaden, de map `C:\myfolder` bevat de volgende bestanden:
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-Het voorvoegsel is van toepassing op de virtuele map die het eerste deel van de blob-naam. In het bovenstaande voorbeeld de virtuele map komt niet overeen met het opgegeven voorvoegsel, zodat deze niet is gedownload. Bovendien, als de optie `\S` niet is opgegeven, AzCopy biedt niet alle blobs downloaden.
+Het voorvoegsel is van toepassing op de virtuele map die het eerste deel van de blob-naam. In het bovenstaande voorbeeld de virtuele map komt niet overeen met het opgegeven voorvoegsel, zodat deze niet is gedownload. Bovendien, als de optie `/S` niet is opgegeven, AzCopy biedt niet alle blobs downloaden.
 
 ### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>De tijd laatste wijziging van de geëxporteerde bestanden moet hetzelfde zijn als de bron-blobs instellen
 
@@ -276,7 +276,7 @@ De `/SyncCopy` optie zorgt ervoor dat de kopieerbewerking consistente snelheid o
 AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 ```
 
-`/SyncCopy`kan extra uitgaande kosten vergeleken met de asynchrone kopiëren, de aanbevolen aanpak is deze optie wilt gebruiken in een Azure-virtuele machine die zich in dezelfde regio bevinden als uw storage-account van de bron om te voorkomen dat de kosten voor uitgaande gegevens.
+`/SyncCopy` kan extra uitgaande kosten vergeleken met de asynchrone kopiëren, de aanbevolen aanpak is deze optie wilt gebruiken in een Azure-virtuele machine die zich in dezelfde regio bevinden als uw storage-account van de bron om te voorkomen dat de kosten voor uitgaande gegevens.
 
 ## <a name="download-files-from-file-storage"></a>Downloaden van bestanden van File storage
 
@@ -614,9 +614,9 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 
 Parameters voor AzCopy worden hieronder beschreven. U kunt ook een van de volgende opdrachten uit vanaf de opdrachtregel voor hulp bij het gebruik van AzCopy typen:
 
-* Voor gedetailleerde help voor AzCopy:`AzCopy /?`
-* Voor gedetailleerde hulp bij elke parameter AzCopy:`AzCopy /?:SourceKey`
-* Voor voorbeelden van opdrachtregels:`AzCopy /?:Samples`
+* Voor gedetailleerde help voor AzCopy: `AzCopy /?`
+* Voor gedetailleerde hulp bij elke parameter AzCopy: `AzCopy /?:SourceKey`
+* Voor voorbeelden van opdrachtregels: `AzCopy /?:Sample`
 
 ### <a name="sourcesource"></a>/ Source: 'bron'
 

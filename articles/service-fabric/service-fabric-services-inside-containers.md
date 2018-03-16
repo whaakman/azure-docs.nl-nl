@@ -14,21 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/04/2017
 ms.author: anmola
-ms.openlocfilehash: 6f8ad0bad8d1ae861e6b72f7e1a32ab0675813c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e66e488d8e547e828c014b105a816a14726e5005
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Hoe containerize uw Service Fabric Reliable Services en Reliable Actors (Preview)
 
 Service Fabric ondersteunt containerizing Service Fabric-microservices (Reliable Services en betrouwbare op basis van actorservices). Zie voor meer informatie [service fabric-containers](service-fabric-containers-overview.md).
 
-
- Deze functie is een Preview-versie en dit artikel bevat de verschillende stappen om uw service uitgevoerd binnen een container.  
+Deze functie is een Preview-versie en dit artikel bevat de verschillende stappen om uw service uitgevoerd binnen een container.  
 
 > [!NOTE]
-> Deze functie is Preview-versie en wordt niet ondersteund in productie. Deze functie werkt momenteel alleen voor Windows.
+> Deze functie is Preview-versie en wordt niet ondersteund in productie. Deze functie werkt momenteel alleen voor Windows. Voor het uitvoeren van containers, moet het cluster worden uitgevoerd op Windows Server 2016 met Containers.
 
 ## <a name="steps-to-containerize-your-service-fabric-application"></a>Stappen voor uw Service Fabric-toepassing containerize
 

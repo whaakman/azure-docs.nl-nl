@@ -1,8 +1,20 @@
- 
-
-
-
-We hebben het concept van de ACU (Azure Compute Unit) ontwikkeld om een manier te bieden waarop rekenprestaties (CPU) van Azure-SKU's met elkaar kunnen worden vergeleken. Op die manier kunt u eenvoudig bepalen welke SKU hoogstwaarschijnlijk aan uw prestatiebehoeften zal voldoen.  ACU is momenteel gestandaardiseerd op 100 voor een kleine virtuele machine (Standard_A1). Alle andere SKU's geven vervolgens weer hoeveel sneller die SKU een standaardbenchmark ongeveer kan uitvoeren. 
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn;davberg
+ms.custom: include file
+ms.openlocfilehash: fde43e40a7a5bb87b9e63af47ae795616fac8b3f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/16/2018
+---
+Het concept van het Azure Compute Unit (ACU) biedt een manier om computerprestaties (CPU) via de Azure-SKU's vergelijken. Op die manier kunt u eenvoudig bepalen welke SKU hoogstwaarschijnlijk aan uw prestatiebehoeften zal voldoen.  ACU is momenteel gestandaardiseerd op 100 voor een kleine virtuele machine (Standard_A1). Alle andere SKU's geven vervolgens weer hoeveel sneller die SKU een standaardbenchmark ongeveer kan uitvoeren. 
 
 > [!IMPORTANT]
 > De ACU is slechts een richtlijn.  De resultaten voor uw workload kunnen verschillen. 
@@ -11,7 +23,7 @@ We hebben het concept van de ACU (Azure Compute Unit) ontwikkeld om een manier t
 
 <br>
 
-| SKU-familie | ACU \ vCPU | vCPU:Core |
+| SKU-familie | ACU \ vCPU | vCPU: Core |
 | --- | --- |---|
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 | 1:1 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
@@ -27,7 +39,7 @@ We hebben het concept van de ACU (Azure Compute Unit) ontwikkeld om een manier t
 | [Ds_v3](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |160-190* | 2:1** |
 | [E_v3](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160-190* | 2:1** |
 | [Es_v3](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160-190* | 2:1** |
-| [F2s_v2 F72s_v2](../articles/virtual-machines/windows/sizes-compute.md) |195-210* | 2:1** |
+| [F2s_v2-F72s_v2](../articles/virtual-machines/windows/sizes-compute.md) |195-210* | 2:1** |
 | [F1-F16](../articles/virtual-machines/windows/sizes-compute.md) |210-250* | 1:1 |
 | [F1s-F16s](../articles/virtual-machines/windows/sizes-compute.md) |210-250* | 1:1 |
 | [G1-G5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* | 1:1 |

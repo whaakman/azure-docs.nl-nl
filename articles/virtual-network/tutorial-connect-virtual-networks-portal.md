@@ -13,45 +13,57 @@ ms.devlang: azurecli
 ms.topic: 
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: ac0c1033546758a77b43298a5fa8cba5f5204650
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0962a917186277a34abbda17b8fea87bcf4ad1e9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Virtuele netwerken te verbinden met het virtuele netwerk peering met de Azure portal
 
-U kunt virtuele netwerken met elkaar verbinden met het virtuele netwerk peering. Als u virtuele netwerken brengen, zijn resources in beide virtuele netwerken met elkaar communiceren met de dezelfde latentie en bandbreedte, alsof de bronnen zich in hetzelfde virtuele netwerk. In dit artikel bevat informatie over het maken en peering van twee virtuele netwerken. Procedures voor:
+U kunt virtuele netwerken met elkaar verbinden met het virtuele netwerk peering. Als u virtuele netwerken brengen, zijn resources in beide virtuele netwerken met elkaar communiceren met de dezelfde latentie en bandbreedte, alsof de bronnen zich in hetzelfde virtuele netwerk. In dit artikel leert u hoe:
 
 > [!div class="checklist"]
 > * Twee virtuele netwerken maken
-> * Een peering tussen virtuele netwerken maken
-> * Test-peering
+> * Twee virtuele netwerken te verbinden met een virtueel netwerk peering
+> * Een virtuele machine (VM) in elk virtueel netwerk implementeren
+> * Communicatie tussen virtuele machines
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure. 
 
-Meld u via http://portal.azure.com aan bij Azure Portal.
+Aanmelden bij de Azure portal op https://portal.azure.com.
 
 ## <a name="create-virtual-networks"></a>Virtuele netwerken maken
 
 1. Selecteer **+ maken van een resource** op het bovenste linkerbovenhoek van de Azure-portal.
 2. Selecteer **Networking**, en selecteer vervolgens **virtueel netwerk**.
-3. Zoals u in de volgende afbeelding, voer *myVirtualNetwork1* voor **naam**, *10.0.0.0/16* voor **adresruimte**,  **myResourceGroup** voor **resourcegroep**, *Subnet1* voor Subnet **naam**, 10.0.0.0/24 voor Subnet **-adresbereik** , selecteer een **locatie** en uw **abonnement**, accepteer de standaardinstellingen van de resterende en selecteer vervolgens **maken**:
+3. Voer, of selecteert, worden de volgende informatie, accepteer de standaardwaarden voor de overige instellingen en selecteer **maken**:
 
-    ![Een virtueel netwerk maken](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
+    |Instelling|Waarde|
+    |---|---|
+    |Naam|myVirtualNetwork1|
+    |Adresruimte|10.0.0.0/16|
+    |Abonnement| Selecteer uw abonnement.|
+    |Resourcegroep| Selecteer **nieuw** en voer *myResourceGroup*.|
+    |Locatie| Selecteer **VS-Oost**.|
+    |Subnetnaam|Subnet1|
+    |Subnet-adresbereik|10.0.0.0/24|
+
+      ![Een virtueel netwerk maken](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
 
 4. Volg de stappen 1-3 opnieuw met de volgende wijzigingen:
-    - **Name**: *myVirtualNetwork2*
-    - **Resourcegroep**: Selecteer **gebruik bestaande** en selecteer vervolgens **myResourceGroup**.
-    - **Adresruimte**: *10.1.0.0/16*
-    - **Subnet-adresbereik**: *10.1.0.0/24*
 
-    Het adresvoorvoegsel voor de *myVirtualNetwork2* virtueel netwerk niet overlapt met de adresruimte van de *myVirtualNetwork1* virtueel netwerk. U kunt geen virtuele netwerken met overlappende adresruimten peer.
+    |Instelling|Waarde|
+    |---|---|
+    |Naam|myVirtualNetwork2|
+    |Adresruimte|10.1.0.0/16|
+    |Resourcegroep| Selecteer **gebruik bestaande** en selecteer vervolgens **myResourceGroup**.|
+    |Subnet-adresbereik|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Peer virtuele netwerken
 
@@ -60,7 +72,13 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
     ![-Peering maken](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
-3. Voer in of Selecteer de gegevens in de volgende afbeelding wordt weergegeven en selecteer **OK**. Selecteren de *myVirtualNetwork2* virtueel netwerk, en selecteer **virtueel netwerk**, selecteer daarna *myVirtualNetwork2*.
+3. Voer, of selecteert, worden de volgende informatie, accepteer de standaardwaarden voor de overige instellingen en selecteer **OK**.
+
+    |Instelling|Waarde|
+    |---|---|
+    |Naam|myVirtualNetwork1-myVirtualNetwork2|
+    |Abonnement| Selecteer uw abonnement.|
+    |Virtueel netwerk|myVirtualNetwork2 - selecteren de *myVirtualNetwork2* virtueel netwerk, en selecteer **virtueel netwerk**, selecteer daarna **myVirtualNetwork2**.|
 
     ![Instellingen voor peering](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
@@ -70,68 +88,74 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
     Als u de status niet ziet, vernieuwt u de browser.
 
-4. Zoeken naar de *myVirtualNetwork2* virtueel netwerk. Wanneer deze wordt geretourneerd in de zoekresultaten, selecteert u deze.
-5. Stap 1-3 opnieuw met de volgende wijzigingen en selecteer vervolgens **OK**:
-    - **Name**: *myVirtualNetwork2-myVirtualNetwork1*
-    - **Virtueel netwerk**: *myVirtualNetwork1*
+4. In de **Search** vak aan de bovenkant van de Azure-portal, begint te typen *MyVirtualNetwork2*. Wanneer **myVirtualNetwork2** wordt weergegeven in de zoekresultaten, selecteer deze.
+5. Stap 2-3 opnieuw met de volgende wijzigingen en selecteer vervolgens **OK**:
+
+    |Instelling|Waarde|
+    |---|---|
+    |Naam|myVirtualNetwork2-myVirtualNetwork1|
+    |Virtueel netwerk|myVirtualNetwork1|
 
     De **PEERING STATUS** is *verbonden*. Azure gewijzigd ook de status van de peering van de *myVirtualNetwork2 myVirtualNetwork1* peering van *gestarte* naar *verbonden.* Virtueel netwerk peer wordt niet volledig ingesteld totdat de status van de peering voor beide virtuele netwerken *verbonden.* 
 
-Peerings tussen twee virtuele netwerken zijn, maar niet transitief zijn. Ja, bijvoorbeeld, als u wilt ook peer *myVirtualNetwork2* naar *myVirtualNetwork3*, moet u een extra peering tussen virtuele netwerken maken *myVirtualNetwork2* en *myVirtualNetwork3*. Hoewel *myVirtualNetwork1* is gekoppeld *myVirtualNetwork2*, resources binnen *myVirtualNetwork1* kan alleen toegang tot bronnen in  *myVirtualNetwork3* als *myVirtualNetwork1* is ook gekoppeld *myVirtualNetwork3*. 
+## <a name="create-virtual-machines"></a>Virtuele machines maken
 
-Voordat de peering productie virtuele netwerken, het raadzaam dat u zorgvuldig vertrouwd raken met de [peering overzicht](virtual-network-peering-overview.md), [beheren peering](virtual-network-manage-peering.md), en [limieten voor virtueel netwerk ](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Hoewel dit artikel ziet u een peering tussen twee virtuele netwerken in hetzelfde abonnement en locatie, kunt u ook virtuele netwerken in peer [verschillende regio's](#register) en [verschillende Azure-abonnementen](create-peering-different-subscriptions.md#portal). U kunt ook maken [hub en spoke-netwerk ontwerpen](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) met peering.
+Een virtuele machine in elk virtueel netwerk maken, zodat u tussen deze twee een latere stap kan communiceren.
 
-## <a name="test-peering"></a>Test-peering
-
-Een virtuele machine implementeren in elk subnet om te testen netwerkcommunicatie tussen virtuele machines in verschillende virtuele netwerken via een peering, en vervolgens communiceren tussen de virtuele machines. 
-
-### <a name="create-virtual-machines"></a>Virtuele machines maken
-
-Een virtuele machine in elk virtueel netwerk maken, zodat u kunt de communicatie tussen deze in een later stadium valideren.
-
-### <a name="create-virtual-machines"></a>Virtuele machines maken
+### <a name="create-the-first-vm"></a>De eerste virtuele machine maken
 
 1. Selecteer **+ maken van een resource** op het bovenste linkerbovenhoek van de Azure-portal.
 2. Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. U kunt een ander besturingssysteem selecteren, maar de resterende stappen wordt ervan uitgegaan dat u hebt geselecteerd **Windows Server 2016 Datacenter**. 
-3. Selecteer of typ de volgende informatie voor **basisbeginselen**, selecteer daarna **OK**:
-    - **Name**: *myVm1*
-    - **Resourcegroep**: Selecteer **gebruik bestaande** en selecteer vervolgens *myResourceGroup*.
-    - **Locatie**: Selecteer *VS-Oost*.
+3. Invoeren of selecteren, de volgende informatie voor **basisbeginselen**, accepteer de standaardwaarden voor de overige instellingen en selecteer vervolgens **maken**:
 
-    De **gebruikersnaam** en **wachtwoord** u invoeren in een latere stap worden gebruikt. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). De **locatie** en **abonnement** geselecteerd moet hetzelfde zijn als de locatie en het virtuele netwerk is in-abonnement. Dit is niet vereist dat u selecteert dat dezelfde resourcegroep die in het virtuele netwerk is gemaakt, maar dezelfde resourcegroep is geselecteerd voor dit artikel.
+    |Instelling|Waarde|
+    |---|---|
+    |Naam|myVm1|
+    |Gebruikersnaam| Voer een gebruikersnaam van uw keuze.|
+    |Wachtwoord| Voer een wachtwoord van uw keuze. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Resourcegroep| Selecteer **gebruik bestaande** en selecteer vervolgens **myResourceGroup**.|
+    |Locatie| Selecteer **VS-Oost**.|
 4. Selecteer een VM-grootte onder **een grootte kiezen**.
-5. Selecteer of typ de volgende informatie voor **instellingen**, selecteer daarna **OK**:
-    - **Virtueel netwerk**: Zorg ervoor dat **myVirtualNetwork1** is geselecteerd. Zo niet, selecteer **virtueel netwerk** en selecteer vervolgens **myVirtualNetwork1** onder **virtueel netwerk kiezen**.
-    - **Subnet**: Zorg ervoor dat **Subnet1** is geselecteerd. Zo niet, selecteer **Subnet** en selecteer vervolgens **Subnet1** onder **Kies subnet**, zoals wordt weergegeven in de volgende afbeelding:
+5. Selecteer de volgende waarden voor **instellingen**, selecteer daarna **OK**:
+    |Instelling|Waarde|
+    |---|---|
+    |Virtueel netwerk| myVirtualNetwork1 - als deze nog niet is geselecteerd, selecteert u **virtueel netwerk** en selecteer vervolgens **myVirtualNetwork1** onder **virtueel netwerk kiezen**.|
+    |Subnet| Subnet1 - als deze nog niet is geselecteerd, selecteert u **Subnet** en selecteer vervolgens **Subnet1** onder **Kies subnet**.|
     
-        ![Instellingen voor virtuele machines](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
+    ![Instellingen voor virtuele machines](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
  
 6. Onder **maken** in de **samenvatting**, selecteer **maken** implementatie van virtuele machine te starten.
-7. Stap 1-6 opnieuw uitvoeren, maar voert *myVm2* voor de **naam** van de virtuele machine en selecteer *myVirtualNetwork2* voor **virtueel netwerk**.
 
-Azure toegewezen *10.0.0.4* als het privé IP-adres van de *myVm1* virtuele machine en 10.1.0.4 naar de *myVm2* virtuele machine, omdat ze de eerste beschikbare IP-adres adressen in *Subnet1* van de *myVirtualNetwork1* en *myVirtualNetwork2* virtuele netwerken, respectievelijk.
+### <a name="create-the-second-vm"></a>De tweede virtuele machine maken
 
-De virtuele machines maken in een paar minuten duren. Ga niet verder met de resterende stappen totdat beide virtuele machines worden gemaakt.
+Volg de stappen 1-6 opnieuw met de volgende wijzigingen:
 
-### <a name="test-virtual-machine-communication"></a>Communicatie van de virtuele machine testen
+|Instelling|Waarde|
+|---|---|
+|Naam | myVm2|
+|Virtueel netwerk | myVirtualNetwork2|
+
+De virtuele machines duren maken in een paar minuten. Ga niet verder met de resterende stappen totdat beide VM's zijn gemaakt.
+
+## <a name="communicate-between-vms"></a>Communicatie tussen virtuele machines
 
 1. In de *Search* vak aan de bovenkant van de portal, begint te typen *myVm1*. Wanneer **myVm1** wordt weergegeven in de zoekresultaten, selecteer deze.
-2. Een extern bureaublad verbinding maken met de *myVm1* virtuele machine door het selecteren van **Connect**, zoals wordt weergegeven in de volgende afbeelding:
+2. Een extern bureaublad verbinding maken met de *myVm1* VM door te selecteren **Connect**, zoals wordt weergegeven in de volgende afbeelding:
 
     ![Verbinding maken met de virtuele machine](./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png)  
 
 3. Voor verbinding met de virtuele machine, het gedownloade RDP-bestand te openen. Als u wordt gevraagd, selecteert u **Connect**.
-4. Geef de gebruikersnaam en wachtwoord die u hebt opgegeven bij het maken van de virtuele machine (mogelijk moet u selecteren **meer opties**, vervolgens **gebruik een ander account**, om op te geven de referenties die u hebt ingevoerd wanneer u de virtuele machine gemaakt), selecteer vervolgens **OK**.
+4. Geef de gebruikersnaam en wachtwoord die u hebt opgegeven bij het maken van de virtuele machine (mogelijk moet u selecteren **meer opties**, vervolgens **gebruik een ander account**, de referenties die u hebt opgegeven tijdens het maken van de virtuele machine opgeven), Selecteer vervolgens **OK**.
 5. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Selecteer **Ja** om door te gaan met de verbinding.
-6. In een later stadium ping wordt gebruikt om te communiceren met de *myVm2* virtuele machine van de *myVmWeb* virtuele machine. Ping maakt gebruik van ICMP dat via de Windows Firewall standaard is geweigerd. ICMP inschakelen via de Windows firewall met de volgende opdracht vanaf een opdrachtprompt:
+6. In een later stadium ping wordt gebruikt om te communiceren met de *myVm2* VM van de *myVm1* VM. Ping maakt gebruik van het Internet Control Message Protocol (ICMP), die via de Windows Firewall standaard is geweigerd. Op de *myVm1* VM, het Internet Control Message Protocol (ICMP) via de Windows firewall zodat u kunt deze VM van pingen inschakelen *myVm2* in een latere stap, met behulp van PowerShell:
 
+    ```powershell
+    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
-    netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-    ```
+    
+    Hoewel ping wordt gebruikt voor communicatie tussen VM's in dit artikel, wordt zodat ICMP via de Windows Firewall voor productie-implementaties niet aanbevolen.
 
-    Hoewel ping in dit artikel wordt gebruikt voor het testen, wordt zodat ICMP via de Windows Firewall voor productie-implementaties niet aanbevolen.
-
-7. Verbinding maken met de *myVm2* virtuele machine, voer de volgende opdracht vanaf een opdrachtprompt op de *myVm1* virtuele machine:
+7. Verbinding maken met de *myVm2* virtuele machine, voer de volgende opdracht vanaf een opdrachtprompt op de *myVm1* VM:
 
     ```
     mstsc /v:10.1.0.4
@@ -143,8 +167,6 @@ De virtuele machines maken in een paar minuten duren. Ga niet verder met de rest
     ping 10.0.0.4
     ```
     
-    U ontvangt vier antwoorden. Als u op de naam van de virtuele machine pingen (*myVm1*), in plaats van het IP-adres, pingen mislukt, omdat *myVm1* is een onbekende host-naam. Azure standaard-naamomzetting werkt tussen virtuele machines in hetzelfde virtuele netwerk, maar niet tussen virtuele machines in verschillende virtuele netwerken. Voor het omzetten van namen in virtuele netwerken, moet u [uw eigen DNS-server implementeren](virtual-networks-name-resolution-for-vms-and-role-instances.md) of gebruik [persoonlijke Azure DNS-domeinen](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
 9. De RDP-sessies op beide *myVm1* en *myVm2*.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
@@ -161,7 +183,7 @@ Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar. Virt
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u twee netwerken te verbinden met het virtuele netwerk peering.
+In dit artikel hebt u geleerd hoe u twee netwerken, in dezelfde Azure-locatie, verbinden met het virtuele netwerk peering. U kunt ook virtuele netwerken in peer [verschillende regio's](#register)in [verschillende Azure-abonnementen](create-peering-different-subscriptions.md#portal) en kunt u [hub en spoke-netwerk ontwerpen](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) met peering. Voordat de peering productie virtuele netwerken, het raadzaam dat u zorgvuldig vertrouwd raken met de [peering overzicht](virtual-network-peering-overview.md), [beheren peering](virtual-network-manage-peering.md), en [virtueel netwerk limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
 Blijven uw eigen computer verbinden met een virtueel netwerk via een VPN-verbinding en communiceren met resources in een virtueel netwerk of in virtuele netwerken peer is ingesteld.
 

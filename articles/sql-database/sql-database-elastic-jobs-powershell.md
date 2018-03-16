@@ -2,23 +2,18 @@
 title: Maken en beheren van elastische taken met behulp van PowerShell | Microsoft Docs
 description: PowerShell gebruikt voor het beheren van Azure SQL Database-groepen
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: sstein
+ms.openlocfilehash: 17e4176129da747925596c66ca9df936a3828c2d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Maken en beheren van de SQL-Database van de elastische taken met behulp van PowerShell (preview)
 
@@ -50,7 +45,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
     <td>Referentie</td>
     <td>Gebruikersnaam en het wachtwoord moet worden gebruikt wanneer verbinding maken met databases voor uitvoering van scripts of de toepassing van DACPACs. <p>Het wachtwoord wordt versleuteld vóór het verzenden naar en opslaan in de database van de elastische Database-taken.  Het wachtwoord worden ontsleuteld door de service elastische Database-taken via de referentie is gemaakt en dat is geüpload van het script voor installatie.</td>
     <td><p>Get-AzureSqlJobCredential</p>
-    <p>Nieuwe AzureSqlJobCredential</p><p>Set-AzureSqlJobCredential</p></td></td>
+    <p>New-AzureSqlJobCredential</p><p>Set-AzureSqlJobCredential</p></td></td>
   </tr>
 
   <tr>
@@ -60,7 +55,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
     <td>
     <p>Get-AzureSqlJobContent</p>
     <p>Get-AzureSqlJobContentDefinition</p>
-    <p>Nieuwe AzureSqlJobContent</p>
+    <p>New-AzureSqlJobContent</p>
     <p>Set-AzureSqlJobContentDefinition</p>
     </td>
   </tr>
@@ -71,7 +66,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
     </td>
     <td>
     <p>Get-AzureSqlJobContent</p>
-    <p>Nieuwe AzureSqlJobContent</p>
+    <p>New-AzureSqlJobContent</p>
     <p>Set-AzureSqlJobContentDefinition</p>
     </td>
   </tr>
@@ -81,7 +76,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>Nieuwe AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
     </td>
   </tr>
   <tr>
@@ -90,7 +85,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>Nieuwe AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
     <p>Set-AzureSqlJobTarget</p>
     </td>
   </tr>
@@ -99,15 +94,15 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
     <td>Gedefinieerde groep met databases gezamenlijk gebruiken voor uitvoering.</td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>Nieuwe AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
     </td>
   </tr>
 <tr>
     <td>Aangepaste verzameling onderliggende doel</td>
     <td>Database-doel waarnaar wordt verwezen in een aangepaste verzameling.</td>
     <td>
-    <p>Voeg AzureSqlJobChildTarget</p>
-    <p>Verwijder AzureSqlJobChildTarget</p>
+    <p>Add-AzureSqlJobChildTarget</p>
+    <p>Remove-AzureSqlJobChildTarget</p>
     </td>
   </tr>
 
@@ -118,7 +113,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
     </td>
     <td>
     <p>Get-AzureSqlJob</p>
-    <p>Nieuwe AzureSqlJob</p>
+    <p>New-AzureSqlJob</p>
     <p>Set-AzureSqlJob</p>
     </td>
   </tr>
@@ -130,9 +125,9 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
     </td>
     <td>
     <p>Get-AzureSqlJobExecution</p>
-    <p>Start AzureSqlJobExecution</p>
-    <p>Stop AzureSqlJobExecution</p>
-    <p>Wacht AzureSqlJobExecution</p>
+    <p>Start-AzureSqlJobExecution</p>
+    <p>Stop-AzureSqlJobExecution</p>
+    <p>Wait-AzureSqlJobExecution</p>
   </tr>
 
 <tr>
@@ -143,9 +138,9 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
     </td>
     <td>
     <p>Get-AzureSqlJobExecution</p>
-    <p>Start AzureSqlJobExecution</p>
-    <p>Stop AzureSqlJobExecution</p>
-    <p>Wacht AzureSqlJobExecution</p>
+    <p>Start-AzureSqlJobExecution</p>
+    <p>Stop-AzureSqlJobExecution</p>
+    <p>Wait-AzureSqlJobExecution</p>
   </tr>
 
 <tr>
@@ -156,7 +151,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
     </td>
     <td>
     <p>Get-AzureSqlJobExecutionPolicy</p>
-    <p>Nieuwe AzureSqlJobExecutionPolicy</p>
+    <p>New-AzureSqlJobExecutionPolicy</p>
     <p>Set-AzureSqlJobExecutionPolicy</p>
     </td>
   </tr>
@@ -168,7 +163,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
     </td>
     <td>
     <p>Get-AzureSqlJobSchedule</p>
-    <p>Nieuwe AzureSqlJobSchedule</p>
+    <p>New-AzureSqlJobSchedule</p>
     <p>Set-AzureSqlJobSchedule</p>
     </td>
   </tr>
@@ -179,8 +174,8 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
     <p>Een toewijzing tussen een taak en een schema wilt uitvoeren volgens de planning van de taak.</p>
     </td>
     <td>
-    <p>Nieuwe AzureSqlJobTrigger</p>
-    <p>Verwijder AzureSqlJobTrigger</p>
+    <p>New-AzureSqlJobTrigger</p>
+    <p>Remove-AzureSqlJobTrigger</p>
     </td>
   </tr>
 </table>

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 9fbdb190e7c745000b358451c1a6e3058cb861fd
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3d9446eaad4aaeb9de9600642d88a1f8179c4255
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Implementatie van een Machine Learning-Model als een webservice
 
@@ -64,20 +64,20 @@ Definieer vervolgens de invoervariabelen zoals een Spark-dataframe, Pandas dataf
 
 ```python
 inputs = {"input_array": SampleDefinition(DataTypes.NUMPY, yourinputarray)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 Het volgende voorbeeld wordt een Spark-dataframe:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.SPARK, yourinputdataframe)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
 Het volgende voorbeeld wordt een dataframe PANDAS:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
 ### <a name="3-create-a-scorepy-file"></a>3. Maak een bestand score.py
@@ -136,7 +136,7 @@ az ml model register --model [path to model file] --name [model name]
 Opdracht volgen helpt u een manifest voor het model maken
 
 ```
-az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]
+az ml manifest create --manifest-name [your new manifest name] -f [path to score file] -r [runtime for the image, e.g. spark-py]
 ```
 U kunt een eerder geregistreerde model toevoegen aan het manifest met argument `--model-id` of `-i` in de bovenstaande opdracht. Meerdere modellen kunnen worden opgegeven met aanvullende -i argumenten.
 

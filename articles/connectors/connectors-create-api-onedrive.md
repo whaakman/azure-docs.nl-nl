@@ -3,7 +3,7 @@ title: De OneDrive-connector in uw logische Apps toevoegen | Microsoft Docs
 description: Overzicht van de connector OneDrive met parameters van de REST-API
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: e988ae22a3d6e47591c37ad0b4c9f781d523bcc8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 15b88baf21ead5a6b9506c47ca9930d5088b8787
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Aan de slag met de OneDrive-connector
 Verbinding maken met OneDrive voor het beheren van de bestanden, waaronder het uploaden, ophalen en verwijderen van bestanden en meer. 
@@ -30,7 +30,7 @@ Met OneDrive, u:
 * Met triggers kunt u uw werkstroom te starten wanneer een bestand wordt gemaakt of binnen uw OneDrive bijgewerkt.
 * Acties gebruiken om te maken van een bestand, verwijderen van een bestand en meer. Bijvoorbeeld wanneer een nieuwe Office 365-e-mail is ontvangen met een bijlage (een trigger), maakt u een nieuw bestand in OneDrive (een actie).
 
-In dit onderwerp leest u hoe de OneDrive-connector gebruiken in een logische app en vermeldt tevens de triggers en acties.
+Dit artikel laat zien u hoe u de OneDrive-connector in een logische app, en vermeldt tevens de triggers en acties.
 
 Zie voor meer informatie over Logic Apps, [wat zijn logic apps](../logic-apps/logic-apps-overview.md) en [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -52,7 +52,7 @@ Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is g
    
     ![](./media/connectors-create-api-onedrive/sample-folder.png)
    
-    Als u wordt gevraagd aan te melden, voert u het teken in details om de verbinding te maken. [De verbinding](connectors-create-api-onedrive.md#create-the-connection) vermeldt de stappen in dit onderwerp. 
+    Als u wordt gevraagd aan te melden, voert u het teken in details om de verbinding te maken. [De verbinding](connectors-create-api-onedrive.md#create-the-connection) vermeldt de stappen in dit artikel. 
    
    > [!NOTE]
    > In dit voorbeeld wordt de logische app wordt uitgevoerd als een bestand in de map die u kiest, wordt bijgewerkt. U kunt de resultaten van deze trigger toevoegen nog een actie die u een e-mailbericht verzendt. Bijvoorbeeld, voeg de Office 365 Outlook *e-mailbericht verzenden* actie die u e-mailberichten wanneer een bestand wordt bijgewerkt. 
@@ -76,7 +76,7 @@ Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in 
    
     ![](./media/connectors-create-api-onedrive/sample-action.png)
    
-    Als u wordt gevraagd om de verbindingsinformatie, voert u de details om de verbinding te maken. [De verbinding](connectors-create-api-onedrive.md#create-the-connection) in dit onderwerp beschrijft deze eigenschappen. 
+    Als u wordt gevraagd om de verbindingsinformatie, voert u de details om de verbinding te maken. [De verbinding](connectors-create-api-onedrive.md#create-the-connection) in dit artikel beschrijft deze eigenschappen. 
    
    > [!NOTE]
    > In dit voorbeeld maken we een nieuw bestand in een map OneDrive. Uitvoer van een andere trigger kunt u het bestand OneDrive te maken. Bijvoorbeeld, voeg de Office 365 Outlook *wanneer een nieuw e-mailadres binnenkomt* trigger. Voeg vervolgens de OneDrive *Create file* actie die u de bijlagen en de Content-Type gebruikt velden binnen een ForEach maken van het nieuwe bestand in OneDrive. 

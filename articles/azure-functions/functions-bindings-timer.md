@@ -17,17 +17,23 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bd1a2643d9faf65d664c786169c38f01767fb7e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timertrigger voor Azure Functions 
 
 Dit artikel wordt uitgelegd hoe u werkt met timer triggers in Azure Functions. Een timertrigger kunt u een functie uitvoeren volgens een schema. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pakketten
+
+De timertrigger is opgegeven de [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-pakket. De broncode voor het pakket bevindt zich in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="example"></a>Voorbeeld
 
@@ -136,7 +142,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>Kenmerken
 
-In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
 De constructor van het kenmerk heeft een CRON-expressie, zoals weergegeven in het volgende voorbeeld:
 
@@ -159,9 +165,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op 'timerTrigger'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
-|**richting** | N.v.t. | Moet worden ingesteld op 'in'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
-|**naam** | N.v.t. | De naam van de variabele die staat voor de timer-object in de functiecode. | 
-|**planning**|**ScheduleExpression**|U kunt schema's met een CRON-expressie definiëren op het plan verbruik. Als u een App Service-abonnement, kunt u ook gebruiken een `TimeSpan` tekenreeks. De volgende secties worden de CRON-expressies. U kunt de expressie van de planning opnemen in een app-instelling en stel deze eigenschap in op een waarde die zijn ingepakt  **%**  hekjes, zoals in dit voorbeeld: '% NameOfAppSettingWithCRONExpression %'. |
+|**direction** | N.v.t. | Moet worden ingesteld op 'in'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
+|**Naam** | N.v.t. | De naam van de variabele die staat voor de timer-object in de functiecode. | 
+|**schedule**|**ScheduleExpression**|U kunt schema's met een CRON-expressie definiëren op het plan verbruik. Als u een App Service-abonnement, kunt u ook gebruiken een `TimeSpan` tekenreeks. De volgende secties worden de CRON-expressies. U kunt de expressie van de planning opnemen in een app-instelling en stel deze eigenschap in op een waarde die zijn ingepakt  **%**  hekjes, zoals in dit voorbeeld: '% NameOfAppSettingWithCRONExpression %'. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

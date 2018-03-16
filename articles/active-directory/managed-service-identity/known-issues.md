@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: bd931b220c417f91b47278c82707d38de5c7f65e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Veelgestelde vragen en bekende problemen met beheerde Service identiteit (MSI) voor Azure Active Directory
 
@@ -37,6 +37,10 @@ Nee, er zijn geen plannen voor de ondersteuning van MSI in Azure Cloud Services.
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Werkt MSI met Active Directory Authentication Library (ADAL) of de Microsoft Authentication Library (MSAL)?
 
 Nee, MSI niet nog geïntegreerd met ADAL of MSAL. Zie voor meer informatie over het verkrijgen van een MSI-token met behulp van de REST van de MSI-eindpunt [het gebruik van een Azure VM beheerde Service identiteit (MSI) voor de aanschaf van token](how-to-use-vm-token.md).
+
+### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>Wat is de beveiligingsgrens van een beheerde Service-identiteit?
+
+De beveiligingsgrens van de identiteit is de bron waarnaar deze is gekoppeld. De beveiligingsgrens voor een MSI virtuele Machine is bijvoorbeeld de virtuele Machine. Een code die wordt uitgevoerd op deze virtuele machine, kan het MSI-eindpunt bellen en vragen van tokens. Het is de vergelijkbare ervaring met andere bronnen die ondersteuning bieden voor MSI.
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Wat zijn de ondersteunde Linux-distributies?
 

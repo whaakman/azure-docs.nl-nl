@@ -9,12 +9,11 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: mireks
-ms.workload: Inactive
-ms.openlocfilehash: b1c569e414de292b59e0915483d45bf011edb1a6
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: f32928805275c9d797c8cb15bb731fe172d5903f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Voorwaardelijke toegang (MFA) met Azure SQL Database en datawarehouse  
 
@@ -30,7 +29,7 @@ Ondersteuning voor voorwaardelijke toegang van Microsoft SQL Database- en SQL Da
      
 2.  In de **-beleid voor voorwaardelijke toegang** blade, klikt u op **nieuw beleid**, Geef een naam op en klik vervolgens op **regels configureren**.  
 3.  Onder **toewijzingen**, selecteer **gebruikers en groepen**, Controleer **gebruikers en groepen selecteren**, en selecteer vervolgens de gebruiker of groep voor voorwaardelijke toegang. Klik op **Selecteer**, en klik vervolgens op **gedaan** te accepteren van uw selectie.  
-  ![gebruikers en groepen selecteren](./media/sql-database-conditional-access/select-users-and-groups.png)  
+  ![Gebruikers en groepen selecteren](./media/sql-database-conditional-access/select-users-and-groups.png)  
 
 4.  Selecteer **Cloud-apps**, klikt u op **apps selecteren**. Ziet u alle apps beschikbaar voor voorwaardelijke toegang. Selecteer **Azure SQL Database**, onderaan op **Selecteer**, en klik vervolgens op **gedaan**.  
   ![SQL-Database selecteren](./media/sql-database-conditional-access/select-sql-database.png)  

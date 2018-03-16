@@ -3,24 +3,18 @@ title: Inrichten van nieuwe tenants in een multitenant-app die gebruikmaakt van 
 description: Informatie over het inrichten en nieuwe tenants in een Azure SQL Database multitenant SaaS-app-catalogus
 keywords: zelfstudie sql-database
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 79b3743054f73914c6755a3c9b102b613b1944f2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 21f0bca3a16164ead4e0990842a968fd9b95c33f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Informatie over het inrichten van nieuwe tenants en registreert u ze in de catalogus
 
@@ -99,8 +93,8 @@ Traceren van het script kan worden uitgevoerd met behulp van de **Debug** menuop
 
 De volgende zijn niet stappen expliciet uitvoeren, maar een uitleg van de werkstroom die u tijdens het opsporen van het script hebt doorlopen:
 
-1. **Importeren van de module SubscriptionManagement.psm1** met daarin functies voor het aanmelden bij Azure en het selecteren van het Azure-abonnement waarmee u werkt.
 1. **Importeren van de module CatalogAndDatabaseManagement.psm1** die met behulp van de [Shard Management](sql-database-elastic-scale-shard-map-management.md)-functies zorgt voor een abstractie op het niveau van catalogus en tenant. Deze module kapselt veel van de catalogus patroon en waard is.
+1. **Importeren van de module SubscriptionManagement.psm1** met daarin functies voor het aanmelden bij Azure en het selecteren van het Azure-abonnement waarmee u werkt.
 1. **Ophalen van configuratiedetails**. Stap in de Get-configuratie (met F11) en Zie hoe de app-configuratie is opgegeven. Resourcenamen en andere waarden van app-specifiek hier zijn gedefinieerd, maar deze waarden niet wijzigen totdat u bekend met de scripts bent.
 1. **Ophalen van het catalogusobject**. Stap in de Get-catalogus stelt het bericht en een catalogusobject geretourneerd dat wordt gebruikt in het script op een hoger niveau.  Hierbij wordt gebruikgemaakt van Shard-Management-functies die worden geïmporteerd vanuit **AzureShardManagement.psm1**. Het catalogusobject bestaat uit de volgende elementen:
    * $catalogServerFullyQualifiedName is opgesteld met de standaard stam plus uw gebruikersnaam: _catalogus -\<gebruiker\>. database.windows .net_.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 91819d0fba30dd2ada981435fa13b8ae0a7fcc45
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2ae4f0ae9782ada23089d364e8a1700144ef5ff7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Voor het afhandelen van fouten en uitzonderingen in Logic Apps
 
@@ -64,7 +64,7 @@ Als u een beleid voor opnieuw proberen in niet definieert de **retryPolicy** sec
 }
 ```
 
-### <a name="none"></a>Geen
+### <a name="none"></a>None
 
 Als u instelt **retryPolicy** naar **geen**, dit beleid geen nieuwe poging gedaan mislukte aanvragen.
 
@@ -80,7 +80,7 @@ Als u instelt **retryPolicy** naar **vaste**, dit beleid opnieuw probeert een mi
 | Elementnaam | Vereist | Type | Beschrijving |
 | ------------ | -------- | ---- | ----------- |
 | type | Ja | Tekenreeks | **Vaste** |
-| Aantal | Ja | Geheel getal | Het aantal pogingen moet tussen 1 en 90 | 
+| aantal | Ja | Geheel getal | Het aantal pogingen moet tussen 1 en 90 | 
 | interval | Ja | Tekenreeks | Het interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), die moet liggen tussen PT5S en PT1D | 
 ||||| 
 
@@ -93,7 +93,7 @@ Als u instelt **retryPolicy** naar **exponentiële**, dit beleid opnieuw probeer
 | Elementnaam | Vereist | Type | Beschrijving |
 | ------------ | -------- | ---- | ----------- |
 | type | Ja | Tekenreeks | **exponential** |
-| Aantal | Ja | Geheel getal | Het aantal pogingen moet tussen 1 en 90  |
+| aantal | Ja | Geheel getal | Het aantal pogingen moet tussen 1 en 90  |
 | interval | Ja | Tekenreeks | Het interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), die moet liggen tussen PT5S en PT1D. |
 | minimumInterval | Nee | Tekenreeks | De minimale interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), die moet liggen tussen PT5S en **interval** |
 | maximumInterval | Nee | Tekenreeks | De minimale interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), die moet liggen tussen **interval** en PT1D | 
@@ -280,8 +280,6 @@ Om uitvoeren statussen, kunt u Logboeken en metrische gegevens controleren of ze
 
 * [Zie hoe een klant builds foutafhandeling met Azure Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Meer voorbeelden van Logic Apps en scenario's zoeken](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Informatie over het maken van geautomatiseerde implementaties voor logic apps](../logic-apps/logic-apps-create-deploy-template.md)
-* [Logische apps maken en implementeren met Visual Studio](logic-apps-deploy-from-vs.md)
 
 <!-- References -->
 [retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9

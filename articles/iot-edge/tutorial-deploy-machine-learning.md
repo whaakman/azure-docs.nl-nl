@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4201395085dd72eb92b774eaed5980737b2e5de0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementeren van Azure Machine Learning als een module van de rand van de IoT - voorbeeld
 
@@ -41,12 +41,16 @@ In deze sectie download de bestanden van het getrainde model en omzetten in een 
 
 Download op de machine uitvoeren van beheer van de Module voor Azure ML en sla [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) en [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) uit de werkset van Azure ML IoT op GitHub. Deze bestanden definiëren het getrainde machine learning-model dat u naar uw Iot-Edge-apparaat implementeren wilt. 
 
-Gebruik het getrainde model te maken van een container die kan worden geïmplementeerd op de IoT Edge-apparaten.
+Gebruik het getrainde model te maken van een container die kan worden geïmplementeerd op de IoT Edge-apparaten. Gebruik de volgende opdracht:
+
+   * Registreer uw model.
+   * Maak een manafest.
+   * Maken van de installatiekopie van een Docker-container met de naam *machinelearningmodule*.
+   * De installatiekopie implementeren op uw Azure Container Service (AKS)-cluster.
 
 ```cmd
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
 ```
-De naam van de service *machinelearningmodule* in dit voorbeeld wordt de naam van de installatiekopie van het docker-container.
 
 ### <a name="view-the-container-repository"></a>De container-opslagplaats weergeven
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: fa192ca1ee0dc5ee7190b6c63b64297c7406291d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Versies van SSL-beleid configureren en cipher suites in toepassingsgateway
 
@@ -75,7 +75,7 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>Lijst met vooraf gedefinieerde SSL-beleid
 
-Er wordt een toepassingsgateway geleverd met 3 vooraf gedefinieerd beleid dat kunnen worden gebruikt. De `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet haalt deze beleidsregels. Elk beleid heeft een ander protocolversies en coderingssuites die zijn ingeschakeld. Deze vooraf gedefinieerde beleidsregels kunnen worden gebruikt voor het snel een SSL-beleid configureren op de toepassingsgateway van uw. Standaard **AppGwSslPolicy20170401** is geselecteerd als er geen specifieke SSL-beleid is gedefinieerd.
+Er wordt een toepassingsgateway geleverd met 3 vooraf gedefinieerd beleid dat kunnen worden gebruikt. De `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet haalt deze beleidsregels. Elk beleid heeft een ander protocolversies en coderingssuites die zijn ingeschakeld. Deze vooraf gedefinieerde beleidsregels kunnen worden gebruikt voor het snel een SSL-beleid configureren op de toepassingsgateway van uw. Standaard **AppGwSslPolicy20150501** is geselecteerd als er geen specifieke SSL-beleid is gedefinieerd.
 
 Hieronder volgt een voorbeeld van het uitvoeren `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
 

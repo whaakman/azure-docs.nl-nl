@@ -2,25 +2,19 @@
 title: Instellen van Azure SQL-gegevenssynchronisatie (Preview) | Microsoft Docs
 description: Deze zelfstudie ziet u het instellen van Azure SQL-gegevenssynchronisatie (Preview)
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Instellen van het synchroniseren van de SQL-gegevens (Preview)
 In deze zelfstudie leert u het instellen van het synchroniseren van Azure SQL-gegevens door te maken van een hybride-groep voor synchronisatie met Azure SQL Database- en SQL Server-exemplaren. De nieuwe groep voor synchronisatie is volledig geconfigureerd en gesynchroniseerd volgens de planning die u instelt.
@@ -110,7 +104,7 @@ Op de **Azure-Database configureren** pagina, het volgende doen:
 
     ![Nieuw lid van de SQL-Database-synchronisatie is toegevoegd](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-on-prem"></a>Toevoegen van een lokale SQL Server-database.
+### <a name="add-on-prem"></a> Toevoegen van een lokale SQL Server-database.
 
 In de **Liddatabase** sectie eventueel een lokale SQL-Server toevoegen aan de groep voor synchronisatie door te selecteren **toevoegen van een On-Premises Database**. De **configureren On-Premises** pagina wordt geopend.
 
@@ -159,7 +153,7 @@ Op de **configureren On-Premises** pagina, het volgende doen:
 
         ![Toevoegen en configureren van een SQL Server-database](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-adddb.png)
 
-    10. In de **SQL Server-configuratiebestand** dialoogvenster Kies of u verbinding maken met behulp van SQL Server-verificatie of Windows-verificatie. Als u SQL Server-verificatie kiest, voert u de bestaande referenties. Geef de naam van de SQL Server en de naam van de database die u wilt synchroniseren. Selecteer **verbinding testen** voor het testen van uw instellingen. Selecteer vervolgens **opslaan**. De geregistreerde database weergegeven in de lijst.
+    10. In de **SQL Server-configuratiebestand** dialoogvenster Kies of u verbinding maken met behulp van SQL Server-verificatie of Windows-verificatie. Als u SQL Server-verificatie kiest, voert u de bestaande referenties. Geef de naam van de SQL Server en de naam van de database die u wilt synchroniseren. Selecteer **verbinding testen** voor het testen van uw instellingen. Selecteer vervolgens **Opslaan**. De geregistreerde database weergegeven in de lijst.
 
         ![SQL Server-database is nu geregistreerd.](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-dbadded.png)
 
@@ -185,7 +179,7 @@ Nadat de nieuwe leden van de synchronisatie-groep worden gemaakt en geïmplement
 
 2.  Selecteer de tabellen die u wilt synchroniseren in de lijst met beschikbare tabellen.
 
-    ![Selecteer tabellen om te synchroniseren](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
+    ![Tabellen selecteren om te synchroniseren](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
 
 3.  Standaard worden alle kolommen in de tabel geselecteerd. Als u niet dat alle kolommen synchroniseren wilt, schakelt u het selectievakje voor de kolommen die u niet wilt synchroniseren. Zorg ervoor dat de primaire-sleutelkolom geselecteerd laat.
 

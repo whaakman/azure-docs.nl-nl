@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3cd509a0073e45bf910e9a74a279d678ff03b63
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Een zonder server-App in Visual Studio met Logic Apps en functies
 
@@ -29,7 +29,7 @@ Zonder server en -mogelijkheden in Azure kunnen voor snelle ontwikkeling en impl
 
 Hier volgen de vereisten die nodig zijn voor het bouwen van een toepassing zonder server vanuit Visual Studio:
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs/) of Visual Studio 2015 - Community, Professional of Enterprise
+* [Visual Studio 2017](https://www.visualstudio.com/vs/) or Visual Studio 2015 - Community, Professional, or Enterprise
 * [Logic Apps-Tools voor Visual Studio](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551)
 * [Nieuwste Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 of hoger)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
@@ -86,7 +86,7 @@ Als u JavaScript, Python, F #, Bash, Batch of PowerShell gebruikt, volgt u de [s
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Informatie over het bouwen van een zonder server sociale dashboard](logic-apps-scenario-social-serverless.md)
-* [Een logische app beheren vanuit Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
+* [Een logische app beheren vanuit Visual Studio Cloud Explorer](manage-logic-apps-with-visual-studio.md)
 * [Definitietaal van Logic App werkstroom](logic-apps-workflow-definition-language.md)
 
 <!-- Image references -->

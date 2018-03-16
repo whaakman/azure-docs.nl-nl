@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b7fc48412799aea0c4bba971102b4912dbb18e05
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Het beveiligen van een Web-API-back-end met Azure Active Directory en API Management
 
@@ -179,7 +179,7 @@ API's worden geconfigureerd in de API-publicatieportal, die wordt geopend via de
 
 ![Publicatieportal][api-management-management-console]
 
-Bewerkingen kunnen worden [toegevoegd aan de API's handmatig](api-management-howto-add-operations.md), of ze kunnen worden geïmporteerd. In deze video worden bewerkingen in Swagger-indeling vanaf 6:40 geïmporteerd.
+Bewerkingen kunnen worden [toegevoegd aan de API's handmatig](api-management-howto-add-operations.md), of ze kunnen worden geïmporteerd.
 
 Maak een bestand met de naam `calcapi.json` met de volgende inhoud en sla deze op uw computer. Zorg ervoor dat de `host` punten kenmerk back-end van uw Web-API. In dit voorbeeld `"host": "apimaaddemo.azurewebsites.net"` wordt gebruikt.
 

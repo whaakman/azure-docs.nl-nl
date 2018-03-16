@@ -2,24 +2,18 @@
 title: Aan de slag met de hulpmiddelen voor elastische databases - Azure | Microsoft Docs
 description: Basic uitleg van de hulpmiddelen voor elastische databases-functie van Azure SQL Database, met inbegrip van een eenvoudig run voorbeeld-app.
 services: sql-database
-documentationcenter: 
-manager: jstrauss
+manager: craigg
 author: anumjs
-editor: CarlRabeler
-ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: anjangsh
-ms.openlocfilehash: 615e5b0bf299a844ea2d37476fc704c48e17b363
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 28ff3f6eee2316a078badcf29e6780f3844f3a54
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Aan de slag met de hulpmiddelen voor elastische databases
 Dit document vindt u de functionaliteit voor ontwikkelaars voor de [clientbibliotheek voor elastische database](sql-database-elastic-database-client-library.md) doordat u een voorbeeld-app uitvoeren. De voorbeeld-app maakt een eenvoudige shard-toepassing en behandelt de belangrijkste mogelijkheden van de functie voor elastische Database's van Azure SQL Database. Dit artikel gaat over gebruiksvoorbeelden voor [shard kaart management](sql-database-elastic-scale-shard-map-management.md), [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md), en [opvragen van meerdere shard](sql-database-elastic-scale-multishard-querying.md). De clientbibliotheek is beschikbaar voor .NET en Java. 
@@ -53,9 +47,9 @@ Voor het bouwen van de JAR-bestanden en aan de slag met het voorbeeldproject, he
     
 5. Experimenteer met de verschillende opties voor meer informatie over de mogelijkheden van de client-bibliotheek. U kunt de code voor meer informatie over de voorbeeld-app-implementatie te verkennen.
 
-    ![Voortgang van java-][5]
+    ![Progress-java][5]
     
-Gefeliciteerd. U hebt gebouwd en uitvoeren van uw eerste shard-toepassing met behulp van de hulpmiddelen voor elastische databases op Azure SQL Database. Visual Studio of SQL Server Management Studio gebruiken om te verbinden met uw SQL-database en bekijk snel de shards die het voorbeeld is gemaakt. U zult nieuwe voorbeeld shard-databases en een shard kaart manager-database die is gemaakt met het voorbeeld. 
+Gefeliciteerd! U hebt gebouwd en uitvoeren van uw eerste shard-toepassing met behulp van de hulpmiddelen voor elastische databases op Azure SQL Database. Visual Studio of SQL Server Management Studio gebruiken om te verbinden met uw SQL-database en bekijk snel de shards die het voorbeeld is gemaakt. U zult nieuwe voorbeeld shard-databases en een shard kaart manager-database die is gemaakt met het voorbeeld. 
 
 Toevoegen als u wilt de clientbibliotheek toevoegen aan uw eigen Maven-project, de volgende afhankelijkheden in uw bestand POM:
 
@@ -89,7 +83,7 @@ Als u wilt downloaden en uitvoeren van de steekproef, de volgende stappen uit:
    
     ![Voortgang][4]
 
-Gefeliciteerd. U hebt gebouwd en uitvoeren van uw eerste shard-toepassing met behulp van de hulpmiddelen voor elastische databases op SQL-Database. Visual Studio of SQL Server Management Studio gebruiken om te verbinden met uw SQL-database en bekijk snel de shards die het voorbeeld is gemaakt. U zult nieuwe voorbeeld shard-databases en een shard kaart manager-database die is gemaakt met het voorbeeld.
+Gefeliciteerd! U hebt gebouwd en uitvoeren van uw eerste shard-toepassing met behulp van de hulpmiddelen voor elastische databases op SQL-Database. Visual Studio of SQL Server Management Studio gebruiken om te verbinden met uw SQL-database en bekijk snel de shards die het voorbeeld is gemaakt. U zult nieuwe voorbeeld shard-databases en een shard kaart manager-database die is gemaakt met het voorbeeld.
 
 > [!IMPORTANT]
 > Het is raadzaam dat u de nieuwste versie van Management Studio altijd gebruiken zodat u gesynchroniseerd met updates voor Azure en SQL-Database blijven. [SQL Server Management Studio bijwerken](https://msdn.microsoft.com/library/mt238290.aspx).

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 03/13/2018
 ms.author: glenga
-ms.openlocfilehash: 26df11bb010414ba979077c45d01e66f17f6b12e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dddb35ea2ba1c02f78234fe33cdb832e9aacbff5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions-Tools voor Visual Studio  
 
@@ -38,9 +38,13 @@ Dit onderwerp leest u hoe de Azure Functions-Tools voor Visual Studio 2017 gebru
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure Functions-hulpprogramma's is opgenomen in de werklast Azure ontwikkeling van [Visual Studio 2017 versie 15,4](https://www.visualstudio.com/vs/), of een latere versie. Zorg ervoor dat u de **ontwikkelen van Azure** werkbelasting in de installatie van Visual Studio 2017:
+Azure Functions-hulpprogramma's is opgenomen in de werklast Azure ontwikkeling van [Visual Studio 2017 versie 15,5](https://www.visualstudio.com/vs/), of een latere versie. Zorg ervoor dat u de **ontwikkelen van Azure** werkbelasting in de installatie van Visual Studio 2017:
 
 ![Visual Studio 2017 installeren met de Azure-ontwikkelworkload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+Zorg ervoor dat uw Visual Studio up-to-date is en dat u gebruikmaakt van de [meest recente versie](#check-your-tools-version) van de Azure Functions-hulpprogramma's.
+
+### <a name="other-requirements"></a>Overige vereisten
 
 Als u wilt maken en implementeren van functies, moet u ook:
 
@@ -48,11 +52,33 @@ Als u wilt maken en implementeren van functies, moet u ook:
 
 * Een Azure Storage-account. Zie het maken van een opslagaccount [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
+### <a name="check-your-tools-version"></a>Controleer uw versie van de hulpprogramma 's
+
+1. Van de **extra** menu kiezen **uitbreidingen en Updates**. Vouw **geïnstalleerde** > **extra** en kies **Azure-functies en hulpprogramma's voor Web-taken**.
+
+    ![Controleer of de versie van de hulpprogramma's voor functies](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
+
+2. Houd er rekening mee de geïnstalleerde **versie**. U kunt deze versie vergelijken met de meest recente versie vermeld [in de release-opmerkingen](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
+
+3. Als uw versie ouder, de hulpprogramma's in Visual Studio bijwerken zoals weergegeven in de volgende sectie.
+
+### <a name="update-your-tools"></a>De hulpprogramma's bijwerken
+
+1. In de **uitbreidingen en Updates** dialoogvenster Vouw **Updates** > **Visual Studio Marketplace**, kies **Azure-functies en hulpprogramma's voor Web-taken**  en selecteer **Update**.
+
+    ![Werk de versie van de hulpprogramma's voor functies](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
+
+2. Nadat de hulpprogramma's-update is gedownload, sluit u Visual Studio die de hulpprogramma's bijwerken met behulp van het installatieprogramma VSIX activeren.
+
+3. Kies in het installatieprogramma **OK** starten en vervolgens **wijzigen** bijwerken van de hulpprogramma's. 
+
+4. Nadat de update voltooid is, kiest u **sluiten** en start Visual Studio opnieuw.
+
 ## <a name="create-an-azure-functions-project"></a>Een Azure Functions-project maken 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-De projectsjabloon maakt een C#-project, installeert de `Microsoft.NET.Sdk.Functions` NuGet-pakket en stelt het doel-framework. Functies 1.x doelen .NET Framework en 2.x doelen .NET Standard fungeert. Het nieuwe project bevat de volgende bestanden:
+De projectsjabloon maakt een C#-project, installeert de `Microsoft.NET.Sdk.Functions` NuGet-pakket en stelt het doel-framework. Functies 1.x doelen .NET Framework en 2.x doelen .NET Standard fungeert. Het nieuwe project heeft de volgende bestanden:
 
 * **host.JSON**: Hiermee kunt u de functies host configureren. Deze instellingen gelden beide wanneer lokaal en in Azure wordt uitgevoerd. Zie voor meer informatie [host.json verwijzing](functions-host-json.md).
     

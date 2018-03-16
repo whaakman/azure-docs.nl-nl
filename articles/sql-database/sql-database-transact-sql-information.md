@@ -2,25 +2,18 @@
 title: Het omzetten van T-SQL verschillen-migratie-Azure SQL Database | Microsoft Docs
 description: Transact-SQL-instructies die minder dan volledig worden ondersteund in Azure SQL Database
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
+manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 10/23/2017
 ms.author: carlrab
-ms.openlocfilehash: f311c0d139d5ec35cbd85a34bd5a5e991bccba3a
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: acc2c2556763650e0a0aff93fd247d882cb37852
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Transact-SQL-verschillen tijdens de migratie met SQL Database oplossen   
 Wanneer [migreren van uw database](sql-database-cloud-migrate.md) van SQL Server naar Azure SQL-Server, ontdekt u mogelijk de database moeten sommige herstructureren voordat de SQL-Server kan worden gemigreerd. In dit artikel bevat richtlijnen om u te helpen zowel uitvoeren van deze herstructureren en kennis van de onderliggende redenen waarom de herstructureren nodig is. Om te detecteren compatibiliteitsproblemen, gebruiken de [gegevens migratie-assistent (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).

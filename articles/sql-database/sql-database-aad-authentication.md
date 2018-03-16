@@ -3,17 +3,17 @@ title: Azure Active Directory-auth - Azure SQL (overzicht) | Microsoft Docs
 description: Meer informatie over het gebruik van Azure Active Directory voor verificatie bij SQL-Database, exemplaar beheerd en SQL Data Warehouse
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 9745fef33bf00e7249c1cb550c5164474bf5c3ee
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cfad53a3f86450163b2e29d5e4d4ed2726ecb0bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Azure Active Directory-verificatie gebruiken voor verificatie met SQL-Database, exemplaar beheerd of SQL Data Warehouse
 Azure Active Directory-verificatie is een mechanisme van verbinding maken met Microsoft Azure SQL Database en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) met behulp van identiteiten in Azure Active Directory (Azure AD). Azure AD-verificatie, kunt u de identiteit van gebruikers en andere Microsoft-services op één centrale locatie centraal beheren. Centrale ID-beheer biedt er één plaats is voor het beheren van databasegebruikers en vereenvoudigt het beheer van machtigingen. Voordelen zijn onder andere:

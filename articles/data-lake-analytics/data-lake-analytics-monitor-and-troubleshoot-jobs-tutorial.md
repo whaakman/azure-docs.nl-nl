@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: f6168997c449be5354bd223c516d4f929a1bf894
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Azure Data Lake Analytics-taken via Azure Portal oplossen
-Informatie over het gebruik van de Azure Portal oplossen met Data Lake Analytics-taken.
+# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Azure Data Lake Analytics-taken met Azure portal oplossen
+Informatie over het gebruik van de Azure portal oplossen met Data Lake Analytics-taken.
 
-In deze zelfstudie maakt u een ontbrekende bron bestand probleem instellen, en de Azure Portal gebruiken voor het oplossen van het probleem.
+In deze zelfstudie wordt u het probleem van een ontbrekende bron bestand instellen en de Azure portal gebruiken voor het oplossen van het probleem.
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Een Data Lake Analytics-taak verzenden
 
@@ -62,7 +62,7 @@ Het bronbestand gedefinieerd in het script **/Samples/Data/SearchLog.tsv1**, dit
 3. Klik op de **Jobbeheer** tegel om te zien van de taken. De taken zijn onderverdeeld in **met**, **in de wachtrij geplaatst**, en **beëindigd**. U ziet de mislukte taak in de **beëindigd** sectie. Het moet eerste certificaat in de lijst zijn. Wanneer u een groot aantal taken hebt, kunt u **Filter** om u te helpen u bij het zoeken van taken.
 
     ![Azure Data Lake Analytics-filter-taken](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
-4. Klik op de mislukte taak uit de lijst om de taakdetails openen in een nieuwe blade:
+4. Klik op de mislukte taak uit de lijst om de taakdetails openen:
 
     ![Azure Data Lake Analytics taak is mislukt](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
@@ -73,7 +73,7 @@ Het bronbestand gedefinieerd in het script **/Samples/Data/SearchLog.tsv1**, dit
 
     Het vertelt u dat de bronmap is niet gevonden.
 6. Klik op **Script dubbele**.
-7. Update de **FROM** pad naar het volgende:
+7. Update de **FROM** pad naar:
 
     ' / Samples/Data/SearchLog.tsv '
 8. Klik op **Taak verzenden**.

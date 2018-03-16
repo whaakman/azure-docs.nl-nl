@@ -8,7 +8,7 @@
 | SQL Database-servers per abonnement |6 |150 |
 | DNS-servers per abonnement |9 |100 |
 | Gereserveerd IP-adressen per abonnement |20 |100 |
-| Certificaten van de gehoste service per abonnement |400 |400 |
+| Certificaten van de gehoste service per abonnement |199 |199 |
 | [Affiniteitsgroepen](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per abonnement |256 |256 |
 
 

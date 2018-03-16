@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Referenties van het computercertificaat voor de verificatie van de toepassing
 
@@ -32,7 +32,7 @@ Als u wilt de verklaring compute, wilt u waarschijnlijk een van de vele [JSON We
 #### <a name="header"></a>Koptekst
 
 | Parameter |  Opmerking |
-| --- | --- | --- |
+| --- | --- |
 | `alg` | Moet **RS256** |
 | `typ` | Moet **JWT** |
 | `x5t` | Moet de vingerafdruk van het x.509-certificaat SHA-1 |
@@ -40,8 +40,8 @@ Als u wilt de verklaring compute, wilt u waarschijnlijk een van de vele [JSON We
 #### <a name="claims-payload"></a>Claims (Payload)
 
 | Parameter |  Opmerking |
-| --- | --- | --- |
-| `aud` | : Doelgroep **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token** |
+| --- | --- |
+| `aud` | : Doelgroep  **https://login.microsoftonline.com/ *tenant_Id*  /oauth2/token** |
 | `exp` | Vervaldatum: de datum waarop het token verloopt. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de geldigheid van het token is verlopen.|
 | `iss` | Uitgever: moet de client_id (toepassings-Id van de client-service) |
 | `jti` | GUID: de JWT-ID |
@@ -49,9 +49,11 @@ Als u wilt de verklaring compute, wilt u waarschijnlijk een van de vele [JSON We
 | `sub` | Onderwerp:-als voor `iss`, moet de client_id (toepassings-Id van de client-service) |
 
 #### <a name="signature"></a>Handtekening
+
 De handtekening wordt berekend met het toepassen van het certificaat, zoals beschreven in de [JSON Web Token RFC7519 specificatie](https://tools.ietf.org/html/rfc7519)
 
 ### <a name="example-of-a-decoded-jwt-assertion"></a>Voorbeeld van een gedecodeerde JWT-verklaring
+
 ```
 {
   "alg": "RS256",
@@ -73,6 +75,7 @@ De handtekening wordt berekend met het toepassen van het certificaat, zoals besc
 ```
 
 ### <a name="example-of-an-encoded-jwt-assertion"></a>Voorbeeld van een gecodeerde JWT bewering
+
 De volgende tekenreeks is een voorbeeld van gecodeerde verklaring. Als u zorgvuldig bekijkt, ziet u drie secties gescheiden door punten (.).
 De eerste sectie codeert de kop van de tweede de nettolading en de laatste is de handtekening berekend met de certificaten van de inhoud van de eerste twee secties.
 ```
@@ -81,14 +84,17 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Uw certificaat registreren met Azure AD
+
 De referentie certificaat koppelt u de clienttoepassing in Azure AD, moet u het toepassingsmanifest te bewerken.
 De blokkering van een certificaat hebt, moet u berekenen:
+
 - `$base64Thumbprint`, namelijk het base64-codering van het certificaat-Hash
 - `$base64Value`, namelijk het base64-codering van de onbewerkte gegevens van certificaat
 
-u moet ook een GUID voor het identificeren van de sleutel in het toepassingsmanifest bieden (`$keyId`)
+U moet ook een GUID voor het identificeren van de sleutel in het toepassingsmanifest bieden (`$keyId`).
 
 In de Azure-app-registratie voor de clienttoepassing, open het toepassingsmanifest en vervang de *keyCredentials* eigenschap met de nieuwe certificaatinformatie van een met het volgende schema:
+
 ```
 "keyCredentials": [
     {

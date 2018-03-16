@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 6675603bf741b1a668ba387c8304d2e2b7ab4e12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e8e5513df5ab412857403382e1940da27c85274a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Maken van een Service Fabric-cluster met behulp van Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -117,7 +117,7 @@ Gebruik de volgende opdracht voor het maken van een cluster snel door te geven v
 
 De sjabloon die wordt gebruikt, is beschikbaar op de [azure service fabric-sjabloon voorbeelden: windows-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) en [Ubuntu-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-De onderstaande opdrachten uit werkt voor het maken van Windows en Linux-clusters, hoeft u te dienovereenkomstig opgeven van het besturingssysteem. De powershell / CLI-opdrachten ook het certificaat in de opgegeven in theCertificateOutputFolder levert. De opdracht wordt in ook andere parameters zoals VM-SKU.
+De onderstaande opdrachten uit werkt voor het maken van Windows en Linux-clusters, hoeft u te dienovereenkomstig opgeven van het besturingssysteem. De PowerShell / CLI-opdrachten ook uitvoer die het certificaat in de opgegeven CertificateOutputFolder echter ervoor zorgen certificaat map al hebt gemaakt. De opdracht wordt in ook andere parameters zoals VM-SKU.
 
 ```Powershell
 
@@ -126,13 +126,13 @@ $resourceGroupName="mycluster"
 $vaultName="myvault"
 $vaultResourceGroupName="myvaultrg"
 $CertSubjectName="mycluster.westus.cloudapp.azure.com"
-$certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
-$vmpassword="Password!4321" | ConvertTo-SecureString -AsPlainText -Force
+$certPassword="Password123!@#" | ConvertTo-SecureString -AsPlainText -Force 
+$vmpassword="Password4321!@#" | ConvertTo-SecureString -AsPlainText -Force
 $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 $certOutputFolder="c:\certificates"
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser –Location $resourceGroupLocation
 
 ```
 
@@ -178,7 +178,7 @@ Als u al een aangepaste sjabloon hebt en zorg ervoor dat zijn aan Controleer all
 ```
 
 
-```Powershell
+```PowerShell
 
 
 $resourceGroupLocation="westus"
@@ -195,7 +195,7 @@ New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Certifica
 
 ```
 
-Hier volgt de equivalente CLI-opdracht hetzelfde te doen. Wijzig de waarden in de declare-instructies op de juiste waarden. CLI ondersteunt alle andere parameters die ondersteuning biedt voor de bovenstaande powershell-opdracht.
+Hier volgt de equivalente CLI-opdracht hetzelfde te doen. Wijzig de waarden in de declare-instructies op de juiste waarden. CLI ondersteunt alle andere parameters die ondersteuning biedt voor de bovenstaande PowerShell-opdracht.
 
 ```CLI
 
@@ -226,7 +226,8 @@ Als dit een door CA ondertekend certificaat dat u uiteindelijk gebruik voor ande
 #### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Gebruik de standaard 5 knooppunt 1 nodetype sjabloon die wordt geleverd in de module
 De sjabloon die wordt gebruikt, is beschikbaar op de [azure-voorbeelden: windows-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) en [Ubuntu-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-```Powershell
+```PowerShell
+
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -279,7 +280,7 @@ Als u al een aangepaste sjabloon hebt en zorg ervoor dat zijn aan Controleer all
 ```
 
 
-```Powershell
+```PowerShell
 
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
@@ -292,7 +293,7 @@ $templateFilePath="c:\mytemplates\mytemplate.json"
 $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword #certPassword
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword $certPassword
 
 ```
 
@@ -314,34 +315,34 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 ```
 
-#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-keyvault"></a>Een verwijzing naar het geheim die u al hebt geüpload naar de keyvault gebruiken
+#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-key-vault"></a>Een verwijzing naar het geheim die u al hebt geüpload naar de sleutelkluis gebruiken
 
 Gebruik een bestaande sleutelkluis u _moet inschakelen voor de implementatie van_ om toe te staan van de resourceprovider voor compute certificaten van het verkrijgen en installeren op de clusterknooppunten:
 
-```powershell
+```PowerShell
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 
 $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
-$secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
+$secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretID -TemplateFile $templateFile -ParameterFile $templateParmfile 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 Hier volgt de equivalente CLI-opdracht hetzelfde te doen. Wijzig de waarden in de declare-instructies op de juiste waarden.
 
-```cli
-
+```CLI
+declare $resourceGroupName = "testRG"
 declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
 declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-    --secret-identifieraz $secretID  \
+    --secret-identifier az $secretID  \
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 
 ```
@@ -522,9 +523,9 @@ U kunt de configuratie van Azure AD s toevoegen aan cluster Resource Manager-sja
 ```
 
 ### <a name="populate-the-parameter-file-with-the-values"></a>De parameter-bestand met de waarden vullen.
-Gebruik tot slot de uitvoerwaarden van de sleutelkluis en de Azure AD powershell-opdrachten voor het vullen van het parameterbestand:
+Gebruik tot slot de uitvoerwaarden van de sleutelkluis en de Azure AD PowerShell-opdrachten voor het vullen van het parameterbestand:
 
-Als u de Azure service fabric RM powershell-modules gebruiken wilt, klikt u vervolgens hoeft niet u vult de certificaatgegevens van het cluster, als u het systeem voor het genereren van de zelf ondertekend certificaat voor de clusterbeveiliging, net als null houden. 
+Als u gebruikmaken van de Azure service fabric RM PowerShell-modules, dan hebt u hoeft niet wilt te vullen van de gegevens van het cluster-certificaat als u die het systeem voor het genereren van de zelf ondertekend voor clusterbeveiliging u certificaat, net houden als null. 
 
 > [!NOTE]
 > Voor de RM-modules kunnen worden opgepikt en deze leeg parameterwaarden vult de namen van parameters veel overeenkomen met de namen hieronder
@@ -542,9 +543,9 @@ Als u de Azure service fabric RM powershell-modules gebruiken wilt, klikt u verv
         },
 ```
 
-Als u met behulp van certificaten van de toepassing of een bestaand cluster dat u hebt geüpload naar de keyvault gebruikt, moet u deze gegevens ophalen en deze vullen 
+Als u met behulp van certificaten van de toepassing of met behulp van een bestaand cluster dat u hebt geüpload naar de sleutelkluis, moet u deze gegevens ophalen en deze vullen 
 
-De RM-modules hebt de mogelijkheid om te geneate niet voor u de configuratie van de Azure AD. dus als u de Azure AD gebruiken voor toegang van clients wilt, u deze vullen moet.
+De RM-modules beschikt niet over de mogelijkheid voor het genereren van de configuratie van Azure AD voor u. dus als u de Azure AD gebruiken voor toegang van clients wilt, u deze vullen moet.
 
 ```json
 {
@@ -587,13 +588,13 @@ De RM-modules hebt de mogelijkheid om te geneate niet voor u de configuratie van
 ### <a name="test-your-template"></a>Testen van uw sjabloon  
 Gebruik de volgende PowerShell-opdracht voor het testen van uw Resource Manager-sjabloon met een parameterbestand:
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 Als u problemen ondervindt en cryptisch berichten ophalen, gebruikt u '-fouten opsporen in ' als een optie.
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
@@ -605,7 +606,7 @@ Het volgende diagram illustreert waar uw sleutelkluis en de configuratie van Azu
 
 U kunt nu implementeren u cluster met behulp van de stappen die eerder in het document wordt beschreven of hebt u de waarden in het parameterbestand ingevuld, klikt u bent nu klaar voor het maken van het cluster met behulp van [Azure-resource sjabloonimplementatie] [ resource-group-template-deploy] rechtstreeks.
 
-```powershell
+```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
@@ -677,7 +678,7 @@ Selecteer 'App registraties' in AAD pagina, selecteer uw cluster-toepassing en s
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Verbinding maken met het cluster met behulp van Azure AD-verificatie via PowerShell
 Als u wilt verbinding maken met de Service Fabric-cluster, gebruikt u in het volgende voorbeeld van de PowerShell-opdracht:
 
-```powershell
+```PowerShell
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 

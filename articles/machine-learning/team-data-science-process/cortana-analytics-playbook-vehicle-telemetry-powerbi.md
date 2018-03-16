@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 626987ec0648f9e770499b4a48bc4ca2d175d2b4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Vehicle telemetrie Analytics-oplossing sjabloon Power BI-dashboard installatie-instructies
 Dit menu is gekoppeld aan de hoofdstukken in deze playbook: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-De drager telemetrie Analytics-oplossing gepresenteerd hoe auto dealerbedrijven, auto fabrikanten en ondernemingen de mogelijkheden van Cortana Intelligence kunnen gebruiken. Ze krijgen real-time en voorspellende insights vehicle gezondheid en gewoonten klantervaring, onderzoek en ontwikkeling te verbeteren, en marketingcampagnes. Deze stapsgewijze instructies laten zien hoe u de Power BI-rapporten en het dashboard configureren kunt nadat u de oplossing in uw abonnement implementeert. 
+De drager telemetrie Analytics-oplossing showcases hoe auto dealerbedrijven, auto fabrikanten en ondernemingen kunnen worden gebruikt de mogelijkheden van Cortana Intelligence. Ze kunnen real-time en voorspellende insights vehicle gezondheid en gewoonten klantervaring, onderzoek en ontwikkeling te verbeteren, en marketingcampagnes verkrijgen. Deze stapsgewijze instructies hoe de Power BI-rapporten en het dashboard configureren nadat u de oplossing in uw abonnement implementeert. 
 
 ## <a name="prerequisites"></a>Vereisten
 * Implementeer de [Vehicle telemetrie Analytics](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) oplossing. 
@@ -42,7 +42,7 @@ Als onderdeel van de sjabloon Vehicle telemetrie Analytics-oplossing, worden de 
 * **Azure HDInsight** gegevens op schaal worden omgezet.
 * **Azure Data Factory** verwerkt orchestration, planning, bronbeheer en bewaking van de pipeline batch verwerkt.
 
-**Power BI** biedt deze oplossing een uitgebreide dashboard voor realtime-gegevens en visualisaties predictive analytics. 
+**Power BI** biedt deze oplossing een uitgebreide dashboard voor gegevens en visualisaties predictive analytics. 
 
 De oplossing maakt gebruik van twee verschillende gegevensbronnen:
 
@@ -101,7 +101,7 @@ Er zijn drie realtime rapporten in deze oplossing:
 * Voertuigen onderhoud vereisen
 * Vehicle Health statistieken
 
-U kunt alle drie de realtime-rapporten configureren of kunt u na een stadium stoppen. Vervolgens kunt u doorgaan met de volgende sectie over het configureren van de batch-rapporten. U wordt aangeraden dat u alle drie rapporten voor het visualiseren van de volledige inzichten van het real-time pad van de oplossing maakt.  
+U kunt alle drie de rapporten configureren of kunt u na een stadium stoppen. Vervolgens kunt u doorgaan met de volgende sectie over het configureren van de batch-rapporten. U wordt aangeraden dat u alle drie rapporten voor het visualiseren van de volledige inzichten van het real-time pad van de oplossing maakt.  
 
 ### <a name="vehicles-in-operation-report"></a>Voertuigen in bewerking rapport
 1. Dubbelklik op **pagina 1**, en de naam **voertuigen in bewerking**.
@@ -160,7 +160,7 @@ U kunt alle drie de realtime-rapporten configureren of kunt u na een stadium sto
 
     ![Dashboard met visualisaties](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
-Het real-time rapport 'Voertuigen in bewerking' geconfigureerd. U kunt de volgende realtime rapport maken of u kunt hier stoppen en configureren van het dashboard. 
+Het rapport 'Voertuigen in bewerking' geconfigureerd. U kunt de volgende realtime rapport maken of u kunt hier stoppen en configureren van het dashboard. 
 
 ### <a name="vehicles-requiring-maintenance-report"></a>Voertuigen onderhoud vereisen rapport
 
@@ -198,7 +198,7 @@ Het real-time rapport 'Voertuigen in bewerking' geconfigureerd. U kunt de volgen
 
 6. Op de **velden** tabblad, sleept u **Model** naar de **as** gebied. Sleep **vin** naar de **waarde** gebied. Sorteer de visualisatie door **aantal vin**. Wijzigen van de grafiek **titel** naar **voertuigen onderhoud vereisen door model**. 
 
-7. Op de **velden** ![velden](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) sectie van de **visualisaties** tabblad, sleept u **vin** naar **kleurverzadiging**.
+7. Op de **velden** ![velden installatiekopie](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) sectie van de **visualisaties** tabblad, sleept u **vin** naar **kleurverzadiging**.
 
     ![Kleur van de CPU](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)  
 
@@ -268,7 +268,7 @@ Het real-time rapport 'Voertuigen vereisen onderhoud' geconfigureerd. U kunt de 
 
     ![Kolom en regelwaarden](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4aa.png)
 
-12. Wijzigen van de grafiek **titel** naar **gemiddelde snelheid, band druk, engine olie en temperatuur motor**.  
+12. Wijzigen van de grafiek **titel** naar **gemiddelde snelheid, band druk engine olie en temperatuur motor**.  
 
     ![Lijndiagram en gegroepeerd kolomdiagram titel](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4bb.png)
 
@@ -298,13 +298,13 @@ Het real-time rapport 'Voertuigen vereisen onderhoud' geconfigureerd. U kunt de 
 
     ![Samenvoegingstype](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ff.png)
 
-22. Wijzigen van de grafiek **titel** naar **gemiddelde engine olie, druk, snelheid en het onderhoud kans genoeg door model**.
+22. Wijzigen van de grafiek **titel** naar **engine olie, band druk snelheid en onderhoud kans gemiddelde door model**.
 
     ![De grafiektitel gebied](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4gg.png)
 
 23. Selecteer een leeg gebied toevoegen van een nieuwe visualisatie.
 
-24. Op de **visualisaties** tabblad de **grafiek spreidingsdiagrammen** visualisatie. Sleep **Model** naar de **Details** en **legenda** gebieden. Sleep **brandstof** naar de **X-as** gebied. Wijzigen van de aggregatie op **gemiddelde**. Sleep **engineTemperature** naar de **Y-as** gebied. Wijzigen van de aggregatie op **gemiddelde**. Sleep **vin** naar de **grootte** gebied.
+24. Op de **visualisaties** tabblad de **grafiek spreidingsdiagrammen** visualisatie. Sleep **Model** naar de **Details** en **legenda** gebieden. Sleep **brandstof** naar de **x-as** gebied. Wijzigen van de aggregatie op **gemiddelde**. Sleep **engineTemperature** naar de **y-as** gebied. Wijzigen van de aggregatie op **gemiddelde**. Sleep **vin** naar de **grootte** gebied.
 
     ![Details, legenda, as en de grootte van gebieden](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
@@ -333,7 +333,7 @@ Het real-time dashboard gemaakt. Als u doorgaat CarEventGenerator.exe en Realtim
 
 ## <a name="set-up-the-power-bi-batch-processing-dashboard"></a>De Power BI-dashboard batch verwerking instellen
 > [!NOTE]
-> Het duurt ongeveer twee uur (van de voltooiing van de implementatie) voor de end-to-end-batch pijplijn voor het voltooien van de uitvoering en verwerken van een jaar lang van gegenereerde gegevens verwerkt. Wacht totdat de verwerking te voltooien voordat u verdergaat met de volgende stappen uit. 
+> Het duurt ongeveer twee uur (van de voltooiing van de implementatie) voor de end-to-end-batch pijplijn voor het voltooien van de uitvoering en verwerken van een jaar lang van gegenereerde gegevens verwerkt. Wachten op de verwerking te voltooien voordat u verdergaat met de volgende stappen uit:
 > 
 > 
 

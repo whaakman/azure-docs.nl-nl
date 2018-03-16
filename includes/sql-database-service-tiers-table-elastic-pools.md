@@ -87,6 +87,6 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie voor meer informatie de [pagina met prijzen SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/). Opslag groter zijn dan de hoeveelheid opslagruimte die opgenomen zijn in preview en extra kosten gelden. Zie voor meer informatie de [pagina met prijzen SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* In de Premium-laag is momenteel ruim 1 TB aan opslag beschikbaar voor de volgende regio's: Australië - oost, Australië - zuidoost, Canada - centraal, Canada - oost, Frankrijk - centraal, Duitsland - centraal, Japan - oost, Korea - centraal, VS Zuid-Centraal, Zuidoost-Azië, VS - oost2, VS - west, VS (overheid) - Virginia, en West-Europa. 
+> \* In de laag Premium meer dan 1 TB aan opslag is momenteel beschikbaar in de volgende gebieden: Canada centraal, Canada Oost Frankrijk centraal, Duitsland centraal, Japan-Oost, Korea centraal, Zuid-centraal VS, Zuid-Oost-Azië, ons East2, VS-West, Gov ons Virginia en West Europa. 
 >
 

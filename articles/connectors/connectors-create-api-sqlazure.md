@@ -3,7 +3,7 @@ title: De Azure SQL Database-connector in uw logische Apps toevoegen | Microsoft
 description: Overzicht van Azure SQL Database-connector met de parameters van de REST-API
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 4313ead0c31ab2e72238701d58dc2f321f116fa6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Aan de slag met de Azure SQL Database-connector
 Met de Azure SQL Database-connector, werkstromen maken voor uw organisatie die gegevens in de tabellen te beheren. 
@@ -29,7 +29,7 @@ Met SQL Database u:
 * Uw werkstroom door een nieuwe klant toe te voegen aan een database klanten of bijwerken van een order in een orderdatabase is opgebouwd.
 * Acties voor een rij met gegevens ophalen, een nieuwe rij invoegen en verwijderen van zelfs gebruiken. Bijvoorbeeld, wanneer een record in Dynamics CRM Online (een trigger) wordt gemaakt, klikt u vervolgens een rij invoegen in een Azure SQL Database (een actie). 
 
-In dit onderwerp leest u hoe voor het gebruik van de connector van de SQL-Database in een logische app, en vindt u ook de acties.
+Dit artikel laat zien u hoe u de SQL-Database-connector in een logische app, en vindt u ook de acties.
 
 Zie voor meer informatie over Logic Apps, [wat zijn logic apps](../logic-apps/logic-apps-overview.md) en [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -54,11 +54,11 @@ Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in 
 3. Typ in het tekstvak 'sql' om een lijst met alle beschikbare acties.
    
     ![](./media/connectors-create-api-sqlazure/sql-1.png) 
-4. Kies in ons voorbeeld **SQL Server - Get-rij**. Als er al een verbinding bestaat, selecteert u de **tabelnaam** in de vervolgkeuzelijst, en voert u de **rij-ID** u wilt retourneren.
+4. Kies in dit voorbeeld **SQL Server - Get-rij**. Als er al een verbinding bestaat, selecteert u de **tabelnaam** in de vervolgkeuzelijst, en voert u de **rij-ID** u wilt retourneren.
    
     ![](./media/connectors-create-api-sqlazure/sample-table.png)
    
-    Als u wordt gevraagd om de verbindingsinformatie, voert u de details om de verbinding te maken. [De verbinding](connectors-create-api-sqlazure.md#create-the-connection) in dit onderwerp beschrijft deze eigenschappen. 
+    Als u wordt gevraagd om de verbindingsinformatie, voert u de details om de verbinding te maken. [De verbinding](connectors-create-api-sqlazure.md#create-the-connection) in dit artikel beschrijft deze eigenschappen. 
    
    > [!NOTE]
    > In dit voorbeeld wordt een rij uit een tabel retourneren. De gegevens in deze rij, toe te voegen nog een actie die u maakt een bestand met de velden uit de tabel. Bijvoorbeeld, een OneDrive-actie die de voornaam en achternaam velden gebruikt voor het maken van een nieuw bestand in de cloud storage-account toevoegen. 
@@ -71,5 +71,5 @@ Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in 
 Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
+[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bekijk de beschikbare connectors in Logic Apps op [API's lijst](apis-list.md).
 

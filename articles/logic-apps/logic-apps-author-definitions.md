@@ -1,42 +1,63 @@
 ---
-title: Voor logic app-definities met JSON - Azure Logic Apps bouwen | Microsoft Docs
-description: Voeg parameters toe, verwerking van tekenreeksen, parameter maps maken en ophalen van gegevens met de datum-functies
+title: Maken, bewerken of JSON voor logic app-definities - Azure Logic Apps uitbreiden | Microsoft Docs
+description: Ontwerpen en aanpassen van logic app-definities in JSON
 author: ecfan
-manager: anneta
+manager: SyntaxC4
 editor: 
 services: logic-apps
 documentationcenter: 
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
+ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.custom: H1Hack27Feb2017
-ms.date: 01/31/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: d05f7e34cbe670db6733c199e3420c810c304a84
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 01/01/2018
+ms.author: estfan; LADocs
+ms.openlocfilehash: bde275eb75c97da2a99109484b46b599a5b2f871
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="build-on-your-logic-app-definition-with-json"></a>Voor de definitie van de logische app met JSON bouwen
+# <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>Maken, bewerken of JSON voor logic app-definities aanpassen
 
-Om uit te voeren meer geavanceerde taken met [Azure Logic Apps](../logic-apps/logic-apps-overview.md), kunt u code weergeven om te bewerken van uw logische app-definitie, die eenvoudig, declaratief JSON-taal gebruikt. Als u nog niet gedaan hebt, moet u rekening houden [het maken van uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Zie ook de [volledige verwijzing voor de werkstroom Definition Language](http://aka.ms/logicappsdocs).
+Bij het maken van enterprise integratieoplossingen met geautomatiseerde werkstromen in [Azure Logic Apps](../logic-apps/logic-apps-overview.md), gebruikt u de onderliggende logic app-definities eenvoudig en declaratieve notatie JSON (JavaScript Object) samen met de [ Werkstroom Definition Language (WDL) schema](../logic-apps/logic-apps-workflow-definition-language.md) voor hun beschrijving en validatie. Deze indelingen eenvoudiger logic app-definities worden gelezen en begrepen zonder te weten veel code. Als u maken en implementeren van logische apps automatiseren wilt, kunt u logic app-definities als opnemen [Azure-resources](../azure-resource-manager/resource-group-overview.md) binnen [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-overview.md#template-deployment). Maken, beheren en implementeren van logic apps, u kunt [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), of de [Azure Logic Apps REST API's](https://docs.microsoft.com/rest/api/logic/).
+
+Open de editor van de codeweergave als u werkt in de Azure-portal of in Visual Studio met logic app-definities in JSON wilt werken, of de definitie in een editor die u wilt kopiëren. Als u geen ervaring met logische apps, raadpleegt u [het maken van uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Sommige Azure Logic Apps-mogelijkheden, zoals parameters, zijn alleen beschikbaar wanneer u in de weergave van de code voor de definitie van uw logische app werkt. Parameters kunnen u waarden in uw logische app opnieuw gebruiken. Bijvoorbeeld, als u wilt gebruiken hetzelfde e-mailadres in verschillende acties definiëren dat e-mailadres als een parameter.
+> Sommige Azure Logic Apps mogelijkheden, zoals parameters en meerdere triggers definiëren in logic app-definities, zijn alleen beschikbaar in JSON, niet de ontwerpfunctie voor Logic Apps. Daarom moet u voor deze taken ook werken in de codeweergave of een andere editor.
 
-## <a name="view-and-edit-your-logic-app-definitions-in-json"></a>Weergeven en bewerken van uw logische app definitie van in JSON
+## <a name="edit-json---azure-portal"></a>JSON - Azure-portal bewerken
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com "Azure Portal").
+1. Meld u aan bij <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
-2. Kies in het menu links **meer services**. Kies onder **Enterprise Integration** de optie **Logic Apps**. Selecteer uw logische app.
+2. Kies in het menu links **alle services**. In het zoekvak vinden 'logische apps' en selecteer vervolgens uw logische app in de resultaten.
 
-3. Van uw logische app-menu onder **ontwikkelingsprogramma's**, kies **Logic App codeweergave**.
+3. Uw logische app menu onder **ontwikkelingsprogramma's**, selecteer **Logic App codeweergave**.
 
-   Het venster codeweergave wordt geopend en toont de definitie van de logische app.
+   De weergave van de Code-editor wordt geopend en toont de definitie van de logische app in JSON-indeling.
+
+## <a name="edit-json---visual-studio"></a>JSON - Visual Studio bewerken
+
+Voordat u op de definitie van de logische app in Visual Studio werken kunt, zorg ervoor dat u bent [de vereiste hulpprogramma's geïnstalleerd](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Als een logische app maken met Visual Studio, Bekijk [Snelstartgids: automatiseren van taken en processen met Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+U kunt logische apps die zijn gemaakt en geïmplementeerd hetzij rechtstreeks vanuit de Azure-portal als Azure Resource Manager-projecten vanuit Visual Studio openen in Visual Studio.
+
+1. Open de Visual Studio-oplossing of [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) project met uw logische app.
+
+2. Zoek en open uw logische app definition, die standaard wordt weergegeven in een [Resource Manager-sjabloon](../azure-resource-manager/resource-group-overview.md#template-deployment)met de naam **LogicApp.json**. U kunt gebruiken en aanpassen van deze sjabloon voor implementatie in verschillende omgevingen.
+
+3. Open het snelmenu voor de definitie van logic Apps en de sjabloon. Selecteer **openen met Logic App-ontwerper**.
+
+   ![Open logische app in Visual Studio-oplossing](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+4. Kies aan de onderkant van de ontwerpfunctie **codeweergave**. 
+
+   De weergave van de Code-editor wordt geopend en toont de definitie van de logische app in JSON-indeling.
+
+5. Als u wilt terugkeren naar de ontwerpfunctie weergave onder aan de weergave Code-editor kiezen **ontwerp**.
 
 ## <a name="parameters"></a>Parameters
 

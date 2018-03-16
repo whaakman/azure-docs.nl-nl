@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 1b46eac189f4b06ad134b7a4e6d8f5a281a66b94
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/16/2018
+---
 VM-grootten voor algemeen gebruik bieden taakverdeling verhouding van de CPU voor geheugen. Ideaal voor testen en ontwikkelen, kleine tot middelgrote databases en webservers met weinig of gemiddeld verkeer. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering. 
 
 - Virtuele machines uit de A- en Av2-serie kunnen worden geïmplementeerd op diverse hardwaretypen en processors. De grootte is afhankelijk van de hardware, zodat er consistente processorprestaties voor het actieve exemplaar kunnen worden geboden, ongeacht de hardware waarop deze is geïmplementeerd. Om de fysieke hardware te bepalen waarop deze grootte is geïmplementeerd, vraagt u vanuit de virtuele machine gegevens over de virtuele hardware op.
@@ -23,7 +39,7 @@ De B-serie burstable VM's zijn ideaal voor workloads die niet moet de volledige 
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series-sup1sup"></a>Dsv3-serie <sup>1</sup>
+## <a name="dsv3-series-sup1sup"></a>Dsv3-series <sup>1</sup>
 
 ACU: 160-190
 
@@ -41,7 +57,7 @@ Dsv3-serie grootten zijn gebaseerd op de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswel
 
 <sup>1</sup> Dsv3-serie van de virtuele machine zijn uitgerust met Intel® Hyper-Threading-technologie
 
-## <a name="dv3-series-sup1sup"></a>Dv3-serie <sup>1</sup>
+## <a name="dv3-series-sup1sup"></a>Dv3-series <sup>1</sup>
 
 ACU: 160-190
 
@@ -85,7 +101,7 @@ ACU: 210-250
 | Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1500                     |
 | Standard_D3_v2    | 4         | 14          | 200            | 12.000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3000                     |
 | Standard_D4_v2    | 8         | 28          | 400            | 24.000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6000                     |
-| Standard_D5_v2    | 16        | 56          | 800            | 48.000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000  |
+| Standard_D5_v2    | 16        | 56          | 800            | 48.000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000  |
 
 
 <br>

@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 12/14/2017
+ms.date: 3/14/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: a2a7d15eb51374b828d1d641e0e6754115f7aaf6
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: f8cd293236255e227f80a42e78d25aebd8789bdd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Gegevens uit Azure Data Lake Store laden in SQL Data Warehouse
 Dit document biedt u alle stappen die u wilt gegevens van Azure Data Lake Store (ADLS) in SQL Data Warehouse laden met PolyBase.
-Terwijl u zich kunt ad-hoc-query's uitvoeren via de gegevens die zijn opgeslagen in ADLS met behulp van de externe tabellen, als best practice is raadzaam de gegevens importeren in de SQL Data Warehouse.
+Terwijl u zich kunt ad-hoc-query's uitvoeren via de gegevens die zijn opgeslagen in ADLS met behulp van de externe tabellen, het is raadzaam de gegevens importeren in de SQL Data Warehouse voor de beste prestaties.
 
 In deze zelfstudie leert u hoe:
 
-1. Objecten van de externe Database te laden in Azure Data Lake Store maken.
+1. Maken van databaseobjecten die zijn vereist om te laden in Azure Data Lake Store.
 2. Verbinding maken met een Azure Data Lake Store-map.
 3. Gegevens laden in Azure SQL Data Warehouse.
 
@@ -42,14 +42,14 @@ Deze zelfstudie, hebt u nodig:
 
 * Zie SQL Server Management Studio of SQL Server Data Tools voor het downloaden van SSMS en verbinden [Query SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
-* Een Azure SQL Data Warehouse, voor het maken van een opvolgen: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision _
+* Een Azure SQL Data Warehouse, voor het maken van een volgen: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
-* Een Azure Data Lake Store, voor het maken van een opvolgen: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
+* Een Azure Data Lake Store, voor het maken van een volgen: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 ###  <a name="create-a-credential"></a>Een referentie maken
 Voor toegang tot uw Azure Data Lake Store, moet u een databasehoofdsleutel nodig voor het versleutelen van uw geheime referentie is gebruikt in de volgende stap maakt.
-Vervolgens maakt u een databasereferentie binnen het bereik van, die de service principal referenties instellen in AAD opslaat. Noteer de credential-syntaxis verschilt voor mensen die PolyBase verbinding maken met Windows Azure Storage-Blobs hebt gebruikt.
+Vervolgens maakt u een Database Scoped Credential, die de service principal referenties instellen in AAD opslaat. Noteer de credential-syntaxis verschilt voor mensen die PolyBase verbinding maken met Windows Azure Storage-Blobs hebt gebruikt.
 Als u wilt verbinding maken met Azure Data Lake Store, moet u **eerste** een Azure Active Directory-toepassing maken, maakt u een toegangssleutel en de App toegang verlenen tot de Azure Data Lake-resource. Instructies voor het uitvoeren van deze stappen bevinden [hier](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
@@ -82,7 +82,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>De externe gegevensbron maken
-Gebruik deze [externe gegevensbron maken] [ CREATE EXTERNAL DATA SOURCE] opdracht voor het opslaan van de locatie van de gegevens. ADL URI niet vinden in de Azure portal, gaat u naar uw Azure Data Lake Store en zoek vervolgens naar het paneel Essentials.
+Gebruik deze [externe gegevensbron maken] [ CREATE EXTERNAL DATA SOURCE] opdracht voor het opslaan van de locatie van de gegevens. 
 
 ```sql
 -- C: Create an external data source
@@ -99,8 +99,8 @@ WITH (
 ```
 
 ## <a name="configure-data-format"></a>Indeling van gegevens configureren
-Als u wilt de gegevens importeren uit ADLS, moet u de externe bestandsindeling opgeven. Deze opdracht heeft een indeling-specifieke opties om uw gegevens te beschrijven.
-Bekijk onze T-SQL-documentatie voor een volledige lijst met [EXTERNAL FILE FORMAT maken][CREATE EXTERNAL FILE FORMAT]
+Als u wilt de gegevens importeren uit ADLS, moet u de externe bestandsindeling opgeven. Dit object definieert hoe de bestanden zijn geschreven in ADLS.
+Bekijk onze T-SQL-documentatie voor de volledige lijst [EXTERNAL FILE FORMAT maken][CREATE EXTERNAL FILE FORMAT]
 
 ```sql
 -- D: Create an external file format
@@ -157,7 +157,7 @@ Als een rij komt niet overeen met de schemadefinitie, wordt de rij van de belast
 
 De opties voor REJECT_TYPE en REJECT_VALUE kunnen u bepalen hoeveel rijen of welk percentage van de gegevens moet aanwezig zijn in de laatste tabel. Tijdens het laden, als de waarde afwijzen is bereikt, mislukt de belasting. De meest voorkomende oorzaak van geweigerde rijen is een niet-overeenkomend schema definitie. Bijvoorbeeld, als een kolom het schema van int onjuist opgegeven wordt als de gegevens in het bestand een tekenreeks, elke rij niet worden geladen.
 
- Azure Data Lake store maakt gebruik van rollen gebaseerd toegangsbeheer (RBAC) om toegang tot de gegevens te beheren. Dit betekent dat de Service-Principal hebben voor de mappen die zijn gedefinieerd in de locatieparameter en de onderliggende leden van de laatste map en bestanden leesmachtigingen moet. Hierdoor PolyBase om te verifiëren en te laden die gegevens lezen. 
+ Azure Data Lake store maakt gebruik van rollen gebaseerd toegangsbeheer (RBAC) om toegang tot de gegevens te beheren. Dit betekent dat de Service-Principal hebben voor de mappen die zijn gedefinieerd in de locatieparameter en de onderliggende leden van de laatste map en bestanden leesmachtigingen moet. Hierdoor PolyBase om te verifiëren en die gegevens te laden. 
 
 ## <a name="load-the-data"></a>De gegevens laden
 Gegevens laden van Azure Data Lake Store-gebruik de [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instructie. 
@@ -201,7 +201,7 @@ Het volgende voorbeeld is een goed uitgangspunt voor het maken van statistieken.
 U hebt gegevens geladen in Azure SQL Data Warehouse. Taak geweldig!
 
 ## <a name="next-steps"></a>Volgende stappen
-Laden van gegevens is de eerste stap bij het ontwikkelen van een datawarehouse-oplossing met behulp van SQL Data Warehouse. Bekijk onze ontwikkeling bronnen op [tabellen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) en [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
+Laden van gegevens is de eerste stap bij het ontwikkelen van een datawarehouse-oplossing met behulp van SQL Data Warehouse. Bekijk onze ontwikkeling bronnen op [tabellen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) en [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops).
 
 
 <!--Image references-->

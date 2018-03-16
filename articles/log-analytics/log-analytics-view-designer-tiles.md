@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: a14a6bf196c165bdffa0a9d5d343c0430cff7f29
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f341cb9430c7750909c1fc1f50c15f0620e74366
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Naslaggids voor de ontwerper tegels in Log Analytics
 Ontwerp weergeven in Azure Log Analytics gebruikt, kunt u aangepaste weergaven maken in de Azure portal die tal van gegevensvisualisaties in uw werkruimte voor logboekanalyse. Dit artikel is een handleiding met de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
@@ -28,8 +28,6 @@ Zie voor meer informatie over Designer bekijken:
 * [Designer bekijken](log-analytics-view-designer.md): biedt een overzicht van Designer bekijken en -procedures voor het maken en bewerken van aangepaste weergaven.
 * [Visualisatie onderdeelverwijzing](log-analytics-view-designer-parts.md): biedt een Naslaggids voor de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
 
-> [!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [querytaal van nieuwe logboekanalyse](log-analytics-log-search-upgrade.md), de query's in alle weergaven moeten worden geschreven in de [nieuwe querytaal](https://go.microsoft.com/fwlink/?linkid=856078). De weergaven die zijn gemaakt vóór de upgrade van de werkruimte worden automatisch geconverteerd.
 
 De beschikbare ontwerper tegels worden in de volgende tabel beschreven:  
 

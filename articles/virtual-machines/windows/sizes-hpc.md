@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/21/2018
+ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6f2c72689811d26f95a64fdf5f473606f3ea3f7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Hoge prestaties compute-VM-grootten
 
@@ -29,16 +29,8 @@ ms.lasthandoff: 02/22/2018
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
-## <a name="rdma-capable-instances"></a>RDMA-compatibele exemplaren
-Een netwerkinterface voor remote direct memory access (RDMA) connectiviteit zijn uitgerust met een subset van de exemplaren rekenintensieve (H16mr H16r A8 en A9). Deze interface is naast de standaard Azure netwerkinterface beschikbaar voor andere VM-groottes. 
-  
-Deze interface kunt de RDMA-compatibele exemplaren om te communiceren via een InfiniBand-netwerk op FDR tarieven voor H16r en H16mr virtuele machines en QDR tarieven voor A8 en A9 virtuele machines. Deze RDMA-mogelijkheden kunnen verbeteren de schaalbaarheid en prestaties van Message Passing Interface (MPI)-toepassingen.
-
-Hier volgen de vereisten voor RDMA-compatibele Windows virtuele machines toegang hebben tot de Azure-RDMA-netwerk: 
 
 * **Besturingssysteem** -Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
-* **Beschikbaarheidsset of cloudservice** – de RDMA-compatibele virtuele machines in dezelfde beschikbaarheidsset (bij gebruik van het Azure Resource Manager-implementatiemodel) of in dezelfde cloudservice implementeren (bij gebruik van het klassieke implementatiemodel). Als u Azure Batch gebruikt, moet de RDMA-compatibele virtuele machines in dezelfde groep.
 
 * **MPI** -Microsoft MPI (MS-MPI) 2012 R2 of hoger, Intel MPI-bibliotheek 5.x
 
@@ -61,7 +53,6 @@ Hier volgen de vereisten voor RDMA-compatibele Windows virtuele machines toegang
 ## <a name="using-hpc-pack"></a>Met behulp van HPC Pack
 
 [Microsoft HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), van Microsoft gratis HPC-cluster en taak beheeroplossing, is een optie voor u een rekencluster maken in Azure worden uitgevoerd op basis van Windows MPI-toepassingen en andere HPC-workloads. HPC Pack 2012 R2 en hoger, bevatten een runtime-omgeving voor MS-MPI die gebruikmaakt van het netwerk van Azure RDMA wanneer geïmplementeerd op RDMA-compatibele virtuele machines.
-
 
 
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
 
@@ -49,12 +49,6 @@ Als deze voorwaarden al in uw omgeving bestaat, gaat u verder met de [Back-up va
 Voordat u uw omgeving hebt voorbereid, zorg er dan voor dat deze beperkingen begrijpen:
 
 * Back-ups van virtuele machines met meer dan 16 gegevensschijven wordt niet ondersteund.
-* Back-ups van virtuele machines met gegevens groter zijn dan 1023 GB schijfgrootten wordt niet ondersteund.
-
-  > [!NOTE]
-  > We hebben een private preview ter ondersteuning van back-ups voor virtuele machines met meer dan één TB schijven. Raadpleeg voor meer informatie, [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
-  >
-
 * Back-ups van virtuele machines met een gereserveerd IP-adres en er is geen gedefinieerde eindpunt wordt niet ondersteund.
 * Back-ups van virtuele Linux-machines versleuteld door middel van Linux Unified sleutel Setup (LUKS) codering wordt niet ondersteund.
 * Back-ups van virtuele machines met gedeelde clustervolumes (CSV) of Scale-Out File Server-configuratie aanbevolen niet. Ze hebben met betrekking tot alle virtuele machines die zijn opgenomen in de configuratie tijdens de taak van een momentopname van het cluster nodig. Azure Backup biedt geen ondersteuning voor consistentie tussen meerdere VM's. 

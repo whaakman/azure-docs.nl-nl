@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
-ms.openlocfilehash: 41fb529f6b4ae923f2920919306324c86a2baa45
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6ecbf111bad96bce310109ac1a3e8f3bb846be6c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Uw app implementeren in Azure App Service met een ZIP- of WAR-bestand
 
@@ -73,7 +73,7 @@ Het geüploade ZIP-bestand naar uw web-app implementeren met behulp van de [az w
 Het volgende voorbeeld implementeert u het ZIP-bestand dat u hebt geüpload. Wanneer u een lokale installatie van Azure CLI, geef het pad naar uw lokale ZIP-bestand voor `--src`.   
 
 ```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/<filename>.zip
+az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src clouddrive/<filename>.zip
 ```
 
 Met deze opdracht worden de bestanden en mappen uit het ZIP-bestand geïmplementeerd in de standaardmap voor de App Service-toepassing (`\home\site\wwwroot`) en wordt de app opnieuw opgestart. Als er een aanvullend aangepast opbouwproces is geconfigureerd, wordt dit ook uitgevoerd. Zie voor meer informatie [Kudu documentatie](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).

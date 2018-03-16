@@ -2,25 +2,19 @@
 title: Overzicht van Azure SQL Database-beveiliging| Microsoft Docs
 description: Meer informatie over Azure SQL Database en SQL Server-beveiliging, met inbegrip van de verschillen tussen de cloud en SQL Server on-premises.
 services: sql-database
-documentationcenter: 
 author: giladm
-manager: shaik
+manager: craigg
 ms.reviewer: carlrab
-editor: 
-ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-your-sql-database"></a>Uw SQL Database beveiligen
 
@@ -62,7 +56,6 @@ Met firewalls wordt met behulp van [firewallregels](sql-database-firewall-config
 
 ### <a name="authentication"></a>Verificatie
 SQL Database-verificatie verwijst naar hoe u uw identiteit bewijst bij het maken van verbinding met de database. SQL Database ondersteunt twee typen verificatie:
-
 * **SQL-verificatie**, waarbij een gebruikersnaam en wachtwoord worden gebruikt. Wanneer u de logische server voor uw database hebt gemaakt, hebt u een aanmelding 'serverbeheerder' opgegeven met een gebruikersnaam en wachtwoord. Met deze aanmeldingsgegevens kunt u zich bij elke database op die server als de database-eigenaar of 'dbo' verifiëren. 
 * **Azure Active Directory-verificatie**, waarbij identiteiten worden gebruikt die worden beheerd in Azure Active Directory. Deze methode wordt ondersteund voor beheerde en geïntegreerde domeinen. Gebruik [waar mogelijk](https://msdn.microsoft.com/library/ms144284.aspx) Active Directory-verificatie (geïntegreerde beveiliging). Als u Azure Active Directory-verificatie wilt gebruiken, moet u een andere serverbeheerder maken, de 'Azure AD-beheerder' genaamd, die Azure AD-gebruikers en -groepen kan beheren. Deze beheerder kan ook alle bewerkingen uitvoeren die reguliere serverbeheerders kunnen uitvoeren. Zie [Verbinding maken met SQL Database met behulp van Azure Active Directory-verificatie](sql-database-aad-authentication.md) voor een overzicht van het maken van een Azure AD-beheerder om Azure Active Directory-verificatie in te schakelen.
 
@@ -86,6 +79,21 @@ Detectie van dreigingen is een aanvulling op controle, dankzij een extra laag va
  
 ## <a name="compliance"></a>Naleving
 Naast de bovenstaande functies en functionaliteit die kan helpen bij uw toepassing ook voorzien van verschillende beveiligingsvereisten, Azure SQL Database deel uitmaakt van de reguliere audits en tegen een aantal nalevingsstandaards is gecertificeerd. Zie het [Vertrouwenscentrum van Microsoft Azure](https://azure.microsoft.com/support/trust-center/), waar u de meest recente lijst met [SQL Database-nalevingscertificeringen](https://azure.microsoft.com/support/trust-center/services/) vindt, voor meer informatie.
+
+
+## <a name="security-management"></a>Beveiligingsbeheer
+
+SQL-Database helpt u bij de beveiliging van uw gegevens dankzij de database-scans en een gecentraliseerde beveiliging dashboard met [SQL Vulnerability Assessment](sql-vulnerability-assessment.md).
+
+**Controle op beveiligingslekken**: [SQL Vulnerability Assessment](sql-vulnerability-assessment.md) (momenteel in preview) is een eenvoudig hulpprogramma ingebouwd in Azure SQL Database kunt u detecteren, bijhouden en herstellen van mogelijke database configureren beveiligingsproblemen. De beoordeling wordt uitgevoerd een beveiligingslek scan van uw database en genereert een rapport waarmee u inzicht in uw beveiligingsstatus, met inbegrip van bruikbare stappen voor het oplossen van beveiligingsproblemen en verbeter de databasebeveiliging van uw. Rapport van de beoordeling kan worden aangepast voor uw omgeving door een acceptabele basislijn voor de machtiging configuraties, configuraties en instellingen van de database. Dit kan u helpen bij:
+
+- Voldoen aan nalevingsvereisten die database scan rapporten nodig hebt. 
+
+- Voldoen aan gegevens privacy normen. 
+
+- Bewaken van een dynamische database-omgeving waarin wijzigingen moeilijk zijn te volgen.
+
+Zie voor meer informatie [SQL Vulnerability Assessment](sql-vulnerability-assessment.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

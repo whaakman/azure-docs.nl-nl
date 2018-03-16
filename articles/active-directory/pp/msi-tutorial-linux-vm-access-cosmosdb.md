@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/14/2018
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2c0c3597999e80af86f079385653d94ddfcab245
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dbb5e9e8f9accd618599010ab2bbb4a8760e534f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-cosmos-db"></a>Een gebruiker toegewezen beheerde Service identiteit (MSI) op een Linux-VM te gebruiken voor toegang tot Azure Cosmos-DB 
 
@@ -45,7 +45,7 @@ Als u wilt uitvoeren in de CLI scriptvoorbeelden in deze zelfstudie, hebt u twee
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+Aanmelden bij de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-machine in een nieuwe resourcegroep maken
 
@@ -158,10 +158,10 @@ Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaak
 3. Vervolgens maakt u wordt gevraagd om in te voeren uw **wachtwoord** u toegevoegd bij het maken van de **Linux VM**. U moet vervolgens worden aangemeld.  
 4. Gebruik CURL om een toegangstoken ophalen voor Azure Resource Manager.  
 
-    De CURL aanvraag en antwoord voor het toegangstoken is lager dan.  Vervang <CLIENT ID> met de clientId waarde van de gebruiker toegewezen MSI:
+    De CURL aanvraag en antwoord voor het toegangstoken is lager dan.  Vervang <CLIENT ID> met de clientId waarde van de gebruiker toegewezen MSI: 
     
     ```bash
-    curl 'http://localhost:50342/oauth2/token?resource=https://management.azure.com/&client_id=<CLIENT ID>' -H "Metadata:true"
+    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>" 
     ```
     
     > [!NOTE]

@@ -11,31 +11,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 03/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 504fbc20f11243ccd825eb69171cd0893782e611
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c2b8498b2d32e2c3c7ed5dca3295ae6a98fa2676
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Portal gebruiken voor het maken van een Azure Active Directory-toepassing en service-principal die toegang bronnen tot
 
-Wanneer u een toepassing die behoeften openen of wijzigen van resources hebt, moet u een Azure Active Directory (AD)-toepassing instellen en de vereiste machtigingen toewijzen aan deze. Deze aanpak is voorkeur boven het uitvoeren van de app met uw eigen referenties, omdat:
-
-* U kunt machtigingen toewijzen aan de identiteit van de app die anders zijn dan uw eigen machtigingen. Deze machtigingen zijn meestal beperkt tot precies wat de app moet doen.
-* U hoeft niet te wijzigen van de app referenties als uw verantwoordelijkheden wijzigt. 
-* U kunt een certificaat gebruiken voor het automatiseren van verificatie bij het uitvoeren van een onbewaakt script.
+Wanneer u code die behoeften openen of wijzigen van resources hebt, moet u een Azure Active Directory (AD)-toepassing instellen. U kunt de vereiste machtigingen toewijzen aan AD-toepassing. Deze aanpak is voorkeur boven het uitvoeren van de app met uw eigen referenties, omdat u machtigingen kunt toewijzen aan de identiteit van de app die anders zijn dan uw eigen machtigingen. Deze machtigingen zijn meestal beperkt tot precies wat de app moet doen.
 
 Dit artikel laat zien hoe u deze stappen uitvoert via de portal. Het is gericht op een één-tenant-toepassing waarin de toepassing is bedoeld om uit te voeren binnen één organisatie. Doorgaans gebruikt toepassingen voor één tenant voor line-of-business-toepassingen die worden uitgevoerd binnen uw organisatie.
+
+> [!IMPORTANT]
+> In plaats van een service-principal maken, kunt u overwegen Azure AD beheerde Service-identiteit voor de identiteit van uw toepassingen. Azure AD-MSI is een openbare preview-functie van Azure Active Directory die vereenvoudigt het maken van een identiteit voor de code. Als uw code wordt uitgevoerd op een service die ondersteuning biedt voor Azure AD MSI en toegang tot bronnen die ondersteuning bieden voor Azure Active Directory-verificatie, is Azure AD MSI een betere optie voor u. Zie voor meer informatie over Azure AD MSI, met inbegrip van welke services momenteel ondersteuning [Service-identiteit voor Azure-resources beheerd](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="required-permissions"></a>Vereiste machtigingen
 
 Als u dit artikel, moet u voldoende rechten hebt voor een toepassing registreren met uw Azure AD-tenant en de toepassing toewijzen aan een rol in uw Azure-abonnement. Zorg ervoor dat de juiste machtigingen deze stappen uit te voeren.
 
 ### <a name="check-azure-active-directory-permissions"></a>Controleer de machtigingen voor Azure Active Directory
-
-1. Aanmelden bij uw Azure-Account via de [Azure-portal](https://portal.azure.com).
 
 1. Selecteer **Azure Active Directory**.
 
@@ -49,21 +46,9 @@ Als u dit artikel, moet u voldoende rechten hebt voor een toepassing registreren
 
    ![app-registraties weergeven](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Als de app-registraties instelling is ingesteld op **Nee**, alleen de beheerder gebruikers apps kunnen registreren. Controleer of uw account een beheerder voor de Azure AD-tenant. Selecteer **overzicht** en **een gebruiker zoeken** van snelle taken.
+1. Als de app-registraties instelling is ingesteld op **Nee**, alleen de beheerder gebruikers apps kunnen registreren. Controleer of uw account een beheerder voor de Azure AD-tenant. Selecteer **overzicht** en bekijk uw gebruikersgegevens. Als uw account is toegewezen aan de gebruikersrol, maar de registratie van app-instelling (van de vorige stap) beperkt tot beheergebruikers is, vraag uw beheerder op een toewijzen aan een administrator-rol of waarmee gebruikers om apps te registreren.
 
-   ![gebruiker zoeken](./media/resource-group-create-service-principal-portal/find-user.png)
-
-1. Zoek uw account en selecteren wanneer u deze vinden.
-
-   ![gebruiker zoeken](./media/resource-group-create-service-principal-portal/show-user.png)
-
-1. Selecteer voor uw account **functie Directory**.
-
-   ![Directory-rol](./media/resource-group-create-service-principal-portal/select-directory-role.png)
-
-1. De functie toegewezen directory weergeven in Azure AD. Als uw account is toegewezen aan de gebruikersrol, maar de registratie van app-instelling (van de voorgaande stappen) beperkt tot beheergebruikers is, vraag uw beheerder op een toewijzen aan een administrator-rol of waarmee gebruikers om apps te registreren.
-
-   ![de rol weergeven](./media/resource-group-create-service-principal-portal/view-role.png)
+   ![gebruiker zoeken](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
 ### <a name="check-azure-subscription-permissions"></a>Controleer de machtigingen van de Azure-abonnement
 
@@ -71,23 +56,17 @@ In uw Azure-abonnement, uw account moet hebben `Microsoft.Authorization/*/Write`
 
 Uw abonnement om machtigingen te controleren:
 
-1. Als u niet al uw Azure AD-account van de voorgaande stappen hebt uitgevoerd bekijkt, selecteert u **Azure Active Directory** in het linkerdeelvenster.
+1. Selecteer uw account in de rechterbovenhoek en selecteer **mijn machtigingen**.
 
-1. Uw Azure AD-account vinden. Selecteer **overzicht** en **een gebruiker zoeken** van snelle taken.
+   ![gebruikersmachtigingen selecteren](./media/resource-group-create-service-principal-portal/select-my-permissions.png)
 
-   ![gebruiker zoeken](./media/resource-group-create-service-principal-portal/find-user.png)
+1. Selecteer het abonnement in de vervolgkeuzelijst. Selecteer **Klik hier voor volledige toegang tot de gegevens voor dit abonnement**.
 
-1. Zoek uw account en selecteren wanneer u deze vinden.
+   ![gebruiker zoeken](./media/resource-group-create-service-principal-portal/view-details.png)
 
-   ![gebruiker zoeken](./media/resource-group-create-service-principal-portal/show-user.png)
+1. Bekijk uw toegewezen rollen en bepalen of u onvoldoende machtigingen hebt voor het toewijzen van een AD-app aan een rol. Als dat niet het geval is, vraagt de abonnementsbeheerder van uw u toe te voegen aan de rol beheerder voor gebruikerstoegang. In de volgende afbeelding wordt de gebruiker toegewezen aan de rol van eigenaar, wat betekent dat die de gebruiker heeft onvoldoende machtigingen.
 
-1. Selecteer **Azure-resources**.
-
-   ![Selecteer resources](./media/resource-group-create-service-principal-portal/select-azure-resources.png)
-
-1. Bekijk uw toegewezen rollen en bepalen of u onvoldoende machtigingen hebt voor het toewijzen van een AD-app aan een rol. Als dat niet het geval is, vraagt de abonnementsbeheerder van uw u toe te voegen aan de rol beheerder voor gebruikerstoegang. In de volgende afbeelding wordt de gebruiker toegewezen aan de rol van eigenaar voor twee abonnementen, wat betekent dat die de gebruiker heeft onvoldoende machtigingen.
-
-   ![machtigingen weergeven](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
+   ![machtigingen weergeven](./media/resource-group-create-service-principal-portal/view-user-role.png)
 
 ## <a name="create-an-azure-active-directory-application"></a>Een Azure Active Directory-toepassing maken
 
@@ -104,7 +83,7 @@ Uw abonnement om machtigingen te controleren:
 
    ![app toevoegen](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Geef een naam en de URL voor de toepassing. Selecteer **Web-app / API** voor het type van de toepassing die u wilt maken. U kunt geen referenties voor maken een **systeemeigen** toepassing in, dat type werkt daarom niet voor een geautomatiseerde toepassing. Na het instellen van de waarden, selecteer **maken**.
+1. Geef een naam en de URL voor de toepassing. Selecteer **Web-app / API** voor het type van de toepassing die u wilt maken. U kunt geen referenties voor maken een [systeemeigen toepassing](../active-directory/active-directory-application-proxy-native-client.md); daarom type werkt niet voor een geautomatiseerde toepassing. Na het instellen van de waarden, selecteer **maken**.
 
    ![de naam van toepassing](./media/resource-group-create-service-principal-portal/create-app.png)
 
@@ -121,6 +100,10 @@ Wanneer u programmatisch zich aanmeldt, moet u de ID voor uw toepassing en een v
 1. Kopieer de **toepassings-ID** en op te slaan in uw toepassingscode. Sommige [voorbeeldtoepassingen](#log-in-as-the-application) verwijzen naar deze waarde als de client-ID.
 
    ![Client-ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
+
+1. Selecteer voor het genereren van een verificatiesleutel **instellingen**.
+
+   ![instellingen selecteren](./media/resource-group-create-service-principal-portal/select-settings.png)
 
 1. Selecteer voor het genereren van een verificatiesleutel **sleutels**.
 
@@ -181,19 +164,6 @@ U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of r
    ![Zoek app](./media/resource-group-create-service-principal-portal/search-app.png)
 
 1. Selecteer **opslaan** voltooid de rol toe te wijzen. Ziet u uw toepassing in de lijst met gebruikers die zijn toegewezen aan een rol voor deze scope.
-
-## <a name="log-in-as-the-application"></a>Meld u aan als de toepassing
-
-Uw toepassing is nu ingesteld in Azure Active Directory. U hebt een ID en -sleutel moet worden gebruikt voor aanmelden als de toepassing. De toepassing is toegewezen aan een rol die hieraan bepaalde acties die kan uitvoeren. Zie voor informatie over logboekregistratie in als de toepassing via verschillende platforms:
-
-* [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
-* [Azure-CLI](resource-group-authenticate-service-principal-cli.md)
-* [REST](/rest/api/#create-the-request)
-* [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
-* [Java](/java/azure/java-sdk-azure-authenticate)
-* [Node.js](/javascript/azure/node-sdk-azure-authenticate-principal?view=azure-node-latest)
-* [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
-* [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>Volgende stappen
 * Als u een multitenant-toepassing instelt, Zie [Ontwikkelaarshandleiding voor autorisatie met de Azure Resource Manager-API](resource-manager-api-authentication.md).

@@ -1,7 +1,22 @@
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 3dfc72ff0347a93c6c6dce0e7ec763dd8241c55b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="azure-backup"></a>Azure Backup
 
-Voor back-ups van virtuele Azure-machines productieworkloads wordt uitgevoerd, gebruikt u Azure Backup. Azure Backup biedt ondersteuning voor toepassingsconsistente back-ups voor zowel Windows als een virtuele Linux-machines. Azure Backup maakt herstelpunten die zijn opgeslagen in een geografisch redundante recovery kluizen. Wanneer u vanaf een herstelpunt herstelt, kunt u de hele virtuele machine of alleen specifieke bestanden kunt herstellen. 
+Voor back-ups van virtuele Azure-machines productieworkloads wordt uitgevoerd, gebruikt u Azure Backup. Azure Backup biedt ondersteuning voor toepassingsconsistente back-ups voor zowel Windows als een virtuele Linux-machines. Azure Backup maakt herstelpunten die worden opgeslagen in geografisch redundante Recovery Services-kluizen. Wanneer u vanaf een herstelpunt herstelt, kunt u de hele VM of alleen specifieke bestanden herstellen. 
 
 Zie voor een eenvoudige, praktische Inleiding tot Azure Backup voor Azure Virtual machines, de zelfstudie 'Back-up van virtuele machines in Azure' voor [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) of [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
 
@@ -18,7 +33,7 @@ U kunt aan de slag door [uw virtuele machines repliceren](https://aka.ms/a2a-get
 
 ## <a name="managed-snapshots"></a>Beheerde momentopnamen 
 
-Ontwikkel- en testomgevingen geeft momentopnamen een snel en eenvoudig optie voor back-ups van virtuele machines die gebruikmaken van schijven worden beheerd. Een beheerde momentopname is een alleen-lezen kopie van een beheerde schijf. Momentopnamen onafhankelijk van de bronschijf bestaan en kunnen worden gebruikt om nieuwe beheerde schijven voor het opnieuw opbouwen van een virtuele machine te maken. Ze worden gefactureerd op basis van het gebruikte gedeelte van de schijf. Als u een momentopname van een beheerde schijf met ingerichte capaciteit van 64 GB en grootte van 10 GB gegevens die u gebruikt maakt, wordt bijvoorbeeld momentopname gefactureerd alleen voor de gebruikte gegevensgrootte van 10 GB.  
+Ontwikkel- en testomgevingen geeft momentopnamen een snel en eenvoudig optie voor back-ups van virtuele machines die gebruikmaken van schijven worden beheerd. Een beheerde momentopname is een alleen-lezen kopie van een beheerde schijf. Momentopnamen onafhankelijk van de bronschijf bestaan en kunnen worden gebruikt om nieuwe beheerde schijven voor het opnieuw opbouwen van een virtuele machine te maken. Ze worden gefactureerd op basis van het gebruikte gedeelte van de schijf. Als u bijvoorbeeld een momentopname maakt van een beheerde schijf met een ingerichte capaciteit van 64 GB terwijl de werkelijke gebruikte gegevensgrootte 10 GB is, wordt de momentopname alleen gefactureerd voor de gebruikte gegevensgrootte van 10 GB.  
 
 Zie voor meer informatie over het maken van momentopnamen:
 

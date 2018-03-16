@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: 89e4b52e7d306bd495c426bcf775f59d0f30eb55
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: b5438080f71fa8f5c4f03006b75b826f1cfa576a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Sectie van de resources van Azure Resource Manager-sjablonen
 
@@ -78,7 +78,7 @@ U definieert resources met de volgende structuur:
 | kopiëren |Nee |Als meer dan één exemplaar is vereist, het aantal resources om te maken. Er is de standaardmodus voor parallelle. Seriële modus wanneer u niet dat alle wilt of de resources te implementeren op hetzelfde moment opgeven. Zie voor meer informatie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Nee |Resources die moeten worden geïmplementeerd voordat u deze bron wordt geïmplementeerd. Resource Manager evalueert de afhankelijkheden tussen resources en ze worden geïmplementeerd in de juiste volgorde. Wanneer u resources zijn niet afhankelijk van elkaar, worden ze geïmplementeerd parallel. De waarde kan een door komma's gescheiden lijst van een resource zijn namen of unieke id's voor een resource. Alleen de lijst van resources die zijn geïmplementeerd in deze sjabloon. Bronnen die niet in deze sjabloon zijn gedefinieerd, moeten al bestaan. Vermijd toe te voegen onnodige afhankelijkheden als ze kunnen uw implementatie vertragen en circulaire afhankelijkheden maken. Zie voor instructies over de afhankelijkheden van de instelling [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md). |
 | properties |Nee |Resource-specifieke configuratie-instellingen. De waarden voor de eigenschappen zijn hetzelfde als de waarden die u in de aanvraagtekst voor de REST-API-bewerking (PUT-methode opgeeft) om de resource te maken. U kunt ook een matrix kopiëren voor het maken van meerdere exemplaren van een eigenschap opgeven. |
-| bronnen |Nee |Onderliggende resources die afhankelijk zijn van de bron wordt gedefinieerd. Geef alleen brontypen die worden toegestaan door het schema van de bovenliggende resource. Het volledig gekwalificeerde type van de onderliggende resource bevat het type van de bovenliggende resource, zoals **Microsoft.Web/sites/extensions**. Afhankelijkheid van de bovenliggende resource niet geïmpliceerd. U moet deze afhankelijkheid expliciet definiëren. |
+| resources |Nee |Onderliggende resources die afhankelijk zijn van de bron wordt gedefinieerd. Geef alleen brontypen die worden toegestaan door het schema van de bovenliggende resource. Het volledig gekwalificeerde type van de onderliggende resource bevat het type van de bovenliggende resource, zoals **Microsoft.Web/sites/extensions**. Afhankelijkheid van de bovenliggende resource niet geïmpliceerd. U moet deze afhankelijkheid expliciet definiëren. |
 
 ## <a name="resource-specific-values"></a>Resource-specifieke waarden
 
@@ -213,7 +213,7 @@ Als u hardcode voor de locatie in de sjabloon wilt, geef de naam van een van de 
 ```
 
 ## <a name="tags"></a>Tags
-[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
+[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
 ### <a name="add-tags-to-your-template"></a>Labels toevoegen aan de sjabloon
 
@@ -242,9 +242,9 @@ In sommige brontypen, kunt u ook een matrix van onderliggende resources definië
 
 Wanneer genest, het type is ingesteld op `databases` , maar het type volledige resource `Microsoft.Sql/servers/databases`. U geen specifieke `Microsoft.Sql/servers/` omdat ervan wordt uitgegaan van het type van de bovenliggende resource. De naam van de onderliggende resource is ingesteld op `exampledatabase` , maar de naam van de volledige naam van het bovenliggende bevat. U geen specifieke `exampleserver` omdat ervan wordt uitgegaan van de bovenliggende resource.
 
-De indeling van het onderliggende brontype is:`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+De indeling van het onderliggende brontype is: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
-De indeling van de naam van de onderliggende resource is:`{parent-resource-name}/{child-resource-name}`
+De indeling van de naam van de onderliggende resource is: `{parent-resource-name}/{child-resource-name}`
 
 Maar u hoeft niet te definiëren van de database binnen de server. U kunt de onderliggende resource op het hoogste niveau definiëren. U kunt deze benadering gebruiken als de bovenliggende resource niet is geïmplementeerd in dezelfde sjabloon of wilt gebruiken `copy` meerdere onderliggende resources te maken. Met deze methode moet u het volledige brontype bieden en de naam van de bovenliggende resource opnemen in de naam van de onderliggende resource.
 
@@ -273,7 +273,7 @@ Bij het maken van een volledig gekwalificeerde verwijzing naar een resource word
 
 Bijvoorbeeld:
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`juist `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is niet correct
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` juist `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is niet correct
 
 ## <a name="recommendations"></a>Aanbevelingen
 De volgende informatie kan nuttig zijn wanneer u met resources werkt:

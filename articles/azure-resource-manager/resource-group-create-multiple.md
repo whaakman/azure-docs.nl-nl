@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8dfb664c7041d70f3ece812edb76df38a35e41f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementeren van meerdere exemplaren van een resource of eigenschap in Azure Resource Manager-sjablonen
 In dit artikel leest u het implementeren van voorwaardelijk een resource, en hoe u in uw Azure Resource Manager-sjabloon maken van meerdere exemplaren van een resource.
@@ -72,7 +72,7 @@ De bron voor het maken van meerdere keren wordt gebruikt in de volgende indeling
 }
 ```
 
-U ziet dat de naam van elke resource bevat de `copyIndex()` functie de huidige herhaling in de lus retourneert. `copyIndex()`is gebaseerd op nul. Hiertoe het volgende voorbeeld:
+U ziet dat de naam van elke resource bevat de `copyIndex()` functie de huidige herhaling in de lus retourneert. `copyIndex()` is gebaseerd op nul. Hiertoe het volgende voorbeeld:
 
 ```json
 "name": "[concat('storage', copyIndex())]",
@@ -344,6 +344,8 @@ U opgeven dat een resource na een andere resource wordt geïmplementeerd met beh
     "outputs": {}
 }
 ```
+
+<a id="looping-on-a-nested-resource" />
 
 ## <a name="iteration-for-a-child-resource"></a>Herhaling voor een onderliggende resource
 U kunt een lus kopie niet gebruiken voor een onderliggende resource. Voor het maken van meerdere exemplaren van een resource die u normaal gesproken als genest in een andere resource definiëren, moet u in plaats daarvan die resource maken als een resource op het hoogste niveau. U definieert de relatie met de bovenliggende resource via de eigenschappen van het type en de naam.

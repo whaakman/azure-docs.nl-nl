@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: 15155ecaf17ae309a218bb1f51a4757e5338f64c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8a91960f150e9298515cd52fe192ec1abdd89f9c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen
 
@@ -75,7 +75,7 @@ Volg deze stappen op de lokale server waarop u Azure AD Connect uitvoert:
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Step 1. Lijst met AD-forests waarbij naadloze eenmalige aanmelding is ingeschakeld
 
 1. Eerst downloaden en installeren van de [Microsoft Online Services-aanmeldhulp](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Download en installeer vervolgens de [64-bits Azure Active Directory-module voor Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+2. Download en installeer vervolgens de [64-bits Azure Active Directory-module voor Windows PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 3. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importeer de naadloze eenmalige aanmelding PowerShell-module met de volgende opdracht: `Import-Module .\AzureADSSO.psd1`.
 5. Voer de PowerShell als beheerder. In PowerShell, roept `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-up van uw tenant hoofdbeheerder referenties invoeren.

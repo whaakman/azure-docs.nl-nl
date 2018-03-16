@@ -3,7 +3,7 @@ title: De Twilio-Connector in Azure Logic apps toevoegen | Microsoft Docs
 description: Overzicht van de Twilio Connector met parameters van de REST-API
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/19/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 50361a3342a0d14ae02b2cb478bbb0f74b61bba0
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 2bb7961c850fc8a35f3e114d9497941b188cf51b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Aan de slag met de Twilio-connector
 Verbinding maken met Twilio globale SMS, MMS en IP-berichten te verzenden en ontvangen. Met Twilio, kunt u het volgende doen:

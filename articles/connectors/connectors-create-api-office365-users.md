@@ -3,7 +3,7 @@ title: De connector voor Office 365-gebruikers toevoegen in Logic Apps | Microso
 description: Overzicht van de connector voor Office 365-gebruikers met de parameters van de REST-API
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 2e7827e32a03b6f6af46f5bc65f0ed74f3065f86
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 3d281bcb8e1d0ba4d1eb0b636bdd618340399898
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Aan de slag met de connector voor Office 365-gebruikers
 Verbinding maken met Office 365-gebruikers om op te halen van profielen en gebruikers van de zoekfunctie. Met Office 365-gebruikers, kunt u het volgende doen:
@@ -36,7 +36,7 @@ Wanneer u deze connector aan uw logische apps toevoegen, moet u aanmelden bij uw
 > 
 > 
 
-Nadat u de verbinding hebt gemaakt, voert u de eigenschappen van de Office 365-gebruikers, zoals de gebruikers-ID. De **naslaginformatie over REST API** in dit onderwerp beschrijft deze eigenschappen.
+Nadat u de verbinding hebt gemaakt, voert u de eigenschappen van de Office 365-gebruikers, zoals de gebruikers-ID. De **naslaginformatie over REST API** in dit artikel beschrijft deze eigenschappen.
 
 ## <a name="connector-specific-details"></a>Connector-specifieke details
 

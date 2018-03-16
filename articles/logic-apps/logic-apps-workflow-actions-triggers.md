@@ -2,7 +2,7 @@
 title: Werkstroom triggers en acties - Azure Logic Apps | Microsoft Docs
 description: Meer informatie over de triggers en acties voor het maken van geautomatiseerde werkstromen en processen met logic apps
 services: logic-apps
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
 editor: 
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: af30fd30f389cdc2070c45ae3b6e2cb1165239e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Triggers en acties voor logic app-werkstromen
 
@@ -192,7 +192,7 @@ Deze trigger een opgegeven eindpunt worden opgevraagd en controleert het antwoor
 
 | Elementnaam | Vereist | Type | Beschrijving | 
 | ------------ | -------- | ---- | ----------- | 
-| Methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
+| methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
 | uri | Ja| Tekenreeks | De HTTP of HTTPs-eindpunt dat de trigger wordt gecontroleerd. Maximale grootte van tekenreeks: 2 KB | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
 | headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
@@ -268,7 +268,7 @@ In basisfunctionaliteit werkt deze trigger als de HTTP-trigger. De parameters vo
 | Elementnaam | Vereist | Type | Beschrijving | 
 | ------------ | -------- | ---- | ----------- | 
 | host | Ja | Object | De gehoste-gateway en de ID voor de API-App | 
-| Methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
+| methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
 | headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
@@ -546,7 +546,7 @@ Hier de `inputs` object nodig deze parameters die zijn vereist voor het maken va
 
 | Elementnaam | Vereist | Type | Beschrijving | 
 | ------------ | -------- | ---- | ----------- | 
-| Methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
+| methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
 | uri | Ja| Tekenreeks | De HTTP of HTTPs-eindpunt dat de trigger wordt gecontroleerd. Maximale grootte van tekenreeks: 2 KB | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
 | headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
@@ -650,7 +650,7 @@ Deze actie verwijst naar een connector voor Microsoft beheerde, vereisen een ver
 | Elementnaam | Vereist | Type | Beschrijving | 
 | ------------ | -------- | ---- | ----------- | 
 | host | Ja | Object | Hiermee geeft u de connector-informatie, zoals de `runtimeUrl` en verwijzing naar het object connection. | 
-| Methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
+| methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
 | pad | Ja | Tekenreeks | Het pad voor de API-bewerking | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
 | headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
@@ -793,7 +793,7 @@ Deze actie kunt u vertegenwoordigen en aanroep een [Azure functie](../azure-func
 | Elementnaam | Vereist | Type | Beschrijving | 
 | ------------ | -------- | ---- | ----------- |  
 | functie-id | Ja | Tekenreeks | De resource-ID voor de Azure-functie die u wilt aanroepen. | 
-| Methode | Nee | Tekenreeks | De HTTP-methode die wordt gebruikt voor het aanroepen van de functie. Als niet wordt opgegeven, is "POST" de standaardmethode. | 
+| methode | Nee | Tekenreeks | De HTTP-methode die wordt gebruikt voor het aanroepen van de functie. Als niet wordt opgegeven, is "POST" de standaardmethode. | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
 | headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
@@ -825,8 +825,8 @@ Deze actie kunt u elk element van een matrix project in een nieuwe waarde. In di
 
 | Naam | Vereist | Type | Beschrijving | 
 | ---- | -------- | ---- | ----------- | 
-| van | Ja | Matrix | De bronmatrix |
-| selecteer | Ja | Alle | De projectie toegepast op elk element in de bronmatrix |
+| uit | Ja | Matrix | De bronmatrix |
+| selecteren | Ja | Alle | De projectie toegepast op elk element in de bronmatrix |
 ||||| 
 
 De uitvoer van de `select` actie is een matrix met de dezelfde kardinaliteit als de invoermatrix. Elk element wordt omgezet, zoals gedefinieerd door de `select` eigenschap. Als de invoer een lege matrix is, wordt de uitvoer is ook een lege matrix.
@@ -879,7 +879,7 @@ Als u bijvoorbeeld getallen die groter is dan twee selecteren:
 
 | Naam | Vereist | Type | Beschrijving | 
 | ---- | -------- | ---- | ----------- | 
-| van | Ja | Matrix | De bronmatrix |
+| uit | Ja | Matrix | De bronmatrix |
 | waar | Ja | Tekenreeks | De voorwaarde die wordt toegepast op elk element van de bronmatrix. Als geen waarden voldoen aan de `where` voorwaarde, het resultaat is een lege matrix. |
 ||||| 
 
@@ -901,7 +901,7 @@ Deze actie kunt u een matrix converteren naar een CSV of HTML-tabel.
 
 | Naam | Vereist | Type | Beschrijving | 
 | ---- | -------- | ---- | ----------- | 
-| van | Ja | Matrix | De bronmatrix. Als de `from` waarde van de eigenschap is een lege matrix, de uitvoer is een lege tabel. | 
+| uit | Ja | Matrix | De bronmatrix. Als de `from` waarde van de eigenschap is een lege matrix, de uitvoer is een lege tabel. | 
 | Indeling | Ja | Tekenreeks | De tabelindeling die u wilt, 'CSV' of 'HTML' | 
 | Kolommen | Nee | Matrix | De tabelkolommen die u wilt. Met de vorm van de tabel standaard wordt genegeerd. | 
 | kolomkop | Nee | Tekenreeks | De kolomkop | 
@@ -990,7 +990,7 @@ Als u wilt wachten tot een bepaald moment, kunt u ook in dit voorbeeld gebruiken
 
 | Elementnaam | Vereist | Type | Beschrijving | 
 | ------------ | -------- | ---- | ----------- | 
-| pas | Nee | Object | De duur van de wachttijd op basis van een punt in tijd | 
+| tot | Nee | Object | De duur van de wachttijd op basis van een punt in tijd | 
 | Pas de timestamp | Ja | Tekenreeks | Punt in tijd in [UTC-datum-tijdnotatie](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) wanneer de wachttijd is verlopen | 
 | interval | Nee | Object | De duur van de wachttijd op basis van de intervaleenheid en het aantal | 
 | intervaleenheid | Ja | Tekenreeks | Tijdseenheid. Gebruik slechts één van deze waarden: 'tweede', 'minuut', 'uur', 'day', 'week' of 'maand' | 

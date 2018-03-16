@@ -2,24 +2,19 @@
 title: Databasegebruik controleren met Intelligent Insights - Azure SQL Database | Microsoft Docs
 description: Azure SQL Database Intelligent inzicht maakt gebruik van ingebouwde intelligentie continu Databasegebruik via kunstmatige intelligence bewaken en verstoren gebeurtenissen die leiden slechte prestaties tot detecteren.
 services: sql-database
-documentationcenter: 
 author: danimir
-manager: drasumic
-editor: carlrab
-ms.assetid: 
+manager: craigg
+ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 823855d88396a14ff7e5428a12d71384cdfe95a1
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8654c35bb9c6e46a47f52dee6ab7969f996b42f4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
@@ -59,7 +54,7 @@ Geïdentificeerd SQL-Database prestaties degradations worden vastgelegd in het l
 | Waarde van de impact | Waarde van een metriek gemeten. |
 | Betrokken query's en foutcodes | Query-hash of foutcode. Deze kunnen worden gebruikt voor het eenvoudig correleert met de betreffende query's. Metrische gegevens die bestaan uit verhoging van de duur van de query, wachttijd, time-out aantallen of foutcodes zijn beschikbaar. |
 | Detecties | De detectie is tijdens de tijd van een gebeurtenis op de database wordt geïdentificeerd. Er zijn 15 detectie patronen. Zie voor meer informatie [oplossen van prestatieproblemen met de database met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md). |
-| Hoofdmap hoofdoorzaken analyseren | Hoofdoorzaak analyse van het probleem dat is aangetroffen in een leesbare indeling. Sommige insights bevatten mogelijk een prestaties verbetering aanbeveling waar mogelijk. |
+| Hoofdoorzaakanalyses | Hoofdoorzaak analyse van het probleem dat is aangetroffen in een leesbare indeling. Sommige insights bevatten mogelijk een prestaties verbetering aanbeveling waar mogelijk. |
 |||
 
 Prestatieproblemen die zijn vastgelegd in het logboek voor diagnostische gegevens zijn gemarkeerd met een van de drie statussen van de levenscyclus van een probleem: 'Active', 'Controleren' en 'Voltooid'. Na een prestaties probleem wordt gedetecteerd en als lang deze heeft vastgesteld dat als aanwezig ingebouwde intelligentie SQL-Database, het probleem is gemarkeerd als 'Actief'. Als het probleem wordt beschouwd als verholpen, wordt gecontroleerd en wordt de status van het probleem wordt gewijzigd in 'Controleren'. Nadat de SQL-Database ingebouwde intelligentie beschouwt het probleem is opgelost, wordt de status van probleem gemarkeerd als 'Voltooid'.

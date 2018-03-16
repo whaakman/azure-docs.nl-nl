@@ -3,24 +3,18 @@ title: Databaseprestaties bewaken in Azure SQL Database | Microsoft Docs
 description: Lees meer over de opties voor het bewaken van uw database met Azure-hulpprogramma's en dynamische beheerweergave.
 keywords: database bewaken, prestaties van clouddatabase
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: f6b370db3363180017c6561d7bd3a6d6b40d03ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ba2239b1a4cd14f7723e88ee83f7ad93da717e0a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Databaseprestaties bewaken in Azure SQL Database
 Het bewaken van de prestaties van een SQL-database in Azure begint met het bewaken van het resourcegebruik ten opzichte van het gekozen niveau van databaseprestaties. Bewaking helpt u om te bepalen of de database te veel capaciteit heeft of juist problemen heeft omdat resources volledig worden benut. Vervolgens kunt u beslissen of u het prestatieniveau en de [servicelaag](sql-database-service-tiers.md) van uw database moet aanpassen. U kunt een database bewaken met grafische hulpprogramma's in de [Azure-portal](https://portal.azure.com) of met [dynamische beheerweergaven](https://msdn.microsoft.com/library/ms188754.aspx) van SQL.

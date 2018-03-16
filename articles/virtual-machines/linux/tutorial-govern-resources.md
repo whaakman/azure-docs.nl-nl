@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 86ac3ec390c7aa9bc24a90ef2ee582f97f8b5407
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ac6f7b0d32479e9e7e9945f83dc63a5847cba6a4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Beheer van de virtuele machine met Azure CLI
 
-[!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -29,7 +29,7 @@ Als u wilt installeren en gebruiken van de CLI lokaal, Zie [2.0 voor Azure CLI i
 
 ## <a name="understand-scope"></a>Bereik begrijpen
 
-[!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
 In deze zelfstudie maakt u alle management instellingen toepassen op een resourcegroep zodat u deze instellingen wanneer u klaar bent eenvoudig kunt verwijderen.
 
@@ -71,7 +71,7 @@ Normaal gesproken u het proces voor herhalen *Network Contributor* en *Storage A
 
 ## <a name="azure-policies"></a>Azure-beleid
 
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>Beleid toepassen
 
@@ -179,7 +179,7 @@ Er is een fout die aangeeft dat de delete-bewerking kan niet worden uitgevoerd v
 
 U hebt toegepast [labels](../../azure-resource-manager/resource-group-using-tags.md) voor uw Azure-resources aan een logische manier te organiseren in categorieën. Elke tag bestaat uit een naam en een waarde. U kunt de naam Omgeving en de waarde Productie bijvoorbeeld toepassen op alle resources in de productie.
 
-[!include[Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
+[!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
 Gebruiken om tags toepassen op een virtuele machine, de [az resource tag](/cli/azure/resource#az_resource_tag) opdracht. Eventuele bestaande labels op de bron blijven niet behouden.
 
@@ -206,7 +206,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ### <a name="view-costs-by-tag-values"></a>Kosten weergeven door labelwaarden
 
-[!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
+[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

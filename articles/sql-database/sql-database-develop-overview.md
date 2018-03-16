@@ -2,24 +2,19 @@
 title: Overzicht van de ontwikkeling van toepassingen voor SQL Database | Microsoft Docs
 description: Kom meer te weten over beschikbare verbindingsbibliotheken en aanbevolen procedures voor toepassingen die verbinding maken met SQL Database.
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: genemi
-ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
+manager: craigg
+ms.reviewer: genemi
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: 5948db9a52dc24d75f3fecc4ed166dd327061b37
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: ec3569d37d399590b0c306a85f199221e7812253
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-application-development-overview"></a>SQL-Database ontwikkelen-overzicht
 In dit artikel leest u meer over de algemene zaken waar ontwikkelaars van op de hoogte moeten zijn voor het schrijven van code om verbinding te maken met Azure SQL Database.
@@ -46,7 +41,7 @@ Azure SQL Database biedt resources voor het beperken van toegang, het beveiligen
 
 * Meer informatie: [SQL Database beveiligen](sql-database-security-overview.md).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 * Azure SQL Database biedt ondersteuning voor zowel SQL Server-verificatiegebruikers en -aanmeldingen als [Azure Active Directory](sql-database-aad-authentication.md)-verificatiegebruikers en -aanmeldingen.
 * U moet een bepaalde database opgeven in plaats van standaard de *hoofd*database te gebruiken.
 * U kunt geen gebruikmaken van de Transact-SQL-instructie **USE myDatabaseName;** om SQL Database om over te schakelen naar een andere database.

@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: raynew
-ms.openlocfilehash: 413234204175b9361cd2a837e0b318bf5220f58f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c4fb466443e2f29fb79c3707ce142895f140f9a7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrix-ondersteuning voor VMware en fysieke server-replicatie naar Azure
 
@@ -22,15 +22,15 @@ In dit artikel bevat een overzicht van ondersteunde onderdelen en -instellingen 
 
 **Scenario** | **Details**
 --- | ---
-**Virtuele VMware-machines** | U kunt herstel na noodgevallen in Azure uitvoeren voor de lokale virtuele VMware-machines. U kunt dit scenario in de Azure portal of met behulp van PowerShell implementeren.
-**Fysieke servers** | U kunt het herstel na noodgevallen in Azure uitvoeren voor fysieke on-premises Windows of Linux-servers. U kunt dit scenario in de Azure portal kunt implementeren.
+Virtuele VMware-machines | U kunt herstel na noodgevallen in Azure uitvoeren voor de lokale virtuele VMware-machines. U kunt dit scenario in de Azure portal of met behulp van PowerShell implementeren.
+Fysieke servers | U kunt het herstel na noodgevallen in Azure uitvoeren voor fysieke on-premises Windows of Linux-servers. U kunt dit scenario in de Azure portal kunt implementeren.
 
-## <a name="on-premises-virtualizationhost-servers"></a>Lokale virtualisatie/host-servers
+## <a name="on-premises-virtualization-servers"></a>Lokale virtualisatieservers
 
 **Server** | **Vereisten** | **Details**
 --- | --- | ---
-**VMware** | vCenter Server 6.5 6.0, of 5.5 of vSphere 6.5, 6.0 of 5.5 | Het is raadzaam dat u een vCenter-server.
-**Fysieke servers** | N/A
+VMware | vCenter Server 6.5 6.0, of 5.5 of vSphere 6.5, 6.0 of 5.5 | Het is raadzaam dat u een vCenter-server.
+Fysiek | N/A
 
 
 ## <a name="replicated-machines"></a>Gerepliceerde machines
@@ -39,7 +39,7 @@ De volgende tabel geeft een overzicht van de replicatie-ondersteuning voor virtu
 
 **Onderdeel** | **Details**
 --- | ---
-Instellingen van de computer | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#failed-over-azure-vm-requirements).
+Instellingen van de computer | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#azure-vm-requirements).
 Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladbelevenis), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. Windows 2016 Nano Server wordt niet ondersteund.
 Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 tot 7,4 <br/><br/>CentOS: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>Ubuntu 14.04 TNS server[ (kernel-versies ondersteund)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 TNS server[ (kernel-versies ondersteund)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7/Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 met Red Hat compatibel kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>SP3 gerepliceerde machines bijwerken naar SP4 wordt niet ondersteund. Als u wilt upgraden, Schakel replicatie uit en opnieuw na de upgrade.
 
@@ -68,15 +68,15 @@ Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9,
 
 **Onderdeel** | **Ondersteund**
 --- | ---
-Bestandssystemen | ext3, ext4, ReiserFS (alleen voor Suse Linux Enterprise Server), XFS
-Volumebeheer | LVM2
-Multipath-software | Apparaat toewijzen
+Bestandssystemen | ext3, ext4, ReiserFS (alleen voor Suse Linux Enterprise Server), XFS.
+Volumebeheer | LVM2.
+Multipath-software | Apparaat toewijzen.
 Opslagapparaten Paravirtualized | Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
 Meerdere wachtrij blok i/o-apparaten | Wordt niet ondersteund.
 Fysieke servers met de opslagcontroller HP CCISS | Wordt niet ondersteund.
-Mappen | Deze mappen (indien ingesteld als afzonderlijke partities /-bestandssystemen) moet worden op dezelfde schijf als besturingssysteem op de bronserver: / (root), / Boot, /usr, /usr/local, /var, etc.</br></br> / Boot moet zich bevinden in de schijfpartitie van een en niet een volume LVM<br/><br/>
+Mappen | Deze mappen (indien ingesteld als afzonderlijke partities /-bestandssystemen) alle moeten op dezelfde schijf als besturingssysteem op de bronserver: / (root), / Boot, /usr, /usr/local, /var, etc.</br></br> / Boot moet zich bevinden in de schijfpartitie van een en niet een LVM-volume.<br/><br/>
 Vrije schijfruimte| 2 GB op de partitie/Root <br/><br/> 250 MB op de map voor installatie
-XFSv5 | XFSv5 functies op XFS bestandssystemen, zoals metagegevens controlesom, worden ondersteund door de versie Mobility-service 9.10 en hoger. Gebruik het hulpprogramma xfs_info om te controleren van de superblock XFS voor de partitie. Als ftype is ingesteld op 1, klikt u vervolgens zijn XFSv5 functies in gebruik.
+XFSv5 | XFSv5 functies op XFS bestandssystemen, zoals metagegevens controlesom, worden ondersteund door de Mobility-Service versie 9.10 bewerken. Gebruik het hulpprogramma xfs_info om te controleren van de superblock XFS voor de partitie. Als ftype is ingesteld op 1, klikt u vervolgens zijn XFSv5 functies in gebruik.
 
 
 
@@ -84,16 +84,16 @@ XFSv5 | XFSv5 functies op XFS bestandssystemen, zoals metagegevens controlesom, 
 
 **Onderdeel** | **Ondersteund**
 --- | ---
-Host netwerk NIC-koppeling | Ondersteund voor VMware-machines. <br/><br/>Niet ondersteund voor replicatie van fysieke machine.
-Netwerk van de host VLAN | Ja
-IPv4-netwerk van de host | Ja
-IPv6-netwerk van de host | Nee
-Gastbesturingssysteem of de server netwerk NIC-koppeling | Nee
-Gast/server-netwerk IPv4 | Ja
-Gast/server-netwerk IPv6 | Nee
-Gast/server-netwerk statische IP (Windows) | Ja
-Gast/server-netwerk statische IP (Linux) | Ja <br/><br/>Virtuele machines zijn geconfigureerd voor het gebruik van DHCP voor failback.  
-Gast/server-netwerk meerdere NIC 's | Ja
+Host-netwerk NIC-koppeling | Ondersteund voor VMware-machines. <br/><br/>Niet ondersteund voor replicatie van fysieke machine.
+Netwerk van de host VLAN | Ja.
+IPv4-netwerk van de host | Ja.
+IPv6-netwerk van de host | Nee.
+Gast/server-netwerk NIC-koppeling | Nee.
+Gast/server-netwerk IPv4 | Ja.
+Gast/server-netwerk IPv6 | Nee.
+Gast/server-netwerk statische IP (Windows) | Ja.
+Gast/server-netwerk statische IP (Linux) | Ja. <br/><br/>Virtuele machines zijn geconfigureerd voor het gebruik van DHCP voor failback.
+Gast/server-netwerk meerdere NIC 's | Ja.
 
 
 ## <a name="azure-vm-network-after-failover"></a>Azure VM-netwerk (na een failover)
@@ -113,24 +113,24 @@ Azure Virtual Network service-eindpunten<br/><br/> (Azure Storage firewalls en v
 ## <a name="storage"></a>Storage
 **Onderdeel** | **Ondersteund**
 --- | ---
-Host NFS | Ja voor VMware<br/><br/> Er is geen voor fysieke servers.
+Host NFS | Ja voor VMware<br/><br/> Er is geen voor fysieke servers
 Host-SAN (ISCSI) | Ja
-Host Multipath (MPIO) | Ja, getest met Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM voor CLARiiON
+Host MPIO (Multipath I/O) | Ja, getest met Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM voor CLARiiON
 VMDK gast of de server | Ja
-Gastbesturingssysteem of de server EFI/UEFI| Gedeeltelijk (migratie naar Azure voor Windows Server 2012 en hoger virtuele VMware-machines alleen) </br></br> Zie de opmerking aan het einde van de tabel.
+Gastbesturingssysteem of de server EFI/UEFI| Gedeeltelijk (migratie naar Azure voor Windows Server 2012 en hoger virtuele VMware-machines alleen) </br></br> Zie de opmerking aan het einde van de tabel
 De gedeelde clusterschijf gast of de server | Nee
 Versleutelde schijf gast of de server | Nee
 NFS gast of de server | Nee
 SMB 3.0 Gast of de server | Nee
 RDM gast of de server | Ja<br/><br/> Niet van toepassing op fysieke servers
 Gastbesturingssysteem of de server schijf > 1 TB | Ja<br/><br/>4095 GB
-Gastbesturingssysteem of de server met een fysieke sectorgrootte van 4K logische en 4 k-schijf | Ja <
+Gastbesturingssysteem of de server met een fysieke sectorgrootte van 4K logische en 4 k-schijf | Ja
 De schijf gast of de server met 4K logische en fysieke sectorgrootte van 512 bytes | Ja
-Volume van de gast of de server met striped schijf > 4 TB <br><br/>LVM logische volumebeheer | Ja
+Volume van de gast of de server met striped schijf > 4 TB <br><br/>Logische volumebeheer (LVM)| Ja
 Gast/server - opslagruimten | Nee
 Gast/serverschijf hot toevoegen of verwijderen | Nee
 Gast/server - schijf uitsluiten | Ja
-Gastbesturingssysteem of de server met meerdere paden (MPIO) | N/A
+Gastbesturingssysteem of de server MPIO (Multipath I/O) | N/A
 
 > [!NOTE]
 > UEFI opstart VMware virtuele machines met Windows Server 2012 of later kunnen worden gemigreerd naar Azure. Er gelden de volgende beperkingen:
@@ -144,13 +144,13 @@ Gastbesturingssysteem of de server met meerdere paden (MPIO) | N/A
 
 **Onderdeel** | **Ondersteund**
 --- | ---
-LRS | Ja
-GRS | Ja
-RA-GRS | Ja
+Lokaal redundante opslag | Ja
+Geografisch redundante opslag | Ja
+Geografisch redundante opslag met leestoegang | Ja
 Cool storage | Nee
 Hot storage| Nee
 Blok-blobs | Nee
-Codering in rust (SSE)| Ja
+Codering in rust (Service-versleuteling van opslag)| Ja
 Premium Storage | Ja
 Service voor importeren/exporteren | Nee
 Virtueel netwerk service-eindpunten<br/><br/> Firewalls voor opslag en virtuele netwerken die zijn geconfigureerd op de doel-storage-account voor opslag/cache (gebruikt voor het opslaan van gegevens van replicatie) | Nee
@@ -161,7 +161,7 @@ V2 opslagaccounts voor algemeen gebruik (hot en cool lagen) | Nee
 **Functie** | **Ondersteund**
 --- | ---
 Beschikbaarheidssets | Ja
-HUB | Ja   
+HUB | Ja
 Managed Disks | Ja
 
 ## <a name="azure-vm-requirements"></a>Azure VM-vereisten
@@ -170,20 +170,18 @@ Lokale virtuele machines die u naar Azure repliceert moeten voldoen aan de virtu
 
 **Onderdeel** | **Vereisten** | **Details**
 --- | --- | ---
-**Gastbesturingssysteem** | Controleer of [ondersteunde besturingssystemen](#replicated machines). | Controle mislukt als een niet-ondersteund. 
-**Architectuur van de Gast-besturingssysteem** | 64-bits | Controle mislukt als een niet-ondersteund. 
-**Grootte van de besturingssysteemschijf** | Maximaal 2048 GB | Controle mislukt als een niet-ondersteund. 
-**Aantal besturingssysteemschijven** | 1 | Controle mislukt als een niet-ondersteund.  
-**Aantal gegevensschijven** | 64 of minder | Controle mislukt als een niet-ondersteund.  
-**Grootte van VHD-gegevensschijf** | 4095 GB | Controle mislukt als een niet-ondersteund. 
-**Netwerkadapters** | Meerdere netwerkadapters worden ondersteund. | 
-**Gedeelde VHD** | Wordt niet ondersteund. | Controle mislukt als een niet-ondersteund. 
-**FC-schijf** | Wordt niet ondersteund. | Controle mislukt als een niet-ondersteund. 
-**Harde-schijfindeling** | VHD <br/><br/> VHDX | VHDX wordt momenteel niet ondersteund in Azure, maar de Site Recovery automatisch omgezet VHDX VHD na een failover. Wanneer u een failover naar on-premises, blijven de virtuele machines gebruiken van de VHDX-indeling.
-**BitLocker** | Niet ondersteund | BitLocker moet worden uitgeschakeld voordat u replicatie voor een machine inschakelt. | 
-**VM-naam** | Van 1 tot 63 tekens bevatten<br/><br/> Alleen letters, cijfers en afbreekstreepjes.<br/><br/> Naam van de machine moet beginnen en eindigen met een letter of cijfer. |  Werk de waarde in de eigenschappen van de machine in Site Recovery.
-**VM-type** | Generatie 1, generatie 2 (alleen Windows) |  Virtuele machines van generatie 2 moeten beschikken over een OS standaardschijf (inclusief of twee gegevensvolumes opgemaakt als VHDX) en minder dan 300 GB aan schijfruimte 
-Virtuele machines Linux generatie 2 worden niet ondersteund. 
+Gastbesturingssysteem | Controleer of [ondersteunde besturingssystemen](#replicated machines). | Controle mislukt als een niet-ondersteund. 
+Architectuur van de Gast-besturingssysteem | 64-bits. | Controle mislukt als een niet-ondersteund. 
+Grootte van de besturingssysteemschijf | Maximaal 2048 GB. | Controle mislukt als een niet-ondersteund. 
+Het aantal schijven voor besturingssysteem | 1 | Controle mislukt als een niet-ondersteund.  
+Aantal gegevensschijven | 64 of minder. | Controle mislukt als een niet-ondersteund.  
+De grootte van VHD gegevensschijf | 4095 GB | Controle mislukt als een niet-ondersteund. 
+Netwerkadapters | Meerdere netwerkadapters worden ondersteund. | 
+Gedeelde VHD | Wordt niet ondersteund. | Controle mislukt als een niet-ondersteund. 
+FC-schijf | Wordt niet ondersteund. | Controle mislukt als een niet-ondersteund. 
+BitLocker | Wordt niet ondersteund. | BitLocker moet worden uitgeschakeld voordat u replicatie voor een machine inschakelt. | 
+VM-naam | Van 1 tot 63 tekens.<br/><br/> Alleen letters, cijfers en afbreekstreepjes.<br/><br/> Naam van de machine moet beginnen en eindigen met een letter of cijfer. |  Werk de waarde in de eigenschappen van de machine in Site Recovery.
+
 
 ## <a name="vault-tasks"></a>Taken van de kluis
 
@@ -197,8 +195,8 @@ Verplaats de opslag, netwerk, Azure VM's via resourcegroepen<br/><br/> Binnen en
 
 **Naam** | **Beschrijving** | **meest recente versie** | **Details**
 --- | --- | --- | --- | ---
-**Azure Site Recovery Unified Setup** | Coördineert de communicatie tussen de on-premises VMware-servers en Azure <br/><br/> Geïnstalleerd op de on-premises VMware-servers | 9.12.4653.1 (beschikbaar via de portal) | [Meest recente functies en oplossingen](https://aka.ms/latest_asr_updates)
-**Mobility Service** | Coördineert de replicatie tussen de on-premises VMware servers of fysieke servers en Azure/secundaire site<br/><br/> Geïnstalleerd op de VMware-VM of fysieke servers die u wilt repliceren | 9.12.4653.1 (beschikbaar via de portal) | [Meest recente functies en oplossingen](https://aka.ms/latest_asr_updates)
+Azure Site Recovery Unified Setup | Coördineert de communicatie tussen de on-premises VMware-servers en Azure <br/><br/> Geïnstalleerd op de on-premises VMware-servers | 9.12.4653.1 (beschikbaar via de portal) | [Meest recente functies en oplossingen](https://aka.ms/latest_asr_updates)
+Mobility Service | Coördineert de replicatie tussen de on-premises VMware servers of fysieke servers en Azure/secundaire site<br/><br/> Geïnstalleerd op de VMware-VM of fysieke servers die u wilt repliceren | 9.12.4653.1 (beschikbaar via de portal) | [Meest recente functies en oplossingen](https://aka.ms/latest_asr_updates)
 
 
 ## <a name="next-steps"></a>Volgende stappen

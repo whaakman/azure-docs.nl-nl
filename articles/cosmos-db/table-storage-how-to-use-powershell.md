@@ -12,21 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 03/14/2018
 ms.author: robinsh
-ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c09809e9cf513dbb9420f675bbf431c176f740bd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure Table storage bewerkingen uitvoeren met Azure PowerShell 
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
->[!NOTE]
->Premium-functies biedt Azure Cosmos DB tabel API voor tabelopslag zoals klare globale distribueren, lage latentie leesbewerkingen en schrijfbewerkingen, automatische secundaire indexeren en de speciale doorvoer. In de meeste gevallen zijn de PowerShell-opdrachten in dit artikel werk voor zowel Azure Cosmos DB tabel API en Azure Table storage, maar in dit artikel is specifiek voor Azure Table storage. Als u Azure Cosmos DB tabel API gebruikt, raadpleegt u [Azure Cosmos DB tabel API-bewerkingen met Azure PowerShell](table-powershell.md).
->
-
-Azure Table storage is een NoSQL-gegevensarchief die u kunt opslaan en grote sets gestructureerde, niet-relationele gegevens opvragen. De belangrijkste onderdelen van de service zijn tabellen, entiteiten en eigenschappen. Een tabel is een verzameling entiteiten. Een entiteit is een set eigenschappen. Elke entiteit kan maximaal 252 eigenschappen die alle naam / waarde-paren hebben. In dit artikel wordt ervan uitgegaan dat u al bekend met de concepten met Azure Table Storage-Service bent. Zie voor gedetailleerde informatie [inzicht in de tabel Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) en [aan de slag met Azure Table storage met .NET](table-storage-how-to-use-dotnet.md).
+Azure Table storage is een NoSQL-gegevensarchief die u gebruiken kunt voor het opslaan en grote sets gestructureerde, niet-relationele gegevens opvragen. De belangrijkste onderdelen van de service zijn tabellen, entiteiten en eigenschappen. Een tabel is een verzameling entiteiten. Een entiteit is een set eigenschappen. Elke entiteit kan maximaal 252 eigenschappen die alle naam / waarde-paren hebben. In dit artikel wordt ervan uitgegaan dat u al bekend met de concepten met Azure Table Storage-Service bent. Zie voor gedetailleerde informatie [inzicht in de tabel Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) en [aan de slag met Azure Table storage met .NET](table-storage-how-to-use-dotnet.md).
 
 Dit artikel bevat informatie over algemene bewerkingen voor Azure Table-opslag. Procedures voor: 
 
@@ -38,7 +35,7 @@ Dit artikel bevat informatie over algemene bewerkingen voor Azure Table-opslag. 
 > * Tabelentiteiten verwijderen
 > * Een tabel verwijderen
 
-Dit artikel leest u hoe een nieuw opslagaccount maken in een nieuwe resourcegroep, zodat u het eenvoudig verwijderen kunt wanneer u klaar bent. Als u liever een bestaand opslagaccount, kunt u dat in plaats daarvan doen.
+Dit artikel laat zien hoe een nieuw Azure Storage-account in een nieuwe resourcegroep maken zodat u het eenvoudig verwijderen kunt wanneer u klaar bent. Als u liever een bestaand opslagaccount, kunt u dat in plaats daarvan doen.
 
 De voorbeelden moet Azure PowerShell-moduleversie 4.4.0 of hoger. Voer in een PowerShell-venster `Get-Module -ListAvailable AzureRM` de versie te vinden. Als niets wordt weergegeven of dat u wilt bijwerken, Zie [Installeer Azure PowerShell-module](/powershell/azure/install-azurerm-ps). 
 
@@ -105,7 +102,7 @@ New-AzureStorageTable –Name $tableName –Context $ctx
 Ophalen van een lijst met tabellen in het storage-account met [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Context $ctx | select Name
+Get-AzureStorageTable –Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>Een verwijzing naar een specifieke tabel ophalen

@@ -13,29 +13,30 @@ ms.devlang: azurecli
 ms.topic: 
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: df56f2e3e13f80e7ce2c2b6c9cffeac3d03776e5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bbf2e757e2d9ad76c59394ba0138a61fd4029d15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Virtuele netwerken te verbinden met het virtuele netwerk peering met de Azure CLI
 
-U kunt virtuele netwerken met elkaar verbinden met het virtuele netwerk peering. Als u virtuele netwerken brengen, zijn resources in beide virtuele netwerken met elkaar communiceren met de dezelfde latentie en bandbreedte, alsof de bronnen zich in hetzelfde virtuele netwerk. In dit artikel bevat informatie over het maken en peering van twee virtuele netwerken. Procedures voor:
+U kunt virtuele netwerken met elkaar verbinden met het virtuele netwerk peering. Als u virtuele netwerken brengen, zijn resources in beide virtuele netwerken met elkaar communiceren met de dezelfde latentie en bandbreedte, alsof de bronnen zich in hetzelfde virtuele netwerk. In dit artikel leert u hoe:
 
 > [!div class="checklist"]
 > * Twee virtuele netwerken maken
-> * Een peering tussen virtuele netwerken maken
-> * Test-peering
+> * Twee virtuele netwerken te verbinden met een virtueel netwerk peering
+> * Een virtuele machine (VM) in elk virtueel netwerk implementeren
+> * Communicatie tussen virtuele machines
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). 
+Als u wilt installeren en gebruiken van de CLI lokaal, is deze snelstartgids vereist dat u de Azure CLI versie 2.0.28 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). 
 
 ## <a name="create-virtual-networks"></a>Virtuele netwerken maken
 
@@ -56,7 +57,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-Maak een virtueel netwerk met de naam *myVirtualNetwork2* met het adresvoorvoegsel *10.1.0.0/16*. Het adresvoorvoegsel niet overlapt met het adresvoorvoegsel van de *myVirtualNetwork1* virtueel netwerk. U kunt geen virtuele netwerken met overlappende adresvoorvoegsels peer.
+Maak een virtueel netwerk met de naam *myVirtualNetwork2* met het adresvoorvoegsel *10.1.0.0/16*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -120,17 +121,13 @@ az network vnet peering show \
 
 Resources in een virtueel netwerk kan niet communiceren met resources in het virtuele netwerk tot de **peeringState** voor de peerings in beide virtuele netwerken is *verbonden*. 
 
-Peerings tussen twee virtuele netwerken zijn, maar niet transitief zijn. Ja, bijvoorbeeld, als u wilt ook peer *myVirtualNetwork2* naar *myVirtualNetwork3*, moet u een extra peering tussen virtuele netwerken maken *myVirtualNetwork2* en *myVirtualNetwork3*. Hoewel *myVirtualNetwork1* is gekoppeld *myVirtualNetwork2*, resources binnen *myVirtualNetwork1* kan alleen toegang tot bronnen in  *myVirtualNetwork3* als *myVirtualNetwork1* is ook gekoppeld *myVirtualNetwork3*. 
+## <a name="create-virtual-machines"></a>Virtuele machines maken
 
-Voordat de peering productie virtuele netwerken, het raadzaam dat u zorgvuldig vertrouwd raken met de [peering overzicht](virtual-network-peering-overview.md), [beheren peering](virtual-network-manage-peering.md), en [limieten voor virtueel netwerk ](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Hoewel dit artikel ziet u een peering tussen twee virtuele netwerken in hetzelfde abonnement en locatie, kunt u ook virtuele netwerken in peer [verschillende regio's](#register) en [verschillende Azure-abonnementen](create-peering-different-subscriptions.md#cli). U kunt ook maken [hub en spoke-netwerk ontwerpen](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) met peering.
+Een virtuele machine in elk virtueel netwerk maken, zodat u tussen deze twee een latere stap kan communiceren.
 
-## <a name="test-peering"></a>Test-peering
+### <a name="create-the-first-vm"></a>De eerste virtuele machine maken
 
-Een virtuele machine implementeren in elk subnet om te testen netwerkcommunicatie tussen virtuele machines in verschillende virtuele netwerken via een peering, en vervolgens communiceren tussen de virtuele machines. 
-
-### <a name="create-virtual-machines"></a>Virtuele machines maken
-
-Maak een virtuele machine met [az vm maken](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVm1* in de *myVirtualNetwork1* virtueel netwerk. Als SSH-sleutels niet al bestaan op de standaardlocatie van de sleutel, wordt deze de opdracht maken. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`. De `--no-wait` optie maakt de virtuele machine op de achtergrond, zodat u kunt doorgaan met de volgende stap.
+Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVm1* in de *myVirtualNetwork1* virtueel netwerk. Als SSH-sleutels niet al bestaan op de standaardlocatie van de sleutel, wordt deze de opdracht maken. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`. De `--no-wait` optie maakt de virtuele machine op de achtergrond, zodat u kunt doorgaan met de volgende stap.
 
 ```azurecli-interactive
 az vm create \
@@ -143,9 +140,9 @@ az vm create \
   --no-wait
 ```
 
-10.0.0.4 Azure automatisch toegewezen als de persoonlijke IP-adres van de virtuele machine, omdat het eerste beschikbare IP-adres in 10.0.0.4 *Subnet1* van *myVirtualNetwork1*. 
+### <a name="create-the-second-vm"></a>De tweede virtuele machine maken
 
-Maken van een virtuele machine in de *myVirtualNetwork2* virtueel netwerk.
+Maak een VM in de *myVirtualNetwork2* virtueel netwerk.
 
 ```azurecli-interactive 
 az vm create \
@@ -172,11 +169,11 @@ De virtuele machine duurt een paar minuten maken. Nadat de virtuele machine is g
 }
 ```
 
-In het voorbeeld van uitvoer ziet u dat de **privateIpAddress** is *10.1.0.4*. 10.1.0.4 Azure DHCP automatisch toegewezen aan de virtuele machine omdat dit het eerste beschikbare adres in *Subnet1* van *myVirtualNetwork2*. Noteer de **publicIpAddress**. Dit adres wordt gebruikt voor toegang tot de virtuele machine vanaf het Internet in een later stadium.
+Noteer de **publicIpAddress**. Dit adres wordt gebruikt voor toegang tot de virtuele machine vanaf het Internet in een later stadium.
 
-### <a name="test-virtual-machine-communication"></a>Communicatie van de virtuele machine testen
+## <a name="communicate-between-vms"></a>Communicatie tussen virtuele machines
 
-Gebruik de volgende opdracht voor het maken van een SSH-sessie met de *myVm2* virtuele machine. Vervang `<publicIpAddress>` met het openbare IP-adres van uw virtuele machine. In het vorige voorbeeld het openbare IP-adres is *13.90.242.231*.
+Gebruik de volgende opdracht voor het maken van een SSH-sessie met de *myVm2* VM. Vervang `<publicIpAddress>` met het openbare IP-adres van uw virtuele machine. In het vorige voorbeeld het openbare IP-adres is *13.90.242.231*.
 
 ```bash 
 ssh <publicIpAddress>
@@ -188,9 +185,9 @@ De virtuele machine in pingen *myVirtualNetwork1*.
 ping 10.0.0.4 -c 4
 ```
 
-U ontvangt vier antwoorden. Als u op de naam van de virtuele machine pingen (*myVm1*), in plaats van het IP-adres, pingen mislukt, omdat *myVm1* is een onbekende host-naam. Azure standaard-naamomzetting werkt tussen virtuele machines in hetzelfde virtuele netwerk, maar niet tussen virtuele machines in verschillende virtuele netwerken. Voor het omzetten van namen in virtuele netwerken, moet u [uw eigen DNS-server implementeren](virtual-networks-name-resolution-for-vms-and-role-instances.md) of gebruik [persoonlijke Azure DNS-domeinen](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+U ontvangt vier antwoorden. 
 
-Sluit de SSH-sessie op de *myVm2* virtuele machine. 
+Sluit de SSH-sessie op de *myVm2* VM. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -221,9 +218,9 @@ Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar. Virt
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u twee netwerken te verbinden met het virtuele netwerk peering. U kunt [uw eigen computer verbinden met een virtueel netwerk](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via een VPN, en communiceren met resources in een virtueel netwerk of in virtuele netwerken peer is ingesteld.
+In dit artikel hebt u geleerd hoe u twee netwerken te verbinden met het virtuele netwerk peering. In dit artikel hebt u geleerd hoe u twee netwerken, in dezelfde Azure-locatie, verbinden met het virtuele netwerk peering. U kunt ook virtuele netwerken in peer [verschillende regio's](#register)in [verschillende Azure-abonnementen](create-peering-different-subscriptions.md#portal) en kunt u [hub en spoke-netwerk ontwerpen](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) met peering. Voordat de peering productie virtuele netwerken, het raadzaam dat u zorgvuldig vertrouwd raken met de [peering overzicht](virtual-network-peering-overview.md), [beheren peering](virtual-network-manage-peering.md), en [virtueel netwerk limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Scriptvoorbeelden van het voor herbruikbare scripts om uit te voeren veel van de taken besproken in het virtuele netwerk artikelen blijven.
+U kunt [uw eigen computer verbinden met een virtueel netwerk](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via een VPN, en communiceren met resources in een virtueel netwerk of in virtuele netwerken peer is ingesteld. Scriptvoorbeelden van het voor herbruikbare scripts om uit te voeren veel van de taken besproken in het virtuele netwerk artikelen blijven.
 
 > [!div class="nextstepaction"]
 > [Voorbeelden van virtueel netwerk script](../networking/cli-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

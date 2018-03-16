@@ -3,7 +3,7 @@ title: Service Fabric programming model overzicht | Microsoft Docs
 description: 'Service Fabric biedt twee frameworks voor het bouwen van services: de actor-framework en de serviceframework. Ze bieden verschillende verschillen in eenvoud en controle.'
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: vturecek
 manager: timlt
 editor: vturecek
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: a68db62f87bca5c641db310823588df6fb74f75e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6c4503b3e05f7d78f64a161f620b1fbd6cd38ab1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Overzicht van service Fabric programming model
-Service Fabric biedt verschillende manieren om te schrijven en beheren van uw services. Services kunt gebruiken van de Service Fabric-API's te kunnen profiteren van het platform functies en toepassingsframeworks. Services kunnen ook worden alle gecompileerde uitvoerbaar programma geschreven in elke taal of de code die wordt uitgevoerd in een container gewoon worden gehost op een Service Fabric-cluster.
+Service Fabric biedt verschillende manieren om te schrijven en beheren van uw services. Services kunt gebruiken van de Service Fabric-API's te kunnen profiteren van het platform functies en toepassingsframeworks. Services kunnen ook worden alle gecompileerde uitvoerbaar programma geschreven in elke taal of de code die wordt uitgevoerd in een container gehost op een Service Fabric-cluster.
 
 ## <a name="guest-executables"></a>Gast uitvoerbare bestanden
-Een [Gast uitvoerbaar bestand](service-fabric-deploy-existing-app.md) is een bestaande willekeurige uitvoerbaar bestand (geschreven in een andere taal) en dat kan worden uitgevoerd als een service in uw toepassing. Gast uitvoerbare bestanden de Service Fabric SDK-API's niet rechtstreeks aangeroepen. Maar ze nog steeds profiteren van het platform, zoals aangepaste health service onderwerpgebieden biedt functies en laden door het aanroepen van REST-API's die worden weergegeven door de Service Fabric reporting. Ze hebben ook de volledige toepassing lifecycle ondersteuning.
+Een [Gast uitvoerbaar bestand](service-fabric-guest-executables-introduction.md) is een bestaande willekeurige uitvoerbaar bestand (geschreven in een andere taal) en dat kan worden uitgevoerd als een service in uw toepassing. Gast uitvoerbare bestanden de Service Fabric SDK-API's niet rechtstreeks aangeroepen. Maar ze nog steeds profiteren van het platform, zoals aangepaste health service onderwerpgebieden biedt functies en laden door het aanroepen van REST-API's die worden weergegeven door de Service Fabric reporting. Ze hebben ook de volledige toepassing lifecycle ondersteuning.
 
 Aan de slag met gast uitvoerbare bestanden door het implementeren van uw eerste [Gast uitvoerbare toepassing](service-fabric-deploy-existing-app.md).
 
 ## <a name="containers"></a>Containers
-Standaard wordt Service Fabric implementeert en services als processen wordt geactiveerd. Service Fabric kunnen ook services implementeren in [containers](service-fabric-containers-overview.md). Service Fabric ondersteunt de implementatie van containers voor Linux en Windows-containers op Windows Server 2016. Installatiekopieën van de container kunnen worden opgehaald uit de opslagplaats voor elke container en geïmplementeerd op de machine. U kunt bestaande toepassingen implementeren als gast exectuables, Service Fabric stateless of stateful Reliable services of Reliable Actors in containers en kunt u services in processen en -services in containers in dezelfde toepassing elkaar.
+Standaard wordt Service Fabric implementeert en services als processen wordt geactiveerd. Service Fabric kunnen ook services implementeren in [containers](service-fabric-containers-overview.md). Service Fabric ondersteunt de implementatie van containers voor Linux en Windows-containers op Windows Server 2016. Installatiekopieën van de container kunnen worden opgehaald uit de opslagplaats voor elke container en geïmplementeerd op de machine. U kunt bestaande toepassingen implementeren als gast uitvoerbare bestanden, Service Fabric stateless of stateful Reliable services of Reliable Actors in containers en kunt u services in processen en -services in containers in dezelfde toepassing elkaar.
 
 [Meer informatie over uw services in Windows of Linux containerizing](service-fabric-deploy-container.md)
 
@@ -50,7 +50,7 @@ ASP.NET Core is een nieuw open source en platformoverschrijdende framework voor 
 ## <a name="reliable-actors"></a>Reliable Actors
 Het betrouwbare Actor-framework is gebouwd op Reliable Services, is een toepassingsframework dat het virtuele Actor-patroon, op basis van het ontwerppatroon actor implementeert. Onafhankelijke eenheden van de berekenings- en status van het betrouwbare Actor-framework gebruikt met één thread uitvoering actoren aangeroepen. Het betrouwbare Actor-framework biedt ingebouwde communicatie voor actors en vooraf ingestelde status persistentie en scale-out-configuraties.
 
-Als Reliable Actors zelf een toepassingsframework dat is gebaseerd op Reliable Services is, is het volledig geïntegreerd met de Service Fabric-platform en de voordelen van de volledige set met functies die worden aangeboden door het platform.
+Omdat Reliable Actors een toepassingsframework dat is gebaseerd op Reliable Services is, is het volledig geïntegreerd met de Service Fabric-platform en de voordelen van de volledige set met functies die worden aangeboden door het platform.
 
 [Meer informatie over Reliable Actors](service-fabric-reliable-actors-introduction.md) of aan de slag door [schrijven van uw eerste betrouwbare Actor-service](service-fabric-reliable-actors-get-started.md)
 
@@ -64,7 +64,7 @@ Als Reliable Actors zelf een toepassingsframework dat is gebaseerd op Reliable S
 
 [Overzicht van betrouwbare Actors](service-fabric-reliable-actors-introduction.md)
 
-[Service Fabric- en ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+[Service Fabric- en ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
 
 
 

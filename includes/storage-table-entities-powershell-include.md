@@ -56,7 +56,7 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 Met deze opdracht geeft de resultaten die vergelijkbaar is met de volgende tabel:
 
-| gebruikers-id | gebruikersnaam | Partitie | rowkey |
+| gebruikers-id | gebruikersnaam | partitie | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Partitie1 | CA |
 | 3 | Christine | Partitie1 | WA |
@@ -72,7 +72,7 @@ Get-AzureStorageTableRowByPartitionKey -table $storageTable -partitionKey $parti
 ```
 De resultaten ongeveer de volgende tabel:
 
-| gebruikers-id | gebruikersnaam | Partitie | rowkey |
+| gebruikers-id | gebruikersnaam | partitie | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Partitie1 | CA |
 | 3 | Christine | Partitie1 | WA |
@@ -104,7 +104,7 @@ Gebruiken om op te halen met behulp van een aangepast filter entiteiten, **Get-A
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter "(userid eq '1')"
+    -customFilter "(userid eq 1)"
 ```
 
 Deze query haalt een record.
@@ -118,7 +118,7 @@ Deze query haalt een record.
 
 ### <a name="updating-entities"></a>Entiteiten bijwerken 
 
-Er zijn drie stappen voor het bijwerken van entiteiten. Eerst ophalen van de entiteit worden gewijzigd. Controleer vervolgens de wijziging. Ten slotte doorvoeren de wijzigen met behulp van **Update AzureStorageTableRow**.
+Er zijn drie stappen voor het bijwerken van entiteiten. Eerst ophalen van de entiteit te wijzigen. Controleer vervolgens de wijziging. Ten slotte doorvoeren de wijzigen met behulp van **Update AzureStorageTableRow**.
 
 Bijwerken van de entiteit met gebruikersnaam = 'Jessie' als u wilt dat de gebruikersnaam = 'Jessie2'. Dit voorbeeld toont ook een andere manier om te maken van een aangepast filter met behulp van .NET-typen. 
 
@@ -177,10 +177,10 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>Alle entiteiten in de tabel verwijderen 
 
-Voor het verwijderen van alle entiteiten in de tabel u ze ophalen pipe van de resultaten naar de cmdlet remove. 
+Voor het verwijderen van alle entiteiten in de tabel die u kunt ze ophalen en de resultaten doorsluizen naar de cmdlet remove. 
 
 ```powershell
-# Get all rows and pipe it into the remove cmdlet.
+# Get all rows and pipe the result into the remove cmdlet.
 Get-AzureStorageTableRowAll `
     -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
 

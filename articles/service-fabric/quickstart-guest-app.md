@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: 1130ce3231b9e96a03d3e8dc5f75721dd0415928
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 65185a2d594a4a251cf87ece6f758ab3db223d7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Een Node.js-toepassing hosten in Azure Service Fabric
 
@@ -136,7 +136,7 @@ Navigeer naar dit adres, waar u de reactie `HELLO WORLD` ziet.
 Vergeet niet alle resources die u hebt gemaakt voor deze snelstartgids te verwijderen, aangezien er kosten in rekening worden gebracht voor die resources.
 
 ## <a name="next-steps"></a>Volgende stappen
-Lees meer over [door gast uitvoerbare bestanden](service-fabric-deploy-existing-app.md).
+Lees meer over [door gast uitvoerbare bestanden](service-fabric-guest-executables-introduction.md).
 
 <!-- Image References -->
 

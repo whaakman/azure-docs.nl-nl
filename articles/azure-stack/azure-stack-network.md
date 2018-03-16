@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-connectivity"></a>Netwerkverbinding
 Dit artikel bevat informatie over de infrastructuur Azure netwerkstack kunt u het beste Azure Stack integreren in uw bestaande netwerkomgeving bepalen. 
@@ -53,7 +53,9 @@ De netwerkinfrastructuur voor Azure-Stack bestaat uit verschillende logische net
 ![Logisch netwerk en de switch-verbindingen](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>BMC-netwerk
-Dit netwerk is op het verbinden van alle de baseboard management controllers (ook wel bekend als serviceprocessors, bijvoorbeeld iDRAC, iLO, iBMC, enz.) toegewezen aan het beheernetwerk. Indien aanwezig, wordt de host (HLH) hardware lifecycle bevindt zich op dit netwerk en OEM-specifieke software voor onderhoud van hardware-en/of bewaking kan bieden. 
+Dit netwerk is op het verbinden van alle de baseboard management controllers (ook wel bekend als serviceprocessors, bijvoorbeeld iDRAC, iLO, iBMC, enz.) toegewezen aan het beheernetwerk. Indien aanwezig, wordt de Hardware Lifecycle Host (HLH) bevindt zich op dit netwerk en OEM-specifieke software voor onderhoud van hardware- of bewaking kan bieden. 
+
+De HLH ook als host fungeert voor de implementatie van virtuele machine (DVM). De DVM wordt gebruikt tijdens de implementatie van Azure-Stack en wordt verwijderd wanneer de implementatie is voltooid. De DVM vereist toegang tot internet in verbonden implementatiescenario's om te testen, valideren en toegang tot meerdere onderdelen. Deze onderdelen kunnen worden binnen als buiten uw bedrijfsnetwerk. bijvoorbeeld NTP, DNS- en Azure. Zie voor meer informatie over vereisten voor connectiviteit, de [NAT-sectie in Azure Stack firewall-integratie](azure-stack-firewall.md#network-address-translation). 
 
 ### <a name="private-network"></a>Privénetwerk
 Deze /24 (254 host IP van) netwerk is gebonden aan de Stack van Azure-regio (wordt niet uitgebreid dan de apparaten van de switch rand van de Stack van Azure-regio) en is onderverdeeld in twee subnetten:

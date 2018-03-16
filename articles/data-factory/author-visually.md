@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 209afba99ac2b43c252d93c32930908ec1f957f9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 954693ee208dc7868a5a5ad0e774c5c352036627
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visual ontwerpen in Azure Data Factory
 De Azure Data Factory gebruikersinterface ervaring (UX) kunt u visueel ontwerpen en implementeren van resources voor uw data factory zonder code te schrijven. U kunt activiteiten naar een pipeline-canvas te slepen, testruns uitvoeren, iteratief, foutopsporing en implementeren en controleren de pijplijn wordt uitgevoerd. Er zijn twee methoden voor het gebruik van de UX voor het uitvoeren van de visual ontwerpen:
@@ -41,7 +41,7 @@ Wanneer u de UX gebruikt **Authoring canvas** schrijven rechtstreeks met de Data
 Visual ontwerpen met VSTS Git-integratie ondersteunt broncodebeheer en samenwerking voor de data factory-pijplijnen. U kunt een gegevensfactory koppelen aan een VSTS Git account-opslagplaats voor broncodebeheer, samenwerking en versiebeheer. Een enkel VSTS Git-account kan meerdere opslagplaatsen hebben, maar een VSTS Git-opslagplaats kan worden gekoppeld aan slechts één gegevensfactory. Als u geen een VSTS account of een opslagplaats, voert u de [deze instructies](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) om uw resources te maken.
 
 > [!NOTE]
-> Een Data Factory-pijplijn geen toegang tot bestanden die zijn opgeslagen in een VSTS Git-opslagplaats. Als gevolg hiervan kunt u bestanden die worden gebruikt door activiteiten voor Data Factory-pijplijn - voorbeeld, gegevensbestanden en scriptbestanden - opslaan in een VSTS Git-opslagplaats.
+> U kunt de script-en gegevensbestanden opslaan in een VSTS GIT-opslagplaats. U moet echter de bestanden handmatig uploaden naar Azure Storage. Of het script bestanden opgeslagen in een VSTS GIT-opslagplaats naar Azure Storage niet automatisch wordt geüpload door een Data Factory-pijplijn.
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configureer een VSTS Git-opslagplaats met Azure Data Factory
 U kunt een VSTS GIT-opslagplaats met een data factory configureren via twee methoden.

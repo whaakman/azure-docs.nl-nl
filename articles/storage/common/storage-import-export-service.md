@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2b53dc5eeb2e5f25a0714af778ef3db1d5a79dc1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>De Microsoft Azure Import/Export-service gebruiken om gegevens overdragen naar Azure Storage
 In dit artikel bieden we Stapsgewijze instructies over het gebruik van Azure Import/Export-service veilig grote hoeveelheden gegevens overdragen naar Azure Blob storage en Azure-bestanden door de back-upfunctie schijven naar een Azure-Datacenter. Deze service kan ook worden gebruikt gegevens overdragen naar Azure storage naar harde schijven en verzenden naar uw on-premises-sites. Gegevens uit een enkele interne SATA harde schijf kunnen worden geïmporteerd naar Azure Blob storage of Azure-bestanden. 
@@ -31,13 +31,13 @@ Volg de onderstaande stappen te volgen als de gegevens op de schijf moet worden 
 1.  Maak één NTFS-volume op elke harde schijf en een stationsletter toewijzen aan het volume. Er is geen quorumbron:.
 2.  Schakel bits BitLocker-versleuteling op het NTFS-volume voor het inschakelen van versleuteling op de windows-machine. Volg de instructies op https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
 3.  Volledig gegevens kopiëren naar de versleutelde één NTFS-volumes op schijven met kopiëren & plakken of slepen en neerzetten of Robocopy of een dergelijk hulpmiddel.
-7.  WAImportExport V1 van https://www.microsoft.com/en-us/download/details.aspx?id=42659 downloaden
+7.  WAImportExport V1 uit downloaden https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Uitpakken naar de map standaard waimportexportv1. Bijvoorbeeld: C:\WaImportExportV1  
 9.  Als Administrator uitvoeren en open een PowerShell of de opdrachtregel en wijzig map in de uitgepakte map. Bijvoorbeeld cd C:\WaImportExportV1
 10. Kopieer de volgende opdrachtregel naar een teksteditor en bewerken voor het maken van een opdrachtregel:
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
     ```
     
     Deze opdrachtregel-opties worden in de volgende tabel beschreven:
@@ -50,7 +50,7 @@ Volg de onderstaande stappen te volgen als de gegevens op de schijf moet worden 
     |/bk:     |De BitLocker-sleutel voor het station.         |
     |/srcdir:     |De stationsletter van de schijf moeten worden verzonden, gevolgd door `:\`. Bijvoorbeeld `D:\`.         |
     |/dstdir:     |De naam van de doelcontainer in Azure Storage         |
-
+    |/skipwrite:     |De optie die aangeeft dat er geen nieuwe gegevens die nodig zijn om te worden gekopieerd en de bestaande gegevens op de schijf is om te worden voorbereid         |
 1. Herhaal stap 10 voor elk van de schijf die moet worden verzonden.
 2. Een journal-bestand met de naam die is opgegeven met de parameter /j: wordt gemaakt voor elke run van de opdrachtregel.
 

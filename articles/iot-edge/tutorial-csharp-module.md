@@ -5,15 +5,15 @@ services: iot-edge
 keywords: 
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
-ms.date: 11/15/2017
+ms.author: kgremban
+ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fd46bb662af72ece799bb545d06d76f9e54ee62c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 605f0cfe34e4fda14030bb38686095882846c7c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Opstellen en implementeren van een Edge van C#-IoT-module voor uw gesimuleerde apparaat - voorbeeld
 
@@ -48,7 +48,7 @@ Voor deze zelfstudie kunt u een register Docker-compatibel. Twee populaire Docke
 3. Selecteer **Maken**.
 4. Zodra het register van de container is gemaakt, gaat u naar het en selecteer **toegangssleutels**. 
 5. Wisselknop **gebruiker met beheerdersrechten** naar **inschakelen**.
-6. Kopieer de waarden voor **Login-server**, **gebruikersnaam**, en **wachtwoord**. Verderop in de zelfstudie gebruikt u deze waarden. 
+6. Kopieer de waarden voor **Login-server**, **gebruikersnaam**, en **wachtwoord**. U gebruikt deze waarden verderop in de zelfstudie wanneer u de installatiekopie van het Docker publiceert naar het register en wanneer u de referenties van het register toevoegt aan de rand-runtime. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Een IoT-rand module-project maken
 De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseerd op .NET core 2.0 met behulp van Visual Studio Code en de extensie Azure IoT rand.
@@ -227,15 +227,14 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
 2. Met de rechtermuisknop op de **Dockerfile** -bestand en klik op **bouwen IoT rand module Docker installatiekopie**. 
 3. In de **map selecteren** venster ofwel om te zoeken of invoeren `./bin/Debug/netcoreapp2.0/publish`. Klik op **map selecteren als EXE_DIR**.
 4. Typ in het pop-tekst boven aan het venster tegenover Code, naam van de installatiekopie. Bijvoorbeeld: `<your container registry address>/filtermodule:latest`. De Register-adres van de container is hetzelfde als de aanmeldingsserver die u hebt gekopieerd uit het register. Deze moet de vorm van `<your container registry name>.azurecr.io`.
-5. Aanmelden bij Docker hiertoe de volgende opdracht in de geïntegreerde terminal VS-Code in: 
+5. Aanmelden bij Docker met behulp van de gebruikersnaam, wachtwoord en login-server die u hebt gekopieerd uit uw Azure-container register wanneer u het hebt gemaakt. Voer de volgende opdracht in de geïntegreerde terminal VS-Code in: 
      
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
-   Gebruik de gebruikersnaam, wachtwoord en login-server die u hebt gekopieerd uit uw Azure-container register wanneer u het hebt gemaakt.
 
-3. De installatiekopie naar uw opslagplaats Docker forceren. Selecteer **weergave** > **opdracht palet** en zoek naar de **rand: Push IoT rand module Docker installatiekopie** menuopdracht. Voer de naam van de afbeelding in het pop-tekst boven aan het venster VS-Code. Gebruik dezelfde naam van de installatiekopie die u in stap 4 wordt gebruikt.
+6. Push de installatiekopie aan het register van de container. Selecteer **weergave** > **opdracht palet** en zoek naar de **rand: Push IoT rand module Docker installatiekopie** menuopdracht. Voer de naam van de afbeelding in het pop-tekst boven aan het venster VS-Code. Gebruik dezelfde naam van de installatiekopie die u in stap 4 wordt gebruikt.
+7. Als u wilt uw installatiekopie in de Azure-portal bekijken, gaat u naar het register van uw Azure-container en selecteer **opslagplaatsen**. U ziet **filtermodule** vermeld.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Register-referenties aan de rand runtime toevoegen
 De referenties voor uw register toevoegen aan de rand runtime op de computer waarop u het apparaat aan de rand worden uitgevoerd. Deze referenties geven de runtime toegang tot het ophalen van de container. 

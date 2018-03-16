@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3ea1687e7fb6cc7af00e03b85fb48b0d7911275
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: e205352ebf4eaf89627c268d78b69bb2d49c3f3e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Controle en diagnostische gegevens met een virtuele machine van Windows en Azure Resource Manager-sjablonen gebruiken
 De extensie voor diagnostische gegevens van Azure bieden de mogelijkheden voor controle en diagnostische gegevens op een op basis van Windows Azure virtuele machine. U kunt deze mogelijkheden op de virtuele machine inschakelen door de uitbreiding als onderdeel van de Azure Resource Manager-sjabloon. Zie [Azure Resource Manager-sjablonen ontwerpen met VM-extensies](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) voor meer informatie over het toevoegen van elke extensie als onderdeel van een sjabloon voor virtuele machines. Dit artikel wordt beschreven hoe u de extensie Azure Diagnostics kunt toevoegen aan een sjabloon voor virtuele machines van windows.  
@@ -152,7 +152,7 @@ Als u meerdere virtuele Machines in een lus maakt, hebt u voor het vullen van de
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 ```
 
-De waarde MetricAggregation van *PT1H* en *PT1M* geven een aggregatie in een minuut en een aggregatie ruim een uur.
+De waarde MetricAggregation van *PT1M* en *PT1H* geven een aggregatie in een minuut en een aggregatie ruim een uur, respectievelijk.
 
 ## <a name="wadmetrics-tables-in-storage"></a>WADMetrics tabellen in de opslag
 De configuratie van de metrische gegevens bovenstaande genereert tabellen in uw opslagaccount voor diagnostische gegevens met de volgende naamconventies:
@@ -168,7 +168,7 @@ Voorbeeld: *WADMetricsPT1HP10DV2S20151108* bevatten metrische gegevens geaggrege
 Elke tabel WADMetrics bevat de volgende kolommen:
 
 * **PartitionKey**: de partitiesleutel is samengesteld op basis van de *resourceID* waarde ter identificatie van de VM-resource. Bijvoorbeeld: 002Fsubscriptions:<subscriptionID>: 002FresourceGroups:002F<ResourceGroupName>: 002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
-* **RowKey**: de indeling heeft `<Descending time tick>:<Performance Counter Name>`. De berekening van de aflopende maatstreepjes is maximale tijd ticks minus de tijd van het begin van de aggregatie-periode. Als de voorbeeld-periode is gestart op november-10-2015 en 00:00Hrs UTC en vervolgens de berekening is bijvoorbeeld: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Voor de beschikbare bytes geheugen eruit prestatiemeteritem de rijsleutel:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **RowKey**: de indeling heeft `<Descending time tick>:<Performance Counter Name>`. De berekening van de aflopende maatstreepjes is maximale tijd ticks minus de tijd van het begin van de aggregatie-periode. Als de voorbeeld-periode is gestart op november-10-2015 en 00:00Hrs UTC en vervolgens de berekening is bijvoorbeeld: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Voor de beschikbare bytes geheugen eruit prestatiemeteritem de rijsleutel: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: de naam van het prestatiemeteritem. Dit komt overeen met de *counterSpecifier* gedefinieerd in de XML-configuratie.
 * **Maximale**: de maximumwaarde van het prestatiemeteritem gedurende de periode voor aggregatie.
 * **Minimale**: de minimumwaarde van het prestatiemeteritem gedurende de periode voor aggregatie.

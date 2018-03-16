@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/04/2018
+ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 7e4fa38145ac21aaca8efa37250cc32ef1b1655c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2d7fcb3ee066fa768615fbf643a0c2e1c1d28498
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Overzicht van Azure Load Balancer-standaard (preview)
 
@@ -466,7 +466,7 @@ De volgende beperkingen toepassen op het moment van preview en nog worden gewijz
 - In de context van beschikbaarheid Zones, kan niet een zonal openbare IP-adres van een zone worden verplaatst naar een andere.
 - [Waarschuwingen van Azure controleren](../monitoring-and-diagnostics/monitoring-overview-alerts.md) worden niet ondersteund op dit moment.
 - Portal biedt nog geen ondersteuning voor de uitgebreide preview regio's.  Gebruik clienthulpprogramma's, zoals sjablonen, Azure CLI 2.0 of PowerShell als tijdelijke oplossing.
-- Verplaats de abonnement-bewerkingen worden niet ondersteund.
+- [Abonnement bewerkingen verplaatsen](../azure-resource-manager/resource-group-move-resources.md) worden niet ondersteund voor standaard SKU LB en PIP resources.
 - Niet beschikbaar in VS-West.
 
 

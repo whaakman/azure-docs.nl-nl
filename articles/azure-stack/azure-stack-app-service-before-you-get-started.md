@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5323fe505adfd9b3495dd85ce41d6f141125184b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App-Service op Azure-Stack
 
@@ -47,7 +47,7 @@ Voordat u Azure App Service op de Stack Azure implementeert, moet u voldoen aan 
 
 ## <a name="high-availability"></a>Hoge beschikbaarheid
 
-Vanwege de 1802 release van Azure-Stack toegevoegd ondersteuning voor domeinen met fouten en nieuwe implementaties van Azure App Service op Azure-Stack worden verdeeld over de domeinen met fouten en fouttolerantie.  Bestaande implementaties van Azure App Service op Azure-Stack die vóór de release van de 1802 zijn geïmplementeerd, raadpleegt u de documentatie (azure-stack-app-service-fault-domain-update.md) voor informatie over het opnieuw verdelen van de implementatie.
+Vanwege de 1802 release van Azure-Stack toegevoegd ondersteuning voor domeinen met fouten en nieuwe implementaties van Azure App Service op Azure-Stack worden verdeeld over de domeinen met fouten en fouttolerantie.  Update voor bestaande implementaties van Azure App Service op Azure-Stack die vóór de release van de 1802 zijn geïmplementeerd, raadpleegt u de [documentatie](azure-stack-app-service-fault-domain-update.md) voor de manier waarop de implementatie opnieuw verdelen.
 
 Bovendien implementeren Azure App Service op Azure-Stack voor hoge beschikbaarheid, de vereiste bestandsserver en de SQL Server-exemplaar in een maximaal beschikbare configuratie. 
 
