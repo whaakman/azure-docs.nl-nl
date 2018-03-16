@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 7f2ec78da38f3c97fde810fb8fc965cfbb6fda08
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 899e0fc0c1eb93d68c79c92c9cc042462ebc2fef
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Architectuur van de identiteit voor Azure-Stack
-Voordat u een id-provider te gebruiken met Azure-Stack kiest, begrijpt u belangrijke verschillen tussen de opties van Azure Active Directory (Azure AD) en Active Directory Federated Services (AD FS). 
+Voordat u een id-provider te gebruiken met Azure-Stack kiest, moet u de belangrijke verschillen tussen de opties van Azure Active Directory (Azure AD) en Active Directory Federation Services (AD FS) begrijpen. 
 
 ## <a name="capabilities-and-limitations"></a>Mogelijkheden en beperkingen 
 De id-provider die u kunt uw opties, waaronder ondersteuning voor multitenancy beperken. 
@@ -33,64 +33,64 @@ De id-provider die u kunt uw opties, waaronder ondersteuning voor multitenancy b
 |------------------------------|----------|-------|
 |Verbonden met internet     |Ja       |Optioneel|
 |Ondersteuning voor multitenancy     |Ja       |Nee      |
-|Marketplace-syndicatie       |Ja       |Ja - vereist gebruik van de [offline Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) hulpprogramma.|
+|Marketplace-syndicatie       |Ja       |Ja. Vereist het gebruik van de [offline Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) hulpprogramma.|
 |Ondersteuning voor Active Directory Authentication Library (ADAL) |Ja |Ja|
-|Ondersteuning voor hulpprogramma's zoals Azure-opdrachtregelinterface (CLI), Visual Studio (VS) en PowerShell  |Ja |Ja|
-|Service-principals via de portal maken     |Ja |Nee|
+|Ondersteuning voor hulpprogramma's, zoals Azure CLI, Visual Studio en PowerShell  |Ja |Ja|
+|Service-principals via de Azure portal maken     |Ja |Nee|
 |Service-principals met certificaten maken      |Ja |Ja|
 |Service-principals maken met geheimen (sleutels)    |Ja |Nee|
 |Toepassingen kunnen gebruikmaken van de grafiek-service           |Ja |Nee|
-|Toepassingen kunnen id-provider gebruiken voor aanmelding |Ja |Ja - vereist toepassingen wilt federeren met uw on-premises AD FS. |
+|Toepassingen kunnen id-provider gebruiken voor aanmelding |Ja |Ja. Vereist dat toepassingen om te federeren met on-premises AD FS-exemplaren. |
 
 ## <a name="topologies"></a>Topologies
-De volgende secties bevatten informatie over identiteit topologieën die u kunt gebruiken.
+De volgende secties dialoog van de verschillende identiteit topologieën die u kunt gebruiken.
 
-### <a name="azure-ad--single-tenant"></a>Azure AD-één-tenant 
+### <a name="azure-ad-single-tenant-topology"></a>Azure AD: single-tenant-topologie 
 Wanneer u Azure-Stack installeren en gebruiken van Azure AD, Azure Stack gebruikt standaard een topologie met één tenant. 
 
 De topologie van een één-tenant is handig wanneer:
 - Alle gebruikers uitmaken deel van dezelfde tenant.
-- Een serviceprovider als host fungeert voor een Azure-Stack-exemplaar voor een organisatie.  
+- Een serviceprovider als host fungeert voor een Azure-Stack-exemplaar voor een organisatie. 
 
-![Azure Stack-topologie met behulp van een topologie met één tenant met Azure AD](media/azure-stack-identity-architecture/single-tenant.png)
+![Azure Stack-één-tenant-topologie met Azure AD](media/azure-stack-identity-architecture/single-tenant.png)
 
-Met deze topologie:
+Deze topologie biedt de volgende kenmerken:
 - Azure Stack registreert alle toepassingen en services met dezelfde Azure AD-tenant directory. 
-- Azure Stack verifieert alleen de gebruikers en toepassingen van die map, met inbegrip van Tokens. 
+- Azure Stack verifieert alleen de gebruikers en toepassingen van die map, met inbegrip van tokens. 
 - Identiteiten voor beheerders (cloudoperators) en tenant-gebruikers zijn in dezelfde directory-tenant. 
-- Als u wilt dat een gebruiker van een andere map voor toegang tot deze Azure-Stack-omgeving, moet u [de gebruiker als gast uitnodigen](azure-stack-identity-overview.md#guest-users) naar de tenantmap.  
+- Als u wilt dat een gebruiker van een andere map voor toegang tot deze Azure-Stack-omgeving, moet u [de gebruiker als gast uitnodigen](azure-stack-identity-overview.md#guest-users) naar de tenantmap. 
 
-### <a name="azure-ad--multi-tenant"></a>Azure AD: meerdere tenants
+### <a name="azure-ad-multi-tenant-topology"></a>Azure AD: multitenant-topologie
 Cloudoperators kunnen configureren voor Azure-Stack voor toegang tot toepassingen door tenants van een of meer organisaties. Gebruikers toegang tot toepassingen via de gebruikersportal. In deze configuratie wordt het beheerportal (gebruikt door de cloud-operator) vanuit een enkele map beperkt tot gebruikers. 
 
 Een multitenant-topologie is handig wanneer:
 - Een serviceprovider wil toestaan dat gebruikers van meerdere organisaties voor toegang tot Azure-Stack.
 
-![Azure Stack-topologie met behulp van een multitenant-topologie met Azure AD](media/azure-stack-identity-architecture/multi-tenant.png)
+![Azure Stack multitenant-topologie met Azure AD](media/azure-stack-identity-architecture/multi-tenant.png)
 
-Met deze topologie:
+Deze topologie biedt de volgende kenmerken:
 - Toegang tot bronnen moet op basis van per organisatie worden. 
-- Er mag geen gebruikers van een organisatie kunnen toegang tot resources verlenen aan gebruikers die zich buiten de organisatie.  
-- Identiteiten voor beheerders (cloudoperators) kunnen zich in een afzonderlijke map tenant dan de identiteiten te beheren voor gebruikers. Deze scheiding biedt isolatie van de account op het niveau van de id-provider. 
+- Gebruikers van een organisatie moet kan geen toegang tot resources verlenen aan gebruikers die zich buiten de organisatie. 
+- Identiteiten voor beheerders (cloudoperators) kunnen zich in een afzonderlijke directory-tenant van de identiteiten te beheren voor gebruikers. Deze scheiding biedt isolatie van de account op het niveau van de id-provider. 
  
 ### <a name="ad-fs"></a>AD FS  
 De AD FS-topologie is vereist wanneer een van de volgende voorwaarden is voldaan:
-- Azure Stack verbinding geen met Internet.
-- Azure Stack verbinding kan maken met Internet, maar u kiest voor AD FS voor id-provider.
+- Azure Stack verbinding geen met internet.
+- Azure Stack verbinding kan maken met internet, maar u kiest voor AD FS voor id-provider.
   
 ![Azure Stack-topologie met AD FS](media/azure-stack-identity-architecture/adfs.png)
 
-Met deze topologie:
-- Ondersteuning bieden voor gebruik in productie, moet u het exemplaar van de ingebouwde Azure-Stack AD FS integreren met een bestaand exemplaar van AD FS ondersteund door Active Directory (AD), via een federatieve vertrouwensrelatie. 
-- U kunt de service van de grafiek in Azure-Stack integreren met uw bestaande AD.  U kunt ook de OData Graph API-service die API's die consistent met de Azure AD Graph API zijn ondersteunt.  
+Deze topologie biedt de volgende kenmerken:
+- Ter ondersteuning van het gebruik van deze topologie in productie, moet u het exemplaar van de ingebouwde Azure-Stack AD FS integreren met een bestaand AD FS-exemplaar dat wordt ondersteund door Active Directory via een federatieve vertrouwensrelatie. 
+- U kunt de service van de grafiek in Azure-Stack integreren met uw bestaande Active Directory-exemplaar. U kunt ook de Graph API op basis van een OData-service die API's die consistent met de Azure AD Graph API zijn ondersteunt. 
 
-  Om te kunnen communiceren met uw AD, moet de Graph API gebruikersreferenties van uw AD die alleen-lezen-machtiging hebben uw AD. 
-  - De ingebouwde AD FS is gebaseerd op de Server 2016. 
-  - Uw AD FS en AD moet worden gebaseerd op Server 2012 of later.  
+  Om te kunnen communiceren met uw exemplaar van Active Directory, vereist de Graph API gebruikersreferenties van uw Active Directory-exemplaar die alleen-lezen-machtigingen hebben. 
+  - De ingebouwde exemplaar van AD FS is gebaseerd op Windows Server 2016. 
+  - Uw AD FS en Active Directory-exemplaren moeten worden gebaseerd op Windows Server 2012 of later. 
   
-  Tussen uw AD en de ingebouwde AD FS interacties worden niet beperkt tot het OpenID Connect en elk protocol voor wederzijds ondersteunde kunnen gebruiken.  
-  - Gebruikersaccounts worden gemaakt en beheerd in uw on-premises AD.
-  - Service-principals en registraties voor toepassingen worden beheerd in de ingebouwde AD.
+  Tussen uw Active Directory-exemplaar en de ingebouwde exemplaar van AD FS interacties worden niet beperkt tot het OpenID Connect en ze kunnen wederzijds ondersteunde protocollen gebruiken. 
+  - Gebruikersaccounts worden gemaakt en beheerd in uw lokale Active Directory-exemplaar.
+  - Service-principals en registraties voor toepassingen worden beheerd in de ingebouwde Active Directory-exemplaar.
 
 
 

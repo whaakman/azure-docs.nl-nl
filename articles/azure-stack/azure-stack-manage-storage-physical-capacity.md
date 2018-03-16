@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 03/13/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 137e5d726aaedb405852c786b909b51110df1a50
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b922790d51c7028c37bb5863d43e99e19790488c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Fysiek geheugencapaciteit voor Azure-Stack beheren
 
 *Van toepassing op: Azure Stack geïntegreerd systemen*
 
-U kunt extra geheugen toevoegen voor een verhoging van de capaciteit van de totale beschikbare geheugen voor Azure-Stack. In Azure-Stack uw fysieke server ook aangeduid als een *scale unit knooppunt*. Alle knooppunten van de scale-eenheid die lid zijn van een enkele schaaleenheid moeten dezelfde hoeveelheid geheugen hebben.
+U kunt extra geheugen toevoegen voor een verhoging van de capaciteit van de totale beschikbare geheugen voor Azure-Stack. In Azure-Stack uw fysieke server ook aangeduid als een *scale unit knooppunt*. Alle knooppunten van de scale-eenheid die lid van een enkele schaaleenheid zijn moeten dezelfde hoeveelheid geheugen hebben.
 
 > [!note]  
 > Voordat u doorgaat, Raadpleeg de documentatie van uw hardware om te zien als een geheugen upgrades dat de fabrikant van uw biedt ondersteuning voor een fysieke geheugen. Uw OEM hardware leverancier support-contract kan vereisen dat de leverancier van de fysieke server rack plaatsing en de apparaat-firmware-update uitvoeren.
