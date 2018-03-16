@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
 ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Claims toewijzen in Azure Active Directory (openbare preview)
 
@@ -403,7 +403,7 @@ Op basis van de gekozen methode, wordt een reeks invoer en uitvoer verwacht. Dez
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabel 6: Transformatie methoden zijn toegestaan voor SAML-NameID
 |TransformationMethod|Beperkingen|
 | ----- | ----- |
-|ExtractMailPrefix|None|
+|ExtractMailPrefix|Geen|
 |Koppelen|Het achtervoegsel wordt toegevoegd, moet een geverifieerd domein van de resource-tenant.|
 
 ### <a name="custom-signing-key"></a>Aangepaste ondertekeningssleutel

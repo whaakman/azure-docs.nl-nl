@@ -9,11 +9,11 @@ ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 789f4e0b325475ddc3ff7aeb6e014f3814ac3458
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0bd2e0896758b4d9f019b0c9520c5e9e1f3afd94
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Een functie-app maken en functiecode implementeren vanuit Visual Studio Team Services
 
@@ -46,13 +46,13 @@ Dit script maakt gebruik van de volgende opdrachten voor het maken van een resou
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Hiermee maakt u een App Service-plan. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
 | [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Hiermee koppelt u een functie-app aan een Git- of Mercurial-opslagplaats. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview) voor meer informatie over de Azure CLI.
+Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure) voor meer informatie over de Azure CLI.
 
-Meer voorbeeldscripts voor de Azure Functions CLI zijn te vinden in de [Azure Functions-documentatie](../functions-cli-samples.md).
+Aanvullende CLI-voorbeeldscripts voor Azure Functions vindt u in de [Azure Functions-documentatie](../functions-cli-samples.md).

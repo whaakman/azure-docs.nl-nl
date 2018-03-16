@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: garye;bradsev
 ms.openlocfilehash: eb22f516f298df9396ca809acaa9c8cb62589c2a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Uw trainingsgegevens vanuit verschillende gegevensbronnen importeren in Azure Machine Learning Studio
 Als u uw eigen gegevens in Machine Learning Studio te ontwikkelen en training van een predictive analytics-oplossing, kunt u het volgende doen: 
@@ -77,11 +77,11 @@ U kunt expliciet opgeven of wijzig de koppen en gegevenstypen voor kolommen met 
 
 De volgende **gegevenstypen** worden herkend door Machine Learning Studio:
 
-* Reeks
+* Tekenreeks
 * Geheel getal
-* dubbele
+* Double
 * Boole-waarde
-* Datum en tijd
+* DateTime
 * TimeSpan
 
 Machine Learning Studio maakt gebruik van een interne gegevenstype aangeroepen ***gegevenstabel*** gegevens moeten worden doorgegeven tussen modules. U kunt uw gegevens expliciet converteren naar gegevenstabel indeling met behulp van de [converteren naar een gegevensset] [ convert-to-dataset] module.

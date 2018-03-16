@@ -16,10 +16,10 @@ ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Oplossing voor externe controle integreren met Azure-Stack
 
@@ -205,7 +205,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |  Argument  |Beschrijving  |
 |---------|---------|
 |*id*     |      Unieke ID van de waarschuwing.   |
-|*naam*     |     Interne naam van de waarschuwing.   |
+|*Naam*     |     Interne naam van de waarschuwing.   |
 |*type*     |     Resourcedefinitie.    |
 |*location*     |       Regionaam.     |
 |*tags*     |   Resourcelabels.     |
@@ -217,17 +217,17 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*faulttypeid*     |  Unieke type defecte onderdeel.       |
 |*lastupdatedtimestamp*     |   UTC-tijd wanneer waarschuwingsgegevens voor het laatst is bijgewerkt.    |
 |*healthstate*     | Algemene health-status.        |
-|*naam*     |   Naam van de specifieke waarschuwing.      |
+|*Naam*     |   Naam van de specifieke waarschuwing.      |
 |*fabricname*     |    Geregistreerde fabric-naam van het defecte onderdeel.   |
 |*Beschrijving*     |  Beschrijving van de geregistreerde fabric-component.   |
 |*servicetype*     |   Type van de geregistreerde fabric-service.   |
-|*herstel*     |   Aanbevolen herstelstappen uit.    |
+|*Herstel*     |   Aanbevolen herstelstappen uit.    |
 |*type*     |   Waarschuwingstype.    |
 |*resourceRegistrationid*    |     ID van de betreffende geregistreerde resource.    |
 |*resourceProviderRegistrationID*   |    ID van de geregistreerde resourceprovider van het betreffende onderdeel.  |
 |*serviceregistrationid*     |    ID van de geregistreerde service.   |
 |*severity*     |     De ernst van waarschuwing.  |
-|*status*     |    Waarschuwing status.   |
+|*Status*     |    Waarschuwing status.   |
 |*titel*     |    De naam van de waarschuwing.   |
 |*impactedresourceid*     |     ID van de betrokken resource.    |
 |*ImpactedresourceDisplayName*     |     De naam van de betrokken resource.  |
@@ -348,7 +348,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |  Argument  |Beschrijving  |
 |---------|---------|
 |*id*     |      Unieke ID van de waarschuwing.   |
-|*naam*     |     Interne naam van de waarschuwing.   |
+|*Naam*     |     Interne naam van de waarschuwing.   |
 |*type*     |     Resourcedefinitie.    |
 |*location*     |       Regionaam.     |
 |*tags*     |   Resourcelabels.     |
@@ -360,17 +360,17 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*faulttypeid*     |  Unieke type defecte onderdeel.       |
 |*lastupdatedtimestamp*     |   UTC-tijd wanneer waarschuwingsgegevens voor het laatst is bijgewerkt.    |
 |*healthstate*     | Algemene health-status.        |
-|*naam*     |   Naam van de specifieke waarschuwing.      |
+|*Naam*     |   Naam van de specifieke waarschuwing.      |
 |*fabricname*     |    Geregistreerde fabric-naam van het defecte onderdeel.   |
 |*Beschrijving*     |  Beschrijving van de geregistreerde fabric-component.   |
 |*servicetype*     |   Type van de geregistreerde fabric-service.   |
-|*herstel*     |   Aanbevolen herstelstappen uit.    |
+|*Herstel*     |   Aanbevolen herstelstappen uit.    |
 |*type*     |   Waarschuwingstype.    |
 |*resourceRegistrationid*    |     ID van de betreffende geregistreerde resource.    |
 |*resourceProviderRegistrationID*   |    ID van de geregistreerde resourceprovider van het betreffende onderdeel.  |
 |*serviceregistrationid*     |    ID van de geregistreerde service.   |
 |*severity*     |     De ernst van waarschuwing.  |
-|*status*     |    Waarschuwing status.   |
+|*Status*     |    Waarschuwing status.   |
 |*titel*     |    De naam van de waarschuwing.   |
 |*impactedresourceid*     |     ID van de betrokken resource.    |
 |*ImpactedresourceDisplayName*     |     De naam van de betrokken resource.  |
@@ -393,7 +393,7 @@ De aanvraag Hiermee wordt de status voor alle geregistreerde resourceproviders.
 
 |Argumenten  |Beschrijving  |
 |---------|---------|
-|*armendpoint*     |    Het Resource Manager-eindpunt van uw Azure-Stack-omgeving, in de indeling https://adminmanagement. {RegionName}. {Externe FQDN}. Bijvoorbeeld, als de externe FQDN azurestack.external is en regionaam lokaal is, is klikt u vervolgens het Resource Manager-eindpunt https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Het Resource Manager-eindpunt van uw Azure-Stack-omgeving, in de indeling https://adminmanagement. {RegionName}. {Externe FQDN}. Bijvoorbeeld, als de externe FQDN azurestack.external is en regionaam lokaal is, klikt u vervolgens het Resource Manager-eindpunt is https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     Abonnements-ID van de gebruiker die de oproep aan te brengen. U kunt deze API's voor query alleen met een gebruiker die gemachtigd om de standaard provider-abonnement te is gebruiken.    |
 |*RegionName*     |     De naam van het gebied van de Azure-Stack-implementatie.    |
 |*API-versie*     |   De versie van het protocol dat wordt gebruikt voor het maken van deze aanvraag. U moet 2016-05-01.      |
@@ -434,7 +434,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |Argument  |Beschrijving  |
 |---------|---------|
 |*Id*     |   Unieke ID van de waarschuwing.      |
-|*naam*     |  Interne naam van de waarschuwing.       |
+|*Naam*     |  Interne naam van de waarschuwing.       |
 |*type*     |  Resourcedefinitie.       |
 |*location*     |  Regionaam.       |
 |*tags*     |     Resourcelabels.    |
@@ -462,7 +462,7 @@ Status van de aanvraag opgehaald voor een specifieke geregistreerde resourceprov
 
 |Argumenten  |Beschrijving  |
 |---------|---------|
-|*armendpoint*     |    Het Resource Manager-eindpunt van uw Azure-Stack-omgeving, in de indeling https://adminmanagement. {RegionName}. {Externe FQDN}. Bijvoorbeeld, als de externe FQDN azurestack.external is en regionaam lokaal is, is klikt u vervolgens het Resource Manager-eindpunt https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Het Resource Manager-eindpunt van uw Azure-Stack-omgeving, in de indeling https://adminmanagement. {RegionName}. {Externe FQDN}. Bijvoorbeeld, als de externe FQDN azurestack.external is en regionaam lokaal is, klikt u vervolgens het Resource Manager-eindpunt is https://adminmanagement.local.azurestack.external.     |
 |*subid*     |Abonnements-ID van de gebruiker die de oproep aan te brengen. U kunt deze API's voor query alleen met een gebruiker die gemachtigd om de standaard provider-abonnement te is gebruiken.         |
 |*RegionName*     |  De naam van het gebied van de Azure-Stack-implementatie.       |
 |*API-versie*     |  De versie van het protocol dat wordt gebruikt voor het maken van deze aanvraag. U moet 2016-05-01.       |
@@ -502,7 +502,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |Argument  |Beschrijving  |
 |---------|---------|
 |*Id*     |   Unieke ID van de waarschuwing.      |
-|*naam*     |  Interne naam van de waarschuwing.       |
+|*Naam*     |  Interne naam van de waarschuwing.       |
 |*type*     |  Resourcedefinitie.       |
 |*location*     |  Regionaam.       |
 |*tags*     |     Resourcelabels.    |

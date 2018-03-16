@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/22/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2049de0adfd4be164cda69ca85782c528aeaf55c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 092e0681b0491fc1c54c19e234aafdac6d428fd1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Een Azure-functie maken die verbinding maakt met een Azure Cosmos DB
 
@@ -46,7 +46,7 @@ In dit script worden de volgende opdrachten gebruikt: Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/#az_login) | Aanmelden bij Azure. |
+| [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) | Aanmelden bij Azure. |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Een resourcegroep maken met locatie |
 | [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account) | Een opslagaccount maken |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Een nieuwe functie-app maken |
@@ -55,9 +55,9 @@ In dit script worden de volgende opdrachten gebruikt: Elke opdracht in de tabel 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview) voor meer informatie over de Azure CLI.
+Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure) voor meer informatie over de Azure CLI.
 
-Meer voorbeeldscripts voor de Azure Functions CLI zijn te vinden in de [Azure Functions-documentatie](../functions-cli-samples.md).
+Aanvullende CLI-voorbeeldscripts voor Azure Functions vindt u in de [Azure Functions-documentatie](../functions-cli-samples.md).
 
 
 

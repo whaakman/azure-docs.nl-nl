@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Het overdragen van de gebruiker de registratie- en productinformatie abonnement
 Overdracht kunt u uw bestaande website te gebruiken voor het verwerken van ontwikkelaars sign-in/sign-up-to-date en abonnement op producten in plaats van met behulp van de ingebouwde functie in de portal voor ontwikkelaars. Hierdoor kan uw website aan de eigenaar van de gebruikersgegevens en de validatie van de volgende stappen uitvoeren in een aangepaste manier.
@@ -44,7 +44,7 @@ Nu moet u maken de **delegering eindpunt**. Er is een aantal acties uitvoeren:
 
 1. Een aanvraag ontvangen in de volgende notatie:
    
-   > *http://www.yourwebsite.com/apimdelegation?Operation=Signin&returnUrl= {URL van bronpagina} & salt = {tekenreeks} & sig = {tekenreeks}*
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL van bronpagina} & salt = {tekenreeks} & sig = {tekenreeks}*
    > 
    > 
    
@@ -70,7 +70,7 @@ Nu moet u maken de **delegering eindpunt**. Er is een aantal acties uitvoeren:
    * [eenmalige aanmelding (SSO)-token van een aanvraag] via de API Management REST API
    * een queryparameter returnUrl toevoegen aan de SSO-URL die u hebt ontvangen van de API-aanroep hierboven:
      
-     > for example, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > Bijvoorbeeld: https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
    * de gebruiker omgeleid naar de URL van de bovenstaande geproduceerd
@@ -101,7 +101,7 @@ Verzeker u ervan dat het eindpunt van de overdracht worden de volgende acties ui
 
 1. Een aanvraag ontvangen in de volgende notatie:
    
-   > *{bewerking} http://www.yourwebsite.com/apimdelegation?Operation= & productId = {product abonneren op} & userId = {user aanvraag} & salt = {tekenreeks} & sig = {tekenreeks}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product abonneren op} & userId = {user aanvraag} & salt = {tekenreeks} & sig = {tekenreeks}*
    > 
    > 
    

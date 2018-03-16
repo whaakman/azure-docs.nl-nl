@@ -1,7 +1,7 @@
 ---
 title: "Formaat van geüploade afbeeldingen automatisch wijzigen met Azure Event Grid | Microsoft Docs"
 description: "U kunt instellen dat Azure Event Grid wordt geactiveerd als er blobs worden geüpload in Azure Storage. Dit is handig om afbeeldingsbestanden naar Azure Storage die worden geüpload naar Azure Storage te verzenden naar andere services, zoals Azure Functions, voor het aanpassen van het formaat en andere verbeteringen."
-services: event-grid
+services: event-grid, functions
 author: ggailey777
 manager: cfowler
 editor: 
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b0fccd058620537f6dcfaf37ee14c1ff0cb8857a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68343c3ffd87496ed4ae89b478ee5c8119ed67f5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Formaat van geüploade afbeeldingen automatisch wijzigen met Event Grid
 

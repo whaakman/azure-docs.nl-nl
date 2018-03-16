@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b45d1287444d200727550a81ce72a19a417fe510
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Een failover en failback uitvoeren tussen Azure-regio's voor Azure-VM's (preview)
 
@@ -30,7 +30,7 @@ In deze zelfstudie wordt beschreven hoe u een failover van één virtuele Azure-
 ## <a name="prerequisites"></a>Vereisten
 
 - Zorg dat u een [herstelanalyse](azure-to-azure-tutorial-dr-drill.md) hebt uitgevoerd om te controleren of alles werkt zoals verwacht.
-- Controleer de eigenschappen van de virtuele machine voordat u de testfailover uitvoert. De virtuele machine moet voldoen aan [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Controleer de eigenschappen van de virtuele machine voordat u de testfailover uitvoert. De virtuele machine moet voldoen aan [Azure-vereisten](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>Een failover uitvoeren naar de secundaire regio
 

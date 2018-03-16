@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
 ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>De gebruikersinterface van het traject van een gebruiker met aangepast beleid aanpassen
 
@@ -75,7 +75,7 @@ Om ervoor te zorgen dat alles werkt zoals verwacht, moet u het volgende doen:
 > Controleer of de site die u bij het hosten van uw inhoud op CORS is ingeschakeld en testen van CORS-aanvragen, kunt u de site http://test-cors.org/. Dankzij deze site, kunt u de CORS-aanvraag verzenden naar een externe server (om te testen of CORS wordt ondersteund) of de CORS-aanvraag verzenden naar een testserver (om het verkennen van bepaalde functies van CORS).
 
 > [!TIP]
-> De http://enable-cors.org/ site vormt ook een meer dan nuttige informatiebronnen op CORS.
+> De site http://enable-cors.org/ ook vormt een meer dan nuttige informatiebronnen op CORS.
 
 Dankzij deze benadering op basis van CORS hebben eindgebruikers consistente ervaring tussen uw toepassing en de pagina's die worden bediend door Azure AD B2C.
 
@@ -122,8 +122,8 @@ CORS (Cross-Origin Resource Sharing) moet zijn ingeschakeld op uw eindpunt voor 
 
 Om te controleren of de opslag die zijn voor het hosten van uw inhoud op CORS ingeschakeld is, gaat u verder met de volgende stappen:
 
-1. Open een browsersessie en navigeer naar de pagina *unified.html* met behulp van de volledige URL van de locatie in uw opslagaccount `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Bijvoorbeeld: https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Ga naar http://test-cors.org. Deze site kunt u controleren of de pagina die u gebruikt CORS ingeschakeld heeft.  
+1. Open een browsersessie en navigeer naar de pagina *unified.html* met behulp van de volledige URL van de locatie in uw opslagaccount `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Bijvoorbeeld https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
+2. Navigeer naar http://test-cors.org. Deze site kunt u controleren of de pagina die u gebruikt CORS ingeschakeld heeft.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->

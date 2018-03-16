@@ -4,23 +4,21 @@ description: Gebruik dit Azure CLI-voorbeeldscript voor het maken van een SQL-da
 services: sql-database
 documentationcenter: sql-database
 author: janeng
-manager: jstrauss
+manager: janeng
 editor: carlrab
-tags: azure-service-management
-ms.assetid: 
 ms.service: sql-database
 ms.custom: DBs & servers, mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 10/11/2017
+ms.date: 03/01/2018
 ms.author: janeng
-ms.openlocfilehash: 5824821a2e1f06425cae46cf8b3cf28582e63056
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bb80421b360f43df82ea4a9b2dff5ccc1efdb4a9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>CLI gebruiken om één Azure SQL-database te maken en een firewallregel te configureren
 
@@ -58,7 +56,7 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview) voor meer informatie over de Azure CLI.
+Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure) voor meer informatie over de Azure CLI.
 
 Aanvullende voorbeelden van SQL Database CLI-scripts vindt u in de [documentatie van Azure SQL Database](../sql-database-cli-samples.md).
 

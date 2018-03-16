@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cfd4e478850783983caa3042cbbb2b096a576292
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden bij een niet-galerie-toepassing die is geconfigureerd voor federatieve eenmalige aanmelding
 
@@ -63,7 +63,7 @@ Nadat u de id-waarde hebben bijgewerkt in Azure AD en deze met de waarde verzend
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Het antwoordadres komt niet overeen met de antwoordadressen geconfigureerd voor de toepassing. 
 
-*Fout AADSTS50011: Het antwoordadres 'https://contoso.com' komt niet overeen met de antwoordadressen geconfigureerd voor de toepassing* 
+*Fout AADSTS50011: Het antwoordadreshttps://contoso.com' komt niet overeen met de antwoordadressen geconfigureerd voor de toepassing* 
 
 **Mogelijke oorzaak** 
 

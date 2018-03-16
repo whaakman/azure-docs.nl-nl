@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 7c34d7a225be63da95f664525b0366ff89b28838
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Met behulp van de Stack van Azure-portal
 
@@ -31,7 +31,7 @@ Als een gebruiker van de Stack van het Azure-services, kunt u de Stack van Azure
 Uw Azure-Stack-operator (een serviceprovider of een beheerder in uw organisatie), kunt u weet dat de juiste URL toegang tot de portal. 
 
 - De URL varieert op basis van de operator regio en externe domeinnaam en bevindt zich in de indeling https://portal voor een geïntegreerd systeem. &lt; *regio*&gt;.&lt; *FQDN*&gt;.
-- Als u de Azure-Stack Development Kit gebruikt, is het adres van de portal https://portal.local.azurestack.external.
+- Als u de Azure-Stack Development Kit, het adres van de portal is https://portal.local.azurestack.external.
 
 ![Schermafbeelding van de gebruikersportal van Azure-Stack](media/azure-stack-use-portal/UserPortal.png)
 

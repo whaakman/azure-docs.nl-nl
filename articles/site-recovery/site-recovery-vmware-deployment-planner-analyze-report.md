@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: dce374d85ef32fe1fbfc88502780fa2ad7a5eae4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Rapport Azure Site Recovery-implementatieplanner
 Het gegenereerde Microsoft Excel-rapport bevat de volgende bladen:
@@ -132,16 +132,16 @@ De grafiek toont de weergave Samenvatting van de geschatte totale noodherstel (D
 ![Kostenraming samenvatting](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
 
 De samenvatting helpt u bij het begrijpen van de kosten die u nodig hebt om te betalen voor opslag, rekensnelheid, netwerk en licentie wanneer u alle compatibele virtuele machines naar Azure met Azure Site Recovery beveiligt. De kosten worden berekend op basis van compatibele virtuele machines en niet op basis van alle geprofileerde virtuele machines.  
- 
+
 U kunt de kosten maandelijks of jaarlijks weergeven. Meer informatie over [ondersteunde doelregio's](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) en [ondersteunde valuta's](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
 **Kosten per onderdelen** De totale kosten voor Noodherstel zijn onderverdeeld in vier onderdelen: Compute, Storage, netwerk en Azure Site Recovery-licentiekosten. De kosten worden berekend op basis van het verbruik dat zal plaatsvinden tijdens de replicatie, en bij Noodherstel de tijd voor de rekensnelheid, opslag (premium en standard), de ExpressRoute/VPN die is geconfigureerd tussen de lokale site en Azure, en Azure Site Recovery-licentie.
 
-**Kosten per statussen** De kosten voor een totaal noodherstel (DR) zijn is gebaseerd op twee verschillende statussen: Replicatie en Noodherstel. 
+**Kosten per statussen** De kosten voor een totaal noodherstel (DR) zijn is gebaseerd op twee verschillende statussen: Replicatie en Noodherstel.
 
-**Replicatiekosten**: de kosten die zullen worden gemaakt tijdens de replicatie. Dit dekt de kosten van opslag, netwerk en de Azure Site Recovery-licentie. 
+**Replicatiekosten**: de kosten die zullen worden gemaakt tijdens de replicatie. Dit dekt de kosten van opslag, netwerk en de Azure Site Recovery-licentie.
 
-**Kosten voor DR-oefeningen**: de kosten die zullen worden gemaakt tijdens de testfailovers. Azure Site Recovery laat virtuele machines draaien tijdens de testfailover. De details voor DR-kosten zijn de kosten voor de berekenings- en opslagkosten van de actieve virtuele machines. 
+**Kosten voor DR-oefeningen**: de kosten die zullen worden gemaakt tijdens de testfailovers. Azure Site Recovery laat virtuele machines draaien tijdens de testfailover. De details voor DR-kosten zijn de kosten voor de berekenings- en opslagkosten van de actieve virtuele machines.
 
 **Azure-opslagkosten per maand-jaar** Dit toont de totale opslagkosten die zullen worden gemaakt voor premium en standard-opslag voor replicatie en details voor DR.
 U vindt een gedetailleerde kostenanalyse per virtuele machine op het werkblad [Kostenraming](site-recovery-vmware-deployment-planner-cost-estimation.md).
@@ -266,7 +266,7 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 
 **Opstarttype**: het opstarttype van de virtuele machine. Dit kan BIOS of EFI zijn.  Op dit moment biedt Azure Site Recovery ondersteuning voor Windows Server EFI-VM's (Windows Server 2012, 2012 R2 en 2016), als het aantal partities in de opstartschijf minder is dan 4 en de opstartsector 512 bytes groot is. Als u EFI-VM's wilt beveiligen, moet Azure Site Recovery Mobility Service versie 9.13 of hoger zijn. Alleen failover wordt ondersteund voor EFI-VM's. Failback wordt niet ondersteund.
 
-**Type besturingssysteem**: is het type besturingssysteem van de virtuele machine. Dit kan Windows of Linux zijn, of een ander besturingssysteem op basis van de sjabloon die in VMware vSphere is gekozen tijdens het maken van de VM. 
+**Type besturingssysteem**: is het type besturingssysteem van de virtuele machine. Dit kan Windows of Linux zijn, of een ander besturingssysteem op basis van de sjabloon die in VMware vSphere is gekozen tijdens het maken van de VM.
 
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery-limieten
 De volgende tabel bevat de Azure Site Recovery-limieten. Deze limieten zijn gebaseerd op onze tests, maar dekken niet alle mogelijke toepassings-I/O-combinaties. De werkelijke resultaten kunnen variëren op basis van uw toepassings-I/O-combinatie. Voor optimale resultaten, zelfs na het plannen van de implementatie, is het altijd beter om toepassingen uitgebreid te testen met behulp van een testfailover. Zo krijgt u een nauwkeurig inzicht in de prestaties van de applicatie.
@@ -282,15 +282,15 @@ Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |10 MB/s | 842 GB per sc
 
 **brongegevensverloop** | **Maximumlimiet**
 ---|---
-Gemiddeld gegevensverloop per VM| 25 MB/s 
+Gemiddeld gegevensverloop per VM| 25 MB/s
 Piekgegevensverloop over alle schijven op een VM | 54 MB/s
-Maximumgegevensverloop per dag dat wordt ondersteund door een processerver | 2 TB 
+Maximumgegevensverloop per dag dat wordt ondersteund door een processerver | 2 TB
 
 Dit zijn gemiddelden uitgaande van een I/O-overlapping van 30%. Site Recovery kan een hogere doorvoer verwerken op basis van overlappingsverhouding, grotere schrijfgrootten en daadwerkelijk workload-I/O-gedrag. De bovenstaande waarden zijn gebaseerd op een typische backlog van ongeveer vijf minuten. Dat wil zeggen dat de gegevens na het uploaden binnen vijf minuten worden verwerkt en er een herstelpunt is gemaakt.
 
 
 ## <a name="cost-estimation"></a>Kostenraming
-Meer informatie over [kostenraming](site-recovery-vmware-deployment-planner-cost-estimation.md). 
+Meer informatie over [kostenraming](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
 ## <a name="next-steps"></a>Volgende stappen

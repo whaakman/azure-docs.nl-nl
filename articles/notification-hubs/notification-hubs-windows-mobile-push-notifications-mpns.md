@@ -13,13 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: jawh
-ms.openlocfilehash: 7d44d0a0f8683ad6ad55136ad17879e98e26498b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 38d60001293a3bae6eb9f90179abb8af7815fbe7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-windows-phone-apps"></a>Aan de slag met Azure Notification Hubs voor Windows Phone-apps
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -67,7 +67,7 @@ De hub is nu gemaakt en geconfigureerd om niet-geverifieerde meldingen voor Wind
 ## <a name="connecting-your-app-to-the-notification-hub"></a>Uw app verbinden met de Notification Hub
 1. Maak een nieuwe Windows Phone 8-toepassing in Visual Studio.
    
-       ![Visual Studio - New Project - Windows Phone App][13]
+    ![Visual Studio - Nieuw project - Windows Phone-app][13]
    
     In Visual Studio 2013 Update 2 of hoger maakt u daarentegen een Windows Phone Silverlight-toepassing.
    
@@ -119,9 +119,9 @@ De hub is nu gemaakt en geconfigureerd om niet-geverifieerde meldingen voor Wind
    > 
 6. Vouw in Solution Explorer **Eigenschappen** uit, open het bestand `WMAppManifest.xml`, klik op het tabblad **Mogelijkheden** en zorg ervoor dat de mogelijkheid **ID_CAP_PUSH_NOTIFICATION** is ingeschakeld.
    
-       ![Visual Studio - Windows Phone App Capabilities][14]
+    ![Visual Studio - Windows Phone-app-mogelijkheden][14]
    
-       This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
+    Dit zorgt ervoor dat uw app pushmeldingen kan ontvangen. Als u dit niet hebt gedaan, kunnen er geen pushmeldingen naar de app worden verzonden.
 7. Druk op de toets `F5` om de app uit te voeren.
    
     Er wordt een registratiebericht in de app weergegeven.

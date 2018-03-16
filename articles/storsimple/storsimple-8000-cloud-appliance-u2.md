@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Een StorSimple-cloudapparaat implementeren en beheren in Azure (Update 3 en hoger)
 
@@ -78,7 +78,7 @@ In de volgende gedeelten worden de configuratievereisten voor het StorSimple-clo
 Voordat u het cloudapparaat inricht, moet u de volgende voorbereidingen treffen in uw Azure-omgeving:
 
 * Zorg ervoor dat er een fysiek StorSimple-apparaat uit de 8000-serie (model 8100 of 8600) is geïmplementeerd en wordt uitgevoerd in uw datacenter. Registreer dit apparaat bij dezelfde StorSimple-apparaatbeheerservice als waarvoor u een StorSimple-Cloud-apparaat wilt maken.
-* Voor het cloudapparaat [configureert u een virtueel netwerk in Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Als u Premium-opslag gebruikt, moet u een virtueel netwerk maken in een Azure-regio die ondersteuning biedt voor Premium-opslag. De Premium Storage-regio's zijn regio's die overeenkomen met de rij voor Schijfruimte in de [lijst met Azure Services per regio](https://azure.microsoft.com/regions/services/).
+* Voor het cloudapparaat [configureert u een virtueel netwerk in Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Als u Premium-opslag gebruikt, moet u een virtueel netwerk maken in een Azure-regio die ondersteuning biedt voor Premium-opslag. De Premium Storage-regio's zijn regio's die overeenkomen met de rij voor Schijfruimte in de [lijst met Azure Services per regio](https://azure.microsoft.com/regions/services/).
 * Het is raadzaam om de standaard-DNS-server van Azure te gebruiken. Geef liever geen eigen naam op voor de DNS-server. Als uw DNS-servernaam niet geldig is of als de DNS-server IP-adressen niet correct kan omzetten, mislukt het maken van het cloudapparaat.
 * Punt-naar-site en site-naar-site zijn optioneel, maar niet vereist. Als u wilt, kunt u deze opties configureren in meer geavanceerde scenario's.
 * U kunt [virtuele Azure-machines](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (hostservers) maken in het virtuele netwerk; deze maken gebruik van de volumes die beschikbaar worden gesteld door het cloudapparaat. Deze servers moeten aan de volgende vereisten voldoen:

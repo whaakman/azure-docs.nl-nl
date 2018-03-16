@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 02/28/2018
-ms.openlocfilehash: 217b3d1ba8d9bc1f287327eb376a789dbfb4ee27
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 547c0e89faf4eed3f24d9b6710df030ac743cd68
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Een MySQL-server maken en een firewallregel configureren met de Azure CLI
 In dit CLI-voorbeeldscript wordt een Azure Database for MySQL-server gemaakt en een firewallregel op serverniveau geconfigureerd. Nadat het script is uitgevoerd, is de MySQL-server toegankelijk voor alle Azure-services en het geconfigureerde IP-adres.
@@ -43,5 +43,5 @@ Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weerg
 | [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- Lees de [documentatie van Azure CLI](/cli/azure/overview) voor meer informatie over de Azure CLI.
+- Lees de [documentatie van Azure CLI](/cli/azure) voor meer informatie over de Azure CLI.
 - Meer scripts om te proberen: [Azure CLI-voorbeelden voor Azure Database for MySQL](../sample-scripts-azure-cli.md)

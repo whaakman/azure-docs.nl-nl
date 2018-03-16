@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: sample
 ms.date: 02/28/2018
-ms.openlocfilehash: a04d1fd71f17c5ceef175b457c75d609b827c405
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: f74b67b436e994dbc3ff9a8243bceefeed938ee2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Maakt een Azure Database for PostgreSQL-server en configureert een firewallregel met behulp van Azure CLI
 Met dit Azure CLI-voorbeeldscript wordt een Azure Database for PostgreSQL-server gemaakt en een firewallregel op serverniveau geconfigureerd. Nadat het script is uitgevoerd, is de PostgreSQL-server toegankelijk via alle Azure-services en het geconfigureerde IP-adres.
@@ -43,5 +43,5 @@ Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weerg
 | [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over de Azure CLI: [documentatie van Azure CLI](/cli/azure/overview)
+- Meer informatie over de Azure CLI: [documentatie van Azure CLI](/cli/azure)
 - Meer scripts om te proberen: [Azure CLI-voorbeelden voor Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)

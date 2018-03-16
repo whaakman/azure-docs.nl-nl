@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 10/04/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: f3e4ce63a8b418b68494262df8a771ac553ad22d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e868f07a8c24948655d81c7db1859d819b01c062
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Een functie-app maken voor uitvoering van code zonder server
 
@@ -48,12 +48,12 @@ Elke opdracht in de tabel is een koppeling naar specifieke documentatie over de 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az group create](/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
 | [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Hiermee wordt een Azure Storage-account gemaakt. |
 | [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Hiermee maakt u een functie-app. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de [documentatie van Azure CLI](/cli/azure/overview) voor meer informatie over de Azure CLI.
+Raadpleeg de [documentatie van Azure CLI](/cli/azure) voor meer informatie over de Azure CLI.
 
-Meer voorbeeldscripts voor de Azure Functions CLI zijn te vinden in de [Azure Functions-documentatie](../functions-cli-samples.md).
+Aanvullende CLI-voorbeeldscripts voor Azure Functions vindt u in de [Azure Functions-documentatie](../functions-cli-samples.md).

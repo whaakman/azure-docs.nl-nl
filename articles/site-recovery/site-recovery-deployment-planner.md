@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7e3e0cebbb1ae0c7c63de586f458814f5dc6f202
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 77e76e5f9960f8a7c54ebcb82321784be5c1aa99
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery Deployment Planner voor VMware naar Azure
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery Deployment Planner voor productie-installaties van het type VMware-naar-Azure.
@@ -36,7 +36,7 @@ Het hulpprogramma levert de volgende gegevens:
 **Beoordeling van compatibiliteit**
 
 * Beoordeling van geschiktheid van een VM op basis van het aantal schijven, schijfgrootte, IOPS, verloop, opstarttype (EFI/BIOS) en besturingssysteem
- 
+
 **Vereiste netwerkbandbreedte versus RPO-evaluatie**
 
 * De geschatte vereiste bandbreedte in het netwerk voor replicatie van verschillen
@@ -93,13 +93,16 @@ Het hulpprogramma heeft twee belangrijke fasen: profileren en rapporten generere
 >
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>Downloaden en uitpakken van de tool voor implementatieplanning
-1. Download de nieuwste versie van de [Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner). Het hulpprogramma bevindt zich in een gecomprimeerde map. De huidige versie van het hulpprogramma ondersteunt alleen het VMware Azure-scenario.
+1. Download de nieuwste versie van de [Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner).
+Het hulpprogramma bevindt zich in een gecomprimeerde map. De huidige versie van het hulpprogramma ondersteunt alleen het VMware Azure-scenario.
 
-2. Kopieer de gecomprimeerde map naar de Windows-server waarop u het hulpprogramma wilt uitvoeren. U kunt het hulpprogramma uitvoeren vanuit Windows Server 2012 R2 als de server netwerktoegang heeft voor verbinding met de vCenter-server of vSphere ESXi-host met de virtuele machines die u wilt profileren. We raden u echter aan het hulpprogramma uit te voeren op een server waarvan de hardwareconfiguratie voldoet aan de [aanbevelingen voor de configuratieserver](https://aka.ms/asr-v2a-on-prem-components). Als u al onderdelen van Site Recovery on-premises hebt geïmplementeerd, moet u het hulpprogramma uitvoeren vanaf de configuratieserver.
+2. Kopieer de gecomprimeerde map naar de Windows-server waarop u het hulpprogramma wilt uitvoeren.
+U kunt het hulpprogramma uitvoeren vanuit Windows Server 2012 R2 als de server netwerktoegang heeft voor verbinding met de vCenter-server of vSphere ESXi-host met de virtuele machines die u wilt profileren. We raden u echter aan het hulpprogramma uit te voeren op een server waarvan de hardwareconfiguratie voldoet aan de [aanbevelingen voor de configuratieserver](https://aka.ms/asr-v2a-on-prem-components). Als u al onderdelen van Site Recovery on-premises hebt geïmplementeerd, moet u het hulpprogramma uitvoeren vanaf de configuratieserver.
 
     Het is raadzaam om voor de server waarop u het hulpprogramma uitvoert, de hardwareconfiguratie te gebruiken die overeenkomt met de configuratie van de configuratieserver (die een ingebouwde processerver heeft). Een dergelijke configuratie zorgt ervoor dat de behaalde doorvoer die het hulpprogramma aangeeft, overeenkomt met de werkelijke doorvoer die Site Recovery kan bereiken tijdens replicatie. De berekening van de doorvoer is afhankelijk van de beschikbare netwerkbandbreedte op de server en de hardwareconfiguratie van de server (zoals CPU en opslag). Als u het hulpprogramma vanaf een andere server uitvoert, wordt de doorvoer berekend vanaf die server naar Azure. Aangezien de hardwareconfiguratie van de server kan verschillen van die van de configuratieserver, is het bovendien mogelijk dat de berekende doorvoer onjuist is.
 
-3. Pak de gecomprimeerde map uit. De map bevat meerdere bestanden en submappen. Het uitvoerbare bestand is ASRDeploymentPlanner.exe in de map op het hoogste niveau.
+3. Pak de gecomprimeerde map uit.
+De map bevat meerdere bestanden en submappen. Het uitvoerbare bestand is ASRDeploymentPlanner.exe in de map op het hoogste niveau.
 
     Voorbeeld: kopieer het ZIP-bestand naar station E:\ en pak het uit.
     E:\ASR Deployment Planner_v2.1zip

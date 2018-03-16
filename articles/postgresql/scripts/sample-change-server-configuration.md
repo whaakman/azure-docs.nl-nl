@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 9aff0dca1d09e31f0c6f761dd236a7ef7439486b
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: f18150a7ebc76e29399502a801228db54c47fac4
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Configuraties van een Azure Database for PostgreSQL-server opsommen en bijwerken met behulp van Azure CLI
 Met dit CLI-voorbeeldscript wordt een lijst gemaakt van alle beschikbare configuratieparameters en de toegestane waarden ervan voor Azure-Database for PostgreSQL-server, en wordt *log_retention_days* ingesteld op een andere waarde dan de standaardwaarde.
@@ -45,6 +45,6 @@ Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weerg
 | [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- Lees de [documentatie van Azure CLI](/cli/azure/overview) voor meer informatie over de Azure CLI.
+- Lees de [documentatie van Azure CLI](/cli/azure) voor meer informatie over de Azure CLI.
 - Meer scripts om te proberen: [Azure CLI-voorbeelden voor Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
 - Zie voor meer informatie over serverparameters [Serverparameters configureren in Azure-portal](../howto-configure-server-parameters-using-portal.md).

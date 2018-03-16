@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 177601110dd7ec799dc4a350d1a8b88b9f6af4f1
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0d3720d33de2237b0d8cce2ae56bcc7ccf6acc43
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Overzicht van Batch-API's en -hulpprogramma's
 
@@ -60,7 +60,7 @@ De Azure Resource Manager-API's voor Batch bieden programmatisch toegang tot Bat
 Deze opdrachtregelprogramma's bieden dezelfde functionaliteit als de API’s voor de Batch-service en Batch Management: 
 
 * [PowerShell-cmdlets voor Batch][batch_ps]: met de Azure Batch-cmdlets in de [Azure PowerShell](/powershell/azure/overview)-module kunt u Batch-resources beheren met PowerShell.
-* [Azure CLI 2.0](/cli/azure/overview): de Azure Command-Line Interface (Azure CLI) is een platformoverschrijdende hulpmiddelenset die shellopdrachten biedt voor interactie met vele Azure-services, waaronder de Batch-service en Batch Management-service. Zie [Batch-resources beheren met de Azure CLI](batch-cli-get-started.md) voor meer informatie over het gebruik van de Azure CLI met Batch.
+* [Azure CLI 2.0](/cli/azure): de Azure Command-Line Interface (Azure CLI) is een platformoverschrijdende hulpmiddelenset die shellopdrachten biedt voor interactie met vele Azure-services, waaronder de Batch-service en Batch Management-service. Zie [Batch-resources beheren met de Azure CLI](batch-cli-get-started.md) voor meer informatie over het gebruik van de Azure CLI met Batch.
 
 ## <a name="other-tools-for-application-development"></a>Andere hulpmiddelen voor toepassingsontwikkeling
 

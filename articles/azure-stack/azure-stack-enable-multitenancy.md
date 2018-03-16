@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
 ms.openlocfilehash: 66689d80cbee0be36b3e8c9951a43d0d43fa01be
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Multi-tenancymodus in Azure-Stack inschakelen
 
@@ -89,7 +89,7 @@ Register-AzSWithMyDirectoryTenant `
  -Verbose 
 ````
 ## <a name="direct-users-to-sign-in"></a>Directe gebruikers zich aanmelden in
-Nu dat u en koos hebt voltooid voor de stappen voor het vrijgeven koos directory, kunt koos Fabrikam gebruikers zich aanmelden in doorsturen.  Fabrikam gebruikers (dat wil zeggen, de gebruikers met het achtervoegsel fabrikam.onmicrosoft.com) aanmelden https://portal.local.azurestack.external bezoeken.  
+Nu dat u en koos hebt voltooid voor de stappen voor het vrijgeven koos directory, kunt koos Fabrikam gebruikers zich aanmelden in doorsturen.  Fabrikam gebruikers (dat wil zeggen, de gebruikers met het achtervoegsel fabrikam.onmicrosoft.com) zich aanmelden in via https://portal.local.azurestack.external.  
 
 Mary leidt een [afwijkende beveiligings-principals](../active-directory/active-directory-understanding-resource-access.md) in de map Fabrikam (dat wil zeggen, de gebruikers in de map Fabrikam zonder het achtervoegsel van fabrikam.onmicrosoft.com) aan te melden met https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Als ze deze URL niet gebruikt, moet deze worden verzonden naar de standaardmap (Fabrikam) en een foutbericht gemeld dat er dat niet door de beheerder heeft ingestemd.
 

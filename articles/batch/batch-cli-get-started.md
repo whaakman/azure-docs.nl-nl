@@ -15,17 +15,17 @@ ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11fad18c7b51625a29c58058aebd412cbf8cffdd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e27d7f75dd3d0391f45805f4424248c8eac483c7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Batch-resources beheren met Azure CLI
 
 De Azure CLI 2.0 is de nieuwe opdrachtregelervaring van Azure voor het beheer van Azure-resources. Deze kan worden gebruikt in Mac OS, Linux en Windows. Azure CLI 2.0 is geoptimaliseerd voor het beheren van Azure-resources vanaf de opdrachtregel. U kunt de Azure CLI gebruiken om uw Azure Batch-accounts te beheren en om resources zoals pools, functies en taken te beheren. Met de Azure CLI kunt u scripts maken om veel van dezelfde taken uit te voeren die u ook uitvoert met de Batch-API's, Azure Portal en Batch PowerShell-cmdlets.
 
-Dit artikel biedt een overzicht van het gebruik van [Azure CLI versie 2.0](https://docs.microsoft.com/cli/azure/overview) met Batch. Zie [Aan de slag met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) voor een overzicht van het gebruik van CLI met Azure.
+Dit artikel biedt een overzicht van het gebruik van [Azure CLI versie 2.0](https://docs.microsoft.com/cli/azure) met Batch. Zie [Aan de slag met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) voor een overzicht van het gebruik van CLI met Azure.
 
 Microsoft adviseert om de nieuwste versie van Azure CLI te gebruiken, versie 2.0. Meer informatie over versie 2.0 kunt u lezen in [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/) (Azure Command Line 2.0 nu algemeen beschikbaar).
 
@@ -69,7 +69,7 @@ Er zijn een aantal manieren om u aan te melden bij Azure, zoals u kunt lezen in 
 1. [Interactief aanmelden](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Meld u interactief aan wanneer u zelf Azure CLI-opdrachten uitvoert vanaf de opdrachtregel.
 2. [Aanmelden met een service-principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Meld u aan met een service-principal wanneer u Azure CLI-opdrachten uitvoert vanuit een script of een toepassing.
 
-Ten behoeve van dit artikel laten we zien hoe u zich interactief aanmeldt bij Azure. Typ [az login](https://docs.microsoft.com/cli/azure/#az_login) op de opdrachtregel:
+Ten behoeve van dit artikel laten we zien hoe u zich interactief aanmeldt bij Azure. Typ [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) op de opdrachtregel:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -178,7 +178,7 @@ De volgende tips kunnen helpen bij het oplossen van problemen met Azure CLI:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview) voor meer informatie over de Azure CLI.
+* Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure) voor meer informatie over de Azure CLI.
 * Meer informatie over Batch-resources vindt u in dit Engelstalige [overzicht van Azure Batch voor ontwikkelaars](batch-api-basics.md).
 * Zie [Azure Batch CLI-sjablonen en -bestandsoverdracht gebruiken (preview)](batch-cli-templates.md) voor meer informatie over het gebruik van Batch-sjablonen voor het maken van pools, jobs en taken zonder code te schrijven.
 

@@ -15,10 +15,10 @@ ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e2a2b885dd0dc5b240aef234ef1ff139d788de3c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure Data Lake Store
 
@@ -39,7 +39,7 @@ Deze zelfstudie laat zien hoe u een beheerde Service identiteit (MSI) voor virtu
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+Aanmelden bij de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-Machine in een nieuwe resourcegroep maken
 
@@ -103,7 +103,7 @@ Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaak
 
 1. Navigeer in de portal voor uw Linux-VM en in de **overzicht**, klikt u op **Connect**.  
 2. **Verbinding maken met** naar de virtuele machine met de SSH-client van uw keuze. 
-3. Het terminalvenster met CURL, zorg er in een aanvraag naar het lokale eindpunt MSI een access-token ophalen voor het Data Lake Store-bestandssysteem.  De resource-id voor de Data Lake Store is 'https://datalake.azure.net/'.  Het is belangrijk dat u de afsluitende slash bevatten in de resource-id.
+3. Het terminalvenster met CURL, zorg er in een aanvraag naar het lokale eindpunt MSI een access-token ophalen voor het Data Lake Store-bestandssysteem.  De resource-id voor de Data Lake Store is 'https://datalake.azure.net/. "  Het is belangrijk dat u de afsluitende slash bevatten in de resource-id.
     
    ```bash
    curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   

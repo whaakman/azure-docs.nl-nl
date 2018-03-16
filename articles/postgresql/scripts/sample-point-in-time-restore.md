@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: c8b099e859e9ab418fd121a987920d037ed3f36d
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 14e365d90942a09db8bbd2f3eeb4c72a8be3819b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Een Azure Database voor PostgreSQL-server herstellen met behulp van Azure CLI
 Met dit CLI-voorbeeldscript wordt één Azure Database for PostgreSQL-server hersteld naar een eerder tijdstip.
@@ -43,6 +43,6 @@ Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weerg
 | [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- Lees de [documentatie van Azure CLI](/cli/azure/overview) voor meer informatie over de Azure CLI.
+- Lees de [documentatie van Azure CLI](/cli/azure) voor meer informatie over de Azure CLI.
 - Meer scripts om te proberen: [Azure CLI-voorbeelden voor Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
 - [Back-up maken en herstellen van een server in Azure Database voor PostgreSQL met behulp van de Azure portal](../howto-restore-server-portal.md)

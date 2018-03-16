@@ -15,10 +15,10 @@ ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 742b76e17b7ad00a70b0d18895c0b59ebe044d47
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Een Windows VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure Data Lake Store
 
@@ -39,7 +39,7 @@ Deze zelfstudie laat zien hoe u op een beheerde Service identiteit (MSI) voor ee
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+Aanmelden bij de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine in een nieuwe resourcegroep maken
 
@@ -100,7 +100,7 @@ In deze zelfstudie maakt verifiëren u voor het Data Lake Store-bestandssysteem 
 1. Navigeer in de portal naar **virtuele Machines**, gaat u op uw Windows-VM en in de **overzicht** klikt u op **Connect**.
 2. Voer in uw **gebruikersnaam** en **wachtwoord** voor die u hebt toegevoegd tijdens het maken van de virtuele machine van Windows. 
 3. Nu dat u hebt gemaakt een **verbinding met extern bureaublad** openen met de virtuele machine, **PowerShell** in de externe sessie. 
-4. Met behulp van PowerShell `Invoke-WebRequest`, maak een aanvraag naar het lokale eindpunt MSI een access-token ophalen voor Azure Data Lake Store.  De resource-id van Data Lake Store is 'https://datalake.azure.net/'.  Data Lake biedt een exacte overeenkomst op de bron-id en de afsluitende slash is belangrijk.
+4. Met behulp van PowerShell `Invoke-WebRequest`, maak een aanvraag naar het lokale eindpunt MSI een access-token ophalen voor Azure Data Lake Store.  De resource-id voor de Data Lake Store is 'https://datalake.azure.net/'.  Data Lake biedt een exacte overeenkomst op de bron-id en de afsluitende slash is belangrijk.
 
    ```powershell
    $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://datalake.azure.net/"} -Headers @{Metadata="true"}

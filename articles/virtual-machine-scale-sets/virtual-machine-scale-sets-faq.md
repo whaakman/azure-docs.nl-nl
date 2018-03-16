@@ -17,10 +17,10 @@ ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
 ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure virtuele-machineschaalsets Veelgestelde vragen
 
@@ -293,7 +293,7 @@ De documentatie van Azure Sleutelkluis wordt aangegeven dat de ophalen geheim RE
  
 Methode | URL
 --- | ---
-GET | https://mykeyvault.Vault.Azure.NET/secrets/ {geheim name} / {geheim versie}? api-version = {api-versie}
+TOEVOEGEN | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
 Vervang {*geheim naam*} met de naam en vervang {*geheim versie*} met de versie van het geheim die u wilt ophalen. De geheime versie kan worden uitgesloten. In dat geval wordt wordt de huidige versie opgehaald.
   
@@ -339,7 +339,7 @@ Zie [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PC
 
 ### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Biedt [Azure Managed Service-identiteit](https://docs.microsoft.com/azure/active-directory/msi-overview) werken met virtuele-machineschaalsets?
 
-Ja. Hier ziet u enkele voorbeeld MSI-sjablonen in Azure Quickstart-sjablonen. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
+Ja. Hier ziet u enkele voorbeeld MSI-sjablonen in Azure Quickstart-sjablonen. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## <a name="extensions"></a>Extensies
@@ -690,7 +690,7 @@ Wanneer een nieuwe virtuele machine wordt gemaakt, ziet u de eigenschap Instance
 
 Als u eigenschapsinformatie voor elke virtuele machine zonder dat meerdere aanroepen, u kunt aanroepen `ListVMInstanceViews` als volgt een REST-API `GET` op de volgende bron-URI:
 
-/Subscriptions/ < subscription_id > /resourceGroups/ < resource_group_name > /providers/Microsoft.Compute/virtualMachineScaleSets/ < scaleset_name > / virtuele machines? $expand = instanceView & $select = instanceView
+/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Kan ik andere uitbreiding argumenten doorgeven aan andere virtuele machines in een virtuele-machineschaalset
 
