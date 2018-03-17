@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Verzamelen van Logboeken
 
@@ -52,16 +52,16 @@ Azure AD B2C ondersteunt een functie voor het verzenden van gegevens naar Applic
   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   ```
 
-1. Als deze niet al bestaat, een onderliggend knooppunt toevoegen `<UserJourneyBehaviors>` naar de `<RelyingParty>` knooppunt. Het moet zich onmiddellijk na de`<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
+1. Als deze niet al bestaat, een onderliggend knooppunt toevoegen `<UserJourneyBehaviors>` naar de `<RelyingParty>` knooppunt. Het moet zich onmiddellijk na de `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
 2. Het volgende knooppunt toevoegen als een onderliggend element van de `<UserJourneyBehaviors>` element. Zorg ervoor dat u `{Your Application Insights Key}` met de **Instrumentatiesleutel** die u hebt verkregen via de Application Insights in de vorige sectie.
 
   ```XML
   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
   ```
 
-  * `DeveloperMode="true"`Hiermee geeft u ApplicationInsights voor de telemetrie via de pipeline verwerking goed snellere voor ontwikkeling, maar beperkte op hoge volumes.
-  * `ClientEnabled="true"`verzendt het clientscript ApplicationInsights voor het bijhouden van pagina-fouten weergeven en clientzijde (niet nodig).
-  * `ServerEnabled="true"`verzendt de bestaande UserJourneyRecorder JSON als een aangepaste gebeurtenis naar Application Insights.
+  * `DeveloperMode="true"` Hiermee geeft u ApplicationInsights voor de telemetrie via de pipeline verwerking goed snellere voor ontwikkeling, maar beperkte op hoge volumes.
+  * `ClientEnabled="true"` verzendt het clientscript ApplicationInsights voor het bijhouden van pagina-fouten weergeven en clientzijde (niet nodig).
+  * `ServerEnabled="true"` verzendt de bestaande UserJourneyRecorder JSON als een aangepaste gebeurtenis naar Application Insights.
 Voorbeeld:
 
   ```XML
@@ -105,6 +105,8 @@ U kunt meer informatie over het hulpprogramma analyse [hier](https://docs.micros
 
 >[!NOTE]
 >De community kan een gebruiker reis viewer zodat ontwikkelaars identiteit heeft ontwikkeld.  Niet wordt ondersteund door Microsoft en beschikbaar gesteld strikt als-is.  Het leest uit uw Application Insights-exemplaar en biedt een weergave ook structuur van de gebruiker reis gebeurtenissen.  U de broncode downloaden en deze implementeren in uw eigen oplossing.
+
+De versie van de viewer die gebeurtenissen uit Application Insights leest bevindt [hier](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
 
 >[!NOTE]
 >Op dit moment wordt de gedetailleerde activiteitenlogboeken hier beschreven zijn ontworpen **alleen** helpt bij de ontwikkeling van aangepast beleid. Gebruik geen Ontwikkelingsmodus in productie.  Logboeken verzamelen van alle claims die worden verzonden naar en van de id-providers tijdens de ontwikkeling.  Als dit wordt gebruikt in productie, verantwoordelijkheid de ontwikkelaar van de voor PII (privé identificeerbare informatie) verzameld in het logboek voor de App Insights waarvan ze eigenaar.  Deze gedetailleerde logboeken worden alleen verzameld wanneer het beleid wordt geplaatst op **ONTWIKKELINGSMODUS**.

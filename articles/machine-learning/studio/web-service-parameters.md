@@ -3,8 +3,9 @@ title: Gebruik Azure Machine Learning-Webserviceparameters | Microsoft Docs
 description: Het gebruik van Azure Machine Learning Web Service Parameters om het gedrag van uw model wanneer de web-service wordt geopend.
 services: machine-learning
 documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 715ea008b84c1a503661394da14e8af167327941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b35b8160c777c8598a30e2d775d997e06438f0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Parameters voor Azure Machine Learning-webservice
 Een Azure Machine Learning-webservice wordt gemaakt door het publiceren van een experiment die modules met configureerbare parameters bevat. In sommige gevallen wilt u mogelijk het gedrag van de module niet wijzigen terwijl de webservice wordt uitgevoerd. *Web-Service Parameters* kunt u deze taak. 
@@ -53,7 +53,7 @@ Een voorbeeld: Stel hebben we een experiment met een [gegevens exporteren] [ wri
    * Onder **Geef verificatietype**, selecteert u 'Account'.
    * Geef de accountgegevens voor de Azure blob-opslag. 
      <p />
-3.Klik op het pictogram aan de rechterkant van de **pad naar de blob die begint met de parameter container**. Als volgt uitziet:
+3. Klik op het pictogram aan de rechterkant van de **pad naar de blob die begint met de parameter container**. Als volgt uitziet:
    
    ![Web Service Parameter-pictogram][icon]
    

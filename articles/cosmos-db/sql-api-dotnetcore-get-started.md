@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 71eadc08aeb4ac197f55b6d3aac8eb6009be9107
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 90b720c174ab5730237f27d5ebb253976a70b071
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: Aan de slag met de SQL-API en .NET Core
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ Tijd om aan de slag te gaan.
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)] 
+* Als u Visual Studio 2017 geïnstalleerd nog geen hebt, kunt u downloaden en gebruiken de gratis [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Als u een Universal Windows Platform (UWP)-app ontwikkelt, gebruikt u **Visual Studio 2017 met versie 15,4** of hoger. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
     * Als u op Mac OS- of Linux werkt, kunt u apps vanaf de opdrachtregel .NET Core ontwikkelen door het installeren van de [.NET Core SDK](https://www.microsoft.com/net/core#macos) voor het platform van uw keuze. 
     * Als u in Windows werkt, kunt u apps vanaf de opdrachtregel .NET Core ontwikkelen door het installeren van de [.NET Core SDK](https://www.microsoft.com/net/core#windows). 
     * U kunt uw eigen editor gebruiken of downloaden [Visual Studio Code](https://code.visualstudio.com/), die is gratis en werkt op Windows, Linux en Mac OS. 

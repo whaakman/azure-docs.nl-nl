@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 8560921734e5037182955d8fe9605cc9831bf1b4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb4115b98091f55a0324ea795ffcc83cb29223a4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Eeuwige integraties in duurzame functies (Azure-functies)
 
@@ -94,6 +94,3 @@ Als een orchestrator-functie in een oneindige lus en moet worden gestopt, gebrui
 
 > [!div class="nextstepaction"]
 > [Meer informatie over het implementeren van singleton-integraties](durable-functions-singletons.md)
-
-> [!div class="nextstepaction"]
-> [Voer een voorbeeldquery eeuwige orchestration](durable-functions-counter.md)

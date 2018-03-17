@@ -1,24 +1,20 @@
 ---
-title: Verbindingsassets in Azure Automation | Microsoft Docs
+title: Verbindingsassets in Azure Automation
 description: Verbindingsassets in Azure Automation bevatten de benodigde informatie om te verbinden met een externe service of toepassing vanuit een runbook of de DSC-configuratie. Dit artikel wordt uitgelegd dat de details van verbindingen en hoe u ermee in tekstvorm en grafisch ontwerpen.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/13/2017
-ms.author: magoedte; bwren
-ms.openlocfilehash: c1e56f00e46dc3d04f6ac3bb42df6c1935c5c8b0
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 547ec5a7de7a58e591a2ea44b8e54804ca41974c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Verbindingsassets in Azure Automation
 
@@ -26,8 +22,8 @@ Een Automation-verbindingsasset bevat de benodigde informatie om te verbinden me
 
 Wanneer u een verbinding maakt, moet u een *verbindingstype*. Het verbindingstype is een sjabloon die een set eigenschappen definieert. Waarden voor elke eigenschap die is gedefinieerd in het bijbehorende verbindingstype Hiermee definieert u de verbinding. Verbindingstypen worden toegevoegd aan Azure Automation in integratiemodules of gemaakt met de [Azure Automation-API](http://msdn.microsoft.com/library/azure/mt163818.aspx) als de integratiemodule een verbindingstype bevat en is geïmporteerd in uw Automation-account. Anders, moet u voor het maken van een bestand met metagegevens om op te geven van een Automation-verbindingstype.  Zie voor meer informatie over dit [integratiemodules](automation-integration-modules.md).  
 
->[!NOTE] 
->Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze activa zijn versleuteld en opgeslagen in de Azure Automation met een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel is versleuteld met een basiscertificaat en opgeslagen in Azure Automation. Voordat u een beveiligd bedrijfsmiddel op te slaan, wordt de sleutel voor het automation-account worden ontsleuteld met het basiscertificaat en vervolgens worden gebruikt voor het versleutelen van de asset.
+>[!NOTE]
+>Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze activa zijn versleuteld en opgeslagen in Azure Automation, met een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel wordt opgeslagen in de Sleutelkluis. De sleutel is voordat het opslaan van een beveiligd bedrijfsmiddel is geladen vanuit de Sleutelkluis en vervolgens worden gebruikt voor het versleutelen van de asset.
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell-Cmdlets
 
@@ -36,8 +32,8 @@ De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van Au
 |Cmdlet|Beschrijving|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Hiermee haalt u een verbinding. Bevat een hashtabel met de waarden van de velden van de verbinding.|
-|[Nieuwe AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Maakt een nieuwe verbinding.|
-|[Verwijder AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Verwijder een bestaande verbinding.|
+|[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Maakt een nieuwe verbinding.|
+|[Remove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Verwijder een bestaande verbinding.|
 |[Set-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|Hiermee stelt u de waarde van een bepaald veld voor een bestaande verbinding.|
 
 ## <a name="activities"></a>Activiteiten

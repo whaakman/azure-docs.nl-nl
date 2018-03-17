@@ -3,7 +3,7 @@ title: Azure IoT-apparaat SDK voor C - serialisatiefunctie | Microsoft Docs
 description: Het gebruik van de serialisatiefunctie-bibliotheek in de Azure-IoT-apparaat-SDK voor C apps voor apparaten die communiceren met een IoT-hub maken.
 services: iot-hub
 documentationcenter: 
-author: olivierbloch
+author: yzhong94
 manager: timlt
 editor: 
 ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: obloch
-ms.openlocfilehash: d8b9e147b68d16c6c166e92cbabf5b5b63e23e8d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT-apparaat SDK voor C: meer informatie over de serialisatiefunctie
 De [eerst artikel](iot-hub-device-sdk-c-intro.md) in deze reeks geïntroduceerd de **Azure IoT-device SDK voor C**. Het volgende artikel opgegeven een gedetailleerdere beschrijving van de [ **IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). In dit artikel is voltooid dekking van de SDK door te geven van een gedetailleerdere beschrijving van de resterende component: de **serialisatiefunctie** bibliotheek.
@@ -71,15 +71,15 @@ De volgende gegevenstypen worden ondersteund in modellen die zijn gemaakt met de
 | Float |drijvende-kommagetal met enkele precisie |
 | lang |lang geheel getal |
 | int8\_t |8-bits geheel getal |
-| Int16\_t |16-bits geheel getal |
-| Int32\_t |32-bits geheel getal |
-| Int64\_t |64-bits geheel getal |
-| BOOL |Booleaanse waarde |
+| int16\_t |16-bits geheel getal |
+| int32\_t |32-bits geheel getal |
+| int64\_t |64-bits geheel getal |
+| BOOL |booleaans |
 | ASCII\_char\_ptr |ASCII-tekenreeks |
 | EDM\_DATUM\_TIJD\_OFFSET |datum tijdverschil |
 | EDM\_GUID |GUID |
-| EDM\_BINAIRE |Binaire |
-| DECLAREREN\_STRUCT |complex gegevenstype |
+| EDM\_BINARY |Binaire |
+| DECLARE\_STRUCT |complex gegevenstype |
 
 Laten we beginnen met het laatste gegevenstype. De **DECLARE\_STRUCT** kunt u definiëren van complexe gegevenstypen, dat wil zeggen groepen van de andere primitieve typen. Deze groeperingen kunnen we voor het definiëren van een model dat er als volgt uit:
 
@@ -368,7 +368,7 @@ Geschat mogelijk dat het resultaat van deze code is dat twee gebeurtenissen word
 
 {{'Temperatuur': 75},
 
-{{'Vochtigheid': 45}
+{"Humidity":45}
 
 ]
 
@@ -594,7 +594,7 @@ Om te kunnen gebruiken van de nieuwe versie van de macro\_utils.h, verwijdert u 
 
 Voeg vervolgens dit project toe aan uw Visual Studio-oplossing:
 
-> . \\c\\serialisatiefunctie\\bouwen\\windows\\serializer.vcxproj
+> .\\c\\serializer\\build\\windows\\serializer.vcxproj
 > 
 > 
 
@@ -616,16 +616,16 @@ Zoals beschreven in een [vorige artikel](iot-hub-device-sdk-c-iothubclient.md), 
 * IoTHubClient\_CreateFromConnectionString
 * IoTHubClient\_SendEventAsync
 * IoTHubClient\_SetMessageCallback
-* IoTHubClient\_vernietigen
+* IoTHubClient\_Destroy
 
 Deze API's worden uitgelegd **simplesample\_amqp**.
 
 Er is ook een vergelijkbare reeks API's van lager niveau.
 
 * IoTHubClient\_LLE\_CreateFromConnectionString
-* IoTHubClient\_LLE\_SendEventAsync
-* IoTHubClient\_LLE\_SetMessageCallback
-* IoTHubClient\_LLE\_vernietigen
+* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LL\_SetMessageCallback
+* IoTHubClient\_LL\_Destroy
 
 Houd er rekening mee dat de API's van lager niveau werken op dezelfde manier zoals beschreven in de vorige artikelen. U kunt de eerste reeks API's gebruiken als u wilt dat een achtergrond-thread voor het afhandelen van gebeurtenissen verzenden en ontvangen berichten. U kunt de tweede reeks API's gebruiken als u wilt dat expliciete controle over wanneer u gegevens verzenden en ontvangen van IoT Hub. Een reeks API's werken net zo goed met de **serialisatiefunctie** bibliotheek.
 
@@ -671,7 +671,7 @@ Zie voor meer informatie over het ontwikkelen voor IoT Hub, de [Azure IoT SDK's]
 
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
-* [AI implementeren op de edge-apparaten met Azure IoT rand][lnk-iotedge]
+* [AI implementeren op Edge-apparaten met Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 

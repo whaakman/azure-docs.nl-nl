@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Breng uw resources met Azure-beheergroepen 
 
-Als u meerdere abonnementen hebt, kunt u deze indelen in containers, genaamd 'beheergroepen' voor het beheren van toegang, beleid en naleving voor uw abonnementen. Beheergroepen krijgt u bedrijfsniveau management op grote schaal ongeacht welk soort abonnementen die u mogelijk hebt.  
+Als uw organisatie veel abonnementen heeft, moet u mogelijk een manier voor het efficiënt beheren van toegang, beleid en naleving voor deze abonnementen. Azure-beheergroepen biedt een niveau van de scope hierboven abonnementen. U abonnementen in containers 'beheergroepen' aangeroepen organiseren en uw voorwaarden governance toepassen op de beheergroepen. De voorwaarden die aan de beheergroep wordt automatisch overgenomen door alle abonnementen binnen een beheergroep. Beheergroepen krijgt u bedrijfsniveau management op grote schaal ongeacht welk soort abonnementen die u mogelijk hebt.
 
 De functie management group is beschikbaar in een openbare preview. Aan de slag met beheer van groepen, meld u aan bij de [Azure-portal](https://portal.azure.com) en zoek naar **beheergroepen** in de **alle Services** sectie. 
 

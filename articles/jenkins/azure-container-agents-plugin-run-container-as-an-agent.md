@@ -7,14 +7,14 @@ ms.service: multiple
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/16/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: fc3ad4b68e29e9bd5666bb115306b452d074f682
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a18136afc096f8315310fae134d3f683994b6d0a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Bouw een project in Azure met behulp van Jenkins en exemplaren van Azure-Container
 
@@ -68,6 +68,11 @@ Deze sectie helpt u bij het instellen van de URL Jenkins.
 1. Selecteer **Opslaan**.
 
 ## <a name="update-jenkins-to-allow-java-network-launch-protocol-jnlp"></a>Update Jenkins waarmee Java netwerk starten Protocol (JNLP)
+
+> [!NOTE]
+> Deze zelfstudie laat zien hoe een JNLP-agent configureren. Vanaf versie 0.4.x en hoger, de [Jenkins Azure Container Agents invoegtoepassing](https://plugins.jenkins.io/azure-container-agents) biedt ook ondersteuning voor SSH.
+>
+>
 
 De agent Jenkins verbindt met de Jenkins-server via de Java netwerk starten Protocol (JNLP). Deze sectie wordt uitgelegd hoe u een poort voor JNLP agents moeten worden gebruikt bij het communiceren met de server Jenkins opgeven.
 

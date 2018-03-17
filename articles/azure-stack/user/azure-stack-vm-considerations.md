@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Overwegingen voor virtuele Machines in Azure Stack
 
@@ -37,7 +37,7 @@ Virtuele machines zijn op aanvraag, schaalbare computerbronnen die worden aangeb
 | Netwerk voor virtuele machines | Openbare IP-adressen toegewezen aan virtuele machines van tenants zijn via Internet toegankelijk.<br><br><br>Virtuele Machines in Azure heeft een vaste DNS-naam | Openbare IP-adressen toegewezen aan de virtuele machine van een tenant zijn binnen de omgeving van Azure Stack Development Kit alleen toegankelijk. Een gebruiker moet toegang hebben tot de Azure-Stack Development Kit via [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) of [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) verbinding maken met een virtuele machine die wordt gemaakt in Azure-Stack.<br><br>Virtuele machines die zijn gemaakt binnen een specifiek exemplaar van de Azure-Stack is een DNS-naam op basis van de waarde die is geconfigureerd door de beheerder van de cloud. |
 | Virtuele-machineopslag | Ondersteunt [schijven die worden beheerd.](../../virtual-machines/windows/managed-disks-overview.md) | Beheerde schijven zijn nog niet ondersteund in Azure-Stack. |
 | API-versies | Azure heeft altijd de nieuwste API-versies voor alle functies van de virtuele machine. | Azure ondersteunt Stack specifieke Azure-services en de specifieke API-versies voor deze services. Raadpleeg de lijst met ondersteunde API-versies wilt weergeven, de [API-versies](#api-versions) sectie van dit artikel. |
-|Virtuele machine beschikbaarheidssets|Meerdere domeinen met fouten (2 of 3 per regio)<br>Meerdere domeinen van de update<br>Ondersteuning voor schijven beheerd|Één foutdomein<br>Één updatedomein<br>Er is geen ondersteuning voor beheerde schijven|
+|Virtuele machine beschikbaarheidssets|Meerdere domeinen met fouten (2 of 3 per regio)<br>Meerdere domeinen van de update<br>Ondersteuning voor schijven beheerd|Meerdere domeinen met fouten (2 of 3 per regio)<br>Meerdere domeinen van de update (maximaal 20)<br>Er is geen ondersteuning voor beheerde schijven|
 |Virtuele-machineschaalsets|Automatisch geschaald ondersteund|Automatisch geschaald niet ondersteund.<br>Meer exemplaren toevoegen aan een schaal ingesteld met de portal, Resource Manager-sjablonen of PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Grootten van virtuele machines

@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 7892c74f03647e289ed96055fb9db5c2f08f0234
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 59ee56e225623295dd63bf5ae303bfe1aa8e95cf
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server-database migreren naar Azure SQL Database
 
@@ -33,7 +33,7 @@ In beide gevallen moet u ervoor zorgen dat de brondatabase compatibel met Azure 
 
  Gebruik deze methode om te migreren naar één of een gegroepeerde database als enige downtime toestaan of u de testmigratie van een van een productiedatabase voor latere migratie uitvoert. Zie voor een zelfstudie [migreren van een SQL Server-database](sql-database-migrate-your-sql-server-database.md).
 
-De volgende lijst bevat de algemene werkstroom voor de migratie van een SQL Server-database van één of een gegroepeerde database met deze methode. Zie voor migratie naar beheerde exemplaar [migratie naar een exemplaar beheerd](sql-database-cloud-migrate.md#migration-to-azure-sql-database-managed-instance).
+De volgende lijst bevat de algemene werkstroom voor de migratie van een SQL Server-database van één of een gegroepeerde database met deze methode. Zie voor migratie naar beheerde exemplaar [migratie naar een exemplaar beheerd](sql-database-managed-instance-migrate.md).
 
   ![Diagram van VSSSDT-migratie](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 

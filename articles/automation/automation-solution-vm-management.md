@@ -1,24 +1,18 @@
 ---
-title: Virtuele machines starten/stoppen tijdens rustige uren oplossing (preview) | Microsoft Docs
+title: Virtuele machines starten/stoppen tijdens rustige uren oplossing (preview)
 description: Deze oplossing voor het beheer van virtuele machine wordt gestart en uw virtuele machines van Azure Resource Manager stopt volgens een schema en proactief bewaakt van logboekanalyse.
 services: automation
-documentationCenter: 
-authors: eslesar
-manager: carmonm
-editor: 
-ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 12/18/2017
-ms.author: magoedte
-ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: ec15859a92527c4e084075b40d3439d7a19fea1a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Virtuele machines starten/stoppen tijdens rustige uren oplossing (preview) in Azure Automation
 
@@ -129,7 +123,7 @@ U moet alle schema's, niet inschakelen omdat dit overlappende planning acties mo
 
 Voer de volgende stappen uit om toe te voegen van de starten/stoppen virtuele machines tijdens rustige uren oplossing voor uw Automation-account en configureer vervolgens de variabelen voor het aanpassen van de oplossing.
 
-1. Klik in de Azure-portal op **maken van een resource**.<br> ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. Klik in Azure Portal op **Een resource maken**.<br> ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. Typ in het deelvenster Marketplace een trefwoord zoals **Start** of **starten/stoppen**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. U kunt ook Typ trefwoorden in een of meer van de volledige naam van de oplossing en druk op Enter.  Selecteer **starten/stoppen virtuele machines [Preview] buiten kantooruren** in de zoekresultaten.  
 3. In de **starten/stoppen virtuele machines [Preview] buiten kantooruren** deelvenster voor de geselecteerde oplossing, Controleer de overzichtsgegevens en klik vervolgens op **maken**.  
 4. De **oplossing toevoegen** deelvenster wordt weergegeven. U wordt gevraagd de oplossing configureren voordat u deze in uw Automation-abonnement importeren kunt.<br><br> ![Blade Oplossing toevoegen voor VM-beheer](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
@@ -296,8 +290,8 @@ De volgende tabel bevat voorbeeldzoekopdrachten in logboeken voor taakrecords di
 
 Query’s uitvoeren | Beschrijving|
 ----------|----------|
-Taken voor runbook ScheduledStartStop_Parent die met succes voltooid vinden | Categorie Zoek == "JobLogs" &#124; waar (RunbookName_s == "ScheduledStartStop_Parent") &#124; waar (ResultType == "Voltooid") &#124; overzicht van AggregatedValue = count() door ResultType, bin (TimeGenerated, 1 uur) &#124; TimeGenerated desc sorteren|
-Taken voor runbook SequencedStartStop_Parent die met succes voltooid vinden | Categorie Zoek == "JobLogs" &#124; waar (RunbookName_s == "SequencedStartStop_Parent") &#124; waar (ResultType == "Voltooid") &#124; overzicht van AggregatedValue = count() door ResultType, bin (TimeGenerated, 1 uur) &#124; TimeGenerated desc sorteren
+Taken voor runbook ScheduledStartStop_Parent die met succes voltooid vinden | Categorie zoeken == "JobLogs" &#124; waar (RunbookName_s == "ScheduledStartStop_Parent") &#124; waar (ResultType == 'Voltooid') &#124; AggregatedValue samenvatten count() door ResultType, bin (TimeGenerated 1U) = &#124; sorteren op TimeGenerated desc|
+Taken voor runbook SequencedStartStop_Parent die met succes voltooid vinden | Categorie zoeken == "JobLogs" &#124; waar (RunbookName_s == "SequencedStartStop_Parent") &#124; waar (ResultType == 'Voltooid') &#124; AggregatedValue samenvatten count() door ResultType, bin (TimeGenerated 1U) = &#124; sorteren op TimeGenerated desc
 
 ## <a name="removing-the-solution"></a>Verwijderen van de oplossing
 

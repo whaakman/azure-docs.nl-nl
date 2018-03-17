@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: UI-aanpassing in een aangepast beleid configureren
 
@@ -30,7 +30,7 @@ Nadat u dit artikel hebt voltooid, hebt u een aangepast beleid voor aanmelden en
 
 Voordat u begint, voltooien [aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md). U hebt een werkende aangepast beleid voor aanmelden en aanmelden met lokale accounts.
 
-## <a name="page-ui-customization"></a>Page UI-aanpassing
+## <a name="page-ui-customization"></a>De gebruikersinterface van de pagina aanpassen
 
 U kunt het uiterlijk van het aangepaste beleid aanpassen met behulp van de pagina UI aanpassing-functie. U kunt ook behouden merk en visuele consistentie tussen uw toepassing en de Azure AD B2C.
 
@@ -118,7 +118,7 @@ Blob-opslag configureren voor het delen van Cross-Origin-Resource als volgt:
 
 Valideren dat u klaar bent als volgt:
 
-1. Ga naar de [test cors.org](http://test-cors.org/) website, en plak de URL in de **externe URL** vak.
+1. Ga naar de [www.test-cors.org](http://www.test-cors.org/) website, en plak de URL in de **externe URL** vak.
 2. Klik op **aanvraag verzenden**.  
     Als u een foutbericht ontvangt, controleert u of uw [CORS-instellingen voor](#configure-cors) juist zijn. Mogelijk moet u ook uw browsercache wissen of een browsersessie in particuliere openen door op Ctrl + Shift + P te drukken.
 
@@ -149,7 +149,7 @@ Onder de hoogste  *\<TrustFrameworkPolicy\>*  labels, zult u  *\<BuildingBlocks\
 2. Selecteer het aangepaste beleid die u hebt geüpload en klik op de **nu uitvoeren** knop.
 3. U moet kunnen aanmelden met een e-mailadres.
 
-## <a name="reference"></a>Naslaginformatie
+## <a name="reference"></a>Referentie
 
 Voor de UI-aanpassing Hier vindt u voorbeeldsjablonen:
 
@@ -161,26 +161,26 @@ De map sample_templates/wingtip bevat de volgende HTML-bestanden:
 
 | HTML5-sjabloon | Beschrijving |
 |----------------|-------------|
-| *phonefactor.HTML* | Dit bestand als sjabloon gebruiken voor een multi-factor authentication-pagina. |
-| *ResetPassword.HTML* | Dit bestand te gebruiken als een sjabloon voor een wachtwoordpagina vergeten. |
-| *selfasserted.HTML* | Dit bestand als een sjabloon voor een aanmeldingspagina sociale account, de aanmeldingspagina van een lokaal account of een aanmeldingspagina lokale account gebruiken. |
-| *Unified.HTML* | Dit bestand als sjabloon gebruiken voor een uniforme registreren of aanmelden pagina. |
-| *updateprofile.HTML* | Dit bestand als een sjabloon voor een update-profielpagina gebruiken. |
+| *phonefactor.html* | Dit bestand als sjabloon gebruiken voor een multi-factor authentication-pagina. |
+| *resetpassword.html* | Dit bestand te gebruiken als een sjabloon voor een wachtwoordpagina vergeten. |
+| *selfasserted.html* | Dit bestand als een sjabloon voor een aanmeldingspagina sociale account, de aanmeldingspagina van een lokaal account of een aanmeldingspagina lokale account gebruiken. |
+| *unified.html* | Dit bestand als sjabloon gebruiken voor een uniforme registreren of aanmelden pagina. |
+| *updateprofile.html* | Dit bestand als een sjabloon voor een update-profielpagina gebruiken. |
 
 In de [, wijzigt u de sectie registreren of aanmelden aangepast beleid](#modify-your-sign-up-or-sign-in-custom-policy), geconfigureerd van de inhoud definitie voor `api.idpselections`. De volledige set van inhoud definitie-id's die worden herkend door het Azure AD B2C identiteit ervaring framework en de bijbehorende beschrijvingen zijn in de volgende tabel:
 
 | De definitie van de inhoud-ID | Beschrijving | 
 |-----------------------|-------------|
-| *API.Error* | **Foutpagina**. Deze pagina wordt weergegeven wanneer een uitzondering of een fout is opgetreden. |
-| *API.idpselections* | **Id-provider selectiepagina**. Deze pagina bevat een lijst met de id-providers die de gebruiker uit tijdens het aanmelden kiezen kan. Deze opties zijn enterprise identiteitsproviders, sociale id-providers zoals Facebook en Google + of lokale accounts. |
-| *API.idpselections.Signup* | **Selectie van de id-provider voor registratie**. Deze pagina bevat een lijst met de id-providers die de gebruiker uit tijdens de registratie kiezen kan. Deze opties zijn enterprise identiteitsproviders, sociale id-providers zoals Facebook en Google + of lokale accounts. |
-| *API.localaccountpasswordreset* | **Wachtwoordpagina vergeten**. Deze pagina bevat een formulier dat de gebruiker moeten worden voltooid voor het initiëren van een wachtwoord opnieuw instellen.  |
-| *API.localaccountsignin* | **Aanmeldingspagina voor lokaal account**. Deze pagina bevat een formulier-in voor het aanmelden met een lokaal account dat is gebaseerd op een e-mailadres of een gebruikersnaam. Het formulier kan een tekstinvoervak en wachtwoordvak vermelding bevatten. |
-| *API.localaccountsignup* | **Lokaal account aanmeldingspagina**. Deze pagina bevat een aanmeldingsformulier hebt ingevuld voor het aanmelden voor een lokaal account dat is gebaseerd op een e-mailadres of een gebruikersnaam. Het formulier kan verschillende invoer besturingselementen bevatten, zoals een tekstinvoervak vak een wachtwoord, een keuzerondje, één vervolgkeuzelijsten en meervoudige selectie selectievakjes. |
-| *API.phonefactor* | **Multi-factor authentication-pagina**. Op deze pagina, kunnen gebruikers hun telefoonnummers (met behulp van tekst of stem) controleren tijdens het registreren of aanmelden. |
-| *API.selfasserted* | **De aanmeldpagina sociale account**. Deze pagina bevat een aanmeldingsformulier hebt ingevuld die gebruikers moeten worden voltooid wanneer ze zich registreren met behulp van een bestaand account van een identiteitsprovider van sociale zoals Facebook of Google +. Deze pagina is vergelijkbaar met de voorgaande sociale account aanmeldpagina, met uitzondering van de invoervelden wachtwoord. |
-| *API.selfasserted.profileupdate* | **Update profielpagina**. Deze pagina bevat een formulier dat gebruikers gebruiken kunnen om hun profiel bijwerken. Deze pagina is vergelijkbaar met de sociale account aanmeldpagina, met uitzondering van de invoervelden wachtwoord. |
-| *API.signuporsignin* | **Unified registreren of aanmelden pagina**. Deze pagina verwerkt de registreren en aanmelden van gebruikers, die enterprise identiteitsproviders, sociale id-providers zoals Facebook of Google + of lokale accounts kunnen gebruiken.  |
+| *api.error* | **Foutpagina**. Deze pagina wordt weergegeven wanneer een uitzondering of een fout is opgetreden. |
+| *api.idpselections* | **Id-provider selectiepagina**. Deze pagina bevat een lijst met de id-providers die de gebruiker uit tijdens het aanmelden kiezen kan. Deze opties zijn enterprise identiteitsproviders, sociale id-providers zoals Facebook en Google + of lokale accounts. |
+| *api.idpselections.signup* | **Selectie van de id-provider voor registratie**. Deze pagina bevat een lijst met de id-providers die de gebruiker uit tijdens de registratie kiezen kan. Deze opties zijn enterprise identiteitsproviders, sociale id-providers zoals Facebook en Google + of lokale accounts. |
+| *api.localaccountpasswordreset* | **Wachtwoordpagina vergeten**. Deze pagina bevat een formulier dat de gebruiker moeten worden voltooid voor het initiëren van een wachtwoord opnieuw instellen.  |
+| *api.localaccountsignin* | **Aanmeldingspagina voor lokaal account**. Deze pagina bevat een formulier-in voor het aanmelden met een lokaal account dat is gebaseerd op een e-mailadres of een gebruikersnaam. Het formulier kan een tekstinvoervak en wachtwoordvak vermelding bevatten. |
+| *api.localaccountsignup* | **Lokaal account aanmeldingspagina**. Deze pagina bevat een aanmeldingsformulier hebt ingevuld voor het aanmelden voor een lokaal account dat is gebaseerd op een e-mailadres of een gebruikersnaam. Het formulier kan verschillende invoer besturingselementen bevatten, zoals een tekstinvoervak vak een wachtwoord, een keuzerondje, één vervolgkeuzelijsten en meervoudige selectie selectievakjes. |
+| *api.phonefactor* | **Multi-factor authentication-pagina**. Op deze pagina, kunnen gebruikers hun telefoonnummers (met behulp van tekst of stem) controleren tijdens het registreren of aanmelden. |
+| *api.selfasserted* | **De aanmeldpagina sociale account**. Deze pagina bevat een aanmeldingsformulier hebt ingevuld die gebruikers moeten worden voltooid wanneer ze zich registreren met behulp van een bestaand account van een identiteitsprovider van sociale zoals Facebook of Google +. Deze pagina is vergelijkbaar met de voorgaande sociale account aanmeldpagina, met uitzondering van de invoervelden wachtwoord. |
+| *api.selfasserted.profileupdate* | **Update profielpagina**. Deze pagina bevat een formulier dat gebruikers gebruiken kunnen om hun profiel bijwerken. Deze pagina is vergelijkbaar met de sociale account aanmeldpagina, met uitzondering van de invoervelden wachtwoord. |
+| *api.signuporsignin* | **Unified registreren of aanmelden pagina**. Deze pagina verwerkt de registreren en aanmelden van gebruikers, die enterprise identiteitsproviders, sociale id-providers zoals Facebook of Google + of lokale accounts kunnen gebruiken.  |
 
 ## <a name="next-steps"></a>Volgende stappen
 

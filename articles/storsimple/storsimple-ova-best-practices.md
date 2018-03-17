@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2017
+ms.date: 03/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46fd818d8ca15515c91bb6e65e99b0a3bc1f1fa4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Aanbevolen procedures voor virtuele StorSimple-matrix
 ## <a name="overview"></a>Overzicht
@@ -38,7 +38,7 @@ Implementeer de volgende aanbevolen procedures bij het inrichten van de virtuele
 
 |  | Hyper-V | VMware |
 | --- | --- | --- |
-| **Type van de virtuele machine** |**Generatie 2** VM voor gebruik met Windows Server 2012 of hoger en een *.vhdx* installatiekopie. <br></br> **Generatie 1** VM voor gebruik met een Windows Server 2008 of hoger en een *.vhd* installatiekopie. |Gebruik van virtuele machine versie 8-11 wanneer u *.vmdk* installatiekopie. |
+| **Type van de virtuele machine** |**Generatie 2** VM voor gebruik met Windows Server 2012 of hoger en een *.vhdx* installatiekopie. <br></br> **Generatie 1** VM voor gebruik met een Windows Server 2008 of hoger en een *.vhd* installatiekopie. |Gebruik virtuele machine versie 8 bij gebruik van *.vmdk* installatiekopie. |
 | **Geheugentype** |Configureren als **statisch geheugen**. <br></br> Gebruik niet de **dynamisch geheugen** optie. | |
 | **Gegevenstype van de schijf** |Inrichten als **dynamisch uitbreidbare**.<br></br> **Een vaste grootte** lang duurt. <br></br> Gebruik niet de **differentiërende** optie. |Gebruik de **thin inrichten** optie. |
 | **Wijziging van de schijf gegevens** |Uitbreiden of verkleinen is niet toegestaan. Een poging om dit te doen, resulteert het verlies van alle lokale gegevens op het apparaat. |Uitbreiden of verkleinen is niet toegestaan. Een poging om dit te doen, resulteert het verlies van alle lokale gegevens op het apparaat. |
@@ -191,7 +191,7 @@ Gebruik de volgende aanbevolen procedures bij het configureren van ACRs voor Sto
 
 * Bij het toewijzen van meer dan één ACR op een volume, zorg ervoor dat het volume niet beschikbaar is in een manier waarbij gelijktijdig door meer dan één niet-geclusterde host kan worden geopend. Als u meerdere ACRs hebt toegewezen aan een volume, weergegeven een waarschuwingsbericht voor u deze kunt bekijken van uw configuratie.
 
-### <a name="data-security-and-encryption"></a>Beveiliging van gegevens en versleuteling
+### <a name="data-security-and-encryption"></a>Gegevensbeveiliging en -versleuteling
 Uw virtuele StorSimple-matrix heeft gegevens beveiligings- en functies die de vertrouwelijkheid en integriteit van uw gegevens te garanderen. Wanneer deze functies gebruikt, is het raadzaam dat u deze aanbevolen procedures volgt: 
 
 * Definieer een coderingssleutel voor cloudopslag voor het genereren van AES-256-versleuteling voordat de gegevens van uw virtuele matrix wordt verzonden naar de cloud. Deze sleutel is niet vereist als uw gegevens eerst worden versleuteld. De sleutel worden gegenereerd en veilig met een sleutelbeheersysteem zoals blijft [Azure sleutelkluis](../key-vault/key-vault-whatis.md).
@@ -236,7 +236,7 @@ Houd rekening met het volgende bij het uitvoeren van een mislukken via voor uw v
   * Er is een fout opgetreden tijdens het werkelijke failover. In dit geval wordt het doelapparaat is gemarkeerd als onbruikbaar. U moet inrichten en een andere virtuele doelmatrix configureren en gebruiken die voor failover.
   * De failover is voltooid waarna het bronapparaat is verwijderd, maar het doelapparaat problemen heeft en u geen toegang tot alle gegevens. De gegevens in de cloud nog steeds veilig is en eenvoudig kan worden opgehaald door een andere virtuele matrix maken en vervolgens wordt gebruikt als een apparaat voor het herstel na Noodgevallen.
 
-### <a name="deactivate"></a>deactiveren
+### <a name="deactivate"></a>Deactiveren
 Wanneer u een virtueel StorSimple-matrix deactiveert, verbreekt u de verbinding tussen het apparaat en de bijbehorende StorSimple Manager-service. Deactivering is een **permanente** bewerking en kan niet ongedaan worden gemaakt. Een gedeactiveerde apparaat kan niet worden geregistreerd met de StorSimple Manager-service opnieuw. Ga voor meer informatie naar [deactiveren en verwijderen van uw virtuele StorSimple-matrix](storsimple-virtual-array-deactivate-and-delete-device.md).
 
 Houd rekening met de volgende aanbevolen procedures bij het deactiveren van uw virtuele matrix:

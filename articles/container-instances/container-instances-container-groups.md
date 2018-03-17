@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 7e8a5014ce9168ba3d67d175935649bfd9fec511
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Containergroepen in Azure Containerexemplaren
 
@@ -23,13 +23,14 @@ De resource op het hoogste niveau in Azure Container gevallen is de *containergr
 
 Een containergroep is een verzameling van containers die op dezelfde hostcomputer ophalen gepland. De containers in een containergroep delen levenscyclus, lokale netwerk en opslagvolumes. Het is vergelijkbaar met het concept van een *schil* in [Kubernetes] [ kubernetes-pod] en [DC/OS][dcos-pod].
 
-Het volgende diagram toont een voorbeeld van een containergroep met meerdere containers.
+Het volgende diagram toont een voorbeeld van een containergroep met meerdere containers:
 
 ![Diagram van container-groepen][container-groups-example]
 
 In dit voorbeeld containergroep:
 
 * Is gepland op een machine één host.
+* Een label van DNS-naam toegewezen.
 * Beschrijft de één openbaar IP-adres, met één blootgestelde poort.
 * Bestaat uit twee containers. Een container luistert op poort 80, terwijl de andere luistert op poort 5000.
 * Bevat twee Azure bestandsshares als volume koppelingen en elke container koppelt een van de shares lokaal.
@@ -51,7 +52,7 @@ U kunt externe volumes te koppelen in een container wilt opgeven. U kunt deze vo
 
 ## <a name="common-scenarios"></a>Algemene scenario's
 
-Meerdere container groepen zijn handig in gevallen waarin u wilt delen van een enkele functionele taak in een klein aantal installatiekopieën van de container, die kunnen worden geleverd door verschillende teams en afzonderlijke resourcevereisten hebben.
+Meerdere container groepen zijn handig in gevallen waar u een enkele taak voor het functionele onderverdelen in een klein aantal installatiekopieën van de container. Deze installatiekopieën vervolgens kunnen worden geleverd door verschillende teams en afzonderlijke resourcevereisten hebben.
 
 Voorbeeld van syntaxis kan omvatten:
 

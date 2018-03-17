@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: b1ff33f80a8dd0a0861a5c39731c9f59689db101
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse Capaciteitslimieten
 De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de verschillende onderdelen van Azure SQL Data Warehouse.
@@ -28,7 +28,7 @@ De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de versch
 | Category | Beschrijving | Maximum |
 |:--- |:--- |:--- |
 | [Datawarehouse Units (DWU)][Data Warehouse Units (DWU)] |Maximale DWU voor een enkele SQL Data Warehouse | Geoptimaliseerd voor elasticiteit [prestatielaag](performance-tiers.md): DW6000<br></br>Geoptimaliseerd voor Compute [prestatielaag](performance-tiers.md): DW30000c |
-| [Datawarehouse Units (DWU)][Data Warehouse Units (DWU)] |Standaard DTU per server |54,000<br></br>Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft een DTU-quotum 54.000, waardoor maximaal DW6000c standaard. Dit quotum is gewoon een veiligheidsbeperking. U kunt uw quotum door verhogen [een ondersteuningsticket maken] [ creating a support ticket] en te selecteren *quotum* als het aanvraagtype.  Voor het berekenen van uw DTU heeft, de 7.5 vermenigvuldigen met het totale aantal dat DWU nodig of 9.0 vermenigvuldigen met de totale cDWU nodig. Bijvoorbeeld:<br></br>DW6000 x 7.5 = 45,000 dtu's<br></br>DW600c x 9.0 = 54.000 dtu's.<br></br>U kunt uw huidige DTU-verbruik van de SQL server-optie weergeven in de portal. Onderbroken en hervat databases meetellen voor de DTU-quotum. |
+| [Datawarehouse Units (DWU)][Data Warehouse Units (DWU)] |Standaard DTU per server |54,000<br></br>Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft een DTU-quotum 54.000, waardoor maximaal DW6000c standaard. Dit quotum is gewoon een veiligheidsbeperking. U kunt uw quotum door verhogen [een ondersteuningsticket maken] [ creating a support ticket] en te selecteren *quotum* als het aanvraagtype.  Voor het berekenen van uw DTU heeft, de 7.5 vermenigvuldigen met het totale aantal dat DWU nodig of 9.0 vermenigvuldigen met de totale cDWU nodig. Bijvoorbeeld:<br></br>DW6000 x 7.5 = 45,000 dtu's<br></br>DW600c x 9.0 = 54.000 dtu's.<br></br>U kunt uw huidige DTU-verbruik van de SQL server-optie weergeven in de portal. Zowel onderbroken als niet-onderbroken databases tellen mee voor het DTU-quotum. |
 | Databaseverbinding |Gelijktijdige sessies actief |1024<br/><br/>Elk van de actieve sessies 1024 kunt aanvragen met een SQL Data Warehouse-database verzenden op hetzelfde moment. Let op: Er zijn limieten van het aantal query's die gelijktijdig kan worden uitgevoerd. Wanneer de gelijktijdigheid limiet wordt overschreden, gaat de aanvraag u naar een interne wachtrij waar wacht om te worden verwerkt. |
 | Databaseverbinding |Maximale hoeveelheid geheugen voor voorbereide instructies |20 MB |
 | [Beheer van de werkbelasting][Workload management] |Maximum aantal gelijktijdige query 's |32<br/><br/> SQL Data Warehouse kan standaard maximaal 32 gelijktijdige query's en wachtrijen resterende query's worden uitgevoerd.<br/><br/>Het aantal gelijktijdige query's kunt descrease wanneer gebruikers worden toegewezen aan hogere resource klassen of wanneer SQL Data Warehouse heeft een lagere [service level](performance-tiers.md#service-levels). Sommige query's, zoals DMV-query's, zijn altijd toegestaan om uit te voeren. |
@@ -69,10 +69,10 @@ De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de versch
 | Query’s uitvoeren |Maximum aantal parameters |2098 |
 | Batch |Maximale grootte |65,536*4096 |
 | Selecteer resultaten |Kolommen per rij |4096<br/><br/>U kunt nooit meer dan 4096 kolommen per rij in de SELECT resultaat hebben. Er is geen garantie dat u kunt altijd 4096 hebben. Als het queryplan is een tijdelijke tabel vereist, kunnen de 1024 kolommen per tabel maximale toepassen. |
-| SELECTEER |Geneste subquery 's |32<br/><br/>U kunt nooit meer dan 32 geneste subquery's in een SELECT-instructie hebben. Er is geen garantie dat u kunt altijd 32 hebben. Een JOIN kan bijvoorbeeld een subquery in het queryplan introduceren. Het aantal subquery's kan ook worden beperkt door het beschikbare geheugen. |
-| SELECTEER |Kolommen per JOIN |1024 kolommen<br/><br/>U kunt nooit meer dan 1024 kolommen hebben in de JOIN. Er is geen garantie dat u kunt altijd 1024 hebben. Als het plan JOIN een tijdelijke tabel met meer kolommen dan de JOIN-resultaat vereist, geldt de 1024-limiet voor de tijdelijke tabel. |
-| SELECTEER |Aantal bytes per GROEPEREN op kolommen. |8060<br/><br/>De kolommen in de component GROUP BY kunnen maximaal 8060 bytes hebben. |
-| SELECTEER |Aantal bytes per ORDER BY kolommen |8060 bytes.<br/><br/>De kolommen in de component ORDER BY kunnen maximaal 8060 bytes hebben. |
+| SELECTEREN |Geneste subquery 's |32<br/><br/>U kunt nooit meer dan 32 geneste subquery's in een SELECT-instructie hebben. Er is geen garantie dat u kunt altijd 32 hebben. Een JOIN kan bijvoorbeeld een subquery in het queryplan introduceren. Het aantal subquery's kan ook worden beperkt door het beschikbare geheugen. |
+| SELECTEREN |Kolommen per JOIN |1024 kolommen<br/><br/>U kunt nooit meer dan 1024 kolommen hebben in de JOIN. Er is geen garantie dat u kunt altijd 1024 hebben. Als het plan JOIN een tijdelijke tabel met meer kolommen dan de JOIN-resultaat vereist, geldt de 1024-limiet voor de tijdelijke tabel. |
+| SELECTEREN |Aantal bytes per GROEPEREN op kolommen. |8060<br/><br/>De kolommen in de component GROUP BY kunnen maximaal 8060 bytes hebben. |
+| SELECTEREN |Aantal bytes per ORDER BY kolommen |8060 bytes.<br/><br/>De kolommen in de component ORDER BY kunnen maximaal 8060 bytes hebben. |
 | Id's en constanten per instructie |Het aantal waarnaar wordt verwezen id's en constanten. |65,535<br/><br/>SQL Data Warehouse beperkt het aantal id's en constanten die kunnen worden opgenomen in één expressie van een query. Deze limiet is 65.535. Dit nummer resulteert in een SQL Server-fout 8632 overschrijdt. Zie voor meer informatie [interne fout: een expressie services limiet is bereikt][Internal error: An expression services limit has been reached]. |
 
 ## <a name="metadata"></a>Metagegevens
@@ -96,7 +96,7 @@ Zie voor meer informatie, [SQL Data Warehouse verwijzing overzicht][SQL Data War
 <!--Article references-->
 [Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md
 [SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
 [data type]: ./sql-data-warehouse-tables-data-types.md
 [creating a support ticket]: /sql-data-warehouse-get-started-create-support-ticket.md

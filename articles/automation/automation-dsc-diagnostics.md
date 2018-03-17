@@ -1,25 +1,22 @@
 ---
-title: Doorsturen van Azure Automation DSC rapportagegegevens met OMS Log Analytics | Microsoft Docs
-description: In dit artikel laat zien hoe verzenden Desired State Configuration (DSC) gegevens rapporteren aan Microsoft Operations Management Suite-logboekanalyse meer inzicht leveren en beheren.
+title: Doorsturen van Azure Automation DSC rapportagegegevens met Log Analytics
+description: Dit artikel wordt beschreven hoe u verzendt Desired State Configuration (DSC) rapportagegegevens met logboekanalyse om meer inzicht en beheer te bieden.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Doorsturen van Azure Automation DSC rapportagegegevens met OMS Log Analytics
+# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Azure Automation DSC-rapportagegegevens doorsturen naar OMS Log Analytics
 
 Automation kan DSC knooppunt statusgegevens verzenden naar de werkruimte voor logboekanalyse voor Microsoft Operations Management Suite (OMS).  
 Status van naleving is zichtbaar in de Azure portal of PowerShell voor knooppunten en voor afzonderlijke DSC-resources in het knooppuntconfiguraties. Met Log Analytics kunt u het volgende doen:
@@ -81,7 +78,7 @@ De **DscResourceStatusData** bewerking bevat informatie over de fout voor eventu
 Klik op elke bewerking in de lijst om de gegevens voor de bewerking te bekijken.
 
 U kunt ook de logboeken weergeven door [zoeken in logboekanalyse. Zie [vinden van gegevens met behulp van logboek zoekopdrachten](../log-analytics/log-analytics-log-searches.md).
-Typ de volgende query voor het vinden van de DSC-Logboeken:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus"`
+Typ de volgende query voor het vinden van de DSC-Logboeken: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus"`
 
 U kunt ook de query beperken door de naam van de bewerking. Bijvoorbeeld: "Type = AzureDiagnostics ResourceProvider ="MICROSOFT Corporation. Categorie AUTOMATION' = 'DscNodeStatus' OperationName = "DscNodeStatusData"
 
@@ -92,7 +89,7 @@ Een van onze belangrijkste klantaanvragen is voor de mogelijkheid voor het verze
 Als u wilt een waarschuwingsregel maakt, begint u met het maken van een zoekopdracht logboek voor de DSC-rapport-records die de waarschuwing moet worden aangeroepen.  Klik op de **waarschuwing** knop maken en configureren van de waarschuwingsregel.
 
 1. Klik op de pagina overzicht van Log Analytics **logboek zoeken**.
-1. Maak een zoekquery logboek voor de waarschuwing door de volgende zoeken in het queryveld typen:`Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
+1. Maak een zoekquery logboek voor de waarschuwing door de volgende zoeken in het queryveld typen:  `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
   Als u naar de werkruimte logboeken van meer dan een Automation-account of -abonnement hebt ingesteld, kunt u uw waarschuwingen per abonnement en de Automation-account kunt groeperen.  
   Automation-accountnaam kan worden afgeleid van het veld Resource in het doorzoeken van DscNodeStatusData.  
@@ -104,7 +101,7 @@ Een voordeel van het gebruik van logboekanalyse is dat u naar mislukte controles
 Alle exemplaren van DSC-resources die niet vinden.
 
 1. Klik op de pagina overzicht van Log Analytics **logboek zoeken**.
-1. Maak een zoekquery logboek voor de waarschuwing door de volgende zoeken in het queryveld typen:`Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
+1. Maak een zoekquery logboek voor de waarschuwing door de volgende zoeken in het queryveld typen:  `Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
 
 ### <a name="view-historical-dsc-node-status"></a>Historische status van DSC-knooppunt weergeven
 
@@ -146,7 +143,7 @@ Diagnostische gegevens van Azure Automation maakt twee categorieën van records 
 | ResultDescription | De beschrijving voor deze bewerking. |
 | SubscriptionId | De Azure-abonnement-Id (GUID) voor het Automation-account. |
 | ResourceGroup | Naam van de resourcegroep voor het Automation-account. |
-| ResourceProvider | MICROSOFT CORPORATION. AUTOMATION |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |GUID die de correlatie-id van het rapport voor naleving. |
 
@@ -177,7 +174,7 @@ Diagnostische gegevens van Azure Automation maakt twee categorieën van records 
 | ResultDescription | De beschrijving voor deze bewerking. |
 | SubscriptionId | De Azure-abonnement-Id (GUID) voor het Automation-account. |
 | ResourceGroup | Naam van de resourcegroep voor het Automation-account. |
-| ResourceProvider | MICROSOFT CORPORATION. AUTOMATION |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |GUID die de correlatie-id van het rapport voor naleving. |
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 650b11d66f3ca32266b9842af77c909e125b4e4d
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 9b8a9b9bba242fd7c86dc285a77317a5821948df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Met een Linux gegevens wetenschappelijke virtuele Machine in Azure voor gegevenswetenschap
 In dit scenario laat zien hoe u verschillende algemene gegevens wetenschappelijke taken met de virtuele Linux-gegevens van wetenschappelijke machine uitvoeren. Linux gegevens wetenschappelijke virtuele Machine (DSVM) is beschikbaar in Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning op de installatiekopie van een virtuele machine. De belangrijke softwareonderdelen worden gespecificeerd in de [Linux gegevens wetenschap-Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie kunt eenvoudig aan de slag gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk doen. U kunt eenvoudig opschalen van de virtuele machine, indien nodig en stop de toepassing als deze niet in gebruik. Deze resource wordt dus elastische en betaalbare.
@@ -78,7 +78,7 @@ Als u exemplaren van de codevoorbeelden in dit scenario gebruikt, kloon de **Azu
 Open een terminalvenster en een nieuwe R-sessie starten met de interactieve R-console.
 
 > [!NOTE]
-> U kunt ook RStudio gebruiken voor de volgende procedures. Geef voor het installeren van RStudio deze opdracht in een terminal:`./Desktop/DSVM\ tools/installRStudio.sh`
+> U kunt ook RStudio gebruiken voor de volgende procedures. Geef voor het installeren van RStudio deze opdracht in een terminal: `./Desktop/DSVM\ tools/installRStudio.sh`
 >
 >
 
@@ -238,7 +238,7 @@ De resterende secties laten zien hoe u een aantal van de hulpprogramma's geïnst
 * Jupyterhub
 * Rammelaar
 * PostgreSQL & Squirrel SQL
-* SQL Server-datawarehouse
+* SQL Server Data Warehouse
 
 ## <a name="xgboost"></a>XGBoost
 [XGBoost](https://xgboost.readthedocs.org/en/latest/) is een hulpprogramma waarmee een snelle en nauwkeurige gestimuleerd structuur-implementatie.
@@ -385,7 +385,7 @@ Rammelaar kunt ook cluster analyse uitvoeren. Laten we uitsluiten sommige functi
 * word_freq_money
 * capital_run_length_longest
 * word_freq_business
-* ongewenste e-mail
+* spam
 
 Ga vervolgens terug naar de **Cluster** Kies **KMeans**, en stel de *aantal clusters* tot en met 4. Vervolgens **uitvoeren**. De resultaten worden weergegeven in het uitvoervenster. Een cluster met hoge frequentie van 'george' en 'hp' heeft en is waarschijnlijk een legitieme zakelijke-e-mailadres.
 
@@ -499,7 +499,7 @@ De meeste e-mailberichten waarvoor een hoge exemplaar van *3d* zijn blijkbaar sp
 
 Als u uitvoeren van machine learning met gegevens die zijn opgeslagen in een PostgreSQL-database wilt, kunt u overwegen [MADlib](http://madlib.incubator.apache.org/).
 
-## <a name="sql-server-data-warehouse"></a>SQL Server-datawarehouse
+## <a name="sql-server-data-warehouse"></a>SQL Server Data Warehouse
 Azure SQL Data Warehouse is een schaalbare clouddatabase die geschikt is voor het verwerken van grote hoeveelheden relationele en/of niet-relationele gegevens. Zie voor meer informatie [wat is Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Als u wilt verbinding maken met het datawarehouse en de tabel maakt, voer de volgende opdracht uit vanaf de opdrachtprompt:

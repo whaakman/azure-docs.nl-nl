@@ -2,8 +2,8 @@
 title: Naslaginformatie over Azure Machine Learning-Model Management opdrachtregelinterface | Microsoft Docs
 description: Azure Machine Learning-Model Management opdrachtregelinterface verwijzing.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, aashishb
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 219c61d1842369caadaf8e85dcb039242c37ef6c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 27361c5b92a8748a026d457875fadfc1f3529076
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="model-management-command-line-interface-reference"></a>Verwijzing naar een model management opdrachtregelinterface
 
@@ -40,7 +40,7 @@ Een model-management-account is vereist voor het gebruik van de services waarmee
 
 **Model Management-Account maken**
 
-Een model managementaccount maken met de volgende opdracht. Dit account wordt gebruikt voor facturering.
+Maak een model-management-account voor facturering met de volgende opdracht:
 
 `az ml account modelmanagement create --location [Azure region e.g. eastus2] --name [new account name] --resource-group [resource group name to store the account in]`
 
@@ -76,7 +76,7 @@ Er zijn twee opties voor implementatie: *lokale* en *cluster*. Instellen van de 
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`
 
-Dit uw Azure machine learning-omgeving met een opslagaccount, ACR-register en App Insights-service gemaakt in uw abonnement wordt geïnitialiseerd. Standaard wordt de omgeving geïnitialiseerd voor alleen lokale implementaties (geen ACS) als er geen vlag is opgegeven. Als u schalen, service wilt, geeft u de `--cluster` (of `-c`) vlag voor het maken van een ACS-cluster.
+Met deze opdracht wordt geïnitialiseerd voor uw Azure machine learning-omgeving met een opslagaccount, ACR-register en App Insights-service gemaakt in uw abonnement. Standaard wordt de omgeving geïnitialiseerd voor alleen lokale implementaties (geen ACS) als er geen vlag is opgegeven. Als u schalen, service wilt, geeft u de `--cluster` (of `-c`) vlag voor het maken van een ACS-cluster.
 
 Opdrachtdetails van de:
 
@@ -89,12 +89,12 @@ Opdrachtdetails van de:
     --cluster -c                   : Flag to provision ACS cluster. Off by default; specify this to force an ACS cluster deployment.
     --key-pem                      : Path to .pem file with certificate key.
     --master-count -m              : Number of master nodes to provision in the ACS cluster. Acceptable values: 1, 3, 5. Default: 1.
-    --resource-group -g            : Resource group in which to create compute resource. Will be created if it does not exist.
-                                     If not provided, resource group will be created with 'rg' appended to 'name.'.
+    --resource-group -g            : Resource group in which to create compute resource. Is created if it does not exist.
+                                     If not provided, resource group is created with 'rg' appended to 'name.'.
     --service-principal-app-id -a  : App ID of service principal to use for configuring ML compute.
     --service-principal-password -p: Password associated with service principal.
     --storage -s                   : ARM ID of storage account to associate with this environment.
-    --yes -y                       : Flag to answer 'yes' to any prompts. Command will fail if user is not logged in.
+    --yes -y                       : Flag to answer 'yes' to any prompts. Command fails if user is not logged in.
 
 Algemene argumenten
 ```
@@ -110,7 +110,7 @@ Algemene argumenten
     register
     show
 
-Registreren van een model
+**Registreren van een model**
 
 Opdracht voor het registreren van het model.
 
@@ -143,7 +143,7 @@ Algemene argumenten
 
 **Maken van het manifest**
 
-Maakt een manifestbestand voor het model. 
+De volgende opdracht maakt een manifestbestand voor het model. 
 
 `az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]`
 
@@ -289,7 +289,7 @@ Algemene argumenten
 
 Houd er rekening mee op de `-d` vlag voor het koppelen van afhankelijkheden: als u de naam van een map die nog niet gebundeld (zip, tar, enzovoort), die map automatisch tar'ed opgehaald en wordt doorgegeven samen en vervolgens automatisch zonder op het andere uiteinde. 
 
-Als u in een map die al is gebundeld doorgeeft, we behandelen als een bestand en doorgeeft langs is. Het is niet mogelijk afzonderlijke automatisch; ervan uitgegaan dat u voor het afhandelen van die in uw code.
+Als u in een map die al is gebundeld doorgeeft, wordt de map behandeld als een bestand en is doorgegeven. Het is automatisch; afzonderlijke ervan uitgegaan dat u voor het afhandelen van die in uw code.
 
 **Servicedetails van ophalen**
 

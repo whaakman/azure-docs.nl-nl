@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Gebeurtenis raster beveiligings- en -verificatie 
 
@@ -24,9 +24,9 @@ Azure Event raster heeft drie soorten verificatie:
 
 ## <a name="webhook-event-delivery"></a>WebHook gebeurtenis levering
 
-Webhooks zijn veel manieren voor het ontvangen van gebeurtenissen in realtime uit Azure Event raster. Elke keer dat er wordt een nieuwe gebeurtenis gereed om te worden geleverd, wordt in de gebeurtenis raster Webhook een HTTP-aanvraag verzendt naar de geconfigureerde HTTP-eindpunt met de gebeurtenis in de hoofdtekst.
+Webhooks zijn veel manieren voor het ontvangen van gebeurtenissen uit Azure Event raster. Wanneer een nieuwe gebeurtenis klaar is, wordt in de gebeurtenis raster Webhook een HTTP-aanvraag verzendt naar de geconfigureerde HTTP-eindpunt met de gebeurtenis in de hoofdtekst.
 
-Wanneer u uw eigen WebHook-eindpunt met raster gebeurtenis registreert, stuurt u een POST-aanvraag met een eenvoudige validatiecode om te bewijzen dat eindpunt eigendom. Uw app moet reageren door echo terug code voor de validatie. Gebeurtenis raster bezorgt geen gebeurtenissen naar WebHook-eindpunten die u hebt de validatie niet doorstaan.
+Wanneer u uw eigen WebHook-eindpunt met raster gebeurtenis registreert, stuurt u een POST-aanvraag met een eenvoudige validatiecode om te bewijzen eindpunt eigendom. Uw app moet reageren door echo terug code voor de validatie. Gebeurtenis raster leveren niet gebeurtenissen aan WebHook-eindpunten die nog niet gevalideerd.
 
 ### <a name="validation-details"></a>Validatie-informatie
 
@@ -34,6 +34,7 @@ Wanneer u uw eigen WebHook-eindpunt met raster gebeurtenis registreert, stuurt u
 * De gebeurtenis bevat een waarde voor header 'Aeg gebeurtenistype: SubscriptionValidation'.
 * De hoofdtekst van de gebeurtenis heeft hetzelfde schema als andere gebeurtenissen gebeurtenis raster.
 * Gegevens van de gebeurtenis bevat de eigenschap 'validationCode' met een willekeurige tekenreeks. Bijvoorbeeld ' validationCode: acb13... '.
+* De matrix bevat alleen de validatiegebeurtenis. Andere gebeurtenissen worden verzonden in een afzonderlijke aanvraag nadat u echo teruggestuurd code voor de validatie.
 
 Een voorbeeld SubscriptionValidationEvent wordt weergegeven in het volgende voorbeeld:
 
@@ -69,7 +70,7 @@ Ten slotte is het belangrijk te weten dat Azure gebeurtenis raster biedt alleen 
 
 ## <a name="event-subscription"></a>Voor een gebeurtenisabonnement
 
-Abonneren op een gebeurtenis, hebt u de **Microsoft.EventGrid/EventSubscriptions/Write** toegang tot de vereiste bron. U moet deze machtiging omdat u bij het schrijven van een nieuw abonnement op het bereik van de resource. De vereiste bron verschilt op basis van of u op een systeemonderwerp of aangepaste onderwerp abonneert zich. Beide typen worden in deze sectie beschreven.
+Abonneren op een gebeurtenis, hebt u de **Microsoft.EventGrid/EventSubscriptions/Write** toegang tot de vereiste bron. U moet deze machtiging omdat u bij het schrijven van een nieuw abonnement op het bereik van de resource. De vereiste bron verschilt op basis van of u op een systeemonderwerp of aangepaste onderwerp abonneren. Beide typen worden in deze sectie beschreven.
 
 ### <a name="system-topics-azure-service-publishers"></a>Systeemonderwerpen (uitgevers Azure-service)
 
@@ -79,7 +80,7 @@ Bijvoorbeeld, om u te abonneren op een gebeurtenis op een opslagaccount met de n
 
 ### <a name="custom-topics"></a>Aangepaste-onderwerpen
 
-Voor aangepaste onderwerpen moet u machtigingen voor schrijven van een nieuw gebeurtenisabonnement bij het bereik van het onderwerp gebeurtenis raster. De indeling van de resource is: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+Voor aangepaste onderwerpen moet u machtigingen voor schrijven van een nieuw gebeurtenisabonnement bij het bereik van het onderwerp raster. De indeling van de resource is: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
 Bijvoorbeeld, om u te abonneren op een eigen onderwerp met de naam **mytopic**, moet u de machtiging Microsoft.EventGrid/EventSubscriptions/Write op: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
@@ -103,7 +104,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 SAS-tokens voor gebeurtenis raster zijn de resource een verlooptijd en een handtekening. De indeling van het SAS-token is: `r={resource}&e={expiration}&s={signature}`.
 
-De resource is het pad voor het onderwerp waarnaar u gebeurtenissen wilt verzenden. Een geldige resource-pad is bijvoorbeeld: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+De resource is het pad voor het raster onderwerp waarnaar u gebeurtenissen verzendt. Een geldige resource-pad is bijvoorbeeld: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 U de handtekening van een sleutel gegenereerd.
 

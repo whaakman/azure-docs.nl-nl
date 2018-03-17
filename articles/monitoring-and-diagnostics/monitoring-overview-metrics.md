@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Overzicht van metrische gegevens in Microsoft Azure
 Dit artikel wordt beschreven wat metrische gegevens zijn in Microsoft Azure, hun voordelen en het gebruik ervan.  
@@ -63,7 +63,7 @@ U kunt ook:
 Hier volgt een snel overzicht van hoe een metrische grafiek te maken met behulp van de Azure-portal.
 
 ### <a name="to-view-metrics-after-creating-a-resource"></a>Metrische gegevens na het maken van een resource weergeven
-1. Open de Azure-portal.
+1. Open Azure Portal.
 2. Maak een Azure App Service-website.
 3. Nadat u een website gemaakt, gaat u naar de **overzicht** blade van de website.
 4. U kunt bekijken nieuwe metrische gegevens als een **bewaking** tegel. U kunt de tegel bewerken en meer metrische gegevens te selecteren.
@@ -71,7 +71,7 @@ Hier volgt een snel overzicht van hoe een metrische grafiek te maken met behulp 
    ![Metrische gegevens van een resource in de Azure-Monitor](./media/monitoring-overview-metrics/MetricsOverview1.png)
 
 ### <a name="to-access-all-metrics-in-a-single-place"></a>Voor toegang tot alle metrische gegevens op één plaats
-1. Open de Azure-portal.
+1. Open Azure Portal.
 2. Navigeer naar de nieuwe **Monitor** tabblad en vervolgens selecteert de **metrische gegevens** optie eronder.
 3. Selecteer uw abonnement, resourcegroep en de naam van de resource in de vervolgkeuzelijst.
 4. De lijst beschikbare metrische gegevens weergeven. Selecteer vervolgens de metriek u geïnteresseerd bent in en het tekenen.
@@ -116,7 +116,7 @@ Metrische waarschuwingen: ze vervolgens kunnen u een melding via e-mail of start
 
  ![Metrische gegevens en regels voor waarschuwingen in de Azure-Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Near-realtime waarschuwingen (preview): deze hebben de mogelijkheid voor het bewaken van meerdere metrische gegevens en drempelwaarden voor een resource en vervolgens een melding via een [actie groep](/monitoring-action-groups.md). Informatie over Leran [bijna realtime metriek waarschuwingen hier](https://aka.ms/azuremonitor/near-real-time-alerts).
+Near-realtime waarschuwingen (preview): deze hebben de mogelijkheid voor het bewaken van meerdere metrische gegevens en drempelwaarden voor een resource en vervolgens een melding via een [actie groep](/monitoring-action-groups.md). Meer informatie over [bijna realtime metriek waarschuwingen hier](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### <a name="autoscale-your-azure-resources"></a>Automatisch schalen van uw Azure resources

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-uitgaand/fan-in-scenario in duurzame functies - Cloud back-voorbeeld
 
@@ -97,7 +97,7 @@ De implementatie laadt het bestand van de schijf en asynchroon streams de inhoud
 > [!NOTE]
 > Dit is een voorbeeld van het verplaatsen van i/o-bewerkingen in een `activityTrigger` functie. Niet alleen kan het werk verdeeld over veel verschillende VM's, maar worden ook de voordelen van het plaatsen van controlepunten de voortgang. Als het hostproces opgehaald beëindigd om welke reden, weet u welke uploads al hebt voltooid.
 
-## <a name="run-the-sample"></a>Het voorbeeld uitvoert
+## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 
 U kunt de orchestration starten door de volgende HTTP POST-aanvraag te verzenden.
 
@@ -158,7 +158,7 @@ Dit is de orchestration als één C#-bestand in Visual Studio-project:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Dit voorbeeld is het implementeren van het fan-uitgaand/fan-in patroon weergegeven. Het volgende voorbeeld laat zien hoe voor het implementeren van de [stateful singleton](durable-functions-singletons.md) patroon een [eeuwige orchestration](durable-functions-eternal-orchestrations.md).
+Dit voorbeeld is het implementeren van het fan-uitgaand/fan-in patroon weergegeven. Het volgende voorbeeld laat zien hoe voor het implementeren van de monitor patroon via [duurzame timers](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
-> [De stateful singleton-voorbeeld uitvoeren](durable-functions-counter.md)
+> [De monitor-voorbeeld uitvoeren](durable-functions-monitor.md)

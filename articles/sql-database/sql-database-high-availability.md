@@ -6,14 +6,14 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 5e0d0166377f80c1f43782156fa735915cbc31f1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8deb78ba108aafc3297e6b96d6d88d0c56c60afd
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 Microsoft heeft de belofte aangebracht in de klanten die hoge beschikbaarheid (HA) is ingebouwd in de service en de klanten hoeven niet te werken, speciale logica voor het toevoegen of beslissingen rond HA vanaf het begin van de Azure SQL Database PaaS-aanbieding. Microsoft onderhoudt volledige controle over de HA-systeemconfiguratie en bewerking, biedt klanten een SLA. De HA-SLA van toepassing op een SQL-database in een regio en biedt geen bescherming in geval van een mislukking van de totale regio die wordt veroorzaakt door factoren buiten het beheer van Microsoft redelijkerwijs (bijvoorbeeld een natuurramp, war, besluiten van terrorisme, riots, overheids-actie of een netwerk- of apparaatstoring buiten de datacenters van Microsoft, waaronder op klant sites of tussen sites van de klant en Datacenter van Microsoft).
@@ -52,7 +52,7 @@ De oplossing met hoge beschikbaarheid in SQL-Database is gebaseerd op [Always ON
 
 In deze configuratie, elke database wordt online gezet door de management-service (MS) in de besturingselement-ring. Eén primaire replica en ten minste twee secundaire replica's (quorum-set) bevinden zich in een tenant ring die drie onafhankelijke fysieke subsystemen binnen hetzelfde datacenter omvat. Lees- en schrijfbewerkingen worden verzonden door de gateway (GW) naar de primaire replica en de geschreven asynchroon worden gerepliceerd naar de secundaire replica's. SQL-Database gebruikt een schema op basis van een quorum doorvoeren waarbij gegevens worden geschreven naar de primaire en ten minste één secundaire replica voordat de transactie-doorvoeracties.
 
-De [Service Fabric](/service-fabric/service-fabric-overview.md) system failover automatisch opnieuw opgebouwd replica's als knooppunten uitvallen en behoudt het lidmaatschap van een quorum-set als knooppunten afwijken en deelnemen aan het systeem. Gepland onderhoud wordt zorgvuldig gecoördineerd om te voorkomen dat het quorum-set gaan omlaag dan een minimale replica telling (meestal 2). Dit model geschikt is voor Premium-databases, maar het vereist dat de redundantie van zowel berekenings- en -onderdelen en resulteert in een hogere kosten.
+De [Service Fabric](../service-fabric/service-fabric-overview.md) system failover automatisch opnieuw opgebouwd replica's als knooppunten uitvallen en behoudt het lidmaatschap van een quorum-set als knooppunten afwijken en deelnemen aan het systeem. Gepland onderhoud wordt zorgvuldig gecoördineerd om te voorkomen dat het quorum-set gaan omlaag dan een minimale replica telling (meestal 2). Dit model geschikt is voor Premium-databases, maar het vereist dat de redundantie van zowel berekenings- en -onderdelen en resulteert in een hogere kosten.
 
 ## <a name="remote-storage-configuration"></a>Configuratie van de externe opslag
 

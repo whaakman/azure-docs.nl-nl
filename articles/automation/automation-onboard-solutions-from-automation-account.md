@@ -2,19 +2,20 @@
 title: Meer informatie over hoe u ingebouwde updatebeheer, bijhouden en voorraad oplossingen in Azure Automation
 description: Meer informatie over hoe om vrij te geven een Azure-virtuele machine met oplossingen voor beheer van updates, bijhouden en voorraad die deel uitmaken van een Azure Automation
 services: automation
-keywords: 
+ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.topic: article
-ms.service: automation
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 670a0c2a11ebfe09406233ab4b454b2e9c2ba0e0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.custom: mvc
+ms.openlocfilehash: 65bf0d98da8111e986d5dbdfd58f1692d40ee286
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Ingebouwde updatebeheer, bijhouden en voorraad oplossingen
 
@@ -22,23 +23,23 @@ Azure Automation biedt oplossingen voor het besturingssysteem beveiligingsupdate
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij Azure via https://portal.azure.com.
+Aanmelden bij Azure op https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Oplossingen inschakelen
 
 Navigeer naar uw Automation-account en selecteer **inventaris** of **bijhouden** onder **CONFIGURATIEBEHEER**.
 
-Kies de Log analytics-werkruimte en de Automation-account en klikt u op **inschakelen** zodat de oplossing. De oplossing duurt maximaal 15 minuten om in te schakelen.
+Kies de Log analytics-werkruimte en de Automation-account en klikt u op **inschakelen** zodat de oplossing. Het duurt maximaal 15 minuten om de oplossing in te schakelen.
 
 ![Ingebouwde inventaris-oplossing](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-De oplossing voor wijzigingen bijhouden en inventaris biedt de mogelijkheid om [wijzigingen bijhouden](automation-vm-change-tracking.md) en [inventaris](automation-vm-inventory.md) op uw virtuele machines. In deze stap schakelt u de oplossing op een virtuele machine.
+De oplossing Wijzigingen bijhouden en Inventaris biedt de mogelijkheid om [Wijzigingen bijhouden](automation-vm-change-tracking.md) en [Inventaris](automation-vm-inventory.md) uit te voeren op uw virtuele machines. In deze stap schakelt u de oplossing in op een virtuele machine.
 
-Wanneer tracering en inventarisatie oplossing onboarding Wijzigingsmelding is voltooid, klikt u op **updatebeheer** onder **CONFIGURATIEBEHEER**.
+Wanneer wordt gemeld dat de onboarding van de oplossing Wijzigingen bijhouden en Inventarisatie is voltooid, klikt u op **Updatebeheer** onder **CONFIGURATIEBEHEER**.
 
-De oplossing voor beheer van de Update kunt u updates en patches voor uw Windows Azure-VM's beheren. U kunt de status van de beschikbare updates, installatie van de planning van vereiste updates kunt beoordelen en Implementatieresultaten bekijken om te controleren of updates met succes zijn toegepast op de virtuele machine. Deze actie wordt de oplossing voor uw virtuele machine ingeschakeld.
+Met de oplossing Updatebeheer kunt u updates en patches voor uw Azure-VM's beheren. U kunt de status van beschikbare updates beoordelen, de installatie van vereiste updates plannen en de implementatieresultaten bekijken om te controleren of updates correct zijn toegepast op de VM. Deze actie wordt de oplossing voor uw virtuele machine ingeschakeld.
 
-Selecteer **updatebeheer** onder **UPDATEBEHEER**. De Log analytics-werkruimte geselecteerd is dezelfde werkruimte gebruikt in de vorige stap. Klik op **inschakelen** voorbereiden het beheersysteem voor Update. De oplossing duurt maximaal 15 minuten om in te schakelen.
+Selecteer **updatebeheer** onder **UPDATEBEHEER**. De geselecteerde Log analytics-werkruimte is dezelfde werkruimte als in de vorige stap. Klik op **Inschakelen** om de onboarding van de oplossing Updatebeheer uit te voeren. Het duurt maximaal 15 minuten om de oplossing in te schakelen.
 
 ![Ingebouwde update-oplossing](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 

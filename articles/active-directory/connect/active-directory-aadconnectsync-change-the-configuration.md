@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 03/16/2018
 ms.author: billmath
-ms.openlocfilehash: e97d3e3e35ee87864c5d38e75e08e62088e25fdb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synchronisatie: een wijziging aanbrengt in de standaardconfiguratie
 Het doel van dit artikel is om te zien hoe u wijzigingen aanbrengen in de standaardconfiguratie in Azure Active Directory (Azure AD) Connect-synchronisatie. Het bevat stappen voor enkele algemene scenario's. Met deze kennis moet u het volgende kunnen eenvoudige wijzigingen aanbrengen in uw eigen configuratie op basis van uw eigen bedrijfsregels.
@@ -245,7 +245,7 @@ Standaard wordt het UserType-kenmerk niet geïmporteerd in de Azure AD Connect-r
  1. Ga naar de **Connectors** tabblad Synchronization Service Manager.
  2. Met de rechtermuisknop op de **Azure AD-Connector** en selecteer **eigenschappen**.
  3. In het pop-updialoogvenster, gaat u naar de **kenmerken selecteren** tabblad.
- 4. Zorg ervoor dat het kenmerk PreferredDataLocation is ingeschakeld in de lijst met kenmerken.
+ 4. Zorg ervoor dat het UserType-kenmerk is ingeschakeld in de lijst met kenmerken.
  5. Klik op **OK** om op te slaan.
 
 ![Bronkenmerk toevoegen aan Azure AD-Connector schema](./media/active-directory-aadconnectsync-change-the-configuration/usertype2.png)
@@ -293,7 +293,7 @@ De synchronisatieregel voor binnenkomende wordt toegestaan de waarde van het ken
 ![Synchronisatieregel voor binnenkomende maken](./media/active-directory-aadconnectsync-change-the-configuration/usertype3.png)
 
 ### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Stap 5: Maak een synchronisatieregel voor uitgaande om de stroom van de waarde van het kenmerk naar Azure AD
-De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stromen van metaverse met het kenmerk PreferredDataLocation in Azure AD:
+De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stromen van metaverse aan het UserType-kenmerk in Azure AD:
 
 1. Ga naar de regeleditor synchronisatie.
 2. Het zoekfilter ingesteld **richting** worden **uitgaand**.

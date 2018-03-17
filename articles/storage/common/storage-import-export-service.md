@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 2b53dc5eeb2e5f25a0714af778ef3db1d5a79dc1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>De Microsoft Azure Import/Export-service gebruiken om gegevens overdragen naar Azure Storage
 In dit artikel bieden we Stapsgewijze instructies over het gebruik van Azure Import/Export-service veilig grote hoeveelheden gegevens overdragen naar Azure Blob storage en Azure-bestanden door de back-upfunctie schijven naar een Azure-Datacenter. Deze service kan ook worden gebruikt gegevens overdragen naar Azure storage naar harde schijven en verzenden naar uw on-premises-sites. Gegevens uit een enkele interne SATA harde schijf kunnen worden geïmporteerd naar Azure Blob storage of Azure-bestanden. 
@@ -47,7 +47,7 @@ Volg de onderstaande stappen te volgen als de gegevens op de schijf moet worden 
     |/j:     |De naam van het bestand wijzigingslogboek, klikt u met de extensie .jrn. Een journal-bestand wordt gegenereerd per station. Gebruik het serienummer van de schijf als de naam van het bestand wordt aanbevolen.         |
     |/SK:     |De sleutel van de Azure Storage-account.         |
     |/ t:     |De stationsletter van de schijf moeten worden verzonden. Bijvoorbeeld station `D`.         |
-    |/bk:     |De BitLocker-sleutel voor het station.         |
+    |/bk:     |De BitLocker-sleutel voor het station. Het wachtwoord van de numerieke van uitvoer van ` manage-bde -protectors -get D: `      |
     |/srcdir:     |De stationsletter van de schijf moeten worden verzonden, gevolgd door `:\`. Bijvoorbeeld `D:\`.         |
     |/dstdir:     |De naam van de doelcontainer in Azure Storage         |
     |/skipwrite:     |De optie die aangeeft dat er geen nieuwe gegevens die nodig zijn om te worden gekopieerd en de bestaande gegevens op de schijf is om te worden voorbereid         |

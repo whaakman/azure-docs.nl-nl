@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 30bbe7442cac96a1dcf6959cac2abedd61454a29
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Kiezen tussen Azure-services die berichten te leveren
 
@@ -30,18 +30,22 @@ Er is een belangrijk verschil tussen services kunnen een gebeurtenis bieden en s
 
 ### <a name="event"></a>Gebeurtenis
 
-Een gebeurtenis is een lichtgewicht melding van een actie of een statuswijziging. De gebeurtenisgegevens bevat informatie over wat er gebeurd is, maar heeft geen gegevens waarvoor de gebeurtenis. Bijvoorbeeld, een gebeurtenis ontvangt een melding abonnees of een bestand is gemaakt. Deze algemene informatie over het bestand mogelijk, maar het bevat niet het bestand zelf. Gebeurtenissen activeren in het algemeen gebeurtenis-handlers om te fungeren als realtime.
+Een gebeurtenis is een lichtgewicht melding van een voorwaarde of een statuswijziging. De uitgever van de gebeurtenis heeft geen verwachting over hoe de gebeurtenis wordt verwerkt. De consument van de gebeurtenis besluit wat te doen met de melding. Gebeurtenissen kunnen afzonderlijke eenheden of deel uitmaken van een reeks zijn.
+
+Afzonderlijke gebeurtenissen statuswijziging rapporteren en zijn actie worden uitgevoerd. Als u wilt de volgende stap, moet de consument alleen te weten dat er iets is er gebeurd. De gebeurtenisgegevens bevat informatie over wat er gebeurd is, maar heeft geen gegevens waarvoor de gebeurtenis. Bijvoorbeeld, een gebeurtenis ontvangt een melding consumenten of een bestand is gemaakt. Deze algemene informatie over het bestand mogelijk, maar het bevat niet het bestand zelf. Afzonderlijke gebeurtenissen zijn ideaal voor zonder server oplossingen die moeten worden uitgebreid.
+
+Reeks gebeurtenissen rapporteert een voorwaarde en analyzable zijn. De gebeurtenissen zijn tijd besteld en met elkaar verbonden. De consument moet de geordende reeks gebeurtenissen voor het analyseren van wat is er gebeurd.
 
 ### <a name="message"></a>Bericht
 
-Een bericht is onbewerkte gegevens geproduceerd door de service moet worden gebruikt of elders opgeslagen. Het bericht bevat de gegevens waarmee de pijplijn bericht is geactiveerd. Dit bericht kan van alles uit een e-commerce order naar telemetrie van de gebruiker zijn. In tegenstelling tot een gebeurtenismelding kan de uitgever van een bericht een antwoord verwachten. Bijvoorbeeld, een bericht bevat de onbewerkte gegevens maar het volgende gedeelte van het systeem een bestand te maken van die gegevens verwacht.
+Een bericht is onbewerkte gegevens geproduceerd door de service moet worden gebruikt of elders opgeslagen. Het bericht bevat de gegevens waarmee de pijplijn bericht is geactiveerd. De uitgever van het bericht heeft een verwachting over hoe de consument omgaat met het bericht. Er bestaat een overeenkomst tussen de twee partners. Bijvoorbeeld, de uitgever verzendt een bericht met de onbewerkte gegevens en verwacht van de consument te maken van een bestand van die gegevens en verzenden van een antwoord wanneer het werk wordt uitgevoerd.
 
 ## <a name="comparison-of-services"></a>Vergelijking van services
 
 | Service | Doel | Type | Wanneer gebruikt u dit? |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Reactieve programmering | Gebeurtenisdistributie | Reageren op statuswijzigingen |
-| Event Hubs | BIG data-pipeline | Streaming-gebeurtenis | Telemetrie- en gedistribueerde gegevensstromen |
+| Event Grid | Reactieve programmering | Gebeurtenisdistributie (apart) | Reageren op statuswijzigingen |
+| Event Hubs | BIG data-pipeline | Gebeurtenis streaming (-serie) | Telemetrie- en gedistribueerde gegevensstromen |
 | Service Bus | Berichtenverzending voor bedrijven in hoogwaardige | Bericht | Verwerking en financiële transacties |
 
 ### <a name="event-grid"></a>Event Grid

@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Beheer van gelijktijdigheid van taken en de belasting in SQL Data Warehouse
 Voor het leveren van voorspelbare prestaties op schaal, helpt Microsoft Azure SQL Data Warehouse bepaalt u gelijktijdigheid niveaus en toewijzingen zoals geheugen en CPU-prioriteit. In dit artikel vindt u de concepten van gelijktijdigheid van taken en de belasting van beheer, waarin wordt uitgelegd hoe u beide functies geïmplementeerd en hoe u ze kunt beheren in uw datawarehouse. Beheer van SQL Data Warehouse werkbelasting is bedoeld om u ondersteuning voor omgevingen met meerdere gebruikers te helpen. Het is niet bedoeld voor werkbelastingen van meerdere tenants.
@@ -46,7 +46,7 @@ De volgende tabel beschrijft de limieten voor gelijktijdige query's en gelijktij
 | DW1000 |32 |40 |
 | DW1200 |32 |48 |
 | DW1500 |32 |60 |
-| DW2000 ZIJN |32 |80 |
+| DW2000 |32 |80 |
 | DW3000 |32 |120 |
 | DW6000 |32 |240 |
 
@@ -104,7 +104,7 @@ De volgende tabel wordt het geheugen toegewezen aan elk distributiepunt door DWU
 | DW1000 |100 |800 |1,600 |3,200 |
 | DW1200 |100 |800 |1,600 |3,200 |
 | DW1500 |100 |800 |1,600 |3,200 |
-| DW2000 ZIJN |100 |1,600 |3,200 |6,400 |
+| DW2000 |100 |1,600 |3,200 |6,400 |
 | DW3000 |100 |1,600 |3,200 |6,400 |
 | DW6000 |100 |3,200 |6,400 |12,800 |
 
@@ -122,7 +122,7 @@ De volgende tabel wordt het geheugen toegewezen aan elk distributiepunt door DWU
 | DW1000 |100 |200 |400 |800 |1,600 |3,200 |3,200 |3,200 |
 | DW1200 |100 |200 |400 |800 |1,600 |3,200 |3,200 |3,200 |
 | DW1500 |100 |200 |400 |800 |1,600 |3,200 |3,200 |3,200 |
-| DW2000 ZIJN |100 |200 |400 |800 |1,600 |3,200 |6,400 |6,400 |
+| DW2000 |100 |200 |400 |800 |1,600 |3,200 |6,400 |6,400 |
 | DW3000 |100 |200 |400 |800 |1,600 |3,200 |6,400 |6,400 |
 | DW6000 |100 |200 |400 |800 |1,600 |3,200 |6,400 |12,800 |
 
@@ -140,7 +140,7 @@ In de voorgaande tabel ziet u dat een query uitgevoerd op een dw2000 zijn in de 
 | DW1000 |6 |47 |94 |188 |
 | DW1200 |6 |47 |94 |188 |
 | DW1500 |6 |47 |94 |188 |
-| DW2000 ZIJN |6 |94 |188 |375 |
+| DW2000 |6 |94 |188 |375 |
 | DW3000 |6 |94 |188 |375 |
 | DW6000 |6 |188 |375 |750 |
 
@@ -163,7 +163,7 @@ SQL Data Warehouse verleent meer geheugen op query's uitgevoerd in de hogere res
 | DW1000 |32 |40 |1 |8 |16 |32 |
 | DW1200 |32 |48 |1 |8 |16 |32 |
 | DW1500 |32 |60 |1 |8 |16 |32 |
-| DW2000 ZIJN |32 |80 |1 |16 |32 |64 |
+| DW2000 |32 |80 |1 |16 |32 |64 |
 | DW3000 |32 |120 |1 |16 |32 |64 |
 | DW6000 |32 |240 |1 |32 |64 |128 |
 
@@ -179,7 +179,7 @@ SQL Data Warehouse verleent meer geheugen op query's uitgevoerd in de hogere res
 | DW1000 | 32| 40| 1| 2| 4| 8| 16| 32| 32| 32|
 | DW1200 | 32| 48| 1| 2| 4| 8| 16| 32| 32| 32|
 | DW1500 | 32| 60| 1| 2| 4| 8| 16| 32| 32| 32|
-| DW2000 ZIJN | 32| 80| 1| 2| 4| 8| 16| 32| 64| 64|
+| DW2000 | 32| 80| 1| 2| 4| 8| 16| 32| 64| 64|
 | DW3000 | 32| 120| 1| 2| 4| 8| 16| 32| 64| 64|
 | DW6000 | 32| 240| 1| 2| 4| 8| 16| 32| 64| 128|
 
@@ -224,9 +224,9 @@ Dit is het doel van deze opgeslagen procedure:
 #### <a name="usage-example"></a>Voorbeeld van gebruik:
 Syntaxis:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
-1. @DWU:Ofwel een NULL-parameter voor de huidige DWU extraheren uit de DW-database of geef een ondersteunde DWU in de vorm van 'DW100' opgeven
-2. @SCHEMA_NAME:Geef een schemanaam van de tabel
-3. @TABLE_NAME:Geef de tabelnaam van een met het belang
+1. @DWU: Ofwel een NULL-parameter voor de huidige DWU extraheren uit de DW-database of geef een ondersteunde DWU in de vorm van 'DW100' opgeven
+2. @SCHEMA_NAME: Geef een schemanaam van de tabel
+3. @TABLE_NAME: Geef de tabelnaam van een met het belang
 
 Voorbeelden voor het uitvoeren van deze opgeslagen procedure:  
 ```sql  
@@ -672,7 +672,7 @@ De volgende instructies doen resource klassen niet van toepassing:
 * MAKEN of weergave verwijderen
 * WAARDEN INVOEGEN
 * Selecteer in het systeemweergaven en DMV 's
-* UITLEGGEN
+* EXPLAIN
 * DBCC
 
 <!--
@@ -682,7 +682,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - REDISTRIBUTE
 -->
 
-##  <a name="changing-user-resource-class-example"></a>Een voorbeeld van een gebruiker resource klasse wijzigen
+##  <a name="changing-user-resource-class-example"></a> Een voorbeeld van een gebruiker resource klasse wijzigen
 1. **Aanmelding maken:** verbinding maken met uw **master** database op de SQL-server die als host fungeert voor uw SQL Data Warehouse-database en voer de volgende opdrachten.
    
     ```sql
@@ -699,7 +699,7 @@ Removed as these two are not confirmed / supported under SQLDW
     ```sql
     CREATE USER newperson FOR LOGIN newperson;
     ```
-3. **Machtigingen toekennen:** in het volgende voorbeeld verleent `CONTROL` op de **SQL Data Warehouse** database. `CONTROL`op de database is niveau het equivalent van db_owner in SQL Server.
+3. **Machtigingen toekennen:** in het volgende voorbeeld verleent `CONTROL` op de **SQL Data Warehouse** database. `CONTROL` op de database is niveau het equivalent van db_owner in SQL Server.
    
     ```sql
     GRANT CONTROL ON DATABASE::MySQLDW to newperson;

@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: a6e1b6230742c1c2f065418110f76932306a9588
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database-servers en databases maken en beheren
 
@@ -21,7 +21,7 @@ SQL-Database biedt drie typen databases:
 
 - Een individuele database gemaakt binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een gedefinieerde set [berekenings- en bronnen voor verschillende werkbelastingen](sql-database-service-tiers.md). Een Azure SQL database is gekoppeld aan een logische Azure SQL Database-server op, die wordt gemaakt binnen een specifieke Azure-regio.
 - Een database gemaakt als onderdeel van een [pool van databases](sql-database-elastic-pool.md) binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een gedefinieerde set [berekenings- en bronnen voor verschillende werkbelastingen](sql-database-service-tiers.md) die zijn gedeeld door alle databases in de groep. Een Azure SQL database is gekoppeld aan een logische Azure SQL Database-server op, die wordt gemaakt binnen een specifieke Azure-regio.
-- Een [exemplaar van een SQL-server](sql-database-managed-instance.md) gemaakt binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een gedefinieerde set berekenings- en resources voor alle databases op die server-exemplaar. Een beheerde exemplaar bevat zowel systeem- en gebruikersdatabases. Beheerde exemplaar is ontworpen om in te schakelen database lift-en-verschuiving naar een volledig beheerde PaaS zonder de toepassing opnieuw. Beheerde exemplaar biedt hoge compatibiliteit met het lokale SQL Server-programmeermodel en ondersteunt de grote meerderheid van SQL Server-functies en bijbehorende hulpprogramma's en services.  
+- Een [exemplaar van een SQL-server](sql-database-managed-instance.md) (een beheerde exemplaar) gemaakt binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een gedefinieerde set berekenings- en resources voor alle databases op die server-exemplaar. Een beheerde exemplaar bevat zowel systeem- en gebruikersdatabases. Beheerde exemplaar is ontworpen om in te schakelen database lift-en-verschuiving naar een volledig beheerde PaaS zonder de toepassing opnieuw. Beheerde exemplaar biedt hoge compatibiliteit met het lokale SQL Server-programmeermodel en ondersteunt de grote meerderheid van SQL Server-functies en bijbehorende hulpprogramma's en services.  
 
 Microsoft Azure SQL Database ondersteunt tabular data stream (TDS)-protocol clientversie 7.3 of hoger en alleen versleutelde TCP/IP-verbindingen.
 
@@ -140,7 +140,7 @@ Maken en beheren van Azure SQL-server, databases en firewalls met de [Azure CLI]
 |[az group create](/cli/azure/group#az_group_create)|Maakt een resourcegroep|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Hiermee maakt u een server|
 |[lijst met AZ sql server](/cli/azure/sql/server#az_sql_server_list)|Een lijst met servers|
-|[AZ sql server lijst-gebruik](/cli/azure/sql/server#az_sql_server_list-usages)|Retourneert het gebruik van server|
+|[AZ sql server lijst-gebruik](/cli/azure/sql/server#az_sql_server_list_usages)|Retourneert het gebruik van server|
 |[AZ sql server weergeven](/cli/azure/sql/server#az_sql_server_show)|Een server opgehaald|
 |[update van sql server AZ](/cli/azure/sql/server#az_sql_server_update)|Een server worden bijgewerkt|
 |[AZ sql server verwijderen](/cli/azure/sql/server#az_sql_server_delete)|Een server verwijderen|
@@ -196,7 +196,6 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls, gebrui
 |[Servers - lijst](/rest/api/sql/servers/list)|Retourneert een lijst met servers.|
 |[Servers - lijst door resourcegroep](/rest/api/sql/servers/listbyresourcegroup)|Retourneert een lijst met servers in een resourcegroep.|
 |[Servers - Update](/rest/api/sql/servers/update)|Een bestaande server-updates.|
-|[Servers - Sql](/rest/api/sql/servers%20-%20sql)|Hiermee wordt bepaald of een bron kan worden gemaakt met de opgegeven naam.|
 |[Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate)|Een nieuwe database maken of bijwerken van een bestaande database.|
 |[Databases - Get](/rest/api/sql/databases/get)|Hiermee haalt u een database.|
 |[Databases - verkrijgen door de elastische groep](/rest/api/sql/databases/getbyelasticpool)|Hiermee haalt u een database in een elastische pool.|

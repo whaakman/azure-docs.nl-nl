@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 12/06/2017
 ms.author: barbkess
-ms.openlocfilehash: a28cb1f8a2e48332b344566620dc49b29d9d3c99
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f94bc3770fbd7e707194032cb99c67b09f8a0618
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Tabellen in SQL Data Warehouse partitioneren
 > [!div class="op_single_selector"]
-> * [Overzicht][Overview]
+> * [Overview][Overview]
 > * [Gegevenstypen][Data Types]
-> * [Distribueren][Distribute]
+> * [Distribute][Distribute]
 > * [Index][Index]
 > * [Partitie][Partition]
 > * [Statistieken][Statistics]
@@ -47,12 +47,12 @@ Overschakelen van de partitie kan worden gebruikt om snel te verwijderen of een 
 Partitioneren kan ook worden gebruikt om queryprestaties te verbeteren.  Een query die een filter voor gepartitioneerde gegevens geldt kunt beperken de scan voor alleen de in aanmerking komend partities. Deze methode voor het filteren van kan een volledige tabelscan vermijden en alleen een subset van gegevens te scannen. Door de introductie van de geclusterde columnstore-indexen, de voordelen van de prestaties predikaat eliminatie minder nuttig zijn, maar in sommige gevallen kan er een voordeel op query's.  Bijvoorbeeld, als de verkoop feitentabel in 36 maanden met behulp van de verkoop datumveld is gepartitioneerd, gaat u query's met het filter op de verkoopdatum kunt overslaan zoeken in partities die niet overeenkomen met het filter.
 
 ## <a name="partition-sizing-guidance"></a>Richtlijn voor partitie
-Terwijl partities kan worden gebruikt om prestaties te verbeteren sommige scenario's, maken van een tabel met **te veel** partities prestaties in bepaalde omstandigheden kunnen schaden.  Deze problemen zijn vooral voor geclusterde columnstore-tabellen.  Voor het partitioneren van voor het handig zijn, is het belangrijk om te begrijpen wanneer gebruikt u partitioneren en het aantal partities te maken.  Er is geen vaste snelle regel garantie voor het aantal partities te veel zijn, afhankelijk is van uw gegevens en het aantal partities u laden naar tegelijkertijd.  Een geslaagde partitieschema heeft meestal tientallen, honderden niet duizendtallen-partities.
+Terwijl partities kan worden gebruikt om prestaties te verbeteren sommige scenario's, maken van een tabel met **te veel** partities prestaties in bepaalde omstandigheden kunnen schaden.  Deze problemen zijn vooral voor geclusterde columnstore-tabellen.  Voor het partitioneren van voor het handig zijn, is het belangrijk om te begrijpen wanneer gebruikt u partitioneren en het aantal partities te maken.  Er is geen vaste snelle regel garantie voor het aantal partities te veel zijn, deze afhankelijk is van uw gegevens en het aantal partities u tegelijkertijd te laden.  Een geslaagde partitieschema heeft meestal tientallen, honderden niet duizendtallen-partities.
 
-Bij het maken van partities op **geclusterde columnstore** tabellen, het is belangrijk rekening te houden hoeveel rijen deel uitmaken van elke partitie.  Voor optimale compressie en prestaties van de geclusterde columnstore-tabellen, is een minimum van 1 miljoen rijen per partitie distributie en het nodig.  Voordat partities worden gemaakt, wordt elke tabel al verdeeld met SQL Data Warehouse in 60 gedistribueerde databases.  Alle partitioneren toegevoegd aan een tabel is naast de distributies achter de schermen gemaakt.  In dit voorbeeld gebruiken als de verkoop feitentabel 36 maandelijkse partities bevat en het feit dat de SQL Data Warehouse is 60 distributies, klikt u vervolgens de verkoop feitentabel bevatten moet 60 miljoen rijen per maand of 2.1 miljard rijen wanneer alle maanden worden ingevuld.  Als een tabel aanzienlijk minder dan het aanbevolen minimum aantal rijen per partitie bevat, kunt u overwegen minder partities om het aantal rijen per partitie verhogen.  Zie ook de [indexering] [ Index] artikel, waaronder query's die kunnen worden uitgevoerd op de SQL Data Warehouse om de kwaliteit van de cluster columnstore-indexen vast te stellen.
+Bij het maken van partities op **geclusterde columnstore** tabellen, het is belangrijk rekening te houden hoeveel rijen deel uitmaken van elke partitie.  Voor optimale compressie en prestaties van de geclusterde columnstore-tabellen, is een minimum van 1 miljoen rijen per partitie distributie en het nodig.  Voordat partities worden gemaakt, wordt elke tabel al verdeeld met SQL Data Warehouse in 60 gedistribueerde databases.  Alle partitioneren toegevoegd aan een tabel is naast de distributies achter de schermen gemaakt.  In dit voorbeeld gebruiken als de verkoop feitentabel 36 maandelijkse partities bevat en het feit dat de SQL Data Warehouse is 60 distributies, klikt u vervolgens de verkoop feitentabel bevatten moet 60 miljoen rijen per maand of 2.1 miljard rijen wanneer alle maanden worden ingevuld.  Als een tabel minder dan het aanbevolen minimum aantal rijen per partitie bevat, kunt u overwegen minder partities om het aantal rijen per partitie verhogen.  Zie ook de [indexering] [ Index] artikel, waaronder query's die kunnen worden uitgevoerd op de SQL Data Warehouse om de kwaliteit van de cluster columnstore-indexen vast te stellen.
 
 ## <a name="syntax-difference-from-sql-server"></a>Syntaxis verschil van SQL Server
-SQL Data Warehouse introduceert een vereenvoudigde manier voor het definiëren van partities die verschilt enigszins van SQL Server.  Partitionering functies en schema's worden niet gebruikt in SQL Data Warehouse omdat ze zich in SQL Server.  In plaats daarvan is hoeft u gepartitioneerde kolom en de punten van de grens te identificeren.  Hoewel de syntaxis van het partitioneren van mogelijk enigszins afwijken van de SQL Server, wordt de basisconcepten zijn hetzelfde.  SQL Server en SQL Data Warehouse ondersteuning voor één partitiekolom per tabel, wat kan varieerde partitie.  Zie voor meer informatie over partitioneren, [gepartitioneerde tabellen en indexen][Partitioned Tables and Indexes].
+SQL Data Warehouse introduceert een manier voor het definiëren van de partities die eenvoudiger is dan SQL Server.  Partitionering functies en schema's worden niet gebruikt in SQL Data Warehouse omdat ze zich in SQL Server.  In plaats daarvan is hoeft u gepartitioneerde kolom en de punten van de grens te identificeren.  Hoewel de syntaxis van het partitioneren van mogelijk enigszins afwijken van de SQL Server, wordt de basisconcepten zijn hetzelfde.  SQL Server en SQL Data Warehouse ondersteuning voor één partitiekolom per tabel, wat kan varieerde partitie.  Zie voor meer informatie over partitioneren, [gepartitioneerde tabellen en indexen][Partitioned Tables and Indexes].
 
 Het volgende voorbeeld van een SQL Data Warehouse gepartitioneerd [CREATE TABLE] [ CREATE TABLE] -instructie partities heeft de tabel voor de kolom OrderDateKey:
 
@@ -125,7 +125,7 @@ GROUP BY    s.[name]
 ## <a name="workload-management"></a>Werklastbeheer
 Een sluitstuk overweging rekening houden met de tabel partitie beschikking is [werkbelasting management][workload management].  Beheer van de werkbelasting in SQL Data Warehouse is hoofdzakelijk voor het beheer van geheugen en een gelijktijdigheid van taken.  In SQL Data Warehouse, wordt de maximale hoeveelheid geheugen toegewezen aan elk distributiepunt tijdens het uitvoeren van query beheerst door resource klassen.  De partities zijn in het ideale geval grootte tegen andere factoren zoals de geheugenvereisten van het bouwen van de geclusterde columnstore-indexen.  Geclusterde columnstore-indexen voordeel aanzienlijk wanneer ze meer geheugen worden toegewezen.  Daarom wilt u ervoor te zorgen dat opnieuw opbouwen van een index partitie niet van het geheugen is tekort komt. Vergroot de hoeveelheid geheugen die beschikbaar zijn voor uw query kan worden bereikt door het overschakelen van de standaard-rol, smallrc, op een van de andere functies, zoals largerc.
 
-Informatie over het toewijzen van geheugen per distributie is beschikbaar door het opvragen van de dynamische beheerweergaven van de resource-resourceregeling. Uw geheugentoekenning is in werkelijkheid is kleiner dan de volgende afbeeldingen. Dit biedt echter een niveau van de richtlijnen die u gebruiken kunt wanneer het formaat van partities voor gegevens beheerbewerkingen.  Probeer om te voorkomen dat uw partities groter dan de geheugentoekenning geleverd door de extra grote resourceklasse formaat. Als uw partities afgezien van deze afbeelding groeien loopt u het risico van geheugendruk wat op zijn beurt tot minder optimale compressie leidt.
+Informatie over het toewijzen van geheugen per distributie is beschikbaar door het opvragen van de dynamische beheerweergaven voor Resourceregeling. Uw geheugentoekenning is in werkelijkheid is kleiner dan de resultaten van de volgende query. Deze query bevat echter een niveau van de richtlijnen die u gebruiken kunt wanneer het formaat van partities voor gegevens beheerbewerkingen.  Probeer om te voorkomen dat uw partities groter dan de geheugentoekenning geleverd door de extra grote resourceklasse formaat. Als uw partities afgezien van deze afbeelding toenemen, loopt u het risico van geheugendruk, wat op zijn beurt tot minder optimale compressie leidt.
 
 ```sql
 SELECT  rp.[name]                                AS [pool_name]
@@ -144,14 +144,14 @@ AND     rp.[name]    = 'SloDWPool'
 ```
 
 ## <a name="partition-switching"></a>Partitie overschakelen
-SQL Data Warehouse ondersteunt partitie splitsen en overschakelen samenvoegen. Elk van deze functies excuted is met behulp van de [ALTER TABLE] [ ALTER TABLE] instructie.
+SQL Data Warehouse ondersteunt partitie splitsen en overschakelen samenvoegen. Elk van deze functies wordt uitgevoerd met de [ALTER TABLE] [ ALTER TABLE] instructie.
 
-Als u wilt overschakelen van partities tussen twee tabellen moet u ervoor zorgen dat de partities zijn uitgelijnd op hun respectieve grenzen en dat de tabeldefinities overeenkomen. Als de check-beperkingen zijn niet beschikbaar voor het afdwingen van het bereik van waarden in een tabel moet de brontabel de dezelfde partitiegrenzen als de doeltabel bevatten. Als dit niet het geval is, mislukken de partitie-switch omdat de partitiemetagegevens van de niet gesynchroniseerd.
+Als u wilt overschakelen van partities tussen twee tabellen, moet u ervoor zorgen dat de partities zijn uitgelijnd op hun respectieve grenzen en dat de tabeldefinities overeenkomen. Als controleren beperkingen zijn niet beschikbaar voor het afdwingen van het bereik van waarden in een tabel, moet de dezelfde partitiegrenzen als de doeltabel in de brontabel bevatten. Als de partitiegrenzen niet vervolgens dezelfde, mislukken de switch partitie als de partitiemetagegevens van de niet gesynchroniseerd.
 
 ### <a name="how-to-split-a-partition-that-contains-data"></a>Het splitsen van een partitie die gegevens bevat
-De meest efficiënte manier om op te splitsen van een partitie die al gegevens bevat, is met een `CTAS` instructie. Als de gepartitioneerde tabel een geclusterde columnstore moet vervolgens de partitie van tabel niet leeg zijn voordat deze kan worden gesplitst.
+De meest efficiënte manier om op te splitsen van een partitie die al gegevens bevat, is met een `CTAS` instructie. Als de gepartitioneerde tabel een geclusterde columnstore, moet klikt u vervolgens de partitie van tabel niet leeg zijn voordat deze kan worden gesplitst.
 
-Hieronder volgt een voorbeeld-gepartitioneerde columnstore-tabel met één rij in elke partitie:
+Het volgende voorbeeld maakt een gepartitioneerde columnstore-tabel. Een rij wordt ingevoegd in elke partitie:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -185,11 +185,11 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 ```
 
 > [!NOTE]
-> Het object statistiek maakt, zorgen wij ervoor dat tabelmetagegevens nauwkeuriger zijn. Als we het maken van statistieken weglaat, wordt SQL Data Warehouse standaardwaarden gebruikt. Voor meer informatie over statistieken Controleer [statistieken][statistics].
+> De tabelmetagegevens van de is door het maken van het object statistiek nauwkeuriger. Als u statistieken weglaat, wordt SQL Data Warehouse standaardwaarden gebruikt. Raadpleeg voor meer informatie over statistieken [statistieken][statistics].
 > 
 > 
 
-We kunnen vervolgens een query voor de rij aantal met de `sys.partitions` catalogusweergave:
+De volgende query vindt u het aantal rijen met behulp van de `sys.partitions` catalogusweergave:
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -206,7 +206,7 @@ WHERE t.[name] = 'FactInternetSales'
 ;
 ```
 
-Als we proberen te splitsen in deze tabel, verschijnt er een fout opgetreden:
+De volgende opdracht splitsen ontvangt een foutbericht weergegeven:
 
 ```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
@@ -214,7 +214,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 Bericht 35346, 15 niveau 1 staat, regel 44 GESPLITST component van de instructie ALTER PARTITION is mislukt omdat de partitie niet leeg is.  Alleen lege partities kunnen worden gesplitst wanneer een columnstore-index op de tabel bestaat. Houd rekening met het uitschakelen van de columnstore-index voordat u de instructie ALTER PARTITION geeft en bouw vervolgens de columnstore-index nadat ALTER PARTITION voltooid is.
 
-We kunnen echter gebruiken `CTAS` voor het maken van een nieuwe tabel onze gegevens kan bevatten.
+U kunt echter `CTAS` voor het maken van een nieuwe tabel de gegevens kan bevatten.
 
 ```sql
 CREATE TABLE dbo.FactInternetSales_20000101
@@ -232,7 +232,7 @@ WHERE   1=2
 ;
 ```
 
-Een switch is toegestaan als de grenzen van partities zijn uitgelijnd. Dit betekent dat de brontabel met een lege partitie die we later kunt verdelen.
+Als de grenzen van partities zijn uitgelijnd, is een switch toegestaan. Dit betekent dat de brontabel met een lege partitie die u later kunt verdelen.
 
 ```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
@@ -240,7 +240,7 @@ ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-Alle die nog moet doen is het uitlijnen van onze gegevens naar de nieuwe grenzen van partities met `CTAS` en onze gegevens weer aan bij de hoofdtabel switch
+Alle die altijd is ingeschakeld op de gegevens naar de nieuwe grenzen van partities met één lijn wordt `CTAS`, en schakel vervolgens de gegevens terug naar de hoofdtabel.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
@@ -261,7 +261,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
-Nadat u het verkeer van de gegevens hebt voltooid is een goed idee om de statistieken voor de doeltabel om te controleren of dat ze goed beeld vormen van de nieuwe verdeling van de gegevens in hun respectieve partities vernieuwen:
+Nadat u het verkeer van de gegevens hebt voltooid, is het een goed idee om te vernieuwen van de statistieken voor de doeltabel. Bijwerken van statistieken, zorgt u ervoor dat de statistieken goed beeld vormen van de nieuwe verdeling van de gegevens in hun respectieve partities.
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
@@ -294,7 +294,7 @@ WITH
 ;
 ```
 
-1. `SPLIT`de tabel als onderdeel van het implementatieproces:
+1. `SPLIT` de tabel als onderdeel van het implementatieproces:
 
 ```sql
 -- Create a table containing the partition boundaries
@@ -362,7 +362,7 @@ Zie voor meer informatie de artikelen op [tabel overzicht][Overview], [tabel geg
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[workload management]: ./sql-data-warehouse-develop-concurrency.md
+[workload management]: ./resource-classes-for-workload-management.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!-- MSDN Articles -->

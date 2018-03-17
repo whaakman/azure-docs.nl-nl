@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cabf40367a6bd8401cae3eade4b832702e5acf31
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Met behulp van PowerShell back-ups implementeren en beheren in Azure voor een Windows-server/Windows-client
 In dit artikel leest u hoe u PowerShell gebruikt voor het instellen van Azure Backup op Windows Server of een Windows-client en het beheren van back-up en herstel.
@@ -83,6 +83,8 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
 
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## <a name="installing-the-azure-backup-agent"></a>De Azure Backup agent installeren
 Voordat u de Azure Backup agent installeert, moet u het installatieprogramma gedownload en aanwezig is op de Windows Server hebben. U kunt de nieuwste versie van het installatieprogramma van de [Microsoft Download Center](http://aka.ms/azurebackup_agent) of van de pagina Dashboard van de Recovery Services-kluis. Het installatieprogramma opslaan op een toegankelijke locatie zoals * C:\Downloads\*.
 
@@ -125,8 +127,8 @@ De beschikbare opties zijn onder andere:
 | /nu |Niet controleren op updates nadat de installatie is voltooid |- |
 | /d |Hiermee verwijdert u Microsoft Azure Recovery Services-Agent |- |
 | /pH |Host-proxyadres |- |
-| /PO |Proxy-Host-poortnummer |- |
-| /Pu |De Proxygebruikersnaam voor de Host |- |
+| /po |Proxy-Host-poortnummer |- |
+| /pu |De Proxygebruikersnaam voor de Host |- |
 | /PW |Proxy-wachtwoord |- |
 
 ## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Registreren van Windows Server of Windows client-computer naar een Recovery Services-kluis

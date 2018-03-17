@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 66e6b49dd3e3c7d0f2cbd7547b68733e1d4959ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="network-monitoring-solutions"></a>Oplossingen voor netwerkbeheer 
 
@@ -33,6 +33,8 @@ Netwerk Performance Monitor (NPM) is een suite met mogelijkheden, die gericht is
 * Meerdere datacenters en filialen
 * Missie kritieke meerdere lagen toepassingen/micro-services
 * Gebruikerslocaties en webtoepassingen (HTTP/HTTPs) 
+
+Prestatiemeter, ExpressRoute-Monitor en Service-eindpunt Monitor bewakingsmogelijkheden binnen NPM, en worden hieronder beschreven.
 
 ## <a name="performance-monitor"></a>Prestatiemeter
 
@@ -84,13 +86,14 @@ Raadpleeg voor meer informatie de volgende artikelen:
 * [blogbericht](https://aka.ms/svcendptmonitor)
 
 ## <a name="traffic-analytics"></a>Traffic Analytics
-Verkeer Analytics is een cloudoplossing die inzicht in gebruikers- en activiteiten op uw cloud-netwerken biedt. NSG Flow logboeken zijn geanalyseerd om te bieden inzicht in:
+Verkeer Analytics is een cloud-gebaseerde oplossing die inzicht in gebruikers- en activiteiten op uw cloud-netwerken biedt. NSG Flow logboeken zijn geanalyseerd om te bieden inzicht in:
 
 * Verkeersstromen tussen uw netwerken tussen Azure en Internet, openbare cloud-regio, vnet's en subnetten
 * Toepassingen en protocollen die in uw netwerk, zonder de noodzaak voor sniffers of speciale stroom collector toestellen
 * Bovenste talkers, chatty toepassingen conversaties in de cloud, VM verkeer hotspots
 * Bronnen en bestemmingen van verkeer tussen VNETs, onderlinge relaties tussen kritische zakelijke services en toepassingen
 * Beveiliging – schadelijk verkeer, poorten openen met het Internet, toepassingen of virtuele machines toegang tot Internet proberen...
+* Capaciteitsverbruik - voorkomt u problemen met overprovisioning of ondermaats gebruik door de bewaking van trends in het gebruik van VPN-gateways en andere services
 
 Verkeer Analytics vormt bruikbare informatie die helpt bij het controleren van uw organisatie netwerkactiviteit, beveiligde toepassingen en gegevens, optimaliseren van de werkbelasting en compatibel te blijven.
 
@@ -100,7 +103,7 @@ Verwante koppelingen:
 * [Blogbericht](https://aka.ms/trafficanalytics), [documentatie](https://aka.ms/trafficanalyticsdocs), [Veelgestelde vragen](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
 
 ## <a name="dns-analytics"></a>DNS-analyse
-Gebouwd voor DNS-beheerders, deze oplossing verzamelt, analyseert en correleert DNS-logboeken voor de beveiliging, bewerkingen en prestaties gerelateerd insights.  Enkele van de mogelijkheden zijn:
+Gebouwd voor DNS-beheerders, deze oplossing verzamelt, analyseert en correleert DNS-logboeken voor beveiliging, bewerkingen en inzichten die betrekking hebben op prestaties.  Enkele van de mogelijkheden zijn:
 
 * Identificatie van clients die proberen op te lossen schadelijke domeinen
 * Identificatie van verlopen bronrecords
