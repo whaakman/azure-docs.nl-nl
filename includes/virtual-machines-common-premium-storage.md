@@ -57,10 +57,12 @@ Hier volgen enkele van de functies van Premium-opslag:
 
     Premium-opslagaccount ondersteunt alleen lokaal redundante opslag als de replicatie-optie. Lokaal redundante opslag houdt drie kopieën van de gegevens in één regio. Voor regionale noodherstel, u moet back-up in een andere regio uw VM-schijven met behulp van [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md). U moet ook een geografisch redundante opslag (GRS)-account gebruiken als de back-upkluis. 
 
-    Azure maakt gebruik van uw storage-account als een container voor uw niet-beheerde schijven. Wanneer u een Azure Active Directory-serie, DSv2-serie GS-serie, maakt of Fs-serie-VM met niet-beheerde schijven, en u selecteert een premium storage-account, het besturingssysteem en gegevensschijven worden opgeslagen in dit opslagaccount.
+    Azure maakt gebruik van uw storage-account als een container voor uw niet-beheerde schijven. Wanneer u een virtuele machine van Azure die ondersteuning biedt voor Premium-opslag met niet-beheerde schijven maakt en u een premium storage-account selecteert, worden het besturingssysteem en gegevensschijven opgeslagen in dit opslagaccount.
 
 ## <a name="supported-vms"></a>Ondersteunde virtuele machines
-Premium-opslag ondersteunt DS-serie, DSv2-serie GS-serie, Ls-serie Fs-serie en B-serie virtuele machines. Met deze VM-typen kunt u schijven standard en premium storage. U niet premium-opslag-schijven gebruiken met VM-reeks die geen Premium-opslag-compatibel.
+
+Premium-opslag biedt ondersteuning voor B-serie, DS-serie DSv2-serie, DSv3-serie GS-serie, Ls-serie, M-serie en Fs-serie virtuele machines. Met deze VM-typen kunt u schijven standard en premium storage. U niet premium-opslag-schijven gebruiken met VM-reeks die geen Premium-opslag-compatibel.
+
 
 Zie [Grootten voor virtuele Windows-machines](../articles/virtual-machines/windows/sizes.md) voor informatie over de VM-typen en -grootten in Azure voor Windows. Zie [Grootten voor virtuele Linux-machines](../articles/virtual-machines/linux/sizes.md) voor informatie over de VM-typen en -grootten in Azure voor Linux.
 
