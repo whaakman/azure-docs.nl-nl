@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Domein-HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren
 
@@ -56,6 +56,9 @@ Wanneer u een domein HDInsight-cluster maakt, moet u de volgende parameters opge
 - **Organisatie-eenheid**: de DN-naam van de organisatie-eenheid die u wilt gebruiken met HDInsight-cluster. Bijvoorbeeld: OU = HDInsightOU, DC = contoso, DC = onmicrosohift, DC = com. Als deze organisatie-eenheid niet bestaat, wordt de HDInsight-cluster probeert te maken van deze organisatie-eenheid. 
 - **LDAPS URL**: bijvoorbeeld ldaps://contoso.onmicrosoft.com:636
 - **Gebruikersgroep toegang**: de beveiligingsgroepen waarvan gebruikers die u wilt synchroniseren met het cluster. Bijvoorbeeld: HiveUsers. Als u meerdere gebruikersgroepen opgeven wilt, gescheiden door komma's ','.
+ 
+> [!NOTE]
+> Omdat de domeinnaam Apache Zeppelin gebruikt om de administrative-service-account te verifiëren, moet het serviceaccount dezelfde domeinnaam als de UPN-achtervoegsel voor Apache Zeppelin goed te laten functioneren hebben.
  
 De volgende schermafbeelding ziet de configuraties in de Azure portal:
 

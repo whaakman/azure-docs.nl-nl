@@ -1,24 +1,18 @@
 ---
-title: Variabele assets in Azure Automation | Microsoft Docs
+title: Variabele assets in Azure Automation
 description: Variabele assets zijn waarden die beschikbaar voor alle runbooks en in Azure Automation DSC-configuraties zijn.  Dit artikel wordt uitgelegd dat de details van de variabelen en hoe u ermee in tekstvorm en grafisch ontwerpen.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/07/2018
-ms.author: magoedte;bwren
-ms.openlocfilehash: 2ed4cf16615a0ca1789b789a635de564af568eb9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: carmonm
+ms.openlocfilehash: 7c36fce380712da6572e9512a05af9c23c4152a2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabele assets in Azure Automation
 
@@ -34,8 +28,8 @@ Automation-variabelen worden behouden zodat ze beschikbaar blijven zelfs als het
 
 Wanneer een variabele is gemaakt, kunt u opgeven dat deze is opgeslagen versleuteld. Als een variabele is versleuteld, het veilig in Azure Automation opgeslagen wordt en wordt de waarde kan niet worden opgehaald uit de [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet die wordt geleverd als onderdeel van de Azure PowerShell-module. De enige manier om dat er een gecodeerde waarde kan worden opgehaald, is van de **Get-AutomationVariable** activiteit in een runbook of de DSC-configuratie.
 
-> [!NOTE]
-> Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze activa zijn versleuteld en opgeslagen in de Azure Automation met een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel is versleuteld met een basiscertificaat en opgeslagen in Azure Automation. Voordat u een beveiligd bedrijfsmiddel op te slaan, wordt de sleutel voor het automation-account worden ontsleuteld met het basiscertificaat en vervolgens worden gebruikt voor het versleutelen van de asset.
+>[!NOTE]
+>Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze activa zijn versleuteld en opgeslagen in Azure Automation, met een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel wordt opgeslagen in de Sleutelkluis. De sleutel is voordat het opslaan van een beveiligd bedrijfsmiddel is geladen vanuit de Sleutelkluis en vervolgens worden gebruikt voor het versleutelen van de asset.
 
 ## <a name="variable-types"></a>Typen variabelen
 

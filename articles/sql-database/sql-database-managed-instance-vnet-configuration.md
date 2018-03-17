@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 2f2a1289aa4c7681d16ab27bf8546b97f5ea3939
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e724a660f8ba2373cefdabe8595908b7bb42f4d6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Een VNet configureren voor beheerde Azure SQL Database-exemplaar
 
@@ -33,7 +33,7 @@ Plan hoe u een exemplaar beheerd in het virtuele netwerk met behulp van uw antwo
 
    Als u van plan bent te gebruiken van een bestaand virtueel netwerk, moet u die netwerkconfiguratie voor uw beheerde exemplaar wijzigen. Zie voor meer informatie [bestaand virtueel netwerk wijzigen voor beheerde exemplaar](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   Als u van plan bent een nieuw virtueel netwerk maken, Zie [nieuw virtueel netwerk maken voor beheerde exemplaar](#create-new-virtual-network-for-managed-instances).
+   Als u van plan bent een nieuw virtueel netwerk maken, Zie [nieuw virtueel netwerk maken voor beheerde exemplaar](#create-a-new-virtual-network-for-managed-instances).
 
 ## <a name="requirements"></a>Vereisten
 

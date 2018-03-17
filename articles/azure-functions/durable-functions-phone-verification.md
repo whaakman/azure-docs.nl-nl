@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Menselijke tussenkomst in duurzame functies - Phone verificatie voorbeeld
 
@@ -35,21 +35,13 @@ Dit voorbeeld implementeert een telefoon op basis van SMS-verificatiesysteem. De
 
 Verificatie via de telefoon wordt gebruikt om te controleren of de eindgebruikers van uw toepassing geen afzenders van spam hebben en dat ze zijn die zij beweren te zijn. Multi-factor authentication-server is een algemene gebruiksvoorbeeld voor gebruikersaccounts beveiligen tegen hackers. De uitdaging met de implementatie van uw eigen verificatie via de telefoon is dat een **stateful interactie** met fotograferen. De gebruiker wordt meestal verzorgd door code (bijvoorbeeld een 4 cijfers) en moet reageren **binnen redelijke tijd**.
 
-Gewone Azure Functions staatloze zijn (zoals zijn veel andere cloud-eindpunten op andere platforms), zodat deze typen interacties eruit ziet expliciet beheren status extern in een database of enige andere permanente opslaan. Bovendien moet de interactie worden verdeeld in meerdere functies die gecoördineerd samen worden kunnen. Bijvoorbeeld, moet u ten minste één functie voor het kiezen van een code en verzending aan telefoonnummer van de gebruiker ergens permanent. Bovendien moet u ten minste één andere functie reactie ontvangen van de gebruiker en enigszins terug naar de oorspronkelijke functieaanroep hiervoor de codevalidatie toewijzen. Er is een time-out is ook een belangrijk aspect om beveiliging te waarborgen. Dit kan krijgen relatief complex vrij snel.
+Gewone Azure Functions staatloze zijn (zoals zijn veel andere cloud-eindpunten op andere platforms), zodat deze typen interacties betrekken expliciet beheren status extern in een database of enige andere permanente opslaan. Bovendien moet de interactie worden verdeeld in meerdere functies die gecoördineerd samen worden kunnen. Bijvoorbeeld, moet u ten minste één functie voor het kiezen van een code en verzending aan telefoonnummer van de gebruiker ergens permanent. Bovendien moet u ten minste één andere functie reactie ontvangen van de gebruiker en enigszins terug naar de oorspronkelijke functieaanroep hiervoor de codevalidatie toewijzen. Er is een time-out is ook een belangrijk aspect om beveiliging te waarborgen. Dit kan snel relatief complex.
 
-De complexiteit van dit scenario is aanzienlijk verminderd wanneer u duurzame functies gebruiken. Zoals u in dit voorbeeld ziet, kan een orchestrator-functie de stateful interactie heel eenvoudig en beheren zonder tussenkomst van een externe gegevensarchieven. Omdat de orchestrator-functies zijn *duurzame*, ook deze interactieve stromen maximaal betrouwbaar zijn.
+De complexiteit van dit scenario is aanzienlijk verminderd wanneer u duurzame functies gebruiken. Zoals u in dit voorbeeld ziet, kan een orchestrator-functie de stateful interactie eenvoudig en beheren zonder tussenkomst van een externe gegevensarchieven. Omdat de orchestrator-functies zijn *duurzame*, ook deze interactieve stromen maximaal betrouwbaar zijn.
 
 ## <a name="configuring-twilio-integration"></a>Twilio-integratie configureren
 
-Dit voorbeeld ook met behulp van de [Twilio](https://www.twilio.com/) SMS-berichten verzenden naar een mobiele telefoon-service. Azure Functions heeft al ondersteuning voor Twilio via de [Twilio-binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), en het voorbeeld maakt gebruik van deze functie.
-
-U moet eerst is een Twilio-account. Kunt u een gratis op https://www.twilio.com/try-twilio. Zodra u een account hebt, voeg de volgende drie **appinstellingen** aan uw app functie.
-
-| De naam van de App-instelling | Waardebeschrijving |
-| - | - |
-| **TwilioAccountSid**  | De SID voor uw Twilio-account |
-| **TwilioAuthToken**   | De Auth-token voor uw Twilio-account |
-| **TwilioPhoneNumber** | Het telefoonnummer dat is gekoppeld aan uw Twilio-account. Dit wordt gebruikt om SMS-berichten te verzenden. |
+[!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
 
 ## <a name="the-functions"></a>De functies
 
@@ -77,7 +69,7 @@ Eenmaal gestart, is deze functie orchestrator doet het volgende:
 3. Maakt een duurzame timer die triggers 90 seconden van de huidige tijd.
 4. In combinatie met de timer wordt gewacht op een **SmsChallengeResponse** gebeurtenis van de gebruiker.
 
-De gebruiker ontvangt een SMS-bericht met een code van vier cijfers. Ze hebben 90 seconden te verzenden die dezelfde 4-cijferige code terug naar het orchestrator-functie-exemplaar voor de verificatie te voltooien. Als ze een onjuiste code indienen, krijgen ze een extra drie probeert te krijgen (binnen hetzelfde 90 tweede venster).
+De gebruiker ontvangt een SMS-bericht met een code van vier cijfers. Ze hebben 90 seconden te verzenden die dezelfde 4-cijferige code terug naar het orchestrator-functie-exemplaar voor de verificatie te voltooien. Als ze een onjuiste code indienen, krijgen ze een extra drie probeert te krijgen (binnen hetzelfde venster 90 seconden).
 
 > [!NOTE]
 > Deze mogelijk niet duidelijk is op de eerste, maar deze orchestrator functie volledig deterministisch is. Dit komt doordat de `CurrentUtcDateTime` eigenschap wordt gebruikt voor het berekenen van de verlooptijd van de timer en deze eigenschap geeft dezelfde waarde op elke opnieuw afspelen op dit moment in de orchestrator-code. Dit is belangrijk om ervoor te zorgen dat hetzelfde `winner` resulteert vanuit elke herhaalde aanroep `Task.WhenAny`.
@@ -97,9 +89,9 @@ En dit is de code die de uitdaging 4-cijferige code genereert en het SMS-bericht
 
 Dit **E4_SendSmsChallenge** functie slechts opgehaald eenmaal aangeroepen, zelfs als het proces vastloopt cookies opgehaald. Dit is geschikt omdat u niet wilt dat de eindgebruiker ophalen van meerdere SMS-berichten. De `challengeCode` waarde automatisch wordt behouden, zodat de orchestrator-functie altijd weet wat de juiste code is geretourneerd.
 
-## <a name="run-the-sample"></a>Het voorbeeld uitvoert
+## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 
-De HTTP-geactiveerde functies opgenomen in de steekproef gebruikt, kunt u de orchestration starten door de volgende HTTP POST-aanvraag te verzenden.
+De HTTP-geactiveerde functies opgenomen in de steekproef gebruikt, kunt u de orchestration starten door de volgende HTTP POST-aanvraag te verzenden:
 
 ```
 POST http://{host}/orchestrators/E4_SmsPhoneVerification

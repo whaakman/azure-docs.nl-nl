@@ -2,18 +2,19 @@
 title: Virtueel netwerk service-eindpunten en regels voor Azure SQL Database | Microsoft Docs
 description: Een subnet markeren als een service-eindpunt van het virtuele netwerk. Vervolgens het eindpunt als een virtueel netwerk regel aan de ACL van uw Azure SQL Database. U-SQL-Database vervolgens accepteert communicatie van alle virtuele machines en andere knooppunten in het subnet.
 services: sql-database
+ms.service: sql-database
 author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 61f3112d684e0b1ec1d331f063f7930b3dc64d0c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Gebruik Virtual Network service-eindpunten en regels voor Azure SQL Database
 
@@ -229,6 +230,12 @@ Deze sectie wordt beschreven hoe u kunt de [Azure-portal] [ http-azure-portal-li
 
 Een PowerShell-script kunt ook regels virtueel netwerk maken. De cmdlet cruciaal **nieuw AzureRmSqlServerVirtualNetworkRule**. Als u geïnteresseerd zijn, raadpleegt u [PowerShell voor het maken van een virtueel netwerk service-eindpunt en een regel voor Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
+#### <a name="rest-api-alternative"></a>Alternatieve REST-API
+
+De PowerShell-cmdlets voor SQL-VNet-acties roept intern REST-API's. U kunt de REST API's direct aanroepen.
+
+- [Virtueel netwerk regels: Operations][rest-api-virtual-network-rules-operations-862r]
+
 #### <a name="prerequisites"></a>Vereisten
 
 U moet al een subnet op dat is gemarkeerd met het desbetreffende Virtual Network service-eindpunt hebben *typenaam* relevant zijn voor Azure SQL Database.
@@ -288,6 +295,8 @@ De functie van de regel virtueel netwerk voor Azure SQL Database is beschikbaar 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [PowerShell gebruiken voor het maken van een service-eindpunt van het virtuele netwerk en de regel van een virtueel netwerk voor Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Virtueel netwerk regels: Operations] [ rest-api-virtual-network-rules-operations-862r] met REST-API's
+
 
 
 <!-- Link references, to images. -->
@@ -328,6 +337,7 @@ De functie van de regel virtueel netwerk voor Azure SQL Database is beschikbaar 
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 
+[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
 
 
 

@@ -380,7 +380,6 @@
             - name: Tenants inrichten
               href: saas-standaloneapp-provision-and-catalog.md
         - name: Database per tenant
-          href: saas-dbpertenant-wingtip-app-overview.md
           items:
             - name: Inleiding van zelfstudie
               href: saas-dbpertenant-wingtip-app-overview.md

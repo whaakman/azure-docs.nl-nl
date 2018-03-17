@@ -6,56 +6,55 @@ documentationcenter: NA
 author: jrowlandjones
 manager: barbkess
 editor: 
-ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-ms.date: 10/31/2016
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: b85a4f09e561e429aa5bf46ec680014487fb40c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 329217faaf865052b79a1d44200cc3c788702046
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Ontwerpbeslissingen en codering technieken voor SQL Data Warehouse
 Bekijk via deze artikelen ontwikkeling voor een beter begrip van belangrijke ontwerpbeslissingen, aanbevelingen en codering technieken voor SQL Data Warehouse.
 
 ## <a name="key-design-decisions"></a>Belangrijke ontwerpbeslissingen
-De volgende artikelen markeren sommige van de belangrijkste concepten en de ontwerpbeslissingen die u moet begrijpen voor het ontwikkelen van uw gedistribueerde datawarehouse met behulp van SQL Data Warehouse:
+De volgende artikelen markeren concepten en ontwerpbeslissingen voor het ontwikkelen van een gedistribueerde datawarehouse met behulp van SQL Data Warehouse:
 
-* [verbindingen][connections]
-* [gelijktijdigheid van taken][concurrency]
-* [transacties][transactions]
-* [gebruiker gedefinieerde schema 's][user-defined schemas]
+* [Verbindingen][connections]
+* [Gelijktijdigheid van taken][concurrency]
+* [Transacties][transactions]
+* [Gebruiker gedefinieerde schema 's][user-defined schemas]
 * [tabeldistributie][table distribution]
 * [tabelindexen][table indexes]
 * [Tabelpartities][table partitions]
 * [CTAS][CTAS]
-* [statistieken][statistics]
+* [Statistieken][statistics]
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Aanbevelingen voor ontwikkeling en codering technieken
 Deze artikelen markeren specifieke codering technieken, tips en aanbevelingen voor het ontwikkelen van uw SQL Data Warehouse:
 
-* [opgeslagen procedures][stored procedures]
+* [Opgeslagen procedures][stored procedures]
 * [labels][labels]
 * [Weergaven][views]
-* [tijdelijke tabellen][temporary tables]
-* [dynamische SQL][dynamic SQL]
+* [Tijdelijke tabellen][temporary tables]
+* [dynamic SQL][dynamic SQL]
 * [lussen][looping]
-* [Group by-opties][group by options]
-* [toewijzing van variabele][variable assignment]
+* [Groeperen op Opties][group by options]
+* [Toewijzing van variabele][variable assignment]
 
 ## <a name="next-steps"></a>Volgende stappen
-Wanneer u via de ontwikkeling artikelen zijn te bekijken via de [Transact-SQL-naslaginformatie] [ Transact-SQL reference] voor meer informatie over de ondersteunde syntaxis voor SQL Data Warehouse.
+Zie voor meer informatie, de [Transact-SQL-naslaginformatie] [ Transact-SQL reference] pagina voor SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
-[concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[concurrency]: ./resource-classes-for-workload-management.md
 [connections]: ./sql-data-warehouse-connect-overview.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [dynamic SQL]: ./sql-data-warehouse-develop-dynamic-sql.md

@@ -3,8 +3,9 @@ title: Een klassieke webservice Retrain | Microsoft Docs
 description: Informatie over het programmatisch opnieuw trainen van een model en het bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: 
-author: garyericson
-manager: raymondlaghaeian
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: 
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: a0ec3191448362f8bf98ca6b5133d173735046ed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7adc5995b830d049c8dd6412415bd5987e60fe08
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Een klassieke webservice opnieuw trainen
 De voorspellende webservice die u hebt geïmplementeerd is de standaardinstelling score-eindpunt. Standaardeindpunten worden gesynchroniseerd met de oorspronkelijke training en experimenten score berekenen en daarom het getrainde model voor het standaardeindpunt kan niet worden vervangen. Als u wilt opnieuw trainen van de webservice, moet u een nieuw eindpunt toevoegen aan de webservice. 
@@ -68,7 +68,7 @@ Voor het ophalen van de pad-URL:
 2. Klik op de koppeling van de Update-Resource.
 3. Kopieer de POST-URL van de PATCH-aanvraag. Bijvoorbeeld:
    
-     PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
+     DE URL VAN DE PATCH: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
 U kunt nu het getrainde model gebruiken om bij te werken het score-eindpunt dat u eerder hebt gemaakt.
 

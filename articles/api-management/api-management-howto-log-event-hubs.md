@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 77c3e41dd4b1fdf7e518de67b353f69fcb758c60
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f4da70d94d28496f5b08035ead0ef7acf1ca3bc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Het registreren van gebeurtenissen voor Azure Event Hubs in Azure API Management
 Azure Event Hubs is een zeer schaalbare service voor inkomende gegevens die miljoenen gebeurtenissen per seconde kan opnemen, voor verwerking en analyse van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Event Hubs fungeert als de 'voordeur' van een gebeurtenispijplijn en zodra gegevens zijn verzameld in een event hub, kunnen worden omgezet en opgeslagen met een realtime-analyseprovider of batchverwerking/opslagadapters. Event Hubs koppelt de productie van een gebeurtenissenstroom los van het gebruik van deze gebeurtenissen, zodat de consumenten ervan toegang hebben tot de gebeurtenissen op basis van hun eigen planning.
@@ -36,7 +36,7 @@ API Management voorkomen zijn geconfigureerd met behulp van de [API Management R
 
 Moet een HTTP PUT-aanvraag van de volgende URL-sjabloon voor het maken van een logboek:
 
-`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Vervang `{your service}` met de naam van uw API Management-service-exemplaar.
 * Vervang `{new logger name}` met de gewenste naam voor uw nieuwe berichtenlogboek. U verwijzen naar deze naam bij het configureren van de [logboek voor eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) beleid
@@ -51,7 +51,7 @@ Geef de hoofdtekst van de aanvraag van de volgende sjabloon:
 
 ```json
 {
-  "loggertype" : "AzureEventHub",
+  "loggerType" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -60,9 +60,9 @@ Geef de hoofdtekst van de aanvraag van de volgende sjabloon:
 }
 ```
 
-* `loggertype`moet worden ingesteld op `AzureEventHub`.
-* `description`biedt een optionele beschrijving van het logboek en tekenreekslengte van nul kan zijn, indien gewenst.
-* `credentials`bevat de `name` en `connectionString` van uw Azure Event Hub.
+* `loggerType` moet worden ingesteld op `AzureEventHub`.
+* `description` biedt een optionele beschrijving van het logboek en tekenreekslengte van nul kan zijn, indien gewenst.
+* `credentials` bevat de `name` en `connectionString` van uw Azure Event Hub.
 
 Wanneer u de aanvraag als een statuscode van is gemaakt door het logboek `201 Created` wordt geretourneerd.
 

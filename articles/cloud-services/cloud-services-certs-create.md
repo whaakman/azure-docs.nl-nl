@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 4032a429901c675436cb5e7fb04aa5645925fa30
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6a1e4f5316cc0321c1409f9e48daeae6ee483bf6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certificaten voor Azure Cloud Services-overzicht
 Certificaten worden gebruikt in Azure voor cloudservices ([service certificaten](#what-are-service-certificates)) en voor het verifiëren van de beheer-API ([beheercertificaten](#what-are-management-certificates)). In dit onderwerp biedt een algemeen overzicht van beide typen certificaten hoe naar [maken](#create) en [implementeren](#deploy) ze naar Azure.
@@ -48,8 +48,6 @@ Van beheercertificaten kunnen u verifiëren met het klassieke implementatiemodel
 ### <a name="limitations"></a>Beperkingen
 Er is een limiet van 100 beheercertificaten per abonnement. Er is ook een limiet van 100 beheercertificaten voor alle abonnementen onder een bepaalde service-beheerder gebruikers-ID. Als de gebruikers-ID voor de accountbeheerder al gebruikt is om toe te voegen 100 beheercertificaten en er meer certificaten nodig, kunt u een CO-beheerder om toe te voegen extra certificaten toevoegen. 
 
-Zie voordat u meer dan 100 certificaten toe te voegen, als u een bestaand certificaat kunt hergebruiken. Met behulp van CO-beheerders wordt mogelijk onnodige complexiteit toegevoegd aan het beheerproces van uw certificaat.
-
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>Een nieuw zelfondertekend certificaat maken
 U kunt een hulpmiddel beschikbaar voor het maken van een zelfondertekend certificaat, zolang ze aan deze instellingen voldoen gebruiken:
@@ -66,7 +64,7 @@ U kunt een hulpmiddel beschikbaar voor het maken van een zelfondertekend certifi
 
 Er zijn twee manieren om te maken van een certificaat op Windows, met de `makecert.exe` hulpprogramma of IIS.
 
-### <a name="makecertexe"></a>MakeCert.exe
+### <a name="makecertexe"></a>Makecert.exe
 Dit hulpprogramma is afgeschaft en wordt niet meer hier beschreven. Zie voor meer informatie [deze MSDN-artikel](https://msdn.microsoft.com/library/windows/desktop/aa386968).
 
 ### <a name="powershell"></a>PowerShell
@@ -86,7 +84,7 @@ Als u wilt gebruiken deze [certificaat met de beheerportal](../azure-api-managem
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ```
 
-### <a name="internet-information-services-iis"></a>Internet informatieservices (IIS)
+### <a name="internet-information-services-iis"></a>Internet Information Services (IIS)
 Er zijn meerdere pagina's op internet die betrekking hebben op hoe u dit doet met IIS. [Hier](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) is een uitstekende ik heb ik denk dat deze wordt ook uitgelegd. 
 
 ### <a name="linux"></a>Linux

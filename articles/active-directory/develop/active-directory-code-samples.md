@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: 5f47f03594e64281b55161edb1c391ed0be83a73
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 130d26828acd5394756c47f22217272338cc33e6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-code-samples"></a>Azure Active Directory-codevoorbeelden
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -38,6 +38,7 @@ Deze voorbeelden laten zien hoe een webtoepassing die zorgt ervoor de browser va
 | C#/.NET |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) |Gebruik OpenID Connect (ASP.Net OpenID Connect OWIN middleware) om te verifiëren van gebruikers van een Azure AD-tenant. |
 | C#/.NET |[WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) |Een multitenant .NET MVC-webtoepassing die OpenID Connect (middleware ASP.Net OpenID Connect OWIN) gebruikt om gebruikers te verifiëren van meerdere Azure AD-tenants. |
 | C#/.NET |[WebApp-WSFederation-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) |WS-Federation (middleware ASP.Net WS-Federation OWIN) gebruiken om gebruikers te verifiëren van een Azure AD-tenant. |
+| C#/.NET Core |[WebApp-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) |Een .NET MVC-web-app die gebruikmaakt van OpenID Connect aanmelden gebruikers uit een enkele Azure Active Directory (Azure AD)-tenant met behulp van de middleware ASP.NET Core OpenID Connect. |
 
 ## <a name="single-page-application-spa"></a>Toepassing van één pagina (SPA)
 Dit voorbeeld wordt het schrijven van een toepassing één pagina die wordt beveiligd met Azure AD.  

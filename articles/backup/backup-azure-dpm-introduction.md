@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0e547a5991c0ce00344eff6d6b77edb0e34bd62c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Met DPM voorbereiden op het maken van back-ups van workloads in Azure
 > [!div class="op_single_selector"]
@@ -43,26 +43,28 @@ Dit artikel bevat een inleiding tot Microsoft Azure Backup gebruiken om uw Syste
 [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) back-ups van gegevens van bestands- en toepassingsgegevens. Meer informatie over ondersteunde werkbelastingen vindt [hier](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Gegevensback-ups naar DPM worden opgeslagen op tape op schijf of een back-up naar Azure met Microsoft Azure Backup. DPM communiceert met Azure Backup als volgt:
 
 * **DPM geïmplementeerd als een fysieke server of on-premises virtuele machine** — als DPM wordt geïmplementeerd als een fysieke server of als een lokale Hyper-V virtuele machine, u kunt back-ups naar een Recovery Services-kluis naast de schijf en tape back-up.
-* **DPM geïmplementeerd als een virtuele machine van Azure** : van System Center 2012 R2 met Update 3, kan DPM worden geïmplementeerd als een virtuele machine van Azure. Als DPM wordt geïmplementeerd als een Azure virtuele machine die u kunt back-ups naar Azure-schijven gekoppeld aan de DPM Azure virtuele machine of u de opslag van gegevens kan offloaden door een back-up naar een Recovery Services-kluis.
+* **DPM geïmplementeerd als een virtuele machine van Azure** : van System Center 2012 R2 met Update 3 op, kunt u DPM implementeert op een virtuele machine van Azure. Als DPM als Azure een virtuele machine wordt geïmplementeerd, kunt u back-ups naar Azure schijven zijn gekoppeld aan de virtuele machine of offload van de opslag van gegevens door back-ups op een Recovery Services-kluis.
 
-## <a name="why-backup-from-dpm-to-azure"></a>Waarom back-up van DPM naar Azure?
-De zakelijke voordelen van het gebruik van Azure Backup voor back-ups van DPM-servers zijn onder andere:
+## <a name="why-back-up-dpm-to-azure"></a>Waarom back-ups van DPM naar Azure?
+De zakelijke voordelen van het back-ups van DPM-servers naar Azure zijn onder andere:
 
-* Voor on-premises DPM-implementatie, kunt u Azure gebruiken als alternatief voor implementatie van de lange termijn op tape.
-* Voor implementaties van DPM in Azure kunt Azure Backup u de schijf van de Azure-opslag-offload zodat u kunt opschalen door oudere gegevens zijn opgeslagen in de Recovery Services-kluis en nieuwe gegevens op schijf.
+* Gebruik Azure als alternatief voor implementatie van de lange termijn naar tape voor on-premises DPM implementatie.
+* Offloaden van de schijf van Azure-opslag voor het implementeren van DPM op een virtuele machine in Azure. Oudere gegevens opslaan in de Recovery Services-kluis, kunt u opschalen van uw bedrijf door nieuwe gegevens naar schijf op te slaan.
 
 ## <a name="prerequisites"></a>Vereisten
 Azure back-up naar back-up van DPM-gegevens als volgt voorbereiden:
 
 1. **Een Recovery Services-kluis maken** : een kluis maken in Azure portal.
-2. **Kluisreferenties downloaden** : downloaden van de referenties op die u met de DPM-server naar een Recovery Services-kluis registreren.
-3. **Installeer de Azure Backup Agent** : de agent op elke DPM-server installeren en uit Azure Backup.
-4. **Registreer de server** : de DPM-server naar een Recovery Services-kluis registreren.
+2. **Kluisreferenties downloaden** : de referenties die u met de DPM-server registreren met de Recovery Services-kluis downloaden.
+3. **Installeer de Azure Backup Agent** : Installeer de agent op elke DPM-server.
+4. **Registreer de server** : de DPM-server registreren bij de Recovery Services-kluis.
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="key-definitions"></a>Basisdefinities
 Hier volgen enkele belangrijke definities voor back-up naar Azure voor DPM:
 
-1. **Referentie-kluis** : Kluisreferenties nodig zijn om te verifiëren van de machine voor het verzenden van back-upgegevens naar een geïdentificeerde kluis in de Azure Backup-service. Het kan worden gedownload uit de kluis en is geldig voor 48hrs.
+1. **Referentie-kluis** : Kluisreferenties nodig zijn om te verifiëren van de machine voor het verzenden van back-upgegevens naar een geïdentificeerde kluis in de Azure Backup-service. Het kan worden gedownload uit de kluis en is geldig voor 48 uur.
 2. **Wachtwoordzin** : wachtwoordzin wordt gebruikt voor het versleutelen van de back-ups in de cloud. Sla het bestand op een veilige locatie als dit nodig tijdens een herstelbewerking wordt uitgevoerd is.
 3. **Beveiliging PINCODE** : als u hebt ingeschakeld de [beveiligingsinstellingen](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) van de kluis BEVEILIGINGSCODE is vereist voor het uitvoeren van kritieke back-upbewerkingen. Deze meervoudige verificatie wordt nog een beveiligingslaag toegevoegd. 
 4. **Herstelmap** , is de wachtwoordzin op te geven die de back-ups van cloud tijdelijk naar cloud herstelbewerkingen zijn gedownload. De grootte moet ongeveer gelijk aan de grootte van de back-items die u wilt herstellen parallel.
@@ -81,7 +83,7 @@ Een Recovery Services-kluis maken:
 
     ![Een Recovery Services-kluis maken, stap 2](./media/backup-azure-dpm-introduction/rs-vault-menu.png)
 
-    De blade Recovery Services-kluis wordt geopend en u wordt gevraagd een **naam**, **abonnement**, **resourcegroep** en **locatie** in te voeren.
+    De Recovery Services vault menu wordt geopend, waarin u kunt bieden een **naam**, **abonnement**, **resourcegroep**, en **locatie**.
 
     ![Een Recovery Services-kluis maken, stap 5](./media/backup-azure-dpm-introduction/rs-vault-attributes.png)
 4. Voer bij **Naam** een beschrijvende naam in om de kluis aan te duiden. De naam moet uniek zijn voor het Azure-abonnement. Typ een naam die tussen 2 en 50 tekens bevat. De naam moet beginnen met een letter en mag alleen letters, cijfers en afbreekstreepjes bevatten.
@@ -96,8 +98,8 @@ U kunt met de optie voor opslagreplicatie kiezen tussen geografisch redundante o
 
 De instelling voor opslagreplicatie bewerken:
 
-1. Selecteer de kluis om het kluisdashboard en de blade Instellingen te openen. Als de blade **Instellingen** niet wordt geopend, klikt u op **Alle instellingen** op het kluisdashboard.
-2. Klik op de blade **Instellingen** op **Back-upinfrastructuur** > **Back-upconfiguratie** om de blade **Back-upconfiguratie** te openen. Kies op de blade **Back-upconfiguratie** de optie voor opslagreplicatie voor uw kluis.
+1. Selecteer uw kluis om het kluisdashboard en het menu instellingen te openen. Als de **instellingen** menu niet wordt geopend, klikt u op **alle instellingen** op het kluisdashboard.
+2. Op de **instellingen** menu, klikt u op **back-upinfrastructuur** > **back-upconfiguratie** openen de **back-upconfiguratie**menu. Op de **back-upconfiguratie** menu, kies de optie voor opslagreplicatie voor uw kluis.
 
     ![Lijst met back-upkluizen](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -112,9 +114,9 @@ Het kluisreferentiebestand is gedownload via een beveiligd kanaal vanuit de Azur
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Open de Recovery Services-kluis die u wilt dat DPM-machine te registreren.
-3. Instellingenblade wordt standaard zijn geopend. Als dit is gesloten, klikt u op **instellingen** op kluisdashboard om de instellingenblade te openen. Op de blade instellingen, klikt u op **eigenschappen**.
+3. Menu instellingen wordt standaard zijn geopend. Als dit is gesloten, klikt u op **instellingen** op kluisdashboard openen van het menu instellingen. Klik in het menu instellingen op **eigenschappen**.
 
-    ![Blade Kluis openen](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Het menu Kluis openen](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 4. Klik op de pagina eigenschappen van **downloaden** onder **back-up referenties**. De portal genereert het kluisreferentiebestand wordt beschikbaar gesteld voor downloaden.
 
     ![Downloaden](./media/backup-azure-dpm-introduction/vault-credentials.png)
@@ -130,9 +132,9 @@ De portal genereert een kluisreferentie met een combinatie van de kluisnaam van 
 Nadat de Azure Backup-kluis is gemaakt, moet een agent worden geïnstalleerd op elk van uw Windows-machines (Windows Server, Windows-client, System Center Data Protection Manager-server of Azure Backup-Server-machine) waarmee een back-up van gegevens en toepassingen naar Azure.
 
 1. Open de Recovery Services-kluis die u wilt dat DPM-machine te registreren.
-2. Instellingenblade wordt standaard zijn geopend. Als dit is gesloten, klikt u op **instellingen** om de instellingenblade te openen. Op de blade instellingen, klikt u op **eigenschappen**.
+2. Menu instellingen wordt standaard zijn geopend. Als dit is gesloten, klikt u op **instellingen** openen van het menu instellingen. Klik in het menu instellingen op **eigenschappen**.
 
-    ![Blade Kluis openen](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Het menu Kluis openen](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Klik op de pagina instellingen **downloaden** onder **Azure Backup Agent**.
 
     ![Downloaden](./media/backup-azure-dpm-introduction/azure-backup-agent.png)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Overzicht van duurzame Functions (preview)
 
@@ -153,44 +153,43 @@ public static async Task<HttpResponseMessage> Run(
 
 De [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parameter is een waarde van de `orchestrationClient` uitvoer binding, die deel uitmaakt van de extensie duurzame functies. Het biedt methoden voor begin, verzenden van gebeurtenissen, wordt afgebroken en een query uitvoert voor nieuwe of bestaande orchestrator-functie-exemplaren. In het bovenstaande voorbeeld wordt een HTTP-geactiveerd-functie omvat een `functionName` waarde van de binnenkomende URL en geeft die naar waarde [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Deze binding-API retourneert een antwoord met een `Location` header en aanvullende informatie over de instantie die later kan worden gebruikt om te zoeken registreert de status van het exemplaar gestart of beëindigd deze.
 
-## <a name="pattern-4-stateful-singletons"></a>Patroon #4: Stateful singletons
+## <a name="pattern-4-monitoring"></a>Patroon #4: controleren
 
-De meeste functies hebben een expliciete begin en einde en niet rechtstreeks communiceren met externe gebeurtenisbronnen. Integraties ondersteunen echter een [stateful singleton](durable-functions-singletons.md) patroon waarmee ze zich gedragen, zoals betrouwbare [actoren](https://en.wikipedia.org/wiki/Actor_model) in gedistribueerde computeromgevingen.
+Het patroon monitor verwijst naar een flexibel *terugkerende* proces in een werkstroom - bijvoorbeeld polling totdat aan bepaalde voorwaarden wordt voldaan. Een gewone timertrigger een eenvoudig scenario, zoals een periodieke opschoontaak kunt oplossen, maar het interval is statisch en het beheren van de levensduur van het exemplaar wordt complexe. Duurzame functies maakt flexibele terugkeerpatroon intervallen, Taakbeheer levensduur en de mogelijkheid om te maken van meerdere beeldschermen processen van een enkele orchestration.
 
-Het volgende diagram ziet u een functie die wordt uitgevoerd in een oneindige lus tijdens de verwerking van gebeurtenissen ontvangen van externe bronnen.
+Een voorbeeld zou de eerdere asynchrone HTTP API scenario worden omgekeerd. In plaats van het blootstellen van een eindpunt voor een externe client voor het bewaken van een langdurige bewerking de monitor langlopende gebruikt een extern eindpunt wachten op een andere status.
 
-![Stateful singleton-diagram](media/durable-functions-overview/stateful-singleton.png)
+![Diagram van de monitor](media/durable-functions-overview/monitor.png)
 
-Hoewel duurzame functies niet een implementatie van het model acteur, hebben orchestrator-functies veel van dezelfde runtime-kenmerken. Ze zijn bijvoorbeeld langlopende (mogelijk eindeloze) stateful, betrouwbare, één thread, locatie-transparante en globaal adresseerbare. Hierdoor orchestrator-functies is nuttig voor 'actor'-scenario's, zoals.
-
-Normale functies zijn staatloze en derhalve niet geschikt is voor het implementeren van een stateful singleton-patroon. De extensie duurzame functies heeft echter het patroon stateful singleton betrekkelijk eenvoudig te implementeren. De volgende code is een eenvoudige orchestrator-functie die een teller implementeert.
+Duurzame functies gebruikt, kunnen meerdere beeldschermen houden willekeurige eindpunten worden gemaakt in een paar regels code. De monitoren uitvoering kunnen beëindigen wanneer een bepaalde voorwaarde wordt voldaan, of worden afgesloten met de [DurableOrchestrationClient](durable-functions-instance-management.md), en hun wachtinterval kan worden gewijzigd op basis van een bepaalde voorwaarde (dat wil zeggen exponentieel uitstel.) De volgende code implementeert een basic-monitor.
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
 {
-    int counterState = ctx.GetInput<int>();
-
-    string operation = await ctx.WaitForExternalEvent<string>("operation");
-    if (operation == "incr")
+    int jobId = ctx.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+    
+    while (ctx.CurrentUtcDateTime < expiryTime) 
     {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
+        var jobStatus = await ctx.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform action when condition met
+            await ctx.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        var nextCheck = ctx.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await ctx.CreateTimer(nextCheck, CancellationToken.None);
     }
 
-    ctx.ContinueAsNew(counterState);
+    // Perform further work here, or let the orchestration end
 }
 ```
 
-Deze code is wat u mogelijk beschrijven als een 'eeuwige orchestration' &mdash; dat wil zeggen een die begint en eindigt nooit. Deze wordt uitgevoerd de volgende stappen uit:
-
-* Begint met een invoerwaarde in `counterState`.
-* Wacht voor onbepaalde tijd voor een bericht aangeroepen `operation`.
-* Voert enkele logica voor het bijwerken van de lokale staat.
-* "Opnieuw wordt opgestart' zelf door het aanroepen van `ctx.ContinueAsNew`.
-* Wacht op opnieuw voor onbepaalde tijd voor de volgende bewerking.
+Wanneer een aanvraag wordt ontvangen, is een nieuw exemplaar van de orchestration gemaakt voor die taak-ID. Het exemplaar worden opgevraagd status totdat een voorwaarde wordt voldaan en dat de lus wordt afgesloten. Een duurzame timer wordt gebruikt voor het polling-interval. Werk verder kan worden uitgevoerd of de orchestration kunt beëindigen. Wanneer de `ctx.CurrentUtcDateTime` overschrijdt de `expiryTime`, de ends monitor.
 
 ## <a name="pattern-5-human-interaction"></a>Patroon #5: Menselijke tussenkomst
 
@@ -229,7 +228,7 @@ De duurzame timer wordt gemaakt door het aanroepen van `ctx.CreateTimer`. De mel
 
 ## <a name="the-technology"></a>De technologie
 
-Achter de schermen worden de functies voor duurzame-extensie is gebouwd boven de [duurzame taak Framework](https://github.com/Azure/durabletask), een open-source-bibliotheek op GitHub voor het bouwen van duurzame taak integraties. Veel is duurzame functies zoals Azure Functions hoe de zonder server evolutie van Azure WebJobs is, de zonder server evolutie van het duurzame taak Framework. Het duurzame taak Framework wordt gebruikt sterk binnen Microsoft en buiten evenals bedrijfskritieke processen te automatiseren. Het is een natuurlijke geschikt is voor de server is niet vereist Azure Functions-omgeving.
+Achter de schermen worden de functies voor duurzame-extensie is gebouwd boven de [duurzame taak Framework](https://github.com/Azure/durabletask), een open source-bibliotheek op GitHub voor het bouwen van duurzame taak integraties. Veel is duurzame functies zoals Azure Functions hoe de zonder server evolutie van Azure WebJobs is, de zonder server evolutie van het duurzame taak Framework. Het duurzame taak Framework wordt gebruikt sterk binnen Microsoft en buiten evenals bedrijfskritieke processen te automatiseren. Het is een natuurlijke geschikt is voor de server is niet vereist Azure Functions-omgeving.
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Bron van de gebeurtenis, plaatsen van controlepunten en opnieuw afspelen
 

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c67d56ff63f70baa052be17c119d943c558d398f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Blad cheats voor Azure SQL Data Warehouse
 Deze referentieoverzicht biedt nuttige tips en aanbevolen procedures voor het bouwen van uw Azure SQL Data Warehouse-oplossingen. Voordat u begint, meer informatie over elke stap in detail door te lezen [antivirusprogramma patronen met een Azure SQL Data Warehouse werkbelasting patronen en](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), waarin wordt uitgelegd wat SQL Data Warehouse is en wat niet.
@@ -45,7 +45,7 @@ Uw gegevens in eerst laden [Azure Data Lake Store](https://docs.microsoft.com/en
 |:--- |:--- |
 | Distributie | Round robin |
 | Indexeren | Object-heap |
-| Partitionering | Geen |
+| Partitionering | None |
 | Bronklasse | largerc of xlargerc |
 
 Meer informatie over [gegevensmigratie], [gegevens laden], en de [extraheren, laden en transformeren (ELT) proces](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
@@ -146,12 +146,12 @@ Implementeren met één muisklik uw spaken in SQL-databases van SQL Data Warehou
 [Sketch]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
 
 <!--Article references-->
-[gegevens laden]:./design-elt-data-loading.md
-[deeper guidance]: ./guidance-for-loading-data.md
-[indexen]:./sql-data-warehouse-tables-index.md
-[partities]:./sql-data-warehouse-tables-partition.md
-[statistieken]:./sql-data-warehouse-tables-statistics.md
-[resource klassen en gelijktijdigheid]:./sql-data-warehouse-develop-concurrency.md
+[gegevens laden]:design-elt-data-loading.md
+[deeper guidance]:guidance-for-loading-data.md
+[indexen]:sql-data-warehouse-tables-index.md
+[partities]:sql-data-warehouse-tables-partition.md
+[statistieken]:sql-data-warehouse-tables-statistics.md
+[resource klassen en gelijktijdigheid]:resource-classes-for-workload-management.md
 
 <!--MSDN references-->
 

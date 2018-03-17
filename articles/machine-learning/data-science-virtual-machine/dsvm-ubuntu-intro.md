@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 557eab702175b1741cdcde62045947f2c031fbcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>De gegevens wetenschappelijke virtuele Machine inrichten voor Linux (Ubuntu)
 
@@ -83,7 +83,7 @@ Hier volgen de stappen voor het maken van een exemplaar van de gegevens wetensch
 2. Klik op **maken** (aan de onderkant) online zetten van de wizard.![ Configureer-gegevens-wetenschappelijke-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 3. De volgende secties bevatten de invoer voor elk van de stappen in de wizard (opgesomd aan de rechterkant van de voorgaande afbeelding) gebruikt voor het maken van de Microsoft Data wetenschappelijke virtuele Machine. Hier volgen de invoer voor het configureren van deze stappen:
    
-   a. **Basisprincipes**:
+   a. **Basics**:
    
    * **Naam**: naam van uw gegevens wetenschap-server die u maakt.
    * **Gebruikersnaam**: eerste account aanmelden ID.
@@ -214,8 +214,8 @@ Als u wilt een interactieve sessie Python aanroepen, typt u gewoon **python** in
 
 Voor het installeren van extra Python-bibliotheken, moet u uitvoeren ```conda``` of ````pip```` opdracht onder sudo en volledig pad van de Python package manager (conda of pip) te installeren op de juiste Python-omgeving te bieden. Bijvoorbeeld:
 
-    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Jupyter-notebook
@@ -272,7 +272,7 @@ U hebt een keuze uit verschillende code-editors. Dit omvat vi/VIM, Emacs PyCharm
 
 Voordat u het eerste gebruik, stuurprogramma's en database aliassen hebt ingesteld. De JDBC-stuurprogramma's bevinden zich op:
 
-*/usr/share/Java/jdbcdrivers*
+*/usr/share/java/jdbcdrivers*
 
 Zie voor meer informatie [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 

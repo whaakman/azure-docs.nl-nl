@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 101ea717816fa2eb9fa9ae25cef21df67cf6ef9c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dbd8508a7f55b8b5fdf53912d2189a18ef504193
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Aan de slag met Reliable Services
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/24/2018
 > 
 > 
 
-Een Azure Service Fabric-toepassing bevat een of meer services waarop uw code wordt uitgevoerd. Deze handleiding wordt beschreven hoe u maakt zowel stateless als stateful Service Fabric-toepassingen met [Reliable Services](service-fabric-reliable-services-introduction.md).  Deze video Microsoft Virtual Academy leest u hoe u een stateless betrouwbare service maken:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
+Een Azure Service Fabric-toepassing bevat een of meer services waarop uw code wordt uitgevoerd. Deze handleiding wordt beschreven hoe u maakt zowel stateless als stateful Service Fabric-toepassingen met [Reliable Services](service-fabric-reliable-services-introduction.md).  Deze video Microsoft Virtual Academy leest u hoe u een stateless betrouwbare service maken: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
@@ -46,7 +46,7 @@ Start Visual Studio 2015 of Visual Studio 2017 als beheerder en maak een nieuwe 
 
 ![Gebruik het dialoogvenster Nieuw Project voor het maken van een nieuwe Service Fabric-toepassing](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Maak vervolgens een stateless service-project met de naam *HelloWorldStateless*:
+Maak vervolgens een stateless service-project met **.Net Core 2.0** met de naam *HelloWorldStateless*:
 
 ![Klik in het dialoogvenster tweede een stateless serviceproject maken](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -97,7 +97,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", ++iterations);
+        ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
 
         await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
@@ -113,7 +113,7 @@ Het platform roept deze methode wanneer een exemplaar van een service is geplaat
 
 Deze indeling wordt beheerd door het systeem te houden van uw service maximaal beschikbaar is en goed taakverdeling.
 
-`RunAsync()`moet niet synchroon blokkeren. De implementatie van RunAsync moet een taak retourneren of await op langlopende of blokkeringen bewerkingen waarmee de runtime om door te gaan. Houd er rekening mee de `while(true)` lus in het vorige voorbeeld wordt een taak retourneren `await Task.Delay()` wordt gebruikt. Als uw werkbelasting synchroon blokkeert moet, moet u een nieuwe taak plannen `Task.Run()` in uw `RunAsync` implementatie.
+`RunAsync()` moet niet synchroon blokkeren. De implementatie van RunAsync moet een taak retourneren of await op langlopende of blokkeringen bewerkingen waarmee de runtime om door te gaan. Houd er rekening mee de `while(true)` lus in het vorige voorbeeld wordt een taak retourneren `await Task.Delay()` wordt gebruikt. Als uw werkbelasting synchroon blokkeert moet, moet u een nieuwe taak plannen `Task.Run()` in uw `RunAsync` implementatie.
 
 Annulering van uw werkbelasting is een gezamenlijke inspanning gedirigeerd door het token opgegeven annulering. Het systeem wacht tot de taak te beëindigen (met succes is voltooid, annulering of fault) voordat het wordt verplaatst op. Het is belangrijk om te voldoen aan het token annulering, werk voltooien en af te sluiten `RunAsync()` zo snel mogelijk wanneer het systeem annulering aanvraagt.
 
@@ -128,7 +128,7 @@ In dezelfde *HelloWorld* toepassing, kunt u een nieuwe service toevoegen door me
 
 ![Een service aan uw Service Fabric-toepassing toevoegen](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Selecteer **Stateful Service** en noem deze *HelloWorldStateful*. Klik op **OK**.
+Selecteer **.Net Core 2.0 Stateful Service ->** en noem deze *HelloWorldStateful*. Klik op **OK**.
 
 ![Gebruik het dialoogvenster Nieuw Project voor het maken van een nieuwe stateful Service Fabric-service](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
@@ -154,7 +154,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
         {
             var result = await myDictionary.TryGetValueAsync(tx, "Counter");
 
-            ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
+            ServiceEventSource.Current.ServiceMessage(this.Context, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
             await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
@@ -169,7 +169,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()`draait op dezelfde manier in stateful en staatloze services. Echter, in een stateful service het platform extra werk uitvoert namens jou voordat deze wordt uitgevoerd `RunAsync()`. Deze taak kunt opnemen ervoor te zorgen dat de betrouwbare statusbeheer en betrouwbare verzamelingen klaar zijn voor gebruik.
+`RunAsync()` draait op dezelfde manier in stateful en staatloze services. Echter, in een stateful service het platform extra werk uitvoert namens jou voordat deze wordt uitgevoerd `RunAsync()`. Deze taak kunt opnemen ervoor te zorgen dat de betrouwbare statusbeheer en betrouwbare verzamelingen klaar zijn voor gebruik.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Betrouwbare verzamelingen en de betrouwbare status Manager
 ```csharp

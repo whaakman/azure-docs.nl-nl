@@ -6,23 +6,22 @@ documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
 editor: 
-ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: joeyong;barbkess;kevin
-ms.openlocfilehash: 1895e9c6174dfb05212991040cc265b8cb6e0651
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e25a1f8d807fa317e8ce246fd49de034182af96
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitor your workload using DMVs
-In dit artikel wordt beschreven hoe dynamische beheerweergaven (DMV's) gebruiken om te controleren van uw werkbelasting en onderzoeken van de uitvoering van de query in Azure SQL Data Warehouse.
+In dit artikel wordt beschreven hoe dynamische beheerweergaven (DMV's) gebruiken om te controleren van uw workload. Dit omvat het onderzoeken van de uitvoering van de query in Azure SQL Data Warehouse.
 
 ## <a name="permissions"></a>Machtigingen
 Om te vragen de DMV's in dit artikel, moet u de status van de DATABASE weergeven of BESTURINGSELEMENT gemachtigd. STATUS van de DATABASE verlenen weergeven is meestal de voorkeur machtiging omdat dit veel meer beperkende.
@@ -72,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 In de voorgaande queryresultaten **Let op de aanvraag-ID** van de query die u wilt onderzoeken.
 
-Query's in de **onderbroken** status wordt in de wachtrij vanwege gelijktijdigheid limieten. Deze query's worden ook weergegeven in de query sys.dm_pdw_waits wacht met het type UserConcurrencyResourceType. Zie [gelijktijdigheid en werkbelasting management] [ Concurrency and workload management] voor meer informatie over limieten voor gelijktijdigheid van taken. Query's kunnen ook wachten om andere redenen zoals voor het object wordt vergrendeld.  Als uw query voor een resource wacht, Zie [onderzoeken van query's die wachten op resources] [ Investigating queries waiting for resources] verderop in dit artikel.
+Query's in de **onderbroken** status wordt in de wachtrij vanwege gelijktijdigheid limieten. Deze query's worden ook weergegeven in de query sys.dm_pdw_waits wacht met het type UserConcurrencyResourceType. Zie voor informatie over limieten voor gelijktijdigheid van taken, [prestatielagen](performance-tiers.md) of [Resource klassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md). Query's kunnen ook wachten om andere redenen zoals voor het object wordt vergrendeld.  Als uw query voor een resource wacht, Zie [onderzoeken van query's die wachten op resources] [ Investigating queries waiting for resources] verderop in dit artikel.
 
 Gebruiken om te vereenvoudigen het opzoeken van een query in de tabel sys.dm_pdw_exec_requests, [LABEL] [ LABEL] een opmerking aan de query die kan worden opgezocht in de weergave sys.dm_pdw_exec_requests toewijzen.
 
@@ -135,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * Controleer de *total_elapsed_time* kolom om te zien als een bepaalde verdeling aanzienlijk langer duurt dan andere voor verplaatsing van gegevens.
-* Voor de distributie langlopende controleren de *rows_processed* kolom om te zien als het aantal rijen wordt verplaatst van dit distributiepunt aanzienlijk groter dan andere is. Als het geval is, dit kan duiden op verschil van de onderliggende gegevens.
+* Voor de distributie langlopende controleren de *rows_processed* kolom om te zien als het aantal rijen wordt verplaatst van dit distributiepunt aanzienlijk groter dan andere is. Als dit het geval is, kan deze zoeken scheeftrekken van de onderliggende gegevens aangeven.
 
 Als de query wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan worden gebruikt voor het geschatte plan van SQL Server ophalen uit het cachegeheugen van de SQL Server-plan voor de huidige actieve stap van de SQL binnen een bepaald distributie.
 
@@ -174,9 +173,9 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Als de query actief op de bronnen van een andere query wachten is, wordt de status van de instelling **AcquireResources**.  Als de query de vereiste resources heeft, wordt de status van de instelling **verleend**.
 
 ## <a name="monitor-tempdb"></a>Monitor tempdb
-Hoge tempdb-gebruik, kan de hoofdoorzaak voor trage prestaties en buiten geheugenproblemen zijn. Overweeg het schalen van uw datawarehouse als u de grenzen bereikt tijdens het uitvoeren van query tempdb vinden. Hieronder wordt beschreven hoe u tempdb-gebruik per query op elk knooppunt identificeert. 
+Hoge tempdb-gebruik, kan de hoofdoorzaak voor trage prestaties en buiten geheugenproblemen zijn. Overweeg het schalen van uw datawarehouse als u de grenzen bereikt tijdens het uitvoeren van query tempdb vinden. De volgende informatie beschrijft hoe u tempdb-gebruik per query op elk knooppunt identificeert. 
 
-De volgende weergave koppelt u het juiste knooppunt-id voor sys.dm_pdw_sql_requests maken. Hierdoor kunt u gebruikmaken van andere Pass Through-DMV's en koppel deze tabellen met sys.dm_pdw_sql_requests.
+De volgende weergave koppelt u het juiste knooppunt-ID voor sys.dm_pdw_sql_requests maken. Met de knooppunt-ID, kunt u andere Pass Through-DMV's gebruiken en koppel deze tabellen met sys.dm_pdw_sql_requests.
 
 ```sql
 -- sys.dm_pdw_sql_requests with the correct node id
@@ -258,7 +257,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Grootte van de transactie-logboekbestand bewaken
-De volgende query retourneert de grootte van het transactielogboek op elk distributiepunt. Als een van de logboekbestanden 160GB bereikt, moet u rekening houden met schalen van uw exemplaar of de grootte van uw transactie te beperken. 
+De volgende query retourneert de grootte van het transactielogboek op elk distributiepunt. Als een van de logboekbestanden 160 GB bereikt, moet u rekening houden met schalen van uw exemplaar of de grootte van uw transactie te beperken. 
 ```sql
 -- Transaction log size
 SELECT
@@ -284,8 +283,8 @@ GROUP BY t.pdw_node_id, nod.[type]
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [systeemweergaven] [ System views] voor meer informatie over DMV's.
-Zie [aanbevolen procedures voor SQL Data Warehouse] [ SQL Data Warehouse best practices] voor meer informatie over best practices
+Zie voor meer informatie over DMV's [systeemweergaven][System views].
+
 
 <!--Image references-->
 
@@ -294,7 +293,6 @@ Zie [aanbevolen procedures voor SQL Data Warehouse] [ SQL Data Warehouse best pr
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->

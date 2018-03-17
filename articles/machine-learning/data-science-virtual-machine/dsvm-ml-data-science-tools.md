@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 03/16/2018
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c772fa16b94d09e0fc0450ce86503553c26f8a24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1897f793b5907a304af0859a1ab321a06d1ce808
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Machine learning en wetenschappelijke hulpprogramma 's
 De gegevens wetenschappelijke virtuele Machine (DSVM) heeft een uitgebreide set hulpprogramma's en bibliotheken voor machine learning in populaire talen zoals Python, R, Julia beschikbaar. 
@@ -59,7 +59,7 @@ Hier zijn enkele van de machine learning-hulpprogramma's en bibliotheken op de D
 | Doorgaans worden gebruikt      | Algemene ML hulpprogramma     |
 | Hoe gebruik / uitvoeren?      | Op Windows, zoeken naar Weka in het Menu Start. Op Linux, meld u aan met X2Go en vervolgens gaat u naar toepassingen-ontwikkeling > -> Weka. |
 | Koppelingen naar voorbeelden      | [Voorbeelden van weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Bijbehorende hulpprogramma's op de DSVM      |LightGBM, ratel, XGBooost   |
+| Bijbehorende hulpprogramma's op de DSVM      |LightGBM, Rattle, XGBooost   |
 
 ## <a name="rattle"></a>Rammelaar
 |    |           |
@@ -68,7 +68,7 @@ Hier zijn enkele van de machine learning-hulpprogramma's en bibliotheken op de D
 | Ondersteunde DSVM edities     | Windows, Linux     |
 | Doorgaans worden gebruikt      | Algemene UI gegevensanalyse hulpprogramma voor R    |
 | Hoe gebruik / uitvoeren?      | UI-hulpprogramma. In Windows, start een opdrachtprompt, voert u R binnen R uitvoeren `rattle()`. Op Linux, verbinding maken met X2Go, een terminal starten, uitvoeren van R binnen R uitvoeren `rattle()`. |
-| Koppelingen naar voorbeelden      | [Rammelaar](https://togaware.com/onepager/) |
+| Koppelingen naar voorbeelden      | [Rattle](https://togaware.com/onepager/) |
 | Bijbehorende hulpprogramma's op de DSVM      |LightGBM, Weka, XGBoost   |
 
 ## <a name="lightgbm"></a>LightGBM

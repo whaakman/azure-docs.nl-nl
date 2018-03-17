@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: be737550aa1cff22bc413ee8ce243f8d8588f6a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple virtuele matrix - inrichten in VMware implementeren
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -127,7 +127,7 @@ Voer de volgende stappen uit voor het inrichten van een virtueel apparaat in de 
 17. Op de **opslag** pagina, selecteert u een gegevensarchief die u gebruiken wilt voor het inrichten van uw virtuele machine.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. Op de **versie van de virtuele Machine** pagina **versie van de virtuele Machine: 8**. Versies 8 tot en met 11 worden alle ondersteund.
+18. Op de **versie van de virtuele Machine** pagina **versie van de virtuele Machine: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. Op de **gastbesturingssysteem** pagina de **gastbesturingssysteem** als **Windows**. Voor **versie**, selecteert u in de vervolgkeuzelijst **Microsoft Windows Server 2012 (64-bits)**.

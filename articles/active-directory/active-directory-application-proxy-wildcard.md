@@ -15,11 +15,11 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 28e43d48b4fa27202d58ee081a60e2fb5bfe9d99
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f97b2541bb755a9b7ab8e3602dfad90f50ada740
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Toepassingen van jokertekens in de Azure Active Directory-toepassingsproxy 
 
@@ -70,7 +70,7 @@ Wanneer u aangepaste domeinen, moet u een DNS-vermelding maken met een CNAME-rec
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Om te bevestigen dat u uw CNAME juist hebt geconfigureerd, kunt u [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) op een van de doeleindpunten, bijvoorbeeld `expenses.adventure-works.com`.  Uw antwoord bevatten de al genoemde alias (`<Id.tenant>.runtime.msappproxy.net`).
+Om te bevestigen dat u uw CNAME juist hebt geconfigureerd, kunt u [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) op een van de doeleindpunten, bijvoorbeeld `expenses.adventure-works.com`.  Uw antwoord bevatten de al genoemde alias (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 
 ## <a name="considerations"></a>Overwegingen
@@ -83,7 +83,7 @@ Voor de jokerteken-toepassingen, de **interne URL** moet zijn geformatteerd als 
 ![AppId](./media/active-directory-application-proxy-wildcard\22.png)
 
 
-Wanneer u configureert een **externe URL**, moet u de volgende indeling:`https://*.<custom domain>` 
+Wanneer u configureert een **externe URL**, moet u de volgende indeling: `https://*.<custom domain>` 
 
 ![AppId](./media/active-directory-application-proxy-wildcard\21.png)
 
@@ -138,7 +138,7 @@ Alle drie de toepassingen:
 
 U kunt het jokerteken toepassingen publiceren met de stappen in [toepassingen publiceren met Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md). Dit scenario wordt ervan uitgegaan dat:
 
-- Een tenant met de volgende ID:`000aa000-11b1-2ccc-d333-4444eee4444e` 
+- Een tenant met de volgende ID: `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
 - Een geverifieerde domeinnaam aangeroepen `adventure-works.com` is geconfigureerd.
 

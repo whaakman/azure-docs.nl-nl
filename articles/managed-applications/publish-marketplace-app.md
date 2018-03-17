@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Beheerde Azure-toepassingen in de Marketplace
 
@@ -42,7 +42,7 @@ Als een publisher in Azure Marketplace, moet u het volgende doen:
 
 1. Maken van een Microsoft-ID - uw Microsoft-account maken met een e-mailadres behoort aan het domein van uw bedrijf, maar niet aan een enkele persoon. Dit e-mailadres wordt gebruikt voor de Microsoft Developer Center en de Cloud Partner-Portal. Zie voor meer informatie [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
 1. Indienen [Azure Marketplace benoeming formulier](https://aka.ms/ampnomination) - voor **oplossing die u wilt publiceren?**, selecteer **beheerde toepassing**. Zodra het formulier wordt verzonden, wordt de Marketplace-voorbereidingsteam controleert de toepassing en valideert de aanvraag. Het goedkeuringsproces kan één tot drie dagen duren. Wanneer uw benoeming is goedgekeurd, ontvangt u een promotiecode om te zien van de registratie-kosten voor het developer center. Als u dit doet **niet** vult u het formulier benoeming van Marketplace u wordt gevraagd om te betalen registratie $99.
-1. Registreren in [Developer Center](https://developer.microsoft.com) -Microsoft wordt gecontroleerd of uw organisatie een geldige rechtspersoon met een geldig BTW-nummer voor het land waar het is geregistreerd. Het goedkeuringsproces kan 5 tot 10 dagen duren. Om te voorkomen de kosten van de registratie, gebruikt u de promotiecode die u in de e-mail van het proces benoeming ontvangen. Zie voor meer informatie [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
+1. Registreren in [Developer Center](http://dev.windows.com/registration?accountprogram=azure) -Microsoft wordt gecontroleerd of uw organisatie een geldige rechtspersoon met een geldig BTW-nummer voor het land waar het is geregistreerd. Het goedkeuringsproces kan 5 tot 10 dagen duren. Om te voorkomen de kosten van de registratie, gebruikt u de promotiecode die u in de e-mail van het proces benoeming ontvangen. Zie voor meer informatie [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
 1. Meld u aan bij [Cloud Partner-Portal](https://cloudpartner.azure.com) - In het profiel publisher uw Developer Center-account koppelen aan het profiel van de uitgever Marketplace. Zie voor meer informatie [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Een nieuwe aanbieding voor Azure-toepassing maken

@@ -3,8 +3,9 @@ title: Logboekregistratie voor Machine Learning-webservices | Microsoft Docs
 description: Informatie over het inschakelen van logboekregistratie voor Machine Learning-webservices. Logboekregistratie biedt aanvullende informatie voor het oplossen van de API's.
 services: machine-learning
 documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 31497bcae5889590a2261b716574ec4eae21852d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e04ef638c46ef0f3b40fd56d27ba3673565bdc7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Logboekregistratie inschakelen voor Machine Learning-webservices
 Dit document bevat informatie over de mogelijkheid tot het vastleggen van Machine Learning-webservices. Logboekregistratie biedt aanvullende informatie, dan slechts een foutnummer en een bericht die kan helpen bij het oplossen van de aanroepen van de Machine Learning API's.  
@@ -27,7 +27,7 @@ Dit document bevat informatie over de mogelijkheid tot het vastleggen van Machin
 
 Inschakelen van logboekregistratie van het [Azure Machine Learning-webservices](https://services.azureml.net) portal. 
 
-1. Aanmelden bij de portal voor Azure Machine Learning-webservices op [https://services.azureml.net](https://services.azureml.net). Voor een webservice klassiek, u kunt ook opvragen bij de portal door te klikken op **nieuwe Services webervaring** op de pagina Machine Learning-webservices in Machine Learning Studio.
+1. Aanmelden bij de portal voor Azure Machine Learning-webservices op [ https://services.azureml.net ](https://services.azureml.net). Voor een webservice klassiek, u kunt ook opvragen bij de portal door te klikken op **nieuwe Services webervaring** op de pagina Machine Learning-webservices in Machine Learning Studio.
 
    ![Nieuwe koppeling van de ervaring van de Web-Services](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -82,7 +82,7 @@ De naam van elke blob heeft een voorvoegsel van de volgende notatie:
 
 Waar _type logboek registreren_ is een van de volgende waarden:  
 
-* Batch  
+* batch  
 * score/aanvragen  
 * score/init  
 

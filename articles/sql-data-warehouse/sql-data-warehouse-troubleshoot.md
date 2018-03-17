@@ -6,20 +6,19 @@ documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
 editor: 
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/30/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: 48318397f9c5e463c82320ad9d7c23a1a62af77e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0829d448e8b925d0dcc032ed143d8fff42ab1b69
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Het oplossen van Azure SQL datawarehouse
 In dit onderwerp vindt u enkele van de meer veelvoorkomende vragen die we graag van onze klanten.
@@ -27,9 +26,9 @@ In dit onderwerp vindt u enkele van de meer veelvoorkomende vragen die we graag 
 ## <a name="connecting"></a>Verbinding maken
 | Probleem | Oplossing |
 |:--- |:--- |
-| Aanmelden is mislukt voor gebruiker 'NT AUTHORITY\ANONYMOUS aanmelden'. (Microsoft SQL Server, fout: 18456) |Deze fout treedt op wanneer een AAD-gebruiker probeert verbinding maken met de database master, maar geen een gebruiker in master heeft.  Om dit probleem te verhelpen ofwel opgeven van de SQL Data Warehouse die u wilt verbinding maken met tijdens de verbinding of de gebruiker toevoegen aan de database master.  Zie [beveiligingsoverzicht] [ Security overview] artikel voor meer informatie. |
-| De server principal 'gebruik met Windows' kan geen toegang tot de database 'master' in de huidige beveiligingscontext. Kan de standaarddatabase van de gebruiker niet openen. Aanmelding mislukt. Aanmelden is mislukt voor gebruiker 'gebruik met Windows'. (Microsoft SQL Server, fout: 916) |Deze fout treedt op wanneer een AAD-gebruiker probeert verbinding maken met de database master, maar geen een gebruiker in master heeft.  Om dit probleem te verhelpen ofwel opgeven van de SQL Data Warehouse die u wilt verbinding maken met tijdens de verbinding of de gebruiker toevoegen aan de database master.  Zie [beveiligingsoverzicht] [ Security overview] artikel voor meer informatie. |
-| CTAIP fout |Deze fout kan optreden wanneer een aanmelding is gemaakt op de hoofddatabase van SQL server, maar niet in de SQL Data Warehouse-database.  Als u deze fout tegenkomt, bekijk de [beveiligingsoverzicht] [ Security overview] artikel.  In dit artikel wordt beschreven hoe u een gebruikersnaam en een gebruiker op de master en hoe u een gebruiker maken in de SQL Data Warehouse-database maken. |
+| Aanmelden is mislukt voor gebruiker 'NT AUTHORITY\ANONYMOUS aanmelden'. (Microsoft SQL Server, Error: 18456) |Deze fout treedt op wanneer een AAD-gebruiker probeert verbinding maken met de database master, maar geen een gebruiker in master heeft.  U lost dit probleem op door op de SQL Data Warehouse die u wilt verbinding maken met tijdens de verbinding of de gebruiker toevoegen aan de database master opgeven.  Zie [beveiligingsoverzicht] [ Security overview] artikel voor meer informatie. |
+| De server principal 'gebruik met Windows' kan geen toegang tot de database 'master' in de huidige beveiligingscontext. Kan de standaarddatabase van de gebruiker niet openen. Aanmelding mislukt. Aanmelden is mislukt voor gebruiker 'gebruik met Windows'. (Microsoft SQL Server, Error: 916) |Deze fout treedt op wanneer een AAD-gebruiker probeert verbinding maken met de database master, maar geen een gebruiker in master heeft.  U lost dit probleem op door op de SQL Data Warehouse die u wilt verbinding maken met tijdens de verbinding of de gebruiker toevoegen aan de database master opgeven.  Zie [beveiligingsoverzicht] [ Security overview] artikel voor meer informatie. |
+| CTAIP fout |Deze fout kan optreden wanneer een aanmelding is gemaakt op de hoofddatabase van SQL server, maar niet in de SQL Data Warehouse-database.  Als u deze fout tegenkomt, bekijk de [beveiligingsoverzicht] [ Security overview] artikel.  Dit artikel wordt uitgelegd voor het maken van een gebruikersnaam en een gebruiker op de master en het maken van een gebruiker in de SQL Data Warehouse-database. |
 | Geblokkeerd door een Firewall |Azure SQL-databases worden beveiligd door de server en database niveau firewalls om te controleren of alleen bekende IP-adressen die toegang hebben tot een database. De firewalls zijn beveiligd door standaard, wat betekent dat moet u expliciet inschakelen en IP-adres of een bereik aan adressen dat voordat u verbinding kunt maken.  Volg de stappen in voor het configureren van uw firewall om toegang te krijgen, [servertoegang firewall configureren voor uw client-IP-] [ Configure server firewall access for your client IP] in de [inrichting instructies] [Provisioning instructions]. |
 | Kan geen verbinding maken met het hulpprogramma of het stuurprogramma |SQL Data Warehouse raadt het gebruik van [SSMS][SSMS], [SSDT voor Visual Studio][SSDT for Visual Studio], of [sqlcmd] [ sqlcmd] query uitvoeren op uw gegevens. Zie voor meer informatie over stuurprogramma's en verbinding maken met SQL Data Warehouse [stuurprogramma's voor Azure SQL Data Warehouse] [ Drivers for Azure SQL Data Warehouse] en [verbinding maken met Azure SQL Data Warehouse] [ Connect to Azure SQL Data Warehouse] artikelen. |
 
@@ -47,7 +46,7 @@ In dit onderwerp vindt u enkele van de meer veelvoorkomende vragen die we graag 
 | Lage gelijktijdigheid / query's in de wachtrij |Informatie over [werkbelasting management] [ Workload management] is het belangrijk om te begrijpen hoe geheugentoewijzing met gelijktijdigheid van taken te verdelen. |
 | Het implementeren van aanbevolen procedures |De beste plaats om te starten voor meer informatie over het verbeteren van de prestaties van query's is [aanbevolen procedures voor SQL Data Warehouse] [ SQL Data Warehouse best practices] artikel. |
 | Hoe verbeteren de prestaties met schalen |Soms de oplossing voor het verbeteren van de prestaties is toe te voegen meer rekenkracht van uw query's door [schalen van uw SQL Data Warehouse][Scaling your SQL Data Warehouse]. |
-| Slechte queryprestaties als gevolg van slechte index kwaliteit |Enkele voorbeelden van momenten query's kunnen vertraging vanwege [slechte columnstore-index kwaliteit][Poor columnstore index quality].  Raadpleeg dit artikel voor meer informatie en hoe [samenstellen segment kwaliteitsverbetering][Rebuild indexes to improve segment quality]. |
+| Slechte queryprestaties als gevolg van slechte index kwaliteit |Enkele voorbeelden van momenten query's kunnen vertragen omdat [slechte columnstore-index kwaliteit][Poor columnstore index quality].  Raadpleeg dit artikel voor meer informatie en hoe [samenstellen segment kwaliteitsverbetering][Rebuild indexes to improve segment quality]. |
 
 ## <a name="system-management"></a>Systeembeheer
 | Probleem | Oplossing |
@@ -60,7 +59,7 @@ In dit onderwerp vindt u enkele van de meer veelvoorkomende vragen die we graag 
 ## <a name="polybase"></a>PolyBase
 | Probleem | Oplossing |
 |:--- |:--- |
-| Laden is mislukt vanwege de grote rijen |Ondersteuning voor grote rij is momenteel niet beschikbaar voor Polybase.  Dit betekent dat als de tabel VARCHAR(MAX), NVARCHAR(MAX) of VARBINARY(MAX) bevat, externe tabellen kunnen niet worden gebruikt om uw gegevens te laden.  Belasting voor grote rijen is momenteel alleen ondersteund door Azure Data Factory (met BCP), Azure Stream Analytics, SSIS, BCP of de SQLBulkCopy .NET-klasse. PolyBase-ondersteuning voor grote rijen wordt in een toekomstige release toegevoegd. |
+| Laden is mislukt vanwege de grote rijen |Ondersteuning voor grote rij is momenteel niet beschikbaar voor Polybase.  Dit betekent dat als de tabel VARCHAR(MAX), NVARCHAR(MAX) of VARBINARY(MAX) bevat, externe tabellen kunnen niet worden gebruikt om uw gegevens te laden.  Bij het laden van grote rijen is momenteel alleen ondersteund door Azure Data Factory (met BCP), Azure Stream Analytics, SSIS, BCP of de SQLBulkCopy .NET-klasse. PolyBase-ondersteuning voor grote rijen wordt in een toekomstige release toegevoegd. |
 | BCP belasting van de tabel met maximale-gegevenstype is mislukt |Er is een bekend probleem dat is vereist dat VARCHAR(MAX), NVARCHAR(MAX) of VARBINARY(MAX) aan het einde van de tabel in bepaalde scenario's worden geplaatst.  Verplaats het maximum aantal kolommen aan het einde van de tabel. |
 
 ## <a name="differences-from-sql-database"></a>Verschillen met SQL-Database
@@ -74,7 +73,7 @@ In dit onderwerp vindt u enkele van de meer veelvoorkomende vragen die we graag 
 | UDF's bieden geen ondersteuning voor SELECT-instructies |Dit is een beperking van onze UDF's.  Zie [CREATE FUNCTION] [ CREATE FUNCTION] voor de syntaxis die wordt ondersteund. |
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u zijn kan niet zoeken naar een oplossing voor het bovenstaande probleem, Hier volgen enkele andere resources die u kunt proberen.
+Voor meer hulp bij het vinden van oplossing voor uw probleem volgen hier enkele andere resources die u kunt proberen.
 
 * [Blogs]
 * [Functieverzoeken]
@@ -113,7 +112,7 @@ Als u zijn kan niet zoeken naar een oplossing voor het bovenstaande probleem, Hi
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
