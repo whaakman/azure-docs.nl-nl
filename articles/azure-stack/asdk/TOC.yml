@@ -1,0 +1,87 @@
+- name: Documentatie voor Azure Stack Development Kit
+  href: index.yml
+- name: Overzicht
+  expanded: true
+  items:
+    - name: Wat is de ASDK?
+      href: asdk-what-is.md
+    - name: ASDK release-opmerkingen
+      href: asdk-release-notes.md
+- name: Zelfstudies
+  items:
+    - name: 1. De ASDK implementeren
+      items:
+        - name: Implementeer de ASDK - installatieprogramma
+          href: asdk-deploy.md
+        - name: De ASDK - PowerShell implementeren
+          href: asdk-deploy-powershell.md
+        - name: De ASDK implementeren
+          href: asdk-redeploy.md
+    - name: 2. Een marketplace-item toevoegen
+      items:
+        - name: Downloaden van Azure
+          href: asdk-marketplace-item.md
+        - name: Toevoegen van een lokale bron
+          href: asdk-marketplace-item-offline.md
+    - name: 3. IaaS-services bieden
+      href: asdk-offer-services.md
+    - name: 4. Abonneren op een aanbieding
+      href: asdk-subscribe-services.md
+    - name: 5. Update aanbiedingen en plannen
+      href: asdk-update-offers.md
+    - name: 6. Een virtuele machine uit een sjabloon maken
+      href: asdk-create-vm-template.md
+- name: Concepten
+  items:
+    - name: Overwegingen bij de planning van de implementatie
+      href: asdk-deploy-considerations.md
+    - name: Development kit architectuur
+      href: asdk-architecture.md
+    - name: Basisprincipes van beheer ASDK
+      href: asdk-admin-basics.md
+    - name: Geavanceerde evaluatietaken
+      href: asdk-advanced-eval.md
+- name: Procedures
+  items:
+    - name: De ASDK instellen
+      items:
+        - name: Downloaden en uitpakken van de development kit
+          href: asdk-download.md
+        - name: De computer van de host ASDK voorbereiden
+          href: asdk-prepare-host.md
+        - name: De ASDK installeren
+          href: asdk-install.md
+        - name: Na de implementatie-configuratie
+          href: asdk-post-deploy.md
+    - name: De ASDK registreren
+      href: asdk-register.md
+    - name: Azure-Stack telemetrie-instellingen configureren
+      href: asdk-telemetry.md
+    - name: Problemen oplossen
+      href: asdk-troubleshooting.md
+- name: Referentie
+  items:
+    - name: PowerShell voor Azure Stack
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    - name: Azure Stack CLI
+      href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: Verwant
+  items:
+    - name: Documentatie voor Azure Stack-operator
+      href: /azure/azure-stack/
+    - name: Documentatie voor Azure Stack-gebruiker
+      href: /azure/azure-stack/user/
+- name: Resources
+  items:
+    - name: Azure Stack roadmap
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure-Stack MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Azure-Stack documentatie feedback
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+    - name: Prijsinformatie
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Training en certificering
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'
