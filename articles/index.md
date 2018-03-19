@@ -6,11 +6,11 @@ description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Az
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 1d4ea845bf2b62e982db560580e63a3d54845d00
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6d188cc25d858cc2d07fc49450d6b2d4a4a04c09
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -199,7 +199,7 @@ ms.lasthandoff: 03/09/2018
                                                 </ul>
                                                 <h4>AI en Cognitive Services</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/machine-learning/preview">Machine Learning-services</a></li>
+                                                    <li><a class="barLink" href="/azure/machine-learning/">Machine Learning</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">Computer Vision-API</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">Face-API</a></li>
                                                 </ul>
@@ -600,9 +600,9 @@ ms.lasthandoff: 03/09/2018
                                     <h3>AI + Machine Learning</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/machine-learning/preview">
+                                            <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning-services</p>
+                                                <p>Machine Learning</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2545,7 +2545,7 @@ ms.lasthandoff: 03/09/2018
                                 <h2>Kunstmatige intelligentie</h2>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/preview">
+                                <a href="/azure/machine-learning/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2555,7 +2555,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Machine Learning-services</h3>
+                                                    <h3>Machine Learning</h3>
                                                     <p>AI algemeen beschikbaar maken in de vorm van een end-to-end, schaalbaar en vertrouwd platform met experimenteermogelijkheden en modelbeheer</p>
                                                 </div>
                                             </div>
@@ -2733,10 +2733,10 @@ ms.lasthandoff: 03/09/2018
                                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Automatische suggesties van Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Bing Aangepaste zoekopdrachten</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" />Bing Aangepaste zoekopdrachten</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Bing Entiteiten zoeken&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" />Bing Entiteiten zoeken</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Zoeken in Bing Image</a>

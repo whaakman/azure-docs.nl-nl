@@ -107,6 +107,8 @@
               href: backup-azure-vms-encryption.md
             - name: VM-back-up inschakelen tijdens het maken van een virtuele machine
               href: backup-during-vm-creation.md
+            - name: Een upgrade uitvoeren naar VM-back-up-stack V2
+              href: backup-upgrade-to-vm-backup-stack-v2.md
         - name: Virtuele machines beheren en controleren
           items:
             - name: Back-ups van virtuele Azure-machines beheren in Azure Portal

@@ -1,4 +1,4 @@
-- name: Documentatie voor Jenkins op Azure
+- name: Jenkins op Azure
   href: index.yml
 - name: Overzicht
   items:
@@ -46,7 +46,7 @@
 - name: Voorbeelden
   items:
     - name: Voorbeeldtaken en -scripts
-      href: 'https://github.com/Azure/azure-devops-utils/tree/master/jenkins'
+      href: 'https://github.com/azure/jenkins'
 - name: Resources
   items:
     - name: Invoegtoepassingen
@@ -75,3 +75,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Jenkins Home
       href: 'https://jenkins.io/'
+    - name: Jenkins-architectuur
+      href: /azure/architecture/reference-architectures/jenkins/
+      maintainContext: true

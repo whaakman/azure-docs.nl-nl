@@ -64,6 +64,7 @@
 ## Visual Studio-hulpprogramma's
 ### [Hulpprogramma's installeren](stream-analytics-tools-for-visual-studio-install.md)
 ### [Een taak in de cloud ontwikkelen](stream-analytics-tools-for-visual-studio.md)
+### [Een Edge-taak ontwikkelen](stream-analytics-tools-for-visual-studio-edge-jobs.md)
 ### [Een CI/CD-pijplijn instellen](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Problemen oplossen

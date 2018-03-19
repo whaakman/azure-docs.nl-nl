@@ -18,7 +18,7 @@
 
 
 # Zelfstudies
-## [1 - Gegevens uit een blob laden](load-data-from-azure-blob-storage-using-polybase.md)
+## [1 - WideWorldImporters laden](load-data-wideworldimportersdw.md)
 
 # Concepten
 ## Servicekenmerken
@@ -101,6 +101,7 @@
 
 
 ## Gegevens laden en verplaatsen
+### [Gegevens over taxi's in New York](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Openbare gegevens van Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
