@@ -52,11 +52,12 @@
 ### [Elastische SQL Database-query](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
-## Bewaken en afstemmen
-### [Werklastbeheer](resource-classes-for-workload-management.md)
+## Queryprestaties
+### [Resourceklassen](resource-classes-for-workload-management.md)
 ### [Columnstore-compressie](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Controle](sql-data-warehouse-manage-monitor.md)
-### [Problemen oplossen](sql-data-warehouse-troubleshoot.md)
+
+## [Controle](sql-data-warehouse-manage-monitor.md)
+
 
 ## Datawarehouses ontwikkelen
 ### [Overzicht](sql-data-warehouse-overview-develop.md)
@@ -87,6 +88,8 @@
 #### [Door de gebruiker gedefinieerde schema's](sql-data-warehouse-develop-user-defined-schemas.md)
 #### [Variabele toewijzing](sql-data-warehouse-develop-variable-assignment.md)
 #### [Weergaven](sql-data-warehouse-develop-views.md)
+
+## [Problemen oplossen](sql-data-warehouse-troubleshoot.md)
 
 # Handleidingen
 ## Servicekenmerken

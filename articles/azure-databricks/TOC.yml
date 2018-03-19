@@ -11,8 +11,10 @@
       href: quickstart-create-databricks-workspace-portal.md
 - name: Zelfstudies
   items:
-    - name: Gebeurtenissen streamen met Event Hubs
+    - name: Gegevens streamen met Event Hubs
       href: databricks-stream-from-eventhubs.md
+    - name: Sentimentanalyse met Cognitive Services
+      href: databricks-sentiment-analysis-cognitive-services.md
 - name: Handleidingen
   items:
     - name: 'Verbinding maken met Excel, R en Python'
