@@ -5,19 +5,19 @@ metadata:
   title: Documentatie voor Kostenbeheer van Azure - zelfstudies, API-verwijzing | Microsoft Docs
   description: Kostenbeheer van Azure is een kostenbeheeroplossing voor meerdere clouds, zodat u eenvoudig Azure- en andere cloudresources kunt gebruiken. Ontdek met onze snelstartgidsen en zelfstudies hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert.
   services: cost-management
-  author: czeumault
-  manager: carolz
+  author: bandersmsft
+  manager: carmonm
   ms.service: cost-management
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/18/2017
-  ms.author: carolz
-  ms.openlocfilehash: c88a093c75122c2ff32060ff2780bd4bf4d83f34
-  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+  ms.date: 02/27/2018
+  ms.author: banders
+  ms.openlocfilehash: d6fa2486944fdecab67996bd7a8c7f656ffb2e72
+  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 03/09/2018
+  ms.lasthandoff: 03/16/2018
 abstract:
   description: Kostenbeheer van Azure is gelicentieerd door Cloudyn, een dochterbedrijf van Microsoft. Het is een kostenbeheeroplossing voor meerdere clouds waarmee u op de beste manier Azure- en andere cloudresources kunt gebruiken en beheren. Ontdek met onze snelstartgidsen en zelfstudies hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert.
 sections:
@@ -40,6 +40,7 @@ sections:
     style: ordered
     items:
     - html: "<a href=\"tutorial-review-usage\">Gebruik en kosten bekijken om afwijkingen en efficiëntie te detecteren</a>"
-    - html: <a href="tutorial-user-access">Toegang tot gegevens van Kostenbeheer toewijzen</a>
     - html: <a href="tutorial-forecast-spending">Toekomstige uitgaven voorspellen</a>
     - html: <a href="tutorial-manage-costs">Kosten beheren met kostentoewijzing en rapporten over showback en chargeback</a>
+    - html: <a href="tutorial-optimize-reserved-instances">Gereserveerde instanties optimaliseren</a>
+    - html: <a href="tutorial-user-access">Toegang tot gegevens van Kostenbeheer toewijzen</a>

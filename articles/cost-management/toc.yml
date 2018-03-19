@@ -21,7 +21,9 @@
       href: tutorial-forecast-spending.md
     - name: 3 - Kosten beheren
       href: tutorial-manage-costs.md
-    - name: 4 - Toegang tot gegevens beheren
+    - name: 4 - Gereserveerde instanties optimaliseren
+      href: tutorial-optimize-reserved-instances.md
+    - name: 5 - Toegang tot gegevens beheren
       href: tutorial-user-access.md
 - name: Concepten
   items:

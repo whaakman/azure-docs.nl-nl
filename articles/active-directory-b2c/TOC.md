@@ -61,6 +61,7 @@
 ## [Taal aanpassen](active-directory-b2c-reference-language-customization.md)
 ## [De rapportage-API gebruiken](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Gebruikers migreren](active-directory-b2c-user-migration.md)
+## [Sociale identiteiten migreren](active-directory-b2c-social-migration.md)
 
 # Identity-ervaringsframework
 ## [Aangepast beleid](active-directory-b2c-overview-custom.md)

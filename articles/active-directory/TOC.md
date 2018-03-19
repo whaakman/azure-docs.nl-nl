@@ -190,11 +190,10 @@
 #### [Rapporteren over het automatisch inrichten van gebruikers](active-directory-saas-provisioning-reporting.md)
 #### [Problemen met het automatisch inrichten van gebruikers oplossen](active-directory-application-provisioning-content-map.md)
 
-
-
 ### [Toegang tot apps op afstand via App Proxy](active-directory-application-proxy-get-started.md)
 #### Aan de slag
 ##### [App-Proxy inschakelen](active-directory-application-proxy-enable.md)
+##### [GDPR-ondersteuning](active-directory-application-proxy-gdpr.md)
 ##### [Apps publiceren](application-proxy-publish-azure-portal.md)
 ##### [Aangepaste domeinen](active-directory-application-proxy-custom-domains.md)
 #### [Eenmalige aanmelding](application-proxy-sso-overview.md)

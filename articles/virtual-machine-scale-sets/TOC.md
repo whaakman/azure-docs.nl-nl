@@ -38,6 +38,7 @@
 #### [Azure CLI 2.0 gebruiken](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Werken met grote schaalsets](virtual-machine-scale-sets-placement-groups.md)
 ### [Een sjabloon voor schaalsets converteren voor gebruik van beheerde schijven](virtual-machine-scale-sets-convert-template-to-md.md)
+### [Lage prioriteit gebruiken](virtual-machine-scale-sets-use-low-priority.md)
 
 ## Beheren
 ### Veelvoorkomende beheertaken

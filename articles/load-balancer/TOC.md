@@ -11,6 +11,7 @@
 ## [IPv6-ondersteuning](load-balancer-ipv6-overview.md)
 ## [Meerdere VIP's](load-balancer-multivip-overview.md)
 ## [Uitleg over uitgaande verbindingen](load-balancer-outbound-connections.md)
+## [De standaardversie van Load Balancer en beschikbaarheidszones](load-balancer-standard-availability-zones.md)
 
 # Aan de slag
 
@@ -49,6 +50,7 @@
 ### [Problemen met Azure Load Balancer oplossen](load-balancer-troubleshoot.md)
 
 ## Artikelen over het klassieke implementatiemodel
+### [Uitgaande verbindingen (klassiek)](load-balancer-outbound-connections-classic.md)
 ### [Een interne load balancer configureren voor cloudservices](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Een interne load balancer configureren voor cloudservices (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Een interne load balancer configureren voor cloudservices (CLI)](load-balancer-get-started-ilb-classic-cli.md)

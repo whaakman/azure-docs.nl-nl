@@ -62,6 +62,8 @@
           href: module-development.md
         - name: Samenstelling
           href: module-composition.md
+        - name: Eigenschappen van de rand-agent en de hub
+          href: module-edgeagent-edgehub.md
     - name: IoT Edge-runtime
       href: iot-edge-runtime.md
     - name: Implementaties

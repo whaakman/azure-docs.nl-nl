@@ -22,8 +22,9 @@
 ### Virtuele-machineschaalsets
 #### [Een schaalset maken in een beschikbaarheidszone](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### Load balancer
+### Load Balancer
 #### [Wat is Load Balancer?](../load-balancer/load-balancer-standard-overview.md)
+#### [Load Balancer Standard en beschikbaarheidszones](../load-balancer/load-balancer-standard-availability-zones.md)
 #### [Een zoneredundante, openbare Load Balancer Standard maken met Azure Portal](../load-balancer/load-balancer-get-started-internet-az-portal.md)
 #### [Een zoneredundante Load Balancer Standard maken met PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [Een zoneredundante, openbare Load Balancer Standard maken met CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
