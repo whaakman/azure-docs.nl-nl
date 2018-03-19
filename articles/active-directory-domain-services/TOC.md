@@ -22,7 +22,6 @@
 ## [De status van een beheerd domein controleren](active-directory-ds-check-health.md)
 ## [Azure AD Domain Services gebruiken in Azure CSP-abonnementen](active-directory-ds-csp.md)
 ## [Azure AD Domain Services inschakelen met behulp van PowerShell](active-directory-ds-enable-using-powershell.md)
-## [De status van uw domein controleren](active-directory-ds-check-health.md)
 ## Een beheerd domein koppelen
 ### [Windows Server-VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Windows Server-VM op basis van sjabloon](active-directory-ds-join-windows-vm-template.md)

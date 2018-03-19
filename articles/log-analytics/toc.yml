@@ -50,7 +50,7 @@
     - name: Zoeken in logboeken
       items:
         - name: Overzicht van zoekopdrachten in logboeken
-          href: log-analytics-log-search-new.md
+          href: log-analytics-log-search.md
         - name: Portals voor zoekopdrachten in logboeken
           href: log-analytics-log-search-portals.md
 - name: Handleidingen
@@ -117,20 +117,6 @@
           href: log-analytics-flow-tutorial.md
         - name: API voor zoeken in logboeken
           href: 'https://dev.loganalytics.io/'
-    - name: Verouderde versie van zoeken in logboeken
-      items:
-        - name: Overzicht van zoekopdrachten in logboeken
-          href: log-analytics-log-searches.md
-        - name: Zoekverwijzing
-          href: log-analytics-search-reference.md
-          items:
-            - name: Reguliere expressies
-              href: log-analytics-log-searches-regex.md
-        - name: API voor zoeken in logboeken
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
     - name: Gegevens analyseren
       items:
         - name: Dashboards

@@ -27,11 +27,6 @@
 ### [Netwerkbeveiligingsgroepen](virtual-networks-nsg.md)
 
 ## Implementeren
-### Virtuele netwerken
-#### [Azure Portal](virtual-networks-create-vnet-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure-CLI](virtual-networks-create-vnet-arm-cli.md)
-#### [Sjabloon](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Netwerkbeveiligingsgroepen
 #### [Azure Portal](virtual-networks-create-nsg-arm-pportal.md)
