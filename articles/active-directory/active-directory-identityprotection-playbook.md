@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Active Directory: Identity Protection playbook | Microsoft Docs'
 description: Meer informatie over hoe Azure AD Identity Protection kunt u de mogelijkheid van een aanvaller misbruik maakt van een verdachte identiteit of het apparaat en voor het beveiligen van een identiteit of een apparaat dat eerder is verdacht of bekend is dat inbreuk wordt gepleegd beperken.
 services: active-directory
@@ -23,7 +23,7 @@ ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Playbook voor Azure Active Directory: Identity Protection
 
-Deze playbook helpt u bij:
+Deze playbook helpt u:
 
 * Gegevens in de omgeving Identity Protection te vullen door risicogebeurtenissen en beveiligingsproblemen te simuleren
 * Een beleid voor voorwaardelijke toegang op basis van risico's in te stellen en de gevolgen van het beleid te testen
@@ -85,7 +85,7 @@ De aanmeldingspagina wordt binnen 10-15 minuten weergegeven op het Identity Prot
 
 Zie voor meer informatie over deze risicogebeurtenis [Impossible op reis naar ongewone locatie](active-directory-reporting-risk-events.md#impossible-travel-to-atypical-locations). 
 
-Het is moeilijk om de voorwaarde onmogelijke reis simuleren omdat de algoritme machine learning gebruikt voor wieden uit ONWAAR-positieven zoals onmogelijke reis vanaf vertrouwde apparaten of aanmeldingen vanaf VPN's die worden gebruikt door andere gebruikers in de map. Daarnaast vereist het algoritme een geschiedenis aanmelden van 14 dagen en 10 aanmeldingen van de gebruiker voordat u begint deze risico's te genereren. Vanwege de complexe machine learning-modellen en hoger regels, is er een kans dat de volgende stappen niet tot een risicogebeurtenis leidt. Mogelijk wilt deze stappen over meerdere Azure AD-accounts voor het publiceren van deze gebeurtenis risico's te repliceren.
+Het is moeilijk om de onmogelijke reis te simuleren omdat het machine learning algoritme gebruikt wordt om de Fout-positieven zoals een onmogelijke reis vanaf vertrouwde apparaten of aanmeldingen vanaf VPN's die worden gebruikt door andere gebruikers er uit te filteren. Daarnaast vereist het algoritme een aanmeldgeschiedenis van 14 dagen en 10 aanmeldingen van de gebruiker voordat deze begint met het genereren van risico's. Vanwege de complexe machine learning-modellen en bovenstaande regels, is er een kans dat de volgende stappen niet tot een risicogebeurtenis leidt. Mogelijk wilt u deze stappen met meerdere Azure AD-accounts herhalen voordat u resultaat ziet op de aanmeldingspagina van het Identity Protection dashboard.
 
 
 **De volgende stappen uitvoeren om te simuleren van een onmogelijke reis naar ongewone locatie,**:
