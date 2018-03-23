@@ -2,7 +2,7 @@
 title: Een functie in Linux maken met een aangepaste installatiekopie (preview) | Microsoft Docs
 description: Informatie over het maken van Azure Functions uitgevoerd op een aangepaste installatiekopie van Linux.
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
@@ -11,11 +11,11 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 555d05c6cd5e804e5f80ecb8df77237fd8270105
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4b9cb7923b177c73f83a7ac17b1022a5455c7f30
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Een functie in Linux maken met een aangepaste installatiekopie (preview)
 
@@ -50,7 +50,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-Voer de volgende opdrachten uit in een terminalvenster. Hiermee wordt de voorbeeldtoepassing gekloond naar uw lokale computer en navigeert u naar de map met de voorbeeldcode.
+Voer de volgende opdracht uit in een terminalvenster. Hiermee wordt de voorbeeld-app-opslagplaats gekloond naar uw lokale computer en navigeert u naar de map met de voorbeeldcode.
 
 ```bash
 git clone https://github.com/Azure-Samples/functions-linux-custom-image.git --config core.autocrlf=input
@@ -108,7 +108,7 @@ Controleer of de installatiekopie van de build werkt door de Docker-installatiek
 docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 ```
 
-Met de aangepaste installatiekopie die wordt uitgevoerd in een lokale Docker-container controleert u of de functie-app en container goed werken door te bladeren naar <http://localhost: 8080>.
+Met de aangepaste installatiekopie die wordt uitgevoerd in een lokale Docker-container controleert u of de functie-app en container goed werken door te bladeren naar <http://localhost:8080>.
 
 ![Test de functie-app lokaal.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -127,7 +127,7 @@ docker login --username <docker-id>
 Een bericht 'aanmelding geslaagd' bevestigt dat u bent aangemeld. Nadat u zich hebt aangemeld, pusht u de installatiekopie naar Docker Hub met behulp van de [docker push](https://docs.docker.com/engine/reference/commandline/push/)-opdracht.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0 .
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
 Controleer of de push-bewerking is voltooid door de uitvoer van de opdracht te inspecteren.

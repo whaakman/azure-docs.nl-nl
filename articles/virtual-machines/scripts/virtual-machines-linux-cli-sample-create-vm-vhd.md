@@ -1,13 +1,13 @@
 ---
-title: Azure CLI Script voorbeeld - een virtuele machine maken met een VHD | Microsoft Docs
-description: 'Azure CLI-Script voorbeeld: een virtuele machine maken met een virtuele harde schijf.'
+title: 'Azure CLI-voorbeeldscript: een virtuele machine met een virtuele harde schijf maken | Microsoft Docs'
+description: 'Azure CLI-Script voorbeeld: een virtuele machine met een virtuele harde schijf maken'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
 manager: douge
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,57 +16,57 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 6234473d9f7f0eb18ea85e52273eb82a9ce04da5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 414ef43063cc48b7b9ae7be5fbccbb7906ae8c03
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Een virtuele machine met een virtuele harde schijf maken
 
-In dit voorbeeld maakt een VHD met een virtuele machine.
-Het maakt een resourcegroep, een opslagaccount en een container en een virtuele machine wordt gemaakt door het uploaden van de VHD naar de container.
-Vervangt de ssh openbare sleutel met de openbare sleutel zodat u toegang hebt tot de virtuele machine.
+In dit voorbeeld wordt een virtuele machine met een virtuele harde schijf gemaakt.
+Er wordt eerst een resourcegroep, een opslagaccount en een container gemaakt, en vervolgens een virtuele machine door de virtuele harde schijf naar de container te uploaden.
+De openbare ssh-sleutel wordt vervangen door uw eigen openbare sleutel zodat u toegang hebt tot de virtuele machine.
 
-U moet een opstartbare VHD.
-U kunt downloaden van de VHD die wordt gebruikt vanuit https://azclisamples.blob.core.windows.net/vhds/sample.vhd of uw eigen VHD gebruiken. Het script wordt gezocht naar `~/sample.vhd`.
+U hebt hiervoor een opstartbare virtuele harde schijf nodig.
+U kunt de door ons gebruikte virtuele harde schijf downloaden vanaf https://azclisamples.blob.core.windows.net/vhds/sample.vhd, maar u kunt ook uw eigen virtuele harde schijf gebruiken. Het script zoekt naar `~/sample.vhd`.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-vhd/create-vm-vhd.sh "Create VM using a VHD")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```azurecli-interactive 
 az group delete -n az-cli-vhd
 ```
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdrachten voor het maken van een resourcegroep, virtuele machine, beschikbaarheidsset, load balancer en alle gerelateerde resources. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script gebruikt de volgende opdrachten voor het maken van een resourcegroep, een virtuele machine, een beschikbaarheidsset, een load balancer en alle gerelateerde resources. Elke opdracht in de tabel is een koppeling naar specifieke documentatie over de opdracht.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [AZ groep maken](https://docs.microsoft.com/cli/azure/group#az_group_create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [lijst met opslagaccounts AZ](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | Een lijst met storage-accounts |
-| [AZ opslag Controleer accountnaam](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_check_name) | Controleert of de naam van een account geldig is en nog niet bestaat |
-| [lijst met opslagaccounts die sleutels AZ](https://docs.microsoft.com/cli/azure/storage/account/keys#az_storage_account_keys_list) | Een lijst met sleutels voor de storage-accounts |
-| [AZ storage-blob bestaat](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_exists) | Controleert of de blob bestaat |
-| [AZ storage-container maken](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | Maakt een container in een opslagaccount. |
-| [uploaden van blob storage AZ](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Maakt een blob in de container door de VHD te uploaden. |
-| [AZ vm lijst](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Gebruikt met `--query` controleren of de naam van de VM in gebruik is. | 
-| [AZ vm maken](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Maakt de virtuele machines. |
-| [AZ vm toegang set-linux-gebruikers](https://docs.microsoft.com/cli/azure/vm/access#az_vm_access_set_linux_user) | Hiermee stelt u de SSH-sleutel in de huidige om gebruikerstoegang te verlenen aan de virtuele machine. |
-| [AZ vm lijst-ip-adressen](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Hiermee haalt u het IP-adres van de virtuele machine die is gemaakt. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | Hiermee worden opslagaccounts weergegeven |
+| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_check_name) | Hiermee wordt gecontroleerd of de naam van een opslagaccount geldig is en of de naam nog niet bestaat |
+| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#az_storage_account_keys_list) | Hiermee worden de sleutels voor de opslagaccounts weergegeven |
+| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_exists) | Hiermee wordt gecontroleerd of de blob bestaat |
+| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | Hiermee maakt u een container in een opslagaccount. |
+| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Hiermee maakt u een blob in de container door de virtuele harde schijf te uploaden. |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Gebruikt met `--query` om te controleren of de naam van de virtuele machine in gebruik is. | 
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Hiermee maakt u de virtuele machines. |
+| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#az_vm_access_set_linux_user) | Hiermee stelt u de SSH-sleutel opnieuw in om de huidige gebruiker toegang te verlenen tot de virtuele machine. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Hiermee haalt u het IP-adres van de gemaakte virtuele machine op. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure) voor meer informatie over de Azure CLI.
 
-Extra virtuele machine CLI scriptvoorbeelden vindt u in de [Azure Linux VM documentatie](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+U kunt extra CLI-scriptvoorbeelden voor virtuele machines vinden in de [Azure-documentatie voor Linux-VM's](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

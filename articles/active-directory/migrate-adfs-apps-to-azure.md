@@ -9,13 +9,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/29/2018
+ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: ec0731534da2543d48bedc575bf882b790fa136b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f1256e2fefe1ad3d37403f37804888ab9dcf6e99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>On-premises AD FS-apps naar Azure migreren 
 
@@ -166,7 +166,7 @@ Apps waarvoor de volgende mogelijkheden zijn vereist, kunnen momenteel niet word
 - Claims in tokenmogelijkheden
     - Uitgifte van on-premises groepsnamen als claim
     - Claims van archieven anders dan Azure AD
-    - Transformatieregels voor uitgifte van complexe claims (zie dit document en dit document voor informatie over ondersteunde claimtoewijzingen)
+    - Transformatieregels voor uitgifte van complexe claims (zie [dit document](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) en [dit document](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) voor informatie over ondersteunde claimtoewijzingen)
     - Mapextensies uitgeven als claims
     - Aangepaste specificatie van indeling van NameID
     - Uitgifte van meerwaardige kenmerken

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI sample script - ophalen van een groep beheerde bron en het formaat van virtuele machines | Microsoft Docs
-description: Azure CLI-voorbeeldscript - ophalen van een groep beheerde bron en het formaat van virtuele machines
+title: Voorbeeld van Azure CLI-script - Een beheerde resourcegroep opvragen en de grootte van virtuele machines wijzigen | Microsoft Docs
+description: Voorbeeld van Azure CLI-script - Een beheerde resourcegroep opvragen en de grootte van virtuele machines wijzigen
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,38 +12,38 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: c78d2646471e40d60972cf91cb5bbd351f71a66c
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: MT
+ms.openlocfilehash: 9c4032191738703b71319c05bce4f6bbbc61b44b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Ophalen van resources in een groep beheerde bron en het formaat van VM's met Azure CLI
+# <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Resources in een beheerde resourcegroep opvragen en de grootte van virtuele machines wijzigen met Azure CLI
 
-Dit script resources opgehaald uit een groep van beheerde bronnen en Hiermee wordt ingesteld voor de virtuele machines in die resourcegroep.
+Met dit script worden resources opgehaald uit een beheerde resourcegroep en wordt vervolgens de grootte van de virtuele machines in die resourcegroep aangepast.
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
 [!code-azurecli[main](../../../cli_scripts/managed-applications/get-application/get-application.sh "Get application")]
 
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdrachten om de beheerde toepassing te implementeren. Elke opdracht in de tabel is gekoppeld aan de opdracht specifieke documentatie bij.
+In dit script worden de volgende opdrachten gebruikt om de beheerde toepassing te implementeren. Elke opdracht in de tabel is een koppeling naar opdracht-specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [AZ managedapp lijst](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_list) | Beheerde toepassingen weergeven. Querywaarden om de resultaten richten opgeven. |
-| [lijst met resources AZ](https://docs.microsoft.com/cli/azure/resource#az_resource_list) | Lijst met bronnen. Geef een bron groep en query waarden richt het resultaat. |
-| [AZ vm-formaat wijzigen](https://docs.microsoft.com/cli/azure/vm#az_vm_resize) | Grootte van een virtuele machine bijwerken. |
+| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_list) | Hiermee vraagt u een lijst met de beheerde toepassingen op. Geef querywaarden op om gerichte resultaten te krijgen. |
+| [az resource list](https://docs.microsoft.com/cli/azure/resource#az_resource_list) | Hiermee vraagt u een lijst met resources op. Geef een resourcegroep op en querywaarden om gerichte resultaten te krijgen. |
+| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az_vm_resize) | Hiermee werkt u de grootte van een virtuele machine bij. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot beheerde toepassingen, [overzicht van Azure Managed toepassing](../overview.md).
-* Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+* Zie [Overzicht van door Azure beheerde toepassingen](../overview.md) voor algemene informatie over beheerde toepassingen.
+* Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure) voor meer informatie over de Azure CLI.

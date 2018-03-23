@@ -2,23 +2,23 @@
 title: Azure Active Directory Gebruiksrechtovereenkomst| Microsoft Docs
 description: Azure AD Gebruiksrechtovereenkomst biedt u en uw bedrijf de mogelijkheid om gebruikers van Azure AD-services een gebruiksrechtovereenkomst aan te bieden.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d55872ef-7e45-4de5-a9a0-3298e3de3565
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 03/06/2018
 ms.author: billmath
-ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: e29e842a54d286e19d23c1c91c08d55933a0eada
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Azure Active Directory Gebruiksrechtovereenkomst (preview)
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties gegevens kunnen presenteren aan eindgebruikers.  Deze methode zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen.
@@ -59,7 +59,7 @@ Wanneer u uw gebruiksrechtovereenkomst hebt voltooid, gebruikt u de volgende pro
 6. **Selecteer** een taal voor de gebruiksvoorwaarden.  Via de taaloptie kunt u meerdere gebruiksvoorwaarden uploaden, elk met een andere taal.  Welke versie van de gebruiksvoorwaarden aan een eindgebruiker wordt weergegeven, is gebaseerd op de browservoorkeuren.
 7. Schakel de optie **Gebruikers verplichten de gebruiksvoorwaarden uit te vouwen** in of uit.  Als deze optie is ingeschakeld, moeten eindgebruikers de gebruiksvoorwaarden bekijken alvorens deze te accepteren.
 8. In de sectie **Voorwaardelijke toegang** kunt u de geüploade gebruiksrechtovereenkomst **afdwingen** door een sjabloon of beleid voor aangepaste voorwaardelijke toegang te gebruiken.  Met een beleid voor aangepaste voorwaardelijke toegang kunt u een gedetailleerde gebruiksrechtovereenkomst opgeven voor een specifieke cloudtoepassing of groep gebruikers.  Zie [Een voorwaardelijk toegangsbeleid configureren](active-directory-conditional-access-best-practices.md) voor meer informatie
-9. Klik op **Maken**.
+9. Klik op **Create**.
 10. Als u een sjabloon voor aangepaste voorwaardelijke toegang hebt geselecteerd, kunt u in een volgend scherm het CA-beleid aanpassen.
 11. Nu wordt uw nieuwe gebruiksrechtovereenkomst weergegeven.</br>
 
@@ -125,10 +125,10 @@ Dat komt omdat een beleid voor voorwaardelijke toegang onmiddellijk van kracht w
 A: Wanneer een gebruiker de gebruiksrechtovereenkomst heeft geaccepteerd, wordt dit in het auditlogboek opgenomen. U kunt het auditlogboek van Azure AD doorzoeken om de resultaten te bekijken.  
 
 **V: Als de gebruiksrechtovereenkomst wordt gewijzigd, moeten gebruikers deze dan opnieuw accepteren?**</br>
-A: Ja, de beheerder kan de voorwaarden van de gebruiksrechtovereenkomst wijzigen. In dat geval moet de nieuwe gebruiksrechtovereenkomst opnieuw worden geaccepteerd.
+A: Ja, een beheerder kan de voorwaarden van de gebruiksrechtovereenkomst wijzigen. In dat geval moeten de nieuwe voorwaarden opnieuw worden geaccepteerd.
 
 **V: Wordt een gebruiksrechtovereenkomst ondersteund in meerdere talen?**</br>
-A: Nee, het is momenteel niet mogelijk om meerdere talen in één gebruiksrechtovereenkomst op te nemen.  U kunt echter een bereik toekennen aan een groep (zo kunt u voor Frankrijk een andere gebruiksrechtovereenkomst hanteren dan voor het Verenigd Koninkrijk). 
+A: Ja.  Er zijn momenteel 18 verschillende talen die een beheerder voor één gebruiksrechtovereenkomst kan configureren. 
 
 **V: Wanneer wordt de gebruiksrechtovereenkomst geactiveerd?**</br>
 A: De gebruiksrechtovereenkomst wordt geactiveerd tijdens het aanmelden.

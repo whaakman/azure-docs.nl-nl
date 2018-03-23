@@ -5,17 +5,17 @@ services: machine-learning
 author: raymondl
 ms.author: raymondl, j-martens, aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 761e7193cc64699e8aa25a1fd625ba45f65eed88
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 3/7/2018
+ms.openlocfilehash: 13ddc0ef8c7eac86e6cd7abb684ce35ae18fba84
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Zelfstudie - Classificeren van Iris deel 3: een model implementeren
 Azure Machine Learning (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Gegevenswetenschappers kunnen de service gebruiken om gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
@@ -43,9 +43,9 @@ U moet de eerste twee delen van deze zelfstudie hebben voltooid.
 Er moet een Docker-engine zijn geïnstalleerd en lokaal worden uitgevoerd. U kunt ook implementeren naar een Azure Container Service-cluster in Azure.
 
 ## <a name="download-the-model-pickle-file"></a>Modelbestand van pickle downloaden
-In het vorige deel van de zelfstudie werd het script **iris_sklearn.py** lokaal uitgevoerd in Machine Learning Workbench. Het script had tot doel het logistieke regressiemodel te serialiseren met behulp van het populaire Python-objectserialisatiepakket [pickle](https://docs.python.org/2/library/pickle.html). 
+In het vorige deel van de zelfstudie werd het script **iris_sklearn.py** lokaal uitgevoerd in Machine Learning Workbench. Deze actie had tot doel het logistieke regressiemodel te serialiseren met behulp van het populaire Python-objectserialisatiepakket [pickle](https://docs.python.org/3/library/pickle.html). 
 
-1. Open de toepassing Machine Learning Workbench. Open vervolgens het project **myIris** dat u in het vorige deel van de reeks zelfstudies hebt gemaakt.
+1. Open de toepassing Machine Learning Workbench. Open vervolgens het project **myIris** dat u in eerdere delen van de reeks zelfstudies hebt gemaakt.
 
 2. Nadat u het project hebt geopend, selecteert u in het linkerdeelvenster de knop **Files** (mappictogram) om de lijst met bestanden in de projectmap te openen.
 
@@ -79,7 +79,7 @@ In het vorige deel van de zelfstudie werd het script **iris_sklearn.py** lokaal 
    Meer informatie over de map `outputs` vindt u in het artikel [Het behouden blijven van wijzigingen en werken met grote bestanden](how-to-read-write-files.md).
 
 ## <a name="get-the-scoring-script-and-schema-files"></a>Het scoring-script en de schemabestanden ophalen
-Als u de webservice wilt implementeren samen met het modelbestand, hebt u ook een scoring-script nodig. U hebt mogelijk ook een schema nodig voor de invoergegevens van de webservice. Via het scoring-script wordt het bestand **model.pkl** uit de huidige map geladen en gebruikt voor het produceren van een nieuw voorspelde Iris-klasse.
+Als u de webservice wilt implementeren samen met het modelbestand, hebt u ook een scoring-script nodig. U hebt mogelijk ook een schema nodig voor de invoergegevens van de webservice. Via het scoring-script wordt het bestand **model.pkl** uit de huidige map geladen en gebruikt voor het maken van nieuwe voorspellingen.
 
 1. Open de toepassing Machine Learning Workbench. Open vervolgens het project **myIris** dat u in het vorige deel van de reeks zelfstudies hebt gemaakt.
 
@@ -93,13 +93,13 @@ Als u de webservice wilt implementeren samen met het modelbestand, hebt u ook ee
 
 5. Met dit script wordt een JSON-bestand gemaakt in de sectie **Outputs**, met daarin het schema voor invoergegevens dat is vereist voor het model.
 
-6. Aan de rechterkant van het **projectdashboard** wordt nu het deelvenster **taken** weergegeven. Wacht tot de meest recente **score_iris.py**-taak groen wordt weergegeven met de status **Completed**. Klik vervolgens op de hyperlink **iris-score.py [1]** voor de laatst uitgevoerde taak om de details van de uitvoering van de run **iris-score.py** te zien. 
+6. Aan de rechterkant van het **projectdashboard** wordt nu het deelvenster **taken** weergegeven. Wacht tot de meest recente **score_iris.py**-taak groen wordt weergegeven met de status **Completed**. Klik vervolgens op de hyperlink **iris-score.py** voor de laatst uitgevoerde taak om de details van de uitvoering te zien. 
 
 7. Ga in het deelvenster **Run Properties** naar de sectie **Outputs** en selecteer het zojuist gemaakte bestand **service_schema.json**. Selecteer het selectievakje naast de bestandsnaam en selecteer vervolgens **Download**. Sla het bestand op in de hoofdmap van het project.
 
 8. Ga terug naar het vorige tabblad waar u het script **score_iris.py** hebt geopend. Door de gegevensverzameling te gebruiken kunt u de modelinvoer en voorspellingen van de webservice vastleggen. De volgende stappen zijn met name van belang voor een gegevensverzameling.
 
-9. Bekijk de code bovenaan de klasse **ModelDataCollector** van de bestandimports, omdat dit bestand de functionaliteit voor modelgegevensverzameling bevat:
+9. Bekijk de code bovenaan het bestand, waarmee de klasse **ModelDataCollector** wordt geïmporteerd, omdat dit bestand de functionaliteit voor modelgegevensverzameling bevat:
 
    ```python
    from azureml.datacollector import ModelDataCollector
@@ -107,31 +107,28 @@ Als u de webservice wilt implementeren samen met het modelbestand, hebt u ook ee
 
 10. Bekijk de volgende regels met code in de functie **init()** waarmee een instantie van **ModelDataCollector** wordt gemaakt:
 
-      ```python
-      global inputs_dc, prediction_dc
-      inputs_dc = ModelDataCollector('model.pkl',identifier="inputs")
-      prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
-      ```
+    ```python
+    global inputs_dc, prediction_dc
+    inputs_dc = ModelDataCollector('model.pkl',identifier="inputs")
+    prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
+    ```
 
 11. Bekijk de volgende regels met code in de functie **run(input_df)** omdat hiermee de invoer- en voorspellingsgegevens worden verzameld:
 
-      ```python
-      global clf2, inputs_dc, prediction_dc
-      inputs_dc.collect(input_df)
-      prediction_dc.collect(pred)
-      ```
+    ```python
+    inputs_dc.collect(input_df)
+    prediction_dc.collect(pred)
+    ```
 
 U kunt de omgeving nu gaan voorbereiden voor het operationeel maken van het model.
-
-
 
 ## <a name="prepare-to-operationalize-locally"></a>Voorbereiden op operationeel maken in lokale omgeving
 Gebruik de implementatie _lokale modus_ voor uitvoering in Docker-containers op uw lokale computer.
 
-U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine moet lokaal worden uitgevoerd om de stappen te kunnen voltooien die nodig zijn om het model operationeel te maken. U kunt de vlag `-h` aan het einde van de opdrachten gebruiken voor de Help-opdracht.
+U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine moet lokaal worden uitgevoerd om de stappen te kunnen voltooien die nodig zijn om het model operationeel te maken. U kunt de `-h`-vlag aan het einde van elke opdracht gebruiken om het bijbehorende help-bericht weer te geven.
 
 >[!NOTE]
->Als u de Docker-engine niet lokaal beschikbaar hebt, kunt u toch in Azure een cluster maken voor implementatie. Vergeet echter niet om het cluster na de zelfstudie te verwijderen, anders worden er lopende kosten in rekening gebracht.
+>Als u geen lokale Docker-engine hebt, kunt u alsnog in Azure een cluster maken voor implementatie. Vergeet echter niet om het cluster na de zelfstudie te verwijderen, anders worden er lopende kosten in rekening gebracht.
 
 1. Open de CLI (opdrachtregelinterface).
    Selecteer in de toepassing Machine Learning Workbench in het menu **File** de optie **Open Command Prompt**.
@@ -140,13 +137,13 @@ U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine
 
 2. Maak de omgeving. U moet deze stap eenmaal per omgeving uitvoeren. Voer de stap bijvoorbeeld eenmaal uit voor de ontwikkelomgeving en eenmaal voor de productie. Gebruik de _lokale modus_ voor deze eerste omgeving. U kunt de schakeloptie `-c` of `--cluster` gebruiken in de volgende opdracht om later een omgeving in de _clustermodus_ in te stellen.
 
-   Voor de volgende installatieopdracht moet u toegangsrechten van een bijdrager voor het abonnement hebben. Als u die niet hebt, moet u minimaal toegangsrechten van een bijdrager hebben voor de resourcegroep waarin u wilt implementeren. Voor de laatste optie moet u de naam van de resourcegroep opgeven als onderdeel van de installatieopdracht via de vlag `-g`. 
+   Voor de volgende installatieopdracht moet u toegangsrechten van een bijdrager voor het abonnement hebben. Als u die niet hebt, hebt u minimaal toegangsrechten van een bijdrager nodig voor de resourcegroep waarin u wilt implementeren. In dat laatste geval moet u de naam van de resourcegroep opgeven als onderdeel van de installatieopdracht via de vlag `-g`. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
    ```
    
-   Volg de aanwijzingen op het scherm voor het inrichten van een opslagaccount om Docker-installatiekopieën op te slaan, een Azure Container Registry om Docker-installatiekopieën te vermelden en een Azure Application Insights-account om telemetrie te verzamelen. Als u de schakeloptie `-c` gebruikt, wordt er ook een Container Service-cluster gemaakt.
+   Volg de aanwijzingen op het scherm voor het inrichten van een opslagaccount om Docker-installatiekopieën op te slaan, een Azure Container Registry om Docker-installatiekopieën te vermelden en een Azure Application Insights-account om telemetrie te verzamelen. Als u de `-c`-switch gebruikt, wordt met de opdracht bovendien een Container Service-cluster gemaakt.
    
    De naam van het cluster is een manier om de omgeving te identificeren. De locatie moet dezelfde zijn als de locatie van het account voor Modelbeheer dat u hebt gemaakt in Azure Portal.
 
@@ -160,8 +157,7 @@ U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine
 
    ![Inrichtingsstatus](media/tutorial-classifying-iris/provisioning_state.png)
  
-   
-3. Maak een account voor Modelbeheer. Dit is een eenmalige installatie.
+3. Als u geen account voor Modelbeheer in eerdere gedeelten van deze zelfstudie hebt gemaakt, moet u dat nu doen. Dit is een eenmalige installatie.
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
@@ -200,11 +196,13 @@ U kunt nu de realtime webservice maken.
 
    De volgende schakelopties worden gebruikt met de opdracht **az ml service create realtime**:
 
-   * `-n`: de app-naam mag alleen uit kleine letters bestaan.
-
    * `-f`: de bestandsnaam van het scoring-script.
 
    * `--model-file`: het modelbestand. In dit geval is dit het pickled model.pkl-bestand.
+
+   * `-s`: het schema van de service. Dit werd in de vorige stap gegenereerd door het **score_iris.py**-script lokaal uit te voeren.
+
+   * `-n`: de app-naam mag alleen uit kleine letters bestaan.
 
    * `-r`: de runtime van het model. In dit geval is het een Python-model. Geldige runtimes zijn `python` en `spark-py`.
 
@@ -215,11 +213,11 @@ U kunt nu de realtime webservice maken.
    >[!IMPORTANT]
    >De naam van de service (wat ook de naam is van de nieuwe Docker-installatiekopie) mag alleen uit kleine letters bestaan. Anders krijgt u een foutmelding. 
 
-2. Wanneer u de opdracht uitvoert, worden het model en het scoring-bestand geüpload naar het opslagaccount dat u eerder hebt gemaakt tijdens de installatie van de omgeving. Tijdens het implementatieproces wordt er een Docker-installatiekopie gemaakt met daarin het model, schema en scoring-bestand. Deze installatiekopie wordt naar het Azure Container Registry gepusht: **\<naam_ACR\>.azureacr.io/\<naam_installatiekopie\>:\<versie\>**. 
+2. Wanneer u de opdracht uitvoert, worden het model en de scoring-bestanden geüpload naar het opslagaccount dat u eerder hebt gemaakt tijdens het voorbereiden van de omgeving. Tijdens het implementatieproces wordt er een Docker-installatiekopie gemaakt met daarin het model, schema en scoring-bestand. Deze installatiekopie wordt naar het Azure Container Registry gepusht: **\<naam_ACR\>.azureacr.io/\<naam_installatiekopie\>:\<versie\>**. 
 
    Met de opdracht wordt deze installatiekopie gedownload naar de computer en wordt er vervolgens op basis van die installatiekopie een Docker-container gestart. Als uw omgeving is geconfigureerd in de clustermodus, wordt de Docker-container in plaats hiervan geïmplementeerd in het Kubernetes-cluster in Azure Cloud Services.
 
-   Als onderdeel van de implementatie, wordt er een HTTP REST-eindpunt voor de webservice gemaakt op uw lokale machine. Na een paar minuten moet de opdracht worden afgerond met een bericht dat alles in orde is en dat de webservice klaar is voor gebruik.
+   Als onderdeel van de implementatie, wordt er een HTTP REST-eindpunt voor de webservice gemaakt op uw lokale machine. Na een paar minuten moet de opdracht worden afgerond met een bericht dat alles in orde is. Uw webservice is nu klaar voor gebruik.
 
 3. Gebruik de opdracht **docker ps** om de actieve Docker-container weer te geven:
 
@@ -230,7 +228,7 @@ U kunt nu de realtime webservice maken.
 ## <a name="create-a-real-time-web-service-by-using-separate-commands"></a>Een realtime webservice maken met behulp van afzonderlijke opdrachten
 Als alternatief voor de eerder weergegeven opdracht **az ml service create realtime** kunt u de stappen ook afzonderlijk uitvoeren. 
 
-Registreer eerst het model. Genereer vervolgens het manifest, bouw de Docker-installatiekopie en maak de webservice. Deze stapsgewijze aanpak biedt meer flexibiliteit bij elke stap. Bovendien kunt u de entiteiten die zijn gegenereerd in de vorige stap opnieuw gebruiken en de entiteiten alleen opnieuw bouwen wanneer dit nodig is.
+Registreer eerst het model. Genereer vervolgens het manifest, bouw de Docker-installatiekopie en maak de webservice. Deze stapsgewijze aanpak biedt meer flexibiliteit bij elke stap. Bovendien kunt u de entiteiten die in vorige stappen zijn gegenereerd opnieuw gebruiken en de entiteiten alleen opnieuw bouwen wanneer dat nodig is.
 
 1. Registreer het model door de naam van het pickle-bestand op te geven.
 
@@ -253,7 +251,7 @@ Registreer eerst het model. Genereer vervolgens het manifest, bouw de Docker-ins
    Als u een Docker-installatiekopie wilt maken, gebruikt u de volgende opdracht en geeft u de manifest-id op die in de vorige stap is gegenereerd. U kunt eventueel ook conda-afhankelijkheden opnemen met behulp van de `-c`-schakelaar.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
+   az ml image create -n irisimage --manifest-id <manifest ID> -c aml_config\conda_dependencies.yml
    ```
    Er wordt nu een id voor de Docker-installatiekopie gegenereerd.
    
@@ -272,7 +270,7 @@ U kunt de webservice nu gaan uitvoeren.
 
 Als u de actieve webservice **irisapp** wilt testen, gebruikt u een JSON-record met een matrix van vier willekeurige getallen.
 
-1. De webservice bevat voorbeeldgegevens. Wanneer u in de lokale modus werkt, kunt u de opdracht **az ml service usage realtime** aanroepen. Hiermee haalt u een voorbeeld van een run-opdracht op die handig is om de service te testen. Hiermee haalt u ook de scoring-URL op die u kunt gebruiken om de service in uw eigen aangepaste app te integreren.
+1. De webservice bevat voorbeeldgegevens. Wanneer u in de lokale modus werkt, kunt u de opdracht **az ml service usage realtime** aanroepen. Hiermee haalt u een voorbeeld van een run-opdracht op die u kunt gebruiken om de service te testen. Hiermee haalt u ook de scoring-URL op die u kunt gebruiken om de service in uw eigen aangepaste app te integreren.
 
    ```azurecli
    az ml service usage realtime -i <web service ID>
@@ -284,7 +282,7 @@ Als u de actieve webservice **irisapp** wilt testen, gebruikt u een JSON-record 
    az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
 
-   De uitvoer is **2**. Dit is de voorspelde klasse. (Uw resultaat kan afwijken.) 
+   De uitvoer is **"Iris-setosa"**, wat de voorspelde klasse is. (Uw resultaat kan afwijken.) 
 
 ## <a name="view-the-collected-data-in-azure-blob-storage"></a>De verzamelde gegevens bekijken in Azure Blob-opslag
 
@@ -300,10 +298,10 @@ Als u de actieve webservice **irisapp** wilt testen, gebruikt u een JSON-record 
    > Ga als volgt te werk om te bepalen welk opslagaccount wordt gebruikt:
    > 1. Open Machine Learning Workbench.
    > 2. Selecteer het project waaraan u werkt.
-   > 3. Open een opdrachtregelprompt in het menu **Bestand**.
-   > 4. Voer bij de opdrachtregelprompt `az ml env show -v` in en bekijk de waarde *storage_account*. Dit is de naam van uw opslagaccount.
+   > 3. Open een opdrachtregelprompt vanuit het menu **Bestand**.
+   > 4. Voer bij de opdrachtregelprompt `az ml env show -v` in en bekijk de waarde bij *storage_account*. Dit is de naam van uw opslagaccount.
 
-5. Nadat het deelvenster **Opslagaccount** is geopend, selecteert u **Containers** in de lijst aan de linkerkant. Zoek de container met de naam **modeldata**. 
+5. Nadat het deelvenster **Opslagaccount** is geopend, selecteert u **Blobs** in de sectie **Services**. Zoek de container met de naam **modeldata**. 
  
    Het kan zijn dat u nog geen gegevens ziet. Het duurt maximaal 10 minuten na de eerste webserviceaanvraag voordat de gegevens zijn doorgegeven aan het opslagaccount.
 
@@ -321,14 +319,13 @@ Als u de actieve webservice **irisapp** wilt testen, gebruikt u een JSON-record 
 
    * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): maak grafieken met behulp van gegevens uit CSV-gegevens in blobs.
 
-   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): laad de CSV-gegevens in een hive-tabel en voer rechtstreeks SQL-query's uit op de blobs.
+   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): hiermee laadt u de CSV-gegevens in een hive-tabel en worden SQL-query's rechtstreeks op de blobs uitgevoerd.
 
-   * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): maak een dataframe op basis van een grote hoeveelheid CSV-gegevens.
+   * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): hiermee maakt u een dataframe op basis van een grote hoeveelheid CSV-gegevens.
 
       ```python
       var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
       ```
-
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -344,7 +341,7 @@ In dit derde deel van deze driedelige reeks zelfstudies hebt u geleerd hoe u Mac
 > * De realtime webservice uit te voeren.
 > * De uitgevoerde blob-gegevens te controleren. 
 
-U hebt met succes een trainingsscript uitgevoerd in verschillende omgevingen, een model gemaakt, het model geserialiseerd en het model vervolgens operationeel gemaakt via een op Docker gebaseerde webservice. 
+U hebt een trainingsscript in verschillende rekenomgevingen kunnen uitvoeren. U hebt ook een model via een Docker-webservice gemaakt, geserialiseerd en geoperationaliseerd. 
 
 U kunt nu geavanceerde gegevensvoorbereiding gaan toepassen:
 > [!div class="nextstepaction"]

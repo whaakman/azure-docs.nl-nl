@@ -2,7 +2,7 @@
 title: 'Zelfstudie: toegang beheren in Azure Cost Management | Microsoft Docs'
 description: In deze zelfstudie leest u hoe u de toegang tot gegevens van Cost Management kunt beheren met behulp van gebruikersaccounts die toegangsniveaus voor entiteiten bepalen.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Zelfstudie: toegang tot gegevens van Cost Management beheren
 
@@ -54,7 +54,7 @@ Meestal is het zo dat gebruikers die toegang nodig hebben tot gegevens van Cost 
 
 ![Een nieuwe gebruiker met gebruikerstoegang toevoegen](.\media\tutorial-user-access\new-user-access.png)
 
-Als u een Engelstalige zelfstudievideo wilt bekijken over het toevoegen van gebruikers, gaat u naar [Adding Users to Azure Cost Management Powered by Cloudyn](https://youtu.be/Nzn7GLahx30).
+Als u een Engelstalige zelfstudievideo wilt bekijken over het toevoegen van gebruikers, gaat u naar [Adding Users to Azure Cost Management](https://youtu.be/Nzn7GLahx30).
 
 ## <a name="create-entities"></a>Entiteiten maken
 
@@ -75,9 +75,9 @@ Klik naast **Entities** op **Add Entity**. Voer gegevens in van de persoon of af
 Sla de wijzigingen op met **Save** als u klaar bent.
 
 
-Als u een Engelstalige zelfstudievideo wilt bekijken over het maken van een hiërarchie voor entiteitskosten, gaat u naar [Creating a Cost Entity Hierarchy in Azure Cost Management Powered by Cloudyn](https://youtu.be/dAd9G7u0FmU).
+Als u een Engelstalige zelfstudievideo wilt bekijken over het maken van een hiërarchie voor entiteitskosten, gaat u naar [Creating a Cost Entity Hierarchy in Azure Cost Management](https://youtu.be/dAd9G7u0FmU).
 
-Als u een gebruiker bent van een Enterprise Agreement voor Azure, kunt u een video bekijken over het koppelen van accounts en abonnementen aan entiteiten. Ga hiervoor naar [Connecting to Azure Resource Manager with Azure Cost Management Powered by Cloudyn](https://youtu.be/oCIwvfBB6kk) (ook Engelstalig vooralsnog).
+Als u een gebruiker bent van een Enterprise Agreement voor Azure, kunt u een video bekijken over het koppelen van accounts en abonnementen aan entiteiten. Ga hiervoor naar [Connecting to Azure Resource Manager with Azure Cost Management](https://youtu.be/oCIwvfBB6kk) (ook Engelstalig vooralsnog).
 
 ## <a name="next-steps"></a>Volgende stappen
 

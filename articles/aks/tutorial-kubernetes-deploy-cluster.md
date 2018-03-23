@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6ea26a2d4214c41faa5d63b7c72667955a43d6a2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Een AKS-cluster (Azure Container Service) implementeren
 
@@ -85,7 +85,7 @@ Wanneer de zelfstudie is voltooid, hebt u een AKS Kubernetes-cluster dat gereed 
 
 ## <a name="configure-acr-authentication"></a>ACR-verificatie configureren
 
-Verificatie moet worden geconfigureerd tussen het AKS-cluster en het ACR-register. Dit omvat het verlenen van de juiste rechten aan de ACS-identiteit voor het ophalen van installatiekopieën uit het ACR-register.
+Verificatie moet worden geconfigureerd tussen het AKS-cluster en het ACR-register. Dit omvat het verlenen van de juiste rechten aan de AKS-identiteit voor het ophalen van installatiekopieën uit het ACR-register.
 
 Eerst moet de id van de service-principal die is geconfigureerd voor AKS worden opgehaald. Werk de naam van de resourcegroep en de naam van het AKS-cluster zó bij, dat deze overeenkomen met uw omgeving.
 
@@ -96,7 +96,7 @@ CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --q
 Haal de resource-id van het ACR-register op. Werk de naam van het register bij met die van uw ACR-register, en werk de naam van de resourcegroep bij met de resourcegroep waar het ACR-register zich bevindt.
 
 ```azurecli
-ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Maak de roltoewijzing, waarmee de juiste toegangsrechten worden verleend.

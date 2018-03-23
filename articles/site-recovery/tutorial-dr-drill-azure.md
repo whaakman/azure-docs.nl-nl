@@ -1,69 +1,69 @@
 ---
-title: Voer een detailanalyse van het herstel na noodgevallen voor lokale machines naar Azure met Azure Site Recovery | Microsoft Docs
-description: Informatie over het uitvoeren van disaster recovery detailanalyse van on-premises naar Azure met Azure Site Recovery
+title: Herstelanalyse uitvoeren voor on-premises machines naar Azure met Azure Site Recovery | Microsoft Docs
+description: U leert hier hoe u een herstelanalyse uitvoert van on-premises naar Azure met Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: f7dc5e2df95a64685a8b70d25e839c371d4fc2de
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 2ac15e4da411efa6f018a3e3fb620023bc8964cc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Noodherstelanalyse uitvoeren in Azure
 
-Deze zelfstudie laat zien hoe u een detailanalyse van het herstel na noodgevallen voor een lokale machine uitvoeren naar Azure met behulp van een testfailover. Een detailanalyse valideert uw replicatiestrategie voor zonder gegevensverlies. In deze zelfstudie leert u het volgende:
+Deze zelfstudie laat zien hoe u een herstelanalyse kunt uitvoeren voor een on-premises machine naar Azure, met behulp van een failovertest. Tijdens een dergelijke analyse wordt uw replicatiestrategie gevalideerd zonder dat er kans op gegevensverlies is. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een geïsoleerd netwerk voor de testfailover instellen
-> * Verbinding maken met de Azure VM na een failover voorbereiden
-> * Een testfailover voor één computer uitvoeren
+> * Een geïsoleerd netwerk instellen voor de failovertest
+> * Voorbereiden om verbinding te maken met de virtuele Azure-machine na de failover
+> * Een failovertest uitvoeren voor één machine
 
-Dit is de vierde zelfstudie in een reeks. Deze zelfstudie wordt ervan uitgegaan dat u de taken in de vorige zelfstudies al hebt voltooid.
+Dit is de vierde zelfstudie in een reeks. In deze zelfstudie wordt ervan uitgegaan dat u de taken in de vorige zelfstudies al hebt voltooid.
 
 1. [Azure voorbereiden](tutorial-prepare-azure.md)
 2. [On-premises VMware voorbereiden](tutorial-prepare-on-premises-vmware.md)
 3. [Herstel na noodgeval instellen](tutorial-vmware-to-azure.md)
 
-## <a name="verify-vm-properties"></a>Controleer de eigenschappen van de virtuele machine
+## <a name="verify-vm-properties"></a>VM-eigenschappen verifiëren
 
-Voordat u een failovertest uitvoert, controleert u de VM-eigenschappen en zorg ervoor dat de virtuele machine voldoet aan [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Voordat u een failovertest uitvoert, controleert u de eigenschappen van de virtuele machine en zorgt u ervoor dat de VM met Hyper-V[hyper-v-azure-support-matrix.md#replicated-vms], [de VM met VMware of de fysieke server](vmware-physical-azure-support-matrix.md#replicated-machines) voldoet aan de Azure-vereisten.
 
-1. In **beveiligde Items**, klikt u op **gerepliceerde Items** > VM.
-2. In de **gerepliceerde item** deelvenster er is een overzicht van VM-informatie, gezondheidsstatus, en de meest recente beschikbare herstelpunten. Klik op **eigenschappen** om meer details te bekijken.
-3. In **berekening en netwerk**, kunt u de naam van Azure, de resourcegroep, de doelgrootte, [beschikbaarheidsset](../virtual-machines/windows/tutorial-availability-sets.md), en instellingen voor de schijf wordt beheerd.
+1. Klik in **Beveiligde items** op **Gerepliceerde items** > VM.
+2. In het deelvenster **Gerepliceerd item** bevindt zich een overzicht van VM-informatie, status, en de laatste beschikbare herstelpunten. Klik op **Eigenschappen** om meer details te bekijken.
+3. In **Berekening en netwerk** kunt u de Azure-naam, de resourcegroep, de doelgrootte, [beschikbaarheidsset](../virtual-machines/windows/tutorial-availability-sets.md) en instellingen van de beheerde schijf wijzigen
    
       >[!NOTE]
-      Failback naar lokale Hyper-V-machines van Azure VM's met beheerde schijven wordt momenteel niet ondersteund. Gebruik alleen de optie beheerde schijven voor failover als u van plan bent voor het migreren van lokale virtuele machines naar Azure, zonder dat ze weer mislukt.
+      Failback naar on-premises Hyper-V-machines vanaf virtuele machines in Azure met beheerde schijven wordt momenteel niet ondersteund. Gebruik de optie met beheerde schijven alleen voor failover als u van plan bent om on-premises VM's te migreren naar Azure, zonder failback te configureren.
    
-4. U kunt weergeven en wijzigen van de netwerkinstellingen, met inbegrip van de netwerk-en het subnet waarin de virtuele machine in Azure worden opgeslagen na de failover- en het IP-adres dat wordt toegewezen aan deze.
-5. In **schijven**, vindt u informatie over het besturingssysteem en gegevensschijven op de virtuele machine.
+4. U kunt de netwerkinstellingen bekijken en wijzigen, inclusief het netwerk-/subnet waarin de Azure VM zich na failover bevindt en het IP-adres dat eraan wordt toegewezen.
+5. In **Schijven** ziet u informatie over het besturingssysteem en de gegevensschijven van de VM.
 
-## <a name="run-a-test-failover-for-a-single-vm"></a>Een testfailover uitvoeren voor een enkele VM
+## <a name="run-a-test-failover-for-a-single-vm"></a>Een testfailover uitvoeren voor één VM
 
-Wanneer u een failovertest uitvoert, gebeurt het volgende:
+Wanneer u een testfailover uitvoert, gebeurt het volgende:
 
-1. Controle wordt uitgevoerd om te controleren of alle van de voorwaarden voor failover zijn in plaats van een vereisten.
-2. Failover verwerkt de gegevens, zodat een virtuele machine van Azure kunnen worden gemaakt. Als deze optie wordt het meest recente herstelpunt, een herstelpunt van de gegevens gemaakt.
-3. Een Azure VM is gemaakt met behulp van de gegevens die worden verwerkt in de vorige stap.
+1. Er wordt een controle uitgevoerd om na te gaan of aan alle vereiste voorwaarden voor failover wordt voldaan.
+2. De failover verwerkt de gegevens, zodat een virtuele Azure-machine kan worden gemaakt. Als u het meest recente herstelpunt selecteert, wordt een herstelpunt van de gegevens gemaakt.
+3. Er wordt een Azure VM gemaakt met behulp van de gegevens die zijn verwerkt in de vorige stap.
 
-Voer de testfailover als volgt:
+Voer de failovertest als volgt uit:
 
-1. In **instellingen** > **gerepliceerde Items**, klikt u op de virtuele machine > **+ Testfailover**.
-2. Selecteer de **meest recente verwerkte** herstelpunt voor deze zelfstudie. Dit niet lukt via de virtuele machine naar het laatste punt in tijd. Het tijdstempel wordt weergegeven. Met deze optie geen tijd besteed aan het verwerken van gegevens, zodat het biedt een laag RTO (beoogde hersteltijd).
-3. In **Testfailover**, selecteer de doel-Azure netwerk welke virtuele Azure-machines moet worden verbonden nadat er failover plaatsvindt.
-4. Klik op **OK** om te beginnen met de failover. U kunt de voortgang volgen door te klikken op de virtuele machine om de eigenschappen te openen. U kunt ook op de **Testfailover** taak in de kluisnaam > **instellingen** > **taken** >
+1. Klik in **Instellingen** > **Gerepliceerde items** op de VM **+Failover testen**.
+2. Selecteer voor deze zelfstudie het **meest recente verwerkte** herstelpunt. Hierdoor wordt de virtuele machine hersteld naar het laatst beschikbare tijdstip. Het tijdstempel wordt weergegeven. Met deze optie wordt er geen tijd besteed aan het verwerken van gegevens, zodat er een lage RTO (Recovery Time Objective) is.
+3. Selecteer in **Failover testen** het Azure-doelnetwerk waarmee de virtuele Azure-machines moeten worden verbonden nadat de failover heeft plaatsgevonden.
+4. Klik op **OK** om te beginnen met de failover. Als u de voortgang wilt volgen, klikt u op de virtuele machine en opent u de eigenschappen. U kunt ook op de taak **Failover testen** klikken in kluisnaam > **Instellingen** > **Taken** >
    **Site Recovery-taken**.
-5. Nadat de failover is voltooid, de replica virtuele machine in Azure wordt weergegeven in de Azure portal > **virtuele Machines**. Controleer of de virtuele machine de juiste grootte heeft, of deze is verbonden met het juiste netwerk en dat deze wordt uitgevoerd.
+5. Nadat de failover is voltooid, wordt de replica-Azure-VM weergegeven in de Azure Portal > **Virtuele machines**. Controleer of de virtuele machine de juiste grootte heeft, of deze is verbonden met het juiste netwerk en of deze actief is.
 6. Nu moet u verbinding maken met de gerepliceerde virtuele machine in Azure.
-7. Als u wilt verwijderen op Azure VM's die zijn gemaakt tijdens de testfailover, klikt u op **testfailover opschonen** op de virtuele machine. In **notities**, vastleggen en opslaan van eventuele opmerkingen die zijn gekoppeld aan de testfailover.
+7. Als u VM's van Azure wilt verwijderen die tijdens de failovertest zijn gemaakt, klikt u in de VM op **Failovertest opschonen**. Leg in **Notities** eventuele opmerkingen over de testfailover vast en sla deze op.
 
-In sommige scenario's moet failover extra verwerking die het duurt ongeveer 8 tot tien minuten is voltooid. Ziet u mogelijk meer failovertijden voor VMware Linux-machines, virtuele VMware-machines waarvoor geen DHCP-service waarmee en VMware-machines die niet de volgende opstartstuurprogramma's testen: storvsc, vmbus, storflt, intelide, atapi.
+In sommige scenario's vereist de failover extra verwerking die circa acht tot tien minuten duurt. U zou langere failover-tijden kunnen waarnemen voor VMware Linux-computers, VMware-VM's waarop de DHCP-service niet is ingeschakeld, en VMware-VM's die niet de volgende opstartstuurprogramma’s hebben: storvsc, vmbus, storflt, intelide, atapi.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Voer een failover en failback voor de lokale virtuele VMware-machines](tutorial-vmware-to-azure-failover-failback.md).
+> [Een failover en failback uitvoeren voor on-premises VM's met VMware](vmware-azure-tutorial-failover-failback.md).

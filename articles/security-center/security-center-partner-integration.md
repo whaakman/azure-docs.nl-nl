@@ -1,24 +1,24 @@
 ---
 title: Beveiligingsoplossingen integreren in Azure Security Center | Microsoft Docs
-description: "Leer hoe Azure Security Center kan worden geïntegreerd met partners om de algehele beveiliging van uw Azure-resources te verbeteren."
+description: Leer hoe Azure Security Center kan worden geïntegreerd met partners om de algehele beveiliging van uw Azure-resources te verbeteren.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/08/2018
 ms.author: yurid
-ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Beveiligingsoplossingen integreren in Azure Security Center
 Dit document helpt u bij het beheren van beveiligingsoplossingen die al zijn gekoppeld aan Azure Security Center en bij het toevoegen van nieuwe oplossingen.
@@ -63,7 +63,15 @@ Azure-beveiligingsoplossingen die zijn geïmplementeerd vanuit Security Center, 
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Geïntegreerde Azure-beveiligingsoplossingen en andere gegevensbronnen beheren
 
-Na de implementatie kunt u informatie bekijken over de status van de geïntegreerde Azure-beveiligingsoplossing en algemene beheertaken uitvoeren. U kunt ook andere typen gegevensbronnen voor beveiliging verbinden, zoals Azure Active Directory Identity Protection-waarschuwingen en firewall-logboeken in CEF (Common Event Format). Selecteer in het Security Center-dashboard de optie Beveiligingsoplossingen.
+1. Meld u aan bij [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+
+2. Ga naar het menu van **Microsoft Azure** en selecteer **Security Center**. **Security Center - Overzicht** wordt geopend.
+
+  ![Overzicht van Security Center](./media/security-center-partner-integration/overview.png)
+
+3. Selecteer bij **Overzicht** de optie **Beveiligingsoplossingen**.
+
+Bij **beveiligingsoplossingen** kunt u informatie bekijken over de status van de geïntegreerde Azure-beveiligingsoplossingen en algemene beheertaken uitvoeren. U kunt ook andere typen gegevensbronnen voor beveiliging verbinden, zoals Azure Active Directory Identity Protection-waarschuwingen en firewall-logboeken in CEF (Common Event Format).
 
 ### <a name="connected-solutions"></a>Verbonden oplossingen
 
@@ -71,13 +79,22 @@ Het gedeelte **Verbonden oplossingen** bevat beveiligingsoplossingen die momente
 
 ![Verbonden oplossingen](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
+Raadpleeg [Managing connected partner solutions](security-center-partner-solutions.md) (Verbonden partneroplossingen beheren) voor meer informatie.
+
 ### <a name="discovered-solutions"></a>Gedetecteerde oplossingen
 
-In de sectie **Gedetecteerd oplossingen** ziet u alle oplossingen die zijn toegevoegd via Azure. Ook ziet u alle oplossingen die door Security Center worden voorgesteld om verbinding mee maken.
+Security Center detecteert automatisch beveiligingsoplossingen die worden uitgevoerd in Azure maar niet zijn verbonden met Security Center, en geeft deze oplossingen weer in het gedeelte **Gedetecteerde oplossingen**. Hierbij gaat het zowel om Azure-oplossingen, zoals [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), als om partneroplossingen.
+
+> [!NOTE]
+> De functie Gedetecteerde oplossingen is beschikbaar in de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
+>
+>
+
+Selecteer **CONNECT** onder een oplossing om met Security Center te integreren en meldingen over beveiligingswaarschuwingen te ontvangen.
 
 ![Gedetecteerde oplossingen](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-In Security Center worden automatisch andere beveiligingsoplossingen gedetecteerd die actief zijn in Azure. Dit omvat zowel Azure-oplossingen, zoals [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), als partneroplossingen die actief zijn in Azure. Selecteer **VERBINDEN** om deze oplossingen te integreren met Security Center.
+Security Center detecteert ook oplossingen die worden uitgevoerd in het abonnement en die Common Event Format-logboeken (CEF) kunnen doorsturen. Informatie over hoe u [een beveiligingsoplossing met Security Center verbindt](quick-security-solutions.md) die CEF-logboeken gebruikt.
 
 ### <a name="add-data-sources"></a>Gegevensbronnen toevoegen
 
@@ -90,7 +107,6 @@ Het gedeelte **Gegevensbronnen toevoegen** bevat andere beschikbare gegevensbron
 
 In dit artikel hebt u kunnen lezen hoe u partneroplossingen integreert in Security Center. Zie de volgende artikelen voor meer informatie over Security Center:
 
-* [Plannings- en bedieningsgids voor Security Center](security-center-planning-and-operations-guide.md)
 * [Microsoft Advanced Threat Analytics koppelen aan Azure Security Center](security-center-ata-integration.md)
 * [Azure Active Directory Identity Protection koppelen aan Azure Security Center](security-center-aadip-integration.md)
 * [Beveiligingsstatus controleren in Security Center](security-center-monitoring.md). Meer informatie over het controleren van de status van uw Azure-resources.

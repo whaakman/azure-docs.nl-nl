@@ -1,8 +1,8 @@
 ---
-title: Overzicht van Azure Cost Management by Cloudyn | Microsoft Docs
-description: Kostenbeheer van Azure door Cloudyn is een kostenbeheeroplossing met meerdere clouds voor het gebruik van Azure en andere cloudresources.
+title: Overzicht van Azure Cost Management | Microsoft Docs
+description: Kostenbeheer van Azure is een kostenbeheeroplossing voor meerdere clouds, zodat u eenvoudig Azure- en andere cloudresources kunt gebruiken.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,17 +10,17 @@ ms.topic: overview
 ms.service: cost-management
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f09bb135d4521325ab3e3e12af2f69d862434b75
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e2f12a989eb275e645c8b3bde3494928c5cbdb47
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-cost-management"></a>Wat is Azure Cost Management?
 
-Met Azure Cost Management by Cloudyn kunt u het gebruik van de cloud en de uitgaven voor uw Azure-resources en andere cloudproviders (waaronder AWS en Google) volgen. Aan de hand van eenvoudige dashboard-rapporten krijgt u inzicht in de toewijzing van kosten en tevens factureringen en teruggaven. Met behulp van Cost Management kunt u uw cloud optimaliseren door weinig gebruikte resources te identificeren, die u vervolgens kunt aanpassen en beheren.
+Met Azure Cost Management by Cloudyn, een dochteronderneming van Microsoft, kunt u het gebruik van de cloud en de uitgaven voor uw Azure-resources en andere cloudproviders (waaronder AWS en Google) volgen. Aan de hand van eenvoudige dashboard-rapporten krijgt u inzicht in de toewijzing van kosten en tevens factureringen en teruggaven. Met behulp van Cost Management kunt u uw cloud optimaliseren door weinig gebruikte resources te identificeren, die u vervolgens kunt aanpassen en beheren.
 
-Zie [Introduction to Azure Cost Management by Cloudyn](https://youtu.be/NWIRny6Wpsk) (Inleiding tot Azure Cost Management by Cloudyn) voor een inleidende video.
+Zie [Introduction to Azure Cost Management](https://youtu.be/NWIRny6Wpsk) (Inleiding tot Azure Cost Management) voor een inleidende video.
 
 ## <a name="monitor-usage-and-spending"></a>Gebruik en uitgaven bewaken
 

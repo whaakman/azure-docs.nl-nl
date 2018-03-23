@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Netwerkverkeer filteren met netwerkbeveiligingsgroepen
 
 Een netwerkbeveiligingsgroep (Network Security Group, NSG) bevat een lijst met beveiligingsregels waarmee netwerkverkeer naar resources die zijn verbonden met virtuele Azure-netwerken (VNet) wordt toegestaan of geweigerd. NSG's kunnen worden gekoppeld aan subnetten, afzonderlijke virtuele machines (klassiek) of afzonderlijke netwerkinterfaces (NIC) die zijn gekoppeld aan VM’s (Resource Manager). Wanneer een NSG is gekoppeld aan een subnet, zijn de regels van toepassing op alle resources die zijn verbonden met het subnet. Verkeer kan verder worden beperkt door ook een NSG te koppelen aan een VM of NIC.
-
+ 
 > [!NOTE]
 > Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). In dit artikel komen beide modellen aan de orde, maar u wordt aangeraden voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
 
@@ -98,7 +98,7 @@ U kunt als volgt een NSG koppelen aan VM's, NIC's en subnetten, afhankelijk van 
 
 * **VM (alleen klassiek):** beveiligingsregels worden toegepast op al het verkeer naar/van de virtuele machine. 
 * **NIC (alleen Resource Manager):** beveiligingsregels worden toegepast op al het verkeer naar/van de NIC waaraan de NSG is gekoppeld. In een VM met meerdere NIC's kunt u verschillende NSG’s (of dezelfde NSG) toepassen op elke NIC afzonderlijk. 
-* **Subnet (Resource Manager en klassiek):** beveiligingsregels worden toegepast op al het verkeer naar/van resources die zijn verbonden met het VNet.
+* **Subnet (Resource Manager en klassiek):** beveiligingsregels worden toegepast op al het verkeer naar/van resources die zijn verbonden met het subnet.
 
 U kunt verschillende NSG's koppelen aan een VM (of NIC, afhankelijk van het implementatiemodel) en het subnet waarmee een NIC of VM is verbonden. Beveiligingsregels worden toegepast op het verkeer op basis van prioriteit in elke NSG, in deze volgorde:
 

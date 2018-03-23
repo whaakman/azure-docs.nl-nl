@@ -2,7 +2,7 @@
 title: Overzicht van SQL Server op virtuele Windows-machines in Azure | Microsoft Docs
 description: Meer informatie over het uitvoeren van volledige SQL Server-edities op Azure Virtual Machines.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
 tags: azure-service-management
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: jroth
-ms.openlocfilehash: 268ae1dae1a247ee63adef22403f89680daa4961
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c5c480db8586db7ef125d5c992ff66f5cc28c1e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Wat is SQL Server op Azure Virtual Machines? (Windows)
 
@@ -51,10 +51,7 @@ Virtuele Azure-machines bieden verschillende groottes om te voldoen aan diverse 
 Als u aan de slag wilt, kiest u een installatiekopie voor een virtuele machine voor SQL Server met de vereiste versie, de vereiste editie en het vereiste besturingssysteem. De volgende gedeelten bevatten directe koppelingen naar Azure Portal voor de galerie met installatiekopieën van virtuele SQL Server-machines.
 
 > [!TIP]
-> Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor informatie over de VM- en SQL-prijzen voor deze installatiekopieën.
-
-> [!TIP]
-> Zie de [Veelgestelde vragen over virtuele SQL Server-machines](virtual-machines-windows-sql-server-iaas-faq.md#images) voor informatie over het update- en levenscyclusbeleid voor installatiekopieën van virtuele SQL Server-machines uit de galerie.
+> Zie [Richtlijnen voor prijzen van virtuele Azure-machines met SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md) voor informatie over de prijzen voor SQL-installatiekopieën. 
 
 ### <a id="payasyougo"></a> Betalen per gebruik
 De volgende tabel bevat een matrix met SQL Server-installatiekopieën voor betalen naar gebruik.
@@ -86,6 +83,9 @@ Nadat u de SQL Server-VM hebt gemaakt, verbindt u deze met toepassingen of hulpp
 
 ### <a name="migrate-your-data"></a>Uw gegevens migreren
 Als u een bestaande database hebt, doet u er verstandig aan deze te verplaatsen naar uw nieuw ingerichte virtuele SQL-machine. Zie [Een database migreren naar SQL Server op een virtuele machine in Azure](virtual-machines-windows-migrate-sql.md) voor een lijst met migratieopties en begeleiding bij de migratie.
+
+## <a id="lifecycle"></a> Vernieuwingsbeleid voor installatiekopieën van virtuele SQL-machines
+Azure onderhoudt slechts één installatiekopie van een virtuele machine voor elk ondersteunde combinatie van besturingssysteem, versie en editie. Dit betekent dat installatiekopieën na verloop van tijd worden vernieuwd en dat oudere installatiekopieën worden verwijderd. Zie de sectie **Installatiekopieën** in de [veelgestelde vragen over virtuele machines met SQL Server](virtual-machines-windows-sql-server-iaas-faq.md#images) voor meer informatie.
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Programma voor kwaliteitsverbetering (CEIP)
 Het programma voor kwaliteitsverbetering (CEIP) is standaard ingeschakeld. Met dit programma worden regelmatig rapporten naar Microsoft verzonden zodat SQL Server kan worden verbeterd. Er hoeft voor het programma voor kwaliteitsverbetering geen beheertaak worden uitgevoerd, tenzij u het na het inrichten wilt uitschakelen. U kunt het programma voor kwaliteitsverbetering aanpassen of uitschakelen door via Extern bureaublad verbinding te maken met de virtuele machine. Voer vervolgens het hulpprogramma **SQL Server-fouten- en gebruiksrapportage** uit. Volg de instructies voor het uitschakelen van rapportage. Zie de [privacyverklaring van SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx) voor meer informatie over gegevensverzameling.

@@ -6,20 +6,20 @@ author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/07/2017
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: a74a1ce5c9401d6445f5feec4af8d5cb771d2c64
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: db1fb3deec4b70a9341753a59910aeb0e002bca0
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Een containerregister maken met de Azure-CLI
 
-Azure Container Registry is een beheerde service voor Docker-containerregisters die wordt gebruikt voor het opslaan van installatiekopieën van persoonlijke Docker-containers. In deze handleiding vindt u instructies voor het maken van een Azure Container Registry-exemplaar met behulp van Azure CLI.
+Azure Container Registry is een beheerde service voor Docker-containerregisters die wordt gebruikt voor het opslaan van installatiekopieën van persoonlijke Docker-containers. In deze snelstartgids gaat u een exemplaar van Azure Container Registry maken met behulp van de Azure CLI, een containerinstallatiekopie naar het register pushen en ten slotte de container vanuit het register in Azure Container Instances (ACI) implementeren.
 
-Voor deze snelstartgids moet u de versie Azure CLI 2.0.25 of later uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli].
+Voor deze snelstart moet u versie 2.0.27 of hoger van Azure CLI uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli].
 
 Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker configureren op elk [Mac][docker-mac]-, [Windows][docker-windows]- of [Linux][docker-linux]-systeem.
 
@@ -29,13 +29,13 @@ Een resourcegroep maken met de opdracht [az group create][az-group-create]. Een 
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
 
-In deze snelstartgids maken we een *Basic*-register. Azure Container Registry is beschikbaar in verschillende SKU's, zoals kort beschreven in de onderstaande tabel. Zie [SKU's voor containerregisters][container-registry-skus] voor uitgebreide details.
+In deze snelstart gaat u een *Basic*-register maken. Azure Container Registry is beschikbaar in verschillende SKU's, zoals kort beschreven in de onderstaande tabel. Zie [SKU's voor containerregisters][container-registry-skus] voor uitgebreide details.
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
@@ -70,7 +70,7 @@ Wanneer het register is gemaakt, is de uitvoer vergelijkbaar met het volgende:
 }
 ```
 
-In de rest van deze snelstartgids wordt `<acrName>` gebruikt als tijdelijke aanduiding voor de naam van het containerregister.
+In de rest van deze snelstart wordt `<acrName>` gebruikt als tijdelijke aanduiding voor de naam van het containerregister.
 
 ## <a name="log-in-to-acr"></a>Aanmelden bij ACR
 
@@ -96,7 +96,7 @@ Voordat u een installatiekopie naar het register kunt pushen, moet u deze taggen
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Tag de installatiekopie met de opdracht [docker tag][docker-tag]. Vervang `<acrLoginServer>` door de aanmeldingsnaam van het ACR-exemplaar.
+Label de installatiekopie met de opdracht [docker tag][docker-tag]. Vervang `<acrLoginServer>` door de aanmeldingsnaam van het ACR-exemplaar.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
@@ -138,20 +138,64 @@ Result
 v1
 ```
 
+## <a name="deploy-image-to-aci"></a>Installatiekopie implementeren naar ACI
+
+Als u een containerexemplaar wilt implementeren vanuit het register dat u hebt gemaakt, moet u de referenties voor het register opgeven wanneer u het register implementeert. In productiescenario's moet u een [service-principal][container-registry-auth-aci] gebruiken voor toegang tot het register van de container, maar om deze snelstart niet onnodig lang te maken, gebruikt u de volgende opdracht om de gebruiker met beheerdersrechten in te schakelen voor het register:
+
+```azurecli
+az acr update --name <acrName> --admin-enabled true
+```
+
+Zodra de beheerder is ingeschakeld, is de gebruikersnaam hetzelfde als de registernaam en kunt u het wachtwoord ophalen met deze opdracht:
+
+```azurecli
+az acr credential show --name <acrName> --query "passwords[0].value"
+```
+
+Voer de volgende opdracht uit om de containerinstallatiekopie te implementeren met 1 processorkern en 1 GB geheugen. Vervang `<acrName>`, `<acrLoginServer>` en `<acrPassword>` door de waarden die u hebt opgehaald met de vorige opdrachten.
+
+```azurecli
+az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+```
+
+Als het goed is, krijgt u een eerste reactie van Azure Resource Manager met details van de container. Als u de status van de container wilt volgen om te zien wanneer deze wordt uitgevoerd, herhaalt u de opdracht [az container show][az-container-show]. Dit duurt normaal gesproken minder dan een minuut.
+
+```azurecli
+az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
+```
+
+## <a name="view-the-application"></a>De toepassing weergeven
+
+Wanneer de implementatie naar ACI is gelukt, haalt u de FQDN van de container op met de opdracht [az container show][az-container-show]:
+
+```azurecli
+az container show --resource-group myResourceGroup --name acr-quickstart --query ipAddress.fqdn
+```
+
+Voorbeelduitvoer: `"aci-demo.eastus.azurecontainer.io"`
+
+Als u de actieve toepassing wilt bekijken, navigeert u in uw browser naar het openbare IP-adres.
+
+![Hello world-app in browser][aci-app-browser]
+
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 U kunt de opdracht [az group delete][az-group-delete] gebruiken om de resourcegroep, het ACR-exemplaar en alle containerinstallatiekopieën te verwijderen, wanneer u ze niet meer nodig hebt.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u een Azure Container Registry met de Azure-opdrachtregelinterface gemaakt. Als u Azure Container Registry wilt gebruiken met Azure Container Instances, gaat u door naar de zelfstudie Azure Container Instances.
+In deze snelstart hebt u een Azure-containerregister gemaakt met de Azure CLI, een containerinstallatiekopie naar het register gepusht en een exemplaar van het register gestart via Azure Container Instances. Ga verder met de zelfstudie voor Azure Container Instances om meer te leren over ACI.
 
 > [!div class="nextstepaction"]
 > [Zelfstudie voor Azure Container Instances][container-instances-tutorial-prepare-app]
+
+<!-- IMAGES> -->
+[aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
+
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -167,5 +211,7 @@ In deze snelstartgids hebt u een Azure Container Registry met de Azure-opdrachtr
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli]: /cli/azure/install-azure-cli
+[az-container-show]: /cli/azure/container#az_container_show
 [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
 [container-registry-skus]: container-registry-skus.md
+[container-registry-auth-aci]: container-registry-auth-aci.md

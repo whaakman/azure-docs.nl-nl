@@ -2,7 +2,7 @@
 title: Een Ruby- en een MySQL-web-app maken in Azure App Service op Linux | Microsoft Docs
 description: Informatie over het werkend krijgen van een Ruby-app in Azure, met verbinding naar een MySQL-database in Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
 ms.service: app-service-web
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 951e66e47cf8fbe9d2cdf1606a8d63054bcada13
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 73839127c23eca29e3a20ab4d68668dfb7c6a375
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-ruby-and-mysql-web-app-in-azure-app-service-on-linux"></a>Een Ruby en MySQL-web-app maken in Azure App Service op Linux
 
@@ -57,7 +57,7 @@ Maak in een terminalvenster verbinding met uw lokale MySQL-server. U kunt dit te
 mysql -u root -p
 ```
 
-Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord in voor het account `root`. Als u het wachtwoord van uw rootaccount niet meer weet, bekijkt u [MySQL: het opnieuw instellen van het hoofdwachtwoord](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord in voor het `root`-account. Als u het wachtwoord van uw rootaccount niet meer weet, bekijkt u [MySQL: het opnieuw instellen van het hoofdwachtwoord](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 Als uw opdracht succesvol is uitgevoerd, wordt uw MySQL-server uitgevoerd. Als dit niet het geval is, zorgt u ervoor dat de lokale MySQL-server is gestart door de [Stappen na installatie van MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) te volgen.
 
@@ -82,7 +82,7 @@ Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen.
 git clone https://github.com/Azure-Samples/rubyrails-tasks.git
 ```
 
-`cd` naar de gekloonde adreslijst. Installeer de vereiste pakketten.
+`cd` naar de gekloonde map. Installeer de vereiste pakketten.
 
 ```bash
 cd rubyrails-tasks
@@ -132,7 +132,7 @@ In deze stap maakt u een MySQL-database in [Azure Database for MySQL (Preview)](
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-a-mysql-server"></a>Een MySQL-server maken
 
@@ -183,7 +183,7 @@ Gebruik _My5up3r$tr0ngPa$w0rd!_, dat u hebt opgegeven toen u de database-server 
 
 ### <a name="create-a-production-database"></a>Maak een productiedatabase
 
-Op de prompt `mysql` maakt u een database.
+Maak een database bij de prompt `mysql`.
 
 ```sql
 CREATE DATABASE sampledb;
@@ -312,37 +312,7 @@ In deze stap implementeert u de met MySQL verbonden Rails-toepassing naar Azure 
 
 ### <a name="create-a-web-app"></a>Een webtoepassing maken
 
-Maak in Cloud Shell een web-app in het App Service-plan van `myAppServicePlan` met de opdracht [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
-
-Vervang in het volgende voorbeeld `<app_name>` door een unieke naam (geldige tekens zijn `a-z`, `0-9`, en `-`). De runtime is ingesteld op `RUBY|2.3`, die de [standaard Ruby-installatiekopie implementeert](https://hub.docker.com/r/appsvc/ruby/). Voer [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes) uit als u alle ondersteunde runtimes wilt zien. 
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "RUBY|2.3" --deployment-local-git
-```
-
-Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke uitvoer als in het volgende voorbeeld:
-
-```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
-
-U hebt een nieuwe lege web-app gemaakt, met Git-implementatie ingeschakeld.
-
-> [!NOTE]
-> De URL van de externe Git wordt weergegeven in de eigenschap `deploymentLocalGitUrl`, met de indeling `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Sla deze URL op, want u hebt deze later nodig.
->
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
 ### <a name="configure-database-settings"></a>Database-instellingen configureren
 
@@ -520,7 +490,7 @@ Zodra `git push` voltooid is, gaat u naar de Azure-web-app en probeert u de nieu
 
 ![In Azure gepubliceerde model- en databasewijzigingen](media/tutorial-ruby-mysql-app/complete-checkbox-published.png)
 
-Als u taken heeft toegevoegd, worden deze in de database bewaard. Als u het schema bijwerkt, blijven bestaande gegevens intact.
+Als u taken hebt toegevoegd, worden deze in de database bewaard. Als u het schema bijwerkt, blijven bestaande gegevens intact.
 
 ## <a name="manage-the-azure-web-app"></a>De Azure-web-app beheren
 

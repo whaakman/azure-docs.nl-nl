@@ -2,11 +2,11 @@
 title: Met Azure Batch worden oplossingen voor grootschalige parallelle taken uitgevoerd in de cloud | Microsoft Docs
 description: Meer informatie over het gebruik van de Azure Batch-service voor grootschalige parallelle en HPC-workloads
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: mscurrell
 manager: jkabat
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -15,15 +15,15 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d6a0355874e9fc98e551a2a05c776109c916d90a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-batch"></a>Wat is Azure Batch?
 
-Met Azure Batch kunt u grootschalige parallelle en HPC-batchrekentaken (High Performance Computing) efficiënt uitvoeren in Azure. Azure Batch maakt en beheert een pool van rekenknooppunten (virtuele machines), installeert de toepassingen die u wilt uitvoeren, en plant het uitvoeren van taken op de knooppunten. Er is geen cluster- of taakplanner-software die u moet installeren, beheren of schalen. In plaats daarvan gebruikt u [Batch-API's en hulpprogramma's](batch-apis-tools.md), scripts voor de opdrachtregel of de Azure-portal voor het configureren, beheren en bewaken van uw taken. 
+Met Azure Batch kunt u grootschalige parallelle en HPC-batchrekentaken (High Performance Computing) efficiënt uitvoeren in Azure. Azure Batch maakt en beheert een pool van rekenknooppunten (virtuele machines), installeert de toepassingen die u wilt uitvoeren, en plant het uitvoeren van taken op de knooppunten. Er is geen cluster- of taakplanner-software die u moet installeren, beheren of schalen. In plaats daarvan gebruikt u [Batch-API's en hulpprogramma's](batch-apis-tools.md), scripts voor de opdrachtregel of Azure Portal voor het configureren, beheren en bewaken van uw taken. 
 
 Ontwikkelaars kunnen Batch gebruiken als een platformservice voor het bouwen van de SaaS-toepassingen of de client-apps waar grootschalige uitvoering is vereist. Bijvoorbeeld een service met Batch bouwen die een Monte Carlo risicosimulatie uitvoert voor een financiële dienstverlener, of een service voor het verwerken van vele installatiekopieën.
 
@@ -85,13 +85,13 @@ Het volgende diagram toont een algemene Batch-werkstroom, met een clienttoepassi
 
 Houd er rekening mee dat dit slechts één manier is om Batch te gebruiken en dat in dit scenario slechts enkele van de beschikbare functies worden beschreven. Bijvoorbeeld, kunt u [meerdere taken parallel](batch-parallel-node-tasks.md) op elk rekenknooppunt uitvoeren. Of gebruik [taakvoorbereiding en -voltooiingsopdrachten](batch-job-prep-release.md) om de knooppunten voor te bereiden op uw taken, schoon het daarna op. 
 
-Zie het [Overzicht van de Batch-functies voor ontwikkelaars](batch-api-basics.md) voor meer gedetailleerde informatie over pools, knooppunten, opdrachten en taken, en de vele API-functies die u tijdens het bouwen van uw Batch-toepassing kunt gebruiken. 
+Zie het [Overzicht van de Batch-functies voor ontwikkelaars](batch-api-basics.md) voor meer gedetailleerde informatie over pools, knooppunten, opdrachten en taken, en de vele API-functies die u tijdens het bouwen van uw Batch-toepassing kunt gebruiken. Zie ook de meest recente [Batch-service-updates](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees een van deze snelstartgidsen om snel aan de slag te gaan met Azure Batch:
+Lees een van deze snelstarts om snel aan de slag te gaan met Azure Batch:
 * [Uw eerste Batch-taak uitvoeren met Azure CLI](quick-create-cli.md)
-* [Uw eerste Batch-taak uitvoeren met de Azure-portal](quick-create-portal.md)
+* [Uw eerste Batch-taak uitvoeren met Azure Portal](quick-create-portal.md)
 * [Uw eerste Batch-taak uitvoeren met de .NET-API](quick-run-dotnet.md)
 * [Uw eerste Batch-taak uitvoeren met de Python-API](quick-run-python.md)
 

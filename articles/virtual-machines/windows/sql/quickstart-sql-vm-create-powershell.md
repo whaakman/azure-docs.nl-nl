@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: a9976810a67d47d92d6b04cd33c83fb35bf3d466
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: daa5043a948e660b6c3e685e933855afff8f7671
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Snelstartgids: een virtuele SQL Server-machine voor Windows maken met Azure PowerShell
 
@@ -26,7 +26,15 @@ In deze snelstartgids gaat u een virtuele SQL Server-machine maken met Azure Pow
 > [!TIP]
 > Deze snelstartgids biedt een pad voor het snel inrichten van en verbinding maken met een SQL-VM. Zie de [Handleiding over de inrichting van SQL Server-VM's met Azure PowerShell](virtual-machines-windows-ps-sql-create.md) voor meer informatie over andere Azure PowerShell-opties voor het maken van virtuele SQL-machines.
 
+> [!TIP]
+> Als u vragen hebt over virtuele machines met SQL Server, raadpleegt u [Veelgestelde vragen](virtual-machines-windows-sql-server-iaas-faq.md).
+
+## <a id="subscription"></a> Een Azure-abonnement nemen
+
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+
+
+## <a id="powershell"></a> Azure PowerShell downloaden
 
 Voor deze snelstartgids is moduleversie 3.6 of later van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 

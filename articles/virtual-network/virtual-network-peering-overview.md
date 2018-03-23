@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7c384f07ec6b71596dcdbc5b7214fa7ce65d0b7d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 23281067021dd6e4b8959fe73f3c8a11a651d9d2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -35,7 +35,7 @@ Enkele voordelen van peering van virtuele netwerken zijn:
 
 ## <a name="requirements-constraints"></a>Vereisten en beperkingen
 
-* Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar. Peering van virtuele netwerken in verschillende regio's is momenteel in preview in VS - west-centraal, Canada Centraal, VS West 2, Zuid-Korea, VK Zuid, VK West, Canada Oost, India zuiden, India midden en India westen. Voordat u peering van virtuele netwerken in verschillende regio's gaat instellen, moet u eerst [uw abonnement registreren](virtual-network-create-peering.md#register) voor de preview. Als u dat niet doet, mislukt de peering van virtuele netwerken in verschillende regio's.
+* Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar. Peering van virtuele netwerken in verschillende regio's is momenteel in preview in VS - west-centraal, Canada Centraal, VS West 2, Zuid-Korea, VK Zuid, VK West, Canada Oost, India zuiden, India midden en India westen. Voordat u peering van virtuele netwerken in verschillende regio's gaat instellen, moet u eerst [uw abonnement registreren](tutorial-connect-virtual-networks-powershell.md#register) voor de preview. Als u dat niet doet, mislukt de peering van virtuele netwerken in verschillende regio's.
     > [!WARNING]
     > Peerings van virtuele netwerken die in verschillende regio's worden gemaakt, hebben mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid als peerings waarbij een versie met algemene beschikbaarheid wordt gebruikt. Sommige functies van gekoppelde virtuele netwerken zijn mogelijk beperkt of zijn niet beschikbaar in alle Azure-regio's. Controleer de pagina [Azure Virtual Network-updates](https://azure.microsoft.com/updates/?product=virtual-network) voor de meest recente meldingen over de beschikbaarheid en de status van deze functie.
 
@@ -85,7 +85,7 @@ Wanneer virtuele netwerken die één Azure ExpressRoute-verbinding delen, worden
 
 ## <a name="permissions"></a>Machtigingen
 
-Virtueel netwerk-peering is een bevoegde bewerking. Het is een afzonderlijke functie onder de VirtualNetworks-naamruimte. Een gebruiker kan specifieke rechten krijgen voor het machtigen van peering. Een gebruiker met lees-/schrijftoegang tot het virtuele netwerk krijgt automatisch deze rechten.
+Virtueel netwerk-peering is een bevoegde bewerking. Het is een afzonderlijke functie onder de naamruimte VirtualNetworks. Een gebruiker kan specifieke rechten krijgen voor het machtigen van peering. Een gebruiker met lees-/schrijftoegang tot het virtuele netwerk krijgt automatisch deze rechten.
 
 Een gebruiker die ofwel een beheerder is of een bevoegde gebruiker van de peering-mogelijkheid kan een peering-bewerking op een ander virtueel netwerk initiëren. Het minimaal vereiste machtigingsniveau is Inzender voor netwerken. Als er een overeenkomende aanvraag voor peering van de andere kant komt en aan andere vereisten wordt voldaan, wordt de peering tot stand gebracht.
 
@@ -126,7 +126,7 @@ Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verk
 
     |Azure-implementatiemodel  | Abonnement  |
     |---------|---------|
-    |Beide in Resource Manager |[Hetzelfde](virtual-network-create-peering.md)|
+    |Beide in Resource Manager |[Hetzelfde](tutorial-connect-virtual-networks-portal.md)|
     | |[Verschillend](create-peering-different-subscriptions.md)|
     |Eén in Resource Manager, één klassiek     |[Hetzelfde](create-peering-different-deployment-models.md)|
     | |[Verschillend](create-peering-different-deployment-models-subscriptions.md)|

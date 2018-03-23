@@ -1,19 +1,19 @@
 ---
-title: "On-premises VMware-servers voorbereiden op herstel van VMware-VM’s naar Azure na een noodgeval| Microsoft Docs"
+title: On-premises VMware-servers voorbereiden op herstel van VMware-VM’s naar Azure na een noodgeval| Microsoft Docs
 description: Leer hoe u on-premises VMware-servers kunt voorbereiden op herstel naar Azure na een noodgeval met behulp van de Azure Site Recovery-service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6b5c16e5b4136acc06c4ace4b16e8eb0e3522d24
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>On-premises VMware-servers voorbereiden op herstel naar Azure na een noodgeval
 
@@ -86,7 +86,7 @@ Zorg ervoor dat de VM voldoet aan de Azure-vereisten die worden samengevat in de
 **VM-naam** | 1 tot 63 tekens.<br/><br/> Alleen letters, cijfers en afbreekstreepjes. De VM-naam moet beginnen en eindigen met een letter of cijfer.
 **VM-type** | Generatie 1 - Linux of Windows<br/><br/>Generatie 2 - alleen Windows
 
-Op de VM moet ook een ondersteund besturingssysteem worden uitgevoerd. Zie de [Ondersteuningsmatrix voor Site Recovery](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) voor een volledige lijst met ondersteunde versies.
+Op de VM moet ook een ondersteund besturingssysteem worden uitgevoerd. Zie de [ondersteuningsmatrix voor VMware en fysieke servers](vmware-physical-azure-support-matrix.md#replicated-machines) voor een volledige lijst met ondersteunde versies.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Voorbereiden op het verbinden met virtuele Azure-machines na een failover
 

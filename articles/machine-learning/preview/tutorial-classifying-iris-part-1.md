@@ -1,21 +1,21 @@
 ---
 title: Gegevens voorbereiden voor de zelfstudie 'Classifying Iris' (Iris classificeren) in Machine Learning-services (preview) | Microsoft Docs
-description: "Deze volledige zelfstudie laat zien hoe u Azure Machine Learning-services (preview) end-to-end gebruikt. Dit is deel één en hier wordt het voorbereiden van gegevens besproken."
+description: Deze volledige zelfstudie laat zien hoe u Azure Machine Learning-services (preview) end-to-end gebruikt. Dit is deel één en hier wordt het voorbereiden van gegevens besproken.
 services: machine-learning
 author: hning86
 ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 12cba3d4acf0e6018cea6e76df9208bcf380d976
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 3/7/2018
+ms.openlocfilehash: caddfff329d0e8f4c4007386b377ea56a51249a5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>Zelfstudie: classificeren van Iris deel 1: gegevens voorbereiden
 
@@ -60,8 +60,8 @@ Als u de stappen in het artikel [Quickstart: Install and start](quickstart-insta
    Projectnaam | myIris |Voer een unieke naam in die uw account aanduidt. U kunt uw eigen naam gebruiken, maar ook de naam van een afdeling of project waarmee het experiment is verbonden. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. 
    Projectmap | c:\Temp\ | Selecteer de map waarin het project moet worden gemaakt.
    Projectbeschrijving | _leeg laten_ | Optioneel veld, nuttig voor het beschrijven van de projecten.
-   Visualstudio.com |_leeg laten_ | Optioneel veld. U kunt een project koppelen aan een Git-opslagplaats in Visual Studio Team Services voor broncodebeheer en samenwerking. [Informatie over het instellen daarvan](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
-   Werkruimte | IrisGarden (indien aanwezig) | Kies een werkruimte die u hebt gemaakt voor uw Experimenten-account in Azure Portal. <br/>Als u de snelstart hebt gevolgd, hebt u een werkruimte met de naam IrisGarden. Selecteer anders de werkruimte die u hebt gemaakt bij het maken van uw Experimenten-account, of een andere werkruimte die u wilt gebruiken.
+   URL van GIT-opslagplaats Visualstudio.com |_leeg laten_ | Optioneel veld. U kunt een project koppelen aan een Git-opslagplaats in Visual Studio Team Services voor broncodebeheer en samenwerking. [Informatie over het instellen daarvan](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Geselecteerde werkruimte | IrisGarden (indien aanwezig) | Kies een werkruimte die u hebt gemaakt voor uw Experimenten-account in Azure Portal. <br/>Als u de snelstart hebt gevolgd, hebt u een werkruimte met de naam IrisGarden. Selecteer anders de werkruimte die u hebt gemaakt bij het maken van uw Experimenten-account, of een andere werkruimte die u wilt gebruiken.
    Projectsjabloon | Iris classificeren | Sjablonen bevatten scripts en gegevens die u kunt gebruiken om het product te verkennen. Deze sjabloon bevat de scripts en gegevens die u nodig hebt voor deze snelstart en andere zelfstudies op deze documentatiesite. 
 
    ![Nieuw project](media/tutorial-classifying-iris/new_project.png)
@@ -77,7 +77,7 @@ U kunt vervolgens de gegevens verkennen en beginnen met het voorbereiden van de 
 
 Dit pakket kan later worden overgedragen aan een runtime, zoals local-C#/CoreCLR, Scala/Spark of Scala/HDI. 
 
-1. Selecteer het mappictogram om de bestandsweergave te openen en selecteer vervolgens **iris.csv** om dit bestand te openen.  
+1. Selecteer het mappictogram om de bestandsweergave te openen en selecteer vervolgens **iris.csv** om dit bestand te openen.
 
    Dit bestand bevat een tabel met vijf kolommen en 50 rijen. Vier kolommen zijn kolommen voor numerieke functies. De vijfde kolom is een kolom voor een tekenreeksdoel. Geen van de kolommen heeft een kopnaam.
 
@@ -90,28 +90,25 @@ Dit pakket kan later worden overgedragen aan een runtime, zoals local-C#/CoreCLR
 
    ![Gegevensweergave in Azure Machine Learning Workbench](media/tutorial-classifying-iris/data_view.png)
 
-3. Selecteer **Tekstbestanden (*.csv, .json, .txt.,...)**  en klik op **Volgende**.
+3. Selecteer **Tekstbestanden\* (*.csv, \*.json, \*.txt., ...)** en klik op **Volgende**.
    ![Gegevensbron in Azure Machine Learning Workbench](media/tutorial-classifying-iris/data-source.png)
-   
 
-4. Blader naar het bestand **iris.csv**, en klik op **Volgende**.  
+4. Blader naar het bestand **iris.csv**, en klik op **Voltooien**. Hiermee worden standaardwaarden gebruikt voor parameters zoals het scheidingsteken en gegevenstypen.
 
    >[!IMPORTANT]
    >Zorg ervoor dat u voor deze oefening het bestand **iris.csv** vanuit de huidige projectmap selecteert, anders kunnen latere stappen mislukken.
  
    ![Iris selecteren](media/tutorial-classifying-iris/select_iris_csv.png)
    
-5. Laat de standaardwaarden ongewijzigd en klik op **Voltooien**.
-
-6. Er wordt een nieuw bestand gemaakt met de naam **iris-1.dsource**. Het bestand krijgt een unieke naam eindigend op -1, omdat het voorbeeldproject al een bestand met de naam **iris.dsource** zonder nummer bevat.  
+5. Er wordt een nieuw bestand gemaakt met de naam **iris-1.dsource**. Het bestand krijgt een unieke naam eindigend op -1, omdat het voorbeeldproject al een bestand met de naam **iris.dsource** zonder nummer bevat.  
 
    Het bestand wordt geopend en de gegevens worden weergegeven. Er wordt automatisch een reeks kolomkoppen, van **Column1** tot **Column5**, toegevoegd aan deze gegevensset. Schuif naar de onderkant. U zult zien dat de laatste rij van de gegevensset leeg is. De rij is leeg omdat er een extra regeleinde in het CSV-bestand staat.
 
    ![Gegevensweergave iris](media/tutorial-classifying-iris/iris_data_view.png)
 
-1. Selecteer de knop **Metrics** (Metrische gegevens). Er worden histogrammen gegenereerd en weergegeven op het scherm.
+1. Selecteer de knop **Metrics** (Metrische gegevens). Er worden histogrammen gegenereerd en weergegeven.
 
-   U kunt terugschakelen naar de gegevensweergave door de knop **Gegevens** te selecteren. 
+   U kunt terugschakelen naar de gegevensweergave door de knop **Gegevens** te selecteren.
    
    ![Gegevensweergave iris](media/tutorial-classifying-iris/iris_data_view_metrics.png)
 
@@ -121,7 +118,7 @@ Dit pakket kan later worden overgedragen aan een runtime, zoals local-C#/CoreCLR
 
 8. Maak eerst een gegevensvoorbereidingspakket door de knop **Prepare** te selecteren. Het **gelijknamige** dialoogvenster wordt geopend. 
 
-   Het voorbeeldproject bevat standaard het gegevensvoorbereidingsbestand **iris.dprep**. 
+   Het voorbeeldproject bevat het gegevensvoorbereidingsbestand **iris.dprep** dat standaard is geselecteerd. 
 
    ![Gegevensweergave iris](media/tutorial-classifying-iris/prepare.png)
 
@@ -129,7 +126,7 @@ Dit pakket kan later worden overgedragen aan een runtime, zoals local-C#/CoreCLR
 
    ![Gegevensweergave iris](media/tutorial-classifying-iris/prepare_new.png)
 
-1. Voer een nieuwe waarde in voor de naam van het pakket, gebruik **iris-1** en selecteer vervolgens **OK**.
+1. Voer een nieuwe waarde in voor de naam van het pakket (gebruik daarvoor **iris-1**) en selecteer **OK**.
 
    Er wordt een nieuw pakket voor gegevensvoorbereiding gemaakt met de naam **iris-1.dprep** en geopend in de editor voor gegevensvoorbereiding.
 
@@ -148,7 +145,7 @@ Dit pakket kan later worden overgedragen aan een runtime, zoals local-C#/CoreCLR
    1. Klik met de rechtermuisknop om deze te selecteren. 
    1. Selecteer **Value Counts** (Aantallen waarden) in de vervolgkeuzelijst. 
 
-   Het deelvenster **Inspectors** wordt geopend onder de gegevens. Een histogram met vier balken wordt weergegeven. U ziet dat de doelkolom drie afzonderlijke waarden heeft: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** en een **(null)**-waarde.
+   Het deelvenster **Inspectors** wordt geopend onder de gegevens. Een histogram met vier balken wordt weergegeven. U ziet dat de doelkolom vier afzonderlijke waarden heeft: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** en een **(null)**-waarde.
 
    ![Selecteer Value Counts](media/tutorial-classifying-iris/value_count.png)
 
@@ -160,11 +157,11 @@ Dit pakket kan later worden overgedragen aan een runtime, zoals local-C#/CoreCLR
 
    ![Null-waarden filteren](media/tutorial-classifying-iris/filter_out2.png)
 
-1. Bekijk de afzonderlijke gegevensvoorbereidingsstappen die worden beschreven in het deelvenster **STEPS**. De acties voor het wijzigen van de kolomnamen en het wegfilteren van de rijen met null-waarden zijn vastgelegd als stappen voor het voorbereiden van gegevens. U kunt afzonderlijke stappen aanpassen om de instellingen te wijzigen, de volgorde van de stappen veranderen en zelfs stappen verwijderen.
+1. Bekijk de afzonderlijke gegevensvoorbereidingsstappen die worden beschreven in het deelvenster **STEPS**. De acties voor het wijzigen van de kolomnamen en het wegfilteren van de rijen met null-waarden zijn vastgelegd als stappen voor het voorbereiden van gegevens. U kunt afzonderlijke stappen aanpassen om de instellingen ervan te wijzigen, de volgorde van de stappen veranderen en zelfs stappen verwijderen.
 
    ![Stappen](media/tutorial-classifying-iris/steps.png)
 
-1. Sluit de editor voor gegevensvoorbereiding. Selecteer het pictogram x op het tabblad **iris-1** bij het grafiekpictogram om het tabblad te sluiten. Uw werk wordt automatisch opgeslagen in het bestand **iris 1.dprep** dat wordt weergegeven onder de kop **Data Preparations** (Gegevensvoorbereiding).
+1. Sluit de editor voor gegevensvoorbereiding. Selecteer het pictogram **x** op het tabblad **iris-1** bij het grafiekpictogram om het tabblad te sluiten. Uw werk wordt automatisch opgeslagen in het bestand **iris 1.dprep** dat wordt weergegeven onder de kop **Data Preparations** (Gegevensvoorbereiding).
 
    ![Sluiten](media/tutorial-classifying-iris/close.png)
 
@@ -197,7 +194,7 @@ Dit pakket kan later worden overgedragen aan een runtime, zoals local-C#/CoreCLR
    df.head(10)
    ```
 
-   Afhankelijk van de context waarin deze code wordt uitgevoerd, vertegenwoordigt `df` een soort gegevensframe. 
+   Afhankelijk van de context waarin deze code wordt uitgevoerd, vertegenwoordigt `df` een ander soort gegevensframe:
    + Bij het uitvoeren in een Python-runtime wordt een [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) gebruikt.
    + Bij het uitvoeren in een Spark-context wordt een [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) gebruikt. 
    

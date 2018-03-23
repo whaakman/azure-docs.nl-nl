@@ -5,7 +5,7 @@ services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f497e9427885ab1d2e827e9fa1dd3c468aa39239
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ee7f37f83d6b3503df1af61509f6f85ca19bc13e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Een Node.js-app en een MongoDB-web-app maken in Azure App Service onder Linux
 
@@ -62,9 +62,9 @@ Voer `mongo` uit in de terminal om verbinding te maken met de lokale MongoDB-ser
 mongo
 ```
 
-Als er verbinding wordt gemaakt, wordt de MongoDB-database al uitgevoerd. Zo niet, controleer dan of de lokale MongoDB-database kan worden gestart via de stappen in [Install MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) (MongoDB Community Edition installeren). Vaak is MongoDB al geïnstalleerd, maar u dient het nog wel te starten door `mongod` uit te voeren.
+Als er verbinding wordt gemaakt, wordt de MongoDB-database al uitgevoerd. Zo niet, controleer dan of de lokale MongoDB-database kan worden gestart via de stappen in [Install MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) (MongoDB Community Edition installeren). Vaak is MongoDB al geïnstalleerd, maar u moet de database nog wel starten door `mongod` uit te voeren.
 
-Als de MongoDB-database is getest, typt u `Ctrl+C` in de terminal.
+Nadat u de MongoDB-database hebt getest, typt u `Ctrl+C` in de terminal.
 
 ## <a name="create-local-nodejs-app"></a>Lokale Node.js-app maken
 
@@ -92,7 +92,7 @@ npm install
 npm start
 ```
 
-Negeer de waarschuwing over config.domain. Als de app is geladen, ziet u een bericht zoals dit:
+Negeer de waarschuwing over config.domain. Wanneer de app volledig is geladen, ziet u een bericht zoals dit:
 
 ```txt
 --
@@ -106,7 +106,7 @@ MEAN.JS version: 0.5.0
 --
 ```
 
-Ga naar `http://localhost:3000` in een browser. Klik op **Registreren** in het bovenste menu en maak een testgebruiker aan. 
+Ga naar `http://localhost:3000` in een browser. Klik op **Registreren** in het bovenste menu en maak een testgebruiker. 
 
 De MEAN.js-voorbeeldtoepassing slaat gebruikersgegevens op in de database. Als de gebruiker is gemaakt en u bent aangemeld, schrijft de app gegevens naar de lokale MongoDB-database.
 
@@ -126,7 +126,7 @@ Voor MongoDB wordt in deze zelfstudie gebruikgemaakt van [Azure Cosmos DB](/azur
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
 ### <a name="create-a-cosmos-db-account"></a>Cosmos DB-account maken
 
@@ -219,7 +219,7 @@ NODE_ENV=production node server.js
 
 `NODE_ENV=production` stelt de omgevingsvariabele in die aan Node.js meldt om in de productieomgeving te worden uitgevoerd.  `node server.js` start de Node.js-server met `server.js` in de hoofdmap van de opslagplaats. Op deze manier wordt de Node.js-toepassing in Azure geladen.
 
-Als de app is geladen, controleert u of de app wordt uitgevoerd in de productieomgeving:
+Nadat de app is geladen, controleert u of de app wordt uitgevoerd in de productieomgeving:
 
 ```
 --
@@ -232,13 +232,13 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Ga naar `http://localhost:8443` in een browser. Klik op **Registreren** in het bovenste menu en maak een testgebruiker aan. Als de gebruiker is gemaakt en u bent aangemeld, schrijft de app gegevens naar de Cosmos DB-database in Azure.
+Ga naar `http://localhost:8443` in een browser. Klik op **Registreren** in het bovenste menu en maak een testgebruiker. Als de gebruiker is gemaakt en u bent aangemeld, schrijft de app gegevens naar de Cosmos DB-database in Azure.
 
 Stop Node.js door in het terminalvenster `Ctrl+C` te typen.
 
 ## <a name="deploy-app-to-azure"></a>App in Azure implementeren
 
-In deze step implementeert u uw met MongoDB verbonden Node.js-toepassing naar Azure App Service.
+In deze step implementeert u uw met MongoDB verbonden Node.js-toepassing in Azure App Service.
 
 ### <a name="configure-local-git-deployment"></a>Lokale Git-implementatie configureren
 
@@ -252,13 +252,13 @@ In deze step implementeert u uw met MongoDB verbonden Node.js-toepassing naar Az
 
 ### <a name="create-a-web-app"></a>Een webtoepassing maken
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>Een omgevingsvariabele configureren
 
 Standaard houdt het MEAN.js-project _config/env/local-production.js_ buiten de Git-opslagplaats. Voor uw Azure-web-app gebruikt u dus app-instellingen om de MongoDB-verbindingsreeks te definiëren.
 
-Gebruik de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in Cloud Shell om de app-instellingen in te stellen.
+Gebruik de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in Cloud Shell om de app-instellingen te definiëren.
 
 In het volgende voorbeeld wordt een `MONGODB_URI`-app-instelling in de Azure-web-app geconfigureerd. Vervang de tijdelijke aanduidingen *\<app_name>*, *\<cosmosdb_name>* en *\<primary_master_key>*.
 
@@ -301,7 +301,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-Merk op dat in het implementatieproces [Gulp](http://gulpjs.com/) na `npm install` wordt uitgevoerd. In App Service worden tijdens de implementatie geen Gulp- of Grunt-taken uitgevoerd, dus deze voorbeeldopslagplaats bevat twee extra bestanden in de hoofdmap om deze in te schakelen:
+Het implementatieproces voert [Gulp](http://gulpjs.com/) na `npm install` uit. In App Service worden tijdens de implementatie geen Gulp- of Grunt-taken uitgevoerd, dus deze voorbeeldopslagplaats bevat twee extra bestanden in de hoofdmap om deze in te schakelen:
 
 - _.deployment_: dit bestand meldt App Service om `bash deploy.sh` uit te voeren als het aangepaste implementatiescript.
 - _deploy.sh_: het aangepaste implementatiescript. Als u het bestand bekijkt, ziet u dat `gulp prod` wordt uitgevoerd na `npm install` en `bower install`.
@@ -355,7 +355,7 @@ var ArticleSchema = new Schema({
 
 Werk de rest van de `articles`-code bij om `comment` te gebruiken.
 
-U dient vijf bestanden te wijzigen: de servercontroller en de vier clientweergaven. 
+U moet vijf bestanden wijzigen: de servercontroller en de vier clientweergaven. 
 
 Open _modules/articles/server/controllers/articles.server.controller.js_.
 

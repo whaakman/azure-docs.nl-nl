@@ -2,24 +2,28 @@
 title: Overzicht van Azure Location Based Services | Microsoft Docs
 description: Een inleiding tot Azure Location Based Services (preview)
 services: location-based-services
-keywords: 
-author: dsk-2015
-ms.author: dkshir
-ms.date: 02/05/2017
+keywords: ''
+author: kgremban
+ms.author: kgremban
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91df49aa3f522ea765698a1d64ed2686606f71f3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Een inleiding tot Azure Location Based Services (preview)
 Azure Location Based Services is een portfolio met georuimtelijke services die onder andere service-API's omvat voor kaarten, zoeken, routes, verkeer en tijdzones. Met behulp van de portfolio met Azure OneAPI-compatibele services kunt u gebruikmaken van vertrouwde hulpprogramma’s om snel oplossingen te ontwikkelen en schalen waarmee locatiegegevens worden geïntegreerd in Azure-oplossingen. Azure Location Based Services biedt ontwikkelaars uit alle branches krachtige georuimtelijke mogelijkheden, vol nieuwe kaartgegevens die onmisbaar zijn wanneer u webtoepassingen en mobiele toepassingen wilt voorzien van geografische context. Azure Location Based Services bestaat uit een Azure One API-compatibele set REST API's en een JavaScript-besturingselement op basis van het web, waarmee ontwikkelen voor meerdere mediums heel gemakkelijk, flexibel en mobiel wordt. 
+
+De volgende video introduceert Azure Location Based Services.
+
+<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 Azure Location Based Services bestaat uit vijf primaire services ter ondersteuning van Azure-toepassingen waarvoor geografische context is vereist. Elk van de services wordt hieronder gedetailleerd beschreven.
 
@@ -64,6 +68,16 @@ Azure Location Based Services bestaat uit vijf primaire services ter ondersteuni
 Azure Location Based Services is gebouwd voor mobiliteit en kan toepassingen hosten op verschillende platforms omdat het programmeermodel agnostisch is en ondersteuning biedt voor JSON-uitvoer via REST API’s. Daarnaast biedt Azure LBS een handig kaartbesturingselement in JavaScript met een ongecompliceerd programmeermodel voor een snelle en eenvoudige ontwikkeling van webtoepassingen en mobiele toepassingen. 
 
 Azure Location Based Services maakt gebruik van een verificatieschema op basis van sleutels. Voor toegang tot de services gaat u naar [Azure Portal](http://portal.azure.com) en maakt u een Azure Location Based Services-account. Uw account wordt geleverd met twee sleutels die vooraf voor u zijn gegenereerd. U kunt deze locatiemogelijkheden direct integreren in uw toepassingen met behulp van een van de sleutels in de aanvragen voor de Azure Location Based Services-service.
+
+## <a name="unsupported-regions"></a>Niet-ondersteunde regio's
+Onze API is momenteel niet beschikbaar in de onderstaande landen. Controleer uw huidige IP-adres en verifieer of de locatie van uw IP-adres niet in een land is dat niet wordt ondersteund.
+
+* Argentinië
+* China
+* India
+* Marokko
+* Pakistan
+* Zuid-Korea
 
 ## <a name="relationship-with-bing-maps"></a>Relatie met Bing Kaarten
 De Azure Location Based Services, zoals beschreven in dit document, verschilt van de services van Bing Kaarten.  Hoewel veel van de functies overeenkomen, zijn beide services verschillend en niet aan elkaar gerelateerd.  Dit heeft geen invloed op productaanbiedingen of implementatieschema’s van Bing Kaarten met de beschikbaarheid van deze nieuwe service binnen Azure. Dit wordt allemaal afzonderlijk beheerd.

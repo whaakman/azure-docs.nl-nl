@@ -1,8 +1,8 @@
 ---
 title: Met CSP-partnergegevens registeren bij Azure Cost Management | Microsoft Docs
-description: Gebruik uw CSP-partnergegevens om u te registreren bij Azure Cost Management by Cloudyn.
+description: Gebruik uw CSP-partnergegevens om u te registreren bij Azure Cost Management.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 0e5e247182335b88f109aa6624a40bc782975b97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registreren met het CSP-partnerprogramma en kostengegevens weergeven
 
-Als CSP-partner kunt u zich registreren bij Azure Cost Management by Cloudyn. Uw registratie biedt toegang tot de Cloudyn-portal. In deze quickstart vindt u de details van de registratieprocedure voor het maken van een Cloudyn-proefabonnement en het aanmelden bij de Cloudyn-portal. U vindt er ook informatie over het weergeven van kostengegevens.
+Als CSP-partner kunt u zich registreren bij Azure Cost Management. Uw registratie biedt toegang tot de Cloudyn-portal. In deze snelstart vindt u de details van de registratieprocedure voor het maken van een Cloudyn-proefabonnement en het aanmelden bij de Cloudyn-portal. U vindt er ook informatie over het weergeven van kostengegevens.
 
 
 >[!NOTE]
@@ -71,7 +71,7 @@ Indirecte CSP-partners kunnen zich aanmelden bij de Cloudyn-portal met behulp va
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start hebt u de CSP-gegevens van uw Azure-abonnement gebruikt om u te registreren bij Cost Management. U hebt zich ook aangemeld bij de Cloudyn-portal en de gegevenskosten weergegeven. Ga door naar de zelfstudie voor Cost Management voor meer informatie over Azure Cost Management by Cloudyn.
+In deze Quick Start hebt u de CSP-gegevens van uw Azure-abonnement gebruikt om u te registreren bij Cost Management. U hebt zich ook aangemeld bij de Cloudyn-portal en de gegevenskosten weergegeven. Ga door naar de zelfstudie voor Cost Management voor meer informatie over Azure Cost Management.
 
 > [!div class="nextstepaction"]
 > [Gebruik en kosten controleren](./tutorial-review-usage.md)

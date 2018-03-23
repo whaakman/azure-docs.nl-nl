@@ -1,13 +1,13 @@
 ---
-title: Azure CLI-voorbeeldscript - virtuele machines opnieuw opstarten | Microsoft Docs
-description: Azure CLI-voorbeeldscript - virtuele machines opnieuw starten door de tag en -ID
+title: Azure CLI-voorbeeldscript - Virtuele machines opnieuw opstarten | Microsoft Docs
+description: Azure CLI-voorbeeldscript - Virtuele machines opnieuw opstarten op label en op id
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
 manager: douge
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,85 +16,85 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: ea114f484c774573b7d219cff9102a7308af356e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a9f7cf8ba492004cb6d9e359bfb392448dfbe813
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="restart-vms"></a>Opnieuw opstarten van virtuele machines
+# <a name="restart-vms"></a>Virtuele machines opnieuw opstarten
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Dit voorbeeld wordt een aantal manieren verkrijgen van een aantal virtuele machines en deze opnieuw opstarten.
+Dit voorbeeld laat een aantal manieren zien waarop u enkele virtuele machines kunt maken en deze opnieuw kunt opstarten.
 
-De eerste start opnieuw op de virtuele machines in de resourcegroep.
+Met de eerste opdracht worden alle virtuele machines in de resourcegroep opnieuw opgestart.
 
 ```bash
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-De tweede haalt de gecodeerde virtuele machines met `az resouce list` filters op de resources die VM's zijn en deze VMs opnieuw wordt opgestart.
+Met de tweede opdracht worden de gelabelde virtuele machines opgevraagd met behulp van `az resouce list` en wordt er gefilterd op de resources die virtuele machines zijn en worden deze machines vervolgens opnieuw opgestart.
 
 ```bash
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
-Dit voorbeeld werkt in een Bash-shell. Zie voor opties op Azure CLI-scripts die worden uitgevoerd op Windows-client [uitvoeren van de Azure CLI in Windows](../windows/cli-options.md).
+Dit voorbeeld werkt in een Bash-shell. Zie [De Azure CLI gebruiken in Windows](../windows/cli-options.md) voor opties voor het uitvoeren van Azure CLI-scripts in de Windows-client.
 
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
-Het voorbeeld heeft drie scripts.
-De eerste die voorziet in de virtuele machines.
-De optie Nee wachten wordt gebruikt zodat de opdracht retourneert zonder te wachten op op elke virtuele machine moeten worden ingericht.
-De tweede wacht tot de virtuele machines naar volledig is ingericht.
-Het derde script start opnieuw alle virtuele machines die ingericht en vervolgens alleen zijn de gecodeerde virtuele machines.
+Het voorbeeld bestaat uit drie scripts.
+Met het eerste script worden de virtuele machines ingericht.
+De optie no-wait zorgt ervoor dat de opdracht direct wordt uitgevoerd, dus zonder te wachten totdat elke virtuele machine is ingericht.
+Het tweede script wacht totdat de virtuele machines volledig zijn ingericht.
+Met het derde script worden alle ingerichte virtuele machines opnieuw opgestart en vervolgens alleen de gelabelde machines.
 
 ### <a name="provision-the-vms"></a>De virtuele machines inrichten
 
-Dit script maakt een resourcegroep en maakt vervolgens deze drie virtuele machines op te starten.
-Twee van deze zijn gelabeld.
+Met dit script maakt u eerst een resourcegroep en vervolgens drie virtuele machines om opnieuw op te starten.
+Twee van de machines krijgen een label.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
 
 ### <a name="wait"></a>Wait
 
-Dit script wordt gecontroleerd op de status van de inrichting elke 20 seconden totdat alle drie virtuele machines zijn ingericht, of een van deze om in te richten is mislukt.
+Met dit script wordt elke 20 seconden gecontroleerd wat de status van het inrichten is totdat alle drie de virtuele machines zijn ingericht, of totdat het inrichten van een van de machines is mislukt.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Wait for the VMs to be provisioned")]
 
 ### <a name="restart-the-vms"></a>De virtuele machines opnieuw opstarten
 
-Dit script in de resourcegroep alle virtuele machines opnieuw wordt opgestart en deze alleen de gecodeerde virtuele machines opnieuw wordt opgestart.
+Met dit script worden alle virtuele machines in de resourcegroep opnieuw opgestart, waarna alleen de gelabelde machines opnieuw worden opgestart.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Restart VMs by tag")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om de resourcegroepen, virtuele machines en alle gerelateerde resources te verwijderen.
+Nadat het voorbeeldscript is uitgevoerd, kan de volgende opdracht worden gebruikt om de resourcegroep, de virtuele machines en alle gerelateerde resources te verwijderen.
 
 ```azurecli-interactive 
 az group delete -n myResourceGroup --no-wait --yes
 ```
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdrachten voor het maken van een resourcegroep, virtuele machine, beschikbaarheidsset, load balancer en alle gerelateerde resources. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script gebruikt de volgende opdrachten voor het maken van een resourcegroep, een virtuele machine, een beschikbaarheidsset, een load balancer en alle gerelateerde resources. Elke opdracht in de tabel is een koppeling naar specifieke documentatie over de opdracht.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [AZ groep maken](https://docs.microsoft.com/cli/azure/group#az_group_create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ vm maken](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Maakt de virtuele machines.  |
-| [AZ vm lijst](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Gebruikt met `--query` om te controleren of de virtuele machines zijn ingericht voordat opnieuw wordt opgestart, en vervolgens om op te halen van de id's van de virtuele machines te starten. |
-| [lijst met resources AZ](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Gebruikt met `--query` de id's van de virtuele machines met het label opgehaald. |
-| [AZ vm opnieuw opstarten](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Start opnieuw op de virtuele machines. |
-| [AZ groep verwijderen](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Hiermee verwijdert u een resourcegroep met inbegrip van alle ingesloten resources. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Hiermee maakt u de virtuele machines.  |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Gebruik deze opdracht met `--query` om te controleren of de virtuele machines zijn ingericht voordat ze opnieuw worden opgestart en om vervolgens de id's op te vragen van de virtuele machines die opnieuw moeten worden opgestart. |
+| [az resource list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Gebruik deze opdracht met `--query` om de id's op te vragen van de virtuele machines met het label. |
+| [az vm restart](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Hiermee start u de virtuele machines opnieuw op. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure) voor meer informatie over de Azure CLI.
 
-Extra virtuele machine CLI scriptvoorbeelden vindt u in de [Azure Linux VM documentatie](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+U kunt extra CLI-scriptvoorbeelden voor virtuele machines vinden in de [Azure-documentatie voor Linux-VM's](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

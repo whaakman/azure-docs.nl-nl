@@ -1,13 +1,13 @@
 ---
 title: Aan de slag met persoonlijke sjablonen | Microsoft Docs
-description: Uw persoonlijke sjablonen toevoegen, beheren en delen met Azure Portal, Azure CLI of PowerShell.
+description: Uw persoonlijke sjablonen toevoegen, beheren en delen met de Azure-portal, de Azure CLI of PowerShell.
 services: marketplace-customer
-documentationcenter: 
-author: VybavaRamadoss
+documentationcenter: ''
+author: msmbaldwin
 manager: asimm
-editor: 
+editor: ''
 tags: marketplace, azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 6ec20778-b578-4885-acb5-104b0e51ea1a
 ms.service: marketplace
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: vybavar
-ms.openlocfilehash: c890339ba7677b23717a6e0437b5e936fdf8ab03
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.author: mbaldwin
+ms.openlocfilehash: e3a0bbe75177ac25a0aeff89d171dfe88bd0880f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Aan de slag met persoonlijke sjablonen in Azure Portal
-Een [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)-sjabloon is een declaratief sjabloon om uw implementatie te definiëren. U kunt de resources bepalen die u wilt implementeren in een oplossing en de parameters en variabelen vaststellen waarmee u waarden kunt invoeren voor verschillende omgevingen. De sjabloon bestaat uit JSON en expressies die u kunt gebruiken om waarden voor uw implementatie samen te stellen.
+Een [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) sjabloon is een declaratief sjabloon om uw implementatie te definiëren. U kunt de resources bepalen die u wilt implementeren in een oplossing en de parameters en variabelen vaststellen waarmee u waarden kunt invoeren voor verschillende omgevingen. De sjabloon bestaat uit JSON en expressies die u kunt gebruiken om waarden voor uw implementatie samen te stellen.
 
 U kunt de nieuwe functie voor **sjablonen** in [Azure Portal](https://portal.azure.com) gebruiken in combinatie met de resourceprovider **Microsoft.Gallery** als extensie van [Azure Marketplace](https://azure.microsoft.com/marketplace/). Zo kunnen gebruikers persoonlijke sjablonen maken, beheren en implementeren vanuit een persoonlijke bibliotheek.
 
@@ -47,14 +47,14 @@ Er zijn twee manieren om een **sjabloon**resource te maken in de Azure-portal.
 
 ### <a name="method-1-create-a-new-template-resource-from-a-running-resource-group"></a>Methode 1: Een nieuwe sjabloonresource maken vanuit een bestaande resourcegroep
 1. Navigeer naar een bestaande resourcegroep in Azure Portal. Klik op **Sjabloon exporteren** in **Instellingen**.
-2. Zodra de Resource Manager-sjabloon is geëxporteerd, gebruikt u de knop **Sjabloon opslaan** om de sjabloon op te slaan in de **Sjabloon**opslag. Meer informatie over het exporteren van sjablonen vindt u [hier](../azure-resource-manager/resource-manager-export-template.md).
+2. Zodra de Resource Manager-sjabloon is geëxporteerd, gebruikt u de knop **Sjabloon opslaan** om de sjabloon op te slaan in de  **Sjabloon**opslag. Meer informatie over het exporteren van sjablonen vindt u [hier](../azure-resource-manager/resource-manager-export-template.md).
    <br /><br />
    ![Resourcegroep exporteren](media/rg-export-portal1.PNG)
 3. Selecteer de opdrachtknop **Opslaan in sjabloon**.
    <br /><br />
 4. Voer de volgende informatie in:
    
-   * Naam: naam van het sjabloonobject. (Let op: in dit veld geeft u een naam op basis van Azure Resource Manager op. Alle naamsbeperkingen zijn van toepassing en de naam kan achteraf niet meer worden gewijzigd.)
+   * Naam: naam van het sjabloonobject. (Let op: in dit veld geeft u een naam op basis van Azure Resource Manager op. Alle naamsbeperkingen zijn van toepassing en de naam kan achteraf niet meer worden gewijzigd).
    * Beschrijving – korte samenvatting van de sjabloon.
      
      ![Sjabloon opslaan](media/save-template-portal1.PNG)
@@ -89,7 +89,7 @@ U kunt een **sjabloon** bewerken door met de rechtermuisknop te klikken op het i
 
 ![Sjabloon bewerken](media/edit-template-portal1a.PNG)
 
-U kunt de beschrijving of de tekst van de Resource Manager-sjabloon bewerken. U kunt de naam niet bewerken, omdat dit de naam is van een Resource Manager-resource. Wanneer u de JSON van de Resource Manager-sjabloon bewerkt, valideren we uw bewerkingen om er zeker van te zijn dat de JSON geldig is. Klik op **OK** en vervolgens op **Opslaan** om uw bijgewerkte sjabloon op te slaan.
+U kunt de beschrijving of de tekst van de  Resource Manager-sjabloon bewerken. U kunt de naam niet bewerken, omdat dit de naam is van een Resource Manager-resource. Wanneer u de JSON van de Resource Manager-sjabloon bewerkt, valideren we uw bewerkingen om er zeker van te zijn dat de JSON geldig is. Klik op **OK** en vervolgens op **Opslaan** om uw bijgewerkte sjabloon op te slaan.
 
 ![Sjabloon bewerken](media/edit-template-portal2a.PNG)
 

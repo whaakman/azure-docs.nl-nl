@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-script voorbeeld - een beheerde toepassing implementeren | Microsoft Docs
-description: Azure CLI-Script steekproef - definitie van een beheerde toepassing implementeren
+title: Voorbeeld van Azure CLI-script - Een beheerde toepassing implementeren | Microsoft Docs
+description: Voorbeeld van Azure CLI-script - Definitie van een beheerde toepassing implementeren
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,36 +12,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 62d0247df3b3d9f242877e4ea27ccc871cf797c0
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: MT
+ms.openlocfilehash: 3090284a89cfeb1fe8b6446e55e2731e1155167f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Implementeren van een beheerde toepassingsservices voor de Servicecatalogus met Azure CLI
+# <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Een beheerde toepassing implementeren voor de servicecatalogus met Azure CLI
 
-Dit script implementeert een beheerde toepassingsdefinitie van de Servicecatalogus. 
+Met dit script implementeert u de definitie van een beheerde toepassing uit de servicecatalogus. 
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
 [!code-azurecli[main](../../../cli_scripts/managed-applications/create-application/create-application.sh "Create application")]
 
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdracht om de beheerde toepassing te implementeren. Elke opdracht in de tabel is gekoppeld aan de opdracht specifieke documentatie bij.
+In dit script wordt de volgende opdracht gebruikt om de beheerde toepassing te implementeren. Elke opdracht in de tabel is een koppeling naar opdracht-specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [AZ managedapp maken](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_create) | Maak een beheerde toepassing. Geef de roldefinitie-ID en de parameters voor de sjabloon. |
+| [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_create) | Hiermee maakt u een beheerde toepassing. Geef de definitie-id en de parameters op voor de sjabloon. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot beheerde toepassingen, [overzicht van Azure Managed toepassing](../overview.md).
-* Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+* Zie [Overzicht van door Azure beheerde toepassingen](../overview.md) voor algemene informatie over beheerde toepassingen.
+* Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure) voor meer informatie over de Azure CLI.

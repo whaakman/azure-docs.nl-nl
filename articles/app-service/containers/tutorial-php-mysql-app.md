@@ -2,7 +2,7 @@
 title: Een PHP- en MySQL-web-app maken in Azure App Service in Linux | Microsoft Docs
 description: Informatie over het werkend krijgen van een PHP-app in Azure, met verbinding naar een MySQL-database in Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 ms.service: app-service-web
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5d1e1e448ce4cf6f1b6f617a68eb4d89333c180d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Een PHP- en MySQL-web-app maken in Azure App Service in Linux
 
@@ -155,7 +155,7 @@ In deze stap maakt u een MySQL-database in [Azure Database for MySQL (Preview)](
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-a-mysql-server"></a>Een MySQL-server maken
 
@@ -334,7 +334,7 @@ De toepassing Laravel wordt gestart in de map _/public_. De standaardinstallatie
 
 ### <a name="create-a-web-app"></a>Een webtoepassing maken
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
 ### <a name="configure-database-settings"></a>Database-instellingen configureren
 

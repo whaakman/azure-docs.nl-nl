@@ -6,18 +6,18 @@ author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/06/2017
+ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 1a4c5b365b93b30987ff6541aba762cbf8a4b7a5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Een containerregister maken met Azure Portal
 
-Een Azure-containerregister is een persoonlijk Docker-register in Azure waar u uw persoonlijke installatiekopieën van de Docker-container kunt opslaan en beheren. In deze quickstart maakt u een containerregister in Azure Portal.
+Een Azure-containerregister is een persoonlijk Docker-register in Azure waar u uw persoonlijke installatiekopieën van de Docker-container kunt opslaan en beheren. In deze snelstart gaat u een containerregister maken met Azure Portal, een containerinstallatiekopie naar het register pushen en ten slotte de container vanuit het register in Azure Container Instances (ACI) implementeren.
 
 Als u het register met deze quickstart wilt voltooien, moet Docker lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker configureren op elk [Mac][docker-mac]-, [Windows][docker-windows]- of [Linux][docker-linux]-systeem.
 
@@ -73,13 +73,13 @@ docker pull microsoft/aci-helloworld
 
 Voorzie de installatiekopie van een label met de naam van de ACR-aanmeldingsserver voordat u de kopie naar het register pusht. Label de installatiekopie met de opdracht [docker tag][docker-tag]. Vervang *login server* door de naam van de aanmeldingsserver die u eerder hebt genoteerd.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
 Gebruik ten slotte [docker push][docker-push] om de installatiekopie naar de ACR-instantie te pushen. Vervang *login server* door de naam van de ACR-instantie.
 
-```
+```bash
 docker push <login server>/aci-helloworld:v1
 ```
 
@@ -104,15 +104,43 @@ In dit voorbeeld selecteren we de opslagplaats **aci helloworld** en zien we de 
 
 ![Een containerregister maken met Azure Portal][qs-portal-09]
 
+## <a name="deploy-image-to-aci"></a>Installatiekopie implementeren naar ACI
+
+Om vanuit het register te implementeren naar een exemplaar, moeten we naar de opslagplaats (aci-helloworld) navigeren en vervolgens op het weglatingsteken naast v1 klikken.
+
+![Een Azure Container exemplaar starten vanuit de portal][qs-portal-10]
+
+Selecteer **Uitvoeringsinstantie** in het contextmenu dat wordt weergegeven:
+
+![Contextmenu voor starten van ACI][qs-portal-11]
+
+Geef een waarde op voor **Containernaam**, zorg ervoor dat het juiste abonnement is geselecteerd, selecteer bij **Resourcegroep** de bestaande groep myResourceGroup en klik vervolgens op **OK** om het Azure Container-exemplaar te starten.
+
+![Implementatieopties voor starten van ACI][qs-portal-12]
+
+Wanneer de implementatie is gestart, verschijnt er een tegel op uw portaldashboard waarop de voortgang van de implementatie wordt weergegeven. Wanneer de implementatie is voltooid, wordt de tegel bijgewerkt met de nieuwe containergroep **mycontainer**.
+
+![Implementatiestatus van ACI][qs-portal-13]
+
+Selecteer de containergroep mycontainer om de eigenschappen van de container weer te geven. Noteer het **IP-adres** van de containergroep, evenals de **STATUS** van de container.
+
+![Details van ACI-container][qs-portal-14]
+
+## <a name="view-the-application"></a>De toepassing weergeven
+
+Als de container de status **Actief** heeft, gaat u in uw browser naar het IP-adres dat u in de vorige stap hebt genoteerd om de toepassing weer te geven.
+
+![Hello world-app in browser][qs-portal-15]
+
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Verwijder de resourcegroep **myResourceGroup** als u deze niet meer nodig hebt. Als u dat doet, worden ook de resourcegroep, de ACR-instantie en alle containerinstallatiekopieën verwijderd.
+Als u uw resources wilt opschonen, navigeert u naar de resourcegroep **myResourceGroup** in de portal. Nadat de resourcegroep is geladen, klikt u op **Resourcegroep verwijderen** om de resourcegroep te verwijderen, evenals het containerregister van Azure en alle exemplaren van het register.
 
 ![Een containerregister maken met Azure Portal][qs-portal-08]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u een Azure Container Registry met Azure Portal gemaakt. Als u Azure Container Registry wilt gebruiken met Azure Container Instances, gaat u door naar de zelfstudie Azure Container Instances.
+In deze snelstart hebt u een Azure-containerregister gemaakt met de Azure CLI en een exemplaar van het register gestart via Azure Container Instances. Ga verder met de zelfstudie voor Azure Container Instances om meer te leren over ACI.
 
 > [!div class="nextstepaction"]
 > [Zelfstudies voor Azure Container Instances][container-instances-tutorial-prepare-app]
@@ -127,6 +155,12 @@ In deze quickstart hebt u een Azure Container Registry met Azure Portal gemaakt.
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+[qs-portal-10]: ./media/container-registry-get-started-portal/qs-portal-10.png
+[qs-portal-11]: ./media/container-registry-get-started-portal/qs-portal-11.png
+[qs-portal-12]: ./media/container-registry-get-started-portal/qs-portal-12.png
+[qs-portal-13]: ./media/container-registry-get-started-portal/qs-portal-13.png
+[qs-portal-14]: ./media/container-registry-get-started-portal/qs-portal-14.png
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

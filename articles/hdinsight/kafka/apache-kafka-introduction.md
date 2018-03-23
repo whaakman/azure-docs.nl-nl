@@ -2,7 +2,7 @@
 title: Inleiding tot Apache Kafka in HDInsight - Azure | Microsoft Docs
 description: 'Meer informatie over Apache Kafka in HDInsight: wat het is, wat het doet en waar u voorbeelden en gegevens kunt vinden om aan de slag te gaan.'
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: b91d1c1eb452ade005fceb095f8d9e62b28a14ac
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Inleiding tot Apache Kafka in HDInsight
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/28/2018
 
 Kafka op HDInsight biedt de volgende functies:
 
-* __99% Service Level Agreement (SLA) op Kafka uptime__: zie voor meer informatie het document [SLA-gegevens voor HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* __Service Level Agreement (SLA) voor 99,9% uptime op Kafka__: zie voor meer informatie het document [SLA-gegevens voor HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
 * __Fouttolerantie en herkenning van racks__: Kafka is ontworpen met een eendimensionale weergave van een rack wat voor bepaalde omgevingen goed werkt. In omgevingen zoals Azure wordt een rack echter onderverdeeld in twee dimensies: updatedomeinen (UD's) en foutdomeinen (FD's). Microsoft biedt hulpprogramma's die zorgen voor een herverdeling van Kafka-partities en -replica's op UD’s en FD’s. 
 

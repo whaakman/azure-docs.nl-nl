@@ -2,7 +2,7 @@
 title: Problemen met Azure IoT Edge oplossen | Microsoft Docs
 description: Veelvoorkomende problemen oplossen en informatie over probleemoplossingsvaardigheden voor Azure IoT Edge
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5de069eb35e88c1dce6dcfa5a1661e8ab87302b1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7b9f9f8295aac0920ae4726289c535aae12c4482
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -30,10 +30,10 @@ Wanneer u een probleem ondervindt, kunt u meer informatie verzamelen over de sta
    docker logs <container name>
    ```
 
-* Bekijk de berichten die via Edge Hub gaan en verzamel inzichten over updates van apparaateigenschappen met uitgebreide logboeken uit de runtimecontainers.
+* Bekijk de berichten die via Edge Hub gaan en verzamel inzichten over updates van apparaateigenschappen met uitgebreide logboeken uit de runtimecontainers. U kunt de optie '--auto-cert-gen-force-no-passwords' toevoegen als u de artikelen met snelstartgidsen volgt.
 
    ```cmd
-   iotedgectl setup --runtime-log-level DEBUG
+   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
    ```
 
 * Als u verbindingsproblemen ondervindt, controleert u de omgevingsvariabelen van uw Edge-apparaat, zoals de apparaatverbindingsreeks:
@@ -96,6 +96,23 @@ De Edge Agent beschikt niet over machtigingen voor toegang tot de installatiekop
 
 ### <a name="resolution"></a>Oplossing
 Probeer de opdracht `iotedgectl login` opnieuw uit te voeren.
+
+## <a name="iotedgectl-cant-find-docker"></a>iotedgectl can't find Docker
+De opdracht setup of start kan niet worden uitgevoerd door iotedgectl en het volgende bericht wordt vastgelegd in de logboeken:
+```output
+File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
+  info = self._client.info()
+File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
+  return self.api.info(*args, **kwargs)
+File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
+  return self._result(self._get(self._url("/info")), True)
+```
+
+### <a name="root-cause"></a>Hoofdoorzaak
+iotedgectl can't find Docker, which is a pre-requisite.
+
+### <a name="resolution"></a>Oplossing
+Docker installeren, controleren of het programma actief is en het nogmaals proberen.
 
 ## <a name="next-steps"></a>Volgende stappen
 Denkt u dat u een fout op het IoT Edge-platform hebt gevonden? [Verzend een probleem](https://github.com/Azure/iot-edge/issues) zodat we het product verder kunnen blijven verbeteren. 

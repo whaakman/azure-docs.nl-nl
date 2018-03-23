@@ -3,29 +3,29 @@ title: Wat is de service Azure SQL Database? | Microsoft Docs
 description: 'Maak kennis met SQL-Database: technische informatie en mogelijkheden van het relationele database beheersysteem (RDBMS) in de cloud van Microsoft.'
 keywords: inleiding in sql,intro in sql,wat is sql-database
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 02/12/2018
+ms.date: 03/07/2018
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: 1671cbe47b2aee53e4ec6d2bc731cbe4496ce586
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a1c4426acec8e9e006c2349b886297f45cc8ecb2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Wat is de service Azure SQL Database? 
 
-SQL Database is een algemene relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. De service biedt [dynamisch schaalbare prestaties](sql-database-service-tiers.md) en opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](sql-database-in-memory.md) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt. 
+SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database biedt beheerde [enkelvoudige SQL-databases](sql-database-servers-databases.md), beheerde SQL-databases in een [elastische pool](sql-database-elastic-pool.md) en beheerde SQL-exemplaren (die [SQL Database Managed Instances](sql-database-managed-instance.md) worden genoemd en die in openbare preview zijn). De service biedt [dynamisch schaalbare prestaties](sql-database-service-tiers.md) en opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](sql-database-in-memory.md) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt. 
 
 SQL Database deelt de codebasis met de [database-engine van Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). In het kader van de cloudstrategie van Microsoft worden nieuwe mogelijkheden van SQL Server eerst uitgebracht in SQL Database en vervolgens in SQL Server zelf. Dankzij deze aanpak kunt u beschikken over de nieuwste mogelijkheden van SQL Server zonder overhead voor patching en upgrading, en zijn de nieuwe functies getest op miljoenen databases. Ga voor informatie over aangekondigde nieuwe mogelijkheden naar:
 
@@ -37,19 +37,22 @@ SQL Database deelt de codebasis met de [database-engine van Microsoft SQL Server
 
 SQL Database levert voorspelbare prestaties op meerdere serviceniveaus met dynamische schaalbaarheid zonder uitvaltijd, ingebouwde intelligente optimalisatie, schaalbaarheid en beschikbaarheid op wereldwijde schaal en geavanceerde beveiligingsmogelijkheden. Bovendien hoeft u vrijwel geen tijd te besteden aan beheer. Dankzij deze mogelijkheden kunt u zich richten op het sneller ontwikkelen en op de markt brengen van apps, in plaats van kostbare tijd en middelen in te zetten voor het beheer van virtuele machines en infrastructuur. De SQL Database-service is momenteel beschikbaar in 38 datacenters over de hele wereld, en er komen er regelmatig meer bij. Dat betekent dat u uw database kunt uitvoeren in een datacenter bij u in de buurt.
 
-> [!NOTE]
-> Ga naar het [Vertrouwenscentrum van Azure](https://azure.microsoft.com/support/trust-center/security/) voor informatie over de beveiliging van het Azure-platform.
+> [BELANGRIJK] SQL Database Managed Instance is momenteel in preview en is alleen beschikbaar op een enkel serviceniveau. Zie [SQL Database Managed Instance](sql-database-managed-instance.md) voor meer informatie.
 >
 
 ## <a name="scalable-performance-and-pools"></a>Schaalbare prestaties en pools
 
 Met SQL Database zijn alle databases volledig geïsoleerd en draagbaar, met elk een eigen [servicelaag](sql-database-service-tiers.md) en een gegarandeerd prestatieniveau. SQL Database biedt verschillende prestatieniveaus voor verschillende behoeften. Door de mogelijkheid om databasepools te maken kunt u het gebruik van resources maximaliseren en geld besparen.
 
+Met SQL Database Managed Instance wordt elk exemplaar geïsoleerd van andere exemplaren om zo gegarandeerde resources te kunnen toewijzen. Zie [SQL Database Managed Instance](sql-database-managed-instance.md) voor meer informatie. 
+
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Prestaties en schaal aanpassen zonder uitvaltijd
 
 SQL Database biedt drie servicelagen die alle soorten workloads ondersteunen, van licht tot zeer zwaar: Basic, Standard en Premium. U kunt uw eerste app ontwikkelen op één enkele kleine database voor slechts enkele euro's per maand. Vervolgens kunt u op elk gewenst moment handmatig of programmatisch de servicelaag wijzigen, zodat deze beter past bij de behoeften van uw oplossing. U kunt het prestatieniveau aanpassen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
 
    ![schalen](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+
+SQL Database Managed Instance is in preview en biedt momenteel maar één servicelaag. Zie [SQL Database Managed Instance](sql-database-managed-instance.md) voor meer informatie.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastische pools voor optimaal resourcegebruik
 
@@ -58,6 +61,9 @@ Voor veel bedrijven en toepassingen is het kunnen maken van enkele databases en 
    ![elastische pools](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
 Met elastische pools hoeft u zich niet bezig te houden met het verhogen en verlagen van de databaseprestaties als de vraag naar resources fluctueert. De gepoolde databases maken naar behoefte gebruik van de prestatieresources van de elastische pool. Gepoolde databases tellen mee voor het verbruik tot het maximum voor de pool is bereikt. Zo blijven uw kosten voorspelbaar, ook al is uw gebruik van de individuele database dat niet. Bovendien kunt u [databases aan de groep toevoegen of eruit verwijderen](sql-database-elastic-pool-manage-portal.md). Zo kan uw app kan worden opgeschaald van een handjevol databases naar duizenden databases, allemaal binnen het budget dat u zelf bepaalt. U kunt ook de minimale en maximale beschikbare resources die voor databases beschikbaar zijn in de pool beheren om ervoor te zorgen dat er geen database in de pool is die alle poolresources gebruikt en dat elke gepoolde database een gegarandeerd minimum aan resources heeft. Zie [Design Patterns for Multi-tenant SaaS Applications with SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Ontwerppatronen voor multitenant SaaS-toepassingen met behulp van SQL Database) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische groepen.
+
+> [!IMPORTANT]
+> SQL Database Managed Instance biedt geen ondersteuning voor elastische pools.
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>Individuele databases combineren met gepoolde databases
 
@@ -83,6 +89,7 @@ De toonaangevende serviceovereenkomst [(SLA)](http://azure.microsoft.com/support
 - **[Herstel naar een bepaald tijdstip](sql-database-recovery-using-backups.md)**: SQL Database ondersteunt het herstel naar ieder bepaald tijdstip dankzij de automatische bewaarperiode voor back-ups.
 - **[Actieve geo-replicatie](sql-database-geo-replication-overview.md)**: met SQL Database kunt u maximaal vier leesbare secundaire databases configureren in hetzelfde Azure-datacenter of in wereldwijd gedistribueerde datacenters.  Als u bijvoorbeeld een SaaS-toepassing hebt met een catalogusdatabase met een groot volume aan gelijktijdige alleen-lezen transacties, kunt u actieve geo-replicatie gebruiken om het lezen wereldwijd te schalen en knelpunten weg te nemen die ontstaan door de lees-workloads op de primaire database. 
 - **[Failover-groepen](sql-database-geo-replication-overview.md)**: SQL Database biedt hoge beschikbaarheid en taakverdeling op wereldwijde schaal, inclusief transparante geo-replicatie en failover van omvangrijke sets databases en elastische pools. Dankzij failover-groepen en actieve geo-replicatie kunt u wereldwijd gedistribueerde SaaS-toepassingen maken met een minimale overhead aan beheer, doordat u alle complexe bewaking, routering en failover-indeling overlaat aan SQL Database.
+- **[Zone-redundante databases](sql-database-high-availability.md)**: met SQL Database kunt u Premium-databases of Premium elastische pools inrichten in meerdere beschikbaarheidszones. Omdat Premium-databases en Premium elastische pools meerdere redundante replica's hebben om een hoge beschikbaarheid te garanderen, biedt het plaatsen van deze replica's in meerdere beschikbaarheidszone betere herstelmogelijkheden, inclusief de mogelijkheid om zonder verlies van gegevens automatisch te herstellen van schalingsfouten in het datacenter. Deze functie is momenteel beschikbaar als preview-product. 
 
 ## <a name="built-in-intelligence"></a>Ingebouwde intelligentie
 
@@ -137,7 +144,7 @@ Met [beveiliging op rijniveau](https://docs.microsoft.com/sql/relational-databas
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integratie en meervoudige verificatie
 
-Dankzij [Azure Active Directory-integratie](sql-database-aad-authentication.md) kunt u in SQL Database de identiteit van databasegebruikers en andere Microsoft-services centraal beheren. Deze mogelijkheid vereenvoudigt het beheer van machtigingen en verbetert de beveiliging. Azure Active Directory ondersteunt [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md) (MFA) voor betere beveiliging van gegevens en toepassingen, en ondersteunt ook een proces voor eenmalige aanmelding (SSO).
+Dankzij [Azure Active Directory-integratie](sql-database-aad-authentication.md) kunt u in SQL Database de identiteit van databasegebruikers en andere Microsoft-services centraal beheren. Deze mogelijkheid vereenvoudigt het beheer van machtigingen en verbetert de beveiliging. Azure Active Directory ondersteunt [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md) (MFA) voor betere beveiliging van gegevens en toepassingen, en ondersteunt ook een proces voor eenmalige aanmelding.
 
 ### <a name="compliance-certification"></a>Nalevingscertificering
 
@@ -158,7 +165,7 @@ SQL Database ondersteunt het maken van toepassingen met Python, Java, Node.js, P
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): stel hier uw vragen over databasebeheer
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): stel hier uw vragen over ontwikkeling
-- [MSDN-forums](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): stel hier uw technische vragen
+- [MSDN-forums](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): stel hier uw technische vragen
 - [Feedback](http://aka.ms/sqlfeedback): hier kunt u bugs rapporteren en functies aanvragen
 - [Reddit](https://www.reddit.com/r/SQLServer/): vragen en antwoorden voor SQL Server
 
