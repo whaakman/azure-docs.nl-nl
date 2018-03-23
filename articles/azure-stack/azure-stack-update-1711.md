@@ -1,24 +1,25 @@
 ---
 title: Azure Stack 1711 Update | Microsoft Docs
-description: "Meer informatie over wat er in de update 1711 voor Azure-Stack geïntegreerd systemen, de bekende problemen en waar u de update te downloaden."
+description: Meer informatie over wat er in de update 1711 voor Azure-Stack geïntegreerd systemen, de bekende problemen en waar u de update te downloaden.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/22/2018
 ms.author: brenduns
-ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.reviewer: justini
+ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure-Stack 1711 update
 
@@ -37,7 +38,13 @@ Het buildnummer van Azure Stack 1711 update **171201.3**.
 
 ### <a name="prerequisites"></a>Vereisten
 
-U moet eerst installeren met de Azure-Stack [1710 bijwerken](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) voordat deze update worden toegepast.
+- U moet eerst installeren met de Azure-Stack [1710 bijwerken](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) voordat deze update worden toegepast.
+
+- Het gebruik van controleren **CloudAdmin** als de accountnaam van een voor de installatie van updates 1711. Vanaf versie 1711, *CloudAdmin* is een gereserveerde naam en mag niet handmatig worden opgegeven. Wanneer u naar versie 1711 bijwerkt, worden bestaande exemplaren van de implementatie-account (meestal AzureStackAdmin genoemd) in de update verwijderd. Als u de naam van de implementatie-account voor *CloudAdmin*, deze bijwerken naar 1711 wordt verwijderd. 
+
+  *CloudAdmin* het ingebouwde account verbinding maken met de [ *bevoegde eindpunt* ](azure-stack-privileged-endpoint.md) (PEP). Het verwijderen van dit account kan resulteren in een vergrendeling van het PEP tenzij er al een ander gebruikersaccount dat lid is van de groep CloudAdmin. 
+
+  Als u CloudAdmin als naam van de implementatie-account gebruikt, moet u een nieuwe CloudAdmin gebruiker toevoegen aan uw PEP voordat u de update naar 1711 om te voorkomen dat Azure Stack wordt vergrendeld. Een nieuwe CloudAdmin als gebruiker wilt toevoegen, voert u de cmdlet **nieuw CloudAdminUser** op de PEP.
 
 ### <a name="new-features-and-fixes"></a>Nieuwe functies en oplossingen
 
@@ -61,7 +68,7 @@ Deze update bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
 
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Windows Server 2016 nieuwe functies en oplossingen
 
-- [14 november 2017: KB4048953 (OS-Build 14393.1884)](https://support.microsoft.com/help/4048953)
+- [14 november 2017: KB4048953 (OS-Build 14393.1884) ](https://support.microsoft.com/help/4048953)
 
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces kan controleren
 
@@ -76,11 +83,11 @@ Deze sectie vindt bekende problemen die tijdens de installatie van de 1711 updat
     1. **Oorzaak:** dit probleem wordt veroorzaakt wanneer het hervatten van een update van de portal die eerder is hervat met behulp van een bevoorrechte eindpunt (PEP).
     2. **Oplossing:** Neem contact op met Microsoft Customer Service and Support (CSS) voor hulp.
 <br><br>
-3. **Symptoom:**Azure Stack operators mogelijk ziet u de volgende fout is opgetreden tijdens het updateproces:*' Type 'CheckHealth' rol 'Informatie' Deze gebeurtenis treedt op een uitzondering: \n\nVirtual Machine Statuscontrole voor <machineName>-ACS01 geproduceerd de volgende fouten. \nThere, is een fout opgetreden bij het VM-gegevens ophalen uit de hosts. Details van uitzondering: \nGet-VM: de bewerking op computer Node03 is mislukt: de WS-Management-service kan de aanvraag niet verwerken. De WMI-\nservice of de WMI-provider heeft een onbekende fout geretourneerd: HRESULT 0x8004106c '.*
+3. **Symptoom:** Azure Stack operators mogelijk ziet u de volgende fout is opgetreden tijdens het updateproces:*' Type 'CheckHealth' rol 'Informatie' Deze gebeurtenis treedt op een uitzondering: \n\nVirtual Machine Statuscontrole voor <machineName>-ACS01 geproduceerd de volgende fouten. \nThere, is een fout opgetreden bij het VM-gegevens ophalen uit de hosts. Details van uitzondering: \nGet-VM: de bewerking op computer Node03 is mislukt: de WS-Management-service kan de aanvraag niet verwerken. De WMI-\nservice of de WMI-provider heeft een onbekende fout geretourneerd: HRESULT 0x8004106c '.*
     1. **Oorzaak:** dit probleem wordt veroorzaakt door een Windows Server-probleem dat is bedoeld om te worden opgelost in latere Window server-updates.
     2. **Oplossing:** Neem contact op met Microsoft Customer Service and Support (CSS) voor hulp.
 <br><br>
-4. **Symptoom:**Azure Stack operators mogelijk ziet u de volgende fout is opgetreden tijdens het updateproces:*' Type 'DefenderUpdate' rol 'URP' heeft een uitzondering veroorzaakt: mislukte versie van \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{bestandsnaam} .exe na 60 pogingen tot kopie-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: regel 262"*
+4. **Symptoom:** Azure Stack operators mogelijk ziet u de volgende fout is opgetreden tijdens het updateproces:*' Type 'DefenderUpdate' rol 'URP' heeft een uitzondering veroorzaakt: mislukte versie van \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{bestandsnaam} .exe na 60 pogingen tot kopie-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: regel 262"*
     1. **Oorzaak:** dit probleem wordt veroorzaakt door een mislukte of onvolledige achtergrond downloaden van definitie-updates voor Windows Defender.
     2. **Oplossing:** Neem poging tot het hervatten van de update na acht uur zijn verstreken sinds de eerste update proberen.
 

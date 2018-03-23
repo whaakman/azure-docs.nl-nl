@@ -1,25 +1,25 @@
 ---
-title: "Netwerk-Integratieoverwegingen voor het Azure-Stack geïntegreerd systemen | Microsoft Docs"
+title: Netwerk-Integratieoverwegingen voor het Azure-Stack geïntegreerd systemen | Microsoft Docs
 description: Meer informatie over wat u kunt doen om te plannen voor netwerkintegratie datacenter met meerdere knooppunten Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5ade2a09d0729f48c075a5bcaa20bee079ead47d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-connectivity"></a>Netwerkverbinding
 Dit artikel bevat informatie over de infrastructuur Azure netwerkstack kunt u het beste Azure Stack integreren in uw bestaande netwerkomgeving bepalen. 
@@ -67,7 +67,7 @@ Deze /24 (254 host IP van) netwerk is gebonden aan de Stack van Azure-regio (wor
 Dit/24 netwerk is toegewezen aan interne Azure Stack-onderdelen zodat ze kunnen communiceren en uitwisselen van gegevens onderling. Dit subnet routeerbare IP-adressen vereist, maar worden privé gehouden met de oplossing met behulp van toegangsbeheerlijsten (ACL's). Er wordt niet verwacht te routeren afgezien van de rand switches, met uitzondering van een klein bereik overeen in grootte met een/27 netwerk door sommige van deze services worden gebruikt wanneer ze toegang tot externe bronnen en/of internet vereist. 
 
 ### <a name="public-infrastructure-network"></a>Infrastructuur voor openbare netwerk
-Dit/27 netwerk is de kleine variëren van het Azure-Stack subnet eerder vermeld, vereist geen openbare IP-adressen, maar hoeft toegang tot internet via een NAT of een transparentproxy. Dit netwerk voor de Emergency Recovery-Console (ERCS) worden toegewezen, de ERCS VM is internettoegang vereist tijdens de registratie in Azure en moet routeerbaar zijn met uw beheernetwerk voor het oplossen van problemen.
+Dit/27 netwerk is de kleine variëren van het Azure-Stack subnet eerder vermeld, vereist geen openbare IP-adressen, maar hoeft toegang tot internet via een NAT of een transparentproxy. Dit netwerk voor de Emergency Recovery-Console (ERCS) worden toegewezen, de ERCS VM is internettoegang vereist tijdens de registratie in Azure en tijdens de back-ups van de infrastructuur. De VM ERCS moet routeerbaar zijn met uw beheernetwerk voor het oplossen van problemen.
 
 ### <a name="public-vip-network"></a>Openbare VIP-netwerk
 Het openbare VIP-netwerk is toegewezen aan de netwerkcontroller in Azure-Stack. Het is niet een logisch netwerk op de switch. De SLB maakt gebruik van de groep met adressen en wijst/32 voor bedrijfstoepassingen huurder netwerken. Deze 32 IP-adressen zijn op de switch-routeringstabel geadverteerd als een beschikbare route via BGP. Dit netwerk bevat de externe toegankelijk of openbare IP-adressen. De infrastructuur van Azure-Stack maakt gebruik van ten minste 8 adressen van deze openbare VIP-netwerk terwijl de rest wordt gebruikt door de tenant-VM's. De netwerkgrootte op dit subnet kan variëren van een minimum van /26 (64-hosts) tot maximaal /22 (1022 hosts), is het raadzaam dat u van plan bent voor een/24 netwerk.

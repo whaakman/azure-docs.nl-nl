@@ -2,23 +2,23 @@
 title: Met behulp van de bevoegde eindpunt in Azure-Stack | Microsoft Docs
 description: Laat zien hoe de bevoorrechte eindpunt (PEP) te gebruiken in Azure-Stack (voor een Azure-Stack-operator).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 29ac4517ec691f94f24ced81ca227cd4d1e7214e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Met behulp van de bevoegde eindpunt in Azure-Stack
 
@@ -74,7 +74,7 @@ Het is raadzaam dat u verbinding met de PEP alleen vanaf de host van de levenscy
       ```` 
    Wanneer u wordt gevraagd, gebruikt u de volgende referenties:
 
-      - **Gebruikersnaam**: Geef het account CloudAdmin in de indeling  **&lt; *Azure Stack domein*&gt;\cloudadmin**. (Voor ASDK, de gebruikersnaam is **azurestack\cloudadmin**.)
+      - **Gebruikersnaam**: Geef het account CloudAdmin in de indeling  **&lt; *Azure Stack domein*&gt;\accountname**. (Voor ASDK, de gebruikersnaam is **azurestack\accountname**.) 
       - **Wachtwoord**: Voer het wachtwoord dat is opgegeven tijdens de installatie voor de administrator-account van het AzureStackAdmin.
     
 3.  Nadat u verbinding maakt, verandert de prompt voor **[*IP-adres of ERCS VM naam*]: PS >** of **[azs ercs01]: PS >**, afhankelijk van de omgeving. Hier kunt uitvoeren `Get-Command` om de lijst met beschikbare cmdlets weer te geven.
@@ -143,7 +143,7 @@ Voer de volgende stappen uit voor het importeren van de sessie PEP op uw lokale 
       ```` 
    Wanneer u wordt gevraagd, gebruikt u de volgende referenties:
 
-      - **Gebruikersnaam**: Geef het account CloudAdmin in de indeling  **&lt; *Azure Stack domein*&gt;\cloudadmin**. (Voor ASDK, de gebruikersnaam is **azurestack\cloudadmin**.)
+      - **Gebruikersnaam**: Geef het account CloudAdmin in de indeling  **&lt; *Azure Stack domein*&gt;\accountname**. (Voor ASDK, de gebruikersnaam is **azurestack\accountname**.) 
       - **Wachtwoord**: Voer het wachtwoord dat is opgegeven tijdens de installatie voor de administrator-account van het AzureStackAdmin.
 
 3. De sessie PEP in uw lokale machine importeren
@@ -161,7 +161,7 @@ De eindpunt-sessie te sluiten:
 
 1. Een externe bestandsshare die toegankelijk is voor de PEP maken. In een ontwikkelingsomgeving kit, kunt u een bestandsshare maken op de host van development kit.
 2. Voer de `Close-PrivilegedEndpoint` cmdlet. 
-3. U wordt gevraagd om een pad op om op te slaan van het logboekbestand van de tekst. Geef de bestandsshare die u eerder hebt gemaakt, in de indeling &#92; &#92; *servername*&#92; *sharenaam*. Als u geen pad opgeeft, wordt de cmdlet mislukt en blijft de sessie geopend. 
+3. U wordt gevraagd om een pad op om op te slaan van het logboekbestand van de tekst. Geef de bestandsshare die u eerder hebt gemaakt, in de notatie &#92; &#92; *servername*&#92;*sharename*. Als u geen pad opgeeft, wordt de cmdlet mislukt en blijft de sessie geopend. 
 
     ![Uitvoer van de cmdlet sluiten PrivilegedEndpoint waarin wordt weergegeven waarin u het doelpad van de tekst opgeven](media/azure-stack-privileged-endpoint/closeendpoint.png)
 

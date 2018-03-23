@@ -2,25 +2,25 @@
 title: Wat is Azure Stack? | Microsoft Docs
 description: Stack van Azure kunt u Azure-services uitvoeren in uw datacenter.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/21/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 68d1e1752f934e61bbb60c0c934a80b564896a36
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 863c1ec562cd71af0df69ccc0547e16d02c7ee82
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-stack"></a>Wat is Azure Stack?
 
@@ -30,10 +30,10 @@ Microsoft Azure-Stack is een hybride cloud-platform waarmee u Azure-services lev
 Geïntegreerde systemen worden aangeboden via een verbinding van Microsoft Azure-Stack en [hardwarepartners](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), het maken van een oplossing voor eigen tempo van cloud innovatie in evenwicht zijn met eenvoud in beheer.  Omdat Azure Stack wordt aangeboden als een geïntegreerd systeem van hardware en software, krijgt u de juiste hoeveelheid flexibiliteit en beheer, terwijl u nog steeds overstap innovatie vanuit de cloud.  Azure Stack geïntegreerd systemen in grootte variëren van 4-12-knooppunten en gezamenlijk worden ondersteund door de partner van de hardware- en Microsoft.  Gebruik Azure Stack geïntegreerd systemen nieuwe scenario's voor uw productie-workloads te maken.    
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack Development Kit
-Microsoft Azure-Stack Development Kit is een implementatie met één knooppunt van de Azure-Stack, dat u gebruiken kunt om te evalueren en meer informatie over Azure-Stack.  U kunt Azure Stack Development Kit ook gebruiken als een ontwikkelomgeving waarin u kunt ontwikkelen met API's en tooling consistent zijn met Azure.  Azure-Stack Development Kit is niet bedoeld als een productie-omgeving moet worden gebruikt.
+Microsoft [Azure Stack Development Kit (ASDK)](.\asdk\asdk-what-is.md) is een implementatie met één knooppunt van de Azure-Stack, dat u gebruiken kunt om te evalueren en meer informatie over Azure-Stack.  U kunt de ASDK ook gebruiken als een ontwikkelomgeving waarin u kunt ontwikkelen met API's en tooling consistent zijn met Azure. De ASDK is niet bedoeld als een productie-omgeving moet worden gebruikt.
 
-Azure Stack development kit heeft de volgende beperkingen:
-* Azure Stack development kit is gekoppeld aan een enkele identiteitsprovider Azure Active Directory of Active Directory Federation Services. U kunt meerdere gebruikers maken in deze map en abonnementen toewijzen aan elke gebruiker.
+De ASDK heeft de volgende beperkingen:
+* ASDK is gekoppeld aan één Azure Active Directory (Azure AD) of een id-provider voor Active Directory Federation Services (AD FS). U kunt meerdere gebruikers maken in deze map en abonnementen toewijzen aan elke gebruiker.
 * Met alle onderdelen zijn geïmplementeerd op één computer, zijn beperkt fysieke resources beschikbaar voor tenantbronnen. Deze configuratie is niet bedoeld voor evaluatie van scale- of Prestatieweergave.
 * Scenario's voor netwerken zijn beperkt omdat de vereiste één host/NIC.  
 

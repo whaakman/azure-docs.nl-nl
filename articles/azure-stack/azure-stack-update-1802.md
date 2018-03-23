@@ -1,25 +1,25 @@
 ---
 title: Azure Stack 1802 Update | Microsoft Docs
-description: "Meer informatie over wat er in de update 1802 voor Azure-Stack geïntegreerd systemen, de bekende problemen en waar u de update te downloaden."
+description: Meer informatie over wat er in de update 1802 voor Azure-Stack geïntegreerd systemen, de bekende problemen en waar u de update te downloaden.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure-Stack 1802 update
 
@@ -103,7 +103,7 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180302.1
 
 #### <a name="portal"></a>Portal
 - De mogelijkheid [een nieuwe ondersteuningsaanvraag openen vanuit de vervolgkeuzelijst](azure-stack-manage-portals.md#quick-access-to-help-and-support) uit binnen de beheerder van de portal is niet beschikbaar. Gebruik in plaats daarvan de volgende koppeling:     
-    - Geïntegreerde systemen gebruik https://aka.ms/newsupportrequest voor Azure-Stack.
+    - Gebruik voor Azure-Stack geïntegreerde systemen https://aka.ms/newsupportrequest.
 
 - <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
 
@@ -123,6 +123,13 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180302.1
     - *Fout - sjabloon voor FaultType ResourceProviderTimeout ontbreekt.*
 
     Deze waarschuwing kan worden genegeerd. 
+
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+
+- In de beheerportal en gebruikersportal, de overzichtsblade niet kan worden geladen bij het selecteren van de blade overzicht van de storage-accounts die zijn gemaakt met een oudere versie van de API (voorbeeld: 2015-06-15). Dit omvat system storage-accounts zoals **updateadminaccount** die wordt gebruikt tijdens de patch en bij te werken. 
+
+  Als tijdelijke oplossing kunt u PowerShell gebruiken om uit te voeren de **Start ResourceSynchronization.ps1** script toegang om de accountdetails van de opslag te herstellen. [Het script is beschikbaar via GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), en moet worden uitgevoerd met servicebeheerdersreferenties op de bevoorrechte eindpunt. 
+
 
 #### <a name="health-and-monitoring"></a>Status en bewaking
 Er zijn geen bekende problemen na het bijwerken van 1802.

@@ -2,30 +2,27 @@
 title: Virtuele machines beschikbaar maken voor de gebruikers van uw Azure-Stack | Microsoft Docs
 description: Zelfstudie voor virtuele machines beschikbaar maken op Azure-Stack
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Virtuele machines beschikbaar maken voor uw Azure-Stack-gebruikers
-
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
-
 U kunt aanbiedingen die uw gebruikers (ook wel aangeduid als tenants) kunnen zich abonneren op maken als de beheerder van een Azure-Stack-cloud. Met behulp van hun abonnement, kunnen gebruikers vervolgens gebruiken Stack Azure-services.
 
 In dit artikel leest u hoe een aanbieding maakt en test deze. Voor de test u aanmelden bij de portal als een gebruiker, abonneren op de aanbieding, en maak vervolgens een virtuele machine met behulp van het abonnement.
@@ -117,7 +114,7 @@ Nu dat u een aanbieding hebt gemaakt, kunt u het kunt testen. Meld u aan als een
 
    a. Meld u aan bij de gebruikersportal aanmeldt als een gebruiker en klik op **Neem een abonnement op**.
    - De URL varieert op basis van de operator regio en externe domeinnaam en bevindt zich in de indeling https://portal voor een geïntegreerd systeem. &lt; *regio*&gt;.&lt; *FQDN*&gt;.
-   - Als u de Azure-Stack Development Kit gebruikt, is het adres van de portal https://portal.local.azurestack.external.
+   - Als u de Azure-Stack Development Kit, het adres van de portal is https://portal.local.azurestack.external.
 
    ![Een abonnement nemen](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
@@ -135,7 +132,7 @@ Nu dat u een aanbieding hebt gemaakt, kunt u het kunt testen. Meld u aan als een
 
    a. Meld u aan bij de gebruikersportal aanmeldt als een gebruiker.
       - De URL varieert op basis van de operator regio en externe domeinnaam en bevindt zich in de indeling https://portal voor een geïntegreerd systeem. &lt; *regio*&gt;.&lt; *FQDN*&gt;.
-   - Als u de Azure-Stack Development Kit gebruikt, is het adres van de portal https://portal.local.azurestack.external.
+   - Als u de Azure-Stack Development Kit, het adres van de portal is https://portal.local.azurestack.external.
 
    b.  Klik op het dashboard **nieuw** > **Compute** > **Windows Server 2016 Datacenter Eval**, en klik vervolgens op **maken**.
 

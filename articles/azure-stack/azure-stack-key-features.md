@@ -2,10 +2,10 @@
 title: Belangrijke functies en -concepten in Azure-Stack | Microsoft Docs
 description: Meer informatie over de belangrijkste functies en -concepten in Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 09ca32b7-0e81-4a27-a6cc-0ba90441d097
 ms.service: azure-stack
 ms.workload: na
@@ -14,17 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: jeffgilb
-ms.reviewer: 
-ms.openlocfilehash: b773ddc5da12f92960ef3378decac8569dac9ab9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: ''
+ms.openlocfilehash: 958b1757dd773f8c46185b13c84f766ce4f827ee
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Belangrijke functies en -concepten in Azure-Stack
-
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
-
 Als u geen ervaring met Microsoft Azure-Stack, zijn deze voorwaarden en beschrijvingen van functies handig zijn.
 
 ## <a name="personas"></a>Personas
@@ -165,5 +162,5 @@ In ontwikkeling builds wordt de volgende voordelen bieden:
 - Andere verbeteringen
 
 ## <a name="next-steps"></a>Volgende stappen
-[Vereisten voor Azure Stack-implementatie](azure-stack-deploy.md)
+[De Azure-Stack Development Kit evalueren](azure-stack-deploy-overview.md)
 

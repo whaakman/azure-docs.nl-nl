@@ -2,24 +2,24 @@
 title: Microsoft Azure-Stack probleemoplossing | Microsoft Docs
 description: Azure Stack Development Kit (ASDK) informatie over probleemoplossing.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 6ed3fb7c7c4de9edbf31fb2c47290e2e39ceadcd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6c715f07f75c9196b7cf2cc8659c6e541e1260da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Het oplossen van Microsoft Azure Stack Development Kit (ASDK)
 Dit document bevat algemene informatie over probleemoplossing voor de ASDK. Als er een probleem dat is niet gedocumenteerd, Controleer of de [Stack MSDN-Forum Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) voor verdere ondersteuning en informatie.  
@@ -31,7 +31,12 @@ De aanbevelingen voor het oplossen van problemen die worden beschreven in deze s
 
 ## <a name="deployment"></a>Implementatie
 ### <a name="deployment-failure"></a>Fout bij implementatie
-Als er een fout tijdens de installatie optreden, kunt u de implementatie van de mislukte stap opnieuw starten met behulp van de - optie opnieuw uitvoeren van het script voor implementatie.  
+Als er een fout tijdens de installatie optreden, kunt u de implementatie van de mislukte stap opnieuw starten met behulp van de - optie opnieuw uitvoeren van het implementatiescript zoals in het volgende voorbeeld:
+
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Aan het einde van de implementatie van de PowerShell-sessie is nog geopend en eventuele uitvoer wordt niet weergegeven
 Dit gedrag is waarschijnlijk alleen het resultaat van het standaardgedrag van een PowerShell-opdrachtvenster wanneer dit item is geselecteerd. De development kit-implementatie is geslaagd, maar het script is onderbroken bij het selecteren van het venster. U kunt controleren of de installatie is voltooid door te zoeken naar het woord 'selecteren' in de titelbalk van het opdrachtvenster. Druk op ESC deze selectie opheffen en de voltooiingsbericht nadat deze moet worden weergegeven.

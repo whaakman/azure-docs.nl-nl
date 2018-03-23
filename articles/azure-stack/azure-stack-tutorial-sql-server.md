@@ -2,28 +2,27 @@
 title: SQL-databases beschikbaar maken voor de gebruikers van uw Azure-Stack | Microsoft Docs
 description: Zelfstudie voor het installeren van de SQL Server-resourceprovider en maken biedt die, kunnen gebruikers van de Stack Azure SQL-databases maken.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2017
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: e9fd74fa44bb9482ee2285f4305085ee6ff2fb73
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>SQL-databases beschikbaar maken voor uw Azure-Stack-gebruikers
-
 Als de beheerder van een Azure-Stack cloud kunt u aanbiedingen die uw gebruikers laten maken (tenants) maken van SQL-databases die ze met hun cloud-systeemeigen apps, websites en werkbelastingen gebruiken kunnen. Dankzij deze aangepaste, op verzoek, cloud-gebaseerde databases aan uw gebruikers, kunt u ze bespaart tijd en bronnen. Dit als u wilt instellen, kun je het:
 
 > [!div class="checklist"]
@@ -56,7 +55,7 @@ Het implementatieproces is beschreven in de [Gebruik SQL-databases op Azure-Stac
 Nu dat u de SQL Server-resourceprovider hebt geïmplementeerd en een aanbieding hebt gemaakt, u als een gebruiker aanmelden kunt, abonneren op de aanbieding en maak een database.
 
 ### <a name="subscribe-to-the-offer"></a>Abonneren op de aanbieding
-1. Meld u aan de Stack van Azure-portal (https://portal.local.azurestack.external) als een tenant.
+1. Aanmelden bij de Azure-Stack-portal (https://portal.local.azurestack.external) als een tenant.
 2. Klik op **Neem een abonnement op** en typ vervolgens **TestSQLServerSubscription** onder **weergavenaam**.
 3. Klik op **selecteert u een aanbieding** > **TestSQLServerOffer** > **maken**.
 4. Klik op **meer services** > **abonnementen** > **TestSQLServerSubscription** > **Resource providers**.
@@ -64,7 +63,7 @@ Nu dat u de SQL Server-resourceprovider hebt geïmplementeerd en een aanbieding 
 
 ### <a name="create-a-sql-database"></a>Een SQL-database maken
 
-1. Klik op  **+**   >  **gegevens en opslag** > **SQL-Database**.
+1. Klik op **+**  >  **gegevens en opslag** > **SQL-Database**.
 2. Laat de standaardwaarden voor de velden of kunt u deze voorbeelden:
     - **Databasenaam**: SQLdb
     - **Maximale grootte in MB**: 100

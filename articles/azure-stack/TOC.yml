@@ -6,18 +6,14 @@
       href: azure-stack-poc.md
     - name: Releaseopmerkingen
       items:
-        - name: Opmerkingen bij de release van de Development kit
-          href: azure-stack-asdk-release-notes.md
-        - name: Geïntegreerde systemen release-opmerkingen
-          items:
-            - name: 1802 update
-              href: azure-stack-update-1802.md
-            - name: 1712 update
-              href: azure-stack-update-1712.md
-            - name: 1711 update
-              href: azure-stack-update-1711.md
-            - name: 1710 update
-              href: azure-stack-update-1710.md
+        - name: 1802 update
+          href: azure-stack-update-1802.md
+        - name: 1712 update
+          href: azure-stack-update-1712.md
+        - name: 1711 update
+          href: azure-stack-update-1711.md
+        - name: 1710 update
+          href: azure-stack-update-1710.md
 - name: Snelstartgidsen
   expanded: true
   items:
@@ -67,8 +63,6 @@
               href: validate-pki-certs.md
         - name: Identiteitintegratie
           href: azure-stack-integrate-identity.md
-        - name: Azure Stack registreren
-          href: azure-stack-registration.md
         - name: Externe controle
           href: azure-stack-integrate-monitor.md
         - name: Beveiligingsintegratie
@@ -77,30 +71,14 @@
       href: azure-stack-servicing-policy.md
     - name: Belangrijke functies en concepten
       href: azure-stack-key-features.md
-    - name: Development kit architectuur
-      href: azure-stack-architecture.md
     - name: Basisprincipes van beheer
       href: azure-stack-manage-basics.md
 - name: Handleidingen
   items:
-    - name: De ASDK implementeren
-      items:
-        - name: Vereisten
-          href: azure-stack-deploy.md
-        - name: Telemetrie
-          href: azure-stack-telemetry.md
-        - name: Implementeren
-          href: azure-stack-run-powershell-script.md
-        - name: PowerShell installeren
-          href: azure-stack-powershell-install.md
-        - name: Registreren
-          href: azure-stack-register.md
-        - name: Verbinding maken met Azure Stack
-          href: azure-stack-connect-azure-stack.md
-        - name: Standaardinstallatiekopie toevoegen
-          href: azure-stack-add-default-image.md
-        - name: Een test-VM maken
-          href: azure-stack-provision-vm.md
+    - name: Telemetrie verzamelen configureren
+      href: azure-stack-telemetry.md
+    - name: Azure Stack registreren
+      href: azure-stack-registration.md
     - name: Beheren
       items:
         - name: Regiobeheer
@@ -246,7 +224,7 @@
               href: azure-stack-app-service-add-worker-roles.md
             - name: Implementatiebronnen configureren
               href: azure-stack-app-service-configure-deployment-sources.md
-            - name: App Service bijwerken één releaseopmerkingen
+            - name: App-Service op Azure-Stack update 1 release-opmerkingen
               href: azure-stack-app-service-release-notes-update-one.md
         - name: De Marketplace vullen
           items:
@@ -318,6 +296,8 @@
   items:
     - name: Documentatie voor Azure Stack-gebruiker
       href: /azure/azure-stack/user/
+    - name: ASDK documentatie
+      href: /azure/azure-stack/asdk/
 - name: Resources
   items:
     - name: Azure Stack roadmap

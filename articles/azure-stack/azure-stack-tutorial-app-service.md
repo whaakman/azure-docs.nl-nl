@@ -2,28 +2,27 @@
 title: Web- en API-apps beschikbaar te maken voor de gebruikers van uw Azure-Stack | Microsoft Docs
 description: Zelfstudie voor het installeren van de App Service-resourceprovider en maken biedt die uw gebruikers Azure Stack bieden de mogelijkheid om web en API-apps te maken.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e2f15ca3a46af51ab6228e772298c51ad33fd49c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Web- en API-apps beschikbaar te maken voor uw Azure-Stack-gebruikers
-
 Als de beheerder van een Azure-Stack cloud kunt u aanbiedingen die uw gebruikers laten maken (tenants) Azure Functions- en web- en API-toepassingen maken. Dankzij de toegang tot deze op aanvraag, cloud-gebaseerde apps aan uw gebruikers, kunt u ze bespaart tijd en bronnen. Dit als u wilt instellen, kun je het:
 
 > [!div class="checklist"]
@@ -58,12 +57,12 @@ U kunt bijvoorbeeld een aanbieding waarmee gebruikers maken DNN web content mana
 Nu dat u de App Service-resourceprovider hebt geïmplementeerd en een aanbieding hebt gemaakt, u als een gebruiker aanmelden kunt, Abonneer u op de aanbieding en een app maken. In dit voorbeeld maakt u een inhoudsbeheersysteem DNN Platform. U moet eerst een SQL-database en vervolgens de DNN web-app maken.
 
 ### <a name="subscribe-to-the-offer"></a>Abonneren op de aanbieding
-1. Meld u aan de Stack van Azure-portal (https://portal.local.azurestack.external) als een tenant.
+1. Aanmelden bij de Azure-Stack-portal (https://portal.local.azurestack.external) als een tenant.
 2. Klik op **Neem een abonnement op** > type **TestAppServiceSubscription** onder **weergavenaam** > **selecteert u een aanbieding**  >  **TestAppServiceOffer** > **maken**.
 
 ### <a name="create-a-sql-database"></a>Een SQL-database maken
 
-1. Klik op  **+**   >  **gegevens en opslag** > **SQL-Database**.
+1. Klik op **+**  >  **gegevens en opslag** > **SQL-Database**.
 2. Laat de standaardwaarden voor de velden, behalve als volgt:
     - **Databasenaam**: DNNdb
     - **Maximale grootte in MB**: 100
@@ -75,7 +74,7 @@ Nu dat u de App Service-resourceprovider hebt geïmplementeerd en een aanbieding
 
 ### <a name="create-a-dnn-app"></a>Een DNN-app maken    
 
-1. Klik op  **+**   >  **alle** > **DNN Platform preview** > **maken**.
+1. Klik op **+**  >  **alle** > **DNN Platform preview** > **maken**.
 2. Type *DNNapp* onder **appnaam** en selecteer **TestAppServiceOffer** onder **abonnement**.
 3. Klik op **vereiste instellingen configureren** > **nieuw** > type een **App Service-abonnement** naam.
 4. Klik op **prijscategorie** > **F1 gratis** > **Selecteer** > **OK**.

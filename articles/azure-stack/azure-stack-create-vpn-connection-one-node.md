@@ -1,11 +1,11 @@
 ---
 title: Een site-naar-site VPN-verbinding maken tussen twee virtuele netwerken in verschillende Azure-Stack Development Kit omgevingen | Microsoft Docs
-description: "Stapsgewijze instructies die de beheerder van een cloud gebruikt voor het maken van een site-naar-site VPN-verbinding tussen twee Azure Stack Development Kit omgevingen met één knooppunt."
+description: Stapsgewijze instructies die de beheerder van een cloud gebruikt voor het maken van een site-naar-site VPN-verbinding tussen twee Azure Stack Development Kit omgevingen met één knooppunt.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
 ms.reviewer: scottnap
-ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bb10be63ef31ebe6241c15a79dafe71923a4cf7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Een site-naar-site VPN-verbinding maken tussen twee virtuele netwerken in verschillende Azure-Stack Development Kit omgevingen
 ## <a name="overview"></a>Overzicht
@@ -33,7 +33,7 @@ Het volgende diagram toont wat de verbindingsconfiguratie ziet er als u klaar be
 ### <a name="before-you-begin"></a>Voordat u begint
 Zorg ervoor dat u de volgende items hebt voordat u begint voor het voltooien van de configuratie van de verbinding:
 
-* Twee servers die voldoen aan de hardwarevereisten Azure Stack Development Kit die worden gedefinieerd door de [vereisten voor implementatie van Azure-Stack](azure-stack-deploy.md). Zorg ervoor dat de vereisten die worden weergegeven in de [artikel](azure-stack-deploy.md) te is voldaan.
+* Twee servers en andere vereisten die voldoen aan de hardwarevereisten Azure Stack Development Kit zoals beschreven in [Snelstartgids: evalueren van de Azure-Stack Development Kit](azure-stack-deploy-overview.md). 
 * De [Azure Stack Development Kit](https://azure.microsoft.com/en-us/overview/azure-stack/try/) implementatiepakket.
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>De Azure-Stack Development Kit omgevingen implementeren

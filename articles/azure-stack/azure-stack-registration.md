@@ -1,87 +1,83 @@
 ---
-title: "Azure registratie voor Azure-Stack geïntegreerd systemen | Microsoft Docs"
+title: Azure registratie voor Azure-Stack geïntegreerd systemen | Microsoft Docs
 description: Beschrijft het registratieproces Azure voor implementaties met meerdere knooppunten verbonden met een Azure-Stack Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 27bd44f936e19890526c0834e14084647dcec086
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.reviewer: avishwan
+ms.openlocfilehash: e51a15b197e875c35997cfe2ac96d673c01a80f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
-U kunt Azure-Stack registreren met Azure marketplace-items van Azure downloaden en voor het instellen van rapportage terug naar Microsoft commerce-gegevens. Nadat u Azure-Stack geregistreerd, wordt informatie over het gebruik gerapporteerd aan Azure Commerce. U kunt dit zien onder het abonnement dat u voor registratie gebruikt.
+Registreren van [Azure Stack](azure-stack-poc.md) met Azure kunt u voor het downloaden van marketplace-items van Azure en voor het instellen van rapportage terug naar Microsoft commerce-gegevens. Nadat u Azure-Stack geregistreerd, gebruik is gerapporteerd aan Azure commerce en kunt u deze bekijken in het abonnement dat u gebruikt voor registratie. 
 
 > [!IMPORTANT]
 > Registratie is verplicht als u ervoor het facturering model pay-as-gebruik kiest. Anders kunt u zich in een overschrijding van de licentievoorwaarden van de implementatie van Azure-Stack zoals Gebruik anders niet gerapporteerd.
 
-## <a name="before-you-register-azure-stack-with-azure"></a>Voordat u Azure-Stack met Azure registreren
+## <a name="prerequisites"></a>Vereisten
 Voordat u registreert Stack van Azure met Azure, moet u het volgende hebben:
 
 - De abonnement-ID voor een Azure-abonnement. Als u de ID, zich aanmelden bij Azure, klikt u op **meer services** > **abonnementen**, klik op het abonnement dat u gebruiken wilt, en klikt u onder **Essentials** vindt u de Abonnements-ID. 
 
   > [!NOTE]
-  > China, Duitsland en US government-cloudabonnementen zijn momenteel niet ondersteund. 
+  > China, Duitsland en US Government cloudabonnementen worden momenteel niet ondersteund. 
 
 - De gebruikersnaam en het wachtwoord voor een account dat is eigenaar van het abonnement (MSA/2FA accounts worden ondersteund)
-- *Niet vereist vanaf Azure Stack 1712 updateversie (180106.1)*: de Azure AD voor de Azure-abonnement. U kunt deze map vinden in Azure door de muiswijzer op uw avatar in de rechterbovenhoek van de Azure portal. 
-- De Azure-Stack-resourceprovider geregistreerd (Zie de sectie Azure Stack-Resourceprovider registreren hieronder voor meer informatie)
+- De Azure-Stack-resourceprovider geregistreerd (Zie de sectie Azure Stack-Resourceprovider registreren hieronder voor meer informatie).
 
 Als u geen een Azure-abonnement dat aan deze vereisten voldoet, kunt u [maken van een gratis Azure-account hier](https://azure.microsoft.com/free/?b=17.06). Azure-Stack registreren maakt geen kosten op uw Azure-abonnement.
 
 ### <a name="bkmk_powershell"></a>Installeer PowerShell voor Azure Stack
-U moet het systeem registreren met Azure met de meest recente PowerShell voor Azure-Stack.
+U moet de meest recente PowerShell voor Azure-Stack gebruiken om te registreren met Azure.
 
 Als u nog niet is geïnstalleerd, [Installeer PowerShell voor Azure-Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install). 
 
 ### <a name="bkmk_tools"></a>Download de Azure-Stack-tools
 De Azure-Stack extra GitHub-opslagplaats bevat PowerShell-modules die ondersteuning bieden voor Azure-Stack functionaliteit; inclusief registratie-functionaliteit. Tijdens de registratie moet u importeren en gebruiken van de module PowerShell RegisterWithAzure.psm1 aangetroffen in de opslagplaats van de Azure-Stack hulpprogramma's voor uw Azure-Stack-exemplaar registreren bij Azure. 
 
-```powershell
-# Change directory to the root directory. 
-cd \
-
-# Download the tools archive.
-  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
-  invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
-
-# Expand the downloaded files.
-  expand-archive master.zip `
-  -DestinationPath . `
-  -Force
-
-# Change to the tools directory.
-  cd AzureStack-Tools-master
-```
+Om te controleren of u de nieuwste versie gebruikt, verwijdert u alle bestaande versies van de Azure-Stack-hulpprogramma's en [de nieuwste versie downloaden vanuit GitHub](azure-stack-powershell-download.md) voordat u registreert met Azure.
 
 ## <a name="register-azure-stack-in-connected-environments"></a>Azure-Stack in verbonden omgevingen registreren
 Verbonden omgevingen hebben toegang tot het internet en Azure. Voor deze omgevingen moet u de Azure-Stack-resourceprovider registreren bij Azure en configureer vervolgens het factureringsmodel.
+
+> [!NOTE]
+> Alle deze stappen moeten worden uitgevoerd vanaf een computer die toegang tot de bevoegde eindpunt heeft. 
 
 ### <a name="register-the-azure-stack-resource-provider"></a>De Stack van Azure resourceprovider registreren
 Als u wilt de Azure-Stack-resourceprovider registreren met Azure, Powershell ISE start als beheerder en gebruik de volgende PowerShell-opdrachten. Deze opdrachten wordt:
 - Vraagt u zich aanmelden als een eigenaar van het Azure-abonnement moet worden gebruikt en stel de `EnvironmentName` -parameter voor **AzureCloud**.
 - Registreer de provider van de Azure-resource **Microsoft.AzureStack**.
 
-PowerShell om uit te voeren:
+1. De Azure-account waarmee u Azure-Stack registreert toevoegen. Uitvoeren als u wilt toevoegen op het account, de **Add-AzureRmAccount** cmdlet. U wordt gevraagd de referenties van uw globale beheerder van Azure-account invoeren en wellicht 2-factor-verificatie op basis van de configuratie van uw account te gebruiken.
 
-```powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack 
-```
+   ```Powershell
+      Add-AzureRmAccount -EnvironmentName AzureCloud
+   ```
+
+2. Als u meerdere abonnementen hebt, voert u de volgende opdracht om te selecteren die dat u wilt gebruiken:  
+
+   ```powershell
+      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   ```
+
+3. Voer de volgende opdracht om de Azure-Stack-resourceprovider registreren in uw Azure-abonnement:
+
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
 
 ### <a name="register-azure-stack-with-azure-using-the-pay-as-you-use-billing-model"></a>Azure-Stack registreren bij Azure met behulp van het facturering model pay-as-gebruik
 Gebruik de volgende stappen om Azure-Stack registreren bij Azure met behulp van het facturering model pay-as-gebruik.
@@ -197,22 +193,6 @@ Als u wilt de facturering model of de functies voor uw installatie syndicatie wi
 ```powershell
 Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
 ```
-
-## <a name="remove-a-registered-resource"></a>Verwijderen van een geregistreerde bron
-Als u wilt verwijderen van een registratie, dan moet u **UnRegister AzsEnvironment** cmdlet en geeft u de naam van de registratie-resource of de registratie van de token u hebt gebruikt voor **registreren-AzsEnvironment**.
-
-Een registratie met de naam van een bron verwijderen:
-
-```Powershell    
-UnRegister-AzsEnvironment -RegistrationName "*Name of the registration resource*"
-```
-Een registratie met een registratietoken verwijderen:
-
-```Powershell
-$registrationToken = "*Your copied registration token*"
-UnRegister-AzsEnvironment -RegistrationToken $registrationToken
-```
-
 ## <a name="next-steps"></a>Volgende stappen
 
-[Integratie met externe controle](azure-stack-integrate-monitor.md)
+[Downloaden van marketplace-items van Azure](azure-stack-download-azure-marketplace-item.md)

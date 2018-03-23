@@ -2,10 +2,10 @@
 title: Basisbeginselen van Azure Stack beheer | Microsoft Docs
 description: Meer informatie over wat u moet weten voor het beheer van Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: fa77faac195de3be7bf7b2785eb589b030a6e6ce
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Basisbeginselen van Azure Stack-beheer
-
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
-
 Er zijn verschillende dingen die u weten moet als u geen ervaring met Azure-Stack-beheer. In deze richtlijnen biedt een overzicht van uw rol als een Azure-Stack-operator en wat u moet uw gebruikers ze snel productief worden uitgelegd.
 
 ## <a name="understand-the-builds"></a>De builds begrijpen

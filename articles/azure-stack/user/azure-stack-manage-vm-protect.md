@@ -1,11 +1,11 @@
 ---
-title: "Beveiligen van virtuele machines die worden geïmplementeerd op Azure-Stack | Microsoft Docs"
-description: "Richtlijnen voor het beveiligen van virtuele machines die worden geïmplementeerd op Azure-Stack."
+title: Beveiligen van virtuele machines die worden geïmplementeerd op Azure-Stack | Microsoft Docs
+description: Richtlijnen voor het beveiligen van virtuele machines die worden geïmplementeerd op Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: 02get-started-article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: hector.linares
-ms.openlocfilehash: e7c437e3310fbf5c921920a3f08ecb8fe1f0d931
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Beveiligen van virtuele machines die worden geïmplementeerd op Azure-Stack
 
@@ -68,8 +68,8 @@ De meest voorkomende schema beveiliging voor VM-toepassingen is het gebruik van 
  
 Herstellen van de toepassing vereist een of meer virtuele machines herstellen naar de cloud met dezelfde of naar een nieuwe cloud. U kunt een cloud richten in uw datacenter of de openbare cloud. Welke cloud-gericht is volledig binnen het besturingselement en is gebaseerd op de privacy- en onafhankelijkheid vereisten van uw gegevens. 
  
- - RTO: Uitvaltijd gemeten in seconden 
- - RPO: De minimale gegevensverlies
+ - RTO: Uitvaltijd gemeten in uren 
+ - RPO: Variabele gegevensverlies (afhankelijk van de back-upfrequentie)
  - Implementatietopologie: actief/passief- 
 
 #### <a name="planning-your-backup-strategy"></a>Uw strategie voor back-up plannen
@@ -95,8 +95,8 @@ Met deze methode wordt alleen de toepassing geïmplementeerd in een cloud. De vi
 
 ![Replicatie-handmatige failover](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
- - RTO: Uitvaltijd in minuten 
- - RPO: De variabele gegevensverlies
+ - RTO: Uitvaltijd uitgedrukt in minuten 
+ - RPO: Variabele gegevensverlies (afhankelijk van de replicatiefrequentie)
  - Implementatietopologie: actief/passief-stand-by
  
 ### <a name="high-availabilityautomatic-failover"></a>Hoge beschikbaarheid en automatische failover

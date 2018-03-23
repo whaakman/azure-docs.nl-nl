@@ -2,23 +2,23 @@
 title: Opmerkingen bij de release van Microsoft Azure-Stack Development Kit | Microsoft Docs
 description: Verbeteringen, correcties en bekende problemen voor Azure Stack Development Kit.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 176b850120958a5ca5fdaece4831e2ed27ac0a04
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b08c1793857fd6c6a6a04c0d450e76a36357597
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure-Stack Development Kit release-opmerkingen
 Deze releaseopmerkingen bevatten informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit. Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -56,6 +56,11 @@ Zie de [nieuwe functies en oplossingen](.\.\azure-stack-update-1802.md#new-featu
     - *Fout - sjabloon voor FaultType ResourceProviderTimeout ontbreekt.*
 
     Deze waarschuwing kan worden genegeerd. 
+
+- In de beheerportal en gebruikersportal, de overzichtsblade niet kan worden geladen bij het selecteren van de blade overzicht van de storage-accounts die zijn gemaakt met een oudere versie van de API (voorbeeld: 2015-06-15). 
+
+  Als tijdelijke oplossing kunt u PowerShell gebruiken om uit te voeren de **Start ResourceSynchronization.ps1** script toegang om de accountdetails van de opslag te herstellen. [Het script is beschikbaar via GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), en moet worden uitgevoerd met service-beheerdersreferenties op de host van development kit als u de ASDK gebruikt.  
+
 
 #### <a name="health-and-monitoring"></a>Status en bewaking
 In de Stack van Azure-beheerportal, ziet u mogelijk een kritieke waarschuwing met de naam **in behandeling zijnde vervaldatum van het externe certificaat**.  Deze waarschuwing kan worden genegeerd en heeft invloed op de bewerkingen van de Azure-Stack Development Kit. 
@@ -273,9 +278,11 @@ In Azure Active Directory Federation Services (ADFS) geïmplementeerd omgevingen
     > Sommige van de items in de **nieuwe functies en oplossingen** sectie alleen relevant zijn voor Azure-Stack geïntegreerd systemen.
 
 ### <a name="known-issues"></a>Bekende problemen
+
  
 #### <a name="deployment"></a>Implementatie
 - U moet een tijd-server op IP-adres opgeven tijdens de implementatie.
+- Vanaf versie 1711, **CloudAdmin** is een gereserveerde naam en mag niet worden handmatig opgegeven wanneer u de development kit implementeert. 
 
 #### <a name="infrastructure-management"></a>Beheer van infrastructuur
 - Schakel geen infrastructuur back-up op de **infrastructuur back-up** blade.

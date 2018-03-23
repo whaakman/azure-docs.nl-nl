@@ -2,10 +2,10 @@
 title: Sleutelkluis in Azure-Stack beheren met behulp van PowerShell | Microsoft Docs
 description: Informatie over het beheren van Sleutelkluis in Azure-Stack met behulp van PowerShell
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 22B62A3B-B5A9-4B8C-81C9-DA461838FAE5
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 6ee2ceff10d16456a6e8c6283f40fa594b3311bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9dac59d74347e21bebaf7cb65d199711f45b29a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-powershell"></a>Sleutelkluis in Azure-Stack beheren met PowerShell
 
@@ -81,7 +81,7 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 ![Nieuwe sleutelkluis](media/azure-stack-kv-manage-powershell/image4.png)
 
-De uitvoer van deze opdracht worden de eigenschappen van de sleutelkluis die u hebt gemaakt. Wanneer een toepassing toegang heeft tot deze kluis, gebruikt de **Vault URI** eigenschap in de uitvoer wordt weergegeven. Bijvoorbeeld, is de Uniform Resource Identifier (URI) van de kluis in dit geval 'https://vault01.vault.local.azurestack.external'. Toepassingen die met deze sleutelkluis via REST API communiceren, moeten deze URI gebruiken.
+De uitvoer van deze opdracht worden de eigenschappen van de sleutelkluis die u hebt gemaakt. Wanneer een toepassing toegang heeft tot deze kluis, gebruikt de **Vault URI** eigenschap in de uitvoer wordt weergegeven. Bijvoorbeeld, de kluis Uniform Resource Identifier (URI) in dit geval is 'https://vault01.vault.local.azurestack.external'. Toepassingen die met deze sleutelkluis via REST API communiceren, moeten deze URI gebruiken.
 
 In Active Directory Federation Services (AD FS)-gebaseerde implementaties wanneer u geen sleutel maken met behulp van PowerShell-kluis, verschijnt er een waarschuwing dat '-beleid is niet ingesteld. Er is geen gebruiker of toepassing heeft toegangsmachtigingen voor het gebruik van deze kluis." Dit probleem oplossen door een toegangsbeleid voor de kluis in te stellen via de [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) opdracht:
 
@@ -90,7 +90,7 @@ In Active Directory Federation Services (AD FS)-gebaseerde implementaties wannee
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value 
 
-#Set the key vault access policy
+# Set the key vault access policy
 Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation 
 ```
 
@@ -113,8 +113,8 @@ De **bestemming** parameter wordt gebruikt om op te geven dat de sleutel softwar
 
 U kunt nu verwijzen naar de gemaakte sleutel met behulp van de URI. Als u maken of importeren van een sleutel die dezelfde naam als een bestaande sleutel heeft, wordt de oorspronkelijke sleutel bijgewerkt met de opgegeven waarden in de nieuwe sleutel. U kunt toegang tot de vorige versie met behulp van de versie-specifieke-URI van de sleutel. Bijvoorbeeld: 
 
-* Gebruik 'sleutels-https://vault10.vault.local.azurestack.external:443/key01' om altijd de huidige versie. 
-* ' Https://vault010.vault.local.azurestack.external:443/sleutels/key01/d0b36ee2e3d14e9f967b8b6b1d38938a' gebruiken om deze specifieke versie.
+* Gebruik 'https://vault10.vault.local.azurestack.external:443/keys/key01' voor altijd de huidige versie. 
+* Gebruik 'https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a' voor deze specifieke versie.
 
 ### <a name="get-a-key"></a>Een sleutel ophalen
 

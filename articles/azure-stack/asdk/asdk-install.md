@@ -2,24 +2,24 @@
 title: Installeer de Azure-Stack Development Kit (ASDK) | Microsoft Docs
 description: Beschrijft het installeren van Azure Stack Development Kit (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e1f4cfb74d83cb23631e5a16a6e6f2dba98027ef
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7b8fe61731a9412c61152bc58e55deebb611d011
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installeer de Azure-Stack Development Kit (ASDK)
 Na [voorbereiden van de hostcomputer ASDK](asdk-prepare-host.md), de ASDK kan worden geïmplementeerd in de installatiekopie van het CloudBuilder.vhdx met behulp van de volgende stappen in dit artikel.
@@ -55,8 +55,10 @@ De stappen in dit artikel ziet u het implementeren van de ASDK met een grafische
     - **DHCP** (standaard): de virtuele machine krijgt de IP-configuratie van de DHCP-server.
     - **Statische**: Gebruik deze optie alleen als DHCP niet een geldig IP-adres voor Azure-Stack toegang tot Internet toewijzen. **Een statisch IP-adres moet worden opgegeven met de lengte van het subnetmasker in CIDR-notatie (bijvoorbeeld 10.0.0.5/24)**.
     - Type in een geldige **server-IP-tijd** adres. Dit vereist veld stelt de time-server moet worden gebruikt door de development kit. Deze parameter moet worden opgegeven als een geldige tijd server IP-adres. Servernamen worden niet ondersteund.
+
       > [!TIP]
       > Ga voor een IP-adres naar [pool.ntp.org](http:\\pool.ntp.org) of time.windows.com pingen. 
+
     - **Eventueel**, instellen van de volgende waarden:
         - **VLAN-ID**: Hiermee stelt u de VLAN-ID. Gebruik deze optie alleen als de host en AzS BGPNAT01 VLAN-ID voor toegang tot het fysieke netwerk (en internet) moet configureren. 
         - **DNS-doorstuurserver**: een DNS-server is gemaakt als onderdeel van de Azure-Stack-implementatie. Geef uw bestaande infrastructuur DNS-server zodat computers binnen de oplossing voor het omzetten van namen buiten de stempel. De in het stempel DNS-server stuurt onbekende aanvragen voor naamomzetting naar deze server.
@@ -88,10 +90,10 @@ Gefeliciteerd, u hebt de ASDK geïnstalleerd.
 
 Als de implementatie voor een bepaalde reden mislukt, kunt u [implementeren](asdk-redeploy.md) maakt of gebruik de volgende PowerShell-opdrachten, vanuit de dezelfde verhoogde PowerShell-venster, opnieuw opstarten van de implementatie van de laatste geslaagde stap:
 
-    ```powershell
-    cd C:\CloudDeployment\Setup
-    .\InstallAzureStackPOC.ps1 -Rerun
-    ```
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ## <a name="next-steps"></a>Volgende stappen
 [Post-implementatieconfiguratie](asdk-post-deploy.md)
