@@ -5,7 +5,7 @@ services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="templates"></a>Sjablonen
 ## <a name="overview"></a>Overzicht
@@ -114,13 +114,13 @@ Sjablonen zijn beperkt tot indelingen van XML- of JSON-document. Bovendien kunt 
 
 De volgende tabel ziet u de taal die is toegestaan in sjablonen:
 
-| expressie | Beschrijving |
+| Expressie | Beschrijving |
 | --- | --- |
 | $(prop) |Verwijzing naar een gebeurteniseigenschap met de opgegeven naam. De namen van eigenschappen zijn niet hoofdlettergevoelig. Deze expressie wordt omgezet in de tekstwaarde van de eigenschap of een lege tekenreeks als de eigenschap niet aanwezig is. |
 | $(prop, n) |Zoals hierboven, maar de tekst expliciet is afgekapt op n tekens, bijvoorbeeld $(titel, 20) knipt de inhoud van de eigenschap title op 20 tekens bestaan. |
 | . (prop, n) |Zoals hierboven, maar de tekst wordt voorafgegaan door drie punten omdat deze is afgekapt. De totale grootte van de afgekapte tekenreeks en het achtervoegsel overschrijdt niet n tekens. . (titel, 20) met een invoer-eigenschap van de resultaten in 'Is de titelregel ' **dit is de titel...** |
 | %(Prop) |Vergelijkbaar zijn met $(name), behalve dat de uitvoer is de URI-codering. |
-| #(prop) |In JSON-sjablonen gebruikt (bijvoorbeeld voor iOS en Android-sjablonen).<br><br>Deze functie werkt precies hetzelfde als $(prop) eerder hebt opgegeven, behalve wanneer in JSON-sjablonen (bijvoorbeeld een Apple-sjablonen). In dit geval, als deze functie wordt niet omgeven door '{','}' (bijvoorbeeld myJsonProperty: '#(naam)'), en dit resulteert in een getal in Javascript-indeling, bijvoorbeeld regexp: (0 &#124; (&#91; 1-9, #93; &#91; 0-9 &#93;;*))(\. &#91; 0-9 &#93; +)? ((e &#124; E) (+ &#124;-)? &#91; 0-9 &#93; +)?, en vervolgens de JSON-uitvoer een getal is.<br><br>Bijvoorbeeld ' badge: '#(naam)', wordt de badge': 40 (en niet 40). |
+| #(prop) |In JSON-sjablonen gebruikt (bijvoorbeeld voor iOS en Android-sjablonen).<br><br>Deze functie werkt precies hetzelfde als $(prop) eerder hebt opgegeven, behalve wanneer in JSON-sjablonen (bijvoorbeeld een Apple-sjablonen). In dit geval, als deze functie wordt niet omgeven door '{','}' (bijvoorbeeld myJsonProperty: '#(naam)'), en dit resulteert in een getal in Javascript-indeling, bijvoorbeeld regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*)) (\. &#91;0-9&#93;+)? ((e&#124;E) (+&#124;-)? &#91;0-9&#93;+)?, en vervolgens de JSON-uitvoer een getal is.<br><br>Bijvoorbeeld ' badge: '#(naam)', wordt de badge': 40 (en niet 40). |
 | 'text' of 'text' |Een letterlijke waarde. Letterlijke waarden bevatten willekeurige tekst tussen enkele of dubbele aanhalingstekens. |
 | Expr1 + expr2 |De samenvoegingsoperator lid te worden twee expressies in één tekenreeks. |
 

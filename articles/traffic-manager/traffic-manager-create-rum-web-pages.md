@@ -5,27 +5,24 @@ services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: c8b345cd973b8cd939ad111132f1afdadae9f2b7
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 71661d8640dbe14082292cb9637964adac9fa803
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Het verzenden van echte metingen van de gebruiker naar Azure Traffic Manager via de webpagina 's
-
->[!NOTE]
->De functie echte gebruiker metingen in Traffic Manager kan is openbare preview-versie en geen hetzelfde niveau van beschikbaarheid en betrouwbaarheid zoals functies die in het algemeen beschikbaarheid release. De functie wordt niet ondersteund, kan hebben beperkte mogelijkheden en mogelijk niet beschikbaar in alle Azure-locaties. Voor de meest recente meldingen op beschikbaarheid en de status van deze functie, Controleer de [Azure Traffic Manager-updates](https://azure.microsoft.com/updates/?product=traffic-manager) pagina.
 
 U kunt uw webpagina's voor het verzenden van echte metingen van de gebruiker aan Traffic Manager door het verkrijgen van een echte gebruiker metingen (RUM)-sleutel en de gegenereerde code naar webpagina insluiten configureren.
 

@@ -1,25 +1,25 @@
 ---
-title: "Genereren van certificaten voor de implementatie van Azure-Stack geïntegreerd systemen Azure Stack Public Key Infrastructure | Microsoft Docs"
-description: "Hierin wordt beschreven in de Azure-Stack PKI-certificaat implementatie processfor Azure Stack geïntegreerd-systemen."
+title: Genereren van certificaten voor de implementatie van Azure-Stack geïntegreerd systemen Azure Stack Public Key Infrastructure | Microsoft Docs
+description: Hierin wordt beschreven in de Azure-Stack PKI-certificaat implementatie processfor Azure Stack geïntegreerd-systemen.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 991a94e4ca41bad438a3c8d06e4e1f691cff91bc
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 4a7432260167b8740567ad4308e102417abad82c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>PKI-certificaten voor de implementatie van Azure-Stack genereren
 Als u weet [PKI-certificaatvereisten](azure-stack-pki-certs.md) voor Azure-Stack-implementaties, moet u deze certificaten verkrijgen van de certificeringsinstantie (CA) van uw keuze. 
@@ -30,7 +30,7 @@ Een manier om aanvragen van certificaten vanuit een openbare CA of een interne C
 ### <a name="sample-inf-file"></a>INF-bestand 
 Het voorbeeld certificaat aanvraag INF-bestand kan worden gebruikt voor het maken van een bestand offline certificaataanvraag te verzenden naar een CA (intern of openbaar). Het INF-bestand bevat alle van de vereiste eindpunten (inclusief de optionele PaaS-services) in een enkel jokertekencertificaat. 
 
-Het INF-bestand van het voorbeeld wordt ervan uitgegaan dat regio is gelijk aan **sea** en de externe FQDN-waarde is **sea &#46; contoso &#46; com**. Wijzig deze waarden voor uw omgeving vóór het genereren van een. INF-bestand voor uw implementatie. 
+Het INF-bestand van het voorbeeld wordt ervan uitgegaan dat regio is gelijk aan **sea** en de externe FQDN-waarde is **sea&#46;contoso&#46;com**. Wijzig deze waarden voor uw omgeving vóór het genereren van een. INF-bestand voor uw implementatie. 
 
     
     [Version] 

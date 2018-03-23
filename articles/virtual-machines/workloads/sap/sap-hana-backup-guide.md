@@ -2,10 +2,10 @@
 title: Back-handleiding voor SAP HANA op Azure Virtual Machines | Microsoft Docs
 description: Back-handleiding voor SAP HANA bevat twee belangrijke back-mogelijkheden voor SAP HANA voor virtuele machines in Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.openlocfilehash: 9e5b124643b753f404ba6012d3df998f567be59a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Back-uphandleiding voor SAP HANA op Azure Virtual Machines
 
@@ -42,7 +42,7 @@ De volgende drie cijfers biedt een overzicht van de SAP HANA back-upopties syste
 
 ![Deze afbeelding ziet u twee mogelijkheden voor het opslaan van de huidige status van de virtuele machine](media/sap-hana-backup-guide/image001.png)
 
-Deze afbeelding ziet u de mogelijkheid om de huidige status van virtuele machine, hetzij via Azure Backup-service of handmatige momentopname van de VM-schijven op te slaan. Met deze benadering, één &#39; t hebben voor het beheren van back-ups SAP HANA. De uitdaging van het scenario voor schijven momentopname is consistentie van het bestandssysteem en de status van een toepassingsconsistente schijf. De consistentiecontrole onderwerp wordt besproken in de sectie _SAP HANA gegevensconsistentie bij het maken van opslag-momentopnamen_ verderop in dit artikel. Mogelijkheden en beperkingen van Azure Backup-service die betrekking hebben op SAP HANA back-ups worden ook besproken verderop in dit artikel.
+Deze afbeelding ziet u de mogelijkheid om de huidige status van virtuele machine, hetzij via Azure Backup-service of handmatige momentopname van de VM-schijven op te slaan. Met deze methode voert een heeft&#39;t hebben voor het beheren van back-ups SAP HANA. De uitdaging van het scenario voor schijven momentopname is consistentie van het bestandssysteem en de status van een toepassingsconsistente schijf. De consistentiecontrole onderwerp wordt besproken in de sectie _SAP HANA gegevensconsistentie bij het maken van opslag-momentopnamen_ verderop in dit artikel. Mogelijkheden en beperkingen van Azure Backup-service die betrekking hebben op SAP HANA back-ups worden ook besproken verderop in dit artikel.
 
 ![Deze afbeelding ziet u opties voor het maken van een SAP HANA bestandsback-up in de virtuele machine](media/sap-hana-backup-guide/image002.png)
 
@@ -85,17 +85,17 @@ Voor standaardbestandback-ups is een terugzetbewerking test niet nodig. Er zijn 
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>Voordelen en nadelen van HANA back-up versus opslag momentopname
 
-SAP bestaat &#39; t geven de voorkeur aan beide HANA back-up en opslag-momentopnamen. Geeft de voor- en nadelen, zodat een kan bepalen die wordt gebruikt, afhankelijk van de situatie en de beschikbare opslagruimte-technologie (Zie [plannen van uw back-up- en herstelstrategie](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
+SAP heeft&#39;t de voorkeur geeft aan beide HANA back-up en opslag-momentopnamen. Geeft de voor- en nadelen, zodat een kan bepalen die wordt gebruikt, afhankelijk van de situatie en de beschikbare opslagruimte-technologie (Zie [plannen van uw back-up- en herstelstrategie](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
 
-Op Azure, houd rekening met het feit dat de blob van Azure-functie &#39;Snapshot; t garanderen van de consistentie van het bestandssysteem (Zie [Using blob momentopnamen met PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). De volgende sectie _SAP HANA gegevensconsistentie bij het maken van opslag-momentopnamen_, enkele overwegingen met betrekking tot deze functie wordt besproken.
+In Azure, worden op de hoogte van het feit dat de blob van Azure-functie Snapshot&#39;t garantie consistentie van het bestandssysteem (Zie [Using blob momentopnamen met PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). De volgende sectie _SAP HANA gegevensconsistentie bij het maken van opslag-momentopnamen_, enkele overwegingen met betrekking tot deze functie wordt besproken.
 
-Bovendien een heeft de facturering implicaties begrijpt vaak werken met blobs momentopnamen, zoals beschreven in dit artikel: [begrijpen hoe momentopnamen doorlopen kosten](/rest/api/storageservices/understanding-how-snapshots-accrue-charges): het &#39; zo duidelijk als het gebruik van Azure virtuele t schijven.
+Bovendien een heeft de facturering implicaties begrijpt vaak werken met blobs momentopnamen, zoals beschreven in dit artikel: [begrijpen hoe momentopnamen doorlopen kosten](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— deze&#39;t als duidelijk als het gebruik van Azure virtuele schijven.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>SAP HANA gegevensconsistentie bij het maken van opslag-momentopnamen
 
 Systeem- en consistentie van bestand is een complex probleem bij het maken van opslag-momentopnamen. De eenvoudigste manier om problemen te voorkomen dat kan worden afgesloten SAP HANA en mogelijk zelfs de hele virtuele machine. Afsluiten mogelijk goed met een demo of prototype of zelfs een ontwikkelsysteem, maar is geen optie voor een productiesysteem.
 
-In Azure, een heeft Houd er rekening mee dat de blob van Azure-functie &#39;Snapshot; t garantie consistentie van het bestandssysteem. Dit werkt prima echter met behulp van de SAP HANA-functie momentopname, zolang er slechts één virtuele schijf die betrokken zijn is. Maar zelfs met een enkele schijf extra items moeten worden gecontroleerd. [SAP-notitie 2039883](https://launchpad.support.sap.com/#/notes/2039883) belangrijke informatie over SAP HANA back-ups via opslag-momentopnamen heeft. Bijvoorbeeld, noemt dat met het bestandssysteem XFS uitgevoerd is om **xfs\_blokkeren** voordat u een momentopname van de opslag om te consistentie te garanderen (Zie [xfs\_freeze(8) - Linux man pagina ](https://linux.die.net/man/8/xfs_freeze) voor meer informatie over **xfs\_blokkeren**).
+In Azure, een Houd er rekening mee dat de blob van Azure functie heeft een momentopname heeft&#39;t garantie consistentie van het bestandssysteem. Dit werkt prima echter met behulp van de SAP HANA-functie momentopname, zolang er slechts één virtuele schijf die betrokken zijn is. Maar zelfs met een enkele schijf extra items moeten worden gecontroleerd. [SAP-notitie 2039883](https://launchpad.support.sap.com/#/notes/2039883) belangrijke informatie over SAP HANA back-ups via opslag-momentopnamen heeft. Bijvoorbeeld, noemt dat met het bestandssysteem XFS uitgevoerd is om **xfs\_blokkeren** voordat u een momentopname van de opslag om te consistentie te garanderen (Zie [xfs\_freeze(8) - Linux man pagina ](https://linux.die.net/man/8/xfs_freeze) voor meer informatie over **xfs\_blokkeren**).
 
 Het onderwerp van de consistentie wordt nog meer lastig in geval waarbij een enkel bestandssysteem verspreid over meerdere schijven/volumes. Bijvoorbeeld, met behulp mdadm of LVM en te verwijderen. De SAP-notitie bovengenoemde statussen:
 
@@ -111,7 +111,7 @@ Ervan uitgaande dat er een XFS bestandssysteem spanning vier Azure virtuele schi
 
 U wordt aangeraden de bovenstaande procedure gebruiken in alle gevallen moet voor de zekerheid, ongeacht welk bestandssysteem. Of als één schijf of striping via mdadm of LVM over meerdere schijven.
 
-Het is belangrijk om te bevestigen dat de momentopname HANA. Vanwege de &quot;kopiëren bij schrijven&quot; SAP HANA mogelijk geen extra schijfruimte, terwijl in deze modus momentopname voorbereiden. &#39; ook niet mogelijk is worden nieuwe back-ups gestart totdat de SAP HANA-momentopname is bevestigd.
+Het is belangrijk om te bevestigen dat de momentopname HANA. Vanwege de &quot;kopiëren bij schrijven&quot; SAP HANA mogelijk geen extra schijfruimte, terwijl in deze modus momentopname voorbereiden. Deze&#39;ook niet mogelijk is worden nieuwe back-ups gestart totdat de SAP HANA-momentopname is bevestigd.
 
 Azure Backup-service gebruikt Azure VM-extensies voor het behandelen van de consistentie van het bestandssysteem. Deze VM-uitbreidingen zijn niet beschikbaar voor zelfstandig gebruik. Een heeft nog steeds SAP HANA consistentie te beheren. Zie het artikel gerelateerde [SAP HANA Azure back-up op bestandsniveau](sap-hana-backup-file-level.md) voor meer informatie.
 
@@ -227,7 +227,7 @@ Op basis van de resultaten van die de volgende tabellen tonen de voordelen en na
 
 |Oplossing                                           |Professionals                                 |Nadelen                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
-|Azure Backup-Service                               | Kan back-up van de virtuele machine op basis van de blob-momentopnamen | Wanneer u geen herstelbewerkingen op bestand, het maken van een nieuwe virtuele machine is vereist voor het herstelproces, die vervolgens de noodzaak van een nieuwe sleutel voor SAP HANA-licentie impliceert|
+|Azure Backup Service                               | Kan back-up van de virtuele machine op basis van de blob-momentopnamen | Wanneer u geen herstelbewerkingen op bestand, het maken van een nieuwe virtuele machine is vereist voor het herstelproces, die vervolgens de noodzaak van een nieuwe sleutel voor SAP HANA-licentie impliceert|
 |Handmatige blob momentopnamen                              | Flexibiliteit voor het maken en herstellen van specifieke VM-schijven zonder de unieke ID van de virtuele machine wijzigen|Alle handmatig werk die moet worden uitgevoerd door de klant|
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -2,10 +2,10 @@
 title: SAP HANA Azure back-up op bestandsniveau | Microsoft Docs
 description: Er zijn twee primaire back-mogelijkheden voor SAP HANA op virtuele machines in Azure, in dit artikel bevat informatie over SAP HANA Azure Backup op bestandsniveau
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>SAP HANA Azure back-up op bestandsniveau
 
@@ -87,9 +87,9 @@ In deze schermafbeelding kunnen zien hoe het eruit ziet op de Azure-portal. Een 
 
 De back-console HANA Studio kunt een voor de maximale bestandsgrootte van de back-upbestanden HANA beperken. In de voorbeeldomgeving, moet deze prestaties verbeterd doordat het mogelijk om meerdere kleinere back-upbestanden, in plaats van een grote 230 GB-bestand.
 
-![Het instellen van de limiet voor de back-upbestand op het HANA kant bestaat &#39; t verbetering van de back-uptijd](media/sap-hana-backup-file-level/image029.png)
+![Het instellen van de limiet voor de back-upbestand op het HANA kant bestaat&#39;t verbetering van de back-uptijd](media/sap-hana-backup-file-level/image029.png)
 
-Het instellen van de limiet voor de back-upbestand op het HANA kant bestaat &#39; t de back-uptijd verbeteren omdat de bestanden opeenvolgend zoals weergegeven in deze afbeelding zijn geschreven. De maximale bestandsgrootte is ingesteld op 60 GB, zodat de back-up vier grote gegevensbestanden in plaats van het bestand 230 GB gemaakt.
+Het instellen van de limiet voor de back-upbestand op het HANA kant bestaat&#39;t verbetering van de back-uptijd omdat de bestanden opeenvolgend zoals weergegeven in deze afbeelding zijn geschreven. De maximale bestandsgrootte is ingesteld op 60 GB, zodat de back-up vier grote gegevensbestanden in plaats van het bestand 230 GB gemaakt.
 
 ![Als u wilt testen parallelle uitvoering van het hulpprogramma blobxfer, is klikt u vervolgens de maximale bestandsgrootte voor HANA back-ups ingesteld op 15 GB](media/sap-hana-backup-file-level/image030.png)
 
@@ -139,7 +139,7 @@ Zodat het werkt, maar prestaties is niet geschikt is voor de back-test 230 GB. H
 
 Het is mogelijk om een Azure-bestandsshare binnen een Azure Linux VM te koppelen. Het artikel [Azure File storage gebruiken met Linux](../../../storage/files/storage-how-to-use-files-linux.md) biedt details over hoe u dit doet. Houd er rekening mee dat er momenteel een quotumlimiet van 5 TB van een Azure-bestandsshare en een maximale grootte van 1 TB per bestand is. Zie [Azure Storage Scalability and Performance Targets](../../../storage/common/storage-scalability-targets.md) voor meer informatie over opslaglimieten.
 
-Tests is gebleken, maar die niet van SAP HANA-back-up &#39; t momenteel rechtstreeks met dit soort CIFS koppelpunten werkt. Het is ook vermeld in de [SAP-notitie 1820529](https://launchpad.support.sap.com/#/notes/1820529) die CIFS wordt niet aanbevolen.
+Tests is gebleken, maar die back-up niet SAP HANA&#39;t momenteel werk rechtstreeks met dit soort CIFS koppelen. Het is ook vermeld in de [SAP-notitie 1820529](https://launchpad.support.sap.com/#/notes/1820529) die CIFS wordt niet aanbevolen.
 
 ![Deze afbeelding ziet u een fout opgetreden in het dialoogvenster back-up in SAP HANA-Studio](media/sap-hana-backup-file-level/image038.png)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.openlocfilehash: 36ff73d36c752fb342dcfff2360b4f6f7013740e
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migreren naar Azure Premium-opslag (niet-beheerde schijven)
 
@@ -163,7 +163,7 @@ Een opslagaccount voor het onderhouden van uw VHD's maken. Houd rekening met de 
 Voor gegevensschijven, kunt u een aantal gegevensschijven in een standard-opslagaccount (bijvoorbeeld schijven die koelervoorbeeld opslag) behouden, maar wij raden u alle gegevens voor de werkbelasting van de productie te gebruiken van premium-opslag te verplaatsen.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Stap 3. Kopieer de VHD met AzCopy of PowerShell
-U moet uw container pad en de opslagruimte accountsleutel vinden voor het verwerken van een van deze twee opties. Container pad en de opslagruimte accountsleutel vindt u in **Azure Portal** > **opslag**. De container-URL worden zoals 'https://myaccount.blob.core.windows.net/mycontainer/'.
+U moet uw container pad en de opslagruimte accountsleutel vinden voor het verwerken van een van deze twee opties. Container pad en de opslagruimte accountsleutel vindt u in **Azure Portal** > **opslag**. De container URL zoals worden 'https://myaccount.blob.core.windows.net/mycontainer/'.
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Optie 1: Kopieer geen VHD met AzCopy (asynchrone kopiëren)
 AzCopy gebruikt, kunt u eenvoudig uploaden de VHD via Internet. Dit kan tijd duren, afhankelijk van de grootte van de VHD's. Vergeet niet om te controleren limieten inkomend en uitgaand van het opslagaccount wanneer u deze optie. Zie [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) voor meer informatie.
@@ -222,7 +222,7 @@ Als u VHD van niet - Azure Cloud-opslag naar Azure migreert, moet u eerst de VHD
 
 #### <a name="step-1-export-vhd-to-a-local-directory"></a>Step 1. Exporteren van VHD naar een lokale map
 ##### <a name="copy-a-vhd-from-aws"></a>Kopieer geen VHD van AWS
-1. Als u van AWS gebruikmaakt, moet u het exemplaar EC2 exporteren naar een VHD in een Amazon S3-bucket. Volg de stappen beschreven in de Amazon-documentatie voor Amazon EC2 exemplaren voor het installeren van het hulpprogramma EC2 Amazon-opdrachtregelinterface (CLI) en voer de opdracht create-exemplaar-export-taak het exemplaar EC2 exporteren naar een VHD-bestand exporteren. Zorg ervoor dat u **VHD** voor de schijf &#95; INSTALLATIEKOPIE &#95; INDELING variabele bij het uitvoeren van de **-exemplaar-export-taak maken** opdracht. Het geëxporteerde VHD-bestand wordt opgeslagen in de Amazon S3-bucket die u tijdens dat proces opgeeft.
+1. Als u van AWS gebruikmaakt, moet u het exemplaar EC2 exporteren naar een VHD in een Amazon S3-bucket. Volg de stappen beschreven in de Amazon-documentatie voor Amazon EC2 exemplaren voor het installeren van het hulpprogramma EC2 Amazon-opdrachtregelinterface (CLI) en voer de opdracht create-exemplaar-export-taak het exemplaar EC2 exporteren naar een VHD-bestand exporteren. Zorg ervoor dat u **VHD** voor de schijf&#95;INSTALLATIEKOPIE&#95;indeling variabele bij het uitvoeren van de **-exemplaar-export-taak maken** opdracht. Het geëxporteerde VHD-bestand wordt opgeslagen in de Amazon S3-bucket die u tijdens dat proces opgeeft.
 
     ```
     aws ec2 create-instance-export-task --instance-id ID --target-environment TARGET_ENVIRONMENT \

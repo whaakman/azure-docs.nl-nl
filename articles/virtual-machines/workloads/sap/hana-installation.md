@@ -2,10 +2,10 @@
 title: SAP HANA installeren op SAP HANA in Azure (grote exemplaren) | Microsoft Docs
 description: Het SAP HANA installeren op een SAP HANA in Azure (grote exemplaar).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Het installeren en configureren van SAP HANA (grote exemplaren) in Azure
 
@@ -51,13 +51,13 @@ Controle op opnieuw, vooral bij het plannen voor het installeren van HANA 2.0, [
 
 In specifieke, Controleer de volgende parameters en uiteindelijk wordt aangepast aan:
 
-- NET.Core.rmem_max 16777216 =
-- NET.Core.wmem_max 16777216 =
-- NET.Core.rmem_default 16777216 =
-- NET.Core.wmem_default 16777216 =
-- NET.Core.optmem_max 16777216 =
-- NET.IPv4.tcp_rmem 65536 16777216 16777216 =
-- NET.IPv4.tcp_wmem 65536 16777216 16777216 =
+- net.core.rmem_max = 16777216
+- net.core.wmem_max = 16777216
+- net.core.rmem_default = 16777216
+- net.core.wmem_default = 16777216
+- net.core.optmem_max = 16777216
+- net.ipv4.tcp_rmem = 65536 16777216 16777216
+- net.ipv4.tcp_wmem = 65536 16777216 16777216
 
 Beginnen met SLES12 SP1 en RHEL 7.2, moeten deze parameters worden ingesteld in een configuratiebestand in de map /etc/sysctl.d. Bijvoorbeeld, moet een configuratiebestand met de naam 91-NetApp-HANA.conf worden gemaakt. Voor oudere versies van SLES en RHEL moet deze parameters set in/etc/sysctl.conf.
 
@@ -65,7 +65,7 @@ Voor alle RHEL vrijgegeven en beginnen met SLES12, de
 - sunrpc.tcp_slot_table_entries = 128
 
 parameter moet worden ingesteld als in/etc/modprobe.d/sunrpc-local.conf. Als het bestand niet bestaat, moet deze eerst worden gemaakt door de volgende vermelding toe te voegen: 
-- Opties voor sunrpc tcp_max_slot_table_entries = 128
+- options sunrpc tcp_max_slot_table_entries=128
 
 **Vierde stap** is om te controleren van de systeemtijd van uw exemplaar van HANA grote eenheid. De exemplaren worden geïmplementeerd met de tijdzone van een systeem met daarin de locatie van de Azure-regio die de HANA grote exemplaar stempel bevindt zich in. U bent kunt wijzigen van de systeemtijd of de tijdzone van de exemplaren die u eigenaar. Dit leidt en ordening meer exemplaren in uw tenant, moet u aan te passen aan de tijdzone van de nieuwe geleverde exemplaren worden voorbereid. Microsoft-bewerkingen hebben geen inzicht in de tijdzone die u instellen met de exemplaren na de overdracht. Geïmplementeerde exemplaren kunnen daarom niet worden ingesteld in dezelfde tijdzone als het account dat u hebt gewijzigd. Als gevolg hiervan, is het uw verantwoordelijkheid als klant om te controleren en indien nodig de tijdzone van de exemplaren afgegeven aanpassen. 
 
@@ -100,11 +100,11 @@ De naamgeving van de opslagvolumes worden vermeld in de volgende tabel:
 
 | Opslaggebruik | De naam van koppelpunt | Volumenaam | 
 | --- | --- | ---|
-| HANA gegevens | /Hana/Data/SID/mnt0000<m> | Opslag IP: / hana_data_SID_mnt00001_tenant_vol |
-| HANA-logboek | /Hana/log/SID/mnt0000<m> | Opslag IP: / hana_log_SID_mnt00001_tenant_vol |
-| HANA logboekback-up | /Hana/log/backups | Opslag IP: / hana_log_backups_SID_mnt00001_tenant_vol |
-| HANA gedeeld | /Hana/Shared/SID | Opslag IP: / hana_shared_SID_mnt00001_tenant_vol/gedeeld |
-| usr/sap | /usr/SAP/SID | Opslag IP: / hana_shared_SID_mnt00001_tenant_vol/usr_sap |
+| HANA gegevens | /hana/data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA-logboek | /Hana/log/SID/mnt0000<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA logboekback-up | /Hana/log/backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
+| HANA gedeeld | /Hana/Shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
+| usr/sap | /usr/SAP/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
 Waar SID het exemplaar HANA systeem-ID = 
 
@@ -139,8 +139,8 @@ De controller voor opslag en de knooppunten in de stempels grote exemplaar worde
 Om te optimaliseren SAP HANA naar de opslag die onder gebruikt, moet u ook de volgende SAP HANA-configuratieparameters instellen:
 
 - max_parallel_io_requests 128
-- async_read_submit op
-- async_write_submit_active op
+- async_read_submit on
+- async_write_submit_active on
 - alle async_write_submit_blocks
  
 Voor SAP HANA 1.0 versies tot SPS12, deze parameters worden ingesteld tijdens de installatie van de SAP HANA-database, zoals beschreven in [SAP Opmerking #2267798 - configuratie van de SAP HANA-Database](https://launchpad.support.sap.com/#/notes/2267798)
@@ -192,7 +192,7 @@ SAP ondersteuning opmerkingen bij de implementatie van SAP HANA op Red Hat die v
 
 SAP-toepassingen die zijn gebaseerd op de architectuur SAP NetWeaver zijn gevoelig voor tijdsverschil voor de verschillende onderdelen waaruit het SAP-systeem. SAP ABAP korte dumpen met de fouttitel van ZDATE\_grote\_tijd\_DIFF zijn waarschijnlijk vertrouwd, zoals deze korte dumpbestanden weergegeven wanneer de systeemtijd van de andere servers of virtuele machines te ver uit elkaar is verhuizen.
 
-Voor SAP HANA in Azure (grote exemplaren) uitgevoerd in Azure heeft &#39; tijdsynchronisatie t toepassen op de compute-eenheden in de grote exemplaar stempels. Deze synchronisatie is niet van toepassing voor het uitvoeren van SAP-toepassingen in systeemeigen Azure VM's, zoals Azure zorgt ervoor een systeem &#39;dat; s tijd juist is gesynchroniseerd. Als gevolg hiervan een afzonderlijke tijd server moet worden ingesteld die kan worden gebruikt door SAP toepassingsservers uitgevoerd op Azure VM's en de SAP HANA-database instanties die worden uitgevoerd op grote HANA-exemplaren. De infrastructuur voor opslag in grote exemplaar stempels is tijd die zijn gesynchroniseerd met NTP-servers.
+Voor SAP HANA in Azure (grote exemplaren), tijdsynchronisatie uitgevoerd in Azure heeft&#39;t toepassen op de compute-eenheden in de grote exemplaar stempels. Deze synchronisatie is niet van toepassing voor het uitvoeren van SAP-toepassingen in systeemeigen Azure VM's, zoals Azure zorgt ervoor dat een systeem&#39;s tijd juist is gesynchroniseerd. Als gevolg hiervan een afzonderlijke tijd server moet worden ingesteld die kan worden gebruikt door SAP toepassingsservers uitgevoerd op Azure VM's en de SAP HANA-database instanties die worden uitgevoerd op grote HANA-exemplaren. De infrastructuur voor opslag in grote exemplaar stempels is tijd die zijn gesynchroniseerd met NTP-servers.
 
 ## <a name="setting-up-smt-server-for-suse-linux"></a>SMT-server instellen voor SUSE Linux
 SAP HANA grote exemplaren hebben geen directe verbinding met Internet. Het is daarom niet een eenvoudig proces aan dergelijke eenheid registreren bij de OS-provider te downloaden en patches toepassen. In het geval van SUSE Linux mogelijk een oplossing voor het instellen van een SMT-server in een Azure VM. Terwijl de virtuele machine in Azure moet worden gehost in een Azure-VNet is verbonden met het grote HANA-exemplaar. Met dergelijke een SMT-server, kan de eenheid HANA grote exemplaar registreren en patches te downloaden. 

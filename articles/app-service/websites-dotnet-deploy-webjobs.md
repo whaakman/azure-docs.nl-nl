@@ -2,8 +2,8 @@
 title: Ontwikkelen en implementeren met Visual Studio - Azure WebJobs
 description: Informatie over het ontwikkelen en implementeren van Azure WebJobs in Azure App Service met behulp van Visual Studio.
 services: app-service
-documentationcenter: 
-author: ggailey777
+documentationcenter: ''
+author: tdykstra
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 8793485f2f1967e8c14ef335f14f81c9b946f974
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: babe190c0865f5be4aeecb40ca48b52673c6920e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Ontwikkelen en implementeren met Visual Studio - Azure App Service API
 
@@ -29,7 +29,7 @@ Dit onderwerp wordt uitgelegd hoe u met Visual Studio een consoletoepassing-proj
 Visual Studio een consoletoepassing webtaken ingeschakeld-project implementeert, worden twee taken uitgevoerd:
 
 * Runtime-bestanden worden gekopieerd naar de juiste map in de web-app (*App_Data/taken/continue* voor doorlopende webtaken *App_Data/taken/geactiveerd* voor geplande en on-demand WebJobs).
-* Stelt [Azure Scheduler-taken](#scheduler) voor WebJobs die zijn gepland op bepaalde tijden. (Dit is niet nodig voor doorlopende webtaken.)
+* Stelt [Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) taken voor WebJobs die zijn gepland op bepaalde tijden. (Dit is niet nodig voor doorlopende webtaken.)
 
 Een project WebJobs ingeschakeld heeft de volgende items toegevoegd:
 
@@ -50,7 +50,7 @@ Als u Visual Studio 2015 gebruikt, installeert u de [Azure SDK voor .NET (Visual
 
 Als u Visual Studio 2017 gebruikt, installeert u de [ontwikkelen van Azure werkbelasting](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
 
-## <a id="convert"></a>WebJobs-implementatie voor een bestaande consoletoepassingsproject inschakelen
+## <a id="convert"></a> WebJobs-implementatie voor een bestaande consoletoepassingsproject inschakelen
 
 U hebt hiervoor twee opties:
 
@@ -62,7 +62,7 @@ U hebt hiervoor twee opties:
 
   Een bestaand project-consoletoepassing te implementeren als een webtaak zelfstandig gebruikt, met geen koppeling naar een webproject configureren. Gebruik deze optie als u wilt uitvoeren in een web-app een webtaak zelfstandig gebruikt, met geen webtoepassing die wordt uitgevoerd in de web-app. Het is raadzaam om dit te doen om te kunnen schalen van uw resources webtaak onafhankelijk van uw webtoepassingsbronnen.
 
-### <a id="convertlink"></a>Automatische WebJobs-implementatie met een webproject inschakelen
+### <a id="convertlink"></a> Automatische WebJobs-implementatie met een webproject inschakelen
 
 1. Met de rechtermuisknop op het webproject in **Solution Explorer**, en klik vervolgens op **toevoegen** > **bestaand Project als Azure webtaak**.
    
@@ -74,7 +74,7 @@ U hebt hiervoor twee opties:
     ![Project selecteren in het dialoogvenster Azure webtaak toevoegen](./media/websites-dotnet-deploy-webjobs/aaw1.png)
 3. Voltooi de [toevoegen Azure webtaak](#configure) dialoogvenster en klik vervolgens op **OK**. 
 
-### <a id="convertnolink"></a>WebJobs-implementatie zonder een webproject inschakelen
+### <a id="convertnolink"></a> WebJobs-implementatie zonder een webproject inschakelen
 1. Met de rechtermuisknop op het project-consoletoepassing in **Solution Explorer**, en klik vervolgens op **publiceren als Azure webtaak...** . 
    
     ![Als Azure webtaak publiceren](./media/websites-dotnet-deploy-webjobs/paw.png)
@@ -99,13 +99,13 @@ Voor het maken van een nieuw project voor webtaken is ingeschakeld, kunt u de pr
 > 
 > 
 
-### <a id="createnolink"></a>Gebruik de sjabloon WebJobs-nieuw project voor een onafhankelijke webtaak
+### <a id="createnolink"></a> Gebruik de sjabloon WebJobs-nieuw project voor een onafhankelijke webtaak
 1. Klik op **bestand** > **nieuw Project**, en klik vervolgens in de **nieuw Project** dialoogvenster vak Klik **Cloud**  >   **Azure webtaak (.NET Framework)**.
    
     ![Het dialoogvenster New Project webtaak sjabloon weergeven](./media/websites-dotnet-deploy-webjobs/np.png)
 2. Volg de instructies die eerder naar weergegeven [de consoletoepassing project een onafhankelijk WebJobs-project maken](#convertnolink).
 
-### <a id="createlink"></a>Gebruik de sjabloon WebJobs-nieuw project voor een webtaak wordt gekoppeld aan een webproject
+### <a id="createlink"></a> Gebruik de sjabloon WebJobs-nieuw project voor een webtaak wordt gekoppeld aan een webproject
 1. Met de rechtermuisknop op het webproject in **Solution Explorer**, en klik vervolgens op **toevoegen** > **nieuwe Azure webtaak Project**.
    
     ![Nieuwe Azure webtaak Project menu-item](./media/websites-dotnet-deploy-webjobs/nawj.png)
@@ -127,7 +127,7 @@ De velden in dit dialoogvenster overeenkomen met de velden op de **webtaak toevo
 > 
 > 
 
-## <a id="publishsettings"></a>webtaak-publiceren settings.json
+## <a id="publishsettings"></a>webjob-publish-settings.json
 Wanneer u een consoletoepassing voor WebJobs-implementatie configureert, Visual Studio installeert de [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-pakket en winkels planningsgegevens in een *webtaak-publiceren settings.json*  bestand in het project *eigenschappen* map van de API-project. Hier volgt een voorbeeld van het bestand:
 
         {
@@ -140,9 +140,9 @@ Wanneer u een consoletoepassing voor WebJobs-implementatie configureert, Visual 
           "runMode": "Continuous"
         }
 
-U kunt dit bestand rechtstreeks bewerken en Visual Studio biedt IntelliSense. Het schema van het bestand wordt opgeslagen op [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) en er kan worden weergegeven.  
+U kunt dit bestand rechtstreeks bewerken en Visual Studio biedt IntelliSense. Het schema van het bestand wordt opgeslagen op [ http://schemastore.org ](http://schemastore.org/schemas/json/webjob-publish-settings.json) en er kan worden weergegeven.  
 
-## <a id="webjobslist"></a>webjobs list.json
+## <a id="webjobslist"></a>webjobs-list.json
 Wanneer u een project WebJobs ingeschakeld aan een webproject koppelen, Visual Studio slaat de naam van de API-project in een *webjobs list.json* bestand in het webproject *eigenschappen* map. De lijst kan meerdere WebJobs projecten bevatten, zoals wordt weergegeven in het volgende voorbeeld:
 
         {
@@ -157,7 +157,7 @@ Wanneer u een project WebJobs ingeschakeld aan een webproject koppelen, Visual S
           ]
         }
 
-U kunt dit bestand rechtstreeks bewerken en Visual Studio biedt IntelliSense. Het schema van het bestand wordt opgeslagen op [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) en er kan worden weergegeven.
+U kunt dit bestand rechtstreeks bewerken en Visual Studio biedt IntelliSense. Het schema van het bestand wordt opgeslagen op [ http://schemastore.org ](http://schemastore.org/schemas/json/webjobs-list.json) en er kan worden weergegeven.
 
 ## <a id="deploy"></a>Een API-project implementeert
 Een API-project dat u hebt gekoppeld aan een webproject implementeert automatisch met het webproject. Zie voor meer informatie over de implementatie van web project **instructies begeleidt** > **implementeren app** in de linkernavigatiebalk.

@@ -2,7 +2,7 @@
 title: 'Azure AD Domain Services: Vergelijken Azure AD Domain Services naar ZELFOPLOSSING domeincontrollers | Microsoft Docs'
 description: Vergelijking van Azure Active Directory Domain Services met ZELFOPLOSSING domeincontrollers
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
 ms.openlocfilehash: c384046d280e03de5a808d245dd273fdf7b44549
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>U moet kiezen als Azure AD Domain Services is geschikt voor uw use case
 U kunt uw workloads in Azure Infrastructure Services implementeren zonder te hoeven maken over het onderhoud van infrastructuur voor identiteiten in Azure met Azure AD Domain Services. Deze beheerde service wijkt af van een normale implementatie van Windows Server Active Directory die u implementeert en beheert zelf. De service is eenvoudig te implementeren en biedt geautomatiseerde statuscontrole en het doorvoeren. We zijn voortdurend de service voor het toevoegen van ondersteuning voor algemene implementatiescenario's in ontwikkeling.
@@ -34,21 +34,21 @@ De volgende tabel kunt u kiezen tussen Azure AD Domain Services gebruiken en beh
 
 | **Functie** | **Azure AD Domain Services** | **'Doe' AD in virtuele machines in Azure** |
 | --- |:---:|:---:|
-| [**Beheerde service**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**& #x 2715;** |
+| [**Beheerde service**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**Beveiligde implementaties**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Er moet een beheerder voor het beveiligen van de implementatie. |
-| [**DNS-server**](active-directory-ds-comparison.md#dns-server) |**& #x 2713;**  (service beheerd) |**&#x2713;** |
-| [**Domein- of Enterprise administrator-bevoegdheden**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**& #x 2715;** |**&#x2713;** |
+| [**DNS server**](active-directory-ds-comparison.md#dns-server) |**&#x2713;**(beheerde service) |**&#x2713;** |
+| [**Domein- of Enterprise administrator-bevoegdheden**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Aan domein toevoegen**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Met behulp van NTLM en Kerberos-verificatie van domeinen**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Kerberos-beperkte overdracht**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|op basis van bronnen|op basis van een resource & op basis van een account|
 | [**Aangepaste OE-structuur**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
-| [**Schema-uitbreidingen**](active-directory-ds-comparison.md#schema-extensions) |**& #x 2715;** |**&#x2713;** |
-| [**AD-domein/forest vertrouwt**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**& #x 2715;** |**&#x2713;** |
+| [**Schema-uitbreidingen**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
+| [**AD-domein/forest vertrouwt**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
 | [**LDAP lezen**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
-| [**Beveiligde LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
-| [**LDAP-schrijven**](active-directory-ds-comparison.md#ldap-write) |**& #x 2715;** |**&#x2713;** |
+| [**Secure LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
+| [**LDAP-schrijven**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
 | [**Groepsbeleid**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
-| [**Geografisch verspreide implementaties**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**& #x 2715;** |**&#x2713;** |
+| [**Geografisch verspreide implementaties**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Beheerde service
 Azure AD Domain Services-domeinen worden beheerd door Microsoft. U hebt geen zorgen te hoeven maken over patchen, updates, bewaking, back-ups en beschikbaarheid van uw domein. Deze beheertaken worden aangeboden als een service door Microsoft Azure voor uw beheerde domeinen.
