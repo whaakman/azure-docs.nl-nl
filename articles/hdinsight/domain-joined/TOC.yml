@@ -6,8 +6,6 @@
       href: apache-domain-joined-introduction.md
     - name: Plan voor aan een domein gekoppelde clusters
       href: apache-domain-joined-architecture.md
-    - name: Een aan een domein gekoppelde sandbox-omgeving configureren
-      href: apache-domain-joined-configure.md
     - name: Aan een domein gekoppelde clusters configureren met behulp van Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Azure AD-gebruikers synchroniseren met een HDInsight-cluster

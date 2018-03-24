@@ -5,20 +5,20 @@ services: traffic-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: traffic-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 10e7e7c95dc0dd614c7c01581cb746f1e854a9e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce3699f4838c30eaaa0ab2938190c05de1feb781
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="traffic-manager-documentation"></a>Documentatie over Traffic Manager
+# <a name="traffic-manager-documentation"></a>Documentatie over Traffic Manager
 
 Meer informatie over hoe u Traffic Manager gebruikt om inkomend verkeer te routeren voor optimale toepassingsprestaties en -betrouwbaarheid. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u verkeer naar Azure of externe service-eindpunten kunt beheren.
 

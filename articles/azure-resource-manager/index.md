@@ -5,20 +5,20 @@ services: azure-resource-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ab6725298c9e9c496d2e20b4e68ff72af1432bb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 471ed43d5eec54a138262b7c4c89802020683fdc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-resource-manager-documentation"></a>Documentatie over Azure Resource Manager
+# <a name="azure-resource-manager-documentation"></a>Documentatie over Azure Resource Manager
 
 Leer hoe u Resource Manager kunt gebruiken om oplossingsresources als groep te implementeren, bewaken en beheren. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u resourcegroepen kunt instellen en sjablonen kunt maken voor consistente en herhaalbare implementatie.
 
@@ -156,7 +156,7 @@ Leer hoe u Resource Manager kunt gebruiken om oplossingsresources als groep te i
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/resources/">REST-API</a></p>
+                        <p><a href="/rest/api/resources/">REST API</a></p>
                     </div>
                 </div>
             </div>

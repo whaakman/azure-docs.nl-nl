@@ -28,7 +28,7 @@
 - name: Concepten
   items:
     - name: Inzicht krijgen in kostenrapporten
-      href: understading-cost-reports.md
+      href: understanding-cost-reports.md
 - name: Handleidingen
   items:
     - name: Azure-abonnementen en -accounts activeren

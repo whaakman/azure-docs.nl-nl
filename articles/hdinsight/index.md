@@ -5,20 +5,20 @@ services: hdinsight
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 12/05/2017
 ms.author: carolz
-ms.openlocfilehash: 12fbfada95f9356b1d32c0edd3346a57c6ffa26f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6d00f3194f7cf02d9c0218ed768f3c3350efdd16
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-hdinsight-documentation"></a>Documentatie voor Azure HDInsight
+# <a name="azure-hdinsight-documentation"></a>Documentatie voor Azure HDInsight
 
 Leer hoe u Azure HDInsight kunt gebruiken om streaming of historische gegevens te analyseren. Zelfstudies en andere documentatie laten u zien hoe u clusters maakt, big data verwerkt en analyseert, en oplossingen ontwikkelt met populaire open-source frameworks als Hadoop, Spark, Hive, LLAP, Kafka, Storm, R en meer. 
 
@@ -267,7 +267,7 @@ Azure HDInsight is een volledig beheerde, zeer uitgebreide open-source analysese
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/hdinsight/">REST-API</a></p>
+                        <p><a href="/rest/api/hdinsight/">REST API</a></p>
                         <p><a href="/rest/api/hdinsightspark/">REST-API (Spark)</a></p>
                     </div>
                 </div>
