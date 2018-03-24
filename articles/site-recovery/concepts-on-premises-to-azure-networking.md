@@ -2,10 +2,10 @@
 title: Instellen van IP-adressering verbinding maken na een failover naar Azure met Azure Site Recovery | Microsoft Docs
 description: Beschrijft het instellen van IP-adressen voor verbinding met virtuele Azure-machines na een failover van on-premises met Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
 ms.service: site-recovery
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: b9aeaf1dc6d471ba993dd470403ba60ce68153fc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1833c576fe03bbfd1819fedc5630b915c6e9ee71
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>IP-adressen als u wilt verbinden na een failover naar Azure instellen
 
@@ -49,9 +49,9 @@ Site Recovery biedt de mogelijkheid voor het bewaren van vaste IP-adressen wanne
 
 ### <a name="failover-example"></a>Failover-voorbeeld
 
-Bekijk een voorbeeld is voor failover naar Azure usng een bedrijf ficticious Woodgrove Bank.
+Bekijk een voorbeeld is voor failover naar Azure met behulp van een ficticious bedrijf Woodgrove Bank.
 
-- Woodgrove Bank host die zakelijke apps in een on-premises site. Ze hosten hun mobiele apps in Azure.
+- Woodgrove Bank fungeert als host van hun zakelijke apps in een on-premises site. Ze hosten hun mobiele apps in Azure.
 - Er is een VPN-site-naar-site-verbinding tussen hun rand on-premises netwerk en de virtuele Azure-netwerk. Vanwege de VPN-verbinding, wordt het virtuele netwerk in Azure weergegeven als een uitbreiding van de on-premises netwerk.
 - Woodgrove wil voor lokale werkbelastingen repliceren naar Azure met Site Recovery.
  - Woodgrove heeft apps die afhankelijk van de vastgelegde IP-adressen, zijn zodat ze nodig hebben voor het bewaren van IP-adressen voor de apps na een failover naar Azure.

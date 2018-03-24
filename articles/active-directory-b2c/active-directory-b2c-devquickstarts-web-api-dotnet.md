@@ -3,23 +3,19 @@ title: Aanroepen van een beveiligde web-api ASP.NET Azure Active Directory B2C |
 description: Het maken van een .NET-Web-app en het aanroepen van een web api met Azure Active Directory B2C en OAuth 2.0-toegangstokens.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: d3888556-2647-4a42-b068-027f9374aa61
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: parakhj
-ms.custom: seohack1
-ms.openlocfilehash: d81976988a26ce264dd7b9ed24f43aed21d4ee99
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: davidmu
+ms.openlocfilehash: 75ae88898d3d6b275ec462e865347056305fd666
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: Een .NET web API aanroepen vanuit een .NET-web-app
 
@@ -52,7 +48,7 @@ De code voor deze zelfstudie wordt bewaard in [GitHub](https://github.com/Azure-
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Nadat u de voorbeeldcode hebt gedownload, opent u het SLN-bestand in Visual Studio om aan de slag te gaan. Het oplossingsbestand bevat twee projecten: `TaskWebApp` en `TaskService`. `TaskWebApp`is een MVC-webtoepassing die de gebruiker werkt. `TaskService` is de web-API voor de back-end van de app waarin elke takenlijst van de gebruiker wordt opgeslagen. In dit artikel omvat niet gebouw de `TaskWebApp` web-app of de `TaskService` web-api. Zie voor meer informatie over het bouwen van de .NET-web-app met behulp van Azure AD B2C, onze [.NET web app-zelfstudie](active-directory-b2c-devquickstarts-web-dotnet-susi.md). Zie voor meer informatie over het bouwen van de .NET-web-API die zijn beveiligd met Azure AD B2C, onze [.NET-web-API-zelfstudie](active-directory-b2c-devquickstarts-api-dotnet.md).
+Nadat u de voorbeeldcode hebt gedownload, opent u het SLN-bestand in Visual Studio om aan de slag te gaan. Het oplossingsbestand bevat twee projecten: `TaskWebApp` en `TaskService`. `TaskWebApp` is een MVC-webtoepassing die de gebruiker werkt. `TaskService` is de web-API voor de back-end van de app waarin elke takenlijst van de gebruiker wordt opgeslagen. In dit artikel omvat niet gebouw de `TaskWebApp` web-app of de `TaskService` web-api. Zie voor meer informatie over het bouwen van de .NET-web-app met behulp van Azure AD B2C, onze [.NET web app-zelfstudie](active-directory-b2c-devquickstarts-web-dotnet-susi.md). Zie voor meer informatie over het bouwen van de .NET-web-API die zijn beveiligd met Azure AD B2C, onze [.NET-web-API-zelfstudie](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ### <a name="update-the-azure-ad-b2c-configuration"></a>De Azure AD B2C-configuratie bijwerken
 
@@ -61,7 +57,7 @@ Ons voorbeeld is geconfigureerd voor gebruik van het beleid en de client-id van 
 1. Open `web.config` in het `TaskService`-project en vervang de waarden voor
 
     * `ida:Tenant` door de naam van uw tenant
-    * `ida:ClientId`met de toepassings-ID van uw web-api
+    * `ida:ClientId` met de toepassings-ID van uw web-api
     * `ida:SignUpSignInPolicyId` door de naam van uw 'Aanmelden/registreren'-beleid
 
 2. Open `web.config` in het `TaskWebApp`-project en vervang de waarden voor

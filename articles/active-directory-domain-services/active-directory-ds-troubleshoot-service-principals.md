@@ -2,10 +2,10 @@
 title: 'Azure Active Directory Domain Services: Configuratie van de Service-Principal probleemoplossing | Microsoft Docs'
 description: Het Service-Principal-configuratie voor Azure AD Domain Services oplossen
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory-ds
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: e1be075ba2d3e6ae7512ccc030073fd7f1862502
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Ongeldige configuratie voor Service-Principal voor uw beheerde domein oplossen
 
@@ -93,7 +93,7 @@ Volg deze stappen als een service-principal met de ID ```d87dcbc6-a371-462e-88e3
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Waarschuwing AADDS105: Wachtwoord synchronisatie van toepassing is verouderd
 
-**Waarschuwing:** de service-principal met de toepassings-ID 'd87dcbc6-a371-462e-88e3-28ad15ec4e64' is verwijderd en Microsoft kon opnieuw te maken. Deze service-principal beheert een andere service-principal en een toepassing die worden gebruikt voor synchronisatie van wachtwoorden. De beheerde service-principal en de toepassing niet worden geautoriseerd onder de nieuwe service-principal en uiteindelijk verouderd wanneer de synchronisatie van het certificaat verloopt. Dit betekent dat de zojuist gemaakte service-principal kan niet worden bijgewerkt van de oude beheerde toepassingen en synchronisatie van AAD-objecten die worden beïnvloed.
+**Waarschuwing:** de service-principal met de toepassings-ID 'd87dcbc6-a371-462e-88e3-28ad15ec4e64' is verwijderd en vervolgens opnieuw gemaakt. Deze service-principal beheert een andere service-principal en een toepassing die worden gebruikt voor synchronisatie van wachtwoorden. De beheerde service-principal en/of de toepassing is niet geautoriseerd onder de nieuwe service-principal zodat deze kunnen niet worden beheerd door onze service. Dit betekent dat de zojuist gemaakte service-principal kan niet worden bijgewerkt van de oude beheerde toepassingen en synchronisatie van wachtwoorden worden beïnvloed.
 
 
 **Oplossing:** moet u Azure AD PowerShell om deze stappen te voltooien. Zie voor meer informatie over het installeren van Azure AD PowerShell [in dit artikel](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
@@ -108,7 +108,7 @@ Om dit probleem op te lossen, typt u de volgende opdrachten in een PowerShell-ve
 2. Verwijder de oude toepassing en het object met de volgende PowerShell-opdrachten
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId

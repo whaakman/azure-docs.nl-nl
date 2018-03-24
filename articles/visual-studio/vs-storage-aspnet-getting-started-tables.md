@@ -2,10 +2,10 @@
 title: Aan de slag met Azure-tabelopslag en Visual Studio verbonden Services (ASP.NET) | Microsoft Docs
 description: Hoe u aan de slag met Azure-tabelopslag in een ASP.NET-project in Visual Studio nadat u een opslagaccount met behulp van Visual Studio verbonden Services
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.service: storage
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: kraigb
-ms.openlocfilehash: 32a57e77bf6fe3cff88b9d6772ede9e6669ec75f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646ff3a12d1b28f99376ea67af25f1b6858d675a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Aan de slag met Azure-tabelopslag en Visual Studio verbonden Services (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,7 +29,7 @@ Azure Table storage kunt u voor het opslaan van grote hoeveelheden gestructureer
 
 Deze zelfstudie laat zien hoe ASP.NET code schrijven voor enkele algemene scenario's met behulp van Azure table storage entiteiten. Deze scenario's omvatten maken van een tabel en toe te voegen, het uitvoeren van query's en het verwijderen van tabelentiteiten. 
 
-##<a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage-account](../storage/common/storage-create-storage-account.md#create-a-storage-account)

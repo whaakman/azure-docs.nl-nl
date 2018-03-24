@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 6e1e6272009b4357162339643580f3d31dc6062e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4a334b63856a348838cbe61dfc0ab724f58100fb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Actieve runbooks in een hybride Runbook Worker 
 Er is geen verschil in de structuur van runbooks die worden uitgevoerd in Azure Automation en toepassingen die worden uitgevoerd op een hybride Runbook Worker. Runbooks die u met elke gebruikt waarschijnlijk aanzienlijk verschillen echter omdat runbooks die gericht is op een hybride Runbook Worker doorgaans bronnen op de lokale computer zelf of op basis van bronnen in de lokale omgeving waarop deze wordt geïmplementeerd, terwijl runbooks in beheren Azure Automation beheren meestal bronnen in de Azure-cloud.

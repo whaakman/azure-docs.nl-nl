@@ -2,9 +2,10 @@
 title: Cortana Intelligence wedstrijden Veelgestelde vragen | Microsoft Docs
 description: Veelgestelde vragen over Microsoft Cortana Intelligence wedstrijden.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: haining;garye
-ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: db6fb6cd6c500ffe4537b57a968ef3b8792bcad6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Veelgestelde vragen over Microsoft Cortana Intelligence-wedstrijden
 **Wat is de Cortana Intelligence wedstrijden?**
@@ -35,7 +35,7 @@ Voor algemene vragen kunt u de [Microsoft Azure Machine Learning-forum](https://
 
 **Hoe voer ik een concurrentie?**
 
-Toegang tot de [wedstrijden](https://gallery.cortanaintelligence.com/competitions) startpagina in de [AI-galerie van Azure](https://gallery.cortanaintelligence.com/), of Ga naar [http://aka.ms/CIComp](http://aka.ms/CIComp). De startpagina geeft een lijst van alle wedstrijden die momenteel worden uitgevoerd. Elke concurrentie heeft gedetailleerde instructies en deelname regels, prijzen en duur van de aanmeldingspagina.
+Toegang tot de [wedstrijden](https://gallery.cortanaintelligence.com/competitions) startpagina in de [AI-galerie van Azure](https://gallery.cortanaintelligence.com/), of Ga naar [ http://aka.ms/CIComp ](http://aka.ms/CIComp). De startpagina geeft een lijst van alle wedstrijden die momenteel worden uitgevoerd. Elke concurrentie heeft gedetailleerde instructies en deelname regels, prijzen en duur van de aanmeldingspagina.
 
 1. Zoek de concurrentie die u wilt deelnemen, lees de instructies en bekijk de video van de zelfstudie. Klik vervolgens op de **Voer concurrentie** knop en kopieert u het Experiment Starter naar uw bestaande Azure Machine Learning-werkruimte. Als u geen al toegang tot een werkruimte, moet u een vooraf. Voer het Experiment Starter, zien de metriek prestaties en uw creativiteit gebruiken om de prestaties van het model te verbeteren. U zult waarschijnlijk te besteden aan het merendeel van de tijd in deze stap.   
 

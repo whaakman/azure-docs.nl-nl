@@ -6,20 +6,20 @@ keywords: Unique key-beperking, schending van unique key-beperking
 author: rafats
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0c80ee13298c2c749c5f7eb7e55d1d77a8d6a34e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unieke sleutels in Azure Cosmos-DB
 
@@ -58,7 +58,7 @@ Zodra een container is gemaakt met een unieke sleutel beleid, wordt het beleid n
 
 Maximaal 16 pad waarden (bijvoorbeeld /firstName, /lastName, /address/zipCode, enz.) kan worden opgenomen in elke unieke sleutel. 
 
-Het beleid voor elke unieke sleutels kan maximaal 10 unique key-beperkingen of combinaties hebben. Dus het vorige voorbeeld die gebruikmaakt van eerst achternaam, e-mailadres is slechts één beperking en drie van de 16 mogelijke paden die beschikbaar wordt gebruikt. 
+Het beleid voor elke unieke sleutels kan maximaal 10 unique key-beperkingen of combinaties en de gecombineerde paden voor alle eigenschappen van de unieke index mag niet langer zijn dan 60 tekens. Dus het vorige voorbeeld die gebruikmaakt van eerst achternaam, e-mailadres is slechts één beperking en drie van de 16 mogelijke paden die beschikbaar wordt gebruikt. 
 
 Aanvraag eenheid kosten voor het maken, bijwerken en verwijderen van een item zijn enigszins hoger wanneer er een unieke sleutel beleid op de container. 
 

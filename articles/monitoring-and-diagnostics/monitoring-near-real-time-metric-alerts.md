@@ -3,10 +3,10 @@ title: Near-realtime metrische waarschuwingen in de Azure-Monitor | Microsoft Do
 description: Informatie over het gebruik van near realtime metrische waarschuwingen voor het bewaken van metrische gegevens voor Azure-resource met een frequentie van 1 minuut zo klein.
 author: snehithm
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,59 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: snmuvva, vinagara
-ms.custom: 
-ms.openlocfilehash: 88995b1f3350fe485e28efccc93779ae0a42eb97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: ''
+ms.openlocfilehash: 15b9b0b69f3805b3e3af1d3973fd3a77bea62ab9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="near-real-time-metric-alerts-preview"></a>Bijna realtime metrische waarschuwingen (preview)
-Monitor voor Azure biedt ondersteuning voor een nieuwe Waarschuwingstype bijna realtime metrische waarschuwingen (preview) genoemd. Deze functie is momenteel in de openbare preview.
+# <a name="use-the-newer-metric-alerts-for-azure-services-in-azure-portal"></a>Gebruik de nieuwere metrische waarschuwingen voor Azure-services in Azure-portal
+Monitor voor Azure biedt ondersteuning voor een nieuwe Waarschuwingstype aangeroepen bijna realtime metrische waarschuwingen. 
 
-Bijna realtime metriek verschillen waarschuwingen van reguliere metrische waarschuwingen in een aantal manieren:
+Bijna realtime metriek waarschuwingen verschillen van [klassieke metrische waarschuwingen](insights-alerts-portal.md) in een aantal manieren:
 
-- **Verbeterde latentie**: bijna realtime metriek waarschuwingen wijzigingen in metrische waarden met een frequentie van één minuut zo klein kunnen bewaken.
+- **Verbeterde latentie**: bijna realtime metriek waarschuwingen zo vaak als elke één minuut kunnen uitvoeren. Oudere metrische waarschuwingen wordt altijd uitgevoerd met een frequentie van 5 minuten.
+- **Ondersteuning voor multidimensionale metrische gegevens**: U kunt een waarschuwing op dimensionale metrische gegevens, zodat u kunt een interessante segment van de metrische gegevens controleren.
 - **Meer controle over metrische voorwaarden**: U kunt uitgebreidere waarschuwingsregels in bijna realtime metrische waarschuwingen definiëren. De waarschuwingen bewaken van de maximale, minimale gemiddelde en totale waarden van de metrische gegevens ondersteunen.
-- **Metrische gegevens uit logboeken**: van populaire logboekgegevens binnenkort in [logboekanalyse](../log-analytics/log-analytics-overview.md), metrische gegevens in Azure-Monitor kan worden geëxtraheerd en worden gewaarschuwd bij bijna realtime
 - **Bewaking van meerdere metrische gegevens gecombineerd**: bijna realtime metriek waarschuwingen meerdere metrische gegevens (momenteel maximaal twee metrische gegevens) met een enkele regel kunnen bewaken. Er wordt een waarschuwing gegeven als beide metrische gegevens in strijd is met hun respectieve drempelwaarden voor de opgegeven periode.
 - **Modulaire waarschuwingssysteem**: bijna realtime metriek waarschuwingen gebruiken [actiegroepen](monitoring-action-groups.md). U kunt actiegroepen gebruiken om modulaire acties te maken. U kunt actiegroepen voor meerdere regels voor waarschuwingen hergebruiken.
+- **Metrische gegevens uit logboeken**: van populaire logboekgegevens binnenkort in [logboekanalyse](../log-analytics/log-analytics-overview.md), metrische gegevens in Azure-Monitor kan worden geëxtraheerd en bijna realtime worden gewaarschuwd.
 
-> [!NOTE]
-> De near realtime metrische waarschuwing is momenteel is openbare preview-versie. En metrische gegevens van onderdelen van Logboeken in *beperkt* openbare preview. De functionaliteit en de gebruikerservaring kan worden gewijzigd.
->
 
 ## <a name="metrics-and-dimensions-supported"></a>Metrische gegevens en dimensies die worden ondersteund
 Ondersteuning voor waarschuwingen voor de metrische gegevens die gebruikmaken van dimensies bijna realtime metrische waarschuwingen. U kunt dimensies gebruiken voor het filteren van uw metric naar het juiste niveau. Alle ondersteunde metrische gegevens samen met de toepasselijke dimensies kunnen worden verkend en gevisualiseerd van [Azure Monitor - Metrics Explorer (Preview)](monitoring-metric-charts.md).
 
 Hier volgt een volledige lijst met Azure monitor op basis van metrische bronnen die worden ondersteund voor near realtime metrische waarschuwingen:
 
-|Metrische naam meer informatie  |Dimensies ondersteund  |
-|---------|---------|
-|Microsoft.ApiManagement/service     | Ja        |
-|Microsoft.Automation/automationAccounts     |     N/A    |
-|Microsoft.Automation/automationAccounts     |   N/A      |
-|Microsoft.Cache/Redis     |    N/A     |
-|Microsoft.Compute/virtualMachines     |    N/A     |
-|Microsoft.Compute/virtualMachineScaleSets     |   N/A      |
-|Microsoft.DataFactory/factories     |   N/A      |
-|Microsoft.DBforMySQL/servers     |   N/A      |
-|Microsoft.DBforPostgreSQL/servers     |    N/A     |
-|Microsoft.EventHub/namespaces     |   N/A      |
-|Microsoft.Logic/workflows     |     N/A    |
-|Microsoft.Network/applicationGateways     |    N/A     |
-|Microsoft.Network/publicipaddresses     |  N/A       |
-|Microsoft.Search/searchServices     |   N/A      |
-|Microsoft.ServiceBus/namespaces     |  N/A       |
-|Microsoft.Storage/storageAccounts     |    Ja     |
-|Microsoft.Storage/storageAccounts/services     |     Ja    |
-|Microsoft.StreamAnalytics/streamingjobs     |  N/A       |
-|Microsoft.CognitiveServices/accounts     |    N/A     |
+|Resourcetype  |Dimensies ondersteund  | Metrische gegevens beschikbaar|
+|---------|---------|----------------|
+|Microsoft.ApiManagement/service     | Ja        | [API Management](monitoring-supported-metrics.md#microsoftapimanagementservice)|
+|Microsoft.Automation/automationAccounts     |     Ja   | [Automation-Accounts](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
+|Microsoft.Batch/batchAccounts | N/A| [Batch-Accounts](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
+|Microsoft.Cache/Redis     |    N/A     |[Redis Cache](monitoring-supported-metrics.md#microsoftcacheredis)|
+|Microsoft.Compute/virtualMachines     |    N/A     | [Virtuele machines](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
+|Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[Virtuele-machineschaalsets](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.DataFactory/factories     |   Ja     |[Data Factory's V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
+|Microsoft.DBforMySQL/servers     |   N/A      |[DB voor MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
+|Microsoft.DBforPostgreSQL/servers     |    N/A     | [DB voor PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
+|Microsoft.EventHub/namespaces     |  Ja      |[Event Hubs](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
+|Microsoft.Logic/workflows     |     N/A    |[Logic Apps](monitoring-supported-metrics.md#microsoftlogicworkflows) |
+|Microsoft.Network/applicationGateways     |    N/A     | [Toepassingsgateways](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/publicipaddresses     |  N/A       |[Openbare IP-adressen](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Search/searchServices     |   N/A      |[Search-services](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
+|Microsoft.ServiceBus/namespaces     |  Ja       |[Service Bus](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
+|Microsoft.Storage/storageAccounts     |    Ja     | [Opslagaccounts](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|
+|Microsoft.Storage/storageAccounts/services     |     Ja    | [BLOB-Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Bestandsservices](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [Services in de wachtrij](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) en [tabel Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft.StreamAnalytics/streamingjobs     |  N/A       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
+|Microsoft.CognitiveServices/accounts     |    N/A     | [Cognitive Services](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
+|Microsoft.OperationalInsights/workspaces (Preview) | Ja|[Log Analytics-werkruimten](#support-for-oms-logs-as-metrics-for-alerting)|
 
 
-Metrische gegevens uit logboeken, ondersteunt momenteel de volgende populaire OMS-Logboeken:
+## <a name="create-a-newer-metric-alert"></a>Maken van een nieuwere metrische waarschuwing
+Op dit moment kunt u waarschuwingen voor nieuwere metrische alleen in de Azure portal of REST-API. Ondersteuning voor het configureren van bijna realtime metrische waarschuwingen met behulp van PowerShell, de Azure-opdrachtregelinterface (Azure CLI) is binnenkort beschikbaar.
+
+Zie voor informatie over het maken van een nieuwere metrische waarschuwing in Azure portal, [geen waarschuwingsregel maken in de Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
+
+## <a name="manage-newer-metric-alerts"></a>Nieuwere metrische waarschuwingen beheren
+Nadat u een near realtime metrische waarschuwing maakt, kunt u de waarschuwing beheren met behulp van de stappen in [uw waarschuwingen beheren in de Azure-portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
+
+## <a name="support-for-oms-logs-as-metrics-for-alerting"></a>Ondersteuning voor logboeken van OMS als metrische gegevens voor waarschuwingen
+
+U kunt ook bijna realtime metrische waarschuwingen van populaire OMS-Logboeken als metrische gegevens als onderdeel van de metrische gegevens van Logboeken Preview hebt uitgepakt.  
 - [Prestatiemeteritems](../log-analytics/log-analytics-data-sources-performance-counters.md) voor Windows en Linux-machines
-- Heartbeat-records voor machines
+- [Heartbeat-records voor de status van Agent](../operations-management-suite/oms-solution-agenthealth.md)
 - [Updatebeheer](../operations-management-suite/oms-solution-update-management.md) records
 
 Hier volgt een volledige lijst met OMS logboek gebaseerd metrische bronnen die worden ondersteund voor near realtime metrische waarschuwingen:
@@ -143,17 +152,8 @@ Metrische naam meer informatie  |Dimensies ondersteund  | Type logboek  |
 |    Update |     Ja - Computer, Product, classificatie, UpdateState, optionele & goedgekeurde    |   Updatebeheer |
 
 > [!NOTE]
-> Specifieke metrische gegevens en/of de dimensie wordt alleen weergegeven als de gegevens voor deze in gekozen periode bestaat
+> Specifieke metrische gegevens en/of de dimensie wordt alleen weergegeven als de gegevens voor deze in gekozen periode bestaat. Deze metrische gegevens zijn beschikbaar voor klanten met werkruimten in VS-Oost, West-Centraal VS en West-Europa die zich hebben aangemeld voor de preview. Als u worden van een deel van deze preview wilt, zich aanmelden met behulp van [de enquête](https://aka.ms/MetricLogPreview).
 
-## <a name="create-a-near-real-time-metric-alert"></a>Een waarschuwing voor near realtime metrische maken
-Op dit moment kunt u bijna realtime metrische waarschuwingen alleen in de Azure-portal. Ondersteuning voor het configureren van bijna realtime metrische waarschuwingen met behulp van PowerShell, de Azure-opdrachtregelinterface (Azure CLI) en de Monitor REST-API's van Azure is binnenkort beschikbaar.
-
-De ervaring voor het maken van een near realtime metrische waarschuwing is verplaatst naar de nieuwe **waarschuwingen (Preview)** pagina. Zelfs als de huidige waarschuwingen pagina **waarschuwing toevoegen in de buurt van Real-Time metriek**, wordt u omgeleid naar de **waarschuwingen (Preview)** pagina.
-
-Zie voor meer informatie over het maken van een waarschuwing voor near realtime metrische, [geen waarschuwingsregel maken in de Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
-
-## <a name="manage-near-real-time-metric-alerts"></a>Bijna realtime metrische waarschuwingen beheren
-Nadat u een near realtime metrische waarschuwing maakt, kunt u de waarschuwing beheren met behulp van de stappen in [uw waarschuwingen beheren in de Azure-portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
 ## <a name="payload-schema"></a>De nettolading van schema
 
@@ -209,6 +209,6 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle bij
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over de nieuwe [waarschuwingen (Preview) ervaring](monitoring-overview-unified-alerts.md).
-* Meer informatie over [waarschuwingen melden in Azure waarschuwingen (Preview)](monitor-alerts-unified-log.md).
+* Meer informatie over de nieuwe [ervaring waarschuwingen](monitoring-overview-unified-alerts.md).
+* Meer informatie over [waarschuwingen aanmelden voor Azure](monitor-alerts-unified-log.md).
 * Meer informatie over [waarschuwingen in Azure](monitoring-overview-alerts.md).

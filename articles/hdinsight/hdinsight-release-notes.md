@@ -2,7 +2,7 @@
 title: Release-opmerkingen voor Hadoop-onderdelen op Azure HDInsight | Microsoft Docs
 description: Meest recente release-opmerkingen en versies van Hadoop-onderdelen voor Azure HDInsight. Ontwikkeling tips en informatie opvragen voor Spark, R Server, Hive en meer.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 editor: cgronlun
 manager: jhubbard
 author: nitinme
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: nitinme
-ms.openlocfilehash: 38a33056ccd908b43319125b3fe517988b1507c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf0bfa052c8cd7589af40972fda1e1802b4d1acb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Releaseopmerkingen voor Hadoop-onderdelen op Azure HDInsight
 
@@ -29,9 +29,10 @@ In dit artikel bevat informatie over de **meest recente** Azure HDInsight LDR-up
 > [!IMPORTANT]
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie [HDInsight versioning artikel](hdinsight-component-versioning.md).
 
-## <a name="notes-for-03082018---release-of-spark-22-on-hdinsight-36"></a>Opmerkingen voor 08-03/2018 - Release van 2.2 Spark in HDInsight 3.6
+## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>Opmerkingen voor 20-03/2018 - Release van 2.2 Spark in HDInsight 3.6
 
 - Spark 2.2.0 verbetert de stabiliteit via Spark Core, SQL, ML en brengt gestructureerde Streaming met GA status. Spark 2.2.0 is nu beschikbaar op HDInsight 3.6.
+
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>Opmerkingen bij de release 01/08/2017 van HDInsight
 

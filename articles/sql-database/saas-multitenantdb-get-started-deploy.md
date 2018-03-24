@@ -11,11 +11,11 @@ ms.workload: data-management
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: 82983c8926bdf3c7256c529448e5b4f3b2c2381c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementeren en een shard multitenant-toepassing die gebruikmaakt van Azure SQL Database verkennen
 
@@ -172,7 +172,7 @@ De eerste implementatie omvat drie voorbeeld tenants in de *Tenants1* database. 
 2. Druk op **F5** (geen **F8**) het script uit te voeren (laat de standaardwaarden voor deze oefening).
 
    > [!NOTE]
-   > U moet de PowerShell-scripts uitvoeren door alleen maar te drukken de **F5** sleutel, niet door te drukken **F8** een deel van het script uitvoeren. Het probleem met **F8** is dat de *$PSScriptRoot* variabele wordt niet geëvalueerd. Deze variabele wordt door veel scripts nodig om te navigeren van mappen, of om aan te roepen andere scripts of voor het importeren van modules.
+   > U moet de PowerShell-scripts uitvoeren door alleen maar te drukken de **F5** sleutel, niet door te drukken **F8** een deel van het script uitvoeren. Het probleem met **F8** is dat de *$PSScriptRoot* variabele wordt niet geëvalueerd. Deze variabele is vereist door veel scripts om te navigeren mappen aanroepen andere scripts of importeren van modules.
 
 De nieuwe tenant voor rode esdoorn race wordt toegevoegd aan de *Tenants1* database en geregistreerd in de catalogus. De nieuwe tenant de ticket verkopen **gebeurtenissen** site in uw browser geopend:
 

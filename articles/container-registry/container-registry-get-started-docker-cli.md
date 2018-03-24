@@ -1,6 +1,6 @@
 ---
 title: Push-Docker-installatiekopie naar persoonlijke Azure-register
-description: "Docker-installatiekopieën pushen naar en ophalen van een privécontainerregister in Azure met de Docker-CLI"
+description: Docker-installatiekopieën pushen naar en ophalen van een privécontainerregister in Azure met de Docker-CLI
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21d1abfbb49eaeae654a600d35ab350b96a12fd3
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Uw eerste installatiekopie naar een Docker-containerregister pushen met de Docker-CLI
 
@@ -40,7 +40,7 @@ U kunt zich ook aanmelden met [docker aanmelding](https://docs.docker.com/engine
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
-Beide opdrachten retourneren `Login Succeeded` eenmaal is voltooid. Als u `docker login`, mogelijk ziet u ook een beveiligingswaarschuwing aanbevelen van het gebruik van de `--password-stdin` parameter. Hoewel het gebruik ervan buiten het bereik van dit artikel is, wordt aangeraden na deze aanbevolen procedure. Zie voor meer informatie de [docker aanmelding](https://docs.docker.com/engine/reference/commandline/login/) -opdrachten.
+Beide opdrachten retourneren `Login Succeeded` eenmaal is voltooid. Als u `docker login`, mogelijk ziet u ook een beveiligingswaarschuwing aanbevelen van het gebruik van de `--password-stdin` parameter. Hoewel buiten het bestek van dit artikel, wordt u deze best practice aangeraden. Zie voor meer informatie de [docker aanmelding](https://docs.docker.com/engine/reference/commandline/login/) -opdrachten.
 
 > [!TIP]
 > (Alleen kleine letters) op de registernaam van de volledig gekwalificeerde altijd opgeven als u werkt met `docker login` en wanneer het labelen van installatiekopieën voor pushen toe aan het register. In de voorbeelden in dit artikel, de volledig gekwalificeerde naam is *myregistry.azurecr.io*.
@@ -123,4 +123,8 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u weet de basisbeginselen, bent u klaar om te beginnen met het register. Bijvoorbeeld implementeren container installatiekopieën van het register in op een [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md) cluster.
+Nu u weet de basisbeginselen, bent u klaar om te beginnen met het register. Installatiekopieën van de container uit het register te implementeren:
+
+* [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Exemplaren van de Azure-Container](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

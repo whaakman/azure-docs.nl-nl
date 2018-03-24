@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Hulpprogramma Page UI aanpassing helper | Microsoft Docs'
 description: Een helper hulpprogramma dat wordt gebruikt voor het demonstreren van de functie pagina UI aanpassen in Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: swkrish
-ms.openlocfilehash: a9ccdea64213d564b271699afe28f5ae6db0a71a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: Een helper hulpprogramma dat wordt gebruikt voor het demonstreren van de pagina gebruiker gebruikersinterface (UI)-functie met aanpassen
 Dit artikel is een aanvulling op de [belangrijkste UI aanpassing artikel](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. De volgende stappen wordt beschreven hoe de functie UI aanpassing oefenen met behulp van HTML en CSS voorbeeldinhoud die we hebt opgegeven.
@@ -26,7 +23,7 @@ Dit artikel is een aanvulling op de [belangrijkste UI aanpassing artikel](active
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Een Azure AD B2C-tenant verkrijgen
 Voordat u alles aanpassen kunt, moet u [een Azure AD B2C-tenant verkrijgen](active-directory-b2c-get-started.md) als u er nog geen hebt.
 
-## <a name="create-a-sign-up-or-sign-in-policy"></a>Maak een beleid registreren of aanmelden
+## <a name="create-a-sign-up-or-sign-in-policy"></a>Registratie- of aanmeldingsbeleid maken
 De voorbeeldinhoud bevat, kan worden gebruikt voor customze twee pagina's in een [registreren of aanmelden beleid](active-directory-b2c-reference-policies.md): de [unified aanmeldingspagina](active-directory-b2c-reference-ui-customization.md) en de [pagina zelf aangenomen kenmerken](active-directory-b2c-reference-ui-customization.md). Wanneer [maken van uw beleid registreren of aanmelden](active-directory-b2c-reference-policies.md#create-a-sign-up-or-sign-in-policy), Voeg het lokale Account (e-mailadres), Facebook, Google en Microsoft als **identiteitsproviders**. Dit zijn de enige IDPs die onze voorbeeld HTML-inhoud worden geaccepteerd.  U kunt ook een subset van deze IDPs toevoegen als u wenst.
 
 ## <a name="register-an-application"></a>Een toepassing registreren
@@ -80,7 +77,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 Deze bibliotheek bevat een `sample_templates\wingtip` directory waarin voorbeeld HTML, CSS en afbeeldingen. Voor deze sjablonen om te verwijzen naar uw eigen Azure Blob Storage-account, moet u de HTML-bestanden bewerken. Open `unified.html` en `selfasserted.html` en Vervang alle exemplaren van `https://localhost` met de URL van uw eigen container die u hebt genoteerd in de vorige stappen. U kunt het absolute pad van de HTML-bestanden moet gebruiken, omdat in dit geval de HTML-code kan worden geleverd door Azure AD, onder het domein `https://login.microsoftonline.com`.
 
 ### <a name="upload-the-sample-files"></a>De voorbeeldbestanden uploaden
-Pak in dezelfde opslagplaats `B2CAzureStorageClient.zip` en voer de `B2CAzureStorageClient.exe` binnen het bestand. Dit programma wordt gewoon alle bestanden in de map die u voor uw opslagaccount opgeeft te uploaden en CORS-toegang voor deze bestanden. Als u de bovenstaande stappen hebt gevolgd, is de HTML- en CSS-bestanden wordt nu verwijst naar uw storage-account. Houd er rekening mee dat de naam van uw storage-account is het gedeelte die voorafgaat aan `blob.core.windows.net`, bijvoorbeeld `contoso`. U kunt controleren dat de inhoud is geüpload correct door probeert te krijgen tot `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` in een browser. Ook gebruiken [http://test-cors.org/](http://test-cors.org/) om ervoor te zorgen dat de inhoud nu CORS is ingeschakeld is. (Zoek naar ' XHR status: 200 ' in het resultaat.)
+Pak in dezelfde opslagplaats `B2CAzureStorageClient.zip` en voer de `B2CAzureStorageClient.exe` binnen het bestand. Dit programma wordt gewoon alle bestanden in de map die u voor uw opslagaccount opgeeft te uploaden en CORS-toegang voor deze bestanden. Als u de bovenstaande stappen hebt gevolgd, is de HTML- en CSS-bestanden wordt nu verwijst naar uw storage-account. Houd er rekening mee dat de naam van uw storage-account is het gedeelte die voorafgaat aan `blob.core.windows.net`, bijvoorbeeld `contoso`. U kunt controleren dat de inhoud is geüpload correct door probeert te krijgen tot `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` in een browser. Ook gebruiken [ http://test-cors.org/ ](http://test-cors.org/) om ervoor te zorgen dat de inhoud nu CORS is ingeschakeld is. (Zoek naar ' XHR status: 200 ' in het resultaat.)
 
 ### <a name="customize-your-policy-again"></a>Het beleid opnieuw aanpassen
 Nu dat u hebt de voorbeeldinhoud geüpload naar uw eigen opslagaccount, moet u het registratiebeleid om te verwijzen naar deze bewerken. Herhaal de stappen van de ['Aanpassen van uw beleid'](#customize-your-policy) sectie hierboven, met behulp van URL's van uw eigen opslagaccount. Bijvoorbeeld, de locatie van uw `unified.html` bestand `<url-of-your-container>/wingtip/unified.html`.

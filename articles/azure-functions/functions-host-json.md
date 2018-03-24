@@ -4,9 +4,9 @@ description: Documentatie voor de Azure Functions host.json-bestand.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 577c45edc832288943a7eeefe27c7a189a61b7b0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>host.JSON-documentatie voor Azure Functions
 
@@ -139,7 +139,7 @@ Bepaalt de [steekproeven functie in Application Insights](functions-monitoring.m
 
 |Eigenschap  |Standaard | Beschrijving |
 |---------|---------|---------| 
-|IsEnabled|onwaar|Hiermee of steekproeven uitgeschakeld.| 
+|IsEnabled|false|Hiermee of steekproeven uitgeschakeld.| 
 |maxTelemetryItemsPerSecond|5|De drempelwaarde op welke steekproeven begint.| 
 
 ## <a name="eventhub"></a>eventHub
@@ -186,7 +186,7 @@ Configuratie-instellingen voor [health monitor voor de Host](https://github.com/
 
 |Eigenschap  |Standaard | Beschrijving |
 |---------|---------|---------| 
-|ingeschakeld|waar|Hiermee wordt aangegeven of de functie is ingeschakeld. | 
+|ingeschakeld|true|Hiermee wordt aangegeven of de functie is ingeschakeld. | 
 |healthCheckInterval|10 seconden|Het tijdsinterval tussen de periodieke achtergrond status wordt gecontroleerd. | 
 |healthCheckWindow|2 minuten|Een verschuivende tijdvenster gebruikt in combinatie met de `healthCheckThreshold` instelling.| 
 |healthCheckThreshold|6|Maximum aantal keren dat de statuscontrole kan mislukken voordat een recyclebewerking host wordt gestart.| 
@@ -201,6 +201,9 @@ Configuratie-instellingen voor [HTTP-triggers en bindingen](functions-bindings-h
 ## <a name="id"></a>id
 
 De unieke ID voor een taak host. Een kleine letter GUID met streepjes u kunt verwijderen. Vereist bij lokale uitvoering. Wanneer dit wordt uitgevoerd in Azure Functions, wordt automatisch een ID gegenereerd als `id` wordt weggelaten.
+
+Als u een opslagaccount voor meerdere apps van de functie deelt, zorg dat elke functie-app een andere heeft `id`. U kunt weglaten de `id` eigenschap of stel handmatig elke functie-app `id` op een andere waarde. De timertrigger maakt gebruik van een vergrendeling opslag om ervoor te zorgen dat er slechts één exemplaar van de timer worden wanneer een functie-app uitgeschaald naar meerdere exemplaren. Als twee functie apps dezelfde delen `id` en elk een timertrigger gebruikt, wordt slechts één timer wordt uitgevoerd.
+
 
 ```json
 {

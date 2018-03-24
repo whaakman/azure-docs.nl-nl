@@ -2,22 +2,22 @@
 title: Aanroepen van SSIS-pakket met behulp van Azure Data Factory - activiteit opgeslagen Procedure | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u een pakket SQL Server Integration Services (SSIS) van een Azure Data Factory-pijplijn met behulp van de activiteit opgeslagen Procedure aanroepen.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 89eb2e567e06660efa5feddce1db0fcdb47792f3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dba1accbedf32099cc92be820d0937f3573746a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Aanroepen van een SSIS-pakket met de activiteit opgeslagen procedure in Azure Data Factory
 In dit artikel wordt beschreven hoe een SSIS-pakket van een Azure Data Factory-pijplijn met behulp van een activiteit opgeslagen procedure aanroepen. 
@@ -39,7 +39,7 @@ In deze sectie kunt u Data Factory-gebruikersinterface gebruiken voor het maken 
 ### <a name="create-a-data-factory"></a>Een gegevensfactory maken
 Eerste stap is het maken van een gegevensfactory met behulp van de Azure-portal. 
 
-1. Start **Microsoft Edge** of **Google Chrome** webbrowser. Op dit moment wordt Data Factory-gebruikersinterface alleen ondersteund in Microsoft Edge en Google Chrome webbrowsers.
+1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
 2. Navigeer naar [Azure Portal](https://portal.azure.com). 
 3. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
@@ -122,7 +122,7 @@ In deze sectie een pijplijn run activeren en deze vervolgens te controleren.
 1. Als u wilt activeren van een pijplijn die worden uitgevoerd, klikt u op **Trigger** op de werkbalk en klikt u op **nu starten**. 
 
     ![Nu activeren](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. In de **pijplijn uitvoeren** Selecteer **voltooien**. 
+2. Selecteer in het venster **Pijplijnuitvoering** de optie **Voltooien**. 
 3. Ga naar het tabblad **Controleren** aan de linkerkant. U ziet de pijplijn uitvoeren en de status ervan samen met andere informatie (zoals tijd uitvoeren starten). Als u de lijst wilt vernieuwen, klikt u op **Vernieuwen**.
 
     ![Pijplijnuitvoeringen](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)

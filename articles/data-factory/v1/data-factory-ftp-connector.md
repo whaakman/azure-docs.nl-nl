@@ -2,10 +2,9 @@
 title: Gegevens verplaatsen van een FTP-server met behulp van Azure Data Factory | Microsoft Docs
 description: Meer informatie over het verplaatsen van gegevens van een FTP-server met behulp van Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: daf865ef33e2b099e01f4647b17f36ca8df92c94
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 17dea2d1106a57aa678a88db6647c71048d8c38f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Gegevens verplaatsen van een FTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,8 +73,8 @@ De volgende tabel beschrijft de JSON-elementen die specifiek zijn voor een FTP-g
 | encryptedCredential |Geef de versleutelde referenties voor toegang tot de FTP-server. |Nee |&nbsp; |
 | gatewayName |Geef de naam van de gateway in Data Management Gateway verbinding maken met een on-premises FTP-server. |Nee |&nbsp; |
 | poort |Geef de poort waarop de FTP-server luistert. |Nee |21 |
-| enableSsl |Geef op of FTP gebruiken via een SSL/TLS-kanaal. |Nee |waar |
-| enableServerCertificateValidation |Geef op of validatie van het servercertificaat SSL inschakelen wanneer u FTP via SSL/TLS-kanaal. |Nee |waar |
+| enableSsl |Geef op of FTP gebruiken via een SSL/TLS-kanaal. |Nee |true |
+| enableServerCertificateValidation |Geef op of validatie van het servercertificaat SSL inschakelen wanneer u FTP via SSL/TLS-kanaal. |Nee |true |
 
 ### <a name="use-anonymous-authentication"></a>Gebruik anonieme verificatie
 
@@ -155,7 +154,7 @@ De **typeProperties** sectie verschilt voor elk type dataset. Het levert informa
 | --- | --- | --- |
 | folderPath |Subpad naar de map. Gebruik van escape-teken ' \ ' voor speciale tekens in de tekenreeks. Zie [voorbeeld gekoppelde service en gegevensset definities](#sample-linked-service-and-dataset-definitions) voor voorbeelden.<br/><br/>U kunt deze eigenschap combineren met **partitionBy** mappaden op basis van het segment start en eindtijden datum. |Ja |
 | fileName |Geef de naam van het bestand in de **folderPath** als u wilt dat de tabel om te verwijzen naar een bepaald bestand in de map. Als u geen waarde voor deze eigenschap niet opgeeft, wordt de tabel verwijst naar alle bestanden in de map.<br/><br/>Wanneer **fileName** is niet opgegeven voor een uitvoergegevensset, de naam van het gegenereerde bestand is in de volgende indeling: <br/><br/>Gegevens. <Guid>.txt (voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nee |
-| fileFilter |Geef een filter om te worden gebruikt voor het selecteren van een subset van de bestanden in de **folderPath**, in plaats van alle bestanden.<br/><br/>Toegestane waarden zijn: `*` (meerdere tekens) en `?` (willekeurig teken).<br/><br/>Voorbeeld 1:`"fileFilter": "*.log"`<br/>Voorbeeld 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** is van toepassing op een bestandsshare-invoergegevensset. Deze eigenschap wordt niet ondersteund met Hadoop Distributed File System (HDFS). |Nee |
+| fileFilter |Geef een filter om te worden gebruikt voor het selecteren van een subset van de bestanden in de **folderPath**, in plaats van alle bestanden.<br/><br/>Toegestane waarden zijn: `*` (meerdere tekens) en `?` (willekeurig teken).<br/><br/>Voorbeeld 1: `"fileFilter": "*.log"`<br/>Voorbeeld 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** is van toepassing op een bestandsshare-invoergegevensset. Deze eigenschap wordt niet ondersteund met Hadoop Distributed File System (HDFS). |Nee |
 | partitionedBy |Hiermee geeft u een dynamische **folderPath** en **fileName** voor tijd reeksgegevens. Bijvoorbeeld, kunt u een **folderPath** met parameters die voor elk uur van gegevens. |Nee |
 | Indeling | De volgende indelingstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie de [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [Json-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [parketvloeren indeling](data-factory-supported-file-and-compression-formats.md#parquet-format) secties. <br><br> Als u wilt kopiëren van bestanden, omdat ze tussen winkels op basis van bestanden (binaire kopiëren), slaat u de sectie indeling in de definities van beide invoer en uitvoer gegevensset. |Nee |
 | Compressie | Geef het type en de compressie van de gegevens. Ondersteunde typen zijn **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**, en ondersteunde niveaus zijn **optimale** en **snelst**. Zie voor meer informatie [bestands- en compressie-notaties in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |

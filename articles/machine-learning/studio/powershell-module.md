@@ -3,9 +3,10 @@ title: PowerShell-module voor Machine Learning | Microsoft Docs
 description: De PowerShell-module voor Azure Machine Learning is beschikbaar in de openbare voorbeeldmodus. PowerShell gebruiken om te maken en beheren van werkruimten, experimenten en webservices.
 keywords: experiment,lineaire regressie,machine learning-algoritmen,zelfstudie over machine learning,voorspellende modelleringstechnieken,gegevenswetenschapexperiment
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
 ms.service: machine-learning
@@ -14,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: garye;haining
-ms.openlocfilehash: 47d005e584b6cb87d27a77f56ff619d342481aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9553e372f4d1cb5c60935fae5a7af61806ea6d4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="powershell-module-for-microsoft-azure-machine-learning"></a>PowerShell-module voor Microsoft Azure Machine Learning
 De PowerShell-module voor Azure Machine Learning is een krachtig hulpprogramma waarmee u Windows PowerShell gebruiken voor het beheren van werkruimten, experimenten gegevenssets, klassieke webservices en meer.
 
-U kunt de documentatie bekijken en de module downloaden, samen met de volledige broncode, op [https://aka.ms/amlps](https://aka.ms/amlps). 
+U kunt de documentatie bekijken en de module, samen met de volledige broncode downloaden op [ https://aka.ms/amlps ](https://aka.ms/amlps). 
 
 > [!NOTE]
 > De Azure Machine Learning PowerShell-module is momenteel in voorbeeldmodus. De module blijven worden verbeterd en uitgebreid in deze preview-periode. Let op de [Cortana Intelligence en Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/) voor nieuws en informatie.
@@ -59,6 +59,6 @@ Om te beginnen met de Machine Learning PowerShell downloadt u het [releasepakket
 Als u wilt, kunt u de structuur van git klonen wijzigen van de code en compileert lokaal met behulp van Visual Studio.
 
 ## <a name="next-steps"></a>Volgende stappen
-U vindt de volledige documentatie voor de PowerShell-module op [https://aka.ms/amlps](https://aka.ms/amlps). 
+U vindt de volledige documentatie voor de PowerShell-module op [ https://aka.ms/amlps ](https://aka.ms/amlps). 
 
 Bekijk de gedetailleerde gebruiksvoorbeeld voor een uitgebreid voorbeeld van het gebruik van de module in een Praktijkscenario [veel Machine Learning-modellen en web service-eindpunten maken van een experiment met behulp van PowerShell](create-models-and-endpoints-with-powershell.md).

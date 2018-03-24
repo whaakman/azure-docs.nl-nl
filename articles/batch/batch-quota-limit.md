@@ -2,24 +2,24 @@
 title: Quota en limieten voor Azure Batch service | Microsoft Docs
 description: Meer informatie over Azure Batch standaardquota, limieten en beperkingen en verhoogt het quotum aanvragen
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/16/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 3cc833e456571b63fa03574808529c8c501d7ab5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -53,6 +53,7 @@ Als u een Batch-account hebt gemaakt met de groep toewijzing modus is ingesteld 
 | Grootte van de toepassing-pakket (elk) |Approx. 195GB<sup>1</sup> |
 | Maximale startgrootte van taak | 32768 tekens<sup>2</sup> |
 | Taak maximale levensduur | 7 dagen<sup>3</sup> |
+| Rekenknooppunten in de pool communicatie tussen knooppunten is ingeschakeld | 100 |
 
 <sup>1</sup> azure Storage-limiet voor maximale blob blokgrootte<br />
 <sup>2</sup> bevat bronbestanden en omgevingsvariabelen<br />

@@ -2,7 +2,7 @@
 title: Planning voor de implementatie van een Azure-bestand Sync (preview) | Microsoft Docs
 description: Meer informatie over wat u moet overwegen bij het plannen van de implementatie van een Azure-bestanden.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 097c1719ffc493539276cd98edc761eba20f3751
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planning voor de implementatie van een Azure-bestand Sync (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -160,9 +160,14 @@ Azure File-synchronisatie is alleen beschikbaar in de volgende regio's Preview-v
 |--------|---------------------|
 | Australië - oost | New South Wales |
 | Canada - midden | Toronto |
+| VS - midden | Iowa |
+| Oost-Azië | Hongkong |
 | VS - oost | Virginia |
+| Oost-US2 | Virginia |
+| Noord-Europa | Ierland |
 | Zuidoost-Azië | Singapore |
 | Verenigd Koninkrijk Zuid | Londen |
+| West Cental VS |
 | West-Europa | Nederland |
 | VS - west | Californië |
 

@@ -4,8 +4,8 @@ description: Deze pagina bevat een overzicht van de mogelijkheden van resource-v
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
 ms.service: network-watcher
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646caa5e4aacd58377c0a2b5985a69277d00cec3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Inleiding tot het oplossen van problemen in de Azure-netwerk-Watcher resource
 
-Virtuele netwerkgateways bieden connectiviteit tussen lokale bronnen en andere virtuele netwerken in Azure. Bewaking van deze gateways en hun verbindingen essentieel is voor communicatie is niet verbroken. Netwerk-Watcher biedt de mogelijkheid om op te lossen virtuele netwerkgateways en verbindingen. Dit kan via de portal, PowerShell, CLI of REST-API worden aangeroepen. Aangeroepen, netwerk-Watcher diagnose stelt de status van de gateway van virtueel netwerk of de verbinding als de juiste resultaten retourneren. Deze aanvraag is een langdurige transactie, worden de resultaten geretourneerd nadat de diagnose voltooid is.
+Virtuele netwerkgateways bieden connectiviteit tussen lokale bronnen en andere virtuele netwerken in Azure. Bewaking gateways en hun verbindingen essentieel zijn voor communicatie is niet verbroken. Netwerk-Watcher biedt de mogelijkheid om op te lossen, gateways en verbindingen. De mogelijkheid kan via de portal, PowerShell, Azure CLI of REST-API worden aangeroepen. Als deze wordt aangeroepen, netwerk-Watcher diagnose stelt de status van de gateway of de verbinding en de juiste resultaten retourneert. De aanvraag is een langdurige transactie. De resultaten worden geretourneerd nadat de diagnose voltooid is.
 
 ![portal][2]
 
@@ -50,44 +50,44 @@ De volgende tabellen geven de typen met verschillende domeinen met fouten (id on
 
 | Fouttype | Reden | Logboek|
 |---|---|---|
-| NoFault | Wanneer er geen fout wordt gedetecteerd. |Ja|
-| GatewayNotFound | Kan de Gateway of Gateway niet is ingericht niet vinden. |Nee|
-| PlannedMaintenance |  Gateway-instantie is in onderhoud.  |Nee|
-| UserDrivenUpdate | Wanneer een gebruiker wordt bijgewerkt. Dit wordt mogelijk een bewerking formaat wijzigen. | Nee |
-| VipUnResponsive | Kan het primaire exemplaar van de Gateway niet bereiken. Dit gebeurt wanneer de health-test is mislukt. | Nee |
+| NoFault | Als er geen fout is gedetecteerd. |Ja|
+| GatewayNotFound | Kan de gateway of gateway niet is ingericht niet vinden |Nee|
+| PlannedMaintenance |  Gateway-instantie is in onderhoud  |Nee|
+| UserDrivenUpdate | Deze fout treedt op wanneer een gebruiker bijgewerkt wordt. De update wordt mogelijk een bewerking formaat wijzigen. | Nee |
+| VipUnResponsive | Deze fout treedt op wanneer de primaire instantie van de gateway kan niet worden bereikt vanwege een fout van health test. | Nee |
 | PlatformInActive | Er is een probleem met het platform. | Nee|
 | ServiceNotRunning | De onderliggende service is niet uitgevoerd. | Nee|
-| NoConnectionsFoundForGateway | Er bestaat geen verbindingen op de gateway. Dit is alleen een waarschuwing.| Nee|
-| ConnectionsNotConnected | Verbindingen zijn niet verbonden. Dit is alleen een waarschuwing.| Ja|
-| GatewayCPUUsageExceeded | De huidige Gateway CPU-gebruik is > 95%. | Ja |
+| NoConnectionsFoundForGateway | Er bestaan geen verbindingen op de gateway. Deze fout is alleen een waarschuwing.| Nee|
+| ConnectionsNotConnected | Verbindingen zijn niet verbonden. Deze fout is alleen een waarschuwing.| Ja|
+| GatewayCPUUsageExceeded | De huidige gateway CPU-gebruik is > 95%. | Ja |
 
 ### <a name="connection"></a>Verbinding
 
 | Fouttype | Reden | Logboek|
 |---|---|---|
-| NoFault | Wanneer er geen fout wordt gedetecteerd. |Ja|
-| GatewayNotFound | Kan de Gateway of Gateway niet is ingericht niet vinden. |Nee|
-| PlannedMaintenance | Gateway-instantie is in onderhoud.  |Nee|
-| UserDrivenUpdate | Wanneer een gebruiker wordt bijgewerkt. Dit wordt mogelijk een bewerking formaat wijzigen.  | Nee |
-| VipUnResponsive | Kan het primaire exemplaar van de Gateway niet bereiken. Fout treedt op wanneer de health-test is mislukt. | Nee |
-| ConnectionEntityNotFound | Verbindingsconfiguratie ontbreekt. | Nee |
-| ConnectionIsMarkedDisconnected | De verbinding is gemarkeerd als 'verbinding verbroken'. |Nee|
+| NoFault | Als er geen fout is gedetecteerd. |Ja|
+| GatewayNotFound | Kan de gateway of gateway niet is ingericht niet vinden |Nee|
+| PlannedMaintenance | Gateway-instantie is in onderhoud  |Nee|
+| UserDrivenUpdate | Deze fout treedt op wanneer een gebruiker bijgewerkt wordt. De update wordt mogelijk een bewerking formaat wijzigen.  | Nee |
+| VipUnResponsive | Deze fout treedt op wanneer de primaire instantie van de gateway kan niet worden bereikt vanwege een fout van health test. | Nee |
+| ConnectionEntityNotFound | Verbindingsconfiguratie ontbreekt | Nee |
+| ConnectionIsMarkedDisconnected | De verbinding is gemarkeerd als 'verbinding verbroken' |Nee|
 | ConnectionNotConfiguredOnGateway | De onderliggende service heeft niet de verbinding geconfigureerd. | Ja |
 | ConnectionMarkedStandy | De onderliggende service is gemarkeerd als stand-by.| Ja|
-| Authentication | Vooraf gedeelde sleutel komt niet overeen. | Ja|
+| Verificatie | Vooraf gedeelde sleutel komt niet overeen | Ja|
 | PeerReachability | De peer-gateway is niet bereikbaar. | Ja|
 | IkePolicyMismatch | De gateway van de peer heeft IKE-beleidsregels die worden niet ondersteund door Azure. | Ja|
 | WfpParse fout | Er is een fout opgetreden bij het parseren van het WPF-logboek. |Ja|
 
 ## <a name="supported-gateway-types"></a>Ondersteunde gatewaytypen
 
-De volgende lijst bevat de ondersteuning ziet u welke gateways en verbindingen worden ondersteund bij het oplossen van netwerk-Watcher.
+De volgende tabel wordt aangegeven welke gateways en verbindingen worden ondersteund bij het oplossen van netwerk-Watcher:
+
 |  |  |
 |---------|---------|
 |**Gatewaytypen**   |         |
 |VPN      | Ondersteund        |
 |ExpressRoute | Niet ondersteund |
-|Hypernet | Niet ondersteund|
 |**VPN-typen** | |
 |Route gebaseerd | Ondersteund|
 |Op basis van beleid | Niet ondersteund|
@@ -95,7 +95,6 @@ De volgende lijst bevat de ondersteuning ziet u welke gateways en verbindingen w
 |IPSec| Ondersteund|
 |VNet2Vnet| Ondersteund|
 |ExpressRoute| Niet ondersteund|
-|Hypernet| Niet ondersteund|
 |VPNClient| Niet ondersteund|
 
 ## <a name="log-files"></a>Logboekbestanden
@@ -147,11 +146,11 @@ Error: On-prem device sent invalid payload.
      based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
-### <a name="scrubbed-wfpdiagtxt"></a>Verwijderd wfpdiag.txt
+### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
 
 De **Scrubbed wfpdiag.txt** logboekbestand bevat het WPF-logboek. Dit logboek bevat de logboekregistratie van het pakket verwijderen en IKE/AuthIP fouten.
 
-Het volgende voorbeeld ziet de inhoud van het bestand Scrubbed wfpdiag.txt. In dit voorbeeld wordt is de gedeelde sleutel van een verbinding niet juist kan worden afgeleid uit de 3e regel van de onderkant. Het volgende voorbeeld is alleen een fragment van het hele logboek, omdat het logboek langdurige, afhankelijk van het probleem kan zijn.
+Het volgende voorbeeld ziet de inhoud van het bestand Scrubbed wfpdiag.txt. In dit voorbeeld wordt is de gedeelde sleutel van een verbinding niet juist kan worden afgeleid uit de derde regel van de onderkant. Het volgende voorbeeld is alleen een fragment van het hele logboek, omdat het logboek langdurige, afhankelijk van het probleem kan zijn.
 
 ```
 ...
@@ -180,7 +179,7 @@ Het volgende voorbeeld ziet de inhoud van het bestand Scrubbed wfpdiag.txt. In d
 ...
 ```
 
-### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.Sum
+### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.sum
 
 De **wfpdiag.txt.sum** bestand is een logboek weergegeven met de buffers en gebeurtenissen verwerkt.
 

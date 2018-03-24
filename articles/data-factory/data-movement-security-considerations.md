@@ -2,10 +2,10 @@
 title: Beveiligingsoverwegingen in Azure Data Factory | Microsoft Docs
 description: Beschrijft de infrastructuur van de basisprincipes van beveiliging die services voor gegevensverplaatsing in Azure Data Factory gebruiken om u te helpen beveiligen uw gegevens.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c8215ab4a1759efef3c2c13a5ac44f6944b53d7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 56602e269a441f9541314424190da04be2c4add5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Beveiligingsoverwegingen voor gegevensverplaatsing in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,9 +49,10 @@ In dit artikel controleert u beveiligingsoverwegingen in de volgende twee data m
 - **Hybride scenario**: In dit scenario wordt de bron- of uw doelserver achter een firewall of binnen een bedrijfsnetwerk lokaal is. Of het gegevensarchief bevindt zich in een particulier netwerk of een virtueel netwerk (meestal de bron) en is niet openbaar toegankelijk. Databaseservers die worden gehost op virtuele machines vallen ook onder dit scenario.
 
 ## <a name="cloud-scenarios"></a>Cloud-scenario 's
-### <a name="secure-data-store-credentials"></a>Beveiligde referenties voor gegevensopslag
-- **Versleutelde referenties opgeslagen in een beheerde Azure Data Factory-archief**. Data Factory kunt u uw referenties voor gegevensopslag beveiligen door ze te versleutelen met certificaten die worden beheerd door Microsoft. Deze certificaten worden geroteerd om de twee jaar (waaronder certificaatvernieuwing en de migratie van referenties). De versleutelde referenties zijn veilig opgeslagen in Azure storage-account worden beheerd door Azure Data Factory-beheerservices. Zie voor meer informatie over Azure Storage beveiliging [beveiligingsoverzicht van Azure Storage](../security/security-storage-overview.md).
 
+### <a name="securing-data-store-credentials"></a>Referenties opslaan, het beveiligen van gegevens
+
+- **Versleutelde referenties opgeslagen in een beheerde Azure Data Factory-archief**. Data Factory kunt u uw referenties voor gegevensopslag beveiligen door ze te versleutelen met certificaten die worden beheerd door Microsoft. Deze certificaten worden geroteerd om de twee jaar (waaronder certificaatvernieuwing en de migratie van referenties). De versleutelde referenties zijn veilig opgeslagen in Azure storage-account worden beheerd door Azure Data Factory-beheerservices. Zie voor meer informatie over Azure Storage beveiliging [beveiligingsoverzicht van Azure Storage](../security/security-storage-overview.md).
 - **Referenties opslaan in Azure Key Vault**. U kunt ook de referentie in de gegevensopslag opslaan [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory haalt de referentie tijdens het uitvoeren van een activiteit. Zie voor meer informatie [Store referentie in Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Gegevensversleuteling onderweg
@@ -144,7 +145,7 @@ De volgende tabel bevat de uitgaande poort en het domein vereisten voor bedrijfs
 
 | Domeinnamen                  | Uitgaande poorten | Beschrijving                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443, 80        | Vereist door de runtime host zichzelf integratie verbinding maken met services voor gegevensverplaatsing in Data Factory. |
+| `*.servicebus.windows.net`    | 443            | Vereist door de runtime host zichzelf integratie verbinding maken met services voor gegevensverplaatsing in Data Factory. |
 | `*.core.windows.net`          | 443            | Door de runtime host zichzelf integratie waarmee verbinding met de Azure storage-account wanneer u de [kopie gefaseerde](copy-activity-performance.md#staged-copy) functie. |
 | `*.frontend.clouddatahub.net` | 443            | Vereist door de runtime host zichzelf integratie verbinding maken met de Data Factory-service. |
 | `*.database.windows.net`      | 1433           | (Optioneel) Wanneer u van of naar Azure SQL Database- of Azure SQL Data Warehouse kopiëren vereist. De functie gefaseerde kopiëren gebruiken om gegevens te kopiëren naar Azure SQL Database- of Azure SQL Data Warehouse zonder poort 1433 openen. |

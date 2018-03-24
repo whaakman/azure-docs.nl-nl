@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Informatie over aangepaste beleidsregels van het starter pack | Microsoft Docs'
 description: Een onderwerp op Azure Active Directory B2C aangepast beleid
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/25/2017
-ms.author: joroja
-ms.openlocfilehash: fccb6cfddc8629de7db0310340f07bffd1ff8a65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 624a40b1e40db6ceac9c567926b3932449e7bf7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Wat is de aangepaste beleidsregels van het Azure AD B2C aangepast beleid starter pack?
 
@@ -52,29 +49,29 @@ De volgende claims zijn vereist voor de gebruiker trajecten goed te laten werken
 
 | Claims type | Beschrijving |
 |-------------|-------------|
-| *Gebruikers-id* | Gebruikersnaam |
+| *UserId* | Gebruikersnaam |
 | *signInName* | Meld u aan de naam |
 | *tenantId* | Tenant-id (ID) van het gebruikersobject in Azure AD B2C Premium |
-| *object-id* | Object-id (ID) van het gebruikersobject in Azure AD B2C Premium |
-| *wachtwoord* | Wachtwoord |
-| *NieuwWachtwoord* | |
+| *objectId* | Object-id (ID) van het gebruikersobject in Azure AD B2C Premium |
+| *Wachtwoord* | Wachtwoord |
+| *newPassword* | |
 | *reenterPassword* | |
 | *passwordPolicies* | Wachtwoordbeleid gebruikt door Azure AD B2C Premium om te bepalen van de Wachtwoordsterkte, verlopen, enzovoort. |
-| *Sub* | |
+| *sub* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
-| *Weergavenaam* | |
+| *displayName* | |
 | *strongAuthenticationPhoneNumber* | Het telefoonnummer van de gebruiker |
 | *Verified.strongAuthenticationPhoneNumber* | |
-| *E-mail* | E-mailadres dat kan worden gebruikt om contact op met de gebruiker |
+| *email* | E-mailadres dat kan worden gebruikt om contact op met de gebruiker |
 | *signInNamesInfo.emailAddress* | E-mailadres waarmee de gebruiker kunt aanmelden |
 | *otherMails* | E-mailadressen die kunnen worden gebruikt om contact op met de gebruiker |
 | *userPrincipalName* | De gebruikersnaam die is opgeslagen in de Azure AD B2C Premium |
 | *upnUserName* | Gebruikersnaam voor het maken van de UPN-naam |
 | *mailNickName* | De naam van gebruiker e-mail nick die is opgeslagen in de Azure AD B2C Premium |
-| *nieuwegebruiker* | |
-| *uitgevoerd SelfAsserted invoer* | Claim die aangeeft of de kenmerken van de gebruiker zijn verzameld |
-| *uitgevoerd PhoneFactor invoer* | Claim waarmee wordt aangegeven of een nieuw telefoonnummer van de gebruiker is verzameld |
+| *newUser* | |
+| *executed-SelfAsserted-Input* | Claim die aangeeft of de kenmerken van de gebruiker zijn verzameld |
+| *executed-PhoneFactor-Input* | Claim waarmee wordt aangegeven of een nieuw telefoonnummer van de gebruiker is verzameld |
 | *authenticationSource* | Hiermee geeft u op of de gebruiker is geverifieerd op sociale id-Provider, login.microsoftonline.com of lokale account |
 
 ### <a name="claims-required-for-query-string-parameters-and-other-special-parameters"></a>Claims die vereist zijn voor queryreeksparameters en andere speciale parameters
@@ -83,13 +80,13 @@ De volgende claims zijn vereist om door te geven op de speciale parameters (incl
 
 | Claims type | Beschrijving |
 |-------------|-------------|
-| *Nux* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
+| *nux* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
 | *NCA* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
 | *prompt* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
 | *Mkt* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
-| *kredietbrief* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
+| *lc* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
 | *grant_type* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
-| *bereik* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
+| *scope* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
 | *client_id* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
 | *objectIdFromSession* | Parameter geleverd door de standaardprovider voor het beheer van sessie om aan te geven dat de object-id is opgehaald van een sessie voor eenmalige aanmelding |
 | *isActiveMFASession* | Opgegeven door de MFA-sessiebeheer om aan te geven dat de gebruiker een actieve sessie voor MFA heeft-parameter |
@@ -100,7 +97,7 @@ De volgende claims zijn extra claims die kunnen worden verzameld van de gebruike
 
 | Claims type | Beschrijving |
 |-------------|-------------|
-| *Voornaam* | Van de gebruiker opgegeven naam (ook wel bekend als voornaam) |
+| *givenName* | Van de gebruiker opgegeven naam (ook wel bekend als voornaam) |
 | *Achternaam* | De achternaam van de gebruiker (ook wel bekend als familienaam of achternaam) |
 | *Extension_picture* | Afbeelding van de gebruiker op sociale |
 
@@ -142,27 +139,27 @@ Deze sectie beschrijft de technische profielen is al gedeclareerd voor de claimp
 
 | Technische profiel | Beschrijving |
 |-------------------|-------------|
-| *Facebook OAUTH* | |
+| *Facebook-OAUTH* | |
 
 ### <a name="technical-profiles-for-local-account-signin"></a>Technische profielen voor lokale aanmelding met Account
 
 | Technische profiel | Beschrijving |
 |-------------------|-------------|
-| *Aanmelding niet-interactieve* | |
+| *Login-NonInteractive* | |
 
 ### <a name="technical-profiles-for-phone-factor"></a>Technische profielen voor Phone Factor
 
 | Technische profiel | Beschrijving |
 |-------------------|-------------|
-| *PhoneFactor-invoer* | |
+| *PhoneFactor-Input* | |
 | *PhoneFactor-InputOrVerify* | |
-| *PhoneFactor controleren* | |
+| *PhoneFactor-Verify* | |
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Technische profielen voor Azure Active Directory
 
 | Technische profiel | Beschrijving |
 |-------------------|-------------|
-| *AAD-algemeen* | Technische profiel die zijn opgenomen in de andere technische AAD-xxx-profielen |
+| *AAD-Common* | Technische profiel die zijn opgenomen in de andere technische AAD-xxx-profielen |
 | *AAD-UserWriteUsingAlternativeSecurityId* | Technische profiel voor het sociaal-aanmeldingen |
 | *AAD-UserReadUsingAlternativeSecurityId* | Technische profiel voor het sociaal-aanmeldingen |
 | *AAD-UserReadUsingAlternativeSecurityId-NoError* | Technische profiel voor het sociaal-aanmeldingen |
@@ -177,8 +174,8 @@ Deze sectie beschrijft de technische profielen is al gedeclareerd voor de claimp
 
 | Technische profiel | Beschrijving |
 |-------------------|-------------|
-| *SelfAsserted sociale* | |
-| *SelfAsserted ProfileUpdate* | |
+| *SelfAsserted-Social* | |
+| *SelfAsserted-ProfileUpdate* | |
 
 ### <a name="technical-profiles-for-local-account"></a>Technische profielen voor lokaal Account
 
@@ -190,7 +187,7 @@ Deze sectie beschrijft de technische profielen is al gedeclareerd voor de claimp
 
 | Technische profiel | Beschrijving |
 |-------------------|-------------|
-| *SM-NoOperation* | |
+| *SM-Noop* | |
 | *SM-AAD* | |
 | *SM-SocialSignup* | Profielnaam wordt gebruikt voor het AAD-sessie tussen sign up heffen en aanmelden |
 | *SM-SocialLogin* | |
@@ -213,7 +210,7 @@ Deze sectie beschrijft de trajecten gebruiker is al gedeclareerd in de *B2C_1A_b
 | Gebruiker reis | Beschrijving |
 |--------------|-------------|
 | *Aanmelden* | |
-| *Aanmelding* | |
+| *SignIn* | |
 | *SignUpOrSignIn* | |
 | *EditProfile* | |
 | *PasswordReset* | |

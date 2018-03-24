@@ -2,10 +2,10 @@
 title: Data Factory met Azure Prestatiemeter bewaken | Microsoft Docs
 description: Informatie over het gebruik van de Monitor voor Azure Data Factory-pijplijnen bewaken door het inschakelen van diagnostische logboeken met gegevens van Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: d4022a89b8e0e08679e1c593dc1b691a23d21471
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitor voor data Factory met Azure-Monitor  
 Cloud-toepassingen zijn complexe met veel bewegende onderdelen. Monitoring biedt gegevens om ervoor te zorgen dat uw toepassing up blijft en wordt uitgevoerd in een foutloze toestand bevindt. Ook kunt u potentiële problemen voorkomen of oplossen uit het verleden zijn. Bovendien kunt u bewakingsgegevens grondige om inzicht te krijgen over uw toepassing. Deze kennis kan u helpen bij het verbeteren van de prestaties van toepassingen of onderhoud of acties die anders worden handmatige interventie moeten automatiseren.
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-Hier voor meer informatie] (https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+Hier voor meer informatie] ()https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Schema van Logboeken en gebeurtenissen
 
@@ -396,7 +396,7 @@ ADFV2 verzendt de volgende metrische gegevens
 | TriggerSucceededRuns | Trigger wordt uitgevoerd metrische gegevens is voltooid  | Count    | Totaal                | Totaal aantal trigger voert geslaagd binnen een minuut   |
 | TriggerFailedRuns    | Trigger wordt uitgevoerd metrische gegevens is mislukt     | Count    | Totaal                | Totaal aantal trigger voert is mislukt binnen een minuut      |
 
-Toegang tot de metrische gegevens, volg de instructies in het artikel - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Voor toegang tot de metrische gegevens, volg de instructies in het artikel- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [bewaken en beheren van pijplijnen programmatisch](monitor-programmatically.md) artikel voor meer informatie over het controleren en beheren van pijplijnen door te voeren. 

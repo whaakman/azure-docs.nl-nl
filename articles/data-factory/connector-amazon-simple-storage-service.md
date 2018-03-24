@@ -1,20 +1,20 @@
 ---
-title: "Gegevens kopiëren van Amazon eenvoudige Storage-Service met behulp van Azure Data Factory | Microsoft Docs"
-description: "Meer informatie over hoe u gegevens vanaf Amazon eenvoudige Storage-Service (S3) kopiëren naar gegevensarchieven ondersteunde sink met behulp van Azure Data Factory."
+title: Gegevens kopiëren van Amazon eenvoudige Storage-Service met behulp van Azure Data Factory | Microsoft Docs
+description: Meer informatie over hoe u gegevens vanaf Amazon eenvoudige Storage-Service (S3) kopiëren naar gegevensarchieven ondersteunde sink met behulp van Azure Data Factory.
 services: data-factory
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b5dbf4b7ae0fc1f8871fbf6df1a29f0f7324d83a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82d46d29b1e75995c5436b985717f45104dad955
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Gegevens kopiëren van Amazon eenvoudige Storage-Service met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,8 +36,8 @@ In het bijzonder kopiëren bestanden als biedt ondersteuning voor deze connector
 
 Als u wilt kopiëren van gegevens vanaf Amazon S3, moet dat u de volgende machtigingen hebben gekregen:
 
-- `s3:GetObject`en `s3:GetObjectVersion` voor Amazon S3 Object bewerkingen.
-- `s3:ListBucket`of `s3:GetBucketLocation` voor Amazon S3-Bucket-bewerkingen. Als u de Data Factory-Wizard kopiëren, `s3:ListAllMyBuckets` is ook vereist.
+- `s3:GetObject` en `s3:GetObjectVersion` voor Amazon S3 Object bewerkingen.
+- `s3:ListBucket` of `s3:GetBucketLocation` voor Amazon S3-Bucket-bewerkingen. Als u de Data Factory-Wizard kopiëren, `s3:ListAllMyBuckets` is ook vereist.
 
 Zie voor meer informatie over de volledige lijst met machtigingen voor Amazon S3 [machtigingen geven in een beleid](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 

@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 932aab3f16a571d4c83c77c1cc2274ae60ea3d35
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/23/2018
+---
 1. In de portal klikt u via **Alle resources** op **+Toevoegen**.
 2. In de **Alles** pagina zoekvak, type **lokale netwerkgateway**, klikt u om te retourneren van een lijst met bronnen. Klik op **Lokale netwerkgateway** om de pagina te openen en klik op **Maken** om de pagina **Lokale netwerkgateway maken** te openen.
 

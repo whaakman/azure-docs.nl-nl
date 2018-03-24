@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: REST-API claim uitwisselingen in uw Azure AD B2C gebruiker reis integreren als gebruikersinvoer'
 description: REST-API claim uitwisselingen in uw Azure AD B2C gebruiker reis als gebruikersinvoer integreren.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/30/2017
-ms.author: yoelh
-ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: 9429f690940e1282d94b4d67ad1c618a24655cb5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>REST-API claims kunnen worden uitgewisseld in uw Azure AD B2C gebruiker reis integreren als gebruikersinvoer
 Met het Framework van de gebruikerservaring identiteit voltooiingscallback die Azure Active Directory B2C (Azure AD B2C), die u kunt integreren met een RESTful-API in het traject van een gebruiker. In dit scenario leert u hoe Azure AD B2C communiceert met .NET Framework RESTful-services (web-API).
@@ -249,8 +246,8 @@ Een claimprovider kan meerdere profielen voor technische om verschillende redene
 De volgende XML-fragment bevat een knooppunt van de provider claims met twee technische profielen:
 
 * **TechnicalProfile-Id = "REST-API-SignUp"**: definieert de RESTful-service. 
-   * `Proprietary`Als het protocol wordt beschreven voor een op basis van RESTful-provider. 
-   * `InputClaims`Hiermee definieert u de claims die naar de REST-service van Azure AD B2C wordt verzonden. 
+   * `Proprietary` Als het protocol wordt beschreven voor een op basis van RESTful-provider. 
+   * `InputClaims` Hiermee definieert u de claims die naar de REST-service van Azure AD B2C wordt verzonden. 
 
    In dit voorbeeld wordt de inhoud van de claim `givenName` verzonden naar de REST-service als `firstName`, de inhoud van de claim `surname` verzonden naar de REST-service als `lastName`, en `email` is verzonden. De `OutputClaims` element de claims die worden opgehaald uit de RESTful-service naar Azure AD B2C wordt gedefinieerd.
 

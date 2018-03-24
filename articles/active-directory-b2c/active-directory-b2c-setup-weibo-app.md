@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Weibo configuratie | Microsoft Docs'
 description: Registreren en aanmelden gebruikers met een account in uw toepassingen die zijn beveiligd met Azure Active Directory B2C Weibo bieden.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 1860de34-94cb-4ceb-851e-102f930f7230
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
-ms.author: parakhj
-ms.openlocfilehash: 320d7c57035d3b3ecdb4e03d80141a58cf429461
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: f2a7b6992e54f9804057f21e10ba68a9a723c6a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: Zich kunnen registreren en aanmelden gebruikers bieden met Weibo-accounts
 
@@ -28,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="create-a-weibo-application"></a>Een toepassing Weibo maken
 
-Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C Weibo gebruikt, moet u een Weibo-toepassing maken en geeft deze met de juiste parameters. U moet een account Weibo om dit te doen. Als u niet hebt, kunt u één voor één [http://weibo.com/signup/signup.php?lang=en-us](http://weibo.com/signup/signup.php?lang=en-us).
+Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C Weibo gebruikt, moet u een Weibo-toepassing maken en geeft deze met de juiste parameters. U moet een account Weibo om dit te doen. Als u niet hebt, kunt u één voor één [ http://weibo.com/signup/signup.php?lang=en-us ](http://weibo.com/signup/signup.php?lang=en-us).
 
 ### <a name="register-for-the-weibo-developer-program"></a>Registreren voor de Ontwikkelaarsprogramma Weibo
 

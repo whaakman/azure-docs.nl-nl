@@ -1,11 +1,11 @@
 ---
-title: "Gegevens kopiëren van Teradata met behulp van Azure Data Factory | Microsoft Docs"
-description: "Meer informatie over de Teradata-Connector van de Data Factory-service waarmee u gegevens kopiëren vanuit de Teradata-database naar de gegevensarchieven die worden ondersteund door Data Factory als PUT."
+title: Gegevens kopiëren van Teradata met behulp van Azure Data Factory | Microsoft Docs
+description: Meer informatie over de Teradata-Connector van de Data Factory-service waarmee u gegevens kopiëren vanuit de Teradata-database naar de gegevensarchieven die worden ondersteund door Data Factory als PUT.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6af955b456a00fa90a9e49701fef6318e51bbd4b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 287fc502a0a538660da86e028a81fba04bcac903
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Gegevens kopiëren van Teradata met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -172,7 +172,7 @@ Bij het kopiëren van gegevens uit een Teradata, worden de volgende toewijzingen
 | ByteInt |Int16 |
 | CHAR |Tekenreeks |
 | CLOB |Tekenreeks |
-| Date |Datum en tijd |
+| Date |DateTime |
 | Decimale |Decimale |
 | Double |Double |
 | Afbeelding |Tekenreeks |
@@ -199,7 +199,7 @@ Bij het kopiëren van gegevens uit een Teradata, worden de volgende toewijzingen
 | SmallInt |Int16 |
 | Time |TimeSpan |
 | Tijd met de tijdzone |Tekenreeks |
-| Timestamp |Datum en tijd |
+| Timestamp |DateTime |
 | Tijdstempel met tijdzone |DateTimeOffset |
 | VarByte |Byte[] |
 | VarChar |Tekenreeks |

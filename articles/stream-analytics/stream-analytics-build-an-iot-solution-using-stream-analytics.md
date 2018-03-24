@@ -2,7 +2,7 @@
 title: Een IoT-oplossing bouwen met behulp van de Stream Analytics | Microsoft Docs
 description: Zelfstudie voor de Stream Analytics IoT-oplossing van een scenario tolhuisje aan de slag
 keywords: IOT-oplossing, vensterfuncties
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/12/2018
+ms.date: 03/21/2018
 ms.author: sngun
-ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 6ee2c1c4b1255b462f2974c111e626d62608de5c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Een IoT-oplossing bouwen met behulp van de Stream Analytics
 
@@ -41,8 +41,7 @@ U moet de volgende vereisten om deze zelfstudie te voltooien:
 * Visual Studio 2017 2015, of het gratis [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * Een [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/)
 * Beheerdersbevoegdheden op de computer
-* Het downloaden van de [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) uit het Microsoft Downloadcentrum
-* Optioneel: De broncode voor de generator van de gebeurtenis TollApp in [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
+* Download de broncode voor TollApp sensor data-analyse van de [azure-stream-analytics GitHub-opslagplaats.](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp). Deze repository bevat voorbeeldgegevens en query's die u in de volgende secties gebruiken wilt. 
 
 ## <a name="scenario-introduction-hello-toll"></a>Scenario Inleiding: "Hallo, Tolstation!"
 Een station tolstation is een algemene verschijnsel. Tijdens deze veel autowegen bruggen en tunnels over de hele wereld. Elk station tolstation heeft meerdere tolstation stands. U stoppen als u wilt de tolstation betalen aan een daarmee gepaard gaande op handmatige stands. Een sensor boven op elke stand scant op geautomatiseerde stands een RFID-kaart wordt aangebracht op de voorruit van uw vehicle verwerkt als u de gratis stand doorgeven. Het is gemakkelijk om te visualiseren van het verstrijken van de door middel van deze stations tolstation als een stroom gebeurtenissen waarover interessante bewerkingen kunnen worden uitgevoerd.

@@ -2,9 +2,10 @@
 title: Azure AI-galerie experimenten | Microsoft Docs
 description: Detecteren en experimenten in de galerie van Azure AI delen.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.author: garye
-ms.openlocfilehash: 80c2ab0cd97ce5afef7e38bad9f0fa0e4f3f363c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d6de7aa6d16196f415688d68251e8c1b0a4b9aee
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Experimenten in de galerie van Azure AI detecteren
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -34,7 +34,7 @@ De galerie heeft een groot aantal [experimenten](https://gallery.cortanaintellig
 ## <a name="discover"></a>Ontdekken
 Om te bladeren door experimenten [in de galerie](http://gallery.cortanaintelligence.com), aan de bovenkant van de startpagina van de galerie selecteren **experimenten**.
 
-De  **[experimenten](https://gallery.cortanaintelligence.com/experiments)**  pagina geeft een lijst met onlangs toegevoegde en populaire experimenten. Als u wilt zien alle experimenten, selecteer de **alle** knop. Als u wilt zoeken naar een specifieke experiment, selecteer **alle**, en selecteer vervolgens filtercriteria. Ook kunt u zoektermen op in de **Search** vak aan de bovenkant van de pagina Galerie.
+De **[experimenten](https://gallery.cortanaintelligence.com/experiments)** pagina geeft een lijst met onlangs toegevoegde en populaire experimenten. Als u wilt zien alle experimenten, selecteer de **alle** knop. Als u wilt zoeken naar een specifieke experiment, selecteer **alle**, en selecteer vervolgens filtercriteria. Ook kunt u zoektermen op in de **Search** vak aan de bovenkant van de pagina Galerie.
 
 U kunt meer informatie over een experiment op de pagina experiment details ophalen. Als de pagina met details van een experiment, schakelt u het experiment. Op een experiment details pagina in de **opmerkingen** sectie, u kunt opmerkingen, feedback geven of vragen hebt over het experiment. U kunt zelfs het experiment delen met vrienden of collega's op Twitter of LinkedIn. U kunt ook een koppeling naar de pagina experiment details om uit te nodigen van andere gebruikers naar de pagina mail.
 

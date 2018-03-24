@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="collector-appliance"></a>Collector toestel
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="overview"></a>Overzicht
 
-Een Collector voor het migreren van Azure is een lighweight toestel die kan worden gebruikt voor het detecteren van uw on-premises vCenter-omgeving. Dit toestel detecteert lokale VMware-machines en stuurt de metagegevens over deze naar de service Azure migreren.
+Een Collector voor het migreren van Azure is een lichtgewicht toestel die kan worden gebruikt voor het detecteren van uw on-premises vCenter-omgeving. Dit toestel detecteert lokale VMware-machines en stuurt de metagegevens over deze naar de service Azure migreren.
 
 Het toestel Collector is een OVF die u van het project Azure migreren downloaden kunt. Het instantiëren van een virtuele VMware-machine met 4 kernen, 8 GB RAM-geheugen en één schijf van 80 GB. Het besturingssysteem van het toestel is Windows Server 2012 R2 (64 bits).
 
@@ -172,6 +172,15 @@ De volgende tabel bevat de prestatiemeteritems die worden verzameld en ook verme
 De Collector wordt alleen gegevens van de machine detecteert en verzendt het naar het project. Het project kan extra tijd voordat de gedetecteerde gegevens op de portal wordt weergegeven en u kunt beginnen met het maken van een beoordeling duren.
 
 Op basis van het aantal virtuele machines in de geselecteerde scope, duurt het maximaal 15 minuten om de metagegevens van de statische aan het project. Nadat de metagegevens van de statische beschikbaar op de portal is, kunt u het overzicht van virtuele machines in de portal en beginnen met het maken van groepen. Een evaluatie kan niet worden gemaakt totdat de taak is voltooid en de gegevens is verwerkt door het project. Eenmaal de verzameling-taak is voltooid op de Collector, duurt het maximaal één uur voor de prestatiegegevens alleen beschikbaar op de portal op basis van het aantal virtuele machines in de geselecteerde scope.
+
+## <a name="locking-down-the-collector-appliance"></a>Vergrendelen van het toestel collector
+Het is raadzaam om continue Windows-updates uitgevoerd op het apparaat van de collector. Als een collector voor 45 dagen niet wordt bijgewerkt, gaat de collector automatisch de de machine is afgesloten. Als een detectie wordt uitgevoerd, worden de machine niet uitgeschakeld, zelfs als deze voorbij de 45 dagen. Na de detectietaak is voltooid, de machine wordt uitgeschakeld. Als u van de collector meer dan 45 dagen gebruikmaakt, wordt u aangeraden om de machine is bijgewerkt op alle tijden door actieve Windows update te houden.
+
+We raden u ook aan de volgende stappen voor het beveiligen van uw apparaat
+1. Geen delen of beheerderswachtwoorden misplace met niet-gemachtigde gebruikers.
+2. Sluit het toestel als deze niet in gebruik.
+3. Het apparaat in een beveiligde netwerk plaatsen.
+4. Zodra het werk van de migratie voltooid is, verwijdert u het toestel-exemplaar. Zorg ervoor dat de schijf back-upbestanden (VMDKs) ook verwijderen als de schijven vCenter-referenties in cache op deze mogelijk heeft.
 
 ## <a name="how-to-upgrade-collector"></a>Het bijwerken van de Collector
 

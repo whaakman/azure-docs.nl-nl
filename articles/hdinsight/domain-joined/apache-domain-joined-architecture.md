@@ -2,7 +2,7 @@
 title: Domein Azure HDInsight-architectuur | Microsoft Docs
 description: Meer informatie over het plannen van aan domein gekoppelde HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bhanupr
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/14/2017
+ms.date: 03/20/2018
 ms.author: bprakash
-ms.openlocfilehash: 5285199d22528ed6b9fa3b7dbc85e382e7b28569
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b4f79388e45e24dc906a3a03dc0c0e51df52160d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Azure Hadoop-clusters in aan domein gekoppelde HDInsight plannen
 
@@ -47,16 +47,14 @@ De volgende schermafbeelding ziet een organisatie-eenheid gemaakt in contoso.com
 
 ![Domein die lid zijn van HDInsight-clusters organisatie-eenheid](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Twee manieren om uw eigen Active Directory-domeincontrollers
-
-Er zijn twee manieren waarop u Active Directory-domeincontrollers voor het maken van domein HDInsight-clusters kunt brengen. 
+### <a name="the-way-of-bringing-your-own-active-directory-domain-controllers"></a>De manier om uw eigen Active Directory-domeincontrollers
 
 - **Azure Active Directory Domain Services**: deze service biedt een beheerd domein van het Active Directory, die volledig compatibel met Windows Server Active Directory is. Microsoft zorgt voor beheer, patchen en de bewaking van het AD-domein. U kunt uw cluster implementeren zonder dat u over het beheren van domeincontrollers. Gebruikers, groepen en wachtwoorden worden gesynchroniseerd vanuit uw Azure Active Directory, zodat gebruikers aan te melden bij het cluster met hun bedrijfsreferenties. Zie voor meer informatie [configureren domein HDInsight-clusters met behulp van Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
-- **Active Directory op Azure IaaS VM's**: In deze optie kunt u implementeren en beheren van uw eigen Windows Server Active Directory-domein op Azure IaaS VM's. Zie voor meer informatie [configureren domein gekoppelde sandbox-omgeving](./apache-domain-joined-configure.md).
+> [!NOTE]
+> Active Directory op Azure IaaS VM's wordt niet langer ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Aan een domein gekoppelde HDInsight-clusters configureren) om een HDInsight-cluster te configureren dat is gekoppeld aan een domein.
 * Zie [Manage Domain-joined HDInsight clusters](apache-domain-joined-manage.md) (Aan een domein gekoppelde HDInsight-clusters beheren) om HDInsight-clusters te beheren die zijn gekoppeld aan een domein.
 * Zie [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md) (Hive-beleid configureren voor aan een domein gekoppelde HDInsight-clusters) om Hive-beleid te configureren en Hive-query's uit te voeren.
 * Zie voor informatie over het uitvoeren van Hive-query's met behulp van SSH op HDInsight-clusters domein [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).

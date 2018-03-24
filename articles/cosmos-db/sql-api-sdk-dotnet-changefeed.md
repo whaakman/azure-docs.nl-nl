@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: maquaran
-ms.openlocfilehash: 7e53cf67bc6e03a5f45de5ad4e23ff91624874f4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7008261a4bca118648662fe7beeff5e375086880
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET wijziging Feed Processor SDK: Downloaden en release-opmerkingen
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
-### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Verbeteringen in stabiliteit.
 * Ondersteuning voor handmatige plaatsen van controlepunten.
 * Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 versies en hoger.
@@ -77,7 +77,7 @@ Elk verzoek aan de Cosmos-database met behulp van een buiten gebruik gestelde SD
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
-| [1.3.0](#1.3.0) |07 maart 2018 |--- |
+| [1.3.1](#1.3.1) |13 maart 2018 |--- |
 | [1.2.0](#1.2.0) |31 oktober 2017 |--- |
 | [1.1.1](#1.1.1) |29 augustus 2017 |--- |
 | [1.1.0](#1.1.0) |13 augustus 2017 |--- |

@@ -3,7 +3,7 @@ title: Aan de slag met Azure Monitor | Microsoft Docs
 description: Ga aan de slag met Azure Monitor om inzicht te krijgen in de werking van uw resources en maatregelen te nemen op basis van gegevens.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 9c352c67aa0e9392c9e9d68822abeb27344bd8b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 69ec5392f034ffe94315c17366a9242d86c69d6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Aan de slag met Azure Monitor
-Azure Monitor is de platformservice die één bron biedt voor het bewaken van Azure-resources. Met Azure Monitor kunt u visualiseren, query's uitvoeren, routeren, archiveren en actie ondernemen op basis van de metrische gegevens en logboeken van resources in Azure. U kunt werken met het gebruik van deze gegevens met behulp van de Azure-portal [Monitor PowerShell-Cmdlets](insights-powershell-samples.md), [platformoverschrijdende CLI](insights-cli-samples.md), of [Monitor REST-API's van Azure](https://msdn.microsoft.com/library/dn931943.aspx). In dit artikel gebruiken we de demonstratieportal om enkele belangrijke onderdelen van Azure Monitor te belichten.
+Azure Monitor is de platformservice die één bron biedt voor het bewaken van Azure-resources. Met Azure-Monitor kunt u visualiseren, query, routeren, archiveren en anders maatregelen nemen op de metrische gegevens en de logboeken die afkomstig zijn van bronnen in Azure. U kunt werken met het gebruik van deze gegevens met behulp van de Azure-portal [Monitor PowerShell-Cmdlets](insights-powershell-samples.md), [platformoverschrijdende CLI](insights-cli-samples.md), of [Monitor REST-API's van Azure](https://msdn.microsoft.com/library/dn931943.aspx). In dit artikel gebruiken we de demonstratieportal om enkele belangrijke onderdelen van Azure Monitor te belichten.
 
 ## <a name="walkthrough"></a>Walkthrough
 1. Navigeer in de portal naar **alle services** en zoek de **Monitor** optie. Klik op het sterpictogram om deze optie toe te voegen aan uw lijst met favorieten, zodat deze altijd eenvoudig toegankelijk is vanaf de navigatiebalk aan de linkerkant.
@@ -39,7 +39,7 @@ Azure Monitor is de platformservice die één bron biedt voor het bewaken van Az
     In [**Activiteitenlogboek**](monitoring-overview-activity-logs.md) worden alle bewerkingen beschreven die worden uitgevoerd voor resources binnen uw abonnement. Met behulp van het activiteitenlogboek kunt u nagaan wie resources heeft toegevoegd, bijgewerkt of verwijderd binnen uw abonnement, en wanneer dat is gebeurd en wat er is veranderd. In het activiteitenlogboek ziet u bijvoorbeeld wanneer een web-app is gestopt en wie deze heeft gestopt. Gebeurtenissen in het activiteitenlogboek worden opgeslagen op het platform en kunnen gedurende 90 dagen worden doorzocht.
 
     U kunt query's voor algemene filters maken en opslaan en de belangrijkste query's vervolgens vastmaken aan een portal dashboard, zodat u altijd op de hoogte bent als er zich gebeurtenissen voordoen die voldoen aan uw criteria.
-4. Filter de weergave voor een bepaalde resourcegroep in de afgelopen week en klik vervolgens op de knop **Opslaan**.
+4. Filter de weergave voor een bepaalde resourcegroep in de afgelopen week en klik vervolgens op de knop **Opslaan**. De query een naam geven. 
 
     ![Query voor activiteitenlogboek opslaan](./media/monitoring-get-started/monitor-act-log-save.png)
 5. Klik vervolgens op de knop **Vastmaken**.

@@ -3,10 +3,10 @@ title: Voorwaardelijke toegang van Azure Active Directory | Microsoft Docs
 description: Meer informatie over hoe voorwaardelijke toegang in Azure Active Directory kunt u beheren toegang vanaf een centrale locatie.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 74a87065416b397b4eebbcaa54c769711176708d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Voorwaardelijke toegang in Azure Active Directory
 
@@ -49,7 +49,7 @@ Hieronder volgen enkele algemene toegang problemen die het voorwaardelijke toega
 
 - **[Netwerklocatie](active-directory-conditional-access-locations.md)**: Azure AD is toegankelijk vanaf elke locatie. Wat gebeurt er als een toegangspoging wordt uitgevoerd vanaf een netwerklocatie die niet onder het beheer van uw IT-afdeling? Een combinatie van gebruikersnaam en het wachtwoord mogelijk voldoende als bewijs van identiteit voor toegang tot uw resources wil vanuit uw bedrijfsnetwerk. Wat gebeurt er als u vraag een sterkere bewijs van identiteit voor toegang probeert die geïnitieerd worden vanuit andere onverwachte landen of regio's van de wereld? Wat gebeurt er als u zelfs toegang wilt blokkeren probeert van bepaalde locaties?  
 
-- **[Apparaatbeheer](active-directory-conditional-access-conditions.md#device-platforms)**: In Azure AD gebruikers hebben toegang tot cloud-apps van een breed scala aan apparaten, zoals mobiele en ook op persoonlijke apparaten. Wat gebeurt er als u een toegangspoging vereisen, moet u alleen uitgevoerd gebruiker met behulp van apparaten die worden beheerd door uw IT-afdeling? Wat gebeurt er als u zelfs toegang wilt blokkeren bepaalde apparaat typen formulier in de cloud-apps in uw omgeving? 
+- **[Apparaatbeheer](active-directory-conditional-access-conditions.md#device-platforms)**: In Azure AD gebruikers hebben toegang tot cloud-apps van een breed scala aan apparaten, zoals mobiele en ook op persoonlijke apparaten. Wat gebeurt er als u vraag die toegangspogingen moet alleen worden uitgevoerd met behulp van apparaten die worden beheerd door uw IT-afdeling? Wat gebeurt er als zelfs wilt u bepaalde typen apparaten toegang hebben tot cloud-apps in uw omgeving blokkeren? 
 
 - **[Clienttoepassing](active-directory-conditional-access-conditions.md#client-apps)**: vandaag de dag u toegang hebt tot veel cloud-apps met behulp van verschillende typen Apps die zoals web gebaseerde apps, mobiele apps of desktop-apps. Wat gebeurt er als een toegangspoging wordt uitgevoerd met behulp van een client-app-type dat ervoor zorgt bekende problemen dat? Wat gebeurt er als u een apparaat dat wordt beheerd door uw IT-afdeling voor bepaalde typen app nodig? 
 

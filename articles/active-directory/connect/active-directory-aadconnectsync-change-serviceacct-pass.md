@@ -3,10 +3,10 @@ title: 'Azure AD Connect-synchronisatie: het Azure AD Connect-synchronisatie-ser
 description: Dit document onderwerp beschrijft de versleutelingssleutel en hoe deze Breek deze af nadat het wachtwoord is gewijzigd.
 services: active-directory
 keywords: Azure AD sync-serviceaccount, wachtwoord
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: faa6d667b514563516c23e0484437ac9572e52b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Het wijzigen van het wachtwoord voor de Azure AD Connect sync-serviceaccount
 Als u het wachtwoord voor de Azure AD Connect sync-serviceaccount wijzigen, zich de Synchronization Service niet kunnen starten correct totdat u hebt de versleutelingssleutel afgebroken en het wachtwoord voor de Azure AD Connect sync-serviceaccount opnieuw geïnitialiseerd. 
@@ -30,7 +30,7 @@ De versleutelingssleutel die wordt gebruikt, is beveiligd met [Windows Data Prot
 
 Als u wilt wijzigen van het wachtwoord van serviceaccount kunt u de procedures in [opgegeven van de versleutelingssleutel van de Azure AD Connect-synchronisatie](#abandoning-the-azure-ad-connect-sync-encryption-key) om dit te bereiken.  Deze procedures moeten ook worden gebruikt als u moet de versleutelingssleutel voor een bepaalde reden afbreken.
 
-##<a name="issues-that-arise-from-changing-the-password"></a>Problemen die ontstaan bij het wijzigen van het wachtwoord
+## <a name="issues-that-arise-from-changing-the-password"></a>Problemen die ontstaan bij het wijzigen van het wachtwoord
 Er zijn twee dingen die worden uitgevoerd moeten wanneer u het wachtwoord van serviceaccount wijzigt.
 
 Eerst moet u het wachtwoord onder Windows Service Control Manager wijzigen.  Totdat dit probleem opgelost is ziet u volgende fouten:
@@ -72,9 +72,9 @@ De bestaande versleutelingssleutel afbreken zodat deze nieuwe versleutelingssleu
 
 2. Start een nieuwe PowerShell-sessie.
 
-3. Navigeer naar de map:`$env:Program Files\Microsoft Azure AD Sync\bin\`
+3. Navigeer naar de map: `$env:Program Files\Microsoft Azure AD Sync\bin\`
 
-4. Voer de opdracht:`./miiskmu.exe /a`
+4. Voer de opdracht: `./miiskmu.exe /a`
 
 ![Azure AD Connect Sync Encryption Key-hulpprogramma](media/active-directory-aadconnectsync-encryption-key/key5.png)
 

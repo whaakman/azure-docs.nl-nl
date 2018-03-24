@@ -1,11 +1,11 @@
 ---
 title: Container bewaking oplossing in Azure Log Analytics | Microsoft Docs
-description: "De oplossing Container bewaking in Log Analytics kunt u weergeven en beheren van uw Docker- en Windows container hosts op één locatie."
+description: De oplossing Container bewaking in Log Analytics kunt u weergeven en beheren van uw Docker- en Windows container hosts op één locatie.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0041a58c8da58785ebc3ead6c8128316b153728c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container bewaking oplossing in Log Analytics
 
@@ -100,7 +100,10 @@ Gebruik de volgende informatie om te installeren en configureren van de oplossin
     - Op Windows Server 2016 en Windows 10, de Docker-Engine en de client installeren en vervolgens verbinding maken met een agent voor het verzamelen van gegevens en verzenden naar Log Analytics. Bekijk [installeren en configureren van Windows-container hosts](#install-and-configure-windows-container-hosts) hebt u een Windows-omgeving.
   - Voor meerdere host-orchestration Docker:
     - Als u een Red Hat OpenShift-omgeving hebt, raadpleegt u [configureren van een OMS-agent voor Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
-    - Als u een Kubernetes-cluster met behulp van de Azure Container Service hebt, raadpleegt u [configureren van een OMS-agent voor Kubernetes](#configure-an-oms-agent-for-kubernetes).
+    - Als u een Kubernetes-cluster met behulp van de Azure Container Service hebt:
+       - Bekijk [configureren een OMS-Linux-agent voor Kubernetes](#configure-an-oms-linux-agent-for-kubernetes).
+       - Bekijk [configureren van een Windows OMS-agent voor Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
+       - Bekijk [Helm gebruiken voor het implementeren van OMS-Agent op Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - Als u een Azure Container Service DC/OS-cluster hebt, meer informatie op [bewaken van een Azure Container Service DC/OS-cluster met Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Als u een omgeving met de modus Docker Swarm hebt, meer informatie op [configureren van een OMS-agent voor Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
     - Als u een Service Fabric-cluster hebt, meer informatie op [bewaken containers met OMS Log Analytics](../service-fabric/service-fabric-diagnostics-oms-containers.md).
@@ -387,7 +390,7 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-#### <a name="configure-an-oms-agent-for-windows-kubernetes"></a>Een OMS-agent voor Windows Kubernetes configureren
+#### <a name="configure-an-oms-windows-agent-for-kubernetes"></a>Een Windows OMS-agent voor Kubernetes configureren
 Voor Windows Kubernetes gebruikt u een script om de geheimen yaml-bestand voor uw werkruimte-ID en de primaire sleutel voor het installeren van de OMS-Agent te genereren. Op de [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) pagina, er zijn bestanden die u met uw geheime informatie gebruiken kunt.  U moet de OMS-Agent voor de hoofd- en agent knooppunten afzonderlijk installeren.  
 
 1. Gebruik van OMS-Agent DaemonSet met geheime informatie op de Master-knooppunt, aanmelden en maakt u eerst de geheimen.

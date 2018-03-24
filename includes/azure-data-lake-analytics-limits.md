@@ -3,6 +3,6 @@ Met Data Lake Analytics wordt de moeilijke taak van het beheren van een versprei
 | **Resource** | **Standaardlimiet** | **Opmerkingen** |
 | --- | --- | --- |
 | Maximum aantal gelijktijdige taken |20 | |
-| Maximum aantal eenheden Analytics (AUs) per account |250 | Gebruik een combinatie van maximaal 250 AUs in 20 projecten. |
+| Maximum aantal eenheden Analytics (AUs) per account |250 | Gebruik een combinatie van maximaal 250 AUs in 20 projecten.  Neem contact op met Microsoft ondersteuning om deze limiet verhogen. |
 | Script maximale grootte voor het indienen van de taak | 3 MB | |
-
+| Maximum aantal ADLA accounts per regio per abonnement | 5 | Neem contact op met Microsoft ondersteuning om deze limiet verhogen. |

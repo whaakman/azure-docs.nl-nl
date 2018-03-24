@@ -6,18 +6,18 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>LinkedIn account verbindingen voor Microsoft-apps en services
 In dit artikel kunt u informatie over het beheren van LinkedIn account verbindingen voor uw tenant in de Azure Active Directory (Azure AD)-beheercentrum. 
@@ -56,9 +56,9 @@ LinkedIn account verbindingen functionaliteit is standaard ingeschakeld voor uw 
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>In- of uitschakelen LinkedIn account verbindingen voor uw organisatie Office 2016 apps met behulp van Groepsbeleid
 
 1. Download de [Office 2016 Beheersjablonen (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
-2. Pak de **ADMX** -bestanden en kopieer deze naar uw **centrale opslagplaats**.
+2. Pak de **ADMX** bestanden en kopieer deze naar uw centrale store.
 3. Open Groepsbeleidsbeheer.
-4. Een groepsbeleidsobject maken met de volgende instellingen: **Gebruikersconfiguratie** > **Beheersjablonen** > **Microsoft Office 2016**  >  **Diverse** > **LinkedIn integratie**.
+4. Een groepsbeleidsobject maken met de volgende instellingen: **Gebruikersconfiguratie** > **Beheersjablonen** > **Microsoft Office 2016**  >  **Overige** > **LinkedIn weergeven functies in Office-toepassingen**.
 5. Selecteer **ingeschakeld** of **uitgeschakelde**.
   * Wanneer het beleid is **ingeschakeld**, wordt de **LinkedIn weergeven functies in Office-toepassingen** gevonden in het dialoogvenster Opties voor Office 2016 instelling is ingeschakeld. Dit betekent ook dat gebruikers in uw organisatie LinkedIn-functies in hun Office-toepassingen gebruiken kunnen.
   * Wanneer het beleid is **uitgeschakeld**, wordt de **LinkedIn weergeven functies in Office-toepassingen** instellingen gevonden in de opties voor Office 2016 dialoogvenster is ingesteld op de status uitgeschakeld en eindgebruikers deze instelling niet wijzigen. Gebruikers in uw organisatie kunnen LinkedIn-functies gebruiken in hun toepassingen Office 2016. 

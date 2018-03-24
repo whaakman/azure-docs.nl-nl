@@ -1,24 +1,24 @@
 ---
-title: "Het maken van Windows Azure VM-installatiekopieën met verpakker | Microsoft Docs"
-description: "Informatie over het gebruik van verpakker installatiekopieën maken van virtuele Windows-machines in Azure"
+title: Het maken van Windows Azure VM-installatiekopieën met verpakker | Microsoft Docs
+description: Informatie over het gebruik van verpakker installatiekopieën maken van virtuele Windows-machines in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: b5030e12743ca81b74502e31767eb6b2e05e444f
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: b53b301a45fb7482aa05f24b386b79fcedc148e2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Het gebruik van verpakker Windows-installatiekopieën voor virtuele machine maken in Azure
 Elke virtuele machine (VM) in Azure wordt gemaakt van een afbeelding met de Windows-distributie en de versie van het besturingssysteem gedefinieerd. Voorbeelden van afbeeldingen zijn vooraf geïnstalleerde toepassingen en configuraties. Azure Marketplace biedt veel installatiekopieën van het eerste en derde partij voor de meest voorkomende OS en omgevingen met toepassingen, of u uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften kunt maken. Dit artikel wordt uitgelegd hoe u de open-source hulpprogramma [verpakker](https://www.packer.io/) om te definiëren en te maken van aangepaste installatiekopieën in Azure.
@@ -27,7 +27,7 @@ Elke virtuele machine (VM) in Azure wordt gemaakt van een afbeelding met de Wind
 ## <a name="create-azure-resource-group"></a>Azure-resourcegroep maken
 Tijdens het maken maakt verpakker tijdelijke Azure-resources als de bron-VM-builds. Als u wilt vastleggen die bron-VM voor gebruik als een installatiekopie, moet u een resourcegroep definiëren. De uitvoer van het buildproces verpakker wordt opgeslagen in deze resourcegroep.
 
-Maak een resourcegroep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *eastus* locatie:
+Maak een resourcegroep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -59,17 +59,17 @@ U gebruikt deze twee id's in de volgende stap.
 
 
 ## <a name="define-packer-template"></a>Verpakker sjabloon definiëren
-Als u wilt maken van installatiekopieën, kunt u een sjabloon maken als een JSON-bestand. In de sjabloon definieert u opbouwfuncties en provisioners die het werkelijke buildproces uitvoeren. Verpakker heeft een [provisioner voor Azure](https://www.packer.io/docs/builders/azure.html) die kunt u voor het definiëren van de Azure-resources, zoals de Servicereferenties principal gemaakt in de voorgaande stap.
+Als u wilt maken van installatiekopieën, kunt u een sjabloon maken als een JSON-bestand. In de sjabloon definieert u opbouwfuncties en provisioners die het werkelijke buildproces uitvoeren. Verpakker heeft een [builder voor Azure](https://www.packer.io/docs/builders/azure.html) die kunt u voor het definiëren van de Azure-resources, zoals de Servicereferenties principal gemaakt in de voorgaande stap.
 
 Maak een bestand met de naam *windows.json* en plak de volgende inhoud. Geef uw eigen waarden voor het volgende:
 
 | Parameter                           | Waar u kunt verkrijgen |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | Weergave service principal-ID met`$sp.applicationId` |
-| *client_secret*                     | U hebt opgegeven in wachtwoord`$securePassword` |
+| *client_id*                         | Weergave service principal-ID met `$sp.applicationId` |
+| *client_secret*                     | U hebt opgegeven in wachtwoord `$securePassword` |
 | *tenant_id*                         | De uitvoer van `$sub.TenantId` opdracht |
 | *subscription_id*                   | De uitvoer van `$sub.SubscriptionId` opdracht |
-| *object_id*                         | Weergave service-principal-object-ID met`$sp.Id` |
+| *object_id*                         | Weergave service-principal-object-ID met `$sp.Id` |
 | *managed_image_resource_group_name* | Naam van resourcegroep die u in de eerste stap hebt gemaakt |
 | *managed_image_name*                | Naam voor de installatiekopie van de beheerde schijf die is gemaakt |
 
@@ -110,8 +110,8 @@ Maak een bestand met de naam *windows.json* en plak de volgende inhoud. Geef uw 
     "type": "powershell",
     "inline": [
       "Add-WindowsFeature Web-Server",
-      "if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force}",
-      "& $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /shutdown /quiet"
+      "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
+      "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"
     ]
   }]
 }
@@ -281,7 +281,7 @@ Het duurt enkele minuten aan de virtuele machine maken van uw installatiekopie v
 
 
 ## <a name="test-vm-and-iis"></a>Virtuele machine en IIS testen
-Het openbare IP-adres van uw virtuele machine met [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Het volgende voorbeeld verkrijgt het IP-adres voor *myPublicIP* eerder hebt gemaakt:
+Haal het openbare IP-adres van uw virtuele machine op met [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). In het volgende voorbeeld wordt het IP-adres opgehaald voor het eerder gemaakte *myPublicIP*:
 
 ```powershell
 Get-AzureRmPublicIPAddress `
@@ -289,7 +289,7 @@ Get-AzureRmPublicIPAddress `
     -Name "myPublicIP" | select "IpAddress"
 ```
 
-Vervolgens kunt u het openbare IP-adres in invoeren aan een webbrowser.
+Vervolgens kunt u het openbare IP-adres invoeren in een webbrowser.
 
 ![Standaardsite van IIS](./media/build-image-with-packer/iis.png) 
 

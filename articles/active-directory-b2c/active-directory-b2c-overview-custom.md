@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Aangepast beleid | Microsoft Docs'
 description: Een onderwerp op Azure Active Directory B2C aangepast beleid
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 1ff398a4-2079-4615-94f1-57de22c0aad6
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: parakhj
-ms.openlocfilehash: 6c59075bb1eacb05599b23be3d8731fa40eabf98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 269b65662796c092190cd2622c240756f6bd1cf7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Aangepast beleid
 
@@ -37,7 +34,7 @@ Aangepaste beleidsregels zijn configuratiebestanden die het gedrag van uw Azure 
 |UI-aanpassing | Volledige aanpassing van de gebruikersinterface, zoals HTML, CSS en javascript-ondersteuning (aangepast domein vereist)<br><br>Meertalige ondersteuning met een aangepaste tekenreeks | Dezelfde |
 | Kenmerk aanpassing | Standaard- en aangepaste kenmerken | Dezelfde |
 |Token en sessie-management | Aangepaste token en meerdere sessie-opties | Dezelfde |
-|ID-Providers| **Vandaag de dag**: vooraf gedefinieerde lokale, sociale provider<br><br>**Toekomstige**: SAML, van op standaarden gebaseerde OIDC OAuth | **Vandaag de dag**: OAUTH, van op standaarden gebaseerde OIDC SAML<br><br>**Toekomstige**: WsFed |
+|Id-providers| **Vandaag de dag**: vooraf gedefinieerde lokale, sociale provider<br><br>**Toekomstige**: SAML, van op standaarden gebaseerde OIDC OAuth | **Vandaag de dag**: OAUTH, van op standaarden gebaseerde OIDC SAML<br><br>**Toekomstige**: WsFed |
 |Identiteit taken (voorbeelden) | Registreren of aanmelden met lokale en veel sociale accounts<br><br>Self-service voor wachtwoord opnieuw instellen<br><br>Profiel bewerken<br><br>Multi-factor Auth-scenario 's<br><br>Tokens en sessies aanpassen<br><br>Toegangstoken stroomt | Voltooi de taken van ingebouwde beleidsregels met behulp van aangepaste id-providers of aangepaste bereiken gebruiken<br><br>Inrichten gebruiker in een ander systeem op het moment van inschrijving<br><br>Stuur een welkomstbericht via uw eigen e-provider<br><br>Gebruik een gebruikersarchief buiten B2C<br><br>Valideren van de gebruiker opgegeven informatie met een vertrouwde systeem via API |
 
 ## <a name="policy-files"></a>Beleidsbestanden
@@ -92,9 +89,9 @@ Een aangepast beleid wordt weergegeven als een of meer XML-bestanden die in een 
 
 | Bestand met beleidsregel van type | Voorbeelden bestandsnaam | Aanbevolen gebruik | Neemt over van |
 |---------------------|--------------------|-----------------|---------------|
-| BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Bevat de core claims schema, claimtransformaties, claimproviders en gebruiker trajecten geconfigureerd door Microsoft<br><br>Minimale wijzigingen aanbrengen in dit bestand | Geen |
+| BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Bevat de core claims schema, claimtransformaties, claimproviders en gebruiker trajecten geconfigureerd door Microsoft<br><br>Minimale wijzigingen aanbrengen in dit bestand | None |
 | Extensie (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Uw wijzigingen aan de BASE-bestand hier consolideren<br><br>Gewijzigde claimproviders<br><br>Gewijzigde gebruiker trajecten<br><br>Uw eigen aangepaste schemadefinities | BASE-bestand |
-| Relying Party (RP) | B2C_1A_sign_up_sign_in.XML| Token vorm en sessie instellingen hier wijzigen| Extensions(ext) bestand |
+| Relying Party (RP) | B2C_1A_sign_up_sign_in.xml| Token vorm en sessie instellingen hier wijzigen| Extensions(ext) bestand |
 
 ### <a name="inheritance-model"></a>Overnamemodel
 

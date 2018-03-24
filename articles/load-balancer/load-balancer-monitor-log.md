@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Logboekanalyse voor Azure Load Balancer
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+>[!NOTE] 
+>Azure Load Balancer ondersteunt twee verschillende typen: Basic en Standard. In dit artikel wordt Basic Load Balancer beschreven. Zie voor meer informatie over Standard Load Balancer [standaard Load Balancer overzicht](load-balancer-standard-overview.md).
 
 U kunt verschillende typen logboeken in Azure beheren en problemen oplossen netwerktaakverdelers. Sommige van deze logboeken zijn toegankelijk via de portal. Alle logboeken kunnen worden opgehaald uit Azure blob-opslag en worden bekeken in verschillende hulpprogramma's zoals Excel en Power BI. U kunt meer informatie over de verschillende typen logboeken in de onderstaande lijst.
 

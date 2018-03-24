@@ -3,9 +3,9 @@ title: Hoge beschikbaarheid voor Hadoop - Azure HDInsight | Microsoft Docs
 description: Meer informatie over hoe HDInsight-clusters betrouwbaarheid en beschikbaarheid verbeteren met behulp van een extra hoofdknooppunt. Meer informatie over hoe dit heeft gevolgen voor Hadoop-services zoals Ambari en Hive, en hoe afzonderlijk verbinding maken met elke hoofdknooppunt via SSH.
 services: hdinsight
 editor: cgronlun
-manager: jhubbard
+manager: cgronlun
 author: Blackmist
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 keywords: hoge beschikbaarheid voor hadoop
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 0822502bcd3e2b0d20f718a158d6db489a650bde
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 556aedf5ce822d681caf1373ed7d51999bd439b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Beschikbaarheid en betrouwbaarheid van Hadoop-clusters in HDInsight
 
@@ -112,7 +112,7 @@ Gebruik de Ambari-Webgebruikersinterface of de Ambari REST-API te controleren va
 
 ### <a name="ambari-web-ui"></a>Ambari Web UI
 
-De Ambari-Webgebruikersinterface is op https://CLUSTERNAME.azurehdinsight.net zichtbaar. Vervang **CLUSTERNAME** door de naam van uw cluster. Als u wordt gevraagd, voert u de referenties van de HTTP-gebruiker voor uw cluster. De standaardnaam van de HTTP-gebruiker is **admin** en het wachtwoord het wachtwoord die u hebt ingevoerd bij het maken van het cluster.
+De Ambari-Webgebruikersinterface kunnen worden weergegeven op https://CLUSTERNAME.azurehdinsight.net. Vervang **CLUSTERNAME** door de naam van uw cluster. Als u wordt gevraagd, voert u de referenties van de HTTP-gebruiker voor uw cluster. De standaardnaam van de HTTP-gebruiker is **admin** en het wachtwoord het wachtwoord die u hebt ingevoerd bij het maken van het cluster.
 
 Wanneer u op de pagina Ambari binnenkomen, worden de geïnstalleerde services aan de linkerkant van de pagina weergegeven.
 

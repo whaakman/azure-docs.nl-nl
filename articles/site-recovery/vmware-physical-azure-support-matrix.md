@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: raynew
-ms.openlocfilehash: c4fb466443e2f29fb79c3707ce142895f140f9a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f2f28b36fdb3751a469d66f242f9fa2119f9ae8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrix-ondersteuning voor VMware en fysieke server-replicatie naar Azure
 
@@ -175,7 +175,7 @@ Architectuur van de Gast-besturingssysteem | 64-bits. | Controle mislukt als een
 Grootte van de besturingssysteemschijf | Maximaal 2048 GB. | Controle mislukt als een niet-ondersteund. 
 Het aantal schijven voor besturingssysteem | 1 | Controle mislukt als een niet-ondersteund.  
 Aantal gegevensschijven | 64 of minder. | Controle mislukt als een niet-ondersteund.  
-De grootte van VHD gegevensschijf | 4095 GB | Controle mislukt als een niet-ondersteund. 
+De grootte van gegevensschijf | 4095 GB | Controle mislukt als een niet-ondersteund. 
 Netwerkadapters | Meerdere netwerkadapters worden ondersteund. | 
 Gedeelde VHD | Wordt niet ondersteund. | Controle mislukt als een niet-ondersteund. 
 FC-schijf | Wordt niet ondersteund. | Controle mislukt als een niet-ondersteund. 

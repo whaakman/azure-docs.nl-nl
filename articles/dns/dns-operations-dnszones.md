@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 03/19/2018
 ms.author: gwallace
-ms.openlocfilehash: 3f28e70bb6ef46f53375d256a520db40fcb71ad0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b9c263acf754a72cde5b2716703b8e771a349457
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>DNS-Zones met behulp van PowerShell beheren
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 In dit artikel laat zien hoe uw DNS-zones beheren met behulp van Azure PowerShell. U kunt ook de DNS-zones met behulp van de platformoverschrijdende beheren [Azure CLI](dns-operations-dnszones-cli.md) of de Azure-portal.
+
+Deze handleiding behandelt specifiek de openbare DNS-zones. Zie voor meer informatie over het gebruik van Azure PowerShell voor het beheren van privé-Zones in Azure DNS [aan de slag met Azure persoonlijke DNS-Zones met Azure PowerShell](private-dns-getstarted-powershell.md).
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -50,7 +52,7 @@ Het volgende voorbeeld laat zien hoe een DNS-zone maken met twee [Azure Resource
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Azure DNS ondersteunt nu ook persoonlijke DNS-zones (momenteel een preview-functie).  Zie voor een voorbeeld van het maken van een persoonlijke DNS-zone [aan de slag met persoonlijke Azure DNS-zones met behulp van PowerShell](./private-dns-getstarted-powershell.md).
+Azure DNS ondersteunt nu ook persoonlijke DNS-zones (momenteel in de openbare preview).  Voor meer informatie over privé-DNS-zones raadpleegt u [Using Azure DNS for private domains](private-dns-overview.md) (Azure DNS gebruiken voor privédomeinen). Zie voor een voorbeeld van het maken van een persoonlijke DNS-zone [aan de slag met persoonlijke Azure DNS-zones met behulp van PowerShell](./private-dns-getstarted-powershell.md).
 
 ## <a name="get-a-dns-zone"></a>Ophalen van een DNS-zone
 

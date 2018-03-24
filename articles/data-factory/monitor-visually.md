@@ -2,10 +2,10 @@
 title: Azure data factory's visueel te bewaken | Microsoft Docs
 description: Informatie over het Azure Data Factory's visueel te bewaken
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: shlo
-ms.openlocfilehash: 60d7897caebcb138180d99358ec754c1b9594fe5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b67c384ffd04176653ad434d39361ee67dc1ffea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Azure data factory's visueel te bewaken
 Azure Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee u gegevensgestuurde werkstromen kunt maken in de cloud. Op deze manier kunt u de verplaatsing en transformatie van gegevens indelen en automatiseren. Met Azure Data Factory kunt u gegevensgestuurde werkstromen (ook wel pijplijnen) maken en plannen die gegevens uit verschillende gegevensarchieven kunnen opnemen en de gegevens kunnen verwerken/transformeren met behulp van rekenservices zoals Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics en Azure Machine Learning. Daarnaast kunt u de uitvoergegevens publiceren naar gegevensarchieven zoals Azure SQL Data Warehouse, zodat BI-toepassingen (business intelligence) ze kunnen gebruiken.
@@ -29,7 +29,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Data factory-v2-pijplijnen bewaken
 
-1. Start **Microsoft Edge** of **Google Chrome** webbrowser. Op dit moment wordt Data Factory-gebruikersinterface alleen ondersteund in Microsoft Edge en Google Chrome webbrowsers.
+1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
 2. Meld u aan bij de [Azure-portal](https://portal.azure.com/).
 3. Navigeer naar de gemaakte data factory-blade in Azure-portal en klik op de tegel 'Monitor & beheren'. Hierdoor wordt de ADF v2 visual bewakingservaring gestart.
 

@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Microsoft-Account (MSA) toevoegen als een id-provider met behulp van aangepaste beleid'
 description: Voorbeeld met behulp van Microsoft als id-provider met OpenID Connect (OIDC)-protocol
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: cdc77d093358fa15bb1acbc9ba6b1867bae062f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a49e9589322eeb90a713321b4fbe4c4820609f7a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Microsoft-Account (MSA) toevoegen als een id-provider met behulp van aangepaste beleid
 
@@ -38,7 +35,7 @@ Deze stappen omvatten:
 5.  Uploaden van het beleid naar een Azure AD B2C-tenant en testen
 
 ## <a name="create-a-microsoft-account-application"></a>Een toepassing van Microsoft-account maken
-Voor het gebruik van Microsoft-account als een id-provider in Azure Active Directory (Azure AD) B2C, moet u een toepassing van Microsoft-account maken en geeft deze met de juiste parameters. U moet een Microsoft-account. Als u niet hebt, gaat u naar [https://www.live.com/](https://www.live.com/).
+Voor het gebruik van Microsoft-account als een id-provider in Azure Active Directory (Azure AD) B2C, moet u een toepassing van Microsoft-account maken en geeft deze met de juiste parameters. U moet een Microsoft-account. Als u niet hebt, gaat u naar [ https://www.live.com/ ](https://www.live.com/).
 
 1.  Ga naar de [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) en meld u aan met uw Microsoft-accountreferenties.
 2.  Klik op **een app toevoegen**.
@@ -156,10 +153,10 @@ Op dit moment de identiteitsprovider is ingesteld, maar het is niet beschikbaar 
 4.  Plak de volledige inhoud van `<UserJournesy>` knooppunt dat u hebt gekopieerd als een onderliggend element van de `<UserJourneys>` element.
 
 ### <a name="display-the-button"></a>De knop weergeven
-De `<ClaimsProviderSelections>` element wordt de lijst met opties voor de selectie van claims provider en de volgorde gedefinieerd.  `<ClaimsProviderSelection>`element is vergelijkbaar met een knop identiteit provider op een pagina sign-up-to-date/aanmelden. Als u een `<ClaimsProviderSelection>` element voor Microsoft-account, een nieuwe knop wordt weergegeven wanneer een gebruiker op de pagina terechtkomt. Dit element toevoegen:
+De `<ClaimsProviderSelections>` element wordt de lijst met opties voor de selectie van claims provider en de volgorde gedefinieerd.  `<ClaimsProviderSelection>` element is vergelijkbaar met een knop identiteit provider op een pagina sign-up-to-date/aanmelden. Als u een `<ClaimsProviderSelection>` element voor Microsoft-account, een nieuwe knop wordt weergegeven wanneer een gebruiker op de pagina terechtkomt. Dit element toevoegen:
 
 1.  Zoek de `<UserJourney>` knooppunt met `Id="SignUpOrSignIn"` in het traject gebruiker die u hebt gekopieerd.
-2.  Zoek de `<OrchestrationStep>` knooppunt bevat`Order="1"`
+2.  Zoek de `<OrchestrationStep>` knooppunt bevat `Order="1"`
 3.  Plaats de volgende XML-fragment onder `<ClaimsProviderSelections>` knooppunt:
 
 ```xml
@@ -204,7 +201,7 @@ U kunt ook de id-provider van Microsoft-Account toevoegen aan de gebruiker `Prof
 ### <a name="display-the-button"></a>De knop weergeven
 1.  Open het extensiebestand van uw beleid (bijvoorbeeld TrustFrameworkExtensions.xml).
 2.  Zoek de `<UserJourney>` knooppunt met `Id="ProfileEdit"` in het traject gebruiker die u hebt gekopieerd.
-3.  Zoek de `<OrchestrationStep>` knooppunt bevat`Order="1"`
+3.  Zoek de `<OrchestrationStep>` knooppunt bevat `Order="1"`
 4.  Plaats de volgende XML-fragment onder `<ClaimsProviderSelections>` knooppunt:
 
 ```xml

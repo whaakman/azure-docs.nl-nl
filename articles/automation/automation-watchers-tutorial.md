@@ -1,24 +1,17 @@
 ---
-title: Een watcher-taak in het Azure Automation-account maken | Microsoft Docs
+title: Een watcher-taak maken in Azure Automation-account
 description: Informatie over het maken van een watcher in Azure Automation-account moeten worden gecontroleerd of er nieuwe bestanden die in een map wordt gemaakt.
 services: automation
-documentationcenter: 
-author: eamonoreilly
-manager: 
-editor: 
-ms.assetid: 0dd95270-761f-448e-af48-c8b1e82cd821
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/11/2017
+author: eamonoreilly
 ms.author: eamono
-ms.openlocfilehash: 294faa48f9840919b087594835706bad8048d45b
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.topic: article
+ms.date: 03/19/2017
+ms.openlocfilehash: 8cd5f77d9711ffc95e6a55e97297a23fd87c6bb7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Een Azure Automation-watcher-taken voor het bijhouden van wijzigingen in bestanden op een lokale computer maken
 
@@ -36,7 +29,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Het volgende is vereist voor het voltooien van deze zelfstudie:
+Hieronder wordt aangegeven wat de vereisten zijn om deze zelfstudie te voltooien:
 
 * Azure-abonnement. Als u nog geen abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of u aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation-account](automation-offering-get-started.md) voor het opslaan van de runbooks watcher en de actie en de Watcher-taak.

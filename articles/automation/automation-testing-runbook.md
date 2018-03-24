@@ -1,24 +1,18 @@
 ---
-title: Testen van een runbook in Azure Automation | Microsoft Docs
+title: Testen van een runbook in Azure Automation
 description: Voordat u een runbook in Azure Automation publiceren, kunt u het testen om ervoor te zorgen dat werkt zoals verwacht.  In dit artikel wordt beschreven hoe een runbook testen en weergeven van de uitvoer ervan weergegeven.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 7f7db785-52c0-4613-aa12-b02fd32a5182
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/12/2016
-ms.author: magoedte;bwren
-ms.openlocfilehash: 49e8dfa341940386f15932ec4346c8811effbf0b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+manager: carmonm
+ms.openlocfilehash: 531fffe1ed24016d47708a729a3ee7642a1db64a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Testen van een runbook in Azure Automation
 Wanneer u een runbook test de [conceptversie](automation-creating-importing-runbook.md#publishing-a-runbook) wordt uitgevoerd en acties die worden uitgevoerd, zijn voltooid. Er wordt geen Taakgeschiedenis is gemaakt, maar de [uitvoer](automation-runbook-output-and-messages.md#output-stream) en [waarschuwingen en fouten](automation-runbook-output-and-messages.md#message-streams) stromen worden weergegeven in de Test deelvenster Uitvoer. Berichten naar de [uitgebreide stroom](automation-runbook-output-and-messages.md#message-streams) worden weergegeven in het deelvenster Uitvoer alleen als de [variabele $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) is ingesteld om verder te gaan.

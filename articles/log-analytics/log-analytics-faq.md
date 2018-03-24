@@ -2,23 +2,23 @@
 title: Meld u Analytics Veelgestelde vragen | Microsoft Docs
 description: Antwoorden op veelgestelde vragen over de Azure Log Analytics-service.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 03/21/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b27386cd0f9f3ae50314b8c5d7708aea3e3d028
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over logboekanalyse in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en stel uw vragen. Wanneer een vraag vaak wordt gevraagd, wordt deze toegevoegd aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -51,19 +51,21 @@ A: Nee. Log Analytics is een schaalbare cloudservice die worden verwerkt en opge
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Hoe kan ik als logboekanalyse is niet meer gegevens verzamelt oplossen?
 
-A: als u zijn op de gratis prijscategorie en meer dan 500 MB aan gegevens in een dag hebt verzonden, stopt het verzamelen van gegevens voor de rest van de dag. De dagelijkse limiet bereikt, is een veelvoorkomende reden die logboekanalyse stopt het verzamelen van gegevens of gegevens lijkt te ontbreken.
+A: als u zijn op de gratis prijscategorie en meer dan 500 MB aan gegevens in een dag hebt verzonden, stopt het verzamelen van gegevens voor de rest van de dag. De dagelijkse limiet bereikt, is een veelvoorkomende reden die logboekanalyse stopt het verzamelen van gegevens of gegevens lijkt te ontbreken.  
 
-Log Analytics maakt een gebeurtenis van het type *bewerking* wanneer gegevensverzameling wordt gestart en gestopt. 
+Log Analytics maakt een gebeurtenis van het type *Heartbeat* en kan worden gebruikt om te bepalen als gegevensverzameling is gestopt. 
 
-Voer de volgende query in de zoekopdracht om te controleren als u de dagelijkse limiet bereikt en er gegevens ontbreken:`Type=Operation OperationCategory="Data Collection Status"`
+Voer de volgende query in de zoekopdracht om te controleren als u de dagelijkse limiet bereikt en er gegevens ontbreken: `Heartbeat | summarize max(TimeGenerated)`
 
-Wanneer het verzamelen van gegevens stopt, de *OperationStatus* is **waarschuwing**. Als gegevensverzameling wordt gestart, wordt de *OperationStatus* is **geslaagd**. 
+Om te controleren op een specifieke computer, moet u de volgende query uitvoeren: `Heartbeat | where Computer=="contosovm" | summarize max(TimeGenerated)`
+
+Wanneer het verzamelen van gegevens stopt, afhankelijk van het tijdsbereik dat is geselecteerd, worden er geen records geretourneerd.   
 
 De volgende tabel beschrijft oorzaken waardoor het verzamelen van gegevens stopt en een voorgestelde actie om het verzamelen van gegevens hervatten:
 
 | Hiermee stopt u de gegevensverzameling reden                       | Verzamelen van gegevens hervatten |
 | -------------------------------------------------- | ----------------  |
-| Dagelijkse limiet van beschikbare gegevens bereikt<sup>1</sup>       | Wacht totdat de volgende dag voor de verzameling automatisch opnieuw wordt gestart, of<br> Wijzig in een betaald prijscategorie |
+| Limiet voor gratis gegevens bereikt<sup>1</sup>       | Wacht tot de volgende maand voor verzameling automatisch opnieuw wordt gestart, of<br> Wijzig in een betaald prijscategorie |
 | Azure-abonnement is een onderbroken vanwege: <br> Gratis proefversie is beëindigd <br> Verlopen van Azure op te geven <br> Maandelijks uitgavenlimiet bereikt (bijvoorbeeld op een abonnement met MSDN of Visual Studio)                          | Converteren naar een betaald abonnement <br> Converteren naar een betaald abonnement <br> Limiet verwijderen of wacht u totdat de limiet wordt opnieuw ingesteld |
 
 <sup>1</sup> als uw werkruimte op de gratis prijscategorie is, bent u beperkt tot 500 MB aan gegevens per dag verzenden naar de service. Wanneer u de dagelijkse limiet bereikt, stopt het verzamelen van gegevens tot de volgende dag. Gegevens die worden verzonden tijdens het verzamelen van gegevens is gestopt, is niet geïndexeerd en is niet beschikbaar voor het zoeken. Als gegevensverzameling wordt hervat, vindt de verwerking alleen voor nieuwe gegevens die worden verzonden. 
@@ -77,14 +79,13 @@ A: Gebruik de stappen in [een waarschuwingsregel maakt](log-analytics-alerts-cre
 Bij het maken van de waarschuwing voor wanneer het verzamelen van gegevens stopt, stel de:
 - **Naam** naar *gegevensverzameling is gestopt*
 - **Ernst** op *Waarschuwing*
-- **Zoekquery** op `Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
-- **Tijdvenster** naar *2 uur*.
-- **Waarschuwingsfrequentie** op één uur omdat de gebruiksgegevens slechts één keer per uur worden bijgewerkt.
+- **Zoekquery** op `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+- **Tijdvenster** naar *30 minuten*.
+- **Waarschuwing frequentie** voor elke *tien* minuten.
 - **Waarschuwingen genereren op basis van** op het *aantal resultaten*
 - **Aantal resultaten** op *Groter dan 0*
 
-Gebruik de stappen in [Acties toevoegen aan waarschuwingsregels](log-analytics-alerts-actions.md) om een e-mail-, webhook- of runbookactie te configureren voor een waarschuwingsregel.
-
+Deze waarschuwing wordt geactiveerd wanneer de query resultaten retourneert alleen als u heartbeat ontbreekt voor meer dan 15 minuten.  Gebruik de stappen in [Acties toevoegen aan waarschuwingsregels](log-analytics-alerts-actions.md) om een e-mail-, webhook- of runbookactie te configureren voor een waarschuwingsregel.
 
 ## <a name="configuration"></a>Configuratie
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Kan ik de naam van de tabel/blob-container die is gebruikt om te lezen van Azure Diagnostics (af) wijzigen?
@@ -141,9 +142,9 @@ Zorg ervoor dat u gemachtigd in beide Azure-abonnementen.
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>Q. Hoeveel gegevens kan ik verzenden via de agent met Log Analytics? Is er een maximale hoeveelheid gegevens per klant?
 A. Het gratis-plan Hiermee stelt u een dagelijkse limiet van 500 MB per werkruimte. De standard en premium-abonnementen hebben geen limiet voor de hoeveelheid gegevens die is geüpload. Als een cloudservice Log Analytics is ontworpen voor automatisch schalen tot het volume verwerken die afkomstig zijn van een klant – zelfs als deze TB per dag.
 
-De agent Log Analytics is ontworpen om te controleren of er een kleine footprint. Een van onze klanten een blog over de tests die ze uitgevoerd tegen onze agent en hoe onder de indruk dat ze zijn geschreven. Het gegevensvolume varieert op basis van de oplossingen die u inschakelt. U vindt gedetailleerde informatie over het gegevensvolume en de verdeling zien door oplossing in de [gebruik](log-analytics-usage.md) pagina.
+De agent Log Analytics is ontworpen om te controleren of er een kleine footprint. Het gegevensvolume varieert op basis van de oplossingen die u inschakelt. U vindt gedetailleerde informatie over het gegevensvolume en de uitsplitsing zien door oplossing in de [gebruik](log-analytics-usage.md) pagina.
 
-Voor meer informatie vindt u een [klant blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) over de lage footprint van de OMS-agent.
+Voor meer informatie vindt u een [klant blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) over de kleine footprint van de OMS-agent.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. Hoeveel netwerkbandbreedte wordt door de Microsoft Management Agent (MMA) gebruikt bij het verzenden van gegevens met Log Analytics?
 

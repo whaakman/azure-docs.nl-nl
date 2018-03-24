@@ -5,7 +5,7 @@ services: cosmos-db
 author: voellm
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: df793fb0511d1289b927caad200eb8252f2b64e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Versleuteling van Azure DB Cosmos-database in rust
 
@@ -53,7 +53,6 @@ A: Microsoft heeft een set van interne richtlijnen voor codering sleutel worden 
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>V: kan ik mijn eigen versleutelingssleutels gebruiken?
 A: cosmos DB is een PaaS-service en wordt hard gewerkt om de service eenvoudig te gebruiken. Ons opgevallen dat deze vraag is vaak gevraagd als een vraag proxy voor een nalevingsvereiste zoals PCI-DSS voldoen. Als onderdeel van het bouwen van deze functie gewerkt we met naleving auditors om ervoor te zorgen dat klanten die gebruikmaken van de Cosmos-DB voldoen aan de vereisten zonder de noodzaak voor het beheren van sleutels zelf.
-Als gevolg hiervan bieden wij gebruikers de optie te belasten zelf met Sleutelbeheer.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>V: wat regio's hebt u versleuteling is ingeschakeld?
 A: alle regio's van Azure Cosmos DB hebben versleuteling ingeschakeld voor alle gebruikersgegevens.

@@ -5,8 +5,8 @@ services: load-balancer
 documentationcenter: na
 author: RamanDhillon
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: bc059221656a695bb43af0dca06df941ca77c73d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer oplossen
 
@@ -54,7 +54,7 @@ Als de virtuele machine in orde is, maar niet op de test reageert, is een mogeli
 3. Als de poortstatus van de niet is vermeld als **LISTENING**, de juiste poort configureren. 
 4. Selecteer een andere poort, die wordt vermeld als **LISTENING**, en bij te werken load balancer-configuratie dienovereenkomstig.              
 
-###<a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>3 oorzaak: Firewall of een netwerkbeveiligingsgroep wordt geblokkeerd door de poort op de load balancer back-endpool virtuele machines  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>3 oorzaak: Firewall of een netwerkbeveiligingsgroep wordt geblokkeerd door de poort op de load balancer back-endpool virtuele machines  
 Als de testpoort wordt geblokkeerd door de firewall op de virtuele machine of een of meer beveiligingsgroepen die zijn geconfigureerd op het subnet of op de VM-netwerk, de test te bereiken, de poort niet toestaat, is de virtuele machine niet reageren op de health-test.          
 
 **Validatie en oplossing**

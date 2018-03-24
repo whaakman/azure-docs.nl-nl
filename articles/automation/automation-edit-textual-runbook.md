@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 4fbb24f068092e4e256119b5e0288360dcef8fe0
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: eb82971338f829667dfdc842e253ad4921865632
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Tekstuele runbooks in Azure Automation bewerken
 De teksteditor in Azure Automation kan worden gebruikt om te bewerken [PowerShell-runbooks](automation-runbook-types.md#powershell-runbooks) en [PowerShell Workflow-runbooks](automation-runbook-types.md#powershell-workflow-runbooks). Dit heeft de typische functies van andere code-editor zoals intellisense en kleurcodering met aanvullende speciale functies om u te helpen bij het openen van bronnen die gemeenschappelijk zijn voor runbooks.  In dit artikel biedt gedetailleerde stappen voor het uitvoeren van verschillende functies met deze editor.

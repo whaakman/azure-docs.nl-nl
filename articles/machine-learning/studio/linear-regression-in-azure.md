@@ -1,11 +1,12 @@
 ---
 title: Met behulp van de lineaire regressie in Machine Learning | Microsoft Docs
 description: Een vergelijking van de lineaire regressie modellen in Excel en in Azure Machine Learning Studio
-metakeywords: 
+metakeywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: kbaroni;garye
-ms.openlocfilehash: 218f2b141e3551180a2152570f99fdb427980dd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Lineaire regressie gebruiken in Azure Machine Learning
 > *Kate Baroni* en *Ben Boatman* enterprise oplossingsarchitecten in Microsoft gegevens Insights Center uitmuntende zijn. In dit artikel beschrijft ze hun ervaring een bestaande regressie analysis suite migreren naar een cloud-gebaseerde oplossing met behulp van Azure Machine Learning. 
@@ -62,8 +62,8 @@ Eerst de Excel-gegevensmodel duidelijk ver-loop van de Machine Learning Studio-m
 |  | Excel | Studio |
 | --- |:---:|:---:|
 | Prestaties | | |
-| <ul style="list-style-type: none;"><li>Aangepast R-kwadraat</li></ul> |0.96 |N.v.t. |
-| <ul style="list-style-type: none;"><li>Coefficient van <br />Bepaling</li></ul> |N.v.t. |0.78<br />(nauwkeurigheid laag) |
+| <ul style="list-style-type: none;"><li>Aangepast R-kwadraat</li></ul> |0.96 |N/A |
+| <ul style="list-style-type: none;"><li>Coefficient van <br />Bepaling</li></ul> |N/A |0.78<br />(nauwkeurigheid laag) |
 | Mean Absolute Error |$9. 5M |$ 19.4 M |
 | Mean Absolute Error (%) |6.03% |12.2% |
 
@@ -81,13 +81,13 @@ Wanneer we de aanbevelingen hebt toegepast, wordt de dezelfde basislijn in Machi
 | --- |:---:|:---:|:---:|
 | Gelabelde waarde |Werkelijke waarden (numeriek) |Dezelfde |Dezelfde |
 | Cursist |Excel-gegevens > Analysis-regressie > |Lineaire regressie. |Lineaire regressie |
-| Opties voor cursist |N.v.t. |Standaardwaarden |gewone kleinste kwadraten<br />L2 0,005 = |
+| Opties voor cursist |N/A |Standaardwaarden |gewone kleinste kwadraten<br />L2 0,005 = |
 | Gegevensset |26 rijen, 3 onderdelen, 1 label. Alle numerieke. |Dezelfde |Dezelfde |
 | Gesplitste: Train |Excel getraind op de eerste 18 rijen zijn getest op de laatste 8 rijen. |Dezelfde |Dezelfde |
 | Gesplitste: Test |Excel-regressieformule toegepast op de laatste 8 rijen |Dezelfde |Dezelfde |
 | **Prestaties** | | | |
-| Aangepast R-kwadraat |0.96 |N.v.t. | |
-| Determinatiecoëfficiënt |N.v.t. |0.78 |0.952049 |
+| Aangepast R-kwadraat |0.96 |N/A | |
+| Determinatiecoëfficiënt |N/A |0.78 |0.952049 |
 | Mean Absolute Error |$9. 5M |$ 19.4 M |$9. 5M |
 | Mean Absolute Error (%) |<span style="background-color: 00FF00;"> 6.03%</span> |12.2% |<span style="background-color: 00FF00;"> 6.03%</span> |
 
@@ -140,9 +140,9 @@ De mogelijkheid om over te dragen de voorspellende analytische prognose van Mach
 ## <a name="resources"></a>Resources
 Hier volgen enkele resources voor het werken met regressie: 
 
-* Regressie in Excel. Als u nooit regressie in Excel hebt geprobeerd, deze zelfstudie gemakkelijker: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
-* Regressie vs prognose. Tyler Chessman geschreven een blog artikel waarin wordt uitgelegd hoe uitvoeren op tijden reeks prognose in Excel, die een goede beginnende beschrijving van de lineaire regressie bevat. [http://sqlmag.com/SQL-Server-Analysis-Services/Understanding-Time-Series-forecasting-Concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Gewone kleinste kwadraten lineaire regressie: Fouten, problemen en eventuele problemen. Voor een inleiding en discussie over regressie: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Regressie in Excel. Als u nooit regressie in Excel hebt geprobeerd, met deze zelfstudie kunt gemakkelijk kunnen worden gebruikt: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
+* Regressie vs prognose. Tyler Chessman geschreven een blog artikel waarin wordt uitgelegd hoe uitvoeren op tijden reeks prognose in Excel, die een goede beginnende beschrijving van de lineaire regressie bevat. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
+* Gewone kleinste kwadraten lineaire regressie: Fouten, problemen en eventuele problemen. Voor een inleiding en discussie over regressie: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

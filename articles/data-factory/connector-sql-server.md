@@ -1,11 +1,11 @@
 ---
-title: "Gegevens kopiëren naar/van de SQL Server met behulp van Azure Data Factory | Microsoft Docs"
+title: Gegevens kopiëren naar/van de SQL Server met behulp van Azure Data Factory | Microsoft Docs
 description: Meer informatie over het verplaatsen van gegevens uit SQL Server-database on-premises of in een virtuele machine in Azure met Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f46917731ef64290816870b6abd14679dd465211
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b845f3112d96838454653dcd742b950009206bf4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Gegevens kopiëren naar en van SQL Server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -485,9 +485,9 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 | Binaire |Byte[] |
 | bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
-| datum |Datum en tijd |
-| Datum en tijd |Datum en tijd |
-| datetime2 |Datum en tijd |
+| datum |DateTime |
+| Datum en tijd |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimale |Decimale |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
@@ -501,7 +501,7 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 | nvarchar |Tekenreeks, Char] |
 | echte |Single |
 | ROWVERSION |Byte[] |
-| smalldatetime |Datum en tijd |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimale |
 | sql_variant |Object * |

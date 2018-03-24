@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 6fa425829e8da294c8db3d64c3d8fd202c74375a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a028471871754c2b9c3981ec13f5788643675a77
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Resources specificeren in een servicemanifest
 ## <a name="overview"></a>Overzicht
@@ -154,7 +154,7 @@ Voor Linux-clusters, de **MY** standaard ingesteld op de map opslaan **/var/lib/
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Eindpunten in ServiceManifest.xml overschrijven
 
-In de ApplicationManifest toevoegen een sectie ResourceOverrides die op hetzelfde niveau ConfigOverrides gedeelte. In deze sectie kunt u de onderdrukking voor de sectie eindpunten in de bronnensectie is opgegeven in het manifest van de Service.
+In de ApplicationManifest toevoegen een sectie ResourceOverrides die op hetzelfde niveau ConfigOverrides gedeelte. In deze sectie kunt u de onderdrukking voor de sectie eindpunten in de bronnensectie is opgegeven in het manifest van de Service. Het overschrijven van eindpunten wordt ondersteund in runtime 5.7.217/SDK 2.7.217 en hoger.
 
 Om te overschrijven eindpunt in ServiceManifest ApplicationParameters wijzigen de ApplicationManifest als volgt gebruiken:
 

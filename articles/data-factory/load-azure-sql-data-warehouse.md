@@ -1,21 +1,21 @@
 ---
 title: Gegevens laden in Azure SQL Data Warehouse met behulp van Azure Data Factory | Microsoft Docs
-description: "Gebruik Azure Data Factory om gegevens te kopiëren naar Azure SQL Data Warehouse"
+description: Gebruik Azure Data Factory om gegevens te kopiëren naar Azure SQL Data Warehouse
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: eec6eeb3419c5f5f4c8d22398051f7cf057ac980
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 49ba61ba8cf68a39eef21b1939a3e8a6c92f8827
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens laden in Azure SQL Data Warehouse met behulp van Azure Data Factory
 
@@ -42,18 +42,18 @@ Dit artikel laat zien hoe u de gegevens kopiëren van Data Factory-hulpprogramma
 * Azure-abonnement: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 * Azure SQL datawarehouse: Het datawarehouse bevat de gegevens die via wordt gekopieerd van de SQL-database. Als u een Azure SQL Data Warehouse hebt, raadpleegt u de instructies in [maken van een SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Azure SQL Database: In deze zelfstudie worden gegevens gekopieerd van een Azure SQL database met voorbeeldgegevens van Adventure Works LT. U kunt een SQL-database maken door de instructies in [maken van een Azure SQL database](../sql-database/sql-database-get-started-portal.md). 
-* Azure storage-account: Azure Storage wordt gebruikt als de _fasering_ blob in de kopieerbewerking bulksgewijs. Als u geen Azure storage-account hebt, raadpleegt u de instructies in [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Azure storage-account: Azure Storage wordt gebruikt als de _fasering_ blob in de kopieerbewerking bulksgewijs. Als u geen Azure-opslagaccount hebt, raadpleegt u de instructies in [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
 1. Selecteer op het menu links **nieuw** > **gegevens en analyse** > **Data Factory**: 
    
-   ![Maak een nieuwe gegevensfactory](./media/load-azure-sql-data-warehouse/new-azure-data-factory-menu.png)
+   ![Een nieuwe gegevensfactory maken](./media/load-azure-sql-data-warehouse/new-azure-data-factory-menu.png)
 2. In de **nieuwe gegevensfactory** pagina, geef waarden op voor de velden die worden weergegeven in de volgende afbeelding:
       
    ![De pagina Nieuwe data factory](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
-    * **Naam**: Voer een globaal unieke naam voor uw Azure data factory. Als u de foutmelding "naam gegevensfactory \"LoadSQLDWDemo\" is niet beschikbaar ' Voer een andere naam voor de data factory. Bijvoorbeeld, u kunt de naam van de  _**uwnaam**_**ADFTutorialDataFactory**. Probeer het opnieuw maken van de gegevensfactory. Zie voor de naamgevingsregels voor Data Factory-artefacten, [Data Factory-naamgevingsregels](naming-rules.md).
+    * **Naam**: Voer een globaal unieke naam voor uw Azure data factory. Als u de foutmelding "naam gegevensfactory \"LoadSQLDWDemo\" is niet beschikbaar ' Voer een andere naam voor de data factory. Bijvoorbeeld, u kunt de naam van de  _**uwnaam**_**ADFTutorialDataFactory**. Probeer het opnieuw maken van de gegevensfactory. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
     * **Abonnement**: Selecteer uw Azure-abonnement in te maken van de gegevensfactory. 
     * **Resourcegroep**: Selecteer een bestaande resourcegroep in de vervolgkeuzelijst, of Selecteer de **nieuw** optie en typ de naam van een resourcegroep. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
     * **Versie**: Selecteer **V2 (Preview)**.

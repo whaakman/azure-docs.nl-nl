@@ -2,23 +2,23 @@
 title: Connector versiegeschiedenis van Release | Microsoft Docs
 description: In dit onderwerp geeft een lijst van alle versies van de Connectors voor Forefront Identity Manager (FIM) en Microsoft Identity Manager (MIM)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2017
-ms.author: billmath
-ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 03/22/2018
+ms.author: davidste
+ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connector-version-release-history"></a>Releasegeschiedenis van connectorversie
 De Connectors voor Forefront Identity Manager (FIM) en Microsoft Identity Manager (MIM) worden regelmatig bijgewerkt.
@@ -34,9 +34,26 @@ Verwante koppelingen:
 * [Download de meest recente Connectors](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [Algemene LDAP-Connector](active-directory-aadconnectsync-connector-genericldap.md) documentatie verwijst naar
 * [Algemene SQL-Connector](active-directory-aadconnectsync-connector-genericsql.md) documentatie verwijst naar
-* [Web-Services-Connector](http://go.microsoft.com/fwlink/?LinkID=226245) documentatie verwijst naar
+* [Web-Services-Connector](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) documentatie verwijst naar
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) documentatie verwijst naar
 * [Lotus Domino-Connector](active-directory-aadconnectsync-connector-domino.md) documentatie verwijst naar
+
+
+## <a name="118300"></a>1.1.830.0
+
+### <a name="fixed-issues"></a>Opgeloste problemen:
+* Opgelost ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent(Message: A device attached to the system is not functioning)
+* In deze release van connectors moet u binding omleiding van 3.3.0.0-4.1.3.0 naar 4.1.4.0 in miiserver.exe.config bijwerken
+* Algemene webservices:
+    * Opgelost geldig JSON-antwoord kan niet worden opgeslagen in het hulpprogramma voor serverconfiguratie
+* Algemene SQL:
+    * Uitvoer genereert altijd alleen update-query voor de bewerking van het verwijderen. Toegevoegd voor het genereren van een verwijderquery
+    * De SQL-query die objecten opgehaald voor de werking van Delta-Import als Delta-strategie 'Bijhouden' is opgelost. In deze implementatie bekende beperking: Delta-Import met de modus 'Bijhouden' worden niet bijgehouden wijzigingen in kenmerken met meerdere waarden
+    * Toegevoegde mogelijkheid voor het genereren van een delete-query voor het geval wanneer het is nodig om het verwijderen van de laatste waarde van kenmerk met meerdere waarden en deze rij bevat geen andere gegevens, behalve de waarde die nodig is om te verwijderen.
+    * System.ArgumentException verwerken wanneer uitvoerparameters door SP geïmplementeerd 
+    * Onjuiste query voor het maken van de werking van uitvoer naar veld die varbinary (max)-type
+    * Probleem met de variabele parameterList is tweemaal (in de functies ExportAttributes en GetQueryForMultiValue) geïnitialiseerd
+
 
 ## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
 
@@ -79,7 +96,9 @@ Verwante koppelingen:
 * Algemene webservices:
   * Het hulpprogramma Wsconfig is niet juist geconverteerd de Json-matrix van 'voorbeeldaanvraag' voor de methode voor de REST. Dit veroorzaakt problemen met serialisatie deze Json-matrix voor de REST-aanvraag.
   * Web Service-Connector Configuration Tool biedt geen ondersteuning voor informatie over het gebruik van symbolen ruimte in JSON-kenmerknamen 
-    * Het patroon van een vervanging kan handmatig worden toegevoegd aan het bestand WSConfigTool.exe.config bijvoorbeeld```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+    * Het patroon van een vervanging kan handmatig worden toegevoegd aan het bestand WSConfigTool.exe.config bijvoorbeeld ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+> [!NOTE]
+> JSONSpaceNamePattern sleutel is vereist als voor het exporteren van u de volgende fout ontvangt: bericht: lege naam is niet geldig. 
 
 * Lotus Notes:
   * Wanneer de optie **aangepaste certifiers toestaan voor organisatie/organisatorische eenheden** is uitgeschakeld en vervolgens de connector is mislukt tijdens het exporteren (Update) na de export-stroom alle kenmerken worden geëxporteerd naar Domino maar op het moment van exporteren een KeyNotFoundException wordt geretourneerd om te synchroniseren. 

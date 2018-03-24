@@ -1,11 +1,11 @@
 ---
 title: Azure AD-AngularJS aan de slag | Microsoft Docs
-description: "Hoe een AngularJS één pagina toepassing bouwt die kan worden geïntegreerd met Azure AD voor aanmelden en Azure AD-beveiligde API aanroept met behulp van OAuth."
+description: Hoe een AngularJS één pagina toepassing bouwt die kan worden geïntegreerd met Azure AD voor aanmelden en Azure AD-beveiligde API aanroept met behulp van OAuth.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jmprieur
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 51734f5b39e9ca8af65048f2a7efd5c61cd53204
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2f78a6b17a512ab54ffab4554ccc0f3f1486f27a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Azure AD-AngularJS aan de slag
 
@@ -52,13 +52,13 @@ Als u wilt inschakelen voor de app voor het verifiëren van gebruikers en tokens
 4. Klik op **App registraties**, en selecteer vervolgens **toevoegen**.
 5. Volg de aanwijzingen en maak een nieuwe webtoepassing en/of web-API:
   * **Naam** beschrijving van uw toepassing voor gebruikers.
-  * **Omleidings-Uri** is de locatie waarop Azure AD tokens wordt geretourneerd. De standaardlocatie voor dit voorbeeld is `https://localhost:44326/`.
+  * **Eenmalige aanmelding URL** is de locatie waarop Azure AD tokens wordt geretourneerd. De standaardlocatie voor dit voorbeeld is `https://localhost:44326/`.
 6. Nadat u de registratie, wijst Azure AD een unieke toepassings-ID toe aan uw app.  U moet deze waarde in de volgende secties, dus kopiëren vanaf het toepassingstabblad.
 7. De impliciete OAuth-stroom Adal.js gebruikt om te communiceren met Azure AD. U moet de impliciete stroom inschakelen voor uw toepassing:
   1. Klik op de toepassing en selecteer **Manifest** om het manifest inline-editor te openen.
   2. Zoek de `oauth2AllowImplicitFlow` eigenschap. Stel de waarde op `true`.
   3. Klik op **opslaan** om op te slaan van het manifest.
-8. Machtigingen toekennen voor uw tenant voor uw toepassing. Ga naar **instellingen** > **eigenschappen** > **Required Permissions**, en klik op de **machtiging verlenen** knop op de bovenste balk. Klik op **Ja** om te bevestigen.
+8. Machtigingen toekennen voor uw tenant voor uw toepassing. Ga naar **instellingen** > **Required Permissions**, en klik op de **machtiging verlenen** knop op de bovenste balk. Klik op **Ja** om te bevestigen.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Stap 2: Installeer ADAL en configureren van de app met één pagina
 Nu dat u een toepassing in Azure AD hebt, kunt u adal.js installeert en uw identiteitsgerelateerde code schrijven.

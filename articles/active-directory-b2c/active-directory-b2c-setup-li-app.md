@@ -2,27 +2,24 @@
 title: 'Azure Active Directory B2C: LinkedIn configuratie | Microsoft Docs'
 description: Gebruikers met een account in uw toepassingen die zijn beveiligd met Azure Active Directory B2C LinkedIn bieden zich kunnen registreren en aanmelden
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: fa51a16b-9ce9-4e27-9eff-0869b4c4f0ef
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 860aa90c391604924850a00cf2137d59fa4a1b53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 91970b3ec41c645cd1cd3e203cc96ad655dafd7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: Zich kunnen registreren en aanmelden gebruikers bieden met LinkedIn-accounts
 ## <a name="create-a-linkedin-application"></a>Een LinkedIn-toepassing maken
-Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C LinkedIn gebruikt, moet u een LinkedIn-toepassing maken en geeft deze met de juiste parameters. U moet een LinkedIn-account om dit te doen. Als u niet hebt, kunt u krijgen op het [https://www.linkedin.com/](https://www.linkedin.com/).
+Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C LinkedIn gebruikt, moet u een LinkedIn-toepassing maken en geeft deze met de juiste parameters. U moet een LinkedIn-account om dit te doen. Als u niet hebt, kunt u krijgen op het [ https://www.linkedin.com/ ](https://www.linkedin.com/).
 
 1. Ga naar de [LinkedIn ontwikkelaars website](https://www.developer.linkedin.com/) en meld u aan met de referenties van uw LinkedIn-account.
 2. Klik op **mijn Apps** in de bovenste menubalk en klik vervolgens op **toepassing maken**.

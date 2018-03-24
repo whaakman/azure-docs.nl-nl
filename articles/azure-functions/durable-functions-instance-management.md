@@ -4,21 +4,21 @@ description: Informatie over het beheren van exemplaren in de uitbreiding duurza
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9cea9b18cd7434a34138d5cecad8a8fd7f10d2e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>-Exemplaren in duurzame functies (Azure Functions) beheren
 
@@ -104,7 +104,7 @@ public static async Task Run(
 
 ## <a name="terminating-instances"></a>Afsluitende exemplaren
 
-Een actief exemplaar kan worden beëindigd met de [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) methode van de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse. De twee parameters zijn een `instanceId` en een `reason` tekenreeks, die in de logboeken en status van het exemplaar wordt geschreven. Een beëindigde exemplaar niet meer zodra het de volgende bereikt `await` punt, of het wordt onmiddellijk beëindigd als deze al ingeschakeld is een `await`.
+Een actief exemplaar van de orchestration kan worden beëindigd met de [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) methode van de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse. De twee parameters zijn een `instanceId` en een `reason` tekenreeks, die in de logboeken en status van het exemplaar wordt geschreven. Een beëindigde exemplaar niet meer zodra het de volgende bereikt `await` punt, of het wordt onmiddellijk beëindigd als deze al ingeschakeld is een `await`. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -119,6 +119,9 @@ public static Task Run(
 
 > [!NOTE]
 > Instantie-beëindiging is momenteel alleen ondersteund voor C# orchestrator-functies.
+
+> [!NOTE]
+> Exemplaar beëindiging wordt momenteel niet doorgegeven. Activiteit-functies en onderdelen integraties wordt uitgevoerd voor voltooiing ongeacht of de orchestration-exemplaar dat ze aangeroepen is beëindigd.
 
 ## <a name="sending-events-to-instances"></a>Het verzenden van gebeurtenissen naar exemplaren
 

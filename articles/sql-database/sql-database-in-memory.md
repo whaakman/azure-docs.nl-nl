@@ -1,19 +1,19 @@
 ---
-title: "Azure SQL Database In het geheugen technologieën | Microsoft Docs"
-description: "Azure SQL Database In het geheugen technologieën verbeteren aanzienlijk de prestaties van transactionele en analytics werkbelastingen."
+title: Azure SQL Database In het geheugen technologieën | Microsoft Docs
+description: Azure SQL Database In het geheugen technologieën verbeteren aanzienlijk de prestaties van transactionele en analytics werkbelastingen.
 services: sql-database
 author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/21/2018
 ms.author: jodebrui
-ms.openlocfilehash: 107df78f0ec6ce924785f5027958ee66f2a86c7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren door technologieën voor In-Memory in SQL-Database
 
@@ -104,7 +104,7 @@ Wanneer u niet-geclusterde columnstore-indexen gebruikt, wordt de basistabel nog
 
 Er zijn nooit eventuele incompatibiliteiten of andere problemen bij het upgraden naar een hogere prijscategorie zoals van standaard naar Premium. De beschikbare functies en bronnen alleen verhogen.
 
-Maar de prijscategorie downgraden kunt negatieve invloed hebben op uw database. De impact is vooral duidelijk wanneer u van Premium naar Standard of Basic downgraden wanneer uw database In het geheugen OLTP-objecten bevat. Tabellen geoptimaliseerd voor geheugen en columnstore-indexen zijn niet beschikbaar na de downgrade (zelfs als ze zichtbaar blijft). Dezelfde overwegingen van toepassing wanneer u de prijscategorie van een elastische pool te verlagen of verplaatsen van een database met technologieën In het geheugen, in een standaard of Basic elastische pool.
+Maar de prijscategorie downgraden kunt negatieve invloed hebben op uw database. De impact is vooral duidelijk wanneer u van Premium naar Standard of Basic downgraden wanneer uw database In het geheugen OLTP-objecten bevat. Geheugen geoptimaliseerde tabellen zijn niet beschikbaar na de downgrade (zelfs als ze zichtbaar blijft). Dezelfde overwegingen van toepassing wanneer u de prijscategorie van een elastische pool te verlagen of verplaatsen van een database met technologieën In het geheugen, in een standaard of Basic elastische pool.
 
 ### <a name="in-memory-oltp"></a>OLTP in het geheugen
 
@@ -130,11 +130,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="columnstore-indexes"></a>Columnstore-indexen
 
-*Downgraden naar basis of standaard*: Columnstore-indexen worden alleen op de prijscategorie Premium en niet op de lagen Standard- of Basic ondersteund. Wanneer u de database naar de Standard- of Basic gedowngraded, columnstore-index niet meer beschikbaar. Het systeem onderhoudt columnstore-index, maar deze nooit maakt gebruik van de index. Als u een later terug naar Premium upgrade, kan columnstore-index onmiddellijk opnieuw worden gebruikt.
+*Downgraden naar basis of standaard*: Columnstore-indexen worden alleen op de prijscategorie Premium en op de prijscategorie Standard S3 en hierboven en niet op de laag Basic ondersteund. Wanneer u de database naar een niet-ondersteunde laag of niveau downgraden, columnstore-index niet meer beschikbaar. Het systeem onderhoudt columnstore-index, maar deze nooit maakt gebruik van de index. Als u later terug naar een ondersteunde laag of niveau een upgrade, kan columnstore-index onmiddellijk opnieuw worden gebruikt.
 
-Als u hebt een **geclusterde** columnstore-index in de hele tabel niet meer beschikbaar is na een downgrade van laag. Daarom raden we aan dat u alle neerzetten *geclusterde* columnstore-indexen voordat u de database onder de laag Premium downgraden.
+Als u hebt een **geclusterde** columnstore-index in de hele tabel niet meer beschikbaar is na de downgrade. Daarom raden we aan dat u alle neerzetten *geclusterde* columnstore-indexen voordat u de database naar een niet-ondersteunde laag of niveau downgraden.
 
-*Met een lagere Premium tier downgraden*: deze downgrade is geslaagd als de gehele database past binnen de maximale grootte voor het doel prijscategorie of binnen de beschikbare opslagruimte in de elastische groep. Er zijn geen specifieke gevolgen van de columnstore-indexen.
+*Downgraden naar een lagere ondersteunde laag of niveau*: deze downgrade is geslaagd als de gehele database past binnen de maximale grootte voor het doel prijscategorie of binnen de beschikbare opslagruimte in de elastische groep. Er zijn geen specifieke gevolgen van de columnstore-indexen.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>

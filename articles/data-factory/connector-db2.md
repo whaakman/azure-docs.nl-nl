@@ -1,11 +1,11 @@
 ---
-title: "Kopiëren van gegevens van DB2 met behulp van Azure Data Factory | Microsoft Docs"
-description: "Informatie over het kopiëren van gegevens van DB2 naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn."
+title: Kopiëren van gegevens van DB2 met behulp van Azure Data Factory | Microsoft Docs
+description: Informatie over het kopiëren van gegevens van DB2 naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 865e6fe1dd13736c1899c72b4e49612d970d45cd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0ef1ce8b4949c908595473f0183f585a6fd3da80
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Gegevens kopiëren van DB2 met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ In het bijzonder ondersteunt deze DB2-connector de volgende IBM DB2-platforms en
 
 > [!TIP]
 > Als u een waarin wordt aangegeven foutbericht "het pakket overeenkomt met de aanvraag voor een SQL-instructie uitvoeren is niet gevonden. SQLSTATE 51002 SQLCODE =-805 = ', de reden hiervoor is een benodigde pakket is niet gemaakt voor normale gebruiker op dit besturingssysteem. Volg deze instructies op basis van het type DB2:
-> - DB2 voor i (AS400): laten hoofdgebruiker verzameling voor de aanmeldingsgebruiker voordat u kopieeractiviteit maken. Opdracht:`create collection <username>`
+> - DB2 voor i (AS400): laten hoofdgebruiker verzameling voor de aanmeldingsgebruiker voordat u kopieeractiviteit maken. Opdracht: `create collection <username>`
 > - DB2 voor z-/ OS of LUW: een account met hoge bevoegdheden - Hoofdgebruikers- of -beheerder met pakket-instanties en BIND BINDADD, machtigingen verlenen uitvoeren voor openbare - met de kopieeractiviteit eenmaal uitvoeren en klik vervolgens het benodigde pakket wordt automatisch gemaakt tijdens het kopiëren. U kunt daarna terug naar de normale gebruiker schakelen voor uw volgende kopie wordt uitgevoerd.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -198,7 +198,7 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | Real |Single |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| Timestamp |Datum en tijd |
+| Timestamp |DateTime |
 | VarBinary |Byte[] |
 | VarChar |Tekenreeks |
 | VarGraphic |Tekenreeks |

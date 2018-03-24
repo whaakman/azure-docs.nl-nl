@@ -2,9 +2,10 @@
 title: Een Machine Learning-webservice implementeren | Microsoft Docs
 description: Hoe een trainingsexperiment converteren naar een Voorspellend experiment, voorbereiden voor implementatie en klik vervolgens als een Azure Machine Learning-webservice implementeren.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 3ce4104040e90a4740442d7692b3bf4a0789bde0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Een Azure Machine Learning-webservice implementeren
 Azure Machine Learning kunt u bouwen, testen en implementeren van voorspellende analytische oplossingen.
@@ -34,7 +34,7 @@ Dit is van een punt-van-overzichtsweergave gedaan in drie stappen:
 ## <a name="create-a-training-experiment"></a>Een trainingsexperiment maken
 Als u wilt een predictive analytics-model trainen, u Azure Machine Learning Studio maakt een trainingsexperiment waar u diverse modules trainingsgegevens laden, het voorbereiden van de gegevens zo nodig, het toepassen van machine learning-algoritmen en het evalueren van de resultaten opnemen. U kunt een experiment herhalen en probeer andere machine learning-algoritmen om te vergelijken en evalueren van de resultaten.
 
-Het proces van het maken en beheren van training experimenten wordt uitgebreid elders besproken. Zie voor meer informatie in deze artikelen:
+Het proces van het maken en beheren van training experimenten wordt uitgebreid elders besproken. Raadpleeg voor meer informatie de volgende artikelen:
 
 * [Een eenvoudige experiment maken in Azure Machine Learning Studio](create-experiment.md)
 * [Een voorspellende oplossing met Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)

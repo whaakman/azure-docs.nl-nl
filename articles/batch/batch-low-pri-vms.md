@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68240e29429b4c6321e8627b62ad65ce7ecb468e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Met lage prioriteit virtuele machines, met Batch
 
@@ -26,12 +26,6 @@ Prioriteit Laag virtuele machines te profiteren van de overtollige capaciteit in
 Voor het gebruik van virtuele machines prioriteit Laag afweging is dat deze VMs mogelijk niet beschikbaar om te worden toegewezen of kunnen worden gebruikt op elk gewenst moment, afhankelijk van de beschikbare capaciteit. Om deze reden prioriteit Laag VMs meest geschikt zijn voor bepaalde typen werkbelastingen. Prioriteit Laag VM's gebruiken voor batch en asynchrone verwerking werkbelastingen waar de voltooiingstijd van de taak is flexibel en het werk verdeeld is over veel virtuele machines.
  
 Prioriteit Laag VM's zijn beschikbaar op een aanzienlijk gereduceerde prijs vergeleken met de toegewezen virtuele machines. Zie voor prijsinformatie, [prijzen van Batch](https://azure.microsoft.com/pricing/details/batch/).
-
-
-> [!IMPORTANT]
-> Prioriteit Laag VM's zijn momenteel alleen beschikbaar voor werkbelastingen in Batch. 
->
->
 
 ## <a name="use-cases-for-low-priority-vms"></a>Gebruiksvoorbeelden voor VM met lage prioriteit
 

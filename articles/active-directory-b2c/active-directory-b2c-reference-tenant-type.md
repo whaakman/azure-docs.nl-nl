@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Regio beschikbaarheid & gegevens hand vestigingsplaats | Microsoft Docs'
 description: Een onderwerp over de verschillende typen tenants van Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: gsacavdm
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 8a0644da-b825-4edc-8ce9-541c3c976afb
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
-ms.author: gsacavdm
-ms.openlocfilehash: 752a98ca7f3c77c434de296461790f2cf37e2d5c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: b982a6b6e0068370ef7b5cb30ea689829e90d494
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Regio beschikbaarheid & gegevens hand vestigingsplaats
 Beschikbaarheid in regio's en de hand van gegevens vestigingsplaats zijn twee heel andere concepten die anders van toepassing op Azure AD B2C van de rest van Azure. In dit artikel wordt uitgelegd van de verschillen tussen deze twee concepten en vergelijken hoe ze van toepassing op Azure ten opzichte van Azure AD B2C.
@@ -52,7 +49,7 @@ Voor de volgende landen/regio's, bevindt zich in Europa gegevens:
 
 De overige landen/regio's zijn bezig met worden toegevoegd aan de lijst.  Op dit moment kunt u Azure AD B2C door een van de landen/regio's bovenstaande verzamelen.
 
-> Afghanistan, Argentinië, Australië, Brazilië, onderliggende, Colombia, Ecuador, Hongkong SAR, India, Indonesië, Irak, Japan, Korea, Maleisië, Nieuw-Zeeland, Paraguay, Peru, Filipijnen, Singapore, Sri Lanka, Taiwan, Thailand, Uruguay en Venezuela.
+> Afghanistan, Argentina, Australia, Brazil, Chile, Colombia, Ecuador, Hong Kong SAR, India, Indonesia, Iraq, Japan, Korea, Malaysia, New Zealand, Paraguay, Peru, Philippines, Singapore, Sri Lanka, Taiwan, Thailand, Uruguay and Venezuela.
 
 ## <a name="preview-tenant"></a>Preview-tenant
 Als u een B2C-tenant had gemaakt in Azure AD B2C preview-periode, is het waarschijnlijk dat uw **Tenant-type** zegt **Preview tenant**. Als dit het geval is, moet u uw tenant alleen voor ontwikkelings- en testdoeleinden en niet voor productie-apps gebruiken.

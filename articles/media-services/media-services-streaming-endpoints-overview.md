@@ -2,11 +2,11 @@
 title: Overzicht van Azure Media Services-Streaming-eindpunt | Microsoft Docs
 description: In dit onderwerp geeft een overzicht van Azure Media Services streaming-eindpunten.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 writer: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: f923a2fb328ee62ce4dc73669fd922f275ba34a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="streaming-endpoints-overview"></a>Streaming-eindpunten-overzicht 
 
-##<a name="overview"></a>Overzicht
+## <a name="overview"></a>Overzicht
 
 In Microsoft Azure Media Services (AMS), een **Streaming-eindpunt** vertegenwoordigt een streaming-service die inhoud rechtstreeks naar een clienttoepassing player of naar een inhoud Delivery Network (CDN) voor verdere distributie leveren kunt. Media Services biedt ook naadloze integratie van Azure CDN. De uitgaande stroom van een service StreamingEndpoint mag een live stream, video op aanvraag of progressief downloaden van de activa in uw Media Services-account. Elke Azure Media Services-account bevat standaard StreamingEndpoint. Aanvullende streaming-eindpunten kunnen worden gemaakt onder het account. Er zijn twee versies van streaming-eindpunten, 1.0 en 2.0. Vanaf januari 10 2017, bevatten nieuwe accounts AMS versie 2.0 **standaard** StreamingEndpoint. Aanvullende streaming-eindpunten die u aan dit account toevoegt worden ook versie 2.0. Deze wijziging heeft geen invloed op de bestaande accounts; bestaande streaming-eindpunten versie 1.0 zijn en kunnen worden bijgewerkt naar versie 2.0. Met deze wijziging zal er wijzigingen in gedrag, facturering en functie (Zie voor meer informatie de **Streaming typen en versies** sectie hieronder).
 

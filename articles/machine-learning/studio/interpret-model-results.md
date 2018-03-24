@@ -2,9 +2,10 @@
 title: Interpreteren model resulteert in een Machine Learning | Microsoft Docs
 description: Het kiezen van de optimale parameter ingesteld voor het gebruik van een algoritme en visualiseren score-model levert.
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: d6563d411e9f159399f9863a5b572365dc2b05cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e8f6d3accc7ad8de1161f08cceb0e856cf764255
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="interpret-model-results-in-azure-machine-learning"></a>Model resulteert in een Azure Machine Learning interpreteren
 In dit onderwerp wordt uitgelegd hoe visualiseren en interpreteren voorspelling resulteert in een Azure Machine Learning Studio. Nadat u hebt een model wordt getraind en gedaan voorspellingen toe ('berekend het model'), moet u om te begrijpen en het resultaat van de voorspelling te interpreteren.

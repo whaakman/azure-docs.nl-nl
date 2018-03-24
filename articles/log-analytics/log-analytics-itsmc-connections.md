@@ -1,10 +1,10 @@
 ---
 title: Verbindingen met de IT-Service Management-Connector ondersteund in Azure Log Analytics | Microsoft Docs
 description: In dit artikel bevat informatie over het aansluiten van uw ITSM producten/services met de IT Service Management Connector (ITSMC) in de OMS-logboekanalyse centraal kunt bewaken en beheren van de werkitems ITSM.
-documentationcenter: 
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
 ms.service: log-analytics
 ms.workload: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinding maken met ITSM producten/services met IT Service Management-Connector
 In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM producten, services en de IT-Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](log-analytics-itsmc-overview.md).
@@ -200,7 +200,7 @@ Zorg ervoor dat de volgende vereisten wordt voldaan:
 - Installeer de App gebruiker voor Microsoft OMS-integratie (ServiceNow-app). [Meer informatie](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Maak gebruikersrol voor integratie voor de gebruiker app is geïnstalleerd. Informatie over het maken van de gebruikersrol integratie [hier](#create-integration-user-role-in-servicenow-app).
 
-### <a name="connection-procedure"></a>Verbindingsprocedure
+### <a name="connection-procedure"></a>**Verbindingsprocedure**
 Gebruik de volgende procedure om een ServiceNow-verbinding te maken:
 
 
@@ -271,13 +271,7 @@ Als de gebruiker is gemaakt, de status van **controlelijst voor de installatie c
 
 > [!NOTE]
 
-> Toestaan dat een gebruiker maken **waarschuwingen** en **gebeurtenissen** in ServiceNow van Azure:
-
-> - Zorg ervoor dat u de module Beheer van gebeurtenissen geïnstalleerd hebben op uw ServiceNow-exemplaar.
-
-> - De volgende rollen toevoegen aan de integratiegebruiker:
->      - evt_mgmt_integration
->      - evt_mgmt_operator  
+> ITSM Connector kunnen incidenten verzenden naar ServiceNow zonder andere modules geïnstalleerd op uw ServiceNow-exemplaar. Als u EventManagement module in uw ServiceNow-exemplaar gebruiken en voor het maken van gebeurtenissen of waarschuwingen in ServiceNow met behulp van de connector, de volgende rollen toevoegen aan de integratiegebruiker: - evt_mgmt_integration - evt_mgmt_operator  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Verbinding maken met Provance IT Service Management-Connector in Azure

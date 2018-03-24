@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure-logboekanalyse-integratie | Microsoft Docs
-description: Informatie over het installeren van de Azure-logboekanalyse integration-service en het integreren van Logboeken van Azure storage, Azure controlelogboeken en Azure Security Center-waarschuwingen.
+title: Aan de slag met Azure Log integratie | Microsoft Docs
+description: Informatie over het installeren van de integratie van Azure Log-service en het integreren van Logboeken van Azure Storage, Azure controlelogboeken en Azure Security Center-waarschuwingen.
 services: security
 documentationcenter: na
 author: Barclayn
@@ -15,205 +15,204 @@ ums.workload: na
 ms.date: 02/20/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 4555216950811960ccb42241bcade5ec892a77ce
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3e229c4db44fc3c8d16aa2bd0a014fb1acc64a5e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure-logboekanalyse-integratie met de logboekregistratie van Azure Diagnostics- en Windows Event Forwarding
+# <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log-integratie met Azure Diagnostics logboekregistratie en Windows event forwarding
 
-Integratie van Azure Log (AzLog) biedt klanten met een alternatief in de gebeurtenis die een [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector is niet beschikbaar via de SIEM-leverancier. Integratie van Azure Log Azure logboeken beschikbaar stelt aan uw SIEM en kunt u een dashboard geïntegreerde beveiliging voor alle activa maken.
+Integratie van Azure Log biedt klanten met een alternatieve als een [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector is niet beschikbaar vanuit hun leverancier Security Incident en Event Management (SIEM). Integratie van Azure Log beschikbaar Azure logboeken naar uw SIEM zodat u een geïntegreerde beveiliging dashboard voor alle activa maken kunt.
 
->[!NOTE]
->Raadpleeg voor meer informatie over Azure Monitor [aan de slag met Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) voor meer informatie over de status van een connector Azure monitor contact op met de leverancier van uw SIEM.
+> [!NOTE]
+> Zie voor meer informatie over Azure Monitor [aan de slag met Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md). Neem contact op met de leverancier van uw SIEM voor meer informatie over de status van een Azure-Monitor-connector.
 
->[!IMPORTANT]
->Als uw primaire interesse in het verzamelen van Logboeken van de virtuele machine, bevatten de meeste leveranciers van SIEM dit in de oplossing. Met behulp van de SIEM moet-connector van de leverancier altijd het aanbevolen alternatief is.
+> [!IMPORTANT]
+> Als uw primaire interesse met het verzamelen van Logboeken van de virtuele machine, omvatten de meeste leveranciers van SIEM deze optie in de oplossing. Met behulp van de SIEM is-connector van de leverancier altijd het aanbevolen alternatief is.
 
-In dit artikel helpt u aan de slag met Azure Log integratie door te focussen op de installatie van de service AzLog en de service integreren met Azure Diagnostics. De integratie van Azure Log-service vervolgens kan worden Windows-gebeurtenislogboek om informatie te verzamelen van het Windows-gebeurtenis beveiligingskanaal van virtuele machines in Azure IaaS geïmplementeerd. Dit is vergelijkbaar met 'Event Forwarding' dat u on-premises mogelijk gebruikt.
+In dit artikel helpt u aan de slag met Azure Log-integratie. Dit artikel gaat over het installeren van de integratie van Azure Log-service en de service integreren met Azure Diagnostics. De integratie van Azure Log-service verzamelt vervolgens Windows-gebeurtenislogboek-informatie van het kanaal Windows-gebeurtenis voor beveiliging van virtuele machines die zijn geïmplementeerd in een Azure-infrastructuur als een service. Dit is vergelijkbaar met *-gebeurtenis doorsturen* die u mogelijk in een on-premises systeem.
 
->[!NOTE]
->De mogelijkheid om de uitvoer van de Azure log in integratie in de SIEM wordt geleverd door de SIEM zelf. Zie het artikel [integratie van Azure Log integratie met uw On-premises SIEM](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) voor meer informatie.
+> [!NOTE]
+> De uitvoer van de integratie van Azure Log integreren met een SIEM wordt uitgevoerd door de SIEM zelf. Zie voor meer informatie [Azure Log-integratie integreren met uw SIEM lokale](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/).
 
-U moet - de integratie van Azure Log-service wordt uitgevoerd op een fysieke of virtuele computer die van Windows Server 2008 R2 gebruikmaakt of hoger besturingssysteem (Windows Server 2012 R2 of Windows Server 2016 zijn voorkeur).
+De integratie van Azure Log-service wordt uitgevoerd op een fysieke of een virtuele computer met Windows Server 2008 R2 of hoger (Windows Server 2016 of Windows Server 2012 R2 heeft de voorkeur).
 
-De fysieke computer kunt on-premises uitgevoerd (of op een hosting-site). Als u kiest voor het uitvoeren van de integratie van Azure Log-service op een virtuele machine, waarop de virtuele machine mag zich lokaal of in een openbare cloud, zoals Microsoft Azure.
+Een fysieke computer kunt on-premises uitgevoerd of op een site host. Als u kiest voor het uitvoeren van de integratie van Azure Log-service op een virtuele machine, de virtuele machine mag zich lokaal of in een openbare cloud, zoals in Microsoft Azure.
 
-De fysieke of virtuele machine met de Azure Log Integration-service vereist netwerkverbinding met de openbare Azure-cloud. Stappen in dit artikel vindt u informatie van de configuratie.
+De fysieke of virtuele machine met de Azure Log Integration-service vereist netwerkverbinding met de openbare Azure-cloud. In dit artikel bevat informatie over de vereiste configuratie.
 
 ## <a name="prerequisites"></a>Vereisten
 
-De installatie van AzLog vereist ten minste de volgende items:
+Ten minste wilt installeren Azure Log integratie, moet de volgende items:
 
-* Een **Azure-abonnement**. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/free/).
-* Een **opslagaccount** die kunnen worden gebruikt voor diagnostische logboekregistratie voor Windows Azure (gebruik een vooraf geconfigureerde opslagaccount of maak een nieuwe – wordt ziet u hoe het configureren van het opslagaccount verderop in dit artikel)
+* Een **Azure-abonnement**. Als u nog geen account hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/free/).
+* Een **opslagaccount** die kunnen worden gebruikt voor Windows Azure Diagnostics (af) logboekregistratie. U kunt een vooraf geconfigureerde opslagaccount gebruiken of een nieuw opslagaccount maken. Verderop in dit artikel worden beschreven het configureren van het opslagaccount.
 
-  >[!NOTE]
-  Afhankelijk van uw scenario kan een opslagaccount niet worden vereist. Voor de Azure diagnostics is die in dit artikel in een scenario nodig.
+  > [!NOTE]
+  > Afhankelijk van uw scenario, een opslagaccount mogelijk niet meer vereist. Een opslagaccount is vereist voor het scenario met een Azure Diagnostics die in dit artikel.
 
-* **Twee systemen**: een computer die de integratie van Azure Log-service wordt uitgevoerd en een machine die wordt bewaakt en de logboekregistratie informatie verzonden naar de service AzLog machine hebben.
-   * Een machine die u bewaken wilt: dit is een virtuele machine wordt uitgevoerd als een [Azure virtuele Machine](../virtual-machines/virtual-machines-windows-overview.md)
-   * Een machine die wordt uitgevoerd van de Azure-logboekanalyse integration-service; Deze computer worden verzameld van de logboekgegevens die later worden geïmporteerd in uw SIEM.
-    * Dit systeem kan nu on-premises of in Microsoft Azure.  
-    * Het moet worden uitgevoerd een x64 versie van WindowsServer 2008 R2 SP1 of hoger en .NET Framework 4.5.1 is geïnstalleerd. U kunt bepalen de .NET-versie die is geïnstalleerd door de volgende het artikel [hoe: bepalen dat .NET Framework-versies zijn geïnstalleerd](https://msdn.microsoft.com/library/hh925568)  
-    Het moet zijn verbonden met de Azure storage-account voor Azure Diagnostische logboekregistratie gebruikt. We bieden instructies verderop in dit artikel op hoe kunt u deze connectiviteit controleren
+* **Twee systemen**: 
+  * Een computer die de integratie van Azure Log-service wordt uitgevoerd. Deze computer worden verzameld van de logboekgegevens die later in uw SIEM is geïmporteerd. Dit systeem:
+    * Kan lokaal of gehost in Microsoft Azure.  
+    * Moet worden uitgevoerd als een x64 versie van Windows Server 2008 R2 SP1 of hoger, en Microsoft .NET Framework 4.5.1 is geïnstalleerd. Om te bepalen van de .NET-versie die is geïnstalleerd, Zie [bepalen welke versies van .NET Framework zijn geïnstalleerd](https://msdn.microsoft.com/library/hh925568).  
+    * Moet zijn verbonden met het Azure Storage-account dat is gebruikt voor logboekregistratie van Azure Diagnostics. Verderop in dit artikel wordt beschreven hoe connectiviteit bevestigen.
+  * Een machine die u wilt bewaken. Dit is een virtuele machine wordt uitgevoerd als een [virtuele machine van Azure](../virtual-machines/virtual-machines-windows-overview.md). De logboekgegevens van deze computer is verzonden naar de integratie van Azure Log-service-machine.
 
-* Een **opslagaccount** die kunnen worden gebruikt voor diagnostische logboekregistratie voor Windows Azure. U kunt een vooraf geconfigureerde opslagaccount gebruiken of een nieuwe maken. U kunt het storage-account configureren verderop in dit artikel.
-  >[!NOTE]
-  Afhankelijk van uw scenario kan een opslagaccount niet worden vereist. Voor de Azure diagnostics is die in dit artikel in een scenario nodig.
-* **Twee systemen**: een computer die de integratie van Azure Log-service wordt uitgevoerd en een machine die wordt bewaakt en de logboekinformatie is verzonden naar de service Azlog machine.
-   * Een machine die u bewaken wilt: dit is een virtuele machine wordt uitgevoerd als een [Azure virtuele Machine](../virtual-machines/virtual-machines-windows-overview.md)
-   * Een machine die wordt uitgevoerd van de Azure-logboekanalyse integration-service; Deze computer worden verzameld van de logboekgegevens die later in uw SIEM zijn geïmporteerd.
-    * Dit systeem kan nu on-premises of in Microsoft Azure.  
-    * Het moet worden uitgevoerd een x64 versie van WindowsServer 2008 R2 SP1 of hoger en .NET Framework 4.5.1 is geïnstalleerd. U kunt bepalen de .NET-versie die is geïnstalleerd door de volgende het artikel [hoe: bepalen dat .NET Framework-versies zijn geïnstalleerd](https://msdn.microsoft.com/library/hh925568)  
-    Het moet zijn verbonden met de Azure storage-account voor Azure Diagnostische logboekregistratie gebruikt. Hoe u deze connectiviteit bevestigen wordt verderop in dit artikel beschreven.
+Voor een snelle demonstratie van het maken van een virtuele machine met behulp van de Azure-portal te kijken in de volgende video:<br /><br />
 
-Voor een snelle demonstratie van het proces van een maken van een virtuele machine via de Azure-portal, bekijk de video hieronder.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Create-a-Virtual-Machine/player]
 
 ## <a name="deployment-considerations"></a>Overwegingen bij de implementatie
 
-Tijdens het testen kunt u een systeem dat voldoet aan de minimale besturingssysteemvereisten. Voor een productieomgeving, de belasting moet u mogelijk om te plannen voor schaal omhoog of uit.
+Tijdens het testen, kunt u een systeem dat voldoet aan de minimale besturingssysteemvereisten. Voor een productieomgeving, de belasting moet u mogelijk om te plannen voor omhoog schalen of uitbreiden.
 
-U kunt meerdere exemplaren van de integratie van Azure Log-service uitvoeren. Dit is beperkt tot één exemplaar per fysieke of virtuele machine. U kunt bovendien saldo opslagaccounts Azure Diagnostics voor Windows (af) en het aantal abonnementen bieden aan de exemplaren moeten worden gebaseerd op de capaciteit van de laden.
+U kunt meerdere exemplaren van de integratie van Azure Log-service uitvoeren. U kunt echter slechts één exemplaar van de service per fysieke of virtuele machine uitvoeren. Bovendien kunt u taakverdeling diagnostische gegevens van Azure storage-accounts voor af. Het aantal abonnementen bieden aan de exemplaren is gebaseerd op de capaciteit van de.
 
->[!NOTE]
->Op dit moment is er geen specifieke aanbevelingen voor het uitbreiden van exemplaren van Azure-logboekanalyse integratie machines (machines met de Azure-logboekanalyse integration-service) of voor storage-accounts of abonnementen. Schalen van de beslissingen die moet worden gebaseerd op uw prestaties metingen in elk van deze gebieden.
+> [!NOTE]
+> Op dit moment zijn er specifieke aanbevelingen over het uitbreiden van exemplaren van logboek-integratie van Azure-machines (dat wil zeggen, machines waarop de integratie van Azure Log-service wordt uitgevoerd) of voor storage-accounts of abonnementen. Beslissingen nemen vergroten/verkleinen op basis van uw metingen prestaties in elk van deze gebieden.
 
-Als gebeurtenis volume hoog is, kunt u meerdere exemplaren van de integratie van Azure Log-service (één exemplaar per fysieke of virtuele machine) uitvoeren. Bovendien kunt u laden saldo diagnostische gegevens van Azure storage-accounts voor Windows (af).
+Om prestaties te verbeteren, hebt u ook de optie voor het schalen van de integratie van Azure Log-service. Aan de hand van de volgende maatstaven voor prestaties kunt u het formaat van de machines die u wilt uitvoeren van de integratie van Azure Log-service:
 
-U hebt ook de optie voor het schalen van de integratie van Azure Log-service om prestaties te verbeteren. De volgende maatstaven voor prestaties kan u helpen bij het formaat van de machines die u wilt uitvoeren van de Azure-logboekanalyse integration-service:
-
-* Op een machine met 8-processor (core), kan één exemplaar van AzLog Integrator ongeveer 24 miljoen gebeurtenissen per dag (~1M/hour) verwerken.
-* Op een machine 4-processor (core), kan één exemplaar van AzLog Integrator ongeveer 1,5 miljoen gebeurtenissen per dag (~62.5K/hour) verwerken.
+* Op een machine met 8-processor (core), kan één exemplaar van Azure Log integratie verwerken ongeveer 24 miljoen gebeurtenissen per dag (ongeveer 1 miljoen gebeurtenissen per uur).
+* Op een machine 4-processor (core) kan één exemplaar van Azure Log integratie verwerken ongeveer 1,5 miljoen gebeurtenissen per dag (ongeveer 62,500 gebeurtenissen per uur).
 
 ## <a name="install-azure-log-integration"></a>Azure-logboekanalyse-integratie installeren
 
-Om Azure Log Integration installeert, moet u downloaden de [integratie van Azure-logboekanalyse](https://www.microsoft.com/download/details.aspx?id=53324) -bestand voor installatie. De setup-routine doorlopen en bepalen of u wilt bieden telemetrie-informatie naar Microsoft.  
+Voor het installeren van de integratie van Azure Log downloaden de [Azure Log integratie](https://www.microsoft.com/download/details.aspx?id=53324) -bestand voor installatie. De installatie te voltooien. Kies of u informatie te verstrekken telemetrie naar Microsoft.
 
-![Installatiescherm met telemetrie selectievakje is ingeschakeld](./media/security-azure-log-integration-get-started/telemetry.png)
+De integratie van Azure Log-service verzamelt telemetriegegevens van de computer waarop deze geïnstalleerd.  
+
+Telemetriegegevens die worden verzameld, omvat het volgende:
+
+* De uitzonderingen die tijdens het uitvoeren van de integratie van Azure-logboek optreden.
+* Metrische gegevens over het aantal query's en gebeurtenissen verwerkt.
+* Statistieken over welke Azlog.exe opdrachtregelopties worden gebruikt. 
 
 > [!NOTE]
-> Het is raadzaam dat u Microsoft voor het verzamelen van telemetriegegevens toestaan. U kunt verzamelen van telemetriegegevens uitschakelen door deze optie uitschakelt.
+> Het is raadzaam dat u Microsoft voor het verzamelen van telemetriegegevens toestaan. U kunt de verzameling van telemetriegegevens uitschakelen door het selectievakje de **Microsoft toestemming geven voor het verzamelen van telemetriegegevens** selectievakje.
 >
 
+![Schermopname van het deelvenster installatie met het selectievakje telemetrie ingeschakeld](./media/security-azure-log-integration-get-started/telemetry.png)
 
-De integratie van Azure Log-service verzamelt telemetriegegevens van de computer waarop deze is geïnstalleerd.  
 
-Verzamelde telemetriegegevens is:
+Het installatieproces wordt beschreven in de volgende video:<br /><br />
 
-* Uitzonderingen die tijdens het uitvoeren van de integratie van Azure-logboekanalyse optreden
-* Metrische gegevens over het aantal query's en gebeurtenissen die zijn verwerkt
-* Statistieken over welke Azlog.exe opdrachtregelopties worden gebruikt
-
-Het installatieproces wordt beschreven in de onderstaande video.
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Install-Azure-Log-Integration/player]
 
+## <a name="post-installation-and-validation-steps"></a>Stappen na de installatie en validatie
+
+Nadat u basisinstellingen hebt voltooid, bent u klaar stappen na de installatie en validatie uit te voeren:
+
+1. Open PowerShell als beheerder. Ga vervolgens naar C:\Program Files\Microsoft Azure Log-integratie.
+2. Importeer de integratie van Azure Log-cmdlets. Voer het script voor het importeren van de cmdlets `LoadAzlogModule.ps1`. Voer `.\LoadAzlogModule.ps1`, en druk op Enter (Let op het gebruik van **.\\**  in deze opdracht). U ziet er ongeveer zo wat wordt weergegeven in de volgende afbeelding:
+
+  ![Schermafbeelding van de uitvoer van de opdracht LoadAzlogModule.ps1](./media/security-azure-log-integration-get-started/loaded-modules.png)
+3. Configureer vervolgens de integratie van Azure-logboek voor het gebruik van een specifieke Azure-omgeving. Een *Azure-omgeving* is het type van de Azure-cloud-datacenter die u wilt werken. Hoewel er momenteel verschillende Azure-omgevingen zijn, zijn de desbetreffende opties **AzureCloud** of **AzureUSGovernment**. Uitvoeren van PowerShell als beheerder, zorg ervoor dat u in C:\Program Files\Microsoft Azure Log Integration\. Voer deze opdracht:
+
+  `Set-AzlogAzureEnvironment -Name AzureCloud` (voor **AzureCloud**)
+  
+  Als u de US Government Azure-cloud gebruiken wilt, gebruikt u **AzureUSGovernment** voor de **-naam** variabele. Momenteel worden niet andere Azure-clouds ondersteund.  
+
+  > [!NOTE]
+  > U kunt feedback niet ontvangen als de opdracht is geslaagd. 
+
+4. Voordat u een systeem bewaken kunt, moet u de naam van het opslagaccount dat wordt gebruikt voor Azure Diagnostics. In de Azure portal, gaat u naar **virtuele machines**. Zoek naar de virtuele machine die u controleert. In de **eigenschappen** sectie **diagnostische instellingen**.  Selecteer **Agent**. Noteer de opslagaccountnaam die opgegeven. U moet deze accountnaam voor een latere stap.
+
+  ![Schermopname van het deelvenster Azure Diagnostics-instellingen](./media/security-azure-log-integration-get-started/storage-account-large.png) 
+
+  ![Bewaking knop gastniveau schermopname van inschakelen](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
+
+  > [!NOTE]
+  > Als controle is niet ingeschakeld wanneer de virtuele machine is gemaakt, kunt u deze inschakelen zoals weergegeven in de vorige afbeelding.
+
+5. Ga nu terug naar de integratie van Azure Log-machine. Controleer of u verbinding hebt met het opslagaccount van het systeem waar u de integratie van Azure Log geïnstalleerd. De computer waarop de integratie van Azure Log-service wordt uitgevoerd moet toegang tot het opslagaccount voor het ophalen van informatie die wordt vastgelegd door Azure Diagnostics op elk van de bewaakte systemen. Om te controleren of de verbinding: 
+  1. [Azure Storage Explorer downloaden](http://storageexplorer.com/).
+  2. Setup is voltooid.
+  3. Wanneer de installatie is voltooid, selecteert u **volgende**. Laat de **Start Microsoft Azure Storage Explorer** selectievakje is ingeschakeld.  
+  4. Meld u aan bij Azure.
+  5. Controleren of u het opslagaccount dat u hebt geconfigureerd voor Azure Diagnostics kan zien: 
+
+    ![Schermafbeelding van de storage-accounts in Opslagverkenner](./media/security-azure-log-integration-get-started/storage-explorer.png)
+
+  6. Enkele opties worden weergegeven onder de storage-accounts. Onder **tabellen**, ziet u een tabel met de naam **WADWindowsEventLogsTable**.
+
+  Als controle is niet ingeschakeld wanneer de virtuele machine is gemaakt, kunt u, zoals eerder beschreven.
 
 
-## <a name="post-installation-and-validation-steps"></a>Na de installatie-en validatie
-
-Nadat de routine basisinstellingen is voltooid, bent u gereed stap uit te voeren na de installatie en Validatiestappen:
-
-1. Open een PowerShell-venster met verhoogde bevoegdheid en navigeer naar **c:\Program Files\Microsoft Azure Log-integratie**
-2. De eerste stap die u moet nemen is om op te halen van de Cmdlets AzLog is geïmporteerd. U kunt dit doen door het uitvoeren van het script **LoadAzlogModule.ps1** (Let op de '. \ ' in de volgende opdracht). Type **.\LoadAzlogModule.ps1** en druk op **ENTER**. U ziet er ongeveer zo wat wordt weergegeven in de afbeelding hieronder. </br></br>
-![Installatiescherm met telemetrie selectievakje is ingeschakeld](./media/security-azure-log-integration-get-started/loaded-modules.png) </br></br>
-3. Nu moet u AzLog voor het gebruik van een specifieke Azure-omgeving te configureren. Een 'Azure-omgeving' is het 'type' van de Azure-cloud datacenter die u wilt werken. Hoewel er verschillende Azure-omgevingen op dit moment, zijn de opties op dit moment relevante **AzureCloud** of **AzureUSGovernment**.   Zorg ervoor dat u in de verhoogde PowerShell-omgeving **c:\program files\Microsoft Azure Log-integratie\** </br></br>
-    Zodra er, voer de opdracht: </br>
-    ``Set-AzlogAzureEnvironment -Name AzureCloud`` (voor Azure commercieel)
-
-      >[!NOTE]
-      >Als de opdracht is geslaagd, ontvangt u geen opmerkingen of vragen hebt.  Als u de US Government Azure-cloud gebruiken wilt, gebruikt u **AzureUSGovernment** (voor de variabele van-naam) voor de cloud van de overheid van de Verenigde Staten. Andere Azure-clouds worden niet ondersteund op dit moment.  
-4. Voordat u een systeem kunt bewaken moet u de naam van het storage-account gebruikt voor Azure Diagnostics.  Navigeer in de Azure-portal naar **virtuele machines** en zoekt u de virtuele machine die u controleert. In de **eigenschappen** sectie **diagnostische instellingen**.  Klik op **Agent** en noteer de opslagaccountnaam die is opgegeven. U moet deze accountnaam voor een latere stap.
-
-    ![Diagnostische instellingen voor Azure](./media/security-azure-log-integration-get-started/storage-account-large.png) </br></br>
-
-    ![Diagnostische instellingen voor Azure](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
-
-     >[!NOTE]
-     >Als controle is niet ingeschakeld tijdens het maken van de virtuele machine, krijgt u de optie in te schakelen zoals hierboven.
-
-5. Nu schakelt we onze aandacht terug naar de Azure-logboekanalyse integratie machine. We moeten controleren of u verbinding hebt met het Opslagaccount van het systeem waar u de integratie van Azure Log geïnstalleerd. De computer waarop de integratie van Azure Log-service wordt uitgevoerd moet toegang tot het opslagaccount voor het ophalen van informatie die wordt geregistreerd door Azure Diagnostics zoals geconfigureerd in elk van de bewaakte systemen.  
-    a. U kunt Azure Storage Explorer downloaden [hier](http://storageexplorer.com/).
-   b. Uitvoeren via de routine c setup. Zodra de installatie is voltooid Klik **volgende** en laat het selectievakje **Start Microsoft Azure Storage Explorer** gecontroleerd.  
-    d. Aanmelden bij Azure.
-   e. Controleren of u het opslagaccount dat u hebt geconfigureerd voor Azure Diagnostics kan zien. 
-        ![Opslagaccounts](./media/security-azure-log-integration-get-started/storage-account.jpg) </br></br>
-6. U ziet dat er een aantal opties onder storage-accounts. Een van beide is **tabellen**. Onder **tabellen** ziet u een met de naam **WADWindowsEventLogsTable**. </br></br>
-
- Als controle is niet ingeschakeld tijdens het maken van de virtuele machine krijgt u de optie in te schakelen zoals hierboven.
-7. Nu schakelt we onze aandacht terug naar de Azure-logboekanalyse integratie machine. We moeten controleren of u verbinding hebt met het Opslagaccount van het systeem waar u de integratie van Azure Log geïnstalleerd. De fysieke computer of virtuele machine met de Azure Log Integration-service moet toegang tot het opslagaccount voor het ophalen van informatie die wordt geregistreerd door Azure Diagnostics zoals geconfigureerd in elk van de bewaakte systemen.  
-  1. U kunt Azure Storage Explorer downloaden [hier](http://storageexplorer.com/).
-  2. De setup-routine doorlopen
-  3. Zodra de installatie is voltooid Klik **volgende** en laat het selectievakje **Start Microsoft Azure Storage Explorer** gecontroleerd.  
-  4. Aanmelden bij Azure.
-  5. Controleren of u het opslagaccount dat u hebt geconfigureerd voor Azure Diagnostics kan zien.  
-  6. U ziet dat er een aantal opties onder storage-accounts. Een van beide is **tabellen**. Onder **tabellen** ziet u een met de naam **WADWindowsEventLogsTable**. </br></br>
-   ![Opslagaccounts](./media/security-azure-log-integration-get-started/storage-explorer.png) 
-
-## <a name="integrate-azure-diagnostic-logging"></a>Integratie van Azure Diagnostische logboekregistratie
+## <a name="integrate-azure-diagnostics-logging"></a>Integratie van Azure Diagnostics-logboekregistratie
 
 In deze stap configureert u de computer waarop de integratie van Azure Log-service verbinding maken met het opslagaccount waarin de logboekbestanden.
-Voltooi deze stap, moeten we een aantal dingen vooraf.  
-* **FriendlyNameForSource:** dit is een beschrijvende naam die u kunt toepassen op het opslagaccount dat u de virtuele machine voor het opslaan van gegevens van Azure Diagnostics hebt geconfigureerd
-* **StorageAccountName:** dit is de naam van het opslagaccount dat u hebt opgegeven bij het instellen van Azure diagnostics.  
-* **StorageKey:** dit is de opslagsleutel voor het opslagaccount waarin de Azure Diagnostics-gegevens zijn opgeslagen voor deze virtuele machine.  
 
-Voer de volgende stappen voor het verkrijgen van de opslagsleutel:
- 1. Blader naar de [Azure-portal](http://portal.azure.com).
- 2. Klik in het navigatievenster van de Azure-console, op **alle services.**
-  3. Voer **opslag** in de **Filter** in het tekstvak. Klik op **opslagaccounts**.
+Deze stap voltooien, moet u een aantal dingen:  
+* **FriendlyNameForSource**: een beschrijvende naam die u op het opslagaccount toepassen kunt dat u hebt geconfigureerd voor de virtuele machine voor het opslaan van gegevens van Azure Diagnostics.
+* **StorageAccountName**: de naam van het opslagaccount dat u hebt opgegeven bij het instellen van Azure Diagnostics.  
+* **StorageKey**: de opslagsleutel voor het opslagaccount waarin de Azure Diagnostics-gegevens zijn opgeslagen voor deze virtuele machine.  
 
-       ![Schermafbeelding van opslagaccounts in alle services](./media/security-azure-log-integration-get-started/filter.png)
- 4. Er verschijnt een lijst met opslagaccounts, dubbelklikt u op het account dat u hebt toegewezen aan opslag voor toepassingslogboeken.
+Als u de opslagsleutel, moet u de volgende stappen uitvoeren:
+1. Ga naar de [Azure Portal](http://portal.azure.com).
+2. Selecteer in het navigatiedeelvenster **alle services**.
+3. In de **Filter** Voer **opslag**. Selecteer **opslagaccounts**.
 
-       ![lijst met storage-accounts](./media/security-azure-log-integration-get-started/storage-accounts.png)
- 5. Klik op **toegangssleutels** in de **instellingen** sectie.
+  ![Schermafbeelding van opslagaccounts in alle services](./media/security-azure-log-integration-get-started/filter.png)
 
-      ![Toegangstoetsen](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
- 6. Kopiëren **key1** en plaatsen op een veilige locatie die toegankelijk is voor de volgende stap.
+4. Een lijst met opslagaccounts weergegeven. Dubbelklik op het account dat u aan te melden opslag toegewezen.
 
-       ![twee toegangssleutels](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
- 7. Open een opdrachtprompt met verhoogde bevoegdheid (Opmerking dat we maken gebruik van een verhoogd opdrachtpromptvenster hier, niet een verhoogde PowerShell-console) op de server waarop u Azure Log integratie hebt geïnstalleerd.
- 8. Navigeer naar **c:\Program Files\Microsoft Azure-logboekanalyse-integratie**
- 9. Voer ``Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey> `` uit. </br> Bijvoorbeeld ``Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`` als u de abonnements-ID dat wilt worden weergegeven in de gebeurtenisstroom XML, de abonnements-ID toe aan de beschrijvende naam toegevoegd: ``Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`` of bijvoorbeeld ``Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
+  ![Schermafbeelding van een lijst met storage-accounts](./media/security-azure-log-integration-get-started/storage-accounts.png)
 
->[!NOTE]
->60 minuten wachten en vervolgens de gebeurtenissen die worden opgehaald uit de storage-account weergeven. Als u wilt weergeven, openen **Logboeken > Windows-Logboeken > doorgestuurde gebeurtenissen** op de Integrator AzLog.
+5. Selecteer **Toegangssleutels** bij **Instellingen**.
 
-Hier ziet u een video gaat over de stappen hierboven.
+  ![Schermafbeelding van de optie toegang sleutels in het menu](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
 
->[!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Enable-Diagnostics-and-Storage/player]
+6. Kopiëren **key1**, en sla deze op een veilige locatie die toegankelijk is voor de volgende stap.
+7. Open op de server waarop u Azure Log integratie hebt geïnstalleerd, een opdrachtpromptvenster als administrator. (Zorg ervoor dat een opdrachtpromptvenster open als beheerder, en niet PowerShell).
+8. Ga naar C:\Program Files\Microsoft Azure-logboekanalyse-integratie.
+9. Deze opdracht uitvoeren: `Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>`.
+ 
+  Voorbeeld:
+  
+  `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
+  Als u de abonnements-ID wilt worden weergegeven in de gebeurtenisstroom XML, moet u de abonnements-ID toevoegen aan de beschrijvende naam:
 
-## <a name="what-if-data-is-not-showing-up-in-the-forwarded-events-folder"></a>Wat gebeurt er als gegevens, wordt niet weergegeven in de map doorgestuurde gebeurtenissen?
-Als u na een uur gegevens, wordt niet weergegeven de **doorgestuurde gebeurtenissen** map, klikt u vervolgens:
+  `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
+  
+  Voorbeeld: 
+  
+  `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
-1. De computer waarop de integratie van Azure Log-service wordt uitgevoerd en controleer of deze toegang Azure tot. Connectiviteit testen probeert te openen de [Azure-portal](http://portal.azure.com) vanuit de browser.
-2. Zorg ervoor dat het gebruikersaccount **AzLog** schrijfrechten heeft op de map **users\Azlog**.
-  <ol type="a">
-   <li>Open **Windows Verkenner** </li>
-  <li> Navigeer naar **c:\users** </li>
-  <li> Met de rechtermuisknop op **c:\users\Azlog** </li>
-  <li> Klik op **beveiliging**  </li>
-  <li> Klik op **NT Service\Azlog** en controleer de machtigingen voor het account. U kunt als het account op dit tabblad ontbreekt of als de juiste machtigingen momenteel niet zijn de accountrechten op dit tabblad verlenen.</li>
-  </ol>
-3. Zorg ervoor dat het storage-account toegevoegd in de opdracht **Azlog bron toevoegen** wordt weergegeven wanneer u de opdracht uitvoert **Azlog bronlijst**.
-4. Ga naar **Logboeken > Windows-Logboeken > toepassing** om te zien of er fouten zijn gerapporteerd door de integratie van Azure-logboekanalyse.
+> [!NOTE]
+> Wacht tot 60 minuten en bekijk vervolgens de gebeurtenissen die worden opgehaald uit de storage-account. Selecteer om te geven de gebeurtenissen in logboek integratie van Azure, **logboeken** > **Windows-logboeken** > **doorgestuurde gebeurtenissen**.
+
+De volgende video wordt ingegaan op de voorgaande stappen:<br /><br />
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Enable-Diagnostics-and-Storage/player]
 
 
-Als u problemen ondervindt wordt uitgevoerd tijdens de installatie en configuratie, opent u een [ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md), selecteer **logboek integratie** als de service waarvoor u ondersteuning aanvraagt.
+## <a name="if-data-isnt-showing-up-in-the-forwarded-events-folder"></a>Als de gegevens wordt niet weergegeven in de map doorgestuurde gebeurtenissen
+Als de gegevens wordt niet weergegeven in de map doorgestuurde gebeurtenissen na een uur, moet u deze stappen voltooien:
 
-Een andere ondersteuningsoptie is de [Azure Log integratie MSDN-Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureLogIntegration). Hier kunt de community ondersteuning voor elkaar met vragen, antwoorden, tips en trucs over het ophalen van de meest buiten Azure Log-integratie. Bovendien het team van Azure Log integratie dit forum en gecontroleerd help wanneer ze kunnen.
+1. Controleer de computer die de integratie van Azure Log-service wordt uitgevoerd. Controleer of deze toegang Azure tot. Probeer connectiviteit, testen in een browser naar de [Azure-portal](http://portal.azure.com).
+2. Zorg ervoor dat het gebruikersaccount Azlog schrijfmachtiging voor de map users\Azlog heeft.
+  1. Open Verkenner.
+  2. Ga naar C:\users.
+  3. Met de rechtermuisknop op C:\users\Azlog.
+  4. Selecteer **beveiliging**.
+  5. Selecteer **NT Service\Azlog**. Controleer de machtigingen voor het account. Als het account op dit tabblad ontbreekt of als de juiste machtigingen niet worden weergegeven, kunt u de machtigingen van de account op dit tabblad verlenen.
+3. Wanneer u de opdracht uitvoert `Azlog source list`, zorg ervoor dat de opslag account dat is toegevoegd in de opdracht `Azlog source add` wordt vermeld in de uitvoer.
+4. Als er fouten zijn gemeld van de integratie van Azure Log-service, Ga naar **logboeken** > **Windows-logboeken** > **toepassing**.
+
+Als u problemen ondervindt tijdens de installatie en configuratie, kunt u een [ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md). Selecteer voor de service **logboek integratie**.
+
+Een andere ondersteuningsoptie is de [Azure Log integratie MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureLogIntegration). De community kan ondersteuning bieden door het beantwoorden van vragen en te delen tips en trucs over het ophalen van de meest buiten Azure Log-integratie in de MSDN-forum. Het team van Azure Log integratie bewaakt ook dit forum. Ze helpen wanneer ze kunnen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende documenten voor meer informatie over de integratie van Azure-logboek:
+Zie de volgende artikelen voor meer informatie over de integratie van Azure-logboek:
 
-* [Microsoft Azure Log-integratie voor Azure logboeken](https://www.microsoft.com/download/details.aspx?id=53324) : Download Center voor meer informatie over de systeemvereisten en instructies op Azure-logboekanalyse-integratie installeren.
-* [Inleiding tot Azure-logboekanalyse integratie](security-azure-log-integration-overview.md) : dit document bevat een inleiding tot Azure-logboekanalyse integratie, de belangrijkste mogelijkheden en hoe het werkt.
-* [Partner configuratiestappen](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – dit blogbericht ziet u de integratie van Azure-logboekanalyse werken met partneroplossingen Splunk, HP ArcSight en IBM QRadar configureren. Dit is de huidige richtlijnen over het configureren van de SIEM-onderdelen. Neem contact op met de leverancier van uw SIEM eerst voor meer informatie.
-* [Azure-logboekanalyse integratie Veelgestelde vragen (FAQ)](security-azure-log-integration-faq.md) -deze Veelgestelde vragen over de antwoorden op vragen over Azure-logboekanalyse-integratie.
-* [Waarschuwingen met Azure Security Center integreren Meld integratie](../security-center/security-center-integrating-alerts-with-log-integration.md) : dit document ziet u hoe Security Center-waarschuwingen, samen met de virtuele machine beveiligingsgebeurtenissen die door Azure Diagnostics- en Azure activiteitenlogboeken, zijn verzameld met uw logboekanalyse synchroniseren of SIEM-oplossing.
-* [Nieuwe functies voor Azure diagnoses en Azure controlelogboeken](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) : dit blogbericht maakt u kennis met Azure controlelogboeken en andere functies waarmee u inzicht in de bewerkingen van uw Azure-resources.
+* [Integratie van Azure Log voor Azure logboeken](https://www.microsoft.com/download/details.aspx?id=53324). Het Download Center bevat details, systeemvereisten en installatie-instructies voor de integratie van Azure-logboek.
+* [Inleiding tot Azure-logboekanalyse integratie](security-azure-log-integration-overview.md). In dit artikel vindt u Azure Log integratie, de belangrijkste mogelijkheden en hoe het werkt.
+* [Partner configuratiestappen](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Dit blogbericht ziet u hoe Azure Log integratie werken met partneroplossingen Splunk, HP ArcSight en IBM QRadar configureren. Beschrijft onze richtlijnen voor het huidige over het configureren van de SIEM-onderdelen. Neem contact op met de leverancier van uw SIEM voor meer informatie.
+* [Integratie van Azure Log Veelgestelde vragen (FAQ)](security-azure-log-integration-faq.md). Deze Veelgestelde vragen over de antwoorden op veelgestelde vragen over Azure Log-integratie.
+* [Waarschuwingen van Azure Security Center integreren met Azure Log integratie](../security-center/security-center-integrating-alerts-with-log-integration.md). Dit artikel laat zien hoe u wilt synchroniseren Security Center-waarschuwingen en beveiligingsgebeurtenissen voor virtuele machine die door Azure Diagnostics- en Azure activiteit worden verzameld Logboeken. U kunt de logboeken synchroniseren met behulp van uw Azure-logboekanalyse of SIEM-oplossing.
+* [Nieuwe functies voor Azure Diagnostics- en Azure controlelogboeken](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). Dit blogbericht maakt u kennis met Azure controlelogboeken en andere functies waarmee u kunnen meer inzicht krijgen in de bewerkingen van uw Azure-resources.

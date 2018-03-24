@@ -2,11 +2,11 @@
 title: Een bestaande voorspellende webservice Retrain | Microsoft Docs
 description: Informatie over het opnieuw een model te trainen en bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: aashishb
-ms.author: aashishb
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
-editor: 
+editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 040b52ae41dc83f103762764b6f2ccea23d36983
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 67d75a28ba65dbdc0a3a105f9e41a1c4f02f2615
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Een bestaande voorspellende webservice opnieuw trainen
 Dit document beschrijft de retraining voor het volgende scenario:
@@ -44,7 +44,7 @@ Beginnen met uw bestaande webservice en experimenten, moet u als volgt te werk:
    6. De webservice bijwerken met de definitie van een nieuwe web-service.
 
 ## <a name="deploy-the-training-experiment"></a>Het trainingsexperiment implementeren
-U moet voor het implementeren van het trainingsexperiment als retraining webservice web service in- en uitgangen toevoegen in het model. Door verbinding te maken een *Web Service uitvoer* module naar het experimentcanvas  *[Train Model] [ train-model]*  -module, dat u het trainingsexperiment voor inschakelen een nieuw getraind model die u in uw Voorspellend experiment gebruiken kunt produceren. Als u hebt een *Evaluate Model* -module, kunt u ook web service uitvoer om op te halen van de evaluatieresultaten als uitvoer koppelen.
+U moet voor het implementeren van het trainingsexperiment als retraining webservice web service in- en uitgangen toevoegen in het model. Door verbinding te maken een *Web Service uitvoer* module naar het experimentcanvas *[Train Model] [ train-model]* -module, dat u het trainingsexperiment voor inschakelen een nieuw getraind model die u in uw Voorspellend experiment gebruiken kunt produceren. Als u hebt een *Evaluate Model* -module, kunt u ook web service uitvoer om op te halen van de evaluatieresultaten als uitvoer koppelen.
 
 Uw trainingsexperiment bijwerken:
 

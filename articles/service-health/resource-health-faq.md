@@ -4,8 +4,8 @@ description: Overzicht van Azure resourcestatus
 services: Resource health
 documentationcenter: dev-center-name
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5155faac6051f5a586255148f77a52a90745673e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-resource-health-faq"></a>Azure resourcestatus Veelgestelde vragen
 Meer informatie over de antwoorden op veelgestelde vragen over Azure-resourcestatus.
@@ -81,12 +81,12 @@ De resourcestatus is beschikbaar in over alle Azure geografische gebieden met ui
 - Duitsland - centraal
 - Duitsland - noordoost
 
-## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>Hoe wordt resourcestatus van het Service Health Dashboard of de Azure portal servicemeldingen?
-De informatie die door de resourcestatus is specifieker dan is opgegeven door de Azure Service Health Dashboard.
+## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Hoe verschilt resourcestatus van Azure status of het dashboard voor servicestatus?
+De informatie is die door de resourcestatus specifieker dan wat wordt verstrekt door Azure status of het dashboard status van de Service.
 
-Terwijl [Azure Status](https://status.azure.com) en de portal servicemeldingen u wordt geïnformeerd over problemen met de service die invloed hebben op een uitgebreide reeks klanten (bijvoorbeeld een Azure-regio), resourcestatus beschrijft gedetailleerdere gebeurtenissen die alleen relevant zijn voor de bepaalde resource. Als een host onverwacht opnieuw wordt opgestart waarschuwingen resourcestatus alleen klanten waarvan virtuele machines zijn uitgevoerd op die host.
+Terwijl [Azure status](https://status.azure.com) en het dashboard voor servicestatus u wordt geïnformeerd over problemen met de service die invloed hebben op een uitgebreide reeks klanten (bijvoorbeeld een Azure-regio), resourcestatus beschrijft gedetailleerdere gebeurtenissen die alleen relevant zijn voor de bepaalde resource. Als een host onverwacht opnieuw wordt opgestart waarschuwingen resourcestatus alleen klanten waarvan virtuele machines zijn uitgevoerd op die host.
 
-Het is belangrijk dat u ziet dat bieden u een compleet overzicht van de gebeurtenissen die invloed hebben op uw resources, resourcestatus geeft ook weer voor gebeurtenissen die zijn gepubliceerd in het Dashboard van de Health-Service en Service-meldingen.
+Het is belangrijk dat u ziet dat bieden u een compleet overzicht van de gebeurtenissen die invloed hebben op uw resources, resourcestatus geeft ook weer voor gebeurtenissen die zijn gepubliceerd in het dashboard status van de Service.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>Moet ik resourcestatus voor elke resource activeren?
 Nee, de statusgegevens zijn beschikbaar voor alle resourcetypen beschikbaar via de resourcestatus. 

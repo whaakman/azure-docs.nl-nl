@@ -2,10 +2,10 @@
 title: 'Azure Active Directory Domain Services: Waarschuwingen oplossen | Microsoft Docs'
 description: Waarschuwingen voor Azure AD Domain Services oplossen
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory-ds
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: e4b8f31fe3eb79f9b38ae01af598290582a2cde3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 436fa31b9fd1231b38b39d911d9b6c2d4829461d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - waarschuwingen oplossen
 Dit artikel bevat richtlijnen voor probleemoplossing voor de waarschuwingen die op uw beheerde domein optreden kunnen.
@@ -34,7 +34,7 @@ Kies de stappen voor probleemoplossing die overeenkomen met de ID of het bericht
 | AADDS102 | *Een Service-Principal die is vereist voor Azure AD Domain Services naar behoren is verwijderd van uw Azure AD-directory. Deze configuratie heeft impact op de mogelijkheid van Microsoft als u wilt bewaken, beheren, patch en synchroniseren van uw beheerde domein.* | [Service-Principal ontbreekt](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *Het IP-adresbereik voor het virtuele netwerk waarin u Azure AD Domain Services hebt ingeschakeld is in een openbare IP-adresbereik. Azure AD Domain Services moeten zijn ingeschakeld in een virtueel netwerk met een persoonlijke IP-adresbereik. Deze configuratie heeft impact op de mogelijkheid van Microsoft als u wilt bewaken, beheren, patch en synchroniseren van uw beheerde domein.* | [Adres bevindt zich in een openbare IP-adresbereik](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft kan niet tot de domeincontrollers voor dit beheerde domein. Dit kan gebeuren als een netwerkbeveiligingsgroep (NSG) geconfigureerd op uw virtuele netwerk blokkeert de toegang tot het beheerde domein. Een andere mogelijke oorzaak is als er een gebruiker gedefinieerde route blokken binnenkomend verkeer van het internet.* | [Network Error](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS105 | *De service-principal met de toepassings-ID 'd87dcbc6-a371-462e-88e3-28ad15ec4e64' is verwijderd en Microsoft kon opnieuw te maken. Deze service-principal beheert een andere service-principal en een toepassing die worden gebruikt voor synchronisatie van wachtwoorden. De beheerde service-principal en de toepassing niet worden geautoriseerd onder de nieuwe service-principal en uiteindelijk verouderd wanneer de synchronisatie van het certificaat verloopt. Dit betekent dat de zojuist gemaakte service-principal kan niet worden bijgewerkt van de oude beheerde toepassingen en synchronisatie van AAD-objecten die worden beïnvloed.* | [De toepassing van de synchronisatie wachtwoord is verlopen](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS105 | *De service-principal met de toepassings-ID 'd87dcbc6-a371-462e-88e3-28ad15ec4e64' is verwijderd en vervolgens opnieuw gemaakt. Deze service-principal beheert een andere service-principal en een toepassing die worden gebruikt voor synchronisatie van wachtwoorden. De beheerde service-principal en/of de toepassing is niet geautoriseerd onder de nieuwe service-principal zodat deze kunnen niet worden beheerd door onze service. Dit betekent dat de zojuist gemaakte service-principal kan niet worden bijgewerkt van de oude beheerde toepassingen en synchronisatie van wachtwoorden worden beïnvloed.* | [De toepassing van de synchronisatie wachtwoord is verlopen](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *Het beheerde domein voor het laatst is gesynchroniseerd met Azure AD op [datum]. Gebruikers mogelijk niet aanmelden bij het beheerde domein of groepslidmaatschappen mogelijk niet gesynchroniseerd met Azure AD.* | [Synchronisatie nog niet is opgetreden in een tijdje](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *Het beheerde domein laatste back-up op [datum].* | [Een back-up nog niet is gemaakt in een tijdje](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *Het beveiligde LDAP-certificaat voor het beheerde domein verloopt op XX.* | [Beveiligde LDAP-certificaat verloopt](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |

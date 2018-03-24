@@ -6,14 +6,14 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8deb78ba108aafc3297e6b96d6d88d0c56c60afd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d26fe28d301cf563dc6bdb3d9e17903dea3e73fc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 Microsoft heeft de belofte aangebracht in de klanten die hoge beschikbaarheid (HA) is ingebouwd in de service en de klanten hoeven niet te werken, speciale logica voor het toevoegen of beslissingen rond HA vanaf het begin van de Azure SQL Database PaaS-aanbieding. Microsoft onderhoudt volledige controle over de HA-systeemconfiguratie en bewerking, biedt klanten een SLA. De HA-SLA van toepassing op een SQL-database in een regio en biedt geen bescherming in geval van een mislukking van de totale regio die wordt veroorzaakt door factoren buiten het beheer van Microsoft redelijkerwijs (bijvoorbeeld een natuurramp, war, besluiten van terrorisme, riots, overheids-actie of een netwerk- of apparaatstoring buiten de datacenters van Microsoft, waaronder op klant sites of tussen sites van de klant en Datacenter van Microsoft).
@@ -23,7 +23,7 @@ Microsoft gebruikt om de ruimte van het probleem van HA vereenvoudigen, de volge
 2.  Operationele medewerkers maken fouten die tot mislukte leiden
 3.  Geplande servicebewerkingen veroorzaken storingen 
 
-Wanneer er dergelijke afzonderlijke gebeurtenissen worden incidentele in de cloud, ze elke week als niet elke dag. 
+Dergelijke afzonderlijke gebeurtenissen zijn incidentele in de cloud, ze optreden, elke week als dat niet elke dag. 
 
 ## <a name="fault-tolerant-sql-databases"></a>Fouttolerantie SQL-databases
 Klanten meest geïnteresseerd bent in de tolerantie van hun eigen databases en minder geïnteresseerd bent in de tolerantie van de service SQL Database als geheel. 99,99% beschikbaarheid voor een service is nutteloos als 'mijn database' deel uit van de 0,01% van de databases die zijn niet maakt beschikbaar. Elke database moet zich fouttolerantie en fout risicobeperking moet nooit leiden tot verlies van een transactie die is vastgelegd. 
@@ -46,7 +46,7 @@ De belangrijkste voordelen:
 
 ## <a name="data-redundancy"></a>De gegevensredundantie
 
-De oplossing met hoge beschikbaarheid in SQL-Database is gebaseerd op [Always ON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) -technologie van SQL Server en maakt het werkt voor zowel LS RS databases met minimale verschillen. In LS is configuratie altijd die on wordt gebruikt voor persistentie in RS dat het voor beschikbaarheid (laag RTO) gebruikt. 
+De oplossing met hoge beschikbaarheid in SQL-Database is gebaseerd op [altijd op beschikbaarheidsgroepen](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) -technologie van SQL Server en maakt het werkt voor zowel LS RS databases met minimale verschillen. De technologie altijd op beschikbaarheid van groep wordt gebruikt voor persistentie in LS configuratie, terwijl in RS wordt gebruikt voor beschikbaarheid (laag RTO). 
 
 ## <a name="local-storage-configuration"></a>Configuratie van de lokale opslag
 

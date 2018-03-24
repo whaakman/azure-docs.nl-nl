@@ -1,25 +1,25 @@
 ---
-title: Verouderde virtuele Azure-netwerkgateway-SKU's | Microsoft Docs
-description: Oude virtual network gateway-SKU's.
+title: Verouderde virtueel netwerk van Azure VPN-gateway-SKU's | Microsoft Docs
+description: Werken met de oude virtuele netwerkgateway SKU's; Basic, Standard en HighPerformance.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: d5127c7fa512bad49817fa4c8edf3a16ca2f7d60
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 4feecb9c1e91e1bc6c66a610c092e7bf894886e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Werken met virtuele netwerkgateway SKU's (verouderde SKU's)
 
@@ -37,33 +37,27 @@ In dit artikel bevat informatie over de bestaande (oude) virtuele netwerkgateway
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize"></a>Een gateway (wijziging een gateway-SKU) vergroten of verkleinen
+## <a name="resize"></a>Een gateway vergroten of verkleinen
 
-U kunt de grootte van een gateway-SKU binnen dezelfde SKU-familie. Bijvoorbeeld, als er een standaard SKU, u kunt de grootte op een HighPerformance-SKU. U kan niet de grootte van uw VPN-gateways tussen de oude SKU's en de nieuwe SKU-families. Bijvoorbeeld, gaan u niet van een standaard SKU naar een SKU VpnGw2.
+U kunt de grootte van uw gateway uit naar een gateway-SKU binnen dezelfde SKU-familie. Bijvoorbeeld, als er een standaard SKU, u kunt de grootte op een HighPerformance-SKU. U kunt echter kan niet het formaat van uw VPN-gateway tussen de oude SKU's en de nieuwe SKU-families. U kunt niet bijvoorbeeld van een standaard SKU gaan een SKU VpnGw2 of een basis-SKU voor VpnGw1.
 
->[!IMPORTANT]
->Wanneer u het formaat van een gateway, hebt u 20-30 minuten uitvaltijd voor deze gateway terwijl is wordt gewijzigd.
->
->
-
-Als u een gateway-SKU voor het klassieke implementatiemodel, kunt u de volgende opdracht gebruiken:
+Als u een gateway voor het klassieke implementatiemodel, kunt u de volgende opdracht gebruiken:
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-Als u een gateway-SKU voor het Resource Manager-implementatiemodel, kunt u de volgende opdracht gebruiken:
+Als u een gateway voor het Resource Manager-implementatiemodel met behulp van PowerShell, gebruikt u de volgende opdracht:
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+U kunt ook de grootte van een gateway in de Azure portal.
 
-## <a name="migrate"></a>Migreren naar de nieuwe gateway-SKU 's
+## <a name="change"></a>Wijzig in de nieuwe gateway-SKU 's
 
-Als u met het implementatiemodel van Resource Manager werkt, kunt u migreren naar de nieuwe gateway-SKU's. Als u met het klassieke implementatiemodel werkt, kunt u niet migreren naar de nieuwe SKU's en in plaats daarvan moet blijven gebruiken van de verouderde SKU's.
-
-[!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
+[!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

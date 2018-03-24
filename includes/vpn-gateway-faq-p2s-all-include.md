@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 735d6f51dee8e88bec2210717a11d6707686415f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="supportedclientos"></a>Welke clientbesturingssystemen kan ik met point-to-site gebruiken?
 
 De volgende clientbesturingssystemen worden ondersteund:
@@ -57,7 +73,7 @@ Windows 10 of Server 2016 voor IKEv2 voorbereiden:
 
 1. De update installeren.
 
-  | Besturingssysteemversie | Datum | Aantal/koppeling |
+  | Besturingssysteemversie | Date | Aantal/koppeling |
   |---|---|---|---|
   | Windows Server 2016<br>Windows 10 versie 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
   | Versie van Windows 10 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |

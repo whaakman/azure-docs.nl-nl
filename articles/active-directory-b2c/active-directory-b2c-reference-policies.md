@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Ingebouwde beleid | Microsoft Docs'
 description: Een onderwerp in de uitbreidbaar beleidsframework van Azure Active Directory B2C en voor het maken van verschillende beleidstypen
 services: active-directory-b2c
-documentationcenter: 
-author: sama
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 0d453e72-7f70-4aa2-953d-938d2814d5a9
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
-ms.author: sama
-ms.openlocfilehash: f0aa3d19e15837b75888293f0cd19683b7621a6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 35b31c46b350474caa1472829d705b4d068d9642
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Ingebouwde beleid
 
@@ -63,9 +60,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-Zie voor meer informatie over de beleidsframework [dit blogbericht over Azure AD B2C op de Enterprise Mobility and Security-Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
-
-## <a name="create-a-sign-up-or-sign-in-policy"></a>Maak een beleid registreren of aanmelden
+## <a name="create-a-sign-up-or-sign-in-policy"></a>Registratie- of aanmeldingsbeleid maken
 
 Dit beleid verwerkt beide ervaringen consumenten registreren en aanmelden met een configuratie voor één. Consumenten worden omlaag het juiste pad (registreren of aanmelden) zijn afhankelijk van de context geleid. Hierin worden ook de inhoud van de tokens die de toepassing na geslaagde aanmelding-ups of aanmeldingen ontvangen.  Een voorbeeld van code voor het registreren of aanmelden beleid is [beschikbaar hier](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Het wordt aanbevolen dat u dit beleid via een registratiebeleid en beleid voor aanmelden gebruiken.  
 
@@ -79,11 +74,11 @@ Dit beleid verwerkt beide ervaringen consumenten registreren en aanmelden met ee
 
 [!INCLUDE [active-directory-b2c-create-sign-in-policy](../../includes/active-directory-b2c-create-sign-in-policy.md)]
 
-## <a name="create-a-profile-editing-policy"></a>Maken van een profiel te bewerken van beleid
+## <a name="create-a-profile-editing-policy"></a>Een beleid voor profielbewerking maken
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
-## <a name="create-a-password-reset-policy"></a>Maak een beleid voor wachtwoord opnieuw instellen
+## <a name="create-a-password-reset-policy"></a>Een beleid voor het opnieuw instellen van het wachtwoord maken
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
@@ -92,7 +87,7 @@ Dit beleid verwerkt beide ervaringen consumenten registreren en aanmelden met ee
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Hoe kan ik een beleid registreren of aanmelden met een beleid voor wachtwoordherstel koppelen?
 Wanneer u een beleid registreren of aanmelden (met lokale accounts) maakt, ziet u een **wachtwoord vergeten?** koppeling op de eerste pagina van de gebruikerservaring. Op deze koppeling klikt herstellen niet automatisch trigger een wachtwoord beleid. 
 
-In plaats daarvan de foutcode  **`AADB2C90118`**  wordt geretourneerd naar uw app. Uw app moet deze foutcode verwerkt door het aanroepen van een specifiek wachtwoord opnieuw instellen van beleid. Zie voor meer informatie een [voorbeeldbestand dat laat zien van de aanpak van het koppelen van beleidsregels](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+In plaats daarvan de foutcode **`AADB2C90118`** wordt geretourneerd naar uw app. Uw app moet deze foutcode verwerkt door het aanroepen van een specifiek wachtwoord opnieuw instellen van beleid. Zie voor meer informatie een [voorbeeldbestand dat laat zien van de aanpak van het koppelen van beleidsregels](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Moet ik een beleid registreren of aanmelden of een registratiebeleid en een beleid voor aanmelden gebruiken?
 Het is raadzaam dat u een beleid registreren of aanmelden via een registratiebeleid en een beleid voor aanmelden.  

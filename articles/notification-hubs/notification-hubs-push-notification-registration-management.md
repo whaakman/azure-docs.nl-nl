@@ -5,7 +5,7 @@ services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af5738ac96bd2afacee493765453567f7f13c9e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="registration-management"></a>Registratiebeheer
 ## <a name="overview"></a>Overzicht
@@ -39,7 +39,7 @@ Hier volgen enkele belangrijke voordelen voor het gebruik van installaties:
 * Het installatiemodel kunt eenvoudig doen afzonderlijke pushes - doelen specifiek apparaat. Een Systeemlabel **' $InstallationId: [omwille van] '** automatisch met elke installatie op basis van de registratie wordt toegevoegd. U kunt dus een verzenden naar deze code op een specifiek apparaat zonder extra programmeren aanroepen.
 * Met installaties kunt u doen gedeeltelijke registratie-updates. De gedeeltelijke update van een installatie wordt aangevraagd met een PATCH methode met de [JSON-Patch standaard](https://tools.ietf.org/html/rfc6902). Dit is bijzonder nuttig wanneer u wilt bijwerken, tags voor de registratie. U hoeft te halen de registratie van de gehele en verzend de vorige labels opnieuw.
 
-Een installatie mag de volgende eigenschappen. Voor een volledig overzicht van de installatie-eigenschappen-Zie [maken of een installatie met REST-API worden overschreven](https://msdn.microsoft.com/library/azure/mt621153.aspx) of [installatie-eigenschappen](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) voor de.
+Een installatie mag de volgende eigenschappen. Voor een volledig overzicht van de installatie-eigenschappen-Zie [maken of een installatie met REST-API worden overschreven](https://msdn.microsoft.com/library/azure/mt621153.aspx) of [installatie-eigenschappen](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
     // Example installation format to show some supported properties
     {

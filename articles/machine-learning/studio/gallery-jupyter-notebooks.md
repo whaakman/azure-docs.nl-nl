@@ -2,9 +2,10 @@
 title: Azure AI galerie Jupyter-notebooks | Microsoft Docs
 description: Detecteren van Jupyter notebooks in de galerie van Azure AI.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 556e0671-1b50-4bcb-92eb-889962310633
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 53a600490f3e73c37e0434785198adee0be4b218
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b684134518a04d70a951b411897417dca05c5829
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Jupyter-Notebooks in de galerie van Azure AI detecteren
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -30,7 +30,7 @@ Laptops in de galerie bieden zelfstudies en gedetailleerde uitleg van geavanceer
 ## <a name="discover"></a>Ontdekken
   Als u wilt bladeren voor laptops in de galerie, opent u de [galerie](http://gallery.cortanaintelligence.com) en klik op **notitieblokken** aan de bovenkant van de startpagina van de galerie.
 
- De  **[Jupyter-Notebooks](https://gallery.cortanaintelligence.com/notebooks)**  pagina geeft een lijst met de meest populaire laptops.
+ De **[Jupyter-Notebooks](https://gallery.cortanaintelligence.com/notebooks)** pagina geeft een lijst met de meest populaire laptops.
 Klik op **alle** om alle notitieblokken weer te geven.
 Op deze pagina kunt u alle notitieblokken in de galerie bladeren. U kunt ook zoeken door filtercriteria voldoen aan de linkerkant van de pagina en invoeren zoektermen boven selecteren.
 
@@ -66,7 +66,7 @@ U kunt een van de dezelfde galerie laptops ook openen terwijl u in Machine Learn
 Een kopie van de laptop is gedownload en geopend in uw werkruimte in de sectie Jupyter-Notebooks in Machine Learning Studio.
 De notebook wordt weergegeven, samen met uw andere notitieblokken op de **notitieblokken** pagina van Studio (op het [Studio startpagina](https://studio.azureml.net/), klikt u op **notitieblokken** aan de linkerkant).
 
-**[BRENG ME NAAR DE GALERIE >>](http://gallery.cortanaintelligence.com)**
+**[BRENG ME NAAR DE GALERIE &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

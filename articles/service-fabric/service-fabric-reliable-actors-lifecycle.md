@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: dd45acd75e1cf263029c869d88c87b28f56d50cc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4abb1ea6e5c79a5280d6ca4ad96070603b81793a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Actor levenscyclus, garbagecollection automatische en handmatige verwijderen
 Een actor is de eerste keer die wordt een aanroep naar een van de bijbehorende methoden geactiveerd. Een actor is gedeactiveerd (garbage collector zijn verzameld door de runtime actoren) als deze niet wordt gebruikt voor een configureerbare periode. Een actor en de status kunnen ook handmatig worden verwijderd op elk gewenst moment.
@@ -112,37 +112,8 @@ Het voorbeeld ziet de impact van de methode actoraanroepen, herinneringen en tim
 
 Een actor kan garbage collector zijn verzameld terwijl deze wordt uitgevoerd een van de bijbehorende methoden, ongeacht hoeveel tijd is besteed aan het uitvoeren van deze methode niet. Zoals eerder vermeld, wordt de uitvoering van actor interfacemethoden en herinnering retouraanroepen voorkomen dat garbagecollection door niet-actieve tijd van de actor instellen op 0. De uitvoering van retouraanroepen timer niet opnieuw instellen niet-actieve tijd op 0. De garbagecollection van de actor wordt echter worden uitgesteld totdat de timercallback uitvoering is voltooid.
 
-## <a name="deleting-actors-and-their-state"></a>Actors en hun status verwijderen
-Het object actor garbagecollection van gedeactiveerde actoren alleen ruimt, maar gegevens die zijn opgeslagen in een actor status Manager wordt niet verwijderd. Wanneer een actor opnieuw worden geactiveerd, is de gegevens opnieuw beschikbaar gesteld aan via de status Manager. In gevallen waarbij actoren gegevens opslaan in de status Manager en zijn gedeactiveerd maar nooit opnieuw worden geactiveerd, is het mogelijk nodig om hun gegevens op te schonen.
-
-De [Actor Service](service-fabric-reliable-actors-platform.md) geeft een functie voor het verwijderen van actoren van een externe aanroeper:
-
-```csharp
-ActorId actorToDelete = new ActorId(id);
-
-IActorService myActorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
-```
-```Java
-ActorId actorToDelete = new ActorId(id);
-
-ActorService myActorServiceProxy = ActorServiceProxy.create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-myActorServiceProxy.deleteActorAsync(actorToDelete);
-```
-
-Verwijderen van een actor heeft de volgende gevolgen afhankelijk van of de actor momenteel actief is:
-
-* **Actieve Actor**
-  * Acteur wordt verwijderd uit active actoren lijst en wordt gedeactiveerd.
-  * De status wordt permanent verwijderd.
-* **Inactieve Actor**
-  * De status wordt permanent verwijderd.
-
-Let op: een actor kan niet worden aangeroepen op zichzelf uit een van de bijbehorende methoden actor niet verwijderen omdat de actor kan niet worden verwijderd tijdens het uitvoeren in een context actor-aanroep, waarin de runtime een vergrendeling rond de aanroep van actor afdwingen single thread toegang heeft verkregen.
+## <a name="manually-deleting-actors-and-their-state"></a>Handmatig verwijderen van actors en hun status
+Het object actor garbagecollection van gedeactiveerde actoren alleen ruimt, maar gegevens die zijn opgeslagen in een actor status Manager wordt niet verwijderd. Wanneer een actor opnieuw worden geactiveerd, is de gegevens opnieuw beschikbaar gesteld aan via de status Manager. In gevallen waarbij actoren gegevens opslaan in de status Manager en zijn gedeactiveerd maar nooit opnieuw worden geactiveerd, is het mogelijk nodig om hun gegevens op te schonen.  Lees voor voorbeelden van hoe verwijderd actoren [verwijderd actoren en hun status](service-fabric-reliable-actors-delete-actors.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Acteur timers en herinneringen](service-fabric-reliable-actors-timers-reminders.md)

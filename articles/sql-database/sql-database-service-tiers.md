@@ -1,19 +1,19 @@
 ---
 title: Azure SQL Database-service | Microsoft Docs
-description: "Meer informatie over Servicelagen voor één en groep databases prestatieniveaus en opslaggrootte opgeven."
+description: Meer informatie over Servicelagen voor één en groep databases prestatieniveaus en opslaggrootte opgeven.
 services: sql-database
 author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/21/2018
+manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3fe7add4ad4c5563a6307db0dec27c658913429b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Wat is Azure SQL Database Servicelagen?
 
@@ -33,7 +33,8 @@ Het kiezen van een servicelaag is vooral afhankelijk van zakelijke continuïteit
 |CPU|Laag|Laag, Gemiddeld, hoog|Gemiddeld, hoog|
 |I/o-doorvoer (bij benadering) |2.5 IOP's per DTU  | 2.5 IOP's per DTU | 48 IOP's per DTU|
 |I/o-latentie (bij benadering)|5 ms (lezen), 10 ms (schrijven)|5 ms (lezen), 10 ms (schrijven)|2 ms (lezen/schrijven)|
-|Columnstore indexeren en in het geheugen OLTP|N/A|N/A|Ondersteund|
+|Columnstore indexeren |N/A|S3 en hoger|Ondersteund|
+|In het geheugen OLTP|N/A|N/A|Ondersteund|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Maximale grootte van prestaties en de opslag

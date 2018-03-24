@@ -2,11 +2,11 @@
 title: Controleren en problemen oplossen van Azure Site Recovery | Microsoft Docs
 description: Controleren en problemen oplossen van problemen met Azure Site Recovery replicatie en bewerkingen met behulp van de portal
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: bsiva
 manager: abhemraj
 editor: raynew
-ms.assetid: 
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: bsiva
-ms.openlocfilehash: bb453f6c16440fae8a12cc1c4890a473ce541f45
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b357a3231dac6dfa54cb02fe921baf771c0880f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Bewaking en probleemoplossing van Azure Site Recovery
 
@@ -145,7 +145,7 @@ Een weergave met een infrastructuur binnen het bereik van de context van een enk
 **A:** De infrastructuur weergave-functie is alleen beschikbaar voor virtuele machines die zijn gerepliceerd naar Azure. De functie is momenteel niet beschikbaar voor virtuele machines die worden gerepliceerd tussen on-premises sites.
 
 **V:** Waarom is het aantal virtuele machines in de kluis infrastructuur weergave die verschilt van het totale aantal weergegeven in de gerepliceerde items ring?</br>
-**A:** De weergave van de infrastructuur kluis is afgestemd op replicatiescenario's. Alleen virtuele machines die deel uitmaken van het momenteel geselecteerde replicatiescenario zijn opgenomen in het aantal virtuele machines in de weergave van de infrastructuur wordt weergegeven. Bovendien alleen virtuele machines die momenteel zijn geconfigureerd voor het repliceren naar Azure voor het geselecteerde scenario zijn opgenomen in het aantal virtuele machines in de weergave van de infrastructuur wordt weergegeven (voor bijvoorbeeld: failover van virtuele machines, virtuele machines repliceren terug naar de site van een on-premises worden niet opgenomen in de weergave van de infrastructuur.)
+**A:** De weergave van de infrastructuur kluis is afgestemd op replicatiescenario's. Alleen virtuele machines die deel uitmaken van het momenteel geselecteerde replicatiescenario zijn opgenomen in het aantal virtuele machines in de weergave van de infrastructuur wordt weergegeven. Bovendien alleen virtuele machines die momenteel zijn geconfigureerd voor het repliceren naar Azure voor het geselecteerde scenario zijn opgenomen in het aantal virtuele machines in de weergave van de infrastructuur wordt weergegeven (voor voorbeeld: back-failover van virtuele machines, virtuele machines repliceren met een on-premises site worden niet opgenomen in de weergave van de infrastructuur.)
 
 **V:** Waarom is het aantal gerepliceerde items weergegeven in de sectie essentials op de overzichtspagina verschilt van het totale aantal gerepliceerde items worden weergegeven in het diagram ring in het dashboard?</br>
 **A:** Alleen de virtuele machines voor welke initiële replicatie is voltooid zijn opgenomen in de telling die wordt weergegeven in de lade essentials. De gerepliceerde items ring totaal bevat alle virtuele machines in de kluis en servers voor welke initiële replicatie momenteel wordt uitgevoerd.

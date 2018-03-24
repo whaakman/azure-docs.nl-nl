@@ -2,9 +2,10 @@
 title: Azure-galerie AI wedstrijden | Microsoft Docs
 description: Wedstrijden in de galerie van Azure AI detecteren.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: ef74f411-bce4-4b02-aa34-902fc8d7b519
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 35f269f6d0dc55fd4a419ee1d7fe41b4f12ebb4c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d12da450fe929361b32ea607a09d3afbbd2639b9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>Wedstrijden in de galerie van Azure AI detecteren
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/03/2018
 Zie voor antwoorden op veelgestelde vragen over wedstrijden, [Veelgestelde vragen over Microsoft Cortana Intelligence wedstrijden](competition-faq.md).
 
 ## <a name="discover"></a>Ontdekken
-De  **[wedstrijden](https://gallery.cortanaintelligence.com/competitions)**  pagina ([aka.ms/CIComp](http://aka.ms/CIComp)) geeft een lijst met de meest populaire wedstrijden.
+De **[wedstrijden](https://gallery.cortanaintelligence.com/competitions)** pagina ([aka.ms/CIComp](http://aka.ms/CIComp)) geeft een lijst met de meest populaire wedstrijden.
 
 ![Wedstrijden vanaf de startpagina van de galerie selecteren](./media/gallery-competitions/select-competitions-in-gallery.png)
 
@@ -50,7 +50,7 @@ Als de concurrentie geopend is, is het de status op de detailpagina **Active**. 
 
 Als de concurrentie is voltooid, wordt een lijst van winnaars weergegeven.
 
-**[BRENG ME NAAR DE GALERIE >>](http://gallery.cortanaintelligence.com)**
+**[BRENG ME NAAR DE GALERIE &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

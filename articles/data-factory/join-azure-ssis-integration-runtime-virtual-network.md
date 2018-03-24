@@ -2,10 +2,9 @@
 title: Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk | Microsoft Docs
 description: Informatie over hoe Azure-SSIS-integratie runtime koppelen aan een virtuele Azure-netwerk.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cdda3fbe2aff40e26c6086e87ef3e05670c3419f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk
 Aanmelden bij uw Azure-SSIS-integratie runtime (IR) naar een Azure-netwerk in de volgende scenario's: 
@@ -52,7 +51,7 @@ Hier volgen enkele belangrijke punten met:
 - Als er een bestaande Azure Resource Manager virtueel netwerk met uw on-premises netwerk in een andere locatie van uw Azure-SSIS-IR verbonden, kunt u eerst maken een [virtueel netwerk van Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) voor uw Azure-SSIS IR om toe te voegen. Configureer vervolgens de verbinding van een Azure Resource Manager naar Azure Resource Manager virtueel netwerk. U kunt ook maken een [klassiek virtueel netwerk](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor uw Azure-SSIS-IR om toe te voegen. Configureer vervolgens een [virtueel netwerk van klassiek naar Azure resourcemanager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) verbinding.
 
 ## <a name="domain-name-services-server"></a>Domain Name Services-server 
-Als u uw eigen server Services DNS (Domain Name) te gebruiken in een virtueel netwerk die worden toegevoegd door de runtime van uw Azure-SSIS-integratie wilt, voert u de richtlijnen voor [ervoor zorgen dat de knooppunten van de runtime van uw Azure-SSIS-integratie in het virtuele netwerk Azure kunnen omzetten eindpunten](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Als u uw eigen server Services DNS (Domain Name) te gebruiken in een virtueel netwerk die worden toegevoegd door de runtime van uw Azure-SSIS-integratie wilt, volg de instructies in de sectie "Naamomzetting die gebruikmaakt van uw eigen DNS-server" van het artikel [voor de naamomzetting virtuele machines en rolinstanties](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="network-security-group"></a>Netwerkbeveiligingsgroep
 Als u nodig hebt voor het implementeren van een netwerkbeveiligingsgroep (NSG) in een virtueel netwerk die worden toegevoegd door de runtime van uw Azure-SSIS-integratie, kunt u binnenkomend en uitgaand verkeer via de volgende poorten:

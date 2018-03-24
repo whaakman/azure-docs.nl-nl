@@ -2,10 +2,9 @@
 title: Gegevens verplaatsen naar/van Azure DB die Cosmos | Microsoft Docs
 description: Meer informatie over hoe gegevens worden verplaatst naar/van Azure DB die Cosmos-verzameling met behulp van Azure Data Factory
 services: data-factory, cosmosdb
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
 ms.service: multiple
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 89b860bb4174a06c17da1db2bce2eaa11832b0b2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 996fdd9934d79f1640e58c7853564ac05ebb90bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Gegevens verplaatsen en naar Azure Cosmos DB met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -125,7 +124,7 @@ In geval van een kopieeractiviteit wanneer de bron van het type **DocumentDbColl
 
 | **Eigenschap** | **Beschrijving** | **Toegestane waarden** | **Vereist** |
 | --- | --- | --- | --- |
-| query |Specificeer de query voor het lezen van gegevens. |Queryreeks wordt ondersteund door Azure Cosmos DB. <br/><br/>Voorbeeld:`SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nee <br/><br/>Als niet wordt opgegeven, de SQL-instructie die is uitgevoerd:`select <columns defined in structure> from mycollection` |
+| query |Specificeer de query voor het lezen van gegevens. |Queryreeks wordt ondersteund door Azure Cosmos DB. <br/><br/>Voorbeeld: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nee <br/><br/>Als niet wordt opgegeven, de SQL-instructie die is uitgevoerd: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Speciaal teken om aan te geven dat het document is genest |Willekeurig teken. <br/><br/>Azure Cosmos-database is een NoSQL-opslagplaats voor JSON-documenten, waarbij geneste structuren zijn toegestaan. Azure Data Factory kan gebruiker duiden hiërarchie via nestingSeparator die "." in de bovenstaande voorbeelden. Met het scheidingsteken, met de kopieerbewerking genereert het object "Name" met de drie onderliggende elementen eerst middelste en de laatste volgens 'Name.First', 'Name.Middle' en 'Name.Last' in de tabeldefinitie. |Nee |
 
 **DocumentDbCollectionSink** ondersteunt de volgende eigenschappen:

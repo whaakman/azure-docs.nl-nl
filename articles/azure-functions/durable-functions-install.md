@@ -4,21 +4,21 @@ description: Informatie over het installeren van de extensie duurzame functies v
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installeer de duurzame functies extensie en voorbeelden (Azure-functies)
 
@@ -77,12 +77,17 @@ Visual Studio Code bevat een lokale ontwikkeling ervaring die betrekking hebben 
 3. Azure Functions duurzame uitbreiding installeren door het volgende in een opdracht vragen / terminal-venster:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.2.0-beta3
     ```
-4. Azure-Opslagemulator of update uitvoeren de *local.appsettings.json* bestand met de werkelijke verbindingsreeks voor Azure Storage.
-3. Open het project in Visual Studio Code. 
-5. Voor instructies over het uitvoeren van de steekproef beginnen met [werken chaining - reeks voorbeeld Hallo](durable-functions-sequence.md). Het voorbeeld worden lokaal uitvoeren of gepubliceerd naar Azure.
-6. Het project starten door in te voeren opdracht vragen / terminal de volgende opdracht:
+4. Azure Functions Twilio-uitbreiding installeren door het volgende in een opdracht vragen / terminal-venster:
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta4
+    ```
+5. Azure-Opslagemulator of update uitvoeren de *local.appsettings.json* bestand met de werkelijke verbindingsreeks voor Azure Storage.
+6. Open het project in Visual Studio Code. 
+7. Voor instructies over het uitvoeren van de steekproef beginnen met [werken chaining - reeks voorbeeld Hallo](durable-functions-sequence.md). Het voorbeeld worden lokaal uitvoeren of gepubliceerd naar Azure.
+8. Het project starten door in te voeren opdracht vragen / terminal de volgende opdracht:
     ```bash
     func host start
     ```

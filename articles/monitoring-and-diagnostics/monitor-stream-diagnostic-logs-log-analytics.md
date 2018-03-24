@@ -3,10 +3,10 @@ title: Stream Azure diagnostische logboeken met Log Analytics | Microsoft Docs
 description: Informatie over het Azure logboeken met diagnostische gegevens naar een werkruimte voor logboekanalyse stream.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: johnkem
-ms.openlocfilehash: 9440bd7f872914887c1f6e50f08a3c273536fcf8
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 517ce3547f471dd1b40c79b2f087b02ad7f51b85
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Azure diagnostische logboeken met Log Analytics
 **[Azure diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime met Azure Log Analytics via de portal, PowerShell-cmdlets of Azure CLI.
@@ -40,21 +40,21 @@ De werkruimte voor logboekanalyse heeft geen zich in hetzelfde abonnement als de
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Diagnostische logboeken met behulp van de portal
 1. In de portal, gaat u naar Azure Monitor en klikt u op **diagnostische instellingen**
 
-    ![Sectie van de Monitor Azure bewaking](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
+    ![Sectie van de Monitor Azure bewaking](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
 
 2. Optioneel de lijst filteren op resourcegroep of brontype en klik vervolgens op de bron die u wilt geen diagnostische instellen.
 
 3. Als er geen instellingen bestaan op de bron voor hebt u geselecteerd, u wordt gevraagd om een instelling te maken. Klik op "Diagnostische gegevens inschakelen."
 
-   ![Diagnostische instelling - geen bestaande instellingen toevoegen](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-none.png)
+   ![Diagnostische instelling - geen bestaande instellingen toevoegen](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
 
    Als er bestaande instellingen op de bron, ziet u een lijst met instellingen die al zijn geconfigureerd op deze resource. Klik op 'Diagnostische instelling toevoegen'.
 
-   ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
+   ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
 3. Geef een naam van de instelling en schakel het selectievakje voor **verzenden met logboekanalyse**, selecteer vervolgens een werkruimte voor logboekanalyse.
    
-   ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
+   ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
 4. Klik op **Opslaan**.
 

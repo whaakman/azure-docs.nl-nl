@@ -1,10 +1,26 @@
-### <a name="gwipnoconnection"></a>Wijzigen van het lokale netwerk gateway IP-adres - er is geen gatewayverbinding
+---
+title: bestand opnemen
+description: bestand opnemen
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: a929149f115d716bf7f9d850abe5ba97bd5a8189
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/23/2018
+---
+### <a name="gwipnoconnection"></a> Wijzigen van het lokale netwerk gateway IP-adres - er is geen gatewayverbinding
 
 Gebruik het voorbeeld om een lokale netwerkgateway die geen gatewayverbinding heeft te wijzigen. Wanneer u deze waarde wijzigt, kunt u tegelijkertijd ook de adresvoorvoegsels wijzigen.
 
 1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
 2. In de **IP-adres** wijzigt u het IP-adres.
-3. Klik op **opslaan** de instellingen op te slaan.
+3. Klik op **Opslaan** om de instellingen op te slaan.
 
 ### <a name="gwipwithconnection"></a>Het lokale netwerk gateway gateway IP-adres - gatewayverbinding bestaande wijzigen
 
@@ -21,7 +37,7 @@ Voor het wijzigen van een lokale netwerkgateway een verbinding heeft, moet u eer
 U kunt tegelijkertijd ook de adresvoorvoegsels wijzigen.
 
 1. In de **IP-adres** wijzigt u het IP-adres.
-2. Klik op **opslaan** de instellingen op te slaan.
+2. Klik op **Opslaan** om de instellingen op te slaan.
 
 #### <a name="3-recreate-the-connection"></a>3. Maak de verbinding opnieuw.
 

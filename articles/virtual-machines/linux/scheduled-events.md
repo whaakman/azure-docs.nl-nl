@@ -2,12 +2,12 @@
 title: Gebeurtenissen gepland voor de virtuele Linux-machines in Azure | Microsoft Docs
 description: Gebeurtenissen plannen met behulp van Azure metagegevens Service voor uw virtuele Linux-machines.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ericrad
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: e697a8f1160aff5774dc416c81819220c316707a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: c87dd5bdbdc87bf238f34d145bd7380a61b90cb6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Service metagegevens: Geplande gebeurtenissen voor virtuele Linux-machines
 
@@ -129,7 +129,7 @@ In het geval wanneer er geplande gebeurtenissen, het antwoord bevat een matrix v
 | ResourceType | Type resource dat deze gebeurtenis is van invloed op. <br><br> Waarden: <ul><li>`VirtualMachine`|
 | Resources| Overzicht van deze gebeurtenis is van invloed op resources. De lijst is gegarandeerd bevatten machines van maximaal één [updatedomein](manage-availability.md), maar mogelijk niet alle machines in de UD bevat. <br><br> Voorbeeld: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status van deze gebeurtenis. <br><br> Waarden: <ul><li>`Scheduled`: Deze gebeurtenis is gepland om te starten na de tijd die is opgegeven in de `NotBefore` eigenschap.<li>`Started`: Deze gebeurtenis is gestart.</ul> Geen `Completed` of soortgelijke status ooit wordt geleverd. De gebeurtenis wordt niet meer worden geretourneerd wanneer de gebeurtenis is voltooid.
-| NotBefore| De tijd waarna deze gebeurtenis kunt starten. <br><br> Voorbeeld: <br><ul><li> 2016-09-19T18:29:47Z  |
+| NotBefore| De tijd waarna deze gebeurtenis kunt starten. <br><br> Voorbeeld: <br><ul><li> Ma, 19 Sep 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Gebeurtenis plannen
 Elke gebeurtenis is gepland de minimale hoeveelheid tijd in de toekomst op basis van het gebeurtenistype. Deze tijd wordt weergegeven in een gebeurtenis `NotBefore` eigenschap. 

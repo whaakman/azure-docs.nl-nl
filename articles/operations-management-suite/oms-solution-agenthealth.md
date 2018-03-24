@@ -2,23 +2,23 @@
 title: Oplossing Status van agent in OMS | Microsoft Docs
 description: In dit artikel wordt uitgelegd hoe u deze oplossing kunt gebruiken om de status te controleren van agents die rechtstreeks aan OMS of System Center Operations Manager rapporteren.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d7eb1550a21e66d4ae4cc4932b30a90956c60d1e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>De oplossing Status van agent in OMS
 De oplossing Status van agent in OMS geeft inzicht in de agents die niet reageren en de agents die wel operationele gegevens versturen. Het betreft alle agents die rechtstreeks aan de OMS-werkruimte rapporteren of aan een beheergroep van System Center Operations Manager die is verbonden met OMS.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
@@ -98,25 +98,6 @@ Elke agent die rapporteert aan een Operations Manager-beheerserver stuurt twee h
 De volgende tabel bevat voorbeelden van zoekopdrachten in logboeken voor records die zijn verzameld met deze oplossing.
 
 | Query’s uitvoeren | Beschrijving |
-| --- | --- |
-| Type=Heartbeat &#124; distinct Computer |Het totale aantal agents |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Het aantal agents dat de afgelopen 24 uur niet heeft gereageerd |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Het aantal agents dat de afgelopen 15 minuten niet heeft gereageerd |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Computers die online waren (in de afgelopen 24 uur) |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Het totale aantal agents dat offline was in de afgelopen 30 minuten (voor de afgelopen 24 uur) |
-| Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |Een trend van het aantal agents in de tijd per type besturingssysteem|
-| Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |Distribution by OS Type |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Verdeling naar agent-versie |
-| Type=Heartbeat&#124;measure count() by Category |Verdeling naar agent-catgeorie |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | Verdeling naar beheergroep |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by RemoteIPCountry |Geo-location of Agents |
-| Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Het aantal geïnstalleerde OMS-gateways |
-
-
->[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [nieuwe querytaal van Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), worden bovenstaande query's gewijzigd in het volgende.
->
->| Query’s uitvoeren | Beschrijving |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Het totale aantal agents |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Het aantal agents dat de afgelopen 24 uur niet heeft gereageerd |
@@ -130,6 +111,9 @@ De volgende tabel bevat voorbeelden van zoekopdrachten in logboeken voor records
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | Verdeling naar beheergroep |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Geo-location of Agents |
 | Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Het aantal geïnstalleerde OMS-gateways |
+
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

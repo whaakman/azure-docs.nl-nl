@@ -2,10 +2,10 @@
 title: Azure Service Bus-berichten uitwisselen | Microsoft Docs
 description: Reeksen met Azure Service Bus-berichten met sessies worden verwerkt.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 551432cd13c16fdd5423c46ed9c6f740353808f8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessies bericht: first in eerst uit FIFO-principe () 
 
@@ -53,13 +53,7 @@ De vergrendeling wordt vrijgegeven wanneer **sluiten** of **CloseAsync** worden 
 
 Wanneer meerdere gelijktijdige ontvangers uit de wachtrij ophalen, worden de berichten die horen bij een bepaalde sessie verzonden naar de specifieke ontvanger die momenteel de vergrendeling voor die sessie bevat. Met deze bewerking een interleaved berichtenstroom die zich in een wachtrij of abonnement ongedaan foutloos wordt gebruikt voor andere ontvangers en deze ontvangers kunnen ook live op andere client-machines, omdat het Vergrendelingsbeheer aan servicezijde, gebeurt in Servicebus.
 
-Een wachtrij is echter nog steeds een wachtrij: Er is geen willekeurige toegang. Als meerdere gelijktijdige ontvangers wachten met het specifieke sessies accepteren of wachten op berichten van specifieke sessies en er is een bericht boven aan een wachtrij die horen bij een sessie die is nog geen ontvanger geclaimd, bevatten leveringen totdat een sessie-ontvanger die claims de sessie.
-
-De vorige afbeelding ziet u drie gelijktijdige sessies ontvangers, die alle berichten uit de wachtrij voor elke ontvanger voortgang actief moet nemen. De vorige sessie met `SessionId` = 4 heeft geen actieve, eigenaar-client, wat betekent dat er geen berichten worden afgeleverd voor iedereen totdat dat bericht is genomen door een nieuw gemaakte die eigenaar is van de ontvanger sessie.
-
-Terwijl die kunnen worden weergegeven om te worden met beperkingen, kan een proces één ontvanger verwerken veel gelijktijdige sessies eenvoudig, vooral wanneer ze zijn geschreven met strikt asynchrone code; gelijktijdige sessies op verschillende dozijn Jongleren is effectief automatisch met het model retouraanroep.
-
-De strategie voor het verwerken van veel gelijktijdige sessies in, waarbij elke sessie slechts sporadisch berichten ontvangt, wordt de handler voor het verwijderen van de sessie na enige tijd inactief en hervatten verwerking wanneer de sessie wordt gezien als de volgende sessie binnenkomt.
+De vorige afbeelding ziet u drie gelijktijdige sessies ontvangers. Een sessie met `SessionId` = 4 heeft geen actieve, eigenaar-client, wat betekent dat er geen berichten van deze specifieke sessie worden afgeleverd. Een sessie op vele manieren zoals fungeert een een sub-wachtrij.
 
 De sessievergrendeling vastgehouden door de ontvanger van de sessie is een overkoepelende voor het bericht wordt vergrendeld die wordt gebruikt door de *peek vergrendeling* vereffening modus. Een ontvanger kan niet gelijktijdig twee berichten hebben 'tijdens de vlucht', maar de berichten op volgorde moeten worden verwerkt. Een nieuw bericht kan alleen worden opgehaald wanneer het voorafgaande bericht is voltooid of onbestelbare lettered. Een bericht wordt hetzelfde bericht aan worden geleverd opgegeven opnieuw met de volgende ontvangstbewerking.
 

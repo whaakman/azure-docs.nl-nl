@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a6b80c134351429ec85a20f7ab83b7674b8b7352
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Overzicht van momentopnamen van de share voor Azure-bestanden (preview)
 Azure Files biedt de mogelijkheid om te delen momentopnamen van bestandsshares. Share-momentopnamen (preview) leggen de status van de share op dat moment. In dit artikel wordt beschreven welke mogelijkheden share momentopnamen bieden en hoe kunt u profiteren van deze in uw aangepaste gebruiksvoorbeeld.
@@ -48,7 +48,7 @@ Nadat een momentopname van een share is gemaakt, kan deze worden gelezen, gekopi
 
 Share Snapshots wordt op niveau van de bestandsshare aangeboden. Ophalen is op afzonderlijke bestandsniveau, om toe te staan voor het herstellen van afzonderlijke bestanden opgegeven. U kunt een volledige bestandsshare via SMB, de REST-API, de portal, de clientbibliotheek of PowerShell/CLI tooling herstellen.
 
-Een momentopname van het delen van een bestandsshare is identiek aan de basis-bestandsshare. Het enige verschil is dat een **DateTime** waarde wordt toegevoegd aan de share URI om aan te geven van de tijd waarop de momentopname van de share. Bijvoorbeeld, als een bestandsshare URI http://storagesample.core.file.windows.net/myshare, de share momentopname URI is vergelijkbaar met:
+Een momentopname van het delen van een bestandsshare is identiek aan de basis-bestandsshare. Het enige verschil is dat een **DateTime** waarde wordt toegevoegd aan de share URI om aan te geven van de tijd waarop de momentopname van de share. Bijvoorbeeld, als een bestandsshare-URI is http://storagesample.core.file.windows.net/myshare, de share momentopname URI vergelijkbaar met is:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -98,5 +98,5 @@ Momentopnamen van de share bieden alleen bestandsniveau beveiliging. Momentopnam
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Werken met momentopnamen van de share](storage-how-to-use-files-snapshots.md)
-* [Veelgestelde vragen over momentopname delen](storage-files-faq.md)
+* [Veelgestelde vragen over momentopname delen](storage-files-faq.md#share-snapshots)
 

@@ -8,16 +8,16 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 82d96424569daf481e31ab04c08dcb5e63e58476
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2689befc6a686d0ffc25d1fccbacb66cc6e10725
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Wat is Azure voor MySQL-Database?
-Azure MySQL-Database is een relationele database-service in de Microsoft-cloud op basis van de [MySQL Community Edition](https://www.mysql.com/products/community/) database-engine. Deze service is beschikbaar in de openbare-previewversie. Azure MySQL-Database biedt:
+Azure MySQL-Database is een relationele database-service in de Microsoft-cloud op basis van de [MySQL Community Edition](https://www.mysql.com/products/community/) database-engine. Azure MySQL-Database biedt:
 
 - Ingebouwde hoge beschikbaarheid zonder extra kosten.
 - Voorspelbare prestaties, tegen all-inclusive prijzen op basis van betalen per gebruik.
@@ -38,7 +38,7 @@ Zie de volgende artikelen voor een reeks Azure CLI-voorbeelden:
 - [Azure CLI-voorbeelden voor Azure-Database voor MySQL](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Binnen een paar seconden prestaties en schaal aanpassen
-In voorbeeld van de Azure-Database voor de MySQL-service biedt verschillende Servicelagen: Basic, algemeen gebruik en geoptimaliseerd voor geheugen. Elke laag biedt verschillende prestaties en mogelijkheden voor lichte tot zware workloads van databases. U kunt uw eerste app op een kleine database bouwen voor een paar euro met maand en vervolgens de schaal ervan aanpassen om aan de vereisten van uw oplossing te voldoen. Doordat de schaalbaarheid dynamisch is, kan uw database op een transparante manier reageren op snel veranderende resourcevereisten. U betaalt alleen voor de resources die u nodig hebt op het moment dat u ze nodig hebt. Zie [Prijscategorieën](concepts-service-tiers.md) voor meer details.
+De Azure-Database voor de MySQL-service biedt verschillende Servicelagen: Basic, algemeen gebruik en geoptimaliseerd voor geheugen. Elke laag biedt verschillende prestaties en mogelijkheden voor lichte tot zware workloads van databases. U kunt uw eerste app op een kleine database bouwen voor een paar euro met maand en vervolgens de schaal ervan aanpassen om aan de vereisten van uw oplossing te voldoen. Doordat de schaalbaarheid dynamisch is, kan uw database op een transparante manier reageren op snel veranderende resourcevereisten. U betaalt alleen voor de resources die u nodig hebt op het moment dat u ze nodig hebt. Zie [Prijscategorieën](concepts-service-tiers.md) voor meer details.
 
 ## <a name="monitoring-and-alerting"></a>Bewaking en waarschuwingen
 Hoe bepaalt u wanneer u omhoog of omlaag moet schalen? U de ingebouwde prestaties bewaken en waarschuwen functies, gecombineerd met de prestatieclassificaties op basis van vCores gebruiken. Deze hulpprogramma's gebruikt, kunt u snel beoordelen de impact van vergroten/verkleinen vCores omhoog of omlaag op basis van de prestatiebehoeften van uw huidige of de verwachte. Zie [Waarschuwingen](howto-alert-on-metric.md) voor meer details.

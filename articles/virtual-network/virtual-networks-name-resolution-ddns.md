@@ -5,7 +5,7 @@ services: dns
 documentationcenter: na
 author: GarethBradshawMSFT
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
 ms.service: dns
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: garbrad
-ms.openlocfilehash: 440a062e5fff73526b2d77d7d0a7c52ca72a66f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d62c40bfc909915fa222db12413634aa7ce7158
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Met behulp van dynamische DNS hostnamen in uw eigen DNS-server registreren
 [Azure biedt naamomzetting](virtual-networks-name-resolution-for-vms-and-role-instances.md) voor virtuele machines (VM's) en rolinstanties. Wanneer uw naamomzetting moet verder dan die worden verstrekt door Azure, kunt u uw eigen DNS-servers opgeven. Hierdoor kunt u de bevoegdheid om aan te passen van uw DNS-oplossing aanpassen aan uw eigen specifieke behoeften. U wilt bijvoorbeeld toegang tot lokale bronnen via uw Active Directory-domeincontroller.
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 Wanneer uw aangepaste DNS-servers worden gehost als Azure virtuele machines kunt u de hostnaam van een query uitgevoerd naar hetzelfde vnet doorsturen naar Azure hostnamen omzetten. Als u niet deze route gebruikt wilt, kunt u uw VM hostnamen in uw DNS-server met behulp van dynamische DNS registreren.  Azure heeft de mogelijkheid (bijvoorbeeld referenties) geen rechtstreeks om records te maken in uw DNS-servers, zodat het alternatieve regelingen vaak nodig zijn. Hier volgen enkele algemene scenario's met alternatieven.
 
 ## <a name="windows-clients"></a>Windows-clients
-Niet-domein Windows-clients proberen onbeveiligde dynamische DNS-(DDNS) updates wanneer ze worden opgestart of wanneer hun IP-adres verandert. De DNS-naam is de hostnaam plus het primaire DNS-achtervoegsel. Azure worden de primaire DNS-achtervoegsel leeg gelaten, maar u kunt dit instellen in de virtuele machine de [UI](https://technet.microsoft.com/library/cc794784.aspx) of [met behulp van automatisering](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
+Niet-domein Windows-clients proberen onbeveiligde dynamische DNS-(DDNS) updates wanneer ze worden opgestart of wanneer hun IP-adres verandert. De DNS-naam is de hostnaam plus het primaire DNS-achtervoegsel. Azure worden de primaire DNS-achtervoegsel leeg gelaten, maar u kunt dit instellen in de virtuele machine de [UI](https://technet.microsoft.com/library/cc794784.aspx) of [met behulp van automatisering zoals besproken hier](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
 
 Windows-clients domein voor het registreren van hun IP-adressen met de domeincontroller met behulp van beveiligde dynamische DNS. Het lid van domein-proces wordt het primaire DNS-achtervoegsel op de client ingesteld en maakt en onderhoudt de vertrouwensrelatie.
 

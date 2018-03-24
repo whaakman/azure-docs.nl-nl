@@ -3,7 +3,7 @@ title: Meldingen instellen voor Azure-services - PowerShell | Microsoft Docs
 description: Trigger e-mailberichten, meldingen, worden URL's van websites (webhooks) of automation aanroepen wanneer de door u opgegeven voorwaarden wordt voldaan.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d26ab15b-7b7e-42a9-81c8-3ce9ead5d252
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
-ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Metrische waarschuwingen in de Azure-Monitor maken voor Azure-services - PowerShell
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Klassieke metrische waarschuwingen in de Azure-Monitor maken voor Azure-services - PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,12 +29,18 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Overzicht
+
+> [!NOTE]
+> In dit artikel wordt beschreven hoe oudere metrische waarschuwingen maken. Azure ondersteunt van de Monitor nu [nieuwere, metrische waarschuwingen voor een betere](monitoring-near-real-time-metric-alerts.md). Deze waarschuwingen kunnen meerdere metrische gegevens controleren en waarschuwen voor dimensionale metrische gegevens mogelijk maken. PowerShell-ondersteuning voor nieuwere metrische waarschuwingen is binnenkort beschikbaar.
+>
+>
+
 In dit artikel leest u hoe Azure metrische waarschuwingen met behulp van PowerShell instellen.  
 
 U kunt een waarschuwing op basis van bewaking metrische gegevens voor of gebeurtenissen op uw Azure-services kunt ontvangen.
 
 * **Metrische waarden** -de waarschuwing wordt geactiveerd wanneer de waarde van een opgegeven waarde overschrijdt de drempelwaarde die u in beide richtingen toewijst. Dat wil zeggen, deze beide wordt geactiveerd wanneer de voorwaarde voor het eerst wordt voldaan en vervolgens later wanneer die voorwaarde wordt niet langer wordt voldaan.    
-* **Activiteit logboekgebeurtenissen** -een waarschuwing kunt activeren voor *elke* gebeurtenis of alleen wanneer een bepaalde gebeurtenissen optreden. Voor meer informatie over waarschuwingen voor activiteit logboek [Klik hier](monitoring-activity-log-alerts.md)
+* **Activiteit logboekgebeurtenissen** -een waarschuwing kunt activeren voor *elke* gebeurtenis of alleen wanneer een bepaalde gebeurtenis zich voordoet. Voor meer informatie over waarschuwingen voor activiteit logboek [Klik hier](monitoring-activity-log-alerts.md)
 
 U kunt het volgende te doen als er wordt een waarschuwing voor metrische configureren:
 
@@ -47,8 +53,8 @@ U kunt configureren en informatie ophalen over met behulp van regels voor waarsc
 
 * [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
-* [opdrachtregelinterface (CLI)](insights-alerts-command-line-interface.md)
-* [Monitor voor Azure REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Opdrachtregelinterface (CLI)](insights-alerts-command-line-interface.md)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 Voor meer informatie, kunt u altijd typen ```Get-Help``` en vervolgens de PowerShell-opdracht op het gewenste help.
 

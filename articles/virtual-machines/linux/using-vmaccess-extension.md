@@ -2,10 +2,10 @@
 title: Toegang instellen voor een Azure Linux VM | Microsoft Docs
 description: Het beheren van gebruikers met beheerdersrechten en -toegang op de virtuele Linux-machines met behulp van de VMAccess-extensie en de Azure CLI 2.0 opnieuw instellen
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
 ms.service: virtual-machines-linux
@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
-ms.openlocfilehash: 235a6367ad317945cfeaaa6aae4e060208fb8e8e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a5467722b347e68693b335da6b3ac3c5d1a3a441
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Beheren van gebruikers met beheerdersrechten, SSH en controleer of het herstellen van schijven op virtuele Linux-machines met behulp van de VMAccess-extensie met de Azure CLI 2.0
 De schijf op uw Linux-VM worden fouten weergegeven. U enigszins het root-wachtwoord opnieuw instellen voor uw Linux-VM of uw persoonlijke SSH-sleutel per ongeluk worden verwijderd. Als dat is gebeurd terug in de dagen van het datacenter, zou u moet er station en open vervolgens de KVM ophalen via de serverconsole. De Azure-VMAccess-extensie beschouwen als die KVM-switch waarmee u toegang tot de console opnieuw instellen naar Linux of voer schijfonderhoud niveau.
 
-In dit artikel laat zien hoe de VMAccess-extensie van Azure gebruiken om te controleren of herstellen van een schijf, gebruikerstoegang opnieuw instellen, beheren van accounts voor gebruikers met beheerdersrechten of opnieuw instellen van de SSH-configuratie op Linux. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+In dit artikel laat zien hoe de VMAccess-extensie van Azure gebruiken om te controleren of herstellen van een schijf, gebruikerstoegang opnieuw instellen, beheren van accounts voor gebruikers met beheerdersrechten of bijwerken van de SSH-configuratie op Linux. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Manieren om te gebruiken de VMAccess-extensie
@@ -35,8 +35,8 @@ Er zijn twee manieren waarop u de VMAccess-extensie op uw virtuele Linux-machine
 
 Gebruik de volgende voorbeelden [az vm gebruiker](/cli/azure/vm/user) opdrachten. Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login).
 
-## <a name="reset-ssh-key"></a>SSH-sleutel opnieuw instellen
-Het volgende voorbeeld wordt de SSH-sleutel voor de gebruiker `azureuser` op de virtuele machine met de naam `myVM`:
+## <a name="update-ssh-key"></a>SSH-sleutel bijwerken
+Het volgende voorbeeld de SSH-sleutel voor de gebruiker bijgewerkt `azureuser` op de virtuele machine met de naam `myVM`:
 
 ```azurecli
 az vm user update \
@@ -45,6 +45,8 @@ az vm user update \
   --username azureuser \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
+
+> **Opmerking:** de `az vm user update` opdracht wordt de nieuwe openbare sleutel tekst naar de `~/.ssh/authorized_keys` -bestand voor de gebruiker met beheerdersrechten op de virtuele machine. Hierdoor niet vervangen of verwijder bestaande SSH-sleutels. Hiermee wordt voorafgaande sleutels die zijn ingesteld op moment van implementatie- of daaropvolgende updates via de VMAccess-extensie niet verwijderd.
 
 ## <a name="reset-password"></a>Wachtwoord opnieuw instellen
 Het wachtwoord voor de gebruiker opnieuw instellen van het volgende voorbeeld `azureuser` op de virtuele machine met de naam `myVM`:
@@ -94,9 +96,9 @@ az vm user delete \
 De volgende voorbeelden onbewerkte JSON-bestanden gebruiken. Gebruik [az vm-extensie set](/cli/azure/vm/extension#az_vm_extension_set) aan te roepen vervolgens uw JSON-bestanden. Deze JSON-bestanden kunnen ook worden aangeroepen vanuit de Azure-sjablonen. 
 
 ### <a name="reset-user-access"></a>Toegang van gebruikers opnieuw instellen
-Als u hebt geen toegang meer tot hoofdmap op uw Linux-VM, kunt u een script vmaccess gebruikt als de SSH-sleutel van een gebruiker of het wachtwoord opnieuw wilt starten.
+Als u hebt geen toegang meer tot hoofdmap op uw Linux-VM, kunt u een script vmaccess gebruikt voor het bijwerken van de SSH-sleutel van een gebruiker of het wachtwoord te starten.
 
-Als u wilt de openbare SSH-sleutel van een gebruiker instellen, maakt u een bestand met de naam `reset_ssh_key.json` en -instellingen toevoegen in de volgende indeling. Vervang uw eigen waarden voor de `username` en `ssh_key` parameters:
+Maak een bestand met de naam voor het bijwerken van de openbare SSH-sleutel van een gebruiker, `update_ssh_key.json` en -instellingen toevoegen in de volgende indeling. Vervang uw eigen waarden voor de `username` en `ssh_key` parameters:
 
 ```json
 {
@@ -114,7 +116,7 @@ az vm extension set \
   --name VMAccessForLinux \
   --publisher Microsoft.OSTCExtensions \
   --version 1.4 \
-  --protected-settings reset_ssh_key.json
+  --protected-settings update_ssh_key.json
 ```
 
 Als u wilt een gebruikerswachtwoord opnieuw instelt, maakt u een bestand met de naam `reset_user_password.json` en -instellingen toevoegen in de volgende indeling. Vervang uw eigen waarden voor de `username` en `password` parameters:

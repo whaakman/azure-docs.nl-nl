@@ -2,27 +2,24 @@
 title: 'Azure Active Directory B2C: Amazon configuratie | Microsoft Docs'
 description: Registreren en aanmelden gebruikers met Amazon-accounts in uw toepassingen die zijn beveiligd met Azure Active Directory B2C bieden.
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 77c099bb-a005-4d75-87f9-f61e3de48725
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: df69b075717e6b4311e336f5bd2d385c5f0e1f52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a2989baa61e7b69534fe5703b2501d62a4f8aa94
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C: Zich kunnen registreren en aanmelden gebruikers bieden met Amazon-accounts
 ## <a name="create-an-amazon-application"></a>Een Amazon-toepassing maken
-Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C Amazon gebruikt, moet u een Amazon-toepassing maken en geeft deze met de juiste parameters. U moet een Amazon-account om dit te doen. Als u niet hebt, kunt u krijgen op het [http://www.amazon.com/](http://www.amazon.com/).
+Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C Amazon gebruikt, moet u een Amazon-toepassing maken en geeft deze met de juiste parameters. U moet een Amazon-account om dit te doen. Als u niet hebt, kunt u krijgen op het [ http://www.amazon.com/ ](http://www.amazon.com/).
 
 1. Ga naar de [Amazon Developer Center](https://login.amazon.com/) en meld u aan met de referenties van uw Amazon-account.
 2. Als u dit nog niet hebt gedaan, klikt u op **aanmelden**, volg de stappen van de registratie van ontwikkelaars en accepteren van het beleid.

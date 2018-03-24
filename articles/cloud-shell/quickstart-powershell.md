@@ -2,11 +2,11 @@
 title: PowerShell in Quick Start Azure-Cloud-Shell (Preview) | Microsoft Docs
 description: Quick Start voor PowerShell in de Cloud-Shell
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendmsft
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b0831173212d3324c851ad1bd04ec443a9face5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Quick Start voor PowerShell in de Azure-Cloud-Shell (Preview)
 
@@ -33,7 +33,7 @@ In dit document worden de PowerShell gebruiken in de Cloud-Shell in de [Azure-po
 
   ![](media/quickstart-powershell/shell-icon.png)
 
-2. Selecteer de PowerShell-omgeving in de vervolgkeuzelijst en kunt u in Azure station`(Azure:)`
+2. Selecteer de PowerShell-omgeving in de vervolgkeuzelijst en kunt u in Azure station `(Azure:)`
 
   ![](media/quickstart-powershell/environment-ps.png)
 
@@ -62,7 +62,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     PS Azure:\> dir
     ```
 
- 2. `cd`aan uw voorkeur abonnement
+ 2. `cd` aan uw voorkeur abonnement
 
     ``` PowerShell
     PS Azure:\> cd MySubscriptionName
@@ -118,7 +118,7 @@ U kunt echter altijd gebruiken `dir -Force` nieuwe gegevens ophalen.
 
 ### <a name="navigate-storage-resources"></a>Storage-resources navigeren
     
-Door te voeren in de `StorageAccounts` map die u kunt eenvoudig uw storage-resources navigeren
+Door te voeren in de `StorageAccounts` directory die u kunt eenvoudig uw storage-resources navigeren
     
 ``` PowerShell 
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -227,7 +227,7 @@ U kunt ook navigeren naar de `VirtualMachines` directory eerste en voer `Enter-A
 
 ### <a name="discover-webapps"></a>WebApps detecteren
 
-Door te voeren in de `WebApps` map die u kunt eenvoudig uw web-apps resources navigeren
+Door te voeren in de `WebApps` directory die u kunt eenvoudig uw web-apps resources navigeren
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -274,11 +274,11 @@ Voor verificatie op servers of virtuele machines met SSH, het openbaar / persoon
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Met behulp van een aangepast profiel voor het persistent maken van GIT en SSH-instellingen
 
-Aangezien sessies blijven niet behouden bij het ze afmelden Sla uw `$env:USERPROFILE\.ssh` map `CloudDrive` of maak een symlink wanneer Cloud Shell wordt gestart.
+Aangezien sessies blijven niet behouden bij het ze afmelden Sla uw `$env:USERPROFILE\.ssh` map naar `CloudDrive` of maak een symlink wanneer Cloud Shell wordt gestart.
 Plaats de volgende codefragment in uw profile.ps1 een symlink om CloudDrive te maken.
 
 ``` PowerShell
-# Check if the .ssh folder exists
+# Check if the .ssh directory exists
 if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }

@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: seohack1
-ms.openlocfilehash: c2589aabce86f848fa1aa3e25b3f78be180c5525
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 766ff118638538520c8f17694b32f35dbe6d1025
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>Op rollen gebaseerde toegangsbeheer van Azure oplossen 
 
-In dit artikel document antwoorden op veelgestelde vragen over de specifieke rechten die zijn verleend aan rollen, zodat u wat u weet kunt verwachten wanneer u de rollen in de Azure-portal en kan toegangsproblemen oplossen. Deze drie rollen hebben betrekking op alle brontypen:
+In dit artikel antwoorden op veelgestelde vragen over de specifieke rechten die zijn verleend aan rollen, zodat u wat u weet kunt verwachten wanneer u de rollen in de Azure-portal en kan toegangsproblemen oplossen. Deze drie rollen hebben betrekking op alle brontypen:
 
 * Eigenaar  
 * Inzender  
@@ -31,7 +31,7 @@ In dit artikel document antwoorden op veelgestelde vragen over de specifieke rec
 
 Eigenaars en medewerkers hebt volledige toegang tot de beheerervaring, maar een medewerker kan geen toegang verlenen aan andere gebruikers of groepen. Dingen ophalen iets interessanter met de lezersrol zodat waar we even uitgeeft. Zie de [toegangsbeheer op basis van rollen get-started artikel](role-based-access-control-configure.md) voor meer informatie over het om toegang te verlenen.
 
-## <a name="app-service-workloads"></a>App service-werkbelastingen
+## <a name="app-service"></a>App Service
 ### <a name="write-access-capabilities"></a>Toegang voor schrijven-mogelijkheden
 Als u een gebruiker alleen-lezen toegang tot een enkel web-app verlenen, worden sommige functies zijn uitgeschakeld dat u niet verwacht. De volgende beheermogelijkheden vereisen **schrijven** toegang tot een web-app (Inzender of eigenaar) en niet beschikbaar zijn in een scenario met alleen-lezen.
 
@@ -69,7 +69,14 @@ Deze items vereisen **schrijven** toegang tot het gehele **resourcegroep** die u
 * Application Insights-onderdelen  
 * Webtests  
 
-## <a name="virtual-machine-workloads"></a>Virtual machine-werkbelasting
+## <a name="azure-functions"></a>Azure Functions
+Sommige functies van [Azure Functions](../azure-functions/functions-overview.md) vereisen schrijftoegang. Bijvoorbeeld, als een gebruiker is toegewezen met de rol Lezer, zich ze niet kunnen weergeven van de functies in een functie-app. De portal worden weergegeven **(geen toegang)**.
+
+![Functie apps geen toegang](./media/role-based-access-control-troubleshooting/functionapps-noaccess.png)
+
+Een lezer kunt klikken op de **platformfuncties** tabblad en klik vervolgens op **alle instellingen** om bepaalde instellingen weer te geven die is gerelateerd aan een functie-app (vergelijkbaar met een web-app), maar een van deze instellingen niet worden gewijzigd.
+
+## <a name="virtual-machine"></a>Virtuele machine
 Veel zoals met web-apps, sommige functies op de blade van de virtuele machine vereist schrijftoegang op de virtuele machine, of op andere bronnen in de resourcegroep.
 
 Virtuele machines zijn gerelateerd aan het domein namen, virtuele netwerken, opslagaccounts en regels voor waarschuwingen.

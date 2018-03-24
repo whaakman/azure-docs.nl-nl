@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Aangepaste beleidsproblemen oplossen | Microsoft Docs'
 description: Meer informatie over methoden voor het oplossen van fouten bij het werken met aangepaste beleidsregels in Azure Active Directory.
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: joroja
-ms.openlocfilehash: 8718f9c1dfce81682174eec11e8cbb731cbdf796
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e51990bd2e121b89e7260e0d745d08ecc82ff8a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Problemen oplossen met Azure AD B2C aangepaste beleidsregels en identiteit ervaring Framework
 
@@ -32,7 +29,7 @@ Als u gebruikmaakt van Azure Active Directory B2C (Azure AD B2C) aangepast belei
 De meest voorkomende fout bij het instellen van een aangepast beleid is niet goed opgemaakt XML. Er is een goede XML-editor bijna essentieel. Een goede XML-editor XML systeemeigen wordt weergegeven, gekleurd inhoud prefills algemene voorwaarden, houdt XML-elementen die zijn geïndexeerd en kunt valideren met schema. Hier vindt u twee van onze favoriete XML-editors:
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Kladblok ++](https://notepad-plus-plus.org/)
+* [Notepad++](https://notepad-plus-plus.org/)
 
 XML-schemavalidatie identificeert fouten voordat u uw XML-bestand uploaden. Haal de XML-schemadefinitie TrustFrameworkPolicy_0.3.0.0.xsd in de hoofdmap van het starter pack. Voor meer informatie in de documentatie van uw XML-editor, zoekt u naar *XML-hulpprogramma's* en *XML-validatie*.
 
@@ -44,17 +41,17 @@ Mogelijk vindt u een overzicht van XML-regels handig zijn. Azure AD B2C wordt ge
  
  Algemene validatiefouten biedt de volgende.
 
-Fout-fragment:`... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
+Fout-fragment: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * De waarde ClaimType mogelijk verkeerd gespeld of bestaat niet in het schema.
 * ClaimType waarden moeten worden gedefinieerd in ten minste één van de bestanden in het beleid. 
     Bijvoorbeeld: ` <ClaimType Id="socialIdpUserId">`
 * Als ClaimType is gedefinieerd in het extensiebestand, maar kan ook worden gebruikt in een TechnicalProfile-waarde in de base-bestand, resulteert het base-bestand uploadt in een fout.
 
-Fout-fragment:`...makes a reference to a ClaimsTransformation with id...`
+Fout-fragment: `...makes a reference to a ClaimsTransformation with id...`
 * De oorzaken van de fout kunnen zijn dezelfde als de fout ClaimType.
 
-Fout-fragment:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
-* Controleer of de tenant-id-waarde in de  **\<TrustFrameworkPolicy\>**  en  **\<BasePolicy\>**  elementen overeen met de doel-Azure AD B2C-tenant.  
+Fout-fragment: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+* Controleer of de tenant-id-waarde in de **\<TrustFrameworkPolicy\>** en **\<BasePolicy\>** elementen overeen met de doel-Azure AD B2C-tenant.  
 
 ## <a name="troubleshoot-the-runtime"></a>De runtime oplossen
 
@@ -77,4 +74,4 @@ Fout-fragment:`Reason: User is currently logged as a user of 'yourtenant.onmicro
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Download het [active-directory-b2c-custom-policy-starterpack] (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ZIP-bestand in GitHub.
+* In GitHub, downloadt de [active-directory-b2c-custom-policy-starterpack] (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ZIP-bestand.

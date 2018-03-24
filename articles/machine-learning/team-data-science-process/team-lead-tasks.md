@@ -1,11 +1,11 @@
 ---
 title: Gegevens wetenschap proces Team leiden taken - Azure in een team | Microsoft Docs
 description: Een overzicht van de taken voor een team leiden op een project gegevens wetenschappelijke team.
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: bradsev;
-ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 995ad557eb06e545b1813e1f4631e243a98830b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="team-lead-tasks"></a>Team Lead taken
 
@@ -208,7 +208,7 @@ Na het kopiëren van de twee directory's **MyTeamProjectTemplate** (D3) en **MyT
 
 De inhoud van de lokale kopieert **GroupProjectTemplate** (D1) map aan de lokale **MyTeamProjectTemplate** (D3), voer een van de volgende shellscripts: 
 
-####<a name="from-the-powershell-command-line-for-windows"></a>Vanaf de opdrachtregel voor Windows PowerShell        
+#### <a name="from-the-powershell-command-line-for-windows"></a>Vanaf de opdrachtregel voor Windows PowerShell       
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
@@ -216,7 +216,7 @@ De inhoud van de lokale kopieert **GroupProjectTemplate** (D1) map aan de lokale
     
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####<a name="from-the-linux-shell-for-the-linux-dsvm"></a>Vanuit de Linux-shell voor de **Linux DSVM**
+#### <a name="from-the-linux-shell-for-the-linux-dsvm"></a>Vanuit de Linux-shell voor de **Linux DSVM**
     
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
     bash tdsp_local_copy_linux.sh 2
@@ -388,7 +388,7 @@ Bevestig dat een nieuw F-station met succes is gekoppeld aan op de computer.
 
 **Hoe de Azure file storage-gegevens handmatig invoeren:** als u uw Azure file storage-gegevens niet op een tekstbestand hebt, kunt u de instructies in het volgende scherm te typen in de vereiste abonnement, storage-account en Azure File storage-gegevens:
 
-- Invoer  **n** .
+- Invoer **n**.
 - Selecteer de index van de naam van het abonnement waarin de Azure file storage in de vorige stap is gemaakt:
 
     ![41](./media/team-lead-tasks/team-leads-41-attach-s5-linux.png)

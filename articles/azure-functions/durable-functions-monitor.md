@@ -4,21 +4,21 @@ description: Informatie over het implementeren van een statusmonitor met de exte
 services: functions
 author: kashimiz
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 617b33a9f860ce3b06ff560de22824037eab8332
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Monitor-scenario in duurzame functies - weer watcher-voorbeeld
 
@@ -26,8 +26,8 @@ Het patroon monitor verwijst naar een flexibel *terugkerende* proces in een werk
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Volg de instructies in [duurzame functies installeren](durable-functions-install.md) voor het instellen van het voorbeeld.
-* In dit artikel wordt ervan uitgegaan dat u al hebt doorlopen de [Hello Sequence](durable-functions-sequence.md) voorbeeld scenario.
+* [Installeren van functies duurzame](durable-functions-install.md).
+* Voltooi de [Hello Sequence](durable-functions-sequence.md) scenario.
 
 ## <a name="scenario-overview"></a>Overzicht van scenario's
 
@@ -64,7 +64,7 @@ Dit artikel wordt uitgelegd dat de volgende functies in de voorbeeld-app:
 * `E3_GetIsClear`: Er is een functie van het type activiteit waarmee wordt gecontroleerd of de huidige voorwaarden weer voor een locatie.
 * `E3_SendGoodWeatherAlert`: Er is een functie van het type activiteit dat een SMS-bericht via Twilio verzendt.
 
-De volgende secties worden de configuratie en code die worden gebruikt voor het ontwikkelen van Azure portal. De code voor het ontwikkelen van Visual Studio wordt weergegeven aan het einde van het artikel.
+De volgende secties worden de configuratie en code die worden gebruikt voor het C#-scripts. De code voor het ontwikkelen van Visual Studio wordt weergegeven aan het einde van het artikel.
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>De bewaking van orchestration (Visual Studio Code en de Azure portal voorbeeldcode) weer
 

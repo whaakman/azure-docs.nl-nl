@@ -2,11 +2,11 @@
 title: Een Active Directory-forest installeren op een virtuele Azure-netwerk | Microsoft Docs
 description: Een zelfstudie waarin wordt uitgelegd hoe u een nieuw Active Directory-forest maken op een virtuele machine (VM) op een virtuele Azure-netwerk.
 services: active-directory, virtual-network
-keywords: 'Active directory virtuele machine van de active directory-forest installeren, azure active directory-video ''s '
-documentationcenter: 
+keywords: "Active directory virtuele machine van de active directory-forest installeren, azure active directory-video 's "
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
-tags: 
+tags: ''
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0b98b475f49847589398ca743fc3ac3b8bcbb381
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Een nieuw Active Directory-forest installeren op een virtuele Azure-netwerk
 Dit artikel laat zien hoe u een nieuwe Windows Server Active Directory-omgeving op een virtuele machine (VM) maakt op een [virtuele Azure-netwerk](../virtual-network/virtual-networks-overview.md). De virtuele Azure-netwerk is in dit geval niet verbonden met een on-premises netwerk.
@@ -31,7 +31,7 @@ U is mogelijk ook geïnteresseerd in deze verwante artikelen:
 * Raadpleeg voor algemene richtlijnen over het installeren van Active Directory Domain Services (AD DS) op een virtuele Azure-netwerk [richtlijnen voor het implementeren van Windows Server Active Directory op Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Scenario-Diagram
-In dit scenario moeten externe gebruikers toegang krijgen tot toepassingen die worden uitgevoerd op servers die lid zijn van een domein. De virtuele machines die worden uitgevoerd van de toepassingsservers als de virtuele machines die worden uitgevoerd-domeincontrollers zijn geïnstalleerd in hun eigen cloudservice in een Azure-netwerk zijn geïnstalleerd. Ze zijn ook opgenomen in een beschikbaarheidsset voor verbeterde fouttolerantie.
+In dit scenario moeten externe gebruikers toegang krijgen tot toepassingen die worden uitgevoerd op servers die lid zijn van een domein. De virtuele machines die worden uitgevoerd van de toepassingsservers als de virtuele machines met domeincontrollers worden geïnstalleerd in hun eigen cloudservice in een Azure-netwerk. Ze zijn ook opgenomen in een beschikbaarheidsset voor verbeterde fouttolerantie.
 
 ![Active Directory-forest op een virtuele machines in Azure Virtual Network ][1] 7
 

@@ -2,23 +2,23 @@
 title: AppSource Publisher handleiding en Azure Marketplace
 description: Stapsgewijze handleiding en publiceren van controlelijsten voor nieuwe publicaties naar Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0abf25726936a3d5e69c809c9714965936c7c64c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>AppSource Publisher handleiding en Azure Marketplace
 
@@ -34,7 +34,7 @@ Welkom bij de [Azure Marketplace](https://azuremarketplace.microsoft.com) en [Ap
 - Hoe u een uitgever
 - Biedt waar u wilt maken en publiceren
 - Het optimaliseren van de lijst en Ga op de markt bronnen station impact gebruiken
-- Waar u hulp en ondersteuning voor vragen over Azure Marketplace, AppSource, of deze handleiding publishing Neem contact op met de Marketplace-team via  **cloudmarketplace@microsoft.com** . 
+- Waar u hulp en ondersteuning voor vragen over Azure Marketplace, AppSource, of deze handleiding publishing Neem contact op met de Marketplace-team via **cloudmarketplace@microsoft.com**. 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Voordelen van deelname aan de marketplace
 
@@ -59,10 +59,10 @@ De marketplace-winkelobjecten zijn afgestemd op doelgroepen en Microsoft cloud-p
 |          |Azure Marketplace |AppSource  |
 |---------|---------|---------|
 |Doelgroep     |IT-Professionals, ontwikkelaars (gespecialiseerde functies omvatten DBA's, SecOps, DevOps, enz.)    | Line-of-Business-besluitvormers (gespecialiseerde functies omvatten inkoop, productie, Accounting, enz.)      |
-|Gebouwd met of uitbreiden     |Azure         | Azure, Dynamics 365, Office 365, Power BI en Power-Apps       |
+|Gebouwd met of uitbreiden     |Azure         | Azure, Dynamics 365, Office 365, Power BI en Power Apps       |
 |Typen oplossingen en -Services     |  Infrastructuuroplossingen en professionele Services   | Voltooide line-of-business-cloud-toepassingen, Office 365-invoegtoepassingen en professionele services        |
 |Opties voor publiceren     |  Contact met mij opnemen, advies bieden, evaluatieversie, virtuele Machine Oplossingssjablonen, en beheerde Apps       |  Gratis proefversie, kunt u nu uitproberen, neem contact op met mij advies bieden      |
-|In-App-ervaring biedt gebruikers toegang hebben tot apps en services in de context van de toepassing  | Azure-Portal en CLI         | Office 365, Dynamics 365, Power BI, client-apps van Office       |
+|In-App-ervaring biedt gebruikers toegang hebben tot apps en services in de context van de toepassing  | Azure Portal en CLI         | Office 365, Dynamics 365, Power BI, Office-clientapps       |
 
 ## <a name="leveraging-these-storefronts"></a>Gebruik deze winkelobjecten
 
@@ -112,9 +112,9 @@ Deze sectie helpt u bij de opties die beschikbaar zijn voor u in beide winkelobj
 
 |**Publicatieoptie**  | **Het Aanbiedingtype** | **Storefront**  |
 |---------|---------|---------|
-|**lijst**    |    Contact met Me advies Service     |  Azure Marketplace, AppSource       |
-|**Proefversie**   |     Gratis proefversie, SaaS-proefversie, interactieve Demo, uitproberen    |  Azure Marketplace, AppSource       |
-|**Transact**     |   Virtuele Machine, oplossingssjabloon voor de voor beheerde toepassing      |    Azure Marketplace     |
+|**lijst**    |    Contact opnemen, consultancyservice     |  Azure Marketplace, AppSource       |
+|**Proefversie**   |     Gratis proefversie, SaaS-proef, interactieve demoversie, uitproberen    |  Azure Marketplace, AppSource       |
+|**Transact**     |   Virtuele machine, oplossingssjabloon, beheerde toepassing      |    Azure Marketplace     |
 
 ### <a name="list"></a>LIJST
 
@@ -259,8 +259,8 @@ Elke klant met een Enterprise Agreement kan Azure toevoegen aan de overeenkomst 
 
 |**Vereiste**  |**Details** |**Publicatieoptie**  |
 |---------|---------|---------|
-|**Facturerings- en softwarelicentiecontrole**    |  De virtuele Machine moet ondersteuning bieden voor beide Bring Your Own License of op basis van gebruik, maandelijks facturering.       |    Transact    |
-|**Azure-compatibele virtuele harde schijf (VHD)**     |   Virtuele Machines moet worden gebaseerd op [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) of () [Linux]https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
+|**Facturerings- en softwarelicentiecontrole**    |  De virtuele Machine moet ondersteuning bieden voor beide Bring Your Own License of op basis van gebruik, maandelijks facturering.       |    Handelen    |
+|**Azure-compatibele virtuele harde schijf (VHD)**     |   Virtuele Machines moet worden gebaseerd op [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) of () [Linux]https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Handelen      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>De specifieke vereisten voor het advies Services publiceren
 
@@ -308,7 +308,7 @@ Er zijn meerdere opties voor één tenant toepassingen:
 - Ontwikkel een per klant Test-station
 - Een voorbeeld van multitenant-demo-app met eenmalige aanmelding bouwen
 
-##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Publishing processen door het product voor Office, Dynamics en Power BI
+## <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Publishing processen door het product voor Office, Dynamics en Power BI
 Voor apps AppSource die Office, Dynamics en Power BI uitbreiden, kunt u meer lezen over de specifieke vereisten in de productdocumentatie voor specifieke in deze sectie. 
 
 
@@ -519,7 +519,7 @@ Klik voor meer informatie over aanvullende developer-account richtlijnen en beve
 
 Uw bedrijfsaccount kan worden gefedereerd met [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/), en retourneren een foutmelding als u probeert te maken van een Microsoft-ID met een zakelijke e-mailadres. Als u een fout optreedt, eerst contact op met uw IT-team om te controleren of dat dit het geval is. Dit is een bekend probleem en we werken over het oplossen van deze. De tijdelijke oplossing is het volgende:
 
-Het is raadzaam maken van een nieuw e-mailadres in de  **@outlook.com**  domein. Volg deze stappen:
+Het is raadzaam maken van een nieuw e-mailadres in de **@outlook.com** domein. Volg deze stappen:
 
 1. Ga naar [ https://signup.live.com/signup ](https://signup.live.com/signup) en selecteer **ophalen van een nieuw e-mailadres**
 

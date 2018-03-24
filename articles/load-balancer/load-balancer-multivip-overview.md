@@ -5,30 +5,28 @@ services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: 
+editor: ''
 ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: e4c77f3b9bd53df632a433532376eb859969a036
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cf8fa396e0518e1c847225dfc1d8f91c3421bd11
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Meerdere Frontends voor Azure Load Balancer
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer kunt u load balance services op meerdere poorten of meerdere IP-adressen. Laden van stromen verdelen over een set van virtuele machines kunt u openbare en interne load balancer definities.
 
 In dit artikel beschrijft de grondbeginselen van deze mogelijkheid, belangrijke concepten en beperkingen. Als u alleen weergeven van services op één IP-adres wilt, kunt u vinden vereenvoudigde instructies voor het [openbare](load-balancer-get-started-internet-portal.md) of [interne](load-balancer-get-started-ilb-arm-portal.md) load balancer-configuraties. Het toevoegen van meerdere frontends is incrementele naar een enkele frontend-configuratie. Met behulp van de concepten in dit artikel, kunt u een vereenvoudigde configuratie op elk gewenst moment uitbreiden.
 
-Wanneer u een Azure Load Balancer definieert, worden een front-end- en een back-endconfiguratie zijn verbonden met regels. De health test waarnaar wordt verwezen door de regel wordt gebruikt om te bepalen hoe nieuwe stromen worden verzonden naar een knooppunt in de back-endpool. De frontend wordt gedefinieerd door een frontend-IP-configuratie (aka VIP) Dit is een 3-tuple bestaat uit een IP-adres (openbare of interne), een transportprotocol (UDP of TCP) en een poortnummer van de regel voor taakverdeling. Een DIP is een IP-adres op een Azure virtuele NIC die is gekoppeld aan een virtuele machine in de back-endpool.
+Wanneer u een Azure Load Balancer definieert, zijn een front-end- en een back-end van toepassingen is geconfigureerd met regels worden verbonden. De health test waarnaar wordt verwezen door de regel wordt gebruikt om te bepalen hoe nieuwe stromen worden verzonden naar een knooppunt in de back-endpool. De frontend (aka VIP) wordt gedefinieerd door een 3-tuple bestaat uit een IP-adres (openbare of interne), een transportprotocol (UDP of TCP) en een poortnummer van de regel voor taakverdeling. De back-endpool is een verzameling van virtuele Machine IP-configuraties (onderdeel van de resource NIC) die verwijzen naar de back-endadresgroep voor Load Balancer.
 
 De volgende tabel bevat enkele voorbeeld-frontend-configuraties:
 
@@ -134,6 +132,10 @@ Het regeltype zwevend IP vormt de basis van verschillende patronen van load bala
 ## <a name="limitations"></a>Beperkingen
 
 * Configuraties met meerdere frontend worden alleen ondersteund met IaaS VM's.
-* Met de regel zwevend IP moet uw toepassing het DIP gebruiken voor uitgaande stromen. Als uw toepassing aan de frontend-IP-adres geconfigureerd op de loopback-interface in het gastbesturingssysteem koppelt, vervolgens snat omzetten is niet beschikbaar voor het herschrijven van de uitgaande stroom en de stroom is mislukt.
+* Met de regel zwevend IP moet uw toepassing de primaire IP-configuratie gebruiken voor uitgaande stromen. Als uw toepassing wordt gebonden aan de frontend-IP-adres geconfigureerd op de loopback-interface in het gastbesturingssysteem, Azure van snat omzetten is niet beschikbaar is voor het herschrijven van de uitgaande stroom en de stroom is mislukt.
 * Openbare IP-adressen hebben een invloed op de facturering. Zie voor meer informatie [prijzen van IP-adres](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Abonnement-beperkingen gelden. Zie voor meer informatie [Servicelimieten](../azure-subscription-service-limits.md#networking-limits) voor meer informatie.
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Bekijk [uitgaande verbindingen](load-balancer-outbound-connections.md) om te begrijpen van de impact van meerdere frontends van uitgaande Verbindingsgedrag.

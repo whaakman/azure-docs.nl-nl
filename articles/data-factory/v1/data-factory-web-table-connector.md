@@ -2,10 +2,9 @@
 title: Verplaatsen van gegevens van Web-tabel met behulp van Azure Data Factory | Microsoft Docs
 description: Meer informatie over het verplaatsen van gegevens uit een tabel in een webpagina met behulp van Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8f35a2bec410eccc59a19e5b82b9e109b15f0738
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Verplaatsen van gegevens uit een tabel Webbron met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -127,7 +126,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle typen activiteiten.
 
 Terwijl de eigenschappen die beschikbaar zijn in de sectie typeProperties van de activiteit variëren met elk activiteitstype. Voor de kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
@@ -294,7 +293,7 @@ Zie [WebSource type-eigenschappen](#copy-activity-type-properties) voor de lijst
 
     ![Dialoogvenster Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
-    URL die wordt gebruikt in dit voorbeeld: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
+    De URL in dit voorbeeld gebruikt: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4. Als u ziet **toegang tot webinhoud** dialoogvenster Selecteer het recht **URL**, **verificatie**, en klik op **Connect**.
 
    ![Dialoogvenster voor toegang tot Web-inhoud](./media/data-factory-web-table-connector/AccessWebContentDialog.png)

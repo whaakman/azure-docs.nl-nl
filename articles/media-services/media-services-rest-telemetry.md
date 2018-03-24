@@ -2,10 +2,10 @@
 title: Telemetrie van Azure Media Services configureren met REST | Microsoft Docs
 description: Dit artikel laat zien hoe u de REST-API met Azure Media Services-telemetrie...
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7d785c6eb9a9e16ae4853cded3c7c142080c7a09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd093a0b8408e9dcffd4eb9765a767f78fd6fc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Telemetrie van Azure Media Services configureren met REST
 
@@ -33,7 +33,7 @@ De stappen in dit onderwerp beschreven zijn:
 - De Meldingseindpunten ophalen
 - Maken van een Meldingseindpunt voor bewaking. 
 
-    Als u een Meldingseindpunt, stelt u de EndPointType AzureTable (2) en endPontAddress ingesteld op de opslag-tabel (bijvoorbeeld https://telemetryvalidationstore.table.core.windows.net/).
+    Als u een Meldingseindpunt, stelt de EndPointType AzureTable (2) en endPontAddress ingesteld op de tabel opslag (bijvoorbeeld https://telemetryvalidationstore.table.core.windows.net/).
   
 - Het bewaken van configuraties ophalen
 
@@ -45,7 +45,7 @@ De stappen in dit onderwerp beschreven zijn:
  
 ## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Het opslagaccount die is gekoppeld aan een Media Services-account ophalen
 
-###<a name="request"></a>Aanvraag
+### <a name="request"></a>Aanvraag
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
     x-ms-version: 2.13
@@ -73,7 +73,7 @@ De stappen in dit onderwerp beschreven zijn:
 
 ## <a name="get-the-notification-endpoints"></a>De Meldingseindpunten ophalen
 
-###<a name="request"></a>Aanvraag
+### <a name="request"></a>Aanvraag
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -83,7 +83,7 @@ De stappen in dit onderwerp beschreven zijn:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
     
-###<a name="response"></a>Antwoord
+### <a name="response"></a>Antwoord
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 20
@@ -106,7 +106,7 @@ De stappen in dit onderwerp beschreven zijn:
  
 ## <a name="create-a-notification-endpoint-for-monitoring"></a>Maken van een Meldingseindpunt voor bewaking
 
-###<a name="request"></a>Aanvraag
+### <a name="request"></a>Aanvraag
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -125,9 +125,9 @@ De stappen in dit onderwerp beschreven zijn:
     }
 
 >[!NOTE]
->Vergeet niet de waarde 'https://telemetryvalidationstore.table.core.windows.net' wijzigen naar uw opslagaccount.
+>Vergeet niet wijzigen van de 'https://telemetryvalidationstore.table.core.windows.net' waarde naar uw opslagaccount.
 
-###<a name="response"></a>Antwoord
+### <a name="response"></a>Antwoord
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -158,7 +158,7 @@ De stappen in dit onderwerp beschreven zijn:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-###<a name="response"></a>Antwoord
+### <a name="response"></a>Antwoord
     
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -221,7 +221,7 @@ De stappen in dit onderwerp beschreven zijn:
 
 ## <a name="stop-telemetry"></a>Geen telemetrie meer
 
-###<a name="request"></a>Aanvraag
+### <a name="request"></a>Aanvraag
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
     x-ms-version: 2.13

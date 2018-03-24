@@ -1,9 +1,9 @@
 ---
 title: Overzicht van metrische gegevens in Microsoft Azure | Microsoft Docs
 description: Overzicht van metrische gegevens en het gebruik ervan in Microsoft Azure
-author: johnkemnetz
+author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: johnkem
-ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/19/2018
+ms.author: ancav
+ms.openlocfilehash: 88020b27403f06ab8f1c0a1c45b798db02f517f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Overzicht van metrische gegevens in Microsoft Azure
 Dit artikel wordt beschreven wat metrische gegevens zijn in Microsoft Azure, hun voordelen en het gebruik ervan.  
@@ -38,9 +38,9 @@ Metrische gegevens zijn een waardevolle bron van Telemetrie en kunt u de volgend
 ## <a name="what-are-the-characteristics-of-metrics"></a>Wat zijn de kenmerken van metrische gegevens?
 Metrische gegevens hebben de volgende kenmerken:
 
-* Alle metrische gegevens hebt **één minuut frequentie**. U ontvangt een metrische waarde elke minuut van uw resource zodat u bijna real-time inzicht in de status en gezondheid van uw resource.
+* Alle metrische gegevens hebt **frequentie van één minuut** (tenzij anders opgegeven in de definitie van een metriek). U ontvangt een metrische waarde elke minuut van uw resource zodat u bijna real-time inzicht in de status en gezondheid van uw resource.
 * Metrische gegevens zijn **beschikbaar onmiddellijk**. U hoeft niet te opt-in- of aanvullende diagnostische gegevens in te stellen.
-* U hebt toegang tot **30 dagen van de geschiedenis** voor elke metriek. U kunt snel zoeken op de recente en een maandelijkse trends in de prestaties of de status van de resource.
+* U hebt toegang tot **93 dagen** voor elke metriek. U kunt snel zoeken op de recente en een maandelijkse trends in de prestaties of de status van de resource.
 * Sommige metrische naam / waarde-paar kenmerken aangeroepen kan hebben **dimensies**. Hiermee kunt u verder segmenteren en een waarde in een duidelijker manier verkennen.
 
 U kunt ook:
@@ -93,7 +93,7 @@ Azure metrische gegevens zijn toegankelijk via de Azure-Monitor API's. Er zijn t
 * Gebruik de [REST API voor de metrische gegevens van de Monitor van de Azure](https://docs.microsoft.com/rest/api/monitor/metrics) segmenteren, filteren en toegang tot de werkelijke metrische gegevens.
 
 > [!NOTE]
-> In dit artikel bevat informatie over de metrische gegevens via de [nieuwe API voor metrieken](https://docs.microsoft.com/rest/api/monitor/) voor Azure-resources. De API-versie voor de nieuwe metrische definities en metrische gegevens API's is 2017-05-01-preview. De verouderde metrische definities en metrische gegevens kunnen worden geopend met de API-versie 2014-04-01.
+> In dit artikel bevat informatie over de metrische gegevens via de [nieuwe API voor metrieken](https://docs.microsoft.com/rest/api/monitor/) voor Azure-resources. De API-versie voor de nieuwe metrische definities en metrische gegevens API's is 2018-01-01. De verouderde metrische definities en metrische gegevens kunnen worden geopend met de API-versie 2014-04-01.
 >
 >
 

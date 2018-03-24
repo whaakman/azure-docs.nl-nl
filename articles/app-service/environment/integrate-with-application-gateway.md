@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: ccompy
-ms.openlocfilehash: d56eab79c3b3f6b37dc39d8e4bea0d5b7759631a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>Uw ILB App Service-omgeving integreren met een application gateway #
 
-De [App Service-omgeving voor PowerApps](./intro.md) is een Azure App Service-implementatie in het subnet van een klant virtuele Azure-netwerk. Het kan worden geïmplementeerd met een openbare of particuliere eindpunt voor toegang tot Apps. De implementatie van de App Service-omgeving met een persoonlijke eindpunt (dat wil zeggen, een interne load balancer) heet een ILB-App Service-omgeving.  
+De [App Service-omgeving](./intro.md) is een Azure App Service-implementatie in het subnet van een klant virtuele Azure-netwerk. Het kan worden geïmplementeerd met een openbare of particuliere eindpunt voor toegang tot Apps. De implementatie van de App Service-omgeving met een persoonlijke eindpunt (dat wil zeggen, een interne load balancer) heet een ILB-App Service-omgeving.  
 
 Azure Application Gateway is een virtueel apparaat zorgt laag 7 taakverdeling, SSL-offloading en beveiliging van web application firewall (WAF). Wordt geluisterd op een openbaar IP-adres en route verkeer naar het toepassingseindpunt van uw. 
 

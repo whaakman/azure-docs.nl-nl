@@ -3,23 +3,19 @@ title: ASP.NET Azure Active Directory B2C-verificatie, aanmelden, wachtwoord opn
 description: Het bouwen van een webtoepassing met sign-up-to-date/aanmelden, profiel bewerken en wachtwoord opnieuw instellen met behulp van Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: barbaraselden
-ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: parakhj
-ms.custom: seohack1
-ms.openlocfilehash: ffc46f4348a2ac3cae51c859a24c609756a710fe
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: davidmu
+ms.openlocfilehash: f7b7cce84f8ff7be14120568e710432be639ce8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Een ASP.NET-web-app maken met Azure Active Directory B2C registreren, aanmelden, profiel bewerken en wachtwoord opnieuw instellen
 
@@ -65,11 +61,11 @@ Selecteer in de instellingen voor **identiteitsproviders** en kiest u registrati
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-### <a name="create-a-profile-editing-policy"></a>Maken van een profiel te bewerken van beleid
+### <a name="create-a-profile-editing-policy"></a>Een beleid voor profielbewerking maken
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
-### <a name="create-a-password-reset-policy"></a>Maak een beleid voor wachtwoord opnieuw instellen
+### <a name="create-a-password-reset-policy"></a>Een beleid voor het opnieuw instellen van het wachtwoord maken
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
@@ -83,7 +79,7 @@ De code voor deze zelfstudie wordt bewaard in [GitHub](https://github.com/Azure-
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Nadat u de voorbeeldcode hebt gedownload, opent u het SLN-bestand in Visual Studio om aan de slag te gaan. Het oplossingsbestand bevat twee projecten: `TaskWebApp` en `TaskService`. `TaskWebApp`is de MVC-webtoepassing die de gebruiker werkt. `TaskService` is de web-API voor de back-end van de app waarin elke takenlijst van de gebruiker wordt opgeslagen. In dit artikel wordt alleen de `TaskWebApp`-toepassing beschreven. Voor meer informatie over het bouwen van `TaskService` met behulp van Azure AD B2C, Zie [onze .NET web api-zelfstudie](active-directory-b2c-devquickstarts-api-dotnet.md).
+Nadat u de voorbeeldcode hebt gedownload, opent u het SLN-bestand in Visual Studio om aan de slag te gaan. Het oplossingsbestand bevat twee projecten: `TaskWebApp` en `TaskService`. `TaskWebApp` is de MVC-webtoepassing die de gebruiker werkt. `TaskService` is de web-API voor de back-end van de app waarin elke takenlijst van de gebruiker wordt opgeslagen. In dit artikel wordt alleen de `TaskWebApp`-toepassing beschreven. Voor meer informatie over het bouwen van `TaskService` met behulp van Azure AD B2C, Zie [onze .NET web api-zelfstudie](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## <a name="update-code-to-use-your-tenant-and-policies"></a>Update-code voor het gebruik van uw tenant en -beleid
 
@@ -97,7 +93,7 @@ Ons voorbeeld is geconfigureerd voor gebruik van het beleid en de client-id van 
 * `ida:ResetPasswordPolicyId` door de naam van uw 'Wachtwoord opnieuw instellen'-beleid
 
 ## <a name="launch-the-app"></a>Start de app
-Start de app in Visual Studio uit. Navigeer naar het tabblad takenlijst en noteert u de URl is: https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id = *YourclientID*...
+Start de app in Visual Studio uit. Navigeer naar het tabblad takenlijst en noteert u de URl is: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
 
 Zich registreren voor de app met behulp van de naam van uw e-mailadres of de gebruiker. Meld u af, en vervolgens opnieuw aan te melden en het profiel bewerken of het wachtwoord opnieuw instellen. Meld u af en meld u aan als een andere gebruiker. 
 

@@ -3,22 +3,22 @@ title: Aggregatie van Azure Service Fabric-gebeurtenis met Windows Azure Diagnos
 description: Meer informatie over het aggregeren en het verzamelen van gebeurtenissen met af voor controle en diagnostische gegevens van Azure Service Fabric-clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 03/19/2018
+ms.author: dekapur;srrengar
+ms.openlocfilehash: f8159d8637967c3297c886ec79a002f0765047e4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Gebeurtenis-aggregatie en verzameling op basis van Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -170,67 +170,75 @@ Werk vervolgens de `VirtualMachineProfile` gedeelte van het bestand template.jso
 
 Nadat u het bestand template.json aanpassen zoals is beschreven, publiceert u de Resource Manager-sjabloon opnieuw. Als de sjabloon is geëxporteerd, het bestand deploy.ps1 uitvoert rapport opnieuw publiceert de sjabloon. Nadat u hebt geïmplementeerd, zorg ervoor dat **ProvisioningState** is **geslaagd**.
 
-## <a name="collect-health-and-load-events"></a>Health verzamelen en laden van gebeurtenissen
+## <a name="log-collection-configurations"></a>Meld u verzameling configuraties
+Logboeken van extra kanalen zijn ook beschikbaar voor de verzameling, Hier volgen enkele van de meest voorkomende configuraties die kunt u in de sjabloon voor clusters worden uitgevoerd in Azure.
 
-Beginnen met de 5,4 release van Service Fabric, zijn status en load metrische gebeurtenissen beschikbaar voor de verzameling. Deze gebeurtenissen gebeurtenissen die door het systeem of uw code worden gegenereerd met behulp van de status aangeven of rapportage-API's, zoals laden [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) of [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Hierdoor kan voor het aggregeren en weergeven van systeemstatus na verloop van tijd en voor waarschuwingen op basis van status- of load-gebeurtenissen. Om weer te geven deze gebeurtenissen in Visual Studio diagnostische logboeken toevoegen ' Microsoft-ServiceFabric:4:0x4000000000000008 ' aan de lijst met ETW-providers.
-
-Voor het verzamelen van gebeurtenissen in het cluster, wijzig de `scheduledTransferKeywordFilter` in de WadCfg van uw sjabloon Resource Manager `4611686018427387912`.
+* Operationele kanaal - Base: Ingeschakeld op hoog niveau bewerkingen wordt uitgevoerd door de Service Fabric en het cluster, met inbegrip van gebeurtenissen voor een knooppunt is afkomstig van een nieuwe toepassing wordt geïmplementeerd, of kunnen een upgrade terugdraaien, enzovoort. Raadpleeg voor een lijst met gebeurtenissen [operationele kanaal gebeurtenissen](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+  
+```json
+      scheduledTransferKeywordFilter: "4611686018427387904"
+  ```
+* Operationele kanaal - gedetailleerde: Dit omvat statusrapporten en taakverdeling beslissingen, plus alles in het basistype operationele kanaal. Deze gebeurtenissen worden gegenereerd door het systeem of uw code met behulp van de status of rapportage-API's, zoals load [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) of [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Om weer te geven deze gebeurtenissen in Visual Studio diagnostische logboeken toevoegen ' Microsoft-ServiceFabric:4:0x4000000000000008 ' aan de lijst met ETW-providers.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387912",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387912"
+  ```
 
-## <a name="collect-reverse-proxy-events"></a>Omgekeerde proxy-gebeurtenissen verzamelen
-
-Beginnen met de 5.7 release van Service Fabric [omgekeerde proxy](service-fabric-reverseproxy.md) gebeurtenissen zijn beschikbaar voor de verzameling via de kanalen gegevens & Messaging. 
-
-De omgekeerde proxy duwt alleen foutgebeurtenissen via de belangrijkste gegevens & Messaging kanaal - Aanvraagverwerking kritieke problemen en fouten opgetreden bij het weergeven. De gedetailleerde kanaal bevat uitgebreide gebeurtenissen over de aanvragen die zijn verwerkt door de omgekeerde proxy. 
-
-Om weer te geven de foutgebeurtenissen in Visual Studio diagnostische logboeken toevoegen ' Microsoft-ServiceFabric:4:0x4000000000000010 ' aan de lijst met ETW-providers. Voor alle aanvraagtelemetrie update voor de Microsoft-ServiceFabric vermelding in de lijst voor ETW-provider voor ' Microsoft-ServiceFabric:4:0x4000000000000020 '.
-
-Voor clusters worden uitgevoerd in Azure:
-
-Wijzigen zodat de traceringen in de belangrijkste gegevens & Messaging-kanaal worden opgepikt, de `scheduledTransferKeywordFilter` waarde in de WadCfg van uw sjabloon Resource Manager `4611686018427387920`.
+* Gegevens en berichten kanaal - Base: essentiële logboeken en gebeurtenissen die worden gegenereerd in de messaging-(momenteel alleen de ReverseProxy) en het gegevenspad, ook naar Logboeken gedetailleerde operationele kanaal. Deze gebeurtenissen zijn fouten en andere belangrijke problemen in de ReverseProxy en aanvragen verwerkt voor aanvraagverwerking. **Dit is de aanbeveling voor uitgebreide logboekregistratie**. Toevoegen om weer te geven deze gebeurtenissen in Visual Studio diagnostische logboeken, ' Microsoft-ServiceFabric:4:0x4000000000000010 ' aan de lijst met ETW-providers.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387920",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387928"
+  ```
 
-Gedetailleerde verwerking van alle gebeurtenissen verzamelt, schakelt u de gegevens & Messaging - kanaal door het wijzigen van de `scheduledTransferKeywordFilter` waarde in de WadCfg van uw sjabloon Resource Manager `4611686018427387936`.
+* Gegevens & Messaging-kanaal - gedetailleerde: uitgebreide kanaal dat deze bevat de niet-kritieke logboeken van gegevens en berichten in het cluster en het gedetailleerde operationele kanaal. Voor gedetailleerde probleemoplossing voor alle reverse proxy-gebeurtenissen, verwijzen naar de [omgekeerde proxy diagnostics handleiding](service-fabric-reverse-proxy-diagnostics.md).  Toevoegen om weer te geven deze gebeurtenissen in Visual Studio diagnostische logboeken, ' Microsoft-ServiceFabric:4:0x4000000000000020 ' aan de lijst met ETW-providers.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387936",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387944"
+  ```
 
-Inschakelen van verzamelen van gebeurtenissen van deze gedetailleerde kanaal resultaten in een groot aantal traceringen snel wordt gegenereerd en opslagcapaciteit kan gebruiken. Alleen dit inschakelen als dit echt nodig.
-Voor gedetailleerde probleemoplossing van de reverse proxy-gebeurtenissen, raadpleegt u de [omgekeerde proxy diagnostics handleiding](service-fabric-reverse-proxy-diagnostics.md).
+>[!NOTE]
+>Dit kanaal is een zeer groot aantal gebeurtenissen, waardoor gebeurtenissen verzamelen van deze gedetailleerde kanaal resultaten in een groot aantal traceringen snel wordt gegenereerd en opslagcapaciteit kan gebruiken. Schakel alleen dit in als dit echt nodig.
+
+
+Om in te schakelen de **Base-gegevens en de Messaging-kanaal** de aanbeveling voor uitgebreide logboekregistratie, de `EtwManifestProviderConfiguration` in de `WadCfg` van uw sjabloon eruit als het volgende:
+
+```json
+  "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+          "overallQuotaInMB": "50000",
+          "EtwProviders": {
+            "EtwEventSourceProviderConfiguration": [
+              {
+                "provider": "Microsoft-ServiceFabric-Actors",
+                "scheduledTransferKeywordFilter": "1",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableActorEventTable"
+                }
+              },
+              {
+                "provider": "Microsoft-ServiceFabric-Services",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableServiceEventTable"
+                }
+              }
+            ],
+            "EtwManifestProviderConfiguration": [
+              {
+                "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricSystemEventTable"
+                }
+              }
+            ]
+          }
+        }
+      },
+```
 
 ## <a name="collect-from-new-eventsource-channels"></a>Verzamelen van nieuwe EventSource kanalen
 

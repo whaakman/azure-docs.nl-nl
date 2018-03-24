@@ -5,20 +5,20 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3236c0ad9676712afd220a3c8a9326f3ea1f59d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Snelstartgids: Scale compute in Azure SQL Data Warehouse in PowerShell
 
@@ -64,7 +64,7 @@ Volg deze stappen voor de locatie-informatie voor uw datawarehouse niet vinden.
 
     ![Servergroep en de bron](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Noteer de naam datawarehouse die wordt gebruikt als de databasenaam van de. Ook noteert u de naam van de server en de resourcegroep. U wilt gebruiken in het onderbreken en hervatten opdrachten.
+4. Noteer de naam voor het datawarehouse van gegevens, die wordt gebruikt als de naam van de database. Vergeet niet een datawarehouse is een type van de database. Ook noteert u de naam van de server en de resourcegroep. U wilt gebruiken in het onderbreken en hervatten opdrachten.
 5. Als uw server foo.database.windows.net, gebruikt u alleen het eerste deel als de naam van de server in de PowerShell-cmdlets. In de voorgaande afbeelding is de volledige servernaam newserver 20171113.database.windows.net. We gebruiken **newserver 20171113** als de naam van de server in de PowerShell-cmdlet.
 
 ## <a name="scale-compute"></a>De schaal van Compute aanpassen
@@ -77,12 +77,13 @@ Datawarehouse als eenheden wilt wijzigen, gebruikt u de [Set-AzureRmSqlDatabase]
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
-## <a name="check-database-state"></a>Controleer de databasestatus van de
+## <a name="check-data-warehouse-state"></a>Controleer de status van datawarehouse
 
 Als de huidige status van het datawarehouse wilt weergeven, gebruikt de [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell-cmdlet. Hiermee wordt de status van de **mySampleDataWarehouse** database in ResourceGroup **myResourceGroup** en server **mynewserver 20171113.database.windows.net**.
 
 ```powershell
-Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database
 ```
 
 Dit resulteert in ongeveer het volgende:
@@ -113,7 +114,13 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-U kunt vervolgens controleren de **Status** van de database. In dit geval kunt u zien dat deze database online is.  Wanneer u deze opdracht uitvoert, ontvangt u een waarde voor de Status van Online, onderbreken, hervat, Scaling of onderbroken.
+U ziet de **Status** van de database in de uitvoer. In dit geval kunt u zien dat deze database online is.  Wanneer u deze opdracht uitvoert, ontvangt u een waarde voor de Status van Online, onderbreken, hervat, Scaling of onderbroken. 
+
+Als de status zelfstandig wilt weergeven, gebruikt u de volgende opdracht:
+
+```powershell
+$database | Select-Object DatabaseName,Status
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 U hebt nu geleerd hoe schalen compute voor uw datawarehouse. Voor meer informatie over Azure SQL Data Warehouse gaat u verder met de zelfstudie voor het laden van gegevens.

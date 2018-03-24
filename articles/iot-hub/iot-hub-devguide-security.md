@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 45631e70-865b-4e06-bb1d-aae1175a52ba
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9de332324ba853d3df0aacce2db4bbc3d4d9d62d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
@@ -72,7 +72,7 @@ Zie voor meer informatie over het maken en gebruiken van beveiligingstokens [IoT
 
 Elke ondersteunde protocollen, zoals MQTT AMQP en HTTPS, transporten tokens op verschillende manieren.
 
-Wanneer u MQTT, het CONNECT-pakket heeft de apparaat-id als de ClientId `{iothubhostname}/{deviceId}` in het veld Username en een SAS-token in het veld wachtwoord. `{iothubhostname}`moet u de volledige CName van de IoT-hub (bijvoorbeeld contoso.azure-devices.net).
+Wanneer u MQTT, het CONNECT-pakket heeft de apparaat-id als de ClientId `{iothubhostname}/{deviceId}` in het veld Username en een SAS-token in het veld wachtwoord. `{iothubhostname}` moet u de volledige CName van de IoT-hub (bijvoorbeeld contoso.azure-devices.net).
 
 Wanneer u [AMQP][lnk-amqp], IoT-Hub ondersteunt [SASL zonder opmaak] [ lnk-sasl-plain] en [AMQP Claims-beveiliging op basis van-] [ lnk-cbs].
 
@@ -80,8 +80,8 @@ Als u AMQP claims-beveiliging op basis van-gebruikt, geeft de standaard geeft aa
 
 Voor SASL zonder opmaak, de **gebruikersnaam** kan zijn:
 
-* `{policyName}@sas.root.{iothubName}`Als met IoT hub-niveau tokens.
-* `{deviceId}@sas.{iothubname}`Als het gebruik van tokens binnen het bereik van apparaat.
+* `{policyName}@sas.root.{iothubName}` Als met IoT hub-niveau tokens.
+* `{deviceId}@sas.{iothubname}` Als het gebruik van tokens binnen het bereik van apparaat.
 
 In beide gevallen wordt het wachtwoordveld bevat het token, zoals beschreven in [IoT Hub beveiligingstokens][lnk-sas-tokens].
 
@@ -89,9 +89,9 @@ HTTPS wordt de verificatie geïmplementeerd door een geldig token in de **autori
 
 #### <a name="example"></a>Voorbeeld
 
-Gebruikersnaam (DeviceId is hoofdlettergevoelig):`iothubname.azure-devices.net/DeviceId`
+Gebruikersnaam (DeviceId is hoofdlettergevoelig): `iothubname.azure-devices.net/DeviceId`
 
-Wachtwoord (genereren van SAS-token met de [apparaat explorer] [ lnk-device-explorer] hulpprogramma):`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+Wachtwoord (genereren van SAS-token met de [apparaat explorer] [ lnk-device-explorer] hulpprogramma): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > De [Azure IoT SDK's] [ lnk-sdks] automatisch genereren van tokens bij het verbinden met de service. In sommige gevallen worden de Azure IoT SDK's bieden geen ondersteuning alle protocollen of de verificatiemethoden.
@@ -206,12 +206,12 @@ public static string generateSasToken(string resourceUri, string key, string pol
     TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
     string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
 
-    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+    string stringToSign = WebUtility.UrlEncode(resourceUri) + "\n" + expiry;
 
     HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
     string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
 
-    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri), WebUtility.UrlEncode(signature), expiry);
 
     if (!String.IsNullOrEmpty(policyName))
     {

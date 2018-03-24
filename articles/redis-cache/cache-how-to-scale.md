@@ -2,10 +2,10 @@
 title: Schalen van Azure Redis-Cache | Microsoft Docs
 description: Meer informatie over het schalen van uw Azure Redis-Cache-exemplaren
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: b0a9208681b164fe7be33bf9ef5f635358284ba3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0cf0e41fe03bf3be7ecf2172cff3e6ab5f3eb65d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Schalen van Azure Redis-Cache
 Azure Redis-Cache heeft verschillende cache aanbiedingen die flexibiliteit bij de keuze van de cachegrootte en -functies bieden. Nadat een cache is gemaakt, kunt u de grootte en de prijscategorie van de cache schalen als de vereisten van uw toepassing veranderen. In dit artikel leest u hoe de cache met behulp van de Azure-portal en hulpprogramma's zoals Azure PowerShell en Azure CLI schalen.
@@ -111,6 +111,7 @@ De volgende lijst bevat antwoorden op veelgestelde vragen over het schalen van A
 * [Ik verliest gegevens uit de cache tijdens schalen?](#will-i-lose-data-from-my-cache-during-scaling)
 * [Mijn aangepaste databases configureert betrokken tijdens schalen?](#is-my-custom-databases-setting-affected-during-scaling)
 * [Mijn cache is beschikbaar tijdens het schalen?](#will-my-cache-be-available-during-scaling)
+* [Met Geo-replicatie is geconfigureerd, waarom kan ik geen mijn cache schalen of wijzigen van de shards in een cluster?](#scaling-limitations-with-geo-relication)
 * [Bewerkingen die worden niet ondersteund](#operations-that-are-not-supported)
 * [Hoe lang duurt schalen voordat?](#how-long-does-scaling-take)
 * [Hoe weet ik wanneer de schaal is voltooid?](#how-can-i-tell-when-scaling-is-complete)
@@ -151,6 +152,12 @@ Standaard- en Premium-caches hebben een SLA met 99,9% voor beschikbaarheid, maar
 * **Standaard** en **Premium** caches beschikbaar blijven tijdens de bewerking uit te schalen. Verbinding blips kunnen echter optreden tijdens het schalen van Standard en Premium-caches en tijdens het schalen van Basic naar Standard caches. Deze verbinding blips zijn bedoeld voor kleine en redis-clients moeten mogelijk opnieuw verbinding tot stand brengen hun onmiddellijk.
 * **Basic** caches zijn offline tijdens het schalen van bewerkingen die een verschillende grootte. Basic caches beschikbaar blijven tijdens het schalen van **Basic** naar **standaard** maar een kleine verbinding blip kunnen optreden. Als er een verbinding blip optreedt, kunnen redis-clients opnieuw verbinding tot stand brengen hun onmiddellijk moeten mogelijk.
 
+
+### <a name="scaling-limitations-with-geo-relication"></a>Beperkingen in de Geo-relication schalen
+
+Nadat u een koppeling Geo-replicatie tussen de twee caches hebt toegevoegd, kunt u zich niet langer een vergroten/verkleinen bewerking geïnitieerd of wijzig het aantal shards in een cluster. U kunt de cache voor het uitgeven van deze opdrachten moet ontkoppelen. Zie voor meer informatie [Geo-replicatie configureren](cache-how-to-geo-replication.md).
+
+
 ### <a name="operations-that-are-not-supported"></a>Bewerkingen die worden niet ondersteund
 * U kan niet uit een hogere prijscategorie schalen naar een lagere prijscategorie.
   * U kunt geen schalen van een **Premium** omlaag naar de cache een **standaard** of een **Basic** cache.
@@ -160,6 +167,7 @@ Standaard- en Premium-caches hebben een SLA met 99,9% voor beschikbaarheid, maar
 * Kan niet worden geschaald uit een groter formaat omlaag naar de **C0 (250 MB)** grootte.
 
 Als een vergroten/verkleinen mislukt de service probeert om de bewerking terug te zetten en de cache wordt teruggezet naar de oorspronkelijke grootte.
+
 
 ### <a name="how-long-does-scaling-take"></a>Hoe lang duurt schalen voordat?
 Schalen duurt ongeveer 20 minuten, afhankelijk van hoeveel gegevens zich in de cache.

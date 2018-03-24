@@ -5,27 +5,24 @@ services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: a7e8ae605b6234341d9ab8b790f4c54d8627f29f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Traffic Manager echte gebruiker metingen overzicht
-
->[!NOTE]
->De functie echte gebruiker metingen in Traffic Manager kan is openbare preview-versie en geen hetzelfde niveau van beschikbaarheid en betrouwbaarheid zoals functies die in het algemeen beschikbaarheid release. De functie wordt niet ondersteund, kan hebben beperkte mogelijkheden en mogelijk niet beschikbaar in alle Azure-locaties. Voor de meest recente meldingen op beschikbaarheid en de status van deze functie, Controleer de [Azure Traffic Manager-updates](https://azure.microsoft.com/updates/?product=traffic-manager) pagina.
 
 Bij het instellen van een Traffic Manager-profiel gebruiken, de routeringsmethode voor prestaties, de service wordt bekeken waarbij de DNS-queryaanvragen afkomstig zijn uit en maakt Routeringsbeslissingen om te verwijzen die aanvragers de Azure-regio waarmee ze de laagste latentie. Dit wordt bereikt door het gebruik van het netwerk latentie intelligence die Traffic Manager voor verschillende eindgebruiker netwerken onderhoudt.
 

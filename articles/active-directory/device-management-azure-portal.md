@@ -2,10 +2,10 @@
 title: Het beheren van apparaten met de Azure portal | Microsoft Docs
 description: Informatie over het gebruik van de Azure-portal om apparaten te beheren.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 85447809cbc803c13ad731b5328e94a1b03abba8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a4bdea4844c4aaa9990d619d59326a83cf0aef6c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Het beheer van apparaten met de Azure portal
 
@@ -36,7 +36,7 @@ Dit onderwerp:
 
 De Azure-portal biedt een centrale locatie voor het beheren van uw apparaten. U toegang krijgen tot deze locatie met behulp van een [directe koppeling](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) of met de volgende handmatige stappen:
 
-1. Kana bij de [Azure-portal](https://portal.azure.com) als administrator.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als administrator.
 
 2. Klik op de navigatiebalk links, **Active Directory**.
 

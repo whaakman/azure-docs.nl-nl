@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 3b0afd52ccfa3aa637a64e57601cd5f43fe8df10
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a4b8cbbe3d75702f38b5060957aff9f5c30e1daa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Zelfstudie: Azure Active Directory-integratie met CylancePROTECT
 
@@ -138,7 +138,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![CylancePROTECT configuratie](./media/active-directory-saas-cylanceprotect-tutorial/tutorial_cylanceprotect_configure.png) 
 
-7. Eenmalige aanmelding configureren op **CylancePROTECT** zijde, moet u de gedownloade verzenden **Certificate(Base64), Sign-Out URL SAML entiteit-ID en SAML Single Sign-On Service-URL** naar [ Het ondersteuningsteam CylancePROTECT](mailto:Ibrahim.nafea@toyota.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+7. Eenmalige aanmelding configureren op **CylancePROTECT** zijde, moet u de gedownloade verzenden **Certificate(Base64), Sign-Out URL SAML entiteit-ID en SAML Single Sign-On Service-URL** naar console-beheerder. Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -177,7 +177,7 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
   
 ### <a name="create-a-cylanceprotect-test-user"></a>Een testgebruiker CylancePROTECT maken
 
-In deze sectie kunt u een gebruiker Britta Simon aangeroepen in CylancePROTECT maken. Werken met [CylancePROTECT ondersteuningsteam](mailto:Ibrahim.nafea@toyota.com) de gebruikers van het platform CylancePROTECT toevoegen. De accounthouder Azure Active Directory wordt een e-mailbericht ontvangen en Ga als volgt een koppeling om hun account te bevestigen voordat deze geactiveerd wordt.
+In deze sectie kunt u een gebruiker Britta Simon aangeroepen in CylancePROTECT maken. Werken met de beheerder van de console om toe te voegen de gebruikers van het platform CylancePROTECT. De accounthouder Azure Active Directory wordt een e-mailbericht ontvangen en Ga als volgt een koppeling om hun account te bevestigen voordat deze geactiveerd wordt.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

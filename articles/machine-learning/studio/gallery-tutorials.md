@@ -2,9 +2,10 @@
 title: Azure-galerie AI-zelfstudies | Microsoft Docs
 description: Detecteren en zelfstudies delen in AI-galerie van Azure.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 70f0eb31-7dca-4907-a5d7-504357dcd889
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 9a93a027ed5243496a86efff0d86de7092f44b43
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 6f9c765027ccd915d6754839353a744ac0743bc2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Detecteren en zelfstudies in de galerie van Azure AI delen
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ Om te bladeren zelfstudies [in de galerie](http://gallery.cortanaintelligence.co
 
 ![Zelfstudies op de startpagina van de galerie selecteren](./media/gallery-tutorials/select-tutorials-in-gallery.png)
 
-De  **[zelfstudies](https://gallery.cortanaintelligence.com/tutorials)**  pagina geeft een lijst met zelfstudies populaire en onlangs toegevoegd. Als u wilt zien alle zelfstudies, selecteer de **alle** knop. Als u wilt zoeken naar een specifieke zelfstudie, selecteer **alle**, en selecteer vervolgens filtercriteria. Ook kunt u zoektermen op in de **Search** vak aan de bovenkant van de pagina Galerie.
+De **[zelfstudies](https://gallery.cortanaintelligence.com/tutorials)** pagina geeft een lijst met zelfstudies populaire en onlangs toegevoegd. Als u wilt zien alle zelfstudies, selecteer de **alle** knop. Als u wilt zoeken naar een specifieke zelfstudie, selecteer **alle**, en selecteer vervolgens filtercriteria. Ook kunt u zoektermen op in de **Search** vak aan de bovenkant van de pagina Galerie.
 
 U kunt meer informatie over een zelfstudie op de pagina zelfstudie details ophalen. Als een detailpagina van de zelfstudie, schakelt u de zelfstudie. In de **opmerkingen** sectie op de pagina voor een zelfstudie details, u kunt opmerkingen, feedback geven of vragen over de zelfstudie. U kunt zelfs de zelfstudie delen met vrienden of collega's op Twitter of LinkedIn. U kunt ook een koppeling naar de zelfstudie detailpagina om uit te nodigen van andere gebruikers naar de pagina e.
 

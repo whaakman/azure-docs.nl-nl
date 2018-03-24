@@ -5,7 +5,7 @@ documentationcenter: na
 author: hpsin
 services: active-directory
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8f9eb95f49e0d2bd01d9ead7eda7d13288bfd573
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD-tokenverwijzing
 Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstokens bij de verwerking van elke verificatiestroom. Dit document beschrijft de indeling, de beveiligingskenmerken en de inhoud van elk type token.
@@ -321,3 +321,4 @@ Naast claims, bevat het token een versienummer in **ver** en **appidacr**, authe
 ## <a name="related-content"></a>Gerelateerde inhoud
 * Zie de Azure AD Graph [beleid operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) en de [beleid entiteit](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), voor meer informatie over het beheren van de levensduur van token beleid via de Azure AD Graph API.
 * Zie voor meer informatie over en voorbeelden voor het beheren van beleid via PowerShell-cmdlets, inclusief voorbeelden, [configureerbare token levensduur in Azure AD](../active-directory-configurable-token-lifetimes.md). 
+* Voeg [aangepaste en optionele claims](active-directory-optional-claims.md) naar de tokens voor uw toepassing. 

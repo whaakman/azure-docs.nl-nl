@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: c5952422bb4faec196a5a54b9f18cf9700988aad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/23/2018
+---
 1. Klik in de portal aan de linkerkant op **+** en typ in het zoekvak: 'virtuele netwerkgateway'. Klik op het zoekresultaat **Gateway van het virtuele netwerk**. Klik onder aan de pagina **Virtuele netwerkgateway** op **Maken** om de pagina **Virtuele netwerkgateway maken** te openen.
 2. Vul op de pagina **Virtuele netwerkgateway maken** de waarden in voor uw virtuele netwerkgateway.
 

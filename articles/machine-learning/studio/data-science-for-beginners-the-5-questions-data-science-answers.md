@@ -4,8 +4,9 @@ description: Gegevenswetenschap bestemd voor beginnende gebruikers is voor basis
 keywords: tijdens het doorzoeken van wetenschappelijke gegevens, wetenschappelijke beginnende gebruikers van gegevens, gegevenswetenschap voor beginnende gebruikers, basisbeginselen van wetenschappelijke gegevens, vragen over de wetenschappelijke gegevens, gegevens wetenschappelijke video, gegevens wetenschappelijke Inleiding
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 0482a680999e58b8be45334c9ae620b6b37ac273
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 494c8293a1dbfccbfe2df1e2f48f770edb6452dc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Gegevenswetenschap voor beginners, video 1: de 5 vragen waarop gegevenswetenschap antwoord geeft
 Een korte inleiding voor gegevenswetenschap van *Gegevenswetenschap voor beginnende gebruikers* in vijf korte video's van een wetenschappelijk bovenste gegevens. Deze video's zijn basic maar handig is, of u geïnteresseerd bent in tijdens het doorzoeken van wetenschappelijke gegevens, of u met gegevenswetenschappers werkt.

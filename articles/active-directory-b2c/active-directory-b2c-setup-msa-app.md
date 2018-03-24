@@ -2,27 +2,24 @@
 title: 'Azure Active Directory B2C: Configuratie Microsoft-account | Microsoft Docs'
 description: Registreren en aanmelden gebruikers met een Microsoft-account in uw toepassingen die zijn beveiligd met Azure Active Directory B2C bieden.
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 06407322-142c-4cb3-9106-a8d752c4c853
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: e746a5e7a2d9a13eb23ac0268104a9394c9b198d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e167c8737bc600f52759f33456fec3bc6e0a3678
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory B2C: Zich kunnen registreren en aanmelden gebruikers bieden met Microsoft-accounts
 ## <a name="create-a-microsoft-account-application"></a>Een toepassing van Microsoft-account maken
-Voor het gebruik van Microsoft-account als een id-provider in Azure Active Directory (Azure AD) B2C, moet u een toepassing van Microsoft-account maken en geeft deze met de juiste parameters. U moet een Microsoft-account om dit te doen. Als u niet hebt, kunt u krijgen op het [https://www.live.com/](https://www.live.com/).
+Voor het gebruik van Microsoft-account als een id-provider in Azure Active Directory (Azure AD) B2C, moet u een toepassing van Microsoft-account maken en geeft deze met de juiste parameters. U moet een Microsoft-account om dit te doen. Als u niet hebt, kunt u krijgen op het [ https://www.live.com/ ](https://www.live.com/).
 
 1. Ga naar de [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) en meld u aan met uw Microsoft-accountreferenties.
 2. Klik op **een app toevoegen**.
@@ -38,7 +35,7 @@ Voor het gebruik van Microsoft-account als een id-provider in Azure Active Direc
    
     ![Microsoft-account - platform toevoegen](./media/active-directory-b2c-setup-msa-app/msa-add-platform.png)
    
-    ![Microsoft-account - webservice](./media/active-directory-b2c-setup-msa-app/msa-web.png)
+    ![Microsoft account - Web](./media/active-directory-b2c-setup-msa-app/msa-web.png)
 6. Voer `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in de **omleidings-URI's** veld. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld contosob2c.onmicrosoft.com).
    
     ![Microsoft-account - Omleidings-URL](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)

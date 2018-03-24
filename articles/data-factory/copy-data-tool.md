@@ -1,21 +1,21 @@
 ---
-title: "Gegevens kopiëren van Azure Data Factory hulpprogramma | Microsoft Docs"
-description: "Bevat informatie over het hulpprogramma voor kopiëren in Azure Data Factory-gebruikersinterface"
+title: Gegevens kopiëren van Azure Data Factory hulpprogramma | Microsoft Docs
+description: Bevat informatie over het hulpprogramma voor kopiëren in Azure Data Factory-gebruikersinterface
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2fb25dcc0de4ebb1d025101670a9edfe3fe2bea9
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: b82ee060ff3f25e7a92c85114d457ecb349159b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Hulpprogramma voor kopiëren-gegevens in Azure Data Factory
 De gegevens kopiëren van Azure Data Factory-hulpprogramma kan vergemakkelijken en optimaliseert de het proces van het opnemen van gegevens in een data lake, dat meestal de eerste stap in een end-to-end gegevens integratiescenario.  Bespaart u tijd, vooral wanneer u Azure Data Factory om op te nemen van gegevens uit een gegevensbron voor de eerste keer gebruikt. Enkele van de voordelen van het gebruik van dit hulpprogramma zijn:
@@ -27,7 +27,7 @@ De gegevens kopiëren van Azure Data Factory-hulpprogramma kan vergemakkelijken 
 
 De volgende tabel bevat richtlijnen voor het gebruik van het hulpprogramma voor kopiëren versus per activiteit ontwerpen in Data Factory-gebruikersinterface: 
 
-| Hulpprogramma voor kopiëren-gegevens | Per activiteit (kopieeractiviteit) ontwerpen |
+| Hulpprogramma voor het kopiëren van gegevens | Per activiteit (kopieeractiviteit) ontwerpen |
 | -------------- | -------------------------------------- |
 | U wilt gemakkelijk maken voor een gegevens laden van taak zonder te weten over Azure Data Factory-entiteiten (gekoppelde services, gegevenssets, pijplijnen, enz.) | Wilt u complexe en flexibele logica voor het laden van gegevens in lake implementeren. |
 | Wilt u snel een groot aantal gegevensartefacten laden in een data lake. | U wilt kopiëren activiteit met de volgende activiteiten voor opschonen of in verwerking gegevens zijn gekoppeld. |
@@ -49,7 +49,7 @@ Dit hulpprogramma kunt u eenvoudig om gegevens te verplaatsen van een groot aant
 
  Het hulpprogramma is ontworpen met big data in gedachten vanaf het begin, met ondersteuning voor diverse gegevens en objecttypen. U kunt deze honderden mappen, bestanden of tabellen te verplaatsen. Het hulpprogramma ondersteunt voorbeeld van automatische gegevens, schema vastleggen en automatische toewijzing en gegevens ook filteren.
 
-![Hulpprogramma voor kopiëren-gegevens](./media/copy-data-tool/copy-data-tool.png)
+![Hulpprogramma voor het kopiëren van gegevens](./media/copy-data-tool/copy-data-tool.png)
 
 ## <a name="automatic-data-preview"></a>Voorbeeld van automatische gegevens
 Een gedeelte van de gegevens uit de geselecteerde bronsite gegevensopslag, zodat u kunt de gegevens die wordt gekopieerd, kunt u bekijken. Als de brongegevens zich in een tekstbestand, parseert het hulpprogramma voor kopiëren bovendien het tekstbestand voor automatische detectie van de rij en kolom scheidingstekens en het schema.

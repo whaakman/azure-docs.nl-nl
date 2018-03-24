@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 0c5a6b6d971d434a52bf80da6b34d7f6949589bc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Uw MySQL-database migreren naar Azure-Database voor MySQL met behulp van de dump en terugzetten
 Dit artikel wordt uitgelegd twee algemene manieren om te back-up en MySQL-databases in uw Azure-Database herstellen
@@ -87,10 +87,12 @@ $ mysqldump -u root -p --all-databases > alldb_backup.sql
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>Een database maken op de doel-Azure-Database voor de MySQL-server
 Een lege database maken op de doel-Azure-Database voor de MySQL-server waarop u wilt migreren van de gegevens. Gebruik een hulpprogramma zoals MySQL Workbench, Toad of Navicat om de database te maken. De database kan dezelfde naam hebben als de database die is opgenomen in de gedumpte gegevens of u een database met een andere naam maken kunt.
 
-Om verbinding te maken, door de verbindingsgegevens op de pagina eigenschappen in uw Azure-Database voor de MySQL te vinden.
-![De verbindingsgegevens niet vinden in de Azure-portal](./media/concepts-migrate-dump-restore/1_server-properties-name-login.png)
+Zoek de verbindingsinformatie in om verbinding te maken, de **overzicht** van uw Azure-Database voor MySQL.
+
+![De verbindingsgegevens niet vinden in de Azure-portal](./media/concepts-migrate-dump-restore/1_server-overview-name-login.png)
 
 Voeg de verbindingsinformatie in uw MySQL-Workbench.
+
 ![MySQL Workbench Connection String](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
 

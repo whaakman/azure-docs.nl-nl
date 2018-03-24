@@ -2,10 +2,10 @@
 title: Oplossing voor capaciteit en prestaties in Azure Log Analytics | Microsoft Docs
 description: De oplossing capaciteit en prestaties in Log Analytics gebruiken om te begrijpen van de capaciteit van de Hyper-V-servers.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 26e87da60dc02dce8122c82a2208477a8b1813a7
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 99c29afec7d06a458ed6d34071f1b6acbba1f03b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Plannen van capaciteit voor Hyper-V-virtuele machine met de capaciteit en prestaties-oplossing (Preview)
 
@@ -120,29 +120,17 @@ Om samen te vatten, verzamelt de oplossing capaciteit en prestaties gegevens uit
 
 De volgende tabel bevat een voorbeeld-logboek zoekt capaciteit en prestaties gegevens verzameld en wordt berekend door deze oplossing.
 
+
 | Query’s uitvoeren | Beschrijving |
-|---|---|
-| Alle configuraties van de host geheugen | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Alle configuraties voor VM-geheugen | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Overzicht van de totale schijf-IOPS over alle VM 's | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Reads/s" OR CounterName="VHD Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Overzicht van de totale doorvoer van de schijf over alle VM 's | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Read MB/s" OR CounterName="VHD Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Overzicht van de totale IOP's over alle CSV 's | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Reads/s" OR CounterName="CSV Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Overzicht van de totale doorvoer over alle CSV 's | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Overzicht van de totale latentie over alle CSV 's | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-
->[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [nieuwe querytaal van Log Analytics](log-analytics-log-search-upgrade.md), worden bovenstaande query's gewijzigd in het volgende.
-
-> | Query’s uitvoeren | Beschrijving |
 |:--- |:--- |
-| Alle configuraties van de host geheugen | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en CounterName == "Host toegewezen geheugen (MB)" &#124; MB samenvatten avg(CounterValue) door InstanceName = |
-| Alle configuraties voor VM-geheugen | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en CounterName == "Toegewezen geheugen (MB) VM" &#124; MB samenvatten avg(CounterValue) door InstanceName = |
-| Overzicht van de totale schijf-IOPS over alle VM 's | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en (CounterName == "VHD leesbewerkingen/s" of CounterName == "VHD-schrijfbewerkingen/s") &#124; overzicht van AggregatedValue = avg(CounterValue) door bin (TimeGenerated, 1 uur), CounterName, InstanceName |
-| Overzicht van de totale doorvoer van de schijf over alle VM 's | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en (CounterName == "VHD lezen MB/s" of CounterName == "VHD schrijven MB/s") &#124; overzicht van AggregatedValue = avg(CounterValue) door bin (TimeGenerated, 1 uur), CounterName, InstanceName |
-| Overzicht van de totale IOP's over alle CSV 's | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en (CounterName == "CSV leesbewerkingen/s" of CounterName == "CSV-schrijfbewerkingen/s") &#124; overzicht van AggregatedValue = avg(CounterValue) door bin (TimeGenerated, 1 uur), CounterName, InstanceName |
-| Overzicht van de totale doorvoer over alle CSV 's | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en (CounterName == "CSV leesbewerkingen/s" of CounterName == "CSV-schrijfbewerkingen/s") &#124; overzicht van AggregatedValue = avg(CounterValue) door bin (TimeGenerated, 1 uur), CounterName, InstanceName |
-| Overzicht van de totale latentie over alle CSV 's | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en (CounterName == 'CSV lezen latentie' of CounterName == 'CSV schrijven latentie') &#124; overzicht van AggregatedValue = avg(CounterValue) door bin (TimeGenerated, 1 uur), CounterName, InstanceName |
+| Alle configuraties van de host geheugen | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en CounterName == "Host toegewezen geheugen (MB)" &#124; samenvatten MB avg(CounterValue) door InstanceName = |
+| Alle configuraties voor VM-geheugen | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en CounterName == "VM toegewezen geheugen (MB)" &#124; samenvatten MB avg(CounterValue) door InstanceName = |
+| Overzicht van de totale schijf-IOPS over alle VM 's | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en (CounterName == "VHD leesbewerkingen/s" of CounterName == "VHD-schrijfbewerkingen/s") &#124; AggregatedValue samenvatten = avg(CounterValue) door bin (TimeGenerated, 1 uur), CounterName, InstanceName |
+| Overzicht van de totale doorvoer van de schijf over alle VM 's | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en (CounterName == "VHD lezen MB/s" of CounterName == "VHD schrijven MB/s") &#124; AggregatedValue samenvatten = avg(CounterValue) door bin (TimeGenerated, 1 uur), CounterName, InstanceName |
+| Overzicht van de totale IOP's over alle CSV 's | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en (CounterName == "CSV leesbewerkingen/s" of CounterName == "CSV-schrijfbewerkingen/s") &#124; AggregatedValue samenvatten = avg(CounterValue) door bin (TimeGenerated, 1 uur), CounterName, InstanceName |
+| Overzicht van de totale doorvoer over alle CSV 's | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en (CounterName == "CSV leesbewerkingen/s" of CounterName == "CSV-schrijfbewerkingen/s") &#124; AggregatedValue samenvatten = avg(CounterValue) door bin (TimeGenerated, 1 uur), CounterName, InstanceName |
+| Overzicht van de totale latentie over alle CSV 's | Perf &#124; waar ObjectName == 'Capaciteit en prestaties' en (CounterName == 'CSV lezen latentie' of CounterName == 'CSV schrijven latentie') &#124; AggregatedValue samenvatten = avg(CounterValue) door bin (TimeGenerated, 1 uur), CounterName, InstanceName |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten aanmelden met logboekanalyse](log-analytics-log-searches.md) om gedetailleerde gegevens voor capaciteit en prestaties te bekijken.
+* Gebruik [zoekopdrachten aanmelden met logboekanalyse](log-analytics-log-search.md) om gedetailleerde gegevens voor capaciteit en prestaties te bekijken.

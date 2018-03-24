@@ -1,24 +1,19 @@
 ---
-title: "Zakelijke continuïteit en herstel na noodgevallen (BCDR): Azure-gebieden gekoppeld | Microsoft Docs"
+title: 'Zakelijke continuïteit en herstel na noodgevallen (BCDR): Azure-gebieden gekoppeld | Microsoft Docs'
 description: Meer informatie over het Azure regionale koppelen, om ervoor te zorgen dat toepassingen robuuste tijdens data center-fouten.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: c2d0a21c-2564-4d42-991a-bc31723f61a4
-ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
+manager: carmonm
+ms.service: multiple
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: raynew
-ms.openlocfilehash: 394f353837433e241e4da6f4accdb5eaa24bae46
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Zakelijke continuïteit en herstel na noodgevallen (BCDR): Azure-gebieden gekoppeld
 
@@ -37,7 +32,7 @@ Afbeelding 1: Azure regionale paar diagram
 | Azië |Oost-Azië |Zuidoost-Azië |
 | Australië |Australië - oost |Australië - zuidoost |
 | Canada |Canada - centraal |Canada - oost |
-| China |China - noord |China - oost|
+| China |China - noord |China East|
 | India |Centraal-India |Zuid-India |
 | India |West, India (1) |Zuid-India |
 | Japan |Japan - oost |Japan - west |
@@ -58,10 +53,10 @@ Afbeelding 1: Azure regionale paar diagram
 
 Tabel 1 - toewijzing van Azure regionale paren
 
-- > (1) India West is verschillend, omdat deze is gekoppeld aan een andere regio in één richting. Secundaire regio West India Zuid, India is, maar de secundaire regio Zuid, India centraal, India is.
-- > (2) Brazilië-Zuid is uniek omdat deze is gekoppeld aan een regio buiten de eigen Geografie. Brazilië-Zuid secundaire regio is Zuid-centraal VS, maar er is geen Zuid-centraal VS van secundaire regio Brazilië-Zuid.
-- > (3) VS Gov Iowa secundaire regio is Gov ons Virginia, maar de Gov ons Virginia secundaire regio is niet Gov ons Iowa.
-- > (4) de secundaire regio VS Gov Virginia Gov ons Texas is, maar Gov ons-Texas secundaire regio is niet Gov ons Virginia.
+- (1) India West is verschillend, omdat deze is gekoppeld aan een andere regio in één richting. Secundaire regio West India Zuid, India is, maar de secundaire regio Zuid, India centraal, India is.
+- (2) Brazilië-Zuid is uniek omdat deze is gekoppeld aan een regio buiten de eigen Geografie. Brazilië-Zuid secundaire regio is Zuid-centraal VS, maar er is geen Zuid-centraal VS van secundaire regio Brazilië-Zuid.
+- (3) VS Gov Iowa secundaire regio is Gov ons Virginia, maar de Gov ons Virginia secundaire regio is niet Gov ons Iowa.
+- (4) de secundaire regio VS Gov Virginia Gov ons Texas is, maar Gov ons-Texas secundaire regio is niet Gov ons Virginia.
 
 
 Het is raadzaam dat u workloads over regionale paren repliceren profiteren van Azure isolatie en beschikbaarheid van beleid. Bijvoorbeeld, geplande Azure systeemupdates sequentieel worden geïmplementeerd (en niet op hetzelfde moment) tussen de gekoppelde regio's. Dat betekent dat zelfs in het zeldzame geval van een defecte update beide regio's worden niet beïnvloed tegelijkertijd. Bovendien, in het onwaarschijnlijke geval van een brede onderbreking herstel van ten minste één regio buiten elk paar voorrang krijgt.

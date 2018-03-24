@@ -2,23 +2,20 @@
 title: Web-aanmelden met OpenID Connect - Azure AD B2C | Microsoft Docs
 description: Maken van webtoepassingen met behulp van de Azure Active Directory-implementatie van het OpenID Connect-verificatieprotocol
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: 0eb4194307d1d3953fa1cd88ac014ac7c2ba7311
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e787ea36ab5099705f151504385dd5dc97029e37
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Web aanmelden met OpenID Connect
 OpenID Connect is een protocol voor verificatie, gebouwd op OAuth 2.0, die kunnen worden gebruikt voor het veilig Meld u aan gebruikers met webtoepassingen. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OpenID Connect, u kunt uitbesteden registreren, aanmelden en andere identiteitsbeheer in uw webtoepassingen met Azure Active Directory (Azure AD). Deze handleiding wordt beschreven hoe u dit doet op een manier taalonafhankelijke. Wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van onze open source-bibliotheken.
@@ -29,7 +26,7 @@ Omdat het OAuth 2.0 uitbreidt, kunt u eveneens apps veilig verkrijgen *toegang t
 
 Azure AD B2C breidt het OpenID Connect-standaardprotocol hiervoor meer dan een eenvoudige verificatie en autorisatie. Het geeft de [Beleidsparameter](active-directory-b2c-reference-policies.md), waardoor u OpenID Connect gebruiken om toe te voegen gebruikerservaringen--zoals aanmelden, aanmelden en Profielbeheer--aan uw app. Hier wordt beschreven hoe u OpenID Connect en beleidsregels gebruiken om elk van deze ervaringen te implementeren in uw webtoepassingen. Ook ziet u hoe toegangstokens ophalen voor toegang tot web-API's.
 
-De voorbeeld-HTTP-aanvragen in de volgende sectie Gebruik onze voorbeeld B2C-directory, fabrikamb2c.onmicrosoft.com, evenals onze voorbeeldtoepassing https://aadb2cplayground.azurewebsites.net en beleidsregels. U kunt gratis uitproberen de aanvragen zelf met behulp van deze waarden, of kunt u deze vervangen door uw eigen.
+De voorbeeld HTTP-aanvragen in de volgende sectie Gebruik onze voorbeeld B2C-directory, fabrikamb2c.onmicrosoft.com, evenals de voorbeeldtoepassing https://aadb2cplayground.azurewebsites.net, en het beleid. U kunt gratis uitproberen de aanvragen zelf met behulp van deze waarden, of kunt u deze vervangen door uw eigen.
 Meer informatie over hoe [ophalen van uw eigen B2C-tenant-, toepassings- en beleid](#use-your-own-b2c-directory).
 
 ## <a name="send-authentication-requests"></a>Verificatieaanvragen verzenden
@@ -85,7 +82,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_mode |Aanbevolen |De methode die moet worden gebruikt voor het verzenden van de resulterende autorisatiecode terug naar uw app. Het kan zijn `query`, `form_post`, of `fragment`.  De `form_post` antwoord-modus wordt aanbevolen voor de beste beveiliging. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van inhoud die u wilt dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt doorgaans gebruikt voor het voorkomen van aanvraagvervalsing op meerdere sites aanvallen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina die ze op waren. |
 | nonce |Vereist |Een waarde die is opgenomen in de aanvraag (gegenereerd door de app) die wordt opgenomen in het resulterende token ID als een claim. De app kunt vervolgens controleren of deze waarde om te beperken token replay-aanvallen. De waarde is doorgaans een willekeurige unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
-| P |Vereist |Het beleid dat wordt uitgevoerd. Dit is de naam van een beleid dat is gemaakt in uw B2C-tenant. De waarde van de beleid-naam moet beginnen met `b2c\_1\_`. Meer informatie over het beleid en de [uitbreidbaar beleidsframework](active-directory-b2c-reference-policies.md). |
+| p |Vereist |Het beleid dat wordt uitgevoerd. Dit is de naam van een beleid dat is gemaakt in uw B2C-tenant. De waarde van de beleid-naam moet beginnen met `b2c\_1\_`. Meer informatie over het beleid en de [uitbreidbaar beleidsframework](active-directory-b2c-reference-policies.md). |
 | prompt |Optioneel |Het type van de interactie van de gebruiker die is vereist. De enige geldige waarde op dit moment is `login`, waardoor gebruikers hun referenties invoeren voor deze aanvraag. Eenmalige aanmelding wordt pas van kracht. |
 
 Op dit moment wordt de gebruiker gevraagd om de werkstroom van het beleid te voltooien. Dit kan hebben betrekking op de gebruiker invoeren van hun gebruikersnaam en wachtwoord, aanmelden met een sociale identiteit aanmelden voor de map of een andere aantal stappen, afhankelijk van hoe het beleid wordt gedefinieerd.
@@ -172,7 +169,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parameter | Vereist? | Beschrijving |
 | --- | --- | --- |
-| P |Vereist |Het beleid dat is gebruikt voor het ophalen van de autorisatiecode. U kunt een ander beleid niet gebruiken in deze aanvraag. Opmerking dat u deze parameter toevoegen aan de query-tekenreeks niet op de `POST` hoofdtekst. |
+| p |Vereist |Het beleid dat is gebruikt voor het ophalen van de autorisatiecode. U kunt een ander beleid niet gebruiken in deze aanvraag. Opmerking dat u deze parameter toevoegen aan de query-tekenreeks niet op de `POST` hoofdtekst. |
 | client_id |Vereist |De aanvraag-ID die de [Azure-portal](https://portal.azure.com/) toegewezen aan uw app. |
 | grant_type |Vereist |Het type grant moet `authorization_code` voor de autorisatiecodestroom. |
 | Bereik |Aanbevolen |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD beide machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging voor het aanmelden van de gebruiker en gegevens over de gebruiker in de vorm van id_token parameters ophalen. Het kan worden gebruikt om op te halen van tokens, voor uw app eigen back-end web-API, die wordt vertegenwoordigd door dezelfde toepassings-ID als de client. De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen nodig. |
@@ -237,7 +234,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 | Parameter | Vereist | Beschrijving |
 | --- | --- | --- |
-| P |Vereist |Het beleid dat is gebruikt voor het verkrijgen van het oorspronkelijke vernieuwingstoken. U kunt een ander beleid niet gebruiken in deze aanvraag. Houd er rekening mee dat u deze parameter aan de queryreeks, niet aan de POST-instantie toevoegt. |
+| p |Vereist |Het beleid dat is gebruikt voor het verkrijgen van het oorspronkelijke vernieuwingstoken. U kunt een ander beleid niet gebruiken in deze aanvraag. Houd er rekening mee dat u deze parameter aan de queryreeks, niet aan de POST-instantie toevoegt. |
 | client_id |Vereist |De aanvraag-ID die de [Azure-portal](https://portal.azure.com/) toegewezen aan uw app. |
 | grant_type |Vereist |Het type toekennen, die een vernieuwingstoken voor deze fase van de autorisatiecodestroom moet zijn. |
 | Bereik |Aanbevolen |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD beide machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging voor het aanmelden van de gebruiker en gegevens over de gebruiker in de vorm van een ID-tokens verkrijgen. Het kan worden gebruikt om op te halen van tokens, voor uw app eigen back-end web-API, die wordt vertegenwoordigd door dezelfde toepassings-ID als de client. De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen nodig. |
@@ -293,7 +290,7 @@ p=b2c_1_sign_in
 
 | Parameter | Vereist? | Beschrijving |
 | --- | --- | --- |
-| P |Vereist |Het beleid dat u gebruiken wilt voor het ondertekenen van de gebruiker buiten uw toepassing. |
+| p |Vereist |Het beleid dat u gebruiken wilt voor het ondertekenen van de gebruiker buiten uw toepassing. |
 | post_logout_redirect_uri |Aanbevolen |De URL die de gebruiker wordt omgeleid naar na geslaagde afmelding plaatsvindt. Als deze niet opgenomen is, Azure AD B2C ziet de gebruiker een algemeen foutbericht. |
 
 > [!NOTE]

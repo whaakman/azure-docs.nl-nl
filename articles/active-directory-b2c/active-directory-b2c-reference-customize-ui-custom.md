@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Verwijzen naar: aanpassen van de gebruikersinterface van het traject van een gebruiker met aangepast beleid | Microsoft Docs'
 description: Een onderwerp op Azure Active Directory B2C aangepast beleid
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/25/2017
-ms.author: joroja
-ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: davidmu
+ms.openlocfilehash: b0f68f76bfb746b91cb82b2b7e9e750f15f14253
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>De gebruikersinterface van het traject van een gebruiker met aangepast beleid aanpassen
 
@@ -153,7 +150,7 @@ De volgende tabel beschrijft het doel van de voorgaande HTML5-pagina's.
 
 U kunt een koppeling naar uw HTML5/CSS-sjablonen toevoegen aan uw reis gebruiker een aangepast beleid door rechtstreeks te bewerken.
 
-De aangepaste HTML5/CSS-sjablonen te gebruiken in uw reis gebruiker moeten worden opgegeven in een lijst met inhoud definities die kunnen worden gebruikt in deze trajecten gebruiker. Dien een optionele  *<ContentDefinitions>*  XML-element moet worden gedeclareerd onder de  *<BuildingBlocks>*  sectie van het aangepaste beleid XML-bestand.
+De aangepaste HTML5/CSS-sjablonen te gebruiken in uw reis gebruiker moeten worden opgegeven in een lijst met inhoud definities die kunnen worden gebruikt in deze trajecten gebruiker. Dien een optionele *<ContentDefinitions>* XML-element moet worden gedeclareerd onder de *<BuildingBlocks>* sectie van het aangepaste beleid XML-bestand.
 
 De volgende tabel beschrijft de set van inhoud definitie-id's wordt herkend door de identiteit van de Azure AD B2C-engine en het type van pagina's dat is gekoppeld aan deze optreden.
 

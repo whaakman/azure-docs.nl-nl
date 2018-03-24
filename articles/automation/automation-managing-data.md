@@ -1,24 +1,18 @@
 ---
-title: Beheren van gegevens in Azure Automation | Microsoft Docs
+title: Azure Automation-gegevens beheren
 description: In dit artikel bevat meerdere onderwerpen voor het beheren van een Azure Automation-omgeving.  Momenteel bevat bewaren van gegevens en back-ups van Azure Automation-noodherstel in Azure Automation.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/02/201
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+manager: carmonm
+ms.openlocfilehash: c71807a14c8a7f1edff60411a84f7d0d6f70fd23
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-azure-automation-data"></a>Azure Automation-gegevens beheren
 In dit artikel bevat meerdere onderwerpen voor het beheren van een Azure Automation-omgeving.
@@ -43,7 +37,7 @@ De volgende tabel geeft een overzicht van het bewaarbeleid voor verschillende br
 
 Het bewaarbeleid geldt voor alle gebruikers en kan momenteel niet worden aangepast.
 
-Echter, als u nodig hebt om gegevens te behouden voor een langere periode, kunt u doorsturen runbook de taaklogboeken voor logboekanalyse.  Bekijk voor meer informatie [doorsturen van gegevens van Azure Automation-taak met OMS Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
+Echter, als u nodig hebt om gegevens te behouden voor een langere periode, kunt u doorsturen runbook de taaklogboeken voor logboekanalyse.  Bekijk voor meer informatie [doorsturen van gegevens van Azure Automation-taak met logboekanalyse](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Back-ups maken met Azure Automation
 Wanneer u een automation-account in Microsoft Azure verwijdert, worden alle objecten in het account verwijderd waaronder runbooks, modules, configuraties, instellingen, taken en activa. De objecten kunnen niet worden hersteld nadat het account is verwijderd.  De volgende informatie kunt u back-up van de inhoud van uw automation-account voordat u het verwijdert. 
@@ -74,7 +68,7 @@ De volgende tabel bevat de beschikbare primaire en secundaire regio-koppelingen.
 | Primair | Secundair |
 | --- | --- |
 | Zuid-centraal VS |Noord-centraal VS |
-| Verenigde Staten (oost 2) |VS - midden |
+| VS Oost 2 |VS - midden |
 | West-Europa |Noord-Europa |
 | Zuidoost-Azië |Oost-Azië |
 | Japan - oost |Japan - west |

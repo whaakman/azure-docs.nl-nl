@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: e8fe3b0023d2cdb9061b5a2c15c3b2c7095c128e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 587a6badd57aad839b4b03ca9da1b62d97b38f82
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Onderliggende runbooks in Azure Automation
 Het is een best practice in Azure Automation schrijven herbruikbare, modulaire runbooks met een aparte functie die kan worden gebruikt door andere runbooks. Een bovenliggend runbook roept vaak een of meer onderliggende runbooks om uit te voeren van de vereiste functionaliteit. Er zijn twee manieren om aan te roepen, een onderliggend runbook en elke manier kent duidelijke verschillen die u moet begrijpen zodat u kunt bepalen wat de beste optie voor uw verschillende scenario's.

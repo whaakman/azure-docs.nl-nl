@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/23/2018
+---
 **Scripts voor het downloaden van configuratie van VPN-apparaat:**
 
 Afhankelijk van het VPN-apparaat die u hebt, kunt u mogelijk een configuratie van VPN-apparaatscript downloaden. Zie voor meer informatie [downloaden VPN-apparaat configuratiescripts](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).

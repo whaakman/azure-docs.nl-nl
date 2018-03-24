@@ -2,7 +2,7 @@
 title: Azure multi-factor Authentication configureren | Microsoft Docs
 description: In dit artikel wordt beschreven hoe instellingen van de Azure multi-factor Authentication voor rapporten, Fraudewaarschuwingen, eenmalige omleidingen, aangepaste spraakberichten caching, goedgekeurde IP-adressen en app-wachtwoorden configureren.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4421b995e69e115fbb6c7379af79aaef537aed0d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
-In dit artikel helpt u bij het beheren van Azure multi-factor Authentication nu dat u actief en werkend bent. Deze heeft verschillende onderwerpen die u helpen bij het Maak optimaal gebruik van Azure multi-factor Authentication. Niet alle functies zijn beschikbaar in elke [versie van Azure multi-factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
+In dit artikel helpt u bij het beheren van Azure multi-factor Authentication nu dat u actief en werkend bent. Deze heeft verschillende onderwerpen die u helpen bij het Maak optimaal gebruik van Azure multi-factor Authentication. Niet alle functies zijn beschikbaar in elke [versie van Azure multi-factor Authentication](multi-factor-authentication-get-started.md#what-features-do-i-need).
 
 | Functie | Beschrijving | 
 |:--- |:--- |
@@ -30,7 +30,7 @@ In dit artikel helpt u bij het beheren van Azure multi-factor Authentication nu 
 | [Fraudewaarschuwing](#fraud-alert) |De waarschuwing fraude-functie configureren zodat uw gebruikers frauduleuze probeert te krijgen tot hun bronnen kunnen rapporteren. |
 | [Eenmalig overslaan](#one-time-bypass) |De functie eenmalig overslaan gebruiken om gebruikers kunnen worden geverifieerd door één keer _omzeilen_ multi-factor Authentication. |
 | [Aangepaste spraakberichten](#custom-voice-messages) |Gebruik de functie voor aangepaste gesproken berichten uw eigen opnamen of begroeting voor multi-factor Authentication. |
-| [Opslaan in cache](#caching-in-azure-multi-factor-authentication) |De cache in functie gebruiken om een bepaalde periode zo instellen dat latere authenticatiepogingen automatisch laten slagen. |
+| [Caching](#caching-in-azure-multi-factor-authentication) |De cache in functie gebruiken om een bepaalde periode zo instellen dat latere authenticatiepogingen automatisch laten slagen. |
 | [Goedgekeurde IP-adressen](#trusted-ips) |Beheerders van een beheerd of federatieve tenant kunnen de functie goedgekeurde IP-adressen gebruiken voor het overslaan van de verificatie in twee stappen voor gebruikers die zich via het bedrijfsintranet aanmelden. |
 | [App-wachtwoorden](#app-passwords) |De functie app-wachtwoord gebruiken om in te schakelen van een toepassing op de multi-factor Authentication overslaan en doorgaan met werken. |
 | [Houd er rekening mee multi-factor Authentication voor vertrouwde apparaten en browsers](#remember-multi-factor-authentication-for-trusted-devices) |Gebruik deze functie te onthouden vertrouwde apparaten en browsers voor een bepaald aantal dagen nadat een gebruiker heeft is aangemeld met behulp van multi-factor Authentication. |
@@ -73,7 +73,7 @@ Configureer de _fraudewaarschuwing_ functie zodat uw gebruikers frauduleuze prob
 ### <a name="configuration-options"></a>Configuratie-opties
 
 - **Gebruiker blokkeren wanneer fraude wordt gemeld**: als een gebruiker fraude wordt gemeld, hun account gedurende 90 dagen of totdat een beheerder blokkering hun account opgeheven is geblokkeerd. Een beheerder kan aanmeldingen controleren met behulp van het rapport aanmelden en onderneem gepaste actie om toekomstige fraude te voorkomen. Vervolgens kan een beheerder [deblokkeren](#unblock-a-user) account van de gebruiker.
-- **Code voor het melden van fraude tijdens de eerste begroeting**: wanneer gebruikers een telefonische oproep verificatie in twee stappen uitvoeren krijgen, druk ze normaal  **#**  om te bevestigen dat hun aanmelden. Rapport fraude, de gebruiker voert een code voordat zwaarwegende  **#** . Deze code is **0** standaard, maar u kunt deze aanpassen.
+- **Code voor het melden van fraude tijdens de eerste begroeting**: wanneer gebruikers een telefonische oproep verificatie in twee stappen uitvoeren krijgen, druk ze normaal **#** om te bevestigen dat hun aanmelden. Rapport fraude, de gebruiker voert een code voordat zwaarwegende **#**. Deze code is **0** standaard, maar u kunt deze aanpassen.
 
   >[!NOTE]
   >De standaard gesproken begroetingen van Microsoft gebruikers instrueren te druk op **0#** verzenden van een fraudewaarschuwing voor. Als u wilt gebruiken een code dan **0**, registreren en uw eigen aangepaste gesproken begroetingen met instructies voor uw gebruikers te uploaden.

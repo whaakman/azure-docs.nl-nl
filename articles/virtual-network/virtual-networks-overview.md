@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/1/2018
 ms.author: jdial
-ms.openlocfilehash: fadc1994cd930df36387a5bfb302c00d66f74fad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8d02afcc590482fdca4705ac582d85bb985dd3c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>Wat is Azure Virtual Network?
 
@@ -32,7 +32,7 @@ Virtuele Azure-netwerk biedt de volgende algemene mogelijkheden:
 - **[Virtuele netwerkverbinding:](#connect-vnets)**  virtuele netwerken kunnen worden verbonden met elkaar, waardoor bronnen in een virtueel netwerk om te communiceren met resources in een virtueel netwerk.
 - **[Lokale connectiviteit:](#connect-on-premises)**  een virtueel netwerk kan worden verbonden met een on-premises netwerk, waardoor bronnen voor de communicatie tussen elkaar.
 - **[Wordt verkeer gefilterd:](#filtering)**  kunt u netwerkverkeer naar en van resources in een virtueel netwerk door IP-adres en poort, doel-IP-adres en poort en protocol filteren.
-- **[Routering:](#routing)**  u kunt eventueel Azure standaard routering door het configureren van uw eigen routes overschrijven of doorgeven van BGP routes via een netwerkgateway.
+- **[Routering:](#routing)**  kunt u eventueel Azure standaard door uw eigen routes te configureren of door border gateway protocol (BGP)-routes via een netwerkgateway routering overschrijven.
 
 ## <a name = "isolation"></a>Netwerkisolatie en segmentering
 

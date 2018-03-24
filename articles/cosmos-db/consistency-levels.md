@@ -6,7 +6,7 @@ services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: cgronlun
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: aa95cae5d62ebe23d6822232c4a5ab872e1f2c6a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Gegevens instelbare consistentieniveaus in Azure Cosmos-DB
 Azure Cosmos DB is compleet met globale verdeling in gedachten voor elke gegevensmodel ontworpen. Het is ontworpen om voorspelbare lage latentie garanties en meerdere goed gedefinieerde beperkte consistentie modellen bieden. Op dit moment Azure Cosmos DB bevat vijf consistentieniveaus: sterk, gebonden-verouderd, sessie, consistente voorvoegsel en uiteindelijk. Gebonden-verouderd, sessie, consistente voorvoegsel en uiteindelijke worden aangeduid als 'beperkte consistentie modellen' als ze bieden minder consistentie dan sterk, die de meeste maximaal consistent model beschikbaar is. 
@@ -60,13 +60,15 @@ De granulatie van de consistentie is afgestemd op een aanvraag voor één gebrui
 ## <a name="consistency-levels"></a>Consistentieniveaus
 U kunt een standaardniveau voor consistentiecontrole configureren op uw databaseaccount die voor alle verzamelingen (en databases geldt) onder uw account Cosmos DB. Standaard gebruiken alle leesbewerkingen en query's die zijn uitgegeven voor de gebruiker gedefinieerde resources het standaardniveau van de consistentie opgegeven op het account van de database. U kunt het consistentieniveau van een specifieke lezen/query aanvraag met in elk van de ondersteunde API's versoepelen. Er zijn vijf typen ondersteund door het protocol van de replicatie Azure Cosmos DB consistentieniveaus die een duidelijke compromis tussen specifieke consistentie wordt gegarandeerd en prestaties bieden, zoals beschreven in deze sectie.
 
-**Sterke**: 
+<a id="strong"></a>
+**Strong**: 
 
 * Sterke consistentie biedt een [linearizability](https://aphyr.com/posts/313-strong-consistency-models) garanderen met gelezen gegevens gegarandeerd dat de meest recente versie van een item geretourneerd. 
 * Sterke consistentie wordt gegarandeerd dat een schrijfbewerking is alleen zichtbaar nadat deze definitief is vastgelegd door het quorum meerderheid van replica's. Een schrijfbewerking ofwel synchroon definitief is vastgelegd door zowel de primaire als het quorum van secundaire replica's of deze is afgebroken. Lees altijd wordt bevestigd door de meerderheid quorum lezen, een client nooit het terugschrijven van een niet-doorgevoerde of gedeeltelijke kan zien en altijd de meest recente bevestigde schrijven lezen kan worden gegarandeerd. 
 * Azure DB Cosmos-accounts die zijn geconfigureerd voor gebruik van sterke consistentie kunnen niet meer dan één Azure-regio koppelen aan hun Azure DB die Cosmos-account.  
 * De kosten van een leesbewerking (in termen van [aanvraageenheden](request-units.md) verbruikt) met sterke consistentie is hoger dan de sessie en mogelijk, maar dezelfde zijn als gebonden veroudering.
 
+<a id="bounded-staleness"></a>
 **Gebonden veroudering**: 
 
 * Gebonden veroudering consistentie wordt gegarandeerd dat de leesbewerkingen schrijfbewerkingen door maximaal achterblijven *K* versies of voorvoegsels van een item of *t* tijdsinterval blijft. 
@@ -76,6 +78,7 @@ U kunt een standaardniveau voor consistentiecontrole configureren op uw database
 * Azure DB Cosmos-accounts die zijn geconfigureerd met consistentie voor gebonden veroudering kunnen een onbeperkt aantal Azure-regio's koppelen aan hun Azure DB die Cosmos-account. 
 * De kosten van een leesbewerking (in termen van RUs verbruikt) met gebonden veroudering is hoger dan de sessie en uiteindelijke consistentie echter hetzelfde als sterke consistentie.
 
+<a id="session"></a>
 **Sessie**: 
 
 * In tegenstelling tot de globale consistentie modellen die worden aangeboden door sterke en gebonden veroudering consistentieniveaus, heeft een sessieconsistentie bereik op een clientsessie. 
@@ -91,6 +94,7 @@ U kunt een standaardniveau voor consistentiecontrole configureren op uw database
 * Consistente voorvoegsel wordt gegarandeerd dat leesbewerkingen nooit volgorde schrijfbewerkingen te zien. Als schrijfbewerkingen zijn uitgevoerd in de volgorde `A, B, C`, en vervolgens een client een ziet `A`, `A,B`, of `A,B,C`, maar nooit volgorde zoals `A,C` of `B,A,C`.
 * Azure DB Cosmos-accounts die zijn geconfigureerd met consistente voorvoegsel consistentiecontrole kunnen een onbeperkt aantal Azure-regio's koppelen aan hun account Azure Cosmos DB. 
 
+<a id="eventual"></a>
 **Uiteindelijke**: 
 
 * Uiteindelijke consistentie wordt gegarandeerd dat zolang er verder geen schrijfbewerkingen, de replica's binnen de groep uiteindelijk geconvergeerd. 
@@ -125,19 +129,12 @@ Azure Cosmos DB implementeert momenteel MongoDB twee consistentie instellingen s
 ## <a name="next-steps"></a>Volgende stappen
 Als u dit doen meer lezen over consistentieniveaus en -en nadelen wilt, raden we de volgende bronnen:
 
-* Doug Terry. Consistentie van de gerepliceerde gegevens toegelicht door middel van baseball (video).   
-  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
-* Doug Terry. Consistentie van de gerepliceerde gegevens worden via baseball beschreven.   
-  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
-* Doug Terry. Sessie garanties met betrekking tot zwak consistente gerepliceerde gegevens.   
-  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
-* Daniel Abadi. Consistentiecontrole voor-en nadelen in moderne gedistribueerde Database systemen ontwerp: KAPJE wordt slechts een deel van het artikel '.   
-  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph Dhr Hellerstein, bewaartermijn Stoica. Probabilistische begrensd veroudering (PBS) voor praktische gedeeltelijke quorum.   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
-* Werner Vogels. Uiteindelijke Consistent - herzien.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
-* Monitoring Naor, Avishai wol, de belasting, capaciteit en beschikbaarheid van systemen Quorum, SIAM journaal op Computing, v.27 n.2, p.423-447, April 1998.
-  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan, de configuratie: een volledige en automatische linearizability checker, verslag van de 2010 ACM SIGPLAN Conferentie over het programmeren van taal ontwerpen en implementeren, juni 05 10 2010 Toronto, Ontario, Canada [doi > 10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, bewaartermijn Stoica, Probabilistically gebonden veroudering voor praktische gedeeltelijke quorum procedures van de eigen VLDB, v.5 n.8, April 2012 met p.776 787 [http:// DL.ACM.org/Citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+* [Consistentie van de gerepliceerde gegevens toegelicht door middel van baseball die door Doug Terry (video)](https://www.youtube.com/watch?v=gluIh8zd26I)
+* [Consistentie van de gerepliceerde gegevens toegelicht door middel van baseball (whitepaper) door Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+* [Sessie garanties met betrekking tot zwak consistente gerepliceerde gegevens](http://dl.acm.org/citation.cfm?id=383631)
+* [Consistentiecontrole voor-en nadelen in moderne gedistribueerde Database systemen ontwerp: KAPJE wordt slechts een deel van het artikel](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Probabilistische gebonden veroudering (PBS) voor praktische gedeeltelijke quorum](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+* [Uiteindelijke Consistent - herzien](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+* [De belasting, de capaciteit en de beschikbaarheid van Quorum systemen SIAM journaal voor computerbronnen](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+* [De configuratie: een volledige en automatische linearizability checker, verslag van de 2010 ACM SIGPLAN Conferentie over het programmeren van taal ontwerpen en implementeren](http://dl.acm.org/citation.cfm?id=1806634)
+* [Probabilistically gebonden veroudering voor praktische gedeeltelijke quorum](http://dl.acm.org/citation.cfm?id=2212359)

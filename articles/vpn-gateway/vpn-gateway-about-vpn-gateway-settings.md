@@ -4,8 +4,8 @@ description: Meer informatie over VPN-Gateway-instellingen voor gateways voor vi
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2018
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Over configuratie-instellingen voor VPN-Gateway
 
@@ -28,7 +28,9 @@ Een VPN-gateway is een type van de virtuele netwerkgateway die versleuteld verke
 Er is een VPN-gatewayverbinding afhankelijk van de configuratie van meerdere resources, die elk configureerbare instellingen bevat. De secties in dit artikel worden de resources en de instellingen met betrekking tot een VPN-gateway voor een virtueel netwerk gemaakt in Resource Manager-implementatiemodel. U vindt beschrijvingen en diagrammen topologie voor elke oplossing verbinding in de [over VPN-Gateway](vpn-gateway-about-vpngateways.md) artikel.
 
 >[!NOTE]
-> De waarden in dit artikel van toepassing op virtuele netwerkgateways die gebruikmaken van de - GatewayType 'Vpn'. Dit is de reden waarom ze worden aangeduid als de VPN-gateways. Zie voor waarden die betrekking hebben op - GatewayType 'ExpressRoute' [virtuele netwerkgateways voor ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md). De waarden voor de ExpressRoute-gateways zijn niet dezelfde waarden die u voor VPN-gateways gebruikt.
+> De waarden in dit artikel van toepassing op virtuele netwerkgateways die gebruikmaken van de - GatewayType 'Vpn'. Dit is waarom deze bepaalde virtuele netwerkgateways worden aangeduid als de VPN-gateways. De waarden voor de ExpressRoute-gateways zijn niet dezelfde waarden die u voor VPN-gateways gebruikt.
+>
+>Zie voor waarden die betrekking hebben op - GatewayType 'ExpressRoute' [virtuele netwerkgateways voor ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
 >
 >
 
@@ -55,7 +57,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-### <a name="configure-the-gateway-sku"></a>De gateway-SKU configureren
+### <a name="configure-a-gateway-sku"></a>Configureer een gateway-SKU
 
 #### <a name="azure-portal"></a>Azure Portal
 
@@ -63,24 +65,35 @@ Als u de Azure-portal voor het maken van een virtuele netwerkgateway van Resourc
 
 #### <a name="powershell"></a>PowerShell
 
-Het volgende PowerShell-voorbeeld worden de `-GatewaySku` als VpnGw1.
+Het volgende PowerShell-voorbeeld worden de `-GatewaySku` als VpnGw1. Wanneer een gateway maken met behulp van PowerShell, hebt u eerst de IP-configuratie maken en vervolgens een variabele gebruiken om te verwijzen naar deze. In dit voorbeeld is de configuratievariabele $gwipconfig.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
+New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+-Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="resize"></a>Wijzig de grootte van (wijzigen) een gateway-SKU
+#### <a name="azure-cli"></a>Azure-CLI
 
-Als u wilt dat uw gateway-SKU bijwerken naar een krachtigere SKU, kunt u de `Resize-AzureRmVirtualNetworkGateway` PowerShell-cmdlet. Ook kunt u de gateway-SKU-grootte die met deze cmdlet downgraden.
-
-De volgende PowerShell-voorbeeld ziet u een gateway-SKU voor VpnGw2 wordt gewijzigd.
-
-```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
+```azurecli
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
+
+###  <a name="resizechange"></a>Vergroten of verkleinen versus een SKU wijzigen
+
+Formaat van een gateway-SKU is relatief eenvoudig. U hebt weinig downtime als Hiermee wordt ingesteld voor de gateway. Er zijn echter regels met betrekking tot het vergroten of verkleinen:
+
+1. U kunt wisselen tussen VpnGw1-, VpnGw2- en VpnGw3-SKU's.
+2. Als u met de oude gateway-SKU's werkt, kunt u wisselen tussen Basic-, Standard- en HighPerformance-SKU's.
+3. U kunt**niet** wisselen van Basic-/Standard-/HighPerformance-SKU's naar de nieuwe VpnGw2-/VpnGw1-/VpnGw3-SKU's. In plaats daarvan moet u [wijzigen](#change) naar de nieuwe SKU's.
+
+#### <a name="resizegwsku"></a>Het formaat van een gateway
+
+[!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
+
+####  <a name="change"></a>Wijzigen van een oude SKU (verouderde) naar een nieuwe SKU
+
+[!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="connectiontype"></a>Verbindingstypen
 
@@ -150,7 +163,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 Soms moet u de lokale gateway-instellingen wijzigen. Bijvoorbeeld, wanneer u toevoegen of wijzigen van het adresbereik, of als het IP-adres van de VPN-apparaat is gewijzigd. Zie [lokale gateway netwerkinstellingen wijzigen met behulp van PowerShell](vpn-gateway-modify-local-network-gateway.md).
 
-## <a name="resources"></a>REST-API's en PowerShell-cmdlets
+## <a name="resources"></a>REST-API's, PowerShell-cmdlets en CLI
 
 Zie voor aanvullende technische bronnen en de syntaxis van de specifieke vereisten voor het met REST-API's, PowerShell-cmdlets of Azure CLI voor VPN-Gateway-configuraties, de volgende pagina's:
 

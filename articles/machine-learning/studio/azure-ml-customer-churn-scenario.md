@@ -1,10 +1,11 @@
 ---
 title: Analyse van de klant verloop met behulp van Machine Learning | Microsoft Docs
-description: "Casestudy van een geïntegreerde model voor het analyseren en score berekenen voor verloop van de klant te ontwikkelen"
+description: Casestudy van een geïntegreerde model voor het analyseren en score berekenen voor verloop van de klant te ontwikkelen
 services: machine-learning
-documentationcenter: 
-author: jeannt
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -13,14 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: jeannt
-ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6c64444fc8d42782065d42ed5ee0c193678bb1f1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Traject van de klant analyseren met Azure Machine Learning
+# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Analyse van de klant verloop met Azure Machine Learning
 ## <a name="overview"></a>Overzicht
 Dit artikel bevat een verwijzing implementatie van een klant verloop analysis project is gebouwd met behulp van Azure Machine Learning. In dit artikel wordt besproken gekoppelde algemene modellen voor het oplossen van het probleem van industriële customer verloop holistische. We ook meet de nauwkeurigheid van modellen die zijn gebouwd met behulp van Machine Learning en beoordelen routebeschrijving voor verdere ontwikkeling.  
 

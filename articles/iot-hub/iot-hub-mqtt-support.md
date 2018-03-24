@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9acda980583319414cc9e8668424907947a257db
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d119cc4c4053a737e48739c17ae586abd51f3efa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw iothub met behulp van de protocollen MQTT-protocol
 
@@ -181,7 +181,7 @@ Voor het ontvangen van berichten uit IoT Hub, een apparaat moet abonneren met `d
 
 Het apparaat niet ontvangt berichten uit IoT Hub, totdat deze is geabonneerd op het eindpunt apparaatspecifieke, vertegenwoordigd door de `devices/{device_id}/messages/devicebound/#` onderwerp filter. Nadat een abonnement is ingesteld, ontvangt het apparaat cloud-naar-apparaat-berichten dat is verzonden naar deze na de tijd van het abonnement. Als het apparaat verbinding met maakt **CleanSession** vlag ingesteld op **0**, het abonnement over de verschillende sessies worden bewaard. In dit geval wordt de volgende keer dat het apparaat verbinding maakt met **CleanSession 0** ontvangen geen openstaande berichten verzonden terwijl de verbinding verbroken. Als het apparaat gebruikmaakt van **CleanSession** vlag ingesteld op **1** echter er komt geen ontvangen alle berichten uit IoT Hub totdat het apparaat-eindpunt worden bijgehouden.
 
-IoT Hub biedt berichten met de **onderwerpnaam** `devices/{device_id}/messages/devicebound/`, of `devices/{device_id}/messages/devicebound/{property_bag}` wanneer er eigenschappen van berichten. `{property_bag}` url-codering sleutel-waardeparen van berichteigenschappen bevat. Alleen de toepassingseigenschappen en de gebruiker instelbare eigenschappen (zoals **messageId** of **correlationId**) zijn opgenomen in de eigenschappenverzameling. Namen van de eigenschap System hebben het voorvoegsel  **$** , toepassingseigenschappen oorspronkelijke naam van de eigenschap met geen voorvoegsel gebruiken.
+IoT Hub biedt berichten met de **onderwerpnaam** `devices/{device_id}/messages/devicebound/`, of `devices/{device_id}/messages/devicebound/{property_bag}` wanneer er eigenschappen van berichten. `{property_bag}` url-codering sleutel-waardeparen van berichteigenschappen bevat. Alleen de toepassingseigenschappen en de gebruiker instelbare eigenschappen (zoals **messageId** of **correlationId**) zijn opgenomen in de eigenschappenverzameling. Namen van de eigenschap System hebben het voorvoegsel **$**, toepassingseigenschappen oorspronkelijke naam van de eigenschap met geen voorvoegsel gebruiken.
 
 Wanneer een app voor het apparaat is lid van een onderwerp met **QoS 2**, IoT-Hub geeft het maximum aantal QoS-niveau 1 in de **SUBACK** pakket. Daarna biedt IoT Hub berichten op het apparaat met behulp van QoS-1.
 
@@ -300,7 +300,7 @@ Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java
-[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt
+[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer

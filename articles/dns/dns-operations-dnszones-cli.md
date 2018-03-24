@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: kumud
-ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d384f8867ddfd28acaf78a47a7d32729e87c5580
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Het beheren van DNS-Zones in Azure DNS met de Azure CLI 2.0
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 
 
 Deze handleiding laat zien hoe uw DNS-zones beheren met behulp van de platformoverschrijdende Azure CLI, die beschikbaar is voor Windows, Mac en Linux. U kunt ook beheren met behulp van DNS-zones [Azure PowerShell](dns-operations-dnszones.md) of de Azure-portal.
+
+Deze handleiding behandelt specifiek de openbare DNS-zones. Zie voor meer informatie over het gebruik van Azure CLI voor het beheren van privé-Zones in Azure DNS [aan de slag met Azure persoonlijke DNS-Zones met Azure CLI 2.0](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Inleiding
 
@@ -45,7 +47,7 @@ Controleer voordat u met de configuratie begint of u de volgende items hebt.
 
 ### <a name="sign-in-to-your-azure-account"></a>Aanmelden bij uw Azure-account
 
-Open een consolevenster en doorloop de verificatie met uw referenties. Zie Aanmelden bij Azure vanaf de Azure CLI voor meer informatie
+Open een consolevenster en doorloop de verificatie met uw referenties. Raadpleeg [Log in to Azure from the Azure CLI (Aanmelden bij Azure vanaf de Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest) voor meer informatie.
 
 ```
 az login
@@ -64,6 +66,12 @@ Kies welk Azure-abonnement u wilt gebruiken.
 ```azurecli
 az account set --subscription "subscription name"
 ```
+
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Optioneel: Als u wilt installeren/gebruik Azure persoonlijke DNS-Zones functie (openbare Preview)
+De functie Azure persoonlijke DNS-Zone wordt vrijgegeven in Public Preview via een uitbreiding van de Azure CLI. De Azure CLI-extensie 'dns' installeren 
+```
+az extension add --name dns
+``` 
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 

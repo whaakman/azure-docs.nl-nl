@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: e82bbff908ea5499765edc71e52caa573c816a62
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c39a8fafef9a45f5e80d00f8cbc75833201df150
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Logboekregistratie van diagnostische gegevens van web-apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -120,7 +120,7 @@ Deze opdracht slaat u de logboeken voor de web-app die is opgegeven door de **-n
 ### <a name="download-with-azure-command-line-interface"></a>Met Azure-opdrachtregelinterface downloaden
 De logboekbestanden met de Azure-opdrachtregelinterface downloaden, opent u een nieuwe opdrachtprompt, PowerShell, Bash of terminalsessie en voer de volgende opdracht:
 
-    azure site log download webappname
+    az webapp log download --name webappname
 
 Deze opdracht slaat u de logboeken voor de web-app met de naam 'webappname' naar een bestand met de naam **diagnostics.zip** in de huidige map.
 

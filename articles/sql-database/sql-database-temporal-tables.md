@@ -3,17 +3,17 @@ title: Aan de slag met tijdelijke tabellen in Azure SQL Database | Microsoft Doc
 description: Informatie over het aan de slag met het gebruik van tijdelijke tabellen in Azure SQL Database.
 services: sql-database
 author: bonova
+ms.date: 03/21/2018
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: 8e76d78e402d2cdc58ca26767c55c413f83226d9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0299d52396549baf8ea7e5eb7145585c7b5900a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Aan de slag met tijdelijke tabellen in Azure SQL Database
 Tijdelijke tabellen zijn een nieuwe programmeerbaarheidsfunctie van Azure SQL Database waarmee u kunt bijhouden en analyseren van de volledige geschiedenis van wijzigingen in uw gegevens, zonder de noodzaak van een aangepaste codering. Tijdelijke tabellen bewaren gegevens die nauw verwant zijn met de tijd context zodat opgeslagen facts kunnen worden geïnterpreteerd als geldig alleen binnen een bepaalde periode. Deze eigenschap van tijdelijke tabellen maakt efficiënte analyse op basis van tijd en ophalen inzicht in gegevens ontwikkeling.
@@ -64,7 +64,7 @@ Wanneer u de tijdelijke systeemversietabel maakt, wordt automatisch de bijbehore
 In dit geval streven we ernaar om uit te voeren op basis van tijd trendanalyse gedurende een langere gegevensgeschiedenis en met grotere gegevenssets, zodat de keuze van de opslag voor de geschiedenistabel een geclusterde columnstore-index is. Een geclusterde columnstore biedt zeer goede compressie en prestaties voor analytische query's. Tijdelijke tabellen bieden u de flexibiliteit voor het configureren van indexen voor de huidige en de tijdelijke tabellen volledig onafhankelijk van elkaar. 
 
 > [!NOTE]
-> Columnstore-indexen zijn alleen beschikbaar in de premium servicecategorie.
+> Columnstore-indexen zijn beschikbaar in de laag Premium en in de prijscategorie Standard S3 en hoger.
 >
 
 Het volgende script toont hoe Standaardindex voor geschiedenistabel kan worden gewijzigd in de geclusterde columnstore:

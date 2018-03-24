@@ -2,23 +2,20 @@
 title: Token, sessie en eenmalige aanmelding-configuratie - Azure AD B2C | Microsoft Docs
 description: Token, sessie en configuratie voor eenmalige aanmelding in Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: e78e6344-0089-49bf-8c7b-5f634326f58c
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: parakhj
-ms.openlocfilehash: 76feb172ce9b08d4feef9c86e74a592553a3c7f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 925313b6f2a00826f2ec8086457315c60f70b007
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Token, sessie en configuratie voor één aanmelding
 
@@ -32,7 +29,7 @@ Deze functie kunt u fijnmazig bepalen, op een [per beleid basis](active-director
 Voor ingebouwde beleidsregels, kunt u deze functie in uw Azure AD B2C-directory als volgt:
 
 1. Volg deze stappen voor [gaat u naar het menu B2C-functies](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) in de Azure portal.
-2. Klik op **registreren of aanmelden beleid**. *Opmerking: U kunt deze functie op elk beleidstype niet alleen op **registreren of aanmelden beleid***.
+2. Klik op **registreren of aanmelden beleid**. * Opmerking: U kunt deze functie op elk beleidstype niet alleen op ** registreren of aanmelden beleidsregels ***.
 3. Open een beleid door erop te klikken. Bijvoorbeeld, klikt u op **B2C_1_SiUpIn**.
 4. Klik op **bewerken** aan de bovenkant van het menu.
 5. Klik op **Token, sessie & eenmalige aanmelding config**.
@@ -67,7 +64,7 @@ Dit zijn enkele gebruiksvoorbeelden die u kunt inschakelen met behulp van deze e
     > 
     > 
 
-## <a name="token-compatibility-settings"></a>Token compatibiliteitsinstellingen
+## <a name="token-compatibility-settings"></a>Instellingen voor tokencompatibiliteit
 
 Er opmaakwijzigingen aangebracht om belangrijke claims in beveiligingstokens die door Azure AD B2C. Dit is gedaan ter verbetering van onze support standaardprotocol en voor een betere compatibiliteit met bibliotheken van de identiteit van de derde partij. Echter, om te voorkomen dat bestaande apps, gemaakt we de volgende eigenschappen zodat klanten aanmelden indien nodig:
 
@@ -81,7 +78,7 @@ Er opmaakwijzigingen aangebracht om belangrijke claims in beveiligingstokens die
   * **TFP**: dit is de standaardwaarde.
   * **ACR**: dit is alleen beschikbaar voor neerwaartse compatibiliteit en het is raadzaam dat u naar overschakelt `tfp` zodra u zich kunt.
 
-## <a name="session-behavior"></a>Sessie-gedrag
+## <a name="session-behavior"></a>Sessiegedrag
 
 Azure AD B2C ondersteunt de [OpenID Connect-verificatieprotocol](active-directory-b2c-reference-oidc.md) voor het inschakelen van beveiligde aanmelding bij webtoepassingen. Dit zijn de eigenschappen die u gebruiken kunt voor het beheren van de sessies van een toepassing:
 

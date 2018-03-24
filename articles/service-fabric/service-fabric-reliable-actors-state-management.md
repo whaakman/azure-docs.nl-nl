@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f196b2e54efc5ecbbd93e48e1f115edb99e5c858
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d5d38e7fa80db3484c397d9840bbc6092e4f18bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="reliable-actors-state-management"></a>Statusbeheer voor betrouwbare Actors
 Reliable Actors zijn single thread-objecten die zowel de logica en de status kunnen inkapselen. Omdat actoren op Reliable Services worden uitgevoerd, kunnen ze status betrouwbaar onderhouden met behulp van dezelfde persistentie en replicatiemechanismen. Op deze manier actoren niet hun status na fouten bij het opnieuw te activeren nadat garbagecollection of wanneer ze worden verplaatst tussen knooppunten in een cluster als gevolg van resource netwerktaakverdeling of upgrades verliezen.
@@ -111,299 +111,7 @@ Status manager sleutels moeten tekenreeksen zijn. Waarden zijn algemeen en kunne
 
 De status manager beschrijft algemene woordenlijst methoden voor het beheren van status, vergelijkbaar met die in betrouwbare bibliotheek gevonden.
 
-## <a name="accessing-state"></a>Toegang tot de status
-Status kan worden benaderd via de status manager sleutel. De status manager methoden zijn alle asynchrone omdat ze schijf-i/o vereisen mogelijk wanneer actoren nog status persistent hebt gemaakt. Na de eerste toegang status objecten in cache zijn opgeslagen in het geheugen. Herhaal toegang operations-objecten rechtstreeks uit het geheugen en retourneren synchroon zonder schijf i/o- of asynchrone context-switching overhead. Een object met de status is verwijderd uit de cache in de volgende gevallen:
-
-* Een actormethode genereert een onverwerkte uitzondering nadat het ophalen van een object van de status manager.
-* Een actor opnieuw wordt geactiveerd, na wordt gedeactiveerd of na een storing.
-* De state-provider pagina staat op schijf. Dit gedrag is afhankelijk van de implementatie van de persistentieprovider van de status. De standaardprovider voor de status voor de `Persisted` instelling, heeft dit gedrag.
-
-U kunt de status ophalen met behulp van een standaard *ophalen* bewerking die genereert `KeyNotFoundException`(C#) of `NoSuchElementException`(Java) als er een vermelding bestaat voor de sleutel:
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task<int> GetCountAsync()
-    {
-        return this.StateManager.GetStateAsync<int>("MyState");
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture<Integer> getCountAsync()
-    {
-        return this.stateManager().getStateAsync("MyState");
-    }
-}
-```
-
-U kunt ook de status ophalen met behulp van een *TryGet* methode die niet genereren wordt als een vermelding niet voor een sleutel bestaat:
-
-```csharp
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task<int> GetCountAsync()
-    {
-        ConditionalValue<int> result = await this.StateManager.TryGetStateAsync<int>("MyState");
-        if (result.HasValue)
-        {
-            return result.Value;
-        }
-
-        return 0;
-    }
-}
-```
-```Java
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture<Integer> getCountAsync()
-    {
-        return this.stateManager().<Integer>tryGetStateAsync("MyState").thenApply(result -> {
-            if (result.hasValue()) {
-                return result.getValue();
-            } else {
-                return 0;
-            });
-    }
-}
-```
-
-## <a name="saving-state"></a>Status opslaan
-De methoden voor het ophalen van status manager een verwijzing retourneren naar een object in het lokale geheugen. Wijzigen van dit object in het lokale geheugen alleen leidt niet tot deze blijvend worden opgeslagen. Wanneer een object is opgehaald van de status manager en gewijzigd, moet opnieuw in de status manager worden blijvend opgeslagen worden ingevoegd.
-
-U kunt de status invoegen met behulp van een onvoorwaardelijke *ingesteld*, dit is het equivalent van de `dictionary["key"] = value` syntaxis:
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task SetCountAsync(int value)
-    {
-        return this.StateManager.SetStateAsync<int>("MyState", value);
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture setCountAsync(int value)
-    {
-        return this.stateManager().setStateAsync("MyState", value);
-    }
-}
-```
-
-U kunt toevoegen met behulp van een *toevoegen* methode. Deze methode genereert `InvalidOperationException`(C#) of `IllegalStateException`(Java) als er wordt geprobeerd een sleutel toevoegen die al bestaat.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task AddCountAsync(int value)
-    {
-        return this.StateManager.AddStateAsync<int>("MyState", value);
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture addCountAsync(int value)
-    {
-        return this.stateManager().addOrUpdateStateAsync("MyState", value, (key, old_value) -> old_value + value);
-    }
-}
-```
-
-U kunt ook de status toevoegen met behulp van een *TryAdd* methode. Deze methode wordt niet genereren tijdens het toevoegen van een sleutel die al bestaat.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task AddCountAsync(int value)
-    {
-        bool result = await this.StateManager.TryAddStateAsync<int>("MyState", value);
-
-        if (result)
-        {
-            // Added successfully!
-        }
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture addCountAsync(int value)
-    {
-        return this.stateManager().tryAddStateAsync("MyState", value).thenApply((result)->{
-            if(result)
-            {
-                // Added successfully!
-            }
-        });
-    }
-}
-```
-
-De status manager aan het einde van een actormethode automatisch alle waarden die zijn toegevoegd of gewijzigd door een bewerking insert of update opgeslagen. Een 'opslaan' kunt opnemen persistent maken op schijf en replicatie, afhankelijk van de instellingen die worden gebruikt. Waarden die niet zijn gewijzigd, zijn niet persistent of gerepliceerd. Als u geen waarden zijn gewijzigd, het opslaan bewerking doet niets. Als u opslaat mislukt, de gewijzigde status is verwijderd en de oorspronkelijke status opnieuw wordt geladen.
-
-U kunt ook de status handmatig opslaan aanroepen van de `SaveStateAsync` methode op basis van actor:
-
-```csharp
-async Task IMyActor.SetCountAsync(int count)
-{
-    await this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value);
-
-    await this.SaveStateAsync();
-}
-```
-```Java
-interface MyActor {
-    CompletableFuture setCountAsync(int count)
-    {
-        this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value).thenApply();
-
-        this.stateManager().saveStateAsync().thenApply();
-    }
-}
-```
-
-## <a name="removing-state"></a>Status verwijderen
-U kunt de status permanent verwijderen uit een actor status manager door het aanroepen van de *verwijderen* methode. Deze methode genereert `KeyNotFoundException`(C#) of `NoSuchElementException`(Java) als er wordt geprobeerd om te verwijderen van een sleutel die niet bestaat.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task RemoveCountAsync()
-    {
-        return this.StateManager.RemoveStateAsync("MyState");
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture removeCountAsync()
-    {
-        return this.stateManager().removeStateAsync("MyState");
-    }
-}
-```
-
-U kunt ook de status permanent verwijderen met behulp van de *TryRemove* methode. Deze methode wordt niet genereren wanneer deze probeert te verwijderen van een sleutel die niet bestaat.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task RemoveCountAsync()
-    {
-        bool result = await this.StateManager.TryRemoveStateAsync("MyState");
-
-        if (result)
-        {
-            // State removed!
-        }
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture removeCountAsync()
-    {
-        return this.stateManager().tryRemoveStateAsync("MyState").thenApply((result)->{
-            if(result)
-            {
-                // State removed!
-            }
-        });
-    }
-}
-```
+Lees voor voorbeelden van het beheer van de actorstatus [toegang, opslaan en het verwijderen van Reliable Actors status](service-fabric-reliable-actors-access-save-remove-state.md).
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 Hier volgen enkele aanbevolen procedures en tips voor probleemoplossing voor het beheren van de actorstatus.
@@ -412,7 +120,7 @@ Hier volgen enkele aanbevolen procedures en tips voor probleemoplossing voor het
 Dit is essentieel voor de prestaties en gebruik van bronnen van uw toepassing. Wanneer er schrijven/bijwerken met de 'benoemde status' van een acteur, wordt de hele waarde die overeenkomt met die 'benoemde status' geserialiseerd en verzonden via het netwerk naar de secundaire replica's.  De secundaire replica's schrijven naar de lokale schijf en de antwoord terug naar de primaire replica. Wanneer de primaire bevestigingen van een quorum van secundaire replica's ontvangt, worden de status naar de lokale schijf geschreven. Stel de waarde is een klasse die 20 leden en een grootte van 1 MB is. Zelfs als u een van de klasseleden van alleen gewijzigd formaat van 1 KB, einde van de kosten van serialisatie en netwerk- en schrijfbewerkingen betaalt voor de volledige 1 MB. Op dezelfde manier als de waarde is een verzameling (zoals een lijst, de matrix of de woordenlijst), betaalt u de kosten voor de volledige verzameling zelfs als u een van de leden wijzigen. De StateManager-interface van de klasse actor is vergelijkbaar met een woordenlijst. U moet altijd een model van de structuur van de gegevens die van de actorstatus boven op deze woordenlijst.
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>De actor-levenscyclus correct beheren
-U hebt wissen beleid over het beheren van de grootte van de status in elke partitie van een actor-service. Uw actor-service moet een vast aantal actoren hebben en een veel mogelijk blijven gebruiken. Als u nieuwe actoren continu maakt, moet u ze verwijderen als ze klaar bent met hun werk. Het framework actor slaat bepaalde metagegevens over elke actor dat zich voordoet. Als de status van een acteur, verwijdert metagegevens over die actor niet verwijderd. U moet de actor verwijderen (Zie [verwijderd actoren en hun status](service-fabric-reliable-actors-lifecycle.md#deleting-actors-and-their-state)) te verwijderen van alle informatie over deze opgeslagen in het systeem. Als een extra controle, moet u een query de actor-service (Zie [inventariseren actoren](service-fabric-reliable-actors-platform.md)) en om te controleren of de nummer actoren binnen het verwachte bereik.
+U hebt wissen beleid over het beheren van de grootte van de status in elke partitie van een actor-service. Uw actor-service moet een vast aantal actoren hebben en een veel mogelijk blijven gebruiken. Als u nieuwe actoren continu maakt, moet u ze verwijderen als ze klaar bent met hun werk. Het framework actor slaat bepaalde metagegevens over elke actor dat zich voordoet. Als de status van een acteur, verwijdert metagegevens over die actor niet verwijderd. U moet de actor verwijderen (Zie [verwijderd actoren en hun status](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) te verwijderen van alle informatie over deze opgeslagen in het systeem. Als een extra controle, moet u een query de actor-service (Zie [inventariseren actoren](service-fabric-reliable-actors-platform.md)) en om te controleren of de nummer actoren binnen het verwachte bereik.
  
 Als u ooit ziet dat bestandsgrootte van de database van een Service Actor buiten de verwachte grootte toeneemt, ervoor zorgen dat u de voorgaande richtlijnen volgt. Als u deze richtlijnen volgen en nog steeds database problemen met de grootte van bestanden, moet u [een ondersteuningsticket opent](service-fabric-support.md) met het productteam om hulp te krijgen.
 

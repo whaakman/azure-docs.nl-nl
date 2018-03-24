@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c36a3451dabbb0d08e5e475e0eec14f861bd41ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Maken, wijzigen of verwijderen van een openbaar IP-adres
 
@@ -32,9 +32,9 @@ Meer informatie over een openbaar IP-adres en het maken, wijzigen en verwijderen
 De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit artikel:
 
 - Als u nog een Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
-- Als u de portal gebruikt, open https://portal.azure.com en meld u aan met uw Azure-account.
-- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.2.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` de geïnstalleerde versie vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
-- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.26 of hoger. Voer `az --version` de geïnstalleerde versie vinden. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
+- Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
+- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.2.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.26 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
 
 Openbare IP-adressen hebben nominaal kosten met zich mee. Als de prijzen, lezen de [IP-adres prijzen](https://azure.microsoft.com/pricing/details/ip-addresses) pagina. 
 
@@ -46,7 +46,7 @@ Openbare IP-adressen hebben nominaal kosten met zich mee. Als de prijzen, lezen 
 
     |Instelling|Vereist?|Details|
     |---|---|---|
-    |SKU|Ja|Alle openbare IP-adressen die zijn gemaakt voordat de introductie van SKU's zijn **Basic** SKU openbare IP-adressen.  U kunt de SKU niet wijzigen nadat het openbare IP-adres is gemaakt. Een zelfstandige virtuele machine, virtuele machines in een beschikbaarheidsset of virtuele-machineschaalsets kunt gebruiken, basis of standaard SKU's.  De combinatie van SKU's tussen virtuele machines binnen beschikbaarheidssets of schaalsets is niet toegestaan. **Basic** SKU: als u een openbaar IP-adres in een regio die ondersteuning biedt voor beschikbaarheid zones, maakt de **beschikbaarheid zone** is ingesteld op *geen* standaard. U kunt kiezen om te selecteren van een zone beschikbaarheid te garanderen van een specifieke zone voor uw openbare IP-adres. **Standaard** SKU: standaard SKU van een openbaar IP-adres kan worden gekoppeld aan een virtuele machine of een load balancer-front-end. Als u een openbaar IP-adres in een regio die ondersteuning biedt voor beschikbaarheid zones, maakt de **beschikbaarheid zone** is ingesteld op *Zone-redundante* standaard. Zie voor meer informatie over beschikbaarheid zones de **beschikbaarheid zone** instelling. Standaard SKU is vereist als u het adres met een standaard load balancer koppelen. Zie voor meer informatie over standard netwerktaakverdelers, [Azure load balancer standaard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). De standaard SKU is in de preview-versie. Voordat u maakt een standaard SKU openbare IP-adres, moet u eerst de stappen in uitvoeren [registreren voor de standaard SKU preview](#register-for-the-standard-sku-preview) en maken van het openbare IP-adres in een ondersteunde locatie (regio). Zie voor een lijst van ondersteunde locaties [beschikbaarheid in regio's](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) en controleren van de [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) pagina voor de ondersteuning van aanvullende regio. Als u een openbaar IP-adres van een standaard-SKU toewijst aan een netwerkinterface van een virtuele machine, moet u het bedoelde verkeer expliciet toestaan met een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups). Communicatie met de resource mislukt totdat u een netwerkbeveiligingsgroep maakt en koppelt en het gewenste verkeer expliciet toestaat.|
+    |SKU|Ja|Alle openbare IP-adressen die zijn gemaakt voordat de introductie van SKU's zijn **Basic** SKU openbare IP-adressen.  U kunt de SKU niet wijzigen nadat het openbare IP-adres is gemaakt. Een zelfstandige virtuele machine, virtuele machines in een beschikbaarheidsset of virtuele-machineschaalsets kunt gebruiken, basis of standaard SKU's.  De combinatie van SKU's tussen virtuele machines binnen beschikbaarheidssets of schaalsets is niet toegestaan. **Basic** SKU: als u een openbaar IP-adres in een regio die ondersteuning biedt voor beschikbaarheid zones, maakt de **beschikbaarheid zone** is ingesteld op *geen* standaard. U kunt kiezen om te selecteren van een zone beschikbaarheid te garanderen van een specifieke zone voor uw openbare IP-adres. **Standaard** SKU: standaard SKU van een openbaar IP-adres kan worden gekoppeld aan een virtuele machine of een load balancer-front-end. Als u een openbaar IP-adres in een regio die ondersteuning biedt voor beschikbaarheid zones, maakt de **beschikbaarheid zone** is ingesteld op *Zone-redundante* standaard. Zie voor meer informatie over beschikbaarheid zones de **beschikbaarheid zone** instelling. Standaard SKU is vereist als u het adres met een standaard load balancer koppelen. Zie voor meer informatie over standard netwerktaakverdelers, [Azure load balancer standaard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Als u een openbaar IP-adres van een standaard-SKU toewijst aan een netwerkinterface van een virtuele machine, moet u het bedoelde verkeer expliciet toestaan met een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups). Communicatie met de resource mislukt totdat u een netwerkbeveiligingsgroep maakt en koppelt en het gewenste verkeer expliciet toestaat.|
     |Naam|Ja|De naam moet uniek zijn binnen de resourcegroep die u selecteert.|
     |IP-versie|Ja| Selecteer IPv4 of IPv6. Tijdens het openbare IPv4-adressen kunnen worden toegewezen aan meerdere Azure-resources, kan een IPv6-openbare IP-adres alleen worden toegewezen aan een internetgerichte load balancer. De load balancer kunt verdelen IPv6-verkeer naar virtuele machines in Azure. Meer informatie over [taakverdeling IPv6-verkeer naar virtuele machines](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Als u hebt geselecteerd de **standaard SKU**, u hebt niet de optie te selecteren *IPv6*. U kunt alleen een IPv4-adres maken wanneer u de **standaard SKU**.|
     |IP-adrestoewijzing|Ja|**Dynamische:** dynamische adressen zijn toegewezen alleen nadat het openbare IP-adres is gekoppeld aan een netwerkinterface gekoppeld aan een virtuele machine en de virtuele machine voor het eerst wordt gestart. Dynamische adressen kunnen wijzigen als de netwerkinterface is gekoppeld aan virtuele machine is gestopt (toewijzing ongedaan gemaakt). Het adres blijft hetzelfde als de virtuele machine is opnieuw gestart of gestopt (maar niet de toewijzing ongedaan gemaakt). **Statische:** statische adressen zijn toegewezen wanneer het openbare IP-adres wordt gemaakt. Statische adressen komen niet wijzigen, zelfs als de virtuele machine wordt geplaatst gestopt (toewijzing ongedaan gemaakt). Het adres wordt alleen vrijgegeven wanneer de netwerkinterface wordt verwijderd. U kunt de toewijzingsmethode wijzigen nadat de netwerkinterface is gemaakt. Als u selecteert *IPv6* voor de **IP-versie**, de toewijzingsmethode is *dynamische*. Als u selecteert *standaard* voor **SKU**, de toewijzingsmethode is *statische*.|
@@ -67,7 +67,7 @@ Hoewel de portal biedt de optie voor het maken van twee openbare IP-adresbronnen
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ netwerk openbare ip-maken](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
 |PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>Weergeven, instellingen voor wijzigen of verwijderen van een openbaar IP-adres
@@ -88,24 +88,6 @@ Hoewel de portal biedt de optie voor het maken van twee openbare IP-adresbronnen
 |---|---|
 |CLI|[AZ lijst van een openbaar ip-netwerk](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_list) aan de lijst met openbare IP-adressen, [az netwerk openbare-ip-weergeven](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_show) om weer te geven van instellingen. [az netwerk openbare ip-update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_update) bijwerken; [az netwerk openbare ip-verwijderen](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_delete) verwijderen|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) ophalen van een openbare IP-adres-object en de instellingen bekijken [Set AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) instellingen; bijwerken [Verwijderen AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) verwijderen|
-
-## <a name="register-for-the-standard-sku-preview"></a>Registreren voor de standaard SKU-preview
-
-> [!NOTE]
-> Functies in de preview-versie kunnen niet dezelfde mate van beschikbaarheid en betrouwbaarheid hebben, zoals functies die in het algemeen beschikbaarheid release. Preview-functies worden niet ondersteund, kunnen hebben beperkte mogelijkheden en mogelijk niet beschikbaar in alle Azure-locaties. 
-
-Voordat u een standaard SKU openbare IP-adres maken kunt, moet u eerst registreren voor de preview. Voer de volgende stappen uit om te registreren voor de preview:
-
-1. Voer de volgende opdracht om te registreren voor de Preview-versie van PowerShell:
-   
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-2. Bevestig dat u voor de preview zijn geregistreerd met de volgende opdracht:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
 
 ## <a name="next-steps"></a>Volgende stappen
 Openbare IP-adressen toewijzen bij het maken van de volgende Azure-resources:

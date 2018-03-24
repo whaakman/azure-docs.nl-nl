@@ -3,20 +3,20 @@ title: Uw Azure-beheergroepen-resources te organiseren | Microsoft Docs
 description: Meer informatie over de beheergroepen en hoe ze te gebruiken.
 author: rthorn17
 manager: rithorn
-editor: 
+editor: ''
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2018
+ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Breng uw resources met Azure-beheergroepen 
 
@@ -24,15 +24,13 @@ Als uw organisatie veel abonnementen heeft, moet u mogelijk een manier voor het 
 
 De functie management group is beschikbaar in een openbare preview. Aan de slag met beheer van groepen, meld u aan bij de [Azure-portal](https://portal.azure.com) en zoek naar **beheergroepen** in de **alle Services** sectie. 
 
-Beleid voor de ondersteuning van Azure voor beheergroepen is niet beschikbaar is nog in de openbare Preview en afkomstig is in de volgende weken.  
-
 Als u bijvoorbeeld kunt u beleidsregels toepassen op een beheergroep met beperkingen voor de regio's beschikbaar zijn voor het maken van de virtuele machine (VM). Dit beleid zou worden toegepast op alle beheergroepen, abonnementen en resources onder beheergroep door alleen virtuele machines in deze regio worden gemaakt.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hiërarchie van beheergroepen en abonnementen 
 
 U kunt een flexibele structuur van beheergroepen en abonnementen uw om resources te organiseren in een hiërarchie van unified beleid en beheer van toegang op te bouwen. Het volgende diagram toont een voorbeeld van de hiërarchie die uit de beheergroepen en -abonnementen die zijn geordend op afdelingen bestaat.    
 
-![hiërarchie](media/management-groups/MG_overview.png)
+![Structuur](media/management-groups/MG_overview.png)
 
 Als u een hiërarchie die worden gegroepeerd per afdelingen maakt, u zich kunt toewijzen [gebaseerd toegangsbeheer (RBAC)](../active-directory/role-based-access-control-what-is.md) rollen die *overnemen* aan de diensten onder de beheergroep. Met behulp van beheergroepen inkorten uw werkbelasting en vermindert het risico van fouten door slechts één keer de rol toewijzen. 
 
@@ -42,6 +40,14 @@ Als u een hiërarchie die worden gegroepeerd per afdelingen maakt, u zich kunt t
     - Deze limiet bevat niet het hoogste niveau of het abonnementsniveau.
 - Elke beheergroep kan slechts één bovenliggend ondersteunen.
 - Elke beheergroep kan meerdere onderliggende elementen hebben. 
+
+### <a name="preview-subscription-visibility-limitation"></a>Preview abonnement zichtbaarheid beperking 
+Er is momenteel een beperking in de Preview-versie waarin u kan geen abonnementen die u hebt toegang tot overgenomen weergeven. De toegang tot het abonnement wordt overgenomen, maar de Azure Resource Manager kan geen voldoen nog aan de overname-toegang.  
+
+Retourneert de gegevens met de REST API voor informatie over het abonnement als u toegang hebt, maar binnen de Azure-portal en Azure Powershell de abonnementen niet weergeven. 
+
+Dit item wordt gewerkt en worden opgelost voordat beheergroepen aangekondigde als 'Algemene beschikbaarheid'.  
+
 
 ## <a name="root-management-group-for-each-directory"></a>De beheergroep hoofdmap voor elke map
 

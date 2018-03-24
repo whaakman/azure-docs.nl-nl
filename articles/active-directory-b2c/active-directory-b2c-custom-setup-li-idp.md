@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: LinkedIn toevoegen als een OAuth2-id-provider met behulp van aangepaste beleid'
 description: Een artikel instructies over het instellen van een toepassing LinkedIn met behulp van de OAuth2-protocol en het aangepaste beleid
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/23/2017
-ms.author: yoelh
-ms.openlocfilehash: 77e2b9b283e4051370ffb905681135c27512834e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: davidmu
+ms.openlocfilehash: 9e5235739abcfbee1e530685890098a45a1b093d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: LinkedIn toevoegen als een id-provider met behulp van aangepaste beleid
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -43,7 +40,7 @@ LinkedIn gebruiken als een id-provider in Azure Active Directory B2C (Azure AD B
 
     c. Selecteer een **toepassing gebruik**.
 
-    d. In de **Website-URL** vak, plak  **https://login.microsoftonline.com** .
+    d. In de **Website-URL** vak, plak **https://login.microsoftonline.com**.
 
     e. Typ uw **zakelijke e** adres en **telefoon (werk)** getal.
 
@@ -53,7 +50,7 @@ LinkedIn gebruiken als een id-provider in Azure Active Directory B2C (Azure AD B
 
 3. Selecteer **verificatie**, en noteer de **Client-ID** en **Clientgeheim** waarden.
 
-4. In de **geautoriseerd Omleidings-URL's** vak, plak  **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp** . Vervang {*tenant*} met de tenantnaam van uw (bijvoorbeeld contosob2c.onmicrosoft.com). Zorg ervoor dat u van het HTTPS-schema gebruikmaakt. 
+4. In de **geautoriseerd Omleidings-URL's** vak, plak **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Vervang {*tenant*} met de tenantnaam van uw (bijvoorbeeld contosob2c.onmicrosoft.com). Zorg ervoor dat u van het HTTPS-schema gebruikmaakt. 
 
     ![Account LinkedIn - Set geautoriseerd Omleidings-URL 's](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 

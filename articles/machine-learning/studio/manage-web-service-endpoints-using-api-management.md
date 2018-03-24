@@ -3,10 +3,11 @@ title: Informatie over het beheren van AzureML-webservices met behulp van API Ma
 description: Een handleiding met het beheren van AzureML-webservices met behulp van API Management.
 keywords: machine learning api management
 services: machine-learning
-documentationcenter: 
-author: roalexan
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: roalexan
-ms.openlocfilehash: b2c9f53de1abd2aea5fabbefecc5bbb144148a7b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: fe916df286b0e50430464b3f2f8837b898abb827
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Informatie over het beheren van AzureML-webservices met API Management
 ## <a name="overview"></a>Overzicht
@@ -65,7 +65,7 @@ De API maken:
 1. Open het service-exemplaar dat u zojuist hebt gemaakt in de Azure-portal.
 2. Selecteer in het navigatiedeelvenster links **API's**.
 
-   ![menu-beheer-API](./media/manage-web-service-endpoints-using-api-management/api-management.png)
+   ![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management.png)
 
 1. Klik op **API toevoegen**.
 2. Voer een **Web API-naam** (in dit voorbeeld wordt 'AzureML Demo-API).
@@ -169,7 +169,7 @@ Bewerkingen kunnen rechtstreeks vanuit de portal voor ontwikkelaars die biedt ee
 
 Nadat een bewerking is aangeroepen, de ontwikkelaarsportal de **aangevraagde URL** van de back-end-service de **antwoordstatus**, wordt de **antwoordheaders**, en eventuele  **Antwoordinhoud**.
 
-![status van het antwoord](./media/manage-web-service-endpoints-using-api-management/response-status.png)
+![response-status](./media/manage-web-service-endpoints-using-api-management/response-status.png)
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Bijlage A - maken en testen van een eenvoudige AzureML-webservice
 ### <a name="creating-the-experiment"></a>Het experiment maken
@@ -179,7 +179,7 @@ Hieronder volgen de stappen voor het maken van een eenvoudig experiment van Azur
 | --- | --- |
 | Dit is een goede dag |1 1 2 2 0 2 0 1 |
 
-Eerst met een browser naar keuze, gaat u naar: [https://studio.azureml.net/](https://studio.azureml.net/) en voer uw referenties aan te melden. Maak vervolgens een nieuw, leeg experiment.
+Eerst met een browser naar keuze, gaat u naar: [ https://studio.azureml.net/ ](https://studio.azureml.net/) en voer uw referenties aan te melden. Maak vervolgens een nieuw, leeg experiment.
 
 ![experiment-sjablonen voor het zoeken](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
 
@@ -197,7 +197,7 @@ Klik op **Select Columns in Dataset** en klik vervolgens op **Launch column sele
 
 Vouw **Tekstanalyse** en sleep **hash-functie** naar het experiment. Verbinding maken met **kolommen in gegevensset selecteren** naar **hash-functie**.
 
-![verbinding maken met project kolommen](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
+![connect-project-columns](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
 Type **3** voor de **bitsize Hashing**. Hiermee maakt u 8 (23) kolommen.
 
@@ -210,11 +210,11 @@ U wilt op dit moment klikken **uitvoeren** voor het testen van het experiment.
 ### <a name="create-a-web-service"></a>Een webservice maken
 Maak nu een webservice. Vouw **webservice** en sleep **invoer** naar uw experiment. Verbinding maken met **invoer** naar **hash-functie**. Ook slepen **uitvoer** naar uw experiment. Verbinding maken met **uitvoer** naar **hash-functie**.
 
-![output-naar--hash-functies](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
+![output-to-feature-hashing](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
 
 Klik op **publiceren webservice**.
 
-![publiceren-web-service](./media/manage-web-service-endpoints-using-api-management/publish-web-service.png)
+![publish-web-service](./media/manage-web-service-endpoints-using-api-management/publish-web-service.png)
 
 Klik op **Ja** voor het publiceren van het experiment.
 
@@ -225,7 +225,7 @@ Een webservice AzureML bestaat uit RSS (aanvraag/antwoord-service) en eindpunten
 
 U moet ook de **werkruimte**, **service**, en **api_key** van uw experiment voor het onderstaande voorbeeld de gegevensbron. U kunt de werkruimte en de service vinden door te klikken op **aanvragen/reacties** of **Batchuitvoering** voor uw experiment in het dashboard van web service.
 
-![Zoek-werkruimte-en-service](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
+![find-workspace-and-service](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
 U vindt de **api_key** door te klikken op uw experiment in het dashboard van web service.
 
@@ -239,11 +239,11 @@ Een eenvoudige manier voor het testen van het eindpunt RRS is te klikken op **te
 
 Type **dit is een goede dag** voor **col2**. Klik op het vinkje.
 
-![Geef gegevens](./media/manage-web-service-endpoints-using-api-management/enter-data.png)
+![enter-data](./media/manage-web-service-endpoints-using-api-management/enter-data.png)
 
 U ziet ongeveer
 
-![Voorbeeld van uitvoer](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
+![sample-output](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
 
 ##### <a name="sample-code"></a>Voorbeeldcode
 Een andere manier voor het testen van uw RRS is vanuit uw clientcode. Als u op **aanvragen/reacties** op het dashboard en Ga naar de onderkant verschijnt voorbeeldcode voor C#, Python en R. U ziet ook de syntaxis van de aanvraag RRS, met inbegrip van de aanvraag-URI, kopteksten en hoofdtekst.

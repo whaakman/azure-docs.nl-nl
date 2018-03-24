@@ -2,27 +2,24 @@
 title: 'Azure Active Directory B2C: Facebook-configuratie | Microsoft Docs'
 description: Registreren en aanmelden gebruikers met Facebook-accounts in uw toepassingen die zijn beveiligd met Azure Active Directory B2C bieden.
 services: active-directory-b2c
-documentationcenter: 
-author: sromeroz
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: sromeroz
-ms.assetid: b875f235-a1d2-4abb-b9f0-b89beac38a32
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 8/7/2017
-ms.author: sromeroz
-ms.openlocfilehash: 7f551a7ba9b7ddbb373e6b6418ab43fe7ce9be36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 899677500b0d33b5f98807a341449199b6b3dcac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-facebook-accounts"></a>Azure Active Directory B2C: Zich kunnen registreren en aanmelden gebruikers bieden met Facebook-accounts
 ## <a name="create-a-facebook-application"></a>Een Facebook-toepassing maken
-Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C Facebook gebruikt, moet u een Facebook-toepassing maken en geeft deze met de juiste parameters. U moet een Facebook-account om dit te doen. Als u niet hebt, kunt u krijgen op het [https://www.facebook.com/](https://www.facebook.com/).
+Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C Facebook gebruikt, moet u een Facebook-toepassing maken en geeft deze met de juiste parameters. U moet een Facebook-account om dit te doen. Als u niet hebt, kunt u krijgen op het [ https://www.facebook.com/ ](https://www.facebook.com/).
 
 1. Ga naar de [Facebook voor ontwikkelaars](https://developers.facebook.com/) website en meld u aan met uw Facebook-accountreferenties.
 2. Als u dit nog niet hebt gedaan, moet u registreren als een ontwikkelaar Facebook. Om dit te doen, klikt u op **registreren** (in de rechterbovenhoek van de pagina), accepteert de Facebook-beleid en voltooi de stappen registratie.

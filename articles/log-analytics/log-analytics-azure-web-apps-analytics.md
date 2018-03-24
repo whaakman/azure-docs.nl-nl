@@ -2,23 +2,23 @@
 title: Azure Web Apps analytische gegevens bekijken | Microsoft Docs
 description: U kunt de Azure Web Apps Analytics-oplossing gebruiken om inzicht te krijgen over uw Azure-Web-Apps door het verzamelen van verschillende metrische gegevens over alle resources in uw Azure-Web-App.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b70b626ca618fbfb7cbe25a4fcbc9aae797ce157
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Analytische gegevens weergeven voor de metrische gegevens over alle resources in uw Azure-Web-App
 
@@ -90,19 +90,18 @@ Wanneer u de Azure Web Apps Analytics-oplossing aan uw werkruimte toevoegt de **
 
 Klik op de **Azure Web Apps Analytics** tegel openen de **Azure Web Apps Analytics** dashboard. Het dashboard bevat de blades in de volgende tabel. Elke blade bevat maximaal tien items die overeenkomen met de criteria die blade voor het opgegeven bereik en tijdsbereik. U kunt een logboek-zoekquery waarmee alle records door te klikken op uitvoeren **alle** aan de onderkant van de blade of door te klikken op de blade-header.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Kolom | Beschrijving |
 | --- | --- |
 | Azure Webapps |   |
-| Web-Apps aanvraag Trends | Toont een lijndiagram van de trend in de Web-Apps-aanvraag voor het datumbereik dat u hebt geselecteerd en bevat een overzicht van de top tien webaanvragen. Klik op het lijndiagram om uit te voeren een zoekopdracht logboek voor <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Klik op een item van de aanvraag web om uit te voeren een zoekopdracht logboek voor de web-aanvraag metrische trend die aanvragen. |
-| Reactietijd van Web-Apps | Toont een lijndiagram van de reactietijd van de Web-Apps voor het datumbereik dat u hebt geselecteerd. Ook bevat een overzicht van een lijst van de top tien Web Apps antwoord time-out. Klik op de grafiek om uit te voeren een zoekopdracht logboek voor <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Klik op een Web-App in een logboek zoekopdracht reactietijden retourneren voor de Web-App uitvoeren. |
-| Verkeer van Web-Apps | Toont een lijndiagram voor verkeer van de Web-Apps, in MB en geeft een lijst van de bovenste verkeer van de Web-Apps. Klik op de grafiek om uit te voeren een zoekopdracht logboek voor <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Deze bevat alle Web-Apps met verkeer voor de laatste minuut. Klik op een Web-App als u wilt uitvoeren van een logboek zoekopdracht bytes ontvangen en verzonden voor de Web-App wordt weergegeven. |
+| Web-Apps aanvraag Trends | Toont een lijndiagram van de trend in de Web-Apps-aanvraag voor het datumbereik dat u hebt geselecteerd en bevat een overzicht van de top tien webaanvragen. Klik op het lijndiagram om uit te voeren een zoekopdracht logboek voor <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "Requests" or MetricName startswith_cs "Http") &#124; summarize AggregatedValue = avg(Average) by MetricName, bin(TimeGenerated, 1h)</code> <br>Klik op een item van de aanvraag web om uit te voeren een zoekopdracht logboek voor de web-aanvraag metrische trend die aanvragen. |
+| Reactietijd van Web-Apps | Toont een lijndiagram van de reactietijd van de Web-Apps voor het datumbereik dat u hebt geselecteerd. Ook bevat een overzicht van een lijst van de top tien Web Apps antwoord time-out. Klik op de grafiek om uit te voeren een zoekopdracht logboek voor <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and MetricName == "AverageResponseTime" &#124; summarize AggregatedValue = avg(Average) by Resource, bin(TimeGenerated, 1h)</code><br> Klik op een Web-App in een logboek zoekopdracht reactietijden retourneren voor de Web-App uitvoeren. |
+| Verkeer van Web-Apps | Toont een lijndiagram voor verkeer van de Web-Apps, in MB en geeft een lijst van de bovenste verkeer van de Web-Apps. Klik op de grafiek om uit te voeren een zoekopdracht logboek voor <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "BytesSent" or MetricName == "BytesReceived") &#124; summarize AggregatedValue = sum(Average) by Resource, bin(TimeGenerated, 1h)</code><br> Deze bevat alle Web-Apps met verkeer voor de laatste minuut. Klik op een Web-App als u wilt uitvoeren van een logboek zoekopdracht bytes ontvangen en verzonden voor de Web-App wordt weergegeven. |
 | Azure App Service-plannen |   |
-| App Service-plannen met CPU-gebruik &gt; 80% | Geeft het totale aantal App Service-abonnementen die groter is dan 80% CPU-gebruik hebben en een lijst met de top 10-App Service-plannen door CPU-gebruik. Klik op het totale aantal gebied als u wilt uitvoeren van een logboek zoekt <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> Het bevat een overzicht van uw App Service-abonnementen en het gemiddelde CPU-gebruik. Klik op een App Service-Plan om uit te voeren een zoekopdracht in de logboekbestanden met het gemiddelde CPU-gebruik. |
-| App Service-plannen met geheugengebruik &gt; 80% | Geeft het totale aantal App Service-abonnementen die groter is dan 80% geheugengebruik hebben en een lijst met de top 10-App Service-plannen door geheugengebruik. Klik op het totale aantal gebied als u wilt uitvoeren van een logboek zoekt <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> Het bevat een overzicht van uw App Service-abonnementen en hun gemiddelde geheugengebruik. Klik op een App Service-Plan om uit te voeren een zoekopdracht in de logboekbestanden met het gemiddelde geheugengebruik. |
+| App Service-plannen met CPU-gebruik &gt; 80% | Geeft het totale aantal App Service-abonnementen die groter is dan 80% CPU-gebruik hebben en een lijst met de top 10-App Service-plannen door CPU-gebruik. Klik op het totale aantal gebied als u wilt uitvoeren van een logboek zoekt <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "CpuPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> Het bevat een overzicht van uw App Service-abonnementen en het gemiddelde CPU-gebruik. Klik op een App Service-Plan om uit te voeren een zoekopdracht in de logboekbestanden met het gemiddelde CPU-gebruik. |
+| App Service-plannen met geheugengebruik &gt; 80% | Geeft het totale aantal App Service-abonnementen die groter is dan 80% geheugengebruik hebben en een lijst met de top 10-App Service-plannen door geheugengebruik. Klik op het totale aantal gebied als u wilt uitvoeren van een logboek zoekt <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "MemoryPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> Het bevat een overzicht van uw App Service-abonnementen en hun gemiddelde geheugengebruik. Klik op een App Service-Plan om uit te voeren een zoekopdracht in de logboekbestanden met het gemiddelde geheugengebruik. |
 | Activiteitenlogboeken Azure-Web-Apps |   |
-| Azure-Web-Apps activiteit Audit | Geeft het totale aantal Web-Apps met [activiteitenlogboeken](log-analytics-activity.md) en vindt u de top 10 activiteit logboek-bewerkingen. Klik op het totale aantal gebied als u wilt uitvoeren van een logboek zoekt <code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> Het bevat een overzicht van de activiteit logboek-bewerkingen. Klik op een activiteit log-bewerking voor het uitvoeren van een zoekopdracht logboek met een lijst met de records voor de bewerking. |
+| Azure-Web-Apps activiteit Audit | Geeft het totale aantal Web-Apps met [activiteitenlogboeken](log-analytics-activity.md) en vindt u de top 10 activiteit logboek-bewerkingen. Klik op het totale aantal gebied als u wilt uitvoeren van een logboek zoekt <code>AzureActivity #124; where ResourceProvider == "Azure Web Sites" #124; summarize AggregatedValue = count() by OperationName</code><br> Het bevat een overzicht van de activiteit logboek-bewerkingen. Klik op een activiteit log-bewerking voor het uitvoeren van een zoekopdracht logboek met een lijst met de records voor de bewerking. |
 
 
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 81e227194ff64d7b7af842a208349ccc63528ab8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bb6e4f9f147db2fb70d991922cf0bb8d16b29671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Voorspeld onderhoud voor real-world scenario 's
 
@@ -25,7 +25,7 @@ Dit scenario wordt verkend een relatief [grootschalige gesimuleerde gegevensset]
 
 ### <a name="cortana-intelligence-gallery-github-repository"></a>Cortana Intelligence Gallery GitHub-opslagplaats
 
-De Cortana Intelligence Gallery voor de zelfstudie CB is een openbare GitHub-opslagplaats ([https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance)) kunt u rapporteren van problemen en maken bijdragen.
+De Cortana Intelligence Gallery voor de zelfstudie CB is een openbare GitHub-opslagplaats ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)) kunt u rapporteren van problemen en bijdragen maken.
 
 
 ## <a name="use-case-overview"></a>Gebruik van de case-overzicht
@@ -49,8 +49,8 @@ Model uitoefening is gedaan met behulp van de 0.1.0a22 versie van de CLI van Azu
 ## <a name="create-a-new-workbench-project"></a>Maak een nieuw project in de Workbench
 
 Maak een nieuw project met behulp van dit voorbeeld als sjabloon:
-1.  Open de Machine Learning-Workbench.
-2.  Op de **projecten** pagina ** + **, en selecteer vervolgens **nieuw Project**.
+1.  Open Machine Learning Workbench.
+2.  Op de **projecten** pagina **+**, en selecteer vervolgens **nieuw Project**.
 3.  In de **nieuw Project maken** deelvenster Vul de informatie voor het nieuwe project.
 4.  In de **zoeken projectsjablonen** het zoekvak, typ 'Voorspeld onderhoud' en selecteer de **voorspeld onderhoud** sjabloon.
 5.  Selecteer **Maken**.

@@ -2,10 +2,10 @@
 title: 'Data Factory-zelfstudie: eerste gegevens pijplijn | Microsoft Docs'
 description: Deze Azure Data Factory-zelfstudie laat zien hoe u maken en plannen van een gegevensfactory dat gegevens met Hive-script op een Hadoop-cluster verwerkt.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 374eebfe35207f6e5264159dcb72abddc6de4598
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2fc9c0a823f48446f98fe9686242b8500462427b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Zelfstudie: Bouw uw eerste pijplijn voor het transformeren van gegevens met Hadoop-cluster
 > [!div class="op_single_selector"]
@@ -85,7 +85,7 @@ Voordat u met deze zelfstudie begint, moet u aan de volgende vereisten voldoen:
 
 1. U moet beschikken over een **Azure-abonnement**. Als u geen Azure-abonnement hebt, kunt u in enkele minuten een gratis proefaccount maken. Zie het artikel [Gratis proefversie](https://azure.microsoft.com/pricing/free-trial/) voor informatie over het verkrijgen van een gratis proefaccount.
 2. U moet gebruikmaken van **Azure Storage**. U gebruikt een Azure-opslagaccount om de gegevens in deze zelfstudie op te slaan. Zie het artikel [Een opslagaccount maken](../../storage/common/storage-create-storage-account.md#create-a-storage-account) als u geen account Azure-opslagaccount hebt. Nadat u het opslagaccount hebt gemaakt, noteer de **accountnaam** en **toegangssleutel**. Zie [View, copy and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys) (Toegangssleutels voor opslag weergeven, kopiëren en opnieuw genereren).
-3. Downloaden en bekijken van het Hive-query-bestand (**HQL**) te vinden op: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Deze query transformeert invoergegevens uitvoergegevens te produceren. 
+3. Downloaden en bekijken van het Hive-query-bestand (**HQL**) te vinden op: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Deze query transformeert invoergegevens uitvoergegevens te produceren. 
 4. Downloaden en bekijken van de voorbeeld-bestand voor invoer (**input.log**) te vinden op: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Maak een blobcontainer met de naam **adfgetstarted** in uw Azure-blobopslag. 
 6. Uploaden **partitionweblogs.hql** van het bestand in de **script** map in de **adfgetstarted** container. Gebruik hulpprogramma's zoals [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 

@@ -2,10 +2,10 @@
 title: Toegang tot Hadoop YARN toepassingslogboeken op Linux gebaseerde HDInsight - Azure | Microsoft Docs
 description: Meer informatie over het openen van YARN-logboeken op een HDInsight (Hadoop) op basis van Linux-cluster met behulp van de opdrachtregel en een webbrowser.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
 ms.service: hdinsight
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f61e94d37a5e5f958a706f0db82526996a4ec02
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4d3157441777cc7e39c3ede65a6d90a0f9a163aa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Toegang toepassingslogboeken YARN op Linux gebaseerde HDInsight
 
@@ -72,7 +72,7 @@ Geef de &lt;applicationId >, &lt;-die-slag-de-gebruikerstoepassing >, &lt;contai
 
 De gebruikersinterface van YARN ResourceManager op het cluster headnode wordt uitgevoerd. Deze is toegankelijk via de Ambari-webgebruikersinterface. Gebruik de volgende stappen uit om de YARN-logboeken weer te geven:
 
-1. Ga naar https://CLUSTERNAME.azurehdinsight.net in uw webbrowser. CLUSTERNAAM vervangen door de naam van uw HDInsight-cluster.
+1. Navigeer in uw webbrowser naar https://CLUSTERNAME.azurehdinsight.net. CLUSTERNAAM vervangen door de naam van uw HDInsight-cluster.
 2. Selecteer in de lijst van services aan de linkerkant **YARN**.
 
     ![Yarn service geselecteerd](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)

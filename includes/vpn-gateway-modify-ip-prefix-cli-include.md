@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 9b168231669c50c8f00d3527288fd03ab3bf9ce8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="noconnection"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk - geen gatewayverbinding
 
 Als u geen gatewayverbinding hebt en u IP-adresvoorvoegsels wilt toevoegen of verwijderen, gebruikt u dezelfde opdracht die u gebruikt voor het maken van de gateway van het lokale netwerk, [az network local-gateway create](https://docs.microsoft.com/cli/azure/network/local-gateway#az_network_local_gateway_create). U kunt deze opdracht ook gebruiken om het gateway-IP-adres voor het VPN-apparaat bij te werken. Gebruik de bestaande naam van de gateway van uw lokale netwerk om de huidige instellingen te overschrijven. Als u een andere naam gebruikt, maakt u een nieuwe lokale netwerkgateway in plaats van de bestaande gateway te overschrijven.

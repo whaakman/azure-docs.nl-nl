@@ -2,21 +2,21 @@
 title: COMPUTE omgevingen wordt ondersteund door Azure Data Factory | Microsoft Docs
 description: Meer informatie over de compute-omgevingen die u in Azure Data Factory-pijplijnen (zoals Azure HDInsight) voor het transformeren of proces gebruiken kunt.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: f242a8a15334818d83651cf0af55e8ec39bce212
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 99d10cfd9e1e0eb078d1f90396a87e5e5dc4a7a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
 Dit artikel wordt uitgelegd verschillende berekeningsomgevingen waarmee u kunt gegevens verwerken of transformatie. Het bevat ook informatie over verschillende configuraties (op aanvraag versus bring uw eigen) die door Data Factory worden ondersteund bij het configureren van de gekoppelde services koppelt deze compute-omgevingen aan een Azure data factory.
@@ -101,7 +101,7 @@ De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op 
 | Eigenschap                     | Beschrijving                              | Vereist |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | De eigenschap type moet worden ingesteld op **HDInsightOnDemand**. | Ja      |
-| De clustergrootte                  | Het aantal worker/gegevens knooppunten in het cluster. Het HDInsight-cluster wordt gemaakt met 2 hoofdknooppunten samen met het aantal worker-knooppunten die u voor deze eigenschap opgeeft. De knooppunten zijn met een grootte van Standard_D3 met 4 kernen, zodat een cluster met 4 worker-knooppunten 24 kernen duurt (4\*4 = 16 cores voor worker-knooppunten plus 2\*4 = 8 cores voor hoofdknooppunten). Zie [clusters in HDInsight met Hadoop, Spark en Kafka instellen](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie. | Ja      |
+| clusterSize                  | Het aantal worker/gegevens knooppunten in het cluster. Het HDInsight-cluster wordt gemaakt met 2 hoofdknooppunten samen met het aantal worker-knooppunten die u voor deze eigenschap opgeeft. De knooppunten zijn met een grootte van Standard_D3 met 4 kernen, zodat een cluster met 4 worker-knooppunten 24 kernen duurt (4\*4 = 16 cores voor worker-knooppunten plus 2\*4 = 8 cores voor hoofdknooppunten). Zie [clusters in HDInsight met Hadoop, Spark en Kafka instellen](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie. | Ja      |
 | linkedServiceName            | Gekoppelde Azure Storage-service moet worden gebruikt door het cluster op aanvraag voor het opslaan en verwerken van gegevens. Het HDInsight-cluster wordt gemaakt in dezelfde regio bevinden als dit Azure Storage-account. Voor Azure HDInsight geldt een beperking voor het totale aantal kernen dat u kunt gebruiken in elke Azure-regio die wordt ondersteund. Zorg ervoor dat er voldoende quota core in die Azure-regio om te voldoen aan de vereiste de clustergrootte. Raadpleeg voor meer informatie, [clusters in HDInsight met Hadoop, Spark en Kafka instellen](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Op dit moment kunt maken u een HDInsight-cluster op aanvraag die gebruikmaakt van een Azure Data Lake Store als de opslag niet. Als u wilt voor het opslaan van de resultaatgegevens van HDInsight worden verwerkt in een Azure Data Lake Store, gebruikt u een Kopieeractiviteit in de gegevens uit de Azure Blob Storage kopiëren naar Azure Data Lake Store. </p> | Ja      |
 | clusterResourceGroup         | Het HDInsight-cluster wordt gemaakt in deze resourcegroep. | Ja      |
 | TimeToLive                   | De toegestane niet-actieve tijd voor het HDInsight-cluster op aanvraag. Hiermee geeft u op hoelang het HDInsight-cluster op aanvraag na voltooiing van een activiteit die wordt uitgevoerd als er geen actieve taken in het cluster actief blijft. De minimaal toegestane waarde is 5 minuten (00: 05:00).<br/><br/>Bijvoorbeeld, als het uitvoeren van een activiteit 6 minuten duurt en timetolive is ingesteld op 5 minuten, blijft het cluster actief gedurende vijf minuten nadat de 6 minuten van de verwerking van de activiteit is uitgevoerd. Als een andere activiteit die wordt uitgevoerd met het venster 6 minuten wordt uitgevoerd, wordt het verwerkt door hetzelfde cluster.<br/><br/>Maken van een HDInsight-cluster op aanvraag is een dure bewerking (kan even duren) in dat geval gebruik deze instelling als die nodig zijn voor de prestaties van een gegevensfactory verbeteren door een HDInsight-cluster op aanvraag opnieuw te gebruiken.<br/><br/>Als u timetolive-waarde op 0 instelt, wordt het cluster wordt verwijderd zodra de uitvoering van de activiteit is voltooid. Dat, als u een hoge waarde instelt, het cluster niet actief is voor u zich aanmelden voor het probleem oplossen kan blijven doel, maar dit kan leiden tot hoge kosten. Het is daarom belangrijk dat u de juiste waarde op basis van uw behoeften.<br/><br/>Als de waarde van de eigenschap timetolive op de juiste wijze is ingesteld, kunnen meerdere pijplijnen het exemplaar van het HDInsight-cluster op aanvraag delen. | Ja      |

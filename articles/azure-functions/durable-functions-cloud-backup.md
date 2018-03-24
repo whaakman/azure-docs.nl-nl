@@ -4,21 +4,21 @@ description: Informatie over het implementeren van een scenario fan-uitgaand-ven
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-uitgaand/fan-in-scenario in duurzame functies - Cloud back-voorbeeld
 
@@ -26,8 +26,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Volg de instructies in [duurzame functies installeren](durable-functions-install.md) voor het instellen van het voorbeeld.
-* In dit artikel wordt ervan uitgegaan dat u al hebt doorlopen de [Hello Sequence](durable-functions-sequence.md) voorbeeld scenario.
+* [Installeren van functies duurzame](durable-functions-install.md).
+* Voltooi de [Hello Sequence](durable-functions-sequence.md) scenario.
 
 ## <a name="scenario-overview"></a>Overzicht van scenario's
 
@@ -47,7 +47,7 @@ Dit artikel wordt uitgelegd dat de volgende functies in de voorbeeld-app:
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-De volgende secties worden de configuratie en code die worden gebruikt voor het ontwikkelen van Azure portal. De code voor het ontwikkelen van Visual Studio wordt weergegeven aan het einde van het artikel.
+De volgende secties worden de configuratie en code die worden gebruikt voor het C#-scripts. De code voor het ontwikkelen van Visual Studio wordt weergegeven aan het einde van het artikel.
 
 ## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>De cloud back-orchestration (Visual Studio Code en de Azure portal voorbeeldcode)
 

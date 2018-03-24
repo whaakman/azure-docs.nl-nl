@@ -1,11 +1,11 @@
 ---
-title: "Gegevens kopiëren van Netezza met behulp van Azure Data Factory (bèta) | Microsoft Docs"
-description: "Informatie over het kopiëren van gegevens van Netezza naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn."
+title: Gegevens kopiëren van Netezza met behulp van Azure Data Factory (bèta) | Microsoft Docs
+description: Informatie over het kopiëren van gegevens van Netezza naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 19c03ffd38c26502248275bd68611f5240b79e50
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 0896f2b23f9b74e12935c0a8b073b64dc743e6a8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Gegevens kopiëren van Netezza met behulp van Azure Data Factory (bèta)
 

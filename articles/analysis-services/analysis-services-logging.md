@@ -2,30 +2,30 @@
 title: Logboekregistratie voor Azure Analysis Services Diganostic | Microsoft Docs
 description: Meer informatie over het instellen van diagnostische logboekregistratie voor Azure Analysis Services.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 20e2e76e8df9421ee97671000f9557f5db34f1b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Diagnostische logboekregistratie instellen
 
-Een belangrijk onderdeel van een Analysis Services-oplossing wordt bewaakt hoe uw servers uitvoert. Met [diagnostische logboeken van Azure-resource](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), u kunt controleren en logboeken verzenden [Azure Storage](https://azure.microsoft.com/services/storage/), ze streamt [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), en ze te exporteren [logboek Analytics](https://azure.microsoft.com/services/log-analytics/), deel uit van [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Een belangrijk onderdeel van een Analysis Services-oplossing wordt bewaakt hoe uw servers uitvoert. Met [diagnostische logboeken van Azure-resource](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), u kunt controleren en logboeken verzenden [Azure Storage](https://azure.microsoft.com/services/storage/), ze streamt [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), en ze te exporteren [logboek Analytics](https://azure.microsoft.com/services/log-analytics/), een service van [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
-![Diagnostische logboekregistratie voor opslag, Event Hubs of Operations Management Suite via Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
+![Diagnostische logboekregistratie voor opslag, Event Hubs of Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>Wat wordt geregistreerd?
@@ -171,7 +171,7 @@ In **Type**, klikt u op **AzureDiagnostics**, en klik vervolgens op **toepassen*
 
 Klik op **EventClass\_s** of een van de gebeurtenisnamen en Log Analytics blijft samenstellen van een query. Zorg ervoor dat u uw query's voor hergebruik.
 
-Zorg ervoor dat Zie Operations Management Suite waarmee een website met uitgebreide query, dashboarding en waarschuwen mogelijkheden op Log Analytics-gegevens.
+Zorg ervoor dat Zie Log Analytics, waardoor een website met uitgebreide query, dashboarding en waarschuwen mogelijkheden van verzamelde gegevens.
 
 ### <a name="queries"></a>Query's
 

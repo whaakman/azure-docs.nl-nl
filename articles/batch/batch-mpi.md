@@ -2,23 +2,23 @@
 title: Taken met meerdere instanties gebruiken voor het uitvoeren van MPI-toepassingen - Azure Batch | Microsoft Docs
 description: Informatie over het gebruik van het type van de taak meerdere exemplaren in Azure Batch Message Passing Interface (MPI)-toepassingen uitvoeren.
 services: batch
-documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: 5/22/2017
-ms.author: tamram
+ms.tgt_pltfrm: ''
+ms.date: 5/22/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01da017587aed7c0f2415786fdcbf6f64024cbe3
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 0fb5ea21c6403369cbcb60df58c0f70a57a61d4e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Taken met meerdere instanties gebruiken Message Passing Interface (MPI)-toepassingen uitvoeren in Batch
 
@@ -49,6 +49,10 @@ Wanneer u een taak met meerdere exemplaren instellingen voor een taak indient, v
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Vereisten voor taken met meerdere instanties
 Taken met meerdere instanties vereisen een pool met **communicatie tussen knooppunten ingeschakeld**, en met **uitvoering van gelijktijdige taken uitgeschakeld**. Schakel de uitvoering van gelijktijdige taken instellen de [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) eigenschap in op 1.
+
+> [!NOTE]
+> Batch [limieten](batch-quota-limit.md#other-limits) de grootte van een groep die communicatie tussen knooppunten is ingeschakeld is.
+
 
 Dit codefragment laat zien hoe een groep maken voor taken met meerdere instanties met behulp van de Batch .NET-bibliotheek.
 
@@ -107,8 +111,7 @@ Zoek naar de grootte die is opgegeven als 'RDMA-compatibele' in de volgende arti
   * [Grootten voor virtuele machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> Om te profiteren van RDMA op [Linux-rekenknooppunten](batch-linux-nodes.md), moet u **Intel MPI** op de knooppunten. Zie voor meer informatie over CloudServiceConfiguration en VirtualMachineConfiguration groepen de Pool-sectie van de [overzicht Batch-functies](batch-api-basics.md).
->
+> Om te profiteren van RDMA op [Linux-rekenknooppunten](batch-linux-nodes.md), moet u **Intel MPI** op de knooppunten. 
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Een taak meerdere exemplaren maken met de Batch .NET

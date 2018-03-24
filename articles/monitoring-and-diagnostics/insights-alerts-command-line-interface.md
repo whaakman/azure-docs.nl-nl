@@ -3,7 +3,7 @@ title: Meldingen instellen voor Azure-services - platformoverschrijdende CLI | M
 description: Trigger e-mailberichten, meldingen, worden URL's van websites (webhooks) of automation aanroepen wanneer de door u opgegeven voorwaarden wordt voldaan.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 5c6a2d27-7dcc-4f89-8752-9bb31b05ff35
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cf93c95a37c9c32333727059317e05cfcc252905
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Metrische waarschuwingen maken in de Azure-Monitor voor Azure-services - platformoverschrijdende CLI
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Klassieke metrische waarschuwingen maken in de Azure-Monitor voor Azure-services - platformoverschrijdende CLI
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,6 +29,11 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Overzicht
+> [!NOTE]
+> In dit artikel wordt beschreven hoe oudere metrische waarschuwingen maken. Azure ondersteunt van de Monitor nu [nieuwere, metrische waarschuwingen voor een betere](monitoring-near-real-time-metric-alerts.md). Deze waarschuwingen kunnen meerdere metrische gegevens controleren en waarschuwen voor dimensionale metrische gegevens mogelijk maken. CLI-ondersteuning voor nieuwere metrische waarschuwingen is binnenkort beschikbaar.
+>
+>
+
 In dit artikel leest u hoe Azure metrische waarschuwingen met behulp van de platformoverschrijdende opdrachtregelinterface (CLI) instellen.
 
 > [!NOTE]
@@ -39,7 +44,7 @@ In dit artikel leest u hoe Azure metrische waarschuwingen met behulp van de plat
 U kunt een waarschuwing op basis van bewaking metrische gegevens voor of gebeurtenissen op uw Azure-services kunt ontvangen.
 
 * **Metrische waarden** -de waarschuwing wordt geactiveerd wanneer de waarde van een opgegeven waarde overschrijdt de drempelwaarde die u in beide richtingen toewijst. Dat wil zeggen, deze beide wordt geactiveerd wanneer de voorwaarde voor het eerst wordt voldaan en vervolgens later wanneer die voorwaarde wordt niet langer wordt voldaan.    
-* **Activiteit logboekgebeurtenissen** -een waarschuwing kunt activeren voor *elke* gebeurtenis of alleen wanneer een bepaalde gebeurtenissen optreden. Voor meer informatie over waarschuwingen voor activiteit logboek [Klik hier](monitoring-activity-log-alerts.md)
+* **Activiteit logboekgebeurtenissen** -een waarschuwing kunt activeren voor *elke* gebeurtenis of alleen wanneer een bepaalde gebeurtenis zich voordoet. Voor meer informatie over waarschuwingen voor activiteit logboek [Klik hier](monitoring-activity-log-alerts.md)
 
 U kunt het volgende te doen als er wordt een waarschuwing voor metrische configureren:
 
@@ -52,8 +57,8 @@ U kunt configureren en ophalen van informatie over metrische waarschuwingsregels
 
 * [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
-* [opdrachtregelinterface (CLI)](insights-alerts-command-line-interface.md)
-* [Monitor voor Azure REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Opdrachtregelinterface (CLI)](insights-alerts-command-line-interface.md)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 U kunt altijd help voor opdrachten ontvangen door een opdracht te typen en stellen - help aan het einde. Bijvoorbeeld:
 
@@ -99,7 +104,7 @@ U kunt altijd help voor opdrachten ontvangen door een opdracht te typen en stell
      *PT1M* wordt de granulatie van de beschikbare meting (1 minuut intervallen). Met andere granulaties hebt u verschillende metrische opties.
 4. Gebruik een opdracht van de volgende notatie voor het maken van een waarschuwingsregel op basis van metrische gegevens:
 
-    **inzicht van Azure waarschuwingen metrische regelset** *[opties] &lt;ruleName&gt; &lt;locatie&gt; &lt;resourceGroup&gt; &lt;venstergrootte &gt; &lt;operator&gt; &lt;drempelwaarde&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt; timeAggregationOperator&gt;*
+    **inzicht van Azure waarschuwingen metrische regelset** *[opties] &lt;ruleName&gt; &lt;locatie&gt; &lt;resourceGroup&gt; &lt;venstergrootte&gt; &lt;operator&gt; &lt;drempelwaarde&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
 
     Het volgende voorbeeld heeft een waarschuwing van een website resource ingesteld. De waarschuwing triggers wanneer het consistent verkeer ontvangt voor 5 minuten en opnieuw wanneer er geen verkeer ontvangen gedurende vijf minuten.
 

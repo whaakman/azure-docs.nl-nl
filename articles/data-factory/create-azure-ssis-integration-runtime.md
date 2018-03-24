@@ -2,10 +2,9 @@
 title: Azure-SSIS-integratie runtime maken in Azure Data Factory | Microsoft Docs
 description: Informatie over het maken van een Azure-SSIS-integratie runtime, zodat u SSIS-pakket in de Azure-cloud uitvoeren kunt.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: dc4c690633d14163eddfa70e8417a645f95a0861
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Een Azure-SSIS-integratie runtime maken in Azure Data Factory
 Dit artikel bevat stappen voor het inrichten van een Azure-SSIS-integratie runtime in Azure Data Factory. Vervolgens kunt u SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) gebruiken om pakketten van SQL Server Integration Services (SSIS) te implementeren in deze runtime van Azure.

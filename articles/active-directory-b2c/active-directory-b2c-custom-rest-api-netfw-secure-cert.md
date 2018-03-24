@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Uw RESTful-service beveiligen met behulp van clientcertificaten'
 description: Uw aangepaste REST-API claims kunnen worden uitgewisseld in uw Azure AD B2C beveiligen met behulp van clientcertificaten
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/25/2017
-ms.author: yoelh
-ms.openlocfilehash: 582aadd35821779e307ac285804e3b7fe5c24abd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: f1b9ef9a78715c08c5361e4bab6a31384c5c98d3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Beveiligen van uw RESTful-service met behulp van clientcertificaten
 In een verwant artikel u [maken een RESTful-service](active-directory-b2c-custom-rest-api-netfw.md) die communiceert met Azure Active Directory B2C (Azure AD B2C).

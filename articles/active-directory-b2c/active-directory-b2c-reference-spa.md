@@ -1,24 +1,21 @@
 ---
 title: 'Azure Active Directory B2C: Single-page-apps met behulp van de impliciete stroom | Microsoft Docs'
-description: "Informatie over het bouwen van apps van één pagina rechtstreeks via impliciete OAuth 2.0-stroom met Azure Active Directory B2C."
+description: Informatie over het bouwen van apps van één pagina rechtstreeks via impliciete OAuth 2.0-stroom met Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: a45cc74c-a37e-453f-b08b-af75855e0792
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
-ms.author: parakhj
-ms.openlocfilehash: 2ce4aaac117920c1da0b8a29797169d536825c1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: ac0351ce220da5194d3a447e51185409b7368f21
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Single-page-app aanmelden met behulp van de impliciete OAuth 2.0-stroom
 
@@ -99,7 +96,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Bereik |Vereist |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD zowel de machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging voor het aanmelden van de gebruiker en gegevens over de gebruiker in de vorm van een ID-tokens verkrijgen. (Bespreken we dit later in het artikel.) De `offline_access` bereik is optioneel voor web-apps. Hiermee wordt aangegeven dat uw app een vernieuwingstoken voor de lange levensduur hebben toegang tot bronnen moet. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Het kan zijn dat een tekenreeks van inhoud die u wilt gebruiken. Normaal gesproken wordt een willekeurig gegenereerde unieke waarde gebruikt, om aanvraagvervalsing op meerdere sites aanvallen te voorkomen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina die ze op waren. |
 | nonce |Vereist |Een waarde die is opgenomen in de aanvraag (gegenereerd door de app) die is opgenomen in het resulterende token ID als een claim. De app kunt vervolgens controleren of deze waarde om te beperken token replay-aanvallen. De waarde is meestal een willekeurige, unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
-| P |Vereist |Het beleid uit te voeren. Dit is de naam van een beleid dat is gemaakt in uw Azure AD B2C-tenant. De waarde van de beleid-naam moet beginnen met **b2c\_1\_**. Zie voor meer informatie [ingebouwde beleid van Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| p |Vereist |Het beleid uit te voeren. Dit is de naam van een beleid dat is gemaakt in uw Azure AD B2C-tenant. De waarde van de beleid-naam moet beginnen met **b2c\_1\_**. Zie voor meer informatie [ingebouwde beleid van Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | prompt |Optioneel |Het type van de interactie van de gebruiker die vereist zijn. De enige geldige waarde is momenteel `login`. Dit zorgt ervoor dat gebruikers hun referenties invoeren voor deze aanvraag. Eenmalige aanmelding wordt pas van kracht. |
 
 Op dit moment wordt de gebruiker gevraagd om de werkstroom van het beleid te voltooien. Dit kan de gebruiker invoeren van hun gebruikersnaam en wachtwoord, aanmelden met een sociale identiteit aanmelden voor de map of andere aantal stappen inhouden. Acties van de gebruiker is afhankelijk van hoe het beleid wordt gedefinieerd.
@@ -212,7 +209,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | nonce |Vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die is opgenomen in het resulterende token ID als een claim.  De app kunt vervolgens controleren of deze waarde om te beperken token replay-aanvallen. De waarde is meestal een willekeurige, unieke tekenreeks die aangeeft van de oorsprong van de aanvraag. |
 | prompt |Vereist |Gebruiken om te vernieuwen en tokens verkrijgen in een verborgen iframe, `prompt=none` om ervoor te zorgen dat de iframe niet op de aanmeldingspagina hangen komt en wordt onmiddellijk geretourneerd. |
 | login_hint |Vereist |Als u wilt vernieuwen en tokens verkrijgen in een verborgen iframe, de gebruikersnaam van de gebruiker opnemen in deze hint onderscheid maken tussen meerdere sessies van de gebruiker mogelijk op een bepaald moment. U kunt de gebruikersnaam extraheren uit een eerdere aanmelden met behulp van de `preferred_username` claim. |
-| domain_hint |Vereist |Kan `consumers` of `organizations`.  Voor het vernieuwen en ophalen van tokens in een verborgen iframe, moet u opnemen de `domain_hint` waarde in de aanvraag.  Pak de `tid` claim uit het token ID van een eerdere aanmelden om te bepalen welke waarde om te gebruiken.  Als de `tid` claim waarde is `9188040d-6c67-4c5b-b112-36a304b66dad`, gebruik `domain_hint=consumers`.  Gebruik anders `domain_hint=organizations`. |
+| domain_hint |Vereist |Deze waarde kan `consumers` of `organizations` zijn.  Voor het vernieuwen en ophalen van tokens in een verborgen iframe, moet u opnemen de `domain_hint` waarde in de aanvraag.  Pak de `tid` claim uit het token ID van een eerdere aanmelden om te bepalen welke waarde om te gebruiken.  Als de `tid` claim waarde is `9188040d-6c67-4c5b-b112-36a304b66dad`, gebruik `domain_hint=consumers`.  Gebruik anders `domain_hint=organizations`. |
 
 Door in te stellen de `prompt=none` parameter, deze aanvraag ofwel slaagt of mislukt onmiddellijk en retourneert aan uw toepassing.  Een geslaagde reactie wordt verzonden naar uw app op de aangegeven omleidings-URI, met behulp van de methode die is opgegeven in de `response_mode` parameter.
 
@@ -268,7 +265,7 @@ p=b2c_1_sign_in
 
 | Parameter | Vereist? | Beschrijving |
 | --- | --- | --- |
-| P |Vereist |Het beleid moet worden gebruikt voor het ondertekenen van de gebruiker buiten uw toepassing. |
+| p |Vereist |Het beleid moet worden gebruikt voor het ondertekenen van de gebruiker buiten uw toepassing. |
 | post_logout_redirect_uri |Aanbevolen |De URL die de gebruiker wordt omgeleid naar na geslaagde afmelding plaatsvindt. Als dit niet opgenomen is, wordt Azure AD B2C een algemeen bericht voor de gebruiker. |
 
 > [!NOTE]

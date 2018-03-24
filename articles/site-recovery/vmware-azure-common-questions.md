@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
-ms.openlocfilehash: 7e556bff2e9ebdd1efc969660cc8b4a33f3adcdb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure replicatie
 
@@ -48,6 +48,13 @@ Als u een abonnement beheerder bent, kunt u de replicatie-machtigingen die u nod
 
 ### <a name="what-do-i-need-on-premises"></a>Wat kan ik lokale nodig?
 Op on-premises moet u Site Recovery-onderdelen op één VMware VM geïnstalleerd. U moet ook een VMware-infrastructuur, met ten minste één ESXi-host en wordt aangeraden een vCenter-server. Bovendien moet u een of meer virtuele VMware-machines repliceren. [Meer informatie](vmware-azure-architecture.md) over VMware aan Azure-architectuur.
+
+De lokale configuratie-server kan worden geïmplementeerd in een van de volgende twee manieren
+
+1. Implementeren met behulp van een VM-sjabloon met de configuratieserver vooraf zijn geïnstalleerd. [Lees hier meer](vmware-azure-tutorial.md#download-the-vm-template).
+2. Implementeren met behulp van de installatie op een computer met Windows Server 2016 van uw keuze. [Lees hier meer](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+Kies voor het detecteren van de procedure voor het implementeren van de configuratieserver op uw eigen Windows Server-machines, in het doel van de beveiliging van inschakelen van de beveiliging, de aan de slag **naar Azure > niet gevirtualiseerde/andere**.
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Waar lokale virtuele machines repliceren naar?
 Repliceren naar Azure storage. Wanneer u een failover uitvoert, maakt Site Recovery automatisch virtuele Azure-machines van het storage-account.

@@ -2,10 +2,10 @@
 title: Wat is er nieuw in Enterprise Toepassingsbeheer in Azure Active Directory | Microsoft Docs
 description: Ontdek wat er nieuw in Enterprise Toepassingsbeheer in Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Wat is er nieuw in Enterprise Toepassingsbeheer in Azure Active Directory 
 
@@ -147,7 +147,7 @@ Nadat u veel nieuwe toepassingen hebt toegevoegd, mogelijk wilt u uw gebruikers 
 1. Om te beginnen, kunt u de **Self-service** optie van de toepassing navigatiemenu links en instellen van de **toestaan dat gebruikers toegang tot deze toepassing aanvragen?** optie naar '**Ja**'. 
 2. Hierdoor kunt u configureren die is toegestaan voor het goedkeuren van toegang tot deze toepassing, en welke groep Self-Service gebruikers worden toegevoegd. Bovendien, als de toepassing is geconfigureerd voor wachtwoord eenmalige aanmelding, ziet ook u een andere optie waarmee u toestaan die goedkeurders voor het beheren van de wachtwoorden die zijn toegewezen aan de toepassing.
 
-##<a name="feedback"></a>Feedback
+## <a name="feedback"></a>Feedback
 
 We hopen dat u u zoals het gebruik van het verbeterde ervaring voor Azure AD. Zorg ervoor dat uw feedback! Plaats uw feedback en ideeën voor verbetering van de **beheerportal** sectie van onze [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  We enthousiast bent over het bouwen van cool nieuw per dag uit, en gebruik de richtlijnen voor vorm en definiëren wat we hierna bouwen.
 

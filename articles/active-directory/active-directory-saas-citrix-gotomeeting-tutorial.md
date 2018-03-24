@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 4826dee82e62ffac70d7ca3d6dcfe005129de764
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d26b78fb5be96e979fb7b375acf6e907d858b706
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Zelfstudie: Azure Active Directory-integratie met GoToMeeting
 
@@ -108,77 +108,32 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en GoToMeeting domein eenmalige aanmelding informatie](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    In de **id** textbox, typ de URL:`https://login.citrixonline.com/saml/sp`
+    In de **id** textbox, typ de URL: `https://authentication.logmeininc.com/saml/sp`
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+4. Klik op **URL weergeven van geavanceerde configuratie** en configureren van de onderstaande URL's
 
-    ![De downloadkoppeling certificaat](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
-
+    **Meld u aan op de URL voor** (laat dit leeg)
+    
+    **Antwoord-URL**: `https://authentication.logmeininc.com/saml/acs`
+    
+    **RelayState**:
+    
+    - Gebruik voor GoToMeeting App `https://global.gotomeeting.com`
+    
+    - Gebruik voor GoToTraining, `https://global.gototraining.com`
+    
+    - Gebruik voor GoToWebinar, `https://global.gotowebinar.com` 
+    
+    - Gebruik voor GoToAssist, `https://app.gotoassist.com`
+    
 5. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-gotomeeting-tutorial/tutorial_general_400.png)
 
-6. Voor het genereren van de **metagegevens** -url, de volgende stappen uitvoeren:
+6. In een ander browservenster, meld u aan bij uw [GoToMeeting organisatie Center](https://organization.logmeininc.com/). U wordt gevraagd om te bevestigen dat de IdP is bijgewerkt
 
-    a. Klik op **App registraties**.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
-   
-    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.  
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+7. Schakel het selectievakje 'Mijn id-Provider is bijgewerkt met het nieuwe domein'. Klik op **gedaan** na voltooiing.
 
-    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
-     
-    d. Nu gaat u naar de eigenschappenpagina van **GoToMeeting** en kopieer de **toepassings-Id** met **kopie** knop en plak deze in Kladblok.
- 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
-
-    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
-
-7. Op de **GoToMeeting configuratie** sectie, klikt u op **configureren GoToMeeting** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
-
-    ![GoToMeeting configuratie](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
-
-8. In een ander browservenster, meld u aan bij uw [GoToMeeting organisatie Center](https://organization.logmeininc.com/)
-
-9. Onder **identiteitsprovider** tabblad kunt u de Azure-instellingen ofwel door bieden de gegenereerde **metagegevens-URL** of de gedownloade **metagegevensbestand** of **Handmatige**.
-
-10. Voor **metagegevens-URL** de volgende stappen uitvoeren:
-
-    ![GoToMeeting configuratie](./media/active-directory-saas-gotomeeting-tutorial/config1.png)
-
-    a. In de **hoe wilt u uw IDP SAML configureren?**, selecteer **automatische** uit de vervolgkeuzelijst.
-
-    b. Plak de **metagegevens-URL**, die u hebt gegenereerd in de vorige stappen in de **metagegevens-URL** textbox.
-
-    c. Klik op **Opslaan**.
-
-11. Voor **metagegevensbestand** de volgende stappen uitvoeren:
-
-    ![GoToMeeting configuratie](./media/active-directory-saas-gotomeeting-tutorial/config2.png)
-
-    a. In de **hoe wilt u uw IDP SAML configureren?**, selecteer **uploaden SAML-metagegevensbestand** uit de vervolgkeuzelijst.
-
-    b. Als u wilt uw van het gedownloade metagegevensbestand uploadt, klikt u op **uploaden metagegevensbestand**.
-
-    c. Klik op **Opslaan**.
-
-12. Voor **handmatige** de volgende stappen uitvoeren:
-
-    ![GoToMeeting configuratie](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
-
-    a.  In **aanmelden pagina-URL** textbox, plak de waarde van **SAML Single Sign-On Service-URL** die u hebt gekopieerd vanuit Azure-portal.
-
-    b.  In **afmelden pagina-URL** textbox, plak de waarde van **Sign-Out URL** die u hebt gekopieerd vanuit Azure-portal.
-
-    c.  In **identiteit Provider entiteit-ID** textbox, plak de waarde van **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure-portal.
-
-    d. De X509Certificate extraheren uit het gedownloade metagegevensbestand en dit certificaat uploaden door te klikken op **certificaat uploaden**.
-
-    e. Klik op **Opslaan**.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

@@ -3,24 +3,24 @@ title: Windows virtuele Machines en virtuele netwerken in Azure | Microsoft Docs
 description: Zelfstudie - virtuele Azure-netwerken en virtuele Machines van Windows met Azure PowerShell beheren
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/27/2018
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3a59d85ea19ba6670ffbb60aa9b764560a3567a0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: feaef679a3090491b64c69ac69bf22153c281d31
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Virtuele Azure-netwerken en virtuele Machines van Windows met Azure PowerShell beheren
 
@@ -35,7 +35,7 @@ Virtuele Azure-machines maken gebruik van Azure-netwerken voor interne en extern
 
 
 
-Deze zelfstudie vereist AzureRM.Compute moduleversie 4.3.1 of hoger. Voer `Get-Module -ListAvailable AzureRM.Compute` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Voor deze zelfstudie is module versie 4.3.1 of hoger van AzureRM.Compute vereist. Voer `Get-Module -ListAvailable AzureRM.Compute` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
 ## <a name="vm-networking-overview"></a>Overzicht van VM-netwerken
 

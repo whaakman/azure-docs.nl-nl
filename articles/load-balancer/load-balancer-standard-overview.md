@@ -1,72 +1,98 @@
 ---
-title: Overzicht van Azure Load Balancer standaard | Microsoft Docs
-description: Overzicht van Azure Load Balancer Standard-functies
+title: Overzicht van Azure Standard Load Balancer | Microsoft Docs
+description: Overzicht van Azure Standard Load Balancer-functies
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 2d7fcb3ee066fa768615fbf643a0c2e1c1d28498
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cfc789b3768c21efc7a03c11370b17ac6c3985cd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="azure-load-balancer-standard-overview-preview"></a>Overzicht van Azure Load Balancer-standaard (preview)
+# <a name="azure-load-balancer-standard-overview"></a>Overzicht van Azure Load Balancer standaard
 
-De Azure Load Balancer standaard SKU en openbare IP-standaard SKU kunt samen u voor het bouwen van uiterst schaalbare en betrouwbare architecturen. Toepassingen die gebruikmaken van Load Balancer Standard kunnen profiteren van nieuwe mogelijkheden. Lage latentie en hoge doorvoersnelheid schaal zijn beschikbaar voor miljoenen stromen voor alle TCP en UDP-toepassingen.
+Azure Load Balancer kunt u hoge beschikbaarheid voor uw services maken en schalen van uw toepassingen. Load Balancer kan worden gebruikt voor scenario's voor zowel inkomende als uitgaande en lage latentie en hoge doorvoersnelheid biedt en schaalt miljoenen stromen voor alle TCP en UDP-toepassingen. 
+
+In dit artikel is gericht op een standaard Load Balancer.  Raadpleeg voor een meer algemene overzicht voor de Azure Load Balancer [Load Balancer Overview](load-balancer-overview.md) ook.
+
+## <a name="what-is-standard-load-balancer"></a>Wat is standaard Load Balancer?
+
+Standaard Load Balancer is een nieuwe Load Balancer-product voor alle TCP en UDP-toepassingen met een uitgebreide en gedetailleerde functieset via Basic Load Balancer.  Hoewel er veel overeenkomsten, is het belangrijk om vertrouwd te raken met de verschillen zoals wordt beschreven in dit artikel.
+
+U kunt het standaard Load Balancer standaard gebruiken als een openbare of interne Load Balancer. En een virtuele machine kunnen worden verbonden met één openbare en één interne Load Balancer-resource.
+
+Functies van de bron van de Load Balancer worden altijd uitgedrukt als een frontend, een regel, een health test en de definitie van een back-end-adresgroep.  Een resource kan meerdere regels bevatten. U kunt virtuele machines in de back-endpool plaatsen door op te geven van de back-endpool van de virtuele machine NIC-resource.  Deze parameter is doorgegeven aan het netwerkprofiel en uitgevouwen in het geval van een virtuele-machineschaalset.
+
+Een belangrijk aspect is de omvang van het virtuele netwerk voor de resource.  Hoewel Basic Load Balancer binnen het bereik van een beschikbaarheidsset bestaat, een standaard Load Balancer is volledig geïntegreerd met het bereik van een virtueel netwerk en alle virtuele netwerkconcepten van toepassing.
+
+Load Balancer resources zijn waarbinnen u hoe de multitenant-infrastructuur voor het scenario dat u wilt maken op Azure moet programma kunt express-objecten.  Er is geen directe relatie tussen resources van de Load Balancer en werkelijke infrastructuur; geen exemplaar maken van een Load Balancer niet maken, capaciteit altijd beschikbaar is en er zijn geen opstarten of schalen van vertragingen in overweging moet nemen. 
 
 >[!NOTE]
-> De Load Balancer standaard SKU is momenteel in preview. Tijdens de preview, de functie hebben mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid zoals functies die in het algemeen beschikbaarheid release. Zie [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews (Microsoft Azure Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie. Gebruik de algemeen beschikbaar [Load Balancer basis-SKU](load-balancer-overview.md) voor uw productie-services. Om te gebruiken [beschikbaarheid Zones Preview](https://aka.ms/availabilityzones) met deze Preview vereist een [afzonderlijke aanmelding](https://aka.ms/availabilityzones), naast het aanmelden voor een Load Balancer [standaard preview](#preview-sign-up).
+> Azure biedt een reeks volledig beheerde oplossingen voor uw scenario's voor taakverdeling.  Als u TLS-beëindiging ('SSL-offload') of HTTP/HTTPS application layer verwerking zoekt, Raadpleeg [Application Gateway](../application-gateway/application-gateway-introduction.md).  Als u op zoek bent voor globale DNS taakverdeling, Bekijk [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Uw end-to-end-scenario's kunnen profiteren van deze oplossingen combineren indien nodig.
 
-## <a name="why-use-load-balancer-standard"></a>Waarom gebruiken Load Balancer standaard?
+## <a name="why-use-standard-load-balancer"></a>Waarom standaard Load Balancer gebruiken?
 
-U kunt het Load Balancer standaard gebruiken voor het volledige bereik van virtuele-datacenters. Op kleine schaal implementaties voor grotere, complexe meerdere zone architecturen, u kunt vanaf Load Balancer standaard om te profiteren van de volgende mogelijkheden:
+U kunt standaard Load Balancer gebruiken voor het volledige bereik van virtuele-datacenters, van kleine schaal implementaties voor grotere, complexe meerdere zone-architecturen.
 
-- [Enterprise scale](#enterprisescale) met Load Balancer Standard kan worden bereikt. Deze functie kan worden gebruikt met een willekeurig exemplaar van de virtuele machine (VM) binnen een virtueel netwerk, maximaal 1000 VM-exemplaren.
+Controleer de onderstaande tabel voor een overzicht van de verschillen tussen standaard Load Balancer en Basic Load Balancer:
 
-- [Nieuwe diagnostische insights](#diagnosticinsights) zijn beschikbaar om te begrijpen en oplossen van dit essentieel onderdeel van uw virtuele Datacenter beheren. Met Azure-Monitor (preview) kunt weergeven, gefilterd en gegroepeerd nieuwe multidimensionale metrische gegevens voor de doorlopende gegevens pad health metingen. Uw gegevens uit een front-virtuele machine, eindpunt statuscontroles, voor TCP-verbindingspogingen, en uitgaande verbindingen bewaken.
+>[!NOTE]
+> Nieuwe ontwerpen Overweeg het gebruik van standaard Load Balancer. 
 
-- [Netwerkbeveiligingsgroepen](#nsg) zijn nu vereist voor een VM-instantie die is gekoppeld aan de Load Balancer standaard SKU's of openbare IP-standaard SKU's. Netwerkbeveiligingsgroepen (nsg's) een betere beveiliging voor uw scenario.
+| | Standaard SKU | Basis-SKU |
+| --- | --- | --- |
+| Grootte van de back-end | maximaal 1000 exemplaren | maximaal 100 exemplaren |
+| Back-end-pool-eindpunten | Een virtuele machine in één virtueel netwerk, met inbegrip van de combinatie van virtuele machines, beschikbaarheidssets, virtuele-machineschaalset wordt ingesteld. | virtuele machines in een enkel beschikbaarheid instellen of de virtuele machine schaal instellen |
+| Beschikbaarheidszones | Zone-redundante en zonal frontends voor inkomend en uitgaand, uitgaande stromen toewijzingen zone storingen, taakverdeling cross-zone | / |
+| Diagnostiek | Azure Monitor multidimensionale metrische gegevens inclusief byte en pakket tellers, health test status, verbindingspogingen (TCP SYN), status van de uitgaande verbinding (snat omzetten geslaagde en mislukte flows), actieve gegevens vlak metingen | Azure Log Analytics voor openbare Load Balancer, snat omzetten uitputting van de waarschuwing, status aantal back-end Pools |
+| HA poorten | Interne Load Balancer | / |
+| Standaard beveiligen | standaard gesloten voor openbare IP-adres en de Load Balancer-eindpunten en een netwerkbeveiligingsgroep worden gebruikt voor het expliciet geaccepteerde voor verkeer stromen | standaard open is, netwerkbeveiligingsgroep optioneel |
+| Uitgaande verbindingen | Meerdere frontends met per regel opt-out. Een uitgaande scenario _moet_ expliciet voor de virtuele machine te kunnen gebruiken uitgaande verbinding worden gemaakt.  [VNet-Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md) zonder uitgaande verbinding kan worden bereikt en kan niet worden meegeteld voor gegevens die worden verwerkt.  Openbare IP-adressen, inclusief Azure PaaS-services niet beschikbaar als de Service-eindpunten VNet, moeten worden bereikt via uitgaande verbinding en het aantal naar gegevens die worden verwerkt. Wanneer een interne Load Balancer een virtuele machine fungeert, zijn uitgaande verbindingen via standaard snat omzetten niet beschikbaar. | Één front-end willekeurig worden geselecteerd als er meerdere frontends aanwezig zijn.  Wanneer een virtuele machine alleen interne Load Balancer fungeert, wordt standaard snat omzetten wordt gebruikt.  Uitgaande snat omzetten programmering is transportprotocol specifieke. |
+| Meerdere frontends | Binnenkomend en uitgaand | Alleen binnenkomende gegevens |
+| Beheerbewerkingen | De meeste bewerkingen < 30 seconden | 60-90 seconden typische |
+| SLA | 99,99% voor gegevenspad met twee virtuele machines die in orde | Impliciete in VM SLA | 
+| Prijzen | Kosten in rekening gebracht op basis van regels, verwerkt gegevens binnenkomende of uitgaande die zijn gekoppeld aan een resource  | Gratis |
 
-- [Hoge beschikbaarheid (HA)-poorten bieden hoge betrouwbaarheid](#highreliability) en schaal voor de virtuele netwerkapparaten (NVAs) en andere scenario's van toepassing. HA poorten taakverdeling maken voor alle poorten op een Azure interne Load Balancer (ILB) front-end voor een pool van VM-exemplaren.
-
-- [Uitgaande verbindingen](#outboundconnections) nu een nieuwe bron Network Address Translation (snat omzetten) poort toewijzing model waarmee groter tolerantie en schaal gebruiken.
-
-- [Load Balancer Standard met beschikbaarheid Zones](#availabilityzones) kan worden gebruikt voor het maken van de zone-redundante en zonal architecturen. Beide deze architecturen kunnen opnemen taakverdeling cross-zone. U kunt bereiken zone redundantie zonder afhankelijkheid van DNS-records. Er is een enkel IP-adres zone-redundante standaard.  Een enkel IP-adres kan een virtuele machine in een virtueel netwerk in een regio die op alle Zones voor beschikbaarheid bereiken.
+Bekijk [Servicelimieten voor de Load Balancer](https://aka.ms/lblimits), evenals [prijzen](https://aka.ms/lbpricing), en [SLA](https://aka.ms/lbsla).
 
 
-U kunt Load Balancer standaard een gebruiken in een openbare of interne configuratie ter ondersteuning van de volgende belangrijke scenario's:
+### <a name="backend"></a>Back-endpool
 
-- Taakverdeling maken voor binnenkomend verkeer naar goede back-end-exemplaren.
-- Poort forward binnenkomend verkeer op slechts één exemplaar van de back-end.
-- Uitgaand verkeer van een particuliere IP-adres in het virtuele netwerk naar een openbare IP-adres vertalen.
+Standaard Load Balancer back-endpools uitgebreid tot alle bronnen van de virtuele machine in een virtueel netwerk.  Naam mag maximaal 1000 back-end-exemplaren.  Een back-end-exemplaar is een IP-configuratie, een eigenschap van een NIC-resource is.
 
-### <a name = "enterprisescale"></a>Schaal van de onderneming
+De back-endpool kan zelfstandige virtuele machines, beschikbaarheidssets of virtuele-machineschaalsets bevatten.  Kunt u resources in de back-endpool overlopen en een combinatie van deze resources tot maximaal 150 totale kan bevatten.
 
- Load Balancer standaard gebruiken voor het ontwerpen van uw virtuele datacenter met hoge prestaties en ondersteuning voor elke TCP of UDP-toepassing. Gebruik zelfstandige VM-exemplaren of maximaal 1000 exemplaren van virtuele-machineschaalset die is ingesteld in een back-end-pool. Blijven doorsturen van de lage latentie, hoge doorvoersnelheid prestaties en schalen naar miljoenen stromen voor een volledig beheerde Azure-service gebruiken.
- 
-Load Balancer standaard kan verkeer naar een VM-instantie in een virtueel netwerk in een regio doorsturen. Grootten van de back-end-pool kunnen maximaal 1000 exemplaren met elke combinatie van de volgende scenario's voor VM zijn:
+Wanneer u overweegt het ontwerp van uw back endpool, u kunt ontwerpen voor het laagste aantal resources in de afzonderlijke back-end voor de duur van beheerbewerkingen verder te optimaliseren.  Er is geen verschil in prestaties vlak of schaal.
 
-- Zelfstandige virtuele machines zonder beschikbaarheidssets
-- Zelfstandige virtuele machines met beschikbaarheidssets
-- Virtuele-machineschaalset wordt ingesteld, maximaal 1000 exemplaren
-- meerdere virtuele-machineschaalsets
-- Mengsels van VM's en virtuele-machineschaalsets
+## <a name="az"></a>Beschikbaarheid Zones
 
-Er is niet langer een vereiste voor beschikbaarheidssets. U kunt met beschikbaarheidssets voor andere voordelen die ze bieden.
+>[!NOTE]
+> Gebruik [beschikbaarheid Zones Preview](https://aka.ms/availabilityzones) met standaard Load Balancer vereist [registratie voor beschikbaarheid Zones](https://aka.ms/availabilityzones).
 
-### <a name = "diagnosticinsights"></a>Diagnostische insights
+Standaard Load Balancer biedt ondersteuning voor extra mogelijkheden in regio's waar beschikbaarheid Zones beschikbaar zijn.  Deze functies zijn incrementele aan alle standaard Load Balancer biedt.  Beschikbaarheid Zones configuraties zijn beschikbaar voor openbare en interne standaard Load Balancer.
 
-Load Balancer Standard biedt nieuwe mogelijkheden voor meerdere dimensies diagnostische voor openbare en interne Load Balancer-configuraties. Deze nieuwe metrische gegevens worden geleverd via Azure Monitor (preview) en alle gerelateerde mogelijkheden, inclusief de mogelijkheid te integreren met downstream consumenten gebruiken.
+Niet-zonal frontends worden zone-redundante standaard wanneer geïmplementeerd in een regio met beschikbaarheid Zones.   Een zone-redundante frontend blijft zone mislukt en wordt geleverd door speciale infrastructuur in alle zones tegelijk. 
+
+U kunt bovendien een frontend naar een specifieke zone garanderen. Een zonal frontend gedrag deelt met de desbetreffende zone en alleen door een speciale infrastructuur in een enkele zone wordt behandeld.
+
+Cross-zone taakverdeling is beschikbaar voor de back-endpool en de bron van een virtuele machine in een vnet kan deel uitmaken van een back-endpool.
+
+Bekijk [gedetailleerde discussie over beschikbaarheid Zones gerelateerde mogelijkheden](load-balancer-standard-availability-zones.md).
+
+### <a name="diagnostics"></a> Diagnostische gegevens
+
+Standaard Load Balancer biedt multidimensionale metrische gegevens via de Azure-Monitor.  Deze metrische gegevens kunnen worden gefilterd, gegroepeerd en huidige en historische inzicht in prestaties en status van uw service.  Resourcestatus wordt ook ondersteund.  Hier volgt een kort overzicht van ondersteunde diagnostische gegevens:
 
 | Gegevens | Beschrijving |
 | --- | --- |
@@ -77,222 +103,74 @@ Load Balancer Standard biedt nieuwe mogelijkheden voor meerdere dimensies diagno
 | Byte-prestatiemeteritems | Load Balancer standaard rapporten de gegevens per front-end verwerkt.|
 | Pakket-prestatiemeteritems | Load Balancer standaard rapporteert de pakketten dat per front-end verwerkt.|
 
-### <a name = "highreliability"></a>Hoge betrouwbaarheid
+Bekijk [gedetailleerde bespreking van de standaard Load Balancer diagnostische](load-balancer-standard-diagnostics.md).
 
-Configureer regels voor het maken van de schaal van uw toepassing en maximaal betrouwbaar voor taakverdeling. U kunt regels voor afzonderlijke poorten configureren of kunt u HA poorten gebruiken om alle verkeer, ongeacht het TCP- of UDP-poortnummer in balans.  
+### <a name="haports"></a>HA poorten
 
-U kunt de nieuwe functie van de HA-poorten gebruiken voor het ontgrendelen van allerlei scenario's voor hoge beschikbaarheid en schaalbaarheid voor interne NVAs. De functie is handig voor andere scenario's waarin het niet handig of ongewenste als afzonderlijke poorten wilt opgeven. HA poorten bieden redundantie en schaal doordat zoveel exemplaren als u nodig hebt. De configuratie is niet langer beperkt tot actief/passief-scenario's. Uw service beveiligen uw health test configuraties door het doorsturen van verkeer alleen op in orde exemplaren.
+Standaard Load Balancer biedt ondersteuning voor een nieuw type regel.  
 
-NVA leveranciers bieden volledig door de leverancier ondersteund, robuuste scenario's voor hun klanten. De storingspunt wordt verwijderd en meerdere actieve exemplaren worden ondersteund voor schaal. U kunt schalen op twee of meer exemplaren, afhankelijk van de mogelijkheden van uw apparaat. Neem contact op met de leverancier van uw NVA voor meer informatie over deze scenario's.
+U kunt de load-balancingregels om de schaal van uw toepassing en maximaal betrouwbaar configureren. Bij het gebruik van een HA-poorten voor de load balancer regel standaard Load Balancer biedt per stroom voor de load balancer op elke tijdelijke poort van een interne standaard Load Balancer frontend-IP-adres.  De functie is handig voor andere scenario's waarin het niet handig of ongewenste als afzonderlijke poorten wilt opgeven.
 
-### <a name = "availabilityzones"></a>Beschikbaarheid zones
+Een taakverdelingsregel voor HA-poorten kunt u actief-passief of actief / actief n + 1 scenario's maken voor virtuele netwerkapparaten en elke toepassing waarvoor grote gegevensreeksen van poorten voor inkomend verkeer.  Een health test kan worden gebruikt om te bepalen welke back-ends moet worden ontvangen van nieuwe stromen.  Een Netwerkbeveiligingsgroep kunt u een scenario voor het bereik van poort worden geëmuleerd.
 
-[!INCLUDE [availability-zones-preview-statement](../../includes/availability-zones-preview-statement.md)]
+>[!IMPORTANT]
+> Als u van plan bent te gebruiken van een virtueel netwerkapparaat, neem contact op met uw leverancier voor hulp bij het of hun product is getest met HA poorten en volg hun specifieke richtlijnen voor implementatie. 
 
-Gaan de tolerantie van uw toepassing met het gebruik van beschikbaarheid Zones in ondersteunde regio's. Beschikbaarheid Zones zijn momenteel in preview in specifieke gebieden en aanvullende opt-in vereist.
+Bekijk [gedetailleerde bespreking van de HA-poorten](load-balancer-ha-ports-overview.md).
 
-### <a name="automatic-zone-redundancy"></a>Automatische zone-redundantie
+### <a name="securebydefault"></a>Standaard beveiligen
 
-U kunt kiezen of Load Balancer een zone-redundante of zonal front-voor elke toepassing leveren moet. Het is gemakkelijk zone-om redundantie tot stand met Load Balancer Standard. Er is één front-end-IP-adres automatisch zone-redundante. Een zone-redundante front-end wordt geleverd door alle zones voor beschikbaarheid in een regio tegelijkertijd. Een zone-redundante gegevenspad wordt voor binnenkomende en uitgaande verbindingen gemaakt. Zone-redundantie in Azure vereist meerdere IP-adressen en DNS-records niet. 
-
-Redundantie van de zone is beschikbaar voor de front-ends van openbare of interne. Uw openbare IP-adres en de front-privé-IP voor de interne Load Balancer mag zone-redundante.
-
-Het volgende script gebruiken voor het maken van een zone-redundante openbare IP-adres voor de interne Load Balancer. Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de **sku** sectie tot deze sjablonen.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-Het volgende script gebruiken voor het maken van een zone-redundante front-end-IP-adres voor de interne Load Balancer. Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de **sku** sectie tot deze sjablonen.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zone_redundant_frontend",
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Als uw openbare IP-adres front-zone-redundante is, worden uitgaande verbindingen die afkomstig zijn van de VM-exemplaren automatisch zone-redundante. De front-end wordt beschermd tegen storingen van de zone. Uw poorttoewijzing snat omzetten blijft ook zone-fout.
-
-#### <a name="cross-zone-load-balancing"></a>Cross-zone voor taakverdeling
-
-Cross-zone voor de load balancer is beschikbaar in een regio voor de back-end-pool en biedt flexibiliteit van uw VM-exemplaren. Een front-biedt stromen voor een VM in het virtuele netwerk, ongeacht de Zone van de beschikbaarheid van de VM-instantie.
-
-U kunt ook een bepaald gebied voor uw exemplaren front-end en back-end uw gegevenspad en resources met een specifieke zone op één lijn opgeven.
-
-Virtuele netwerken en subnetten worden nooit beperkt door een zone. Definieer alleen een back-end-pool met de gewenste VM-exemplaren en de configuratie is voltooid.
-
-#### <a name="zonal-deployments"></a>Zonal implementaties
-
-Als een optie kunt u de load balancer front-end voor een specifieke zone uitlijnen met het definiëren van een zonal front-end. Een zonal front-door de aangewezen één beschikbaarheid Zone alleen wordt behandeld. Als de front-end wordt gecombineerd met zonal VM-instanties, kunt u bronnen voor specifieke zones uitlijnen.
-
-Er bestaat een openbaar IP-adres dat is gemaakt in een specifieke zone altijd in de zone. Het is niet mogelijk om te wijzigen van de zone van een openbaar IP-adres. Maak een zone-redundante openbare IP-adres in plaats daarvan voor een openbaar IP-adres die kan worden gekoppeld aan resources in meerdere zones.
-
-Gebruik het volgende script te maken van een zonal openbare IP-adres in beschikbaarheid Zone 1. Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de **sku** sectie tot deze sjablonen.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "zones": [ "1" ],
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-Gebruik het volgende script maken van een interne Load Balancer front-end in beschikbaarheid Zone 1.
-
-Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de **sku** sectie tot deze sjablonen. Bepaal ook de **zones** eigenschap in de front-end-IP-configuratie voor de onderliggende resource.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zonal_frontend_in_az1",
-                        "zones": [ "1" ],
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Cross-zone taakverdeling voor uw back-end-pool door de gegevens van uw VM-exemplaren die zich in een virtueel netwerk in de groep toevoegen.
-
-De Load Balancer standaard bron is altijd regionale en zone-redundante waar beschikbaarheid Zones worden ondersteund. U kunt implementeren op een openbaar IP-adres of een interne Load Balancer front-end dat geen een toegewezen zone in elke regio. Ondersteuning voor beschikbaarheid Zones heeft geen invloed op de mogelijkheid tot implementatie. Als een regio later beschikbaarheid Zones krijgt, eerder geïmplementeerd openbare IP-adressen of interne Load Balancer front-ends automatisch worden zone-redundante. Een zone-redundante gegevenspad betekent niet dat pakketverlies 0%.
-
-### <a name = "nsg"></a>Netwerkbeveiligingsgroepen
-
-Load Balancer standaard- en openbare IP-volledig vrijgeven aan het virtuele netwerk waarvoor het gebruik van Netwerkbeveiligingsgroepen (nsg's). Nsg's maken het mogelijk voor netwerkverkeer goedgekeurde IP-adressen. Nsg's kunt u volledige controle krijgen over verkeer voor uw implementatie. U hoeft niet langer te wachten op andere verkeersstromen zodanig te voltooien.
-
-Nsg's koppelen aan subnetten of de netwerkinterfaces (NIC's) van de VM-exemplaren in de groep back-end. Deze configuratie gebruiken met Load Balancer Standard en openbare IP-standaard, wanneer deze wordt gebruikt als een openbaar IP op exemplaarniveau. Het NSG moet expliciet geaccepteerde het verkeer dat u toestaan wilt, zodat die verkeer.
+Standaard Load Balancer is volledig vrijgegeven aan het virtuele netwerk.  Het virtuele netwerk is een particulier netwerk gesloten.  Omdat standaard Load Balancers en de standaard openbare IP-adressen zo dat dit virtuele netwerk ontworpen zijn toegankelijk van buiten het virtuele netwerk, standaard deze resources nu gesloten, tenzij u ze opent. Dit betekent Netwerkbeveiligingsgroepen (nsg's) worden nu gebruikt om expliciet toestaan en geaccepteerde verkeer toegestaan.  U kunt uw gehele virtuele Datacenter maken en via het NSG bepalen wat en wanneer deze beschikbaar moet zijn.  Als u een NSG op een subnet of NIC van de bron van de virtuele machine niet hebt, wordt er verkeer naar het bereiken van deze bron niet is toegestaan.
 
 Zie voor meer informatie over nsg's en hoe u deze wilt toepassen voor uw scenario, [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).
 
-### <a name ="outboundconnections"></a>Uitgaande verbindingen
+### <a name="outbound"></a> Uitgaande verbindingen
 
-Load Balancer Standard biedt uitgaande verbindingen voor virtuele machines die zich binnen het virtuele netwerk wanneer een load balancer wordt gebruikt zich voordoet op poort snat omzetten. Het algoritme snat omzetten zich voordoet op poort biedt verbeterde stabiliteit en schalen.
+Load Balancer ondersteunt scenario's voor binnenkomend en uitgaand.  Standaard Load Balancer is aanzienlijk anders voor Basic Load Balancer met betrekking tot uitgaande verbindingen.
 
-Wanneer een resource met openbare Load Balancer gekoppeld aan VM-instanties is, wordt elke bron uitgaande verbinding herschreven. De bron wordt herschreven van het virtuele netwerk persoonlijke IP-adresruimte in het front-openbare IP-adres van de load balancer.
+Bron Network Address Translation (snat omzetten) wordt gebruikt voor interne, persoonlijke IP-adressen in het virtuele netwerk worden toegewezen aan het openbare IP-adressen op de Load Balancer frontends.
 
-Wanneer de uitgaande verbindingen worden gebruikt met een zone-redundante front-end, de verbindingen zijn ook zone-redundante en snat omzetten poort toewijzingen zone storingen.
+Standaard Load Balancer introduceert een nieuw algoritme voor een [robuuste, schaalbare en voorspelbare snat omzetten algoritme](load-balancer-outbound-connections.md#snat) en kunnen nieuwe mogelijkheden, verwijdert dubbelzinnigheid en dwingt expliciete configuraties in plaats daarvan effecten zijde. Deze wijzigingen zijn nodig zodat voor nieuwe functies te geven. 
 
-Het nieuwe algoritme in de Load Balancer standaard preallocates snat omzetten poorten op de Netwerkinterfacekaart van elke virtuele machine. Wanneer een NIC wordt toegevoegd aan de groep, worden de poorten snat omzetten vooraf op basis van de grootte van de groep toegewezen. De volgende tabel ziet u de poort preallocations voor zes lagen van de back-end-pool grootten:
+Dit zijn de belangrijkste basisprincipes te onthouden als u werkt met standaard Load Balancer:
 
-| Poolgrootte (VM-exemplaren) | Vooraf toegewezen aantal snat omzetten poorten |
-| --- | --- |
-| 1 - 50 | 1024 |
-| 51 - 100 | 512 |
-| 101 - 200 | 256 |
-| 201 - 400 | 128 |
-| 401 - 800 | 64 |
-| 801 - 1,000 | 32 |
+- de voltooiing van een regel bepaalt de Load Balancer-resource.  alle programmering van Azure is afgeleid van de configuratie ervan.
+- Wanneer meerdere frontends beschikbaar zijn, alle frontends worden gebruikt en elke frontend vermenigvuldigt het aantal beschikbare poorten met snat omzetten
+- u kunt kiezen en bepalen of u niet voor een bepaalde frontend wenst moet worden gebruikt voor uitgaande verbindingen.
+- uitgaande scenario's zijn expliciete en uitgaande verbinding bestaat niet totdat dit is opgegeven.
+- regels voor taakverdeling afleiden hoe snat omzetten is geprogrammeerd. Regels voor taakverdeling zijn specifieke-protocol. Snat omzetten is protocolspecifiek en de configuratie moet navenant in plaats van een neveneffect maken.
 
-Snat omzetten poorten vertalen niet rechtstreeks aan het aantal uitgaande verbindingen. Een poort snat omzetten kan opnieuw worden gebruikt voor meerdere unieke bestemmingen. Raadpleeg voor meer informatie de [uitgaande verbindingen](load-balancer-outbound-connections.md) artikel.
+#### <a name="multiple-frontends"></a>Meerdere frontends
+Als u meer snat omzetten poorten wilt omdat u had verwacht of u bent al ondervindt hoge eisen voor uitgaande verbindingen, kunt u ook incrementele snat omzetten poort inventaris toevoegen door extra frontends, regels en back-endpools op de virtuele machine configureren bronnen.
 
-Als de back-end-poolgrootte verhoogt en in een hogere laag overgangen, worden de helft van de toegewezen poorten vrijgemaakt. Verbindingen die zijn gekoppeld aan een time-out geregenereerde poort en moeten opnieuw worden gemaakt. Nieuwe verbindingspogingen voltooid onmiddellijk. Als de back-end-poolgrootte afneemt en in een lagere laag overgangen, verhoogt het aantal beschikbare poorten met snat omzetten. Bestaande verbindingen worden niet getroffen.
+#### <a name="control-which-frontend-is-used-for-outbound"></a>Welke frontend wordt gebruikt voor het besturingselement uitgaand
+Als u beperken uitgaande verbindingen wilt via alleen afkomstig zijn van een specifieke frontend-IP-adres, kunt u eventueel uitgaande snat omzetten op de regel die staat voor de uitgaande toewijzing uitschakelen.
 
-Load Balancer standaard heeft een aanvullende configuratie-optie die kan worden gebruikt op basis van de afzonderlijke regels. U kunt bepalen dat front-end voor snat omzetten zich voordoet op poort wordt gebruikt wanneer meerdere front-ends beschikbaar zijn.
+#### <a name="control-outbound-connectivity"></a>Besturingselement uitgaande verbinding
+Standaard Load Balancer bestaat in de context van het virtuele netwerk.  Een virtueel netwerk is een geïsoleerd, particuliere netwerk.  Tenzij een koppeling met een openbaar IP-adres bestaat, wordt de openbare-connectiviteit niet toegestaan.  U kunt bereiken [VNet Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md) omdat ze van en lokaal naar uw virtuele netwerk.  Als u uitgaande verbinding met een bestemming buiten het virtuele netwerk tot stand brengen wilt, hebt u twee opties:
+- een standaard SKU openbare IP-adres toewijzen als een instantieniveau openbare IP-adres aan de bron van de virtuele machine of
+- de bron van de virtuele machine in de back-endpool van een openbare standaard Load Balancer plaatsen.
 
-Wanneer alleen Load Balancer standaard VM-instanties fungeert, uitgaande verbindingen met snat omzetten niet beschikbaar. U kunt deze mogelijkheid expliciet herstellen door het VM-exemplaren ook toewijzen aan een openbare load balancer. U kunt ook rechtstreeks openbare IP-adressen toewijzen als openbare IP's op exemplaarniveau elk VM-exemplaar. Het is mogelijk dat deze configuratieoptie vereist voor sommige besturingssystemen en toepassingsscenario's. 
+Beide kunt uitgaande verbinding hebben met het virtuele netwerk naar buiten het virtuele netwerk. 
 
-### <a name="port-forwarding"></a>Poort doorsturen
+Als u _alleen_ hebben een interne standaard Load Balancer die zijn gekoppeld aan de back-endpool waarin de bron van de virtuele machine zich bevindt, de virtuele machine kan alleen resources van een virtueel netwerk bereiken en [VNet-Service Eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md).  U kunt de stappen beschreven in de vorige alinea uitgaande verbinding te maken.
 
-Basic en Standard Load Balancers bieden de mogelijkheid voor het configureren van inkomende NAT-regels voor het toewijzen van een front-endpoort aan een afzonderlijke back-end-exemplaar. Door deze regels te configureren, kunt u Remote Desktop Protocol-eindpunten en SSH-eindpunten beschikbaar of andere toepassingsscenario's uitvoeren.
+Uitgaande verbinding van de bron van een virtuele machine niet is gekoppeld aan de standaard SKU's blijft als voordat.
 
-Load Balancer standaard blijft bieden de mogelijkheid poort doorsturen via de binnenkomende NAT-regels. Wanneer gebruikt in combinatie met zone-redundante front-ends, inkomende NAT-regels zone-redundante en storingen van de zone.
+Bekijk [gedetailleerde bespreking van uitgaande verbindingen](load-balancer-outbound-connections.md).
 
-### <a name="multiple-front-ends"></a>Meerdere front-ends
+### <a name="multife"></a>Meerdere frontends
+Load Balancer biedt ondersteuning voor meerdere regels met meerdere frontends.  Standaard Load Balancer wordt dit vergroot tot uitgaande scenario's.  Uitgaande scenario's zijn in feite de inverse van een inkomende regel voor taakverdeling.  De binnenkomende taakverdelingsregel ook maakt een koppelen voor uitgaande verbindingen. Alle frontends die zijn gekoppeld aan de bron van een virtuele machine via een taakverdelingsregel maakt gebruik van standaard Load Balancer.  Bovendien wordt een parameter voor de taakverdeling regel en kunt u een regel voor taakverdeling voor de doeleinden van uitgaande verbinding waarmee de selectie van specifieke frontends inclusief geen onderdrukken.
 
-Configureer meerdere front-ends voor flexibiliteit bij het ontwerpen wanneer meerdere afzonderlijke IP-adressen worden weergegeven, zoals het TLS-websites of de SQL AlwaysOn-beschikbaarheidsgroep eindpunten voor toepassingen vereist. 
+Ter vergelijking: Basic Load Balancer wordt een enkele front willekeurig geselecteerd en er is geen mogelijkheid om te bepalen welke is geselecteerd.
 
-Load Balancer standaard nog steeds meerdere front-ends waarin u wilt weergeven van een specifieke toepassingseindpunt op een uniek IP-adres.
+Bekijk [gedetailleerde bespreking van uitgaande verbindingen](load-balancer-outbound-connections.md).
 
-Zie voor meer informatie over het configureren van meerdere front-end-IP-adressen [meerdere IP-configuratie](load-balancer-multivip-overview.md).
+### <a name="operations"></a> Beheerbewerkingen
 
-## <a name = "sku"></a>Over SKU 's
+Standaard resources van de Load Balancer bestaat op een geheel nieuwe infrastructuurplatform.  Hierdoor kunnen aanzienlijk sneller beheerbewerkingen voor standaard SKU's en voltooiingstijden zijn meestal minder dan 30 seconden per standaard SKU-resource.  Houd er rekening mee dat als back-endpools in omvang toeneemt, de duur vereist voor back-end van toepassingen ook verhogen verandert.
 
-SKU's zijn alleen beschikbaar in het Azure Resource Manager-implementatiemodel. Deze preview introduceert twee SKU's voor Load Balancer en openbare IP-resources: Basic en Standard. De SKU's verschillen in mogelijkheden, prestatiekenmerken, beperkingen en een aantal ingebouwde gedrag. Virtuele machines kunnen worden gebruikt met beide SKU. Voor zowel de Load Balancer en de openbare IP-resources blijven SKU's optionele kenmerken. Wanneer de SKU's worden weggelaten in de Scenariodefinitie van een, wordt de configuratie van de standaard voor het gebruik van de basis-SKU.
-
->[!IMPORTANT]
->De SKU van een bron is niet veranderlijke. U kunt de SKU van een bestaande resource niet wijzigen.  
-
-### <a name="load-balancer"></a>Load Balancer
-
-De [bestaande Load Balancer-resource](load-balancer-overview.md) wordt de basis-SKU en blijft in het algemeen beschikbaar is en niet gewijzigd.
-
-Standaard SKU van Load Balancer is nieuw en zijn momenteel in preview. 1 augustus 2017 API-versie voor Microsoft.Network/loadBalancers voegt de **sku** eigenschap in op de resource-uitbreiding:
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-Load Balancer standaard is automatisch zone robuuste in regio's die worden geboden door beschikbaarheid Zones. Als de Load Balancer is gedeclareerd zonal, is deze niet automatisch zone Refs.
-
-### <a name="public-ip"></a>Openbare IP
-
-De [bestaande openbare IP-resource](../virtual-network/virtual-network-ip-addresses-overview-arm.md) wordt de basis-SKU en blijft in het algemeen beschikbaar zijn met alle van de mogelijkheden, prestatiekenmerken en beperkingen.
-
-Openbare IP-standaard SKU is nieuw en zijn momenteel in preview. 1 augustus 2017 API-versie voor Microsoft.Network/publicIPAddresses voegt de **sku** eigenschap in op de resource-uitbreiding:
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-In tegenstelling tot openbare IP-Basic meerdere toewijzingsmethoden biedt, openbare IP-standaard gebruikt altijd statische toewijzing.
-
-Openbare IP-standaard is automatisch zone robuuste in regio's die worden geboden door beschikbaarheid Zones. Als het openbare IP-adres is gedeclareerd zonal, is deze niet automatisch zone Refs. Een zonal openbare IP-adres kan niet worden gewijzigd van een zone naar de andere.
+U kunt standaard Load Balancer resources wijzigen en een standaard openbare IP-adres van één virtuele machine verplaatsen naar een andere veel sneller.
 
 ## <a name="migration-between-skus"></a>Migratie tussen SKU 's
 
@@ -322,158 +200,45 @@ Er zijn geen veranderlijke SKU's. Volg de stappen in deze sectie voor het verpla
 >
 >HA zijn poorten en diagnostische gegevens van de standaard SKU alleen beschikbaar in de standaard SKU. U kunt geen migreren van de standaard SKU naar de basis-SKU of deze functies ook behouden.
 >
->Overeenkomende SKU's moet worden gebruikt voor Load Balancer en openbare IP-bronnen. Een combinatie van basis-SKU-bronnen en bronnen van de standaard SKU is niet mogelijk. Een virtuele machine, VM's in een Beschikbaarheidsset kan niet worden gekoppeld of een virtuele-machineschaalset ingesteld op beide SKU's tegelijk.
+>Zowel basis en standaard SKU hebben een aantal verschillen zoals wordt beschreven in dit artikel.  Zorg ervoor dat u begrijpt en bereid ze.
 >
+>Overeenkomende SKU's moet worden gebruikt voor Load Balancer en openbare IP-bronnen. Een combinatie van basis-SKU-bronnen en bronnen van de standaard SKU is niet mogelijk. U kunt geen zelfstandige virtuele machines, virtuele machines in een resource van de set beschikbaarheid koppelen of een virtuele-machineschaalset resources ingesteld op beide SKU's tegelijk.
 
 ## <a name="region-availability"></a>Beschikbaarheid in regio’s
 
-Load Balancer standaard is momenteel beschikbaar in alle openbare cloud-regio's, behalve VS-West.
+Load Balancer standaard is momenteel beschikbaar in alle openbare cloud-regio's.
 
->[!IMPORTANT]
-> Voor een korte periode, toegang tot regio's buiten de eerste keer start regio's (VS-Oost 2, VS-midden, Noord-Europa, West-Centraal VS, West-Europa, Zuidoost-Azië) de registratie van het voor aanvullende Abonnementsfuncties vereist (AllowLBPreviewWave2 en AllowLBPreviewWave3).  [Volg de onderstaande stappen](#additionalpreviewregions). Voer deze zelfs als u hebt eerder hebt aangemeld voor AllowLBPreview al.
-> Deze vereiste wordt verwijderd in de komende weken.
+## <a name="sla"></a>SLA
 
-## <a name="sku-service-limits-and-abilities"></a>SKU-Servicelimieten en mogelijkheden
+Standaard Load Balancers zijn beschikbaar met een SLA van 99,99%.  Controleer de [standaard Load Balancer SLA](https://aka.ms/lbsla) voor meer informatie.
 
-Azure [Servicelimieten voor netwerken](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) toepassen per regio per abonnement. 
-
-De volgende tabel vergelijkt de beperkingen en mogelijkheden van de Load Balancer Basic en Standard-SKU's:
-
-| Load Balancer | Basic | Standard |
-| --- | --- | --- |
-| Grootte van de back-end | maximaal 100 | maximaal 1000 |
-| Back-end-pool grens | Beschikbaarheidsset | virtueel netwerk, regio |
-| Ontwerp van de back-end-pool | Virtuele machines in de Beschikbaarheidsset, virtuele-machineschaalset in Beschikbaarheidsset instellen | Een VM-instantie in het virtuele netwerk |
-| HA poorten | Niet ondersteund | Beschikbaar |
-| Diagnostiek | Beperkt, openbare alleen | Beschikbaar |
-| VIP-beschikbaarheid  | Niet ondersteund | Beschikbaar |
-| Snelle IP-mobiliteit | Niet ondersteund | Beschikbaar |
-|Beschikbaarheid Zones scenario 's | Alleen Zonal | Zonal, Zone-redundante Cross-zone-taakverdeling |
-| Uitgaande snat omzetten algoritme | Op aanvraag | Vooraf toegewezen |
-| Uitgaande snat omzetten front-selectie | Niet-configureerbare meerdere kandidaten | Optionele configuratie te verminderen kandidaten |
-| Netwerkbeveiligingsgroep | Optionele op NIC/subnet | Vereist |
-
-De volgende tabel vergelijkt de beperkingen en mogelijkheden van het openbare IP-basis en standaard SKU's:
-
-| Openbare IP | Basic | Standard |
-| --- | --- | --- |
-| Beschikbaarheid Zones scenario 's | Alleen Zonal | Zone-redundante (standaard), zonal (optioneel) | 
-| Snelle IP-mobiliteit | Niet ondersteund | Beschikbaar |
-| VIP-beschikbaarheid | Niet ondersteund | Beschikbaar |
-| Prestatiemeteritems | Niet ondersteund | Beschikbaar |
-| Netwerkbeveiligingsgroep | Optionele op NIC | Vereist |
-
-
-## <a name="preview-sign-up"></a>Preview-registratie
-
-Als u wilt deelnemen aan de preview voor Load Balancer standaard SKU en de bijbehorende openbare IP-standaard SKU Registreer uw abonnement.  Uw abonnement biedt die u toegang via PowerShell of Azure CLI 2.0 tot wordt geregistreerd. Als u wilt registreren, moet u de volgende stappen uitvoeren:
-
->[!NOTE]
->Registratie van de Load Balancer standaard functie kan een uur duren globally kracht worden. Als u wilt gebruiken Load Balancer Standard met [beschikbaarheid Zones](https://aka.ms/availabilityzones), een [afzonderlijke aanmelding](https://aka.ms/availabilityzones) is vereist voor de Preview AZ.
-
-<a name="additionalpreviewregions"></a>
->[!IMPORTANT]
-> Voor een korte periode, de toegang tot regio's buiten de eerste keer start regio's (VS-Oost 2, VS-midden, Noord-Europa, West-Centraal VS, West-Europa, Zuidoost-Azië) moet de registratie van aanvullende Abonnementsfuncties (AllowLBPreviewWave2 en AllowLBPreviewWave3).  De volgende stappen uit zijn om in te schakelen aanvullende Abonnementsfuncties gewijzigd. Voer deze zelfs als u hebt eerder hebt aangemeld voor AllowLBPreview al. Deze vereiste wordt verwijderd in de komende weken.
-
-
-### <a name="sign-up-by-using-azure-cli-20"></a>Aanmelden met behulp van Azure CLI 2.0
-
-1. Registreer het onderdeel met de provider:
-
-    ```cli
-    az feature register --name AllowLBPreview --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
-    ```
-    
-2. De bewerking kan maximaal 10 minuten duren. U kunt de status van de bewerking met de volgende opdracht controleren:
-
-    ```cli
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
-    ```
-    
-    Ga door met de volgende stap wanneer de status van het onderdeel registratie 'Geregistreerde' weer voor elk van de bovenstaande Abonnementsfuncties. Voorbeeld:
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowLBPreview",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-4. Voer de registratie preview door uw abonnement met de resourceprovider opnieuw te registreren:
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-
-### <a name="sign-up-by-using-powershell"></a>Aanmelden met behulp van PowerShell
-
-1. Registreer het onderdeel met de provider:
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-    
-2. De bewerking kan maximaal 10 minuten duren. U kunt de status van de bewerking met de volgende opdracht controleren:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-
-  Ga door met de volgende stap wanneer de status van het onderdeel registratie 'Geregistreerde' weer voor elk van de bovenstaande Abonnementsfuncties. Voorbeeld:
-
-    ```
-    FeatureName      ProviderName        RegistrationState
-    -----------      ------------        -----------------
-    AllowLBPreview   Microsoft.Network   Registered
-    ```
-    
-3. Voer de registratie preview door uw abonnement met de resourceprovider opnieuw te registreren:
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
- 
 ## <a name="pricing"></a>Prijzen
 
-Load Balancer standaard SKU facturering is gebaseerd op de geconfigureerde regels en verwerkte gegevens. Er zijn geen kosten verbonden zijn tijdens de preview-periode. Raadpleeg voor meer informatie de [Load Balancer](https://aka.ms/lbpreviewpricing) en [openbare IP-adres](https://aka.ms/lbpreviewpippricing) prijzen van pagina's.
-
-Klanten blijven genieten van Load Balancer basis-SKU zonder kosten.
+Standaard Load Balancer is een bedrag product op basis van het aantal load balancer regels die zijn geconfigureerd en van alle binnenkomende en uitgaande gegevens verwerkt. Standaard Load Balancer prijsgegevens, gaat u naar de [Load Balancer prijzen](https://aka.ms/lbpricing) pagina.
 
 ## <a name="limitations"></a>Beperkingen
 
 De volgende beperkingen toepassen op het moment van preview en nog worden gewijzigd:
 
-- Back-end-exemplaren van Load Balancer kunnen niet worden gevonden in virtuele netwerken peer is ingesteld op dit moment. Alle exemplaren van de back-end moeten zich in dezelfde regio.
+- Load Balancer back-end voor exemplaren kunnen niet worden gevonden in virtuele netwerken peer is ingesteld op dit moment. Alle exemplaren van de back-end moeten zich in dezelfde regio.
 - Er zijn geen veranderlijke SKU's. U kunt de SKU van een bestaande resource niet wijzigen.
-- Beide SKU's kunnen worden gebruikt met een zelfstandige virtuele machine, VM-exemplaren in een Beschikbaarheidsset of een virtuele-machineschaalset ingesteld. Combinaties van de virtuele machine kunnen niet worden gebruikt met beide SKU's tegelijk. Een configuratie met een combinatie van SKU's is niet toegestaan.
-- met behulp van een interne Load Balancer Standard met een VM-instantie (of een deel van een Beschikbaarheidsset) schakelt [snat omzetten uitgaande verbindingen standaard](load-balancer-outbound-connections.md). U kunt deze mogelijkheid naar een zelfstandige virtuele machine, VM-exemplaren in een Beschikbaarheidsset of een virtuele-machineschaalset herstellen. U kunt ook de mogelijkheid om u te maken van uitgaande verbindingen herstellen. Tegelijkertijd de toewijzen een openbare Load Balancer Standard of openbare IP-standaard als een instantieniveau openbare IP-adres, hetzelfde VM-exemplaar voor het herstellen van deze mogelijkheden. Nadat de toewijzing voltooid is, is opnieuw zich voordoet op poort snat omzetten naar een openbaar IP-adres opgegeven.
-- VM-exemplaren moet mogelijk worden gegroepeerd in beschikbaarheidssets voor volledige back-end-pool schaal. Maximaal 150 beschikbaarheid worden sets en zelfstandige virtuele machines geplaatst in een enkele back-end-pool.
+- De bron van een zelfstandige virtuele machine beschikbaarheidsset resource of bron voor virtuele machine scale set kan verwijzen naar een SKU, niet beide.
+- Inschakelen van Azure DDoS-beveiliging op het virtuele netwerk heeft gevolgen voor de duur van beheerbewerkingen.
 - IPv6 wordt niet ondersteund.
-- In de context van beschikbaarheid Zones is front-end niet van zonal veranderlijke naar zone-redundante of vice versa. Nadat een front-wordt gemaakt als zone-redundante, blijft deze zone-redundante. Nadat een front-wordt gemaakt als zonal, blijft het zonal.
-- In de context van beschikbaarheid Zones, kan niet een zonal openbare IP-adres van een zone worden verplaatst naar een andere.
 - [Waarschuwingen van Azure controleren](../monitoring-and-diagnostics/monitoring-overview-alerts.md) worden niet ondersteund op dit moment.
-- Portal biedt nog geen ondersteuning voor de uitgebreide preview regio's.  Gebruik clienthulpprogramma's, zoals sjablonen, Azure CLI 2.0 of PowerShell als tijdelijke oplossing.
 - [Abonnement bewerkingen verplaatsen](../azure-resource-manager/resource-group-move-resources.md) worden niet ondersteund voor standaard SKU LB en PIP resources.
-- Niet beschikbaar in VS-West.
-
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [Load Balancer Basic](load-balancer-overview.md).
+- Meer informatie over het gebruik van [standaard Load Balancer en beschikbaarheid Zones](load-balancer-standard-availability-zones.md)
 - Meer informatie over [beschikbaarheid Zones](../availability-zones/az-overview.md).
+- Meer informatie over [standaard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
+- Meer informatie over [ondersteund multidimensionale metrische gegevens](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) voor diagnostische gegevens in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Meer informatie over het gebruik van [Load Balancer voor uitgaande verbindingen](load-balancer-outbound-connections.md)
+- Meer informatie over [standaard Load Balancer met taakverdelingsregels HA poorten](load-balancer-ha-ports-overview.md)
+- Meer informatie over het gebruik van [Load Balancer met meerdere Frontends](load-balancer-multivip-overview.md)
+- Meer informatie over [virtuele netwerken](../virtual-network/virtual-networks-overview.md).
 - Meer informatie over [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).
+- Meer informatie over [VNet Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md)
 - Informatie over een aantal van de andere sleutel [netwerkmogelijkheden](../networking/networking-overview.md) in Azure.
-- Meer informatie over [metrische gegevens die zijn blootgesteld](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Meer informatie over [Load Balancer](load-balancer-overview.md).

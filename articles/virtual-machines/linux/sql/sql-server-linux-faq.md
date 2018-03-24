@@ -2,7 +2,7 @@
 title: SQL Server op Linux Azure Virtual Machines Veelgestelde vragen | Microsoft Docs
 description: In dit artikel vindt u antwoorden op veelgestelde vragen over het uitvoeren van SQL Server op Azure Virtual machines van Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Veelgestelde vragen over SQL Server op Linux Azure Virtual Machines
 
@@ -31,7 +31,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a>Installatiekopieën
+## <a id="images"></a> Installatiekopieën
 
 1. **Welke SQL Server-virtuele machine afbeeldingen zijn beschikbaar?**
 
@@ -71,13 +71,17 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Kan ik een virtuele machine voor het gebruik van mijn eigen SQL Server-licentie als deze is gemaakt van een van de installatiekopieën betalen naar gebruik galerie wijzigen?**
 
-   Nee. U activeren vanuit het betalen per minuut licentieverlening voor het gebruik van uw eigen licentie niet. U moet maken van een nieuwe Linux VM, SQL Server installeren en uw gegevens migreren. Zie de vorige vragen voor meer informatie over uw eigen licentie te brengen.
+   Nee. U kan niet overschakelen van betalen per seconde voor het gebruik van uw eigen licentie-licentieverlening. U moet maken van een nieuwe Linux VM, SQL Server installeren en uw gegevens migreren. Zie de vorige vragen voor meer informatie over uw eigen licentie te brengen.
 
 ## <a name="administration"></a>Beheer
 
 1. **Kan ik een SQL-Server voor Linux virtuele machine met SQL Server Management Studio (SSMS) beheren?**
 
    Ja, maar SSMS is momenteel een alleen-Windows-hulpprogramma. U moet extern verbinding maakt vanaf een Windows-machine voor het gebruik van SSMS met VM's Linux SQL Server. Lokaal op Linux, de nieuwe [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) hulpprogramma veel administratieve taken kunt uitvoeren. Zie het volgende voorbeeld van een hulpprogramma voor het beheer van meerdere platforms database door [SQL Server Operations Studio (preview)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+
+1. **Kan ik SQL Server volledig verwijderen van een SQL-VM?**
+
+   Ja, maar blijft u in rekening gebracht voor de SQL-VM zoals beschreven in [richtlijnen voor Azure VM's van SQL Server-prijzen](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Als u SQL Server niet meer nodig hebt, kunt u een nieuwe virtuele machine implementeren en migreren van gegevens en toepassingen naar de nieuwe virtuele machine. Vervolgens kunt u de virtuele machine van SQL Server verwijderen.
 
 ## <a name="updating-and-patching"></a>Bijwerken en patchen
 
@@ -99,8 +103,8 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 * [Een SQL Server virtuele Linux-machine inrichten](provision-sql-server-linux-virtual-machine.md)
 * [SQL Server op Linux-documentatie](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
-**Windows-VM's**:
+**Windows VMs**:
 
 * [Overzicht van SQL Server op een Windows VM](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Inrichten van een SQL Server Windows VM](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Veelgestelde vragen (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)
+* [FAQ (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)

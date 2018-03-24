@@ -1,21 +1,21 @@
 ---
 title: Gegevens laden in Azure Data Lake Store met behulp van Azure Data Factory | Microsoft Docs
-description: "Gebruik Azure Data Factory om gegevens te kopiëren naar Azure Data Lake Store"
+description: Gebruik Azure Data Factory om gegevens te kopiëren naar Azure Data Lake Store
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4446f83563293d0834f241dcca382ccf6ea99403
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bf0d607d63a68a222a1d44d9cb05253497d12591
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Gegevens laden in Azure Data Lake Store met behulp van Azure Data Factory
 
@@ -47,12 +47,12 @@ Dit artikel laat zien hoe u de gegevens kopiëren van Data Factory-hulpprogramma
 
 1. Selecteer op het menu links **nieuw** > **gegevens en analyse** > **Data Factory**:
    
-   ![Maak een nieuwe gegevensfactory](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
+   ![Een nieuwe gegevensfactory maken](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
 2. In de **nieuwe gegevensfactory** pagina, geef waarden op voor de velden die worden weergegeven in de volgende afbeelding: 
       
    ![De pagina Nieuwe data factory](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **Naam**: Voer een globaal unieke naam voor uw Azure data factory. Als u de foutmelding "naam gegevensfactory \"LoadADLSDemo\" is niet beschikbaar ' Voer een andere naam voor de data factory. Bijvoorbeeld, u kunt de naam van de  _**uwnaam**_**ADFTutorialDataFactory**. Probeer het opnieuw maken van de gegevensfactory. Zie voor de naamgevingsregels voor Data Factory-artefacten, [Data Factory-naamgevingsregels](naming-rules.md).
+    * **Naam**: Voer een globaal unieke naam voor uw Azure data factory. Als u de foutmelding "naam gegevensfactory \"LoadADLSDemo\" is niet beschikbaar ' Voer een andere naam voor de data factory. Bijvoorbeeld, u kunt de naam van de  _**uwnaam**_**ADFTutorialDataFactory**. Probeer het opnieuw maken van de gegevensfactory. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
     * **Abonnement**: Selecteer uw Azure-abonnement in te maken van de gegevensfactory. 
     * **Resourcegroep**: Selecteer een bestaande resourcegroep in de vervolgkeuzelijst, of Selecteer de **nieuw** optie en typ de naam van een resourcegroep. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
     * **Versie**: Selecteer **V2 (Preview)**.
@@ -120,7 +120,7 @@ Dit artikel laat zien hoe u de gegevens kopiëren van Data Factory-hulpprogramma
 13. U ziet dat het tabblad **Controleren** aan de linkerkant automatisch wordt geselecteerd. De **acties** kolom bevat koppelingen naar details uitvoering van activiteiten bekijken en naar de pijplijn opnieuw uitvoeren:
 
     ![Pijplijnuitvoeringen controleren](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
-14. Als u wilt weergeven van activiteiten bij uitvoering die gekoppeld aan de pijplijn uitvoeren zijn, selecteer de **weergave activiteit wordt uitgevoerd** koppelen de **acties** kolom. Er is slechts één activiteit (kopieeractiviteit) in de pijplijn, zodat u slechts één vermelding ziet. Overschakelen naar de pijplijn uitgevoerd weergeven, selecteert u de **pijplijnen** koppeling aan de bovenkant. Selecteer **Vernieuwen** om de lijst te vernieuwen. 
+14. Als u wilt weergeven van activiteiten bij uitvoering die gekoppeld aan de pijplijn uitvoeren zijn, selecteer de **weergave activiteit wordt uitgevoerd** koppelen de **acties** kolom. Omdat er slechts één activiteit (kopieeractiviteit) in de pijplijn is, ziet u slechts één vermelding in de lijst. Overschakelen naar de pijplijn uitgevoerd weergeven, selecteert u de **pijplijnen** koppeling aan de bovenkant. Selecteer **Vernieuwen** om de lijst te vernieuwen. 
 
     ![Uitvoering van activiteiten controleren](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 

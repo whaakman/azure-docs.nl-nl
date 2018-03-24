@@ -1,25 +1,25 @@
 ---
-title: "Gegevens kopiëren van en naar Dynamics CRM of Dynamics 365 met behulp van Azure Data Factory | Microsoft Docs"
-description: "Informatie over het kopiëren van gegevens uit Microsoft Dynamics CRM of Microsoft Dynamics 365 ondersteund sink gegevensarchieven of ondersteund van bron gegevensarchieven Dynamics CRM of Dynamics 365, met behulp van een kopieeractiviteit in een data factory-pijplijn."
+title: Gegevens kopiëren van en naar Dynamics CRM of Dynamics 365 (algemene gegevensservice) met behulp van Azure Data Factory | Microsoft Docs
+description: Informatie over het kopiëren van gegevens uit Microsoft Dynamics CRM of Microsoft Dynamics 365 (algemene gegevensservice) worden ondersteund sink gegevensarchieven of ondersteund van bron gegevensarchieven Dynamics CRM of Dynamics 365, met behulp van een kopieeractiviteit in een data factory-pijplijn.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/16/2018
 ms.author: jingwang
-ms.openlocfilehash: dc0b01e23ebb2695fd0365f054b3cacd2573f3c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ea69fdab9ec510f6060b280db3afffb7533a4bda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 of Dynamics CRM met behulp van Azure Data Factory
+# <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 (algemene gegevensservice) of Dynamics CRM met behulp van Azure Data Factory
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van en naar Microsoft Dynamics 365 of Microsoft Dynamics CRM. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de Kopieeractiviteit.
 
@@ -28,7 +28,7 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit Dynamics 365 of Dynamics CRM kopiëren naar een ondersteunde sink-gegevensarchief. U kunt ook gegevens uit alle ondersteunde brongegevensarchief kopiëren naar Dynamics 365 of Dynamics CRM. Zie voor een lijst met gegevensarchieven als bronnen of PUT wordt ondersteund door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens uit Dynamics 365 (algemene gegevensservice) of Dynamics CRM kopiëren naar een ondersteunde sink-gegevensarchief. U kunt ook gegevens uit alle ondersteunde brongegevensarchief kopiëren naar Dynamics 365 (algemene gegevensservice) of Dynamics CRM. Zie voor een lijst met gegevensarchieven als bronnen of PUT wordt ondersteund door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
 Deze connector Dynamics ondersteunt de volgende versies van Dynamics en verificatietypen. (IFD is kort voor internet facing deployment).
 

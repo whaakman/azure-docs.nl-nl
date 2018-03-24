@@ -2,10 +2,9 @@
 title: Gegevens verplaatsen van Amazon eenvoudige Storage-Service met behulp van de Data Factory | Microsoft Docs
 description: Meer informatie over het verplaatsen van gegevens vanaf Amazon eenvoudige Storage-Service (S3) met behulp van Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fb2b534955a2cd0e1294df5425550ac6958ff3c2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 455c1247ee68c4841647d942a1ac210b1b91694a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Gegevens verplaatsen van Amazon eenvoudige Storage-Service met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,8 +35,8 @@ U kunt gegevens vanaf Amazon S3 kopiëren naar een ondersteunde sink-gegevensarc
 ## <a name="required-permissions"></a>Vereiste machtigingen
 Als u wilt kopiëren van gegevens vanaf Amazon S3, moet dat u de volgende machtigingen hebben gekregen:
 
-* `s3:GetObject`en `s3:GetObjectVersion` voor Amazon S3 Object bewerkingen.
-* `s3:ListBucket`voor Amazon S3-Bucket bewerkingen. Als u de Data Factory-Wizard kopiëren, `s3:ListAllMyBuckets` is ook vereist.
+* `s3:GetObject` en `s3:GetObjectVersion` voor Amazon S3 Object bewerkingen.
+* `s3:ListBucket` voor Amazon S3-Bucket bewerkingen. Als u de Data Factory-Wizard kopiëren, `s3:ListAllMyBuckets` is ook vereist.
 
 Zie voor meer informatie over de volledige lijst met machtigingen voor Amazon S3 [machtigingen geven in een beleid](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 

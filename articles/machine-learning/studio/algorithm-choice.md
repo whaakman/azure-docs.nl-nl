@@ -2,11 +2,12 @@
 title: Machine learning-algoritmen kiezen | Microsoft Docs
 description: Klik hier voor meer informatie over het Azure Machine Learning-algoritmen voor en zonder supervisie learning in clustering, classificatie of regressie experimenten kiest.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.devlang: na
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Algoritmen kiezen voor Microsoft Azure Machine Learning
 Het antwoord op de vraag 'Welke machine learning-algoritme moet ik gebruiken?' is altijd "Deze afhankelijk is." Dit is afhankelijk van de grootte, kwaliteit en aard van de gegevens. Dit is afhankelijk van wat u wilt doen met het antwoord. Dit is afhankelijk van hoe de berekening van het algoritme is vertaald naar instructies voor de computer die u gebruikt. En dit is afhankelijk van hoeveel tijd die u hebt. Zelfs de meest ervaren gegevenswetenschappers kunnen niet zien welk algoritme best zal uitvoeren voordat u ze.
@@ -102,10 +102,10 @@ Voor bepaalde soorten gegevens, het aantal functies kan erg groot worden vergele
 ### <a name="special-cases"></a>Bijzondere gevallen
 Sommige learning-algoritmen zorg bepaalde veronderstellingen over de structuur van de gegevens of de gewenste resultaten. Als u een die past bij uw behoeften vinden kunt, krijgt deze u meer bruikbare resultaten, meer nauwkeurige prognoses of sneller training.
 
-| **Algoritme** | **Nauwkeurigheid** | **Trainingstijd** | **Lineariteit** | **Parameters** | **Opmerkingen bij de** |
+| **Algoritme** | **Nauwkeurigheid** | **Trainingstijd** | **Lineariteit** | **Parameters** | **Opmerkingen** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **Classificatie van de twee-klasse** | | | | | |
-| [logistic regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |● |● |5 | |
+| [Logistic regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |● |● |5 | |
 | [besluit forest](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
 | [besluit jungle](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Lage geheugengebruik: |
 | [gestimuleerd beslissingsstructuur](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Groot geheugengebruik: |
@@ -115,20 +115,20 @@ Sommige learning-algoritmen zorg bepaalde veronderstellingen over de structuur v
 | [lokaal grondige ondersteuning vectormachine](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Goede voor grote functiesets |
 | [De Bayes point machine](https://msdn.microsoft.com/library/azure/dn905930.aspx) | |○ |● |3 | |
 | **Meerdere klasse-classificatie** | | | | | |
-| [logistic regression](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
+| [Logistic regression](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [besluit forest](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
-| [besluit jungle](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Lage geheugengebruik: |
+| [besluit jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Lage geheugengebruik: |
 | [neurale netwerk](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Extra aanpassingen zijn mogelijk](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [One-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Controleer de eigenschappen van de twee klassenmethode geselecteerd |
+| [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Controleer de eigenschappen van de twee klassenmethode geselecteerd |
 | **Regressie** | | | | | |
-| [Lineair](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
+| [linear](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Bayesiaanse lineair](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
 | [besluit forest](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [gestimuleerd beslissingsstructuur](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Groot geheugengebruik: |
 | [snelle forest kwantiel](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributies in plaats van punt voorspellingen |
 | [neurale netwerk](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Extra aanpassingen zijn mogelijk](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [POISSON](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Technisch logboek-lineaire. Voor het voorspellen van aantallen |
-| [rangtelwoord](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Voor het voorspellen van positie ordenen |
+| [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Technisch logboek-lineaire. Voor het voorspellen van aantallen |
+| [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Voor het voorspellen van positie ordenen |
 | **Detectie van afwijkingen** | | | | | |
 | [ondersteuning voor vectormachine](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Met name geschikt voor grote functiesets |
 | [PCA-gebaseerd anomaliedetectie](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
@@ -187,7 +187,7 @@ Ondersteuning vector machines (SVMs) vinden de grens die klassen door als breed 
 
 ***De grens van een typische ondersteuning vector machine klasse maximaliseert de marge tussen twee klassen***
 
-Een ander product van Microsoft Research de [tweeklasse lokaal grondige SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) is een niet-lineaire variant van SVM die de meeste van de snelheid en efficiëntie van de lineaire versie behoudt. Dit is ideaal voor gevallen waarin de lineaire aanpak nauwkeurig genoeg antwoorden niet geven. De ontwikkelaars bewaard deze snel door het probleem in een aantal kleine lineaire SVM problemen op te splitsen. Lees de [volledige beschrijving](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) voor een overzicht van hoe ze opgehaald uit deze methode.
+Een ander product van Microsoft Research de [tweeklasse lokaal grondige SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) is een niet-lineaire variant van SVM die de meeste van de snelheid en efficiëntie van de lineaire versie behoudt. Dit is ideaal voor gevallen waarin de lineaire aanpak nauwkeurig genoeg antwoorden niet geven. De ontwikkelaars bewaard deze snel door het probleem in een aantal kleine lineaire SVM problemen op te splitsen. Lees de [volledige beschrijving](http://proceedings.mlr.press/v28/jose13.html) voor een overzicht van hoe ze opgehaald uit deze methode.
 
 De extensie van niet-lineaire SVMs slimme de [één klasse SVM](https://msdn.microsoft.com/library/azure/dn913103.aspx) een grens die nauw geeft een overzicht van de volledige gegevensset wordt getekend. Dit is handig voor afwijkingsdetectie. Nieuwe gegevenspunten die ver buiten die grens vallen zijn ongebruikelijke opmerkelijk moet.
 

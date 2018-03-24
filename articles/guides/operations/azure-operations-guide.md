@@ -1,25 +1,25 @@
 ---
 title: Instructiehandleiding voor Azure IT-operators | Microsoft Docs
 description: Introductiehandleiding voor Azure IT-operators
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
-ms.devlang: 
-ms.topic: 
-ms.tgt_pltfrm: 
+ms.devlang: ''
+ms.topic: ''
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0be60fff3d49ff39691f19cb1013e023f9f984e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Inleiding tot cloudcomputing en Microsoft Azure
 
@@ -485,7 +485,7 @@ U kunt een on-premises netwerk verbinding maken met een Azure-netwerk via Expres
 
 Omdat de virtuele Azure-netwerk is verbonden met uw on-premises netwerk, cross-premises virtuele netwerken moeten een unieke deel van de adresruimte die gebruikmaakt van uw organisatie gebruiken. Azure wordt een andere locatie op dezelfde manier die verschillende zakelijke locaties met een specifiek IP-subnet worden toegewezen, zoals het uitbreiden van uw netwerk.
 
-###<a name="deploying-a-virtual-network"></a>Een virtueel netwerk implementeren
+### <a name="deploying-a-virtual-network"></a>Een virtueel netwerk implementeren
 
 Er zijn verschillende opties voor het implementeren van een virtueel netwerk.
 

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a02ea2854de7ff32a8c50ff2e6f317596fb4aa1b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbookuitvoer en -berichten in Azure Automation
 De meeste Azure Automation-runbooks hebben een vorm van uitvoer, zoals een foutbericht voor de gebruiker of een complex object bedoeld om te worden verbruikt door een andere werkstroom. Windows PowerShell biedt [meerdere streams](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) voor het verzenden van uitvoer vanuit een script of een werkstroom. Azure Automation anders werkt met elk van deze stromen en u moet volgen aanbevolen procedures voor het gebruik van elk tijdens het maken van een runbook.
@@ -204,8 +204,8 @@ U ziet van de vorige schermafbeelding dat wanneer u uitgebreide logboekregistrat
    
    ![Grafisch ontwerpen logboekregistratie en tracering Blade](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-operations-management-suite-oms-log-analytics"></a>Microsoft Operations Management Suite (OMS) Log Analytics
-Automation kan runbook taak status en taak streams verzenden naar de werkruimte voor logboekanalyse voor Microsoft Operations Management Suite (OMS). U kunt met Log Analytics,
+### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
+Automation kan runbook taak status en taak streams verzenden naar de werkruimte voor logboekanalyse. U kunt met Log Analytics,
 
 * Inzicht verkrijgen in uw Automation-taken 
 * Trigger een e-mailadres of de waarschuwing op basis van de status van de taak runbook (bijvoorbeeld is mislukt of onderbroken) 
@@ -213,7 +213,7 @@ Automation kan runbook taak status en taak streams verzenden naar de werkruimte 
 * Taken correleren via Automation-accounts 
 * De taakgeschiedenis visualiseren gedurende een periode    
 
-Zie voor meer informatie over het configureren van integratie met logboekanalyse voor het verzamelen, correleren van en reageren op Taakgegevens [doorsturen taakstatus en taak stromen van Automation voor logboekanalyse (OMS)](automation-manage-send-joblogs-log-analytics.md).
+Zie voor meer informatie over het configureren van integratie met logboekanalyse voor het verzamelen, correleren van en reageren op Taakgegevens [taakstatus en taak streams doorsturen van automatisering met logboekanalyse](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Track a runbook job (Runbooktaken bijhouden)](automation-runbook-execution.md) voor meer informatie over runbookuitvoering, het bewaken van runbooktaken en andere technische details

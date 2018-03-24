@@ -9,11 +9,11 @@ ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 7d0e75ad85731b10f9a993c2fa62f30c0142ed05
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3c19ebc601136653a88ca8d2a3073d897af863f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configureren van de Runtime Azure SSIS-integratie voor hoge prestaties
 
@@ -24,7 +24,7 @@ Dit artikel wordt beschreven hoe u een Azure-SSIS integratie Runtime (IR) voor h
 
 ## <a name="properties-to-configure"></a>Eigenschappen configureren
 
-Het volgende gedeelte van een configuratiescript ziet u de eigenschappen die u configureren kunt wanneer u een Azure-SSIS-integratie Runtime maakt. Zie voor de volledige PowerShell-script en de beschrijving [pakketten van de SQL Server Integration Services implementeren naar Azure](tutorial-deploy-ssis-packages-azure.md).
+Het volgende gedeelte van een configuratiescript ziet u de eigenschappen die u configureren kunt wanneer u een Azure-SSIS-integratie Runtime maakt. Zie voor de volledige PowerShell-script en de beschrijving [pakketten van de SQL Server Integration Services implementeren naar Azure](tutorial-deploy-ssis-packages-azure-powershell.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"

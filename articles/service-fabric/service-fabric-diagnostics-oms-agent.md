@@ -5,27 +5,27 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 095db20e7d22bd517337f24fc9a81b84988d1465
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4c4095071235dac7e8be3c16b614bdfa5b706a1c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>De OMS-Agent aan een cluster toevoegen
 
-In dit artikel bevat informatie over de stappen voor de OMS-Agent niet toevoegen als een virtuele-machineschaalset extensie voor uw cluster instellen, en te verbinden met uw bestaande logboekanalyse OMS-werkruimte. Hierdoor kunnen verzamelen diagnostische gegevens over de containers, toepassingen en bewaking van toepassingsprestaties. Door deze toe te voegen als een uitbreiding, Azure Resource Manager zorgt ervoor dat deze wordt geïnstalleerd op elk knooppunt, zelfs wanneer schalen van het cluster.
+In dit artikel bevat informatie over de stappen voor de OMS-Agent niet toevoegen als een virtuele-machineschaalset extensie voor uw cluster instellen, en te verbinden met uw bestaande Azure Log Analytics-werkruimte. Hierdoor kunnen verzamelen diagnostische gegevens over de containers, toepassingen en bewaking van toepassingsprestaties. Door deze toe te voegen als een uitbreiding, Azure Resource Manager zorgt ervoor dat deze wordt geïnstalleerd op elk knooppunt, zelfs wanneer schalen van het cluster.
 
 > [!NOTE]
-> In dit artikel wordt ervan uitgegaan dat u een logboekanalyse OMS-werkruimte al ingesteld hebt. Als u dit niet doet, Ga naar [OMS Log Analytics instellen](service-fabric-diagnostics-oms-setup.md)
+> In dit artikel wordt ervan uitgegaan dat u een Azure-logboekanalyse-werkruimte al ingesteld hebt. Als u dit niet doet, Ga naar [instellen van Azure Log Analytics](service-fabric-diagnostics-oms-setup.md)
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>De agentextensie via Azure CLI toevoegen
 
@@ -33,9 +33,9 @@ De beste manier om de OMS-Agent toevoegen aan het cluster is via de virtuele-mac
 
 1. Zodra uw Cloud-Shell wordt aangevraagd, zorg er dan voor dat u in hetzelfde abonnement als uw resource werkt. Schakel deze optie met `az account show` en zorg ervoor dat de waarde 'name' komt overeen met die van het abonnement voor uw cluster.
 
-2. Navigeer naar de resourcegroep waar uw OMS-werkruimte zich bevindt in de Portal. Klik in de Log Analytics-resource (het type van de resource zijn Log Analytics), op de juiste navigatie, schuif naar beneden en klik op **eigenschappen**.
+2. Navigeer naar de resourcegroep waar uw werkruimte voor logboekanalyse zich bevindt in de Portal. Klik in de Log Analytics-resource (het type van de resource zijn Log Analytics), op de juiste navigatie, schuif naar beneden en klik op **eigenschappen**.
 
-    ![OMS-eigenschappenpagina](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
+    ![Log Analytics-eigenschappenpagina](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
 
     Noteer de `workspaceId`. 
 
@@ -59,7 +59,14 @@ De beste manier om de OMS-Agent toevoegen aan het cluster is via de virtuele-mac
 
     ![OMS-agent cli-opdracht](media/service-fabric-diagnostics-oms-agent/cli-command.png)
  
-    Dit duurt minder dan 15 min. is de agent toevoegen aan uw knooppunten. U kunt controleren of de agents zijn toegevoegd met behulp van de `az vmss extension list` API:
+5. Voer de opdracht deze configuratie toepassen op uw VM-exemplaren die al bestaan:  
+
+
+    ```sh
+    az vmss update-instances
+    ```
+
+Dit duurt minder dan 15 min. is de agent toevoegen aan uw knooppunten. U kunt controleren of de agents zijn toegevoegd met behulp van de `az vmss extension list` API:
 
     ```sh
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>
@@ -67,11 +74,11 @@ De beste manier om de OMS-Agent toevoegen aan het cluster is via de virtuele-mac
 
 ## <a name="add-the-agent-via-the-resource-manager-template"></a>De agent via het Resource Manager-sjabloon toevoegen
 
-Voorbeeld Resource Manager-sjablonen dat de implementatie van een werkruimte voor logboekanalyse OMS en toevoegen van een agent aan elk van uw knooppunten is beschikbaar voor [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) of [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+Voorbeeld Resource Manager-sjablonen dat de implementatie van een Azure-logboekanalyse-werkruimte en toevoegen van een agent aan elk van uw knooppunten is beschikbaar voor [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) of [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
 
 U kunt downloaden en wijzigen van deze sjabloon voor het implementeren van een cluster dat het beste past bij uw behoeften.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Collect relevante [prestatiemeteritems](service-fabric-diagnostics-event-generation-perf.md). De OMS-agent om op te halen specifieke prestatiemeteritems, head naar de OMS-Portal (gekoppeld aan de bovenkant van de resource OMS Log Analytics) configureren. Klik vervolgens op **Start > Instellingen > gegevens > Windows-prestatiemeteritems** of **Linux prestatiemeteritems** en kies de items die u wilt verzamelen.
-* Configureren van OMS om in te stellen [geautomatiseerde waarschuwingen](../log-analytics/log-analytics-alerts.md) om te helpen detecteren en diagnostische gegevens
+* Collect relevante [prestatiemeteritems](service-fabric-diagnostics-event-generation-perf.md). Voor het configureren van de OMS-agent voor het verzamelen van specifieke prestatiemeteritems bekijken [gegevensbronnen configureren](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
+* Configureren van logboekanalyse voor het instellen van [geautomatiseerde waarschuwingen](../log-analytics/log-analytics-alerts.md) om te helpen detecteren en diagnostische gegevens

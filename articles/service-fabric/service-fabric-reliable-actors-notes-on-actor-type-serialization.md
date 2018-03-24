@@ -1,11 +1,11 @@
 ---
 title: Betrouwbare actoren opmerkingen bij de actor type serialisatie | Microsoft Docs
-description: "Basisvereisten voor het definiëren van serialiseerbaar klassen die kunnen worden gebruikt voor het definiëren van Service Fabric Reliable Actors statussen en interfaces wordt beschreven"
+description: Basisvereisten voor het definiëren van serialiseerbaar klassen die kunnen worden gebruikt voor het definiëren van Service Fabric Reliable Actors statussen en interfaces wordt beschreven
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6e50e4dc-969a-4a1c-b36c-b292d964c7e3
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: b1b7c8af6d852599359baab2188bfc3395d33a28
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 210f47b4b052286900781f97077af4d0a0b9c968
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Opmerkingen bij de Service Fabric Reliable Actors type serialisatie
-De argumenten van alle methoden resultaattypen van de taken worden geretourneerd door elke methode in een interface actor en objecten die zijn opgeslagen in een actor statusbeheer moet [gegevenscontract serialiseerbaar](https://msdn.microsoft.com/library/ms731923.aspx). Dit geldt ook voor de argumenten van de methoden die zijn gedefinieerd in [actor-gebeurtenisinterfaces](service-fabric-reliable-actors-events.md). (Actor gebeurtenis interfacemethoden altijd void retourneren.)
+De argumenten van alle methoden resultaattypen van de taken worden geretourneerd door elke methode in een interface actor en objecten die zijn opgeslagen in een actor statusbeheer moet [gegevenscontract serialiseerbaar](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Dit geldt ook voor de argumenten van de methoden die zijn gedefinieerd in [actor-gebeurtenisinterfaces](service-fabric-reliable-actors-events.md). (Actor gebeurtenis interfacemethoden altijd void retourneren.)
 
 ## <a name="custom-data-types"></a>Aangepaste gegevenstypen
 In dit voorbeeld definieert de volgende actor-interface een methode die een aangepast gegevenstype aangeroepen retourneert `VoicemailBox`:

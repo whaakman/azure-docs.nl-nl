@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: ADFS als SAML-identiteitsprovider gebruik van aangepast beleid toevoegen'
 description: Een artikel instructies over het instellen van ADFS-2016 met SAML-protocol en aangepaste beleidsregels
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 22b360aec8878925ebe8d2c67c76d275a42ca7a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: af102bbc3bc7608fe641db19f4af8c760907a564
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: ADFS als SAML-identiteitsprovider gebruik van aangepast beleid toevoegen
 
@@ -63,7 +60,7 @@ Lidmaatschap van **beheerders**, of gelijkwaardig op de lokale computer is de mi
 7.  Op de **URL configureren** pagina de **inschakelen van ondersteuning voor het SAML 2.0 WebSSO protocol** selectievakje. Onder **Relying party SAML 2.0 SSO service URL**, typt u de Security Assertion Markup Language (SAML) service-eindpunt-URL voor deze vertrouwensrelatie van relying party en klik vervolgens op **volgende**.  Voor de **Relying party SAML 2.0 SSO service URL**, plak de `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. {Tenant} vervangen door de naam van uw tenant (bijvoorbeeld contosob2c.onmicrosoft.com) en de {beleid} vervangen door de naam van uw uitbreidingen beleid (bijvoorbeeld B2C_1A_TrustFrameworkExtensions).
     > [!IMPORTANT]
     >Naam van het beleid wordt dat beleid signup_or_signin neemt over van, in dit geval is: `B2C_1A_TrustFrameworkExtensions`.
-    >Bijvoorbeeld de URL is: https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
+    >Bijvoorbeeld de URL is: https://login.microsoftonline.com/te/ **contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
 
     ![Relying party SAML 2.0 SSO service URL](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
 8. Op de **id's configureren** pagina, dezelfde URL opgeven als de vorige stap, klik op **toevoegen** toe te voegen aan de lijst en klik vervolgens op **volgende**.
@@ -163,10 +160,10 @@ Op dit moment is de identiteitsprovider ingesteld.  Het is echter niet beschikba
 4.  Plak de volledige inhoud van `<UserJournesy>` knooppunt dat u hebt gekopieerd als een onderliggend element van de `<UserJourneys>` element.
 
 ### <a name="display-the-button"></a>De knop weergeven
-De `<ClaimsProviderSelections>` element wordt de lijst met opties voor de selectie van claims provider en de volgorde gedefinieerd.  `<ClaimsProviderSelection>`element is vergelijkbaar met een knop identiteit provider op een pagina sign-up-to-date/aanmelden. Als u een `<ClaimsProviderSelection>` element voor AD FS-account, een nieuwe knop wordt weergegeven wanneer een gebruiker op de pagina terechtkomt. Dit element toevoegen:
+De `<ClaimsProviderSelections>` element wordt de lijst met opties voor de selectie van claims provider en de volgorde gedefinieerd.  `<ClaimsProviderSelection>` element is vergelijkbaar met een knop identiteit provider op een pagina sign-up-to-date/aanmelden. Als u een `<ClaimsProviderSelection>` element voor AD FS-account, een nieuwe knop wordt weergegeven wanneer een gebruiker op de pagina terechtkomt. Dit element toevoegen:
 
 1.  Zoek de `<UserJourney>` knooppunt met `Id="SignUpOrSignIn"` in het traject gebruiker die u hebt gekopieerd.
-2.  Zoek de `<OrchestrationStep>` knooppunt bevat`Order="1"`
+2.  Zoek de `<OrchestrationStep>` knooppunt bevat `Order="1"`
 3.  Plaats de volgende XML-fragment onder `<ClaimsProviderSelections>` knooppunt:
 
 ```xml
@@ -206,7 +203,7 @@ U kunt ook de id-provider van de AD FS-account toevoegen aan de gebruiker `Profi
 ### <a name="display-the-button"></a>De knop weergeven
 1.  Open het extensiebestand van uw beleid (bijvoorbeeld TrustFrameworkExtensions.xml).
 2.  Zoek de `<UserJourney>` knooppunt met `Id="ProfileEdit"` in het traject gebruiker die u hebt gekopieerd.
-3.  Zoek de `<OrchestrationStep>` knooppunt bevat`Order="1"`
+3.  Zoek de `<OrchestrationStep>` knooppunt bevat `Order="1"`
 4.  Plaats de volgende XML-fragment onder `<ClaimsProviderSelections>` knooppunt:
 
 ```xml

@@ -2,10 +2,9 @@
 title: Host zichzelf integratie runtime maken in Azure Data Factory | Microsoft Docs
 description: Informatie over het maken van de host zichzelf integratie runtime in Azure Data Factory, waardoor de data factory voor toegang tot gegevensarchieven in een particulier netwerk.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 3f1b55f2752821de447e6c03bcbf79f01d9f8264
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b18fa2879056600cfc9c6a85afc599e2695af711
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Het maken en configureren van Self-hosted integratie Runtime
 De integratie Runtime (IR) is de beheerinfrastructuur gebruikt door Azure Data Factory om te bieden mogelijkheden voor de integratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [integratie Runtime overzicht](concepts-integration-runtime.md).

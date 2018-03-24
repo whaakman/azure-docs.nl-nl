@@ -3,9 +3,10 @@ title: Quick Start-zelfstudie voor R-taal voor Machine Learning | Microsoft Docs
 description: Gebruik deze R programming zelfstudie aan de slag snel met de taal R Azure Machine Learning Studio om een prognosemodel oplossing te maken.
 keywords: Quick Start, r-taal, de programmeertaal r, programming r-zelfstudie
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-ms.openlocfilehash: 40cc3728d1361b9304896bf0cc4ceed439291d45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 231d505e91fc036b30344e2fd9971db8ba2fdf05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Beknopte zelfstudie voor programmeertaal R voor Azure Machine Learning
 
@@ -39,7 +39,7 @@ Reeks tijdgegevens zijn gegevens waarin de waarden een tijdsindex hebben. De tij
 
 In deze snelstartgids wordt worden werken met Californië zuivelproductie en prijzen van gegevens. Deze gegevens omvatten maandelijkse informatie op de productie van verschillende producten en de prijs van melkvet, een benchmark basisproduct.
 
-De gegevens die worden gebruikt in dit artikel, samen met het R-scripts kunnen worden [hier gedownload][download]. Deze gegevens is oorspronkelijk gemaakt van gegevens op de universiteit Wisconsin op http://future.aae.wisc.edu/tab/production.html.
+De gegevens die worden gebruikt in dit artikel, samen met het R-scripts kunnen worden [hier gedownload][download]. Deze gegevens oorspronkelijk is gemaakt van gegevens op de universiteit Wisconsin op http://future.aae.wisc.edu/tab/production.html.
 
 ### <a name="organization"></a>Organisatie
 We zullen verschillende stappen doorlopen als u meer informatie over het maken, testen en uitvoeren van analyses en gegevens manipulatie R-code in de Azure Machine Learning-omgeving.  
@@ -123,9 +123,9 @@ Als u niet de laatste regel van deze code op het moment dat begrijpt, kunt u lez
 ### <a name="introduction-to-rstudio"></a>Inleiding tot RStudio
 RStudio is een veelgebruikte IDE voor R. Ik gebruik RStudio bewerken, testen en foutopsporing enkele van de R-code die wordt gebruikt in deze snelstartgids. Zodra de R-code is getest en klaar zijn, u gewoon knippen en plakken in de editor RStudio naar een Machine Learning Studio [R-Script uitvoeren] [ execute-r-script] module.  
 
-Als u niet de R-programmeertaal op uw computer geïnstalleerd hebt, ik het beste dat u doet u dat nu. Gratis downloads van open-source R taal zijn beschikbaar op de uitgebreide R archief netwerk (CRAN) op [http://www.r-project.org/](http://www.r-project.org/). Er zijn downloads beschikbaar voor Windows, Mac OS- en Linux/UNIX. Kies een mirror in de buurt en volg de aanwijzingen downloaden. CRAN bevat bovendien een schat aan nuttig analytics en data manipulatie pakketten.
+Als u niet de R-programmeertaal op uw computer geïnstalleerd hebt, ik het beste dat u doet u dat nu. Gratis downloads van open-source R taal zijn beschikbaar op de uitgebreide R archief netwerk (CRAN) op [ http://www.r-project.org/ ](http://www.r-project.org/). Er zijn downloads beschikbaar voor Windows, Mac OS- en Linux/UNIX. Kies een mirror in de buurt en volg de aanwijzingen downloaden. CRAN bevat bovendien een schat aan nuttig analytics en data manipulatie pakketten.
 
-Als u niet bekend met RStudio bent, moet u downloadt en installeert de bureaubladversie. U vindt dat de RStudio downloads voor Windows-, Mac OS- en Linux/UNIX op http://www.rstudio.com/products/RStudio/. Volg de aanwijzingen voor het installeren van RStudio op uw computer.  
+Als u niet bekend met RStudio bent, moet u downloadt en installeert de bureaubladversie. U vindt de RStudio downloads voor Windows-, Mac OS- en Linux/UNIX op http://www.rstudio.com/products/RStudio/. Volg de aanwijzingen voor het installeren van RStudio op uw computer.  
 
 Een zelfstudie Inleiding tot RStudio is beschikbaar op https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
 
@@ -521,7 +521,7 @@ Als u de waarden in de samenvatting van onze dataframe bekijkt ziet u iets oneve
 
 We gebruiken een Multiplicatieve model voor het trendanalyse en correctie van deze gegevens voor onze prognosemodel. Een transformatie logboek kan we gebruiken een lineaire model, dit proces vereenvoudigen. De transformatie logboek in dezelfde functie waarin de vermenigvuldiger is toegepast kan worden toegepast.
 
-In de volgende code ik een nieuwe functie definiëren `log.transform()`, en dit toepassen op de rijen met numerieke waarden. Het R `Map()` functie wordt gebruikt om toe te passen de `log.transform()` functie met de geselecteerde kolommen van de dataframe. `Map()`is vergelijkbaar met `apply()` maar kunt u meer dan een lijst met argumenten voor de functie. Houd er rekening mee dat een lijst met ze het tweede argument levert de `log.transform()` functie. De `na.omit()` functie als een stukje opschonen wordt gebruikt om te controleren of er geen ontbreekt of niet-gedefinieerde waarden in de dataframe.
+In de volgende code ik een nieuwe functie definiëren `log.transform()`, en dit toepassen op de rijen met numerieke waarden. Het R `Map()` functie wordt gebruikt om toe te passen de `log.transform()` functie met de geselecteerde kolommen van de dataframe. `Map()` is vergelijkbaar met `apply()` maar kunt u meer dan een lijst met argumenten voor de functie. Houd er rekening mee dat een lijst met ze het tweede argument levert de `log.transform()` functie. De `na.omit()` functie als een stukje opschonen wordt gebruikt om te controleren of er geen ontbreekt of niet-gedefinieerde waarden in de dataframe.
 
     log.transform <- function(invec, multiplier = 1) {
       ## Function for the transformation, which is the log
@@ -1223,19 +1223,19 @@ RStudio heel goed wordt gedocumenteerd, zodat in deze bijlage ik enkele koppelin
    
    RStudio omvat krachtige mogelijkheden voor foutopsporing. Documentatie voor deze functies is op https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
    
-   De onderbrekingspunt voor probleemoplossing functies zijn tijdens https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting gedocumenteerd.
+   De onderbrekingspunt voor probleemoplossing functies worden beschreven op https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
 ## <a id="appendixb"></a>BIJLAGE B: Lees hier meer over
 Deze R programming zelfstudie bevat informatie over de basisprincipes van wat u moet de taal R gebruiken met Azure Machine Learning Studio. Als u niet bekend met R bent, zijn twee inleidingen beschikbaar op CRAN:
 
 * R voor beginnende gebruikers door Emmanuel Paradis is een goede plaats om te beginnen bij http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
-* Een inleiding tot R door W. N. Venables et. al. in iets meer diepte op http://cran.r-project.org/doc/manuals/R-intro.html gaan.
+* Een inleiding tot R door W. N. Venables et. al. probeert het iets meer diepte op http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Er zijn veel books op R waarmee u aan de slag kunt. Hier volgen enkele die ik handig:
 
 * De illustratie van R programmeren: een rondleiding van statistische softwareontwerp door Norman Matloff is een uitstekende inleiding tot programmering in R.  
 * R Cookbook door Paul Teetor biedt een benadering van het probleem en oplossing voor het gebruik van R.  
-* R in actie door Robert Kabacoff is een ander nuttig inleidende rapport. De aanvullende snelle R-website is een nuttig resource op http://www.statmethods.net/.
+* R in actie door Robert Kabacoff is een ander nuttig inleidende rapport. De website van de aanvullende snelle R is een nuttig bron op http://www.statmethods.net/.
 * R Inferno door Patrick Burns is een verrassend grappige adresboek dat met een aantal lastig en moeilijk onderwerpen die u tegenkomen werkt kunt bij het programmeren in R. Het rapport is beschikbaar voor het vrije op http://www.burns-stat.com/documents/books/the-r-inferno/.
 * Als u een diepgaand in geavanceerde onderwerpen in R wilt, hebt u een overzicht van het adresboek Geavanceerd R door Hadley Wickham. De online versie van deze handleiding is beschikbaar voor het vrije op http://adv-r.had.co.nz/.
 
@@ -1245,9 +1245,9 @@ Het rapport inleidende Time Series met R door Paul Cowpertwait en Andrew Metcalf
 
 Sommige geweldige internetbronnen:
 
-* DataCamp: DataCamp leert R de deur van uw browser met video uitkomsten en codering oefeningen. Er zijn interactieve zelfstudies voor de meest recente R technieken en pakketten. Bij https://www.datacamp.com/courses/introduction-to-r worden gehouden met de gratis interactieve R-zelfstudie
+* DataCamp: DataCamp leert R de deur van uw browser met video uitkomsten en codering oefeningen. Er zijn interactieve zelfstudies voor de meest recente R technieken en pakketten. De gratis interactieve R-zelfstudie op te nemen https://www.datacamp.com/courses/introduction-to-r
 * Een handleiding op aan de slag met R van Programiz https://www.programiz.com/r-programming
-* Een snelle zelfstudie van R door Kelly Black van Clarkson universiteit http://www.cyclismo.org/tutorial/R/
+* Een snelle zelfstudie R door Kelly Black van Clarkson universiteit http://www.cyclismo.org/tutorial/R/
 * 60 + R-resources die wordt vermeld op http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 <!--Image references-->

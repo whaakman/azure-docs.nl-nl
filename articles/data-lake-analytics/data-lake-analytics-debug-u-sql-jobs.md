@@ -2,7 +2,7 @@
 title: Foutopsporing van de gebruiker gedefinieerde C#-code voor mislukte Azure Data Lake U-SQL-taken | Microsoft Docs
 description: Informatie over fouten opsporen in een mislukte hoekpunt van U-SQL met Azure Data Lake Tools voor Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Foutopsporing van de gebruiker gedefinieerde C#-code voor mislukte U-SQL-taken
 
@@ -41,7 +41,7 @@ Als u een taak die is mislukt in Azure Data Lake Tools voor Visual Studio opent,
 
 1. Klik op **downloaden** voor het downloaden van de vereiste resources en invoer stromen. Als het downloaden niet voltooid, klikt u op **probeer**.
 
-2. Klik op **Open** nadat het downloaden is voltooid voor het genereren van een lokale foutopsporingsomgeving. Een nieuw exemplaar van de Visual Studio met een oplossing voor foutopsporing is automatisch gemaakt en geopend.
+2. Klik op **Open** nadat het downloaden is voltooid voor het genereren van een lokale foutopsporingsomgeving. Een nieuwe oplossing voor foutopsporing wordt geopend en als er bestaande oplossing in Visual Studio, Ga Zorg ervoor dat u opslaan en afsluiten voordat de foutopsporing geopend.
 
 ![Azure Data Lake Analytics U-SQL foutopsporing visual studio downloaden hoekpunt](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 

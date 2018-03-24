@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Aangepaste kenmerken | Microsoft Docs'
 description: Het gebruik van aangepaste kenmerken in Azure Active Directory B2C informatie verzamelen over uw consumenten
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 055ffb0a-197b-4716-8dad-1fd8a01e174f
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 3e2c8b3ab223cf269129d7723c37d98c24f0653c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: davidmu
+ms.openlocfilehash: 6f285c10b7d8ff92c8568c42b6a78dc4ea9bcc74
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: Gebruik aangepaste kenmerken voor het verzamelen van informatie over uw consumenten
 Uw Azure Active Directory (Azure AD) B2C-directory wordt geleverd met een ingebouwde verzameling gegevens (kenmerken): voornaam, achternaam, plaats, postcode en andere kenmerken. Elke consumentgerichte toepassing heeft echter unieke vereisten op welke kenmerken voor het verzamelen van consumenten. Met Azure AD B2C, kunt u de set kenmerken die zijn opgeslagen op elke consumentenaccount uitbreiden. U kunt aangepaste kenmerken maken op de [Azure-portal](https://portal.azure.com/) en deze gebruiken in uw registratie-beleid, zoals hieronder wordt weergegeven. U kunt ook lezen en schrijven van deze kenmerken met behulp van de [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).

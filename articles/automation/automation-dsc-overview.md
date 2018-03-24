@@ -1,24 +1,19 @@
 ---
-title: Overzicht van Azure Automation DSC | Microsoft Docs
+title: Overzicht van Azure Automation DSC
 description: Een overzicht van Azure Automation Desired State Configuration (DSC), de termen en bekende problemen
-services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
 keywords: PowerShell dsc, de configuratie van de gewenste status, de powershell dsc-azure
-ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
+services: automation
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 7440fa58f9cbd201984d178a7e9a2c12afc84783
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 3949b79c3729ecdc2dfdd6297a5f10852e061540
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Overzicht van Azure Automation DSC
 
@@ -45,8 +40,8 @@ De Azure-portal, of PowerShell, kunt u alle uw DSC-configuraties, bronnen en doe
 ### <a name="import-reporting-data-into-log-analytics"></a>Reporting gegevens importeren in Log Analytics
 
 Gedetailleerde status rapportagegegevens verzenden knooppunten die worden beheerd met Azure Automation DSC naar de ingebouwde pull-server.
-U kunt Azure Automation DSC voor het verzenden van deze gegevens naar de werkruimte voor logboekanalyse voor Microsoft Operations Management Suite (OMS) configureren.
-Zie voor meer informatie over DSC statusgegevens verzenden naar de werkruimte voor logboekanalyse, [doorsturen Azure Automation-DSC rapportagegegevens met OMS Log Analytics](automation-dsc-diagnostics.md).
+U kunt Azure Automation DSC voor het verzenden van deze gegevens naar de werkruimte voor logboekanalyse configureren.
+Zie voor meer informatie over DSC statusgegevens verzenden naar de werkruimte voor logboekanalyse, [doorsturen Azure Automation-DSC rapportagegegevens met logboekanalyse](automation-dsc-diagnostics.md).
 
 ## <a name="introduction-video"></a>Introductievideo
 

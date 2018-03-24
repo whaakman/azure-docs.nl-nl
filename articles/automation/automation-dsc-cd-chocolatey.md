@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 8c1427bd40a6fd75a755c4709d88a4b8e4c55571
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e92bb8b4078bc5c85a639d3b5b38c124152576f7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Gebruik voorbeeld: Continue implementatie naar virtuele Machines met behulp van Automation DSC en Chocolatey
 In een wereld DevOps zijn er veel hulpprogramma's om u te helpen bij verschillende punten in de pijplijn voor continue integratie.  Azure Automation gewenst State Configuration (DSC) is een Welkom nieuwe aanvulling op de opties die u van DevOps-teams gebruikmaken kunnen.  In dit artikel wordt gedemonstreerd instelling van continue implementatie (CD) voor een Windows-computer.  U kunt eenvoudig de techniek en op te nemen als veel Windows-computers, indien nodig in de rol (bijvoorbeeld een website) van daaruit naar aanvullende functies ook uitbreiden.

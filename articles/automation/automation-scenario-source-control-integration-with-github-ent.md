@@ -1,24 +1,18 @@
 ---
-title: Integratie van broncodebeheer Azure Automation met GitHub voor ondernemingen | Microsoft Docs
+title: Integratie van broncodebeheer Azure Automation met GitHub voor ondernemingen
 description: Beschrijft de details van integratie met GitHub voor ondernemingen configureren voor het besturingselement van Automation-runbooks.
 services: automation
-documentationCenter: 
-authors: georgewallace
-manager: jwhit
-editor: 
-ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: magoedte
-ms.openlocfilehash: 2944b62cb3dc6146573041533d56d45b6cc87f18
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: carmonm
+ms.openlocfilehash: eab61daafe7ef8b5ca2fc1416dc7c04f97b8c671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Azure Automation-scenario - integratie van broncodebeheer automatisering met GitHub voor ondernemingen
 
@@ -52,10 +46,10 @@ GitHRWCredential | Referentie-element u maken om de gebruikersnaam en het wachtw
 
 1. De runbook-synchronisatie LocalGitFolderToAutomationAccount verifieert met behulp van de [Azure uitvoeren als-account](automation-sec-configure-azure-runas-account.md). 
 
-2. Een werkruimte van de Microsoft Operations Management Suite (OMS) met de Azure Automation-oplossing ingeschakeld en geconfigureerd, is ook vereist. Als u niet die is gekoppeld aan het Automation-account gebruikt om te installeren en configureren van dit scenario hebt, is deze gemaakt en geconfigureerd voor u wanneer u de **nieuw OnPremiseHybridWorker.ps1** script van de hybride runbook de werknemer.        
+2. Een werkruimte voor logboekanalyse met de Azure Automation-oplossing ingeschakeld en geconfigureerd, is ook vereist. Als u niet die is gekoppeld aan het Automation-account gebruikt om te installeren en configureren van dit scenario hebt, is deze gemaakt en geconfigureerd voor u wanneer u de **nieuw OnPremiseHybridWorker.ps1** script van de hybride runbook de werknemer.        
 
     > [!NOTE]
-    > De volgende regio's ondersteunen momenteel alleen Automation-integratie met OMS - **Australië-Zuidoost**, **VS-Oost 2**, **Zuidoost-Azië**, en **West Europa**. 
+    > De volgende regio's ondersteunen momenteel alleen Automation-integratie met Log Analytics - **Australië-Zuidoost**, **VS-Oost 2**, **Zuidoost-Azië**, en  **West-Europa**. 
 
 3. Een computer kan fungeren als een toegewezen hybride Runbook Worker die ook fungeert als host voor de GitHub-software en onderhouden van de runbook-bestanden (*runbook*.ps1) in een bronmap in het bestandssysteem synchronisatie tussen GitHub en uw Automation account.
 

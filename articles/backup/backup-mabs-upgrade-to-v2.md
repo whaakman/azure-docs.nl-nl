@@ -2,11 +2,11 @@
 title: Azure Backup-Server v2 installeren | Microsoft Docs
 description: Azure back-upserver v2 biedt verbeterde back-mogelijkheden voor het beveiligen van virtuele machines, bestanden en mappen en werkbelastingen. Informatie over het installeren of upgraden van v2 voor Azure Backup-Server.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-backup-server-v2"></a>V2 voor Azure Backup-Server installeren
 
@@ -36,7 +36,7 @@ U kunt back-upserver van v2 installeren op Windows Server 2012 R2 of Windows Ser
 ## <a name="upgrade-backup-server-to-v2"></a>Upgrade van de back-upserver voor v2
 Upgrade uitvoeren van back-upserver van v1 naar back-upserver van v2, zorg ervoor dat de installatie heeft de vereiste updates:
 
-- [De beveiligingsagents bijwerken](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent) op de beveiligde servers.
+- [De beveiligingsagents bijwerken](backup-mabs-upgrade-to-v2.md#update-the-data-protection-manager-protection-agent) op de beveiligde servers.
 - Windows Server 2012 R2 upgraden naar WindowsServer 2016.
 - Azure Backup-serverbeheerder voor extern bijwerken op alle productieservers.
 - Zorg ervoor dat de back-ups zijn ingesteld om door te gaan zonder de productieserver opnieuw te starten.
@@ -74,7 +74,7 @@ Upgrade uitvoeren van back-upserver van v1 naar back-upserver van v2, zorg ervoo
 
   ![Installatieprogramma van de Setup - SQL-instellingen controleren en knop installeren](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
 
-8. Op de **installatie-instellingen** pagina, het aanbrengen van wijzigingen naar de locatie waar back-up-Server is geïnstalleerd, of naar de scratchruimte locatie. Selecteer **volgende**.
+8. Op de **installatie-instellingen** pagina, het aanbrengen van wijzigingen naar de locatie waar back-up-Server is geïnstalleerd, of naar de scratchruimte locatie. Selecteer **Volgende**.
 
   ![Installatieprogramma van de Setup - pagina installatie-instellingen](./media/backup-mabs-upgrade-to-v2/mabs-installer-s6-installation-settings.png)
 
@@ -115,7 +115,7 @@ Toevoegen van een volume in de Administrator-Console:
 
 Back-up-server kunt u opgeven welke werkbelastingen zijn toegewezen aan welke volumes. U kunt bijvoorbeeld dure volumes die ondersteuning bieden voor een groot aantal i/o-bewerkingen per seconde (IOPS) voor het opslaan van alleen werkbelastingen waarvoor frequente, hoog volume back-ups instellen. Een voorbeeld is SQL Server met de transactielogboeken.
 
-#### <a name="update-dpmdiskstorage"></a>Update DPMDiskStorage
+#### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
 Gebruik de PowerShell-cmdlet Update DPMDiskStorage voor het bijwerken van de eigenschappen van een volume in de opslaggroep in de back-upserver.
 
@@ -143,12 +143,12 @@ Maak een beveiligingsgroep:
 
   ![Wizard nieuwe beveiligingsgroep maken](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-1.png)
 
-3. Op de **Welkom** pagina **volgende**.
+3. Op de pagina **Welkom** selecteert u **Volgende**.
 4. Op de **Type beveiligingsgroep selecteren** pagina, selecteer het type van de beveiligingsgroep die u wilt maken en selecteer vervolgens **volgende**.
 
   ![De pagina Type beveiligingsgroep selecteren](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-2.png)
 
-5. Op de **groepsleden selecteren** pagina in de **beschikbare leden** deelvenster, de leden met protection agents worden weergegeven. Bijvoorbeeld, selecteert u volume D:\ en E:\ en deze toevoegen aan de **leden geselecteerd** deelvenster. Selecteer **volgende**.
+5. Op de **groepsleden selecteren** pagina in de **beschikbare leden** deelvenster, de leden met protection agents worden weergegeven. Bijvoorbeeld, selecteert u volume D:\ en E:\ en deze toevoegen aan de **leden geselecteerd** deelvenster. Selecteer **Volgende**.
 
   ![De pagina leden groep selecteren](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
@@ -276,8 +276,8 @@ naar Azure back-up Voer DPMSYNC-SYNC
 ## <a name="new-powershell-cmdlets-in-v2"></a>Nieuwe PowerShell-cmdlets in v2
 
 Wanneer u v2 voor Azure Backup-Server installeert, zijn twee nieuwe cmdlets zijn beschikbaar: 
-* [Koppelpunt DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)
-* [Ontkoppeling DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
+* [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)
+* [Dismount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
 
 ## <a name="next-steps"></a>Volgende stappen
 

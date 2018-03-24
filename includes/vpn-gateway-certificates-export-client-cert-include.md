@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 517ebbf739c64c0364dc21386fee86ebc740e997
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/23/2018
+---
 Wanneer u een clientcertificaat genereert, wordt het automatisch geïnstalleerd op de computer die u hebt gebruikt voor het genereren ervan. Als u het clientcertificaat installeren op een andere clientcomputer wilt, moet u het exporteren van het clientcertificaat dat u hebt gegenereerd.
 
 1. Als u een clientcertificaat wilt exporteren, opent u **Gebruikerscertificaten beheren**. De clientcertificaten die u hebt gegenereerd, standaard, staan in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten'. Met de rechtermuisknop op het clientcertificaat dat u wilt exporteren, klikt u op **alle taken**, en klik vervolgens op **exporteren** openen de **Wizard Certificaat exporteren**.

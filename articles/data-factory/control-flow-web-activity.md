@@ -2,10 +2,10 @@
 title: Web-activiteit in Azure Data Factory | Microsoft Docs
 description: Meer informatie over hoe u Web-activiteit, een van de controlestroomactiviteiten ondersteund door Data Factory kunt gebruiken om aan te roepen een REST-eindpunt van een pijplijn.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 510f9ac95245580cb7f2f51487b5aeacc2a4825c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e6846661370fcad139730fc0443d9df54fa12a70
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webactiviteit in Azure Data Factory
 De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen vanaf een Data Factory-pijplijn. U kunt gegevenssets en gekoppelde services doorgeven die moten worden verbruikt door en die toegankelijk zijn voor de activiteit. 
@@ -81,7 +81,7 @@ linkedServices | Lijst met gekoppelde services doorgegeven aan eindpunt. | Matri
 
 ## <a name="authentication"></a>Verificatie
 
-### <a name="none"></a>None
+### <a name="none"></a>Geen
 Als verificatie niet vereist is, bevatten geen de eigenschap 'verificatie'.
 
 ### <a name="basic"></a>Basic

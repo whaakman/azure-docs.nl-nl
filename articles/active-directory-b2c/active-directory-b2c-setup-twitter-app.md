@@ -2,28 +2,25 @@
 title: 'Azure Active Directory B2C: Twitter configuratie | Microsoft Docs'
 description: Registreren en aanmelden gebruikers met Twitter-accounts in uw toepassingen die zijn beveiligd met Azure Active Directory B2C bieden.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 579a6841-9329-45b8-a351-da4315a6634e
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
-ms.author: parakhj
-ms.openlocfilehash: 4dbc70d866a728a63102bd169a124bd26990aeb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: davidmu
+ms.openlocfilehash: ee2d82f8c90b88a898428973a1febaa21034a14f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C: Zich kunnen registreren en aanmelden gebruikers bieden met Twitter-accounts
 
 ## <a name="create-a-twitter-application"></a>Een Twitter-toepassing maken
-Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C Twitter gebruikt, moet u een Twitter-toepassing maken en geeft deze met de juiste parameters. U moet een Twitter-ontwikkelaarsaccount om dit te doen. Als u niet hebt, kunt u krijgen op het [https://dev.twitter.com/](https://dev.twitter.com/).
+Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C Twitter gebruikt, moet u een Twitter-toepassing maken en geeft deze met de juiste parameters. U moet een Twitter-ontwikkelaarsaccount om dit te doen. Als u niet hebt, kunt u krijgen op het [ https://dev.twitter.com/ ](https://dev.twitter.com/).
 
 1. Ga naar de [Twitter-website voor ontwikkelaars van](https://dev.twitter.com/) en meld u aan met uw referenties.
 2. Klik op **mijn apps** onder **hulpprogramma's en ondersteuning** en klik vervolgens op **nieuwe App maken**. 

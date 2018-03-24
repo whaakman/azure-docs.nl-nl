@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 721799703923339d397113fc278cdeb6c6dbb88f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -121,7 +121,7 @@ Uit andere bronnen, als u ze configureren:
 * [Azure diagnostics](app-insights-azure-diagnostics.md)
 * [Docker-containers](app-insights-docker.md)
 * [Tabellen in Analytics importeren](app-insights-analytics-import.md)
-* [OMS (Log Analytics)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Kan ik een filter of telemetrie wijzigen?
@@ -188,7 +188,7 @@ Gebruik één resource voor de onderdelen of rollen in een één-systeem. Afzond
 * Als een echte gebruiker maakt gebruik van uw site in andere browsers of met in-persoonlijke/incognito bladeren of andere machines vervolgens zij wordt meer dan één keer worden geteld.
 * Als u wilt een aangemelde gebruiker identificeren over machines en browsers, Voeg een aanroep naar [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 
-## <a name="q17"></a>Hebben ik alles in Application Insights ingeschakeld?
+## <a name="q17"></a> Hebben ik alles in Application Insights ingeschakeld?
 | U ziet | Het ophalen van het | Gewenste waarom |
 | --- | --- | --- |
 | Beschikbaarheid grafieken |[Webtests](app-insights-monitor-web-app-availability.md) |Kent dat uw web-app actief is |
@@ -250,7 +250,7 @@ Hier zijn twee methoden:
 
 ### <a name="firewall-door"></a>De deur van de firewall
 
-Toestaan dat de webserver te verzenden van telemetrie naar onze eindpunten https://dc.services.visualstudio.com:443 en https://rt.services.visualstudio.com:443. 
+Toestaan dat uw webserver verzenden van telemetrie naar onze eindpunten https://dc.services.visualstudio.com:443 en https://rt.services.visualstudio.com:443. 
 
 ### <a name="proxy"></a>Proxy
 
@@ -262,7 +262,7 @@ Verkeer leiden van uw server met een gateway op uw intranet, dit door in te stel
 </TelemetryChannel>
 ```
 
-Uw gateway moet het verkeer naar v2-https://dc.services.visualstudio.com:443/bijhouden sturen
+Uw gateway moet het verkeer te sturen https://dc.services.visualstudio.com:443/v2/track
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kan ik webtests voor beschikbaarheid op een intranetserver uitvoeren?
 

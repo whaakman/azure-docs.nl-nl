@@ -3,22 +3,22 @@ title: Actiegroepen in de Azure portal maken en beheren | Microsoft Docs
 description: Informatie over het actiegroepen in de Azure portal maken en beheren.
 author: dkamstra
 manager: chrad
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 03/12/2018
 ms.author: dukek
-ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a7f8697b7a92de1c19ceb65fadbcd7e4186e83f7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in de Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
@@ -29,7 +29,7 @@ U kunt een lijst van acties met actiegroepen configureren. Deze groepen kunnen v
 Een actiegroep kan maximaal 10 van elk actietype hebben. Elke actie bestaat uit de volgende eigenschappen:
 
 * **Naam**: een unieke id binnen de groep in te grijpen.  
-* **Actietype**: een SMS-bericht verzenden, e-mailbericht verzenden, een webhook aanroepen, gegevens verzenden naar een hulpprogramma ITSM, aanroepen van een Azure-app of een Automation-runbook uitvoeren.
+* **Actietype**: een telefoongesprek of SMS-bericht verzenden, e-mailbericht verzenden, een webhook aanroepen, gegevens verzenden naar een hulpprogramma ITSM, aanroepen van een Azure-app of een Automation-runbook uitvoeren.
 * **Details**: de bijbehorende phone getal, e-mailadres, webhook URI of ITSM verbindingsdetails.
 
 Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen voor het configureren van de actiegroepen [actie groep Resource Manager-sjablonen](monitoring-create-action-group-with-resource-manager-template.md).
@@ -56,7 +56,7 @@ Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen v
 
     a. **Naam**: Voer een unieke id voor deze actie.
 
-    b. **Actietype**: Selecteer SMS-e-mailadres/Azure-app, Webhook, ITSM of Automation-Runbook.
+    b. **Actietype**: e-mailadres/SMS/Push/spraak, Webhook, ITSM of Automation-Runbook selecteren.
 
     c. **Details**: op basis van het actietype, voer een telefoonnummer, e-mailadres, webhook URI, Apps van Azure, ITSM verbinding of Automation-runbook. Voor ITSM actie bovendien opgeven **werkitem** en andere velden uw ITSM hulpprogramma vereist.
 

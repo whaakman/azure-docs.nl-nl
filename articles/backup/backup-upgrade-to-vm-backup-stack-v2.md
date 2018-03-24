@@ -2,24 +2,24 @@
 title: Upgrade uitvoeren naar Azure VM-back-stack V2 | Microsoft Docs
 description: Proces en veelgestelde vragen voor VM-back-stack V2 bijwerken
 services: backup, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
-ms.author: trinadhk
-ms.openlocfilehash: b7e9f45c61d2af1940be50a368b87cd35c85b1dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: trinadhk, sogup
+ms.openlocfilehash: 6d214072bccb8b2b42828ee003dcf349985b4f43
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="upgrade-to-vm-backup-stack-v2"></a>Een upgrade uitvoert naar VM-back-stack V2
+# <a name="upgrade-to-vm-backup-stack-v2"></a>Een upgrade uitvoeren naar VM-back-up-stack V2
 De upgrade van de back-stack V2 virtuele machine (VM) biedt de volgende verbeteringen:
 * De mogelijkheid om te zien van de momentopname die is genomen als onderdeel van de back-uptaak alleen beschikbaar voor herstel zonder te wachten op voor de overdracht van gegevens om te voltooien.
 Dit verkort de wachttijd op momentopname moet worden gekopieerd als u wilt voordat restore-kluis. Hierdoor vermindert bovendien de vereiste extra opslag voor back-ups van VM's voor premium, met uitzondering van eerste back-up.  
@@ -49,7 +49,6 @@ Standaard wordt momentopnamen worden bewaard gedurende zeven dagen. Hierdoor kan
 * Dit is een upgrade van één richting van de VM-back-stack. Ja, gaat alle toekomstige back-ups in deze stroom. Aangezien **is ingeschakeld op het abonnementsniveau van een, gaan alle virtuele machines op deze stroom**. Alle nieuwe functie toevoegingen wordt gebaseerd op de dezelfde stack. Mogelijkheid om te bepalen die dit beleid niveau in de toekomst wordt binnenkort versies. 
 * Virtuele machines met premium-schijven, tijdens de eerste back-up Zorg ervoor dat gelijk is aan de grootte van de virtuele machine opslagruimte beschikbaar in het opslagaccount is totdat de eerste back-up is voltooid. 
 * Omdat momentopnamen lokaal opgeslagen worden vergroten herstelpunt maken en terugzetten versnellen, ziet u de opslagkosten die overeenkomt met momentopnamen binnen de periode zeven dagen.
-Voor beheerde schijven bestaat *geen stijging van prijs* omdat restorePointCollections gratis zijn. 
 * Als u een terugzetbewerking in momentopname herstelpunt voor een VM voor Premium doet, ziet u een locatie voor de tijdelijke opslag worden gebruikt terwijl de virtuele machine wordt gemaakt als onderdeel van het terugzetten. 
 
 ## <a name="how-to-upgrade"></a>Het bijwerken?

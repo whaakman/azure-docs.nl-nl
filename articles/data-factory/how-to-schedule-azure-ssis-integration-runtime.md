@@ -2,22 +2,22 @@
 title: Het plannen van Azure SSIS-integratie runtime | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u plant starten en stoppen van de runtime van een Azure SSIS-integratie met behulp van Azure Automation en Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cc9ab244c784cab608a75092b542dea0a6f69f22
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Het starten en stoppen van de runtime van een Azure SSIS-integratie plannen 
 Met een Azure-SSIS (SQL Server Integration Services)-integratie-runtime heeft (IR) een kosten die gekoppeld. Daarom wilt u de IR alleen uitvoeren als u wilt SSIS-pakketten in Azure uitvoeren en stop de toepassing wanneer u deze niet nodig. U kunt de Data Factory-gebruikersinterface of Azure PowerShell om te gebruiken [handmatig starten of stoppen van een Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)). Dit artikel wordt beschreven hoe u plant starten en stoppen van een Azure-SSIS-integratie runtime (IR) met behulp van Azure Automation en Azure Data Factory. Hier volgen de stappen op hoog niveau beschreven in dit artikel:
@@ -340,7 +340,7 @@ Nadat u maken en testen van de pijplijn, kunt u de trigger van een planning make
 4. Verbinding maken met de **opgeslagen Procedure** activiteit naar de laatste **Web** activiteit.
 
     ![Volledige pijplijn](./media/how-to-schedule-azure-ssis-integration-runtime/full-pipeline.png)
-5. De pipeline-instellingen valideren door te klikken op **valideren** op de werkbalk. Sluit de **pijplijn validatierapport** door te klikken op  **>>**  knop. 
+5. De pipeline-instellingen valideren door te klikken op **valideren** op de werkbalk. Sluit de **pijplijn validatierapport** door te klikken op **>>** knop. 
 
     ![Pijplijn valideren](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
 

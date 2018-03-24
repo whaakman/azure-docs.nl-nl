@@ -4,20 +4,20 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2017
+ms.date: 03/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 3fbfd8839b1a45c6927753a48d1ac617f2d34427
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c7f74d3bd8a2f0173f8f3cc69c611696044875a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Zelfstudie: Azure Active Directory-integratie met Domo
 
@@ -110,7 +110,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-domo-tutorial/tutorial_domo_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.domo.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.domo.com`
 
     b. In de **id** textbox, typ een URL met de volgende patronen:     
 
@@ -137,10 +137,10 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
 5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en de volgende stappen uitvoeren:
     
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | ------------------- | -------------------- |    
-    | naam | User.DisplayName |
-    | e-mailen | User.mail |
+    | naam | user.displayname |
+    | e-mail | User.mail |
     
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -167,7 +167,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
    ![Eenmalige aanmelding configureren](./media/active-directory-saas-domo-tutorial/tutorial_domo_configure.png) 
 
-9. Eenmalige aanmelding configureren op **Domo** zijde, moet u de gedownloade verzenden **certificaat**, **SAML entiteit-ID**, wordt de **SAML Single Sign-On Service-URL** en de **Sign-Out URL** naar [Domo ondersteuningsteam](mailto:support@domo.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+9. Eenmalige aanmelding configureren op **Domo** zijde, navigeer naar de Domo Knowledge Base-artikel gevonden [hier](http://knowledge.domo.com?cid=azuread), en volg de instructies.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -246,12 +246,10 @@ Als u op de tegel Domo in het deelvenster toegang, u moet ophalen automatisch aa
 
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

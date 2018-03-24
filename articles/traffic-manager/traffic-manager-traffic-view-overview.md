@@ -4,28 +4,25 @@ description: Inleiding tot Traffic Manager verkeer weergeven
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 11/11/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 6b4378cb293824702dd52dcdeb86619f957b83ea
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.custom: ''
+ms.openlocfilehash: 7ce51017fdee92e5589c06b398c9650930d5436d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager verkeer weergeven
-
->[!NOTE]
->De functie verkeer weergeven in Traffic Manager kan is openbare preview-versie en geen hetzelfde niveau van beschikbaarheid en betrouwbaarheid zoals functies die in het algemeen beschikbaarheid release. De functie wordt niet ondersteund, kan hebben beperkte mogelijkheden en mogelijk niet beschikbaar in alle Azure-locaties. Voor de meest recente meldingen op beschikbaarheid en de status van deze functie, Controleer de [Azure Traffic Manager-updates](https://azure.microsoft.com/updates/?product=traffic-manager) pagina.
 
 Traffic Manager biedt dat u met DNS-niveau routering zodat uw eindgebruikers worden omgeleid naar orde eindpunten op basis van de routeringsmethode opgegeven toen u het profiel hebt gemaakt. Traffic Manager biedt verkeer weergave een weergave van uw gebruikersbases (op een DNS-omzetter granulatie niveau) en hun verkeer-patroon. Wanneer u verkeer weergave inschakelt, wordt deze informatie om u te bieden met bruikbare insights verwerkt. 
 
@@ -43,7 +40,7 @@ Verkeer weergave werkt met Traffic Manager kijken naar de binnenkomende query's 
 In de volgende stap Traffic Manager de gebruiker base regio toewijzing van de Azure-regio met het netwerk intelligence latentie tabellen houdt voor verschillende eindgebruiker netwerken om te begrijpen van de gemiddelde latentie waarmee gebruikers van deze gebieden correleert wanneer verbinding maken met Azure-regio's. Al deze berekeningen vervolgens worden gecombineerd met een niveau van lokale DNS-omzetter IP voordat het is aan u gepresenteerd. U kunt de gegevens op verschillende manieren verbruiken.
 
 >[!NOTE]
->De latentie beschreven in de weergave van verkeer een representatieve latentie tussen de eindgebruiker en de Azure-regio's waarmee ze was verbonden, en niet de DNS-lookup-latentie.
+>De latentie beschreven in de weergave van verkeer een representatieve latentie tussen de eindgebruiker en de Azure-regio's waarmee ze was verbonden, en niet de DNS-lookup-latentie. Verkeer weergave maakt een best effort schatting van de latentie tussen de lokale DNS-omzetter en de Azure-regio die de query is gerouteerd naar, als er onvoldoende gegevens beschikbaar en de latentie vervolgens geretourneerd wordt niet null zijn. 
 
 ## <a name="visual-overview"></a>Visual-overzicht
 
@@ -61,12 +58,12 @@ Als u de muisaanwijzer op een DNS-omzetter locatie in de kaart, wordt deze weerg
 
 ### <a name="endpoint-information"></a>Informatie over endpoint
 
-Azure-regio's waarin de eindpunten zich bevinden, worden weergegeven als blauwe punten op de kaart. Klik op een willekeurig eindpunt om te zien van de verschillende vestigingen (op basis van de DNS-resolver gebruikt) van waar het verkeer is omgeleid naar dat eindpunt. De verbindingen worden weergegeven als een lijn tussen het eindpunt en de locatie van DNS-omzetter en volgens de representatieve latentie tussen die paar zijn gekleurd. Bovendien ziet u de naam van het eindpunt, de Azure-regio waarin deze wordt uitgevoerd en het totale volume van aanvragen die zijn omgeleid naar dit Traffic Manager-profiel.
+Azure-regio's waarin de eindpunten zich bevinden, worden weergegeven als blauwe punten op de kaart. Als uw eindpunt extern en beschikt niet over een Azure-regio toegewezen, wordt het weergegeven aan de bovenkant van de kaart. Klik op een willekeurig eindpunt om te zien van de verschillende vestigingen (op basis van de DNS-resolver gebruikt) van waar het verkeer is omgeleid naar dat eindpunt. De verbindingen worden weergegeven als een lijn tussen het eindpunt en de locatie van DNS-omzetter en volgens de representatieve latentie tussen die paar zijn gekleurd. Bovendien ziet u de naam van het eindpunt, de Azure-regio waarin deze wordt uitgevoerd en het totale volume van aanvragen die zijn omgeleid naar dit Traffic Manager-profiel.
 
 
 ## <a name="tabular-listing-and-raw-data-download"></a>In de lijst in tabelvorm en onbewerkte gegevens downloaden
 
-U kunt de weergave van verkeer gegevens weergeven in tabelvorm in Azure-portal. Er is een vermelding voor elk IP-adres van DNS-omzetter / eindpunt paar waarin de geografische locatie van de DNS-resolver (indien beschikbaar), naam van de Azure-regio waarin het eindpunt zich bevindt, het volume aan aanvragen die zijn gekoppeld aan deze DNS-omzetter en de vertegenwoordiger Latentie die zijn gekoppeld aan eindgebruikers die DNS gebruiken (indien beschikbaar). U kunt ook het verkeer weergavegegevens downloaden als een CSV-bestand dat kan worden gebruikt als onderdeel van een werkstroom analytics van uw keuze.
+U kunt de weergave van verkeer gegevens weergeven in tabelvorm in Azure-portal. Er is een vermelding voor elk IP-adres van DNS-omzetter / eindpunt koppelen die ziet u het IP-adres van de DNS-resolver, de naam en de geografische locatie van de Azure-regio in waarop het eindpunt zich bevindt (indien beschikbaar), het volume aan aanvragen die zijn gekoppeld aan deze DNS-resolver voor dat eindpunt en de representatieve latentie die zijn gekoppeld aan eindgebruikers die DNS gebruiken (indien beschikbaar). U kunt ook het verkeer weergavegegevens downloaden als een CSV-bestand dat kan worden gebruikt als onderdeel van een werkstroom analytics van uw keuze.
 
 ## <a name="billing"></a>Facturering
 

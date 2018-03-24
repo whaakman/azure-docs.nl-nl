@@ -2,10 +2,10 @@
 title: Automatiseren beheertaken op SQL-machines (Resource Manager) | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u voor het beheren van de SQL Server agent-extensie, die specifieke SQL Server-beheertaken worden geautomatiseerd. Het gaat hierbij om automatische back-up automatisch patchen en integratie van Azure Sleutelkluis.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/07/2018
+ms.date: 03/20/2018
 ms.author: jroth
-ms.openlocfilehash: dd32975e085a0f67d66f2949d4757a974bd9a616
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d9cb4a3bdc5776c4ac70ac376d8b839193e3fc3d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatiseren beheertaken op Azure Virtual Machines met de SQL Server Agent-extensie (Resource Manager)
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 > [!IMPORTANT]
 > Als de extensie niet al is geïnstalleerd, opnieuw installeren van de extensie de SQL Server-service.
 
-Het is ook mogelijk de uitbreiding met SQL Server IaaS-Agent installeren op een virtuele machine van de OS-alleen Windows-Server. Dit wordt alleen ondersteund als u SQL Server ook handmatig hebt geïnstalleerd op deze machine. Installeer de uitbreiding handmatig met behulp van dezelfde **Set AzureVMSqlServerExtension** PowerShell-cmdlet.
+Het is ook mogelijk de uitbreiding met SQL Server IaaS-Agent installeren op een virtuele machine van de OS-alleen Windows-Server. Dit wordt alleen ondersteund als u SQL Server ook handmatig hebt geïnstalleerd op deze machine. Installeer de uitbreiding handmatig met behulp van dezelfde **Set AzureRmVMSqlServerExtension** PowerShell-cmdlet.
 
 > [!NOTE]
 > Als u de uitbreiding met SQL Server IaaS-Agent handmatig op een alleen-besturingssysteem Windows Server-VM installeren, kunt u de SQL Server-configuratie-instellingen via de Azure portal niet beheren. In dit scenario moet u alle wijzigingen met PowerShell.
@@ -82,7 +82,7 @@ Er is een manier om te controleren of de uitbreiding is geïnstalleerd om weer t
 
 ![SQL Server IaaS-agentextensie in de Azure-portal](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
-U kunt ook de **Get-AzureVMSqlServerExtension** Azure PowerShell-cmdlet.
+U kunt ook de **Get-AzureRmVMSqlServerExtension** Azure PowerShell-cmdlet.
 
     Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
 

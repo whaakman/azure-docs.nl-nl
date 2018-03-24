@@ -2,23 +2,23 @@
 title: Richtlijnen voor het implementeren van Windows Server Active Directory op virtuele Machines in Azure | Microsoft Docs
 description: Als u het implementeren van AD Domain Services en AD Federation Services on-premises, informatie over hoe deze werken op virtuele machines in Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 03/20/2018
 ms.author: femila
-ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c2d58e056cdb285be51d259492e11e6ae37b253e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Richtlijnen voor het implementeren van Windows Server Active Directory op virtuele machines in Azure
 Dit artikel wordt uitgelegd dat de belangrijke verschillen tussen implementatie Windows Server Active Directory Domain Services (AD DS) en Active Directory Federation Services (AD FS) lokale versus implementeren op Microsoft Azure virtuele machines.
@@ -71,8 +71,10 @@ Zie [virtueel netwerk](http://azure.microsoft.com/documentation/services/virtual
 > 
 > 
 
-### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>Statische IP-adressen moeten worden geconfigureerd met Azure PowerShell.
-Dynamische adressen worden standaard toegewezen, maar gebruikt u de cmdlet Set-AzureStaticVNetIP in plaats daarvan een statisch IP-adres toewijzen. Die Hiermee stelt u een statisch IP-adres dat via de service herstel- en uitschakelen/opnieuw opstarten van de virtuele machine actief blijft. Zie voor meer informatie [statische interne IP-adres voor virtuele machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
+### <a name="static-ip-addresses-can-be-configured-with-azure-powershell"></a>Statische IP-adressen kunnen worden geconfigureerd met Azure PowerShell
+Dynamische adressen worden standaard toegewezen, maar gebruikt u de cmdlet Set-AzureStaticVNetIP als u wilt een statisch IP-adres in plaats daarvan toewijzen. Deze cmdlet Hiermee stelt u een statisch IP-adres dat via de service herstel- en uitschakelen/opnieuw opstarten van de virtuele machine actief blijft. Zie voor meer informatie [statische interne IP-adres voor virtuele machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/). U kunt ook een statisch IP-adres configureren tijdens het maken van uw virtuele machine in de Azure-portal, zoals hieronder wordt weergegeven. Zie voor meer informatie [een virtuele machine maken met een statische openbare IP-adres met de Azure portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md).
+
+![schermopname van stap statisch IP-adres toevoegen bij het maken van een virtuele machine](media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>Termen en definities
 Hier volgt een niet-uitputtende lijst met voorwaarden voor verschillende Azure-technologieën die in dit artikel wordt verwezen.
@@ -408,7 +410,7 @@ U moet kiezen of alleen-lezen of beschrijfbare domeincontrollers implementeren. 
 
 Azure biedt geen gevaar de fysieke beveiliging van een filiaal, maar RODC's mogelijk nog steeds blijken rendabeler omdat de functies die ze bieden geschikt zijn voor deze omgevingen zij voor zeer verschillende redenen. Bijvoorbeeld, RODC's hebben geen uitgaande replicatie en kunnen geen selectief vullen geheimen (wachtwoorden). Op het nadeel het ontbreken van deze geheime gegevens mogelijk uitgaand verkeer op het verzoek om te verifiëren als een gebruiker of computer verifieert. Maar geheimen kunnen selectief worden vooraf ingevuld en worden opgeslagen in de cache.
 
-RODC's bieden een extra voordeel in en rond HBI en PII problemen omdat u de kenmerken die gevoelige gegevens naar de RODC bevatten gefilterde kenmerkset (VA) kunt toevoegen. De door is een aanpasbare set kenmerken die niet zijn gerepliceerd naar de RODC's. Als u niet zijn toegestaan of niet wilt opslaan van persoonlijke gegevens of HBI op Azure, kunt u de door als beveiliging. Zie voor meer informatie [gefilterde kenmerk alleen-lezen domeincontroller [(https://technet.microsoft.com/library/cc753459)] ingesteld.
+RODC's bieden een extra voordeel in en rond HBI en PII problemen omdat u de kenmerken die gevoelige gegevens naar de RODC bevatten gefilterde kenmerkset (VA) kunt toevoegen. De door is een aanpasbare set kenmerken die niet zijn gerepliceerd naar de RODC's. Als u niet zijn toegestaan of niet wilt opslaan van persoonlijke gegevens of HBI op Azure, kunt u de door als beveiliging. Zie voor meer informatie [RODC gefilterde kenmerkset [(https://technet.microsoft.com/library/cc753459)].
 
 Zorg ervoor dat toepassingen zijn compatibel met de RODC's die u wilt gebruiken. Veel Windows Server Active Directory-toepassingen met RODC's werken, maar sommige toepassingen kunnen uitvoeren, inefficiënt of mislukken als ze geen toegang tot een beschrijfbare domeincontroller. Zie voor meer informatie [handleiding voor compatibiliteit met alleen-lezen domeincontrollers](https://technet.microsoft.com/library/cc755190).
 

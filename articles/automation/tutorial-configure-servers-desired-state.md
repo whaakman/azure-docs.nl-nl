@@ -1,26 +1,18 @@
 ---
-title: Servers een gewenste status configureren en beheren van afwijking met Azure Automation | Microsoft Docs
+title: Servers configureren met een gewenste status en afwijkingen beheren met Azure Automation
 description: Zelfstudie - server met Azure Automation DSC-configuraties beheren
 services: automation
-documentationcenter: automation
-author: georgewallace
-manager: carmonm
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 
 ms.service: automation
-ms.devlang: powershell
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 09/25/2017
+author: georgewallace
 ms.author: gwallace
-ms.custom: 
-ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+manager: carmonm
+ms.topic: article
+ms.date: 09/25/2017
+ms.openlocfilehash: 50c58224eaecc20a0878df5e1c7f100039978455
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Servers een gewenste status configureren en beheren van afwijking
 
@@ -56,9 +48,9 @@ Login-AzureRmAccount
 
 Voor deze zelfstudie gebruiken we een eenvoudige DSC-configuratie die ervoor zorgt dat IIS is geïnstalleerd op de virtuele machine.
 
-Zie voor meer informatie over DSC-configuraties [DSC-configuraties](https://docs.microsoft.com/powershell/dsc/configurations).
+Zie [DSC-configuraties](https://docs.microsoft.com/powershell/dsc/configurations) voor meer informatie over DSC-configuraties.
 
-Typ het volgende in een teksteditor en sla het bestand lokaal als `TestConfig.ps1`.
+Typ het volgende in een teksteditor en sla het bestand lokaal op als `TestConfig.ps1`.
 
 ```powershell
 configuration TestConfig {

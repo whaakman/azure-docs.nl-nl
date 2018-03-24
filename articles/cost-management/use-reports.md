@@ -2,23 +2,23 @@
 title: Kosten-rapporten gebruiken in Azure kosten Management | Microsoft Docs
 description: In dit artikel wordt beschreven hoe verschillende kostenbeheer rapporten gebruiken in de portal Cloudyn.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: fa263a4b6f41e2b31328f46b8d1341d0d74c9a85
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-cost-management-reports"></a>Kostenbeheerrapporten gebruiken
 
-In dit artikel wordt beschreven hoe verschillende kostenbeheer rapporten gebruiken in de portal Cloudyn. De meeste Cloudyn rapporten zijn intuïtieve en een uniform uiterlijk hebben. Zie voor een overzicht over Cloudyn rapporten [Understanding kosten verbonden aan rapporten](understading-cost-reports.md). Het artikel beschrijft ook verschillende opties en de velden in de meeste rapporten gebruikt.
+In dit artikel wordt beschreven hoe verschillende kostenbeheer rapporten gebruiken in de portal Cloudyn. De meeste Cloudyn rapporten zijn intuïtieve en een uniform uiterlijk hebben. Zie voor een overzicht over Cloudyn rapporten [Understanding kosten verbonden aan rapporten](understanding-cost-reports.md). Het artikel beschrijft ook verschillende opties en de velden in de meeste rapporten gebruikt.
 
 ## <a name="cost-analysis-reports"></a>Kosten verbonden aan rapporten
 

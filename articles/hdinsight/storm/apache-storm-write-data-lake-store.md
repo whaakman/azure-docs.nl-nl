@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 908a1130171cc091b4d95d4532cc3bb95edb44f9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2310894e7257d0ddb919406a8f297089189a9484
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Schrijven naar HDFS van Apache Storm op HDInsight
 
-Informatie over het gebruik van Storm om gegevens te schrijven naar de HDFS-compatibele opslag die wordt gebruikt door Apache Storm op HDInsight. HDInsight kunt gebruiken beide Azure Storage en Azure Data Lake opslaan als HDFS comptabile opslag. Storm biedt een [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) onderdeel dat gegevens naar HDFS schrijft. Dit document bevat informatie over het schrijven naar beide typen opslag van de HdfsBolt. 
+Informatie over het gebruik van Storm om gegevens te schrijven naar de HDFS-compatibele opslag die wordt gebruikt door Apache Storm op HDInsight. HDInsight kunt gebruiken beide Azure Storage en Azure Data Lake opslaan als HDFS-compatibele opslag. Storm biedt een [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) onderdeel dat gegevens naar HDFS schrijft. Dit document bevat informatie over het schrijven naar beide typen opslag van de HdfsBolt. 
 
 > [!IMPORTANT]
 > De voorbeeldtopologie die in dit document is gebaseerd op de onderdelen die deel van Storm op HDInsight uitmaken. Deze mogelijk moeten worden aangepast voor gebruik met Azure Data Lake Store gebruikt in combinatie met andere Apache Storm-clusters.
 
 ## <a name="get-the-code"></a>Code ophalen
 
-Het project met deze topologie wordt beschikbaar als download van [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
+Het project met deze topologie wordt beschikbaar als download van [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
 
 Als u wilt compileren dit project, moet u de volgende configuratie voor uw ontwikkelomgeving:
 
@@ -134,7 +134,7 @@ Deze YAML definieert de volgende items:
 * `rotationPolicy`: Hiermee wordt gedefinieerd of draaien van bestanden. In dit voorbeeld wordt geen draaiing uitgevoerd.
 * `hdfs-bolt`: Maakt gebruik van de vorige onderdelen als configuratieparameters voor de `HdfsBolt` klasse.
 
-Zie voor meer informatie over het framework lichtstroom [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Zie voor meer informatie over het framework lichtstroom [ https://storm.apache.org/releases/1.1.0/flux.html ](https://storm.apache.org/releases/1.1.0/flux.html).
 
 ## <a name="configure-the-cluster"></a>Het cluster configureren
 
@@ -148,7 +148,7 @@ Zie voor meer informatie over het gebruik van dit script met uw cluster de [aanp
 
 ## <a name="build-and-package-the-topology"></a>Bouwen en de topologie van het pakket
 
-1. Download het voorbeeldproject van [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) op uw ontwikkelomgeving.
+1. Download het voorbeeldproject van [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) op uw ontwikkelomgeving.
 
 2. Vanuit een opdrachtprompt, terminal of shell-sessie, mappen wijzigen naar de hoofdmap van het gedownloade project. Voor het bouwen en de topologie van het pakket, gebruikt u de volgende opdracht:
    

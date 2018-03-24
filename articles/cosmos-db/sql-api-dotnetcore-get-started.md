@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 90b720c174ab5730237f27d5ebb253976a70b071
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 460b963f09384e246d914cd7c4aeca046da83dd3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: Aan de slag met de SQL-API en .NET Core
 > [!div class="op_single_selector"]
@@ -51,9 +51,6 @@ Deze zelfstudie worden behandeld:
 Hebt u geen tijd? Geen probleem. De volledige oplossing is beschikbaar via [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Spring naar de sectie [De volledige oplossing gebruiken](#GetSolution) voor beknopte instructies.
 
 Wilt maken van een Xamarin iOS, Android of formulieren toepassing met behulp van de SQL-API en de SDK voor .NET Core? Zie [ontwikkelen van mobiele toepassingen met Xamarin en Azure Cosmos DB](mobile-apps-with-xamarin.md).
-
-> [!NOTE]
-> De Azure Cosmos DB .NET Core SDK gebruikt in deze zelfstudie is nog niet compatibel met Universal Windows Platform (UWP)-apps. Voor een preview-versie van de .NET Core-SDK die UWP-apps ondersteunt, stuurt u een e-mail naar [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 Tijd om aan de slag te gaan.
 

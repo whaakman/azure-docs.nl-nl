@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 6efec75884857d93f2e128104136bf59a1114594
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/23/2018
+---
 In de volgende tabel ziet u de gatewaytypen en de geschatte geaggregeerde doorvoer per gateway-SKU. Deze tabel is van toepassing op de resourcemanager en de klassieke implementatiemodellen. 
 
 De prijzen zijn afhankelijk van de gateway-SKU's. Zie [Prijzen van VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) voor meer informatie.

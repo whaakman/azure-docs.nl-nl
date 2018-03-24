@@ -4,21 +4,21 @@ description: Informatie over het afhandelen van menselijke tussenkomst en time-o
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Menselijke tussenkomst in duurzame functies - Phone verificatie voorbeeld
 
@@ -28,8 +28,8 @@ Dit voorbeeld implementeert een telefoon op basis van SMS-verificatiesysteem. De
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Volg de instructies in [duurzame functies installeren](durable-functions-install.md) voor het instellen van het voorbeeld.
-* In dit artikel wordt ervan uitgegaan dat u al hebt doorlopen de [Hello Sequence](durable-functions-sequence.md) voorbeeld scenario.
+* [Installeren van functies duurzame](durable-functions-install.md).
+* Voltooi de [Hello Sequence](durable-functions-sequence.md) scenario.
 
 ## <a name="scenario-overview"></a>Overzicht van scenario's
 
@@ -50,7 +50,7 @@ Dit artikel begeleidt u bij de volgende functies in de voorbeeld-app:
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-De volgende secties worden de configuratie en code die worden gebruikt voor het ontwikkelen van Azure portal. De code voor het ontwikkelen van Visual Studio wordt weergegeven aan het einde van het artikel.
+De volgende secties worden de configuratie en code die worden gebruikt voor het C#-scripts. De code voor het ontwikkelen van Visual Studio wordt weergegeven aan het einde van het artikel.
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>De SMS-verificatie orchestration (Visual Studio Code en de Azure portal voorbeeldcode) 
 

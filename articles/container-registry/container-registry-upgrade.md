@@ -6,13 +6,13 @@ author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 19090bb69d7165c1e904450dc93b925e23e44782
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c5a61941bab2aa49cd8205e0a07dd2b5f7378ce9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Upgrade van een container klassieke register
 
@@ -27,16 +27,18 @@ Beheerde registers bieden:
 * Azure Active Directory-integratie voor [afzonderlijke aanmelding](container-registry-authentication.md#individual-login-with-azure-ad)
 * Ondersteuning voor image en label verwijderen
 * [Geo-replicatie](container-registry-geo-replication.md)
-* [Webhooks.](container-registry-webhook.md)
+* [Webhooks](container-registry-webhook.md)
 
-Meest, een klassiek register hangt af van het opslagaccount dat Azure automatisch ingericht in uw Azure-abonnement bij het maken van het register. Daarentegen te profiteren van de Basic, Standard en Premium-SKU's *storage beheerd*. Dat wil zeggen beheerd Azure transparant de opslag van uw afbeeldingen voor u--is niet een afzonderlijke opslagaccount gemaakt in uw eigen abonnement.
+Een klassieke-register is meest, afhankelijk van het opslagaccount dat Azure automatisch in uw Azure-abonnement voorziet bij het maken van het register. Daarentegen is de Basic, Standard en Premium-SKU's profiteren van Azure [geavanceerde functies van storage](container-registry-storage.md) op transparante wijze de opslag van uw afbeeldingen voor u. Een afzonderlijke opslagaccount is niet gemaakt in uw eigen abonnement.
 
 Beheerde register opslag biedt de volgende voordelen:
 
-* Container afbeeldingen zijn [in rust versleuteld](../storage/common/storage-service-encryption.md).
-* Installatiekopieën worden opgeslagen met behulp van [geografisch redundante opslag](../storage/common/storage-redundancy.md#geo-redundant-storage), zodat de zeker back-up van uw afbeeldingen met meerdere landen/regio-replicatie.
+* Container afbeeldingen zijn [in rust versleuteld](container-registry-storage.md#encryption-at-rest).
+* Installatiekopieën worden opgeslagen met behulp van [geografisch redundante opslag](container-registry-storage.md#geo-redundant-storage), zodat de zeker back-up van uw afbeeldingen met meerdere landen/regio-replicatie.
 * Mogelijkheid om te vrijelijk [verplaatsen tussen SKU's](container-registry-skus.md#changing-skus), hogere doorvoer inschakelen wanneer u ervoor een hogere SKU kiest. Met elke SKU ACR kunt doorvoer aan uw eisen voldoen als verhogen voor uw behoeften.
 * Geïntegreerde beveiligingsmodel voor het register en bijbehorende opslag biedt vereenvoudigde rights management. U beheren machtigingen alleen voor het register container zonder dat ook om machtigingen te beheren voor een afzonderlijke opslagaccount.
+
+Zie voor meer informatie over de opslag van de afbeelding in ACR [Container installatiekopie opslag in Azure Container register](container-registry-storage.md).
 
 ## <a name="migration-considerations"></a>Overwegingen bij migratie
 

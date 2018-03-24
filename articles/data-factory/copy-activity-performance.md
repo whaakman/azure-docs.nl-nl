@@ -1,11 +1,11 @@
 ---
-title: "Prestatieafstemming handleiding en prestaties van de Kopieeractiviteit in Azure Data Factory kopiëren | Microsoft Docs"
+title: Prestatieafstemming handleiding en prestaties van de Kopieeractiviteit in Azure Data Factory kopiëren | Microsoft Docs
 description: Meer informatie over de belangrijkste factoren die invloed hebben op de prestaties van de gegevensverplaatsing in Azure Data Factory als u Kopieeractiviteit gebruiken.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 53f2b59e57d49a409552aebbdb1b0e81ccd5200c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 733a396117a58d8dc51e55614e503853f13141c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Prestaties van de activiteit en prestatieafstemming handleiding kopiëren
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -192,7 +192,7 @@ Configureer de **enableStaging** instellen in de kopieerbewerking om op te geven
 | --- | --- | --- | --- |
 | **enableStaging** |Geef op of u wilt kopiëren van gegevens via een tussentijdse staging-store. |False |Nee |
 | **linkedServiceName** |Geef de naam van een [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) gekoppelde service die verwijst naar het exemplaar van de opslag die u als een tussentijdse staging store gebruiken. <br/><br/> U kunt opslag met een shared access signature niet gebruiken om gegevens te laden in SQL Data Warehouse met PolyBase. U kunt deze gebruiken in alle andere scenario's. |N/A |Ja, wanneer **enableStaging** is ingesteld op TRUE |
-| **pad** |Geef het pad voor Blob-opslag die u wilt de voorbereide gegevens bevatten. Als u niet een pad opgeeft, maakt de service een container voor het opslaan van tijdelijke gegevens. <br/><br/> Geef een pad op als u opslag met een shared access signature gebruiken of u tijdelijke gegevens op een specifieke locatie te vereisen. |N/A |Nee |
+| **Pad** |Geef het pad voor Blob-opslag die u wilt de voorbereide gegevens bevatten. Als u niet een pad opgeeft, maakt de service een container voor het opslaan van tijdelijke gegevens. <br/><br/> Geef een pad op als u opslag met een shared access signature gebruiken of u tijdelijke gegevens op een specifieke locatie te vereisen. |N/A |Nee |
 | **enableCompression** |Hiermee geeft u op of de gegevens moeten worden gecomprimeerd voordat deze is gekopieerd naar de bestemming. Deze instelling beperkt de hoeveelheid gegevens die worden overgedragen. |False |Nee |
 
 Hier volgt een voorbeeld-definitie van de Kopieeractiviteit met de eigenschappen die worden beschreven in de voorgaande tabel:

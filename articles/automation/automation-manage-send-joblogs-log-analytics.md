@@ -1,5 +1,5 @@
 ---
-title: Doorsturen van gegevens van Azure Automation-taak met OMS Log Analytics
+title: Azure Automation-taakgegevens doorsturen naar Log Analytics
 description: In dit artikel laat zien hoe u met het verzenden van taakstatus en runbook-taak streams Microsoft Operations Management Suite-logboekanalyse meer inzicht leveren en het beheer.
 services: automation
 ms.service: automation
@@ -8,16 +8,14 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: c73a523f1239fb7d549b573ea6105168f4a63144
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c9b604b0fc7a3524686bec6832a19ee9f85f6ed2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Doorsturen taakstatus en taak stromen van Automation voor logboekanalyse (OMS)
-Automation kan runbook taak status en taak streams verzenden naar de werkruimte voor logboekanalyse voor Microsoft Operations Management Suite (OMS). Taak registreert en taak streams zichtbaar zijn in de Azure-portal of PowerShell zijn voor afzonderlijke taken en Hiermee kunt u eenvoudige onderzoeken uitvoeren. Met Log Analytics kunt u nu:
+# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Taakstatus en taak streams doorsturen van automatisering met Log Analytics
+Automation kan runbook taak status en taak streams verzenden naar de werkruimte voor logboekanalyse. Taak registreert en taak streams zichtbaar zijn in de Azure-portal of PowerShell zijn voor afzonderlijke taken en Hiermee kunt u eenvoudige onderzoeken uitvoeren. Met Log Analytics kunt u nu:
 
 * Inzicht verkrijgen in uw Automation-taken.
 * De trigger is een e-mailadres of de waarschuwing op basis van de status van de taak runbook (bijvoorbeeld is mislukt of onderbroken).
@@ -157,7 +155,7 @@ Wanneer u een taak foutopsporing, kunt u ook om te zoeken in de taak stromen. De
 U kunt ten slotte uw Taakgeschiedenis visualiseren gedurende een bepaalde periode. U kunt deze query gebruiken om te zoeken naar de status van de taken gedurende een bepaalde periode.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
-<br> ![OMS historische taak Statusgrafiek](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+<br> ![Log Analytics historische taak Statusgrafiek](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="summary"></a>Samenvatting
 Verzenden van uw Automation-taak status en stream-gegevens met Log Analytics, krijgt u inzicht in de status van uw Automation-taken op:
@@ -170,4 +168,4 @@ Log Analytics biedt meer operationeel inzicht voor uw Automation-taken en adres 
 * Zie voor meer informatie over het maken van verschillende zoekquery's en de Automation-taak logboeken met Log Analytics, [zoekopdrachten aanmelden met logboekanalyse](../log-analytics/log-analytics-log-searches.md).
 * Zie voor informatie over het maken en ophalen van de uitvoer en foutberichten van runbooks, [Runbook uitvoer en berichten](automation-runbook-output-and-messages.md).
 * Zie [Runbooktaken bijhouden](automation-runbook-execution.md) voor meer informatie over runbookuitvoering, het bewaken van runbooktaken en andere technische details.
-* Zie voor meer informatie over OMS Log Analytics en verzameling gegevensbronnen, [verzamelen van Azure storage-gegevens in het overzicht van logboekanalyse](../log-analytics/log-analytics-azure-storage.md).
+* Zie voor meer informatie over Log Analytics en verzameling gegevensbronnen, [verzamelen van Azure storage-gegevens in het overzicht van logboekanalyse](../log-analytics/log-analytics-azure-storage.md).

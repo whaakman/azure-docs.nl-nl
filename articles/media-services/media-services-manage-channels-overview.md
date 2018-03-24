@@ -2,25 +2,29 @@
 title: Overzicht van Live streamen met Azure Media Services | Microsoft Docs
 description: In dit onderwerp geeft een overzicht van live streamen met Azure Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6f500f25129470a679c75cae6cd1abc9d71b72a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 451513c364978348eba922f5cf42b6e6c79f8700
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Overzicht van Live streamen met Azure Media Services
+
+> [!NOTE]
+> Vanaf 12 mei 2018, live kanalen wordt niet langer ondersteuning voor de RTP/MPEG-2-transportstroom opnameprotocol. Migreer van RTP/MPEG-2 RTMP of gefragmenteerde MP4 (Smooth Streaming) opnemen-protocollen.
+
 ## <a name="overview"></a>Overzicht
 Live streaming-gebeurtenissen met Azure Media Services leveren betrokken de volgende onderdelen zijn meestal:
 
@@ -66,7 +70,7 @@ Volgende tabel bevat een handleiding voor het vergelijken van de twee kanaal-typ
 | Maximale resolutie van het aantal lagen |1080p, 8 lagen 60 + fps |720p, 6 lagen 30 fps |
 | Invoer-protocollen |RTMP, Smooth Streaming |RTMP, Smooth Streaming- en RTP |
 | Prijs |Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) en klik op het tabblad 'Live Video' |Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) |
-| Maximale uitvoeringstijd |24 x 7 |8 uur |
+| Maximale uitvoeringstijd |24x7 |8 uur |
 | Ondersteuning voor het invoegen van slates |Nee |Ja |
 | Ondersteuning voor ad-signalering |Nee |Ja |
 | Pass Through-CEA 608/708 bijschriften |Ja |Ja |
@@ -133,10 +137,10 @@ In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen e
 
 | Kanaalstatus | Portal UI-indicatoren | Is het facturering? |
 | --- | --- | --- |
-| Starting |Starting |Nee (overgangsstatus) |
-| Running |Ready (er worden geen programma's uitgevoerd)<br/>of<br/>Streaming (er wordt ten minste een programma uitgevoerd) |JA |
-| Stopping |Stopping |Nee (overgangsstatus) |
-| Stopped |Stopped |Nee |
+| Starten |Starten |Nee (overgangsstatus) |
+| In uitvoering |Ready (er worden geen programma's uitgevoerd)<br/>of<br/>Streaming (er wordt ten minste een programma uitgevoerd) |JA |
+| Stoppen |Stoppen |Nee (overgangsstatus) |
+| Gestopt |Gestopt |Nee |
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -153,4 +157,4 @@ In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen e
 
 [Quota's en beperkingen](media-services-quotas-and-limitations.md).  
 
-[Media Services-concepten](media-services-concepts.md)
+[Media Services Concepts](media-services-concepts.md)

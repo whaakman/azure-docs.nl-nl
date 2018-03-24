@@ -2,10 +2,10 @@
 title: Azure CDN regels engine functies | Microsoft Docs
 description: Documentatie bij Azure CDN regels overeen motor en onderdelen.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Functies in de engine Azure CDN-regels
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare functies voor Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
@@ -46,28 +46,28 @@ Deze functies zijn ontworpen om aan te passen wanneer en hoe inhoud in cache wor
 Naam | Doel
 -----|--------
 [Bandbreedte-Parameters](#bandwidth-parameters) | Bepaalt of bandbreedte bandbreedteregeling parameters (bijvoorbeeld ec_rate en ec_prebuf) actief zijn.
-[Bandbreedtebeperking](#bandwidth-throttling) | Beperkt de bandbreedte voor de respons van de edge-servers.
+[Bandbreedtebeperking](#bandwidth-throttling) | Beperkt de bandbreedte voor de respons van de punt-of-presence (POP).
 [De Bypass-Cache](#bypass-cache) | Hiermee wordt bepaald of de aanvraag moet overslaan.
-[Cache-Control Header behandeling](#cache-control-header-treatment) | Hiermee bepaalt u het genereren van `Cache-Control` headers door de edge-server als onderdeel van de externe maximumleeftijd actief is.
+[Cache-Control Header behandeling](#cache-control-header-treatment) | Hiermee bepaalt u het genereren van `Cache-Control` headers door de pop-server als onderdeel van de externe maximumleeftijd actief is.
 [Cache-sleutel queryreeks](#cache-key-query-string) | Hiermee wordt bepaald of de cachesleutel opnemen en uitsluiten van queryreeksparameters die zijn gekoppeld aan een aanvraag.
 [Cache-sleutel opnieuw schrijven](#cache-key-rewrite) | Herschrijft de cache-sleutel die is gekoppeld aan een aanvraag.
-[Voltooien van de opvulling van de Cache](#complete-cache-fill) | Hiermee bepaalt u wat er gebeurt wanneer een aanvraag resulteert in een gedeeltelijke Cachemisser op een edge-server.
+[Voltooien van de opvulling van de Cache](#complete-cache-fill) | Hiermee bepaalt u wat er gebeurt wanneer een aanvraag resulteert in een gedeeltelijke Cachemisser op een pop-server.
 [Bestandstypen comprimeren](#compress-file-types) | Hiermee definieert u de bestandsindelingen voor de bestanden die zijn gecomprimeerd op de server.
-[Default Internal Max-Age](#default-internal-max-age) | Het standaardinterval voor de maximale leeftijd voor edge-server naar de oorsprong server cache hervalidatie bepaalt.
-[Koptekst behandeling verloopt](#expires-header-treatment) | Hiermee bepaalt u het genereren van `Expires` headers door een edge-server als de functie externe maximumleeftijd actief is.
-[External Max-Age](#external-max-age) | Bepaalt de maximumleeftijd interval voor de browser edge-server opnieuw valideren.
-[Force Internal Max-Age](#force-internal-max-age) | De maximale leeftijd interval voor edge-server naar de oorsprong server cache hervalidatie bepaald.
+[Default Internal Max-Age](#default-internal-max-age) | Bepaalt het standaardinterval voor de maximale leeftijd voor pop-server naar de oorsprong server cache hervalidatie.
+[Koptekst behandeling verloopt](#expires-header-treatment) | Hiermee bepaalt u het genereren van `Expires` headers door een pop-server als de functie externe maximumleeftijd actief is.
+[External Max-Age](#external-max-age) | Bepaalt het maximumleeftijd interval voor de browser opnieuw valideren pop-server.
+[Force Internal Max-Age](#force-internal-max-age) | Bepaalt het maximumleeftijd interval voor POP naar de oorsprong server cache hervalidatie.
 [H.264-ondersteuning (http-progressief downloaden)](#h264-support-http-progressive-download) | Bepaalt de soorten H.264 bestandsindelingen die kunnen worden gebruikt om inhoud streamen.
 [EEr No-Cache-aanvraag](#honor-no-cache-request) | Hiermee wordt bepaald of een HTTP-client Nee-cache-aanvragen worden doorgestuurd naar de oorspronkelijke server.
 [Negeren oorsprong No-Cache](#ignore-origin-no-cache) | Hiermee wordt bepaald of de CDN bepaalde richtlijnen geleverd van een bronserver negeert.
 [Ongeldig bereiken negeren](#ignore-unsatisfiable-ranges) | Bepaalt de reactie die aan clients worden geretourneerd wanneer een aanvraag statuscode 416 aangevraagd bereik niet geldig genereert.
-[Internal Max-Stale](#internal-max-stale) | Bepaalt hoe lang voorbij de verlooptijd van de normale een activum in de cache kan worden geleverd vanuit een edge-server wanneer de edge-server niet kan valideren van de cache asset met de bronserver.
+[Internal Max-Stale](#internal-max-stale) | Bepaalt hoe lang voorbij de verlooptijd van de normale een activum in de cache kan worden geleverd vanuit een POP wanneer de pop-server niet kan valideren van de cache asset met de oorspronkelijke server.
 [Gedeeltelijke Cache delen](#partial-cache-sharing) | Hiermee wordt bepaald of een aanvraag deels in cache opgeslagen inhoud kan genereren.
 [De inhoud in cache prevalidate](#prevalidate-cached-content) | Hiermee wordt bepaald of de inhoud in cache in aanmerking komen voor vroege opnieuw te worden gevalideerd voordat de TTL verloopt.
-[Vernieuwen van nul bytes cachebestanden](#refresh-zero-byte-cache-files) | Hiermee wordt bepaald hoe van de client van een HTTP-aanvraag voor een asset 0-byte-cache wordt verwerkt door de edge-servers.
+[Vernieuwen van nul bytes cachebestanden](#refresh-zero-byte-cache-files) | Hiermee wordt bepaald hoe van de client van een HTTP-aanvraag voor een asset 0-byte-cache wordt verwerkt door de POP's.
 [Statuscodes voor caching geschikte instellen](#set-cacheable-status-codes) | Definieert de set van statuscodes die tot de inhoud in cache leiden kunnen.
 [Verouderde Contentlevering bij fout](#stale-content-delivery-on-error) | Bepaalt of verlopen in de cache inhoud wordt geleverd als een fout optreedt tijdens de hervalidatie van de cache of bij het ophalen van de aangevraagde inhoud op de bronserver van de klant.
-[Verouderde tijdens Revalidate](#stale-while-revalidate) | Verbetert de prestaties doordat de edge-servers en de verouderde client leveren aan de aanvrager terwijl hervalidatie plaatsvindt.
+[Verouderde tijdens Revalidate](#stale-while-revalidate) | Verbetert de prestaties doordat de POP's te bedienen verouderde client aan de aanvrager terwijl hervalidatie plaatsvindt.
 
 ## <a name="comment-feature"></a>Optie Opmerking
 
@@ -110,7 +110,7 @@ Name | Purpose
 Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
 Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
 
-###Edge Optimizer
+### Edge Optimizer
 **Purpose:** Determines whether Edge Optimizer can be applied to a request.
 
 If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
@@ -128,7 +128,7 @@ Disabled|Restores the default behavior. The default behavior is to deliver conte
 **Default Behavior:** Disabled
  
 
-###Edge Optimizer - Instantiate Configuration
+### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
 
 This feature requires the ADN platform and the Edge Optimizer feature.
@@ -151,7 +151,7 @@ Deze functies zijn ontworpen om te bepalen hoe de CDN communiceert met een brons
 Naam | Doel
 -----|--------
 [Maximum aantal keepalive-aanvragen](#maximum-keep-alive-requests) | Definieert het maximum aantal aanvragen voor een Keep-Alive verbinding wordt gesloten.
-[Speciale proxy-kopteksten](#proxy-special-headers) | Definieert de set van CDN-specifieke aanvraagheaders die uit een edge-server worden doorgestuurd naar een bronserver.
+[Speciale proxy-kopteksten](#proxy-special-headers) | Definieert de set van CDN-specifieke aanvraagheaders die van een POP-worden doorgestuurd naar een bronserver.
 
 
 ## <a name="specialty-features"></a>Speciale functies
@@ -201,8 +201,8 @@ Bandbreedte, snelheidsbeperking parameters kunt u bepalen of de overdrachtssnelh
 
 Waarde|Resultaat
 --|--
-Ingeschakeld|Kan de edge-servers en bandbreedte, snelheidsbeperking aanvragen.
-Uitgeschakeld|Zorgt ervoor dat de edge-servers voor het negeren van bandbreedte, snelheidsbeperking parameters. De gevraagde inhoud normaal gesproken wordt geleverd (dat wil zeggen, zonder bandbreedtebeperking).
+Ingeschakeld|Hiermee kunt u de POP's te voldoen aan aanvragen voor bandbreedteregeling.
+Uitgeschakeld|Zorgt ervoor dat de POP's voor het negeren van parameters voor bandbreedteregeling. De gevraagde inhoud normaal gesproken wordt geleverd (dat wil zeggen, zonder bandbreedtebeperking).
 
 **Standaardgedrag:** ingeschakeld.
  
@@ -212,14 +212,14 @@ Uitgeschakeld|Zorgt ervoor dat de edge-servers voor het negeren van bandbreedte,
 
 ---
 ### <a name="bandwidth-throttling"></a>Bandbreedtebeperking
-**Doel:** beperkt de bandbreedte voor de respons van de edge-servers.
+**Doel:** beperkt de bandbreedte voor de respons van de POP's.
 
 Beide van de volgende opties moeten worden gedefinieerd voor het correct ingesteld bandbreedtebeperking.
 
 Optie|Beschrijving
 --|--
 KB per seconde|Deze optie instelt op de maximale bandbreedte (in Kb per seconde) die kan worden gebruikt voor het leveren van het antwoord.
-Prebuf seconden|Deze optie instelt op het aantal seconden voor de edge-servers te wachten tot de bandbreedte wordt beperkt. Het doel van deze periode van onbeperkte bandbreedte is om te voorkomen dat een mediaspeler momenteel haperend of buffering problemen als gevolg van bandbreedtebeperking.
+Prebuf seconden|Deze optie instelt op het aantal seconden voor de POP's te wachten tot de bandbreedte wordt beperkt. Het doel van deze periode van onbeperkte bandbreedte is om te voorkomen dat een mediaspeler momenteel haperend of buffering problemen als gevolg van bandbreedtebeperking.
 
 **Standaardgedrag:** uitgeschakeld.
 
@@ -233,8 +233,8 @@ Prebuf seconden|Deze optie instelt op het aantal seconden voor de edge-servers t
 
 Waarde|Resultaat
 --|--
-Ingeschakeld|Zorgt ervoor dat alle aanvragen aan niet op de bronserver, zelfs als de inhoud is eerder in de cache op de edge-servers.
-Uitgeschakeld|Zorgt ervoor dat randservers cache activa volgens het cachebeleid dat is gedefinieerd in de antwoordheaders.
+Ingeschakeld|Zelfs als de inhoud is eerder in de cache op de POP's, zorgt ervoor dat alle aanvragen aan niet op de bronserver.
+Uitgeschakeld|Zorgt ervoor dat pop's cache activa volgens het cachebeleid dat is gedefinieerd in de antwoordheaders.
 
 **Standaardgedrag:**
 
@@ -289,7 +289,7 @@ Belangrijke informatie:
 
 ---
 ### <a name="cache-control-header-treatment"></a>Cache-Control Header behandeling
-**Doel:** bepaalt het genereren van `Cache-Control` headers door de edge-server als de externe maximumleeftijd functie actief is.
+**Doel:** bepaalt het genereren van `Cache-Control` headers door de pop-server als de externe maximumleeftijd functie actief is.
 
 De eenvoudigste manier om dit type configuratie is de externe maximumleeftijd en de functies van de Cache-Control Header behandeling plaatsen in dezelfde instructie.
 
@@ -415,9 +415,9 @@ Belangrijke informatie:
 
 ---
 ### <a name="complete-cache-fill"></a>Voltooien van de opvulling van de Cache
-**Doel:** bepaalt wat er gebeurt wanneer een aanvraag in een gedeeltelijke Cachemisser op een edge-server resulteert.
+**Doel:** bepaalt wat er gebeurt wanneer een aanvraag in een gedeeltelijke Cachemisser op een pop-server resulteert.
 
-Een gedeeltelijke Cachemisser beschrijft de status van de cache voor een asset die niet volledig is gedownload naar een edge-server. Als een asset is slechts gedeeltelijk in cache op een edge-server, wordt klikt u vervolgens de volgende aanvraag voor de activa doorgestuurd opnieuw met de oorspronkelijke server.
+Een gedeeltelijke Cachemisser beschrijft de status van de cache voor een asset die niet volledig is gedownload naar een pop-server. Als een asset is slechts gedeeltelijk in cache op een pop-server, klikt u vervolgens de volgende aanvraag voor de activa doorgestuurd opnieuw met de oorspronkelijke server.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
@@ -430,8 +430,8 @@ Vanwege de manier die in cache van welke instellingen worden bijgehouden, deze f
 
 Waarde|Resultaat
 --|--
-Ingeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om af te dwingen de edge-server voor het initiëren van een op de achtergrond ophalen van de activa op de bronserver. Waarna de asset worden weergegeven in lokale cache van de edge-server.
-Uitgeschakeld|Hiermee voorkomt dat een edge-server uitvoeren van een op de achtergrond ophalen voor de asset. Het resultaat is een edge-server om aan te vragen deze op de bronserver klant zorgt ervoor dat de volgende aanvraag voor de activa van die regio.
+Ingeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om af te dwingen de pop-server voor het initiëren van een op de achtergrond ophalen van de activa op de bronserver. Waarna de asset worden weergegeven in lokale cache van de pop-server.
+Uitgeschakeld|Hiermee voorkomt dat een pop-server uitvoeren van een op de achtergrond ophalen voor de asset. Het resultaat is een pop-server om aan te vragen deze op de bronserver klant zorgt ervoor dat de volgende aanvraag voor de activa van die regio.
 
 **Standaardgedrag:** ingeschakeld.
 
@@ -523,14 +523,14 @@ Uitgeschakeld|De X-EC-Debug response-header worden uitgesloten van het antwoord.
 
 ---
 ### <a name="default-internal-max-age"></a>Standaard interne-maximumleeftijd
-**Doel:** bepaalt het standaardinterval voor de maximale leeftijd voor edge-server naar de oorsprong server cache opnieuw te worden gevalideerd. Met andere woorden, de hoeveelheid tijd dat wordt gewacht voordat een edge-server wordt gecontroleerd of een in cache asset overeenkomt met de asset die zijn opgeslagen op de bronserver.
+**Doel:** bepaalt het standaardinterval voor de maximale leeftijd voor POP naar oorsprong server cache opnieuw te worden gevalideerd. Met andere woorden, de hoeveelheid tijd dat wordt gewacht voordat een pop-server wordt gecontroleerd of een in cache asset overeenkomt met de asset die zijn opgeslagen op de bronserver.
 
 Belangrijke informatie:
 
 - Deze actie vindt alleen plaats voor antwoorden van een bronserver die niet een indicatie van de maximale leeftijd in hebt toegewezen de `Cache-Control` of `Expires` header.
 - Deze actie vindt niet plaats voor activa die niet als caching geschikte worden beschouwd.
-- Deze actie heeft geen invloed op de browser edge server cache revalidations. Deze typen revalidations worden bepaald door de `Cache-Control` of `Expires` verzonden naar de browser, die kan worden aangepast met de functie externe maximumleeftijd headers.
-- De resultaten van deze actie hebben geen gevolgen heeft voor de antwoordheaders waarneembare en de inhoud die is geretourneerd van de randservers voor uw inhoud, maar deze mogelijk gevolgen hebben voor de hoeveelheid hervalidatie verkeer vanaf randservers wordt verzonden naar de bronserver.
+- Deze actie heeft geen invloed op de POP-cache revalidations browser. Deze typen revalidations worden bepaald door de `Cache-Control` of `Expires` verzonden naar de browser, die kan worden aangepast met de functie externe maximumleeftijd headers.
+- De resultaten van deze actie hoeft niet een waarneembare effect op de antwoordheaders en de inhoud die is geretourneerd door de POP's voor uw inhoud, maar deze mogelijk gevolgen hebben voor de hoeveelheid verkeer van hervalidatie van POP's naar de oorspronkelijke server verzonden.
 - Deze functie door configureren:
     - Als u de statuscode waarvoor een standaard interne-maximumleeftijd kan worden toegepast.
     - Een geheel getal opgeven en vervolgens te klikken op de gewenste tijdseenheid (bijvoorbeeld seconden, minuten, uren, enzovoort). Deze waarde bepaalt het standaardinterval voor de interne maximumleeftijd.
@@ -571,7 +571,7 @@ Uitgeschakeld| Hiermee herstelt u het standaardgedrag. De standaardinstelling is
 
 ---
 ### <a name="expires-header-treatment"></a>Koptekst behandeling verloopt
-**Doel:** bepaalt het genereren van `Expires` headers door een edge-server als de functie externe maximumleeftijd actief is.
+**Doel:** bepaalt het genereren van `Expires` headers door een pop-server als de functie externe maximumleeftijd actief is.
 
 De eenvoudigste manier om dit type configuratie is de externe maximumleeftijd en de functies verloopt Header behandeling plaatsen in dezelfde instructie.
 
@@ -590,15 +590,15 @@ Verwijderen| Zorgt ervoor dat een `Expires` header is niet opgenomen in de heade
 
 ---
 ### <a name="external-max-age"></a>Externe maximumleeftijd
-**Doel:** bepaalt het maximumleeftijd interval voor de browser edge-server opnieuw valideren. Met andere woorden, de hoeveelheid tijd die wordt doorgegeven voordat een browser kan worden gecontroleerd voor een nieuwe versie van een actief van een edge-server.
+**Doel:** bepaalt het maximumleeftijd interval voor de browser opnieuw valideren pop-server. Met andere woorden, de hoeveelheid tijd die wordt doorgegeven voordat een browser kan worden gecontroleerd voor een nieuwe versie van een actief van een pop-server.
 
-Inschakelen van deze functie genereert `Cache-Control: max-age` en `Expires` headers van de edge-servers en verzend dit naar de HTTP-client. Standaard wordt deze headers die zijn gemaakt met de oorspronkelijke server overschreven. Maar de behandeling van Cache-Control-Header en de onderdelen van de Header behandeling verloopt gebruikt voor het wijzigen van dit probleem.
+Inschakelen van deze functie genereert `Cache-Control: max-age` en `Expires` headers van de POP's en verzend dit naar de HTTP-client. Standaard wordt deze headers die zijn gemaakt met de oorspronkelijke server overschreven. Maar de behandeling van Cache-Control-Header en de onderdelen van de Header behandeling verloopt gebruikt voor het wijzigen van dit probleem.
 
 Belangrijke informatie:
 
-- Deze actie heeft geen invloed op de edge-server naar de oorsprong server cache revalidations. Deze typen revalidations worden bepaald door de `Cache-Control` en `Expires` headers ontvangen van de bronserver en kunnen worden aangepast met de standaard interne-maximumleeftijd en de onderdelen van Force interne-maximumleeftijd.
+- Deze actie heeft geen invloed op pop-server naar de oorsprong server cache revalidations. Deze typen revalidations worden bepaald door de `Cache-Control` en `Expires` headers ontvangen van de bronserver en kunnen worden aangepast met de standaard interne-maximumleeftijd en de onderdelen van Force interne-maximumleeftijd.
 - Deze functie configureren door een geheel getal opgeven en het selecteren van de gewenste tijdseenheid (bijvoorbeeld seconden, minuten, uren, enzovoort).
-- Als u deze functie op een negatieve waarde zorgt ervoor dat de randservers verzenden een `Cache-Control: no-cache` en een `Expires` tijd die is ingesteld in het verleden met elk antwoord naar de browser. Hoewel een HTTP-client wordt de reactie niet in cache, wordt deze instelling geen invloed op de mogelijkheid de randservers in de cache van het antwoord op de bronserver.
+- Als u deze functie op een negatieve waarde zorgt ervoor dat de POP's verzenden een `Cache-Control: no-cache` en een `Expires` tijd die is ingesteld in het verleden met elk antwoord naar de browser. Hoewel een HTTP-client wordt de reactie niet in cache, wordt deze instelling geen invloed op de mogelijkheid de POP's in de cache van het antwoord op de bronserver.
 - Instellen van de tijdseenheid 'Uit', wordt deze functie uitschakelen. De `Cache-Control` en `Expires` headers in de cache opgeslagen met de reactie van de bronserver naar de browser worden doorgegeven.
 
 **Standaardgedrag:** uitschakelen
@@ -628,13 +628,13 @@ Uitgeschakeld|Geen zal aanvragen worden omgeleid.
 
 ---
 ### <a name="force-internal-max-age"></a>Force Internal Max-Age
-**Doel:** de maximumleeftijd interval voor edge-server naar de oorsprong server cache hervalidatie bepaald. Met andere woorden, de hoeveelheid tijd dat wordt gewacht voordat een edge-server controleren kunt of een in cache asset overeenkomt met de asset die zijn opgeslagen op de bronserver.
+**Doel:** bepaalt het maximumleeftijd interval voor POP naar oorsprong server cache opnieuw te worden gevalideerd. Met andere woorden, de hoeveelheid tijd dat wordt gewacht voordat een pop-server controleren kunt of een in cache asset overeenkomt met de asset die zijn opgeslagen op de bronserver.
 
 Belangrijke informatie:
 
 - Deze functie overschrijft het maximumleeftijd interval dat is gedefinieerd in `Cache-Control` of `Expires` headers gegenereerd op basis van een bronserver.
-- Deze functie heeft geen invloed op de browser edge server cache revalidations. Deze typen revalidations worden bepaald door de `Cache-Control` of `Expires` headers verzonden naar de browser.
-- Deze functie heeft geen waarneembare gevolgen heeft voor het antwoord geleverd door een edge-server aan de aanvrager. Het kan wel gevolgen heeft voor de hoeveelheid verkeer van hervalidatie van de randservers naar de oorspronkelijke server verzonden.
+- Deze functie heeft geen invloed op de POP-cache revalidations browser. Deze typen revalidations worden bepaald door de `Cache-Control` of `Expires` headers verzonden naar de browser.
+- Deze functie heeft geen waarneembare gevolgen heeft voor het antwoord geleverd door een pop-server aan de aanvrager. Het kan wel gevolgen heeft voor de hoeveelheid verkeer van hervalidatie van de POP's naar de oorspronkelijke server verzonden.
 - Deze functie door configureren:
     - Als u de statuscode waarvoor een interne maximumleeftijd worden toegepast.
     - Een geheel getal opgeven en het selecteren van de gewenste tijdseenheid (bijvoorbeeld seconden, minuten, uren, enzovoort). Deze waarde bepaalt van de aanvraag maximumleeftijd interval.
@@ -678,7 +678,7 @@ Een aanvraag Nee-cache treedt op wanneer de HTTP-client verzendt een `Cache-Cont
 
 Waarde|Resultaat
 --|--
-Ingeschakeld|Kan een HTTP-client Nee-cache-aanvragen worden doorgestuurd naar de oorspronkelijke server en de bronserver terug naar de HTTP-client de antwoordheaders en de hoofdtekst van het via de edge-server wordt geretourneerd.
+Ingeschakeld|Kan een HTTP-client Nee-cache-aanvragen worden doorgestuurd naar de oorspronkelijke server en de bronserver terug naar de HTTP-client de antwoordheaders en de hoofdtekst van de pop-server wordt geretourneerd.
 Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag wordt voorkomen dat Nee-cache-aanvragen worden doorgestuurd naar de bronserver.
 
 Voor alle verkeer van de productie, is het raadzaam deze functie in de standaardstatus uitgeschakeld laten staan. Oorsprong-servers wordt anders niet worden afgeschermd van eindgebruikers die per ongeluk activeren mogelijk veel aanvragen voor Nee-cache bij het vernieuwen van webpagina's, of van de veel populaire mediaspelers die zijn gecodeerd voor het verzenden van een koptekst Nee-cache met elke aanvraag video. Deze functie kan echter nuttig om te passen op bepaalde niet-productieve staging- of -adreslijsten moet testen om nieuwe inhoud op aanvraag worden opgehaald vanaf de oorspronkelijke server toestaan zijn.
@@ -724,11 +724,11 @@ Belangrijke informatie:
 ### <a name="ignore-unsatisfiable-ranges"></a>Ongeldig bereiken negeren 
 **Doel:** bepaalt de reactie die naar clients wordt geretourneerd wanneer een aanvraag statuscode 416 aangevraagd bereik niet geldig genereert.
 
-Standaard is deze statuscode geretourneerd wanneer de aanvraag opgegeven byte-bereik kan niet worden voldaan door een edge-server en een If-Range aanvraag-header-veld is niet opgegeven.
+Standaard wordt deze statuscode geretourneerd wanneer de aanvraag opgegeven byte-bereik kan niet worden voldaan door een pop-server en een If-Range aanvraag-header-veld is niet opgegeven.
 
 Waarde|Resultaat
 -|-
-Ingeschakeld|Hiermee voorkomt dat de edge-servers reageren op een aanvraag ongeldig bytebereik met statuscode 416 aangevraagd bereik niet geldig. In plaats daarvan de servers leveren de aangevraagde asset en een 200 OK naar de client geretourneerd.
+Ingeschakeld|Hiermee voorkomt dat de POP's reageert op een ongeldige bytebereik-aanvraag met statuscode 416 aangevraagd bereik niet geldig. In plaats daarvan de servers leveren de aangevraagde asset en een 200 OK naar de client geretourneerd.
 Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om te voldoen aan de 416 statuscode aangevraagd bereik niet geldig.
 
 **Standaardgedrag:** uitgeschakeld.
@@ -739,15 +739,15 @@ Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om 
 
 ---
 ### <a name="internal-max-stale"></a>Interne Max-verouderd
-**Doel:** bepaalt hoe lang voorbij de normale verlooptijd een activum in de cache kan worden geleverd vanuit een edge-server wanneer de edge-server niet kan valideren van de cache asset met de bronserver.
+**Doel:** bepaalt hoe lang voorbij de normale verlooptijd een activum in de cache kan worden geleverd vanuit een pop-server wanneer de pop-server niet kan valideren van de cache asset met de oorspronkelijke server.
 
-Normaal gesproken als een asset maximumleeftijd tijd is verstreken, wordt de edge-server een validatieaanvraag verzonden naar de oorspronkelijke server. De oorsprong server wordt vervolgens reageren met een 304 niet worden gewijzigd zodat de edge-server een nieuwe lease op het in de cache actief, hetzij met 200 OK om de edge-server met een bijgewerkte versie van de activa in de cache.
+Normaal gesproken als een asset maximumleeftijd tijd is verstreken, wordt de pop-server een validatieaanvraag verzonden naar de oorspronkelijke server. De oorsprong server wordt vervolgens reageren met een 304 niet worden gewijzigd zodat de pop-server een nieuwe lease op het in de cache actief, hetzij met 200 OK om de pop-server met een bijgewerkte versie van de activa in de cache.
 
-Als de edge-server niet kan geen verbinding met de oorspronkelijke server tijdens een poging een dergelijke hervalidatie, bepaalt deze functie interne Max-verouderde of en hoe lang de edge server mogelijk blijven voldoen aan de asset nu verouderd.
+Als u de pop-server kan geen verbinding maken met de oorspronkelijke server tijdens een poging van dergelijke hervalidatie, en vervolgens deze interne Max-verouderde-functie of en hoe lang bepaalt, blijven de pop-server voldoen aan de asset nu verouderd.
 
 Houd er rekening mee dat dit tijdsinterval wordt gestart wanneer de activa maximumleeftijd is verlopen, niet als de mislukte hervalidatie optreedt. De maximale periode gedurende welke een asset kan worden geleverd zonder geslaagde hervalidatie is daarom de hoeveelheid tijd die is opgegeven door de combinatie van maximumleeftijd plus max verouderd. Bijvoorbeeld, als een actief is in de cache om 9:00 uur met een maximumleeftijd van 30 minuten en een maximale-verouderde van 15 minuten, zou klikt u vervolgens een hervalidatie mislukte poging om 9:44 leiden tot een eindgebruiker de verlopen in de cache asset ontvangen tijdens een poging tot mislukte hervalidatie om 9:46 tot de nl leiden zou d gebruiker ontvangt een 504 Gateway timeout gegenereerd.
 
-Een waarde die is geconfigureerd voor deze functie wordt vervangen door `Cache-Control: must-revalidate` of `Cache-Control: proxy-revalidate` headers ontvangen van de bronserver. Als een van deze koppen wordt ontvangen op de bronserver wanneer u een actief is in eerste instantie in de cache opgeslagen, klikt u vervolgens in de edge-server niet een verlopen in de cache asset fungeren. Als de edge-server niet kan valideren met de oorsprong wanneer de activa maximumleeftijd interval is verstreken, geeft de edge-server in dat geval een 504 Gateway Timeout-fout.
+Een waarde die is geconfigureerd voor deze functie wordt vervangen door `Cache-Control: must-revalidate` of `Cache-Control: proxy-revalidate` headers ontvangen van de bronserver. Als een van deze koppen wordt ontvangen op de bronserver wanneer u een actief is in eerste instantie in de cache opgeslagen, klikt u vervolgens in de pop-server niet een verlopen in de cache asset fungeren. Als de pop-server niet kan valideren met de oorsprong wanneer de activa maximumleeftijd interval is verstreken, geeft de pop-server in dat geval een 504 Gateway Timeout-fout.
 
 Belangrijke informatie:
 
@@ -828,7 +828,7 @@ Belangrijke informatie:
     - CACHE-CONTROL
     - cachE-Control
 - Wanneer u een header-naam opgeeft, gebruik alleen alfanumerieke tekens, streepjes of onderstrepingstekens bevatten.
-- Verwijderen van een koptekst, kunnen er vanaf een bronserver door de edge-servers die ernaar worden doorgestuurd.
+- Verwijderen van een koptekst, kunnen er door de POP's worden doorgestuurd naar een server van de oorsprong.
 - De volgende headers zijn gereserveerd en kunnen niet worden gewijzigd door deze functie:
     - doorgestuurd
     - host
@@ -848,7 +848,7 @@ Elk antwoord bevat een set van antwoordheaders beschrijving van het. Deze functi
 - Toevoegen of de waarde die is toegewezen aan een antwoordheader overschrijven. Als de opgegeven antwoordkop niet bestaat, wordt klikt u vervolgens deze functie deze toevoegen aan het antwoord.
 - Een antwoordheader verwijderen uit het antwoord.
 
-Standaard worden met de headerwaarden antwoord op een bronserver en op de edge-servers gedefinieerd.
+Standaard worden met de headerwaarden antwoord op een bronserver en op de POP's gedefinieerd.
 
 Een van de volgende acties worden uitgevoerd op een antwoordheader:
 
@@ -912,7 +912,7 @@ De hoeveelheid tijd vóór de vervaldatum van de gevraagde inhoud TTL waarover i
 
 Belangrijke informatie:
 
-- "Off" selecteren als de tijdseenheid hervalidatie vereist te kunnen uitvoeren na de opgeslagen inhoud is TTL verlopen. Tijd moet niet worden opgegeven en worden genegeerd.
+- "Off" selecteren als de tijdseenheid hervalidatie vereist te kunnen uitvoeren na de opgeslagen inhoud is TTL verlopen. Tijd moet niet worden opgegeven en wordt genegeerd.
 
 **Standaardgedrag:** uitschakelen. Hervalidatie kan alleen plaatsvinden nadat de inhoud in de cache van TTL is verlopen.
 
@@ -922,7 +922,7 @@ Belangrijke informatie:
 
 ---
 ### <a name="proxy-special-headers"></a>Speciale proxy-kopteksten
-**Doel:** definieert de set van CDN-specifieke aanvraagheaders die uit een edge-server, worden doorgestuurd naar een bronserver.
+**Doel:** definieert de set van CDN-specifieke aanvraagheaders die van een POP-, worden doorgestuurd naar een bronserver.
 
 Belangrijke informatie:
 
@@ -937,15 +937,15 @@ Belangrijke informatie:
 
 ---
 ### <a name="refresh-zero-byte-cache-files"></a>Vernieuwen van nul bytes cachebestanden
-**Doel:** bepaalt hoe van de client van een HTTP-aanvraag voor een asset 0-byte-cache wordt verwerkt door de edge-servers.
+**Doel:** bepaalt hoe van de client van een HTTP-aanvraag voor een asset 0-byte-cache wordt verwerkt door de POP's.
 
 Geldige waarden zijn:
 
 Waarde|Resultaat
 --|--
-Ingeschakeld|Zorgt ervoor dat de edge-server opnieuw de asset ophalen op de bronserver.
+Ingeschakeld|Zorgt ervoor dat de POP opnieuw de asset ophalen op de bronserver.
 Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om te dienen als geldige cache activa op verzoek.
-Deze functie is niet vereist voor de juiste caching en leveren van inhoud, maar mogelijk van pas als tijdelijke oplossing. Genereren van dynamische inhoud op servers van de oorsprong kunnen bijvoorbeeld per ongeluk resulteren in 0-byte-antwoorden worden verzonden naar de edge-servers. Deze typen antwoorden zijn meestal in cache opgeslagen door de edge-servers. Als u weet dat een antwoord 0 bytes nooit een geldig antwoord is 
+Deze functie is niet vereist voor de juiste caching en leveren van inhoud, maar mogelijk van pas als tijdelijke oplossing. Genereren van dynamische inhoud op servers van de oorsprong kunnen bijvoorbeeld per ongeluk resulteren in 0-byte-antwoorden worden verzonden naar de POP's. Deze typen antwoorden zijn doorgaans in het cachegeheugen van de POP's. Als u weet dat een antwoord 0 bytes nooit een geldig antwoord is 
 
 voor deze inhoud vervolgens deze functie kunt voorkomen dat deze typen elementen worden geleverd aan uw clients.
 
@@ -1016,12 +1016,12 @@ Uitgeschakeld|Fout bij de bronserver wordt doorgestuurd naar de aanvrager.
 
 ---
 ### <a name="stale-while-revalidate"></a>Verouderde tijdens Revalidate
-**Doel:** verbetert de prestaties doordat de edge-servers en verouderde inhoud leveren aan de aanvrager terwijl hervalidatie plaatsvindt.
+**Doel:** verbetert de prestaties doordat de POP's te bedienen verouderde inhoud aan de aanvrager terwijl hervalidatie plaatsvindt.
 
 Belangrijke informatie:
 
 - Het gedrag van deze functie is afhankelijk van de geselecteerde tijdseenheid.
-    - **Tijdseenheid:** een tijdsduur opgeven en selecteer een tijdseenheid (bijvoorbeeld seconden, minuten, uren, enz.) om toe te staan van verouderde leveren van inhoud. Dit type installatieprogramma kan de CDN naar de tijdsduur die dit kan worden bezorgd uitbreiden inhoud voordat u validatie volgens de volgende formule:**TTL** + **verlopen tijdens de validatie opnieuw tijd** 
+    - **Tijdseenheid:** een tijdsduur opgeven en selecteer een tijdseenheid (bijvoorbeeld seconden, minuten, uren, enz.) om toe te staan van verouderde leveren van inhoud. Dit type installatieprogramma kan de CDN naar de tijdsduur die dit kan worden bezorgd uitbreiden inhoud voordat u validatie volgens de volgende formule: **TTL** + **verlopen tijdens de validatie opnieuw tijd** 
     - **Uit:** Selecteer 'uit' aan moet worden gevalideerd voordat een aanvraag voor verouderde inhoud kan worden geleverd.
         - Geef een tijdsduur geen omdat deze niet van toepassing en worden genegeerd.
 
@@ -1109,7 +1109,7 @@ Geldige waarden zijn:
 
 Waarde|Resultaat
 ---|----
-Ingeschakeld|Zorgt ervoor dat de edge-server hoofdlettergevoeligheid niet van belang bij het vergelijken van URL's voor de parameters voor verificatie op basis van tokens.
+Ingeschakeld|Zorgt ervoor dat de POP hoofdlettergevoeligheid niet van belang bij het vergelijken van URL's voor de parameters voor verificatie op basis van tokens.
 Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is voor de URL vergelijkingen voor tokenverificatie zijn hoofdlettergevoelig.
 
 **Standaardgedrag:** uitgeschakeld.
@@ -1149,12 +1149,12 @@ Optie|Beschrijving
 -|-
 Code|Selecteer de antwoordcode die wordt geretourneerd naar de aanvrager.
 Bron & patroon| Deze instellingen geven aan een aanvraag-URI-patroon waarmee het type van aanvragen die kunnen worden omgeleid. Alleen aanvragen waarvan de URL van de volgende criteria voldoet wordt omgeleid: <br/> <br/> **Bron (of een punt voor toegang tot inhoud):** selecteert u een relatief pad zijn dat een bronserver identificeert. Dit is de sectie '/XXXX/' en naam van uw eindpunt. <br/> **Bron (patroon):** een patroon dat aanvragen worden aangeduid met het relatieve pad moet worden gedefinieerd. Dit patroon van een reguliere expressie moet een pad dat begint direct na de eerder geselecteerde toegang tot inhoud wijst (Zie hierboven) definiëren. <br/> -Zorg ervoor dat de aanvraag-URI (dat wil zeggen, bron & patroon) eerder gedefinieerde criteria niet conflicteert met eventuele overeenkomst voorwaarden gedefinieerd voor deze functie. <br/> -Geef een patroon; Als u een lege waarde als het patroon, worden alle tekenreeksen worden vergeleken.
-Doel| Definieer de URL waarnaar de bovenstaande aanvragen worden omgeleid. <br/> Dynamisch maken gebruik van deze URL: <br/> -Een reguliere-expressiepatroon <br/>-HTTP variabelen <br/> Vervang de waarden die zijn vastgelegd in het patroon van de bron in het doel-patroon met $ _n_  waar  _n_  wordt een waarde aangeduid met de volgorde waarin deze is vastgelegd. $1 vertegenwoordigt bijvoorbeeld de eerste waarde die is vastgelegd in het patroon van de bron, terwijl $2 de tweede waarde vertegenwoordigt. <br/> 
+Doel| Definieer de URL waarnaar de bovenstaande aanvragen worden omgeleid. <br/> Dynamisch maken gebruik van deze URL: <br/> -Een reguliere-expressiepatroon <br/>-HTTP variabelen <br/> Vervang de waarden die zijn vastgelegd in het patroon van de bron in het doel-patroon met $_n_ waar _n_ identificeert een waarde door de volgorde waarin deze is vastgelegd. $1 vertegenwoordigt bijvoorbeeld de eerste waarde die is vastgelegd in het patroon van de bron, terwijl $2 de tweede waarde vertegenwoordigt. <br/> 
 Het is raadzaam een absolute URL gebruiken. Het gebruik van een relatieve URL kan CDN URL's omleiden naar een ongeldig pad.
 
 **Sample Scenario**
 
-In dit voorbeeld laat zien hoe een edge CNAME-URL die wordt omgezet naar dit basis-URL in CDN omleiden: http://marketing.azureedge.net/brochures
+In dit voorbeeld wordt getoond hoe een edge CNAME-URL die wordt omgezet naar dit basis-URL in CDN omleiden: http://marketing.azureedge.net/brochures
 
 In aanmerking komende aanvragen worden omgeleid naar deze base rand CNAME-URL: http://cdn.mydomain.com/resources
 
@@ -1169,7 +1169,7 @@ Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![](./media/
         - Aanvraag-URL (na omleiding): http://cdn.mydomain.com/resources/widgets.pdf  
     - Voorbeeldscenario voor #2: 
         - Voorbeeld van een aanvraag (Edge CNAME URL): http://marketing.mydomain.com/brochures/widgets.pdf 
-        - Aanvraag-URL (na omleiding): voorbeeldscenario http://cdn.mydomain.com/resources/widgets.pdf
+        - Aanvraag-URL (na omleiding): http://cdn.mydomain.com/resources/widgets.pdf voorbeeldscenario
     - Voorbeeldscenario voor #3: 
         - Voorbeeld van een aanvraag (Edge CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
         - Aanvraag-URL (na omleiding): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
@@ -1191,12 +1191,12 @@ Belangrijke informatie:
 Optie|Beschrijving
 -|-
  Bron & patroon | Deze instellingen geven aan een aanvraag-URI-patroon waarmee het type van aanvragen die opnieuw kunnen worden geschreven. Alleen aanvragen waarvan de URL van de volgende criteria voldoet herschreven: <br/>     - **Bron (of een punt voor toegang tot inhoud):** selecteert u een relatief pad zijn dat een bronserver identificeert. Dit is de sectie '/XXXX/' en naam van uw eindpunt. <br/> - **Bron (patroon):** een patroon dat aanvragen worden aangeduid met het relatieve pad moet worden gedefinieerd. Dit patroon van een reguliere expressie moet een pad dat begint direct na de eerder geselecteerde toegang tot inhoud wijst (Zie hierboven) definiëren. <br/> Controleer of dat de aanvraag-URI (dat wil zeggen, bron & patroon) eerder gedefinieerde criteria niet conflicteert met een van de overeenkomst voorwaarden gedefinieerd voor deze functie. Geef een patroon; Als u een lege waarde als het patroon, worden alle tekenreeksen worden vergeleken. 
- Doel  |Definieer de relatieve URL waarnaar de bovenstaande aanvragen worden herschreven door: <br/>    1. Als u een punt voor toegang tot inhoud die een bronserver identificeert. <br/>    2. Het definiëren van een relatief pad met: <br/>        -Een reguliere-expressiepatroon <br/>        -HTTP variabelen <br/> <br/> Vervang de waarden die zijn vastgelegd in het patroon van de bron in het doel-patroon met $ _n_  waar  _n_  wordt een waarde aangeduid met de volgorde waarin deze is vastgelegd. $1 vertegenwoordigt bijvoorbeeld de eerste waarde die is vastgelegd in het patroon van de bron, terwijl $2 de tweede waarde vertegenwoordigt. 
- Deze functie kunt de edge-servers en de URL herschrijven zonder dat u een traditionele omleiding uitvoert. Dit betekent dat de aanvrager de dezelfde antwoordcode ontvangt alsof de herschreven URL hadden aangevraagd.
+ Doel  |Definieer de relatieve URL waarnaar de bovenstaande aanvragen worden herschreven door: <br/>    1. Als u een punt voor toegang tot inhoud die een bronserver identificeert. <br/>    2. Het definiëren van een relatief pad met: <br/>        -Een reguliere-expressiepatroon <br/>        -HTTP variabelen <br/> <br/> Vervang de waarden die zijn vastgelegd in het patroon van de bron in het doel-patroon met $_n_ waar _n_ identificeert een waarde door de volgorde waarin deze is vastgelegd. $1 vertegenwoordigt bijvoorbeeld de eerste waarde die is vastgelegd in het patroon van de bron, terwijl $2 de tweede waarde vertegenwoordigt. 
+ Deze functie kunt de POP's moeten worden herschreven van de URL zonder dat u een traditionele omleiding uitvoert. Dit betekent dat de aanvrager de dezelfde antwoordcode ontvangt alsof de herschreven URL hadden aangevraagd.
 
 **Sample Scenario 1**
 
-In dit voorbeeld laat zien hoe een edge CNAME-URL die wordt omgezet naar dit basis-URL in CDN omleiden: http://marketing.azureedge.net/brochures/
+In dit voorbeeld wordt getoond hoe een edge CNAME-URL die wordt omgezet naar dit basis-URL in CDN omleiden: http://marketing.azureedge.net/brochures/
 
 In aanmerking komende aanvragen worden omgeleid naar deze base rand CNAME-URL: http://MyOrigin.azureedge.net/resources/
 
@@ -1248,8 +1248,8 @@ Deze functie bevat die overeenkomt met de criteria die moeten worden voldaan voo
 </br>
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Regels engine verwijzing](cdn-rules-engine-reference.md)
-* [Regels engine voorwaardelijke expressies](cdn-rules-engine-reference-conditional-expressions.md)
-* [De overeenkomst motor regels](cdn-rules-engine-reference-match-conditions.md)
+* [Verwijzing regelengine](cdn-rules-engine-reference.md)
+* [Voorwaardelijke expressies regelengine](cdn-rules-engine-reference-conditional-expressions.md)
+* [Criteria voor overeenkomst regelengine](cdn-rules-engine-reference-match-conditions.md)
 * [HTTP-instelling met de regelengine van wijzigen](cdn-rules-engine.md)
 * [Overzicht van Azure CDN](cdn-overview.md)

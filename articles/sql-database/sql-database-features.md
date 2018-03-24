@@ -6,14 +6,14 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/21/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 4c50adeef0d6e811af6e144aa7351d9b65c1bd76
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 842c65987dc97872751071dbcf138794a14940e2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking: Azure SQL Database en SQL Server 
 
@@ -34,7 +34,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [AlwaysOn-beschikbaarheidsgroepen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van zakelijke continuïteit met Azure SQL Database](sql-database-business-continuity.md) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van zakelijke continuïteit met Azure SQL Database](sql-database-business-continuity.md) |
 | [Een database koppelen](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Nee | Nee |
 | [Toepassingsrollen](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Ja | Ja |
-|[Controle](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Ja](sql-database-auditing.md)| Ja - Zie [controle verschillen](sql-database-managed-instance-transact-sql-information.md#auditing) |
+|[Controle](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Ja](sql-database-auditing.md)| [Ja](sql-database-managed-instance-auditing.md) |
 | [Automatische back-ups](sql-database-automated-backups.md) | Ja | Ja |
 | [Automatische afstemming (forcering)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Ja](sql-database-automatic-tuning.md)| [Ja](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Automatische afstemming (indexen)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Ja](sql-database-automatic-tuning.md)| Nee |
@@ -45,7 +45,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [Gegevensregistratie wijzigen](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Nee | Ja |
 | [Wijzigingen bijhouden](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Ja |Ja |
 | [Sortering instructies](https://docs.microsoft.com/sql/t-sql/statements/collations) | Ja | Ja |
-| [Columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja - [alleen Premium-editie](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
+| [Columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja - [Premium-laag en de prijscategorie Standard - S3 en hoger](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
 | [De common language runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Nee | Ja - Zie [CLR verschillen](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Ingesloten databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Ja | Ja |
 | [Ingesloten gebruikers](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Ja | Ja |
@@ -91,6 +91,11 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [Minimale bulkimport aanmelden](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Nee | Nee |
 | [Systeemgegevens wijzigen](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Nee | Ja |
 | [Online-indexbewerkingen](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | Ja | Ja |
+| [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)|Nee|Ja - Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql)|Ja|Ja|
+| [OPENQUERY](https://docs.microsoft.com/sql/t-sql/functions/openquery-transact-sql)|Nee|Ja - Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)|Nee|Ja - Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql)|Ja|Ja|
 | [Operators](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | De meeste - Zie afzonderlijke operators |Ja - Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md) |
 | [Partitioneren](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Ja | Ja |
 | [Punt in tijd database terugzetten](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Ja - Zie [SQL-Database herstellen](sql-database-recovery-using-backups.md#point-in-time-restore) | Ja - Zie [SQL-Database herstellen](sql-database-recovery-using-backups.md#point-in-time-restore) |
@@ -128,6 +133,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [Systeemweergaven catalogus](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Sommige - Zie afzonderlijke weergaven | Ja - Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md) |
 | [Tijdelijke tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Lokale en database-scoped globale tijdelijke tabellen | Lokale en exemplaar bereik globale tijdelijke tabellen |
 | [Tijdelijke tabellen](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Ja | Ja |
+|Detectie van bedreigingen|  [Ja](sql-database-threat-detection.md)|[Ja](sql-database-managed-instance-threat-detection.md)|
 | [Traceervlaggen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Nee | Nee |
 | [Variabelen](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Ja | Ja |
 | [Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Ja | Nee, niet in de openbare Preview |

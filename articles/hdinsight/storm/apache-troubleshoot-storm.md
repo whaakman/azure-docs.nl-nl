@@ -5,8 +5,8 @@ keywords: HDInsight, Storm, veelgestelde vragen over Azure, handleiding worden v
 services: Azure HDInsight
 documentationcenter: na
 author: raviperi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ee408b32650fe0f0e0b66294896756732a2ca5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Storm oplossen met behulp van Azure HDInsight
 
@@ -40,7 +40,7 @@ https://\<cluster DNS-naam\>/stormui
 
 Voorbeeld:
 
- https://stormcluster.azurehdinsight.NET/stormui
+ https://stormcluster.azurehdinsight.net/stormui
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Hoe worden ik Storm event hub spout controlepunt informatie uit een topologie overgedragen naar een andere?
 
@@ -71,7 +71,7 @@ De metagegevens van schrijft de opdracht exporteren naar een pad Apache Hadoop D
     ```
 
 #### <a name="import-offset-metadata"></a>Offset metagegevens importeren
-1. SSH gebruiken om te gaan met het cluster ZooKeeper op het cluster waaruit het controlepunt van de offset moet worden geëxporteerd.
+1. SSH gebruiken om te gaan met het cluster ZooKeeper op het cluster waaruit het controlepunt van de offset moet worden geïmporteerd.
 2. Voer de volgende opdracht (na het bijwerken van de versietekenreeks HDP) ZooKeeper offset om gegevens te importeren uit de /stormmetadata/zkdata HDFS-pad naar de ZooKeeper server op de doelcluster:
 
     ```apache
@@ -79,7 +79,7 @@ De metagegevens van schrijft de opdracht exporteren naar een pad Apache Hadoop D
     ```
    
 #### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Offset metagegevens verwijderen zodat topologieën verwerken van gegevens starten kunnen vanaf het begin of vanuit een tijdstempel dat de gebruiker kiest
-1. SSH gebruiken om te gaan met het cluster ZooKeeper op het cluster waaruit het controlepunt van de offset moet worden geëxporteerd.
+1. SSH gebruiken om te gaan met het cluster ZooKeeper op het cluster waaruit het controlepunt van de offset moet worden verwijderd.
 2. Voer de volgende opdracht (na het bijwerken van de versietekenreeks HDP) om alle ZooKeeper offset gegevens in het huidige cluster te verwijderen:
 
     ```apache

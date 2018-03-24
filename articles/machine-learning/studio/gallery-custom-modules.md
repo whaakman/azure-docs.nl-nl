@@ -2,9 +2,10 @@
 title: Azure-galerie AI aangepaste modules | Microsoft Docs
 description: Aangepaste machine learning-modules in AI-galerie van Azure detecteren.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 16037a84-dad0-4a8c-9874-a1d3bd551cf0
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.author: garye
-ms.openlocfilehash: bec2860d1da5044ad6969e2b23142256aa90042e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 26cd814980af0824cbf40052a4a9f47161b8cc62
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Aangepaste machine learning-modules in AI-galerie van Azure detecteren
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -34,7 +34,7 @@ Om te bladeren aangepaste modules [in de galerie](http://gallery.cortanaintellig
 
 ![Aangepaste Modules op de startpagina van de galerie selecteren](./media/gallery-custom-modules/select-custom-modules-in-gallery.png)
 
-De  **[aangepaste Modules](https://gallery.cortanaintelligence.com/customModules)**  pagina geeft een lijst met modules populaire en onlangs toegevoegd. Als u wilt weergeven van alle aangepaste modules, selecteer de **alle** knop. Als u wilt zoeken naar een specifieke aangepaste module, selecteer **alle**, en selecteer vervolgens filtercriteria. Ook kunt u zoektermen op in de **Search** vak aan de bovenkant van de pagina Galerie.
+De **[aangepaste Modules](https://gallery.cortanaintelligence.com/customModules)** pagina geeft een lijst met modules populaire en onlangs toegevoegd. Als u wilt weergeven van alle aangepaste modules, selecteer de **alle** knop. Als u wilt zoeken naar een specifieke aangepaste module, selecteer **alle**, en selecteer vervolgens filtercriteria. Ook kunt u zoektermen op in de **Search** vak aan de bovenkant van de pagina Galerie.
 
 ![Selecteer 'Zie alle' om te bladeren alle aangepaste modules](./media/gallery-custom-modules/click-see-all-for-all-custom-modules.png)
 

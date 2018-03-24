@@ -1,12 +1,12 @@
 ---
-title: Continue implementatie van een register Docker-container met voor Containers - Azure-Web-App | Microsoft Docs
+title: Continue implementatie van een Docker-container register met voor Containers - Azure-Web-App | Microsoft Docs
 description: Het instellen van continue implementatie van een register Docker-container in Web-App voor Containers.
 keywords: Azure app service, linux, docker, acr, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;msangapu
-ms.openlocfilehash: e61c767ada31fc32e28bfd9a2a4e843e9ca88053
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ac35dbd041de50ab8aae1a0fb4c00fe3917a7297
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Continue implementatie met Web-App voor Containers
 
@@ -27,68 +27,70 @@ In deze zelfstudie configureert u continue implementatie voor de installatiekopi
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Aanmelden bij de [Azure-portal](https://portal.azure.com)
+Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-## <a name="enable-container-continuous-deployment-feature"></a>Container voor continue implementatie inschakelen
+## <a name="enable-the-continuous-deployment-feature"></a>De functie continue implementatie inschakelen
 
-Kunt u het gebruik van continue implementatie functie [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) en de volgende opdracht wordt uitgevoerd
+De functie continue implementatie inschakelen met behulp van [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) en uitvoeren van de volgende opdracht:
 
 ```azurecli-interactive
 az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
 ```
 
-In de  **[Azure-portal](https://portal.azure.com/)**, klikt u op de **App Service** optie aan de linkerkant van de pagina.
+In de [Azure-portal](https://portal.azure.com/), selecteer de **App Service** optie aan de linkerkant van de pagina.
 
-Klik op de naam van uw app, die u wilt configureren, continue implementatie voor Docker-Hub.
+Selecteer de naam van de app waarvan u wilt configureren Docker Hub continue implementatie.
 
-In **Docker-Container**, selecteert 'Op' Klik op Opslaan om in te schakelen van continue implementatie.
+Op de **Docker-Container** pagina **op**, en selecteer vervolgens **opslaan** continue implementatie moet worden ingeschakeld.
 
-![afbeelding van app-instelling worden ingevoegd](./media/app-service-webapp-service-linux-ci-cd/step2.png)
+![Schermopname van app-instelling](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
-## <a name="prepare-webhook-url"></a>Voorbereiden van de Webhook-URL
+## <a name="prepare-the-webhook-url"></a>Voorbereiden van de webhook-URL
 
-U kunt ook het gebruik van de Webhook-URL verkrijgen [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) en de volgende opdracht wordt uitgevoerd
+De webhook-URL verkrijgen via [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) en uitvoeren van de volgende opdracht:
 
 ```azurecli-interactive
 az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
-Voor de Webhook-URL moet u het volgende eindpunt: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+De webhook-URL, moet u het volgende eindpunt: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
 Kunt u uw `publishingusername` en `publishingpwd` downloaden van de web-app publiceren profiel met behulp van de Azure-portal.
 
-![afbeelding van het toevoegen van de webhook 2 invoegen](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
+![Schermopname van het toevoegen van de webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
 
-## <a name="add-a-web-hook"></a>Een haakje web toevoegen
+## <a name="add-a-webhook"></a>Toevoegen van een webhook
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
-Klik op de portalblade van register **Webhooks**, maak een nieuwe webhook door te klikken **toevoegen**. In de **webhook maken** blade een naam voor uw webhook geven. Voor de Webhook-URI moet u de URL die is verkregen van **stap 3**
+1. Selecteer op de portal pagina register **Webhooks**.
+2. Selecteer voor het maken van een nieuwe webhook **toevoegen**. 
+3. In de **webhook maken** deelvenster uw webhook een naam geven. Geef de URL die is verkregen in de voorgaande sectie voor de webhook-URI.
 
 Zorg ervoor dat u het bereik definiëren als de opslagplaats met de installatiekopie van de container.
 
-![afbeelding van de webhook invoegen](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
+![Schermafbeelding van de webhook](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
 
-Wanneer de installatiekopie wordt bijgewerkt, krijgen de web-app automatisch bijgewerkt met de nieuwe installatiekopie.
+Wanneer u de installatiekopie bijwerkt, wordt de web-app automatisch bijgewerkt met de nieuwe installatiekopie.
 
 ### <a name="docker-hub"></a>Docker Hub
 
-Klik op de pagina Docker Hub **Webhooks**, vervolgens **maken van een WEBHOOK**.
+Selecteer op de pagina Docker Hub **Webhooks**, en vervolgens **maken van een WEBHOOK**.
 
-![afbeelding van het toevoegen van de webhook 1 invoegen](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
+![Schermopname van het toevoegen van de webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
 
-Voor de Webhook-URL die u wilt en geef de URL die is verkregen van **stap 3**
+Geef voor de webhook-URL de URL die u eerder hebt verkregen.
 
-![afbeelding van het toevoegen van de webhook 2 invoegen](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
+![Schermopname van het toevoegen van de webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
 
-Wanneer de installatiekopie wordt bijgewerkt, krijgen de web-app automatisch bijgewerkt met de nieuwe installatiekopie.
+Wanneer u de installatiekopie bijwerkt, wordt de web-app automatisch bijgewerkt met de nieuwe installatiekopie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Wat is Azure App Service op Linux?](./app-service-linux-intro.md)
+* [Inleiding tot op Linux-Azure App Service](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
-* [.NET Core gebruiken in Azure App Service onder Linux](quickstart-dotnetcore.md)
-* [Ruby gebruiken in Azure App Service onder Linux](quickstart-ruby.md)
-* [Een aangepaste Docker-installatiekopie uitvoeren voor Web App for Containers](quickstart-docker-go.md)
-* [Web App for Containers van Azure App Service: veelgestelde vragen](./app-service-linux-faq.md)
-* [Web-App voor Containers met Azure CLI 2.0 beheren](./app-service-linux-cli.md)
+* [Een .NET Core-web-app maken in App Service in Linux](quickstart-dotnetcore.md)
+* [Een Ruby web-app maken in App-Service op Linux](quickstart-ruby.md)
+* [Een Docker/Ga web-app in Web-App voor Containers implementeren](quickstart-docker-go.md)
+* [Veelgestelde vragen over Azure App Service on Linux](./app-service-linux-faq.md)
+* [Web-App voor Containers met Azure CLI beheren](./app-service-linux-cli.md)

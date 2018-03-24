@@ -5,27 +5,24 @@ services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/29/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 756496e5291d932ee9ac89265291e6892c4304fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 893e84b07b365fb0b534e0ddc021b2249c4174cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Het verzenden van echte metingen van de gebruiker aan Traffic Manager met Visual Studio Mobile Center
-
->[!NOTE]
->De functie echte gebruiker metingen in Traffic Manager kan is openbare preview-versie en geen hetzelfde niveau van beschikbaarheid en betrouwbaarheid zoals functies die in het algemeen beschikbaarheid release. De functie wordt niet ondersteund, kan hebben beperkte mogelijkheden en mogelijk niet beschikbaar in alle Azure-locaties. Voor de meest recente meldingen op beschikbaarheid en de status van deze functie, Controleer de [Azure Traffic Manager-updates](https://azure.microsoft.com/updates/?product=traffic-manager) pagina.
 
 U kunt instellen van uw mobiele toepassing die is ontwikkeld met behulp van Visual Studio Mobile Center verzenden van echte metingen van de gebruiker aan Traffic Manager door de stappen te volgen:
 

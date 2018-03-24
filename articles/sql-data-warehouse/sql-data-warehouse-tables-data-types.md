@@ -1,11 +1,11 @@
 ---
 title: Gegevens typen richtlijnen - Azure SQL Data Warehouse | Microsoft Docs
-description: "Aanbevelingen voor het definiëren van gegevenstypen die compatibel met SQL Data Warehouse zijn."
+description: Aanbevelingen voor het definiëren van gegevenstypen die compatibel met SQL Data Warehouse zijn.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
+editor: ''
 ms.assetid: d4a1f0a3-ba9f-44b9-95f6-16a4f30746d6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 03/17/2018
 ms.author: barbkess
-ms.openlocfilehash: 2bde5da8593c559e2afb33c9c4842695dc273ac3
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: dcdcb6eddf35fe3ec4754353452c68cd3e24f907
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Richtlijnen voor het definiëren van gegevenstypen voor tabellen in SQL Data Warehouse
 Gebruik deze aanbevelingen voor het definiëren van de tabel gegevenstypen die compatibel met SQL Data Warehouse zijn. Naast compatibiliteit verbetert de prestaties van query's voor het minimaliseren van de grootte van gegevenstypen.
@@ -55,16 +55,16 @@ De volgende lijst bevat de gegevenstypen dat SQL Data Warehouse biedt geen onder
 
 | Niet-ondersteund gegevenstype | Tijdelijke oplossing |
 | --- | --- |
-| [geometrie][geometry] |[varbinary][varbinary] |
-| [Geografie][geography] |[varbinary][varbinary] |
+| [geometry][geometry] |[varbinary][varbinary] |
+| [geography][geography] |[varbinary][varbinary] |
 | [hierarchyid][hierarchyid] |[nvarchar][nvarchar](4000) |
-| [afbeelding][ntext,text,image] |[varbinary][varbinary] |
-| [tekst][ntext,text,image] |[varchar][varchar] |
+| [image][ntext,text,image] |[varbinary][varbinary] |
+| [text][ntext,text,image] |[varchar][varchar] |
 | [ntext][ntext,text,image] |[nvarchar][nvarchar] |
 | [sql_variant][sql_variant] |Kolom splitsen in meerdere sterk getypeerde kolommen. |
-| [tabel][table] |Converteren naar tijdelijke tabellen. |
-| [tijdstempel][timestamp] |Bijwerken van code voor het gebruik [datetime2] [ datetime2] en `CURRENT_TIMESTAMP` functie.  Alleen constanten worden ondersteund als standaardwaarden, daarom current_timestamp kan niet worden gedefinieerd als een default-beperking. Als u migreren versie rijwaarden uit een getypeerde timestamp-kolom wilt, gebruikt u [binaire][BINARY](8) of [VARBINARY][BINARY](8) voor het niet leeg of NULL rij Versiewaarden. |
-| [XML][xml] |[varchar][varchar] |
+| [Tabel][table] |Converteren naar tijdelijke tabellen. |
+| [timestamp][timestamp] |Bijwerken van code voor het gebruik [datetime2] [ datetime2] en `CURRENT_TIMESTAMP` functie.  Alleen constanten worden ondersteund als standaardwaarden, daarom current_timestamp kan niet worden gedefinieerd als een default-beperking. Als u migreren versie rijwaarden uit een getypeerde timestamp-kolom wilt, gebruikt u [binaire][BINARY](8) of [VARBINARY][BINARY](8) voor het niet leeg of NULL rij Versiewaarden. |
+| [xml][xml] |[varchar][varchar] |
 | [de gebruiker gedefinieerd type][user defined types] |Terug te converteren naar het native gegevenstype indien mogelijk. |
 | standaardwaarden | Standaardwaarden ondersteuning literals en alleen constanten.  Niet-deterministische expressies of functies, zoals `GETDATE()` of `CURRENT_TIMESTAMP`, worden niet ondersteund. |
 

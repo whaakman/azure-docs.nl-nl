@@ -1,18 +1,18 @@
 ---
 title: Azure-Container register SKU 's
-description: "Vergelijk de verschillende servicecategorieën beschikbaar in Azure Container register."
+description: Vergelijk de verschillende servicecategorieën beschikbaar in Azure Container register.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 15179fa3e3567f92a5eae69ba9a684addc3138dd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c9b8e072b5ccd89c27d9c46407e472d6bf1e1e84
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-container-registry-skus"></a>Azure-Container register SKU 's
 
@@ -37,11 +37,11 @@ Het Basic, Standard en Premium-SKU's gezamenlijk worden aangeduid als *beheerd* 
 
 ### <a name="managed-basic-standard-premium"></a>Beheerd (Basic, Standard, Premium)
 
-Beheerde registers worden ondersteund door een Azure Storage-account die door Azure worden beheerd. Dat wil zeggen, het opslagaccount dat u uw installatiekopieën worden opgeslagen niet wordt weergegeven in uw Azure-abonnement. Er zijn diverse voordelen die is opgedaan met behulp van een van de beheerde register SKU's, die worden beschreven in gedetailleerde [upgraden van een klassiek register][container-registry-upgrade]. Dit artikel is gericht op de beheerde register SKU's en hun mogelijkheden.
+Beheerde registers voordeel uit de opslag van de installatiekopie volledig door Azure worden beheerd. Dat wil zeggen, een opslagaccount dat u uw installatiekopieën worden opgeslagen niet wordt weergegeven in uw Azure-abonnement. Er zijn diverse voordelen die is opgedaan met behulp van een van de beheerde register SKU's, die worden beschreven in diepgaande [Container installatiekopie opslag in Azure Container register][container-registry-storage]. Dit artikel is gericht op de beheerde register SKU's en hun mogelijkheden.
 
 ### <a name="unmanaged-classic"></a>Niet-beheerde (klassiek)
 
-Klassieke registers zijn 'zonder begeleiding' in de zin dat het opslagaccount dat een klassiek register een back-up zich bevindt binnen *uw* Azure-abonnement. Hierdoor bent u verantwoordelijk voor het beheer van het opslagaccount waarin de container-installatiekopieën worden opgeslagen. Met niet-beheerde registers u tussen SKU's niet overschakelen naar behoefte (anders dan [upgraden] [ container-registry-upgrade] met een beheerde register), en de verschillende functies van beheerde registers zijn niet beschikbaar (bijvoorbeeld: verwijdering van de afbeelding container, [geo-replicatie] [ container-registry-geo-replication] en [webhooks][container-registry-webhook]).
+Klassieke registers zijn 'zonder begeleiding' in de zin dat het opslagaccount dat een klassiek register een back-up zich bevindt binnen *uw* Azure-abonnement. Hierdoor bent u verantwoordelijk voor het beheer van het opslagaccount waarin de container-installatiekopieën worden opgeslagen. Met niet-beheerde registers u tussen SKU's niet overschakelen naar behoefte (anders dan [upgraden] [ container-registry-upgrade] met een beheerde register), en de verschillende functies van beheerde registers zijn niet beschikbaar (bijvoorbeeld: verwijdering van de afbeelding container, [geo-replicatie][container-registry-geo-replication], en [webhooks][container-registry-webhook]).
 
 Zie voor meer informatie over het upgraden van een klassiek register op een van de beheerde SKU's [upgraden van een klassiek register][container-registry-upgrade].
 
@@ -103,4 +103,5 @@ Verzenden en hierop stemmen op nieuwe suggesties voor functies in [ACR UserVoice
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
 [container-registry-webhook]: container-registry-webhook.md

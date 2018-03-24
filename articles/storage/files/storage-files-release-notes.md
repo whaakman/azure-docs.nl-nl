@@ -1,24 +1,18 @@
 ---
 title: Releaseopmerkingen voor de Azure File Sync-agent (preview) | Microsoft Docs
-description: Releaseopmerkingen voor de Azure File Sync-agent (preview)
+description: Release-opmerkingen voor de Azure-bestand Sync-agent (preview).
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: tamram
-ms.assetid: ''
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/08/2017
+ms.topic: article
+ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: fabfb02a199744c63c3a2191589fd450cfdd0304
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
-ms.translationtype: HT
+ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Releaseopmerkingen voor de Azure File Sync-agent (preview)
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Uw installaties van Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als u waar ook ter wereld nodig hebt.
@@ -28,14 +22,25 @@ Dit artikel bevat de releaseopmerkingen voor de ondersteunde versies van de Azur
 ## <a name="supported-versions"></a>Ondersteunde versies
 De volgende versies worden ondersteund voor de Azure File Sync-agent:
 
-| Versie | Releasedatum | Einddatum voor ondersteuning |
-|---------|--------------|------------------|
-| 2.1.0.0 | 28 februari 2018 | Huidige versie |
-| 2.0.11.0 | 8 februari 2018 | Huidige versie |
-| 1.1.0.0 | 26 september 2017 | 30 juli 2018 |
+| Mijlpaal | Versienummer agent | Releasedatum | Status |
+|----|----------------------|--------------|------------------|
+| Updatepakket maart | 2.2.0.0 | 12 maart 2018 | Ondersteunde (aanbevolen versie) |
+| Updatepakket februari | 2.1.0.0 | 28 februari 2018 | Ondersteund |
+| 1 vernieuwen | 2.0.11.0 | 8 februari 2018 | Ondersteund |
+| Updatepakket januari | 1.4.0.0 | 8 januari 2018 | Ondersteund totdat 8 mei 2018<sup>1</sup> |
+| Updatepakket van november | 1.3.0.0 | 30 november 2017 | Ondersteund totdat 8 mei 2018<sup>1</sup> |
+| Updatepakket oktober | 1.2.0.0 | 31 oktober 2017 | Ondersteund totdat 8 mei 2018<sup>1</sup> |
+| Eerste preview-release | 1.1.0.0 | 26 september 2017 | Ondersteund totdat 8 mei 2018<sup>1</sup> |
+
+\[1\]: versies van de Azure-bestand Sync-agent tijdens de preview opzettelijk komen niet overeen met het updatebeleid. Het updatebeleid worden afgedwongen nadat Azure bestand Sync is gedeclareerd in het algemeen beschikbaar met de eerste release van de agent wordt gestart.
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Updatebeleid Azure File Sync-agent
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2200"></a>Agentversie 2.2.0.0
+De volgende releaseopmerkingen zijn voor versie 2.2.0.0 van de Azure-bestand Sync-agent 12 maart 2018 uitgebracht.  Deze opmerkingen vormen een aanvulling voor versie 2.1.0.0 en 2.0.11.0 release-opmerkingen
+
+Installatie van v2.1.0.0 voor sommige klanten mislukken vanwege de FileSyncSvc niet stoppen. Deze update corrigeert die certificaten uitgeven.
 
 ## <a name="agent-version-2100"></a>Agentversie 2.1.0.0
 De volgende releaseopmerkingen zijn voor versie 2.1.0.0 van de Azure File Sync-agent die op 28 februari 2018 is vrijgegeven. Deze opmerkingen worden zijn een aanvulling op de releaseopmerkingen voor versie 2.0.11.0.
@@ -88,11 +93,12 @@ De volgende items worden niet gesynchroniseerd, maar de rest van het systeem bli
 - Een servereindpunt kan zich niet op het systeemvolume bevinden. Zo is C:\MijnMap geen toegestaan pad, tenzij C:\MijnPad een koppelpunt is.
 - Failoverclustering wordt alleen ondersteund met geclusterde schijven, maar niet met CSV's (Cluster Shared Volume).
 - Een servereindpunt kan niet worden genest. Een eindpunt van dit type kan zich samen met een ander eindpunt op hetzelfde volume bevinden.
-- Er kunnen synchronisatiefouten optreden als er in één keer een groot aantal (meer dan 10.000) mappen van een server wordt verwijderd. Verwijder mappen in batches van minder dan 10.000. Zorg ervoor dat de verwijderbewerkingen zijn gesynchroniseerd voordat u de volgende batch verwijdert.
 - In deze release is ondersteuning toegevoegd voor de synchronisatiehoofdmap in de hoofdmap van een volume.
 - Sla geen besturingssysteembestand of wisselbestand van de toepassing op dat zich binnen een servereindpunt bevindt.
 - Gewijzigd in deze release: er zijn nieuwe gebeurtenissen toegevoegd voor het bijhouden van de totale runtime voor cloudlagen (EventID 9016), synchronisatie van de uploadvoortgang (EventID 9302) en bestanden die niet zijn gesynchroniseerd (EventID 9900).
-- Gewijzigd in deze release: de prestaties van snelle DR-naamruimtesynchronisatie zijn aanzienlijk verbeterd.
+- Verbeterde in deze release: 
+- Snelle DR-naamruimte sync prestaties is aanzienlijk toegenomen.
+- Verwijderen van grote aantallen (meer dan 10.000) mappen hoeft niet te worden uitgevoerd in batches met v2 *.
  
 ### <a name="cloud-tiering"></a>Cloudopslaglagen
 - Gewijzigd ten opzichte van de vorige versie: nieuwe bestanden worden binnen 1 uur in een laag geplaatst (eerder 32 uur), afhankelijk van de beleidsinstelling voor lagen. We bieden een PowerShell-cmdlet om bestanden op aanvraag in een laag te plaatsen. U kunt de cmdlet gebruiken om het gebruik van lagen efficiënter te evalueren, zonder dat u hoeft te wachten op het achtergrondproces.

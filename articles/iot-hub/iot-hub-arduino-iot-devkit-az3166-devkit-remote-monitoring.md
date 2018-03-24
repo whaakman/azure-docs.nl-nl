@@ -1,12 +1,12 @@
 ---
-title: 'IoT DevKit naar cloud: IoT DevKit AZ3166 verbinding maken met Azure IoT Hub | Microsoft Docs'
+title: 'IoT DevKit naar cloud: IoT MXChip DevKit verbinding maken met Azure IoT Hub | Microsoft Docs'
 description: Informatie over het verzenden van status van sensoren op IoT DevKit AZ3166 naar Azure IoT Suite voor bewaking en visualisatie in deze zelfstudie.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: liydu
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: b43061f5af3e836ba3f0b37eb11b351a769890be
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 92efd0970bcf516c4210f831a0c2f23b3ee7b5d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="connect-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring"></a>Verbinding maken met IoT DevKit AZ3166 Azure IoT Suite voor externe controle
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Verbinding maken met MXChip IoT DevKit Azure IoT Suite voor externe controle
 
 In deze zelfstudie leert u het uitvoeren van een voorbeeld-app op uw DevKit sensorgegevens verzenden naar uw Azure IoT Suite.
 
@@ -42,7 +42,7 @@ Een actief Azure-abonnement. Als u geen abonnement hebt, kunt u via een van deze
 
 1. Ga naar [Azure IoT Suite site](https://www.azureiotsuite.com/) en klik op **maken van een nieuwe oplossing**.
   ![Azure IoT Suite-type selecteren](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
-  > [!NOTE]
+  > [!WARNING]
   > Dit voorbeeld maakt standaard een IoT-Hub S2 na het maken van een IoT-Suite. Als deze iothub niet met het grote aantal apparaten gebruikt is, raden we u het downgraden van S2 naar S1 en verwijderen van de IoT-Suite, zodat gerelateerde IoT Hub kan ook worden verwijderd, wanneer u deze niet meer nodig. 
 
 2. Selecteer **externe controle**.

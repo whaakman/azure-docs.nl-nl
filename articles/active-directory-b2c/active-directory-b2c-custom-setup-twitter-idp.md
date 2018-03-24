@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Twitter toevoegen als een OAuth1 id-provider met behulp van aangepaste beleid'
 description: Twitter gebruiken als een id-provider met behulp van het protocol OAuth1
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/23/2017
-ms.author: yoelh
-ms.openlocfilehash: 629e0bbaa7c62ef5d381085588c6a99c203c41cb
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: davidmu
+ms.openlocfilehash: 4a7cc552f49877874dc173a47efe22873d5aeeed
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: Twitter toevoegen als een OAuth1 id-provider met behulp van aangepaste beleid
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -39,9 +36,9 @@ Twitter gebruiken als een id-provider in Azure Active Directory B2C (Azure AD B2
  
     a. Typ de **naam** en een **beschrijving** voor uw nieuwe app. 
 
-    b. In de **Website** vak, plak  **https://login.microsoftonline.com** . 
+    b. In de **Website** vak, plak **https://login.microsoftonline.com**. 
 
-    c. In de **retouraanroep URL** vak, plak  **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp** . Vervang {*tenant*} met de tenantnaam van uw (bijvoorbeeld contosob2c.onmicrosoft.com). Zorg ervoor dat u van het HTTPS-schema gebruikmaakt. 
+    c. In de **retouraanroep URL** vak, plak **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Vervang {*tenant*} met de tenantnaam van uw (bijvoorbeeld contosob2c.onmicrosoft.com). Zorg ervoor dat u van het HTTPS-schema gebruikmaakt. 
 
     d. Aan de onderkant van de pagina lees en accepteer de voorwaarden en selecteer vervolgens **uw Twitter-toepassing maken**.
 

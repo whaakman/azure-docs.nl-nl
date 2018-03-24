@@ -2,11 +2,11 @@
 title: Azure diagnostische logboeken | Microsoft Docs
 description: De klant kunt logboekanalyse inschakelen voor Azure CDN.
 services: cdn
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Diagnostische logboeken in Azure
 
@@ -109,7 +109,7 @@ Zie voor meer informatie over het logboek gegevens vertragingen [meld gegevens v
 
 Het volgende voorbeeld ziet het inschakelen van diagnostische logboeken via de Azure PowerShell-Cmdlets.
 
-###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>Inschakelen van diagnostische logboeken in een Opslagaccount
+### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Inschakelen van diagnostische logboeken in een Opslagaccount
 
 Meldt u zich eerst en selecteer een abonnement:
 
@@ -165,7 +165,7 @@ Voordat u de core analytische gegevens vanaf de Azure Storage-Account openen kun
 |Jaar|  4-cijferige representatie van het jaar, bijvoorbeeld 2017|
 |Maand| 2 cijfers weergave van het nummer van de maand. 01 januari =... 12 December =|
 |Dag|   2 cijfers weergave van de dag van de maand|
-|PT1H.JSON| Werkelijke JSON-bestand waarin de analytische gegevens is opgeslagen|
+|PT1H.json| Werkelijke JSON-bestand waarin de analytische gegevens is opgeslagen|
 
 ### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>De core analytische gegevens exporteren naar een CSV-bestand
 
@@ -173,7 +173,7 @@ Als u eenvoudig toegang krijgen tot basisanalyse, is voorbeeldcode voor een hulp
 
 Dit is hoe u het hulpprogramma kunt gebruiken:
 
-1.  Ga naar de github-link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
+1.  Ga naar de github-koppeling: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
 2.  Download de code.
 3.  Volg de instructies voor het compileren en configureren.
 4.  Voer het hulpprogramma.
@@ -201,7 +201,7 @@ U kunt beheeroplossingen vanuit Azure marketplace installeren door te klikken op
 Volg deze stappen voor het toevoegen van een oplossing voor:
 
 1.   Als u dit nog niet hebt gedaan, meld u aan bij de Azure portal met behulp van uw Azure-abonnement en gaat u naar uw Dashboard.
-    ![Azure-Dashboard](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
+    ![Azure Dashboard](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
 
 2. In de **nieuw** blade onder **Marketplace**, selecteer **bewaking + management**.
 
@@ -406,7 +406,7 @@ Van de Voorbeeldeigenschappen:
 
 ```
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Azure diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Basisanalyse via de aanvullende portal Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)

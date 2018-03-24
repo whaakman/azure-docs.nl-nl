@@ -2,24 +2,24 @@
 title: Lokale gegevensgateway | Microsoft Docs
 description: Een On-premises gateway is nodig als uw server Analysis Services in Azure maakt verbinding met on-premises gegevensbronnen.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/19/2018
 ms.author: owend
-ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2bb85eafc7722840b6a35956403c29d4ac642cc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Verbinding maken met on-premises gegevensbronnen met Azure On-premises Data Gateway
 De lokale data gateway fungeert als een brug, bieden veilige gegevensoverdracht tussen uw Azure Analysis Services-servers in de cloud en on-premises gegevensbronnen. Naast het werken met meerdere Azure Analysis Services-servers in dezelfde regio, werkt de meest recente versie van de gateway ook met Azure Logic Apps, Power BI, Power-Apps en Microsoft-Flow. U kunt meerdere services in dezelfde regio koppelen met een enkele gateway. 
@@ -36,7 +36,7 @@ Uitvoeren van setup met de gateway de eerste keer is een vierdelige proces:
 
 Als u wilt meteen aan de slag, Zie [installeren en configureren van lokale gegevensgateway](analysis-services-gateway-install.md).
 
-## <a name="how-it-works"></a>Hoe het werkt
+## <a name="how-it-works"> </a>Hoe het werkt
 De gateway die u op een computer in uw organisatie installeert wordt uitgevoerd als een Windows-service **On-premises gegevensgateway**. Deze lokale service is geregistreerd bij de Gateway Cloud Service via Azure Service Bus. Vervolgens maakt u een gateway resource Gateway-Cloudservice voor uw Azure-abonnement. Uw Azure Analysis Services-servers zijn vervolgens verbonden met uw gateway-resource. Wanneer modellen op uw server verbinding moeten maken met uw on-premises gegevens bronnen voor query's of verwerking, passeert een stroom query's en de gateway-resource, Azure Service Bus de gatewayservice voor lokale lokale gegevens en uw gegevensbronnen. 
 
 ![Hoe werkt het?](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
@@ -50,18 +50,18 @@ Query's en gegevensstroom:
 5. De gateway stuurt de query met de gegevensbron voor uitvoering.
 6. De resultaten worden uit de gegevensbron verzonden naar de gateway en vervolgens naar de cloudservice en de server.
 
-## <a name="windows-service-account"></a>Windows-serviceaccount
+## <a name="windows-service-account"> </a>Windows-serviceaccount
 De lokale data gateway is geconfigureerd voor gebruik *NT SERVICE\PBIEgwService* voor de aanmeldingsreferenties van de Windows-service. Deze heeft standaard het recht Aanmelden als service; in de context van de machine die u installeert de gateway op. Deze referentie is niet hetzelfde account gebruikt voor verbinding met on-premises gegevensbronnen of uw Azure-account.  
 
 Als u problemen met de proxyserver als gevolg van verificatie ondervindt, wilt u mogelijk de Windows-serviceaccount wijzigen in een domeingebruiker of beheerd serviceaccount.
 
-## <a name="ports"></a>Poorten
+## <a name="ports"> </a>Poorten
 De gateway maakt een uitgaande verbinding met Azure Service Bus. Deze communiceert op uitgaande poorten: TCP 443 (standaard), 5671, 5672, 9350 via 9354.  De gateway is niet vereist voor poorten voor inkomend verkeer.
 
 We raden u goedgekeurde IP-adressen de IP-voor de regio van uw gegevens in uw firewall adressen. U kunt downloaden via de [lijst met Microsoft Azure Datacenter IP](https://www.microsoft.com/download/details.aspx?id=41653). Deze lijst is wekelijks bijgewerkt.
 
 > [!NOTE]
-> De IP-adressen die worden vermeld in de lijst met Azure Datacenter IP zijn in CIDR-notatie. 10.0.0.0/24 betekent bijvoorbeeld niet 10.0.0.0 via 10.0.0.24. Meer informatie over de [CIDR-notatie](http://whatismyipaddress.com/cidr).
+> De IP-adressen die worden vermeld in de lijst met Azure Datacenter IP zijn in CIDR-notatie. Zie voor meer informatie, [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 >
 >
 
@@ -141,7 +141,7 @@ U kunt de hulpprogramma van derden Azure snelheid testen-app gebruiken om te met
 **Q**: Wat is het voordeel van de herstelsleutel? <br/>
 **Een**: de herstelsleutel biedt een manier om te migreren of de gateway-instellingen herstellen na een noodgeval.
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"> </a>Het oplossen van problemen
 
 **Q**: Waarom zie ik niet mijn gateway in de lijst met gatewayexemplaren bij het maken van de bron van de gateway in Azure? <br/>
 **Een**: Er zijn twee mogelijke oorzaken. De eerste is dat een resource al is gemaakt voor de gateway in de huidige of een ander abonnement. Om te voorkomen dat mogelijkheid, opsommen resources van het type **gegevensgateways On-premises** vanuit de portal. Zorg ervoor dat alle abonnementen selecteren bij het inventariseren van alle resources. Zodra de resource is gemaakt, de gateway niet wordt weergegeven in de lijst met de gatewayexemplaren in de portal ervaring voor de Gateway-Resource maken. De tweede mogelijkheid is dat de identiteit van de Azure AD van de gebruiker die de gateway geïnstalleerd van de gebruiker is aangemeld bij Azure-portal verschilt. Om op te lossen, moet u zich aanmelden bij de portal met hetzelfde account als de gebruiker die de gateway wordt geïnstalleerd.

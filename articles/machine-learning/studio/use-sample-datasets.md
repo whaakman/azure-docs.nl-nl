@@ -2,9 +2,10 @@
 title: Gebruik de voorbeeldgegevenssets in Machine Learning Studio | Microsoft Docs
 description: Beschrijvingen van de gegevenssets in samplemodellen opgenomen in Machine Learning Studio gebruikt. U kunt deze voorbeeldgegevenssets gebruiken voor uw experimenten.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: garye
-ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>De voorbeeldgegevenssets in Azure Machine Learning Studio gebruiken
 [top]: #machine-learning-sample-datasets
@@ -47,7 +47,7 @@ Een subset van de database 1994 telling, met behulp van werkende volwassenen oud
 <p></p>
 <b>Gebruik:</b> classificeren van met demografische gegevens te voorspellen of een persoon meer dan 50 K per jaar verdient personen.
 <p></p>
-<b>Verwante Research:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
+<b>Verwante Research:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
 </tr>
 
 <tr>
@@ -68,7 +68,7 @@ De risicoscore is in eerste instantie aan prijs voor automatisch gekoppeld. Verv
 <p></p>
 <b>Gebruik:</b> voorspellen van de risicoscore door onderdelen, met regressie of multivariate classificatie. 
 <p></p>
-<b>Verwante Research:</b> Schlimmer, J.C. (1987). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
+<b>Verwante Research:</b> Schlimmer, J.C. (1987). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
 </tr>
 
 <tr>
@@ -99,9 +99,9 @@ Donor gegevens omvatten de maanden sinds de laatste donatie), en frequentie of h
 <p></p>
 <b>Gebruik:</b> het doel is om te voorspellen via classificatie of de donor gedoneerd bloed in maart 2007, waarbij 1 geeft aan een donor tijdens de doelperiode en 0 dat niet donor. 
 <p></p>
-<b>Verwante Research:</b> Yeh I.C., (2008). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke
+<b>Verwante Research:</b> Yeh I.C., (2008). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke
 <p></p>
-Yeh, ik-Cheng, Yang, koning-Jang en Ting, Tao-Ming ' Knowledge detectie op RFM model Bernoulli-reeks met ' Expert systemen met toepassingen, 2008 <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Yeh, ik-Cheng, Yang, koning-Jang en Ting, Tao-Ming, 'Knowledge detectie op RFM model Bernoulli toetsencombinatie, 'Expert systemen met toepassingen, 2008 <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -112,7 +112,7 @@ Een van drie kanker-gerelateerde gegevenssets geleverd door de Oncology Institut
 <p></p>
 <b>Gebruik:</b> classificeren van het type van kanker, op basis van 9 kenmerken, waarvan sommige zijn lineaire en andere categorische. 
 <p></p>
-<b>Verwante Research:</b> Wohlberg, W.H., straat, W.N. & Mangasarian, O.L. (1995). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
+<b>Verwante Research:</b> Wohlberg, W.H., straat, W.N. & Mangasarian, O.L. (1995). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
 </tr>
 
 <tr>
@@ -165,7 +165,7 @@ Een verzameling gesimuleerde energie-profielen, op basis van 12 ander gebouw vor
 <p></p>
 <b>Gebruik:</b> regressie of classificatie gebruiken om te voorspellen van de energie-efficiëntie classificatie gebaseerde als een van twee antwoorden in de werkelijke waarden. Voor meerdere klasse-indeling, is het afronden van de variabele in antwoord op het dichtstbijzijnde gehele getal. 
 <p></p>
-<b>Verwante Research:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
+<b>Verwante Research:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
 </tr>
 
 <tr>
@@ -190,7 +190,7 @@ Records van het vliegtuig vlucht ontvangsten en afwijkingen in de Verenigde Stat
 <p></p>
 <b>Gebruik:</b> vertragingen te voorspellen. 
 <p></p>
-<b>Verwante Research:</b> van VS afdeling transport <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+<b>Verwante Research:</b> van VS afdeling transport <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
   </td>
 </tr>
 
@@ -201,9 +201,9 @@ Bevat de weergegevens, zoals temperatuur en vochtigheid indexen en o-snelheid. D
 <p></p>
 <b>Gebruik:</b> dit is een taak moeilijk regressie waar het doel is het gebrande gebied van bosbranden voorspellen. 
 <p></p>
-<b>Verwante Research:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke
+<b>Verwante Research:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke
 <p></p>
-[Cortez en Morais, 2007] P. Cortez en A. Morais. Een Data Mining benadering voorspellen bosbranden met behulp van meteorologische gegevens. In J. Neves, Dhr F. Santos en J. Machado Eds., nieuwe Trends in kunstmatige Intelligence, de procedures van de 13 EPIA 2007 - Portugees Conferentie over kunstmatige intelligentie, December, Guimarães, Portugal p. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Beschikbaar op: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez en Morais, 2007] P. Cortez en A. Morais. Een Data Mining benadering voorspellen bosbranden met behulp van meteorologische gegevens. In J. Neves, Dhr F. Santos en J. Machado Eds., nieuwe Trends in kunstmatige Intelligence, de procedures van de 13 EPIA 2007 - Portugees Conferentie over kunstmatige intelligentie, December, Guimarães, Portugal p. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Beschikbaar op: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
   </td>
 </tr>
 
@@ -230,7 +230,7 @@ Dit is mogelijk de beste bekende database worden gevonden in de documentatie van
 <p></p>
 <b>Gebruik:</b> voorspellen van het type van de iris van de metingen.  
 <p></p>
-<b>Verwante Research:</b> Fisher, R.A. (1988). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
+<b>Verwante Research:</b> Fisher, R.A. (1988). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
 </tr>
 
 <tr>
@@ -249,7 +249,7 @@ De gegevens worden brandstofverbruik voor verschillende auto's in mijl per gallo
 <p></p>
 <b>Gebruik:</b> voorspellen brandstofverbruik op basis van drie waarden discrete kenmerken en vijf doorlopende kenmerken. 
 <p></p>
-<b>Verwante Research:</b> StatLib Carnegie Mellon universiteit, (1993). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
+<b>Verwante Research:</b> StatLib Carnegie Mellon universiteit, (1993). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
 </tr>
 
 <tr>
@@ -259,7 +259,7 @@ Een subset van gegevens van de National Institute Diabetes en database spijsvert
 <p></p>
 <b>Gebruik:</b> voorspellen of het onderwerp diabetes (binaire classificatie) heeft. 
 <p></p>
-<b>Verwante Research:</b> Sigillito, V. (1990). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml '</a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
+<b>Verwante Research:</b> Sigillito, V. (1990). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml'</a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke </td>
 </tr>
 
 <tr>
@@ -269,7 +269,7 @@ Een set van metagegevens over klanten, waaronder demografische gegevens en voork
 <p></p>
 <b>Gebruik:</b> deze gegevensset gebruiken in combinatie met de andere twee restaurant gegevenssets, te trainen en te testen van een systeem recommender. 
 <p></p>
-<b>Verwante Research:</b> Bache, K. en Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en wetenschappelijke van de Computer.
+<b>Verwante Research:</b> Bache, K. en Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, School van gegevens en wetenschappelijke van de Computer.
   </td>
 </tr>
 
@@ -280,7 +280,7 @@ Een set van metagegevens over restaurant en hun functies, zoals voeding, consume
 <p></p>
 <b>Gebruik:</b> deze gegevensset gebruiken in combinatie met de andere twee restaurant gegevenssets, te trainen en te testen van een systeem recommender. 
 <p></p>
-<b>Verwante Research:</b> Bache, K. en Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en wetenschappelijke van de Computer.
+<b>Verwante Research:</b> Bache, K. en Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, School van gegevens en wetenschappelijke van de Computer.
   </td>
 </tr>
 
@@ -291,7 +291,7 @@ Classificaties krijgen door gebruikers restaurant op een schaal van 0 tot 2 beva
 <p></p>
 <b>Gebruik:</b> deze gegevensset gebruiken in combinatie met de andere twee restaurant gegevenssets, te trainen en te testen van een systeem recommender. 
 <p></p>
-<b>Verwante Research:</b> Bache, K. en Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en wetenschappelijke van de Computer.
+<b>Verwante Research:</b> Bache, K. en Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, School van gegevens en wetenschappelijke van de Computer.
   </td>
 </tr>
 
@@ -304,9 +304,9 @@ Deze gegevensset bevat een reeks van records uit staal aanhechten proefversies. 
 <p></p>
 Staalsoorten Volg een standaard set gedefinieerd door SAE en andere organisaties. U zoekt naar een specifieke 'hoogwaardige' (de klassevariabele) en wilt weten over de waarden die nodig zijn. 
 <p></p>
-<b>Verwante Research:</b> pond, D. & Buntine, W. (NA). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke
+<b>Verwante Research:</b> pond, D. & Buntine, W. (NA). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke
 <p></p>
-Een handig handleiding voor staalsoorten vindt u hier: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+Een handig handleiding voor STAALSPECIFICATIES vindt u hier: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -325,7 +325,7 @@ De gegevens zijn vooraf verwerkt een lang cluster maken met de lange as is geric
 <p></p>
 Merk ook op dat het aantal gebeurtenissen van de achtergrond (voor hadronic douches h) onderschat is. De klasse h of ruis vertegenwoordigt in de echte metingen het merendeel van de gebeurtenissen. 
 <p></p>
-<b>Verwante Research:</b> Bock, R.K. (1995). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens </td>
+<b>Verwante Research:</b> Bock, R.K. (1995). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, School van gegevens </td>
 </tr>
 
 <tr>

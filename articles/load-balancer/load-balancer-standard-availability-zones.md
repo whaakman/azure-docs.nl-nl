@@ -5,20 +5,20 @@ services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 61e0e7cf960d7eb2294bc294ec1eec9d80428a81
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70b39b854a3b7cb28716d3cb290998690dbeb549
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standaard Load Balancer en beschikbaarheid Zones
 
@@ -151,7 +151,7 @@ Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de
 
 Taakverdeling cross-zone, is de mogelijkheid van de Load Balancer een back-end-eindpunt in een zone te bereiken en is onafhankelijk van de front-end- en de zonality.
 
-Als u wilt uitlijnen en garanderen van uw implementatie met een enkele zone, uitlijnen zonal frontend en backend zonal resources aan de zone met dezelfde. Er is geen verdere actie vereist.
+Als u wilt uitlijnen en garanderen van uw implementatie binnen een enkele zone, uitlijnen zonal frontend en backend zonal resources aan de zone met dezelfde. Er is geen verdere actie vereist.
 
 ### <a name="backend"></a>Back-end
 
@@ -210,7 +210,7 @@ Zone-redundante bieden een zone-networkdirect en op dezelfde tijd robuuste optie
 
 Zonal kan bieden een expliciete garantie aan een zone gedrag delen met de status van de zone. Koppelen van een zonal IP kan-adres of zonal Load Balancer-frontend worden een kenmerk wenselijk of redelijke met name als uw gekoppelde resource een zonal VM in dezelfde regio is.  Of misschien expliciete kennis over welke zone een resource bevindt zich in uw toepassing is vereist en u expliciet reden over beschikbaarheid in afzonderlijke zones.  U kunt kiezen om meerdere zonal frontends voor een end-to-end-service verdeeld over zones weer te geven (dat wil zeggen, per zone zonal frontends voor meerdere zonal virtuele-machineschaalset stelt).  Als uw zonal frontends openbare IP-adressen, kunt u deze meerdere zonal frontends gebruiken voor het blootstellen van uw service met [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Of u kunt meerdere zonal frontends per zone status en prestaties insights via van derden bewakingsoplossingen krijgen en de algehele service met een zone-redundante frontend weer te geven. U moet alleen zonal resources met zonal frontends uitgelijnd op dezelfde zone leveren en te voorkomen dat schadelijke cross-zone-scenario's voor zonal bronnen.  Er bestaan alleen zonal resources in regio's waar beschikbaarheid Zones bestaan.
 
-Er is geen algemene richtlijnen dat een een betere keuze dan de andere is zonder te weten de end-to-end-service.
+Er is geen algemene richtlijnen dat een een betere keuze dan de andere is zonder te weten van de service-architectuur.
 
 ## <a name="limitations"></a>Beperkingen
 

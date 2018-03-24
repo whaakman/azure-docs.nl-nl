@@ -5,28 +5,28 @@ services: load-balancer
 documentationcenter: na
 author: rdhillon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2017
+ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Hoge beschikbaarheid poorten configureren voor een interne load balancer
 
 Dit artikel bevat een voorbeeld van een implementatie met hoge beschikbaarheid poorten op een interne load balancer. Zie de bijbehorende provider websites voor meer informatie over specifieke configuraties voor virtuele apparaten (NVAs).
 
 >[!NOTE]
-> De poorten voor hoge beschikbaarheid-functie is momenteel in preview. Tijdens de preview, de functie hebben mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid zoals functies die in het algemeen beschikbaarheid release. Zie [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews (Microsoft Azure Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+>Azure Load Balancer ondersteunt twee verschillende typen: Basic en Standard. Dit artikel wordt standaard Load Balancer. Zie voor meer informatie over Basic Load Balancer [overzicht van de Load Balancer](load-balancer-overview.md).
 
 De afbeelding ziet de volgende configuratie van de voorbeeld-implementatie in dit artikel wordt beschreven:
 

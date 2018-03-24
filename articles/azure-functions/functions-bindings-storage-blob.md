@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure functions, functies, verwerking van gebeurtenissen, dynamische compute zonder server architectuur
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf2c4a12d1344ec17ce9688e1c7192f57104dc7b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -233,12 +233,12 @@ In C# en C# script, kunt u de volgende parametertypen voor de activerende blob:
 * `string`
 * `Byte[]`
 * Een POCO serialiseerbaar als JSON
-* `ICloudBlob` (in de richting 'inout' binding vereist *function.json*)
-* `CloudBlockBlob` (in de richting 'inout' binding vereist *function.json*)
-* `CloudPageBlob` (in de richting 'inout' binding vereist *function.json*)
-* `CloudAppendBlob` (in de richting 'inout' binding vereist *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Zoals vermeld, voor sommige van deze typen moet een `inout` richting in binding *function.json*. Deze richting wordt niet ondersteund door de standard-editor in Azure portal, zodat u de geavanceerde editor moet gebruiken.
+<sup>1</sup> vereist 'inout' binding `direction` in *function.json* of `FileAccess.ReadWrite` in een C#-klassenbibliotheek.
 
 Het binden aan `string`, `Byte[]`, of POCO wordt alleen aanbevolen als de blob is klein, als de volledige blob-inhoud in het geheugen wordt geladen. In het algemeen is het raadzaam om het gebruik van een `Stream` of `CloudBlockBlob` type. Zie voor meer informatie [gelijktijdigheid van taken en geheugengebruik](#trigger---concurrency-and-memory-usage) verderop in dit artikel.
 
@@ -364,7 +364,7 @@ Zie het voorbeeld taalspecifieke:
 
 ### <a name="input---c-example"></a>Invoer - C#-voorbeeld
 
-Het volgende voorbeeld is een [C#-functie](functions-dotnet-class-library.md) die gebruikmaakt van een trigger wachtrij en een binding van de blob-invoerbron. De wachtrij messagge bevat de naam van de blob, en de functie Logboeken de grootte van de blob.
+Het volgende voorbeeld is een [C#-functie](functions-dotnet-class-library.md) die gebruikmaakt van een trigger wachtrij en een binding van de blob-invoerbron. Bericht uit de wachtrij bevat de naam van de blob, en de functie Logboeken de grootte van de blob.
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -374,7 +374,6 @@ public static void Run(
     TraceWriter log)
 {
     log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-
 }
 ```        
 
@@ -534,12 +533,12 @@ In C# en C# script, kunt u de volgende parametertypen voor de binding van blob-i
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob` (in de richting 'inout' binding vereist *function.json*)
-* `CloudBlockBlob` (in de richting 'inout' binding vereist *function.json*)
-* `CloudPageBlob` (in de richting 'inout' binding vereist *function.json*)
-* `CloudAppendBlob` (in de richting 'inout' binding vereist *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Zoals vermeld, voor sommige van deze typen moet een `inout` richting in binding *function.json*. Deze richting wordt niet ondersteund door de standard-editor in Azure portal, zodat u de geavanceerde editor moet gebruiken.
+<sup>1</sup> vereist 'inout' binding `direction` in *function.json* of `FileAccess.ReadWrite` in een C#-klassenbibliotheek.
 
 Het binden aan `string` of `Byte[]` wordt alleen aanbevolen als de Blobgrootte van de klein is als de hele blobinhoud in het geheugen geladen. In het algemeen is het raadzaam om het gebruik van een `Stream` of `CloudBlockBlob` type. Zie voor meer informatie [gelijktijdigheid van taken en geheugengebruik](#trigger---concurrency-and-memory-usage) eerder in dit artikel.
 
@@ -737,21 +736,23 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 
 ## <a name="output---usage"></a>Output - gebruik
 
-In C# en C# script, kunt u de volgende parametertypen voor de blob binding uitvoer:
+In C# en C# script, kunt u binden aan de volgende typen blobs schrijven:
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob` (in de richting 'inout' binding vereist *function.json*)
-* `CloudBlockBlob` (in de richting 'inout' binding vereist *function.json*)
-* `CloudPageBlob` (in de richting 'inout' binding vereist *function.json*)
-* `CloudAppendBlob` (in de richting 'inout' binding vereist *function.json*)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-Zoals vermeld, voor sommige van deze typen moet een `inout` richting in binding *function.json*. Deze richting wordt niet ondersteund door de standard-editor in Azure portal, zodat u de geavanceerde editor moet gebruiken.
+<sup>1</sup> 'in' binding vereist `direction` in *function.json* of `FileAccess.Read` in een C#-klassenbibliotheek.
+
+<sup>2</sup> vereist 'inout' binding `direction` in *function.json* of `FileAccess.ReadWrite` in een C#-klassenbibliotheek.
 
 Gebruik in async-functies, de retourwaarde of `IAsyncCollector` in plaats van een `out` parameter.
 

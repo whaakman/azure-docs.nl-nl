@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 193003cef0aed464596e913c0df86e6123292b9f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 Azure voert regelmatig updates ter verbetering van de betrouwbaarheid, prestaties en beveiliging van de infrastructuur van de host voor virtuele machines. Deze updates tussen softwareonderdelen in de hosting-omgeving (zoals het besturingssysteem, hypervisor en verschillende agents die zijn geïmplementeerd op de host) patching bijwerken netwerkonderdelen, naar hardware buiten gebruik stellen. De meeste van deze updates worden uitgevoerd zonder nadelige gevolgen voor de gehoste virtuele machines. Er zijn echter gevallen bekend waarbij updates gevolgen:
 
-- Als het onderhoud niet opnieuw worden opgestart hoeft, gebruikt Azure in-place migratie voor het onderbreken van de virtuele machine, terwijl de host is bijgewerkt.
+- Als een update opnieuw opstarten minder mogelijk is, gebruikt Azure geheugen behouden onderhoud onderbreken van de virtuele machine, terwijl de host is bijgewerkt of de virtuele machine wordt verplaatst naar een host al bijgewerkte helemaal.
 
 - Als u onderhoud moet worden opgestart, krijgt u een bericht wanneer het onderhoud is gepland. In dergelijke gevallen u ook krijgt een tijdvenster op waar u kunt beginnen het onderhoud zelf tegelijk die geschikt is voor u.
 
@@ -24,15 +24,15 @@ Deze pagina wordt beschreven hoe Microsoft Azure uitvoert voor beide typen van o
 
 Toepassingen die worden uitgevoerd in een virtuele machine kunnen informatie verzamelen over toekomstige updates met behulp van de Service Azure metagegevens voor [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) of [Linux] (... / articles/virtual-machines/linux/instance-metadata-service.md).
 
-Zie voor 'procedures' informatie over het beheer van geplande maintence 'Verwerken geplande onderhoud meldingen' voor [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) of [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+Zie voor 'procedures' informatie over het beheren van gepland onderhoud 'Verwerken geplande onderhoud meldingen' voor [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) of [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="in-place-vm-migration"></a>In-place migratie voor VM
+## <a name="memory-preserving-maintenance"></a>Geheugen onderhoud behouden
 
-Als updates niet volledig opnieuw opstarten vereist, wordt een in-place live migratie wordt gebruikt. Tijdens het bijwerken de virtuele machine onderbroken ongeveer 30 seconden, het geheugen in RAM, behouden terwijl de hosting-omgeving van toepassing de vereiste updates en -patches is. De virtuele machine wordt vervolgens hervat en de klok van de virtuele machine automatisch wordt gesynchroniseerd.
+Als updates niet volledig opnieuw opstarten vereist, wordt geheugen behouden onderhoud mechanismen worden gebruikt voor het beperken van de impact op de virtuele machine. De virtuele machine is onderbroken voor maximaal 30 seconden, het geheugen in RAM, behouden terwijl de hosting-omgeving van toepassing de vereiste updates en patches is of de virtuele machine naar een host al bijgewerkt verplaatst. De virtuele machine wordt vervolgens hervat en de klok van de virtuele machine automatisch wordt gesynchroniseerd. 
 
 Voor virtuele machines in beschikbaarheidssets, worden bijgewerkt een voor een update-domeinen. Alle virtuele machines in één updatedomein (UD) worden onderbroken, bijgewerkt en hervat vervolgens voordat gepland onderhoud verder met de volgende UD gaat.
 
-Sommige toepassingen worden beïnvloed door deze typen updates. Toepassingen die realtime-gebeurtenissen verwerken, zoals mediastreaming of transcodering of hoge doorvoersnelheid scenario's, toegang uitvoeren kunnen niet worden ontworpen voor een pauze van 30 seconde tolereren. <!-- sooooo, what should they do? --> 
+Sommige toepassingen worden beïnvloed door deze typen updates. Toepassingen die realtime-gebeurtenissen verwerken, zoals mediastreaming of transcodering of hoge doorvoersnelheid scenario's, toegang uitvoeren kunnen niet worden ontworpen voor een pauze van 30 seconde tolereren. <!-- sooooo, what should they do? --> Als de virtuele machine wordt verplaatst naar een andere host, betekent dit dat sommige gevoelige werkbelastingen wellicht opgevallen dat er een lichte prestatievermindering in de paar minuten aan de virtuele Machine onderbreken geleid. 
 
 
 ## <a name="maintenance-requiring-a-reboot"></a>Onderhoud vereisen opnieuw opstarten
@@ -47,9 +47,11 @@ Als u onderhoud selfservice start en er een fout opgetreden tijdens het proces i
 
 Wanneer het venster selfservice is verstreken, de **geplande onderhoudsvenster** begint. Tijdens dit tijdvenster kunt u nog steeds een query voor het onderhoudsvenster, maar niet langer mogelijk om te starten van het onderhoud zelf.
 
+Zie voor informatie over het beheren van een programma onderhoud 'Verwerken geplande onderhoud meldingen' voor [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) of [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
+
 ## <a name="availability-considerations-during-planned-maintenance"></a>Overwegingen voor beschikbaarheid tijdens gepland onderhoud 
 
-Als u besluit om te wachten tot het geplande onderhoudsvenster, moet u er een paar aandachtspunten voor het onderhouden van de hoogste availabilty van uw virtuele machines zijn. 
+Als u besluit om te wachten tot het geplande onderhoudsvenster, moet u er een paar aandachtspunten voor het onderhouden van de hoogste beschikbaarheid van uw virtuele machines zijn. 
 
 ### <a name="paired-regions"></a>Gekoppelde regio 's
 

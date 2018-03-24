@@ -1,11 +1,11 @@
 ---
-title: "Gegevens kopiëren van de HTTP-bron met behulp van Azure Data Factory | Microsoft Docs"
-description: "Ontdek hoe u gegevens kopiëren van een bron van de HTTP-cloud of on-premises naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn."
+title: Gegevens kopiëren van de HTTP-bron met behulp van Azure Data Factory | Microsoft Docs
+description: Ontdek hoe u gegevens kopiëren van een bron van de HTTP-cloud of on-premises naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 888b75ad16a3835ca988dd9aa6a146cc26e6370a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0092564dce9424b445240ebd2c3247e763a237e9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Gegevens kopiëren van de HTTP-eindpunt met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

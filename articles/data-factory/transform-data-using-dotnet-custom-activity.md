@@ -2,10 +2,10 @@
 title: Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 description: Informatie over het maken van aangepaste activiteiten en deze gebruiken in een Azure Data Factory-pijplijn.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6aaeaaacdc9ee67ebbed3ea3090455dde2357c3d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 770187c16ed9d0eacfaf99e571ad048c6723a9cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -298,7 +298,7 @@ Als u wilt gebruiken voor de inhoud van stdout.txt in downstream-activiteiten, k
   > - De activity.json, linkedServices.json en datasets.json worden opgeslagen in de runtime-map van de Batch-taak. In dit voorbeeld de activity.json, linkedServices.json en datasets.json worden opgeslagen in "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/ ' pad. Indien nodig, moet u deze afzonderlijk opschonen. 
   > - Blijft in klant gedefinieerd voor de gekoppelde Services maakt gebruik van Self-Hosted integratie Runtime, de gevoelige gegevens, zoals sleutels of wachtwoorden zijn versleuteld door de Runtime Self-Hosted integratie om ervoor te zorgen referentie persoonlijke netwerkomgeving. Sommige velden gevoelige mogelijk ontbreekt wanneer waarnaar wordt verwezen door de aangepaste toepassingscode die op deze manier. Gebruik SecureString in extendedProperties in plaats van verwijzing naar de gekoppelde Service, indien nodig. 
 
-## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a>Vergelijk v2 aangepaste activiteit en versie 1 (aangepast) DotNet activiteit
+## <a name="compare-v2-v1"></a> Vergelijk v2 aangepaste activiteit en versie 1 (aangepast) DotNet activiteit
 
   In Azure Data Factory versie 1, u een activiteit van de DotNet (aangepast) implementeren met het maken van een .net Class Library-project met een klasse die implementeert de `Execute` methode van de `IDotNetActivity` interface. De gekoppelde Services, gegevenssets en uitgebreide eigenschappen in de JSON-nettolading van een activiteit van de DotNet (aangepast) zijn doorgegeven aan de methode kan worden uitgevoerd als objecten sterk getypeerd. Zie voor meer informatie over het gedrag van versie 1 [DotNet in versie 1 (aangepast)](v1/data-factory-use-custom-activities.md). Vanwege deze implementatie uw code van versie 1 DotNet activiteit heeft als doel in .net Framework 4.5.2. De versie 1 DotNet activiteit heeft ook worden uitgevoerd op de knooppunten op basis van Windows Azure Batch-Pool. 
 

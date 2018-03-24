@@ -2,9 +2,10 @@
 title: Schrijven van aangepaste R-Modules in Azure Machine Learning | Microsoft Docs
 description: Snel starten voor het schrijven van aangepaste R-modules in Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 945c238411dac8f2e64666935308ef3c1cb2f0ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Aangepaste R-modules maken in Azure Machine Learning
 In dit onderwerp wordt beschreven hoe ontwerpen en implementeren van een aangepaste R-module in Azure Machine Learning. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen. Het maken van de bestanden die een module te definiëren en het registreren van de module voor implementatie in een Machine Learning-werkruimte worden geïllustreerd. De elementen en kenmerken die worden gebruikt in de definitie van de aangepaste module worden vervolgens in meer detail beschreven. Het gebruik van aanvullende functionaliteit, bestanden en meerdere uitgangen wordt ook beschreven. 

@@ -2,10 +2,10 @@
 title: Veelgestelde vragen over Windows virtuele machines in Azure | Microsoft Docs
 description: Hier vindt u antwoorden op enkele van de veelgestelde vragen over Windows virtuele machines is gemaakt met het Resource Manager-model.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-management
 ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: 9aa316e59fb78373cc044f8e18f5d24ea9c5258f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: e440385ca0f22dce8668fe73b91efe14e0c8a9b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Veelgestelde vragen over virtuele Windows-Machines
 In dit artikel komen enkele veelgestelde vragen over Windows virtuele machines die in Azure met behulp van het Resource Manager-implementatiemodel zijn gemaakt. Zie voor de Linux-versie van dit onderwerp [Veelgestelde vragen over virtuele Linux-Machines](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -75,7 +75,7 @@ Ja. Zie snel maken van een Linux-VM om uit te proberen [maken van een Linux-VM o
 Ja, dit is nu mogelijk. De virtuele machine eerst moet worden gestopt toewijzing ongedaan is gemaakt. Vervolgens kunt u toevoegen of verwijderen van een NIC (tenzij deze de laatste NIC op de virtuele machine is). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Zijn er naam computervereisten?
-Ja. De computernaam mag maximaal 15 tekens lang zijn. Zie [Naming conventions regels en beperkingen](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie over de naamgeving van uw resources.
+Ja. De computernaam mag maximaal 15 tekens lang zijn. Zie [Naming conventions regels en beperkingen](/azure/architecture/best-practices/naming-conventions#compute) voor meer informatie over de naamgeving van uw resources.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Zijn er een resource vereisten voor de naam groep?
 Ja. Naam van de resourcegroep mag maximaal 90 tekens lang zijn. Zie [Naming conventions regels en beperkingen](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) voor meer informatie over resourcegroepen.

@@ -2,10 +2,9 @@
 title: Gegevens verplaatsen van Amazon Redshift met behulp van Azure Data Factory | Microsoft Docs
 description: Informatie over het verplaatsen van gegevens uit Amazon Redshift met behulp van Azure Data Factory-Kopieeractiviteit.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 47a9feaa692eaf048371b4e534e6b2e8c4086997
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ab21eaf935ed03b6f34af00f69e993eaffdad1db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Verplaatsen van gegevens vanaf Amazon Redshift, met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,10 +64,10 @@ De volgende tabel bevat beschrijvingen van de JSON-elementen die specifiek voor 
 | --- | --- | --- |
 | **type** |Deze eigenschap moet worden ingesteld op **AmazonRedshift**. |Ja |
 | **server** |Het IP-adres of de hostnaam naam van de Amazon Redshift-server. |Ja |
-| **poort** |Het nummer van de TCP-poort die de Amazon Redshift-server gebruikt om te luisteren naar verbindingen van clients. |Nee (de standaardwaarde is 5439) |
+| **Poort** |Het nummer van de TCP-poort die de Amazon Redshift-server gebruikt om te luisteren naar verbindingen van clients. |Nee (de standaardwaarde is 5439) |
 | **database** |De naam van de Amazon Redshift-database. |Ja |
-| **gebruikersnaam** |De naam van de gebruiker die toegang tot de database heeft. |Ja |
-| **wachtwoord** |Het wachtwoord voor het gebruikersaccount. |Ja |
+| **Gebruikersnaam** |De naam van de gebruiker die toegang tot de database heeft. |Ja |
+| **Wachtwoord** |Het wachtwoord voor het gebruikersaccount. |Ja |
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
@@ -78,7 +77,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| **tableName** |De naam van de tabel in de Amazon Redshift database waarnaar de gekoppelde service verwijst. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
+| **TableName** |De naam van de tabel in de Amazon Redshift database waarnaar de gekoppelde service verwijst. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
 
@@ -340,8 +339,8 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | BOOLEAANSE WAARDE |Tekenreeks |
 | CHAR |Tekenreeks |
 | VARCHAR |Tekenreeks |
-| DATE |Datum en tijd |
-| TIJDSTEMPEL |Datum en tijd |
+| DATE |DateTime |
+| TIJDSTEMPEL |DateTime |
 | TEXT |Tekenreeks |
 
 ## <a name="map-source-to-sink-columns"></a>Bron van de kaart opvangen kolommen

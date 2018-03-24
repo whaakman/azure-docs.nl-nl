@@ -1,11 +1,11 @@
 ---
-title: "Kopiëren van gegevens en naar Azure Table storage met behulp van de Data Factory | Microsoft Docs"
-description: "Informatie over het kopiëren van gegevens van ondersteunde bron winkels naar Azure Table storage, of van Table storage voor ondersteunde sink stores, met behulp van Data Factory."
+title: Kopiëren van gegevens en naar Azure Table storage met behulp van de Data Factory | Microsoft Docs
+description: Informatie over het kopiëren van gegevens van ondersteunde bron winkels naar Azure Table storage, of van Table storage voor ondersteunde sink stores, met behulp van Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 41e2117e14f336d33f5d6f4e1f446e32a6886079
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ef43037ff33b693256c82459eec2e4b3beab4d9a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiëren van gegevens en naar Azure Table storage met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - algemeen beschikbaar](v1/data-factory-azure-table-connector.md)
+> * [Versie 1: algemeen verkrijgbaar](v1/data-factory-azure-table-connector.md)
 > * [Versie 2 - Preview](connector-azure-table-storage.md)
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren en naar Azure Table storage. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de Kopieeractiviteit.
@@ -271,7 +271,7 @@ Wanneer u gegevens verplaatst naar en van Azure Table, de volgende [toewijzingen
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Een matrix met bytes maximaal 64 KB. |
 | Edm.Boolean |BOOL |Een Booleaanse waarde. |
-| Edm.DateTime |Datum en tijd |Een 64-bits waarde wordt uitgedrukt als Coordinated Universal Time (UTC). Het ondersteunde bereik van de datum-/ begint middernacht, 1 januari 1601 A.D. (C.E.) UTC. Het bereik eindigt 31 December 9999. |
+| Edm.DateTime |DateTime |Een 64-bits waarde wordt uitgedrukt als Coordinated Universal Time (UTC). Het ondersteunde bereik van de datum-/ begint middernacht, 1 januari 1601 A.D. (C.E.) UTC. Het bereik eindigt 31 December 9999. |
 | Edm.Double |dubbele |Een 64-bits drijvende-kommawaarde. |
 | Edm.Guid |GUID |Een globally unique identifier van 128-bits. |
 | Edm.Int32 |Int32 |Een 32-bits geheel getal. |

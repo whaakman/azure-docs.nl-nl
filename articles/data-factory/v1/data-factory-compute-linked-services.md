@@ -2,10 +2,9 @@
 title: COMPUTE omgevingen wordt ondersteund door Azure Data Factory | Microsoft Docs
 description: Meer informatie over de compute-omgevingen die u in Azure Data Factory-pijplijnen (zoals Azure HDInsight) voor het transformeren of proces gebruiken kunt.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 410fb74d8f8ec6196bbd4cc19cc97704649b75c9
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
 > [!NOTE]
@@ -51,7 +50,7 @@ De lijst met ondersteunde versies van HDInsight door Microsoft wordt bijgewerkt 
 Na 15 December 2017:
 
 - U kunt niet langer maken Linux gebaseerde HDInsight versie 3.3 (of eerdere versies) gekoppelde service in de Data Factory versie 1 van clusters met behulp van een HDInsight op aanvraag. 
-- Als de [ **besturingssysteemtype** en **versie** eigenschappen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) niet expliciet zijn opgegeven in de JSON-definitie voor een bestaande Gegevensfactory versie 1 op aanvraag een gekoppelde HDInsight-service , de standaardwaarde is gewijzigd van **versie 3.1, besturingssysteemtype = Windows =** naar **versie =\<meest recente versie van de HDI standaard\>(https://docs.microsoft.com/azure/hdinsight/ hdinsight-component-Versioning#hadoop-Components-Available-with-different-hdinsight-Versions) besturingssysteemtype Linux =**.
+- Als de [ **besturingssysteemtype** en **versie** eigenschappen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) niet expliciet zijn opgegeven in de JSON-definitie voor een bestaande Gegevensfactory versie 1 op aanvraag een gekoppelde HDInsight-service , de standaardwaarde is gewijzigd van **versie 3.1, besturingssysteemtype = Windows =** naar **versie =\<meest recente versie van de HDI standaard\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), besturingssysteemtype Linux =**.
 
 Na 31 juli 2018:
 
@@ -124,7 +123,7 @@ De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op 
 | Eigenschap                     | Beschrijving                              | Vereist |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | De eigenschap type ingesteld op **HDInsightOnDemand**. | Ja      |
-| De clustergrootte                  | Het aantal worker en gegevens knooppunten in het cluster. Het HDInsight-cluster wordt gemaakt met 2 hoofdknooppunten naast het aantal worker-knooppunten die u voor deze eigenschap opgeeft. De knooppunten zijn met een grootte van Standard_D3 met 4 kernen. Een cluster met 4-worker-knooppunten duurt 24 kernen (4\*4 = 16 cores voor worker-knooppunten plus 2\*4 = 8 cores voor hoofdknooppunten). Zie voor meer informatie over de laag Standard_D3 [maken Linux gebaseerde Hadoop-clusters in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Ja      |
+| clusterSize                  | Het aantal worker en gegevens knooppunten in het cluster. Het HDInsight-cluster wordt gemaakt met 2 hoofdknooppunten naast het aantal worker-knooppunten die u voor deze eigenschap opgeeft. De knooppunten zijn met een grootte van Standard_D3 met 4 kernen. Een cluster met 4-worker-knooppunten duurt 24 kernen (4\*4 = 16 cores voor worker-knooppunten plus 2\*4 = 8 cores voor hoofdknooppunten). Zie voor meer informatie over de laag Standard_D3 [maken Linux gebaseerde Hadoop-clusters in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Ja      |
 | timeToLive                   | De toegestane niet-actieve tijd voor het HDInsight-cluster op aanvraag. Hiermee geeft u op hoelang het HDInsight-cluster op aanvraag blijft actief wanneer het uitvoeren van een activiteit is voltooid, als er geen actieve taken in het cluster.<br /><br />Bijvoorbeeld, als een activiteit uitgevoerd 6 minuten duurt en **timeToLive** is ingesteld op 5 minuten, de cluster blijft actief gedurende vijf minuten na het 6 minuten van de verwerking van de activiteit die wordt uitgevoerd. Als een andere activiteit die wordt uitgevoerd in het venster 6 minuten wordt uitgevoerd, wordt het verwerkt door hetzelfde cluster.<br /><br />Maken van een HDInsight-cluster op aanvraag is een dure bewerking (dit kan even duren). Gebruik deze instelling zo nodig voor het verbeteren van de prestaties van een gegevensfactory door een HDInsight-cluster op aanvraag opnieuw te gebruiken.<br /><br />Als u de **timeToLive** van waarde naar **0**, het cluster wordt verwijderd zodra de activiteit uitgevoerd is voltooid. Echter, als u een hoge waarde instelt, het cluster kan blijven inactief onnodig wat resulteert in hoge kosten. Het is belangrijk om in te stellen van de juiste waarde op basis van uw behoeften.<br /><br />Als de **timeToLive** waarde juist is ingesteld, meerdere pijplijnen het exemplaar van het HDInsight-cluster op aanvraag kunnen delen. | Ja      |
 | versie                      | De versie van het HDInsight-cluster. Zie voor toegestane HDInsight versies [versies van HDInsight ondersteund](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Als deze waarde niet wordt opgegeven, de [meest recente versie van de HDI standaard](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions) wordt gebruikt. | Nee       |
 | linkedServiceName            | De gekoppelde Azure Storage-service moet worden gebruikt door het cluster op aanvraag voor het opslaan en verwerken van gegevens. Het HDInsight-cluster wordt gemaakt in dezelfde regio bevinden als dit opslagaccount.<p>Op dit moment kunt maken u een HDInsight-cluster op aanvraag die gebruikmaakt van Azure Data Lake Store als de opslag niet. Als u wilt voor het opslaan van de resultaatgegevens van HDInsight worden verwerkt in Data Lake Store, gebruikt u Kopieeractiviteit de gegevens uit Blob storage kopiëren naar Data Lake Store. </p> | Ja      |

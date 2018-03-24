@@ -1,24 +1,24 @@
 ---
-title: Problemen met uw lokale installatie van de Service Fabric-cluster | Microsoft Docs
+title: Problemen met uw lokale installatie van de Azure Service Fabric-cluster | Microsoft Docs
 description: In dit artikel wordt een reeks suggesties voor het oplossen van uw lokaal ontwikkelcluster behandeld.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 97f4feaa-bba0-47af-8fdd-07f811fe2202
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 6879a24df434d5bf69c9ba14aa00cdc9cd67df57
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Installatie van uw lokale ontwikkeling oplossen
 Wanneer u een probleem tijdens interactie met uw lokale cluster van de Azure Service Fabric-ontwikkeling, controleert u de volgende suggesties voor mogelijke oplossingen.
@@ -26,7 +26,7 @@ Wanneer u een probleem tijdens interactie met uw lokale cluster van de Azure Ser
 ## <a name="cluster-setup-failures"></a>Setup van clusters
 ### <a name="cannot-clean-up-service-fabric-logs"></a>Kan niet opschonen van Service Fabric-Logboeken
 #### <a name="problem"></a>Probleem
-Tijdens het uitvoeren van het script DevClusterSetup, ziet u een fout als volgt:
+Tijdens het uitvoeren van het script DevClusterSetup, ziet u de volgende fout:
 
     Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
     At line:1 char:1 + .\DevClusterSetup.ps1
@@ -36,20 +36,9 @@ Tijdens het uitvoeren van het script DevClusterSetup, ziet u een fout als volgt:
 
 
 #### <a name="solution"></a>Oplossing
-Het huidige PowerShell-venster sluiten en open een nieuw PowerShell-venster als beheerder. U moet nu mogelijk is het script wilt uitvoeren.
+Het huidige PowerShell-venster sluiten en open een nieuw PowerShell-venster als beheerder. U kunt nu het script met succes uitvoeren.
 
 ## <a name="cluster-connection-failures"></a>Verbindingsfouten cluster
-### <a name="service-fabric-powershell-cmdlets-are-not-recognized-in-azure-powershell"></a>Service Fabric PowerShell-cmdlets worden niet herkend in Azure PowerShell
-#### <a name="problem"></a>Probleem
-Als u probeert uit te voeren van de Service Fabric PowerShell-cmdlets, zoals `Connect-ServiceFabricCluster` in een Azure PowerShell-venster het mislukt, dat de cmdlet wordt niet herkend. De reden hiervoor is dat gebruikmaakt van Azure PowerShell de 32-bits versie van Windows PowerShell (zelfs op 64-bits OS-versies), terwijl de Service Fabric-cmdlets alleen in 64-bits-omgevingen werken.
-
-#### <a name="solution"></a>Oplossing
-Service Fabric-cmdlets worden altijd uitgevoerd rechtstreeks vanuit Windows PowerShell.
-
-> [!NOTE]
-> De meest recente versie van Azure PowerShell maakt geen een speciale snelkoppeling zodat dit niet langer moet gebeuren.
-> 
-> 
 
 ### <a name="type-initialization-exception"></a>Type initialisatie van de uitzondering
 #### <a name="problem"></a>Probleem
@@ -70,14 +59,14 @@ Een aanroep van Connect-ServiceFabricCluster mislukt met een fout als volgt:
     + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
 
 #### <a name="solution"></a>Oplossing
-Het huidige PowerShell-venster sluiten en open een nieuw PowerShell-venster als beheerder. U moet nu mogelijk om verbinding te maken.
+Het huidige PowerShell-venster sluiten en open een nieuw PowerShell-venster als beheerder.
 
 ### <a name="fabric-connection-denied-exception"></a>Verbinding geweigerd fabric-uitzondering
 #### <a name="problem"></a>Probleem
 Als u foutopsporing van Visual Studio, krijgt u een FabricConnectionDeniedException-fout.
 
 #### <a name="solution"></a>Oplossing
-Deze fout treedt meestal op wanneer u probeert een hostproces van de service handmatig te starten in plaats van de Service Fabric-runtime start deze voor u.
+Deze fout treedt meestal op wanneer u probeert een hostproces van de service handmatig te starten.
 
 Zorg ervoor dat er geen serviceprojecten die zijn ingesteld als opstartprojecten in uw oplossing. Alleen de projecten van Service Fabric-toepassing moeten worden ingesteld als opstartprojecten.
 

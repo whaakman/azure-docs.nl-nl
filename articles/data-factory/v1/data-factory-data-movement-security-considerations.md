@@ -2,10 +2,9 @@
 title: Beveiligingsoverwegingen voor gegevensverplaatsing in Azure Data Factory | Microsoft Docs
 description: Meer informatie over het beveiligen van gegevensverplaatsing in Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c2b6c494a9c4d0dac37315520b8d7b962f3490b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - beveiligingsoverwegingen voor gegevensverplaatsing
 
@@ -48,7 +47,7 @@ In dit artikel controleert u beveiligingsoverwegingen in de volgende twee data m
 - **Hybride scenario**: In dit scenario wordt de bron- of doelserver zich achter een firewall of binnen een on-premises zakelijke netwerk of de gegevens store is in een particulier netwerk / virtuele netwerk (meestal de bron) en is niet openbaar toegankelijk. Databaseservers die worden gehost op virtuele machines vallen ook onder dit scenario.
 
 ## <a name="cloud-scenarios"></a>Cloud-scenario 's
-###<a name="securing-data-store-credentials"></a>Referenties opslaan, het beveiligen van gegevens
+### <a name="securing-data-store-credentials"></a>Referenties opslaan, het beveiligen van gegevens
 Azure Data Factory beveiligt uw referenties voor gegevensopslag door **versleutelen** ze met behulp van **certificaten die worden beheerd door Microsoft**. Deze certificaten worden gedraaid elke **twee jaar** (waaronder migratie van referenties en vernieuwen van certificaat). Deze versleutelde referenties zijn veilig opgeslagen in een **Azure Storage beheerd door Azure Data Factory-beheerservices**. Raadpleeg voor meer informatie over Azure Storage beveiliging [beveiligingsoverzicht van Azure Storage](../../security/security-storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Gegevensversleuteling onderweg

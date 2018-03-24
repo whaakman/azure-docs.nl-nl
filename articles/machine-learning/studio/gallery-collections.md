@@ -2,9 +2,10 @@
 title: Azure-galerie AI verzamelingen | Microsoft Docs
 description: Detecteren en verzamelingen in de galerie van Azure AI delen.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: b7850b55baa690df22d8ebe14e9fa17fd91e0bad
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ee34520973a482a5a7741efe1306c8a656315277
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Detecteren en verzamelingen in de galerie van Azure AI delen
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ Om te bladeren verzamelingen [in de galerie](http://gallery.cortanaintelligence.
 
 ![Selecteer de verzamelingen op de startpagina van de galerie](./media/gallery-collections/select-collections-in-gallery.png)
 
-De  **[verzamelingen](https://gallery.cortanaintelligence.com/collections)**  pagina geeft een lijst met onlangs toegevoegde en populaire verzamelingen. Als u wilt weergeven van alle verzamelingen, selecteer **alle**. Als u wilt zoeken naar een specifieke verzameling, selecteer **alle**, en selecteer vervolgens filtercriteria. Ook kunt u zoektermen op in de **Search** vak aan de bovenkant van de pagina Galerie.
+De **[verzamelingen](https://gallery.cortanaintelligence.com/collections)** pagina geeft een lijst met onlangs toegevoegde en populaire verzamelingen. Als u wilt weergeven van alle verzamelingen, selecteer **alle**. Als u wilt zoeken naar een specifieke verzameling, selecteer **alle**, en selecteer vervolgens filtercriteria. Ook kunt u zoektermen op in de **Search** vak aan de bovenkant van de pagina Galerie.
 
 U kunt meer informatie over een verzameling op de pagina van de verzameling gegevens kunt ophalen. Een verzameling details om pagina te openen, selecteer de verzameling. Op een verzameling details pagina in de **opmerkingen** sectie, u kunt opmerkingen, feedback geven of vragen hebt over de verzameling. U kunt zelfs de verzameling met vrienden of collega's op Twitter of LinkedIn delen. U kunt ook een koppeling naar de pagina van de verzameling details om uit te nodigen van andere gebruikers naar de pagina e.
 

@@ -2,7 +2,7 @@
 title: Waarschuwing beheeroplossing in Azure Log Analytics | Microsoft Docs
 description: De waarschuwing beheeroplossing in Log Analytics kunt u het analyseren van alle waarschuwingen in uw omgeving.  Naast het consolideren waarschuwingen gegenereerd binnen Log Analytics, importeert deze waarschuwingen van verbonden beheergroepen van System Center Operations Manager in logboekanalyse.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Waarschuwing beheeroplossing in Azure Log Analytics
 
@@ -109,28 +109,15 @@ De oplossing waarschuwingen importeren uit System Center Operations Manager en m
 De volgende tabel bevat een voorbeeld-logboek zoekt waarschuwing records die door deze oplossing worden verzameld: 
 
 | Query’s uitvoeren | Beschrijving |
-|:--- |:--- |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |Kritieke waarschuwingen die in de afgelopen 24 uur zijn geactiveerd |
-| Type waarschuwing AlertSeverity = waarschuwing TimeRaised = > nu 24 uur |Waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur |
-| Type waarschuwing SourceSystem = OpsManager AlertState =! gesloten TimeRaised = > nu - 24-UURS &#124; meting count() als tellen per SourceDisplayName |Bronnen met actieve waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur |
-| Type waarschuwing SourceSystem = OpsManager AlertSeverity = fout TimeRaised = > nu 24 uur AlertState! = gesloten |Kritieke waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur die nog steeds actief zijn |
-| Type waarschuwing SourceSystem = OpsManager TimeRaised = > nu 24 uur AlertState = gesloten |Deze gebeurtenis treedt op tijdens de afgelopen 24 uur die nu zijn gesloten waarschuwingen |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |Waarschuwingen die worden weergegeven gedurende de afgelopen dag gegroepeerd op hun ernst |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |Waarschuwingen die worden weergegeven gedurende de afgelopen dag gesorteerd op basis van hun waarde aantal herhalingen |
-
-
->[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), en vervolgens de voorgaande query's in het volgende wijzigen wilt:
->
->| Query’s uitvoeren | Beschrijving |
 |:---|:---|
 | Waarschuwing &#124; waar SourceSystem == 'OpsManager' en AlertSeverity == "error" en TimeRaised > ago(24h) |Kritieke waarschuwingen die in de afgelopen 24 uur zijn geactiveerd |
 | Waarschuwing &#124; waar AlertSeverity == 'waarschuwing' en TimeRaised > ago(24h) |Waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur |
-| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en AlertState! = 'Gesloten' en TimeRaised > ago(24h) &#124; Aantal samenvatten count() door SourceDisplayName = |Bronnen met actieve waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur |
+| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en AlertState! = 'Gesloten' en TimeRaised > ago(24h) &#124; samenvatten Count = count() door SourceDisplayName |Bronnen met actieve waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur |
 | Waarschuwing &#124; waar SourceSystem == 'OpsManager' en AlertSeverity == "error" en TimeRaised > ago(24h) en AlertState! = 'Gesloten' |Kritieke waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur die nog steeds actief zijn |
 | Waarschuwing &#124; waar SourceSystem == 'OpsManager' en TimeRaised > ago(24h) en AlertState == 'Gesloten' |Deze gebeurtenis treedt op tijdens de afgelopen 24 uur die nu zijn gesloten waarschuwingen |
-| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en TimeRaised > ago(1d) &#124; Aantal samenvatten count() door AlertSeverity = |Waarschuwingen die worden weergegeven gedurende de afgelopen dag gegroepeerd op hun ernst |
+| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en TimeRaised > ago(1d) &#124; samenvatten Count = count() door AlertSeverity |Waarschuwingen die worden weergegeven gedurende de afgelopen dag gegroepeerd op hun ernst |
 | Waarschuwing &#124; waar SourceSystem == 'OpsManager' en TimeRaised > ago(1d) &#124; sorteren op RepeatCount desc |Waarschuwingen die worden weergegeven gedurende de afgelopen dag gesorteerd op basis van hun waarde aantal herhalingen |
+
 
 
 ## <a name="next-steps"></a>Volgende stappen

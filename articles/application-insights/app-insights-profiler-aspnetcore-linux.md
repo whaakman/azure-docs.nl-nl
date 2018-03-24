@@ -2,7 +2,7 @@
 title: Profiel van ASP.NET core Azure Linux web-apps met Application Insights Profiler | Microsoft Docs
 description: Overzicht van het concept en stapsgewijze zelfstudie over het in te schakelen
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2d7405baee84b53311f01e748ca7975147c107d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 63a7ceacffe1ee33227d3a8272dda7de7b3b1135
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profiel ASP.NET Core Azure Linux-Web-Apps met Application Insights Profiler
 
@@ -143,6 +143,18 @@ Hier ziet u uitvoer die vergelijkbaar is met het volgende:
 5. Ga naar Application Insights prestaties deelvenster in Azure-portal. U ziet de profiler traceringen beschikbaar in de rechterbenedenhoek.
 
     ![Weergave traceringen](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+
+## <a name="known-issues"></a>Bekende problemen
+
+### <a name="enable-button-in-profiler-configuration-pane-does-not-work"></a>Knop in Profiler configuratie deelvenster niet werkt inschakelen
+**Als u uw app met behulp van App Services Linux host, hoeft u geen Profiler opnieuw inschakelen in het deelvenster prestaties in App Insights-portal. Inclusief NuGet-pakket in het project en het instellen van de App Insights iKey in App-instellingen zijn voldoende zijn voor Profiler**.
+
+Als u volgt de [App Insights Profiler voor Windows](./app-insights-profiler.md) stuk werkstroom te klikken op **inschakelen** in het deelvenster Profiler configureert u ontvangt een foutmelding als de knop probeert te installeren van de Windows-versie van Profiler-agent op Linux-omgeving.
+
+We werken over het oplossen van dit probleem in de ervaring inschakelen.
+
+![U hoeft niet te de Profiler opnieuw in prestaties deelvenster aanbrengen profiler werken op Linux App Services inschakelen](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
+
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u aangepaste containers die worden gehost door App Services gebruikt, volg de instructies uit [ Serviceprofiler inschakelen voor beperkte ASP.NET Core toepassing](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) App Insights Profiler inschakelen

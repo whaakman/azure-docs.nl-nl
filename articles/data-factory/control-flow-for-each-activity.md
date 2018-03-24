@@ -2,10 +2,10 @@
 title: ForEach-activiteit in Azure Data Factory | Microsoft Docs
 description: De elke activiteit voor definieert een herhalende controlestroom in de pipeline. Het wordt gebruikt voor iteratie van een verzameling en opgegeven activiteiten uitvoeren.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: b9a151ac04bc539e337b0007a264e196dc0ae6a3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2eaa4f6bb49867e0f0f061116551794d6f1dd0ca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-activiteit in Azure Data Factory
 De ForEach-activiteit definieert een herhalende controlestroom in de pipeline. Deze activiteit wordt gebruikt om een verzameling te herhalen en voert opgegeven activiteiten uit in een lus. De lusimplementatie van deze activiteit is vergelijkbaar met Foreach-lusstructuur in computertalen.

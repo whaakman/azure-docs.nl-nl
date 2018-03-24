@@ -1,24 +1,24 @@
 ---
 title: Installeren Azure AD Connect met SQL gedelegeerde beheerdersmachtigingen | Microsoft Docs
 description: Dit onderwerp beschrijft een update naar Azure AD Connect waarmee de installatie met een account dat alleen SQL dbo-machtigingen heeft.
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: jparsons
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: c2d77c37f2f65c9a7db1fd5c4010fc43bcbc7ebf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installeren Azure AD Connect met SQL delegated administrator-machtigingen
 Vóór de laatste build van de Azure AD Connect beheerdersrechten delegering bij het implementeren van configuraties die SQL vereist, niet wordt ondersteund.  Gebruikers die wilden Azure AD Connect installeert die nodig zijn om machtigingen voor server-beheerder (SA) op de SQL server.
@@ -51,6 +51,8 @@ Gebruik de volgende stappen voor het inrichten van de buiten-band-database en Az
 
 ## <a name="additional-information"></a>Aanvullende informatie
 Zodra de database is geconfigureerd, wordt dit door de beheerder van de Azure AD Connect kunt installeren en configureren van lokale synchronisatie op hun gemak.  
+
+De **/UseExistingDatabase** vlag is vereist als u een vooraf gemaakte database.  Het is niet alleen gebruikt in recovery situaties.
 
 Naast de ondersteuning van nieuwe installaties van Azure AD Connect met deze functie ook kunt delegatie voor elk scenario betrekking hebben op de **/UseExistingDatabase** vlag.  Zie voor meer informatie over het installeren van Azure AD Connect met een bestaande database [Azure AD Connect installeren met een bestaande database van ADSync](active-directory-aadconnect-existing-database.md)
 

@@ -5,9 +5,9 @@ services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 45b07c6ca86802d0cc3e773234e1122ba7bd9ea7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: 980cf7b59ed16778bbb6cd1b657e3522407c79c9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Doorsturen van netwerkverkeer met een routetabel met de Azure portal
 
@@ -260,4 +260,4 @@ In dit artikel wordt een routetabel gemaakt en gekoppeld aan een subnet. U hebt 
 Terwijl u veel Azure-resources binnen een virtueel netwerk implementeren kunt, kunnen geen resources voor sommige Azure PaaS-services worden geïmplementeerd in een virtueel netwerk. U kunt nog steeds toegang beperken tot de bronnen van sommige services Azure PaaS verkeer alleen via een virtueel netwerksubnet al. Ga naar de volgende zelfstudie voor informatie over het netwerktoegang tot Azure PaaS-resources te beperken.
 
 > [!div class="nextstepaction"]
-> [Beperken van toegang tot het netwerk voor PaaS-resources](virtual-network-service-endpoints-configure.md#azure-portal)
+> [Beperken van toegang tot het netwerk voor PaaS-resources](tutorial-restrict-network-access-to-resources.md)

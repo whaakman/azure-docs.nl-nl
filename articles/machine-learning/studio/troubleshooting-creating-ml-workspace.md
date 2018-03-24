@@ -2,9 +2,10 @@
 title: 'Problemen oplossen: Maken en verbinding maken met een Machine Learning-werkruimte | Microsoft Docs'
 description: Oplossingen voor algemene problemen bij het maken en verbinding maken met een Azure Machine Learning-werkruimte
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 1a8aec4b-35f9-44e8-9570-2575b8979ab1
 ms.service: machine-learning
@@ -13,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: cdccd4ce7b87f47d21578076653bde901748188b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c265b14a88e993512811de365f1ba51f7ba6028
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Gids voor probleemoplossing: een Machine Learning-werkruimte maken en hiermee verbinding maken
 Deze handleiding bevat oplossingen voor enkele uitdagingen vaak aangetroffen bij het instellen van Azure Machine Learning-werkruimten.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="workspace-owner"></a>De eigenaar van de werkruimte
+## <a name="workspace-owner"></a>Eigenaar van de werkruimte
 Om te openen van een werkruimte in Machine Learning Studio, moet u zijn aangemeld bij de Microsoft-Account dat u gebruikt voor het maken van de werkruimte of moet u een uitnodiging ontvangen van de eigenaar van het koppelen van de werkruimte. U kunt de werkruimte, inclusief de mogelijkheid om toegang te configureren beheren vanuit de Azure-portal.
 
 Zie voor meer informatie over het beheren van een werkruimte [beheren van een Azure Machine Learning-werkruimte].

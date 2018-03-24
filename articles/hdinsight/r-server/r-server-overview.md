@@ -2,7 +2,7 @@
 title: Inleiding op Azure HDInsight R Server | Microsoft Docs
 description: Informatie over het R Server op HDInsight gebruiken voor het maken van toepassingen voor big data-analyse.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 2106e5f0c9b6a27da3747bc67aad0937f2356873
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Inleiding tot R Server en open-source R mogelijkheden in HDInsight
+# <a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Inleiding tot R Server en open-source R mogelijkheden in HDInsight
 
 Microsoft R Server is beschikbaar als een Implementatieoptie wanneer u een HDInsight-clusters in Azure maken. Deze nieuwe mogelijkheid biedt gegevenswetenschappers en statistici R programmeurs op aanvraag toegang tot schaalbare, gedistribueerde methoden van analyses in HDInsight.
 
@@ -53,7 +53,7 @@ U kunt ook verbinding maken met het R-Server vanaf de opdrachtregel met behulp v
 ## <a name="develop-and-run-r-scripts"></a>Ontwikkelen en uitvoeren van scripts R
 De R-scripts u maken en uitvoeren kunnen van de 8000 + open-source R-pakketten naast de geparallelliseerde en gedistribueerde routines in de bibliotheek ScaleR gebruiken. In het algemeen een script dat wordt uitgevoerd met R Server op de edge-knooppunt uitgevoerd binnen de R-interpreter op dat knooppunt. De uitzonderingen worden die stappen die nodig zijn om aan te roepen, een functie ScaleR met een compute-context die is ingesteld op Hadoop-kaart (RxHadoopMR) verminderen of Spark (RxSpark). De functie wordt in dit geval wordt uitgevoerd in een gedistribueerde manier over die (taak)-gegevensknooppunten van het cluster die gekoppeld aan de gegevens waarnaar wordt verwezen zijn. Zie voor meer informatie over de verschillende rekenscenario context opties [Compute context opties voor R Server op HDInsight](r-server-compute-contexts.md).
 
-## <a name="operationalize-a-model"></a>Mogelijk een model maken
+## <a name="operationalize-a-model"></a>Een model operationeel maken
 Wanneer uw gegevens modelleren voltooid is, kunt u het model om te maken van voorspellingen voor nieuwe gegevens vanuit Azure en on-premises operationeel te maken. Dit proces staat bekend als het score berekenen. Score berekenen kan worden gedaan in HDInsight, Azure Machine Learning of on-premises.
 
 ### <a name="score-in-hdinsight"></a>Score in HDInsight

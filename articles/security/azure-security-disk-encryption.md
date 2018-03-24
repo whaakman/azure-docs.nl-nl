@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 73212a231d11136854115922df423a7cb5b08f05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption for Windows and Linux IaaS VM 's
 Microsoft Azure is sterk doorgevoerd om ervoor te zorgen voor uw privacy van gegevens, onafhankelijkheid van gegevens en schakelt u de controle uw Azure gegevens via een bereik van gehoste technologieën geavanceerde voor het versleutelen, beheren en beheren van versleutelingssleutels besturingselement & audit toegang van gegevens. Dit biedt Azure-klanten de flexibiliteit om te kiezen welke oplossing het beste voldoet aan de behoeften van hun bedrijf. In dit artikel vindt we u een nieuwe technologieoplossing 'Azure Disk Encryption for Windows and Linux IaaS VM van' om te helpen beveiligen en bescherming van uw gegevens om te voldoen aan de beveiliging van de organisatie en de naleving verplichtingen. Het artikel biedt gedetailleerde richtlijnen over het gebruik van de Azure disk encryption functies met inbegrip van de ondersteunde scenario's en de gebruiker optreedt.
@@ -156,13 +156,13 @@ Voordat u Azure Disk Encryption op Azure IaaS VM's inschakelen voor de ondersteu
 * De Azure-platform moet toegang tot de versleutelingssleutels of geheimen in de sleutelkluis zodat ze beschikbaar zijn op de virtuele machine is wanneer deze wordt opgestart en het besturingssysteemvolume virtuele machine ontsleutelt. Om machtigingen te verlenen voor Azure-platform, stel de **EnabledForDiskEncryption** eigenschap in de sleutelkluis. Zie voor meer informatie **instellen boven en uw sleutelkluis configureren voor Azure Disk Encryption** in de bijlage.
 * Uw sleutelkluis geheim en de KEK-URL's moeten samengestelde zijn. Azure zorgt ervoor dat deze beperking versiebeheer. Zie de volgende voorbeelden voor geldige geheim en KEK-URL's:
 
-  * Voorbeeld van een geldige URL geheime: *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Voorbeeld van een geldige KEK-URL: *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Voorbeeld van een geldige geheime URL:   *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Voorbeeld van een geldige KEK-URL:   *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Azure Disk Encryption biedt geen ondersteuning voor het opgeven van poortnummers als onderdeel van de sleutelkluis geheimen en KEK-URL's. Voor voorbeelden van niet-ondersteunde en ondersteunde sleutelkluis-URL's, Zie de volgende:
 
-  * Onaanvaardbaar sleutelkluis-URL *https://contosovault.vault.azure.net:443/geheimen/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Acceptabele sleutelkluis-URL: *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Onaanvaardbaar sleutelkluis-URL  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Acceptabele sleutelkluis-URL:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Als u wilt inschakelen, de Azure Disk Encryption functie, de IaaS VM's moet voldoen aan de volgende configuratievereisten voor netwerk-eindpunt:
   * Als u een token voor verbinding maken met uw sleutelkluis, de IaaS VM moet verbinding maken met een Azure Active Directory-eindpunt \[login.microsoftonline.com\].
@@ -193,7 +193,7 @@ Voordat u Azure Disk Encryption op Azure IaaS VM's inschakelen voor de ondersteu
 * Als u wilt configureren met de Azure CLI-schijfversleuteling-vereisten, Zie [dit script Bash](https://github.com/ejarvi/ade-cli-getting-started).
 * Als u de Azure Backup-service wilt back-up en herstel van versleutelde virtuele machines, als versleuteling is ingeschakeld met Azure Disk Encryption, uw virtuele machines te versleutelen met behulp van de configuratie van de Azure Disk Encryption. De Backup-service biedt ondersteuning voor virtuele machines die zijn versleuteld met Nee KEK of KEK-configuraties. Zie [back-up en herstellen versleuteld virtuele machines met Azure Backup-versleuteling](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* Bij het versleutelen van een volume met het Linux-besturingssysteem, houd er rekening mee dat VM moet worden opgestart op dat moment aan het einde van het proces. Dit kan worden gedaan via de portal, powershell of CLI.   Om de voortgang van versleuteling volgen, het statusbericht dat is geretourneerd door Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus periodiek te pollen.  Zodra de codering is voltooid, de het statusbericht dat is geretourneerd door deze opdracht wordt dit aangegeven.  Bijvoorbeeld ' ProgressMessage: besturingssysteemschijf is versleuteld, start u de virtuele machine ' op dit moment de virtuele machine kan worden gestart en gebruikt.  
+* Bij het versleutelen van een volume met het Linux-besturingssysteem, houd er rekening mee dat VM moet worden opgestart op dat moment aan het einde van het proces. Dit kan worden gedaan via de portal, powershell of CLI.   Om de voortgang van versleuteling volgen, het statusbericht dat is geretourneerd door Get-AzureRmVMDiskEncryptionStatus periodiek pollen https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Zodra de codering is voltooid, wordt dit door het statusbericht dat is geretourneerd door deze opdracht aangegeven. Bijvoorbeeld ' ProgressMessage: besturingssysteemschijf is versleuteld, start u de virtuele machine ' op dit moment de virtuele machine kan worden gestart en gebruikt.  
 
 * Azure Disk Encryption voor Linux gegevensschijven bevatten een gekoppeld bestandssysteem Linux vóór versleuteling is vereist
 
@@ -224,25 +224,25 @@ Gebruik de volgende PowerShell-cmdlet voor het maken van een Azure AD-toepassing
 ##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-portal"></a>Instellen van het Azure AD-client-ID en het geheim van de Azure-portal
 U kunt ook van uw Azure AD-client-ID en geheim instellen met behulp van de Azure-Portal. Ga als volgt te werk als u wilt uitvoeren van deze taak:
 
-1. Klik op de **Active Directory** tabblad.
+1. Selecteer **alle Services > Azure Active Directory**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-service.png)
 
-2. Klik op **toepassing toevoegen**, en typ vervolgens de naam van de toepassing.
+2. Selecteer **App registraties > nieuwe toepassing registreren**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-app-registration.png)
 
-3. Klik op de pijl en configureer vervolgens de eigenschappen van de toepassing.
+3. Voer de vereiste gegevens en de toepassing maken:
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-app.png)
 
-4. Klik op het vinkje in de linkerbenedenhoek te voltooien. De configuratiepagina van de toepassing wordt weergegeven en de Azure AD-client-ID aan de onderkant van de pagina wordt weergegeven.
+4. Selecteer de zojuist gemaakte toepassing om weer te geven van eigenschappen, inclusief toepassing-ID.  Voor het maken van een sleutel voor de toepassing selecteert **instellingen > sleutels**, een beschrijving en de vervaldatum voor de sleutel toevoegen en klik op **opslaan**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-pw.png)
 
-5. Opslaan van de Azure AD-clientgeheim door te klikken op de **opslaan** knop. Let op het Azure AD-clientgeheim in het tekstvak sleutels. Op de juiste wijze beveiligt.
+5. De gegenereerde geheime waarde kopiëren en op de juiste wijze beveiligt.
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-save-pw.png)
 
 
 ##### <a name="use-an-existing-application"></a>Gebruik een bestaande toepassing

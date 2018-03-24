@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: Problemen met synchronisatie van het object | Microsoft Docs'
 description: Dit onderwerp bevat stappen voor het oplossen van problemen met synchronisatie van object met de taak voor het oplossen van problemen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 10ebe039b9d266d15696b397b9cdef9bc7ec2a10
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Problemen met object-synchronisatie met Azure AD Connect-synchronisatie
 Dit document bevat stappen voor het oplossen van problemen met synchronisatie van object met de taak voor het oplossen van problemen.
 
 ## <a name="troubleshooting-task"></a>Het oplossen van taak
-Voor de implementatie van Azure Active Directory (AAD) verbinding maken met versie <verison> of hoger, gebruikt u de taak voor het oplossen van problemen in de wizard object synchronisatieproblemen kunt oplossen. Voor eerdere versies Neem oplossen handmatig beschreven [hier](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+Voor Azure Active Directory (AAD) implementatie verbinden met versie 1.1.749.0 of hoger, gebruik van de taak voor het oplossen van problemen in de wizard object synchronisatieproblemen kunt oplossen. Voor eerdere versies Neem oplossen handmatig beschreven [hier](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Voer de taak voor het oplossen van problemen in de wizard
 Als u wilt de taak voor het oplossen van problemen in de wizard uitvoert, moet u de volgende stappen uitvoeren:

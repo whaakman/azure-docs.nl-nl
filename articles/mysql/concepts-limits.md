@@ -8,20 +8,20 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Beperkingen in Azure-Database voor MySQL
-De Azure-Database voor de MySQL-service is in de openbare preview. De volgende secties beschrijven capaciteit, ondersteuning voor opslag-engine, ondersteuning van bevoegdheden, gegevensondersteuning manipulatie instructie en functionele limieten in de database-service. Zie ook [algemene beperkingen](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) van toepassing op de MySQL-database-engine.
+De volgende secties beschrijven capaciteit, ondersteuning voor opslag-engine, ondersteuning van bevoegdheden, gegevensondersteuning manipulatie instructie en functionele limieten in de database-service. Zie ook [algemene beperkingen](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) van toepassing op de MySQL-database-engine.
 
 ## <a name="service-tier-maximums"></a>Service tier maximumwaarden
 Azure MySQL-Database heeft meerdere Servicelagen kiezen bij het maken van een server. Zie voor meer informatie [Azure Database voor MySQL Prijscategorieën](concepts-pricing-tiers.md).  
 
-Er is een maximum aantal verbindingen, Compute-eenheden en opslag in elke servicelaag tijdens de preview, als volgt: 
+Er is een maximum aantal verbindingen, Compute-eenheden en opslag in elke servicelaag als volgt: 
 
 |**Prijscategorie**| **COMPUTE generatie**|**vCore(s)**| **Max Connections**|
 |---|---|---|---|
@@ -29,21 +29,20 @@ Er is een maximum aantal verbindingen, Compute-eenheden en opslag in elke servic
 |Basic| Gen 4| 2| 100|
 |Basic| Gen 5| 1| 50|
 |Basic| Gen 5| 2| 100|
-|Algemeen doel| Gen 4| 2| 200|
-|Algemeen doel| Gen 4| 4| 400|
-|Algemeen doel| Gen 4| 8| 800|
-|Algemeen doel| Gen 4| 16| 1600|
-|Algemeen doel| Gen 4| 32| 3200|
-|Algemeen doel| Gen 5| 2| 200|
-|Algemeen doel| Gen 5| 4| 400|
-|Algemeen doel| Gen 5| 8| 800|
-|Algemeen doel| Gen 5| 16| 1600|
-|Algemeen doel| Gen 5| 32| 3200|
+|Algemeen doel| Gen 4| 2| 300|
+|Algemeen doel| Gen 4| 4| 625|
+|Algemeen doel| Gen 4| 8| 1250|
+|Algemeen doel| Gen 4| 16| 2500|
+|Algemeen doel| Gen 4| 32| 5000|
+|Algemeen doel| Gen 5| 2| 300|
+|Algemeen doel| Gen 5| 4| 625|
+|Algemeen doel| Gen 5| 8| 1250|
+|Algemeen doel| Gen 5| 16| 2500|
+|Algemeen doel| Gen 5| 32| 5000|
 |Geoptimaliseerd geheugen| Gen 5| 2| 600|
 |Geoptimaliseerd geheugen| Gen 5| 4| 1250|
 |Geoptimaliseerd geheugen| Gen 5| 8| 2500|
 |Geoptimaliseerd geheugen| Gen 5| 16| 5000|
-|Geoptimaliseerd geheugen| Gen 5| 32| 10.000| 
 
 Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 > FOUT (08004) 1040: Te veel verbindingen
@@ -74,7 +73,7 @@ Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 ### <a name="unsupported"></a>Niet-ondersteund
 - SELECTEREN... IN HET UITVOERBESTAND
 
-## <a name="preview-functional-limitations"></a>Functionele beperkingen Preview
+## <a name="functional-limitations"></a>Functionele beperkingen
 
 ### <a name="scale-operations"></a>Schaalbewerkingen
 - Dynamische schaalbaarheid van servers in de prijscategorie is momenteel niet ondersteund. Dat wil zeggen, schakelen tussen Basic, algemeen gebruik en geoptimaliseerd voor geheugen Prijscategorieën.

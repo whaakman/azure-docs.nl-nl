@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure functions, patronen, best practices, functies, gebeurtenisverwerking webhooks, dynamische compute, zonder server-architectuur
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: functions
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8088a8a83bcaefce17ac2756360a46119c8eb27
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 19ca9d70f769a19556d131d1d131f1bc9d107ef0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>De prestaties en betrouwbaarheid van Azure Functions optimaliseren
 
@@ -99,7 +99,7 @@ Asynchrone programmering is een aanbevolen procedure. Echter altijd voorkomen di
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Berichten ontvangen in batch indien mogelijk
 
-Sommige triggers zoals Event Hub inschakelen ontvangen van een batch van berichten op een enkele aanroepen.  Batchverwerking berichten heeft veel betere prestaties.  U kunt de maximale batchgrootte in de `functions.json` bestand zoals beschreven in de [host.json naslagdocumentatie](functions-host-json.md)
+Sommige triggers zoals Event Hub inschakelen ontvangen van een batch van berichten op een enkele aanroepen.  Batchverwerking berichten heeft veel betere prestaties.  U kunt de maximale batchgrootte in de `host.json` bestand zoals beschreven in de [host.json naslagdocumentatie](functions-host-json.md)
 
 Voor C#-functies kunt u het type naar een matrix sterk getypeerd.  Bijvoorbeeld, in plaats van `EventData sensorEvent` handtekening van de methode kan worden `EventData[] sensorEvent`.  Voor andere talen moet u de eigenschap cardinality expliciet zijn ingesteld uw `function.json` naar `many` om in te schakelen batchverwerking [zoals hier](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 

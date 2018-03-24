@@ -1,11 +1,11 @@
 ---
-title: "Gegevens uit Azure-Database kopiëren voor gebruik van Azure Data Factory PostgreSQL | Microsoft Docs"
-description: "Ontdek hoe u gegevens kopiëren van Azure-Database voor PostgreSQL naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn."
+title: Gegevens uit Azure-Database kopiëren voor gebruik van Azure Data Factory PostgreSQL | Microsoft Docs
+description: Ontdek hoe u gegevens kopiëren van Azure-Database voor PostgreSQL naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 13be3144455e36b19871d68982b1e9ec40d05d89
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4aea42bd20f01b4dae9e940b0ed101020d64c00c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Gegevens kopiëren van Azure-Database voor PostgreSQL met behulp van Azure Data Factory 
 

@@ -2,34 +2,32 @@
 title: Domein-HDInsight-clusters met behulp van Azure Active Directory Domain Services - Azure configureren | Microsoft Docs
 description: Meer informatie over het instellen en domein HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 03/20/2018
 ms.author: bhanupr
-ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Domein-HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren
 
 Domein-clusters bieden de onderneming met meerdere gebruikers beveiligingsmogelijkheden in HDInsight. HDInsight-clusters domein zijn verbonden met active directory-domeinen, zodat gebruikers van een domein hun domeinreferenties gebruiken kunnen voor verificatie met de clusters en big data-taken uitvoeren. 
 
-Er zijn twee manieren voor het instellen van een domeincontroller, zodat een domein HDInsight-cluster verbinding met maken kan:
-
-- Azure Active Directory Domain Services (Azure AD DS)
-- Active Directory-domeincontroller op Azure IaaS VM 's
-
 In dit artikel leert u hoe een domein HDInsight-cluster met behulp van Azure Active Directory Domain Services configureren.
+
+> [!NOTE]
+> Active Directory op Azure IaaS VM's wordt niet langer ondersteund.
 
 ## <a name="create-azure-adds"></a>Azure ADDS maken
 

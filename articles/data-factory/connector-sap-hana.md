@@ -1,11 +1,11 @@
 ---
-title: "Gegevens kopiëren van SAP HANA met behulp van Azure Data Factory | Microsoft Docs"
-description: "Informatie over het kopiëren van gegevens van SAP HANA naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn."
+title: Gegevens kopiëren van SAP HANA met behulp van Azure Data Factory | Microsoft Docs
+description: Informatie over het kopiëren van gegevens van SAP HANA naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 2fb1313ba729fdcc1ddcd98b2143932343f1db3e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 96d9da90114ae392c3a9e1c22d8e993fd787ada8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Gegevens kopiëren van SAP HANA met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -170,16 +170,16 @@ Bij het kopiëren van gegevens uit een SAP HANA, worden de volgende toewijzingen
 | BLOB | Byte[] |
 | BOOLEAANSE WAARDE | Byte |
 | CLOB | Byte[] |
-| DATE | Datum en tijd |
+| DATE | DateTime |
 | DECIMAL | Decimale |
 | DOUBLE | Single |
 | INT | Int32 |
 | NVARCHAR | Tekenreeks |
 | ECHTE | Single |
-| SECONDDATE | Datum en tijd |
+| SECONDDATE | DateTime |
 | SMALLINT | Int16 |
 | TIJD | TimeSpan |
-| TIJDSTEMPEL | Datum en tijd |
+| TIJDSTEMPEL | DateTime |
 | TINYINT | Byte |
 | VARCHAR | Tekenreeks |
 

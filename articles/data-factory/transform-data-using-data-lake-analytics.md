@@ -2,10 +2,10 @@
 title: Transformeer gegevens met behulp van U-SQL-script - Azure | Microsoft Docs
 description: Meer informatie over verwerken of transformatie gegevens door het U-SQL-scripts uitvoeren op Azure Data Lake Analytics compute-service.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e55249ed187ad9fa74a39634bbb254c9b0b8b8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformeer gegevens door het U-SQL-scripts uitvoeren op Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -165,7 +165,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-In bovenstaande script bijvoorbeeld de invoer en uitvoer naar het script is gedefinieerd in  **@in**  en  **@out**  parameters. De waarden voor  **@in**  en  **@out**  parameters in de U-SQL-script worden doorgegeven dynamisch door Data Factory met behulp van de sectie 'parameters'. 
+In bovenstaande script bijvoorbeeld de invoer en uitvoer naar het script is gedefinieerd in **@in** en **@out** parameters. De waarden voor **@in** en **@out** parameters in de U-SQL-script worden doorgegeven dynamisch door Data Factory met behulp van de sectie 'parameters'. 
 
 U kunt ook andere eigenschappen zoals degreeOfParallelism en prioriteit opgeven in de definitie van de pijplijn voor de taken die worden uitgevoerd op de Azure Data Lake Analytics-service.
 

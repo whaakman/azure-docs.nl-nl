@@ -1,11 +1,10 @@
 ---
-title: "Gegevens kopiëren naar/van Oracle gebruik Data Factory | Microsoft Docs"
-description: "Informatie over het kopiëren van gegevens van Oracle-database die on-premises met Azure Data Factory."
+title: Gegevens kopiëren naar/van Oracle gebruik Data Factory | Microsoft Docs
+description: Informatie over het kopiëren van gegevens van Oracle-database die on-premises met Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 82fe637b46decfc9c8d09b5c7e03f328a8636263
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 64e8a20f72d451908c12751c0f8062bf4ae86370
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Gegevens kopiëren van lokale Oracle met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +51,7 @@ Gateway is vereist, zelfs als de Oracle wordt gehost in een Azure IaaS VM. U kun
 ## <a name="supported-versions-and-installation"></a>Ondersteunde versies en installatie
 Twee versies van stuurprogramma's bieden ondersteuning voor deze connector Oracle:
 
-- **Microsoft-stuurprogramma voor Oracle (aanbevolen)**: vanaf Data Management Gateway versie 2.7, een Microsoft-stuurprogramma voor Oracle wordt automatisch geïnstalleerd samen met de gateway, dus u hoeft niet te verwerken bovendien het stuurprogramma om vast te stellen verbinding met de Oracle en u kunt ook de prestaties beter kopie dit stuurprogramma gebruikt. Hieronder versies van Oracle worden databases ondersteund:
+- **Microsoft-stuurprogramma voor Oracle (aanbevolen)**: Data Management Gateway versie 2.7, een stuurprogramma voor Oracle wordt automatisch geïnstalleerd samen met de gateway, dus u hoeft niet te bovendien verwerken van het stuurprogramma om Microsoft vanaf Stel de verbinding met Oracle en u kunt ook de prestaties beter kopie dit stuurprogramma gebruikt. Hieronder versies van Oracle worden databases ondersteund:
     - Oracle 12c R1 (12.1)
     - Oracle 11g R1, R2 (11.1, 11.2)
     - Oracle 10g R1, R2 (10.1, 10.2)
@@ -576,7 +575,7 @@ Bij het verplaatsen van gegevens uit Oracle, worden de volgende toewijzingen geb
 | BLOB |Byte[]<br/>(alleen ondersteund voor Oracle 10g en hoger als met Microsoft-stuurprogramma) |
 | CHAR |Tekenreeks |
 | CLOB |Tekenreeks |
-| DATE |Datum en tijd |
+| DATE |DateTime |
 | FLOAT |Decimaal, tekenreeks (als precision > 28) |
 | GEHEEL GETAL |Decimaal, tekenreeks (als precision > 28) |
 | INTERVAL JAAR, MAAND |Int32 |
@@ -589,9 +588,9 @@ Bij het verplaatsen van gegevens uit Oracle, worden de volgende toewijzingen geb
 | NVARCHAR2 |Tekenreeks |
 | RAW |Byte[] |
 | ROWID |Tekenreeks |
-| TIJDSTEMPEL |Datum en tijd |
-| TIJDSTEMPEL MET DE LOKALE TIJDZONE |Datum en tijd |
-| TIJDSTEMPEL MET TIJDZONE |Datum en tijd |
+| TIJDSTEMPEL |DateTime |
+| TIJDSTEMPEL MET DE LOKALE TIJDZONE |DateTime |
+| TIJDSTEMPEL MET TIJDZONE |DateTime |
 | NIET-ONDERTEKEND GEHEEL GETAL |Aantal |
 | VARCHAR2 |Tekenreeks |
 | XML |Tekenreeks |

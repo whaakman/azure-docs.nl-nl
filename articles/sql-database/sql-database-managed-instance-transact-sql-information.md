@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bd8733590819faa3c4286c1940f0b9258842c930
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database beheerd exemplaar T-SQL-verschillen met SQL Server 
 
@@ -393,7 +393,11 @@ De volgende variabelen, taken en weergaven retourneren andere resultaten:
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Meer dan opslagruimte met kleine databasebestanden
 
-Elk exemplaar beheerd heeft up 35 TB gereserveerd opslagruimte en elk databasebestand toewijzingseenheid van 128 GB opslagruimte in eerste instantie is geplaatst. Databases met een aantal kleine bestanden kunnen worden geplaatst op 128 GB eenheden die in totaal 35 TB limiet overschrijden. In dit geval kunnen geen nieuwe databases worden gemaakt of hersteld, zelfs als de totale grootte van alle databases niet aan de limiet voor het exemplaar komt. De fout die wordt geretourneerd in dat geval mogelijk niet wissen.
+Elk exemplaar beheerd heeft naar 35 TB opslagruimte is gereserveerd voor de schijfruimte van Azure Premium en elk databasebestand op een afzonderlijke fysieke schijf is geplaatst. Schijfgrootte kunnen 128 GB, 256 GB, 512 GB, 1 TB of 4 TB zijn. Ongebruikte ruimte op schijf niet in rekening gebracht, maar de totale som van Azure Premium-schijfgrootte niet langer zijn dan 35 TB. In sommige gevallen kunt u een beheerd Instnace die niet nodig heeft 8 TB in totaal de 35 TB Azure de limiet voor de grootte van de opslagruimte, vanwege de fragmentatie van de interne overschrijden. 
+
+Een exemplaar beheerd kan bijvoorbeeld een bestand met 1,2 TB grootte die gebruikmaakt van een schijf 4 TB en 248 bestanden met 1 GB elk die worden geplaatst op 248 schijven met een grootte van 128 GB. In dit voorbeeld is de totale schijfgrootte opslag 1 x 4 TB + 248 x 128 GB = 35 TB. Totaal aantal gereserveerde exemplaargrootte voor databases is echter 1 x 1.2 TB + 248 x 1 GB = 1,4 TB. Dit ziet u dat onder bepaalde omstandigheden, als gevolg van een specifieke distributie van bestanden, een exemplaar beheerd Azure Premium-schijf opslaglimiet waar u niet verwacht het dat mogelijk mogelijk bereikt. 
+
+Er is geen fout op bestaande databases en ze kunnen zonder probleem worden uitgebreid als nieuwe bestanden zijn niet toegevoegd, maar de nieuwe databases kunnen niet worden gemaakt of hersteld omdat er niet voldoende ruimte voor nieuwe schijfstations, zelfs als de totale grootte van alle databases t niet bereikt hij groottelimiet-exemplaar. De fout die wordt geretourneerd is in dat geval niet wissen.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Onjuiste configuratie van SAS-sleutel tijdens de database herstellen
 

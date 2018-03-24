@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 2065631922d25deaa94601484da9b8de3fd62b22
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 1bd0d49ecdfd4f014ccb67409238d9d06ddfb17b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="supported-postgresql-database-versions"></a>Versies van de ondersteunde PostgreSQL-Database
 Microsoft is erop gericht ter ondersteuning van n-2 versies van de PostgreSQL-engine in de Azure-Database voor PostgreSQL-service, wat betekent dat de primaire momenteel uitgebrachte versie (n) en de twee vorige primaire versies-(2).
@@ -27,7 +27,7 @@ Raadpleeg de [PostgreSQL documentatie](https://www.postgresql.org/docs/9.6/stati
 Raadpleeg de [PostgreSQL documentatie](https://www.postgresql.org/docs/9.5/static/release-9-5-7.html) voor meer informatie over verbeteringen en oplossingen in PostgreSQL 9.5.7.
 
 ## <a name="managing-updates-and-upgrades"></a>Het beheer van updates en upgrades
-Azure-Database voor PostgreSQL beheert automatisch patchen voor secundaire versie-updates. Op dit moment in de openbare preview hoofdversie upgrade wordt niet ondersteund. Bijvoorbeeld, wordt een upgrade van PostgreSQL 9.5 naar PostgreSQL 9,6 niet ondersteund.
+Azure-Database voor PostgreSQL beheert automatisch patchen voor secundaire versie-updates. Primaire versie upgrade wordt momenteel niet ondersteund. Bijvoorbeeld, wordt een upgrade van PostgreSQL 9.5 naar PostgreSQL 9,6 niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor informatie over de ondersteuning van verschillende PostgreSQL-uitbreidingen, [PostgreSQL-extensies](concepts-extensions.md)

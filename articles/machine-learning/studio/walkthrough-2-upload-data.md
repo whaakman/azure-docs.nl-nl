@@ -2,9 +2,10 @@
 title: 'Stap 2: Gegevens uploaden naar een Machine Learning-experiment | Microsoft Docs'
 description: 'Stap 2 van het ontwikkelen van een voorspellende oplossing overzicht: het uploaden van openbare gegevens opgeslagen in Azure Machine Learning Studio.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
@@ -12,13 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 469c94f6115f99bc4cf067e9c8f0e55c64990358
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f482b1273f83f5ae5bb4f1e64609767ee0c5fe32
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>Kennismaken, stap 2: Bestaande gegevens uploaden naar een Azure Machine Learning-experiment
 Dit is de tweede stap van de procedure [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)
@@ -32,7 +31,7 @@ Dit is de tweede stap van de procedure [predictive analytics-oplossing in Azure 
 
 - - -
 Voor het ontwikkelen van een Voorspellend model voor kredietrisico, moeten we gegevens die u gebruiken kunt om te trainen en vervolgens het model te testen. Voor dit scenario gebruiken we 'UCI Statlog (Duitse tegoed gegevens) Data Set' uit de opslagplaats UC Irvine Machine Learning. U kunt deze hier vinden:  
-<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://Archive.ICS.uci.edu/ml/DataSets/Statlog+(German+credit+Data)</a>
+<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 We gebruiken het bestand met de naam **german.data**. Dit bestand downloaden naar uw lokale vaste schijf.  
 

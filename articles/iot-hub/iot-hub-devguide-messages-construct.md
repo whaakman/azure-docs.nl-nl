@@ -5,20 +5,20 @@ services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3d5b500964ee37dbd347858edd35812e1d217499
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 832010181059e2ec42834e54622f374c367c8d4f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Maken en IoT Hub berichten lezen
 
@@ -45,11 +45,12 @@ De volgende tabel bevat de reeks Systeemeigenschappen in IoT Hub berichten.
 | ExpiryTimeUtc |Datum en tijd van de verloopdatum voor het bericht. |
 | EnqueuedTime |Datum en tijd waarop de [Cloud-naar-apparaat] [ lnk-c2d] bericht is ontvangen door de IoT Hub. |
 | CorrelationId |Een tekenreekseigenschap in een antwoordbericht die normaal gesproken de MessageId van de aanvraag, in aanvragen / antwoorden patronen bestaat. |
-| UserId |Een ID die wordt gebruikt voor het opgeven van de oorsprong van berichten. Wanneer berichten worden gegenereerd door de IoT Hub, is ingesteld op `{iot hub name}`. |
+| Gebruikers-id |Een ID die wordt gebruikt voor het opgeven van de oorsprong van berichten. Wanneer berichten worden gegenereerd door de IoT Hub, is ingesteld op `{iot hub name}`. |
 | ACK |Een bericht generator van feedback. Deze eigenschap wordt gebruikt in de cloud-naar-apparaat-berichten aan te vragen van IoT Hub Feedbackberichten als gevolg van het verbruik van het bericht te genereren door het apparaat. Mogelijke waarden: **geen** (standaard): geen Feedbackbericht wordt gegenereerd, **positieve**: ontvangen een feedbackbericht als het bericht is voltooid, **negatieve**: ontvangen een feedbackbericht als het bericht is verlopen (of levering van het maximum aantal is bereikt) zonder wordt voltooid door het apparaat of **volledige**: positieve en negatieve. Zie voor meer informatie [bericht feedback][lnk-feedback]. |
 | ConnectionDeviceId |Een ID die is ingesteld door de IoT Hub apparaat-naar-cloud-berichten. Bevat de **deviceId** van het apparaat dat het bericht heeft verzonden. |
 | ConnectionDeviceGenerationId |Een ID die is ingesteld door de IoT Hub apparaat-naar-cloud-berichten. Bevat de **generationId** (conform [identiteit apparaateigenschappen][lnk-device-properties]) van het apparaat dat het bericht heeft verzonden. |
 | ConnectionAuthMethod |Een verificatiemethode is ingesteld door de IoT Hub apparaat-naar-cloud-berichten. Deze eigenschap bevat informatie over de verificatiemethode die wordt gebruikt voor het verifiëren van het apparaat te verzenden. Zie voor meer informatie [apparaat naar de cloud anti-adresvervalsing][lnk-antispoofing]. |
+| CreationTimeUtc | Datum en tijd die het bericht is gemaakt op een apparaat. Een apparaat moet deze waarde expliciet worden ingesteld. |
 
 ## <a name="message-size"></a>Berichtgrootte
 

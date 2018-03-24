@@ -3,7 +3,7 @@ title: Overzicht van waarschuwingen in Microsoft Azure en Azure Monitor | Micros
 description: Waarschuwingen kunnen u Azure-resource metrische gegevens, gebeurtenissen of Logboeken bewaken en een melding krijgen wanneer een opgegeven voorwaarde wordt voldaan.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: a6dea224-57bf-43d8-a292-06523037d70b
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1f0182f27cfb8441a09abd2031b365a4ab4315a
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: c64ca224705b7da57846e53bdc28d6d03eb28b06
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Wat zijn de waarschuwingen in Microsoft Azure?
 In dit artikel beschrijft de verschillende bronnen van waarschuwingen in Microsoft Azure, wat zijn de doelen voor waarschuwingen, hun voordelen en hoe u aan de slag met het gebruik ervan. Specifiek geldt voor Azure Monitor maar biedt ook waarschuwingen verwijzingen naar andere services. Waarschuwingen bieden een methode voor het bewaken in Azure die u voorwaarden configureren over gegevens en worden gewaarschuwd kunt wanneer de voorwaarden overeen met de meest recente bewakingsgegevens.
@@ -33,9 +33,6 @@ Azure maakt gebruik van de volgende termen om waarschuwingen en hun functies te 
 * **Melding** : de actie op die op basis van een waarschuwing actief.
 * **Actie** -specifieke gebeld verzonden naar een ontvanger van een melding (bijvoorbeeld e-mailen een adres of ze naar een webhook-URL). Meldingen kunnen meestal meerdere acties activeren.
 
-    > [!NOTE]
-    > Als onderdeel van de evolutie van waarschuwingen in Azure is een nieuwe, uniforme ervaring beschikbaar in preview. De ervaring voor de nieuwe waarschuwingen (Preview) maakt gebruik van een andere taxonomie. Meer informatie over [waarschuwingen (Preview)](monitoring-overview-unified-alerts.md). 
-    >
 
 ## <a name="alerts-in-different-azure-services"></a>Waarschuwingen in verschillende Azure-services
 Waarschuwingen zijn beschikbaar in verschillende Azure-services controleren. Voor meer informatie over het gebruik van deze services [Raadpleeg dit artikel](./monitoring-overview.md). Hier vindt u een overzicht van de Waarschuwingstypen in Azure:
@@ -44,22 +41,18 @@ Waarschuwingen zijn beschikbaar in verschillende Azure-services controleren. Voo
 | Service | Waarschuwingstype | Ondersteunde services | Beschrijving |
 |---|---|---|---|
 | Azure Monitor | [Metrische waarschuwingen](./insights-alerts-portal.md) | [Ondersteunde metrische gegevens van de Azure-Monitor](./monitoring-supported-metrics.md) | Een melding ontvangen wanneer een metriek platform niveau voldoet aan een bepaalde voorwaarde (bijvoorbeeld, CPU-percentage op een virtuele machine is groter dan 90 voor de afgelopen vijf minuten). |
-|Azure Monitor | [Bijna realtime metrische waarschuwingen (preview)](./monitoring-near-real-time-metric-alerts.md)| [Ondersteunde bronnen van de Azure-Monitor](./monitoring-near-real-time-metric-alerts.md#what-resources-can-i-create-near-real-time-metric-alerts-for) | Een bericht sneller dan metrische waarschuwingen wanneer een of meer platform niveau metrische gegevens aan de opgegeven voorwaarden voldoen (bijvoorbeeld, CPU-percentage op een virtuele machine is groter dan 90 en netwerk In groter is dan 500 MB voor de afgelopen vijf minuten). |
+|Azure Monitor | [Bijna realtime metrische waarschuwingen](./monitoring-near-real-time-metric-alerts.md)| [Ondersteunde bronnen van de Azure-Monitor](./monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported) | Een bericht sneller dan metrische waarschuwingen wanneer een of meer platform niveau metrische gegevens aan de opgegeven voorwaarden voldoen (bijvoorbeeld, CPU-percentage op een virtuele machine is groter dan 90 en netwerk In groter is dan 500 MB voor de afgelopen vijf minuten). |
 | Azure Monitor | [Activiteit logboek waarschuwingen](./monitoring-activity-log-alerts.md) | Alle brontypen die beschikbaar zijn in Azure Resource Manager | Ontvangt een melding wanneer een nieuwe gebeurtenis in de [Azure Activity Log](./monitoring-overview-activity-logs.md) voldoet aan bepaalde voorwaarden (bijvoorbeeld wanneer een bewerking 'VM verwijderen' Deze gebeurtenis treedt op in myProductionResourceGroup of wanneer een nieuwe gebeurtenis servicestatus met 'Active' als de status wordt weergegeven). |
 | Application Insights | [Metrische waarschuwingen](../application-insights/app-insights-alerts.md) | Elke toepassing geïnstrumenteerd om gegevens te verzenden naar Application Insights | Een melding ontvangen wanneer een metriek op toepassingsniveau voldoet aan een bepaalde voorwaarde (bijvoorbeeld serverreactietijd is groter dan 2 seconden). |
 | Application Insights | [Waarschuwingen voor web-test](../application-insights/app-insights-monitor-web-app-availability.md) | Een website geïnstrumenteerd om gegevens te verzenden naar Application Insights | U ontvangt een melding wanneer de beschikbaarheid of reactiesnelheid van een website lager dan de verwachtingen is. |
 | Log Analytics | [Log Analytics waarschuwingen](../log-analytics/log-analytics-alerts.md) | Een service is geconfigureerd voor het verzenden van gegevens in Log Analytics | Een melding ontvangen wanneer een zoekquery logboekanalyse over metrische gegevens en/of gebeurtenis gegevens aan bepaalde criteria voldoet. |
 
 ## <a name="alerts-on-azure-monitor-data"></a>Waarschuwingen op gegevens van de Azure-Monitor
-Er zijn drie soorten waarschuwingen van de gegevens beschikbaar zijn vanuit Azure Monitor--metrische waarschuwingen, bijna realtime metrische waarschuwingen (preview) en activiteitenlogboek van waarschuwingen.
+Er zijn drie soorten waarschuwingen van de gegevens beschikbaar zijn vanuit Azure Monitor--metrische waarschuwingen, bijna realtime metrische waarschuwingen en het activiteitenlogboek van waarschuwingen.
 
-* **Metrische waarschuwingen** -deze waarschuwing wordt geactiveerd wanneer de waarde van een opgegeven waarde overschrijdt de drempelwaarde die u toewijst. De waarschuwing genereert een melding wanneer de waarschuwing is 'geactiveerd' (als de drempelwaarde is overschreden en de waarschuwing voorwaarde wordt voldaan), evenals wanneer deze 'opgelost is' (wanneer de drempel opnieuw wordt gepasseerd en niet langer aan de voorwaarde wordt voldaan). Zie voor een groeiende lijst met beschikbare metrische gegevens die worden ondersteund door Azure monitor, [lijst met metrische gegevens die worden ondersteund op Azure Monitor](monitoring-supported-metrics.md).
-* **Near-realtime metrische waarschuwingen (preview)** - deze waarschuwingen zijn vergelijkbaar met metrische waarschuwingen maar een aantal manieren van elkaar verschillen. Ten eerste de naam geeft al kunnen deze waarschuwingen activeren bijna realtime (zo snel 1 min.). Ze bieden ook ondersteuning voor bewaking van meerdere (momenteel twee) metrische gegevens.  De waarschuwing genereert een melding wanneer de waarschuwing is 'geactiveerd' (als de drempelwaarden voor elke metriek op hetzelfde moment worden overschreden en de waarschuwing voorwaarde wordt voldaan), evenals wanneer deze 'opgelost is' (wanneer ten minste één metriek overschrijdt de drempelwaarde opnieuw en de voorwaarde is geen meer voldaan aan).
+* **Metrische waarschuwingen** -deze waarschuwing wordt geactiveerd wanneer de waarde van een opgegeven waarde overschrijdt de drempelwaarde die u toewijst. De waarschuwing genereert een melding wanneer de waarschuwing is 'geactiveerd' (als de drempelwaarde is overschreden en de waarschuwing voorwaarde wordt voldaan), evenals wanneer deze 'opgelost is' (wanneer de drempel opnieuw wordt gepasseerd en niet langer aan de voorwaarde wordt voldaan). Dit zijn oudere metrische waarschuwingen. Zie hieronder voor nieuwere metrische waarschuwingen.
 
-    > [!NOTE]
-    > Bijna realtime metriek momenteel waarschuwingen openbare preview. De functionaliteit en de gebruikerservaring kan worden gewijzigd.
-    >
-    >
+* **Near-realtime metrische waarschuwingen** -dit zijn nieuwere metrische waarschuwingen met verbeterde functies in vergelijking met vorige metrische waarschuwingen worden gegenereerd. Deze waarschuwingen kunnen worden uitgevoerd met een frequentie van 1 min. Ze bieden ook ondersteuning voor bewaking van meerdere (momenteel twee) metrische gegevens.  De waarschuwing genereert een melding wanneer de waarschuwing is 'geactiveerd' (als de drempelwaarden voor elke metriek op hetzelfde moment worden overschreden en de waarschuwing voorwaarde wordt voldaan), evenals wanneer deze 'opgelost is' (wanneer ten minste één metriek overschrijdt de drempelwaarde opnieuw en de voorwaarde is geen meer voldaan aan).
 
 * **Activiteit logboek waarschuwingen** -een streaming logboek waarschuwing die wordt geactiveerd wanneer een gebeurtenis activiteitenlogboek wordt gegenereerd dat overeenkomt met filtercriteria die u hebt toegewezen. Deze waarschuwingen hebben slechts één status 'Geactiveerd', omdat de waarschuwings-engine gewoon de filtercriteria die van toepassing op een nieuwe gebeurtenis. Deze waarschuwingen kunnen worden gebruikt om te worden geïnformeerd wanneer er een nieuw incident in de servicestatus optreedt of als een gebruiker of toepassing een bewerking uitvoert in uw abonnement, bijvoorbeeld 'Virtuele machine verwijderen'.
 
@@ -76,9 +69,9 @@ Actie beheergroepen ondersteunen melding door ze naar een webhook-URL naast het 
     - Azure Logic App
     - een service van derden
 
-Gebruik actiegroepen bijna realtime metriek meldingen (Preview) en het activiteitenlogboek van waarschuwingen.
+Gebruik actiegroepen bijna realtime metriek waarschuwingen en het activiteitenlogboek van waarschuwingen.
 
-Metrische waarschuwingen gebruik nog geen groepen in te grijpen. U kunt meldingen configureren op een afzonderlijke waarschuwing metrische:
+Oudere metrische waarschuwingen onder waarschuwingen (klassiek) gebruik geen actiegroepen. U kunt meldingen configureren op een afzonderlijke waarschuwing metrische:
 * E-mailmeldingen verzenden naar de service-beheerder, CO-beheerders of extra e-mailadressen die u opgeeft.
 * Aanroepen van een webhook waarmee u kunt aanvullende automation acties te starten.
 
@@ -86,15 +79,15 @@ Metrische waarschuwingen gebruik nog geen groepen in te grijpen. U kunt meldinge
 Informatie ophalen over de regels voor waarschuwingen en ze te configureren met behulp van:
 
 * Meer informatie over [metrische gegevens](monitoring-overview-metrics.md)
-* Configureer [metriek waarschuwingen per Azure-portal](insights-alerts-portal.md)
-* Configureer [metriek waarschuwingen PowerShell](insights-alerts-powershell.md)
-* Configureer [metriek waarschuwingen opdrachtregelinterface (CLI)](insights-alerts-command-line-interface.md)
-* Configureer [metriek waarschuwingen Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Configureer [klassieke metriek waarschuwingen per Azure-portal](insights-alerts-portal.md)
+* Configureer [klassieke metriek waarschuwingen PowerShell](insights-alerts-powershell.md)
+* Configureer [klassieke metriek waarschuwingen opdrachtregelinterface (CLI)](insights-alerts-command-line-interface.md)
+* Configureer [klassieke metriek waarschuwingen Monitor REST API van Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 * Meer informatie over [Activity Log](monitoring-overview-activity-logs.md)
 * Configureer [activiteit logboek waarschuwingen per Azure-portal](monitoring-activity-log-alerts.md)
 * Configureer [activiteit logboek waarschuwingen via Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
 * Controleer de [activiteit logboek waarschuwing webhook schema](monitoring-activity-log-alerts-webhook.md)
-* Meer informatie over [bijna Real-Time metriek waarschuwingen](monitoring-near-real-time-metric-alerts.md)
+* Meer informatie over [nieuwere metriek waarschuwingen](monitoring-near-real-time-metric-alerts.md)
 * Meer informatie over [servicemeldingen](monitoring-service-notifications.md)
 * Meer informatie over [actiegroepen](monitoring-action-groups.md)
-* Configureer [waarschuwingen via waarschuwingen (Preview)](monitor-alerts-unified-usage.md)
+* Configureer [waarschuwingen](monitor-alerts-unified-usage.md)

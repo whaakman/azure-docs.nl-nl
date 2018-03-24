@@ -2,10 +2,10 @@
 title: Redigeren vlakken met Azure Media Analytics stapsgewijze Kennismaking | Microsoft Docs
 description: Dit onderwerp bevat stapsgewijze instructies voor het uitvoeren van een volledige redactie werkstroom met behulp van Azure Media Services Explorer (AMSE) en Azure Media Redactor Visualizer (open-source hulpprogramma).
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 0bd385ba78028a722c52cdf1508f3348ff90f05f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redigeren vlakken met Azure Media Analytics-overzicht
 
@@ -59,7 +59,7 @@ De uitvoer bevat een json-bestand van aantekeningen met face locatiegegevens, ev
 
 ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-###<a name="second-pass--redact-mode"></a>Tweede doorgeven – Redigeren modus
+### <a name="second-pass--redact-mode"></a>Tweede doorgeven – Redigeren modus
 
 1. Uw oorspronkelijke video asset uploaden naar de uitvoer van de eerste stap en ingesteld als een primaire asset. 
 
@@ -78,7 +78,7 @@ De uitvoer bevat een json-bestand van aantekeningen met face locatiegegevens, ev
 
     ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-##<a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor Visualizer open-source hulpprogramma
+## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor Visualizer open-source hulpprogramma
 
 Een open-source [visualizer hulpprogramma](https://github.com/Microsoft/azure-media-redactor-visualizer) is bedoeld om ontwikkelaars net begint met de indeling met aantekeningen met parseren en de uitvoer.
 

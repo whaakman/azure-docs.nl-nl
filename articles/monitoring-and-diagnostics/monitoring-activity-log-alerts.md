@@ -1,33 +1,32 @@
 ---
-title: Activiteit logboek waarschuwingen maken | Microsoft Docs
+title: Klassieke activiteit logboek waarschuwingen maken | Microsoft Docs
 description: Een melding via SMS, webhook en e-mailbericht wanneer bepaalde in het gebeurtenissenlogboek gebeurtenissen.
 author: johnkemnetz
-manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-activity-log-alerts"></a>Logboek waarschuwingen voor de activiteit maken
+# <a name="create-activity-log-alerts-classic"></a>Activiteit logboek waarschuwingen (klassiek) maken
 
 ## <a name="overview"></a>Overzicht
 Activiteit logboek waarschuwingen zijn waarschuwingen die worden geactiveerd wanneer er een nieuwe activiteit gebeurtenislogboek optreedt die overeenkomt met de voorwaarden die is opgegeven in de waarschuwing. Ze zijn Azure-resources, zodat ze kunnen worden gemaakt met behulp van een Azure Resource Manager-sjabloon. Ze kunnen ook worden gemaakt, bijgewerkt of verwijderd in de Azure portal. Dit artikel bevat de concepten achter activiteit logboek waarschuwingen. Deze vervolgens ziet u hoe de Azure portal gebruiken voor het instellen van een waarschuwing op activiteit logboekgebeurtenissen.
 
 > [!NOTE]
 
->  [Waarschuwingen (Preview)](monitoring-overview-unified-alerts.md) momenteel een verbeterde ervaring bij het maken en beheren van activiteitenlogboeken biedt.  [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
+>  De nieuwe [waarschuwingen](monitoring-overview-unified-alerts.md) ervaring met deze procedure is vervangen. In dit artikel wordt aangeboden als referentie voor de ervaring. [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
 
 Meestal maakt u activiteit logboek waarschuwingen om meldingen te ontvangen wanneer:
 
@@ -59,11 +58,11 @@ Zie voor meer informatie over actiegroepen, [maken en beheren van actiegroepen i
 
 Zie voor meer informatie over servicestatusmeldingen, [activiteit logboek meldingen ontvangen op servicestatusmeldingen](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Een waarschuwing op het gebeurtenislogboek van een activiteit met een nieuwe actiegroep maken met behulp van de Azure-portal
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Maak een waarschuwing (klassiek) op het gebeurtenislogboek van een activiteit met een nieuwe actiegroep met behulp van de Azure-portal
 1. In de [portal](https://portal.azure.com), selecteer **Monitor**.
 
     ![De 'Monitor'-service](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. In de **activiteitenlogboek** sectie **waarschuwingen**.
+2. In de **activiteitenlogboek** sectie **waarschuwingen (klassiek)**.
 
     ![Het tabblad 'Waarschuwingen'](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. Selecteer **toevoegen activiteit logboek waarschuwing**, en vul de velden in.

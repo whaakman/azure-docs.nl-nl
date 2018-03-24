@@ -2,7 +2,7 @@
 title: Het oplossen van hybride Azure Active Directory die lid zijn van downlevel-apparaten | Microsoft Docs
 description: Het oplossen van hybride Azure Active Directory die lid zijn van downlevel-apparaten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 03/20/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Het oplossen van hybride Azure Active Directory die lid zijn van downlevel-apparaten 
 
@@ -88,10 +88,10 @@ Als de hybride Azure AD join niet geslaagd is, biedt in het dialoogvenster u inf
     
     2. Als Autoworkplace.exe om een of andere reden niet kan achtergrond verifiëren met Azure AD of AD FS. Een aantal mogelijke oorzaken kunt uitgaande gebonden problemen met de netwerkverbinding worden naar Azure AD-URL's (Raadpleeg de vereisten) of als MFA ingeschakeld/geconfigureerd voor de gebruiker is, maar WIAORMUTLIAUTHN niet is geconfigureerd op de federatieserver (configuratiestappen selectievakje). Een andere mogelijkheid is dat die thuis realm detectie (HRD) pagina wacht gebruikersinteractie zo wordt voorkomen dat Autoworkplace.exe achtergrond verkrijgen van een token.
     
-    3. Als de organisatie van Azure AD gebruikmaakt zijn naadloze eenmalige aanmelding, de volgende URL's niet aanwezig op het intranet in Internet Explorer van het apparaat:
+    3. Als de organisatie van Azure AD naadloze eenmalige aanmelding gebruikmaakt, is de volgende URL niet aanwezig op het apparaat intranet in Internet Explorer:
     
        - https://autologon.microsoftazuread-sso.com
-       - https://aadg.windows.net.nsatc.net
+
     
        en de instelling 'Toestaan dat updates voor de statusbalk via scripts' moet zijn ingeschakeld voor de intranetzone.
 

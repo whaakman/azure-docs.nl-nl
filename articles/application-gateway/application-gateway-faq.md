@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f92af44df9863bbf48abb4afcf9b1505c843fadc
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen voor Application Gateway
 
@@ -135,10 +135,6 @@ Aangepaste tests ondersteunen geen jokertekens of reguliere expressie op antwoor
 **Q. Hoe kan ik regels verwerkt?**
 
 Regels worden verwerkt in de volgorde waarin die ze zijn geconfigureerd. Het wordt aanbevolen dat de regels voor meerdere locaties worden geconfigureerd voordat basisregels om te verminderen de kans dat verkeer wordt doorgestuurd naar de back-end ongeschikte omdat de eenvoudige regel zou overeenkomt met het verkeer op basis van de poort voordat de multi-site-regel wordt geëvalueerd.
-
-**Q. Hoe kan ik regels verwerkt?**
-
-Regels worden verwerkt in de volgorde waarin die ze zijn gemaakt. Het wordt aanbevolen dat de regels voor meerdere locaties zijn geconfigureerd voor het basisregels. Multi-site-listeners eerst configureert, deze configuratie vermindert de kans dat verkeer wordt doorgestuurd naar de ongeschikte back-end. Deze routering probleem kan optreden als de basis regel overeenkomen met verkeer dat op basis van de poort voordat de multi-site-regel wordt geëvalueerd.
 
 **Q. Wat het veld Host voor de aangepaste tests geven?**
 

@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure functions, functies, verwerking van gebeurtenissen, dynamische compute zonder server architectuur
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
-ms.custom: 
-ms.openlocfilehash: bd1a2643d9faf65d664c786169c38f01767fb7e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: 6f74dd4d9cb78c1316c87bd5a261e751b9b34923
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timertrigger voor Azure Functions 
 
@@ -167,7 +167,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**type** | N.v.t. | Moet worden ingesteld op 'timerTrigger'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op 'in'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
 |**Naam** | N.v.t. | De naam van de variabele die staat voor de timer-object in de functiecode. | 
-|**schedule**|**ScheduleExpression**|U kunt schema's met een CRON-expressie definiëren op het plan verbruik. Als u een App Service-abonnement, kunt u ook gebruiken een `TimeSpan` tekenreeks. De volgende secties worden de CRON-expressies. U kunt de expressie van de planning opnemen in een app-instelling en stel deze eigenschap in op een waarde die zijn ingepakt  **%**  hekjes, zoals in dit voorbeeld: '% NameOfAppSettingWithCRONExpression %'. |
+|**schedule**|**ScheduleExpression**|U kunt schema's met een CRON-expressie definiëren op het plan verbruik. Als u een App Service-abonnement, kunt u ook gebruiken een `TimeSpan` tekenreeks. De volgende secties worden de CRON-expressies. U kunt de expressie van de planning opnemen in een app-instelling en stel deze eigenschap in op een waarde die zijn ingepakt **%** hekjes, zoals in dit voorbeeld: '% NameOfAppSettingWithCRONExpression %'. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -256,6 +256,10 @@ Wanneer een functie van de trigger timer wordt opgeroepen, de [timerobject](http
 ## <a name="scale-out"></a>Uitschalen
 
 De timertrigger ondersteunt meerdere exemplaren scale-out. Slechts één exemplaar van een bepaalde timerfunctie wordt uitgevoerd in alle exemplaren.
+
+## <a name="function-apps-sharing-storage"></a>Functie apps opslag delen
+
+Als u een opslagaccount voor meerdere apps van de functie deelt, zorg dat elke functie-app een andere heeft `id` in *host.json*. U kunt weglaten de `id` eigenschap of stel handmatig elke functie-app `id` op een andere waarde. De timertrigger maakt gebruik van een vergrendeling opslag om ervoor te zorgen dat er slechts één exemplaar van de timer worden wanneer een functie-app uitgeschaald naar meerdere exemplaren. Als twee functie apps dezelfde delen `id` en elk een timertrigger gebruikt, wordt slechts één timer wordt uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

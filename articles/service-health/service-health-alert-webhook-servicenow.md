@@ -4,7 +4,7 @@ description: Aangepaste meldingen over gebeurtenissen aan uw ServiceNow-exemplaa
 author: shawntabrizi
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 625718ab82443c897d1b15c2eac51dea3d0dfeb4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 867a8c0b478df9d2b7690b8b914ded7c42558583
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Waarschuwingen van de health service configureren met ServiceNow
 
@@ -49,9 +49,9 @@ In dit artikel leest u hoe waarschuwingen van Azure service health integreren me
 
     >[!NOTE]
     >Werk de `<secret>`,`<group>`, en `<email>` waarde in het onderstaande script.
-    >* `<secret>`moet een willekeurige tekenreeks, zoals een GUID
-    >* `<group>`moet de ServiceNow-groep die u wilt het incident aan toewijzen
-    >* `<email>`moet de specifieke persoon die u wilt toewijzen van het incident (optioneel)
+    >* `<secret>` moet een willekeurige tekenreeks, zoals een GUID
+    >* `<group>` moet de ServiceNow-groep die u wilt het incident aan toewijzen
+    >* `<email>` moet de specifieke persoon die u wilt toewijzen van het incident (optioneel)
     >
 
     ```javascript
@@ -183,7 +183,7 @@ In dit artikel leest u hoe waarschuwingen van Azure service health integreren me
 5. Selecteer **opslaan** wanneer u klaar bent voor het bijwerken van de groep in te grijpen.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testen van uw integratie webhook via een HTTP POST-aanvraag
-1. Maak de nettolading van de status van de Service die u wilt verzenden. U vindt een voorbeeld van de servicestatus webhook nettolading op [Webhooks voor Azure activiteit waarschuwingen melden](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Maak de nettolading van de service health die u wilt verzenden. U vindt een voorbeeld van de service health webhook nettolading op [Webhooks voor Azure activiteit waarschuwingen melden](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Hiermee maakt u een HTTP POST-aanvraag als volgt:
 
@@ -192,7 +192,7 @@ In dit artikel leest u hoe waarschuwingen van Azure service health integreren me
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. U ontvangt een `200 OK` antwoord met het bericht "Incident gemaakt."
 

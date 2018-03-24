@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Gebruiker migratie benaderingen'
 description: Bespreek core en geavanceerde concepten voor gebruikersmigratie met Graph API en eventueel Azure AD B2C aangepast beleid.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: be80ea534be6de4fad2b072cf531669f45eda527
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migratie gebruiker
 Wanneer u uw identiteitsprovider migreert naar Azure Active Directory B2C (Azure AD B2C), moet u mogelijk ook het migreren van het gebruikersaccount. In dit artikel wordt uitgelegd hoe u bestaande gebruikersaccounts migreert van een identiteitsprovider naar Azure AD B2C. Het artikel is niet bedoeld als richtlijnen, maar in plaats daarvan deze twee verschillende manieren worden beschreven. De ontwikkelaar is verantwoordelijk voor de geschiktheid van elke methode.
@@ -97,7 +94,7 @@ U hebt nu een toepassing met machtigingen voor het maken, lezen en bijwerken van
 Lezen en schrijven van gegevens mapmachtigingen doen *niet* omvatten het recht om gebruikers te verwijderen. Om uw toepassing de mogelijkheid om gebruikers (voor het opschonen van uw omgeving) te verwijderen, moet u een extra stap waarbij wordt uitgevoerd, PowerShell accountbeheerder gebruiker machtigingen instellen uitvoeren. Anders kunt u doorgaan met de volgende sectie.
 
 > [!IMPORTANT]
-> Moet u een B2C-tenant administrator-account dat is *lokale* aan de B2C-tenant. De syntaxis van de naam van account is  *admin@contosob2c.onmicrosoft.com* .
+> Moet u een B2C-tenant administrator-account dat is *lokale* aan de B2C-tenant. De syntaxis van de naam van account is *admin@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
 > De volgende PowerShell-script vereist [Azure Active Directory PowerShell versie 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
@@ -148,10 +145,10 @@ Het JSON-bestand bewerken, opent u de `AADB2C.UserMigration.sln` Visual Studio-o
 ![Gegevensbestand van de gebruiker](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 Zoals u ziet, is het bestand bevat een lijst van entiteiten van de gebruiker. Elke gebruikersentiteit heeft de volgende eigenschappen:
-* e-mailen
-* Weergavenaam
-* Voornaam
-* Achternaam
+* e-mail
+* displayName
+* firstName
+* lastName
 * wachtwoord (kan niet leeg zijn)
 
 > [!NOTE]

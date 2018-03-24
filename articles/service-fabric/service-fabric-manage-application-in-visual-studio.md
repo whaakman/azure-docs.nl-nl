@@ -1,24 +1,24 @@
 ---
-title: Beheren van uw toepassingen in Visual Studio | Microsoft Docs
-description: Visual Studio gebruiken om te maken, ontwikkelen, verpakken, implementeren en foutopsporing van uw Service Fabric-toepassingen en services.
+title: Beheren van uw Azure Servic Fabric-toepassingen in Visual Studio | Microsoft Docs
+description: Visual Studio gebruiken om te maken, ontwikkelen, verpakken, implementeren en foutopsporing van uw Azure Service Fabric-toepassingen en services.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 16ca821f7cae252148e8901c2ccb8539a25d1d59
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Visual Studio gebruiken om te schrijven en beheren van uw Service Fabric-toepassingen vereenvoudigen
 U kunt uw Azure Service Fabric-toepassingen en services met Visual Studio kunt beheren. Zodra u hebt [uw ontwikkelomgeving instellen](service-fabric-get-started.md), kunt u Visual Studio Service Fabric-toepassingen maken, het toevoegen van de services of pakket, registreren en het implementeren van toepassingen in uw lokaal ontwikkelcluster.
@@ -45,7 +45,7 @@ Visual Studio bieden een eigenschap genaamd **toepassing foutopsporingsmodus**, 
 
 #### <a name="application-debug-modes"></a>Toepassing Foutopsporingsmodi
 
-1. **Vernieuwen van de toepassing** deze modus kunt u snel wijzigen en fouten opsporen in uw code en ondersteunt het bewerken van statische webbestanden tijdens het opsporen van fouten. Deze modus werkt alleen als uw lokaal ontwikkelcluster in [modus 1-Node](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Vernieuwen van de toepassing** deze modus kunt u snel wijzigen en fouten opsporen in uw code en ondersteunt het bewerken van statische webbestanden tijdens het opsporen van fouten. Deze modus werkt alleen als uw lokaal ontwikkelcluster in [modus 1-Node](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Dit is de standaardinstelling foutopsporingsmodus toepassing.
 2. **Toepassing verwijderen** zorgt ervoor dat de toepassing moet worden verwijderd wanneer de debug-sessie wordt beëindigd.
 3. **Automatische Upgrade** de toepassing nog wordt uitgevoerd wanneer de debug-sessie wordt beëindigd. De volgende foutopsporingssessie zal de implementatie worden beschouwd als een upgrade. Het upgradeproces behoudt alle gegevens die u hebt ingevoerd in een vorige foutopsporingssessie.
 4. **Toepassing houden** de toepassing blijft in het cluster uitgevoerd wanneer de debug-sessie wordt beëindigd. Aan het begin van de volgende foutopsporingssessie, wordt de toepassing verwijderd.
@@ -53,7 +53,7 @@ Visual Studio bieden een eigenschap genaamd **toepassing foutopsporingsmodus**, 
 Voor **automatische Upgrade** gegevens blijven behouden door het toepassen van de toepassing upgrade mogelijkheden van Service Fabric. Zie voor meer informatie over het upgraden van toepassingen en hoe u een upgrade kunt uitvoeren in een omgeving met echte [upgrade van de Service Fabric-toepassing](service-fabric-application-upgrade.md).
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Een service aan uw Service Fabric-toepassing toevoegen
-U kunt nieuwe services toevoegen aan uw toepassing uit te breiden de functionaliteit hiervan.  Om ervoor te zorgen dat de service is opgenomen in het toepassingspakket, de service toevoegen via de **nieuwe Fabric-Service...**  menu-item.
+U kunt nieuwe services toevoegen aan uw toepassing uit te breiden de functionaliteit hiervan. Om ervoor te zorgen dat de service is opgenomen in het toepassingspakket, de service toevoegen via de **nieuwe Fabric-Service...**  menu-item.
 
 ![Een nieuwe Service Fabric-service toevoegen][newservice]
 
@@ -74,7 +74,7 @@ U kunt basiscluster beheerbewerkingen uitvoeren vanuit Visual Studio gebruikt Cl
 ![Een toepassing verwijderen][removeapplication]
 
 > [!TIP]
-> Zie voor uitgebreidere cluster beheerfunctionaliteit, [uw cluster visualiseren met Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> Zie voor een uitgebreidere beheerfunctionaliteit van de cluster [uw cluster visualiseren met Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 >
 >
 

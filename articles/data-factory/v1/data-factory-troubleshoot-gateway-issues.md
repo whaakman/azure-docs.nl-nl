@@ -3,8 +3,7 @@ title: Problemen met Data Management Gateway | Microsoft Docs
 description: Tips voor het oplossen van problemen met Data Management Gateway biedt.
 services: data-factory
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
@@ -14,17 +13,17 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b3b34921168661089946b5c5dd9e6d489880733b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d82592bfda3eaf44d28f67b8bb6599aa4ae4bae7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Problemen oplossen met behulp van Data Management Gateway
 In dit artikel bevat informatie over het oplossen van problemen met het gebruik van Data Management Gateway.
 
 > [!NOTE]
-> In dit artikel is van toepassing op versie 1 van Azure Data Factory (GA) is algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [zelf gehost integratie runtime in Gegevensfactory versie 2](../create-self-hosted-integration-runtime.md).
+> Dit artikel is van toepassing op versie 1 van Azure Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [zelf gehost integratie runtime in Gegevensfactory versie 2](../create-self-hosted-integration-runtime.md).
 
 Zie de [Data Management Gateway](data-factory-data-management-gateway.md) artikel voor meer informatie over de gateway. Zie de [gegevens verplaatsen tussen on-premises en cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor een overzicht van de gegevens uit een on-premises SQL Server database verplaatsen naar Microsoft Azure Blob-opslag met behulp van de gateway.
 
@@ -206,7 +205,7 @@ Het SSL-certificaat is mogelijk verloren gegaan op de gatewaycomputer. Computer 
 Volg deze stappen om het probleem te verhelpen:
 
 1. Start de Data Management Gateway Configuration Manager.
-2. Overschakelen naar de **instellingen** tabblad.  
+2. Schakel over naar het tabblad **Instellingen**.  
 3. Klik op de **wijzigen** om te wijzigen van het SSL-certificaat.
 
    ![De knop certificaat wijzigen](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)

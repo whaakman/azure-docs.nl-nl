@@ -2,10 +2,10 @@
 title: Azure Data Factory - JSON-scriptverwerking verwijzing | Microsoft Docs
 description: JSON-schema's biedt voor Data Factory-entiteiten.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 519a762e5f89533f4425d38e4a1ca76d8e3dd40f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 198fa15b7ee8cce6781e6a2575844a9666185be9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-scriptverwerking verwijzing
 > [!NOTE]
@@ -493,13 +493,13 @@ Instellen als u een Azure Blob-gegevensset definieert, de **type** van de gegeve
 Zie voor meer informatie [Azure Blob-connector](data-factory-azure-blob-connector.md#dataset-properties) artikel.
 
 ### <a name="blobsource-in-copy-activity"></a>BlobSource in de kopieerbewerking
-Als u gegevens uit een Azure Blob Storage kopiëren wilt, stelt u de **gegevensbrontype** van de kopieeractiviteit naar **BlobSource**, en opgeven na eigenschappen in de ** bron ** sectie:
+Als u gegevens uit een Azure Blob Storage kopiëren wilt, stelt u de **gegevensbrontype** van de kopieeractiviteit naar **BlobSource**, en opgeven na eigenschappen in de **bron** sectie:
 
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
 | Recursieve |Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map. |True (standaardwaarde), False |Nee |
 
-#### <a name="example-blobsource"></a>Voorbeeld: BlobSource **
+#### <a name="example-blobsource"></a>Voorbeeld: **BlobSource**
 ```json
 {
     "name": "SamplePipeline",
@@ -3898,7 +3898,7 @@ Met basisverificatie, stelt `authenticationType` als `Basic`, en geef de volgend
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>Voorbeeld: Basisverificatie met versleutelde referentie **
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>Voorbeeld: **basisverificatie met versleutelde referentie**
 
 ```json
 {
@@ -3919,7 +3919,7 @@ Met basisverificatie, stelt `authenticationType` als `Basic`, en geef de volgend
 }
 ```
 
-#### <a name="using-ssh-public-key-authentication"></a>Met behulp van de openbare-sleutelauthenticatie SSH: **
+#### <a name="using-ssh-public-key-authentication"></a>**Met behulp van de openbare-sleutelauthenticatie SSH:**
 
 Met basisverificatie, stelt `authenticationType` als `SshPublicKey`, en geef de volgende eigenschappen naast algemene die zijn geïntroduceerd in de laatste sectie van de SFTP-connector:
 
@@ -3949,7 +3949,7 @@ Met basisverificatie, stelt `authenticationType` als `SshPublicKey`, en geef de 
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Voorbeeld: SshPublicKey verificatie met persoonlijke sleutel inhoud **
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Voorbeeld: **SshPublicKey verificatie met behulp van de persoonlijke sleutel inhoud**
 
 ```json
 {
@@ -4438,7 +4438,7 @@ Gekoppelde service voor het definiëren van een ODBC, stelt u de **type** van de
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
 | connectionString |Het gedeelte niet access referentie van de verbindingsreeks en een optionele referentie versleuteld. Zie de voorbeelden in de volgende secties. |Ja |
-| referentie |Het gedeelte van de referentie toegang van de verbindingsreeks die is opgegeven in de indeling van de eigenschapswaarde specifieke stuurprogramma's. Voorbeeld: "Uid =<user ID>; Pwd =<password>; RefreshToken =<secret refresh token>; '. |Nee |
+| referenties |Het gedeelte van de referentie toegang van de verbindingsreeks die is opgegeven in de indeling van de eigenschapswaarde specifieke stuurprogramma's. Voorbeeld: "Uid =<user ID>; Pwd =<password>; RefreshToken =<secret refresh token>; '. |Nee |
 | authenticationType |Het soort verificatie gebruikt voor verbinding met het beheerprogramma voor ODBC-gegevensarchief. Mogelijke waarden zijn: anonieme en Basic. |Ja |
 | gebruikersnaam |Geef de gebruikersnaam als u basisverificatie gebruikt. |Nee |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |

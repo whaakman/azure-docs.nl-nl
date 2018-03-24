@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2017
+ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Exemplaar van SQL Server-failovercluster configureren op virtuele Machines in Azure
 
@@ -46,6 +46,18 @@ Het voorgaande diagram geeft:
 Zie voor meer informatie over S2D [Windows Server 2016 Datacenter edition opslagruimten Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 S2D ondersteunt twee soorten architecturen - geconvergeerde en hyper-geconvergeerde. De architectuur in dit document is hyper-geconvergeerde. Een hyper-geconvergeerde infrastructuur plaatst u de opslag op dezelfde servers die als host fungeren van de geclusterde toepassing. De opslag is in deze architectuur op elk knooppunt FCI van SQL Server.
+
+## <a name="licensing-and-pricing"></a>Licenties en prijzen
+
+Op Azure Virtual Machines die u kunt SQL Server met behulp van omslagstelsel (Omslagstelsel) licentie of breng uw eigen licentie (BYOL) VM-installatiekopieën. Het type van de afbeelding die u kiest is van invloed op hoe u in rekening worden gebracht.
+
+Een failover cluster instance (FCI) van SQL Server op Azure Virtual Machines leidt ertoe dat de kosten voor alle knooppunten van FCI, met inbegrip van de passieve knooppunten met Omslagstelsel-licentieverlening. Zie voor meer informatie [prijzen van SQL Server Enterprise virtuele Machines](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+
+Klanten met Enterprise-overeenkomst met Software Assurance hebben het recht tot gebruik van een gratis passieve FCI-knooppunt voor elk actief knooppunt. BYOL VM-installatiekopieën gebruiken om te profiteren van een voordeel In Azure, en gebruik vervolgens de licentie op actieve en passieve knooppunten van de FCI. Zie voor meer informatie [Enterprise Agreement](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+
+Vergelijk Omslagstelsel en BYOL-licentieverlening voor SQL Server op Azure Virtual Machines Zie [aan de slag met SQL-machines](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+
+Zie voor meer informatie over licentieverlening SQL Server [prijzen](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Voorbeeld van de Azure-sjabloon
 
@@ -91,7 +103,7 @@ Met deze vereisten is voldaan, kunt u doorgaan met het bouwen van uw failover-cl
 
    Als u hebt niet de resourcegroep gemaakt voor uw virtuele machines, moet u het doen wanneer u een Azure beschikbaarheidsset maakt. Als u de Azure-portal voor het maken van de beschikbaarheidsset, gaat u de volgende stappen uit:
 
-   - Klik in de Azure-portal op  **+**  openen Azure Marketplace. Zoeken naar **beschikbaarheidsset**.
+   - Klik in de Azure-portal op **+** openen Azure Marketplace. Zoeken naar **beschikbaarheidsset**.
    - Klik op **beschikbaarheidsset**.
    - Klik op **Create**.
    - Op de **beschikbaarheidsset maken** blade, stel de volgende waarden:
@@ -123,7 +135,7 @@ Met deze vereisten is voldaan, kunt u doorgaan met het bouwen van uw failover-cl
 
    Kies de juiste installatiekopie volgens hoe wilt u betalen voor de SQL Server-licentie:
 
-   - **Betalen per gebruik licentieverlening**: de kosten per minuut van deze installatiekopieën bevat de SQL Server-licentieverlening:
+   - **Betalen per gebruik licentieverlening**: de kosten per seconde van deze installatiekopieën bevat de SQL Server-licentieverlening:
       - **SQL Server 2016 Enterprise op Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard op Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer op Windows Server Datacenter 2016**

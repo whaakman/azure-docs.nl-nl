@@ -1,6 +1,6 @@
 ---
-title: "Prijscategorieën in Azure-Database voor PostgreSQL"
-description: "In dit artikel beschrijft de prijscategorieën in Azure-Database voor PostgreSQL."
+title: Prijscategorieën in Azure-Database voor PostgreSQL
+description: In dit artikel beschrijft de prijscategorieën in Azure-Database voor PostgreSQL.
 services: postgresql
 author: jan-eng
 ms.author: janeng
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ee75af9b1d7b77799fe02d87da257ff73bc567e6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 21f8eb795aa1675e2bbd5284f88b39c76ad59228
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Prijscategorieën PostgreSQL-Database
 
@@ -22,7 +22,7 @@ Een Azure-Database voor PostgreSQL-server kunnen worden gemaakt in een van drie 
 |    | **Basic** | **Voor algemene doeleinden** | **Geoptimaliseerd voor geheugen** |
 |:---|:----------|:--------------------|:---------------------|
 | COMPUTE generatie | Gen 4, 5 Gen | Gen 4, 5 Gen | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16, 32 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Geheugen per vCore | 1x | 2x Basic | 2 x voor algemene doeleinden |
 | Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 1 TB | 5 GB tot 1 TB |
 | Opslagtype | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
@@ -32,15 +32,40 @@ De volgende tabel kan worden gebruikt als een beginpunt voor het kiezen van een 
 
 | Prijscategorie | Beoogde workloads |
 |:-------------|:-----------------|
-| Basic | Werkbelastingen vereisen lichte berekenings- en i/o-prestaties. Voorbeelden zijn onder meer servers die worden gebruikt voor ontwikkeling of tests of kleinschalige, onregelmatig gebruikte toepassingen. |
-| Algemeen doel | De meeste zakelijke workloads taakverdeling reken- en geheugencapaciteit met schaalbare i/o-doorvoer vereisen. Voorbeelden zijn server voor het hosten van Web en mobiele apps en andere bedrijfstoepassingen.|
+| Basic | Workloads waarvoor lichte computer- en I/O-prestaties zijn vereist. Denk bijvoorbeeld aan servers die voor ontwikkeling en testen worden gebruikt of kleinschalige toepassingen die niet veel worden gebruikt. |
+| Algemeen doel | Meeste zakelijke workloads die goede balans tussen computing en geheugen nodig hebben, met schaalbare I/O-doorvoer. Voorbeelden zijn server voor het hosten van Web en mobiele apps en andere bedrijfstoepassingen.|
 | Geoptimaliseerd geheugen | Hoge prestaties database werkbelastingen in het geheugen prestaties vereisen voor snellere verwerking van transacties en hogere gelijktijdigheid van taken. Voorbeelden zijn server voor de verwerking van realtime gegevens en hoge prestaties transactionele of analytische apps.|
 
 Nadat u een server hebt gemaakt, kan het aantal vCores worden gewijzigd omhoog of omlaag binnen enkele seconden. U kunt de hoeveelheid opslag van en de back-up bewaarperiode omhoog of omlaag zonder uitvaltijd voor de toepassing ook afzonderlijk aanpassen. Zie de vergroten/verkleinen sectie hieronder voor meer informatie.
 
 ## <a name="compute-generations-vcores-and-memory"></a>COMPUTE generaties, vCores en geheugen
 
-COMPUTE-bronnen worden gegeven als vCores, die de logische CPU van de onderliggende hardware vertegenwoordigt. Op dit moment twee compute generaties Gen 4 en 5 Gen, krijgt u kunt kiezen uit. Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell) 2,4 GHz-processors. Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2.3 GHz-processors.
+COMPUTE-bronnen worden gegeven als vCores, die de logische CPU van de onderliggende hardware vertegenwoordigt. Op dit moment twee compute generaties Gen 4 en 5 Gen, krijgt u kunt kiezen uit. Logische CPU’s van de vierde generatie zijn gebaseerd op Intel E5 2673 v3 (Haswell)-processors van 2,4 GHz. Logische CPU’s van de vijfde generatie zijn gebaseerd op Intel E5 2673 v4 (Broadwell)-processors van 2,3 GHz. Gen 4 en 5 Gen zijn beschikbaar in de volgende regio's ('X' geeft beschikbaar): 
+
+| **Azure Region** | **Generatie 4** | **Generatie 5** |
+|:---|:----------:|:--------------------:|
+| VS - midden |  | X |
+| VS - oost | X | X |
+| VS - oost 2 | X |  |
+| Noord-centraal VS | X |  |
+| Zuid-centraal VS | X |  |
+| VS - west | X | X |
+| VS - west 2 |  | X |
+| Canada - midden | X | X |
+| Canada - oost | X | X |
+| Brazilië - zuid | X |  |
+| Noord-Europa | X | X |
+| West-Europa | X | X |
+| Verenigd Koninkrijk West |  | X |
+| Verenigd Koninkrijk Zuid |  | X |
+| Oost-Azië | X |  |
+| Zuidoost-Azië | X |  |
+| Australië - oost |  | X |
+| Centraal-India | X |  |
+| West-India | X |  |
+| Japan - oost | X |  |
+| Japan - west | X |  |
+| Korea - zuid |  | X |
 
 Elke vCore is afhankelijk van de prijscategorie ingericht met een specifieke hoeveelheid geheugen. Wanneer u vergroten of het aantal vCores voor uw server verkleinen, wordt het geheugen verhoogt of verlaagt proportioneel. De laag voor algemene doeleinden biedt tweemaal de hoeveelheid geheugen per vCore vergeleken met de basisstaffel. De laag geoptimaliseerd voor geheugen bevat dubbele de hoeveelheid geheugen ten opzichte van de laag voor algemene doeleinden.
 

@@ -2,22 +2,19 @@
 title: Aanmelden toevoegen aan een Node.js-web-app - Azure Active Directory B2C
 description: Het bouwen van een Node.js-web-app die gebruikers met Azure Active Directory B2C worden aangemeld.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: dstrockis
-ms.custom: seo
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: javascript
 ms.topic: article
 ms.date: 03/10/2017
-ms.author: xerners
-ms.openlocfilehash: 25a2bef2f3cc6f210c574f920164b8d69b0d90db
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: davidmu
+ms.openlocfilehash: b10b2338bfbcd449075e612ae00cc23802dce3a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: aanmelding toevoegen aan een Node.js-web-app
 
@@ -400,7 +397,7 @@ U kunt nu uw app bouwen en uitvoeren.
 
 Registreer u of meld u aan bij de app via e-mail of Facebook. Meld u af en meld u weer aan als een andere gebruiker.
 
-##<a name="next-steps"></a>Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Voor naslag is het voltooide voorbeeld (zonder uw configuratiewaarden) [geleverd als zip-bestand](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). U kunt dit ook klonen van GitHub:
 

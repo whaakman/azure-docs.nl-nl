@@ -1,11 +1,10 @@
 ---
-title: "Gegevens kopiëren naar/van Azure SQL Data Warehouse | Microsoft Docs"
-description: "Informatie over het kopiëren van gegevens van Azure SQL Data Warehouse met behulp van Azure Data Factory"
+title: Gegevens kopiëren naar/van Azure SQL Data Warehouse | Microsoft Docs
+description: Informatie over het kopiëren van gegevens van Azure SQL Data Warehouse met behulp van Azure Data Factory
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 97782d1437f47a5ec403a98464d38961874d7575
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 709a178d99a34adb9c77086e55270fe41ed84551
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -166,10 +165,10 @@ GO
 ```
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Gebruik PolyBase gegevens laadt in Azure SQL Data Warehouse
-Met behulp van  **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)**  is een efficiënte manier van het laden van grote hoeveelheid gegevens in Azure SQL Data Warehouse met hoge doorvoer. Met behulp van PolyBase in plaats van het standaardmechanisme voor BULKINSERT ziet u een groot voordeel in de doorvoer. Zie [prestaties referentienummer kopiëren](data-factory-copy-activity-performance.md#performance-reference) met gedetailleerde vergelijking. Zie voor een overzicht met een gebruiksvoorbeeld [1 TB laden in Azure SQL Data Warehouse onder 15 minuten met Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Met behulp van **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** is een efficiënte manier van het laden van grote hoeveelheid gegevens in Azure SQL Data Warehouse met hoge doorvoer. Met behulp van PolyBase in plaats van het standaardmechanisme voor BULKINSERT ziet u een groot voordeel in de doorvoer. Zie [prestaties referentienummer kopiëren](data-factory-copy-activity-performance.md#performance-reference) met gedetailleerde vergelijking. Zie voor een overzicht met een gebruiksvoorbeeld [1 TB laden in Azure SQL Data Warehouse onder 15 minuten met Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
-* Als de brongegevens **Azure Blob- of Azure Data Lake Store**, en de indeling is compatibel met PolyBase, kunt u rechtstreeks kopiëren naar Azure SQL Data Warehouse met PolyBase. Zie  **[Direct kopiëren met PolyBase](#direct-copy-using-polybase)**  met details.
-* Als uw brongegevensarchief en de indeling wordt oorspronkelijk niet ondersteund door PolyBase, kunt u de  **[gefaseerde kopiëren met PolyBase](#staged-copy-using-polybase)**  in plaats daarvan functie. Dit biedt u ook betere doorvoer door automatisch converteren van de gegevens naar de PolyBase-compatibele indeling en opslaan van gegevens in Azure Blob-opslag. Vervolgens worden gegevens geladen in SQL Data Warehouse.
+* Als de brongegevens **Azure Blob- of Azure Data Lake Store**, en de indeling is compatibel met PolyBase, kunt u rechtstreeks kopiëren naar Azure SQL Data Warehouse met PolyBase. Zie **[Direct kopiëren met PolyBase](#direct-copy-using-polybase)** met details.
+* Als uw brongegevensarchief en de indeling wordt oorspronkelijk niet ondersteund door PolyBase, kunt u de **[gefaseerde kopiëren met PolyBase](#staged-copy-using-polybase)** in plaats daarvan functie. Dit biedt u ook betere doorvoer door automatisch converteren van de gegevens naar de PolyBase-compatibele indeling en opslaan van gegevens in Azure Blob-opslag. Vervolgens worden gegevens geladen in SQL Data Warehouse.
 
 Stel de `allowPolyBase` eigenschap **true** zoals weergegeven in het volgende voorbeeld voor Azure Data Factory PolyBase gebruiken om gegevens te kopiëren naar Azure SQL Data Warehouse. Wanneer u allowPolyBase ingesteld op true, kunt u PolyBase specifieke eigenschappen met behulp van de `polyBaseSettings` eigenschappengroep. Zie de [SqlDWSink](#SqlDWSink) sectie voor meer informatie over de eigenschappen die u met polyBaseSettings gebruiken kunt.
 
@@ -198,11 +197,11 @@ Als niet aan de vereisten wordt voldaan, wordt Azure Data Factory controleert de
 1. **Bron gekoppelde service** is van het type: **AzureStorage** of **AzureDataLakeStore met verificatie van de service-principal**.  
 2. De **invoergegevensset** is van het type: **AzureBlob** of **AzureDataLakeStore**, en de indeling Typ onder `type` eigenschappen is **OrcFormat**, **ParquetFormat**, of **TextFormat** met de volgende configuraties:
 
-   1. `rowDelimiter`moet  **\n** .
-   2. `nullValue`is ingesteld op **lege tekenreeks** (""), of `treatEmptyAsNull` is ingesteld op **true**.
-   3. `encodingName`is ingesteld op **utf-8**, namelijk **standaard** waarde.
+   1. `rowDelimiter` moet **\n**.
+   2. `nullValue` is ingesteld op **lege tekenreeks** (""), of `treatEmptyAsNull` is ingesteld op **true**.
+   3. `encodingName` is ingesteld op **utf-8**, namelijk **standaard** waarde.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, en `skipLineCount` zijn niet opgegeven.
-   5. `compression`kan **geen compressie**, **GZip**, of **Deflate**.
+   5. `compression` kan **geen compressie**, **GZip**, of **Deflate**.
 
     ```JSON
     "typeProperties": {
@@ -317,7 +316,7 @@ Data Factory maakt in de tabel in het doelarchief met dezelfde tabelnaam in het 
 | Binair bestand | Binair bestand |
 | varbinary | Varbinary (maximaal 8000) |
 | Date | Date |
-| Datum en tijd | Datum en tijd |
+| DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Time | Time |
 | DateTimeOffset | DateTimeOffset |
@@ -350,9 +349,9 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 | Binaire |Byte[] |
 | bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
-| datum |Datum en tijd |
-| Datum en tijd |Datum en tijd |
-| datetime2 |Datum en tijd |
+| datum |DateTime |
+| Datum en tijd |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimale |Decimale |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
@@ -366,7 +365,7 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 | nvarchar |Tekenreeks, Char] |
 | echte |Single |
 | ROWVERSION |Byte[] |
-| smalldatetime |Datum en tijd |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimale |
 | sql_variant |Object * |

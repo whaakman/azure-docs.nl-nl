@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 309415a68308943f638195303ceb236569519472
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a578a732efa3d2b91240ef0f4c02670aea8e547f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Zelfstudie: Azure Active Directory-integratie met SAP Cloud-Platform
 
@@ -111,7 +111,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![SAP Cloud Platform domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
 
-    a. In de **aanmelding op URL** textbox, typ de URL gebruikt door uw gebruikers zich aanmeldt bij uw **SAP-Cloudplatform** toepassing. Dit is de account-specifieke URL van een beveiligde bron in uw toepassing SAP Cloud-Platform. De URL is gebaseerd op het volgende patroon volgen:`https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    a. In de **aanmelding op URL** textbox, typ de URL gebruikt door uw gebruikers zich aanmeldt bij uw **SAP-Cloudplatform** toepassing. Dit is de account-specifieke URL van een beveiligde bron in uw toepassing SAP Cloud-Platform. De URL is gebaseerd op het volgende patroon volgen: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
      >[!NOTE]
      >Dit is de URL in uw Cloud-Platform SAP-toepassing waarvoor de gebruiker te verifiëren.
@@ -159,7 +159,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 7. Klik op de **vertrouwen** tabblad.
    
-    ![Vertrouwen](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic790800.png "vertrouwen")
+    ![Trust](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic790800.png "Trust")
 
 8. In de sectie beheer vertrouwen onder **lokale serviceprovider**, voer de volgende stappen uit:
 
@@ -210,15 +210,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 13. Op de **kenmerken** tabblad, voert u de volgende stap:
     
-    ![Kenmerken](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic790804.png "kenmerken") 
+    ![Attributes](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic790804.png "Attributes") 
 
     a. Klik op **Add Assertion-Based kenmerk**, en voeg vervolgens de volgende kenmerken op basis van een bevestiging:
        
     | Verklaring kenmerk | Principal-kenmerk |
     | --- | --- |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |Voornaam |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |Achternaam |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |e-mailen |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |lastname |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |e-mail |
    
      >[!NOTE]
      >De configuratie van de kenmerken is afhankelijk van hoe de toepassing(en) op SCP worden ontwikkeld, dat wil zeggen, welke kenmerken ze in de SAML-reactie verwachten en onder welke naam (Principal kenmerk) toegang tot dit kenmerk in de code.
@@ -228,7 +228,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
  
     c. De namen en waarden voor **Principal kenmerk** weergegeven in de schermafbeelding afhankelijk van hoe de toepassing is ontwikkeld. Het is mogelijk dat uw toepassing andere toewijzingen vereist.
 
-###<a name="assertion-based-groups"></a>Verklaring gebaseerde groepen
+### <a name="assertion-based-groups"></a>Verklaring gebaseerde groepen
 
 U kunt groepen op basis van een bevestiging voor uw Azure Active Directory id-Provider configureren als een optionele stap.
 
@@ -333,7 +333,7 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
 Als u op de tegel SAP Cloud-Platform in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing SAP Cloud-Platform.
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

@@ -2,10 +2,10 @@
 title: Een Azure data factory programmatisch bewaken | Microsoft Docs
 description: Informatie over het bewaken van een pijplijn in een data factory met behulp van verschillende-SDK's (SDK).
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,17 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 95934de9b84270ff112489a7b67f622dad609970
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 87e69349245c5f67e23022e3a45ed798400e6a2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Een Azure data factory programmatisch bewaken
 Dit artikel wordt beschreven hoe u een pijplijn in een gegevensfactory bewaken met behulp van verschillende-SDK's (SDK). 
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [bewaken en beheren van pijplijnen in Data Factory version1 gedefinieerd](v1/data-factory-monitor-manage-pipelines.md).
+
+## <a name="data-range"></a>Het bereik
+
+Data Factory bewaart alleen pijplijn gegevens 45 dagen uitgevoerd. Wanneer u een query programmatisch voor gegevens over Data Factory-pijplijn wordt uitgevoerd - bijvoorbeeld met de PowerShell-opdracht `Get-AzureRmDataFactoryV2PipelineRun` -er zijn geen maximale datums voor de optionele `LastUpdatedAfter` en `LastUpdatedBefore` parameters. Maar als u query voor gegevens van het afgelopen jaar, bijvoorbeeld: de query geen fout retourneert, maar alleen retourneert pipeline uitvoeren gegevens van de afgelopen 45 dagen.
+
+Als u behouden pijplijn gegevens meer dan 45 dagen worden uitgevoerd wilt, stelt u uw eigen Diagnostische logboekregistratie met [Azure Monitor](monitor-using-azure-monitor.md).
 
 ## <a name="net"></a>.NET
 Zie voor een volledige procedure voor het maken en bewaken van een pijplijn met .NET SDK [Maak een gegevensfactory en de pijplijn met .NET](quickstart-create-data-factory-dot-net.md).

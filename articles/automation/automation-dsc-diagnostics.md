@@ -8,17 +8,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ac0da2b73341f0c6ed4f1e99e077996525890ab7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Azure Automation DSC-rapportagegegevens doorsturen naar OMS Log Analytics
+# <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Doorsturen van Azure Automation DSC rapportagegegevens met Log Analytics
 
-Automation kan DSC knooppunt statusgegevens verzenden naar de werkruimte voor logboekanalyse voor Microsoft Operations Management Suite (OMS).  
+Automation kan DSC knooppunt statusgegevens verzenden naar de werkruimte voor logboekanalyse.  
 Status van naleving is zichtbaar in de Azure portal of PowerShell voor knooppunten en voor afzonderlijke DSC-resources in het knooppuntconfiguraties. Met Log Analytics kunt u het volgende doen:
 
 * Informatie over de compatibiliteit voor beheerde knooppunten en afzonderlijke bronnen ophalen
@@ -34,7 +32,7 @@ Als u wilt beginnen met het verzenden van uw Automation DSC-rapporten met Log An
 * De November 2016 of hoger release van [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 * Een Azure Automation-account. Zie voor meer informatie [aan de slag met Azure Automation](automation-offering-get-started.md)
 * Een werkruimte voor logboekanalyse met een **Automation en Control** serviceaanbieding. Zie voor meer informatie [aan de slag met logboekanalyse](../log-analytics/log-analytics-get-started.md).
-* Ten minste één Azure Automation DSC-knooppunt. Zie voor meer informatie [machines voorbereiden voor beheer door Azure Automation DSC](automation-dsc-onboarding.md) 
+* Ten minste één Azure Automation DSC-knooppunt. Zie voor meer informatie [machines voorbereiden voor beheer door Azure Automation DSC](automation-dsc-onboarding.md)
 
 ## <a name="set-up-integration-with-log-analytics"></a>Integratie met logboekanalyse instellen
 
@@ -191,5 +189,5 @@ Log Analytics biedt groter operationeel inzicht in uw Automation DSC-gegevens en
 
 * Zie voor meer informatie over het maken van verschillende zoekquery's en de Automation DSC-logboeken met Log Analytics, [zoekopdrachten aanmelden met Log Analytics](../log-analytics/log-analytics-log-searches.md)
 * Zie voor meer informatie over het gebruik van Azure Automation DSC, [aan de slag met Azure Automation DSC](automation-dsc-getting-started.md)
-* Zie [Collecting Azure storage data in Log Analytics overview (Overzicht Azure-opslaggegevens verzamelen in Log Analytics)](../log-analytics/log-analytics-azure-storage.md) voor meer informatie over OMS Log Analytics en gegevensverzamelingsbronnen
+* Zie voor meer informatie over Log Analytics en verzameling gegevensbronnen, [verzamelen van Azure storage-gegevens in het overzicht van de Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 

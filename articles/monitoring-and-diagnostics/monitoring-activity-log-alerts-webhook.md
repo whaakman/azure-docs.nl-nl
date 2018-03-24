@@ -4,7 +4,7 @@ description: Meer informatie over het schema van de JSON die wordt gepost naar e
 author: johnkemnetz
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: f71714774d7ad54d7eb2132e8c20c87f972157ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks voor Azure activiteit logboek waarschuwingen
 Als onderdeel van de definitie van een actiegroep, kunt u de webhook-eindpunten voor het ontvangen van meldingen van waarschuwingen activiteit logboek configureren. Met webhooks, kunt u deze meldingen met andere systemen voor na verwerking of aangepaste acties te routeren. Dit artikel laat zien hoe de nettolading voor de HTTP POST naar een webhook eruit ziet.
@@ -31,7 +31,7 @@ De webhook kan eventueel token gebaseerde verificatie gebruiken voor verificatie
 ## <a name="payload-schema"></a>De nettolading van schema
 De JSON-nettolading opgenomen in de POST-bewerking verschilt op basis van de nettolading data.context.activityLog.eventSource veld.
 
-###<a name="common"></a>Algemeen
+### <a name="common"></a>Algemeen
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -58,7 +58,7 @@ De JSON-nettolading opgenomen in de POST-bewerking verschilt op basis van de net
     }
 }
 ```
-###<a name="administrative"></a>Administratief
+### <a name="administrative"></a>Administratief
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -85,7 +85,7 @@ De JSON-nettolading opgenomen in de POST-bewerking verschilt op basis van de net
 }
 
 ```
-###<a name="servicehealth"></a>ServiceHealth
+### <a name="servicehealth"></a>ServiceHealth
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -152,7 +152,7 @@ Zie voor meer informatie voor een specifiek schema bij alle waarschuwingen van a
 | correlationId |Meestal een GUID in de indeling van tekenreeks. Gebeurtenissen met correlationId deel uitmaken van dezelfde groter actie en meestal delen een correlationId. |
 | eventDescription |De beschrijving van de statische tekst van de gebeurtenis. |
 | eventDataId |De unieke id voor de gebeurtenis. |
-| EventSource |Naam van de Azure-service of de infrastructuur die de gebeurtenis heeft gegenereerd. |
+| eventSource |Naam van de Azure-service of de infrastructuur die de gebeurtenis heeft gegenereerd. |
 | httpRequest |De aanvraag bevat meestal de clientRequestId, clientIpAddress en HTTP-methode (bijvoorbeeld plaatsen). |
 | niveau |Een van de volgende waarden: kritiek, fout, waarschuwing en ter informatie. |
 | operationId |Meestal een GUID gedeeld door de gebeurtenissen die overeenkomt met één bewerking. |

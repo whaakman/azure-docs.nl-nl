@@ -4,13 +4,13 @@ description: Dit artikel biedt een overzicht van de onderdelen en architectuur d
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/194/2018
 ms.author: raynew
-ms.openlocfilehash: dd3dcf325ed5a628c98ac63683440e1796aa8c3f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 978d290287a4ff8875eea7e93f003c78e7177dae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V Azure replicatie-architectuur
 
@@ -28,7 +28,7 @@ De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderde
 **Onderdeel** | **Vereiste** | **Details**
 --- | --- | ---
 **Azure** | Een Azure-abonnement, Azure storage-account en Azure-netwerk. | Gerepliceerde gegevens van de VM-workloads lokaal wordt opgeslagen in het opslagaccount. Virtuele machines in Azure worden gemaakt met de van de gerepliceerde Werkbelastinggegevens bij een storing van uw on-premises site.<br/><br/> De Azure-VM's maken verbinding met het virtuele Azure-netwerk wanneer ze worden gemaakt.
-**Hyper-V** | Tijdens de implementatie van Site Recovery, u een Hyper-V-hosts en clusters verzamelen in Hyper-V-sites. U installeert de Azure Site Recovery Provider en de Recovery Services agent op elke Hyper-V-machine. | De provider coördineert de replicatie met Site Recovery via internet. De Recovery Services-agent handelt de gegevensreplicatie af.<br/><br/> De communicatie vanuit zowel de Provider als de agent is beveiligd en versleuteld. De gerepliceerde gegevens in de Azure-opslag zijn eveneens versleuteld.
+**Hyper-V** | Tijdens de implementatie van Site Recovery, u een Hyper-V-hosts en clusters verzamelen in Hyper-V-sites. U kunt de Azure Site Recovery Provider en de Recovery Services-agent installeren op elke zelfstandige Hyper-V-host of op elk clusterknooppunt Hyper-V. | De provider coördineert de replicatie met Site Recovery via internet. De Recovery Services-agent handelt de gegevensreplicatie af.<br/><br/> De communicatie vanuit zowel de Provider als de agent is beveiligd en versleuteld. De gerepliceerde gegevens in de Azure-opslag zijn eveneens versleuteld.
 **Virtuele Hyper-V-machines** | Een of meer virtuele machines waarop Hyper-V. | Er is niets moet expliciet worden geïnstalleerd op virtuele machines.
 
 
@@ -46,7 +46,7 @@ De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderde
 --- | --- | ---
 **Azure** | Een Azure-abonnement, Azure storage-account en Azure-netwerk. | Gerepliceerde gegevens van de VM-workloads lokaal wordt opgeslagen in het opslagaccount. Virtuele machines in Azure worden gemaakt met de gerepliceerde gegevens bij een storing van uw on-premises site.<br/><br/> De Azure-VM's maken verbinding met het virtuele Azure-netwerk wanneer ze worden gemaakt.
 **VMM-server** | De VMM-server heeft een of meer clouds met Hyper-V-hosts. | U installeert de Site Recovery Provider op de VMM-server naar de organisatie van replicatie met Site Recovery en registreer de server in de Recovery Services-kluis.
-**Hyper-V-host** | Een of meer Hyper-V-hosts/clusters worden beheerd door VMM. |  U installeert de Recovery Services-agent op elk lid van de host of het cluster.
+**Hyper-V-host** | Een of meer Hyper-V-hosts/clusters worden beheerd door VMM. |  U kunt de Recovery Services-agent installeren op elke Hyper-V-host of cluster-knooppunt.
 **Virtuele Hyper-V-machines** | Er worden een of meer VM's uitgevoerd op een Hyper-V-hostserver. | U hoeft niets expliciet te installeren op virtuele machines.
 **Netwerken** | Er zijn logische en VM-netwerken ingesteld op de VMM-server. Het VM-netwerk moet worden gekoppeld aan een logisch netwerk dat is gekoppeld aan de cloud. | VM-netwerken worden toegewezen aan virtuele netwerken in Azure. Wanneer virtuele Azure-machines na een failover worden gemaakt, worden ze toegevoegd aan de Azure-netwerk dat toegewezen aan het VM-netwerk.
 

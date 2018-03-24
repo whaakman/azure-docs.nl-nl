@@ -2,10 +2,9 @@
 title: Transformeer gegevens met behulp van U-SQL-script - Azure | Microsoft Docs
 description: Meer informatie over verwerken of transformatie gegevens door het U-SQL-scripts uitvoeren op Azure Data Lake Analytics compute-service.
 services: data-factory
-documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+documentationcenter: ''
+author: douglaslMS
+manager: craigg
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2017
-ms.author: spelluru
+ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: ff91a3da978fd027605b3674eae14d1d74b309cd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7861a3380ee330241f0c735ee6c5ed84f121e512
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformeer gegevens door het U-SQL-scripts uitvoeren op Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +49,7 @@ De volgende tabel bevat beschrijvingen van de algemene eigenschappen die in de J
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
 | **type** |De eigenschap type moet worden ingesteld op: **AzureDataLakeAnalytics**. |Ja |
-| **Accountnaam** |Azure Data Lake Analytics-accountnaam. |Ja |
+| **accountName** |Azure Data Lake Analytics-accountnaam. |Ja |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics-URI. |Nee |
 | **abonnements-id** |Azure-abonnement-id |Nee (als niet wordt opgegeven, abonnement van de gegevensfactory wordt gebruikt). |
 | **resourceGroupName** |Naam van een Azure-resourcegroep |Nee (als niet wordt opgegeven, brongroep van de gegevensfactory wordt gebruikt). |
@@ -93,7 +92,7 @@ U kunt ook referentie gebruikersverificatie voor Data Lake Analytics gebruiken d
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| **autorisatie** | Klik op de **autoriseren** in de Data Factory-Editor en voer uw referenties op waarmee de automatisch gegenereerde autorisatie-URL worden toegewezen aan deze eigenschap. | Ja |
+| **Autorisatie** | Klik op de **autoriseren** in de Data Factory-Editor en voer uw referenties op waarmee de automatisch gegenereerde autorisatie-URL worden toegewezen aan deze eigenschap. | Ja |
 | **sessie-id** | OAuth-sessie-ID van de OAuth-autorisatie-sessie. Elke sessie-ID is uniek en kan slechts één keer worden gebruikt. Deze instelling wordt automatisch gegenereerd wanneer u de Data Factory-Editor. | Ja |
 
 **Voorbeeld: Verificatie van gebruikersreferenties**
@@ -215,7 +214,7 @@ De volgende tabel beschrijft de namen en beschrijvingen van eigenschappen die sp
 | scriptLinkedService | Gekoppelde service die is gekoppeld aan de opslag die het script aan de gegevensfactory bevat | Nee (als u een script gebruiken)                   |
 | Script              | Geef in plaats van het opgeven van scriptPath en scriptLinkedService inline-script. Bijvoorbeeld: `"script": "CREATE DATABASE test"`. | Nee (als u scriptPath en scriptLinkedService gebruiken) |
 | degreeOfParallelism | Het maximum aantal knooppunten dat tegelijk worden gebruikt voor het uitvoeren van de taak. | Nee                                       |
-| Prioriteit            | Hiermee wordt bepaald welke taken uit in de wachtrij moeten eerst worden geselecteerd. Hoe lager het getal, hoe hoger de prioriteit. | Nee                                       |
+| prioriteit            | Hiermee wordt bepaald welke taken uit in de wachtrij moeten eerst worden geselecteerd. Hoe lager het getal, hoe hoger de prioriteit. | Nee                                       |
 | parameters          | Parameters voor de U-SQL-script          | Nee                                       |
 | runtimeVersion      | Runtime-versie van de U-SQL-engine gebruiken | Nee                                       |
 | compilationMode     | <p>Compilatiemodus van U-SQL. Moet een van de volgende waarden:</p> <ul><li>**Semantische:** alleen uitvoeren semantische controles en de benodigde bevestigingen.</li><li>**Volledige:** uitvoeren van de volledige compilatie, met inbegrip van syntaxiscontrole, optimalisatie, genereren van code, enzovoort.</li><li>**SingleBox:** de volledige compilatie, met TargetType instelling SingleBox uitvoeren.</li></ul><p>Als u een waarde voor deze eigenschap niet opgeeft, wordt door de server de optimale compilatiemodus bepaalt. </p> | Nee                                       |
@@ -318,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-De waarden voor  **@in**  en  **@out**  parameters in de U-SQL-script worden doorgegeven dynamisch door ADF met behulp van de sectie 'parameters'. Zie de sectie 'parameters' in de definitie van de pijplijn.
+De waarden voor **@in** en **@out** parameters in de U-SQL-script worden doorgegeven dynamisch door ADF met behulp van de sectie 'parameters'. Zie de sectie 'parameters' in de definitie van de pijplijn.
 
 U kunt ook andere eigenschappen zoals degreeOfParallelism en prioriteit opgeven in de definitie van de pijplijn voor de taken die worden uitgevoerd op de Azure Data Lake Analytics-service.
 

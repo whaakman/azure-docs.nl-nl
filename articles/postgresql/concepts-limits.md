@@ -8,15 +8,15 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ba05308039e9743dd207333476e61a45c0ca166a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Beperkingen in Azure-Database voor PostgreSQL
-De Azure-Database voor PostgreSQL-service is in de openbare preview. De volgende secties beschrijven de capaciteit en functionele limieten in de database-service.
+De volgende secties beschrijven de capaciteit en functionele limieten in de database-service.
 
 ## <a name="pricing-tier-maximums"></a>Laag maximumwaarden prijzen
 Azure PostgreSQL-Database heeft meerdere Prijscategorieën die u bij het maken van een server kiezen kunt uit. Zie voor meer informatie [prijscategorieën in Azure-Database voor PostgreSQL](concepts-pricing-tiers.md).  
@@ -43,7 +43,6 @@ Er is een maximum aantal verbindingen, compute-eenheden en opslag in elke prijsc
 |Geoptimaliseerd geheugen| Gen 5| 4| 250|
 |Geoptimaliseerd geheugen| Gen 5| 8| 480|
 |Geoptimaliseerd geheugen| Gen 5| 16| 950|
-|Geoptimaliseerd geheugen| Gen 5| 32| 1900|
 
 Wanneer er verbindingen de limiet overschrijdt, wordt de volgende fout:
 > Onherstelbare fout: er al te veel clients

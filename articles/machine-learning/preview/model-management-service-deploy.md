@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 7b481fb3287b8ee2c22e5f25f8cf1935eed05428
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 5211fa29af1d8cba17049b69974189990d30f34a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Implementatie van een Machine Learning-Model als een webservice
 
@@ -22,10 +22,17 @@ Azure Machine Learning-Model Management biedt interfaces voor het implementeren 
 
 Dit document bevat informatie over de stappen voor het implementeren van uw modellen als webservices met behulp van de Azure Machine Learning-Model Management-opdrachtregelinterface (CLI).
 
+## <a name="what-you-need-to-get-started"></a>Wat u moet aan de slag
+
+Als u de meest buiten deze handleiding, hebt u eigenaarsrechten toegang tot een Azure-abonnement of resourcegroep die u kunt uw modellen te implementeren.
+De CLI is voorgeïnstalleerd op de Workbench van Azure Machine Learning en klik op [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).  Het kan ook worden geïnstalleerd als een zelfstandige pakket.
+
+Bovendien moet een model-management-account en implementatie-omgeving al zijn ingesteld.  Zie voor meer informatie over het instellen van uw model-account van beheerserver en de omgeving voor lokale en de implementatie van het cluster [Model Management configuration](deployment-setup-configuration.md).
+
 ## <a name="deploying-web-services"></a>Webservices implementeren
 De CLIs kunt u web-services worden uitgevoerd op de lokale computer of op een cluster implementeren.
 
-U kunt het beste beginnen met een lokale implementatie. U eerst controleren of uw model en code, klikt u vervolgens werkt de webservice implementeren naar een cluster voor gebruik in productie schaal. Zie voor meer informatie over het instellen van uw omgeving voor Clusterimplementatie [Model Management configuration](deployment-setup-configuration.md). 
+U kunt het beste beginnen met een lokale implementatie. U eerst controleren of uw model en code, klikt u vervolgens werkt de webservice implementeren naar een cluster voor gebruik in productie schaal.
 
 Hier volgen de implementatiestappen:
 1. Uw opgeslagen, getraind, Machine Learning-model gebruiken
@@ -49,7 +56,8 @@ saved_model = pickle.dumps(clf)
 ```
 
 ### <a name="2-create-a-schemajson-file"></a>2. Maak een bestand schema.json
-Deze stap is optioneel. 
+
+Tijdens het genereren van schema optioneel is, moet het is raadzaam voor het definiëren van de aanvraag en invoer variabele indeling voor betere prestaties.
 
 Maak een schema voor het valideren van automatisch de invoer en uitvoer van uw web-service. Het schema de CLIs ook gebruiken voor het genereren van een Swagger-document voor uw webservice.
 
@@ -77,6 +85,13 @@ Het volgende voorbeeld wordt een dataframe PANDAS:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
+```
+
+Het volgende voorbeeld wordt een algemene JSON-indeling:
+
+```python
+inputs = {"input_json": SampleDefinition(DataTypes.STANDARD, yourinputjson)}
 generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
@@ -147,10 +162,13 @@ U kunt een installatiekopie maken met de optie van de manifest voordat hebben ge
 az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
-Of u kunt maken van het manifest en de installatiekopie met één opdracht. 
+>[!NOTE] 
+>U kunt ook één opdracht gebruiken om uit te voeren van de registratie, het manifest en model maken van het model. Gebruik -h met de service maken voor meer informatie.
+
+Als alternatief is één opdracht registreren van een model, een manifest te maken en een installatiekopie maken (maar niet maken en implementeren van de webservice nog) als een stap als volgt.
 
 ```
-az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]
+az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime e.g. spark-py which is the Docker container image base]
 ```
 
 >[!NOTE]
@@ -165,7 +183,14 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->U kunt ook één opdracht gebruiken om uit te voeren van de vorige stappen 4. Gebruik -h met de service maken voor meer informatie.
+>U kunt ook één opdracht alle vorige 4 stappen uit te voeren. Gebruik -h met de service maken voor meer informatie.
+
+Als alternatief is er één opdracht registreren van een model, een manifest te maken, een installatiekopie maken evenals, maken en implementeren van de webservice als één stap als volgt.
+
+```azurecli
+az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
+```
+
 
 ### <a name="8-test-the-service"></a>8. De service testen
 Gebruik de volgende opdracht om meer informatie over de service aanroepen:

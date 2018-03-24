@@ -2,25 +2,19 @@
 title: Het oplossen van veelvoorkomende problemen met Azure Automation | Microsoft Docs
 description: Dit artikel bevat informatie over en oplossen van veelvoorkomende fouten van Azure Automation.
 services: automation
-documentationcenter: 
+ms.service: automation
 author: georgewallace
-manager: stevenka
-editor: tysonn
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
 tags: top-support-issue
 keywords: Fout bij het Automation, het oplossen van problemen probleem
-ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
-ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: sngun; v-reagie
-ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Het oplossen van veelvoorkomende problemen in Azure Automation 
 Dit artikel bevat help het oplossen van veelvoorkomende fouten u tegenkomen in Azure Automation en mogelijke oplossingen om op te lossen ze voorgesteld.
@@ -33,7 +27,7 @@ Dit artikel bevat help het oplossen van veelvoorkomende fouten u tegenkomen in A
 
 **Tips voor probleemoplossing:** om te bepalen wat er mis is, voert u de volgende stappen uit:  
 
-1. Zorg ervoor dat er geen speciale tekens, inclusief de  **@**  teken in de naam van Automation-referentie asset die u gebruikt voor het verbinding maken met Azure.  
+1. Zorg ervoor dat er geen speciale tekens, inclusief de **@** teken in de naam van Automation-referentie asset die u gebruikt voor het verbinding maken met Azure.  
 2. Controleer of u kunt de gebruikersnaam en wachtwoord die zijn opgeslagen in de Azure Automation-referentie in uw lokale PowerShell ISE-editor. U kunt dit doen door het uitvoeren van de volgende cmdlets in de PowerShell ISE:  
 
         $Cred = Get-Credential  
@@ -133,7 +127,7 @@ Dit artikel bevat help het oplossen van veelvoorkomende fouten u tegenkomen in A
 
 **Tips voor probleemoplossing:** een van de volgende oplossingen het probleem oplossen:
 
-* Zorg ervoor dat de module de volgende indeling heeft: ModuleName.Zip  **->**  ModuleName of het versienummer  **->**  (ModuleName.psm1, ModuleName.psd1)
+* Zorg ervoor dat de module de volgende indeling heeft: ModuleName.Zip **->** ModuleName of het versienummer **->** (ModuleName.psm1, ModuleName.psd1)
 * Open het bestand .psd1 en controleert u of de module afhankelijkheden heeft. Als dit het geval is, uploadt u deze modules naar het Automation-account.
 * Zorg ervoor dat eventuele waarnaar wordt verwezen dll's aanwezig zijn in de modulemap.
 
@@ -171,7 +165,7 @@ Dit artikel bevat help het oplossen van veelvoorkomende fouten u tegenkomen in A
 ### <a name="scenario-unable-to-use-a-credential-in-a-dsc-configuration"></a>Scenario: Een kan referenties niet gebruiken in een DSC-configuratie
 **Fout:** DSC-Compilatietaak is onderbroken met de fout: "System.InvalidOperationException fout bij het verwerken van de eigenschap '-referentie van het type ``<some resource name>``: omzetten en opslaan van een versleutelde wachtwoord als leesbare tekst is alleen toegestaan als PSDscAllowPlainTextPassword is ingesteld op true '.
 
-**Reden voor de volgende fout:** u een referentie in een configuratie hebt gebruikt maar geen juiste **ConfigurationData** instellen **PSDscAllowPlainTextPassword** op true voor de configuratie van elk knooppunt.
+**Reden voor de volgende fout:** u een referentie in een configuratie hebt gebruikt maar geen juiste **ConfigurationData** instellen **PSDscAllowPlainTextPassword** op true voor elk knooppunt de configuratie.
 
 **Tips voor probleemoplossing:**
 

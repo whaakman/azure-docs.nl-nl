@@ -1,10 +1,11 @@
 ---
 title: Een Azure Machine Learning-webservice gebruiken | Microsoft Docs
-description: "Zodra een machine learning-service is geïmplementeerd, kan de RESTFul-Web-service die beschikbaar wordt gesteld worden gebruikt als realtime aanvragen en antwoorden service of als een batch-service kan worden uitgevoerd."
+description: Zodra een machine learning-service is geïmplementeerd, kan de RESTFul-Web-service die beschikbaar wordt gesteld worden gebruikt als realtime aanvragen en antwoorden service of als een batch-service kan worden uitgevoerd.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.author: garye
-ms.openlocfilehash: ed41ec58dbdfd41931e8bab3a3cbe33caafe9a74
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: efb23500d8c718ff1dc7b59c4cfb2b2d5cdfaccb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Een Azure Machine Learning-webservice gebruiken
 
@@ -97,7 +97,7 @@ Gebruiken voor verbinding met een Machine Learning-webservice, een **HttpClient*
 
 Verbinding maken met een Machine Learning-webservice, de **Microsoft.AspNet.WebApi.Client** NuGet-pakket moet worden geïnstalleerd.
 
-**Microsoft.AspNet.WebApi.Client NuGet in Visual Studio installeren**
+**Install Microsoft.AspNet.WebApi.Client NuGet in Visual Studio**
 
 1. De gegevensset downloaden van UCI publiceren: volwassenen 2 klasse gegevensset Web Service.
 2. Klik op **Hulpprogramma's** > **NuGet Package Manager** > **Package Manager-console**.

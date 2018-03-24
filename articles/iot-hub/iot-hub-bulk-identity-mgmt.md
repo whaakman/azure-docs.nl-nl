@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 74645f3fdece14790311592a0fdd4ce6570a5bae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Beheren van uw IoT Hub apparaat-id's in bulk
 
@@ -193,9 +193,6 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
   }
 }
 ```
-
-> [!NOTE]
-> U kunt ook de **GetDevicesAsync** methode van de **RegistryManager** klasse voor het ophalen van een lijst van uw apparaten. Deze methode heeft echter een vaste limiet van 1000 van het aantal apparaatobjecten die worden geretourneerd. Het verwachte gebruiksvoorbeeld voor de **GetDevicesAsync** methode is voor ontwikkelscenario's om te helpen bij foutopsporing en wordt niet aanbevolen voor productieworkloads.
 
 ## <a name="import-devices"></a>Apparaten importeren
 

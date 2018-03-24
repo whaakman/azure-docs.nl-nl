@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 640e051a909b1b9457b20cbd507b418342297c6e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6a13ced8b1c49239d1ad5fb96775f43de9c3943e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Inleiding tot Service Fabric Reliable Actors
 Reliable Actors is een Service Fabric-toepassingsframework op basis van de [virtuele Actor](http://research.microsoft.com/en-us/projects/orleans/) patroon. De betrouwbare actoren API biedt een single thread-programmeermodel die gebaseerd op de schaalbaarheid en betrouwbaarheid garanties geleverd door de Service Fabric.
@@ -40,7 +40,7 @@ In Service Fabric actoren zijn geïmplementeerd in het kader Reliable Actors: ee
 
 Elke actor wordt gedefinieerd als een exemplaar van een actortype identiek is aan de manier waarop die.NET-object een exemplaar van een .NET-type is. Bijvoorbeeld, kan er een actortype dat de functionaliteit van een rekenmachine implementeert en er zijn veel actoren van dat type die worden gedistribueerd op verschillende knooppunten in een cluster. Elke dergelijke actor wordt uniek geïdentificeerd door een actor-ID.
 
-### <a name="actor-lifetime"></a>Actor-levensduur
+## <a name="actor-lifetime"></a>Actor-levensduur
 Service Fabric actoren zijn virtueel, wat betekent dat hun levensduur niet is gekoppeld aan hun representatie in het geheugen. Hierdoor hoeft ze niet expliciet worden gemaakt of vernietigd. De runtime Reliable Actors wordt automatisch geactiveerd voor een actor de eerste keer die een aanvraag voor die actor-ID ontvangt. Als een actor niet voor een bepaalde periode gebruikt wordt, de runtime Reliable Actors garbagecollection-verzamelt het object in het geheugen. Ook blijven kennis van de actor bestaan hoeft het later opnieuw worden geactiveerd. Zie voor meer informatie [Actor lifecycle en garbage collection](service-fabric-reliable-actors-lifecycle.md).
 
 Deze virtuele actor levensduur abstractie voert enkele waarschuwingen als gevolg van het virtuele actor-model en in feite de Reliable Actors uitvoering op tijdstippen afwijkt van dit model.
@@ -49,7 +49,7 @@ Deze virtuele actor levensduur abstractie voert enkele waarschuwingen als gevolg
 * Een actormethode aanroepen voor een actor-ID activeert die actor. Om deze reden hebben acteur types hun constructor die impliciet wordt aangeroepen door de runtime. Daarom kan niet clientcode parameters doorgeven aan de actor Typeconstructor, hoewel parameters kunnen worden doorgegeven aan de actor-constructor door de service zelf. Het resultaat is dat actoren kunnen worden geconstrueerd in een status gedeeltelijk geïnitialiseerd door de andere methoden worden genoemd, tijd als de actor van de initialisatieparameters van de client vereist. Er is geen één toegangspunt voor de activering van een acteur van de client.
 * Hoewel Reliable Actors impliciet actor-objecten maken. u hebt de mogelijkheid een actor- en de status expliciet verwijderen.
 
-### <a name="distribution-and-failover"></a>Distributie en failover
+## <a name="distribution-and-failover"></a>Distributie en failover
 Voor schaalbaarheid en betrouwbaarheid, Service Fabric distribueert actoren in het cluster en automatisch van knooppunten overzet naar orde protocollen zoals vereist. Dit is een abstractie via een [betrouwbare gepartitioneerde stateful Service](service-fabric-concepts-partitioning.md). Distributie, schaalbaarheid, betrouwbaarheid en automatische failover zijn alle opgegeven grond van het feit dat actoren worden uitgevoerd binnen een stateful betrouwbare Service aangeroepen de *Actor Service*.
 
 Actors zijn verdeeld over de partities van de Actor-Service en deze partities zijn verdeeld over de knooppunten in een Service Fabric-cluster. Elke partitie service bevat een set van actoren. Service Fabric beheert distributie en failover van de servicepartities.
@@ -67,12 +67,12 @@ Het Framework Actor beheert partitie schema en de sleutel bereik-instellingen vo
 
 Raadpleeg voor meer informatie over hoe actorservices worden gepartitioneerd, [partitioneren concepten voor actoren](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-### <a name="actor-communication"></a>Actor-communicatie
+## <a name="actor-communication"></a>Actor-communicatie
 Actor-interacties worden gedefinieerd in een interface die wordt gedeeld door de actor die de interface implementeert en de client die een proxy wordt een actor via dezelfde interface. Omdat deze interface aan te roepen actor methoden asynchroon wordt gebruikt, moet u elke methode op de interface moet geretourneerd.
 
 Methode-aanroepen en hun antwoorden uiteindelijk op netwerkaanvragen in het cluster, zodat de argumenten en de resultaattypen van de taken die ze retourneren moeten serialiseerbaar zijn door het platform. In het bijzonder, moeten ze [gegevenscontract serialiseerbaar](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-#### <a name="the-actor-proxy"></a>De proxy actor
+### <a name="the-actor-proxy"></a>De proxy actor
 De client Reliable Actors API biedt communicatie tussen een actor-exemplaar en een actor-client. Om te communiceren met een actor, maakt een client een actor proxy-object dat de actor-interface implementeert. De client communiceert met de actor door het aanroepen van methoden voor de proxyobject. De proxy acteur kan worden gebruikt voor client-naar-actor en actor-actor-communicatie.
 
 ```csharp
@@ -105,7 +105,7 @@ De `ActorProxy`(C#) / `ActorProxyBase`klasse (Java) op de client voert de benodi
 * Levering van berichten is zo goed mogelijke poging.
 * Actoren mogelijk dezelfde client dubbele berichten ontvangen.
 
-### <a name="concurrency"></a>Gelijktijdigheid
+## <a name="concurrency"></a>Gelijktijdigheid
 De runtime Reliable Actors biedt een eenvoudige inschakelen op basis van een toegangsmodel voor toegang tot actor-methoden. Dit betekent dat niet meer dan één thread actief binnen een actor-object-code op elk gewenst moment zijn kan. Schakel gebaseerde toegang vereenvoudigt gelijktijdige systemen als er geen synchronisatiemechanismen voor toegang tot gegevens nodig is. Het betekent ook systemen moeten worden ontworpen met speciale overwegingen voor de toegang tot één thread aard van elk actor-exemplaar.
 
 * Een enkele actor-exemplaar kan niet meer dan één verzoek tegelijkertijd wordt verwerkt. Een actor-exemplaar kan een knelpunt doorvoer veroorzaken als er wordt verwacht om gelijktijdige aanvragen te verwerken.
@@ -113,7 +113,7 @@ De runtime Reliable Actors biedt een eenvoudige inschakelen op basis van een toe
 
 ![Betrouwbare actoren communicatie][3]
 
-#### <a name="turn-based-access"></a>Schakel gebaseerde toegang
+### <a name="turn-based-access"></a>Schakel gebaseerde toegang
 Een Schakel bestaat uit het uitvoeren van een actormethode in reactie op een aanvraag van andere actoren of clients of het uitvoeren van een [timer/herinnering](service-fabric-reliable-actors-timers-reminders.md) retouraanroep. Hoewel deze methoden en retouraanroepen asynchrone, kan de runtime actoren ze komt niet interleave. Een Schakel moet volledig is voltooid voordat een nieuwe Schakel is toegestaan. Met andere woorden, een actor-methode of timer/herinnering callback die momenteel wordt uitgevoerd moet volledig is voltooid voordat u een nieuwe aanroep van een methode of retouraanroep is toegestaan. Een methode of de retouraanroep wordt beschouwd als hebt opgegeven als de uitvoering van de methode heeft geretourneerd of retouraanroep en wordt de taak die is geretourneerd door de methode of een retouraanroep is voltooid. Wordt het bewerken van benadrukken dat die op basis van Schakel gelijktijdigheid zelfs in verschillende methoden en timers retouraanroepen is voldaan.
 
 De runtime actoren gehandhaafd gelijktijdigheid op basis van inschakelen door een afzonderlijke actorvergrendeling die aan het begin van een beurt en aan het einde van de beurt de vergrendeling verkrijgen. Schakel gebaseerde gelijktijdigheid van taken wordt dus afgedwongen op basis van per actor en niet via actoren. Actor-methoden en timer/herinnering retouraanroepen kunnen tegelijkertijd uitvoeren namens actoren.
@@ -136,10 +136,10 @@ Aantal belangrijke zaken te overwegen:
 * De uitvoering van *Method1* namens *ActorId1* overlapt met de uitvoering ervan namens *ActorId2*. Dit is omdat op basis van Schakel gelijktijdigheid alleen binnen een actor en niet tussen actoren wordt afgedwongen.
 * In sommige van de methode/callback-uitvoeringen de `Task`(C#) / `CompletableFuture`(Java) geretourneerd door de methode/retouraanroep is voltooid nadat de methode retourneert. In sommige andere is asynchrone bewerking al voltooid op het moment dat de methode/callback retourneert. In beide gevallen worden per actorvergrendeling wordt vrijgegeven nadat de methode/callback retourneert zowel de asynchrone bewerking is voltooid.
 
-#### <a name="reentrancy"></a>Herintreding
+### <a name="reentrancy"></a>Herintreding
 De runtime actoren kunt herintreding standaard. Dit betekent dat wanneer een actormethode van *Actor A* een methode wordt aangeroepen op *Actor B*, die op zijn beurt een andere methode aanroepen op *Actor A*, methode kan worden uitgevoerd. Dit is omdat deze deel uitmaakt van dezelfde logische aanroep-keten context. Alle timer en herinnering aanroepen beginnen met de nieuwe logische aanroepcontext. Zie de [Reliable Actors herintreding](service-fabric-reliable-actors-reentrancy.md) voor meer informatie.
 
-#### <a name="scope-of-concurrency-guarantees"></a>Bereik van garanties gelijktijdigheid van taken
+### <a name="scope-of-concurrency-guarantees"></a>Bereik van garanties gelijktijdigheid van taken
 De runtime actoren biedt deze garanties gelijktijdigheid van taken in situaties waar Hiermee kunt u het aanroepen van deze methoden. Bijvoorbeeld, biedt deze garanties voor de methode-aanroepen die worden uitgevoerd in reactie op aanvragen van clients en voor de timer- en herinnering retouraanroepen. Als de code actor rechtstreeks deze methoden buiten de mechanismen die is opgegeven door de runtime actoren aanroept, kan niet klikt u vervolgens de runtime evenwel garanties gelijktijdigheid van taken. Bijvoorbeeld, als de methode wordt aangeroepen in de context van een taak die is niet gekoppeld aan de taak die is geretourneerd door de actor-methoden, klikt u vervolgens de runtime kan niet gelijktijdigheid garanties bieden. Als de methode wordt aangeroepen vanuit een thread die de actor op een eigen maakt, kan niet klikt u vervolgens de runtime bieden ook garanties gelijktijdigheid van taken. Daarom actoren moeten gebruiken om uit te voeren bewerkingen op de achtergrond, [actor timers en actor herinneringen](service-fabric-reliable-actors-timers-reminders.md) die op basis van Schakel gelijktijdigheid respecteren.
 
 ## <a name="next-steps"></a>Volgende stappen

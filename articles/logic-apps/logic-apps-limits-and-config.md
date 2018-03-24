@@ -2,10 +2,10 @@
 title: Limieten en -configuratie - Azure Logic Apps | Microsoft Docs
 description: Service-limieten en configuratiewaarden voor Azure Logic Apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 740a31f4b5e0ffe9fe2ae04d3dac51cf25ab3055
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps en -configuratie
 
@@ -86,7 +86,7 @@ Hier volgen de limieten voor een enkele logic app-exemplaar:
 
 | Naam | Limiet | Opmerkingen | 
 | ----- | ----- | ----- | 
-| Acties uitvoeringen per 5 minuten | 100,000 | Als u wilt de limiet voor 300.000 verhogen, kunt u een logische app uitvoeren in `High Througput` modus. Voor het configureren van de modus hoge doorvoer, onder de `runtimeConfiguration` ingesteld van de resource werkstroom de `operationOptions` eigenschap `OptimizedForHighThroughput`. <p>**Opmerking**: hoge doorvoersnelheid modus bevindt zich in preview. U kunt ook een werkbelasting distribueren voor meerdere apps indien nodig. | 
+| Acties uitvoeringen per 5 minuten | 100,000 | Als u wilt de limiet voor 300.000 verhogen, kunt u een logische app uitvoeren in `High Throughput` modus. Voor het configureren van de modus hoge doorvoer, onder de `runtimeConfiguration` ingesteld van de resource werkstroom de `operationOptions` eigenschap `OptimizedForHighThroughput`. <p>**Opmerking**: hoge doorvoersnelheid modus bevindt zich in preview. U kunt ook een werkbelasting distribueren voor meerdere apps indien nodig. | 
 | Acties gelijktijdige uitgaande oproepen | ~2,500 | Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig. | 
 | Runtime-eindpunt: gelijktijdige binnenkomende oproepen |~1,000 | Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig. | 
 | Runtime-eindpunt: aanroepen per 5 minuten lezen  | 60,000 | Werkbelasting kan worden verdelen over meerdere apps naar behoefte. | 

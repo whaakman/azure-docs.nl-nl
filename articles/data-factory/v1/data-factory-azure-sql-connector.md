@@ -1,11 +1,10 @@
 ---
-title: "Gegevens kopiëren naar/van Azure SQL Database | Microsoft Docs"
-description: "Informatie over het kopiëren van gegevens van Azure SQL Database met Azure Data Factory."
+title: Gegevens kopiëren naar/van Azure SQL Database | Microsoft Docs
+description: Informatie over het kopiëren van gegevens van Azure SQL Database met Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 484f735b-8464-40ba-a9fc-820e6553159e
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e5718cfdca4e12edcb98e79807ffe86d7be16b07
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: bf47ad3f401abced4e74260dc9180413d69268c3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure SQL Database met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -642,9 +641,9 @@ Bij het verplaatsen van gegevens naar en van Azure SQL Database, worden de volge
 | Binaire |Byte[] |
 | bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
-| datum |Datum en tijd |
-| Datum en tijd |Datum en tijd |
-| datetime2 |Datum en tijd |
+| datum |DateTime |
+| Datum en tijd |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimale |Decimale |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
@@ -658,7 +657,7 @@ Bij het verplaatsen van gegevens naar en van Azure SQL Database, worden de volge
 | nvarchar |Tekenreeks, Char] |
 | echte |Single |
 | ROWVERSION |Byte[] |
-| smalldatetime |Datum en tijd |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimale |
 | sql_variant |Object * |

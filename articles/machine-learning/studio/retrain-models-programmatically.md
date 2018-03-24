@@ -2,10 +2,10 @@
 title: Machine Learning-modellen programmatisch opnieuw trainen | Microsoft Docs
 description: Informatie over het programmatisch opnieuw trainen van een model en het bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: serinakaye
-ms.author: serinak
-manager: mwinkle
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a986d8c500eb994af81ad535568fbbd8364f4244
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 276ee051cf927197c026b0fb0850239a048ace41
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Machine Learning modellen programmatisch opnieuw trainen
 In dit scenario leert u hoe u programmatisch opnieuw trainen een Azure Machine Learning-webservice met C# en de Batchuitvoering van Machine Learning-service.
@@ -61,7 +61,7 @@ Vervolgens maakt u een Experiment Predicative.
 > Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waaraan u de webservice implementeren. Zie voor meer informatie, [beheren van een webservice via de portal voor Azure Machine Learning-webservices](manage-new-webservice.md). 
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Het trainingsexperiment implementeren als een webservice Training
-Als u wilt opnieuw trainen van het getrainde model, moet u het trainingsexperiment die u hebt gemaakt als een webservice Retraining implementeren. Deze webservice moet een *Web Service uitvoer* module die is verbonden met de  *[Train Model] [ train-model]*  -module, kunnen voor het produceren van nieuwe getraind modellen.
+Als u wilt opnieuw trainen van het getrainde model, moet u het trainingsexperiment die u hebt gemaakt als een webservice Retraining implementeren. Deze webservice moet een *Web Service uitvoer* module die is verbonden met de *[Train Model] [ train-model]* -module, kunnen voor het produceren van nieuwe getraind modellen.
 
 1. Klik op het pictogram experimenten in het linkerdeelvenster om terug te keren naar het experimentcanvas training, en klik op het experiment telling Model met de naam.  
 2. Typ in het zoekvak Experiment zoekitems webservice. 

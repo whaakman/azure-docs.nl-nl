@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: f15811cd44e405ee33d9ba3d565c2982e71a80c0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 74b8c6afc5167225414f467f76f08c0e53bbade5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Uw MySQL-database migreren met behulp van importeren en exporteren
 Dit artikel wordt uitgelegd twee algemene manieren om te importeren en exporteren van gegevens naar een Azure-Database voor de MySQL-server met behulp van MySQL-Workbench. 
@@ -33,9 +33,9 @@ U hoeft niet te verplaatsen uw importeren en exporteren van bestanden op een wil
 ## <a name="create-a-database-on-the-azure-database-for-mysql-server"></a>Een database maken op de Azure-Database voor de MySQL-server
 Een lege database maken op de Azure-Database voor de MySQL-server waarop u wilt migreren van de gegevens. Gebruik een hulpprogramma zoals MySQL Workbench, Toad of Navicat om de database te maken. De database kan dezelfde naam als de database die de gedumpte gegevens bevat, of u kunt een database maken met een andere naam.
 
-Om verbinding te maken, zoekt u de verbindingsgegevens op de **eigenschappen** deelvenster in Azure voor MySQL-Database.
+Zoek de verbindingsinformatie in om verbinding te maken, de **overzicht** van uw Azure-Database voor MySQL.
 
-![De verbindingsgegevens niet vinden in de Azure-portal](./media/concepts-migrate-import-export/1_server-properties-name-login.png)
+![De verbindingsgegevens niet vinden in de Azure-portal](./media/concepts-migrate-import-export/1_server-overview-name-login.png)
 
 De verbindingsinformatie toevoegen aan MySQL-Workbench.
 

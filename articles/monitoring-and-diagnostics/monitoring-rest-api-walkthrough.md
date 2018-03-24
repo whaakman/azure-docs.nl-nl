@@ -1,28 +1,28 @@
 ---
 title: Overzicht van Azure Monitoring REST-API | Microsoft Docs
-description: "Hoe aanvragen verifiëren en de REST-API van Azure Monitor gebruikt voor het ophalen van de beschikbare metrische definities en metrische waarden."
+description: Hoe aanvragen verifiëren en de REST-API van Azure Monitor gebruikt voor het ophalen van de beschikbare metrische definities en metrische waarden.
 author: mcollier
-manager: 
-editor: 
+manager: ''
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 565e6a88-3131-4a48-8b82-3effc9a3d5c6
 ms.service: monitoring-and-diagnostics
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
-ms.search.region: 
-ms.search.scope: 
-ms.search.validFrom: 
-ms.dyn365.ops.version: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.search.region: ''
+ms.search.scope: ''
+ms.search.validFrom: ''
+ms.dyn365.ops.version: ''
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 03/19/2018
 ms.author: mcollier
-ms.openlocfilehash: 357a63c65a4f6864dca259aad8a76f83681cd501
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a5119cf7291db4fd2d2ffaf00ef098cfe336e645
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST-API-overzicht
 In dit artikel wordt beschreven hoe u verificatie uitvoeren zodat uw code kunt u de [Microsoft Azure Monitor REST API-verwijzing](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -34,7 +34,7 @@ Naast het werken met verschillende punten van de metrische gegevens, maakt de AP
 ## <a name="authenticating-azure-monitor-requests"></a>Verifiërende Azure Monitor aanvragen
 De eerste stap is het verifiëren van de aanvraag.
 
-Alle taken die worden uitgevoerd met de API van Azure-Monitor voor het Azure Resource Manager verificatiemodel te gebruiken. Alle aanvragen moeten daarom worden geverifieerd bij Azure Active Directory (Azure AD). Eén manier om te verifiëren van de clienttoepassing is een Azure AD-service-principal maken en ophalen van het verificatietoken (JWT). Het volgende voorbeeldscript wordt gedemonstreerd maken van een Azure AD-service principal via PowerShell. Voor een meer gedetailleerde procedure, Raadpleeg de documentatie op [Azure PowerShell gebruiken voor het maken van een service-principal voor toegang tot bronnen](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). Het is ook mogelijk om te [maken van een service-principal via Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Alle taken die worden uitgevoerd met de API van Azure-Monitor voor het Azure Resource Manager verificatiemodel te gebruiken. Alle aanvragen moeten daarom worden geverifieerd bij Azure Active Directory (Azure AD). Eén manier om te verifiëren van de clienttoepassing is een Azure AD-service-principal maken en ophalen van het verificatietoken (JWT). Het volgende voorbeeldscript wordt gedemonstreerd maken van een Azure AD-service principal via PowerShell. Voor een meer gedetailleerde procedure, Raadpleeg de documentatie op [Azure PowerShell gebruiken voor het maken van een service-principal voor toegang tot bronnen](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Het is ook mogelijk om te [maken van een service-principal via Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -97,12 +97,12 @@ Gebruik de [Azure Monitor metriek definities REST-API](https://docs.microsoft.co
 
 **Methode**: ophalen
 
-**URI van de aanvraag**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{ resourceProviderNamespace}*/*{resourceType}*/*{resourceName*/providers/microsoft.insights/metricDefinitions? API-version =*{apiVersion}*
+**URI van de aanvraag**: https://management.azure.com/subscriptions/ *{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
 
 Bijvoorbeeld: voor het ophalen van de metrische definities voor een Azure Storage-account, de aanvraag zou als volgt uitzien:
 
 ```PowerShell
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2017-05-01-preview"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01"
 
 Invoke-RestMethod -Uri $request `
                   -Headers $authHeader `
@@ -112,7 +112,7 @@ Invoke-RestMethod -Uri $request `
 
 ```
 > [!NOTE]
-> Voor het ophalen van metrische definities met behulp van de multi-dimensionale Azure Monitor metrische gegevens REST-API '2017-05-01-preview' als de API-versie te gebruiken.
+> Voor het ophalen van metrische definities met behulp van de multi-dimensionale Azure Monitor metrische gegevens REST-API '2018-01-01' als de API-versie te gebruiken.
 >
 >
 
@@ -122,8 +122,9 @@ De resulterende JSON-antwoordtekst zou zijn vergelijkbaar met het volgende voorb
 {
     "value": [
         {
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/UsedCapacity",
-            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage",
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/UsedCapacity",
+            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage",
+            "namespace": "Microsoft.Storage/storageAccounts",
             "category": "Capacity",
             "name": {
                 "value": "UsedCapacity",
@@ -132,20 +133,35 @@ De resulterende JSON-antwoordtekst zou zijn vergelijkbaar met het volgende voorb
             "isDimensionRequired": false,
             "unit": "Bytes",
             "primaryAggregationType": "Average",
+            "supportedAggregationTypes": [
+                "Total",
+                "Average",
+                "Minimum",
+                "Maximum"
+            ],
             "metricAvailabilities": [
                 {
-                    "timeGrain": "PT1M",
-                    "retention": "P30D"
+                    "timeGrain": "PT1H",
+                    "retention": "P93D"
                 },
                 {
-                    "timeGrain": "PT1H",
-                    "retention": "P30D"
+                    "timeGrain": "PT6H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT12H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "P1D",
+                    "retention": "P93D"
                 }
             ]
         },
         {
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/Transactions",
-            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage",
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/Transactions",
+            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage",
+            "namespace": "Microsoft.Storage/storageAccounts",
             "category": "Transaction",
             "name": {
                 "value": "Transactions",
@@ -154,14 +170,41 @@ De resulterende JSON-antwoordtekst zou zijn vergelijkbaar met het volgende voorb
             "isDimensionRequired": false,
             "unit": "Count",
             "primaryAggregationType": "Total",
+            "supportedAggregationTypes": [
+                "Total"
+            ],
             "metricAvailabilities": [
                 {
                     "timeGrain": "PT1M",
-                    "retention": "P30D"
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT5M",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT15M",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT30M",
+                    "retention": "P93D"
                 },
                 {
                     "timeGrain": "PT1H",
-                    "retention": "P30D"
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT6H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT12H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "P1D",
+                    "retention": "P93D"
                 }
             ],
             "dimensions": [
@@ -185,22 +228,24 @@ De resulterende JSON-antwoordtekst zou zijn vergelijkbaar met het volgende voorb
 ```
 
 ## <a name="retrieve-dimension-values-multi-dimensional-api"></a>Ophalen van dimensiewaarden (Multi-dimensionale API)
-Zodra de beschikbare metrische definities gekend zijn, worden sommige metrische gegevens die dimensies hebben. Voordat u een query uitvoert voor de metrische gegevens die u wilt detecteren welke het bereik van waarden heeft een dimensie. Op basis van deze dimensiewaarden die u er vervolgens voor kiezen kunt om te filteren of segment de metrische gegevens op basis van dimensiewaarden tijdens het opvragen van metrische gegevens. De metriek naam 'value' (niet de ' localizedValue') gebruiken voor elke filtering aanvragen (bijvoorbeeld de punten van de metrische gegevens 'CpuTime' en 'Aanvragen' ophalen). Als er geen filters zijn opgegeven, wordt de metriek standaard geretourneerd.
+Zodra de beschikbare metrische definities gekend zijn, worden sommige metrische gegevens die dimensies hebben. Voordat u een query uitvoert voor de metrische gegevens die u wilt detecteren welke het bereik van waarden heeft een dimensie. Op basis van deze dimensiewaarden die u er vervolgens voor kiezen kunt om te filteren of segment de metrische gegevens op basis van dimensiewaarden tijdens het opvragen van metrische gegevens.  Gebruik de [REST API voor de metrische gegevens van de Monitor van de Azure](https://docs.microsoft.com/rest/api/monitor/metrics) om dit te bereiken.
+
+De metriek naam 'value' (niet de ' localizedValue') gebruiken voor alle aanvragen filteren. Als er geen filters zijn opgegeven, wordt de metriek standaard geretourneerd. Het gebruik van deze API staat slechts één dimensie een jokertekenfilter hebben.
 
 > [!NOTE]
-> Voor het ophalen van waarden van de dimensie met de REST-API van Azure Monitor '2017-05-01-preview' als de API-versie te gebruiken.
+> Voor het ophalen van waarden van de dimensie met de REST-API van Azure Monitor '2018-01-01' als de API-versie te gebruiken.
 >
 >
 
 **Methode**: ophalen
 
-**URI van de aanvraag**: https://management.azure.com/subscriptions/*{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/*{ resource provider naamruimte}*/*{resourcetype}*/*{resourcenaam}*/providers/microsoft.insights/metrics?metric= *{metriek}*& timespan =*{starttime/endtime}*& $filter =*{filter}*& resultType = metagegevens & api-version =*{ apiVersion}*
+**URI van de aanvraag**: https://management.azure.com/subscriptions/ *{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-naamruimte}* / *{resourcetype}*/*{resourcenaam}*/providers/microsoft.insights/metrics?metric=*{metriek}* & timespan =*{starttime/endtime}*& $filter =*{filter}*& resultType = metagegevens & api-version =*{apiVersion}*
 
-Bijvoorbeeld: voor het ophalen van de lijst met mogelijke waarden van de dimensie van het API-naam voor de metriek 'Transacties' in een bepaalde periode, de aanvraag zou zijn als volgt:
+Bijvoorbeeld, voor het ophalen van de lijst met waarden in de dimensie die voor de 'de naam van de API-dimensie' voor de metriek "Transacties" zijn verzonden, waarbij de dimensie GeoType = 'Primary' tijdens de opgegeven periode, de aanvraag zou zijn als volgt:
 
 ```PowerShell
-$filter = "APIName eq '*'"
-$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metrics?metric=Transactions&timespan=2017-09-01T00:00:00Z/2017-09-10T00:00:00Z&resultType=metadata&$filter=${filter}&api-version=2017-05-01-preview"
+$filter = "APIName eq '*' and GeoType eq 'Primary'"
+$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&$filter=${filter}&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
@@ -211,10 +256,10 @@ De resulterende JSON-antwoordtekst zou zijn vergelijkbaar met het volgende voorb
 
 ```JSON
 {
-  "timespan": "2017-09-01T00:00:00Z/2017-09-10T00:00:00Z",
+  "timespan": "2018-03-01T00:00:00Z/2018-03-02T00:00:00Z",
   "value": [
     {
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
       "type": "Microsoft.Insights/metrics",
       "name": {
         "value": "Transactions",
@@ -244,52 +289,34 @@ De resulterende JSON-antwoordtekst zou zijn vergelijkbaar met het volgende voorb
             }
           ]
         },
-        {
-          "metadatavalues": [
-            {
-              "name": {
-                "value": "apiname",
-                "localizedValue": "apiname"
-              },
-              "value": "PutPage"
-            }
-          ]
-        },
-        {
-          "metadatavalues": [
-            {
-              "name": {
-                "value": "apiname",
-                "localizedValue": "apiname"
-              },
-              "value": "Unknown"
-            }
-          ]
-        },
         ...
       ]    
     }
-  ]
+  ],
+  "namespace": "Microsoft.Storage/storageAccounts",
+  "resourceregion": "eastus"
 }
 ```
 
 ## <a name="retrieve-metric-values-multi-dimensional-api"></a>Ophalen van metrische waarden (Multi-dimensionale API)
-Zodra de beschikbare metrische definities en de mogelijke waarden gekend zijn, is deze mogelijk voor het ophalen van de verwante metrische waarden. De metriek naam 'value' (niet de ' localizedValue') gebruiken voor alle aanvragen filteren. Als er geen dimensiefilters zijn opgegeven, wordt de samengevouwen samengevoegde metrische gegevens geretourneerd.
+Zodra de beschikbare metrische definities en de mogelijke waarden gekend zijn, is deze mogelijk voor het ophalen van de verwante metrische waarden.  Gebruik de [REST API voor de metrische gegevens van de Monitor van de Azure](https://docs.microsoft.com/rest/api/monitor/metrics) om dit te bereiken.
+
+De metriek naam 'value' (niet de ' localizedValue') gebruiken voor alle aanvragen filteren. Als er geen dimensiefilters zijn opgegeven, wordt de samengevouwen samengevoegde metrische gegevens geretourneerd. Als een metrische query meerdere timeseries retourneert, kunt u de parameters van de query 'Top' en 'OrderBy' gebruiken om te retourneren van een beperkte geordende lijst met timeseries.
 
 > [!NOTE]
-> Voor het ophalen van multidimensionale metrische waarden met de REST-API van Azure Monitor '2017-05-01-preview' als de API-versie te gebruiken.
+> Voor het ophalen van multidimensionale metrische waarden met de REST-API van Azure Monitor '2018-01-01' als de API-versie te gebruiken.
 >
 >
 
 **Methode**: ophalen
 
-**URI van de aanvraag**: https://management.azure.com/subscriptions/*{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/*{ resource provider naamruimte}*/*{resourcetype}*/*{resourcenaam}*/providers/microsoft.insights/metrics?metric= *{metriek}*& timespan =*{starttime/endtime}*& $filter =*{filter}*& interval =*{timeGrain}* & aggregatie =*{aggreation}*& api-version =*{apiVersion}*
+**URI van de aanvraag**: https://management.azure.com/subscriptions/ *{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-naamruimte}* / *{resourcetype}*/*{resourcenaam}*/providers/microsoft.insights/metrics?metric=*{metriek}* & timespan =*{starttime/endtime}*& $filter =*{filter}*& interval =*{timeGrain}*& aggregatie =*{ aggreation}*& api-version =*{apiVersion}*
 
-Bijvoorbeeld, om op te halen van de metrische waarden de opslag 'Transacties' metriek tijdens een bereik 5 min voor alle transacties naar de API-naam 'GetBlobProperties', zou de aanvraag zijn als volgt:
+Bijvoorbeeld: voor het ophalen van de top-3-API's, in aflopende waarde, door het aantal 'Transacties' tijdens een bereik 5 min waarop de GeotType 'Primary', is de aanvraag zou als volgt zijn:
 
 ```PowerShell
-$filter = "APIName eq 'GetBlobProperties'"
-$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metrics?metric=Transactions&timespan=2017-09-19T02:00:00Z/2017-09-19T02:05:00Z&$filter=${filter}&interval=PT1M&aggregation=Count&api-version=2017-05-01-preview"
+$filter = "APIName eq '*' and GeoType eq 'Primary'"
+$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T02:00:00Z/2018-03-01T02:05:00Z&$filter=${filter}&interval=PT1M&aggregation=Total&top=3&orderby=Total desc&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
@@ -301,11 +328,11 @@ De resulterende JSON-antwoordtekst zou zijn vergelijkbaar met het volgende voorb
 ```JSON
 {
   "cost": 0,
-  "timespan": "2017-09-19T02:00:00Z/2017-09-19T02:05:00Z",
+  "timespan": "2018-03-01T02:00:00Z/2018-03-01T02:05:00Z",
   "interval": "PT1M",
   "value": [
     {
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
       "type": "Microsoft.Insights/metrics",
       "name": {
         "value": "Transactions",
@@ -326,29 +353,32 @@ De resulterende JSON-antwoordtekst zou zijn vergelijkbaar met het volgende voorb
           "data": [
             {
               "timeStamp": "2017-09-19T02:00:00Z",
-              "count": 2.0
+              "total": 2
             },
             {
               "timeStamp": "2017-09-19T02:01:00Z",
-              "count": 1.0
+              "total": 1
             },
             {
               "timeStamp": "2017-09-19T02:02:00Z",
-              "count": 3.0
+              "total": 3
             },
             {
               "timeStamp": "2017-09-19T02:03:00Z",
-              "count": 7.0
+              "total": 7
             },
             {
               "timeStamp": "2017-09-19T02:04:00Z",
-              "count": 2.0
+              "total": 2
             }
           ]
-        }
+        },
+        ...
       ]
     }
-  ]
+  ],
+  "namespace": "Microsoft.Storage/storageAccounts",
+  "resourceregion": "eastus"
 }
 ```
 
@@ -357,7 +387,7 @@ Gebruik de [Azure Monitor metriek definities REST-API](https://msdn.microsoft.co
 
 **Methode**: ophalen
 
-**URI van de aanvraag**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{ resourceProviderNamespace}*/*{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions? API-version =*{apiVersion}*
+**URI van de aanvraag**: https://management.azure.com/subscriptions/ *{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
 
 Bijvoorbeeld: voor het ophalen van de metrische definities voor Azure Logic App, de aanvraag zou als volgt uitzien:
 
@@ -427,7 +457,7 @@ Zodra de beschikbare metrische definities gekend zijn, is deze mogelijk de verwa
 
 **Methode**: ophalen
 
-**URI van de aanvraag**: https://management.azure.com/subscriptions/*{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource provider naamruimte}*/*{resourcetype}*/*{resourcenaam}*/providers/microsoft.insights/metrics?$filter=*{filter}*& api-version =*{apiVersion}*
+**URI van de aanvraag**: https://management.azure.com/subscriptions/ *{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-naamruimte}* / *{resourcetype}*/*{resourcenaam}*/providers/microsoft.insights/metrics?$filter=*{filter}*& api-version =*{apiVersion}*
 
 Bijvoorbeeld: voor het ophalen van de punten van de metrische gegevens RunsSucceeded voor het opgegeven tijdsbereik en voor een tijdgranulariteit op van 1 uur, de aanvraag zou zijn als volgt:
 
@@ -558,17 +588,17 @@ Met de REST API kunt zeker dat u begrijpt de beschikbare metrische definities, g
 
 De resource-ID is voor de bovenstaande code het volledige pad naar de gewenste Azure-resource. Om te doorzoeken op basis van een Azure-Web-App, kan de resource-ID zou zijn:
 
-*/Subscriptions/{Subscription-id}/resourceGroups/{resource-Group-Name}/providers/Microsoft.Web/sites/{site-name}/*
+*/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
 
 De volgende lijst bevat enkele voorbeelden van resource-ID-notaties voor verschillende Azure-resources:
 
-* **IoT Hub** -/subscriptions/*{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Devices/IotHubs/*{iot-hub-name}*
+* **IoT Hub** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Devices/IotHubs/*{iot-hub-name}*
 * **Elastische SQL-groep** -/subscriptions/*{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{pool-db}*/elasticpools/*{sql-pool-name}*
 * **SQL-Database (v12)** -/subscriptions/*{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{servernaam}*/databases/*{databasenaam}*
-* **Service Bus** -/subscriptions/*{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.ServiceBus/*{naamruimte}*/*{servicebus-name}*
+* **Service Bus** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.ServiceBus/*{namespace}*/*{servicebus-name}*
 * **Virtuele-machineschaalsets** -/subscriptions/*{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-naam}*
 * **Virtuele machines** -/subscriptions/*{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachines/*{vm-naam}*
-* **Event Hubs** -/subscriptions/*{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.EventHub/namespaces/*{eventhub-naamruimte}*
+* **Event Hubs** -/subscriptions/*{abonnement-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.EventHub/namespaces/*{ eventhub-naamruimte}*
 
 Er zijn alternatieve methoden voor het ophalen van de resource-ID, inclusief het gebruik van Azure Resource Explorer, de gewenste resource weergeven in de Azure portal en via PowerShell of Azure CLI.
 
@@ -609,7 +639,7 @@ Version        : 08586982649483762729
 ```
 
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure-CLI
 Voor het ophalen van de resource-ID voor een Azure Storage-account met de Azure CLI, geef dan de opdracht 'az storage-account weergeven, zoals weergegeven in het volgende voorbeeld:
 
 ```

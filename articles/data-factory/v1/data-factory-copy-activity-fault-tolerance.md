@@ -1,11 +1,10 @@
 ---
 title: Fouttolerantie in Azure Data Factory-Kopieeractiviteit toevoegen incompatibel rijen overgeslagen | Microsoft Docs
-description: "Informatie over het toevoegen van fouttolerantie in Azure Data Factory-Kopieeractiviteit door niet-compatibele rijen overgeslagen tijdens het kopiëren"
+description: Informatie over het toevoegen van fouttolerantie in Azure Data Factory-Kopieeractiviteit door niet-compatibele rijen overgeslagen tijdens het kopiëren
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 29c78eb850b418772126dea50b40e924b6e71423
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Fouttolerantie toevoegen in de kopieerbewerking door niet-compatibele rijen overgeslagen
 > [!NOTE]
@@ -71,7 +70,7 @@ Het volgende voorbeeld bevat een JSON-definitie voor het configureren van de nie
 | **enableSkipIncompatibleRow** | Schakel overslaan incompatibel rijen tijdens het kopiëren van of niet. | True<br/>False (standaard) | Nee |
 | **redirectIncompatibleRowSettings** | Een groep met eigenschappen die kunnen worden opgegeven wanneer u wilt vastleggen van de niet-compatibele rijen. | &nbsp; | Nee |
 | **linkedServiceName** | De gekoppelde service van Azure Storage voor het opslaan van het logboek dat overgeslagen rijen bevat. | De naam van een [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) of [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) gekoppelde service die naar de opslag-instantie die u gebruiken verwijst wilt voor het opslaan van het logboekbestand. | Nee |
-| **pad** | Het pad van het logboekbestand dat overgeslagen rijen bevat. | Geef het pad voor Blob-opslag die u wilt gebruiken om de niet-compatibele gegevens te registreren. Als u niet een pad opgeeft, wordt in de service een container voor u gemaakt. | Nee |
+| **Pad** | Het pad van het logboekbestand dat overgeslagen rijen bevat. | Geef het pad voor Blob-opslag die u wilt gebruiken om de niet-compatibele gegevens te registreren. Als u niet een pad opgeeft, wordt in de service een container voor u gemaakt. | Nee |
 
 ## <a name="monitoring"></a>Bewaking
 Nadat de kopieeractiviteit uitgevoerd is voltooid, ziet u het aantal overgeslagen rijen in de sectie bewaking:

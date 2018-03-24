@@ -2,10 +2,9 @@
 title: Gegevens verplaatsen van Salesforce met behulp van de Data Factory | Microsoft Docs
 description: Informatie over het verplaatsen van gegevens uit het Salesforce met behulp van Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: d4c679722e36eb9533b65037a488fb9af9a5bc80
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Gegevens verplaatsen van Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -111,10 +110,10 @@ In de kopieeractiviteit, wanneer de bron van het type **RelationalSource** (waar
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Bij het ophalen van gegevens met behulp van waar component voor datum/tijd-kolom
 Geef bij de SOQL of SQL-query, let u op het verschil van datum/tijd-indeling. Bijvoorbeeld:
 
-* **Voorbeeld van SOQL**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **Voorbeeld van SOQL**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **SQL-voorbeeld**:
-    * **Wizard kopiëren gebruiken om op te geven van de query:**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
-    * **Met een JSON bewerken om op te geven van de query (char goed escape):**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
+    * **De query opgeven met behulp van de wizard kopiëren:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Met een JSON bewerken om op te geven van de query (char goed escape):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Ophalen van gegevens uit het Salesforce-rapport
 U kunt gegevens ophalen uit het Salesforce-rapporten door te geven van de query als `{call "<report name>"}`, bijvoorbeeld. `"query": "{call \"TestReport\"}"`.
@@ -290,8 +289,8 @@ Zie [RelationalSource type-eigenschappen](#copy-activity-properties) voor de lij
 | Automatische getal |Tekenreeks |
 | Selectievakje |Boole-waarde |
 | Valuta |Double |
-| Date |Datum en tijd |
-| Datum/tijd |Datum en tijd |
+| Date |DateTime |
+| Datum/tijd |DateTime |
 | E-mail |Tekenreeks |
 | Id |Tekenreeks |
 | Opzoekrelatie |Tekenreeks |

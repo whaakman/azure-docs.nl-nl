@@ -2,10 +2,9 @@
 title: Verplaatsen van gegevens uit de ODBC-gegevensarchieven | Microsoft Docs
 description: Meer informatie over het verplaatsen van gegevens van ODBC-gegevensarchieven met behulp van Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: ad70a598-c031-4339-a883-c6125403cb76
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 381069f8d8b5fef0d283fcfc6bc3f82fcf119c0e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e75f7a6caac87be9ffb5209fa4eb423097820bfc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Verplaatsen van gegevens van ODBC-gegevensarchieven met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +67,7 @@ De volgende tabel bevat de beschrijving voor JSON-elementen die specifiek zijn v
 | --- | --- | --- |
 | type |De eigenschap type moet worden ingesteld op: **OnPremisesOdbc** |Ja |
 | connectionString |Het gedeelte niet access referentie van de verbindingsreeks en een optionele referentie versleuteld. Zie de voorbeelden in de volgende secties. <br/><br/>U kunt de verbindingsreeks opgeven met patroon zoals `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, of gebruik de systeem-DSN (gegevensbronnaam) die u voor de gateway-VM met instelt `"DSN=<name of the DSN>;"` (u moet nog steeds opgeven het gedeelte referenties in de gekoppelde service dienovereenkomstig). |Ja |
-| referentie |Het gedeelte van de referentie toegang van de verbindingsreeks die is opgegeven in de indeling van de eigenschapswaarde specifieke stuurprogramma's. Voorbeeld: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Nee |
+| referenties |Het gedeelte van de referentie toegang van de verbindingsreeks die is opgegeven in de indeling van de eigenschapswaarde specifieke stuurprogramma's. Voorbeeld: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Nee |
 | authenticationType |Het soort verificatie gebruikt voor verbinding met het beheerprogramma voor ODBC-gegevensarchief. Mogelijke waarden zijn: anonieme en Basic. |Ja |
 | gebruikersnaam |Geef de gebruikersnaam als u basisverificatie gebruikt. |Nee |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |

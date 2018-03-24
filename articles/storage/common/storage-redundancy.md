@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 600b66af3b7da24c5a40d09d5cdf76f2d5be67ac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replicatie
 
@@ -30,7 +30,7 @@ Wanneer u een opslagaccount maakt, kunt u een van de volgende replicatieopties s
 * [Geografisch redundante opslag (GRS)](#geo-redundant-storage)
 * [Geografisch redundante opslag met leestoegang (RA-GRS)](#read-access-geo-redundant-storage)
 
-Geografisch redundante opslag met leestoegang (RA-GRS) is de standaardoptie wanneer u een opslagaccount maken.
+Lokaal redundante opslag (LRS) is de standaardoptie wanneer u een opslagaccount maken.
 
 De volgende tabel bevat een overzicht van de verschillen tussen LRS, ZRS GRS en RA-GRS. Latere secties van dit artikel omgaan met elk type replicatie in meer detail.
 
@@ -54,9 +54,9 @@ Zie [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/sto
 
 ### <a name="zrs-classic-accounts"></a>ZRS klassieke accounts
 
-De bestaande ZRS mogelijkheid is nu aangeduid als ZRS klassieke. ZRS klassieke accounts zijn alleen beschikbaar voor blok-blobs in opslagaccounts voor algemeen V1. 
+De bestaande ZRS mogelijkheid is nu aangeduid als ZRS klassieke. ZRS Classic-accounts zijn alleen beschikbaar voor blok-blobs in V1-opslagaccounts voor algemeen gebruik. 
 
-ZRS klassieke repliceert gegevens asynchroon in datacenters binnen een tot twee regio's. Een replica zijn mogelijk niet beschikbaar tenzij Microsoft failover naar de secundaire initieert. 
+ZRS Classic repliceert gegevens asynchroon in datacenters binnen een tot twee regio's. Een replica is mogelijk niet beschikbaar tenzij Microsoft failover naar de secundaire initieert. 
 
 ZRS klassieke accounts kunnen niet worden geconverteerd naar of van LRS, GRS of RA-GRS. ZRS klassieke accounts ook ondersteunen geen metrische gegevens of de registratie.   
 
@@ -148,5 +148,5 @@ Wanneer de eerste zone uitgeschakeld wordt, blijft ZRS schrijven van replica's v
 * [Prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
 * [Over Azure storage-accounts](../storage-create-storage-account.md)
 * [Azure Storage schaalbaarheids- en prestatiedoelen](storage-scalability-targets.md)
-* [Microsoft Azure Storage redundantie opties en leestoegang geografisch redundante opslag](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+* [Microsoft Azure Storage redundantie opties en leestoegang geografisch redundante opslag ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [SOSP-document - Azure Storage: Een maximaal beschikbare cloudopslagservice met sterke consistentie](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

@@ -1,24 +1,24 @@
 ---
-title: Een Node.js-toepassing die gebruikmaakt van MongoDB implementeren | Microsoft Docs
+title: Een Node.js-toepassing die gebruikmaakt van MongoDB naar Azure Service Fabric implementeren | Microsoft Docs
 description: Overzicht over het pakket meerdere Gast uitvoerbare bestanden naar een Azure Service Fabric-cluster implementeren
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
-ms.author: msfussell;mikhegn
-ms.openlocfilehash: d7a37d7c04f85e9031cab52fa86026e56315c882
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 4987cc271a3e3d8a1a69c4c7fbd213d73ca2eb96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-multiple-guest-executables"></a>Meerdere toepassingen implementeren die door gasten kunnen worden uitgevoerd
 In dit artikel laat zien hoe verpakken en distribueren van meerdere Gast uitvoerbare bestanden naar de Azure Service Fabric. Voor het maken en implementeren van één Service Fabric-pakket leest u hoe aan [uitvoerbare Gast implementeren op Service Fabric](service-fabric-deploy-existing-app.md).
@@ -32,7 +32,7 @@ U kunt Visual Studio gebruiken voor het produceren van het toepassingspakket dat
 * [Voorbeeld van twee Gast uitvoerbare bestanden (C# en nodejs) communiceren via de Naming service met behulp van REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>De meerdere Gast uitvoerbare toepassing handmatig van het pakket
-U kunt ook kunt u handmatig de Gast uitvoerbare pakket. Voor de handmatige verpakking, het hulpprogramma Service Fabric-pakket, dat beschikbaar is op dit artikel wordt gebruikt [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+U kunt ook kunt u handmatig de Gast uitvoerbare pakket. Voor de handmatige verpakking, het hulpprogramma Service Fabric-pakket, dat beschikbaar is op dit artikel wordt gebruikt [ http://aka.ms/servicefabricpacktool ](http://aka.ms/servicefabricpacktool).
 
 ### <a name="packaging-the-nodejs-application"></a>Het verpakken van de Node.js-toepassing
 In dit artikel wordt ervan uitgegaan dat Node.js niet is geïnstalleerd op de knooppunten in het Service Fabric-cluster. Als gevolg hiervan moet u Node.exe toevoegen aan de hoofdmap van uw knooppunttoepassing voordat de pakketten. De mapstructuur van de Node.js-toepassing (met behulp van de Express-webframework en Jade sjabloon engine), moet er ongeveer als hieronder:
@@ -72,7 +72,7 @@ Hieronder volgt een beschrijving van de parameters die worden gebruikt:
 * **/ target** definieert u de map waarin het pakket moet worden gemaakt. Deze map moet afwijken van de bronmap.
 * **/ AppName** definieert de naam van de toepassing van de bestaande toepassing. Het is belangrijk om te begrijpen dat dit komt neer op de servicenaam in het manifest en niet op de naam van de Service Fabric-toepassing.
 * **exe** definieert het uitvoerbare bestand dat de Service Fabric behoort te starten in dit geval `node.exe`.
-* **/ma** het argument dat wordt gebruikt voor het starten van het uitvoerbare bestand definieert. Als Node.js niet is geïnstalleerd, Service Fabric moet de Node.js-webserver start door te voeren `node.exe bin/www`.  `/ma:'bin/www'`vertelt verpakking hulpprogramma gebruikt `bin/www` als het argument voor node.exe.
+* **/ma** het argument dat wordt gebruikt voor het starten van het uitvoerbare bestand definieert. Als Node.js niet is geïnstalleerd, Service Fabric moet de Node.js-webserver start door te voeren `node.exe bin/www`.  `/ma:'bin/www'` vertelt verpakking hulpprogramma gebruikt `bin/www` als het argument voor node.exe.
 * **/ AppType** definieert de naam van het Service Fabric-toepassing.
 
 Als u de map die is opgegeven in de parameter/target bladert, ziet u dat het hulpprogramma een volledig werkend Service Fabric-pakket is gemaakt, zoals hieronder wordt weergegeven:

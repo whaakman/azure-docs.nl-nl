@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: chackdan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ecce5581e8f14a02ad0ad618a226f4671e92f4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
@@ -89,17 +89,7 @@ Terwijl we op een betere ervaring vandaag werkt, bent u verantwoordelijk voor de
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan ik coderen bijgesloten gegevensschijven in het type in een cluster-knooppunt (virtuele-machineschaalset)?
 Ja.  Zie voor meer informatie [maken van een cluster met gekoppelde gegevensschijven](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [versleutelen schijven (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), en [versleutelen schijven (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-## <a name="container-support"></a>Container-ondersteuning
-
-### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>Waarom wordt mijn containers die zijn geïmplementeerd voor SF kan niet worden omgezet DNS-adressen?
-
-Dit probleem is gerapporteerd op clusters die zich op 5.6.204.9494 versie 
-
-**Risicobeperking**: Volg [dit document](service-fabric-dnsservice.md) inschakelen van de DNS-service fabric-service in uw cluster.
-
-**Los**: Upgrade naar een ondersteunde cluster-versie die hoger is dan 5.6.204.9494, wanneer deze beschikbaar is. Als uw cluster is ingesteld op automatische upgrades, klikt u vervolgens upgraden het cluster automatisch naar de versie met dit probleem is opgelost.
-
-  
+ 
 ## <a name="application-design"></a>Het ontwerp van toepassing
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Wat is de beste manier om querygegevens meerdere partities van een betrouwbare verzameling?
@@ -146,9 +136,11 @@ Containers bieden een eenvoudige manier om het pakketservices en de bijbehorende
 
 ### <a name="are-you-planning-to-open-source-service-fabric"></a>Bent u van plan voor open-source Service Fabric?
 
-We proberen te open source de betrouwbare services en betrouwbare actoren frameworks op GitHub en bijdragen vanuit de community om projecten te accepteren. Ga als volgt de [Service Fabric-blog](https://blogs.msdn.microsoft.com/azureservicefabric/) voor meer informatie, zoals deze wordt vermeld.
+We hebben open source-onderdelen van Service Fabric ([betrouwbare serviceframework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [betrouwbare actoren framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core integratie bibliotheken](https://github.com/Azure/service-fabric-aspnetcore), [ Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer), en [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)) op GitHub en bijdragen vanuit de community om projecten te accepteren. 
 
-De zijn momenteel geen plannen voor open-source de Service Fabric-runtime.
+We [onlangs aangekondigd](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) die we open source de Service Fabric-runtime willen. Op dit moment hebben we de [Service Fabric-opslagplaats](https://github.com/Microsoft/service-fabric/) maximaal op GitHub met Linux bouwen en testen van hulpprogramma's, wat betekent dat u kunt kloon de opslagplaats, Service Fabric bouwen voor Linux, basic tests uitvoeren, opent u problemen en pull-aanvragen indienen. We er alles aan de Windows-opbouwomgeving gemigreerd, samen met een volledige CI-omgeving.
+
+Ga als volgt de [Service Fabric-blog](https://blogs.msdn.microsoft.com/azureservicefabric/) voor meer informatie, zoals deze wordt vermeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 

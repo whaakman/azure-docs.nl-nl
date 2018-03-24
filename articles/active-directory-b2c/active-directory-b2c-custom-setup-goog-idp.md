@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Voeg Google + als een OAuth2-id-provider met behulp van aangepaste beleid'
 description: Voorbeeld met behulp van Google + als id-provider met behulp van OAuth2-protocol
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: davidmu
+ms.openlocfilehash: f12bbc2472aa2d83088c7d4d7b8f173744fb36b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Voeg Google + als een OAuth2-id-provider met behulp van aangepaste beleid
 
@@ -48,7 +45,7 @@ Voor het gebruik van Google + als een id-provider in Azure Active Directory (Azu
 
     ![Google + account - Selecteer project](media/active-directory-b2c-custom-setup-goog-idp/goog-add-new-app1.png)
 
-4.  Klik op de  **+**  knop.
+4.  Klik op de **+** knop.
 
     ![Google + rekening - nieuw project maken](media/active-directory-b2c-custom-setup-goog-idp//goog-add-new-app2.png)
 
@@ -178,10 +175,10 @@ De id-provider is ingesteld.  Het is echter niet beschikbaar in een van de scher
 4.  Plak de volledige inhoud van `<UserJourney>` knooppunt dat u hebt gekopieerd als een onderliggend element van de `<UserJourneys>` element.
 
 ### <a name="display-the-button"></a>De knop weergeven
-De `<ClaimsProviderSelections>` element wordt de lijst met opties voor de selectie van claims provider en de volgorde gedefinieerd.  `<ClaimsProviderSelection>`element is vergelijkbaar met een knop identiteit provider op een pagina sign-up-to-date/aanmelden. Als u een `<ClaimsProviderSelection>` element voor Google + account, een nieuwe knop wordt weergegeven wanneer een gebruiker op de pagina terechtkomt. Dit element toevoegen:
+De `<ClaimsProviderSelections>` element wordt de lijst met opties voor de selectie van claims provider en de volgorde gedefinieerd.  `<ClaimsProviderSelection>` element is vergelijkbaar met een knop identiteit provider op een pagina sign-up-to-date/aanmelden. Als u een `<ClaimsProviderSelection>` element voor Google + account, een nieuwe knop wordt weergegeven wanneer een gebruiker op de pagina terechtkomt. Dit element toevoegen:
 
 1.  Zoek de `<UserJourney>` knooppunt met `Id="SignUpOrSignIn"` in het traject gebruiker die u hebt gekopieerd.
-2.  Zoek de `<OrchestrationStep>` knooppunt bevat`Order="1"`
+2.  Zoek de `<OrchestrationStep>` knooppunt bevat `Order="1"`
 3.  Plaats de volgende XML-fragment onder `<ClaimsProviderSelections>` knooppunt:
 
 ```xml
@@ -229,7 +226,7 @@ U kunt de Google + account identiteitsprovider ook toevoegen aan uw gebruikers `
 ### <a name="display-the-button"></a>De knop weergeven
 1.  Open het extensiebestand van uw beleid (bijvoorbeeld TrustFrameworkExtensions.xml).
 2.  Zoek de `<UserJourney>` knooppunt met `Id="ProfileEdit"` in het traject gebruiker die u hebt gekopieerd.
-3.  Zoek de `<OrchestrationStep>` knooppunt bevat`Order="1"`
+3.  Zoek de `<OrchestrationStep>` knooppunt bevat `Order="1"`
 4.  Plaats de volgende XML-fragment onder `<ClaimsProviderSelections>` knooppunt:
 
 ```xml

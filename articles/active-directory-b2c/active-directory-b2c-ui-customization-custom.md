@@ -2,23 +2,20 @@
 title: Een gebruikersinterface aanpassen met behulp van aangepaste beleidsregels - Azure AD B2C | Microsoft Docs
 description: Meer informatie over het aanpassen van een gebruikersinterface (UI) tijdens het gebruik van aangepast beleid in Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: davidmu
+ms.openlocfilehash: 659910f239087a1d87d650c05af157c085e8c72c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: UI-aanpassing in een aangepast beleid configureren
 
@@ -40,7 +37,7 @@ Dit is hoe het werkt: Azure AD B2C wordt code wordt uitgevoerd in de browser van
 
 HTML-inhoud met de naam van uw product maken in de titel.
 
-1. Kopieer het volgende fragment in de HTML-code. Indeling geldig is HTML5 met een leeg element aangeroepen  *\<div-id = 'api'\>\</div\>*  zich binnen de  *\<hoofdtekst\>*  labels. Dit element geeft aan waar Azure AD B2C-inhoud moet worden ingevoegd.
+1. Kopieer het volgende fragment in de HTML-code. Indeling geldig is HTML5 met een leeg element aangeroepen *\<div-id = 'api'\>\</div\>* zich binnen de *\<hoofdtekst\>* labels. Dit element geeft aan waar Azure AD B2C-inhoud moet worden ingevoegd.
 
    ```html
    <!DOCTYPE html>
@@ -124,7 +121,7 @@ Valideren dat u klaar bent als volgt:
 
 ## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Wijzigen van het aangepaste beleid registreren of aanmelden
 
-Onder de hoogste  *\<TrustFrameworkPolicy\>*  labels, zult u  *\<BuildingBlocks\>*  label. Binnen de  *\<BuildingBlocks\>*  tags, Voeg een  *\<ContentDefinitions\>*  code door te kopiëren van het volgende voorbeeld. Vervang *your_storage_account* met de naam van uw opslagaccount.
+Onder de hoogste *\<TrustFrameworkPolicy\>* labels, zult u *\<BuildingBlocks\>* label. Binnen de *\<BuildingBlocks\>* tags, Voeg een *\<ContentDefinitions\>* code door te kopiëren van het volgende voorbeeld. Vervang *your_storage_account* met de naam van uw opslagaccount.
 
   ```xml
   <BuildingBlocks>
@@ -141,7 +138,7 @@ Onder de hoogste  *\<TrustFrameworkPolicy\>*  labels, zult u  *\<BuildingBlocks\
 1. In de [Azure-portal](https://portal.azure.com), [switch in de context van uw Azure AD B2C-tenant](active-directory-b2c-navigate-to-b2c-context.md), en open vervolgens de **Azure AD B2C** blade.
 2. Klik op **alle beleidsregels**.
 3. Klik op **uploaden beleid**.
-4. Uploaden `SignUpOrSignin.xml` met de  *\<ContentDefinitions\>*  code die u eerder hebt toegevoegd.
+4. Uploaden `SignUpOrSignin.xml` met de *\<ContentDefinitions\>* code die u eerder hebt toegevoegd.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Het aangepaste beleid testen met behulp van **nu uitvoeren**
 

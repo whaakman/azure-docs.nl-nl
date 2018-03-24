@@ -2,32 +2,32 @@
 title: Overleg Azure Marketplace-aanbiedingen
 description: In aanmerking komt criteria en publishing vereisten voor het nieuwe type abonnementsaanbod in Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: dd00711a9be208ddf635c998a77935ed63fcf996
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e063721f2fa2ac87b2f9dd7385b2d114a1b76cb3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-marketplace-consulting-services"></a>Ondersteuningsdiensten van Azure Marketplace
+# <a name="azure-marketplace-consulting-services"></a>Ondersteuningsdiensten van Azure Marketplace
 Azure Marketplace biedt ondersteuning voor de vermelding van de offerings services van partners van Microsoft System Integrator (SI) overleg met het doel van het verbinden van klanten met services om te ondersteunen en uitbreiden van het gebruik van Microsoft Azure. 
 
 Deze adviesdiensten aanvraagaanbiedingen klantspecifieke betrokkenheid zijn, in het bereik en de duur, vaste prijs te corrigeren of gratis en hebben een gedefinieerde uitkomst. Potentiële klanten kunnen eenvoudig worden opgenomen door partners in een manier wrijving gratis aanvragen. Partners ontvangt een melding in hun CRM-systeem en zijn bedoeld om te reageren op gebruikers binnen 48hrs.
 
 Service biedt op basis van het Microsoft Dynamics 365, Microsoft Office 365 en Microsoft Power BI zijn op AppSource worden aangeboden. Gedetailleerde controle [richtlijnen voor deze services hier](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
-##<a name="eligible-services-and-partners"></a>In aanmerking komende services en partners
+## <a name="eligible-services-and-partners"></a>In aanmerking komende services en partners
 
 Partners zijn ook vereist een zilver of gold-competentie hebben in het desbetreffende gebied voor de service. Hieronder vindt u in aanmerking komende bevoegdheden:
 
@@ -49,7 +49,7 @@ Met uitzondering van Briefings, adviesdiensten kan worden aangeboden persoon (da
 
 Lees meer over [vaardigheden via Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies#simple-tab-content-1). 
 
-##<a name="countries-supported"></a>Ondersteunde landen
+## <a name="countries-supported"></a>Ondersteunde landen
 
 SI-partners kunnen indienen advies aanbiedingen voor services voor de volgende 18 landen. 
 
@@ -65,7 +65,7 @@ SI-partners kunnen indienen advies aanbiedingen voor services voor de volgende 1
 
 Het starten voor Azure Marketplace ondersteuningsdiensten gaat live eerst voor Australië, Canada het Verenigd Koninkrijk en de Verenigde Staten. Catalogussen voor andere landen gaat live zodra een zinvolle getal en een aantrekkelijke keuze van de offerings services zijn ingediend door partners en goedgekeurd door Microsoft.
 
-##<a name="prepare-your-publishing-artifacts"></a>Voorbereiden van uw artefacten publiceren
+## <a name="prepare-your-publishing-artifacts"></a>Voorbereiden van uw artefacten publiceren
 Voordat u uw service benoemen, kunt u beginnen met het verzamelen en voorbereiden van de inhoud die u uw aanbieding helpt bewoordingen aan de waarde van de service en de oplossing voor uw klant doel. 
 
 
@@ -88,7 +88,7 @@ Voordat u uw service benoemen, kunt u beginnen met het verzamelen en voorbereide
 |Marketing documenten (maximaal 3)     |
 
 
-##<a name="publishing-process"></a>Publicatieproces
+## <a name="publishing-process"></a>Publicatieproces
 Uw advies serviceaanbod op Azure Marketplace aanbieding omvat het volgende:
 
 1. **Aanvraag:** in uw aanvraag verzenden [hier](https://azuremarketplace.microsoft.com/en-us/sell/nominate) en vertel ons meer over uw organisatie. 

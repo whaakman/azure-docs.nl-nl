@@ -3,10 +3,10 @@ title: Het oplossen van Enterprise State Roaming instellingen in Azure Active Di
 description: Biedt antwoorden op enkele vragen IT-beheerders wellicht over de instellingen en synchroniseren van app-gegevens.
 services: active-directory
 keywords: Enterprise state roaming instellingen windows cloud, veelgestelde vragen op enterprise state roaming
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
 ms.workload: identity
@@ -17,11 +17,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 8ee3b523baf562b06bd5f7d652a431e1d4553d5c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Enterprise State Roaming instellingen voor probleemoplossing in Azure Active Directory
 
@@ -47,7 +47,7 @@ Als u niet op uw probleem met de onderstaande richtlijnen oplossen kunt, kunt u 
 
 Met inbegrip van deze informatie helpt ons zo snel mogelijk het probleem kunt oplossen.
 
-## <a name="troubleshooting-and-diagnosing-issues"></a>Het oplossen van problemen en het onderzoeken van problemen
+## <a name="troubleshooting-and-diagnosing-issues"></a>Het oplossen en diagnosticeren van problemen
 Deze sectie vindt u suggesties over het oplossen en analyseren van problemen met betrekking tot Enterprise State Roaming.
 
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>Controleer of de synchronisatie en de instellingenpagina "Uw instellingen synchroniseren" 
@@ -78,7 +78,7 @@ Onder bepaalde omstandigheden kan Enterprise State Roaming niet worden het synch
 
 **Potentiële probleem**: synchronisatie kan mislukken als de beheerder het voorwaardelijke toegangsbeleid van Active Directory Federation Services multi-factor Authentication configureert en het toegangstoken op het apparaat is verlopen. Zorg ervoor dat u aanmelden en afmelden met behulp van de Microsoft Passport voor Work PINCODE of multi-factor Authentication voltooid tijdens het openen van andere Azure-services zoals Office 365.
 
-###<a name="event-viewer"></a>Logboeken
+### <a name="event-viewer"></a>Logboeken
 Voor geavanceerde probleemoplossing kan Logboeken worden gebruikt voor fouten gevonden. Deze worden beschreven in de onderstaande tabel. De gebeurtenissen kunnen worden gevonden in Logboeken > Logboeken toepassingen en Services > **Microsoft** > **Windows** > **SettingSync** en voor problemen met het synchroniseren van identiteitsgerelateerde **Microsoft** > **Windows** > **Azure AD**.
 
 
@@ -154,8 +154,8 @@ Verbind het apparaat met een bedrijfsnetwerk, zodat de synchronisatie kan worden
 De gebruiker moet loskoppelen van en het apparaat naar de cloud weer. Dit doet, meld u aan als de gebruiker van de lokale beheerder en loskoppelen van het apparaat door te gaan naar **instellingen** > **System** > **over** en selecteer ' beheren of Verbreek de verbinding van werk of school '. Opschonen van de bestanden die hieronder en Azure AD Join van het apparaat opnieuw in **instellingen** > **System** > **over** en 'Verbinden naar werk of School' te selecteren. Doorgaan met het apparaat toevoegen aan Azure Active Directory en voltooien van de stroom.
 
 Klik in de stap opschonen opruimen van de volgende bestanden:
-- Settings.dat in`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
-- Alle bestanden onder de map`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
+- Settings.dat in `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- Alle bestanden onder de map `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
 
 ---
 

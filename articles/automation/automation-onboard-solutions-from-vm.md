@@ -2,19 +2,18 @@
 title: Meer informatie over hoe u ingebouwde updatebeheer, bijhouden en voorraad oplossingen van een virtuele Machine van Azure
 description: Meer informatie over hoe om vrij te geven een Azure-virtuele machine met oplossingen voor beheer van updates, bijhouden en voorraad die deel uitmaken van een Azure Automation
 services: automation
-keywords: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/19/2018
 ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a850189406b394e7935763206f9e3a191b415170
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 8713447386e116b3f1ecb2754d46cc8d88d00b39
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Ingebouwde updatebeheer, bijhouden en voorraad oplossingen van een virtuele Machine van Azure
 
@@ -22,19 +21,19 @@ Azure Automation biedt oplossingen voor het besturingssysteem beveiligingsupdate
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij Azure via https://portal.azure.com.
+Aanmelden bij Azure op https://portal.azure.com
 
 ## <a name="enable-the-solutions"></a>De oplossingen inschakelen
 
 Navigeer naar een bestaande virtuele machine en selecteer **updatebeheer**, **inventaris**, of **bijhouden** onder **OPERATIONS**.
 
-Kies de logboekanalyse werkruimte en de automation-account en klik op **inschakelen** zodat de oplossing. De oplossing duurt maximaal 15 minuten om in te schakelen.
+Kies de Log Analytics-werkruimte en het Automation-account en klik op **Inschakelen** om de oplossing in te schakelen. Het duurt maximaal 15 minuten om de oplossing in te schakelen.
 
-![Ingebouwde Update-oplossing](media/automation-onboard-solutions-from-vm/onboard-solution.png)
+![Onboarding van update-oplossing uitvoeren](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 Navigeer naar de andere oplossingen en klikt u op **inschakelen**, wordt de logboekanalyse en vervolgkeuzelijsten zijn uitgeschakeld, omdat ze dezelfde werkruimte en de automation-account als de eerder ingeschakelde oplossing gebruiken Automation-account.
 
-![Ingebouwde Update-oplossing](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
+![Onboarding van update-oplossing uitvoeren](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
 > [!NOTE]
 > **Bijhouden van wijzigingen** en **inventaris** dezelfde oplossing gebruiken wanneer een is ingeschakeld de andere ook is ingeschakeld.

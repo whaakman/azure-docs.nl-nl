@@ -1,12 +1,12 @@
 ---
-title: Webhookacties voor logboek-waarschuwingen in Azure waarschuwingen (Preview) | Microsoft Docs
+title: Webhookacties voor logboek-waarschuwingen in de Azure-waarschuwingen | Microsoft Docs
 description: Dit artikel wordt beschreven hoe naar een waarschuwingsregel logboek met behulp van log analytics of application insights, zendt de gegevens als HTTP-webhook en details van de andere aanpassingen mogelijk.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels logboek
-Wanneer een [waarschuwing is gemaakt in Azure (Preview)](monitor-alerts-unified-usage.md), hebt u de optie [configureren met de actiegroepen](monitoring-action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en de details over het configureren van de aangepaste JSON-indeling webhook.
+Wanneer een [waarschuwing is gemaakt in Azure ](monitor-alerts-unified-usage.md), hebt u de optie [configureren met de actiegroepen](monitoring-action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en de details over het configureren van de aangepaste JSON-indeling webhook.
 
 
 ## <a name="webhook-actions"></a>Webhookacties
@@ -33,7 +33,7 @@ Webhookacties vereisen de eigenschappen in de volgende tabel:
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | Webhook-URL |De URL van de webhook. |
-| Aangepaste JSON-nettolading |Aangepaste nettolading verzenden met de webhook wanneer deze optie is gekozen tijdens het maken van waarschuwingen. Details beschikbaar op [waarschuwingen met behulp van Azure-waarschuwingen (Preview) beheren](monitor-alerts-unified-usage.md) |
+| Aangepaste JSON-nettolading |Aangepaste nettolading verzenden met de webhook wanneer deze optie is gekozen tijdens het maken van waarschuwingen. Details beschikbaar op [waarschuwingen met behulp van Azure-waarschuwingen beheren ](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
 > Webhook-knop naast testen *aangepaste JSON-nettolading opnemen voor webhook* optie voor logboek waarschuwing, dummy-aanroep voor het testen van de webhook-URL wordt geactiveerd. Het bevat geen actuele gegevens en vertegenwoordiger van JSON-schema gebruikt voor logboek-waarschuwingen. 
@@ -157,6 +157,8 @@ Hieronder volgt een voorbeeld-nettolading voor een standaard webhook *zonder aan
     }
     }
 
+> [!NOTE]
+> Logboek van waarschuwingen voor Application Insights wordt momenteel openbare preview - de functionaliteit en gebruikerservaring kan worden gewijzigd.
 
 #### <a name="log-alert-with-custom-json-payload"></a>Meld u waarschuwing met aangepaste JSON-nettolading
 Bijvoorbeeld: voor het maken van een aangepaste nettolading met alleen de naam van de waarschuwing en de zoekresultaten, u kunt het volgende: 
@@ -194,7 +196,7 @@ Hier volgt een voorbeeld-nettolading voor een aangepaste webhook-actie voor een 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [logboek waarschuwingen in de Azure-waarschuwingen (preview)](monitor-alerts-unified-log.md)
+- Meer informatie over [waarschuwingen melden waarschuwingen van Azure ](monitor-alerts-unified-log.md)
 - Maken en beheren van [actiegroepen in Azure](monitoring-action-groups.md)
 - Meer informatie over [Application Insights](../application-insights/app-insights-analytics.md)
 - Meer informatie over [logboekanalyse](../log-analytics/log-analytics-overview.md). 

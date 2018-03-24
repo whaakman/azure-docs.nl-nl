@@ -2,10 +2,9 @@
 title: Gegevens verplaatsen van een HTTP-bron - Azure | Microsoft Docs
 description: Meer informatie over het verplaatsen van gegevens uit een on-premises of een HTTP-bron van cloud met Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a6dad8242c709240b57b8a47acc44c5ddfdaa755
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 9820ed9b4c0abbb79c6f92e62f294fb7fbd4c87e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Gegevens verplaatsen van een HTTP-bron met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -154,7 +153,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 |:--- |:--- |:--- |
 | type | Het type van de gegevensset zijn opgegeven. moet worden ingesteld op `Http`. | Ja |
 | relativeUrl | Een relatieve URL naar de resource die de gegevens bevat. Als het pad niet wordt opgegeven, worden alleen de URL die is opgegeven in de definitie van de gekoppelde service wordt gebruikt. <br><br> Kan de dynamische-URL, kunt u [Data Factory-functies en systeemvariabelen](data-factory-functions-variables.md), bijvoorbeeld 'relativeUrl': ' $$Text.Format ('/ Mijn/rapport? maand = {0:yyyy}-{0:MM} & fmt csv =', SliceStart) '. | Nee |
-| requestMethod | HTTP-methode. Toegestane waarden zijn **ophalen** of **POST**. | Nee. Standaard is `GET`. |
+| requestMethod | HTTP-methode. Toegestane waarden zijn **ophalen** of **POST**. | Nee. De standaardwaarde is `GET`. |
 | additionalHeaders | Aanvullende HTTP-aanvraagheaders. | Nee |
 | requestBody | Instantie voor HTTP-aanvraag. | Nee |
 | Indeling | Als u gewoon wilt **gegevens ophalen van HTTP-eindpunt als-is** overslaan zonder deze parseren, deze instellingen. <br><br> Als u de inhoud van het HTTP-antwoord geparseerd tijdens het kopiëren wilt, de volgende indelingstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Zie voor meer informatie [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [Json-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [parketvloeren indeling](data-factory-supported-file-and-compression-formats.md#parquet-format) secties. |Nee |

@@ -5,20 +5,20 @@ services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/27/2018
+ms.date: 3/19/2018
 ms.author: raiye
-ms.openlocfilehash: dac0efdb1ce76ad6f143479782f164d3304aeaf3
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 0456bf8d8cdd84078d12c3fc0f48d16b0370cddd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Gast OS releases en SDK compatibiliteit matrix
 Biedt de meest recente informatie over de nieuwste Azure Gast OS releases voor Cloud-Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Gastbesturingssysteem updates zoals beschreven in [Update-instellingen van Azure Gast OS][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -42,6 +42,9 @@ Biedt de meest recente informatie over de nieuwste Azure Gast OS releases voor C
 Onzekerheid over het Gastbesturingssysteem is of hoe de Gast OS releases werk? Lees [dit](#how-it-works) sectie.
 
 ## <a name="news-updates"></a>Nieuws
+###### <a name="march-19-2018"></a>**19 maart 2018**
+Het Gastbesturingssysteem februari heeft uitgegeven.
+
 ###### <a name="january-29-2018"></a>**29 januari 2018**
 Het Gastbesturingssysteem januari is vrijgegeven voor OS-familie 2 (WA-GUEST-OS-2.70_201801-01) en 3 (WA-GUEST-OS-3.57_201801-01)
 
@@ -72,12 +75,6 @@ Het Gastbesturingssysteem juli heeft uitgegeven.
 ###### <a name="july-19-2017"></a>**19 juli 2017**
 Implementatie van het Gastbesturingssysteem juli juli 19 wordt gestart en heeft een verwachte release van 8 augustus.
 
-###### <a name="july-7-2017"></a>**7 juli 2017**
-Het Gastbesturingssysteem juni heeft uitgegeven.
-
-###### <a name="june-16-2017"></a>**16 juni 2017**
-Implementatie van het Gastbesturingssysteem juni juni 16 wordt gestart en heeft een verwachte release van juli 11.
-
 
 ## <a name="releases"></a>Versies
 ## <a name="family-5-releases"></a>Familie 5-versies
@@ -93,8 +90,9 @@ Implementatie van het Gastbesturingssysteem juni juni 16 wordt gestart en heeft 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.16_201802-01 |12 maart 2018 |Post punt 5.18 |NOG TE BEPALEN |
 | WA-GUEST-OS-5.15_201801-01 |4 januari 2018 |Post 5.17 |NOG TE BEPALEN |
-| WA-GUEST-OS-5.14_201712-01 |4 januari 2018 |Post 5.16 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-5.14_201712-01~~ |4 januari 2018 |12 maart 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 december 2017 |4 januari 2018|NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 oktober 2017 |14 december 2017 |NOG TE BEPALEN |
@@ -118,8 +116,9 @@ Implementatie van het Gastbesturingssysteem juni juni 16 wordt gestart en heeft 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.51_201802-01 |12 maart 2018 |Post 4,53 |NOG TE BEPALEN |
 | WA-GUEST-OS-4.50_201801-01 |4 januari 2018 |Post 4.52 |NOG TE BEPALEN |
-| WA-GUEST-OS-4.49_201712-01 |4 januari 2018 |Post 4,51 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-4.49_201712-01~~ |4 januari 2018 |12 maart 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 december 2017 |4 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 oktober 2017 |14 december 2017 |NOG TE BEPALEN |
@@ -143,8 +142,9 @@ Implementatie van het Gastbesturingssysteem juni juni 16 wordt gestart en heeft 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.58_201802-01 |19 maart 2018 |Post 3.60 |NOG TE BEPALEN |
 | WA-GUEST-OS-3.57_201801-01 |29 januari 2018 |Post 3.59 |NOG TE BEPALEN |
-| WA-GUEST-OS-3.56_201712-01 |4 januari 2018 |Post 3,58 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-3.56_201712-01~~ |4 januari 2018 |19 maart 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 december 2017 |29 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 oktober 2017 |14 december 2017 |NOG TE BEPALEN |
@@ -168,8 +168,9 @@ Implementatie van het Gastbesturingssysteem juni juni 16 wordt gestart en heeft 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.71_201802-01 |12 maart 2018 |Post 2,73 |NOG TE BEPALEN |
 | WA-GUEST-OS-2.70_201801-01 |29 januari 2018 |Post 2.72 |NOG TE BEPALEN |
-| WA-GUEST-OS-2.69_201712-01 |4 januari 2018 |Post 2.71 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-2.69_201712-01~~ |4 januari 2018 |12 maart 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 december 2017 |29 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 oktober 2017 |14 december 2017 |NOG TE BEPALEN |

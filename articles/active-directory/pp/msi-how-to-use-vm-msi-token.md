@@ -2,10 +2,10 @@
 title: Het gebruik van een gebruiker toegewezen beheerde Service-identiteit voor het verkrijgen van een toegangstoken op een virtuele machine.
 description: Stapsgewijze-instructies en voorbeelden voor het gebruik van een gebruiker toegewezen MSI van een virtuele machine in Azure te verkrijgen van een OAuth toegangstoken.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6c6422bc2b13c0c40e48dabf0470c821b13e7851
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Verkrijgen van een toegangstoken voor een beheerde Service identiteit (MSI) gebruiker toegewezen VM
 
@@ -42,7 +42,9 @@ Een clienttoepassing een MSI-bestand kan aanvragen [app alleen-lezen toegangstok
 | [Een token met CURL ophalen](#get-a-token-using-curl) | Voorbeeld van het gebruik van de REST van de MSI-eindpunt van een client Bash/CURL |
 | [Verlopen van het token verwerken](#handling-token-expiration) | Richtlijnen voor het verwerken van de toegangstokens te verlopen |
 | [Foutafhandeling](#error-handling) | Richtlijnen voor het verwerken van HTTP-fouten geretourneerd door het eindpunt van het MSI-token |
+| [Beperking richtlijnen](#throttling-guidance) | Richtlijnen voor het verwerken van de beperking van het eindpunt van het MSI-token |
 | [Resource-id voor Azure-services](#resource-ids-for-azure-services) | Waar u resource-id's voor ondersteunde Azure-services |
+
 
 ## <a name="get-a-token-using-http"></a>Een met behulp van HTTP-token ophalen 
 
@@ -155,7 +157,7 @@ In dit gedeelte worden de mogelijke foutberichten. Een ' 200 OK ' status is een 
 
 | Statuscode | Fout | Foutbeschrijving | Oplossing |
 | ----------- | ----- | ----------------- | -------- |
-| 400 onjuiste aanvraag | invalid_resource | AADSTS50001: De toepassing met de naam  *\<URI\>*  is niet gevonden in de tenant met de naam  *\<TENANT-ID\>*. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant of toestemming gegeven om deze door een gebruiker in de tenant. Misschien hebt u verzonden authenticatie-aanvraag naar de verkeerde tenant. \ | (Alleen voor Linux) |
+| 400 onjuiste aanvraag | invalid_resource | AADSTS50001: De toepassing met de naam *\<URI\>* is niet gevonden in de tenant met de naam  *\<TENANT-ID\>*. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant of toestemming gegeven om deze door een gebruiker in de tenant. Misschien hebt u verzonden authenticatie-aanvraag naar de verkeerde tenant. \ | (Alleen voor Linux) |
 | 400 onjuiste aanvraag | bad_request_102 | Vereiste metagegevens-header is niet opgegeven | Ofwel de `Metadata` aanvraag-header-veld uit uw aanvraag ontbreken of onjuist is ingedeeld. De waarde moet worden opgegeven als `true`, in alle kleine letters. Zie 'voorbeeldaanvraag' in de [ophalen van een token met behulp van HTTP](#get-a-token-using-http) sectie voor een voorbeeld.|
 | 401-niet toegestaan | unknown_source | Onbekende bron  *\<URI\>* | Controleer of uw HTTP GET-aanvraag URI is juist geformatteerd. De `scheme:host/resource-path` gedeelte moet worden opgegeven als `http://169.254.169.254/metadata/identity/oath2/token` of `http://localhost:50342/oauth2/token`. Zie 'voorbeeldaanvraag' in de [ophalen van een token met behulp van HTTP](#get-a-token-using-http) sectie voor een voorbeeld.|
 |           | invalid_request | De aanvraag ontbreekt een vereiste parameter, bevat een ongeldige parameterwaarde, bevat een parameter meer dan één keer of anders is onjuist gevormd. |  |
@@ -164,6 +166,16 @@ In dit gedeelte worden de mogelijke foutberichten. Een ' 200 OK ' status is een 
 |           | unsupported_response_type | De autorisatie-server biedt geen ondersteuning voor het verkrijgen van een toegangstoken die met deze methode. |  |
 |           | invalid_scope | Het aangevraagde bereik is ongeldig, onbekend of onjuist gevormd. |  |
 | Interne serverfout 500 | onbekend | Kan geen token ophalen uit Active directory. Zie voor meer informatie Logboeken in  *\<bestandspad\>* | Controleer of MSI is ingeschakeld op de virtuele machine. Zie [configureren van een VM beheerde Service identiteit (MSI) met de Azure portal](msi-qs-configure-portal-windows-vm.md) als u hulp bij het VM-configuratie nodig.<br><br>Controleer ook of uw HTTP GET-aanvraag URI correct is ingedeeld, met name de URI in de queryreeks opgegeven bron. Zie 'voorbeeldaanvraag' in de [ophalen van een token met behulp van HTTP](#get-a-token-using-http) sectie voor een voorbeeld of [Azure-services die ondersteuning voor Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) voor een lijst met services en hun respectieve resource-id.
+
+## <a name="throttling-guidance"></a>Beperking richtlijnen 
+
+Bandbreedtebeperking beperkingen gelden voor het aantal aanroepen naar het eindpunt MSI IMDS. Wanneer de bandbreedteregeling drempelwaarde wordt overschreden, beperkt het eindpunt MSI IMDS verzoeken van verdere terwijl de beperking van kracht is. Retourneert de HTTP-statuscode 429 tijdens deze periode, het eindpunt MSI IMDS (' te veel aanvragen '), en de aanvragen mislukken. 
+
+Voor een nieuwe poging, wordt aangeraden de strategie voor het volgende: 
+
+| **Strategie voor opnieuw proberen** | **Instellingen** | **Waarden** | **Hoe werkt het?** |
+| --- | --- | --- | --- |
+|ExponentialBackoff |Aantal pogingen<br />Min. uitstel<br />Max. uitstel<br />Delta-uitstel<br />Eerste snelle poging |5<br />0 sec.<br />60 sec.<br />2 sec.<br />false |Poging 1, vertraging 0 sec.<br />Poging 2, vertraging ~2 sec.<br />Poging 3, vertraging ~6 sec.<br />Poging 4, vertraging ~14 sec.<br />Poging 5, vertraging ~30 sec. |
 
 ## <a name="resource-ids-for-azure-services"></a>Resource-id voor Azure-services
 

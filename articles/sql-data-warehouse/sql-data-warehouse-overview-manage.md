@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 8576fdb3-71fe-4b3b-a4e0-5e8a7f148acf
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Databases in Azure SQL Data Warehouse beheren
 SQL Data Warehouse automatiseert veel aspecten van het beheer van uw databases. Bijvoorbeeld, als u wilt schalen prestaties hoeft u alleen te aanpassen en betaalt voor het juiste niveau van rekenresources en laat SQL Data Warehouse het werk van uitbreiden en terug te schalen.

@@ -5,20 +5,20 @@ services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 7a307a598bd71369615b30476d387c06f473c397
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8a24987ae3423a02647b1dd246b40179be100c06
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="outbound-connections-classic"></a>Uitgaande verbindingen (klassiek)
 
@@ -123,6 +123,18 @@ Het wijzigen van de grootte van uw implementatie mogelijk van invloed zijn op uw
 
 Als de implementatie wordt verkleind en verhoogt de overgangen in een lagere laag, het aantal beschikbare poorten met snat omzetten. In dit geval snat omzetten poorten bestaande toegewezen en hun respectieve stromen worden niet beïnvloed.
 
+Snat omzetten poorten toewijzingen zijn specifieke IP-transportprotocol (TCP en UDP worden afzonderlijk onderhouden) en de volgende voorwaarden worden vrijgegeven:
+
+### <a name="tcp-snat-port-release"></a>SNAT TCP-poort release
+
+- Als beide serverclient FIN/ACK verzendt, wordt poort snat omzetten vrijgegeven na 240 seconden.
+- Als een eerste wordt weergegeven, wordt poort snat omzetten vrijgegeven na 15 seconden.
+- time-out voor inactiviteit is bereikt.
+
+### <a name="udp-snat-port-release"></a>SNAT UDP-poort release
+
+- time-out voor inactiviteit is bereikt.
+
 ## <a name="problemsolving"></a> Het oplossen van problemen 
 
 Deze sectie is bedoeld om te beperken snat omzetten uitputting en andere scenario's die zich met uitgaande verbindingen in Azure voordoen kunnen.
@@ -170,3 +182,4 @@ Met behulp van de opdracht nslookup, kunt u een DNS-query voor de naam myip.open
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [Load Balancer](load-balancer-overview.md) gebruikt in implementaties van Resource Manager.
+- Modus voor informatie over [uitgaande verbinding](load-balancer-outbound-connections.md) scenario's die beschikbaar zijn in implementaties van Resource Manager.

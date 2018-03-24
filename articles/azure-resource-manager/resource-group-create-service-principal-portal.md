@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/12/2018
+ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: c2b8498b2d32e2c3c7ed5dca3295ae6a98fa2676
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 264befc6c60b87d41658b4da763e477fbb7e3f8c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Portal gebruiken voor het maken van een Azure Active Directory-toepassing en service-principal die toegang bronnen tot
 
@@ -159,7 +159,7 @@ U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of r
 
    ![rol selecteren](./media/resource-group-create-service-principal-portal/select-role.png)
 
-1. Zoeken naar uw toepassing en selecteer deze.
+1. Azure Active Directory-toepassingen worden niet standaard weergegeven in de beschikbare opties. Als u wilt zoeken in uw toepassing, moet u de naam van het in het zoekveld opgeven. Selecteer deze.
 
    ![Zoek app](./media/resource-group-create-service-principal-portal/search-app.png)
 

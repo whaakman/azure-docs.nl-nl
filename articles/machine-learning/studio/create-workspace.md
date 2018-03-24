@@ -2,28 +2,27 @@
 title: Een Machine Learning Studio-werkruimte maken | Microsoft Docs
 description: Het maken van een werkruimte voor Azure Machine Learning Studio
 services: machine-learning
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: garye
-ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
-ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8da10e474c62868ca109a44e7c66dc11ee62b6de
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Een Azure Machine Learning-werkruimte maken en delen
 Dit menukoppelingen naar onderwerpen waarin wordt beschreven hoe u de verschillende gegevens wetenschappelijke omgevingen gebruikt door de Cortana Analytics proces (CAP's).
 
 [!INCLUDE [data-science-environment-setup](../../../includes/cap-setup-environments.md)]
 
-U moet een Machine Learning-werkruimte hebt voor het gebruik van Azure Machine Learning Studio. Deze werkruimte bevat de hulpprogramma's die u wilt maken, beheren en experimenten publiceren.
+U moet een Machine Learning-werkruimte hebt voor het gebruik van Azure Machine Learning Studio. Deze werkruimte bevat de hulpprogramma's die u nodig hebt om experimenten te maken, beheren en publiceren.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -41,7 +40,7 @@ U moet een Machine Learning-werkruimte hebt voor het gebruik van Azure Machine L
 
 4. Voer de werkruimtegegevens van uw:
 
-    - De *Werkruimtenaam* mogelijk maximaal 260 tekens lang zijn, niet eindigen met een spatie. De naam kan niet deze tekens niet bevatten:`< > * % & : \ ? + /`
+    - De *Werkruimtenaam* mogelijk maximaal 260 tekens lang zijn, niet eindigen met een spatie. De naam kan niet deze tekens niet bevatten: `< > * % & : \ ? + /`
     - De *web service-abonnement* u kiest (of maken), samen met de bijbehorende *prijscategorie* u selecteert, wordt gebruikt als u web-services uit deze werkruimte implementeert.
 
     ![Maak een nieuwe werkruimte](./media/create-workspace/create-new-workspace.png)
@@ -50,7 +49,7 @@ U moet een Machine Learning-werkruimte hebt voor het gebruik van Azure Machine L
 
 Zodra de werkruimte is geïmplementeerd, kunt u deze kunt openen in Machine Learning Studio.
 
-1. Blader naar Machine Learning Studio [https://studio.azureml.net/](https://studio.azureml.net/).
+1. Blader naar Machine Learning Studio [ https://studio.azureml.net/ ](https://studio.azureml.net/).
 
 2. Selecteer uw werkruimte in de bovenste--rechterhoek.
 

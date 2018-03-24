@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
-ms.openlocfilehash: 12c252340b82aba5ee69b12db83353750782e7c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c739d98f81bafb6474995b141cab3400bcb4dc33
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Back-end-status, diagnostische logboeken en metrische gegevens voor Application Gateway
 
@@ -152,9 +152,9 @@ Activiteit-logboekregistratie is standaard ingeschakeld voor elke Resource Manag
 
    ![Het configuratieproces wordt gestart][2]
 
-4. Kies een bestaande werkruimte van Operations Management Suite (OMS) of een nieuwe maken. In dit voorbeeld wordt een bestaande.
+4. Kies een bestaande werkruimte voor logboekanalyse of maak een nieuwe. In dit voorbeeld wordt een bestaande.
 
-   ![Opties voor OMS werkruimten][3]
+   ![Opties voor Log Analytics-werkruimten][3]
 
 5. Bevestig de instellingen en klik op **opslaan**.
 
@@ -171,17 +171,17 @@ Het toegangslogboek wordt alleen gegenereerd als u deze op elk exemplaar van de 
 
 |Waarde  |Beschrijving  |
 |---------|---------|
-|Exemplaar-id     | Gateway-instantie die de aanvraag wordt uitgevoerd.        |
-|client-IP     | Oorspronkelijke IP-adres voor de aanvraag.        |
-|enterpriseclient     | Poort voor de aanvraag afkomstig is.       |
+|instanceId     | Gateway-instantie die de aanvraag wordt uitgevoerd.        |
+|clientIP     | Oorspronkelijke IP-adres voor de aanvraag.        |
+|clientPort     | Poort voor de aanvraag afkomstig is.       |
 |HttpMethod     | HTTP-methode die wordt gebruikt door de aanvraag.       |
 |requestUri     | De URI van de aanvraag ontvangen.        |
 |RequestQuery     | **Server-gerouteerd**: exemplaar van de Back-end-adresgroep die de aanvraag is verzonden. </br> **X-AzureApplicationGateway-logboek-ID**: correlatie-ID van de aanvraag gebruikt. Het kan worden gebruikt om op te lossen problemen met de verkeer voor de back-endservers. </br>**STATUS van de SERVER**: HTTP-antwoordcode Application Gateway van de back-end ontvangen.       |
 |UserAgent     | De gebruikersagent van de HTTP-aanvraag-header.        |
 |httpStatus     | HTTP-statuscode geretourneerd naar de client van de toepassingsgateway.       |
 |Httpversie     | HTTP-versie van de aanvraag.        |
-|ReceivedBytes     | Grootte van het pakket ontvangen in bytes.        |
-|SentBytes| Grootte van het pakket dat is verzonden, in bytes.|
+|receivedBytes     | Grootte van het pakket ontvangen in bytes.        |
+|sentBytes| Grootte van het pakket dat is verzonden, in bytes.|
 |timeTaken| Totale tijdsduur (in milliseconden) die het duurt voordat een aanvraag te verwerken en de reactie daarop worden verzonden. Dit wordt berekend als het interval van de tijd wanneer Application Gateway ontvangt de eerste byte van een HTTP-aanvraag aan de tijd wanneer de bewerking is voltooid voor het verzenden van het antwoord. Het is belangrijk te weten het veld tijd omvat gewoonlijk het tijdstip waarop de aanvraag en antwoord-pakketten worden overgebracht via het netwerk. |
 |sslEnabled| Communicatie met de back-end-adresgroepen wordt aangegeven of SSL gebruikt. Geldige waarden zijn in- of uitschakelen.|
 ```json
@@ -215,11 +215,11 @@ De prestatielogboek wordt alleen gegenereerd als u deze op elk exemplaar van de 
 
 |Waarde  |Beschrijving  |
 |---------|---------|
-|Exemplaar-id     |  Application Gateway-exemplaren waarvoor gegevens wordt gegenereerd. Er is een rij per exemplaar voor een toepassingsgateway met meerdere-exemplaar.        |
+|instanceId     |  Application Gateway-exemplaren waarvoor gegevens wordt gegenereerd. Er is een rij per exemplaar voor een toepassingsgateway met meerdere-exemplaar.        |
 |healthyHostCount     | Het aantal orde hosts in de groep back-end.        |
 |unHealthyHostCount     | Het aantal beschadigde hosts in de groep back-end.        |
 |requestCount     | Het aantal geleverde aanvragen.        |
-|Latentie | Latentie (in milliseconden) van aanvragen van het exemplaar naar de back-end die de aanvragen fungeert. |
+|latentie | Latentie (in milliseconden) van aanvragen van het exemplaar naar de back-end die de aanvragen fungeert. |
 |failedRequestCount| Het aantal mislukte aanvragen.|
 |Doorvoer| Gemiddelde doorvoersnelheid sinds de laatste logboek, gemeten in bytes per seconde.|
 
@@ -252,21 +252,21 @@ De firewall-logboek is gegenereerd, alleen als u deze voor elke application gate
 
 |Waarde  |Beschrijving  |
 |---------|---------|
-|Exemplaar-id     | Gateway toepassingsexemplaar voor welke firewall worden gegevens gegenereerd. Er is een rij per exemplaar voor een toepassingsgateway met meerdere-exemplaar.         |
-|client-IP     |   Oorspronkelijke IP-adres voor de aanvraag.      |
-|enterpriseclient     |  Poort voor de aanvraag afkomstig is.       |
+|instanceId     | Gateway toepassingsexemplaar voor welke firewall worden gegevens gegenereerd. Er is een rij per exemplaar voor een toepassingsgateway met meerdere-exemplaar.         |
+|clientIp     |   Oorspronkelijke IP-adres voor de aanvraag.      |
+|clientPort     |  Poort voor de aanvraag afkomstig is.       |
 |requestUri     | De URL van de aanvraag ontvangen.       |
 |ruleSetType     | Type van de regelset. De beschikbare waarde is OWASP.        |
 |ruleSetVersion     | Regelset versie die wordt gebruikt. Beschikbare waarden zijn 2.2.9 en 3.0.     |
 |ruleId     | Regel-ID van de activerende gebeurtenis.        |
-|Bericht     | Gebruiksvriendelijke bericht voor de triggergebeurtenis. Meer informatie vindt u in de detailsectie.        |
-|Actie     |  Actie op die op de aanvraag. Beschikbare waarden zijn geblokkeerd en toegestaan.      |
-|Site     | De site waarvoor het logboek is gegenereerd. Alleen globale wordt momenteel, omdat er regels zijn globale vermeld.|
-|Meer informatie     | Details van de activerende gebeurtenis.        |
+|bericht     | Gebruiksvriendelijke bericht voor de triggergebeurtenis. Meer informatie vindt u in de detailsectie.        |
+|actie     |  Actie op die op de aanvraag. Beschikbare waarden zijn geblokkeerd en toegestaan.      |
+|site     | De site waarvoor het logboek is gegenereerd. Alleen globale wordt momenteel, omdat er regels zijn globale vermeld.|
+|details     | Details van de activerende gebeurtenis.        |
 |Details.Message     | Beschrijving van de regel.        |
-|Details.Data     | Specifieke gegevens gevonden in de aanvraag die overeenkomt met de regel.         |
-|Details.File     | Configuratiebestand die deel uitmaakt van de regel.        |
-|Details.line     | Regelnummer in het configuratiebestand dat de gebeurtenis.       |
+|details.data     | Specifieke gegevens gevonden in de aanvraag die overeenkomt met de regel.         |
+|details.file     | Configuratiebestand die deel uitmaakt van de regel.        |
+|details.line     | Regelnummer in het configuratiebestand dat de gebeurtenis.       |
 
 ```json
 {
@@ -322,7 +322,7 @@ Metrische gegevens zijn een functie voor bepaalde waar u prestatiemeteritems kun
 
 Zie voor een actuele lijst met metrische gegevens [ondersteund met een Azure-Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
-### <a name="alert-rules"></a>Regels voor waarschuwingen
+### <a name="alert-rules"></a>Waarschuwingsregels
 
 U kunt regels voor waarschuwingen op basis van de metrische gegevens voor een bron op te starten. Bijvoorbeeld, een waarschuwing een webhook aanroepen of e-beheerder als de doorvoer van de toepassingsgateway boven, onder of met een drempelwaarde voor een opgegeven periode is.
 

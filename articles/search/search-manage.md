@@ -2,10 +2,10 @@
 title: Beheer van de service voor Azure Search in de Azure portal
 description: Azure Search, een gehoste cloud search-service in Microsoft Azure met Azure portal beheren.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d19683291e001c3c3f2a7bfc5c203b5121a8a418
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Beheer van de service voor Azure Search in de Azure portal
 > [!div class="op_single_selector"]
@@ -44,26 +44,12 @@ U ziet dat *upgrade* wordt niet vermeld als een beheertaak. Omdat bronnen worden
 ## <a name="administrator-rights"></a>Administrator-rechten
 Het inrichten of buiten gebruik stellen van de service zelf kan worden gedaan door de beheerder van de Azure-abonnement of CO-beheerder.
 
-Binnen een service en heeft iedereen met toegang tot de service-URL en een admin api-sleutel lezen-schrijven toegang tot de service. Lees-/ schrijftoegang biedt de mogelijkheid toevoegen, verwijderen of wijzigen van de server-objecten, met inbegrip van api-sleutels, indexen, indexeerfuncties, gegevensbronnen, schema's en roltoewijzingen geïmplementeerd via [RBAC gedefinieerde rollen](#rbac).
+Binnen een service en heeft iedereen met toegang tot de service-URL en een admin api-sleutel lezen-schrijven toegang tot de service. Lees-/ schrijftoegang biedt de mogelijkheid toevoegen, verwijderen of wijzigen van de server-objecten, met inbegrip van api-sleutels, indexen, indexeerfuncties, gegevensbronnen, schema's en roltoewijzingen geïmplementeerd via [RBAC gedefinieerde rollen](search-security-rbac.md).
 
-Alle gebruikersinteractie met Azure Search valt binnen een van deze modi: lezen-schrijven toegang tot de service (beheerdersrechten) of alleen-lezen toegang tot de service (query rechten). Zie voor meer informatie [beheren van de api-sleutels](#manage-keys).
+Alle gebruikersinteractie met Azure Search valt binnen een van deze modi: lezen-schrijven toegang tot de service (beheerdersrechten) of alleen-lezen toegang tot de service (query rechten). Zie voor meer informatie [beheren van de api-sleutels](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
-## <a name="set-rbac-roles-for-administrative-access"></a>RBAC-rollen voor beheerderstoegang instellen
-Azure biedt een [globale op rollen gebaseerde verificatie model](../active-directory/role-based-access-control-configure.md) beheerd via de portal of de resourcemanager-API's voor alle services. Rollen eigenaar, bijdrager en lezer bepalen het niveau van de servicebeheer voor Active Directory-gebruikers, groepen en beveiligings-principals die zijn toegewezen aan elke rol. 
-
-RBAC machtigingen bepalen de volgende beheertaken voor Azure Search:
-
-| Rol | Taak |
-| --- | --- |
-| Eigenaar |Maak of verwijder de service of een object op de service, inclusief api-sleutels, indexen, indexeerfuncties, indexeerfunctie gegevensbronnen en indexeerfunctie schema's.<p>Bekijk de servicestatus, met inbegrip van aantallen en de opslaggrootte.<p>Toevoegen of verwijderen van lidmaatschap van de rol (alleen een eigenaar kunt rollidmaatschap beheren).<p>Abonnementbeheerders en eigenaren van de service kunt u de automatische lid zijn van de rol van eigenaar. |
-| Inzender |Hetzelfde niveau van toegang als eigenaar, min RBAC rollen beheren. Bijvoorbeeld, een Inzender kunt weergeven en opnieuw genereren `api-key`, maar rollidmaatschappen niet wijzigen. |
-| Lezer |De status en query sleutels service weergeven. Leden van deze rol kunnen de configuratie van de service niet wijzigen, noch kunnen ze administratorsleutels weergeven. |
-
-Rollen ken geen toegangsrechten voor het service-eindpunt. Search-servicebewerkingen, zoals beheer van de index, populatie van de index en query's op zoekgegevens, worden beheerd via api-sleutels, niet rollen. Zie voor meer informatie 'Autorisatie voor het beheer van versus gegevensbewerkingen' in [wat is er op rollen gebaseerde toegangsbeheer](../active-directory/role-based-access-control-what-is.md).
-
-<a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>Logboekregistratie en systeeminformatie
 Azure Search maakt logboekbestanden voor een afzonderlijke service via de portal of programmatische interfaces niet beschikbaar. Met de basisstaffel of hoger, Microsoft bewaakt alle Azure Search-services voor beschikbaarheid van 99,9% per serviceovereenkomsten (SLA). De service is langzaam of doorvoer van aanvragen valt onder SLA drempelwaarden, ondersteuningsteams Raadpleeg de logboekbestanden die voor hen beschikbaar als het probleem op te lossen.
 
@@ -72,38 +58,6 @@ In termen van algemene informatie over uw service, kunt u de informatie in de vo
 * In de portal op het servicedashboard via meldingen, eigenschappen en statusberichten.
 * Met behulp van [PowerShell](search-manage-powershell.md) of de [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) naar [service-eigenschappen ophalen](https://docs.microsoft.com/rest/api/searchmanagement/services), of de status van het Resourcegebruik van de index.
 * Via [zoeken traffic analytics](search-traffic-analytics.md), zoals eerder is aangegeven.
-
-<a id="manage-keys"></a>
-
-## <a name="manage-api-keys"></a>Api-sleutels beheren
-Alle aanvragen voor een search-service moeten een api-sleutel die is gegenereerd specifiek voor uw service. Deze api-sleutel is het enige mechanisme voor het verifiëren van toegang tot uw search-service-eindpunt. 
-
-Een api-sleutel is een tekenreeks van willekeurige getallen en letters bestaan. Via [RBAC machtigingen](#rbac), kunt u verwijderen of de toetsen niet lezen, maar u kunt een sleutel niet vervangen met een door de gebruiker gedefinieerd wachtwoord. 
-
-Twee soorten sleutels worden gebruikt voor toegang tot uw search-service:
-
-* Beheerder (geldig voor een bewerking lezen-schrijven tegen de service)
-* Query (geldig voor alleen-lezen bewerkingen, zoals een query uitgevoerd naar een index)
-
-Een admin api-sleutel wordt gemaakt wanneer de service is ingericht. Er zijn twee administratorsleutels aangewezen als *primaire* en *secundaire* te houden rechtstreeks, maar in feite ze uitwisselbaar zijn. Elke service heeft twee administratorsleutels zodat u een overschakelen kunt zonder verlies van toegang tot uw service. Kunt u beide administratorsleutel opnieuw genereren, maar u kunt toevoegen aan het aantal totale-beheerder. Er is een maximum van twee administratorsleutels per zoekservice.
-
-Querysleutels zijn ontworpen voor clienttoepassingen die rechtstreeks zoeken aanroepen. U kunt maximaal 50 querysleutels maken. In de toepassingscode geeft u de URL zoeken en een query api-sleutel voor alleen-lezen toegang tot de service. Uw toepassingscode geeft ook de index die is gebruikt door de toepassing. Het eindpunt een api-sleutel voor alleen-lezen toegang en een doelindex definiëren samen het bereik en het toegangsniveau van de verbinding van uw clienttoepassing.
-
-Als u wilt ophalen of api-sleutels genereren, open het servicedashboard. Klik op **sleutels** naar de pagina Sleutelbeheer openen. Opdrachten voor het opnieuw genereren of het maken van sleutels zijn aan de bovenkant van de pagina. Standaard worden alleen administratorsleutels gemaakt. Query api-sleutels moeten handmatig worden gemaakt.
-
- ![][9]
-
-<a id="rbac"></a>
-
-## <a name="secure-api-keys"></a>Api-sleutels beveiligen
-Sleutelbeveiliging wordt gegarandeerd door het beperken van toegang via de portal of de Resource Manager-interfaces (PowerShell of opdrachtregelinterface). Zoals is aangegeven, kunnen abonnementbeheerders weergeven en opnieuw genereren van alle api-sleutels. Bekijk de roltoewijzingen om te begrijpen wie toegang heeft tot de beheersleutels uit voorzorg.
-
-1. Klik op het pictogram toegang dia open de blade gebruikers in het servicedashboard.
-   ![][7]
-2. Controleer in gebruikers, bestaande roltoewijzingen. Zoals verwacht, abonnementsbeheerders al volledige toegang hebben tot de service via de rol van eigenaar.
-3. Om in te zoomen verdere, klikt u op **abonnementsbeheerders** en vouw vervolgens de lijst van de toewijzing van functie om te zien wie mede beheerdersrechten heeft op uw search-service.
-
-Een andere manier om weer te geven van machtigingen voor toegang is te klikken op **rollen** op de blade gebruikers. Hiermee geeft u beschikbare rollen en het aantal gebruikers of groepen die zijn toegewezen aan elke rol.
 
 <a id="sub-5"></a>
 
@@ -184,9 +138,6 @@ Wordt ook aangeraden controleren de [prestaties en optimalisatie van het artikel
 Een andere aanbeveling is de video in de vorige sectie hebt genoteerd. Het biedt diepere dekking van de technieken die in deze sectie wordt vermeld.
 
 <!--Image references-->
-[7]: ./media/search-manage/rbac-icon.png
-[8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
-[9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 

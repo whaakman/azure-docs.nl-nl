@@ -2,10 +2,10 @@
 title: Ondersteunde resourcetypen via Azure resourcestatus | Microsoft Docs
 description: Ondersteunde resourcetypen via Azure resourcestatus
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0694c45363eb2534416f1dad59196ecfa1dacd17
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Status van resourcetypen en controleert in Azure resourcestatus
 Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resourcestatus door resourcetypen.
@@ -48,7 +48,7 @@ Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resou
 |---|
 |<ul><li>Het account kan worden bereikt vanaf binnen het datacenter?</li><li>Is de cognitieve Services Resource Provider beschikbaar?</li><li>De cognitieve Service beschikbaar is in de juiste regio?</li><li>Kan lezen bewerkingen worden uitgevoerd op het opslagaccount van de resource-metagegevens?</li><li>Het quotum van API-aanroep is bereikt?</li><li>Is de API-aanroep lezen-limiet bereikt?</li></ul>|
 
-## <a name="microsoftcomputevirtualmachines"></a>Microsoft.COMPUTE/virtualmachines
+## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Uitgevoerde controles|
 |---|
 |<ul><li>De server die als host fungeert deze virtuele machine omhoog en uitgevoerd?</li><li>Is de host-OS opstarten voltooid?</li><li>De container voor de virtuele machine is ingericht en ingeschakeld?</li><li>Er is een netwerkverbinding tussen de host en het storage-account?</li><li>Is het opstarten van het gastbesturingssysteem voltooid?</li><li>Is er lopende gepland onderhoud?</li></ul>|
@@ -64,7 +64,7 @@ Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resou
 |---|
 |<ul><li>Kunnen gebruikers gegevens uploaden naar Data Lake Store in de regio</li><li>Kunnen gebruikers gegevens in Data Lake Store in de regio downloaden?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/iothubs
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
 |Uitgevoerde controles|
 |---|
@@ -75,7 +75,7 @@ Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resou
 |---|
 |<ul><li>Er is een database of een verzameling aanvragen niet worden geleverd vanwege een Cosmos-DB Azure-service niet beschikbaar zijn?</li><li>Er zijn aanvragen-document niet worden geleverd vanwege een Cosmos-DB Azure-service niet beschikbaar zijn?</li></ul>|
 
-## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
+## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Uitgevoerde controles|
 |---|
 |<ul><li>Is de VPN-tunnel aangesloten?</li><li>Zijn er conflicten bij de configuratie in de verbinding?</li><li>De vooraf gedeelde sleutels juist zijn geconfigureerd?</li><li>De on-premises VPN-apparaat bereikbaar is?</li><li>Zijn er verschillen in het beveiligingsbeleid IPSec/IKE?</li><li>Is de S2S VPN-verbinding juist is ingericht of in een foutstatus?</li><li>Is de VNET-naar-VNET-verbinding juist is ingericht of in een foutstatus?</li></ul>|
@@ -115,12 +115,12 @@ Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resou
 |---|
 |<ul><li>De hostserver is actief en werkend?</li><li>Internet Information Services wordt uitgevoerd</li><li>Is de Load balancer wordt uitgevoerd?</li><li>Kan de Web Service-Plan worden bereikt vanaf binnen het datacenter?</li><li>Het opslagaccount als host fungeert voor de sites inhoud voor de serverFarm beschikbaar veldnamenrij?</li></ul>|
 
-## <a name="microsoftwebsites"></a>Microsoft.Web/sites
+## <a name="microsoftwebsites"></a>Microsoft.web/sites
 |Uitgevoerde controles|
 |---|
 |<ul><li>De hostserver is actief en werkend?</li><li>Is Internet Information server wordt uitgevoerd?</li><li>Is de Load balancer wordt uitgevoerd?</li><li>De Web-App kan worden bereikt vanaf binnen het datacenter?</li><li>Het opslagaccount als host fungeert voor de site-inhoud beschikbaar?</li></ul>|
 
 # <a name="next-steps"></a>Volgende stappen
--  Zie [Inleiding tot Azure-servicestatus](service-health-overview.md) en [Inleiding tot Azure-resourcestatus](resource-health-overview.md) voor meer informatie hierover begrip. 
+-  Zie [Inleiding tot Azure-Service Health dashboard](service-health-overview.md) en [Inleiding tot Azure-resourcestatus](resource-health-overview.md) voor meer informatie hierover begrip. 
 -  [Veelgestelde vragen over Azure-resourcestatus](resource-health-faq.md)
-- Waarschuwingen instellen, zodat u wordt gewaarschuwd van statusproblemen. Zie voor meer informatie [waarschuwingen configureren voor servicestatus](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Waarschuwingen instellen, zodat u wordt gewaarschuwd van statusproblemen. Zie voor meer informatie [waarschuwingen configureren voor gebeurtenissen van de health service](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 

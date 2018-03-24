@@ -2,10 +2,10 @@
 title: Stream live met on-premises-coderingsprogramma's die multi-bitrate streams - Azure maken | Microsoft Docs
 description: 'Dit onderwerp wordt beschreven hoe u een kanaal dat een multi-bitrate live stream van een on-premises coderingsprogramma ontvangt instelt. De stroom kan vervolgens worden afgeleverd bij afspelen clienttoepassingen via een of meer streaming-eindpunten, met een van de volgende protocollen voor adaptief streamen: HLS, Smooth Streaming streepje.'
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: fae123d2cc594bb741fb1cdb0da62bef05a2a8c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Live streamen met on-premises-coderingsprogramma's die multi-bitrate streams maken
+
+> [!NOTE]
+> Vanaf 12 mei 2018, live kanalen wordt niet langer ondersteuning voor de RTP/MPEG-2-transportstroom opnameprotocol. Migreer van RTP/MPEG-2 RTMP of gefragmenteerde MP4 (Smooth Streaming) opnemen-protocollen.
+
 ## <a name="overview"></a>Overzicht
 In Azure Media Services een *kanaal* vertegenwoordigt een pijplijn voor het verwerken van inhoud live-streaming. Een kanaal ontvangt live invoer gegevensstromen in twee manieren:
 

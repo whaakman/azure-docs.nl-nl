@@ -2,10 +2,10 @@
 title: Gebruikers inrichten beheer voor zakelijke apps in Azure Active Directory | Microsoft Docs
 description: Informatie over het beheren van gebruikers account inrichten voor zakelijke apps met de Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bded73b4a335dc85a84691f5edabac5055f43cca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Het beheer van gebruikersaccount inrichten voor zakelijke apps in Azure portal
 In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) voor het beheren van automatische account gebruikersaanvragen en verwijderen van gegevens voor toepassingen die ondersteuning bieden voor deze, met name lijsten die zijn toegevoegd in de categorie 'aanbevolen' van de [Azure Active Directory-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Zie voor meer informatie over automatische account gebruikersaanvragen en hoe het werkt, [gebruikersaanvragen automatiseren en Deprovisioning voor SaaS-toepassingen met Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -76,7 +76,7 @@ Deze sectie bevat aanvullende informatie over de werking van de inrichting servi
 
 Vindt u koppelingen naar de **inrichting activiteitenrapport**, waarmee u een logboek van alle gebruikers en groepen hebt gemaakt, bijgewerkt en verwijderd tussen Azure AD en de doeltoepassing en de **inrichting foutenrapport** waarmee u meer gedetailleerde foutberichten worden weergegeven voor gebruiker en groepsobjecten die niet worden gelezen konden, gemaakt, bijgewerkt of verwijderd. 
 
-##<a name="feedback"></a>Feedback
+## <a name="feedback"></a>Feedback
 
 We hopen u zoals uw Azure AD-ervaring. Zorg ervoor dat uw feedback! Plaats uw feedback en ideeën voor verbetering van de **beheerportal** sectie van onze [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  We Doe enthousiast bent over het bouwen van cool nieuw per dag uit, en gebruik van de richtlijnen voor vorm en definiëren wat we hierna bouwen.
 

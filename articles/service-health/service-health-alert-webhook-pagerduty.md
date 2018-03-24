@@ -3,10 +3,10 @@ title: Waarschuwingen van Azure service health configureren met PagerDuty | Micr
 description: Aangepaste meldingen over gebeurtenissen van de health service aan uw exemplaar PagerDuty ophalen.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 9edcb727b9f0af348cacd5533523c4f2e8214703
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6e9fcf20d368e270f9af4551c539acd873335498
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>Waarschuwingen van de health service configureren met PagerDuty
 
@@ -79,7 +79,7 @@ In dit artikel leest u hoe u Azure servicestatusmeldingen via PagerDuty instelt 
 5. Selecteer **opslaan** wanneer u klaar bent voor het bijwerken van de groep in te grijpen.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testen van uw integratie webhook via een HTTP POST-aanvraag
-1. Maak de nettolading van de status van de Service die u wilt verzenden. U vindt een voorbeeld van de servicestatus webhook nettolading op [Webhooks voor Azure activiteit waarschuwingen melden](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Maak de nettolading van de service health die u wilt verzenden. U vindt een voorbeeld van de service health webhook nettolading op [Webhooks voor Azure activiteit waarschuwingen melden](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Hiermee maakt u een HTTP POST-aanvraag als volgt:
 
@@ -88,7 +88,7 @@ In dit artikel leest u hoe u Azure servicestatusmeldingen via PagerDuty instelt 
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. U ontvangt een `202 Accepted` met een bericht met uw 'gebeurtenis-ID."
 

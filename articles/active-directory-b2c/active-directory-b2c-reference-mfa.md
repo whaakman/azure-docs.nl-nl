@@ -2,23 +2,20 @@
 title: 'Azure Active Directory B2C: Multi-Factor Authentication | Microsoft Docs'
 description: Het inschakelen van multi-factor Authentication in consumententoepassingen beveiligd door Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 8fc6c43a0197c203cda5b2200e0a5c01258d1613
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 0f560a02a51239cff0a7d4057ec7beb2f0f5c5c5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: Multi-Factor Authentication in uw consumententoepassingen inschakelen
 Azure Active Directory (Azure AD) B2C wordt rechtstreeks geïntegreerd met [Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) zodat u een tweede beveiligingslaag aan de ervaringen van registreren en aanmelden in uw consumententoepassingen toevoegen kunt. En u kunt dit doen zonder een één regel code te schrijven. Wij ondersteunen momenteel verificatie voor telefoongesprekken en SMS-bericht. Als u zich kunnen registreren en aanmelden beleid hebt gemaakt, kunt u nog steeds multi-factor Authentication inschakelen.

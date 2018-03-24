@@ -2,23 +2,23 @@
 title: Met Azure Traffic Manager - Veelgestelde vragen | Microsoft Docs
 description: In dit artikel vindt u antwoorden op veelgestelde vragen over Traffic Manager
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/18/2018
 ms.author: kumud
-ms.openlocfilehash: 09fd133ec72f7ebbbcb45f652855e7640656a0ca
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d9db669ab905fb51390f6ca80736af4cde13d902
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -123,9 +123,6 @@ Ja, alleen API-versie 2017-03-01 en nieuwere ondersteunt de geografische routeri
 
 ## <a name="real-user-measurements"></a>Real User Measurements
 
->[!NOTE]
->De functie echte gebruiker metingen in Traffic Manager kan is openbare preview-versie en geen hetzelfde niveau van beschikbaarheid en betrouwbaarheid zoals functies die in het algemeen beschikbaarheid release. De functie wordt niet ondersteund, kan hebben beperkte mogelijkheden en mogelijk niet beschikbaar in alle Azure-locaties. Voor de meest recente meldingen op beschikbaarheid en de status van deze functie, Controleer de [Azure Traffic Manager-updates](https://azure.microsoft.com/updates/?product=traffic-manager) pagina.
-
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Wat zijn de voordelen van het gebruik van echte metingen van de gebruiker?
 Wanneer u routeringsmethode voor prestaties, Traffic Manager haalt het beste Azure-regio voor uw eindgebruikers verbinding maken met door te inspecteren van de bron-IP en het Subnet van de Client EDNS (indien doorgegeven) en controleren op basis van het netwerk latentie intelligence de service onderhoudt. Echte gebruiker metingen verbetert dit voor de eindgebruiker base doordat hun ervaring bijdragen aan deze tabel latentie naast controleren die in deze tabel voldoende de netwerken van de eindgebruiker omvat vanaf waar uw eindgebruikers verbinding met Azure maken. Dit leidt tot een grotere nauwkeurigheid in de routering van uw eindgebruikers.
 
@@ -140,7 +137,8 @@ Nee, alleen moet u één keer per abonnement inschakelen en alle latentiegegeven
 
 ### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>Hoe kan ik echte gebruiker metingen uitschakelen voor mijn abonnement?
 U kunt stoppen lopen de kosten die betrekking hebben op echte metingen van de gebruiker wanneer u stopt met het verzamelen en verzenden van back-latentie metingen van uw clienttoepassing. Bijvoorbeeld, wanneer meting JavaScript in webpagina's ingesloten, kunt u stoppen met deze functie door het verwijderen van JavaScript of door het uitschakelen van de aanroeping als de pagina wordt weergegeven.
-Uitschakelen van echte metingen van de gebruiker op een andere manier is om uw sleutel te verwijderen. Zodra u dat doet, worden alle metingen aan Traffic Manager verzonden met die sleutel verwijderd.
+
+U kunt ook echte gebruiker metingen uitschakelen door uw sleutel te verwijderen. Als u de sleutel verwijdert, worden alle metingen aan Traffic Manager verzonden met die sleutel verwijderd.
 
 ### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>Kan ik echte gebruiker metingen met clienttoepassingen dan webpagina's gebruiken?
 Ja, echte metingen van de gebruiker is ontworpen voor het opnemen van gegevens die zijn verzameld via een ander type eindgebruiker clients. Deze Veelgestelde vragen wordt bijgewerkt als nieuwe typen van clienttoepassingen get wordt ondersteund.
@@ -155,16 +153,16 @@ Nee, is geen geprogrammeerde vertraging voordat het script wordt aangeroepen.
 Nee, elke keer die deze wordt aangeroepen, wordt het script echte metingen van de gebruiker een reeks zes Azure-regio's zoals wordt bepaald door de service. Deze wijzigingen tussen verschillende aanroepen ingesteld en wanneer er een groot aantal dergelijke aanroepen optreden, wordt de dekking van de meting zich over verschillende Azure-regio's.
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Kan ik het aantal metingen tot een bepaald aantal beperken?
-De meting JavaScript is ingesloten in uw webpagina's en u zijn in de volledige controle over te starten en stoppen met het. Zolang de Traffic Manager-service een aanvraag ontvangt voor een lijst met Azure-regio's te meten, een reeks regio's worden geretourneerd. Houd er ook rekening mee dat tijdens de evaluatieperiode u niet de factuur voor alle metingen gerapporteerd aan Traffic Manager
+De meting JavaScript is ingesloten in uw webpagina's en u zijn in de volledige controle over te starten en stoppen met het. Zolang de Traffic Manager-service een aanvraag ontvangt voor een lijst met Azure-regio's te meten, een reeks regio's worden geretourneerd.
 
 ### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>Kan ik de metingen door de clienttoepassing als onderdeel van echte metingen van de gebruiker zien?
-Aangezien de logica van de meting vanuit de clienttoepassing wordt uitgevoerd, bent u volledige controle van wat er gebeurt met inbegrip van de metingen latentie te zien. Traffic Manager een samengevoegde weergave van de metingen ontvangen onder de sleutel die is gekoppeld aan uw abonnement niet gerapporteerd
+Aangezien de logica van de meting vanuit de clienttoepassing wordt uitgevoerd, bent u volledige controle van wat er gebeurt met inbegrip van de metingen latentie te zien. Traffic Manager een samengevoegde weergave van de metingen ontvangen onder de sleutel die is gekoppeld aan uw abonnement niet gerapporteerd.
 
 ### <a name="can-i-modify-the-measurement-script-provided-by-traffic-manager"></a>Kan ik de meting-script dat is opgegeven door Traffic Manager wijzigen?
 Hoewel u controle over wat er op de webpagina is ingesloten, afraden we u ten zeerste van u wijzigingen aanbrengt in het script meting om ervoor te zorgen dat het meet en de latenties correct rapporteert.
 
 ### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>Mogelijk zal zijn voor anderen kunnen zien van de sleutel die ik met echte gebruiker metingen gebruiken?
-Wanneer u het script meting naar een webpagina insluit is het mogelijk zijn voor anderen het script en uw sleutel echte gebruiker metingen (RUM) te zien. Maar het is belangrijk te weten dat deze sleutel af van uw abonnements-id wijkt en het Traffic Manager worden alleen gebruikt voor dit doel wordt gegenereerd. De sleutel van uw RUMSECTOR weten niet in gevaar brengt de veiligheid van uw Azure-account
+Wanneer u het script meting naar een webpagina insluit is het mogelijk zijn voor anderen het script en uw sleutel echte gebruiker metingen (RUM) te zien. Maar het is belangrijk te weten dat deze sleutel af van uw abonnements-id wijkt en het Traffic Manager worden alleen gebruikt voor dit doel wordt gegenereerd. De veiligheid van uw Azure-account niet in gevaar brengt uw RUMSECTOR sleutel weten.
 
 ### <a name="can-others-abuse-my-rum-key"></a>Kunnen anderen mijn RUMSECTOR sleutel misbruik?
 Het is mogelijk voor andere gebruikers van uw sleutel onjuiste gegevens te verzenden naar Azure Houd er rekening mee dat enkele verkeerde metingen heeft geen invloed op de routering omdat deze wordt gehouden, samen met de metingen dat we ontvangen. Als u uw sleutels wijzigen wilt, kunt u de sleutel op dat moment de oude sleutel wordt verwijderd opnieuw genereren.
@@ -186,9 +184,6 @@ Zoals vermeld in het vorige antwoord, worden de serveronderdelen van echte metin
 
 ## <a name="traffic-view"></a>Traffic View
 
->[!NOTE]
->De functie verkeer weergeven in Traffic Manager kan is openbare preview-versie en geen hetzelfde niveau van beschikbaarheid en betrouwbaarheid zoals functies die in het algemeen beschikbaarheid release. De functie wordt niet ondersteund, kan hebben beperkte mogelijkheden en mogelijk niet beschikbaar in alle Azure-locaties. Voor de meest recente meldingen op beschikbaarheid en de status van deze functie, Controleer de [Azure Traffic Manager-updates](https://azure.microsoft.com/updates/?product=traffic-manager) pagina.
-
 ### <a name="what-does-traffic-view-do"></a>Wat doet verkeer weergeven?
 Weergave van verkeer is een functie van de verkeer-Manager waarmee u uw gebruikers en hoe hun ervaring wordt meer inzicht. Dit maakt gebruik van de query's ontvangen door het Traffic Manager en het netwerk latentie intelligence tabellen die de service onderhoudt waarmee u het volgende:
 - De regio's waar uw gebruikers zijn verbinding kunnen maken met uw Azure-eindpunten.
@@ -196,7 +191,7 @@ Weergave van verkeer is een functie van de verkeer-Manager waarmee u uw gebruike
 - Azure-regio's waaraan ze ophalen doorgestuurd naar.
 - Hun ervaring latentie voor deze Azure-regio's.
 
-Deze informatie is beschikbaar voor u te gebruiken via een tabellarische weergave in de portal niet alleen beschikbaar als de onbewerkte gegevens voor het downloaden.
+Deze informatie is beschikbaar voor u te gebruiken via een geografische kaart overlay en in tabelvorm weergaven in de portal niet alleen beschikbaar als de onbewerkte gegevens voor het downloaden.
 
 ### <a name="how-can-i-benefit-from-using-traffic-view"></a>Hoe kan ik profiteren van verkeer weergeven?
 
@@ -208,7 +203,7 @@ Azure Monitor kan worden gebruikt om te begrijpen op een hoger niveau van het ve
 
 ### <a name="does-traffic-view-use-edns-client-subnet-information"></a>Maakt gebruik van verkeer weergave EDNS Client subnetgegevens?
 
-Verkeer weergeven beschouwd bij het maken van de uitvoer niet als de subnetgegevens EDNS Client. Dit maakt gebruik van de IP-adres van uw gebruikers lokale DNS-resolver ze te groeperen.
+De DNS-query's die is geleverd door Azure Traffic Manager moeten u ECS-informatie voor de nauwkeurigheid vergroten van de routering. Maar bij het maken van de gegevensset die laat waar de gebruikers verbinding maakt zien vanaf verkeer weergeven met behulp van alleen het IP-adres van de DNS-resolver.
 
 ### <a name="how-many-days-of-data-does-traffic-view-use"></a>Hoeveel dagen aan gegevens maakt gebruik van verkeer weergeven?
 
@@ -219,15 +214,18 @@ Verkeer weergave maakt uitvoer ervan weergegeven door het verwerken van de gegev
 Wanneer u externe eindpunten die worden gehost buiten Azure-regio's in een Traffic Manager-profiel kunt u deze toegewezen aan een Azure-regio die fungeert als proxy voor de latentie-kenmerken (dit is in feite nodig als u routeringsmethode voor prestaties gebruiken). Als dat zo deze toewijzing van de Azure-regio is, wordt dat Azure regio latentie metrische gegevens worden gebruikt bij het maken van de uitvoer van de weergave van verkeer. Als er geen Azure-regio is opgegeven, wordt de latentie-informatie niet leeg zijn in de gegevens voor deze externe eindpunten zijn.
 
 ### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>Moet ik verkeer weergave inschakelen voor elk uitvoeringsprofiel in mijn abonnement?
-Tijdens de evaluatieperiode verkeer weergeven is ingeschakeld op abonnementsniveau en is beschikbaar voor alle Traffic Manager-profielen onder dat abonnement.
 
-### <a name="how-can-i-turn-off-traffic-view"></a>Hoe kan ik verkeer weergave uitschakelen?
-Tijdens de evaluatieperiode vragen we een ondersteuningsticket om uit te schakelen verkeer weergeven voor uw abonnement te maken.
+Tijdens de evaluatieperiode is verkeer weergave een abonnement ingeschakeld. Als onderdeel van de verbeteringen die er vóór de algemene beschikbaarheid hebt aangebracht, kunt u nu verkeer weergeven op het niveau van een profiel, zodat u hebt meer gedetailleerd inschakelen van deze functie inschakelen. Standaard wordt verkeer weergeven voor een profiel worden uitgeschakeld.
+
+>[!NOTE]
+>Als u verkeer weergave op abonnementsniveau ingeschakeld tijdens de preview-periode, moet u nu opnieuw inschakelen voor elk van het profiel voor dat abonnement.
+ 
+### <a name="how-can-i-turn-off-traffic-view"></a>Hoe kan ik verkeer weergave uitschakelen? 
+U kunt verkeer weergave uitschakelen voor een profiel met behulp van de Portal of REST-API. 
 
 ### <a name="how-does-traffic-view-billing-work"></a>Hoe werkt de facturering verkeer weergeven?
 
 Prijzen van verkeer weergeven is gebaseerd op het aantal gegevenspunten gebruikt voor het maken van de uitvoer. Het enige gegevenstype ondersteund is momenteel de query's ontvangt van uw profiel. U wordt bovendien alleen gefactureerd voor de verwerking die is uitgevoerd als u de weergave van verkeer ingeschakeld zijn. Dit betekent dat, als u verkeer weergave voor een bepaalde periode in een maand inschakelen en tijdens andere momenten uitschakelen, alleen de gegevenspunten verwerkt terwijl u de functie moest count naar uw factuur ingeschakeld.
-Tijdens de evaluatieperiode u worden niet in rekening gebracht voor verkeer weergave.
 
 ## <a name="traffic-manager-endpoints"></a>Traffic Manager-eindpunten
 
@@ -368,11 +366,11 @@ De volgende tabel beschrijft het gedrag van Traffic Manager, health worden gecon
 
 | Onderliggende profiel Monitor-status | De replicatiestatus van bovenliggende Monitor-eindpunt | Opmerkingen |
 | --- | --- | --- |
-| Uitgeschakeld. Het onderliggende profiel is uitgeschakeld. |Stopped |De bovenliggende status is gestopt, niet is uitgeschakeld. De status uitgeschakeld is gereserveerd voor die aangeeft dat u het eindpunt in het profiel van de bovenliggende hebt uitgeschakeld. |
+| Uitgeschakeld. Het onderliggende profiel is uitgeschakeld. |Gestopt |De bovenliggende status is gestopt, niet is uitgeschakeld. De status uitgeschakeld is gereserveerd voor die aangeeft dat u het eindpunt in het profiel van de bovenliggende hebt uitgeschakeld. |
 | Gedegradeerd. Ten minste één onderliggende profieleindpunt heeft een status gedegradeerd. |Online: het aantal Online eindpunten in het onderliggende profiel is ten minste de waarde van MinChildEndpoints.<BR>CheckingEndpoint: het aantal Online plus CheckingEndpoint eindpunten in het onderliggende profiel is ten minste de waarde van MinChildEndpoints.<BR>Gedegradeerd: anders. |Verkeer wordt doorgestuurd naar een eindpunt van de status CheckingEndpoint. Als MinChildEndpoints te hoog instelt is, wordt het eindpunt altijd gedegradeerd. |
 | Online. Ten minste één onderliggende profieleindpunt is een Online status. Er is geen eindpunt heeft de status gedegradeerd. |Zie hierboven. | |
 | CheckingEndpoints. Ten minste één onderliggende profieleindpunt is 'CheckingEndpoint'. Er zijn geen eindpunten 'Online' of 'Gedegradeerd' |Hetzelfde als hierboven. | |
-| Niet-actief. Alle onderliggende profiel eindpunten zijn uitgeschakeld of gestopt, of dit profiel bevat geen eindpunten. |Stopped | |
+| Niet-actief. Alle onderliggende profiel eindpunten zijn uitgeschakeld of gestopt, of dit profiel bevat geen eindpunten. |Gestopt | |
 
 ## <a name="next-steps"></a>Volgende stappen:
 - Meer informatie over het Traffic Manager [eindpunt bewakings- en automatische failover](../traffic-manager/traffic-manager-monitoring.md).

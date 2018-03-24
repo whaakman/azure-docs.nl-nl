@@ -2,10 +2,10 @@
 title: Azure CDN regels overeen motor | Microsoft Docs
 description: Documentatie bij Azure Content Delivery Network regels motor overeen.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Voldoen aan de engine van Azure CDN-regels 
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare overeenkomst voorwaarden voor het Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
@@ -526,15 +526,15 @@ Belangrijke informatie:
 
      Bijvoorbeeld: https:\//&lt;eindpunt&gt;.azureedge.net/**mijnmap**/index.htm 
 
-     Deze URL verwijst naar de hostnaam van de volgende Verizon CDN: http:\//wpc.0001.&lt; Domein&gt;/800001/myorigin/**mijnmap**/index.htm
+     Deze URL verwijst naar de hostnaam van de volgende Verizon CDN: http:\//wpc.0001.&lt; domein&gt;/800001/myorigin/**mijnmap**/index.htm
 
 - Een edge CNAME-URL is naar de URL van een CDN voorafgaand aan de vergelijking URL herschreven.
 
     Bijvoorbeeld, beide van de volgende URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad.
-    - CDN-URL: http:\//wpc.0001.&lt; Domein&gt;/800001/CustomerOrigin/path/asset.htm
+    - CDN-URL: http:\//wpc.0001.&lt; domein&gt;/800001/CustomerOrigin/path/asset.htm
     
     - Rand CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
-
+    
     Extra informatie:
     - Aangepast domein: https:\//my.domain.com/path/asset.htm
     
@@ -640,21 +640,21 @@ Belangrijke informatie:
     De volgende waarden zijn beschikbaar voor de **ten opzichte van** optie:
      - **Hoofdmap**: geeft aan dat het punt van de vergelijking URL direct na de hostnaam van het CDN begint.
 
-       Bijvoorbeeld: http:\//wpc.0001.&lt; Domein&gt;/**800001/myorigin/myfolder/index.htm**
+       Bijvoorbeeld: http:\//wpc.0001.&lt; domein&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Oorsprong**: geeft aan dat het punt van de vergelijking URL na de punt van de toegang tot inhoud (bijvoorbeeld /000001 of 800001/myorigin begint). Omdat de \*. azureedge.net CNAME is ten opzichte van de oorsprong-map op de hostnaam van het CDN van Verizon standaard gemaakt, Azure CDN gebruikers moeten gebruiken de **oorsprong** waarde. 
 
        Bijvoorbeeld: https:\//&lt;eindpunt&gt;.azureedge.net/**myfolder/index.htm**
 
-     Deze URL verwijst naar de hostnaam van de volgende Verizon CDN: http:\//wpc.0001.&lt; Domein&gt;/800001/myorigin/**myfolder/index.htm**
+     Deze URL verwijst naar de hostnaam van de volgende Verizon CDN: http:\//wpc.0001.&lt; domein&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Een CNAME-URL-rand wordt herschreven naar een CDN-URL voor een vergelijking van de URL.
 
-   Bijvoorbeeld, beide van de volgende URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad:
-    - CDN-URL: http:\//wpc.0001.&lt; Domein&gt;/800001/CustomerOrigin/path/asset.htm
+    Bijvoorbeeld, beide van de volgende URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad:
+    - CDN-URL: http:\//wpc.0001.&lt; domein&gt;/800001/CustomerOrigin/path/asset.htm
     - Rand CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
-
-   Extra informatie:
+    
+    Extra informatie:
     
     - URL-pad (ten opzichte van hoofdmap): /800001/CustomerOrigin/path/asset.htm
    
@@ -662,7 +662,7 @@ Belangrijke informatie:
 
 - Queryreeksen in de URL worden genegeerd.
 - Gebruik de **negeren geval** optie om te bepalen of een hoofdlettergevoelige vergelijking wordt uitgevoerd.
-- De opgegeven waarde voor deze voorwaarde overeenkomst zal worden vergeleken met het relatieve pad van de exacte verzoek van de client.
+- De opgegeven waarde voor deze voorwaarde overeen vergeleken met het relatieve pad van de exacte verzoek van de client.
 
 - Zodat deze overeenkomen met alle aanvragen voor een bepaalde map, gebruiken de [URL-pad naar map](#url-path-directory) of de [URL pad jokerteken](#url-path-wildcard) overeenkomen met de voorwaarde.
 
@@ -681,13 +681,13 @@ De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden
 Belangrijke informatie:
 - Een CNAME-URL-rand wordt herschreven naar de URL van een CDN voordat URL vergelijking. 
  
-   Bijvoorbeeld: beide URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad.
+    Bijvoorbeeld: beide URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad.
 
-     - CDN-URL: http:\//wpc.0001.&lt; Domein&gt;/800001/CustomerOrigin/path/asset.htm
+     - CDN-URL: http:\//wpc.0001.&lt; domein&gt;/800001/CustomerOrigin/path/asset.htm
 
      - Rand CNAME-URL: http:\//my.domain.com/path/asset.htm
-
-   Extra informatie:
+    
+    Extra informatie:
     
      - URL-pad: /800001/CustomerOrigin/path/asset.htm
 
@@ -715,21 +715,21 @@ Belangrijke informatie:
    Deze optie kan de volgende waarden hebben:
      - **Hoofdmap**: geeft aan dat het punt van de vergelijking URL direct na de hostnaam van het CDN begint.
 
-       Bijvoorbeeld: http:\//wpc.0001.&lt; Domein&gt;/**800001/myorigin/myfolder/index.htm**
+       Bijvoorbeeld: http:\//wpc.0001.&lt; domein&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Oorsprong**: geeft aan dat het punt van de vergelijking URL na de punt van de toegang tot inhoud (bijvoorbeeld /000001 of 800001/myorigin begint). Omdat de \*. azureedge.net CNAME is ten opzichte van de oorsprong-map op de hostnaam van het CDN van Verizon standaard gemaakt, Azure CDN gebruikers moeten gebruiken de **oorsprong** waarde. 
 
        Bijvoorbeeld: https:\//&lt;eindpunt&gt;.azureedge.net/**myfolder/index.htm**
 
-     Deze URL verwijst naar de hostnaam van de volgende Verizon CDN: http:\//wpc.0001.&lt; Domein&gt;/800001/myorigin/**myfolder/index.htm**
+     Deze URL verwijst naar de hostnaam van de volgende Verizon CDN: http:\//wpc.0001.&lt; domein&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Een CNAME-URL-rand wordt herschreven naar de URL van een CDN voordat URL vergelijking.
 
-   Bijvoorbeeld, beide van de volgende URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad:
-     - CDN-URL: http://wpc.0001. &lt;Domein&gt;/800001/CustomerOrigin/path/asset.htm
+    Bijvoorbeeld, beide van de volgende URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad:
+     - CDN-URL: http://wpc.0001. &lt;domein&gt;/800001/CustomerOrigin/path/asset.htm
      - Rand CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
-
-   Extra informatie:
+    
+    Extra informatie:
     
      - URL-pad (ten opzichte van hoofdmap): /800001/CustomerOrigin/path/asset.htm
     
@@ -757,7 +757,7 @@ Waarde                   | Relatieve    | Resultaat
 /80ABCD/origin/text/*   | Hoofdmap           | Dit patroon komt overeen wanneer de aangevraagde asset voldoet aan de volgende criteria: <br />-Deze moet zich bevinden op een klant-oorsprong aangeroepen 'origin'. <br />-Het relatieve pad moet beginnen met een map met de naam 'text'. Dat wil zeggen, dat de aangevraagde asset ofwel kan zich in de map 'text' of een van de recursieve submappen ervan.
 */CSS/* *padinfo /js/*          | Basis- of oorsprong | Dit patroon komt overeen met alle CDN of edge CNAME-URL's die een map CSS- of js bevatten.
 *.jpg *.gif *.png       | Basis- of oorsprong | Dit patroon komt overeen met alle CDN of edge CNAME-URL's die eindigen met .jpg, .gif of PNG. Een andere manier om op te geven van dit patroon is met de [URL-pad extensie overeenkomen met de voorwaarde](#url-path-extension).
-installatiekopieën / * / media / *      | Oorsprong         | Dit patroon is overeenkomt met de CDN of edge CNAME-URL's waarvan het relatieve pad met een map 'afbeeldingen' of 'media begint'. <br />-CDN URL: http:\//wpc.0001.&lt; Domein&gt;/800001/myorigin/images/sales/event1.png<br />- Sample edge CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
+installatiekopieën / * / media / *      | Oorsprong         | Dit patroon is overeenkomt met de CDN of edge CNAME-URL's waarvan het relatieve pad met een map 'afbeeldingen' of 'media begint'. <br />-CDN URL: http:\//wpc.0001.&lt; domein&gt;/800001/myorigin/images/sales/event1.png<br />- Sample edge CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -867,11 +867,11 @@ Belangrijke informatie:
 #### <a name="sample-scenarios"></a>Voorbeeldscenario's
 Het volgende voorbeeld laat zien hoe deze optie werkt in bepaalde situaties:
 
-Naam      | Waarde |  Resultaat
-----------|-------|--------
-Gebruiker      | Jan   | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL is '? gebruiker Jan =. "
-Gebruiker      | *     | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL een parameter van de gebruiker bevat.
-E-Jan | *     | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL bevat een e-parameter die begint met "Jan".
+Naam  | Waarde |  Resultaat
+------|-------|--------
+Gebruiker  | Jan   | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL is '? gebruiker Jan =. "
+Gebruiker  | *     | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL een parameter van de gebruiker bevat.
+E-mail | Joe\* | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL bevat een e-parameter die begint met "Jan".
 
 [Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -908,7 +908,7 @@ Belangrijke informatie:
    Waarde | Geïnterpreteerd als 
    ------|---------------
    \\+    | +
-   \\\+   | \\+
+   \\\\+   | \\+
 
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
    - Voltooien van de opvulling van de Cache
@@ -970,8 +970,8 @@ user=joe              | Dit patroon komt overeen wanneer de query-tekenreeks voo
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van Azure Content Delivery Network](cdn-overview.md)
-* [Regels engine verwijzing](cdn-rules-engine-reference.md)
-* [Regels engine voorwaardelijke expressies](cdn-rules-engine-reference-conditional-expressions.md)
-* [Regels engine functies](cdn-rules-engine-reference-features.md)
+* [Verwijzing regelengine](cdn-rules-engine-reference.md)
+* [Voorwaardelijke expressies regelengine](cdn-rules-engine-reference-conditional-expressions.md)
+* [Functies regelengine](cdn-rules-engine-reference-features.md)
 * [Standaardgedrag HTTP met de regelengine van](cdn-rules-engine.md)
 

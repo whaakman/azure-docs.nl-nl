@@ -2,23 +2,20 @@
 title: Wachtwoordcomplexiteit - Azure AD B2C | Microsoft Docs
 description: Het configureren van de complexiteitsvereisten voor wachtwoorden die worden geleverd door consumenten in Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeeda
-ms.openlocfilehash: 3906c9fa1def206a8f0a7e155949097242728c2f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: b89a404d583e9d495b65180e145295e6a106b3ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Complexiteitsvereisten voor wachtwoorden configureren
 
@@ -47,7 +44,7 @@ Hier zijn de soorten beleid waarop wachtwoordcomplexiteit kan worden geconfigure
 1. Open **wachtwoordcomplexiteit**.
 1. Wijzigen van de wachtwoordcomplexiteit voor dit beleid wilt **eenvoudige**, **sterke**, of **aangepaste**.
 
-### <a name="comparison-chart"></a>Vergelijkingsdiagram
+### <a name="comparison-chart"></a>Vergelijkingstabel
 
 | Complexiteit | Beschrijving |
 | --- | --- |

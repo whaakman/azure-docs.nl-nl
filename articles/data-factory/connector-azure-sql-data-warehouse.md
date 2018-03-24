@@ -1,11 +1,11 @@
 ---
-title: "Gegevens kopiëren naar/van Azure SQL Data Warehouse met behulp van de Data Factory | Microsoft Docs"
-description: "Informatie over het kopiëren van gegevens van ondersteunde bron winkels met Azure SQL Data Warehouse (of) van SQL Data Warehouse voor ondersteunde sink stores met behulp van de Data Factory."
+title: Gegevens kopiëren naar/van Azure SQL Data Warehouse met behulp van de Data Factory | Microsoft Docs
+description: Informatie over het kopiëren van gegevens van ondersteunde bron winkels met Azure SQL Data Warehouse (of) van SQL Data Warehouse voor ondersteunde sink stores met behulp van de Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5d284277f600465345be0058468192f2f5609d89
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -375,10 +375,10 @@ Meer informatie over het gebruik van PolyBase in SQL Data Warehouse efficiënt u
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Gebruik PolyBase gegevens laadt in Azure SQL Data Warehouse
 
-Met behulp van  **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)**  is een efficiënte manier van het laden van grote hoeveelheid gegevens in Azure SQL Data Warehouse met hoge doorvoer. Met behulp van PolyBase in plaats van het standaardmechanisme voor BULKINSERT ziet u een groot voordeel in de doorvoer. Zie [prestaties referentienummer kopiëren](copy-activity-performance.md#performance-reference) met gedetailleerde vergelijking. Zie voor een overzicht met een gebruiksvoorbeeld [1 TB laden in Azure SQL Data Warehouse onder 15 minuten met Azure Data Factory](connector-azure-sql-data-warehouse.md).
+Met behulp van **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** is een efficiënte manier van het laden van grote hoeveelheid gegevens in Azure SQL Data Warehouse met hoge doorvoer. Met behulp van PolyBase in plaats van het standaardmechanisme voor BULKINSERT ziet u een groot voordeel in de doorvoer. Zie [prestaties referentienummer kopiëren](copy-activity-performance.md#performance-reference) met gedetailleerde vergelijking. Zie voor een overzicht met een gebruiksvoorbeeld [1 TB laden in Azure SQL Data Warehouse onder 15 minuten met Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
-* Als de brongegevens **Azure Blob- of Azure Data Lake Store**, en de indeling is compatibel met PolyBase, kunt u rechtstreeks kopiëren naar Azure SQL Data Warehouse met PolyBase. Zie  **[Direct kopiëren met PolyBase](#direct-copy-using-polybase)**  met details.
-* Als uw brongegevensarchief en de indeling wordt oorspronkelijk niet ondersteund door PolyBase, kunt u de  **[gefaseerde kopiëren met PolyBase](#staged-copy-using-polybase)**  in plaats daarvan functie. Dit biedt u ook betere doorvoer door automatisch converteren van de gegevens naar de PolyBase-compatibele indeling en opslaan van gegevens in Azure Blob-opslag. Vervolgens worden gegevens geladen in SQL Data Warehouse.
+* Als de brongegevens **Azure Blob- of Azure Data Lake Store**, en de indeling is compatibel met PolyBase, kunt u rechtstreeks kopiëren naar Azure SQL Data Warehouse met PolyBase. Zie **[Direct kopiëren met PolyBase](#direct-copy-using-polybase)** met details.
+* Als uw brongegevensarchief en de indeling wordt oorspronkelijk niet ondersteund door PolyBase, kunt u de **[gefaseerde kopiëren met PolyBase](#staged-copy-using-polybase)** in plaats daarvan functie. Dit biedt u ook betere doorvoer door automatisch converteren van de gegevens naar de PolyBase-compatibele indeling en opslaan van gegevens in Azure Blob-opslag. Vervolgens worden gegevens geladen in SQL Data Warehouse.
 
 > [!IMPORTANT]
 > Houd er rekening mee PolyBase alleen ondersteuning voor Azure SQL Data Warehouse SQL authentcation maar niet voor Azure Active Directory-verificatie.
@@ -395,7 +395,7 @@ Als niet aan de vereisten wordt voldaan, wordt Azure Data Factory controleert de
 1. **Bron gekoppelde service** is van het type: **AzureStorage** of **AzureDataLakeStore** met verificatie van de service-principal.
 2. De **invoergegevensset** is van het type: **AzureBlob** of **AzureDataLakeStoreFile**, en de indeling Typ onder `type` eigenschappen is **OrcFormat** , **ParquetFormat**, of **TextFormat** met de volgende configuraties:
 
-   1. `rowDelimiter` moet  **\n** .
+   1. `rowDelimiter` moet **\n**.
    2. `nullValue` is ingesteld op **lege tekenreeks** (""), of `treatEmptyAsNull` is ingesteld op **true**.
    3. `encodingName` is ingesteld op **utf-8**, namelijk **standaard** waarde.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, en `skipLineCount` zijn niet opgegeven.
@@ -510,7 +510,7 @@ Als u hebt de brongegevens met rijen van de omvang is groter dan 1 MB, wilt u mo
 
 ### <a name="sql-data-warehouse-resource-class"></a>De bronklasse SQL Data Warehouse
 
-Overweeg om de best mogelijke doorvoer behalen, grotere bronklasse toewijzen aan de gebruiker wordt gebruikt om gegevens te laden in SQL Data Warehouse met PolyBase. Meer informatie over hoe dat door de volgende [wijzigen van een voorbeeld van een gebruiker resource klasse](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+U kunt een grotere bronklasse toewijzen aan de gebruiker wordt gebruikt om gegevens te laden in SQL Data Warehouse met PolyBase zodat de best mogelijke doorvoer.
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>tableName in Azure SQL Data Warehouse
 

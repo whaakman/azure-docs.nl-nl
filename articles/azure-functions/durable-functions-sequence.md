@@ -4,21 +4,21 @@ description: Informatie over het uitvoeren van een steekproef duurzame functies 
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Functie chaining in duurzame functies - Hallo sequence-voorbeeld
 
@@ -26,7 +26,7 @@ Functie chaining verwijst naar het patroon van een reeks functies uitvoeren in e
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Volg de instructies in [duurzame functies installeren](durable-functions-install.md) voor het instellen van het voorbeeld.
+* [Installeren van functies duurzame](durable-functions-install.md).
 
 ## <a name="the-functions"></a>De functies
 
@@ -35,7 +35,7 @@ Dit artikel wordt uitgelegd dat de volgende functies in de voorbeeld-app:
 * `E1_HelloSequence`: Er is een orchestrator-functie die aanroept `E1_SayHello` meerdere keren in een reeks. Deze slaat de uitvoer van de `E1_SayHello` aangeroepen en registreert de resultaten.
 * `E1_SayHello`: Er is een functie van het type activiteit die voegt toe aan elke tekenreeks met "Hallo".
 
-De volgende secties worden de configuratie en code die worden gebruikt voor het ontwikkelen van Azure portal. De code voor het ontwikkelen van Visual Studio wordt weergegeven aan het einde van het artikel.
+De volgende secties worden de configuratie en code die worden gebruikt voor het C#-scripts. De code voor het ontwikkelen van Visual Studio wordt weergegeven aan het einde van het artikel.
  
 ## <a name="functionjson-file"></a>Function.JSON bestand
 
@@ -71,7 +71,7 @@ De implementatie van `E1_SayHello` is een relatief trivial tekenreeks bewerking 
 
 Deze functie heeft een parameter van het type [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), die wordt gebruikt om op te halen van de ingang die is doorgegeven door de aanroep van de orchestrator-functie [ `CallActivityAsync<T>` ](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
 
-## <a name="run-the-sample"></a>Het voorbeeld uitvoert
+## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 
 Uit te voeren de `E1_HelloSequence` orchestration, de volgende HTTP POST-aanvraag verzenden.
 

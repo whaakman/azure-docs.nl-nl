@@ -5,7 +5,7 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: ad6b33b5411d3e38f099726df01fcafc8dc90d38
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 65cfbafbd5fbdd576f01b5cba638c1b5869f377b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Verbinding maken met virtuele netwerken vanuit verschillende implementatiemodellen via de portal
 
@@ -216,7 +216,7 @@ In deze stap configureert u de verbinding van het Resource Manager VNet met het 
 2. Klik op **configuratie** en controleer of de waarde van de IP-adres de VPN-gateway voor het klassieke VNet. Indien nodig bijwerken en klik vervolgens op **opslaan**. De pagina te sluiten.
 3. In **alle resources**, klikt u op de lokale netwerkgateway.
 4. Klik op **verbindingen** om de pagina verbindingen te openen.
-5. Op de **verbindingen** pagina, klikt u op  **+**  een verbinding toevoegen.
+5. Op de **verbindingen** pagina, klikt u op **+** een verbinding toevoegen.
 6. Op de **verbinding toevoegen** pagina en de naam van de verbinding. Bijvoorbeeld 'RMtoClassic'.
 7. **Site-naar-Site** is al ingeschakeld op deze pagina.
 8. Selecteer de virtuele netwerkgateway die u wilt koppelen aan deze site.
@@ -301,7 +301,7 @@ U kunt de verbindingen controleren met behulp van de Azure-portal of PowerShell.
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
-###<a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Om te controleren of de verbinding van uw Resource Manager VNet met het klassieke VNet
+### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Om te controleren of de verbinding van uw Resource Manager VNet met het klassieke VNet
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

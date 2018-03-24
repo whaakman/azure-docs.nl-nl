@@ -2,23 +2,23 @@
 title: Azure Blob Storage met Azure Search indexeren
 description: Informatie over het indexeren van Azure Blob Storage en haal de tekst uit documenten met Azure Search
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/28/2017
+ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Documenten in Azure Blob Storage met Azure Search indexeren
 Dit artikel laat zien hoe u met Azure Search index documenten (zoals PDF-bestanden, Microsoft Office-documenten en enkele andere algemene indelingen) opgeslagen in Azure Blob storage. Eerst wordt de basisprincipes van instellen en configureren van een blob-indexeerfunctie uitgelegd. Vervolgens biedt een meer gedetailleerde uitleg van problemen en scenario's bent u waarschijnlijk tegenkomen.
@@ -230,9 +230,9 @@ Als beide `indexedFileNameExtensions` en `excludedFileNameExtensions` parameters
 
 U kunt bepalen welke onderdelen van de blobs zijn geïndexeerd met behulp van de `dataToExtract` configuratieparameter. Het kan duren voordat de volgende waarden:
 
-* `storageMetadata`-Geeft aan dat alleen de [standaard blob-eigenschappen en metagegevens gebruiker opgegeven](../storage/blobs/storage-properties-metadata.md) zijn geïndexeerd.
-* `allMetadata`-Hiermee geeft u de opslag metagegevens en de [inhoudstype specifieke metagegevens](#ContentSpecificMetadata) opgehaald van de blob inhoud worden geïndexeerd.
-* `contentAndMetadata`-Geeft aan dat alle metagegevens en tekstinhoud opgehaald uit de blob worden geïndexeerd. Dit is de standaardwaarde.
+* `storageMetadata` -Geeft aan dat alleen de [standaard blob-eigenschappen en metagegevens gebruiker opgegeven](../storage/blobs/storage-properties-metadata.md) zijn geïndexeerd.
+* `allMetadata` -Hiermee geeft u de opslag metagegevens en de [inhoudstype specifieke metagegevens](#ContentSpecificMetadata) opgehaald van de blob inhoud worden geïndexeerd.
+* `contentAndMetadata` -Geeft aan dat alle metagegevens en tekstinhoud opgehaald uit de blob worden geïndexeerd. Dit is de standaardwaarde.
 
 Bijvoorbeeld alleen de metagegevens van de opslag indexeert, gebruiken:
 
@@ -249,10 +249,10 @@ Bijvoorbeeld alleen de metagegevens van de opslag indexeert, gebruiken:
 
 De hierboven beschreven configuratieparameters van toepassing op alle blobs. Soms moet u mogelijk wilt bepalen hoe *afzonderlijke blobs* zijn geïndexeerd. U kunt dit doen door de volgende eigenschappen van de blob-metagegevens en -waarden toe te voegen:
 
-| Naam van eigenschap | Waarde van eigenschap | Uitleg |
+| De naam van eigenschap | Waarde van eigenschap | Uitleg |
 | --- | --- | --- |
-| AzureSearch_Skip |'true' |Hiermee geeft u de indexeerfunctie blob volledig kunt overslaan van de blob. Uitpakken van metagegevens noch inhoud wordt uitgevoerd. Dit is handig wanneer een bepaalde blob herhaaldelijk mislukt en het indexing-proces wordt onderbroken. |
-| AzureSearch_SkipContent |'true' |Dit is het equivalent van `"dataToExtract" : "allMetadata"` instelling beschreven [hierboven](#PartsOfBlobToIndex) binnen het bereik van een bepaalde blob. |
+| AzureSearch_Skip |"true" |Hiermee geeft u de indexeerfunctie blob volledig kunt overslaan van de blob. Uitpakken van metagegevens noch inhoud wordt uitgevoerd. Dit is handig wanneer een bepaalde blob herhaaldelijk mislukt en het indexing-proces wordt onderbroken. |
+| AzureSearch_SkipContent |"true" |Dit is het equivalent van `"dataToExtract" : "allMetadata"` instelling beschreven [hierboven](#PartsOfBlobToIndex) binnen het bereik van een bepaalde blob. |
 
 <a name="DealingWithErrors"></a>
 ## <a name="dealing-with-errors"></a>Omgaan met fouten
@@ -271,6 +271,10 @@ Standaard de blob-indexeerfunctie stopt zodra er een blob met een niet-ondersteu
 Voor sommige blobs Azure Search kan niet bepalen van het type inhoud is of kan niet worden verwerkt een document van anders ondersteund type inhoud. Als u wilt dat deze fout-modus, stel de `failOnUnprocessableDocument` configuratieparameter op false:
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Azure Search beperkt de grootte van de blobs die zijn geïndexeerd. Deze limieten zijn gedocumenteerd in [Servicelimieten in Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Grote BLOB's worden behandeld als fouten standaard. Echter, u kunt nog steeds index metagegevens van de opslag van grote blobs als u instelt `indexStorageMetadataOnlyForOversizedDocuments` configuratieparameter op true: 
+
+    "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
 U kunt ook doorwerken indexeren als er fouten optreden op elk gewenst moment wordt verwerkt, tijdens het parseren van blobs of tijdens het toevoegen van documenten naar een index. Als u wilt een bepaald aantal fouten negeren, stelt de `maxFailedItems` en `maxFailedItemsPerBatch` configuratieparameters voor de gewenste waarden. Bijvoorbeeld:
 
@@ -364,7 +368,7 @@ De volgende tabel geeft een overzicht van de verwerking wordt uitgevoerd voor el
 | Documentindeling / type inhoud | Eigenschappen van de specifieke metagegevens inhoudstype | Verwerkingsgegevens |
 | --- | --- | --- |
 | HTML-CODE (`text/html`) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |HTML-opmaak van strook / en haal de tekst |
-| PDF-BESTAND (`application/pdf`) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Haal de tekst, inclusief ingesloten documenten (met uitzondering van installatiekopieën) |
+| PDF (`application/pdf`) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Haal de tekst, inclusief ingesloten documenten (met uitzondering van installatiekopieën) |
 | DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Haal de tekst, inclusief ingesloten documenten |
 | DOC (application/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Haal de tekst, inclusief ingesloten documenten |
 | XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Haal de tekst, inclusief ingesloten documenten |

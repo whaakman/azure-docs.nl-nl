@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure functions, functies, verwerking van gebeurtenissen, dynamische compute zonder server architectuur
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 63d466425a524316236998cb4ff954de272808f2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: eff36b6628c86038b3d08bf3cfd32a6322508baa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
@@ -482,7 +482,7 @@ Gebruik in JavaScript-functies `context.bindings.<name>` voor toegang tot de wac
 
 | Binding |  Referentie |
 |---|---|
-| Wachtrij | [Wachtrij-foutcodes](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Wachtrij | [Wachtrij-foutcodes](https://docs.microsoft.com/en-us/rest/api/storageservices/queue-service-error-codes) |
 | BLOB, Table, wachtrij | [Foutcodes voor opslag](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | BLOB, Table, wachtrij |  [Problemen oplossen](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

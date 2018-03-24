@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: edfd317e7d3f7595f656c6c24ad65f3d87fea14c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18059ef1e0efba4f030a6e99198f0b7c72b7daf3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 Wanneer u een runbook in Azure Automation start, wordt een taak gemaakt. Een taak is één uitvoeringsinstantie van een runbook. Een Azure Automation worker is toegewezen aan elke taak uitvoeren. Werknemers worden gedeeld door meerdere Azure-accounts, zijn taken van andere Automation-accounts geïsoleerd van elkaar. U doet geen hebben controle over welke worker-services de aanvraag voor de taak. Één runbook kan meerdere taken tegelijk actief hebben.  De omgeving worden uitgevoerd voor de taken van hetzelfde Automation-Account kan opnieuw worden gebruikt. Wanneer u de lijst met runbooks in de Azure portal weergeeft, geeft de status van alle taken die zijn gestart voor elk runbook. U kunt de lijst met taken voor elk runbook weergeven om de status van elk bijhouden. Voor een beschrijving van de status van een andere taak [status van een taak](#job-statuses).
@@ -46,7 +46,7 @@ De volgende tabel beschrijft de verschillende statussen die mogelijk voor een ta
 | Onderbreken |Het systeem probeert te onderbreken van de taak op verzoek van de gebruiker. Het runbook moet het volgende controlepunt bereiken voordat deze kan worden onderbroken. Als het laatste controlepunt al doorgegeven, is voordat deze kan worden onderbroken voltooid.  Van toepassing op [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md) alleen. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Status van de Azure-portal weergeven
-U kunt een samengevatte status van alle runbooktaken weergeven of inzoomen op gegevens van een specifiek runbook-taak in de Azure portal of door integratie met uw werkruimte voor logboekanalyse van Microsoft Operations Management Suite (OMS) om door te sturen runbook de status en taak streams taak configureren.  Zie voor meer informatie over de integratie met OMS Log Analytics [doorsturen taakstatus en taak stromen van Automation voor logboekanalyse (OMS)](automation-manage-send-joblogs-log-analytics.md).  
+U kunt een samengevatte status van alle runbooktaken weergeven of inzoomen op gegevens van een specifiek runbook-taak in de Azure portal of door integratie met uw werkruimte voor logboekanalyse voor het doorsturen van runbook de status en taak streams taak configureren.  Zie voor meer informatie over de integratie met logboekanalyse [taakstatus en taak streams doorsturen van automatisering met logboekanalyse](automation-manage-send-joblogs-log-analytics.md).  
 
 ### <a name="automation-runbook-jobs-summary"></a>Automation-runbooktaken samenvatting
 Aan de rechterkant van de geselecteerde Automation-account, ziet u een overzicht van alle runbooktaken voor een geselecteerde Automation-account onder **taak statistieken** tegel.<br><br> ![Statistieken voor taak tegel](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> Deze tegel wordt weergegeven voor een aantal en de grafische weergave van de taakstatus voor alle taken die worden uitgevoerd.  

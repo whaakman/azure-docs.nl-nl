@@ -1,11 +1,11 @@
 ---
-title: "Gegevens kopiëren van een FTP-server met behulp van Azure Data Factory | Microsoft Docs"
-description: "Ontdek hoe u gegevens kopiëren van een FTP-server naar een ondersteunde sink gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn."
+title: Gegevens kopiëren van een FTP-server met behulp van Azure Data Factory | Microsoft Docs
+description: Ontdek hoe u gegevens kopiëren van een FTP-server naar een ondersteunde sink gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 69b8581399d2bf7e0f2196f7bbad4e6522979239
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 132242e7f1eb516d53b6a31a24095094eed58668
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Gegevens kopiëren van de FTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -120,7 +120,7 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren van FTP, **F
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **bestandsshare** |Ja |
 | folderPath | Pad naar de map. Bijvoorbeeld: map/submap / |Ja |
 | fileName | Geef de naam van het bestand in de **folderPath** als u wilt kopiëren uit een specifiek bestand. Als u geen waarde voor deze eigenschap niet opgeeft, wordt de status van de gegevensset verwijst naar alle bestanden in de map als bron. |Nee |
-| fileFilter | Hiermee geeft u een filter moet worden gebruikt om een subset van de bestanden in het mappad in plaats van alle bestanden te selecteren. Geldt alleen als fileName is niet opgegeven. <br/><br/>Jokertekens zijn toegestaan: `*` (meerdere tekens) en `?` (willekeurig teken).<br/>-Voorbeeld 1:`"fileFilter": "*.log"`<br/>-Voorbeeld 2:`"fileFilter": 2017-09-??.txt"` |Nee |
+| fileFilter | Hiermee geeft u een filter moet worden gebruikt om een subset van de bestanden in het mappad in plaats van alle bestanden te selecteren. Geldt alleen als fileName is niet opgegeven. <br/><br/>Jokertekens zijn toegestaan: `*` (meerdere tekens) en `?` (willekeurig teken).<br/>-Voorbeeld 1: `"fileFilter": "*.log"`<br/>-Voorbeeld 2: `"fileFilter": 2017-09-??.txt"` |Nee |
 | Indeling | Als u wilt **kopiëren van bestanden als-is** overslaan tussen bestandsgebaseerde winkels (binaire kopiëren), de sectie indeling in de definities van beide invoer en uitvoer gegevensset.<br/><br/>Als u wilt parseren van bestanden met een specifieke indeling, de volgende indeling bestandstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [Json-indeling](supported-file-formats-and-compression-codecs.md#json-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [parketvloeren indeling](supported-file-formats-and-compression-codecs.md#parquet-format) secties. |Nee (alleen voor scenario binaire kopiëren) |
 | Compressie | Geef het type en de compressie van de gegevens. Zie voor meer informatie [ondersteunde bestandsindelingen en compressiecodecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus: **optimale** en **snelst**. |Nee |
 | useBinaryTransfer | Geef op of de binaire overdrachtsmodus gebruiken. De waarden zijn true voor binaire modus (standaard) en false voor ASCII. |Nee |

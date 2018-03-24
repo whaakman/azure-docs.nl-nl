@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: faf4b2ff24ef733b740a5b65864941a10de64ed8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 604249151f3c1ca206f64a178b25ea1dae5b5023
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Zelfstudie: Azure Active Directory-integratie met Spacio
 
@@ -112,18 +112,32 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Spacio Client ondersteuningsteam](mailto:support@spac.io) ophalen van deze waarden. 
- 
 
-
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
-
-    ![De downloadkoppeling certificaat](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_certificate.png) 
-
-5. Klik op **opslaan** knop.
+4. Klik op de knop **Opslaan**.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-spacio-tutorial/tutorial_general_400.png)
 
-6. Eenmalige aanmelding configureren op **Spacio** zijde, moet u de gedownloade verzenden **Metadata XML** naar [Spacio ondersteuningsteam](mailto:support@spac.io). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+5. Voor het genereren van de **metagegevens-URL**, voer de volgende stappen uit:
+
+    a. Klik op **App registraties**.
+    
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appregistrations.png)
+   
+    b. Klik op **eindpunten** openen de **eindpunten** in het dialoogvenster.  
+    
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpointicon.png)
+
+    c. Klik op de **kopie** knop om te kopiëren de **DOCUMENT met federatieve metagegevens** URL en plak deze in Kladblok.
+    
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpoint.png)
+     
+    d. Nu gaat u naar de eigenschappenpagina van **Spacio** en kopieer de **toepassings-Id** met behulp van de **kopie** knop en plak deze in Kladblok.
+ 
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appid.png)
+
+    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+
+6. Eenmalige aanmelding configureren op **Spacio** zijde, moet u de gegenereerde verzenden **metagegevens-URL** naar [Spacio ondersteuningsteam](mailto:support@spac.io). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

@@ -3,10 +3,10 @@ title: Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Direct
 description: Meer informatie over wat die u moet weten en wat het is raadzaam doen bij het configureren van beleidsregels voor voorwaardelijke toegang.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 16f9179b6cbaee00a2afbe2efe090cb3eb8b204a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8d3fa9bf11cd1c14b2d7ef37544cb5e043e2d9da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory
 
@@ -106,7 +106,7 @@ In uw omgeving, moet u de volgende configuraties voorkomen:
 
 - **Toegang blokkeren** -uw hele organisatie, absoluut niet verstandig is deze configuratie wordt geblokkeerd.
 
-- **Vereisen dat apparaat compatibel** - voor gebruikers die niet hun apparaten hebben ingeschreven, maar dit beleid blokkeert alle toegang, waaronder toegang tot de Intune-portal. Als u een beheerder met een geregistreerd apparaat, blokkeert dit beleid u uit om terug te zetten in de Azure-portal om het beleid te wijzigen.
+- **Vereisen dat apparaat compatibel** - voor gebruikers die hun apparaten niet zijn geregistreerd, maar dit beleid blokkeert alle toegang, waaronder toegang tot de Intune-portal. Als u een beheerder met een geregistreerd apparaat, blokkeert dit beleid u uit om terug te zetten in de Azure-portal om het beleid te wijzigen.
 
 - **Aan domein toevoegen vereisen** : dit beleid blok toegang heeft ook de mogelijkheid om toegang te blokkeren voor alle gebruikers in uw organisatie als u een apparaat domein nog geen hebt.
 

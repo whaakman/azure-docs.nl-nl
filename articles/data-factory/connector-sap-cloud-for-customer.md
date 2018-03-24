@@ -1,11 +1,11 @@
 ---
-title: "Gegevens kopiëren van/naar SAP Cloud voor klant op basis van Azure Data Factory | Microsoft Docs"
-description: "Informatie over het om gegevens te kopiëren uit SAP Cloud voor klant om ondersteunde sink gegevensarchieven (of) uit gegevensarchieven ondersteunde bron naar de Cloud SAP voor klanten met behulp van de Data Factory."
+title: Gegevens kopiëren van/naar SAP Cloud voor klant op basis van Azure Data Factory | Microsoft Docs
+description: Informatie over het om gegevens te kopiëren uit SAP Cloud voor klant om ondersteunde sink gegevensarchieven (of) uit gegevensarchieven ondersteunde bron naar de Cloud SAP voor klanten met behulp van de Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d7df73bec7306b135f5a559c2bc66ac88d88809
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 571c77a0de4bb30f5476f1bc79a7d4bd8d1cd322
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiëren van gegevens uit SAP Cloud voor klant (C4C) met behulp van Azure Data Factory
 
@@ -118,7 +118,7 @@ Om gegevens te kopiëren uit SAP Cloud voor de klant, stelt u het brontype in de
 | type | De eigenschap type moet worden ingesteld op: **SapCloudForCustomerSource**  | Ja |
 | query | Geef de aangepaste OData-query voor het lezen van gegevens. | Nee |
 
-Voorbeeldquery gegevens ophalen voor een specifieke dag:`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
+Voorbeeldquery gegevens ophalen voor een specifieke dag: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
 **Voorbeeld:**
 
@@ -210,7 +210,7 @@ Bij het kopiëren van gegevens uit SAP Cloud voor de klant, worden de volgende t
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Booleaans |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | Datum en tijd |
+| Edm.DateTime | DateTime |
 | Edm.Decimal | Decimale |
 | Edm.Double | Double |
 | Edm.Single | Single |

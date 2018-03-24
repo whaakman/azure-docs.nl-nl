@@ -2,10 +2,10 @@
 title: Azure SQL Analytics-oplossing in Log Analytics | Microsoft Docs
 description: De Azure SQL Analytics-oplossing kunt u uw Azure SQL-databases beheren.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL Database met behulp van Azure SQL Analytics (Preview) in logboekanalyse bewaken
 
@@ -87,10 +87,6 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
 
->[!NOTE]
-> Werk uw logboekanalyse als u de nieuwste versie van Azure SQL Analytics.
->
-
 Wanneer u de oplossing voor uw werkruimte toevoegt, is de tegel Azure SQL Analytics toegevoegd aan uw werkruimte en wordt deze weergegeven in het overzicht. De tegel toont het aantal Azure SQL-databases en elastische pools SQL Azure die de oplossing is verbonden met.
 
 ![Azure SQL-Analytics tegel](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
@@ -141,8 +137,6 @@ U kunt de prestaties van een query door het queryrapport correleren via de duur 
 ### <a name="analyze-data-and-create-alerts"></a>Gegevens analyseren en waarschuwingen maken
 
 U kunt eenvoudig waarschuwingen maken met de gegevens die afkomstig zijn van Azure SQL Database-resources. Hier volgen enkele nuttige [logboek zoeken](log-analytics-log-searches.md) query's die u voor waarschuwingen gebruiken kunt:
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 
 *Hoge DTU voor Azure SQL Database*

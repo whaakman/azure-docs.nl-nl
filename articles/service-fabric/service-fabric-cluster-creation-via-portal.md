@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 864952554b04d8d6bc14aad92d168298e554710e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Maken van een Service Fabric-cluster in Azure met Azure portal
 > [!div class="op_single_selector"]
@@ -131,7 +131,7 @@ Configureer de clusterknooppunten. Knooppunttypen definiëren de VM-grootten, he
 
 Instellen van een beveiligde testcluster om gemakkelijk te maken voor u, boden we de **Basic** optie. Als u al een certificaat hebben en deze geüpload naar uw keyvault (en de sleutelkluis voor implementatie is ingeschakeld), gebruikt u de **aangepaste** optie
 
-#####<a name="basic-option"></a>Basic-optie
+##### <a name="basic-option"></a>Basic-optie
 Volg de schermen als u wilt toevoegen of een bestaande keyvault hergebruiken en een certificaat toevoegen. Het toevoegen van het certificaat is een synchrone proces en u moet dus wacht tot het certificaat moet worden gemaakt.
 
 
@@ -151,7 +151,7 @@ U bent nu klaar om door te gaan met de rest van het proces van de cluster maken.
 
 ![CreateKeyVault4]
 
-#####<a name="custom-option"></a>Aangepaste optie
+##### <a name="custom-option"></a>Aangepaste optie
 Als u al hebt uitgevoerd de stappen in deze sectie overslaan de **Basic** optie.
 
 ![SecurityCustomOption]

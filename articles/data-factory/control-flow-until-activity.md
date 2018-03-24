@@ -2,10 +2,10 @@
 title: Totdat activiteit in Azure Data Factory | Microsoft Docs
 description: De activiteit Until wordt een set van activiteiten in een lus uitgevoerd totdat de voorwaarde die is gekoppeld aan de activiteit in waar resulteert of er een optreedt time-out.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: da15ddd47580a37a7fdb35adfd80482b698074fd
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 14abd3f069cb5cd49265a6b27e4b1c4363a21441
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Totdat activiteit in Azure Data Factory
 De activiteit Until bieden dezelfde functionaliteit die een do-totdat lusstructuur biedt in programmeertalen. Er wordt een reeks activiteiten uitgevoerd totdat de voorwaarde die aan de activiteit is gekoppeld, resulteert in waar. U kunt in Data Factory een time-outwaarde voor de Until-activiteit opgeven. 
@@ -60,7 +60,7 @@ Eigenschap | Beschrijving | Toegestane waarden | Vereist
 naam | Naam van de `Until` activiteit. | Tekenreeks | Ja
 type | Moet worden ingesteld op **totdat**. | Tekenreeks | Ja
 expressie | Expressie die moet worden geëvalueerd op true of false | De expressie.  | Ja
-timeout | De komen-pas na de opgegeven tijd hier time-out lus. | De tekenreeks. `d.hh:mm:ss`(of) `hh:mm:ss`. De standaardwaarde is 7 dagen. Maximale waarde is: 90 dagen. | Nee
+timeout | De komen-pas na de opgegeven tijd hier time-out lus. | De tekenreeks. `d.hh:mm:ss` (of) `hh:mm:ss`. De standaardwaarde is 7 dagen. Maximale waarde is: 90 dagen. | Nee
 Activiteiten | Set van activiteiten die worden uitgevoerd totdat expressie resulteert in `true`. | Matrix van activiteiten. |  Ja
 
 ## <a name="example-1"></a>Voorbeeld 1

@@ -2,10 +2,9 @@
 title: Gegevens verplaatsen van DB2 met behulp van Azure Data Factory | Microsoft Docs
 description: Meer informatie over het verplaatsen van gegevens uit een lokale DB2-database met behulp van Azure Data Factory-Kopieeractiviteit
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 0e597574c1993e2f2a5421d24063cf9f42a7e57b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Gegevens verplaatsen van DB2 met behulp van Azure Data Factory-Kopieeractiviteit
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +57,7 @@ De Data Factory DB2-connector ondersteunt de volgende IBM DB2-platforms en versi
 
 > [!TIP]
 > Als u het foutbericht 'het pakket overeenkomt met de aanvraag voor een SQL-instructie uitvoeren is niet gevonden. SQLSTATE = 51002 SQLCODE =-805, ' de reden hiervoor is een benodigde pakket is niet gemaakt voor de normale gebruiker van het besturingssysteem. Volg deze instructies voor het type DB2-dit probleem op te lossen:
-> - DB2 voor i (AS400): een hoofdgebruiker maken van de verzameling voor de normale gebruiker voordat de kopieerbewerking wordt uitgevoerd, kunnen. Gebruik de opdracht voor het maken van de verzameling:`create collection <username>`
+> - DB2 voor i (AS400): een hoofdgebruiker maken van de verzameling voor de normale gebruiker voordat de kopieerbewerking wordt uitgevoerd, kunnen. Gebruik de opdracht voor het maken van de verzameling: `create collection <username>`
 > - DB2 voor z-/ OS of LUW: gebruik een account met hoge bevoegdheden--hoofdgebruiker of beheerder met pakket-instanties en BIND, BINDADD, EXECUTE verlenen aan openbare machtigingen--de kopie eenmaal wordt uitgevoerd. Het benodigde pakket wordt automatisch gemaakt tijdens het kopiëren. U kunt daarna terug naar de normale gebruiker schakelen voor uw volgende kopie wordt uitgevoerd.
 
 ## <a name="getting-started"></a>Aan de slag
@@ -87,8 +86,8 @@ De volgende tabel bevat de JSON-eigenschappen die specifiek voor een service DB2
 | **database** |De naam van de DB2-database. |Ja |
 | **schema** |De naam van het schema in de DB2-database. Deze eigenschap is hoofdlettergevoelig. |Nee |
 | **authenticationType** |Het type verificatie dat wordt gebruikt voor het verbinding maken met de DB2-database. De mogelijke waarden zijn: anoniem, basis en Windows. |Ja |
-| **gebruikersnaam** |De naam voor het gebruikersaccount als u basisverificatie of Windows-verificatie gebruikt. |Nee |
-| **wachtwoord** |Het wachtwoord voor het gebruikersaccount. |Nee |
+| **Gebruikersnaam** |De naam voor het gebruikersaccount als u basisverificatie of Windows-verificatie gebruikt. |Nee |
+| **Wachtwoord** |Het wachtwoord voor het gebruikersaccount. |Nee |
 | **gatewayName** |De naam van de gateway die voor de Data Factory-service gebruiken moet voor verbinding met de lokale DB2-database. |Ja |
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
@@ -98,7 +97,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| **tableName** |De naam van de tabel in de DB2-database-instantie waarnaar de gekoppelde service verwijst. Deze eigenschap is hoofdlettergevoelig. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
+| **TableName** |De naam van de tabel in de DB2-database-instantie waarnaar de gekoppelde service verwijst. Deze eigenschap is hoofdlettergevoelig. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
 Zie voor een lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van de activiteiten kopiëren zijn de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen van de activiteit, zoals kopiëren **naam**, **beschrijving**, **invoer** tabel **levert** tabel en **beleid**, zijn beschikbaar voor alle typen activiteiten. De eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activiteit verschillen voor elk activiteitstype. Voor de Kopieeractiviteit, wordt de eigenschappen variëren afhankelijk van de soorten gegevensbronnen en Put.
@@ -318,9 +317,9 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | Decimale |Decimale |
 | DecimalFloat |Decimale |
 | Numeriek |Decimale |
-| Date |Datum en tijd |
+| Date |DateTime |
 | Time |TimeSpan |
-| Timestamp |Datum en tijd |
+| Timestamp |DateTime |
 | Xml |Byte[] |
 | CHAR |Tekenreeks |
 | VarChar |Tekenreeks |
@@ -344,9 +343,9 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | Decimale |Decimale |
 | DecimalFloat |Decimale |
 | Numeriek |Decimale |
-| Date |Datum en tijd |
+| Date |DateTime |
 | Time |TimeSpan |
-| Timestamp |Datum en tijd |
+| Timestamp |DateTime |
 | Xml |Byte[] |
 | CHAR |Tekenreeks |
 

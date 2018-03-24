@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 33b7c82f08f63199cd128055bc497f61cb30fc4a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Het inrichten van een virtuele machine van Windows SQL Server in de Azure portal
 
@@ -27,7 +27,7 @@ Deze handleiding bevat informatie over de verschillende opties beschikbaar wanne
 Gebruik deze handleiding voor het maken van uw eigen SQL Server-VM. Of gebruik het als referentie voor de beschikbare opties in de Azure portal.
 
 > [!TIP]
-> Als u vragen over virtuele machines van SQL Server hebt, raadpleegt u de [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+> Als u vragen hebt over virtuele machines met SQL Server, raadpleegt u [Veelgestelde vragen](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -59,7 +59,7 @@ Wanneer u een virtuele machine van SQL Server maakt, kunt u een van de verschill
    > De ontwikkelaarsversie wordt gebruikt in dit scenario, omdat het een complete, gratis editie van SQL Server voor het testen van ontwikkeling. U betaalt alleen voor de kosten van het uitvoeren van de virtuele machine. U bent echter gratis een van de afbeeldingen die u wilt gebruiken in dit scenario kiezen. Zie voor een beschrijving van de beschikbare installatiekopieën, de [Windows virtuele Machines van SQL Server-overzicht](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
    > [!TIP]
-   > Licentiekosten voor SQL Server zijn opgenomen in de prijzen voor de per minuut van de virtuele machine die u maakt en varieert met editie en kernen. De ontwikkelaarsversie van SQL Server is gratis voor ontwikkeling/tests (geen productie) en SQL Express is gratis voor lichte werkbelasting (minder dan 1 GB geheugen, kleiner is dan 10 GB aan opslagruimte). U kunt ook bring-your-eigenaar-license (BYOL) en betalen alleen voor de virtuele machine. De namen van de installatiekopieën worden voorafgegaan door {BYOL}. 
+   > Licentiekosten voor SQL Server zijn opgenomen in de prijzen voor de per seconde van de virtuele machine die u maakt en varieert met editie en kernen. De ontwikkelaarsversie van SQL Server is gratis voor ontwikkeling/tests (geen productie) en SQL Express is gratis voor lichte werkbelasting (minder dan 1 GB geheugen, kleiner is dan 10 GB aan opslagruimte). U kunt ook bring-your-eigenaar-license (BYOL) en betalen alleen voor de virtuele machine. De namen van de installatiekopieën worden voorafgegaan door {BYOL}. 
    >
    > Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor meer informatie over deze opties.
 

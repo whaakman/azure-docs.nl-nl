@@ -1,26 +1,26 @@
 ---
-title: Doorsturen van netwerkverkeer - PowerShell | Microsoft Docs
+title: Doorsturen van netwerkverkeer - Azure PowerShell | Microsoft Docs
 description: Informatie over het netwerkverkeer omgeleid met een routetabel met behulp van PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 49c7b6158beee9d47ecd224e6a0750310d2b68c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Doorsturen van netwerkverkeer met een routetabel met behulp van PowerShell
 
@@ -39,7 +39,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Als u wilt installeren en gebruiken van PowerShell lokaal, in dit artikel is vereist voor de Azure PowerShell moduleversie 5.4.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` de geïnstalleerde versie vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
+Als u wilt installeren en gebruiken van PowerShell lokaal, in dit artikel is vereist voor de Azure PowerShell moduleversie 5.4.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
 
 ## <a name="create-a-route-table"></a>Een routetabel maken
 
@@ -242,7 +242,7 @@ Geef de gebruikersnaam en wachtwoord die u hebt opgegeven bij het maken van de v
 In een latere stap, de opdracht tracert.exe gebruikt voor het testen van routering. Tracert maakt gebruik van het Internet Control Message Protocol (ICMP), die via de Windows Firewall is geweigerd. ICMP inschakelen via de Windows firewall met de volgende opdracht vanuit PowerShell:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Hoewel tracert wordt gebruikt voor het testen van routering in dit artikel, wordt zodat ICMP via de Windows Firewall voor productie-implementaties niet aanbevolen.
@@ -272,7 +272,7 @@ mstsc /v:myVmPublic
 ICMP inschakelen via de Windows firewall met de volgende opdracht vanuit PowerShell:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Voor het testen van routering van netwerkverkeer naar de *myVmPrivate* VM van de *myVmPublic* virtuele machine, voer de volgende opdracht vanuit PowerShell:
@@ -332,4 +332,4 @@ In dit artikel wordt een routetabel gemaakt en gekoppeld aan een subnet. U hebt 
 Terwijl u veel Azure-resources binnen een virtueel netwerk implementeren kunt, kunnen geen resources voor sommige Azure PaaS-services worden geïmplementeerd in een virtueel netwerk. U kunt nog steeds toegang beperken tot de bronnen van sommige services Azure PaaS verkeer alleen via een virtueel netwerksubnet al. Ga naar de volgende zelfstudie voor informatie over het netwerktoegang tot Azure PaaS-resources te beperken.
 
 > [!div class="nextstepaction"]
-> [Beperken van toegang tot het netwerk voor PaaS-resources](virtual-network-service-endpoints-configure.md#azure-powershell)
+> [Beperken van toegang tot het netwerk voor PaaS-resources](tutorial-restrict-network-access-to-resources-powershell.md)

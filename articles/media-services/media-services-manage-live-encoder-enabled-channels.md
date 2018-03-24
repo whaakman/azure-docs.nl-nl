@@ -2,10 +2,10 @@
 title: Live streamen met Azure Media Services om multi-bitrate streams te maken | Microsoft Docs
 description: 'Dit onderwerp beschrijft het instellen van een kanaal dat een single-bitrate live stream ontvangt van een on-premises coderingsprogramma en voert deze live codering naar adaptive bitrate stream met Media Services. De stroom kan vervolgens worden afgeleverd bij afspelen clienttoepassingen via een of meer Streaming-eindpunten, met een van de volgende protocollen voor adaptief streamen: MPEG-DASH HLS, Smooth Stream.'
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: anilmur
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 9d89849bb982804515b21de8c251859591dbf6ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken
+
+> [!NOTE]
+> Vanaf 12 mei 2018, live kanalen wordt niet langer ondersteuning voor de RTP/MPEG-2-transportstroom opnameprotocol. Migreer van RTP/MPEG-2 RTMP of gefragmenteerde MP4 (Smooth Streaming) opnemen-protocollen.
+
 ## <a name="overview"></a>Overzicht
 Azure Media Services (AMS) een **kanaal** vertegenwoordigt een pijplijn voor het verwerken van live streaming inhoud. Een **kanaal** live invoer streams ontvangt op twee manieren:
 
@@ -45,7 +49,7 @@ Beginnen met de release van Media Services 2.10 wanneer u een kanaal maakt, kunt
 > 
 
 ## <a name="billing-implications"></a>De implicaties van facturering
-Een kanaal voor live codering begint zodra het statusovergangen naar 'Actief' via de API is facturering.   U kunt ook de status weergeven in de Azure-portal of in het hulpprogramma Azure Media Services Explorer (http://aka.ms/amse).
+Een kanaal voor live codering begint zodra het statusovergangen naar 'Actief' via de API is facturering.   U kunt ook de status bekijken in de Azure-portal of in het hulpprogramma Azure Media Services Explorer (http://aka.ms/amse).
 
 De volgende tabel ziet hoe kanaal statussen worden toegewezen aan facturering statussen in de API en de Azure portal. Houd er rekening mee dat de statussen enigszins verschillen tussen de API en de Portal UX zijn Als u een kanaal is in de status 'Actief' via de API of met de status 'Gereed' of 'Streaming' in de Azure portal facturering actief zijn.
 Als u wilt stoppen met het kanaal van u verdere facturering, hebt u Stop het kanaal via de API of in de Azure-portal.
@@ -64,10 +68,10 @@ In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen e
 
 | Kanaalstatus | Portal UI-indicatoren | Is het facturering? |
 | --- | --- | --- |
-| Starting |Starting |Nee (overgangsstatus) |
-| Wordt uitgevoerd |Ready (er worden geen programma's uitgevoerd)<br/>of<br/>Streaming (er wordt ten minste een programma uitgevoerd) |JA |
-| Stopping |Stopping |Nee (overgangsstatus) |
-| Stopped |Stopped |Nee |
+| Starten |Starten |Nee (overgangsstatus) |
+| In uitvoering |Ready (er worden geen programma's uitgevoerd)<br/>of<br/>Streaming (er wordt ten minste een programma uitgevoerd) |JA |
+| Stoppen |Stoppen |Nee (overgangsstatus) |
+| Gestopt |Gestopt |Nee |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Automatisch afsluiten uit voor ongebruikte kanalen
 Beginnen met 25 januari 2016 Media Services uitgerold een update die automatisch een kanaal (met live codering ingeschakeld) gestopt nadat deze in een niet-gebruikte status actief is geweest gedurende een lange periode. Dit geldt voor de kanalen die geen actieve programma's hebben en die een invoer bijdrage-kanaal voor langere tijd niet hebben ontvangen.
@@ -217,7 +221,7 @@ Wanneer u het kanaal hebt gemaakt, kunt u de voorbeeld-URL ophalen. Als u de URL
 Zodra het kanaal ophalen van gegevens start, kunt u uw stream te bekijken.
 
 > [!NOTE]
-> Momenteel de preview-stroom kan alleen worden geleverd in Fragmented MP4 (Smooth Streaming) indeling ongeacht het type van de opgegeven invoer. U kunt de [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player om de Smooth Stream te testen. U kunt ook een speler gehost in Azure portal gebruiken om uw stream weer te geven.
+> Momenteel de preview-stroom kan alleen worden geleverd in Fragmented MP4 (Smooth Streaming) indeling ongeacht het type van de opgegeven invoer. U kunt de [ http://smf.cloudapp.net/healthmonitor ](http://smf.cloudapp.net/healthmonitor) player om de Smooth Stream te testen. U kunt ook een speler gehost in Azure portal gebruiken om uw stream weer te geven.
 > 
 > 
 
@@ -363,10 +367,10 @@ In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen e
 
 | Kanaalstatus | Portal UI-indicatoren | In rekening gebracht? |
 | --- | --- | --- |
-| Starting |Starting |Nee (overgangsstatus) |
-| Wordt uitgevoerd |Ready (er worden geen programma's uitgevoerd)<br/>of<br/>Streaming (er wordt ten minste een programma uitgevoerd) |Ja |
-| Stopping |Stopping |Nee (overgangsstatus) |
-| Stopped |Stopped |Nee |
+| Starten |Starten |Nee (overgangsstatus) |
+| In uitvoering |Ready (er worden geen programma's uitgevoerd)<br/>of<br/>Streaming (er wordt ten minste een programma uitgevoerd) |Ja |
+| Stoppen |Stoppen |Nee (overgangsstatus) |
+| Gestopt |Gestopt |Nee |
 
 > [!NOTE]
 > Op dit moment het kanaal start gemiddelde ongeveer twee minuten, maar soms kan maximaal 20 + minuten duren. Opnieuw instellen van kanaal kunnen tot vijf minuten duren.
@@ -381,7 +385,7 @@ In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen e
 * Standaard kunt u alleen 5 kanalen toevoegen aan uw Media Services-account. Dit is een dynamische quota voor alle nieuwe accounts. Zie voor meer informatie [quota's en beperkingen](media-services-quotas-and-limitations.md).
 * U kunt het invoerprotocol niet wijzigen terwijl het kanaal of de gekoppelde programma's worden uitgevoerd. Als u verschillende protocollen nodig hebt, maakt u afzonderlijke kanalen voor elk invoerprotocol.
 * U wordt alleen gefactureerd als het kanaal in de **met** status. Raadpleeg voor meer informatie [dit](media-services-manage-live-encoder-enabled-channels.md#states) sectie.
-* De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived@microsoft.com als u moet een kanaal voor langere tijd wilt uitvoeren.
+* De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived@microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
 * Zorg ervoor dat u hebt het streaming-eindpunt van waaruit u inhoud wilt streamen in de **met** status.
 * Wanneer meerdere taal nummers invoeren en tijdens het doorzoeken van live codering met Azure, alleen RTP voor invoer van meerdere talen wordt ondersteund. U kunt maximaal 8 audio-stromen met MPEG-2 TS via RTP definiëren. Meerdere audio houdt met RTMP of Smooth streaming opnemen wordt momenteel niet ondersteund. Bij het uitvoeren van live codering met [lokale live coderen](media-services-live-streaming-with-onprem-encoders.md), geldt er geen dergelijke beperking, omdat een kanaal wat wordt verzonden naar AMS passeren zonder verdere verwerking.
 * De codering voorinstelling maakt gebruik van het principe van 'max framesnelheid' van 30 fps. Als de invoer is 60fps / 59.97i, de ingevoerde frames zijn verwijderd/de-interlaced op 30/29,97 fps. Als de invoer 50fps/50i is, zijn de ingevoerde frames verwijderd/de-interlaced op 25 fps. Als de invoer 25 fps is, wordt de uitvoer blijft bij 25 fps.

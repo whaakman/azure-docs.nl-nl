@@ -2,23 +2,23 @@
 title: Computergroepen in Azure-logboekanalyse Meld zoekopdrachten | Microsoft Docs
 description: Computergroepen in Log Analytics kunnen u bereik logboek zoekopdrachten aan een bepaalde set van computers.  In dit artikel beschrijft de verschillende methoden die u gebruiken kunt om computergroepen en hoe ze te gebruiken in een zoekopdracht logboek te maken.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Meld u zoekopdrachten computergroepen in Log Analytics
 
@@ -49,7 +49,7 @@ De volgende tabel beschrijft de eigenschappen die een computergroep definiëren.
 | Weergavenaam   | De naam van de zoekopdracht wilt weergeven in de portal. |
 | Category       | De categorie te organiseren de zoekopdrachten die in de portal. |
 | Query’s uitvoeren          | De query voor de computergroep. |
-| Functie alias | Een unieke alias die wordt gebruikt voor het identificeren van de groep van de computer in een query. |
+| Functiealias | Een unieke alias die wordt gebruikt voor het identificeren van de groep van de computer in een query. |
 
 Gebruik de volgende procedure een computergroep maken van een zoekopdracht logboek in de Azure portal.
 
@@ -66,12 +66,6 @@ Gebruik de volgende procedure een computergroep maken van een zoekopdracht logbo
 5. Geef waarden op voor elke eigenschap voor de computergroep. 
 
 
->[!NOTE]
-> Als uw werkruimte is nog steeds de [verouderde logboekanalyse querytaal](log-analytics-log-search-upgrade.md) en u dezelfde procedure voor het maken van een computergroep gebruiken, maar u moet de syntaxis van de verouderde querytaal gebruiken.
-
-
-### <a name="log-search-api"></a>Meld u API van zoekservice
-Computergroepen die zijn gemaakt met de Search-API van het logboek zijn hetzelfde als de zoekopdrachten die zijn gemaakt met een zoekopdracht logboek.  Zie voor meer informatie over het maken van de groep van een computer met de Search-API van het logboek [computergroepen in logboek logboekanalyse zoeken REST-API](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Active Directory
 Wanneer u Log Analytics Active Directory-groepslidmaatschappen importeren configureert, wordt het groepslidmaatschap van computers met de OMS-agent lid van domein geanalyseerd.  Een computergroep in logboekanalyse gemaakt voor elke beveiligingsgroep in Active Directory en elke computer is toegevoegd aan de overeenkomt met de beveiligingsgroepen waarvan die ze lid van zijn computergroepen.  Dit lidmaatschap wordt voortdurend bijgewerkt voor elke 4 uur.  
@@ -131,18 +125,6 @@ De volgende query zou UpdateSummary records voor alleen computers in Domeincompu
 
 
 
-  
-
->[!NOTE]
-> Als uw werkruimte is nog steeds de [verouderde logboekanalyse querytaal](log-analytics-log-search-upgrade.md)>, u de volgende syntaxis gebruiken om te verwijzen naar een computergroep in een logboek zoekopdracht.  Geven de **categorie** > is optioneel en is alleen vereist als er computergroepen met dezelfde naam in verschillende categorieën. 
->
->    `$ComputerGroups[Category: Name]`
->
->Computergroepen worden doorgaans gebruikt voor de **IN** -component in de zoekopdracht logboek zoals in het volgende voorbeeld:
->
->    `Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]`
-
-
 
 ## <a name="computer-group-records"></a>Groeperen van computerrecords
 Een record gemaakt in de werkruimte voor logboekanalyse voor elke computer groepslidmaatschap gemaakt op basis van Active Directory of WSUS.  Deze records zijn een type **ComputerGroup** en de eigenschappen in de volgende tabel hebben.  Records worden niet gemaakt voor computergroepen op basis van het logboek zoekopdrachten.
@@ -154,7 +136,7 @@ Een record gemaakt in de werkruimte voor logboekanalyse voor elke computer groep
 | Computer |Naam van de computer die lid is. |
 | Groep |De naam van de groep. |
 | GroupFullName |Volledig pad naar de groep met inbegrip van de bron en de naam van de gegevensbron. |
-| GroupSource |Bron van die groep die is verzameld van is. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
+| GroupSource |Bron van die groep die is verzameld van is. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
 | GroupSourceName |De naam van de bron waarvan de groep is verzameld.  Dit is de domeinnaam voor Active Directory. |
 | ManagementGroupName |Naam van de beheergroep voor SCOM-agents.  Dit is voor andere agents AOI -\<werkruimte-ID\> |
 | TimeGenerated |Datum en tijd van de computergroep is gemaakt of bijgewerkt. |

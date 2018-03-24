@@ -2,10 +2,10 @@
 title: Bijwerken van machine learning-modellen met behulp van Azure Data Factory | Microsoft Docs
 description: Beschrijft hoe u voorspellende pijplijnen met behulp van Azure Data Factory maakt en machine learning
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: d4f7df5ceadf8c6219901af6e516453a88aeece7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f84bb3546260622eec921684be8e2492adcdcd52
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Azure Machine Learning-modellen worden bijgewerkt met behulp van de activiteit van de Update-Resource
 In dit artikel is een aanvulling op de belangrijkste Azure Data Factory - artikel voor Azure Machine Learning-integratie: [voorspellende pijplijnen met behulp van Azure Machine Learning en Azure Data Factory maken](transform-data-using-machine-learning.md). Als u dit nog niet hebt gedaan, raadpleegt u de belangrijkste artikel voordat gelezen in dit artikel. 

@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/22/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event raster gebeurtenis schema
 
@@ -97,7 +97,11 @@ Zie voor meer informatie over de eigenschappen in het gegevensobject, de gebeurt
 * [IoT Hub](event-schema-iot-hub.md)
 * [Resourcegroepen (beheerbewerkingen)](event-schema-resource-groups.md)
 
-Voor aangepaste onderwerpen bepaalt de uitgever van gebeurtenissen voor het gegevensobject. De gegevens op het hoogste niveau moet dezelfde velden als resource gedefinieerd gebeurtenissen (standaard) bevatten. Bij het publiceren van gebeurtenissen naar aangepaste onderwerpen, kunt u overwegen modelleren van de houder van uw gebeurtenissen voor Routering en filteren.
+Voor aangepaste onderwerpen bepaalt de uitgever van gebeurtenissen voor het gegevensobject. De gegevens op het hoogste niveau moet dezelfde velden als resource gedefinieerd gebeurtenissen (standaard) bevatten.
+
+Bij het publiceren van gebeurtenissen naar aangepaste onderwerpen, maken onderwerpen voor de gebeurtenissen die gemakkelijk voor abonnees te weten of ze geïnteresseerd in de gebeurtenis. Abonnees op basis van het onderwerp op gebeurtenissen filteren en route. Overweeg voorzien in het pad waar de gebeurtenis heeft plaatsgevonden, dus abonnees op segmenten in dat pad filteren kunnen. Het pad kan abonnees nauwkeurig of grote schaal om gebeurtenissen te filteren. Bijvoorbeeld, als u een pad drie segment zoals opgeven `/A/B/C` in het onderwerp abonnees kunnen filteren op het eerste segment `/A` ophalen van een uitgebreide reeks gebeurtenissen. Deze abonnees ophalen van gebeurtenissen met onderwerpen zoals `/A/B/C` of `/A/D/E`. Andere abonnees kunnen filteren op `/A/B` ophalen van een fijner reeks gebeurtenissen.
+
+Soms moet uw onderwerp meer informatie over wat er gebeurd is. Bijvoorbeeld, de **Opslagaccounts** publisher voorziet in de `/blobServices/default/containers/<container-name>/blobs/<file>` wanneer een bestand wordt toegevoegd aan een container. Een abonnee kan filteren op het pad `/blobServices/default/containers/testcontainer` alle gebeurtenissen ophalen voor die container, maar geen andere containers in het opslagaccount. Een abonnee kan ook filteren of route door het achtervoegsel `.txt` alleen werkt met tekstbestanden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -5,9 +5,9 @@ services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a275df84ce784147b5fd4f09afe4995417affffd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Prijsinformatie voor Azure VM's van SQL Server
 
@@ -63,7 +63,7 @@ Hebt u twee opties om te betalen voor SQL Server-licentieverlening voor deze edi
 
 ### <a name="pay-per-usage"></a>Betalen per gebruik
 
-**Betalen per gebruik van de SQL Server-licentie** betekent dat de kosten per minuut van het uitvoeren van de Azure VM de kosten van de SQL Server-licentie bevat. U kunt de prijzen voor de verschillende edities van SQL Server (Web, Standard, Enterprise) zien in de [Azure VM pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). De kosten zijn hetzelfde voor alle versies van SQL Server (2012 SP3-2017). Met een SQL Server-licentieverlening in het algemeen, is de licentiekosten per minuut afhankelijk van het aantal kernen VM.
+**Betalen per gebruik van de SQL Server-licentie** betekent dat de kosten per seconde van het uitvoeren van de Azure VM de kosten van de SQL Server-licentie bevat. U kunt de prijzen voor de verschillende edities van SQL Server (Web, Standard, Enterprise) zien in de [Azure VM pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). De kosten zijn hetzelfde voor alle versies van SQL Server (2012 SP3-2017). Met een SQL Server-licentieverlening in het algemeen, is de licentiekosten per seconde afhankelijk van het aantal kernen VM.
 
 Betalen van de SQL Server wordt-licentieverlening per gebruik aanbevolen voor:
 
@@ -113,7 +113,7 @@ Als een virtuele machine van SQL Server 2016 Azure maken met een van deze instal
 > Laat ons weten binnen tien dagen hoeveel SQL Server-licenties u in Azure. De koppelingen naar de vorige afbeeldingen hebben instructies over hoe u dit doet.
 
 > [!NOTE]
-> Het is niet mogelijk om de licentie voor een SQL Server-VM waarbij per minuut wordt betaald te wijzigen in uw eigen licentie. Als u dit wilt doen, moet u een nieuwe BYOL-VM maken en uw databases naar de nieuwe VM migreren. 
+> Het is niet mogelijk om te wijzigen van het licentiemodel van een betalen per seconde SQL Server-VM voor gebruik van uw eigen licentie. Als u dit wilt doen, moet u een nieuwe BYOL-VM maken en uw databases naar de nieuwe VM migreren. 
 
 ## <a name="avoid-unnecessary-costs"></a>Onnodige kosten te voorkomen
 

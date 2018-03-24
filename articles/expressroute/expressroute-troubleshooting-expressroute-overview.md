@@ -5,8 +5,8 @@ documentationcenter: na
 services: expressroute
 author: rambk
 manager: tracsman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 74b6589a7e06570d978dfe40c5f5bf140e092cc6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute-verbinding controleren
 ExpressRoute, die een uitbreiding is een on-premises netwerk via een persoonlijke verbinding die wordt gefaciliteerd door een connectiviteitsprovider in de Microsoft cloud, omvat de volgende drie afzonderlijke netwerkzones:
@@ -68,7 +68,7 @@ Voor het valideren van een ExpressRoute-circuit, worden de volgende stappen uit 
 
 Meer validaties en controles worden toegevoegd in de toekomst, controle terug maandelijks!
 
-##<a name="validate-circuit-provisioning-and-state"></a>Valideren van circuitinrichting en status
+## <a name="validate-circuit-provisioning-and-state"></a>Valideren van circuitinrichting en status
 Ongeacht het model connectiviteit een ExpressRoute-circuit moet worden gemaakt en dus een servicesleutel gegenereerd voor het inrichten van het circuit. Een ExpressRoute-circuit inrichten, stelt u een redundante laag-2-verbindingen tussen PE-msee's (4) en de msee's (5). Zie het artikel voor meer informatie over het maken, wijzigen, inrichten en een ExpressRoute-circuit controleren [maken en een ExpressRoute-circuit wijzigen][CreateCircuit].
 
 >[!TIP]
@@ -76,7 +76,7 @@ Ongeacht het model connectiviteit een ExpressRoute-circuit moet worden gemaakt e
 >
 >
 
-###<a name="verification-via-the-azure-portal"></a>Verificatie via de Azure-portal
+### <a name="verification-via-the-azure-portal"></a>Verificatie via de Azure-portal
 In de Azure portal, de status van een ExpressRoute-circuit kan worden gecontroleerd door het selecteren van ![2][2] in het menu links zijmarge en vervolgens te klikken op het ExpressRoute-circuit. Selecteren van een ExpressRoute circuit vermeld onder 'Alle resources' de ExpressRoute-circuit blade geopend. In de ![3][3] sectie van de blade de ExpressRoute essentials worden vermeld, zoals wordt weergegeven in de volgende schermopname:
 
 ![4][4]    
@@ -90,7 +90,7 @@ Voor een ExpressRoute-circuit operationeel, de *Circuit status* moet *ingeschake
 >
 >
 
-###<a name="verification-via-powershell"></a>Verificatie via PowerShell
+### <a name="verification-via-powershell"></a>Verificatie via PowerShell
 Als de ExpressRoute-circuits in een resourcegroep weergeven, gebruikt u de volgende opdracht:
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
@@ -139,7 +139,7 @@ Om te bevestigen of een ExpressRoute-circuit operationele speciale aandacht best
 >
 >
 
-###<a name="verification-via-powershell-classic"></a>Verificatie via PowerShell (klassiek)
+### <a name="verification-via-powershell-classic"></a>Verificatie via PowerShell (klassiek)
 Als de ExpressRoute-circuits voor een abonnement weergeven, gebruikt u de volgende opdracht:
 
     Get-AzureDedicatedCircuit
@@ -167,10 +167,10 @@ Om te bevestigen of een ExpressRoute-circuit operationele speciale aandacht best
 >
 >
 
-##<a name="validate-peering-configuration"></a>Peeringconfiguratie valideren
+## <a name="validate-peering-configuration"></a>Peeringconfiguratie valideren
 Nadat de serviceprovider is voltooid de inrichting van het ExpressRoute-circuit, kan een routeringsconfiguratie worden gemaakt via de ExpressRoute-circuit tussen de MSEE-PRs (4) en de msee's (5). Elk ExpressRoute-circuit kan hebben een, twee of drie routing-contexten ingeschakeld: Azure persoonlijke peering (verkeer naar persoonlijke virtuele netwerken in Azure), Azure openbare peering (verkeer naar openbare IP-adressen in Azure) en Microsoft peering (verkeer met Office 365 en Dynamics 365). Raadpleeg het artikel voor meer informatie over het maken en beheren van routeringsconfiguratie [maken en wijzigen van routering voor een ExpressRoute-circuit][CreatePeering].
 
-###<a name="verification-via-the-azure-portal"></a>Verificatie via de Azure-portal
+### <a name="verification-via-the-azure-portal"></a>Verificatie via de Azure-portal
 
 >[!NOTE]
 >Als laag 3 wordt geleverd door de provider en de peerings leeg in de portal zijn, moet u de Circuit-configuratie met de knop Vernieuwen op de protal vernieuwen. Deze bewerking geldt de configuratie van de juiste routering op uw circuit. 
@@ -188,7 +188,7 @@ In het voorgaande voorbeeld als vermelde Azure is persoonlijke peering routering
 >
 >
 
-###<a name="verification-via-powershell"></a>Verificatie via PowerShell
+### <a name="verification-via-powershell"></a>Verificatie via PowerShell
 Als u het Azure configuratiedetails van persoonlijke peering, gebruikt u de volgende opdrachten:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
@@ -364,7 +364,7 @@ Het volgende voorbeeld ziet u dat het antwoord van de opdracht voor een peering 
 
     Route Table Info:
 
-##<a name="check-the-traffic-statistics"></a>De statistieken voor het verkeer controleren
+## <a name="check-the-traffic-statistics"></a>De statistieken voor het verkeer controleren
 Als u de statistieken van de gecombineerde primaire en secundaire pad verkeer--bytes in en uit--van een peering context gebruikt de volgende opdracht:
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private

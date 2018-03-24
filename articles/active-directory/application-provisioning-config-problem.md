@@ -2,10 +2,10 @@
 title: Probleem gebruikers inrichten tot een toepassing-galerie van Azure AD configureren | Microsoft Docs
 description: Het oplossen van algemene problemen bij het configureren van gebruikers inrichten tot een toepassing die al in de Azure AD-Toepassingsgalerie
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 3a19169effad54e26cd2061bffae369cd31e9a9e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9fcfee9cbbeb01422e7d9e92d90b908e054f96da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Probleem gebruikers inrichten tot een toepassing-galerie van Azure AD configureren
 
@@ -31,7 +31,7 @@ Zodra de service is geconfigureerd, kunnen de meeste inzicht in de werking van d
 
 -   **Controlelogboeken** – de inrichting auditlogboeken record alle bewerkingen die worden uitgevoerd door de inrichting service, inclusief het opvragen van Azure AD voor gebruikers die binnen het bereik van de inrichting zijn toegewezen. Query uitvoeren op de doel-app voor de aanwezigheid van gebruikers, vergelijken van de gebruikersobjecten tussen het systeem. Vervolgens toevoegen, bijwerken of het gebruikersaccount in het doelsysteem op basis van de vergelijking uitschakelen. De inrichting controlelogboeken kunnen worden geopend in de Azure-portal in de **Azure Active Directory &gt; zakelijke Apps &gt; \[toepassingsnaam\] &gt; Audit logboeken** tabblad. Filter de logboeken op de **Account inrichten** categorie alleen de inrichting om gebeurtenissen te bekijken voor die app.
 
--   **Inrichtingsstatus –** een samenvatting van de laatste inrichting uitvoeren voor een bepaalde app worden weergegeven in de **Azure Active Directory &gt; zakelijke Apps &gt; \[toepassingsnaam\] &gt; Inrichting** sectie aan de onderkant van het scherm met de service-instellingen. Deze sectie bevat een overzicht van hoeveel gebruikers (en/of groepen) momenteel worden gesynchroniseerd tussen de twee systemen, en als er geen fouten bevat. Details van fouten worden in de controlelogboeken. Houd er rekening mee dat de status van de inrichting niet mogen worden gevuld totdat een volledige initiële synchronisatie tussen Azure AD is voltooid en de app.
+-   **Inrichtingsstatus –** een samenvatting van de laatste inrichting uitvoeren voor een bepaalde app worden weergegeven in de **Azure Active Directory &gt; zakelijke Apps &gt; \[toepassingsnaam\] &gt;Inrichting** sectie aan de onderkant van het scherm met de service-instellingen. Deze sectie bevat een overzicht van hoeveel gebruikers (en/of groepen) momenteel worden gesynchroniseerd tussen de twee systemen, en als er geen fouten bevat. Details van fouten worden in de controlelogboeken. Houd er rekening mee dat de status van de inrichting niet mogen worden gevuld totdat een volledige initiële synchronisatie tussen Azure AD is voltooid en de app.
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Algemene probleemgebieden bij inrichting rekening te houden
 
@@ -62,9 +62,9 @@ Wanneer een gebruiker wordt weergegeven als 'overgeslagen' in de controlelogboek
 
 -   **De gebruiker is 'niet effectief heeft het recht'.** Als u dit specifieke foutbericht ziet, is dit omdat er een probleem met de gebruikersrecord toewijzing opgeslagen in Azure AD. Los dit probleem, toewijzing de gebruiker (of groep) uit de app en opnieuw opnieuw toewijzen. Zie voor meer informatie over toewijzing <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
 
--   **Een vereist kenmerk is ontbreekt of niet ingevuld voor een gebruiker.** Een belangrijkste waarmee u rekening moet houden bij het instellen van de inrichting worden om te bekijken en configureren van de kenmerktoewijzingen en werkstromen die welke gebruiker (of groep) eigenschappen stroom van Azure AD voor de toepassing definiëren. Dit omvat de 'overeenkomende eigenschap' instelt met worden gebruikt voor unieke identificatie dient en overeen met gebruikers/groepen tussen de twee systemen. Zie voor meer informatie over dit proces belangrijk <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
+-   **Een vereist kenmerk is ontbreekt of niet ingevuld voor een gebruiker.** Een belangrijkste waarmee u rekening moet houden bij het instellen van de inrichting worden om te bekijken en configureren van de kenmerktoewijzingen en werkstromen die welke gebruiker (of groep) eigenschappen stroom van Azure AD voor de toepassing definiëren. Dit omvat de 'overeenkomende eigenschap' instelt met worden gebruikt voor unieke identificatie dient en overeen met gebruikers/groepen tussen de twee systemen. Zie voor meer informatie over dit proces belangrijke <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
 
    * **Kenmerktoewijzingen voor groepen:** inrichten van de groepsnaam en de groepsgegevens, naast de leden, als dit wordt ondersteund op bepaalde toepassingen. U kunt inschakelen of uitschakelen van deze functionaliteit met in- of uitschakelen de **toewijzing** voor een groepsobjecten worden weergegeven in de **inrichten** tabblad. Als inrichting groepen is ingeschakeld, worden de kenmerktoewijzingen om te controleren of dat het juiste veld wordt gebruikt voor de 'overeenkomende ID' Lees. Dit is de weergegeven naam of e-mailalias), zoals de groep en de bijbehorende leden niet worden ingericht als de overeenkomende eigenschap leeg of niet ingevuld voor een groep in Azure AD is.
 
-#<a name="next-steps"></a>Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 [Gebruiker inrichting en het opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren](active-directory-saas-app-provisioning.md)

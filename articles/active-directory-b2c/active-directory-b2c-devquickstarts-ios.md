@@ -1,24 +1,21 @@
 ---
 title: AppAuth gebruiken in een iOS-toepassing - Azure Active Directory B2C
-description: "Dit artikel ziet u het maken van een iOS-app die gebruikmaakt van AppAuth met Azure Active Directory B2C gebruikersidentiteiten te beheren en verifiëren van gebruikers."
+description: Dit artikel ziet u het maken van een iOS-app die gebruikmaakt van AppAuth met Azure Active Directory B2C gebruikersidentiteiten te beheren en verifiëren van gebruikers.
 services: active-directory-b2c
 documentationcenter: ios
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.custom: seo
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: mobile-ios
-ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: saeeda
-ms.openlocfilehash: b4f46129a7a18e4653d714599630d6cdddfff4ed
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: davidmu
+ms.openlocfilehash: 18c3801b18fb9adb444918cc45ee70c2611b213d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Meld u aan met een iOS-toepassing
 
@@ -89,7 +86,7 @@ OIDServiceConfiguration *configuration =
 // now we are ready to perform the auth request...
 ```
 
-### <a name="authorizing"></a>Autorisatie
+### <a name="authorizing"></a>Autoriseren
 
 Na het configureren van of bij het ophalen van een configuratie van de service autorisatie, kan een autorisatieaanvraag worden samengesteld. Voor het maken van de aanvraag, moet u de volgende informatie:  
 * Client-ID (bijvoorbeeld 00000000-0000-0000-0000-000000000000)
