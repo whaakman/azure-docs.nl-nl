@@ -41,6 +41,7 @@
 ### [Twitter-sentimentanalyse](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Fraudebewaking in realtime](stream-analytics-real-time-fraud-detection.md)
 ### [Taken uitvoeren aan IoT-kant](stream-analytics-edge.md) 
+### [Analyse van de sensorgegevens van een tolloket](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [Een JavaScript-UDA uitvoeren](stream-analytics-javascript-user-defined-aggregates.md)
 ### [High-frequency trading](stream-analytics-high-frequency-trading.md)
 ### [Azure Functions uitvoeren](stream-analytics-with-azure-functions.md)

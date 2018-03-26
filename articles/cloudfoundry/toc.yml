@@ -1,0 +1,27 @@
+- name: Documentatie voor Cloud Foundry
+  href: index.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Marketplace-sjabloon
+      href: 'https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry'
+- name: Zelfstudies
+  items:
+    - name: CF-app implementeren in Azure
+      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+    - name: Cloud Foundry in Azure
+      href: /azure/virtual-machines/linux/cloudfoundry-get-started
+    - name: CF OMS Nozzle implementeren
+      href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Cloud Foundry-site
+      href: 'https://docs.cloudfoundry.org/'
+    - name: CF in Azure installeren
+      href: 'https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html'
+    - name: Pivotal en Azure
+      href: 'https://pivotal.io/partners/microsoft'
+    - name: VSTS-invoegtoepassing voor CF
+      href: 'https://github.com/Microsoft/vsts-cloudfoundry'

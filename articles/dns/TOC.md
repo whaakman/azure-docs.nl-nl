@@ -7,6 +7,8 @@
 ## [DNS-delegatie met Azure DNS](dns-domain-delegation.md)
 ## [Veelgestelde vragen over DNS](dns-faq.md)
 ## [Met behulp van persoonlijke DNS-zones](private-dns-overview.md)
+## [Privé-DNS-scenario's](private-dns-scenarios.md)
+
 
 # Aan de slag
 
@@ -17,6 +19,7 @@
 
 ## Een persoonlijke DNS-zone en -record maken
 ### [PowerShell](private-dns-getstarted-powershell.md)
+### [Azure-CLI](private-dns-getstarted-cli.md)
 ## [Uw domein delegeren naar Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Aangepaste DNS-records voor een web-app maken](dns-web-sites-custom-domain.md)
 

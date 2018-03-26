@@ -1,0 +1,223 @@
+- name: Documentatie voor API Management
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Meer informatie over API Management
+      href: api-management-key-concepts.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Een instantie maken - Portal
+      href: get-started-create-service-instance.md
+    - name: Een instantie maken - PowerShell
+      href: powershell-create-service-instance.md
+- name: Zelfstudies
+  items:
+    - name: '1: Uw eerste API importeren'
+      href: import-and-publish.md
+    - name: '2: Een product maken en publiceren'
+      href: api-management-howto-add-products.md
+    - name: '3: Voorbeeldantwoorden van een API'
+      href: mock-api-responses.md
+    - name: '4: Uw API beveiligen'
+      href: transform-api.md
+    - name: '5: Gepubliceerde API''s bewaken'
+      href: api-management-howto-use-azure-monitor.md
+    - name: '6: Problemen met uw API''s oplossen'
+      href: api-management-howto-api-inspector.md
+    - name: '7: Revisies toevoegen'
+      href: api-management-get-started-revise-api.md
+    - name: '8: Meerdere versies toevoegen'
+      href: api-management-get-started-publish-versions.md
+    - name: '9: De ontwikkelaarsportal aanpassen'
+      href: api-management-customize-styles.md
+- name: Voorbeelden
+  items:
+    - name: Beleidsregels
+      href: policy-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+- name: Concepten
+  items:
+    - name: Terminologie
+      href: api-management-terminology.md
+    - name: Beleidsregels
+      items:
+        - name: Overzicht
+          href: api-management-howto-policies.md
+        - name: Index referentie naar beleid
+          href: api-management-policies.md
+    - name: Beheren met automatisering
+      href: automation-manage-api-management.md
+    - name: Foutafhandeling
+      href: api-management-error-handling-policies.md
+    - name: Importbeperkingen voor API's
+      href: api-management-api-import-restrictions.md
+- name: Handleidingen
+  items:
+    - name: 'API''s definiëren '
+      items:
+        - name: Handmatig een API toevoegen
+          href: add-api-manually.md
+        - name: Een OpenAPI-specificatie importeren
+          href: import-api-from-oas.md
+        - name: Een SOAP-API importeren
+          href: import-soap-api.md
+        - name: Een SOAP-API importeren en deze converteren naar REST
+          href: restify-soap-api.md
+        - name: Een API-app importeren
+          href: import-api-app-as-api.md
+        - name: Een functie-app importeren
+          href: import-function-app-as-api.md
+        - name: Een logische app importeren
+          href: import-logic-app-as-api.md
+        - name: Een Service Fabric-app importeren
+          href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
+        - name: Een API bewerken
+          href: edit-api.md
+    - name: Inrichten en schaal aanpassen
+      items:
+        - name: Upgraden en de schaal aanpassen
+          href: upgrade-and-scale.md
+        - name: Een aangepast domein configureren
+          href: configure-custom-domain.md
+    - name: Cache
+      items:
+        - name: Cache toevoegen voor betere prestaties
+          href: api-management-howto-cache.md
+    - name: Uw back-end beveiligen
+      items:
+        - name: Uw API beschermen met Azure AD
+          href: api-management-howto-protect-backend-with-aad.md
+        - name: Verbinding maken met een virtueel netwerk
+          href: api-management-using-with-vnet.md
+        - name: Verbinding maken met een intern virtueel netwerk
+          href: api-management-using-with-internal-vnet.md
+        - name: Application Gateway in een intern VNET integreren
+          href: api-management-howto-integrate-internal-vnet-appgateway.md
+        - name: Gezamenlijke verificatie via certificaat
+          href: api-management-howto-mutual-certificates.md
+    - name: De ontwikkelaarservaring aanpassen
+      items:
+        - name: Pagina-inhoud en -indeling wijzigen
+          href: api-management-modify-content-layout.md
+        - name: Systeempagina's aanpassen met behulp van sjablonen
+          href: api-management-developer-portal-templates.md
+        - name: Verificatie met Azure AD
+          href: api-management-howto-aad.md
+        - name: Verificatie met Azure AD B2C
+          href: api-management-howto-aad-b2c.md
+        - name: Gedelegeerde verificatie
+          href: api-management-howto-setup-delegation.md
+        - name: E-mailmeldingen en sjablonen
+          href: api-management-howto-configure-notifications.md
+        - name: OAuth-ondersteuning in de console inschakelen
+          href: api-management-howto-oauth2.md
+    - name: Beleid definiëren
+      items:
+        - name: Beleid instellen of bewerken
+          href: set-edit-policies.md
+        - name: Beleidsexpressies
+          href: api-management-policy-expressions.md
+        - name: Aangepaste caching
+          href: api-management-sample-cache-by-key.md
+        - name: Geavanceerde controle
+          href: api-management-log-to-eventhub-sample.md
+        - name: Geavanceerde aanvraagbeperking
+          href: api-management-sample-flexible-throttling.md
+        - name: Externe services gebruiken
+          href: api-management-sample-send-request.md
+        - name: Geheimen beheren met behulp van eigenschappen
+          href: api-management-howto-properties.md
+        - name: API's beveiligen met clientverificatie via een certificaat
+          href: api-management-howto-mutual-certificates-for-clients.md
+        - name: Beleid voor toegangsbeperking
+          href: api-management-access-restriction-policies.md
+        - name: Geavanceerde beleidsregels
+          href: api-management-advanced-policies.md
+        - name: Verificatiebeleid
+          href: api-management-authentication-policies.md
+        - name: Cachebeleidsregels
+          href: api-management-caching-policies.md
+        - name: Beleid voor meerdere domeinen
+          href: api-management-cross-domain-policies.md
+        - name: Transformatiebeleid
+          href: api-management-transformation-policies.md
+    - name: Sjabloonverwijzing
+      items:
+        - name: Sjablonen
+          href: api-management-developer-portal-templates-reference.md
+        - name: API's
+          href: api-management-api-templates.md
+        - name: Producten
+          href: api-management-product-templates.md
+        - name: Toepassingen
+          href: api-management-application-templates.md
+        - name: Problemen
+          href: api-management-issue-templates.md
+        - name: Gebruikersprofiel
+          href: api-management-user-profile-templates.md
+        - name: Pagina's
+          href: api-management-page-templates.md
+        - name: Sjabloonresources
+          href: api-management-template-resources.md
+    - name: Naslaginformatie over gegevensmodellen
+      href: api-management-template-data-model-reference.md
+    - name: Paginabesturingselementen
+      href: api-management-page-controls.md
+    - name: Beheren tijdens productie
+      items:
+        - name: Groepen beheren
+          href: api-management-howto-create-groups.md
+        - name: Implementeren naar meerdere Azure-regio's
+          href: api-management-howto-deploy-multi-region.md
+        - name: Gebeurtenissen registreren bij Azure Event Hubs
+          href: api-management-howto-log-event-hubs.md
+        - name: DR instellen met back-up/herstellen
+          href: api-management-howto-disaster-recovery-backup-restore.md
+        - name: Gebruikersaccounts beheren
+          href: api-management-howto-create-or-invite-developers.md
+        - name: Configureren met behulp van Git
+          href: api-management-configuration-repository-git.md
+        - name: Op rollen gebaseerd toegangsbeheer gebruiken
+          href: api-management-role-based-access-control.md
+        - name: Een beheerde service-identiteit gebruiken
+          href: api-management-howto-use-managed-service-identity.md
+        - name: Integreren met Service Fabric
+          items:
+            - name: Overzicht
+              href: ../service-fabric/service-fabric-api-management-overview.md
+            - name: Zelfstudie
+              href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
+- name: Naslaginformatie
+  items:
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: REST
+      href: /rest/api/apimanagement/
+    - name: REST (oorspronkelijk)
+      href: /rest/api/apimanagement/ApiManagementREST/api-management-REST
+- name: Resources
+  items:
+    - name: Veelgestelde vragen
+      href: api-management-faq.md
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Begeleiding bij API-ontwerp
+      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json'
+    - name: Begeleiding bij API-implementatie
+      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-api-management'
+    - name: Video's
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=api-management'
+    - name: Roadmap
+      href: 'http://aka.ms/apimroadmap'
+    - name: Power BI-oplossingssjabloon voor API Management
+      href: 'http://aka.ms/apimpbi'
+    - name: Blog
+      href: 'http://aka.ms/apimblog'
+    - name: Functieverzoeken
+      href: 'http://aka.ms/apimwish'

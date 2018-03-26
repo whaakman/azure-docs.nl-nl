@@ -1,0 +1,21 @@
+- name: OpenShift-documentatie
+  href: index.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: 'OpenShift: communitysjabloon'
+      href: 'https://azure.microsoft.com/en-us/resources/templates/openshift-origin-rhel/'
+- name: Zelfstudies
+  items:
+    - name: Implementeren naar Azure-VM's
+      href: /azure/virtual-machines/linux/openshift-get-started
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: OpenShift-containersjabloon
+      href: 'https://github.com/Microsoft/openshift-container-platform'
+    - name: OpenShift Origin
+      href: 'https://docs.openshift.org/latest/getting_started/index.html'
+    - name: OpenShift-site
+      href: 'https://docs.openshift.org/latest/welcome/index.html'

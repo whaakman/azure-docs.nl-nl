@@ -77,7 +77,8 @@
 ## [Groepen en leden beheren](active-directory-manage-groups.md)
 ### Groepen beheren
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure Resource Manager-model van Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Klassiek implementatiemodel van Azure PowerShell](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Groepsleden beheren](active-directory-groups-members-azure-portal.md)
 ### [Eigenaren van groepen beheren](active-directory-accessmanagement-managing-group-owners.md)
 ### [Groepslidmaatschap beheren](active-directory-groups-membership-azure-portal.md)
@@ -94,9 +95,8 @@
 ### [Alle groepen weergeven](active-directory-groups-view-azure-portal.md)
 ### [Groepstoegang tot SaaS-apps toevoegen](active-directory-accessmanagement-group-saasapps.md)
 ### [Herstellen van een verwijderde Office 365-groep](active-directory-groups-restore-azure-portal.md)
-### Groepsinstellingen beheren
-#### [Azure Portal](active-directory-groups-settings-azure-portal.md)
-#### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [Groepsinstellingen beheren](active-directory-groups-settings-azure-portal.md)
+
 ### Geavanceerde regels maken
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Selfservicegroepen instellen](active-directory-accessmanagement-self-service-group-management.md)
@@ -215,12 +215,12 @@
 ##### [Aangepaste startpagina](application-proxy-office365-app-launcher.md)
 ##### [Inlinelinks vertalen](application-proxy-link-translation.md)
 ##### [Wildcard-toepassingen](active-directory-application-proxy-wildcard.md)
-
+##### [Azure AD-toepassingsproxy en Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### Publicatie-overzicht
 ##### [Extern bureaublad](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
+#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Problemen oplossen](active-directory-application-proxy-troubleshoot.md)
 
 

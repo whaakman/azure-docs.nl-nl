@@ -7,7 +7,7 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Waarschuwing op basis van metrische gegevens
+    - name: Waarschuwing (klassiek) op basis van metrische gegevens
       href: monitor-quick-resource-metric-alert-portal.md
     - name: Waarschuwing bij abonnementactiviteit
       href: monitor-quick-audit-notify-action-in-subscription.md
@@ -21,66 +21,45 @@
   items:
     - name: Bronnen van bewakingsgegevens
       href: monitoring-data-sources.md
+    - name: Azure Monitor
+      href: monitoring-overview-azure-monitor.md
+    - name: Metrische gegevens
+      href: monitoring-overview-metrics.md
+    - name: Automatisch schalen
+      href: monitoring-overview-autoscale.md
+    - name: Diagnostische logboeken
+      href: monitoring-overview-of-diagnostic-logs.md
+    - name: Activiteitenlogboek
+      href: monitoring-overview-activity-logs.md
+    - name: Waarschuwingen
+      href: monitoring-overview-unified-alerts.md
+    - name: Waarschuwingen (klassiek)
+      href: monitoring-overview-alerts.md
+    - name: Waarschuwingen voor logboeken
+      href: monitor-alerts-unified-log.md
+    - name: Waarschuwingen voor activiteitenlogboeken (preview)
+      href: monitoring-activity-log-alerts-new-experience.md
+    - name: Waarschuwingen van OMS uitbreiden naar Azure
+      href: monitoring-alerts-extend.md
+    - name: Actiegroepen
+      href: monitoring-action-groups.md
+    - name: Azure Diagnostics-extensie
+      href: azure-diagnostics.md
     - name: Rolmachtigingen en -beveiliging
       href: monitoring-roles-permissions-security.md
     - name: Partnerintegraties
       href: monitoring-partners.md
-    - name: Aanvullende overzichten
-      items:
-        - name: Azure Monitor
-          href: monitoring-overview-azure-monitor.md
-        - name: Metrische gegevens
-          href: monitoring-overview-metrics.md
-        - name: Waarschuwingen
-          href: monitoring-overview-alerts.md
-        - name: Waarschuwingen (preview)
-          href: monitoring-overview-unified-alerts.md
-        - name: Waarschuwingen voor logboeken
-          href: monitor-alerts-unified-log.md
-        - name: Automatisch schalen
-          href: monitoring-overview-autoscale.md
-        - name: Activiteitenlogboek
-          href: monitoring-overview-activity-logs.md
-        - name: Waarschuwingen voor activiteitenlogboeken (preview)
-          href: monitoring-activity-log-alerts-new-experience.md
-        - name: Actiegroepen
-          href: monitoring-action-groups.md
-        - name: Diagnostische logboeken
-          href: monitoring-overview-of-diagnostic-logs.md
-        - name: Azure Diagnostics-extensie
-          href: azure-diagnostics.md
-    - name: Schema 's
-      items:
-        - name: Extensieschema voor Azure Diagnostics
-          href: azure-diagnostics-schema.md
-          items:
-            - name: 1
-              href: azure-diagnostics-schema-1dot0.md
-            - name: 1.2
-              href: azure-diagnostics-schema-1dot2.md
-            - name: 1.3 en hoger
-              href: azure-diagnostics-schema-1dot3-and-later.md
 - name: Handleidingen
   items:
-    - name: Rondleidingen
-      items:
-        - name: Stapsgewijze handleiding voor Azure Monitor
-          href: monitoring-get-started.md
-        - name: Stapsgewijze handleiding voor automatisch schalen
-          href: monitoring-autoscale-get-started.md
-        - name: Multi-dimensionale verkenner voor metrische gegevens
-          href: monitoring-metric-charts.md
-        - name: Azure CLI 1.0-voorbeelden
-          href: insights-cli-samples.md
-        - name: Azure PowerShell-voorbeelden
-          href: insights-powershell-samples.md
+    - name: Stapsgewijze handleiding voor Azure Monitor
+      href: monitoring-get-started.md
     - name: Waarschuwingen gebruiken
       items:
-        - name: Bijna-realtime waarschuwingen configureren in Azure Portal
+        - name: Nieuwe waarschuwingen configureren in Azure Portal
           href: monitoring-near-real-time-metric-alerts.md
-        - name: Waarschuwingen configureren in Azure Portal
+        - name: Klassieke waarschuwingen configureren in Azure Portal
           href: insights-alerts-portal.md
-        - name: Waarschuwingen voor metrische gegevens of voor logboeken configureren in Waarschuwingen (preview) in Azure Portal
+        - name: Waarschuwingen over metrische gegevens of logboeken configureren in Azure Portal
           href: monitor-alerts-unified-usage.md
         - name: Waarschuwingen configureren met CLI
           href: insights-alerts-command-line-interface.md
@@ -90,8 +69,12 @@
           href: monitor-alerts-unified-log-webhook.md
         - name: Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
           href: monitoring-enable-alerts-using-template.md
+        - name: Uitbreiding van waarschuwingen van OMS naar Azure initiëren
+          href: monitoring-alerts-extend-tool.md
     - name: Automatisch schalen gebruiken
       items:
+        - name: Stapsgewijze handleiding voor automatisch schalen
+          href: monitoring-autoscale-get-started.md
         - name: Inzicht in instellingen voor automatisch schalen
           href: monitoring-understanding-autoscale-settings.md
         - name: Aanbevolen procedures
@@ -151,10 +134,6 @@
         - name: Diagnostische instellingen inschakelen met Resource Manager-sjablonen
           href: monitoring-enable-diagnostic-logs-using-template.md
     - name: REST-API gebruiken
-      items:
-        - name: 'Rondleiding: REST API gebruiken'
-          href: monitoring-rest-api-walkthrough.md
-    - name: Azure Diagnostics-extensie gebruiken
       items:
         - name: Verzenden naar Application Insights
           href: azure-diagnostics-configure-application-insights.md

@@ -131,6 +131,8 @@
           items:
             - name: Architectuur
               href: service-fabric-reliable-actors-platform.md
+            - name: Functies op serviceniveau implementeren
+              href: service-fabric-reliable-actors-using.md
             - name: Levenscyclus en garbagecollection
               href: service-fabric-reliable-actors-lifecycle.md
             - name: Statusbeheer
@@ -389,7 +391,15 @@
               href: service-fabric-reliable-services-backup-restore.md
         - name: Een Reliable Actors-service bouwen
           items:
-            - name: Meldingen verzenden
+            - name: 'Toegang krijgen tot de actorstatus, de actorstatus opslaan en de actorstatus verwijderen'
+              href: service-fabric-reliable-actors-access-save-remove-state.md
+            - name: Actoren opsommen
+              href: service-fabric-reliable-actors-enumerate.md
+            - name: Actoren en hun status verwijderen
+              href: service-fabric-reliable-actors-delete-actors.md
+            - name: Een back-up maken van actoren en actoren herstellen
+              href: service-fabric-reliable-actors-backup-and-restore.md
+            - name: Actormeldingen verzenden
               href: service-fabric-reliable-actors-events.md
             - name: Timers en herinneringen instellen
               href: service-fabric-reliable-actors-timers-reminders.md

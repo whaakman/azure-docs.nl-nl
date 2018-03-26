@@ -1,11 +1,11 @@
 ---
-title: "Gegevens kopiëren van Azure Data Factory met HDFS | Microsoft Docs"
-description: "Ontdek hoe u gegevens kopiëren van een cloud of on-premises HDFS-bron naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn."
+title: Gegevens kopiëren van Azure Data Factory met HDFS | Microsoft Docs
+description: Ontdek hoe u gegevens kopiëren van een cloud of on-premises HDFS-bron naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 400c58abf04d28dd0e5f1d7aac204f09c43b942e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 98a03bf1637ce21320b749feb7dfb55096bf091c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Gegevens kopiëren van Azure Data Factory met HDFS
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -329,7 +329,7 @@ Er zijn twee opties voor het instellen van de on-premises omgeving om het gebrui
 
   **Opnieuw opstarten** na de configuratie van de KDC-service.
 
-2.  Voorbereiden van een principal met de naam  **krbtgt/REALM.COM@AD.COM**  in de KDC-server met de volgende opdracht:
+2.  Voorbereiden van een principal met de naam **krbtgt/REALM.COM@AD.COM** in de KDC-server met de volgende opdracht:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
@@ -342,7 +342,7 @@ Er zijn twee opties voor het instellen van de on-premises omgeving om het gebrui
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Een vertrouwensrelatie van Windows-domein voor Kerberos-Realm. [wachtwoord] is het wachtwoord voor de principal  **krbtgt/REALM.COM@AD.COM** .
+2.  Een vertrouwensrelatie van Windows-domein voor Kerberos-Realm. [wachtwoord] is het wachtwoord voor de principal **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 

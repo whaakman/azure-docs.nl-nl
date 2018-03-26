@@ -3,47 +3,41 @@
 # Overzicht
 ## [Wat is Load Balancer?](load-balancer-overview.md)
 ## [Wat is Load Balancer Standard?](load-balancer-standard-overview.md)
-## [Openbare load balancer](load-balancer-internet-overview.md)
-## [Interne load balancer](load-balancer-internal-overview.md)
-## [Load Balancer-testen](load-balancer-custom-probe-overview.md)
-## [Uitleg over poorten voor hoge beschikbaarheid](load-balancer-ha-ports-overview.md)
-## [Ondersteuning voor Azure Resource Manager](load-balancer-arm.md)
+## [Load balancer-tests](load-balancer-custom-probe-overview.md)
+## [Poorten met hoge beschikbaarheid](load-balancer-ha-ports-overview.md)
 ## [IPv6-ondersteuning](load-balancer-ipv6-overview.md)
-## [Meerdere VIP's](load-balancer-multivip-overview.md)
-## [Uitleg over uitgaande verbindingen](load-balancer-outbound-connections.md)
-## [De standaardversie van Load Balancer en beschikbaarheidszones](load-balancer-standard-availability-zones.md)
+## [Meerdere frontends](load-balancer-multivip-overview.md)
+## [Uitgaande verbindingen](load-balancer-outbound-connections.md)
+## [Load balancer van het type Standard en beschikbaarheidszones](load-balancer-standard-availability-zones.md)
+## [Metrische en diagnostische gegevens voor een load balancer van het type Standard](load-balancer-standard-diagnostics.md)
 
 # Aan de slag
+## [Een load balancer van het type Basic maken](load-balancer-get-started-internet-portal.md)
+### [Een load balancer van het type Basic maken (CLI)](load-balancer-get-started-internet-arm-cli.md)
+### [Een load balancer van het type Basic maken (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
+## [Een load balancer van het type Standard maken](load-balancer-standard-public-portal.md)
+### [Een load balancer van het type Standard maken (CLI)](load-balancer-standard-public-cli.md)
 
-## [Een interne load balancer configureren](load-balancer-get-started-ilb-arm-portal.md)
-### [Een interne load balancer configureren (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
-### [Een interne load balancer configureren (CLI)](load-balancer-get-started-ilb-arm-cli.md)
-### [Een interne load balancer configureren (sjabloon)](load-balancer-get-started-ilb-arm-template.md)
-
-## [Een openbare load balancer configureren](load-balancer-get-started-internet-portal.md)
-### [Een openbare load balancer configureren (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-### [Een openbare load balancer configureren (CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [Een openbare load balancer configureren (sjabloon)](load-balancer-get-started-internet-arm-template.md)
+# Procedures
 
 ## [Een openbare load balancer maken met IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Een openbare load balancer maken met IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Een openbare load balancer maken met IPv6 (sjabloon)](load-balancer-ipv6-internet-template.md)
-
 ## [Een zoneredundante openbare load balancer (Standard) maken](load-balancer-get-started-internet-az-portal.md)
 ### [Een zoneredundante openbare load balancer (Standard) maken (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Een zoneredundante openbare load balancer (Standard) maken (CLI)](load-balancer-get-started-internet-az-cli.md)
-
-# Procedures
+## [Een load balancer van het type Basic maken (sjabloon)](load-balancer-get-started-internet-arm-template.md)
+## [Een interne load balancer configureren](load-balancer-get-started-ilb-arm-portal.md)
+### [Een interne load balancer configureren (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
+### [Een interne load balancer configureren (CLI)](load-balancer-get-started-ilb-arm-cli.md)
+### [Een interne load balancer configureren (sjabloon)](load-balancer-get-started-ilb-arm-template.md)
 ## [Time-out voor TCP-inactiviteit configureren voor load balancer](load-balancer-tcp-idle-timeout.md)
 ## [Distributiemodus configureren voor load balancer](load-balancer-distribution-mode.md)
-## [Interne load balancer configureren voor SQL AlwaysOn](load-balancer-configure-sqlao.md)
-## [Meerdere VIP's configureren voor cloudservice](load-balancer-multivip.md)
 ## [Taakverdelingsservices combineren](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Meerdere IP-configuraties gebruiken](load-balancer-multiple-ip.md)
 ### [Meerdere IP-configuraties gebruiken (CLI)](load-balancer-multiple-ip-cli.md)
 ### [Meerdere IP-configuraties gebruiken (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Logboekanalyse voor Azure Load Balancer](load-balancer-monitor-log.md)
-## [DHCPv6 configureren voor Linux-VM's](load-balancer-ipv6-for-linux.md)
 ## [Poorten voor hoge beschikbaarheid configureren voor de interne Load Balancer](load-balancer-configure-ha-ports.md)
 
 ## Problemen oplossen
@@ -51,6 +45,7 @@
 
 ## Artikelen over het klassieke implementatiemodel
 ### [Uitgaande verbindingen (klassiek)](load-balancer-outbound-connections-classic.md)
+## [Meerdere VIP's configureren voor cloudservice](load-balancer-multivip.md)
 ### [Een interne load balancer configureren voor cloudservices](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Een interne load balancer configureren voor cloudservices (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Een interne load balancer configureren voor cloudservices (CLI)](load-balancer-get-started-ilb-classic-cli.md)

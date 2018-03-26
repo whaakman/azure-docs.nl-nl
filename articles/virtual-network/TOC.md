@@ -56,7 +56,10 @@
 #### [Verschillende implementatiemodellen - hetzelfde abonnement](create-peering-different-deployment-models.md)
 #### [Verschillende implementatiemodellen - verschillende abonnementen](create-peering-different-deployment-models-subscriptions.md)
 
-### [Service-eindpunten voor virtueel netwerk](virtual-network-service-endpoints-configure.md)
+### Service-eindpunten voor virtueel netwerk
+#### [Azure Portal](tutorial-restrict-network-access-to-resources.md)
+#### [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md)
+#### [Azure-CLI](tutorial-restrict-network-access-to-resources-cli.md)
 
 ### Virtuele machines
 #### [Netwerkdoorvoer van virtuele machines](virtual-machine-network-throughput.md)
@@ -176,8 +179,12 @@
 ### [Problemen met connectiviteit van VM naar VM](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [PTR configureren voor controle van de SMTP-koptekst ](create-ptr-for-smtp-service.md)
 
+## Voorbeeldscripts
+### [Azure-CLI](cli-samples.md)
+### [Azure PowerShell](powershell-samples.md)
+
 # Naslaginformatie
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (klassiek)](/powershell/module/azure/)
 ## [Azure-CLI](/cli/azure/network)

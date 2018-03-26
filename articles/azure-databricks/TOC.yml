@@ -7,20 +7,40 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Een Databricks-werkruimte maken
+    - name: Een Databricks-werkruimte maken - Portal
       href: quickstart-create-databricks-workspace-portal.md
+    - name: Een Databricks-werkruimte maken - Resource Manager-sjabloon
+      href: quickstart-create-databricks-workspace-resource-manager-template.md
 - name: Zelfstudies
   items:
+    - name: ETL-bewerkingen uitvoeren
+      href: databricks-extract-load-sql-data-warehouse.md
     - name: Gegevens streamen met Event Hubs
       href: databricks-stream-from-eventhubs.md
     - name: Sentimentanalyse met Cognitive Services
       href: databricks-sentiment-analysis-cognitive-services.md
+    - name: Gegevens streamen vanuit HDInsight Kafka
+      href: 'https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html'
 - name: Handleidingen
   items:
+    - name: Een Spark-cluster maken
+      href: 'https://docs.azuredatabricks.net/user-guide/clusters/index.html'
+    - name: Werken met notitieblokken
+      href: 'https://docs.azuredatabricks.net/user-guide/notebooks/index.html'
+    - name: Spark-taken uitvoeren
+      href: 'https://docs.azuredatabricks.net/user-guide/jobs.html'
+    - name: Verbinding maken met gegevensbronnen
+      href: databricks-connect-to-data-sources.md
     - name: 'Verbinding maken met Excel, R en Python'
       href: connect-databricks-excel-python-r.md
     - name: Databricks CLI van Azure Cloud Shell gebruiken
       href: databricks-cli-from-azure-cloud-shell.md
+    - name: BI-hulpprogramma's gebruiken
+      href: 'https://docs.azuredatabricks.net/user-guide/bi/index.html'
+- name: Naslaginformatie
+  items:
+    - name: REST-API
+      href: /rest/api/databricks
 - name: Resources
   items:
     - name: Veelgestelde vragen

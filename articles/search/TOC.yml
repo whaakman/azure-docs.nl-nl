@@ -77,11 +77,15 @@
           href: search-performance-optimization.md
     - name: Beveiliging
       items:
-        - name: Gegevensbeveiliging en operationele beveiliging
+        - name: Beveiligingsoverzicht
           href: search-security-overview.md
-        - name: Beveiligen met behulp van id-filters
+        - name: Beheer van servicesleutels
+          href: search-security-api-keys.md
+        - name: Op rollen gebaseerde beheerderstoegang
+          href: search-security-rbac.md
+        - name: Beveiligingsfilters
           href: search-security-trimming-for-azure-search.md
-        - name: Beveiligen met behulp van Active Directory
+        - name: Filteren op AAD-identiteiten
           href: search-security-trimming-for-azure-search-with-aad.md
     - name: Ontwikkeling
       items:

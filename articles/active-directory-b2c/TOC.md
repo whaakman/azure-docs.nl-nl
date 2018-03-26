@@ -91,7 +91,8 @@
 #### [Wachtwoordcomplexiteit](active-directory-b2c-reference-password-complexity-custom.md)
 #### [Wachtwoord wijzigen](active-directory-b2c-reference-password-change-custom.md)
 #### [Aangemeld blijven inschakelen](active-directory-b2c-reference-kmsi-custom.md)
-### Problemen oplossen
+### Probleemoplossing en gebeurtenislogboeken
+#### [Aangepaste gebeurtenissen maken met Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md)
 #### [Logboeken verzamelen met Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Naslaginformatie
 ### [Releaseopmerkingen](active-directory-b2c-developer-notes-custom.md)

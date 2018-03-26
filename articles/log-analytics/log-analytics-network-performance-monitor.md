@@ -2,10 +2,10 @@
 title: Prestatiemeter-oplossing in Azure-netwerk | Microsoft Docs
 description: Prestatiemeter in Azure-netwerk helpt u bij het controleren van de prestaties van uw netwerken in bijna de real time te detecteren en knelpunten in de prestaties te vinden.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: abshamsft
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 399fe552d5c7d9a96cdabc2a1dfafe99635d4a61
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 90fd9b09f90d5b209e0eb8cc6996ef7fb1e7e0b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -38,6 +38,8 @@ NPM biedt drie algemene mogelijkheden:
 Deze mogelijkheid kunt u het uitvoeren van http, HTTPS, TCP- en ICMP gebaseerd tests uit om controleren in bijna realtime of in het verleden de beschikbaarheid en reactietijd van uw service en de bijdrage van het netwerk in pakketverlies en latentie. Met de netwerktoewijzing-topologie, kunt u netwerk vertragingen isoleren door te identificeren probleem plaatsen die langs het netwerkpad van het knooppunt aan de service, met latentiegegevens op elke hop optreden. Met ingebouwde tests controleren netwerkverbinding met Office365 en Dynamics CRM zonder vooraf configuratie. Met deze functie kunt u de netwerkverbinding controleren voor alle TCP-compatibele eindpunt zoals websites, SaaS, PaaS-toepassingen, SQL-databases, enzovoort.  
 
 [ExpressRoute-Monitor](log-analytics-network-performance-monitor-expressroute.md): end-to-end-connectiviteit en de prestaties tussen uw filialen en Azure controleren via Azure ExpressRoute.  
+
+Meer informatie over de verschillende mogelijkheden ondersteund door [netwerk Prestatiemeter](https://docs.microsoft.com/azure/networking/network-monitoring-overview) is online beschikbaar.
  
 
 ## <a name="set-up-and-configure"></a>Installeren en configureren

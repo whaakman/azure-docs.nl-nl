@@ -103,6 +103,8 @@
               href: hyper-v-vmm-architecture.md
     - name: Herstel na noodgeval voor apps
       href: site-recovery-workload.md
+    - name: Over herstelplannen
+      href: recovery-plan-overview.md
     - name: Info over migratie
       href: migrate-overview.md
     - name: Over op rollen gebaseerd toegangsbeheer met Site Recovery
@@ -273,6 +275,12 @@
           items:
             - name: Noodherstelanalyse uitvoeren in Azure
               href: site-recovery-test-failover-to-azure.md
+            - name: Herstelplannen instellen
+              href: site-recovery-create-recovery-plans.md
+            - name: VMM-scripts toevoegen aan herstelplannen
+              href: hyper-v-vmm-recovery-script.md
+            - name: Azure-runbooks aan herstelplannen toevoegen
+              href: site-recovery-runbook-automation.md
             - name: Een failover naar Azure uitvoeren
               href: site-recovery-failover.md
             - name: Failback van Azure naar Hyper-V

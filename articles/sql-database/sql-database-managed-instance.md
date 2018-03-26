@@ -8,17 +8,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/21/2018
 ms.author: bonova
-ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e13583e0364b01c3a4560d88882eb1dcf82b8c99
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een exemplaar beheerd (preview)?
 
-Azure SQL Database beheerd-instantie (preview) is een nieuwe functie van Azure SQL Database, die in de buurt van 100% compatibel met SQL Server on-premises, bieden een systeemeigen [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md) implementatie die zijn gericht algemene beveiligingskwesties weergegeven, en een [bedrijfsmodel](https://azure.microsoft.com/pricing/details/sql-database/) gunstig voor lokale SQL Server-klanten. Beheerde exemplaar kan bestaande SQL Server-klanten en hun on-premises toepassingen naar de cloud met minimale wijzigingen voor toepassings- en verschuiven. Beheerde exemplaar van bewaart op hetzelfde moment alle PaaS mogelijkheden (automatische patchen en versie-updates, back-up, hoge beschikbaarheid), die aanzienlijk minder beheeroverhead en totale Eigendomskosten.
+Azure SQL Database beheerd-instantie (preview) is een nieuwe functie van Azure SQL Database, die in de buurt van 100% compatibel met SQL Server on-premises (Enterprise Edition) bieden een systeemeigen [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md) implementatie die zijn gericht op algemene beveiligingskwesties weergegeven, en een [bedrijfsmodel](https://azure.microsoft.com/pricing/details/sql-database/) gunstig voor lokale SQL Server-klanten. Beheerde exemplaar kan bestaande SQL Server-klanten en hun on-premises toepassingen naar de cloud met minimale wijzigingen voor toepassings- en verschuiven. Beheerde exemplaar van bewaart op hetzelfde moment alle PaaS mogelijkheden (automatische patchen en versie-updates, back-up, hoge beschikbaarheid), die aanzienlijk minder beheeroverhead en totale Eigendomskosten.
 
 > [!IMPORTANT]
 > Zie voor een lijst met regio's waarin beheerd exemplaar momenteel beschikbaar is, [uw databases migreren naar een volledig beheerde service met Azure SQL Database-beheerd instantie](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
@@ -58,6 +58,9 @@ De volgende tabel ziet u enkele eigenschappen, toegankelijk via de Transact-SQL 
 
 ## <a name="key-features-and-capabilities-of-a-managed-instance"></a>Belangrijkste functies en mogelijkheden van een beheerd-exemplaar 
 
+> [!IMPORTANT]
+> Een beheerde-exemplaar wordt uitgevoerd met alle van de functies van de meest recente versie van SQL Server, inclusief online bewerkingen, automatische plan correcties en andere prestatieverbeteringen enterprise. 
+
 | **PaaS voordelen** | **Bedrijfscontinuïteit** |
 | --- | --- |
 |Er is geen hardware aanschaffen en beheer <br>Er is geen management overhead voor het beheren van onderliggende infrastructuur <br>Snelle inrichting en schalen van de service <br>Automatische upgrade voor patchen en versie <br>Integratie met andere services PaaS-gegevens |99,99% beschikbaarheid SLA  <br>Ingebouwde hoge beschikbaarheid <br>Gegevens die worden beveiligd met automatische back-ups <br>Klant configureerbare back-up bewaarperiode (vaste tot 7 dagen in Public Preview) <br>Back-ups gebruiker gestart <br>Punt in tijd database terugzetten mogelijkheid |
@@ -90,6 +93,7 @@ Hieronder worden de belangrijkste functies van de servicelaag voor algemene doel
 | SQL Server-versie / bouwen | SQL Server recente (beschikbaar) |
 | Grootte van de opslagruimte min | 32 GB |
 | Maximale opslaggrootte | 8 TB |
+| Maximale opslag per database | 4 TB |
 | Verwachte opslag IOP 's | 500-7500 IOP's per bestand (afhankelijk van gegevensbestand). Zie [Premium-opslag](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Het aantal gegevensbestanden (rijen) per de database | Meerdere | 
 | Aantal logboekbestanden (LOGBOEKREGISTRATIE) per database | 1 | 
@@ -120,7 +124,7 @@ Het volgende diagram geeft een overzicht van isolatie ontwerp:
 
 ### <a name="auditing-for-compliance-and-security"></a>Controles voor naleving en beveiliging 
 
-Beheerde exemplaar [controle](sql-database-auditing.md) houdt database gebeurtenissen en schrijft deze naar een auditlogboek Meld u bij uw Azure storage-account. Controle kunt regelgeving onderhouden, de activiteit in een database begrijpen en meer inzicht krijgen in discrepanties en afwijkingen die kunnen wijzen op problemen voor het bedrijf of vermoedelijke beveiligingsschendingen. 
+[Beheerde exemplaar controle](sql-database-managed-instance-auditing.md) houdt database gebeurtenissen en schrijft deze naar een auditlogboek Meld u bij uw Azure storage-account. Controle kunt regelgeving onderhouden, de activiteit in een database begrijpen en meer inzicht krijgen in discrepanties en afwijkingen die kunnen wijzen op problemen voor het bedrijf of vermoedelijke beveiligingsschendingen. 
 
 ### <a name="data-encryption-in-motion"></a>Versleuteling van gegevens in beweging 
 
@@ -138,7 +142,7 @@ SQL-Database [dynamische gegevensmaskering](/sql/relational-databases/security/d
 
 ### <a name="threat-detection"></a>Detectie van bedreigingen 
 
-Azure SQL Database [detectie van dreigingen](sql-database-threat-detection.md) vormt een aanvulling op controle, dankzij een extra laag van beveiliging intelligence ingebouwd in de service die ongebruikelijke en potentieel schadelijke probeert detecteert te openen of misbruik van databases. U wordt gewaarschuwd over mogelijke beveiligingsproblemen met verdachte activiteiten en SQL-injectie aanvallen, evenals database afwijkende toegangspatronen. Dagelijks geconstateerde waarschuwingen kunnen bekeken worden vanuit [Azure Security Center](https://azure.microsoft.com/services/security-center/) en Geef details op van de verdachte activiteit en actie voor het onderzoeken en het risico dat het beste.  
+[Detectie van dreigingen exemplaar beheerd](sql-database-managed-instance-threat-detection.md) vormt een aanvulling op [beheerd exemplaar controle](sql-database-managed-instance-auditing.md) door te geven van een extra laag van beveiliging intelligence ingebouwd in de service die door ongebruikelijke en potentieel schadelijke aanvallen kunnen worden gedetecteerd toegang tot of misbruik van databases. U wordt gewaarschuwd over mogelijke beveiligingsproblemen met verdachte activiteiten en SQL-injectie aanvallen, evenals database afwijkende toegangspatronen. Dagelijks geconstateerde waarschuwingen kunnen bekeken worden vanuit [Azure Security Center](https://azure.microsoft.com/services/security-center/) en Geef details op van de verdachte activiteit en actie voor het onderzoeken en het risico dat het beste.  
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integratie en meervoudige verificatie 
 
@@ -197,4 +201,4 @@ Beheerde exemplaar inschakelen systeembeheerder om zich te richten op wat belang
 
 - Voor een functies en vergelijkingslijst Zie [algemene functies van SQL](sql-database-features.md).
 - Zie voor een zelfstudie maakt u een exemplaar beheerd en een database herstelt vanuit een back-upbestand [maken van een exemplaar beheerd](sql-database-managed-instance-tutorial-portal.md).
-- Zie voor een zelfstudie voor migratie met behulp van Azure Database migratie Service (DMS), [beheerd exemplaar migratie met behulp van DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Lees het artikel [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md) (Migratie van een beheerd exemplaar via DMS) voor een zelfstudie over gebruik van de Azure Database Migration Service (DMS).
