@@ -3,108 +3,139 @@ title: Zelfstudie over het bouwen van een model voor Azure Machine Learning-serv
 description: Deze volledige zelfstudie laat zien hoe u Azure Machine Learning-services (preview) end-to-end gebruikt. Dit is deel twee en hierin wordt het experimenteren besproken.
 services: machine-learning
 author: hning86
-ms.author: haining, j-martens
+ms.author: haining
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
-ms.openlocfilehash: 3e7f1b25757dc627f0f42a34c1a42b2d421c06c9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.date: 3/15/2018
+ms.openlocfilehash: e4fc13e88d56677687e0f97d156f9b7761eae1d8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-2---build-a-model"></a>Zelfstudie - Classificeren van Iris deel 2: een model bouwen
-Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
+# <a name="tutorial-2-classify-iris---build-a-model"></a>Zelfstudie 2: Iris classificeren - Een model bouwen
+Azure Machine Learning-services (preview) zijn een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
 
-Deze zelfstudie is **deel 2 van een driedelige reeks**. In dit gedeelte van de zelfstudie wordt uitgelegd hoe u Azure Machine Learning-services (preview) gebruikt om:
+Deze zelfstudie is **deel 2 van een driedelige reeks**. In dit gedeelte van de zelfstudie wordt uitgelegd hoe u Azure Machine Learning-services voor het volgende gebruikt:
 
 > [!div class="checklist"]
-> * Azure Machine Learning Workbench te gebruiken.
-> * Scripts te openen en code te controleren.
-> * Scripts uit te voeren in een lokale omgeving.
-> * De uitvoeringsgeschiedenis te controleren.
-> * Scripts uit te voeren in een lokale Docker-omgeving.
-> * Scripts uit te voeren in een lokaal Azure CLI-venster.
-> * Scripts uit te voeren in een externe Docker-omgeving.
-> * Scripts uit te voeren in een HDInsight-cloudomgeving.
+> * Scripts openen en code controleren
+> * Scripts uitvoeren in een lokale omgeving
+> * Uitvoeringsgeschiedenis beoordelen
+> * Scripts uitvoeren in een lokaal Azure CLI-venster
+> * Scripts uitvoeren in een lokale Docker-omgeving
+> * Scripts uitvoeren in een remote Docker-omgeving
+> * Scripts uitvoeren in een Azure HDInsight-cloudomgeving
 
-In deze zelfstudie wordt de tijdloze [Iris-gegevensset](https://en.wikipedia.org/wiki/Iris_flower_data_set) gebruikt. De schermopnamen zijn specifiek voor Windows, maar de Mac OS-versie is bijna identiek.
-
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+In deze zelfstudie wordt de tijdloze [Iris-gegevensset](https://en.wikipedia.org/wiki/Iris_flower_data_set) gebruikt. 
 
 ## <a name="prerequisites"></a>Vereisten
-Voltooi het eerste deel van deze reeks zelfstudies. Volg de zelfstudie [Gegevens voorbereiden](tutorial-classifying-iris-part-1.md) om Azure Machine Learning-resources te maken en de toepassing Azure Machine Learning Workbench te installeren voordat u begint aan deze zelfstudie.
 
-U kunt ook experimenteren met het uitvoeren van scripts voor een lokale Docker-container. Daarvoor moet op uw Windows- of Mac OS-computer lokaal een Docker-engine (Community Edition is voldoende) zijn geïnstalleerd en gestart. Zie [Installatie-instructies voor Docker](https://docs.docker.com/engine/installation/) voor meer informatie over het installeren van Docker.
-
-Volg de [instructies voor het maken van een virtuele Azure Data Science-machine of een Azure HDInsight Spark-cluster](how-to-create-dsvm-hdi.md) als u wilt experimenteren met het verzenden van scripts die moeten worden uitgevoerd in een Docker-container in een externe virtuele Azure-machine of een HDInsight Spark-cluster.
+Voor deze zelfstudie hebt u het volgende nodig:
+- Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
+- Een experimenteel account en een Azure Machine Learning Workbench zijn geïnstalleerd, zoals beschreven in deze [snelstart](quickstart-installation.md)
+- Het project en de voorbereide Iris-gegevens uit [Zelfstudie deel 1](tutorial-classifying-iris-part-1.md)
+- Een Docker-engine moet zijn geïnstalleerd en lokaal worden uitgevoerd. De Community Edition van Docker is voldoende. Informatie over het installeren van Docker vindt u hier: https://docs.docker.com/engine/installation/.
 
 ## <a name="review-irissklearnpy-and-the-configuration-files"></a>Iris_sklearn.py en de configuratiebestanden controleren
-1. Open de toepassing Azure Machine Learning Workbench en open het project **myIris** dat u in het vorige deel van de reeks zelfstudies hebt gemaakt.
+
+1. Open de toepassing Azure Machine Learning Workbench.
+
+1. Open vervolgens het project **myIris** dat u in [Deel 1 van de reeks zelfstudies hebt gemaakt](tutorial-classifying-iris-part-1.md).
 
 2. Nadat u het project hebt geopend, selecteert u in het deelvenster uiterst links de knop **Files** (mappictogram) om de lijst met bestanden in de projectmap te openen.
 
-3. Selecteer het bestand **iris_sklearn.py**. De Python-code wordt weergegeven op een nieuw tabblad van de teksteditor in Workbench.
+   ![Het project in de Azure Machine Learning Workbench openen](media/tutorial-classifying-iris/2-project-open.png)
 
-   ![Een bestand openen](media/tutorial-classifying-iris/open_iris_sklearn.png)
+3. Selecteer het Python-scriptbestand **iris_sklearn.py**. 
+
+   ![Kies een script](media/tutorial-classifying-iris/2-choose-iris_sklearn.png)
+
+   De code wordt weergegeven op een nieuw tabblad van de teksteditor in Workbench. Dit is het script dat u in dit deel van de zelfstudie gebruikt. 
 
    >[!NOTE]
    >Het is mogelijk dat de code die u ziet, en de code in de zelfstudie niet exact overeenkomen. De reden hiervoor is dat dit voorbeeldproject regelmatig wordt bijgewerkt.
+   
+   ![Een bestand openen](media/tutorial-classifying-iris/open_iris_sklearn.png)
 
-4. Bekijk de code van het Python script om vertrouwd te raken met de stijl van coderen. Met het script worden de volgende taken uitgevoerd:
+4. Bekijk de code van het Python-script om vertrouwd te raken met de stijl van coderen. 
 
-   - Het gegevensvoorbereidingspakket **iris.dprep** wordt geladen om een [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) te maken. 
+   Met het script **iris_sklearn.py** worden de volgende taken uitgevoerd:
 
-        >[!NOTE]
-        >Gebruik het gegevensvoorbereidingspakket `iris.dprep` dat deel uitmaakt van het voorbeeldproject. Dit pakket moet overeenkomen met het bestand `iris-1.dprep` dat u in deel 1 van deze zelfstudie hebt gemaakt.
+   * Het standaard gegevensvoorbereidingspakket **iris.dprep** wordt geladen om een [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) te maken. 
 
-   - Er worden willekeurige functies toegevoegd om het oplossen van het probleem te bemoeilijken. Randomisering is nodig omdat Iris een kleine gegevensset is die eenvoudig kan worden geclassificeerd met bijna 100% nauwkeurigheid.
+   * Er worden willekeurige functies toegevoegd om het oplossen van het probleem te bemoeilijken. Randomness is nodig omdat Iris een kleine gegevensset is, die eenvoudig met bijna 100% nauwkeurigheid wordt geclassificeerd.
 
-   - Gebruikt de Machine Learning-bibliotheek [scikit-learn](http://scikit-learn.org/stable/index.html) voor het bouwen van een eenvoudig logistiek regressiemodel. 
+   * Gebruikt de Machine Learning-bibliotheek [scikit-learn](http://scikit-learn.org/stable/index.html) voor het bouwen van een eenvoudig logistiek regressiemodel.  Deze bibliotheek wordt standaard geleverd met Azure Machine Learning Workbench.
 
-   - Serialiseert het model door de [pickle](https://docs.python.org/3/library/pickle.html)-bibliotheek in te voegen in een bestand in de map `outputs`. Met het script wordt het model vervolgens gedeserialiseerd in het geheugen.
+   * Serialiseert het model door de [pickle](https://docs.python.org/3/library/pickle.html)-bibliotheek in te voegen in een bestand in de map `outputs`. 
+   
+   * Het geserialiseerde model wordt geladen en daarna weer in het geheugen gedeserialiseerd.
 
-   - Het gedeserialiseerde model wordt gebruikt om een voorspelling te geven voor een nieuwe record. 
+   * Het gedeserialiseerde model wordt gebruikt om een voorspelling te geven voor een nieuwe record. 
 
-   - Tekent twee grafieken, een verwarringsmatrix en een ROC-curve (Receiver Operating Characteristic-curve) met meerdere klassen, met behulp van een [matplotlib](https://matplotlib.org/)-bibliotheek, en slaat deze vervolgens op in de map `outputs`.
+   * Tekent twee grafieken, een verwarringsmatrix en een ROC-curve (Receiver Operating Characteristic-curve) met meerdere klassen, met behulp van een [matplotlib](https://matplotlib.org/)-bibliotheek, en slaat deze vervolgens op in de map `outputs`. Als u deze bibliotheek nog niet in uw omgeving hebt, kunt u deze installeren.
 
-   - Het object `run_logger` wordt gebruikt om de regularisatiefrequentie en de nauwkeurigheid van het model in de logboeken vast te leggen. Deze waarden worden automatisch in de uitvoeringsgeschiedenis getekend.
+   * De nauwkeurigheid van de regulariseringsfrequentie en het model worden in de uitvoeringsgeschiedenis automatisch uitgezet. Het object `run_logger` wordt gebruikt om de regularisatiefrequentie en de nauwkeurigheid van het model in de logboeken vast te leggen. 
 
 
-## <a name="execute-irissklearnpy-script-in-a-local-environment"></a>Het script iris_sklearn.py uitvoeren in een lokale omgeving
+## <a name="run-irissklearnpy-in-your-local-environment"></a>Iris_sklearn.py uitvoeren in uw lokale omgeving
 
-We gaan nu de voorbereidingen treffen om het script **iris_sklearn.py** voor het eerst uit te voeren. Voor dit script zijn de pakketten **scikit-learn** en **matplotlib** vereist. Het pakket **scikit-learn** pakket is al geïnstalleerd in Azure Machine Learning Workbench. U moet het pakket **matplotlib** wel nog installeren. 
+1. Start de Azure Machine Learning-opdrachtregelinterface (CLI):
+   1. Start Azure Machine Learning Workbench.
 
-1. Selecteer in Azure Machine Learning Workbench het menu **File** en selecteer vervolgens **Open Command Prompt** om de opdrachtprompt te openen. Er wordt naar dit venster van de opdrachtregelinterface verwezen als *Azure Machine Learning Workbench CLI-venster*, of kortweg *CLI-venster*.
+   1. Selecteer in het menu Workbench **File** > **Open Command Prompt**. 
+   
+   Het venster Azure Machine Learning-opdrachtregelinterface (CLI) wordt gestart in de projectmap `C:\Temp\myIris\>` in Windows. Dit project is hetzelfde als de domeincontroller die u hebt gemaakt in Deel 1 van de zelfstudie.
 
-2. Voer in het CLI-venster de volgende opdracht in om het Python-pakket **matplotlib** te installeren. De installatie duurt minder dan een minuut.
+   >[!IMPORTANT]
+   >Om de volgende stappen uit te voeren, moet u dit CLI-venster gebruiken.
+
+1. In het CLI-venster installeert u de Python-plottingbibliotheek **matplotlib**, als u deze bibliotheek nog niet hebt.
+
+   Het script **iris_sklearn.py** is afhankelijk van twee Python-pakketten: **scikit-learn** en **matplotlib**.  Het pakket **scikit-learn** is al geïnstalleerd in Azure Machine Learning Workbench. Maar u moet **matplotlib** installeren als dit niet nog is geïnstalleerd.
+
+   Als u doorgaat zonder dat u **matplotlib** installeert, kan de code in deze zelfstudie nog steeds met succes worden uitgevoerd. Het is voor de code echter niet mogelijk om de uitvoer van de verwarringsmatrix en de multiklasse ROC-curveplots die worden weergegeven in de geschiedenisvisualisaties te produceren.
 
    ```azurecli
    pip install matplotlib
    ```
 
-   >[!NOTE]
-   >Als u de vorige `pip install`-opdracht overslaat, wordt de code in `iris_sklearn.py` volledig uitgevoerd. Als u alleen `iris_sklearn.py` uitvoert, worden met de code de verwarringsmatrix en de ROC-curve met meerdere klassen niet geproduceerd die zichtbaar zijn in de geschiedenisvisualisaties.
+   Deze installatie duurt ongeveer een minuut.
 
-3. Ga terug naar het venster van de Workbench-app. 
+1. Ga terug naar de Workbench-toepassing. 
 
-4. Selecteer in de werkbalk bovenaan het tabblad **iris_sklearn.py** de optie **local** als uitvoeringsomgeving en `iris_sklearn.py` als het uit te voeren script.
+1. Zoek het tabblad met de naam **iris_sklearn.py**. 
 
-5. Ga daarna naar de rechterkant van de werkbalk en voer `0.01` in het veld **Arguments** in. Deze waarde komt overeen met de regularisatiesnelheid van het logistieke regressiemodel.
+   ![Zoek het tabblad met script](media/tutorial-classifying-iris/2-iris_sklearn-tab.png)
 
-   ![Besturingselement van run](media/tutorial-classifying-iris/run_control.png)
+1. Selecteer in de werkbalk bovenaan het tabblad **local** als uitvoeringsomgeving en `iris_sklearn.py` als het uit te voeren script. Dit is mogelijk al ingeschakeld.
 
-6. Selecteer de knop **Run**. Er wordt direct een taak gepland. De taak wordt vermeld in het deelvenster **Jobs** aan de rechterkant van het Workbench-venster. 
+   ![Lokale en scriptkeuze](media/tutorial-classifying-iris/2-local-script.png)
 
-7. Na enkele ogenblikken verandert de status van de taak van **Submitting** in **Running** en uiteindelijk in **Completed**.
+1. Ga daarna naar de rechterkant van de werkbalk en voer `0.01` in het veld **Argumenten** in. 
 
-   ![Sklearn van run](media/tutorial-classifying-iris/run_sklearn.png)
+   Deze waarde komt overeen met de regularisatiesnelheid van het logistieke regressiemodel.
 
-8. Selecteer **Completed** in de taakstatustekst in het deelvenster **Jobs**. Er wordt een pop-upvenster geopend met de standaarduitvoertekst (stdout) voor de run. Als u de stdout-tekst wilt sluiten, selecteert u in de rechterbovenhoek van het pop-upvenster de knop **Close** (**x**).
+   ![Lokale en scriptkeuze](media/tutorial-classifying-iris/2-local-script-arguments.png)
+
+1. Selecteer de knop **Run**. Er wordt direct een taak gepland. De taak wordt vermeld in het deelvenster **Jobs** aan de rechterkant van het Workbench-venster. 
+
+   ![Lokale en scriptkeuze](media/tutorial-classifying-iris/2-local-script-arguments-run.png)
+
+   Na enkele ogenblikken verandert de status van de taak van **Submitting** in **Running** en uiteindelijk in **Completed**.
+
+1. Selecteer **Completed** in de taakstatustekst in het deelvenster **Jobs**. 
+
+   ![Sklearn van run](media/tutorial-classifying-iris/2-completed.png)
+
+   Er wordt een pop-upvenster geopend met de standaarduitvoertekst (stdout) voor de run. Als u de stdout-tekst wilt sluiten, selecteert u in de rechterbovenhoek van het pop-upvenster de knop **Close** (**x**).
+
+   ![Standaarduitvoer](media/tutorial-classifying-iris/2-standard-output.png)
 
 9. Selecteer in dezelfde taakstatus in het deelvenster **Jobs** de blauwe tekst **iris_sklearn.py [n]** (_n_ is het uitvoeringsnummer) net boven de status **Completed** en de begintijd. Het venster **Run Properties** wordt geopend en de volgende informatie wordt weergegeven voor de desbetreffende run:
    - Informatie in **Run Properties**
@@ -116,7 +147,7 @@ We gaan nu de voorbereidingen treffen om het script **iris_sklearn.py** voor het
    Als de run is voltooid, bevat het pop-upvenster de volgende resultaten:
 
    >[!NOTE]
-   >Omdat we eerder in de zelfstudie randomisering hebben geïntroduceerd, kunnen de resultaten verschillen met de resultaten die hier worden weergegeven.
+   >Omdat we eerder in de zelfstudie randomisering hebben geïntroduceerd, kunnen de exacte resultaten verschillen met de resultaten die hier worden weergegeven.
 
    ```text
    Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
@@ -146,7 +177,7 @@ We gaan nu de voorbereidingen treffen om het script **iris_sklearn.py** voor het
    ROC curve plotted.
    Confusion matrix and ROC curve plotted. See them in Run History details pane.
    ```
-
+    
 10. Sluit het tabblad **Run Properties** en ga vervolgens terug naar het tabblad **iris_sklearn.py**. 
 
 11. Herhaal dit voor aanvullende runs. 
@@ -160,26 +191,35 @@ In Azure Machine Learning Workbench wordt elke uitvoering van een script vastgel
 
    ![Weergave van run](media/tutorial-classifying-iris/run_view.png)
 
-2. Het tabblad **Run Dashboard** wordt geopend. Bekijk de statistieken die zijn vastgelegd voor de verschillende runs. Grafieken worden boven aan het tabblad weergegeven. Elke run heeft een volgnummer en de details van de run worden vermeld in de tabel onder in het scherm.
+1. Het tabblad **Run Dashboard** wordt geopend. 
+
+   Bekijk de statistieken die zijn vastgelegd voor de verschillende runs. Grafieken worden boven aan het tabblad weergegeven. Elke run heeft een volgnummer en de details van de run worden vermeld in de tabel onder in het scherm.
 
    ![Dashboard van run](media/tutorial-classifying-iris/run_dashboard.png)
 
-3. Filter de tabel en selecteer vervolgens een of meer grafieken om de status, duur, nauwkeurigheid en regularisatiefrequentie van elke run te bekijken. 
+1. Filter de tabel en selecteer vervolgens een of meer grafieken om de status, duur, nauwkeurigheid en regularisatiefrequentie van elke run te bekijken. 
 
-4. Selecteer twee of drie runs in de tabel **Runs** en selecteer de knop **Compare** om een gedetailleerd vergelijkingsdeelvenster te openen. U kunt de gegevens van de verschillende runs nu naast elkaar bekijken. Selecteer in de linkerbovenhoek van het **vergelijkingsdeelvenster** de pijl-links naast **Run List** om terug te keren naar het **Run Dashboard**.
+1. Schakel de selectievakjes in naast twee of meer uitvoeringen in de tabel **Runs**. Selecteer de knop **Compare** om een gedetailleerd vergelijkingsdeelvenster te openen. U kunt de gegevens van de verschillende runs nu naast elkaar bekijken. 
 
-5. Selecteer een afzonderlijke run om de detailweergave van de run te zien. Opmerking: de statistieken voor de geselecteerde run worden vermeld in de sectie **Run Properties**. De bestanden die worden weggeschreven naar de uitvoermap, worden vermeld in de sectie **Outputs** en kunnen vanuit deze sectie worden gedownload.
+1. Selecteer in de linkerbovenhoek van het **vergelijkingsdeelvenster** de knop **Run List** om terug te keren naar het **Run Dashboard**.
+
+   ![Ga terug naar Run list](media/tutorial-classifying-iris/2-compare-back.png)
+
+1. Selecteer een afzonderlijke run om de detailweergave van de run te zien. Opmerking: de statistieken voor de geselecteerde run worden vermeld in de sectie **Run Properties**. De bestanden die worden weggeschreven naar de uitvoermap, worden vermeld in de sectie **Outputs** en kunnen vanuit deze sectie worden gedownload.
 
    ![Details van run](media/tutorial-classifying-iris/run_details.png)
 
    De twee grafieken, de verwarringsmatrix en de ROC-curve met meerdere klassen worden weergegeven in de sectie **Visualizations**. Alle logboekbestanden zijn beschikbaar in de sectie **Logs**.
 
-## <a name="execute-scripts-in-the-local-docker-environment"></a>Scripts uitvoeren in de lokale Docker-omgeving
 
-U kunt gemakkelijk extra uitvoeringsomgevingen configureren, zoals Docker, en hierin een script uitvoeren. 
+## <a name="run-scripts-in-local-docker-environments"></a>Scripts uitvoeren in een lokale Docker-omgeving
 
->[!IMPORTANT]
->Er moet een Docker-engine lokaal zijn geïnstalleerd en gestart om deze stap te kunnen voltooien. Zie de [installatie-instructies voor Docker](https://docs.docker.com/install/) voor meer informatie.
+U kunt ook experimenteren met het uitvoeren van scripts voor een lokale Docker-container. U kunt gemakkelijk extra uitvoeringsomgevingen configureren, zoals Docker, en hierin een script uitvoeren. 
+
+>[!NOTE]
+>Volg de [instructies voor het maken van een virtuele Azure Data Science-machine of een Azure HDInsight Spark-cluster](how-to-create-dsvm-hdi.md) als u wilt experimenteren met het verzenden van scripts die moeten worden uitgevoerd in een Docker-container in een externe virtuele Azure-machine of een HDInsight Spark-cluster.
+
+1. Als u dit nog niet hebt gedaan, installeert en start u Docker lokaal op uw Windows- of MacOS-machine. Zie de installatie-instructies voor Docker op https://docs.docker.com/install/ voor meer informatie. De Community Edition is voldoende.
 
 1. Selecteer in het linkerdeelvenster het pictogram **Map** om de lijst **Files** te openen voor uw project. Vouw de map `aml_config` uit. 
 
@@ -192,14 +232,18 @@ U kunt gemakkelijk extra uitvoeringsomgevingen configureren, zoals Docker, en hi
 3. Voer het script **iris_sklearn.py** uit met behulp van de omgeving **docker-python**: 
 
    - Selecteer op de linkerwerkbalk op het pictogram **Klok** om het deelvenster **Runs** te openen. Selecteer **All Runs**. 
+
    - Selecteer boven in het tabblad **All Runs** de omgeving **docker-python** als doelomgeving in plaats van de standaardomgeving **local**. 
+
    - Ga vervolgens naar de rechterkant en selecteer **iris_sklearn.py** als het uit te voeren script. 
+
    - Laat het veld **Arguments** leeg aangezien in het script een standaardwaarde is opgegeven. 
+
    - Selecteer de knop **Run**.
 
 4. Er wordt nu een nieuwe taak gestart. Deze wordt weergegeven in het deelvenster **Jobs** aan de rechterkant van het Workbench-venster.
 
-   Als u een script voor het eerst in Docker uitvoert, duurt de taak een paar minuten langer. 
+   Als u een script voor het eerst uitvoert in Docker, duurt het proces een paar minuten langer. 
 
    Op de achtergrond wordt in Azure Machine Learning Workbench een nieuw Docker-bestand gemaakt. 
    Het nieuwe bestand verwijst naar de Docker-basisinstallatiekopie die is opgegeven in het bestand `docker.compute`, en de Python-afhankelijkheidspakketten die zijn opgegeven in het bestand `conda_dependencies.yml`. 
@@ -214,7 +258,7 @@ U kunt gemakkelijk extra uitvoeringsomgevingen configureren, zoals Docker, en hi
 
    Uiteindelijk moeten de resultaten er precies hetzelfde uitzien als voor de omgeving **local**.
 
-5. Laten we nu Spark eens proberen. De Docker-basisinstallatiekopie bevat een vooraf geïnstalleerde en geconfigureerde Spark-instantie die u kunt gebruiken om een PySpak-script uit te voeren. Dit is een eenvoudige manier om een Spark-programma te ontwikkelen en te testen zonder zelf tijd te hoeven besteden aan de installatie en configuratie van Spark. 
+5. Laten we nu Spark eens proberen. De Docker-basisinstallatiekopie bevat een vooraf geïnstalleerde en geconfigureerde Spark-instantie die u kunt gebruiken om een PySpak-script uit te voeren. Dit is een eenvoudige manier om een Apache Spark-programma te ontwikkelen en te testen zonder zelf tijd te hoeven besteden aan de installatie en configuratie van Apache Spark. 
 
    Open het `iris_spark.py`-bestand. Met dit script wordt het gegevensbestand `iris.csv` geladen, waarna het algoritme voor logistieke regressie uit de Spark Machine Learning-bibliotheek wordt gebruikt voor het classificeren van de Iris-gegevensset. Wijzig nu de uitvoeringsomgeving in **docker-spark**, het script in **iris_spark.py** en voer het script opnieuw uit. Dit proces duurt iets langer omdat er een Spark-sessie moet worden gemaakt en gestart binnen de Docker-container. U ziet ook dat de stdout anders is dan de stdout van `iris_spark.py`.
 
@@ -224,87 +268,172 @@ U kunt gemakkelijk extra uitvoeringsomgevingen configureren, zoals Docker, en hi
 
 8. Probeer wat dingen uit in het deelvenster **Jobs**, bekijk de uitvoeringsgeschiedenis en open een detailweergave van de runs die zijn uitgevoerd in verschillende omgevingen.
 
-## <a name="execute-scripts-in-the-azure-machine-learning-cli-window"></a>Scripts uitvoeren in het CLI-venster van Azure Machine Learning
+## <a name="run-scripts-in-the-cli-window"></a>Scripts uitvoeren in het CLI-venster
 
-1. Open het opdrachtregelvenster in Azure Machine Learning Workbench, selecteer het menu **File** en selecteer vervolgens **Open Command Prompt**. De opdrachtprompt wordt gestart in de projectmap met de prompt `C:\Temp\myIris\>`.
+1. Start de Azure Machine Learning-opdrachtregelinterface (CLI):
+   1. Start Azure Machine Learning Workbench.
+
+   1. Selecteer in het menu Workbench **File** > **Open Command Prompt**. 
+   
+   De CLI-prompt start in de projectmap `C:\Temp\myIris\>` in Windows. Dit is het project dat u in Deel 1 van de zelfstudie hebt gemaakt.
 
    >[!IMPORTANT]
-   >U moet het opdrachtregelvenster (geopend vanuit Workbench) gebruiken om de volgende stappen uit te voeren.
+   >Om de volgende stappen uit te voeren, moet u dit CLI-venster gebruiken.
 
-2. Gebruik de opdrachtprompt om u aan te melden bij Azure. 
+1. In het CLI-venster moet u zich aanmelden bij Azure. [Meer informatie over az-inloggen](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
-   De Workbench-app en de CLI gebruiken onafhankelijk referentiecaches voor verificatie bij Azure-resources. U hoeft dit slechts één keer te doen, totdat het token in de cache verloopt. Gebruik de opdracht **az account list** om een lijst met abonnementen op te vragen die u kunt gebruiken voor aanmelding. Als er meer dan één abonnement is, gebruikt u de id-waarde van het gewenste abonnement. Stel dit abonnement in als het standaardaccount voor gebruik met de opdracht **az account set -s** en geef vervolgens de abonnements-id op. Bevestig de instelling vervolgens met behulp van de accountopdracht **show**.
+   U bent mogelijk al aangemeld. In dat geval kunt u deze stap overslaan.
+
+   1. Voer in de opdrachtregel in:
+      ```azurecli
+      az login
+      ```
+
+      Deze opdracht retourneert een code om te gebruiken in uw browser bij https://aka.ms/devicelogin.
+
+   1. Ga naar https://aka.ms/devicelogin in uw browser.
+
+   1. Wanneer u daarom wordt gevraagd, typt u de code die u hebt ontvangen in de CLI in uw browser in.
+
+   De Workbench-app en de CLI gebruiken onafhankelijke referentiecaches voor verificatie bij Azure-resources. Nadat u zich hebt aangemeld, hoeft u niet opnieuw te worden geverifieerd, totdat de token in cache verloopt. 
+
+1. Als uw organisatie meerdere Azure-abonnementen (bedrijfsomgeving) heeft, moet u het abonnement instellen dat moet worden gebruikt. Zoek uw abonnement, stel het in met behulp van de abonnements-ID en test het vervolgens.
+
+   1. Overzicht van elk Azure-abonnement waarvoor u toegang tot het gebruik van deze opdracht hebt:
+   
+      ```azurecli
+      az account list -o table
+      ```
+
+      Gebruik de opdracht **az account list** om een lijst met abonnementen op te vragen die u kunt gebruiken voor aanmelding. 
+      Als er meer dan één is, identificeert u de waarde van de abonnement-ID voor het abonnement dat u wilt gebruiken.
+
+   1. Stel het Azure-abonnement dat u wilt gebruiken als het standaardaccount in:
+   
+      ```azurecli
+      az account set -s <your-subscription-id>
+      ```
+      waar \<your subscription-id\> de ID-waarde is voor het abonnement dat u wilt gebruiken. Gebruik de haakjes niet.
+
+   1. Bevestig de nieuwe abonnementsinstelling door de details voor het huidige abonnement aan te vragen. 
+
+      ```azurecli
+      az account show
+      ```    
+
+1. In het CLI-venster installeert u de Python-plottingbibliotheek **matplotlib**, als u deze bibliotheek nog niet hebt.
 
    ```azurecli
-   REM login by using the aka.ms/devicelogin site
-   az login
-   
-   REM lists all Azure subscriptions you have access to 
-   az account list -o table
-   
-   REM sets the current Azure subscription to the one you want to use
-   az account set -s <SubscriptionId>
-   
-   REM verifies that your current subscription is set correctly
-   az account show
-   ```
-
-3. Als de verificatie is voltooid en de huidige context van het Azure-abonnement is ingesteld, voert u de volgende opdrachten in het CLI-venster uit om **matplotlib** te installeren, en verzendt u vervolgens het Python-script als een experiment dat moet worden uitgevoerd.
-
-   ```azurecli
-   REM you don't need to run this command if you have installed matplotlib locally from the previous steps
    pip install matplotlib
-   
-   REM kicks off an execution of the iris_sklearn.py file against the local compute context
-   az ml experiment submit -c local .\iris_sklearn.py
    ```
 
-4. Controleer de uitvoer. U krijgt dezelfde uitvoer en resultaten als toen u Workbench gebruikte voor het uitvoeren van het script. 
+1. Verzend in het CLI-venster het script **iris_sklearn.py** als experiment.
 
-5. Voer hetzelfde script opnieuw uit met behulp van de Docker-uitvoeringsomgeving, als Docker op de computer is geïnstalleerd.
+   De uitvoering van iris_sklearn.py wordt uitgevoerd op de lokale compute-context.
 
-   ```azurecli
-   REM executes iris_sklearn.py in the local Docker container Python environment
-   az ml experiment submit -c docker-python .\iris_sklearn.py 0.01
+   + In Windows:
+     ```azurecli
+     az ml experiment submit -c local .\iris_sklearn.py
+     ```
+
+   + In Mac OS:
+     ```azurecli
+     az ml experiment submit -c local iris_sklearn.py
+     ```
    
-   REM executes iris_spark.py in the local Docker container Spark environment
-   az ml experiment submit -c docker-spark .\iris_spark.py 0.1
-   ```
+   De uitvoer moet er ongeveer als volgt uitzien:
+    ```text
+    RunId: myIris_1521077190506
+    
+    Executing user inputs .....
+    ===========================
+    
+    Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:52:12) 
+    [GCC 4.2.1 Compatible Apple LLVM 4.2 (clang-425.0.28)]
+    
+    Iris dataset shape: (150, 5)
+    Regularization rate is 0.01
+    LogisticRegression(C=100.0, class_weight=None, dual=False, fit_intercept=True,
+              intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+              penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+              verbose=0, warm_start=False)
+    Accuracy is 0.6792452830188679
+        
+    ==========================================
+    Serialize and deserialize using the outputs folder.
+    
+    Export the model to model.pkl
+    Import the model from model.pkl
+    New sample: [[3.0, 3.6, 1.3, 0.25]]
+    Predicted class is ['Iris-setosa']
+    Plotting confusion matrix...
+    Confusion matrix in text:
+    [[50  0  0]
+     [ 1 37 12]
+     [ 0  4 46]]
+    Confusion matrix plotted.
+    Plotting ROC curve....
+    ROC curve plotted.
+    Confusion matrix and ROC curve plotted. See them in Run History details page.
+    
+    Execution Details
+    =================
+    RunId: myIris_1521077190506
+    ```
 
-6. Selecteer in Workbench het pictogram **Map** in het linkerdeelvenster om de projectbestanden weer te geven en open vervolgens het Python-script met de naam **run.py**. 
+1. Controleer de uitvoer. U krijgt dezelfde uitvoer en resultaten als toen u Workbench gebruikte voor het uitvoeren van het script. 
 
-   Dit script is nuttig om verschillende regularisatiefrequenties te herhalen. Voer het experiment meerdere keren met uit deze frequenties. Met dit script wordt een taak `iris_sklearn.py` gestart met een regularisatiefrequentie van `10.0` (een heel groot aantal). Vervolgens wordt de frequentie in de volgende run gehalveerd, enzovoort, totdat de frequentie `0.005` is. 
+1. Voer in het CLI-venster het Python-script **iris_sklearn.py** uit, opnieuw met gebruik van een Docker-uitvoeringsomgeving (als u Docker op uw machine hebt geïnstalleerd).
 
-   ```python
-   # run.py
-   import os
+   + Als uw container in Windows is: 
+     |Uitvoering<br/>omgeving|Opdracht in Windows|
+     |---------------------|------------------|
+     |Python|`az ml experiment submit -c docker-python .\iris_sklearn.py 0.01`|
+     |Spark|`az ml experiment submit -c docker-spark .\iris_spark.py 0.1`|
+
+   + Als uw container in MacOS is: 
+     |Uitvoering<br/>omgeving|Opdracht in Windows|
+     |---------------------|------------------|
+     |Python|`az ml experiment submit -c docker-python iris_sklearn.py 0.01`|
+     |Spark|`az ml experiment submit -c docker-spark iris_spark.py 0.1`|
+
+1. Ga terug naar de Workbench en:
+   1. Selecteer het pictogram van de map in het linkerdeelvenster voor een lijst met de projectbestanden.
    
-   reg = 10
-   while reg > 0.005:
-       os.system('az ml experiment submit -c local ./iris_sklearn.py {}'.format(reg))
-       reg = reg / 2
-   ```
+   1. Open het Python-script met de naam **run.py**. Dit script is nuttig om verschillende regularisatiefrequenties te herhalen. 
 
-   U kunt het script **run.py** uitvoeren vanaf de opdrachtregel door de volgende opdrachten uit te voeren:
+   ![Ga terug naar Run list](media/tutorial-classifying-iris/2-runpy.png)
+
+1. Voer het experiment meerdere keren met uit deze frequenties. 
+
+   Met dit script wordt een taak `iris_sklearn.py` gestart met een regularisatiefrequentie van `10.0` (een heel groot aantal). Vervolgens wordt de frequentie in de volgende run gehalveerd, enzovoort, totdat de frequentie `0.005` is. 
+
+   Het script bevat de volgende code:
+
+   ![Ga terug naar Run list](media/tutorial-classifying-iris/2-runpy-code.png)
+
+1. U kunt het script **run.py** vanaf de opdrachtregel als volgt uitvoeren:
 
    ```cmd
-   REM submits iris_sklearn.py multiple times with different regularization rates
    python run.py
    ```
 
+   Deze opdracht verzendt iris_sklearn.py meerdere keren met verschillende regularisatiefrequenties
+
    Wanneer `run.py` is voltooid, kunt u verschillende grafieken met metrische gegevens zien in de uitvoeringsgeschiedenis in Workbench.
 
-## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>Uitvoeren in een Docker-container op een externe computer
+## <a name="run-scripts-in-a-remote-docker-container"></a>Scripts uitvoeren in een externe Docker-container
 Als u het script wilt uitvoeren in een Docker-container op een externe Linux-computer, moet u SSH-toegang (gebruikersnaam en wachtwoord) hebben tot die externe computer. Bovendien moet op de computer een Docker-engine zijn geïnstalleerd en worden uitgevoerd. De eenvoudigste manier om een dergelijke Linux-machine in te richten, is door een op Ubuntu gebaseerde DSVM (Data Science Virtual Machine) te maken in Azure. Leer [hoe u een Ubuntu-DSVM maakt die u in Azure ML Workbench kunt gebruiken](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
 
 >[!NOTE] 
 >De op CentOS gebaseerde DSVM wordt *niet* ondersteund.
 
-1. Nadat de VM is gemaakt, kunt u deze als uitvoeringsomgeving koppelen door een set `.runconfig`- en `.compute`-bestanden te genereren. Gebruik de volgende opdracht om de bestanden te genereren. We noemen de nieuwe omgeving voor het gemak `myvm`.
+1. Nadat de VM is gemaakt, kunt u deze als uitvoeringsomgeving koppelen door een set `.runconfig`- en `.compute`-bestanden te genereren. Gebruik de volgende opdracht om de bestanden te genereren. 
+
+ Laten we het nieuwe rekendoel `myvm` noemen.
  
    ```azurecli
-   REM creates an myvm compute target
-   az ml computetarget attach remotedocker --name myvm --address <IP address> --username <username> --password <password>
+   az ml computetarget attach remotedocker --name myvm --address <your-IP> --username <your-username> --password <your-password>
    ```
    
    >[!NOTE]
@@ -313,12 +442,14 @@ Als u het script wilt uitvoeren in een Docker-container op een externe Linux-com
    >[!NOTE]
    >Naast verificatie met een gebruikersnaam en een wachtwoord kunt u ook een persoonlijke sleutel en een bijbehorende wachtwoordzin (indien van toepassing) opgeven. Gebruik hiervoor de opties `--private-key-file` en (optioneel) `--private-key-passphrase`.
 
-   Voer vervolgens de volgende opdracht uit om de Docker-installatiekopie voor te bereiden in de VM zodat deze klaar is voor het uitvoeren van de scripts:
+   Bereid vervolgens het rekendoel **myvm** voor door deze opdracht uit te voeren.
    
    ```azurecli
-   REM prepares the myvm compute target
    az ml experiment prepare -c myvm
    ```
+   
+   Voer vervolgens de volgende opdracht uit om de Docker-installatiekopie voor te bereiden in de VM zodat deze klaar is voor het uitvoeren van de scripts.
+   
    >[!NOTE]
    >U kunt de waarde van `PrepareEnvironment` in `myvm.runconfig` ook wijzigen van de standaardwaarde `false` in `true`. Door deze wijziging wordt de Docker-container automatisch voorbereid als onderdeel van de eerste run.
 
@@ -330,14 +461,13 @@ Als u het script wilt uitvoeren in een Docker-container op een externe Linux-com
    >[!NOTE]
    >PySpark werkt hier in principe ook, maar het is efficiënter om Python te gebruiken als u niet per se een Spark-sessie nodig hebt om uw Pyhton-script uit te voeren.
 
-3. Gebruik dezelfde opdracht als eerder in het CLI-venster, maar dit keer voor de omgeving _myvm_:
+3. Gebruik dezelfde opdracht als eerder in het CLI-venster. Gebruik deze keer het doel _myvm_ om iris_sklearn.py in een externe Docker-container uit te voeren:
    ```azurecli
-   REM executes iris_sklearn.py in a remote Docker container
    az ml experiment submit -c myvm iris_sklearn.py
    ```
    De opdracht wordt uitgevoerd alsof u een `docker-python`-omgeving gebruikt, behalve dat de uitvoering wordt uitgevoerd op de externe Linux-VM. Het CLI-venster bevat dezelfde uitvoergegevens.
 
-4. We gaan nu Spark gebruiken in de container. Open Verkenner. U kunt dit ook doen vanuit het CLI-venster als u bekend bent met de basisopdrachten voor bestandsbeheer. Maak een kopie van het bestand `myvm.runconfig` en wijzig de naam in `myvm-spark.runconfig`. Bewerk het nieuwe bestand om de instelling van `Framework` te wijzigen van `Python` in `PySpark`:
+4. We gaan nu Spark gebruiken in de container. Open Verkenner. Maak een kopie van het bestand `myvm.runconfig` en wijzig de naam in `myvm-spark.runconfig`. Bewerk het nieuwe bestand om de instelling van `Framework` te wijzigen van `Python` in `PySpark`:
    ```yaml
    Framework: PySpark
    ```
@@ -345,58 +475,56 @@ Als u het script wilt uitvoeren in een Docker-container op een externe Linux-com
 
 5. Typ de volgende opdracht om het script **iris_spark.py** uit te voeren in de Spark-instantie die in de externe Docker-container wordt uitgevoerd:
    ```azureli
-   REM executes iris_spark.py in a Spark instance on a remote Docker container
    az ml experiment submit -c myvm-spark .\iris_spark.py
    ```
 
-## <a name="execute-script-in-an-hdinsight-cluster"></a>Script uitvoeren in een HDInsight-cluster
+## <a name="run-scripts-in-hdinsight-clusters"></a>Scripts uitvoeren in HDInsight-clusters
 U kunt dit script ook uitvoeren in een HDInsight Spark-cluster. Leer [hoe u een HDInsight Spark-cluster maakt dat u kunt gebruiken in Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
 
 >[!NOTE] 
 >Het HDInsight-cluster moet Azure Blob als primaire opslag gebruiken. Het gebruik van Azure Data Lake-opslag wordt nog niet ondersteund.
 
-1. Als u toegang hebt tot een Spark-cluster voor Azure HDInsight, genereert u een opdracht voor het uitvoeren van een HDInsight-configuratie zoals hieronder wordt weergegeven. Geef de naam op van het HDInsight-cluster, en uw HDInsight-gebruikersnaam en wachtwoord op als parameters. Gebruik de volgende opdracht:
+1. Als u toegang hebt tot een Spark-cluster voor Azure HDInsight, genereert u een opdracht voor het uitvoeren van een HDInsight-configuratie zoals hieronder wordt weergegeven. Geef de naam op van het HDInsight-cluster, en uw HDInsight-gebruikersnaam en wachtwoord op als parameters. 
+
+   Gebruik de volgende opdracht om een rekendoel te maken dat naar een HDInsight-cluster verwijst:
 
    ```azurecli
-   REM creates a compute target that points to a HDInsight cluster
-   az ml computetarget attach cluster --name myhdi --address <cluster head node FQDN> --username <username> --password <password>
+   az ml computetarget attach cluster --name myhdi --address <cluster head node FQDN> --username <your-username> --password <your-password>
+   ```
 
-   REM prepares the HDInsight cluster
+   Om het HDInsight-cluster voor te bereiden, moet u deze opdracht uitvoeren:
+
+   ```
    az ml experiment prepare -c myhdi
    ```
 
-   De FQDN van het clusterhoofdknooppunt is meestal `<cluster_name>-ssh.azurehdinsight.net`.
+   De FQDN van het clusterhoofdknooppunt is meestal `<your_cluster_name>-ssh.azurehdinsight.net`.
 
    >[!NOTE]
-   >De `username` is de SSH-gebruikersnaam van het cluster. De standaardwaarde is `sshuser` (als u deze niet hebt gewijzigd tijdens de HDInsight-installatie). De waarde is niet `admin`, wat de andere gebruiker is die tijdens de installatie wordt gemaakt voor toegang tot de beheerwebsite van het cluster. 
+   >De `username` is de SSH-gebruikersnaam van het cluster, gedefinieerd tijdens de installatie van HDInsight. De waarde is standaard `sshuser`. De waarde is niet `admin`, wat de andere gebruiker is die tijdens de installatie wordt gemaakt voor toegang tot de beheerwebsite van het cluster. 
 
 2. Voer de volgende opdracht uit om het script **iris_spark.py** uit te voeren in het HDInsight-cluster:
 
    ```azurecli
-   REM executes iris_spark on the HDInsight cluster
    az ml experiment submit -c myhdi .\iris_spark.py
    ```
 
    >[!NOTE]
-   >Wanneer u het script uitvoert in een extern HDInsight-cluster, kunt u ook de uitvoeringsdetails van de YARN-taak (Yet Another Resource Negotiator) bekijken op `https://<cluster_name>.azurehdinsight.net/yarnui`. Gebruik hiervoor het gebruikersaccount `admin`.
+   >Wanneer u het script uitvoert in een extern HDInsight-cluster, kunt u ook de uitvoeringsdetails van de YARN-taak (Yet Another Resource Negotiator) bekijken op `https://<your_cluster_name>.azurehdinsight.net/yarnui`. Gebruik hiervoor het gebruikersaccount `admin`.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit tweede deel van deze driedelige reeks zelfstudies hebt u geleerd hoe u Azure Machine Learning-services kunt gebruiken om:
+In dit tweede deel van de driedelige zelfstudiereeks hebt u het volgende geleerd:
 > [!div class="checklist"]
-> * Azure Machine Learning Workbench te gebruiken.
-> * Scripts te openen en code te controleren.
-> * Scripts uit te voeren in een lokale omgeving.
-> * De uitvoeringsgeschiedenis te controleren.
-> * Scripts uit te voeren in een lokale Docker-omgeving.
-> * Scripts uit te voeren in een lokaal Azure CLI-venster.
-> * Scripts uit te voeren in een externe Docker-omgeving.
-> * Scripts uitte voeren in een HDInsight-cloudomgeving.
+> * Scripts openen en de code in de Workbench controleren
+> * Scripts uitvoeren in een lokale omgeving
+> * De uitvoeringsgeschiedenis controleren
+> * Scripts uitvoeren in een lokale Docker-omgeving
 
-U kunt nu verder met het derde deel van deze zelfstudie. Aangezien u nu beschikt over een logistiek regressiemodel, is het een goed idee om dit model te gaan implementeren als een realtime webservice.
+U kunt nu het derde deel van deze zelfstudiereeks uitproberen, waarin u het logistieke regressiemodel kunt implementeren dat u als realtime webservice hebt gemaakt.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie 3 - Classificeren van Iris: modellen implementeren](tutorial-classifying-iris-part-3.md)
+> [Zelfstudie 3 - modellen implementeren](tutorial-classifying-iris-part-3.md)

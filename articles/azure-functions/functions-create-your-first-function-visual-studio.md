@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: azure-functies, functies, gebeurtenisverwerking, berekenen, architectuur zonder server
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 03/13/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fa17a021526a728c6fabc9607b1d00f5521cbb21
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9b43ec7106c70b7d9b326208043d2fe874fb7e20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Uw eerste functie maken met Visual Studio
 
@@ -37,11 +37,13 @@ Dit onderwerp omvat een [video](#watch-the-video) die dezelfde basisstappen laat
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-* Installeer [Visual Studio 2017 versie 15.4](https://www.visualstudio.com/vs/) of een latere versie, met inbegrip van de **Azure-ontwikkelworkload**.
+* Installeer [Visual Studio 2017 versie 15.5](https://www.visualstudio.com/vs/) of een latere versie, met inbegrip van de **Azure-ontwikkelworkload**.
 
     ![Visual Studio 2017 installeren met de Azure-ontwikkelworkload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-* Zorg ervoor dat u over de meest recente versie van Azure Functions en WebJobs Tools beschikt. Dat kunt u controleren onder **Updates** > **Visual Studio Marketplace** in **Extensions and Updates**.
+    Als u Visual Studio al hebt geïnstalleerd, controleer dan of alle in behandeling zijnde updates zijn geïnstalleerd. 
+
+* Als u de ontwikkelworkload van Azure met Visual Studio 2017 versie 15.4 of eerder hebt geïnstalleerd, moet u mogelijk ook [uw Azure Functions-hulpprogramma's bijwerken](functions-develop-vs.md#check-your-tools-version). 
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

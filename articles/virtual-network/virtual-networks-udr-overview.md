@@ -5,8 +5,8 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: 9afaa7d34665f5c8ef4c4c819fe3b7e995bd71d3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -39,9 +39,9 @@ Elke route bevat een adresvoorvoegsel en het volgende hoptype. Wanneer uitgaand 
 |Standaard|Uniek voor het virtuele netwerk                           |Virtueel netwerk|
 |Standaard|0.0.0.0/0                                               |Internet       |
 |Standaard|10.0.0.0/8                                              |None           |
-|Standaard|172.16.0.0/12                                           |Geen           |
+|Standaard|172.16.0.0/12                                           |None           |
 |Standaard|192.168.0.0/16                                          |None           |
-|Standaard|100.64.0.0/10                                           |None           |
+|Standaard|100.64.0.0/10                                           |Geen           |
 
 De 'volgende hoptypen' in de bovenstaande tabel bepalen hoe Azure verkeer routeert dat bestemd is voor het vermelde adresvoorvoegsel. Hieronder worden de 'volgende hoptypen' toegelicht:
 
@@ -132,6 +132,9 @@ Als meerdere routes hetzelfde adresvoorvoegsel bevatten, selecteert Azure het ro
 1. Door de gebruiker gedefinieerde route
 2. BGP-route
 3. Systeemroute
+
+> [!NOTE]
+> Systeemroutes voor verkeer dat is gerelateerd aan virtuele netwerken, peerings voor virtuele netwerken of service-eindpunten voor virtuele netwerken zijn voorkeursroutes, zelfs als BGP-routes specifieker zijn.
 
 Een routetabel bevat bijvoorbeeld de volgende routes:
 
@@ -241,9 +244,9 @@ De routetabel voor *Subnet2* in de afbeelding bevat de volgende routes:
 |Standaard |Actief |10.2.0.0/16         |VNet-peering              |                   |
 |Standaard |Actief |10.10.0.0/16        |Gateway van een virtueel netwerk   |[X.X.X.X]          |
 |Standaard |Actief |0.0.0.0/0           |Internet                  |                   |
-|Standaard |Actief |10.0.0.0/8          |None                      |                   |
+|Standaard |Actief |10.0.0.0/8          |Geen                      |                   |
 |Standaard |Actief |100.64.0.0/10       |None                      |                   |
-|Standaard |Actief |172.16.0.0/12       |None                      |                   |
+|Standaard |Actief |172.16.0.0/12       |Geen                      |                   |
 |Standaard |Actief |192.168.0.0/16      |Geen                      |                   |
 
 De routetabel voor *Subnet2* bevat alle standaardroutes van Azure, plus de optionele routes Virtual network peering en VPN Gateway. Azure heeft de optionele routes toegevoegd aan alle subnetten in het virtuele netwerk op het moment dat de gateway en peering werden toegevoegd aan het virtuele netwerk. Azure heeft de routes voor de adresvoorvoegsels 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 en 100.64.0.0/10 verwijderd uit de routetabel van *Subnet1* op het moment dat de door de gebruiker gedefinieerde route voor het adresvoorvoegsel 0.0.0.0/0 werd toegevoegd aan *Subnet1*.  

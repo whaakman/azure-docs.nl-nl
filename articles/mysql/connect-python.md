@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 4003c1258fcc0a6d04c4ae8d234eba4d0224b8a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 08725493f9d050da762a6527363b77af6eeed6e6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database voor MySQL: Python gebruiken om verbinding te maken en gegevens op te vragen
 In deze snelstartgids ziet u hoe u met behulp van [Python](https://python.org) verbinding maakt met Azure Database voor MySQL. Er worden SQL-instructies gebruikt om gegevens op te vragen, in te voegen, bij te werken en te verwijderen in de database vanaf Mac OS-, Ubuntu Linux- en Windows-platforms. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Python, maar geen ervaring hebt met het werken met Azure Database voor MySQL.
@@ -37,7 +37,7 @@ Installeer [Python](https://www.python.org/downloads/) en de [MySQL-connector vo
 1. In Linux (Ubuntu) maakt Python meestal deel uit van de standaardinstallatie.
 2. Controleer de Python-installatie door de bash-shell te starten. Voer de opdracht `python -V` uit met als enige argument een hoofdletter V om het versienummer op te vragen.
 3. Controleer de PIP-installatie door met de opdracht `pip show pip -V` het versienummer op te vragen. 
-4. PIP kan zijn opgenomen in sommige versies van Python. Als PIP niet is geïnstalleerd, kunt u het [PIP]-pakket installeren met de opdracht (https://pip.pypa.io/en/stable/installing/) `sudo apt-get install python-pip`.
+4. PIP kan zijn opgenomen in sommige versies van Python. Als PIP niet is geïnstalleerd, kunt u het [PIP](https://pip.pypa.io/en/stable/installing/)-pakket installeren door opdracht `sudo apt-get install python-pip` uit te voeren.
 5. Werk PIP bij naar de nieuwste versie door de opdracht `pip install -U pip` uit te voeren.
 6. Gebruik deze PIP-opdracht om de MySQL-connector voor Python en de bijbehorende afhankelijkheden te installeren:
 

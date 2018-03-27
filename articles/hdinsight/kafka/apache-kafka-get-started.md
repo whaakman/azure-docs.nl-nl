@@ -2,24 +2,24 @@
 title: Met Apache Kafka beginnen - HDInsight | Microsoft Docs
 description: Informatie over het maken van een Apache Kafka-cluster in Azure HDInsight. Informatie over het maken van onderwerpen, abonnees en consumenten.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: e00ab06a26d60dd5beca11362df58f35812491d9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 27e6472480dac104de799ebf0e7579a7987f6c4c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Met Apache Kafka in HDInsight beginnen
 
@@ -39,6 +39,15 @@ Gebruik de volgende stappen om een Kafka te maken in een HDInsight-cluster:
 
     * **Clusternaam**: de naam van het HDInsight-cluster. Deze naam moet uniek zijn.
     * **Abonnement**: selecteer het abonnement dat u wilt gebruiken.
+    * **Clustertype**: selecteer deze vermelding en stel bij **Clusterconfiguratie** de volgende waarden in:
+
+        * **Clustertype**: Kafka
+        * **Versie**: Kafka 0.10.0 (HDI 3.6)
+
+        Gebruik de knop **Selecteren** om de instellingen voor het clustertype op te slaan.
+
+        ![Clustertype selecteren](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
+
     * **Aanmeldingsgebruikersnaam** en -**wachtwoord** van cluster: de aanmeldingsgegevens voor toegang tot het cluster via HTTPS. U gebruikt deze referenties voor toegang tot services als de Ambari-webinterface of de REST-API.
     * **SSH-gebruikersnaam (Secure Shell)**: de aanmeldingsgegevens voor toegang tot het cluster via SSH. Het wachtwoord is standaard hetzelfde als het aanmeldingswachtwoord van het cluster.
     * **Resourcegroep**: de resourcegroep waarin het cluster wordt gemaakt.
@@ -49,24 +58,15 @@ Gebruik de volgende stappen om een Kafka te maken in een HDInsight-cluster:
    
  ![Abonnement selecteren](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. Selecteer **Clustertype** en stel bij **Clusterconfiguratie** de volgende waarden in:
-   
-    * **Clustertype**: Kafka
-    * **Versie**: Kafka 0.10.0 (HDI 3.6)
+3. Gebruik de knop __Volgende__ om de basisconfiguratie te voltooien.
 
-    Gebruik ten slotte de knop **Selecteren** om de instellingen op te slaan.
-     
- ![Clustertype selecteren](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
-
-4. Nadat u het clustertype hebt geselecteerd, gebruikt u de knop __Selecteren__ om het clustertype te selecteren. Gebruik vervolgens de knop __Volgende__ om de basisconfiguratie te voltooien.
-
-5. Selecteer of maak bij **Opslag** een opslagaccount. Voor de stappen in dit document laat u de andere velden op de standaardwaarden ingesteld. Gebruik de knop __Volgende__ om de opslagconfiguratie op te slaan.
+4. Selecteer of maak bij **Opslag** een opslagaccount. Voor de stappen in dit document laat u de andere velden op de standaardwaarden ingesteld. Gebruik de knop __Volgende__ om de opslagconfiguratie op te slaan.
 
     ![De instellingen van het opslagaccount voor HDInsight configureren](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. Selecteer bij __Toepassingen (optioneel)__ de optie __Volgende__ om door te gaan. Er zijn geen toepassingen vereist voor dit voorbeeld.
+5. Selecteer bij __Toepassingen (optioneel)__ de optie __Volgende__ om door te gaan. Er zijn geen toepassingen vereist voor dit voorbeeld.
 
-7. Selecteer bij __Clustergrootte__ de optie __Volgende__ om door te gaan.
+6. Selecteer bij __Clustergrootte__ de optie __Volgende__ om door te gaan.
 
     > [!WARNING]
     > Om beschikbaarheid van Kafka op HDInsight te garanderen, moet uw cluster ten minste drie werkknooppunten bevatten. Zie de sectie [Hoge beschikbaarheid van gegevens](#data-high-availability) voor meer informatie.
@@ -76,9 +76,9 @@ Gebruik de volgende stappen om een Kafka te maken in een HDInsight-cluster:
     > [!IMPORTANT]
     > De waarde voor de **schijven per werkknooppunt** configureert de schaalbaarheid van Kafka in HDInsight. Kafka in HDInsight maakt gebruik van de lokale schijf van de virtuele machines in het cluster. Omdat Kafka veel gebruikmaakt van invoer/uitvoer, wordt [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) gebruikt voor een hoge doorvoer en meer opslag per knooppunt. Het type beheerde schijf is __Standaard__ (HDD) of __Premium__ (SSD). Premium-schijven worden gebruikt met virtuele machines uit de DS- en GS-reeks. Alle andere VM-typen gebruiken standaardschijven.
 
-8. Selecteer bij __Geavanceerde instellingen__ de optie __Volgende__ om door te gaan.
+7. Selecteer bij __Geavanceerde instellingen__ de optie __Volgende__ om door te gaan.
 
-9. Controleer bij **Samenvatting** de configuratie van het cluster. Gebruik de koppeling __Bewerken__ om onjuiste instellingen te wijzigen. Gebruik tot slot de knop __Maken__ om het cluster te maken.
+8. Controleer bij **Samenvatting** de configuratie van het cluster. Gebruik de koppeling __Bewerken__ om onjuiste instellingen te wijzigen. Gebruik tot slot de knop __Maken__ om het cluster te maken.
    
     ![Samenvatting clusterconfiguratie](./media/apache-kafka-get-started/hdinsight-configuration-summary.png)
    

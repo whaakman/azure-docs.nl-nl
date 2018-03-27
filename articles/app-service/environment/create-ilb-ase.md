@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een ILB maken en gebruiken met een App Service-omgeving #
 
@@ -139,7 +139,7 @@ Converteer het SSL-certificaat naar een .pfx-bestand of sla het certificaat in d
 
 Als u een zelfondertekend certificaat wilt maken, kunt u hier de PowerShell-opdrachten gebruiken. Zorg ervoor dat u de domeinnaam van de ILB AS-omgeving gebruikt in plaats van *internal.contoso.com*: 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
+    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
     
     $certThumbprint = "cert:\localMachine\my\" +$certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
@@ -174,9 +174,9 @@ Ga als volgt te werk om uw eigen certificaten te uploaden en de toegang te teste
 
     b. Als u het publiceren van webimplementaties of de toegang tot de geavanceerde console wilt testen, maakt u een record voor _mytestapp.scm.ilbase.com_.
 
-7. Gebruik een browser op deze VM en ga naar http://mytestapp.ilbase.com. (Of ga naar de web-app-naam die bij uw domein hoort.)
+7. Gebruik een browser op die virtuele machine en ga naar http://mytestapp.ilbase.com. (Of ga naar de web-app-naam die bij uw domein hoort.)
 
-8. Gebruik een browser op deze VM en ga naar https://mytestapp.ilbase.com. Als u een zelfondertekend certificaat gebruikt, aanvaardt u het gebrek aan beveiliging.
+8. Gebruik een browser op die virtuele machine en ga naar https://mytestapp.ilbase.com. Als u een zelfondertekend certificaat gebruikt, aanvaardt u het gebrek aan beveiliging.
 
     Het IP-adres voor de ILB wordt vermeld bij **IP-adressen**. Deze lijst bevat ook de IP-adressen die worden gebruikt voor het externe VIP-adres en voor binnenkomend beheerverkeer.
 

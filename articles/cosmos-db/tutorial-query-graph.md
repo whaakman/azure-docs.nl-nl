@@ -1,43 +1,43 @@
 ---
-title: Hoe kan ik een query over grafiekgegevens in Azure Cosmos DB? | Microsoft Docs
-description: Informatie over het query-grafiekgegevens in Azure Cosmos-DB
+title: Grafiekgegevens opvragen in Azure Cosmos DB | Microsoft Docs
+description: Meer informatie over het opvragen van grafiekgegevens in Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
 manager: jhubbard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 8bde5c80-581c-4f70-acb4-9578873c92fa
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 5a635abfa9fa10cd8c8498e3c95a17af997cea3e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: eb1da11c8b27a429ffcf9ea8fb50b6c7cee26ec0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure Cosmos DB: Hoe query's uitvoeren met de Graph API?
+# <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Zelfstudie: Azure Cosmos DB Graph API opvragen met Gremlin
 
-De Azure DB die Cosmos [Graph API](graph-introduction.md) ondersteunt [Gremlin](https://github.com/tinkerpop/gremlin/wiki) query's. Dit artikel bevat een voorbeelddocumenten en query's waarmee u op weg. Een gedetailleerde Gremlin verwijzing is opgegeven in de [Gremlin ondersteuning](gremlin-support.md) artikel.
+De Azure Cosmos DB [Graph API](graph-introduction.md) ondersteunt [Gremlin](https://github.com/tinkerpop/gremlin/wiki)-query's. Dit artikel bevat voorbeelddocumenten en query's waarmee u direct aan de slag kunt. Een gedetailleerde Gremlin-verwijzing vindt u in het artikel [Gremlin-ondersteuning](gremlin-support.md).
 
-In dit artikel bevat informatie over de volgende taken: 
+Dit artikel behandelt de volgende taken: 
 
 > [!div class="checklist"]
-> * Een query met Gremlin
+> * Gegevens opvragen met behulp van Gremlin
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze query's werken, moet u een Azure DB die Cosmos-account hebt en grafiekgegevens in de container hebt. Geen van deze? Voltooi de [5 minuten Quick Start](create-graph-dotnet.md) of de [developer-zelfstudie](tutorial-query-graph.md) voor het maken van een account en vul uw database. U kunt de volgende query's met uitvoeren de [Azure Cosmos DB .NET graph-bibliotheek](graph-sdk-dotnet.md), [Gremlin console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), of uw favoriete Gremlin-stuurprogramma.
+Deze query's werken alleen als u een Azure DB Cosmos DB-account hebt en een container met grafiekgegevens. Hebt u geen van beide? Voltooi de [Quickstart van 5 minuten](create-graph-dotnet.md) of de [zelfstudie voor ontwikkelaars](tutorial-query-graph.md) om een account te maken en uw database te vullen. U kunt de volgende query's uitvoeren met behulp van de [bibliotheek met Azure Cosmos DB .NET-grafieken](graph-sdk-dotnet.md), [Gremlin-console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) of uw favoriete Gremlin-stuurprogramma.
 
-## <a name="count-vertices-in-the-graph"></a>Aantal hoekpunten in de grafiek
+## <a name="count-vertices-in-the-graph"></a>Hoekpunten in de grafiek tellen
 
-Het volgende fragment toont hoe u het aantal hoekpunten in de grafiek:
+In het volgende fragment ziet u hoe u het aantal hoekpunten in de grafiek telt:
 
 ```
 g.V().count()
@@ -45,7 +45,7 @@ g.V().count()
 
 ## <a name="filters"></a>Filters
 
-U kunt uitvoeren met behulp van Gremlin filters `has` en `hasLabel` stappen en ze combineren met `and`, `or`, en `not` om complexere filters samen te stellen. Azure Cosmos DB biedt schema networkdirect indexeren van alle eigenschappen in uw hoekpunten en graden voor snelle query's:
+U kunt filters toepassen met behulp van de stappen `has` en `hasLabel` en deze combineren met `and`, `or` en `not` om complexere filters samen te stellen. Azure Cosmos DB biedt schema-agnostische indexering van alle eigenschappen in uw hoekpunten en graden voor snelle query's:
 
 ```
 g.V().hasLabel('person').has('age', gt(40))
@@ -53,7 +53,7 @@ g.V().hasLabel('person').has('age', gt(40))
 
 ## <a name="projection"></a>Projectie
 
-U kunt bepaalde eigenschappen in de resultaten van de query met projecteren de `values` stap:
+U kunt bepaalde eigenschappen in de queryresultaten projecteren met de stap `values`:
 
 ```
 g.V().hasLabel('person').values('firstName')
@@ -61,28 +61,28 @@ g.V().hasLabel('person').values('firstName')
 
 ## <a name="find-related-edges-and-vertices"></a>Verwante randen en hoekpunten zoeken
 
-Tot nu toe hebt we alleen query's die in elke database werken gezien. Grafieken zijn snelle en efficiënte voor traversal bewerkingen als u nodig hebt om te navigeren naar de gerelateerde randen en hoekpunten. We vinden alle vrienden of van Thomas. We doen dit met behulp van Gremlin `outE` stap vinden alle de uitgaande randen van Thomas en klik op Bladeren naar de hoekpunten van de randen van Gremlin met `inV` stap:
+Tot nu toe hebt u alleen query's gezien die in elke database werken. Grafieken zijn snel en efficiënt voor overdrachtbewerkingen wanneer u naar gerelateerde randen en hoekpunten moet navigeren. We gaan alle vrienden van Thomas zoeken. Daarvoor gebruiken we stap `outE` van Gremlin om alle uitgaande randen van Thomas te zoeken en vervolgens vanuit die randen de inkomende hoekpunten te onderzoeken met behulp van stap `inV` van Gremlin:
 
 ```cs
 g.V('thomas').outE('knows').inV().hasLabel('person')
 ```
 
-De volgende query voert twee hops om alle te vinden Thomas 'vrienden of van vrienden ', door het aanroepen van `outE` en `inV` twee keer. 
+Met de volgende query worden twee hops uitgevoerd om alle 'vrienden van vrienden' van Thomas te vinden, door `outE` en `inV` twee keer aan te roepen. 
 
 ```cs
 g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 
-Kunt u complexere query's maken en implementeren van krachtige grafiek traversal logica Gremlin, met inbegrip van de combinatie van filterexpressies, uitvoeren met behulp van samenvoegartikel met de `loop` stap en uitvoering voorwaardelijke navigatie met de `choose` stap. Meer informatie over wat u met doen kunt [Gremlin ondersteuning](gremlin-support.md)!
+U kunt complexere query's maken en krachtige logica voor grafiekdoorkruising implementeren met Gremlin, met inbegrip van het combineren van filterexpressies, het uitvoeren van lusconstructies met stap `loop` en de implementatie van voorwaardelijke navigatie met stap `choose`. Meer informatie over wat u kunt doen kunt [Gremlin-ondersteuning](gremlin-support.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * Hebt geleerd hoe u een query uitvoert met behulp van grafiek 
+> * U hebt geleerd hoe u een query uitvoert met behulp van Graph 
 
-U kunt nu doorgaan met de volgende zelfstudie voor informatie over het distribueren van uw gegevens globaal.
+U kunt nu doorgaan met de volgende zelfstudie, waarin u leert hoe u uw gegevens globaal distribueert.
 
 > [!div class="nextstepaction"]
 > [Uw gegevens globaal distribueren](tutorial-global-distribution-sql-api.md)

@@ -7,18 +7,15 @@ author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: ''
 ms.topic: tutorial
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-manager: cguyer
-ms.openlocfilehash: 0d6261392dfdab0d48cb0c524d1fcf416c85d72c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: craigg
+ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Een beheerd exemplaar voor Azure SQL Database maken in Azure Portal
 
@@ -26,6 +23,9 @@ In deze zelfstudie wordt uitgelegd hoe u in Azure Portal een beheerd exemplaar v
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
+> [!IMPORTANT]
+> Zie [Uw databases migreren naar een volledig beheerde service met Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) voor een lijst met regio's waarin MI momenteel beschikbaar is.
+ 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
@@ -36,7 +36,7 @@ Managed Instance wordt oorspronkelijk beschikbaar gemaakt als gated openbare pre
 
 1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
 2. Zoek naar **Managed Instance** en selecteer vervolgens **Azure SQL Database Managed Instance (preview)**.
-3. Klik op **Maken**.
+3. Klik op **Create**.
 
    ![beheerd exemplaar maken](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
@@ -76,7 +76,7 @@ In de volgende stappen wordt uitgelegd hoe u een nieuw virtueel netwerk (VNet) m
 
    ![formulier virtueel netwerk maken](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
 
-4. Klik op **Maken**.
+4. Klik op **Create**.
 
 ## <a name="create-new-route-table-and-a-route"></a>Een nieuwe routetabel en route maken
 
@@ -100,7 +100,7 @@ In de volgende stappen wordt uitgelegd hoe u de route 0.0.0.0/0 Next Hop Interne
 
    ![formulier routetabel maken](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
 
-4. Klik op **Maken**.
+4. Klik op **Create**.
 5. Nadat de routetabel is gemaakt, opent u de zojuist gemaakte routetabel.
 
    ![routetabel](./media/sql-database-managed-instance-tutorial/route-table.png)
@@ -145,7 +145,7 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt nadat u
 
 1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
 2. Zoek naar **Managed Instance** en selecteer vervolgens **Azure SQL Database Managed Instance (preview)**.
-3. Klik op **Maken**.
+3. Klik op **Create**.
 
    ![beheerd exemplaar maken](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
@@ -204,8 +204,8 @@ In de volgende stappen wordt uitgelegd hoe u een tweede subnet in het VNet maakt
    |**Naam**|Een geldige naam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen.|
    |**Adresbereik (CIDR-blok)**|Een geldig adresbereik binnen het VNet (gebruik de standaardinstelling)||
    |**Netwerkbeveiligingsgroep**|Geen||
-   |**Routetabel**|Geen||
-   |**Service-eindpunten**|Geen||
+   |**Routetabel**|None||
+   |**Service-eindpunten**|None||
 
    ![subnetdetails vm](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)
 
@@ -284,7 +284,7 @@ In de volgende stappen wordt uitgelegd hoe u SQL Server Management Studio downlo
     ![verbeterde beveiliging van internet explorer](./media/sql-database-managed-instance-tutorial/internet-explorer-security-configuration.png)  
 4. Open **Internet Explorer** via de taakbalk.
 5. Selecteer **Aanbevolen instellingen voor beveiliging en compatibiliteit gebruiken** en klik vervolgens op **OK** om de instelling van Internet Explorer 11 te voltooien.
-6. Geef https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms op in het URL-adresveld en druk op **Enter**. 
+6. Voer https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms in het URL-adresvak in en druk op **Enter**. 
 7. Download de meest recente versie van SQL Server Management Studio en klik op **Uitvoeren** wanneer u daarom wordt gevraagd.
 8. Wanneer u daarom wordt gevraagd, klikt u op **Installeren** om de installatie te starten.
 9. Wanneer de installatie is voltooid, klikt u op **Sluiten**.
@@ -299,7 +299,7 @@ Nadat u verbinding hebt gemaakt, kunt u uw systeem en gebruikersdatabases bekijk
 
 Volg deze stappen om het standaard back-upbestand van Wide World Importers te downloaden.
 
-Open Internet Explorer en voer https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak in in het URL-adresveld. Wanneer u daarom wordt gevraagd, klikt u op **Opslaan** om dit bestand op te slaan in de map **Downloads**.
+Wanneer u Internet Explorer gebruikt, voer dan https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak in het URL-adresvak in en klik desgevraagd op **Opslaan** om dit bestand op te slaan in de map **Downloads**.
 
 ## <a name="create-azure-storage-account-and-upload-backup-file"></a>Een Azure-opslagaccount maken en het back-upbestand uploaden
 

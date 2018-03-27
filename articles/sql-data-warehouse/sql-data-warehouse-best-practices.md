@@ -5,21 +5,20 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 53ad9f654c498f562d66de461a2a489895d0a46b
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Aanbevolen procedures voor Azure SQL Data Warehouse
 Dit artikel bevat een verzameling van aanbevolen procedures waarmee u optimale resultaten kunt bereiken met Azure SQL Data Warehouse.  Sommige onderwerpen in dit artikel zijn eenvoudig uit te leggen, andere zijn geavanceerder, waardoor we alleen de basis hiervan kunnen behandelen.  Het doel van dit artikel is om u een aantal richtlijnen te geven en u te wijzen op belangrijke onderdelen bij het maken van een datawarehouse.  In elk gedeelte maakt u kennis met een onderwerp en wordt u gewezen op gedetailleerdere artikelen die dieper op het onderwerp ingaan.
@@ -89,12 +88,12 @@ Zie ook [Tabel-indexen][Table indexes], [Gids columnstore-indexen][Columnstore i
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>Een grotere resourceklasse gebruiken om queryprestaties te verbeteren
 SQL Data Warehouse gebruikt resourcegroepen om geheugen toe te wijzen aan query’s.  Bij het eerste gebruik is aan alle gebruikers de kleine resourceklasse toegewezen die 100 MB geheugen per distributie biedt.  Omdat er altijd 60 distributies zijn en aan elke distributie een minimum van 100 MB is toegekend, is de totale geheugentoewijzing systeembreed 6000 MB, of net onder 6 GB.  Bepaalde query’s, zoals grote samenvoegingen of loads naar geclusterde columnstore-tabellen, profiteren van grotere geheugentoewijzingen.  Bij andere query’s, zoals pure scans, is er geen merkbaar verschil.  Aan de andere kant hebben grotere resourceklassen invloed op gelijktijdigheid. Kijk hier dus zorgvuldig naar voordat u alle gebruikers naar grotere resourceklassen verplaatst.
 
-Zie ook [Gelijktijdigheid en werklastbeheer][Concurrency and workload management]
+Zie ook [Resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md)
 
 ## <a name="use-smaller-resource-class-to-increase-concurrency"></a>Een kleinere resourceklasse gebruiken om de gelijktijdigheid te verbeteren
 Als query’s van gebruikers erg lang lijken te duren, kan het zijn dat uw gebruikers in grotere resourceklassen worden uitgevoerd en veel gelijktijdige plekken gebruiken, waardoor andere query’s in de wachtrij komen.  Om te zien of er gebruikersquery’s in de wachtrij staan, voert u `SELECT * FROM sys.dm_pdw_waits` uit en kijkt u of er rijen worden geretourneerd.
 
-Zie ook [Gelijktijdigheid en werklastbeheer][Concurrency and workload management], [sys.dm_pdw_waits][sys.dm_pdw_waits]
+Zie ook [Resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md), [sys.dm_pdw_waits][sys.dm_pdw_waits]
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Gebruik DMV’s om uw query’s te controleren en te optimaliseren
 SQL Data Warehouse heeft verschillende DMV's die kunnen worden gebruikt om het uitvoeren van query’s te controleren.  In het onderstaande artikel over controleren vindt u stapsgewijze instructies voor hoe u de details bekijkt van een query die wordt uitgevoerd.  Als u snel query’s wilt vinden in de DMV's, kunt u proberen de optie LABEL te gebruiken bij uw query’s.
@@ -112,7 +111,6 @@ Tenslotte willen we u vragen de pagina [Azure SQL Data Warehouse Feedback][Azure
 
 <!--Article references-->
 [Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
 [Table overview]: ./sql-data-warehouse-tables-overview.md
 [Table data types]: ./sql-data-warehouse-tables-data-types.md

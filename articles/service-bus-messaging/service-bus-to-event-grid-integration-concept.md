@@ -5,7 +5,7 @@ services: service-bus-messaging
 documentationcenter: .net
 author: ChristianWolf42
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
 ms.workload: na
@@ -14,40 +14,42 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: bf771428505081cb60ca4417f87a4f6c2afbd25d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8bd1c431788d78ae937cc047e82cb41504a19075
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-service-bus-to-azure-event-grid-integration-overview"></a>Overzicht integratie Azure Service Bus en Event Grid
+# <a name="azure-service-bus-to-event-grid-integration-overview"></a>Overzicht integratie Azure Service Bus met Azure Event Grid
 
-Azure Service Bus heeft een nieuwe integratie met Azure Event Grid geïntroduceerd. Het belangrijkste scenario dat deze functie mogelijk maakt, is dat Service Bus-wachtrijen of -abonnementen waarvoor lage volumes berichten voorkomen, geen ontvanger hoeven te hebben die constant navraag doet of er berichten zijn. Service Bus kan nu gebeurtenissen naar Azure Event Grid verzenden als er zich berichten in een wachtrij of abonnement bevinden zonder dat er ontvangers zijn. U kunt Event Grid-abonnementen maken naar uw Service Bus-naamruimten, naar deze gebeurtenissen luisteren en erop reageren door een ontvanger te starten. Met deze functie kan Service Bus in reactieve programmeermodellen worden gebruikt.
+Azure Service Bus heeft een nieuwe integratie met Azure Event Grid geïntroduceerd. Het belangrijkste scenario van deze functie is dat Service Bus-wachtrijen of -abonnementen met een laag volume aan berichten geen ontvanger nodig hebben die continu berichten opvraagt. 
+
+Service Bus kan nu gebeurtenissen naar Event Grid verzenden als er zich berichten in een wachtrij of abonnement bevinden zonder dat er ontvangers zijn. U kunt Event Grid-abonnementen maken voor uw Service Bus-naamruimten, naar deze gebeurtenissen luisteren en erop reageren door een ontvanger te starten. Met deze functie kunt u Service Bus gebruiken in reactieve programmeermodellen.
 
 Als u deze functie wilt inschakelen, hebt u het volgende nodig:
 
-* Een Azure Service Bus Premium-naamruimte met ten minste één Service Bus-wachtrij of een Service Bus-onderwerp met ten minste één abonnement.
-* Inzender-toegang tot de Azure Service Bus-naamruimte.
-* Bovendien moet u een abonnement op Azure Event Grid voor de Service Bus-naamruimte hebben. Met het abonnement wordt de melding opgehaald uit Azure Event Grid dat er berichten klaarstaan. Veelvoorkomende abonnees kunnen Logic Apps, Azure Functions of een webhook zijn die contact opnemen met een web-app en die vervolgens de berichten verwerken. 
+* Een Service Bus Premium-naamruimte met ten minste één Service Bus-wachtrij of een Service Bus-onderwerp met ten minste één abonnement.
+* Inzender-toegang tot de Service Bus-naamruimte.
+* Bovendien moet u een abonnement op Event Grid voor de Service Bus-naamruimte hebben. Het abonnement ontvangt de melding van Event Grid dat er berichten klaarstaan. Typische abonnees zijn mogelijk de functie Logic Apps van Azure App Service, Azure Functions of een webhook die contact opneemt met een web-app. De abonnee verwerkt vervolgens de berichten. 
 
 ![19][]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Controleren of u toegang op Inzender-niveau hebt
 
-Navigeer naar uw Service Bus-naamruimte en selecteer Toegangsbeheer (IAM) zoals hieronder wordt weergegeven:
+Ga naar uw Service Bus-naamruimte en selecteer **Toegangsbeheer (IAM)**, zoals hieronder wordt weergegeven:
 
 ![1][]
 
 ### <a name="events-and-event-schemas"></a>Gebeurtenissen en gebeurtenisschema's
 
-Azure Service Bus gaat vandaag gebeurtenissen verzenden voor twee scenario's.
+Service Bus gaat vandaag gebeurtenissen verzenden voor twee scenario's:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Bovendien worden de standaard Azure Event Grid-beveiliging en [verificatiemechanismen](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication) gebruikt.
+Bovendien worden de standaard Event Grid-beveiliging en [verificatiemechanismen](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication) gebruikt.
 
-Volg [deze](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) koppeling voor meer informatie over de gebeurtenisschema's van Event Grid.
+Zie [Azure Event Grid-gebeurtenisschema's](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) voor meer informatie.
 
 #### <a name="active-messages-available-event"></a>De gebeurtenis Actieve berichten beschikbaar
 
@@ -75,7 +77,7 @@ Het schema voor deze gebeurtenis is als volgt:
 }
 ```
 
-#### <a name="dead-lettered-messages-available-event"></a>De gebeurtenis Berichten beschikbaar in de wachtrij voor onbestelbare berichten
+#### <a name="dead-letter-messages-available-event"></a>De gebeurtenis Berichten beschikbaar in de wachtrij voor onbestelbare berichten
 
 U krijgt minimaal een gebeurtenis per wachtrij voor onbestelbare berichten, waarin zich berichten bevinden maar waar geen actieve ontvangers zijn.
 
@@ -101,44 +103,49 @@ Het schema voor deze gebeurtenis is als volgt:
 }]
 ```
 
-### <a name="how-often-and-how-many-events-are-emitted"></a>Hoe vaak en hoeveel gebeurtenissen worden er verzonden?
+### <a name="how-many-events-are-emitted-and-how-often"></a>Hoeveel gebeurtenissen worden er verzonden en hoe vaak?
 
-Als u meerdere wachtrijen en onderwerpen/abonnementen in de naamruimte hebt, krijgt u minimaal één gebeurtenis per wachtrij en één per abonnement. De gebeurtenissen worden onmiddellijk verzonden als er geen berichten in de Service Bus-entiteit voorkomen en er een nieuw bericht binnenkomt, of elke twee minuten tenzij Azure Service Bus een actieve ontvanger detecteert. De gebeurtenissen worden niet onderbroken als u door berichten bladert.
+Als u meerdere wachtrijen en onderwerpen of abonnementen in de naamruimte hebt, krijgt u minimaal één gebeurtenis per wachtrij en één per abonnement. De gebeurtenissen worden onmiddellijk uitgezonden als de Service Bus-entiteit geen berichten bevat en er een nieuw bericht arriveert. Of de gebeurtenissen worden elke twee minuten uitgezonden, tenzij Service Bus een actieve ontvanger detecteert. De gebeurtenissen worden niet onderbroken als u door berichten bladert.
 
-Standaard verzendt Azure Service Bus gebeurtenissen voor alle entiteiten in de naamruimte. Als u alleen voor specifieke entiteiten gebeurtenissen wilt ophalen, raadpleegt u de volgende sectie over filteren.
+Standaard verzendt Service Bus gebeurtenissen voor alle entiteiten in de naamruimte. Als u alleen voor specifieke entiteiten gebeurtenissen wilt ophalen, raadpleegt u de volgende sectie.
 
-### <a name="filtering-limiting-from-where-you-get-events"></a>Filteren, beperken van waar u wilt dat gebeurtenissen worden opgehaald
+### <a name="use-filters-to-limit-where-you-get-events-from"></a>Filters gebruiken om te beperken waarvandaan u gebeurtenissen ophaalt
 
-Als u gebeurtenissen bijvoorbeeld alleen van één wachtrij of één abonnement binnen uw naamruimte wilt ontvangen, kunt u de filters 'Begint met' of 'Eindigt op' van Azure Event Grid gebruiken. In sommige interfaces worden deze filters 'voorvoegselfilter' en 'achtervoegselfilter' genoemd. Als u gebeurtenissen voor meerdere maar niet alle wachtrijen en abonnementen wilt ontvangen, kunt u meerdere verschillende Azure Event Grid-abonnementen maken en voor elk ervan een filter opgeven.
+Als u gebeurtenissen bijvoorbeeld alleen van één wachtrij of één abonnement binnen uw naamruimte wilt ontvangen, kunt u de filters *Begint met* of *Eindigt op* van Event Grid gebruiken. In sommige interfaces worden deze filters *voorvoegselfilter* en *achtervoegselfilter* genoemd. Als u gebeurtenissen voor meerdere maar niet alle wachtrijen en abonnementen wilt ontvangen, kunt u meerdere verschillende Event Grid-abonnementen maken en voor elk ervan een filter opgeven.
 
-## <a name="how-to-create-azure-event-grid-subscriptions-for-service-bus-namespaces"></a>Azure Event Grid-abonnementen maken voor Service Bus-naamruimten
+## <a name="create-event-grid-subscriptions-for-service-bus-namespaces"></a>Event Grid-abonnementen maken voor Service Bus-naamruimten
 
-Er zijn drie verschillende manieren om Event Grid-abonnementen voor Service Bus-naamruimten te maken.
+U kunt op drie verschillende manieren Event Grid-abonnementen voor Service Bus-naamruimten maken:
 
-* [Azure Portal](#portal-instructions)
-* [Azure-CLI](#azure-cli-instructions)
-* [PowerShell](#powershell-instructions)
+* In [Azure Portal](#portal-instructions)
+* In [Azure CLI](#azure-cli-instructions)
+* In [PowerShell](#powershell-instructions)
 
-## <a name="portal-instructions"></a>Instructies voor portal
+## <a name="azure-portal-instructions"></a>Instructies voor Azure Portal
 
-Als u een nieuw Azure Event Grid-abonnement wilt maken navigeert u naar uw naamruimte in Azure Portal en selecteert u de blade Event Grid. Klik op '+ Event Grid-abonnement'. hieronder ziet u een naamruimte waarvoor al een aantal Event Grid-abonnementen bestaan.
+Ga als volgt te werk als u een nieuw Event Grid-abonnement wilt maken:
+1. Ga in Azure Portal naar uw naamruimte.
+2. Selecteer in het linkerdeelvenster de optie **Event Grid**. 
+3. Selecteer **Gebeurtenisabonnement**.  
 
-![20][]
+   In de volgende afbeelding wordt een naamruimte weergegeven met enkele Event Grid-abonnementen:
 
-In de volgende schermafbeelding ziet u een voorbeeld van hoe u zich kunt abonneren op een Azure-functie of een webhook, zonder dat er een specifiek filter nodig is:
+   ![20][]
 
-![21][]
+   In de volgende afbeelding wordt getoond hoe u zich kunt abonneren op een functie of webhook zonder specifieke filters:
+
+   ![21][]
 
 ## <a name="azure-cli-instructions"></a>Instructies voor Azure CLI
 
-Controleer eerst of u ten minste Azure CLI versie 2.0 hebt geïnstalleerd. U kunt het installatieprogramma hier downloaden. Druk vervolgens u op 'Windows+X' en open een nieuwe PowerShell-console met beheerdersmachtigingen. U kunt ook een opdrachtshell in Azure Portal gebruiken.
+Controleer eerst of Azure CLI versie 2.0 of hoger is geïnstalleerd. [Download het installatieprogramma](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Selecteer **Windows+X** en open een nieuwe PowerShell-console met beheerdersmachtigingen. U kunt ook een opdrachtshell in Azure Portal gebruiken.
 
 Voer de volgende code uit:
 
-```PowerShell
+```PowerShell-interactive
 Az login
 
-Aa account set -s “THE SUBSCRIPTION YOU WANT TO USE”
+Az account set -s “THE SUBSCRIPTION YOU WANT TO USE”
 
 $namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name “<yourNamespace>“--resource-group “<Your Resource Group Name>” --query id --output tsv)
 
@@ -147,9 +154,9 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Instructies voor PowerShell
 
-Controleer of u Azure PowerShell hebt geïnstalleerd. U vindt deze hier. Druk vervolgens u op 'Windows+X' en open een nieuwe PowerShell-console met beheerdersmachtigingen. U kunt ook een opdrachtshell in Azure Portal gebruiken.
+Controleer of u Azure PowerShell hebt geïnstalleerd. [Download het installatieprogramma](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Selecteer **Windows+X** en open een nieuwe PowerShell-console met beheerdersmachtigingen. U kunt ook een opdrachtshell in Azure Portal gebruiken.
 
-```PowerShell
+```PowerShell-interactive
 Login-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
@@ -167,11 +174,11 @@ U kunt nu kennismaken met de andere instelopties of [testen of er gebeurtenissen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Service Bus- en Event Grid[voorbeelden](service-bus-to-event-grid-integration-example.md).
-* Meer informatie over [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* [Voorbeelden](service-bus-to-event-grid-integration-example.md) ophalen van Service Bus en Event Grid.
+* Meer informatie over [Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
 * Meer informatie over [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Meer informatie over [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Meer informatie over [Azure Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Meer informatie over [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
+* Meer informatie over [Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

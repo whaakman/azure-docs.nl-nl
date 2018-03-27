@@ -3,10 +3,10 @@ title: Een Ruby-app maken en implementeren in App Service on Linux | Microsoft D
 description: Meer informatie over het maken van Ruby-apps met App Service on Linux.
 keywords: azure app service, linux, oss, ruby
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: db3086724c22e485e2a9a69c36a990fc5b8016a9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Een Ruby-app maken in App Service on Linux
 
@@ -58,7 +58,7 @@ Navigeer naar `http://localhost:3000` met uw webbrowser om de app lokaal te test
 
 ## <a name="modify-app-to-display-welcome-message"></a>App wijzigen om welkomstbericht weer te geven
 
-Wijzig de toepassing zo dat een welkomstbericht wordt weergegeven. Eerst moet u een route instellen door het bestand *~/workspace/ruby-docs-hello-world/config/routes.rb* te wijzigen. Neem er een route in op met de naam `hello`.
+Wijzig de toepassing zo dat een welkomstbericht wordt weergegeven. Eerst moet u een route instellen door het bestand *~/workspace/ruby-docs-hello-world/config/routes.rb* zo te wijzigen dat het een route met de naam `hello` bevat.
 
   ```ruby
   Rails.application.routes.draw do
@@ -88,37 +88,23 @@ Uw app is nu geconfigureerd. Navigeer met behulp van uw webbrowser naar `http://
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Een Ruby web-app maken in Azure
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
-Een resourcegroep is vereist voor de benodigde activa voor uw web-app. Gebruik de opdracht [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) om een resourcegroep te maken.
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-```azurecli-interactive
-az group create --location westeurope --name myResourceGroup
-```
+## <a name="create-a-web-app"></a>Een webtoepassing maken
 
-Maak een App Service-plan voor uw web-app met de opdracht [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
-```
-
-Gebruik vervolgens de opdracht [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) om de web-app te maken die het zojuist gemaakte serviceplan gebruikt. Merk op dat de runtime is ingesteld op `ruby|2.3`. Vergeet niet om `<app name>` te vervangen door een unieke app-naam.
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
---runtime "ruby|2.3" --deployment-local-git
-```
-
-De uitvoer van de opdracht bevat informatie over de nieuwe web-app en de implementatie-URL. Deze URL moet er ongeveer uitzien als de URL in het volgende voorbeeld. Kopieer de URL voor later gebruik in deze zelfstudie.
+Blader naar de site om uw nieuwe web-app met de ingebouwde installatiekopie te bekijken. Vervang _&lt;app-naam>_ door de naam van uw web-app.
 
 ```bash
-https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
+http://<app_name>.azurewebsites.net
 ```
 
-Zodra de web-app is gemaakt, kunt u de pagina **Overzicht** weergeven. Navigeer naar die pagina. De volgende welkomstpagina wordt weergegeven:
+Zo zou uw nieuwe web-app er moeten uitzien:
 
 ![Welkomstpagina](./media/quickstart-ruby/splash-page.png)
-
 
 ## <a name="deploy-your-application"></a>Uw toepassing implementeren
 

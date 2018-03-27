@@ -2,10 +2,10 @@
 title: Een bestaand Azure-abonnement toevoegen aan Azure Active Directory | Microsoft Docs
 description: Een bestaand abonnement toevoegen aan Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Een Azure-abonnement koppelen of toevoegen aan Azure Active Directory
 
@@ -34,6 +34,7 @@ Alle gebruikers hebben één basisdirectory waarmee ze worden geverifieerd, maar
 
 * U moet zich aanmelden met een account waarvoor u als RBAC-eigenaar toegang heeft tot het abonnement.
 * U moet zich aanmelden met een account dat bestaat in zowel de huidige directory die aan het abonnement is gekoppeld als in de directory waaraan u het abonnement wilt toevoegen. Zie [Hoe voegen beheerders van Azure Active Directory gebruikers van B2B-samenwerking toe?](active-directory-b2b-admin-add-users.md) voor meer informatie over het verkrijgen van toegang tot een andere directory.
+* Deze functie is niet beschikbaar voor CSP- (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P) en Microsoft Imagine-abonnementen (MS-AZR-0144P).
 
 ## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>Een bestaand abonnement koppelen aan uw Azure AD Directory
 

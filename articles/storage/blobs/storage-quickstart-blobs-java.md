@@ -7,13 +7,13 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: cde366e75e4111a911be67795a2ad4dfa73778ea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44e5f921ca9303e680c76d439ab7503ea3c39680
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Quickstart: blobs downloaden, uploaden en vermelden met behulp van Java
 
@@ -202,6 +202,19 @@ downloadedFile.deleteOnExit();
 if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
+
+## <a name="resources-for-developing-java-applications-with-blobs"></a>Resources voor het ontwikkelen van Java-toepassingen met blobs
+
+Zie de volgende aanvullende resources voor Java-ontwikkeling met Blob-opslag:
+
+### <a name="binaries-and-source-code"></a>Binaire bestanden en broncode
+
+- Bekijk en installeer de [broncode voor de Java-clientbibliotheek](https://github.com/Azure/azure-storage-java) voor Azure Storage op GitHub.
+
+### <a name="client-library-reference-and-samples"></a>Naslaginformatie en voorbeelden voor de .NET-clientbibliotheek
+
+- Zie het [Java API-referentiemateriaal](https://docs.microsoft.com/en-us/java/api/overview/azure/storage) voor meer informatie over de Java-clientbibliotheek.
+- Verken met behulp van de Java-clientbibliotheek geschreven [Blob-opslagvoorbeelden](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob).
 
 ## <a name="next-steps"></a>Volgende stappen
 

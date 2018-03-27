@@ -1,23 +1,23 @@
 ---
 title: Een Azure data factory maken met behulp van .NET | Microsoft Docs
-description: "Maak een Azure data factory om gegevens te kopiëren van een locatie in een Azure Blob Storage naar een andere locatie in dezelfde Blob Storage."
+description: Maak een Azure data factory om gegevens te kopiëren van de ene locatie in Azure Blob Storage naar de andere.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: b430f5932bcd54d5e2ab787fb6c4491b48dbc416
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4829fde008516aff70652cff337838a162582c24
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Een data factory en pijplijn maken met behulp van .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -105,7 +105,7 @@ Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/) o
 Volg de instructies in [dit artikel](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) om het volgende te doen: 
 
 1. **Een Azure Active Directory-toepassing maken**. Maak een toepassing in Azure Active Directory die staat voor de .NET-toepassing die u in deze zelfstudie maakt. Voor de aanmeldings-URL kunt u een dummy-URL opgeven, zoals wordt getoond in het artikel (`https://contoso.org/exampleapp`).
-2. Haal de **toepassings-id** en **verificatiesleutel**\*\* op met behulp van de instructies in de sectie **De toepassings-id en verificatiesleutel ophalen** in het artikel. Noteer deze waarden, zodat u ze later in deze zelfstudie kunt gebruiken. 
+2. Haal de **toepassings-id** en **verificatiesleutel*** op met behulp van de instructies in de sectie **De toepassings-id en verificatiesleutel ophalen** in het artikel. Noteer deze waarden, zodat u ze later in deze zelfstudie kunt gebruiken. 
 3. Haal de **tenant-id** op met behulp van de instructies in de sectie **Tenant-id ophalen** in het artikel. Noteer deze waarde. 
 4. Wijs de toepassing toe aan de rol **Inzender** op het niveau van het abonnement, zodat met de toepassing gegevensfactory's in het abonnement kunnen worden gemaakt. Volg de instructies in de sectie **Toepassing toewijzen aan rol** in het artikel. 
 

@@ -1,6 +1,6 @@
 ---
-title: De Azure App Service-omgeving configureren om geforceerde tunnels te gebruiken
-description: Zorg ervoor dat de App Service-omgeving werkt wanneer uitgaand verkeer gebruikmaakt van geforceerde tunnels
+title: De Azure App Service Environment configureren voor het gebruik van geforceerde tunnels
+description: Instellen dat App Service Environment werkt wanneer uitgaand verkeer gebruikmaakt van geforceerde tunnels
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,103 +11,128 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/10/2017
+ms.date: 3/6/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 4caaf0df3f1dd4b2cb9b76283a6beed897531c1c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 92073cd29f29c1ddf5863e23c4a12dfdf8e21598
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>De Azure App Service-omgeving configureren met geforceerde tunnels
 
-De App Service-omgeving is een implementatie van Azure App Service in het klantenexemplaar van een virtueel Azure-netwerk. Veel klanten configureren hun virtuele netwerken zodat deze uitbreidingen zijn van hun on-premises netwerken met VPN’s of Azure ExpressRoute-verbindingen. Vanwege bedrijfsbeleid of andere beveiligingsbeperkingen configureren ze routes om al het uitgaande verkeer on-premises te verzenden, voordat het zichtbaar is op internet. Geforceerde tunnels: het wijzigen van de routering van het virtuele netwerk zodat uitgaand verkeer dat afkomstig is van dit virtuele netwerk, via een VPN- of ExpressRoute-verbinding naar on-premises wordt verzonden. 
+De ASE (App Service Environment) is een implementatie van Azure App Service in een virtueel Azure-netwerk van de klant. Veel klanten configureren hun virtuele Azure-netwerken als uitbreidingen van hun on-premises netwerken met VPN’s of Azure ExpressRoute-verbindingen. Geforceerde tunneling vindt plaats wanneer u internetverkeer omleidt naar uw VPN of een virtueel apparaat. Dit wordt vaak gedaan als onderdeel van beveiligingsvereisten, om het uitgaande verkeer te inspecteren en te controleren. 
 
-Geforceerde tunnels kunnen problemen veroorzaken voor een App Service-omgeving. De App Service-omgeving heeft een aantal extra afhankelijkheden, die worden opgesomd in het document [App Service Environment network architecture][network] (Netwerkarchitectuur van App Service-omgeving). Voor de App Service-omgeving is standaard vereist dat alle uitgaande communicatie verloopt via het VIP-adres dat is ingericht met de App Service-omgeving.
+De ASE heeft een aantal externe afhankelijkheden. Deze worden beschreven in het document [App Service Environment network architecture][network] (Netwerkarchitectuur van App Service Environment). Normaal gesproken moet al het verkeer met een uitgaande ASE-afhankelijkheid het VIP passeren dat is ingericht met de ASE. Als u de routering voor het verkeer naar of van de ASE wijzigt zonder onderstaande informatie te volgen, zal uw ASE niet meer werken.
 
-Routes zijn een essentieel onderdeel van geforceerde tunnels en hoe deze werken. In een virtueel Azure-netwerk vindt routering plaats op basis van LPM (Longest Prefix Match). Als er meer dan één route met dezelfde overeenkomende LPM is, wordt een route geselecteerd op basis van de oorsprong in de volgende volgorde:
+In een virtueel Azure-netwerk vindt routering plaats op basis van LPM (Longest Prefix Match). Als er meer dan één route met dezelfde overeenkomende LPM is, wordt een route geselecteerd op basis van de oorsprong. Dit gebeurt in de volgende volgorde:
 
 * UDR (door de gebruiker opgegeven route)
 * BGP-route (wanneer u ExpressRoute gebruikt)
 * Systeemroute
 
-Lees [User-defined routes en doorsturen via IP][routes] (Door de gebruiker opgegeven routes en Doorsturen via IP) voor meer informatie over routering in een virtueel netwerk . 
+Lees [User-defined routes and IP forwarding][routes] (Door de gebruiker opgegeven routes en Doorsturen via IP) voor meer informatie over routering in een virtueel netwerk. 
 
-Als u wilt dat de App Service-omgeving werkt met een virtueel netwerk met geforceerde tunnels, hebt u twee opties:
+Als u uw uitgaande ASE-verkeer wilt omleiden zodat het niet meer direct naar het internet gaat, hebt u de volgende opties:
 
-* Zorg ervoor dat de App Service-omgeving rechtstreeks toegang heeft tot internet.
-* Wijzig het uitgaande eindpunt voor de App Service-omgeving.
+* Instellen dat uw ASE directe toegang heeft tot internet
+* Uw ASE-subnet configureren voor het gebruik van service-eindpunten naar Azure SQL en Azure Storage
+* Uw eigen IP-adressen toevoegen aan de Azure SQL-firewall van ASE
 
-## <a name="enable-your-app-service-environment-to-have-direct-internet-access"></a>Ervoor zorgen dat de App Service-omgeving rechtstreeks toegang heeft tot internet
+## <a name="enable-your-app-service-environment-to-have-direct-internet-access"></a>Zorgen dat de App Service-omgeving rechtstreeks toegang heeft tot internet
 
-Doe het volgende om ervoor te zorgen dat de App Service-omgeving werkt wanneer het virtuele netwerk wordt geconfigureerd met een ExpressRoute-verbinding:
+Als u wilt instellen dat uw ASE rechtstreeks verbinding heeft met het internet, zelfs als uw virtuele Azure-netwerk is geconfigureerd met ExpressRoute, kunt u het volgende doen:
 
-* Configureer ExpressRoute om 0.0.0.0/0 te adverteren. Standaard maakt hierdoor al het uitgaande verkeer dat naar on-premises locaties wordt verzonden gebruik van geforceerde tunnels.
-* Maak een UDR. Pas deze toe op het subnet dat de App Service-omgeving bevat met het adresvoorvoegsel 0.0.0.0/0 gevolgd door een hoptype van internet.
+* Configureer ExpressRoute om 0.0.0.0/0 te adverteren. Standaard wordt al het uitgaande verkeer on-premises omgeleid.
+* Maak een UDR met het adresvoorvoegsel 0.0.0.0/0 en Internet als het volgend hoptype. Pas deze route toe op het ASE-subnet.
 
-Als u deze twee wijzigingen aanbrengt, wordt internetverkeer dat afkomstig is van het subnet van de App Service-omgeving niet gedwongen om de ExpressRoute-verbinding te gebruiken, en werkt de App Service-omgeving naar behoren.
+Als u deze twee wijzigingen aanbrengt, wordt internetverkeer dat afkomstig is van het subnet van het ASE-subnet niet gedwongen om de ExpressRoute-verbinding te gebruiken.
 
 > [!IMPORTANT]
 > De routes die zijn gedefinieerd in een UDR, moeten specifiek genoeg zijn om voorrang te krijgen boven alle routes die worden geadverteerd met de ExpressRoute-configuratie. In het voorgaande voorbeeld wordt het brede adresbereik 0.0.0.0/0 gebruikt. Dit bereik kan mogelijk per ongeluk worden overschreven door routeadvertenties die gebruikmaken van specifiekere adresbereiken.
 >
-> App Service-omgevingen worden niet ondersteund met ExpressRoute-configuraties die advertentieoverschrijdende routes gebruiken van het openbare-peeringpad naar het privépeeringpad. ExpressRoute-configuraties waarvoor openbare peering is geconfigureerd, ontvangen routeadvertenties van Microsoft. De advertenties bevatten een groot aantal IP-adresbereiken van Microsoft Azure. Als de adresbereiken advertentieoverschrijdend zijn op het privépeeringpad, wordt voor alle uitgaande netwerkpakketten gebruikgemaakt van geforceerde tunnels, wanneer ze van de App Service-omgeving worden verzonden naar een on-premises netwerkinfrastructuur van de klant. Deze netwerkstroom wordt momenteel niet standaard ondersteund met App Service-omgevingen. Een mogelijke oplossing voor dit probleem is om advertentieoverschrijdende routes van het openbare-peeringpad naar het privépeeringpad te stoppen. Een andere oplossing is om ervoor te zorgen dat de App Service-omgeving werkt in een geforceerde-tunnelconfiguratie.
+> App Service-omgevingen worden niet ondersteund met ExpressRoute-configuraties die advertentieoverschrijdende routes gebruiken van het openbare-peeringpad naar het privé-peeringpad. ExpressRoute-configuraties waarvoor openbare peering is geconfigureerd, ontvangen routeadvertenties van Microsoft. De advertenties bevatten een groot aantal Microsoft Azure-adresbereiken. Als de adresbereiken advertentieoverschrijdend zijn op het privé-peeringpad, worden alle uitgaande netwerkpakketten vanuit het ASE-subnet omgeleid naar een on-premises netwerkinfrastructuur van de klant. Deze netwerkstroom wordt momenteel niet standaard ondersteund met ASE's. Een mogelijke oplossing voor dit probleem is om advertentieoverschrijdende routes van het openbare-peeringpad naar het privé-peeringpad te stoppen. Een andere oplossing is om ervoor te zorgen dat de App Service-omgeving werkt in een geforceerde-tunnelconfiguratie.
 
-## <a name="change-the-egress-endpoint-for-your-app-service-environment"></a>Het uitgaande eindpunt voor de App Service-omgeving wijzigen ##
+![Directe internettoegang][1]
 
-In deze sectie wordt beschreven hoe u ervoor zorgt dat een App Service-omgeving werkt in een geforceerde-tunnelconfiguratie door het uitgaande eindpunt te wijzigen dat wordt gebruikt in de App Service-omgeving. Als het uitgaande verkeer van de AS-omgeving via geforceerde tunnels wordt verzonden naar een on-premises netwerk, moet u toestaan dat dit verkeer afkomstig is van andere IP-adressen dat het VIP-adres van de AS-omgeving.
+## <a name="configure-your-ase-with-service-endpoints"></a>Uw ASE configureren met service-eindpunten
 
-Een App Service-omgeving heeft niet alleen externe afhankelijkheden, maar moet ook luisteren naar binnenkomend verkeer en op dergelijk verkeer reageren. De antwoorden kunnen niet worden geretourneerd vanaf een ander adres, omdat dit het TCP schendt. Er zijn drie stappen nodig om het uitgaande eindpunt voor de App Service-omgeving te wijzigen:
+Voer de volgende stappen uit als u al het uitgaande verkeer vanuit uw ASE, behalve het verkeer naar Azure SQL en Azure Storage, wilt omleiden:
 
-1. Stel een routetabel in om ervoor te zorgen dat inkomend beheerverkeer kan worden geretourneerd vanaf hetzelfde IP-adres.
+1. Maak een routetabel maken en wijs deze toe aan uw ASE-subnet. Zoek in [App Service Environment management addresses][management] (Beheeradressen van App Service Environment) de adressen bij uw regio. Maak routes voor deze adressen met Internet als de volgende hop. Dit is nodig omdat het inkomend managementverkeer van ASE moet beantwoorden vanaf hetzelfde adres als waarnaar het is verzonden.   
 
-2. Voeg de IP-adressen toe die moeten worden gebruikt voor uitgaand verkeer naar de firewall van de App Service-omgeving.
+2. Service-eindpunten met Azure SQL en Azure Storage instellen met uw ASE-subnet
 
-3. Stel in dat uitgaand verkeer van de AS-omgeving via een tunnel wordt verzonden.
+Met service-eindpunten kunt u de toegang tot multitenant-services beperken tot een reeks virtuele Azure-netwerken en subnetten. In de documentatie [Virtual Network Service Endpoints][serviceendpoints] (Virtuele netwerkservice-eindpunten) vindt u meer informatie over service-eindpunten. 
 
-   ![Netwerkstroom over geforceerde tunnels][1]
+Wanneer u service-eindpunten voor een bron inschakelt, worden er routes gemaakt die een hogere prioriteit hebben dan alle andere routes. Als u service-eindpunten gebruikt met een ASE met geforceerde tunnels, maakt het managementverkeer van Azure SQL en Azure Storage geen gebruik van geforceerde tunnels. Het andere verkeer met ASE-afhankelijkheid maakt wel gebruik van geforceerde tunnels en kan niet verloren gaan, anders werkt de ASE niet correct.
 
-U kunt de App Service-omgeving configureren met andere uitgaande adressen als de App Service-omgeving al operationeel is, of u kunt deze adressen instellen tijdens de implementatie van de App Service-omgeving.
+Als Service-eindpunten in een subnet met een Azure SQL-exemplaar is ingeschakeld, moet Service-eindpunten zijn ingeschakeld op alle Azure SQL-exemplaren waarmee vanuit dat subnet een verbinding wordt gemaakt. Als u vanuit hetzelfde subnet toegang wilt hebben tot meerdere Azure SQL-exemplaren, is het niet mogelijk om Service-eindpunten wel op het ene Azure SQL-exemplaar in te schakelen en niet op een ander.  Azure Storage gedraagt zich niet op dezelfde manier als Azure SQL.  Wanneer u Service-eindpunten met Azure Storage inschakelt, kunt u de toegang tot die resource vanuit uw subnet vergrendelen en toegang behouden tot andere Azure Storage-accounts, zelfs als Service-eindpunten op die accounts niet is ingeschakeld.  
 
-### <a name="change-the-egress-address-after-the-app-service-environment-is-operational"></a>Het adres van uitgaand verkeer wijzigen als de App Service-omgeving al operationeel is ###
-1. Haal de IP-adressen op die u wilt gebruiken als uitgaande IP-adressen voor de App Service-omgeving. Als u gebruikmaakt van geforceerde tunnels, zijn deze adressen afkomstig van de NAT’s of van de IP-adressen van de gateway. Als u het uitgaande verkeer van de App Service-omgeving wilt routeren via een NVA, is het uitgaande adres het openbare IP-adres van de NVA.
+Als u geforceerde tunnels configureert met een netwerkfilterapparaat, houd er dan rekening mee dat de ASE naast Azure SQL en Azure Storage nog een aantal andere afhankelijkheden heeft. U moet dat verkeer toestaan, anders werkt de ASE niet goed.
 
-2. Stel de uitgaande adressen in bij de configuratiegegevens van de App Service-omgeving. Ga naar resource.azure.com en ga naar Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Vervolgens ziet u de JSON die de App Service-omgeving beschrijft. Controleer of bovenaan **lezen/schrijven** staat. Selecteer **Bewerken**. Schuif naar beneden en wijzig de waarde **userWhitelistedIpRanges** van **null** in een waarde die lijkt op het volgende. Gebruik de adressen die u wilt instellen als het bereik met uitgaande adressen. 
+![Geforceerde tunnels met Service-eindpunten][2]
+
+## <a name="add-your-own-ips-to-the-ase-azure-sql-firewall"></a>Uw eigen IP-adressen toevoegen aan de Azure SQL-firewall van ASE ##
+
+Voer de volgende stappen uit als u al het uitgaande verkeer vanuit uw ASE, behalve het verkeer naar Azure SQL en Azure Storage, wilt omleiden:
+
+1. Maak een routetabel maken en wijs deze toe aan uw ASE-subnet. Zoek in [App Service Environment management addresses][management] (Beheeradressen van App Service Environment) de adressen bij uw regio. Maak routes voor deze adressen met Internet als de volgende hop. Dit is nodig omdat het inkomend managementverkeer van ASE moet beantwoorden vanaf hetzelfde adres als waarnaar het is verzonden. 
+
+2. Service-eindpunten met Azure Storage instellen met uw ASE-subnet
+
+3. Haal de adressen op die worden gebruikt voor al het uitgaande verkeer van uw App Service Environment naar het internet. Als u het verkeer on-premises omleidt, zijn deze adressen uw NAT's of gateway-IP-adressen. Als u het uitgaande verkeer van de App Service-omgeving wilt routeren via een NVA, is het uitgaande adres het openbare IP-adres van de NVA.
+
+4. _U stelt als volgt de uitgaande adressen in een bestaande App Service Environment in:_ ga naar resource.azure.com en ga naar Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Vervolgens ziet u de JSON die de App Service-omgeving beschrijft. Controleer of bovenaan **lezen/schrijven** staat. Selecteer **Bewerken**. Schuif naar beneden. Wijzig de waarde **userWhitelistedIpRanges** van **null** in een waarde die lijkt op het volgende. Gebruik de adressen die u wilt instellen als het bereik met uitgaande adressen. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
    Selecteer bovenaan **PUT**. Met deze optie wordt een schaalbewerking in de App Service-omgeving geactiveerd en de firewall aangepast.
- 
-3. Maak of bewerk een routetabel, en vul de regels in om toegang tot/van de beheeradressen toe te staan die zijn toegewezen aan de locatie van de App Service-omgeving. Zie [App Service Environment management addresses][management] (Beheeradressen van de App Service-omgeving) om de beheeradressen te zoeken.
 
-4. Pas de routes die zijn toegepast op het subnet van de App Service-omgeving, aan met een routetabel of BGP-routes. 
+_U maakt als volgt uw ASE met de uitgaande adressen_: volg de aanwijzingen in [Create an App Service Environment with a template][template] (Een App Service Environment maken met een sjabloon) en haal de geschikte sjabloon op.  Bewerk de sectie met bronnen in het bestand azuredeploy.json, maar niet in het blok 'properties' en neem voor **userWhitelistedIpRanges** een regel op die uw waarden bevat.
 
-Als de App Service-omgeving niet meer reageert vanuit de portal, is er een probleem opgetreden met de wijzigingen. Het probleem kan zijn dat uw lijst met uitgaande adressen onvolledig is, of dat het verkeer verloren is gegaan of is geblokkeerd. 
+    "resources": [
+      {
+        "apiVersion": "2015-08-01",
+        "type": "Microsoft.Web/hostingEnvironments",
+        "name": "[parameters('aseName')]",
+        "kind": "ASEV2",
+        "location": "[parameters('aseLocation')]",
+        "properties": {
+          "name": "[parameters('aseName')]",
+          "location": "[parameters('aseLocation')]",
+          "ipSslAddressCount": 0,
+          "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
+          "dnsSuffix" : "[parameters('dnsSuffix')]",
+          "virtualNetwork": {
+            "Id": "[parameters('existingVnetResourceId')]",
+            "Subnet": "[parameters('subnetName')]"
+          },
+        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
+        }
+      }
+    ]
 
-### <a name="create-a-new-app-service-environment-with-a-different-egress-address"></a>Een nieuwe App Service-omgeving maken met een ander uitgaand adres ###
+Door deze wijzigingen wordt verkeer vanuit de ASE rechtstreeks naar Azure Storage gestuurd en is toegang tot de Azure SQL toegestaan vanaf andere adressen dan het VIP van de ASE.
 
-Als uw virtuele netwerk al is geconfigureerd om geforceerde tunnels te gebruiken voor al het verkeer, moet u extra stappen nemen om de App Service-omgeving te maken, zodat alles naar behoren verloopt. U moet het gebruik van een ander uitgaand eindpunt inschakelen tijdens het maken van de App Service-omgeving. Hiervoor moet u de App Service-omgeving maken met een sjabloon die de toegestane uitgaande adressen specificeert.
+   ![Geforceerde tunnel met goedgekeurde SQL][3]
 
-1. Haal de IP-adressen op die moeten worden gebruikt als uitgaande adressen voor de App Service-omgeving.
+## <a name="preventing-issues"></a>Problemen voorkomen ##
 
-2. Maak vooraf het subnet dat moet worden gebruikt voor de App Service-omgeving. U hebt dit subnet nodig om routes in te stellen, en ook omdat dit is vereist voor de sjabloon.
+Als de communicatie tussen de ASE en de bijbehorende afhankelijkheden wordt verbroken, wordt de ASE onbetrouwbaar.  Als deze te lang onbetrouwbaar blijft, wordt de toegang tot de ASE tijdelijk ingetrokken. Volg de instructies in de ASE-portal als u de toegang tot de ASE wilt herstellen.
 
-3. Maak een routetabel met de IP-beheeradressen die zijn toegewezen aan de locatie van de App Service-omgeving. Wijs deze toe aan de App Service-omgeving.
-
-4. Volg de instructies in [Create an App Service Environment with a template][template] (Een App Service-omgeving maken met een sjabloon). Open de juiste sjabloon.
-
-5. Bewerk de sectie Resources in het bestand azuredeploy.json. Neem een regel op voor **userWhitelistedIpRanges** met waarden zoals deze:
-
-       "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
-
-Als deze sectie juist is geconfigureerd, start de App Service-omgeving zonder problemen. 
+Niet alleen een onderbroken communicatie kan een nadelige invloed hebben op een ASE, maar ook de introductie van te veel latentie. Te veel latentie vindt plaats als uw ASE zich te ver van uw on-premises netwerk bevindt.  Bijvoorbeeld als er een oceaan of continent tussen de ASE en uw on-premises netwerk ligt. Latentie kan ook optreden als gevolg van congestie van het intranet of beperkingen van de uitgaande bandbreedte.
 
 
 <!--IMAGES-->
-[1]: ./media/forced-tunnel-support/forced-tunnel-flow.png
+[1]: ./media/forced-tunnel-support/asedependencies.png
+[2]: ./media/forced-tunnel-support/forcedtunnelserviceendpoint.png
+[3]: ./media/forced-tunnel-support/forcedtunnelexceptstorage.png
 
 <!--Links-->
 [management]: ./management-addresses.md
 [network]: ./network-info.md
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

@@ -1,12 +1,12 @@
 ---
 title: Uw eerste geautomatiseerde werkstroom maken - Azure Logic Apps | Microsoft Docs
-description: "Deze quickstart laat zien hoe u uw eerste werkstroom met Azure Logic Apps kunt automatiseren voor scenario’s voor systeemintegratie en Enterprise Application Integration (EAI) waarmee systemen en cloudservices worden geïntegreerd."
+description: Deze quickstart laat zien hoe u uw eerste werkstroom met Azure Logic Apps kunt automatiseren voor scenario’s voor systeemintegratie en Enterprise Application Integration (EAI) waarmee systemen en cloudservices worden geïntegreerd.
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
 keywords: werkstroom, cloudservices, systeemintegratie, enterprise application integration, EAI
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Quickstart: Uw eerste werkstroom voor logische apps bouwen - Azure Portal
 
@@ -60,6 +60,8 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
    ![Sjabloon voor lege logische app kiezen](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 Vervolgens voegt u een [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) toe die wordt geactiveerd zodra er een nieuw RSS-feeditem wordt weergegeven. Elke logische app moet beginnen met een trigger, die wordt geactiveerd wanneer er een bepaalde gebeurtenis plaatsvindt of wanneer er aan een bepaalde voorwaarde is voldaan. Telkens wanneer de trigger wordt geactiveerd, maakt de Logic Apps-engine een exemplaar van een logische app dat wordt gestart en de werkstroom uitvoert.
+
+<a name="add-rss-trigger"></a>
 
 ## <a name="check-rss-feed-with-a-trigger"></a>RSS-feed controleren met een trigger
 
@@ -144,7 +146,7 @@ Voeg nu een [actie](../logic-apps/logic-apps-overview.md#logic-app-concepts) waa
       ![Inhoud voor de hoofdtekst van de e-mail toevoegen](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | Instelling | Beschrijving | 
-      | ----- | ----------- | 
+      | ------- | ----------- | 
       | **Feedtitel** | De titel van het item | 
       | **Feed gepubliceerd op** | De publicatiedatum en -tijd van het item | 
       | **Primaire feedkoppeling** | De URL voor het item | 
@@ -156,15 +158,16 @@ Test vervolgens de logische app.
 
 ## <a name="run-your-logic-app"></a>Uw logische app uitvoeren
 
-Kies **Uitvoeren** op de werkbalk in de ontwerper als u de logische app handmatig wilt uitvoeren. Of wacht totdat de logische app volgens de opgegeven planning wordt uitgevoerd (elke minuut). Als de RSS-feed nieuwe items heeft, verzendt uw logische app een e-mailbericht voor elk nieuw item. Maar als de feed geen nieuwe items heeft, slaat de logische app het activeren van de actie over. Vervolgens wordt gewacht op het volgende interval voordat er opnieuw een controle plaatsvindt. 
+Kies **Uitvoeren** op de werkbalk in de ontwerper als u de logische app handmatig wilt uitvoeren. Of wacht tot de logische app de RSS-feed op basis van uw opgegeven schema (elke minuut) heeft gecontroleerd. Als de RSS-feed nieuwe items heeft, verzendt uw logische app een e-mailbericht voor elk nieuw item. Anders wacht de logische app tot het volgende interval voordat opnieuw een controle wordt uitgevoerd. 
 
-Dit is een voorbeeld van een e-mailbericht dat deze logische app verzendt:
+Dit is een voorbeeld van een e-mailbericht dat deze logische app verzendt. Als u geen een e-mailberichten ontvangt, controleert u de map Ongewenste e-mail.
 
 ![E-mail wordt verzonden voor nieuw RSS-feeditem](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-Als u geen een e-mailberichten ontvangt, controleert u de map met ongewenste e-mail. Het is mogelijk dat uw filter voor ongewenste e-mail dit soort e-mails in deze map zet. 
+Technisch gesproken wordt, als bij controle van de RSS-feed nieuwe items worden aangetroffen, de trigger geactiveerd en maakt de Logic Apps-engine een exemplaar van de werkstroom van uw logische app die de acties in de werkstroom uitvoert.
+Als de trigger geen nieuwe items vindt, wordt deze niet geactiveerd en wordt het instantiëren van de werkstroom overgeslagen.
 
-U hebt nu uw eerste logische app gemaakt en uitgevoerd.
+Gefeliciteerd, u hebt uw eerste logische app in Azure Portal gemaakt en uitgevoerd.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

@@ -7,17 +7,17 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 8d1f09a39e865500aa8e4d093473d4989f134c3d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van .NET
 
-In deze snelstart leert u hoe u de .NET-clientbibliotheek voor Azure Storage gebruikt om blok-bobs in een container te uploaden, te downloaden en weer te geven.
+In deze quickstart leert u hoe u de .NET-clientbibliotheek voor Azure Storage gebruikt om blok-bobs in een container te uploaden, te downloaden en weer te geven.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -46,7 +46,7 @@ Download en installeer vervolgens .NET Core 2.0 voor uw besturingssysteem. U kun
 
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 
-De voorbeeldtoepassing die in deze snelstart wordt gebruikt, is een basisconsoletoepassing. U kunt de voorbeeldtoepassing verkennen op [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart).
+De voorbeeldtoepassing die in deze quickstart wordt gebruikt, is een basisconsoletoepassing. U kunt de voorbeeldtoepassing verkennen op [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart).
 
 Gebruik [git](https://git-scm.com/) om een kopie van de toepassing naar uw ontwikkelomgeving te downloaden. 
 
@@ -253,13 +253,13 @@ Zie de volgende aanvullende bronnen voor .NET-ontwikkeling met Blob-opslag:
 
 ### <a name="binaries-and-source-code"></a>Binaire bestanden en broncode
 
-- Download het NuGet-pakket voor de nieuwste versie van de [Storage .NET-clientbibliotheek](https://www.nuget.org/packages/WindowsAzure.Storage/). 
-- Bekijk de [broncode van de Storage .NET-clientbibliotheek](https://github.com/Azure/azure-storage-net) op GitHub.
+- Download het NuGet-pakket voor de nieuwste versie van de [.NET-clientbibliotheek](https://www.nuget.org/packages/WindowsAzure.Storage/) voor Azure Storage. 
+- Bekijk de [broncode van de .NET-clientbibliotheek](https://github.com/Azure/azure-storage-net) op GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Naslaginformatie en voorbeelden voor de .NET-clientbibliotheek
 
-- Zie het [Storage .NET API-referentiemateriaal](https://docs.microsoft.com/dotnet/api/overview/azure/storage) voor meer informatie over de clientbibliotheek.
-- Verken met behulp van de Storage .NET-clientbibliotheek geschreven [Blob-opslagvoorbeelden](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob).
+- Zie het [.NET API-referentiemateriaal](https://docs.microsoft.com/dotnet/api/overview/azure/storage) voor meer informatie over de .NET-clientbibliotheek.
+- Verken [Blob-opslagvoorbeelden](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) die zijn geschreven met de .NET-clientbibliotheek.
 
 ## <a name="next-steps"></a>Volgende stappen
 

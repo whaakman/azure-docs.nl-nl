@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: een web-app ontwikkelen met .NET en de SQL API | Microsoft Docs'
-description: Biedt een voorbeeld van .NET-code die u kunt gebruiken om verbinding te maken met de SQL API van Azure Cosmos DB en er query’s op uit te voeren
+title: Een .NET-web-app met Azure Cosmos DB ontwikkelen met de SQL API | Microsoft Docs
+description: In deze snelstartgids gebruikt u de SQL API van Azure Cosmos DB en de Azure-portal om een .NET-web-app te maken
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -15,13 +15,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/15/2017
 ms.author: mimig
-ms.openlocfilehash: b5ab66371b47bdd0f3bd7a4c9e86e419efebe902
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: eb361ce596cbb95e01e7dbd82001bd089d51d70e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-cosmos-db-build-a-sql-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: een SQL API-web-app ontwikkelen met .NET en de Azure Portal
+# <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Quickstart: Een .NET-web-app met Azure Cosmos DB ontwikkelen met de SQL API en de Azure-portal
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 

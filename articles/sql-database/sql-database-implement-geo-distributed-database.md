@@ -1,68 +1,61 @@
 ---
-title: Een Azure SQL Database geografisch verspreide oplossing implementeren | Microsoft Docs
-description: Informatie over het configureren van uw Azure SQL Database en de toepassing voor failover voor een gerepliceerde database en failover testen.
+title: Een geografisch gedistribueerde Azure SQL Database-oplossing implementeren| Microsoft Docs
+description: Informatie over het configureren van de Azure SQL-database en toepassing voor failover naar een gerepliceerde database, en failover testen.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,business continuity
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 05/26/2017
 ms.author: carlrab
-ms.openlocfilehash: 910be8ff5f9a882c7bb8ae875b8bf5fc74d1fb9a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: ea94a311d409d8c5d6142746dc1009ff67ef3a82
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="implement-a-geo-distributed-database"></a>Een database geografisch verspreide implementeren
+# <a name="implement-a-geo-distributed-database"></a>Een geografisch gedistribueerde database implementeren
 
-In deze zelfstudie kunt u configureren van een Azure SQL database en de toepassing voor een failover naar een externe regio en test u uw plan failover. Procedures voor: 
+In deze zelfstudie configureert u een Azure SQL-database en -toepassing voor failover naar een externe regio, waarna u het failoverschema gaat testen. Procedures voor: 
 
 > [!div class="checklist"]
-> * Maken van databasegebruikers en machtigingen verlenen
-> * Een firewallregel op databaseniveau instellen
-> * Maak een [geo-replicatie failover-groep](sql-database-geo-replication-overview.md)
-> * Maken en het compileren van een Java-toepassing query uitvoeren op een Azure SQL database
-> * Uitvoeren van een herstel na noodgevallen detailanalyse
+> * Databasegebruikers maken en ze machtigingen verlenen
+> * Firewallregel op databaseniveau instellen
+> * [Failover-groep met geo-replicatie](sql-database-geo-replication-overview.md) maken
+> * Java-toepassing maken en compileren om een query uit te voeren van een Azure SL-database
+> * Noodherstelanalyse uitvoeren
 
-Als u een Azure-abonnement geen [een gratis account maken](https://azure.microsoft.com/free/) voordat u begint.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
 U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt voldaan:
 
-- De meest recente geïnstalleerd [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). 
-- Een Azure SQL database geïnstalleerd. In deze zelfstudie wordt de voorbeelddatabase van AdventureWorksLT met de naam **mySampleDatabase** van een van deze snel aan de slag:
+- Meest recente [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) is geïnstalleerd. 
+- Azure SQL-database is geïnstalleerd. In deze zelfstudie wordt de voorbeelddatabase AdventureWorksLT gebruikt met de naam **mySampleDatabase** uit een van deze snelstartgidsen:
 
    - [Database maken - Portal](sql-database-get-started-portal.md)
    - [Database maken - CLI](sql-database-get-started-cli.md)
    - [Database maken - PowerShell](sql-database-get-started-powershell.md)
 
-- Een methode voor het uitvoeren van SQL-scripts uitvoeren op uw database hebt geïdentificeerd kunt u een van de volgende query's:
-   - De query-editor in de [Azure-portal](https://portal.azure.com). Zie voor meer informatie over het gebruik van de query-editor in Azure portal [Connect en query Query-Editor met](sql-database-get-started-portal.md#query-the-sql-database).
-   - De nieuwste versie van [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), dit is een geïntegreerde omgeving voor het beheren van elke SQL-infrastructuur uit SQL Server met SQL-Database voor Microsoft Windows.
-   - De nieuwste versie van [Visual Studio Code](https://code.visualstudio.com/docs), die een grafische code-editor voor Linux, Mac OS, en wanneer die extensies, met inbegrip van Windows ondersteunt de [mssql-extensie](https://aka.ms/mssql-marketplace) voor query's in Microsoft SQL Server Azure SQL Database en SQL datawarehouse. Zie voor meer informatie over het gebruik van dit hulpprogramma met Azure SQL Database [Connect en query met de Code van de VS](sql-database-connect-query-vscode.md). 
+- Als u een methode hebt geïdentificeerd voor het uitvoeren van SQL-scripts tegen de database, kunt u een van de volgende query-hulpprogramma's gebruiken:
+   - Query-editor in [Azure Portal](https://portal.azure.com). Zie [Verbinding maken en query's uitvoeren met Query-editor](sql-database-get-started-portal.md#query-the-sql-database) voor meer informatie over het gebruik van de query-editor in Azure Portal.
+   - De nieuwste versie van [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), een geïntegreerde omgeving voor het beheren van een SQL-infrastructuur, van SQL Server tot SQL Database voor Microsoft Windows.
+   - De nieuwste versie van [Visual Studio Code](https://code.visualstudio.com/docs), een grafische code-editor voor Linux, Mac OS en Windows die ondersteuning biedt voor extensies, waaronder de [mssql-extensie](https://aka.ms/mssql-marketplace) voor het uitvoeren van query's in Microsoft SQL Server, Azure SQL Database en SQL Data Warehouse. Zie [Verbinding maken en query's uitvoeren met VS Code](sql-database-connect-query-vscode.md) voor meer informatie over het gebruik van dit hulpprogramma met Azure SQL Database. 
 
-## <a name="create-database-users-and-grant-permissions"></a>Maken van databasegebruikers en machtigingen verlenen
+## <a name="create-database-users-and-grant-permissions"></a>Databasegebruikers maken en machtigingen verlenen
 
-Verbinding maken met uw database en Maak gebruikersaccounts met behulp van een van de volgende query's:
+Maak verbinding met uw database en maak gebruikersaccounts met behulp van een van de volgende query-hulpprogramma's:
 
-- De Query-editor in Azure portal
+- Query-editor in Azure Portal
 - SQL Server Management Studio
 - Visual Studio Code
 
-Deze gebruikersaccounts automatisch worden gerepliceerd naar de secundaire server (en gesynchroniseerd blijven). Voor het gebruik van SQL Server Management Studio of Visual Studio Code, moet u wellicht een firewallregel configureren als u verbinding maakt vanaf een client op een IP-adres waarvoor u nog niet hebt geconfigureerd een firewall. Zie voor gedetailleerde stappen [maken van een firewallregel op serverniveau](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+Deze gebruikersaccounts worden automatisch gerepliceerd met de secundaire server (en gesynchroniseerd gehouden). Als u SQL Server Management Studio of Visual Studio Code wilt gebruiken, dient u een firewallregel te configureren als u verbinding maakt vanaf een client op een IP-adres waarvoor nog geen firewall is geconfigureerd. Zie [Een serverfirewallregel maken](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) voor uitgebreide stappen.
 
-- Uitvoeren in een query-venster de volgende query voor het maken van twee gebruikersaccounts in uw database. Dit script verleent **db_owner** machtigingen voor de **app_admin** -account en verleent **Selecteer** en **UPDATE** machtigingen voor de **app_user** account. 
+- Voer in een queryvenster de volgende query uit om twee gebruikersaccounts te maken in uw database. Dit script verleent **db_owner**-machtigingen aan het **app_admin**-account en verleent de machtigingen **SELECT** en **UPDATE** aan het **app_user**-account. 
 
    ```sql
    CREATE USER app_admin WITH PASSWORD = 'ChangeYourPassword1';
@@ -74,26 +67,26 @@ Deze gebruikersaccounts automatisch worden gerepliceerd naar de secundaire serve
    GRANT SELECT, INSERT, DELETE, UPDATE ON SalesLT.Product TO app_user;
    ```
 
-## <a name="create-database-level-firewall"></a>Firewallregel op databaseniveau maken
+## <a name="create-database-level-firewall"></a>Firewall op databaseniveau maken
 
-Maak een [firewallregel op databaseniveau](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) voor uw SQL-database. Deze firewallregel op databaseniveau repliceert automatisch naar de secundaire server die u in deze zelfstudie maakt. Gebruik het openbare IP-adres van de computer waarop u de stappen in deze zelfstudie zijn uitvoert voor eenvoud (in deze zelfstudie). Om te bepalen van de IP-adres voor de firewallregel op serverniveau voor de huidige computer, Zie [maken van een firewall serverniveau](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).  
+Maak een [firewallregel op databaseniveau](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) voor uw SQL-database. Deze firewallregel op databaseniveau wordt automatisch gerepliceerd met de secundaire server die u in deze zelfstudie hebt gemaakt. Gebruik voor het gemak (in deze zelfstudie) het openbare IP-adres van de computer waarop u de stappen in deze zelfstudie uitvoert. Zie [Een serverfirewallregel maken](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) om het IP-adres vast te stellen dat wordt gebruikt voor de firewall op serverniveau voor uw huidige computer.  
 
-- In het venster openen query, kunt u de vorige query vervangen door de volgende query, het IP-adressen vervangen door de juiste IP-adressen voor uw omgeving.  
+- Vervang in het geopende queryvenster de vorige query door de volgende, waarbij u het IP-adres vervangt door de bijbehorende IP-adressen voor uw omgeving.  
 
    ```sql
    -- Create database-level firewall setting for your public IP address
    EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
    ```
 
-## <a name="create-an-active-geo-replication-auto-failover-group"></a>Een actieve geo-replicatie automatische failover-groep maken 
+## <a name="create-an-active-geo-replication-auto-failover-group"></a>Actieve automatische-failovergroep met actieve geo-replicatie maken 
 
-Met Azure PowerShell maken een [actieve geo-replicatie automatische failover groep](sql-database-geo-replication-overview.md) tussen de bestaande Azure SQL-server en de nieuwe Azure SQL-server in een Azure-regio leeg en voeg vervolgens de voorbeelddatabase aan de groep failover.
+Maak met behulp van Azure PowerShell een [actieve automatische-failovergroep met actieve geo-replicatie](sql-database-geo-replication-overview.md) tussen uw bestaande Azure SQL-server en de nieuwe, lege Azure SQL-server in een Azure-regio. Voeg vervolgens uw voorbeelddatabase aan de failovergroep toe.
 
 > [!IMPORTANT]
-> Deze cmdlets vereist Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
+> Voor deze cmdlets is Azure PowerShell 4.0 vereist. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 >
 
-1. Variabelen voor de PowerShell-scripts met de waarden voor uw bestaande server en de voorbeelddatabase vullen en geef een globaal unieke waarde voor failover-groepsnaam op.
+1. Vul variabelen in voor uw PowerShell-scripts met behulp van de waarden voor uw bestaande server en voorbeelddatabase, en geef een globaal unieke waarde op voor de naam van de failovergroep.
 
    ```powershell
    $adminlogin = "ServerAdmin"
@@ -107,7 +100,7 @@ Met Azure PowerShell maken een [actieve geo-replicatie automatische failover gro
    $myfailovergroupname = "<your unique failover group name>"
    ```
 
-2. Een leeg back-server maken in uw regio failover.
+2. Maak een lege back-upserver in uw failoverregio.
 
    ```powershell
    $mydrserver = New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
@@ -117,7 +110,7 @@ Met Azure PowerShell maken een [actieve geo-replicatie automatische failover gro
    $mydrserver   
    ```
 
-3. Maak een groep failover tussen de twee servers.
+3. Maak een failovergroep tussen de twee servers.
 
    ```powershell
    $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup `
@@ -130,7 +123,7 @@ Met Azure PowerShell maken een [actieve geo-replicatie automatische failover gro
    $myfailovergroup   
    ```
 
-4. Uw database toevoegen aan de groep failover.
+4. Voeg uw database toe aan de failovergroep.
 
    ```powershell
    $myfailovergroup = Get-AzureRmSqlDatabase `
@@ -157,7 +150,7 @@ brew update
 brew install maven
 ```
 
-Ga voor gedetailleerde richtlijnen voor het installeren en configureren van Java en Maven-omgeving de [bouwen van een app met SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), selecteer **Java**, selecteer **Mac OS**, en volgt u de gedetailleerde instructies voor het configureren van Java en Maven in stap 1.2 en 1.3.
+Voor uitgebreide begeleiding voor het installeren en configureren van een Java- en Maven-omgeving, gaat u naar [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Apps bouwen met SQL Server). Selecteer **Java**, selecteer **MacOS** en volg de uitgebreide instructies voor het configureren van Java en Maven in stap 1.2 en 1.3.
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Open de terminal en navigeer naar een map waar u van plan bent een Java-project te maken. Installeer **Maven** met de volgende opdrachten:
@@ -166,27 +159,27 @@ Open de terminal en navigeer naar een map waar u van plan bent een Java-project 
 sudo apt-get install maven
 ```
 
-Ga voor gedetailleerde richtlijnen voor het installeren en configureren van Java en Maven-omgeving de [bouwen van een app met SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), selecteer **Java**, selecteer **Ubuntu**, en volg de gedetailleerde instructies voor het configureren van Java en Maven in stap 1.2, 1.3 en 1.4.
+Voor uitgebreide begeleiding voor het installeren en configureren van een Java- en Maven-omgeving, gaat u naar [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Apps bouwen met SQL Server). Selecteer **Java**, selecteer **Ubuntu** en volg de uitgebreide instructies voor het configureren van Java en Maven in stap 1.2, 1.3 en 1.4.
 
 ### <a name="windows"></a>**Windows**
-Installeer [Maven](https://maven.apache.org/download.cgi) met behulp van het officiële installatieprogramma. Maven gebruiken voor het beheren van afhankelijkheden, bouwen, testen en uw Java-project uitvoeren. Ga voor gedetailleerde richtlijnen voor het installeren en configureren van Java en Maven-omgeving de [bouwen van een app met SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), selecteer **Java**, selecteer Windows en voer vervolgens de gedetailleerde instructies voor Java en de Maven geconfigureerd in stap 1.2 en 1.3.
+Installeer [Maven](https://maven.apache.org/download.cgi) met behulp van het officiële installatieprogramma. Gebruik Maven om afhankelijkheden te beheren en uw Java-project te bouwen, te testen en uit te voeren. Voor uitgebreide begeleiding voor het installeren en configureren van een Java- en Maven-omgeving, gaat u naar [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Apps bouwen met SQL Server). Selecteer **Java**, selecteer Windows en volg de uitgebreide instructies voor het configureren van Java en Maven in stap 1.2 en 1.3.
 
 ## <a name="create-sqldbsample-project"></a>SqlDbSample-project maken
 
-1. Maak een Maven-project in de opdrachtconsole (zoals Bash). 
+1. Maak een Maven-project in de opdrachtconsole (bijvoorbeeld Bash). 
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
-2. Type **Y** en klik op **Enter**.
-3. Wijzig de mappen in het nieuwe project.
+2. Typ **Y** en klik op **Enter**.
+3. Wijzig mappen in het nieuwe project.
 
    ```bash
    cd SqlDbSamples
    ```
 
-4. Open uw favoriete editor met het bestand pom.xml in de projectmap. 
+4. Open in een editor het POM.XML-bestand in de projectmap. 
 
-5. De Microsoft JDBC-stuurprogramma voor SQL Server-afhankelijkheid toevoegen aan uw Maven-project door uw favoriete teksteditor te openen en kopiëren en plakken van de volgende regels in uw pom.xml-bestand. De bestaande waarden vooraf ingevuld in het bestand niet overschrijven. De afhankelijkheid JDBC moet binnen de grotere 'afhankelijkheden' sectie () worden geplakt.   
+5. Voeg de afhankelijkheid Microsoft JDBC-stuurprogramma voor SQL Server toe aan het Maven-project door de editor te openen en de volgende regels te kopiëren en in het POM.XML-bestand te plakken. Overschrijf de bestaande waarden die vooraf in het bestand zijn ingevuld niet. De JDBC-afhankelijkheid moet tussen de grotere sectie 'dependencies' ( ) worden geplakt.   
 
    ```xml
    <dependency>
@@ -196,7 +189,7 @@ Installeer [Maven](https://maven.apache.org/download.cgi) met behulp van het off
    </dependency>
    ```
 
-6. Geef de versie van Java voor het compileren van het project op basis van door de volgende sectie van de 'Eigenschappen' in het bestand pom.xml na de sectie 'afhankelijkheden' toe te voegen. 
+6. Geef de Java-versie op waarvoor het project moet worden gecompileerd door na de sectie 'dependencies' de volgende sectie 'properties' aan het POM.XML-bestand toe te voegen. 
 
    ```xml
    <properties>
@@ -204,7 +197,7 @@ Installeer [Maven](https://maven.apache.org/download.cgi) met behulp van het off
      <maven.compiler.target>1.8</maven.compiler.target>
    </properties>
    ```
-7. De volgende sectie voor 'maken' in het bestand pom.xml toevoegen na de sectie 'Eigenschappen' ter ondersteuning van de manifest-bestanden in potten.       
+7. Voeg na de sectie 'dependencies' de volgende sectie 'build' toe aan het POM.XML-bestand ter ondersteuning van manifestbestanden in JAR-bestanden.       
 
    ```xml
    <build>
@@ -225,7 +218,7 @@ Installeer [Maven](https://maven.apache.org/download.cgi) met behulp van het off
    </build>
    ```
 8. Sla het bestand pom.xml op en sluit het af.
-9. Open het bestand App.java (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) en vervang de inhoud door de volgende inhoud. Vervang de naam van de failover met de naam voor de failover-groep. Als u de waarden voor de databasenaam, de gebruiker of het wachtwoord hebt gewijzigd, moet u deze waarden ook wijzigen.
+9. Open het APP.JAVA-bestand (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) en vervang de inhoud door de volgende inhoud. Vervang de naam van de failovergroep door de naam van uw failovergroep. Als u de waarden voor de databasenaam, -gebruiker of het databasewachtwoord hebt gewijzigd, wijzigt u ook die waarden.
 
    ```java
    package com.sqldbsamples;
@@ -324,14 +317,14 @@ Installeer [Maven](https://maven.apache.org/download.cgi) met behulp van het off
    ```
 6. Sla het bestand App.java op en sluit het af.
 
-## <a name="compile-and-run-the-sqldbsample-project"></a>Compileren en het SqlDbSample-project uitvoeren
+## <a name="compile-and-run-the-sqldbsample-project"></a>SqlDbSample-project compileren en uitvoeren
 
-1. Uitvoeren op de volgende opdracht in de opdrachtconsole.
+1. Voer in de opdrachtconsole de volgende opdracht uit.
 
    ```bash
    mvn package
    ```
-2. Als u klaar bent uitvoeren van de volgende opdracht om uit te voeren van de toepassing (deze wordt uitgevoerd voor ongeveer 1 uur tenzij u handmatig stopt):
+2. Als u klaar bent, voert u de volgende opdracht uit om de toepassing uit te voeren (deze wordt circa een uur uitgevoerd, tenzij u deze handmatig stopt):
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
@@ -345,9 +338,9 @@ Installeer [Maven](https://maven.apache.org/download.cgi) met behulp van het off
    3. insert on primary successful, read from secondary successful
    ```
 
-## <a name="perform-disaster-recovery-drill"></a>Disaster recovery inzoomen uitvoeren
+## <a name="perform-disaster-recovery-drill"></a>Noodherstelanalyse uitvoeren
 
-1. Handmatige failover van de groep failover-aanroep. 
+1. Roep de handmatige failover van de failovergroep aan. 
 
    ```powershell
    Switch-AzureRMSqlDatabaseFailoverGroup `
@@ -356,9 +349,9 @@ Installeer [Maven](https://maven.apache.org/download.cgi) met behulp van het off
    -FailoverGroupName $myfailovergroupname
    ```
 
-2. Bekijk het resultaat van de toepassing tijdens de failover. Sommige ingevoegd, mislukken als de DNS-server in de cache wordt vernieuwd.     
+2. Bekijk de toepassingsresultaten tijdens failover. Sommige invoegingen mislukken tijdens het vernieuwen van de DNS-cache.     
 
-3. Ontdek welke rol u uw herstel na noodgevallen server wordt uitgevoerd.
+3. Zoek uit welke rol de server voor noodherstelanalyse uitvoert.
 
    ```powershell
    $mydrserver.ReplicationRole
@@ -373,9 +366,9 @@ Installeer [Maven](https://maven.apache.org/download.cgi) met behulp van het off
    -FailoverGroupName $myfailovergroupname
    ```
 
-5. Bekijk het resultaat van de toepassing tijdens de failback. Sommige ingevoegd, mislukken als de DNS-server in de cache wordt vernieuwd.     
+5. Bekijk de toepassingsresultaten tijdens failback. Sommige invoegingen mislukken tijdens het vernieuwen van de DNS-cache.     
 
-6. Ontdek welke rol u uw herstel na noodgevallen server wordt uitgevoerd.
+6. Zoek uit welke rol de server voor noodherstelanalyse uitvoert.
 
    ```powershell
    $fileovergroup = Get-AzureRMSqlDatabaseFailoverGroup `
@@ -387,4 +380,4 @@ Installeer [Maven](https://maven.apache.org/download.cgi) met behulp van het off
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie [actieve geo-replicatie en failover groepen](sql-database-geo-replication-overview.md).
+Zie [Actieve geo-replicatie en failovergroepen](sql-database-geo-replication-overview.md) voor meer informatie.

@@ -1,6 +1,6 @@
 ---
-title: 'Snelstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal | Microsoft Docs'
-description: Deze snelstart laat zien hoe er met Azure Portal een Azure Databricks-werkruimte en een Apache Spark-cluster kan worden gemaakt, en hoe een Spark-taak kan worden uitgevoerd.
+title: 'Quickstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal | Microsoft Docs'
+description: De quickstart laat zien hoe er met Azure Portal een Azure Databricks-werkruimte en een Apache Spark-cluster kan worden gemaakt, en hoe een Spark-taak kan worden uitgevoerd.
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.date: 03/09/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a0e69e1ab2c52586b447d8a249b52b09bbff705
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9eff06934eefa44db94de3d01be470ca69a2d88c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snelstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Quickstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal
 
-Deze snelstart laat zien hoe een Azure Databricks-werkruimte wordt gemaakt en hoe binnen die werkruimte een Apache Spark-cluster kan worden gemaakt. Tot slot leert u hoe u een Spark-taak op het Databricks-cluster kunt uitvoeren. Zie [Wat is Azure Databricks?](what-is-azure-databricks.md) voor meer informatie over Azure Databricks.
+Deze quickstart laat zien hoe een Azure Databricks-werkruimte wordt gemaakt en hoe binnen die werkruimte een Apache Spark-cluster kan worden gemaakt. Tot slot leert u hoe u een Spark-taak op het Databricks-cluster kunt uitvoeren. Zie [Wat is Azure Databricks?](what-is-azure-databricks.md) voor meer informatie over Azure Databricks.
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -40,17 +40,21 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
 2. Onder **Azure Databricks (preview)** klikt u op **Maken**.
 
-3. Geef onder **Azure Databricks-service** de volgende waarden op:
+3. Geef bij **Azure Databricks Service** de waarden op voor het maken van een Databricks-werkruimte.
 
     ![Een Azure Databricks-werkruimte maken](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Een Azure Databricks-werkruimte maken")
 
-    * Geef bij **Werkruimtenaam** een naam op voor uw Databricks-werkruimte.
-    * Selecteer in de vervolgkeuzelijst bij **Abonnement** het Azure-abonnement dat u hebt.
-    * Geef bij **Resourcegroep** op of u een nieuwe resourcegroep wilt maken of een bestaande wilt gebruiken. Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie.
-    * Selecteer bij **Locatie** **VS - oost 2**. Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor andere beschikbare regio's.
-    * Kies bij **Prijscategorie** de optie **Standard** of **Premium**. Bekijk de pagina [Prijzen voor Databricks](https://azure.microsoft.com/pricing/details/databricks/) voor meer informatie over deze categorieën.
+    Geef de volgende waarden op: 
+     
+    |Eigenschap  |Beschrijving  |
+    |---------|---------|
+    |**Werkruimtenaam**     | Geef een naam op voor uw Databricks-werkruimte.        |
+    |**Abonnement**     | Selecteer uw Azure-abonnement in de vervolgkeuzelijst.        |
+    |**Resourcegroep**     | Geef aan of u een nieuwe resourcegroep wilt maken of een bestaande groep wilt gebruiken. Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie. |
+    |**Locatie**     | Selecteer **VS - oost 2**. Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor andere beschikbare regio's.        |
+    |**Prijscategorie**     |  U kunt kiezen tussen **Standard** en **Premium**. Bekijk de pagina [Prijzen voor Databricks](https://azure.microsoft.com/pricing/details/databricks/) voor meer informatie over deze categorieën.       |
 
-    Klik op **Create**.
+    Selecteer **Vastmaken aan dashboard** en klik op **Maken**.
 
 4. Het duurt enkele minuten om het account te maken. Tijdens het maken van het account wordt rechts in de portal de tegel **Implementatie verzenden voor Azure Databricks** weergegeven. Mogelijk moet u op uw dashboard naar rechts scrollen om de tegel te zien. Bovenaan het scherm wordt ook een voortgangsbalk weergegeven. U kunt beide gebieden bekijken voor de voortgang.
 
@@ -84,7 +88,7 @@ Voordat u met deze sectie begint, moet u eerst aan de volgende vereisten voldoen
 * Download een voorbeeld-JSON-bestand [vanuit Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
 * Upload het voorbeeld-JSON-bestand naar het Azure Storage-account dat u hebt gemaakt. U kunt [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) gebruiken om bestanden te uploaden.
 
-Voer de volgende stappen uit om een notitieblok in Databricks te maken. Configureer het notitieblok om de gegevens te lezen uit een Azure Blob-opslagaccount en voer vervolgens een Spark SQL-taak uit op de gegevens.
+Voer de volgende taken uit om een notitieblok in Databricks te maken. Configureer het notitieblok om de gegevens te lezen uit een Azure Blob-opslagaccount en voer vervolgens een Spark SQL-taak uit op de gegevens.
 
 1. Klik in het linkerdeelvenster op **Werkruimte**. Klik in de vervolgkeuzelijst **Werkruimte** op **Maken** en klik vervolgens op **Notitieblok**.
 
@@ -96,7 +100,7 @@ Voer de volgende stappen uit om een notitieblok in Databricks te maken. Configur
 
     Klik op **Create**.
 
-3. In deze stap koppelt u het Storage-account aan het Databricks Apache Spark-cluster. U kunt dit op twee manieren doen. Koppel het Storage-account rechtstreeks aan het Databricks Filesystem (DBFS) of open het Storage-account rechtstreeks vanuit de toepassing die u maakt.  
+3. In deze stap koppelt u het Storage-account aan het Databricks Apache Spark-cluster. U kunt dat op twee manieren doen. Koppel het Storage-account rechtstreeks aan het Databricks Filesystem (DBFS) of open het Storage-account rechtstreeks vanuit de toepassing die u maakt.  
 
     > [!IMPORTANT]
     >In dit artikel wordt gebruikgemaakt van de **methode waarbij de opslag aan DBFS wordt gekoppeld**. Hierdoor wordt gegarandeerd dat de gekoppelde opslag aan het bestandssysteem van het cluster zelf wordt gekoppeld. Vandaar dat een toepassing die toegang tot het cluster heeft, ook gebruik kan maken van de gekoppelde opslag. De methode met de rechtstreekse toegang is beperkt tot de toepassing van waaruit u de toegang configureert.
@@ -171,15 +175,15 @@ Voer de volgende stappen uit om een notitieblok in Databricks te maken. Configur
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u tijdens het maken van het Spark-cluster het selectievakje **Beëindigen na ___ minuten van inactiviteit** hebt ingeschakeld, wordt het cluster automatisch beëindigd als dit gedurende de opgegeven tijd niet actief is geweest.
+Nadat u het artikel hebt doorgenomen, kunt u het cluster beëindigen. Dit doet u door vanuit de Azure Databricks-werkruimte in het linkerdeelvenster **Clusters** te selecteren. Voor het cluster dat u wilt beëindigen, plaatst u de cursor op het weglatingsteken onder de kolom **Acties** en selecteert u het **beëindigingspictogram**.
 
-Als u het selectievakje niet hebt ingeschakeld, moet u het cluster handmatig beëindigen. Dit doet u door vanuit de Azure Databricks-werkruimte in het linkerdeelvenster op **Clusters** te klikken. Voor het cluster dat u wilt beëindigen, plaatst u de cursor op het weglatingsteken onder de kolom **Acties** en klikt u op het **beëindigingspictogram**.
+![Een Databricks-cluster stopzetten](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Een Databricks-cluster stopzetten")
 
-![Het Databricks-cluster beëindigen](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Het Databricks-cluster beëindigen")
+Als u het cluster niet handmatig beëindigt, stopt het cluster automatisch, op voorwaarde dat het selectievakje **Beëindigen na __ minuten inactiviteit** is ingeschakeld tijdens het maken van het cluster. In dat geval stopt het cluster automatisch als het gedurende de opgegeven tijd inactief is geweest.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u een Spark-cluster in Azure Databricks gemaakt en een Spark-taak met gegevens in Azure Storage uitgevoerd. U kunt ook zoeken op [Spark gegevensbronnen](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) voor meer informatie over het importeren van gegevens uit andere gegevensbronnen in Azure Databricks. Ga naar het volgende artikel voor meer informatie over hoe u Azure Data Lake Store met Azure Databricks kunt gebruiken.
+In dit artikel hebt u een Spark-cluster in Azure Databricks gemaakt en een Spark-taak met gegevens in Azure Storage uitgevoerd. U kunt ook zoeken op [Spark gegevensbronnen](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) voor meer informatie over het importeren van gegevens uit andere gegevensbronnen in Azure Databricks. Ga naar het volgende artikel voor informatie over het streamen van gegevens naar Azure Databricks met behulp van Event Hubs.
 
 > [!div class="nextstepaction"]
->[Data Lake Store met Azure Databricks gebruiken](https://go.microsoft.com/fwlink/?linkid=864084)
+>[Gegevens streamen naar Azure Databricks met behulp van Event Hubs](databricks-stream-from-eventhubs.md)

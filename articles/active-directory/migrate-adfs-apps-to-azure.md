@@ -1,6 +1,6 @@
 ---
 title: On-premises AD FS-apps naar Azure migreren. | Microsoft Docs
-description: Dit document is bedoeld ter ondersteuning van organisaties bij het migreren van on-premises toepassingen naar Azure AD, waarbij de focus op federatieve SaaS-toepassingen ligt.
+description: Dit artikel is bedoeld ter ondersteuning van organisaties bij het migreren van on-premises toepassingen naar Azure AD, waarbij de focus op federatieve SaaS-toepassingen ligt.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,221 +11,229 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: f1256e2fefe1ad3d37403f37804888ab9dcf6e99
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5eb562901d73974765878024b1107e3b75e9abb5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>On-premises AD FS-apps naar Azure migreren 
 
-Dit document is bedoeld ter ondersteuning van organisaties bij het migreren van on-premises toepassingen naar Azure AD.  De focus ligt hierbij op federatieve SaaS-toepassingen.  In dit document wordt geen stapsgewijze begeleiding gegeven.  Het biedt wel theoretische richtlijnen voor de migratie door de vertaling van on-premises configuraties naar Azure AD inzichtelijk te maken. Het bevat ook informatie die in de meestvoorkomende scenario's is vereist.
+Het doel van dit artikel is u te helpen begrijpen hoe u on-premises toepassingen kunt migreren naar Azure Active Directory (Azure AD). De focus ligt hierbij op federatieve SaaS-toepassingen. 
+
+In dit document wordt geen stapsgewijze begeleiding gegeven. Het biedt wel theoretische richtlijnen voor de migratie door de vertaling van on-premises configuraties naar Azure AD inzichtelijk te maken. Er worden ook enkele veelvoorkomende scenario's behandeld.
 
 ## <a name="introduction"></a>Inleiding
 
-Als u een on-premises map met gebruikersaccounts hebt, dan is de kans groot dat u minimaal een of twee apps hebt.  En deze apps worden geconfigureerd voor gebruikers zodat ze ze kunnen openen. Dat doen ze door zich aan te melden met die identiteiten.
+Als u een on-premises map met gebruikersaccounts hebt, dan is de kans groot dat u minimaal een of twee apps hebt. En deze apps worden geconfigureerd voor gebruikers zodat ze ze kunnen openen. Dat doen ze door zich aan te melden met die identiteiten.
 
-En net als vele andere organisatie bent u waarschijnlijk al bezig over te stappen op cloudtoepassingen en -identiteiten.  Mogelijk maakt u al gebruik van Office 365 en Azure AD Connect.  En hebt u SaaS-cloudtoepassingen ingesteld voor enkele belangrijke werkbelastingen, maar nog niet voor alle.  
+En net als vele andere organisatie bent u waarschijnlijk al bezig over te stappen op cloudtoepassingen en -identiteiten. Mogelijk maakt u al gebruik van Office 365 en Azure AD Connect. Misschien hebt u SaaS-cloudtoepassingen ingesteld voor enkele belangrijke werkbelastingen, maar nog niet voor alle.  
 
-Veel organisaties beschikken over SaaS- of line-of-business (LoB)-apps die rechtstreeks zijn gefedereerd met een on-premises aanmeldingsservice, zoals Active Directory Federation Service (AD FS), in combinatie met Office 365- en Azure AD-apps.  In deze migratiehandleiding wordt beschreven waarom en hoe u on-premises toepassingen naar Azure AD migreert.
+Veel organisaties beschikken over SaaS- of line-of-business (LOB)-apps die rechtstreeks zijn gefedereerd met een on-premises aanmeldingsservice, zoals Active Directory Federation Services (AD FS), in combinatie met Office 365- en Azure AD-apps. In deze migratiehandleiding wordt beschreven waarom en hoe u on-premises toepassingen naar Azure AD migreert.
 
 >[!NOTE]
->De handleiding biedt uitgebreide informatie over de configuratie en migratie van SaaS-apps, met belangrijke informatie over aangepaste LoB-apps.  Meer gedetailleerde richtlijnen voor LoB-apps staat voor later gepland.
+>De handleiding biedt uitgebreide informatie over de configuratie en migratie van SaaS-apps, met belangrijke informatie over aangepaste LOB-apps. Meer gedetailleerde richtlijnen voor LOB-apps staan voor later gepland.
 
-Afbeelding 1: Apps die rechtstreeks on-premises zijn verbonden ![on-premises](media/migrate-adfs-apps-to-azure/migrate1.png)
+![Apps die rechtstreeks on-premises zijn verbonden](media/migrate-adfs-apps-to-azure/migrate1.png)
 
-Afbeelding 2: Apps die via Azure AD zijn gefedereerd ![Azure](media/migrate-adfs-apps-to-azure/migrate2.png)
+![Apps die via Azure AD zijn gefedereerd](media/migrate-adfs-apps-to-azure/migrate2.png)
 
-## <a name="why-migrate-apps-to-azure-ad"></a>Waarom apps naar Azure AD migreren?
+## <a name="reasons-for-migrating-apps-to-azure-ad"></a>Redenen voor het migreren van apps naar Azure AD
 
-Voor organisaties die al gebruikmaken van AD FS, Ping of een andere on-premises verificatieprovider, biedt het migreren van apps naar Azure AD de volgende voordelen:
+Voor een organisatie die al gebruikmaakt van AD FS, Ping of een andere on-premises verificatieprovider, biedt het migreren van apps naar Azure AD de volgende voordelen:
 
 **Veiliger toegang**
-- Gedetailleerde besturingselementen voor toegang per toepassing, waaronder Multi-Factor Authentication (MFA), met behulp van [Voorwaardelijke toegang voor Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).  Het beleid kan worden toegepast op SaaS- en aangepaste apps en wel op dezelfde manier als u voor Office 365 zou doen
-- Voor de detectie van bedreigingen en het beveiligen van de aanmelding op basis van machine learning en heuristieken waarmee risicovol verkeer wordt geïdentificeerd, kunt u met [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) profiteren van de ingebouwde mogelijkheden van Azure AD (die continu ontwikkeld worden)
+- Gedetailleerde besturingselementen voor toegang per toepassing, waaronder Azure Multi-Factor Authentication, met behulp van [Voorwaardelijke toegang voor Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Het beleid kan worden toegepast op SaaS- en aangepaste apps op dezelfde manier als u voor Office 365 zou doen.
+- Voor de detectie van bedreigingen en het helpen beveiligen van de aanmelding op basis van machine learning en heuristieken waarmee risicovol verkeer wordt geïdentificeerd, kunt u profiteren van [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection).
 
 **B2B-samenwerking van Azure AD**
-- Zodra het aanmelden bij SaaS-apps op Azure AD is gebaseerd, kunt u uw partners toegang geven aan cloudresources met [B2B-samenwerking van Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Nadat het aanmelden bij SaaS-apps op Azure AD is gebaseerd, kunt u uw partners toegang geven aan cloudresources met [B2B-samenwerking van Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
 **Eenvoudiger beheer met en aanvullende mogelijkheden van Azure AD**
-- Azure AD als id-provider voor SaaS-apps biedt ondersteuning voor aanvullende mogelijkheden, zoals certificaten voor token-ondertekening per toepassing, [configureerbare vervaldatums van certificaten](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs) en [geautomatiseerd inrichten](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) van gebruikersaccounts (in belangrijke galerie-apps) op basis van Azure AD-identiteiten
+- Als id-provider voor SaaS-apps ondersteunt Azure AD aanvullende mogelijkheden zoals:
+  - Certificaten voor tokenondertekening per toepassing.
+  - [Configureerbare certificaatvervaldatums](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
+  - [Automatisch inrichten](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) van gebruikersaccounts (in de belangrijkste Azure Marketplace-apps) op basis van Azure AD-identiteiten.
 
-**Behoud de voordelen van een on-premises id-provider**
-- Ook met de extra voordelen van Azure AD kunt u uw on-premises oplossing voor verificatie behouden, zodat de voordelen van on-premises oplossingen als Multi-Factor Authentication (MFA), logboekregistratie en controles ongewijzigd blijven 
+**De voordelen van een on-premises id-provider behouden**
+- Terwijl u de voordelen van Azure AD krijgt, kunt u uw on-premises-oplossing voor verificatie blijven gebruiken. Op die manier blijven voordelen zoals on-premises oplossingen voor meervoudige verificatie, logging en controle intact. 
 
-**Sneller buiten gebruik stellen van de on-premises id-provider**
-- Organisaties die het on-premises verificatieproduct buiten bedrijf willen stellen, kunnen dankzij het migreren van apps naar Azure AD hun overgang vlotter laten verlopen door een deel van het werk over te dragen 
+**Hulp bij buiten gebruik stellen van de on-premises id-provider**
+- Organisaties die het on-premises verificatieproduct buiten bedrijf willen stellen, kunnen dankzij het migreren van apps naar Azure AD hun overgang vlotter laten verlopen door een deel van het werk uit de weg te ruimen. 
 
 ## <a name="mapping-types-of-apps-on-premises-to-types-of-apps-in-azure-ad"></a>App-typen on-premises toewijzen aan app-typen in Azure AD
-De meeste apps kunnen in enkele categorieën worden ondergebracht op basis van het type aanmelding dat ze gebruiken.  Deze categorieën bepalen hoe de app in Azure AD wordt gerepresenteerd.
+De meeste apps kunnen in enkele categorieën worden ondergebracht op basis van het type aanmelding dat ze gebruiken. Deze categorieën bepalen hoe de app in Azure AD wordt gerepresenteerd.
 
-Kortweg geldt dat SAML 2.0-toepassingen kunnen worden geïntegreerd met Azure AD via de Azure AD-toepassingsgalerie of als niet-galerietoepassingen.  Apps die gebruikmaken van OAuth 2.0 of OpenID Connect, kunnen net zoals 'app-registraties' worden geïntegreerd met Azure AD.  Lees verder voor meer informatie.
+Kortweg geldt dat SAML 2.0-toepassingen kunnen worden geïntegreerd met Azure AD via de Azure AD-toepassingsgalerie in de Marketplace of als niet-Marketplace-toepassingen. Apps die gebruikmaken van OAuth 2.0 of OpenID Connect, kunnen op gelijksoortige wijze worden geïntegreerd met Azure AD als *app-registraties*. Lees verder voor meer informatie.
 
-### <a name="federated-saas-apps-vs-custom-lob-apps"></a>Federatieve SaaS-apps versus aangepaste LoB-apps
-Federatieve apps omvatten apps die in de volgende categorieën voorkomen.
+### <a name="federated-saas-apps-vs-custom-lob-apps"></a>Federatieve SaaS-apps versus aangepaste LOB-apps
+Federatieve apps omvatten apps in de volgende categorieën:
 
 - SaaS-apps 
-    - Als uw gebruikers zich aanmelden bij SaaS-apps als Salesforce, ServiceNow of Workday en u een integratie uitvoert met een on-premises id-provider als AD FS of Ping, maakt u gebruik van federatieve aanmelding voor SaaS-apps.
+    - Als uw gebruikers zich aanmelden bij SaaS-apps als Salesforce, ServiceNow of Workday en u een integratie uitvoert met een on-premises id-provider als AD FS of Ping, maakt u gebruik van federatieve aanmelding voor SaaS-apps.
     - Over het algemeen maken apps gebruik van het SAML 2.0-protocol voor federatieve aanmelding.
-    - Toepassingen in deze categorie kunnen worden geïntegreerd met Azure AD als bedrijfstoepassingen, ofwel vanuit de galerie, ofwel als niet-galerietoepassingen.
-- Aangepaste LoB-toepassingen
-    - Dit verwijst naar niet-SaaS-apps, die intern zijn ontwikkeld door uw organisatie of beschikbaar zijn als een standaard verpakt product dat is geïnstalleerd in uw datacentrum.  Dit omvat SharePoint-apps en apps die zijn gebouwd onder Windows Identity Foundation (WIF).
-    - Apps kunnen gebruikmaken van SAML 2.0, WS-Federation, OAuth of OpenID Connect voor federatieve aanmelding
-    - Aangepaste apps die gebruikmaken van Oauth 2.0, OpenID Connect of WS-Federation kunnen worden geïntegreerd met Azure AD als app-registraties; aangepaste apps die gebruikmaken van SAML 2.0 of WS-Federation kunnen worden geïntegreerd als niet-galerietoepassingen binnen bedrijfstoepassingen
+    - Apps in deze categorie kunnen worden geïntegreerd met Azure AD als bedrijfstoepassingen, vanuit de Marketplace of als niet-Marketplace-toepassingen.
+- Aangepaste LOB-apps
+    - Dit verwijst naar niet-SaaS-apps, die intern zijn ontwikkeld door uw organisatie of beschikbaar zijn als een standaard verpakt product dat is geïnstalleerd in uw datacentrum. Dit omvat SharePoint-apps en apps die zijn gebouwd onder Windows Identity Foundation.
+    - Apps kunnen gebruikmaken van SAML 2.0, WS-Federation, OAuth of OpenID Connect voor federatieve aanmelding.
+    - Aangepaste apps die gebruikmaken van OAuth 2.0, OpenID Connect of WS-Federation, kunnen met Azure AD worden geïntegreerd als app-registraties. Aangepaste apps die gebruikmaken van SAML 2.0 of WS-Federation kunnen worden geïntegreerd als niet-Marketplace toepassingen binnen bedrijfstoepassingen.
 
 ### <a name="non-federated-apps"></a>Niet-federatieve apps
-Daarnaast kunnen niet-federatieve apps worden geïntegreerd met Azure AD met behulp van de toepassingsproxy van Azure AD en aanverwante mogelijkheden.  Volg de koppelingen voor meer informatie over deze mogelijkheden:
-- Apps die rechtstreeks gebruikmaken van Windows Integrated Auth (WIA) naar Active Directory
-    - Deze apps kunnen worden geïntegreerd met Azure AD via de [toepassingsproxy van Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal)
-- Apps die via een agent integreren met uw provider voor eenmalige aanmelding en headers gebruiken voor verificatie
-    - On-premises apps die bij aanmelden en autorisatie op basis van headers gebruikmaken van een geïnstalleerde agent, kunnen worden geconfigureerd voor Azure AD-aanmelding met behulp van de toepassingsproxy van Azure AD met [Ping-toegang voor Azure AD](https://blogs.technet.microsoft.com/enterprisemobility/2017/06/15/ping-access-for-azure-ad-is-now-generally-available-ga/)
+U kunt niet-federatieve apps integreren met Azure AD met behulp van de Azure Active Directory-toepassingsproxy en aanverwante mogelijkheden. Niet-federatieve apps zijn:
+- Apps die rechtstreeks gebruikmaken van geïntegreerde Windows-verificatie bij Active Directory. U kunt deze apps integreren met Azure AD via [Azure Active Directory-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
+- Apps die via een agent worden geïntegreerd met uw provider voor eenmalige aanmelding en die headers gebruiken voor verificatie. On-premises apps die bij aanmelden en autorisatie op basis van headers gebruikmaken van een geïnstalleerde agent, kunnen worden geconfigureerd voor Azure AD-aanmelding via de toepassingsproxy van Azure AD met [Ping-toegang voor Azure AD](https://blogs.technet.microsoft.com/enterprisemobility/2017/06/15/ping-access-for-azure-ad-is-now-generally-available-ga/).
 
 ## <a name="translating-on-premises-federated-apps-to-azure-ad"></a>Federatieve, on-premises apps vertalen naar Azure AD 
-Gelukkig werken AD FS en Azure AD op soortgelijke wijze, dus de concepten betreffende het configureren van vertrouwensrelaties, URL's voor aan- en afmelden, en id's zijn op beide producten van toepassing.  Er moeten echter nog enkele kleine verschillen worden uitgelegd voordat u de overgang uit gaat voeren.
+AD FS en Azure AD werken op soortgelijke wijze, dus de concepten betreffende het configureren van vertrouwensrelaties, URL's voor aan- en afmelden, en id's zijn op beide producten van toepassing. Er zijn echter wel een paar kleine verschillen die u moet kennen wanneer u de overgang maakt.
 
-In de tabel staan enkele belangrijke ideeën vermeld die gelden voor zowel AD FS, Azure AD als SaaS-apps en waarmee u de vertaalslag beter kunt uitvoeren. 
+In de volgende tabellen worden belangrijke ideeën in kaart gebracht die gelden voor zowel AD FS-, Azure AD- als SaaS-apps om u te helpen de vertaalslag te maken. 
 
 ### <a name="representing-the-app-in-azure-ad-or-ad-fs"></a>De app representeren in Azure AD of AD FS
-Voor de migratie begint, moet eerst worden vastgesteld hoe de app on-premises moet worden geconfigureerd en hoe de configuratie aan Azure AD wordt toegewezen.  Wat volgt is een toewijzing van configuratie-elementen van de Relying Party van AD FS aan de overeenkomstige elementen in Azure AD.  
-- AD FS-term: Relying Party of vertrouwensrelatie van Relying Party
-- Azure AD-term: bedrijfstoepassing of app-registratie (afhankelijk van het type app)
+Voor de migratie begint, moet eerst worden vastgesteld hoe de app on-premises moet worden geconfigureerd en hoe de configuratie aan Azure AD wordt toegewezen. In de volgende tabel ziet u configuratie-elementen van de Relying Party van AD FS en de overeenkomstige elementen in Azure AD.  
+- AD FS-term: Relying Party of vertrouwensrelatie van Relying Party.
+- Azure AD-term: bedrijfstoepassing of app-registratie (afhankelijk van het type app).
 
-|Configuratie-element van app|Beschrijving|Binnen AD FS-configuratie|Overeenkomstige locatie in Azure AD-configuratie|SAML-tokenelement|
+|Configuratie-element van app|Beschrijving|Locatie in AD FS-configuratie|Overeenkomstige locatie in Azure AD-configuratie|SAML-tokenelement|
 |-----|-----|-----|-----|-----|
-|Aanmeldings-URL van app|URL van de aanmeldingspagina van deze toepassing. Hier initieert de gebruiker een aanmelding in de app in een door SP geïnitieerde SAML-stroom.|N.v.t.|In Azure AD wordt binnen Azure Portal de aanmeldings-URL als de aanmeldings-URL geconfigureerd in de eigenschappen voor eenmalige aanmelding van de toepassing.</br></br>(Mogelijk moet u op Geavanceerde URL-instellingen weergeven klikken om de aanmeldings-URL te zien.)||
-|Antwoord-URL van app|URL van de app vanuit het perspectief van de id-provider.  Hierheen worden de gebruiker en het token verzonden zodra de gebruiker zich bij de id-provider heeft aangemeld.</br></br>  Dit wordt ook wel het consumenteneindpunt van SAML-bewerking genoemd.|Deze wordt gevonden in de vertrouwensrelatie van de Relying Party van AD FS voor de app.  Klik met de rechtermuisknop op de Relying Party en kies Eigenschappen > tabblad Eindpunten.|In Azure AD wordt binnen Azure Portal de antwoord-URL als de antwoord-URL geconfigureerd in de eigenschappen voor eenmalige aanmelding van de toepassing.</br></br>(Mogelijk moet u op Geavanceerde URL-instellingen weergeven klikken om de antwoord-URL te zien.)|Wordt toegewezen aan het doelelement in het SAML-token.</br></br>  Voorbeeldwaarde: https://contoso.my.salesforce.com|
-|Afmeldings-URL van app|URL waarheen aanvragen voor 'sign out cleanup' worden verzonden als een gebruiker zich bij een app afmeldt, waarna wordt afgemeld bij alle overige apps waar de id-provider de gebruiker heeft aangemeld.|Aangetroffen in AD FS-beheer onder: vertrouwensrelaties van Relying Party.  Klik met de rechtermuisknop op de Relying Party en klik op Eigenschappen > tabblad Eindpunten|N.v.t.: Azure AD biedt geen ondersteuning voor eenmalig afmelden, dat wil zeggen afmelden bij alle apps.  De gebruik wordt gewoon afgemeld bij Azure AD zelf.|N.v.t.|
-|App-id|Id van de app vanuit het oogpunt van de id-provider. De waarde van de aanmeldings-URL wordt vaak (maar niet altijd) voor de id gebruikt</br></br>  In de app wordt deze id soms de entiteit-id genoemd.|In AD FS is dit de Relying Party-id: klik met de rechtermuisknop op de vertrouwensrelatie van de Relying Party en klik op Eigenschappen > tabblad Id's|In Azure AD wordt de id in Azure Portal in de eigenschappen voor eenmalige aanmelding van de toepassing als id onder Domein en URL's geconfigureerd (mogelijk moet u het selectievakje Geavanceerde URL-instellingen weergeven inschakelen)|Komt overeen met het element Doelgroep in het SAML-token|
-|Federatieve metagegevens van app|Locatie van de federatieve metagegevens van de app.  Gebruikt door de id-provider om bepaalde configuratie-instellingen automatisch bij te werken, zoals eindpunten of versleutelingscertificaten.|De URL voor de federatieve metagegevens van de app wordt gevonden in de vertrouwensrelatie van de Relying Party van AD FS voor de app.  Klik met de rechtermuisknop op de vertrouwensrelatie en klik op Eigenschappen > tabblad Controle.|N.v.t.: Azure biedt geen rechtstreekse ondersteuning voor het gebruik van federatieve metagegevens van de app|N.v.t.|
-|Gebruikers-id/NameID|Kenmerk dat wordt gebruikt om voor de app op unieke wijze de gebruikers-id aan te geven vanuit Azure AD of AD FS.</br></br>  Dit is gewoonlijk de user principal name of het e-mailadres van de gebruiker.|In AD FS wordt deze gevonden als een claimregel op de Relying Party.  In de meeste gevallen geeft de claimregel een claim uit met een type dat eindigt op 'nameidentifier'|In Azure AD kan de gebruikers-id worden gevonden in Azure Portal in de eigenschappen voor eenmalige aanmelding van de toepassing, onder de kop Gebruikerskenmerken.</br></br>Standaard wordt de user principal name gebruikt.|Wordt vanaf de id-provider naar de app gecommuniceerd als het element NameID in het SAML-token.|
-|Andere claims die naar de app worden verzonden|Naast de gebruikers-id/NameID worden er gewoonlijk andere claimgegevens vanaf de id-provider naar de app verzonden, bijvoorbeeld voornaam, achternaam, e-mailadres en groepen waarvan de gebruiker lid is|In AD FS wordt deze gevonden als overige claimregels op de Relying Party.|In Azure AD wordt deze gevonden in Azure Portal in de eigenschappen voor eenmalige aanmelding van de toepassing, onder de kop Gebruikerskenmerken; klik op Weergeven en bewerk alle andere gebruikerskenmerken.|| 
+|Aanmeldings-URL van app|URL van de aanmeldingspagina van deze toepassing. Hier gaat de gebruiker naartoe om zich aan te melden bij de app in een door SP geïnitieerde SAML-stroom.|N.v.t.|In Azure AD wordt binnen Azure Portal de aanmeldings-URL als de aanmeldings-URL geconfigureerd in de eigenschappen voor **eenmalige aanmelding** van de toepassing.</br></br>(Mogelijk moet u **Geavanceerde URL-instellingen weergeven** selecteren om de aanmeldings-URL te zien.)|N.v.t.|
+|Antwoord-URL van app|URL van de app vanuit het perspectief van de id-provider (IdP). Hier worden de gebruiker en het token naartoe gestuurd nadat de gebruiker zich bij de IdP heeft aangemeld.</br></br> Dit wordt ook wel het ‘consumenteneindpunt van de SAML-bewerking’ genoemd.|Te vinden in de vertrouwensrelatie van de Relying Party van AD FS voor de app. Klik met de rechtermuisknop op de Relying Party, selecteer **Eigenschappen** en selecteer het tabblad **Eindpunten**.|In Azure AD wordt de antwoord-URL binnen de Azure-portal geconfigureerd in de eigenschappen voor **eenmalige aanmelding** van de toepassing.</br></br>(Mogelijk moet u **Geavanceerde URL-instellingen weergeven** selecteren om de antwoord-URL te zien.)|Komt overeen met het **Doel**-element in het SAML-token.</br></br> Voorbeeldwaarde: https://contoso.my.salesforce.com|
+|App-URL voor afmelden|URL waarnaar aanvragen voor 'sign-out cleanup' worden verzonden als een gebruiker zich bij een app afmeldt, waarna wordt afgemeld bij alle overige apps waar de IdP de gebruiker heeft aangemeld.|Te vinden in AD FS-beheer onder **Vertrouwensrelaties van Relying Party**. Klik met de rechtermuisknop op de Relying Party, selecteer **Eigenschappen** en selecteer het tabblad **Eindpunten**.|N.v.t. Azure AD biedt geen ondersteuning voor ‘eenmalig afmelden’, dat wil zeggen afmelden bij alle apps. De gebruiker wordt gewoon afgemeld bij Azure AD zelf.|N.v.t.|
+|App-id|Id van de app vanuit het perspectief van de IdP. De waarde van de aanmeldings-URL wordt vaak (maar niet altijd) gebruikt als de id.</br></br> In de app wordt deze id soms de ‘entiteits-id’ genoemd.|In AD FS is dit de Relying Party-id. Klik met de rechtermuisknop op de vertrouwensrelatie van de Relying Party, selecteer **Eigenschappen** en selecteer het tabblad **Id’s**.|In Azure AD wordt de id in Azure Portal in de eigenschappen voor **eenmalige aanmelding** van de toepassing als id onder **Domein en URL's** geconfigureerd. (Mogelijk moet u het selectievakje **Geavanceerde URL-instellingen weergeven** inschakelen.)|Komt overeen met het element **Doelgroep** in het SAML-token.|
+|Federatieve metagegevens van app|Locatie van de federatieve metagegevens van de app. De IdP gebruikt deze om bepaalde configuratie-instellingen automatisch bij te werken, zoals eindpunten of versleutelingscertificaten.|De URL voor de federatieve metagegevens van de app is te vinden in de vertrouwensrelatie van de Relying Party van AD FS voor de app. Klik met de rechtermuisknop op de vertrouwensrelatie, selecteer **Eigenschappen** en selecteer het tabblad **Controle**.|N.v.t. Azure biedt geen rechtstreekse ondersteuning voor het gebruik van federatieve metagegevens van toepassingen.|N.v.t.|
+|Gebruikers-id/**NameID**|Kenmerk dat wordt gebruikt om voor de app op unieke wijze de gebruikers-id aan te geven vanuit Azure AD of AD FS.</br></br> Dit kenmerk is gewoonlijk de UPN of het e-mailadres van de gebruiker.|In AD FS kunt u dit vinden als een claimregel op de Relying Party. In de meeste gevallen geeft de claimregel een claim uit met een type dat eindigt op 'nameidentifier'.|In Azure AD is de gebruikers-id te vinden in Azure Portal in de eigenschappen voor **eenmalige aanmelding** van de toepassing, onder de kop **Gebruikerskenmerken**.</br></br>Standaard wordt de user principal name gebruikt.|Wordt van de IdP naar de app gecommuniceerd als het **NameID**-element in het SAML-token.|
+|Andere claims die naar de app worden verzonden|Naast de gebruikers-id/**NameID** worden er vaak andere claimgegevens van de IdP naar de app verzonden. Voorbeelden zijn voornaam, achternaam, e-mailadres en groepen waarvan de gebruiker lid is.|In AD FS kunt u deze gegevens vinden als andere claimregels op de Relying Party.|In Azure AD zijn deze gegevens te vinden in Azure Portal in de eigenschappen voor **eenmalige aanmelding** van de toepassing, onder de kop **Gebruikerskenmerken**. Selecteer **Beeld** en bewerk alle andere gebruikerskenmerken.|N.v.t.|  
 
-### <a name="representing-azure-ad-as-an-identity-provider-idp-in-a-saas-app"></a>Azure AD representeren als een id-provider in een SaaS-app
-Als onderdeel van de migratie dient de app te worden geconfigureerd zodat deze wijst naar Azure AD (versus de on-premises id-provider).  Deze sectie richt zich hoofdzakelijk op SaaS-apps die het SAML-protocol gebruiken, en niet op aangepaste of LoB-apps. De concepten die hier worden beschreven gelden ook voor aangepaste of LoB-apps. 
+### <a name="representing-azure-ad-as-an-identity-provider-in-an-saas-app"></a>Azure AD representeren als een id-provider in een SaaS-app
+Als onderdeel van de migratie moet u de app zo configureren dat deze wijst naar Azure AD (versus de on-premises id-provider). Deze sectie richt zich op SaaS-apps die het SAML-protocol gebruiken, en niet op aangepaste LOB-apps. De concepten gelden echter ook voor aangepaste LOB-apps. 
 
-Op hoog niveau zijn er enkele belangrijke dingen waarom een SaaS-app naar Azure AD moet wijzen
-- Identity Provider Issuer: https&#58;//sts.windows.net/{tenant-id}/
+Op hoog niveau zijn er enkele belangrijke dingen waarmee een SaaS-app naar Azure AD wijst:
+- URL van id-provider: https&#58;//sts.windows.net/{tenant-id}/
 - Aanmeldings-URL van de id-provider: https&#58;//login.microsoftonline.com/{tenant-id}/saml2
 - Afmeldings-URL van de id-provider: https&#58;//login.microsoftonline.com/{tenant-id}/saml2 
-- Locatie federatieve metagegevens: https&#58;//login.windows.net/{tenant-id} <tenant-id>/federationmetadata/2007-06/federationmetadata.xml?appid={<application-id} 
+- Locatie van bestand met federatieve metagegevens: https&#58;//login.windows.net/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={application-id} 
 
-waarin {tenant-id} wordt vervangen door uw tenant-id, aangetroffen als Map-id in Azure Portal onder Azure Active Directory > Eigenschappen, en {application-id} wordt vervangen door de id van de toepassing die als Toepassing-id wordt gevonden in Eigenschappen van de toepassing
+Vervang {Tenant-id} door uw tenant-id, te vinden in de Azure-portal onder **Azure Active Directory** > **Eigenschappen** als **Map-ID**. Vervang {application-id} door uw toepassings-id, te vinden in de eigenschappen van de toepassing als **Toepassings-id**.
 
-In de tabel worden in meer detail de belangrijkste configuratie-elementen van de id-provider beschreven voor het configureren van SSO-instellingen in de app, alsmede de waarden of locaties ervan binnen AD FS en Azure AD.  Het referentiekader van de tabel is de SaaS-app. Deze moet weten hoe verificatieaanvragen moeten worden verzonden en hoe de ontvangen tokens moeten worden gevalideerd.
+De volgende tabel beschrijft de belangrijkste IdP-configuratie-elementen voor het configureren van SSO-instellingen in de app en hun waarden of locaties binnen AD FS en Azure AD. Het referentiekader van de tabel is de SaaS-app, die moet weten waarnaar verificatieaanvragen moeten worden verzonden en hoe de ontvangen tokens moeten worden gevalideerd.
 
 |Configuratie-element|Beschrijving|AD FS|Azure AD|
 |---|---|---|---|
-|IdP </br>aanmelden </br>URL|Aanmeldings-URL van de id-provider vanuit het oogpunt van de app (waarnaar de gebruiker wordt omgeleid om zich aan te melden).|De aanmeldings-URL van AD FS is de federatieve AD FS-servicenaam, gevolgd door '/adfs/ls/', bijvoorbeeld: https&#58;//fs.contoso.com/adfs/ls/|De overeenkomstige waarde voor Azure AD volgt dit patroon, waarin {tenant-id} wordt vervangen door uw tenant-id, aangetroffen als Map-id in Azure Portal onder Azure Active Directory > Eigenschappen.</br></br>Voor apps die gebruikmaken van het SAML-P-protocol: https&#58;//login.microsoftonline.com</br>/{tenant-id}/saml2 </br></br>Voor apps die gebruikmaken van het WS-Federation-protocol: https&#58;//login.microsoftonline.com</br>/{tenant-id}/wsfed|
-|IdP </br>Afmelden </br>URL|Afmeldings-URL van de id-provider vanuit het oogpunt van de app (waarnaar de gebruiker wordt omgeleid als deze zich wil 'afmelden' bij de app).|Voor AD FS is de afmeldings-URL dezelfde URL als de aanmeldings-URL of dezelfde URL waaraan 'wa=wsignout1.0' is toegevoegd, bijvoorbeeld https&#58;//fs.contoso.com/adfs/ls /?wa=wsignout1.0|De overeenkomstige waarde voor Azure AD is afhankelijk van het al dan niet ondersteunen van SAML 2.0-afmelding door de app.</br></br>Als de app SAML-afmelding ondersteunt, volgt de waarde het patroon, waarbij de waarde voor {tenant-id} wordt vervangen door de tenant-id, aangetroffen als Map-id in Azure Portal onder Azure Active Directory > Eigenschappen. https&#58;//login.microsoftonline.com</br>/{tenant-id}/saml2</br></br>Als de app geen SAML-afmelding ondersteunt: https&#58;//login.microsoftonline.com</br>/common /wsfederation?wa=wsignout1.0|
-|Token </br>Ondertekenen </br>Certificaat|Certificaat waarvan de persoonlijke sleutel door de id-provider wordt gebruikt om uitgegeven tokens te ondertekenen.  Verifieert of het token afkomstig is van dezelfde id-provider (de app is geconfigureerd om deze te vertrouwen).|Het AD FS-certificaat voor token-ondertekening wordt gevonden in AD FS-beheer onder Certificaten.|In Azure AD kan het certificaat voor token-ondertekening worden gevonden in Azure Portal in de eigenschappen voor eenmalige aanmelding van de toepassing, onder de kop SAML-handtekeningcertificaat, waar u het certificaat kunt downloaden en vervolgens naar de app kunt uploaden.</br></br>  Als de toepassing meer dan één certificaat bevat, kunnen alle certificaten worden gevonden in het XML-bestand met federatieve metagegevens.|
-|Id/ </br>'verlener'|Verlener van de id-provider vanuit het oogpunt van de app (ook wel Verlener of Verlener-id genoemd)</br></br>In het SAML-token wordt de waarde weergegeven als het element Verlener|De id voor AD FS is gewoonlijk de federatieve AD FS-service-id in AD FS-beheer onder Service > Eigenschappen van de Federation Service bewerken.  Bijvoorbeeld: http&#58;//fs.contoso.com/adfs/services/trust|De overeenkomstige waarde voor Azure AD volgt dit patroon, waarin de waarde voor {tenant-id} wordt vervangen door de tenant-id, aangetroffen als Map-id in Azure Portal onder Azure Active Directory > Eigenschappen.  https&#58;//sts.windows.net/{tenant-id}/|
-|IdP </br>Federatie </br>Metagegevens|Locatie van de openbaar beschikbare federatieve metagegevens van de id-provider.  (Federatieve metagegevens worden door sommige apps gebruikt als een alternatief voor het individueel configureren van URL's (in plaats van door de beheerder), de id en het certificaat voor token-ondertekening)|U vindt de URL voor de federatieve AD FS-metagegevens in AD FS-beheer onder Service > Eindpunten > Metagegevens > Type: Federatieve metagegevens, bijvoorbeeld: https&#58;//fs.contoso.com/ FederationMetadata/2007-06/</br>FederationMetadata.xml|De overeenkomstige waarde voor Azure AD volgt het patroon https&#58;//login.microsoftonline.com</br>/{TenantDomainName}/FederationMetadata/2007-06/</br>FederationMetadata.xml waarbij de waarde voor {TenantDomainName} door de naam van uw tenant in de indeling contoso.onmicrosoft.com </br></br>[Meer informatie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-federation-metadata) over federatieve metagegevens in Azure AD.
+|IdP </br>aanmelden </br>URL|Aanmeldings-URL van de IdP vanuit het perspectief van de app (waarnaar de gebruiker wordt omgeleid voor aanmelding).|De AD FS-aanmeldings-URL is de AD FS-federation-servicenaam gevolgd door ‘/adfs/ls/’. Bijvoorbeeld: https&#58;//fs.contoso.com/adfs/ls/|De overeenkomstige waarde voor Azure AD volgt het patroon waarbij {tenant-id} wordt vervangen door uw tenant-id. Deze waarde is te vinden in de Azure-portal onder **Azure Active Directory** > **Eigenschappen** als **Map-ID**.</br></br>Voor apps die gebruikmaken van het SAML-P-protocol: https&#58;//login.microsoftonline.com/{tenant-id}/saml2 </br></br>Voor apps die gebruikmaken van het WS-Federation-protocol: https&#58;//login.microsoftonline.com/{tenant-id}/wsfed|
+|IdP </br>afmelden </br>URL|URL voor afmelden van de IdP vanuit het perspectief van de app (waarnaar de gebruiker wordt omgeleid wanneer deze zich afmeldt bij de app).|Voor AD FS is URL voor afmelden gelijk aan de aanmeldings-URL, of dezelfde URL met het achtervoegsel "wa=wsignout1.0". Bijvoorbeeld: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|De overeenkomstige waarde voor Azure AD hangt ervan af of de app SAML 2.0-afmelding ondersteunt.</br></br>Als de app SAML-afmelding ondersteunt, heeft de waarde het patroon waarbij de waarde voor {tenant-id} word vervangen door de tenant-id. Deze is te vinden in de Azure-portal onder **Azure Active Directory** > **Eigenschappen** als **Map-ID**: https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>Als de app geen ondersteuning biedt voor SAML afmelding: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
+|Token </br>ondertekening </br>certificaat|Het certificaat waarvan de IdP de persoonlijke sleutel gebruikt voor het ondertekenen van uitgegeven tokens. Er wordt gecontroleerd of het token afkomstig is van de dezelfde IdP die de app is geconfigureerd om te vertrouwen.|U vindt het AD FS-certificaat voor token-ondertekening in AD FS-beheer onder **Certificaten**.|In Azure AD kunt u het certificaat voor token-ondertekening vinden in de Azure-portal in de eigenschappen voor **eenmalige aanmelding** onder de kop **SAML-handtekeningcertificaat**. Daar kunt u het certificaat downloaden om het te uploaden naar de app.</br></br> Als de toepassing meer dan één certificaat heeft, kunt u alle certificaten vinden in het metagegevens-XML-bestand van de federatie.|
+|Id/</br>'verlener'|Id van de IdP vanuit het perspectief van de app (ook wel 'uitgever-ID' genoemd).</br></br>In het SAML-token wordt de waarde weergegeven als het element **Verlener**.|De id voor AD FS is meestal de federatieservice-id in AD FS-beheer onder **Service** > **Eigenschappen van de Federation Service bewerken**. Bijvoorbeeld: http&#58;//fs.contoso.com/adfs/services/trust|De overeenkomstige waarde voor Azure AD volgt het patroon waarbij de waarde voor {tenant-id} wordt vervangen door de tenant-id. Te vinden in de Azure-portal onder **Azure Active Directory** > **Eigenschappen** als **Map-ID**: https&#58;//sts.windows.net/{tenant-id}/|
+|IdP </br>federatie- </br>metagegevens|Locatie van de openbaar beschikbare federatiemetagegevens van de IdP. (Sommige apps gebruiken federatiemetagegevens als alternatief voor het afzonderlijk door de beheerder configureren van URL's, id en tokenhandtekeningcertificaat.)|U vindt de URL van de AD FS-federatiemetagegevens in AD FS-beheer onder **Service** > **Eindpunten** > **Metagegevens**  >   **Type: Federatiemetagegevens**. Bijvoorbeeld: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|De overeenkomstige waarde voor Azure AD volgt het patroon https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. De waarde voor {TenantDomainName} wordt vervangen door de naam van uw tenant in de notatie "contoso.onmicrosoft.com". </br></br>Zie voor meer informatie [Federatiemetagegevens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-federation-metadata).
 
 ## <a name="migrating-saas-apps"></a>SaaS-apps migreren
-Het migreren van SaaS-apps vanuit AD FS of een andere id-provider naar Azure AD is tegenwoordig een handmatig proces. Zie de lijst met zelfstudies over [Integratie van de SaaS-toepassingen met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) voor richtlijnen voor apps.
+Het migreren van SaaS-apps van AD FS of een andere id-provider naar Azure AD is vandaag de dag een handmatig proces. Zie de [lijst met zelfstudies voor het integreren van SaaS-apps in de Marketplace](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) voor app-specifieke richtlijnen.
 
-In de zelfstudies over integratie wordt aangenomen dat u een integratie uitvoert zonder voorafgaande beperkingen.  U dient op de hoogte te zijn van enkele belangrijke concepten voordat u uw apps gaat plannen, beoordelen, configureren en cutover-migratie gaat uitvoeren.  
-- Hoewel sommige apps makkelijk kunnen worden gemigreerd, kan voor apps met meer complexe vereisten (zoals aangepaste claims) aanvullende configuratie in Azure AD en/of Azure AD Connect zijn vereist
-- In de meestvoorkomende scenario's zijn alleen de claim NameId en andere veelvoorkomende claims voor gebruikers-id's voor een app vereist. Om te bepalen of er nog meer claims worden vereist, onderzoekt u welke claims u vanuit AD FS of uw externe id-provider uitgeeft
-- Zodra u hebt vastgesteld dat er aanvullende claims zijn vereist, dient u te controleren of deze beschikbaar zijn in Azure AD.  Controleer Azure AD Connect-synchronisatieconfiguratie zodat er een vereist kenmerk, bijvoorbeeld samAccountName, met Azure AD wordt gesynchroniseerd
-- Als de kenmerken in Azure AD beschikbaar zijn, voegt u claimuitgifteregels toe in Azure AD om deze kenmerken als claims in uitgegeven tokens op te nemen.  Dit wordt uitgevoerd in de eigenschappen voor eenmalige aanmelding van de app in Azure AD.
+Bij de integratiezelfstudies wordt ervan uitgegaan dat u een geheel nieuwe integratie uitvoert. Bij het plannen, beoordelen, configureren en overzetten van uw apps moet u rekening houden met een paar belangrijke concepten die specifiek zijn voor migratie:  
+- Sommige apps kunnen eenvoudig worden gemigreerd. Voor apps met complexere vereisten, zoals aangepaste claims, is mogelijk aanvullende configuratie in Azure AD en/of Azure AD Connect vereist.
+- In de meest voorkomende scenario's zijn alleen de **NameID**-claim en andere algemene gebruikers-id-claims vereist voor een app. Om te bepalen of er aanvullende claims nodig zijn, onderzoekt u welke claims u uitgeeft vanuit AD FS of uw id-provider van derden.
+- Nadat u hebt vastgesteld dat er extra claims vereist zijn, moet u ervoor zorgen dat ze beschikbaar zijn in Azure AD. Controleer de synchronisatieconfiguratie van Azure AD Connect om u ervan te verzekeren dat een vereist attribuut - bijvoorbeeld **samAccountName**- gesynchroniseerd wordt met Azure AD.
+- Nadat de kenmerken beschikbaar zijn in Azure AD, kunt u claimuitgifteregels toevoegen in Azure AD om die kenmerken op te nemen als claims in uitgegeven tokens. U voegt deze regels toe in de eigenschappen voor **eenmalige aanmelding** van de app in Azure AD.
 
-### <a name="assessing-what-can-be-migrated"></a>Vaststellen wat er kan worden gemigreerd
-SAML 2.0-toepassingen kunnen worden geïntegreerd met Azure AD via de Azure AD-toepassingsgalerie of als niet-galerietoepassingen.  
+### <a name="assess-what-can-be-migrated"></a>Beoordelen wat kan worden gemigreerd
+SAML 2.0-toepassingen kunnen worden geïntegreerd met Azure AD via de Azure AD-toepassingsgalerie in de Marketplace of als niet-Marketplace-toepassingen.  
 
-Voor sommige configuraties zijn aanvullende stappen vereist voor de configuratie in Azure AD, waarvan sommige momenteel niet worden ondersteund.  Om te bepalen wat er kan worden verplaatst, kijkt u naar de huidige configuratie van elk van de apps, met name de volgende:
-- Geconfigureerde claimregels (transformatieregels voor uitgifte)
-- Indeling en kenmerk van NameID van SAML
-- Uitgegeven SAML-tokenversies
-- Andere configuraties, zoals de autorisatieregels voor uitgifte of toegangsbeheerbeleid en regels voor Multi Factor Authentication (aanvullende verificatieregels)
+Voor sommige configuraties zijn extra stappen vereist om te configureren in Azure AD, en sommige configuraties worden vandaag de dag niet ondersteund. Om te bepalen wat u kunt verplaatsen, bekijkt u de huidige configuratie van elk van uw apps. Kijk in het bijzonder naar:
+- Geconfigureerde claimregels (uitgiftetransformatieregels).
+- SAML **NameID**-indeling en kenmerk.
+- Uitgegeven SAML-tokenversies.
+- Andere configuraties, zoals regels voor uitgifteautorisatie of het beleid voor toegangsbeheer en regels voor meervoudige verificatie (aanvullende verificatie).
 
 #### <a name="what-can-be-migrated-today"></a>Wat er momenteel kan worden gemigreerd
-Apps die momenteel gemakkelijk kunnen worden gemigreerd zijn onder meer SAML 2.0-apps die gebruikmaken van de standaardset configuratie-elementen en claims.  Deze apps kunnen bestaan uit
-- user principal name
-- e-mailadres
-- Voornaam
-- Achternaam
-- Alternatief kenmerk, zoals NameID van SAML, waaronder het Azure AD-e-mailkenmerk, e-mailvoorvoegsel, werknemer-id, extensiekenmerken 1- 15 of on-premises SamAccountName (zie [De claim NameIdentifier bewerken)](./develop/active-directory-saml-claims-customization.md)
-- Aangepaste claims (zie de documenten [hier](active-directory-claims-mapping.md) en [hier](./develop/active-directory-saml-claims-customization.md) voor informatie over ondersteunde claimtoewijzingen)
+Apps die u vandaag gemakkelijk kunt migreren zijn SAML 2.0 apps die gebruikmaken van de standaardset van configuratie-elementen en claims. Deze apps kunnen bestaan uit:
+- User principal name.
+- E-mailadres.
+- Voornaam.
+- Achternaam.
+- Alternatief kenmerk als SAML **NameID**, met inbegrip van het Azure AD e-mailkenmerk, e-mailvoorvoegsel, werknemer-id, extensiekenmerken 1-15, of on-premises **SamAccountName**-kenmerk. Zie voor meer informatie [De NameIdentifier-claim bewerken](./develop/active-directory-saml-claims-customization.md).
+- Aangepaste claims. Zie voor informatie over het toewijzen van ondersteunde claims [Claims toewijzen in Azure Active Directory](active-directory-claims-mapping.md) en [Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen](./develop/active-directory-saml-claims-customization.md).
 
-Naast aangepaste claims en NameID-elementen, zijn er nog configuraties waarvoor aanvullende configuratiestappen zijn vereist in Azure AD als onderdeel van de migratie. Deze zijn:
-- Aangepaste autorisatie van MFA-regels in AD FS (geconfigureerd met behulp van de functie [Voorwaardelijke toegang voor Azure AD](active-directory-conditional-access-azure-portal.md))
-- Apps met meerdere SAML-eindpunten kunnen worden geconfigureerd in Azure AD via PowerShell (deze mogelijkheid is niet beschikbaar in de portal)
-- WS-Federation-apps, zoals SharePoint-apps waarvoor SAML 1.1-versietokens zijn vereist, moeten handmatig worden geconfigureerd via PowerShell
+Naast aangepaste claims en **NameID**-elementen, zijn configuraties waarvoor extra configuratiestappen in Azure AD nodig zijn als onderdeel van de migratie:
+- Aangepaste autorisatie-of Multi-Factor Authentication-regels in AD FS. U configureert deze met behulp van de functie [Voorwaardelijke toegang voor Azure AD](active-directory-conditional-access-azure-portal.md).
+- Apps met meerdere SAML-eindpunten. U configureert deze in Azure AD met behulp van PowerShell. (Deze mogelijkheid is niet beschikbaar in de portal.)
+- WS-Federation-apps, zoals SharePoint-apps waarvoor versie 1.1-SAML-tokens vereist zijn. U moet deze handmatig configureren met behulp van PowerShell.
 
-#### <a name="appsconfigurations-not-supported-in-azure-ad-today"></a>Apps/configuraties die momenteel niet in Azure AD worden ondersteund
-Apps waarvoor de volgende mogelijkheden zijn vereist, kunnen momenteel niet worden gemigreerd.  Geef feedback in de sectie Opmerkingen als u apps hebt waarvoor deze functies zijn vereist.
-- Protocolmogelijkheden
-    - Ondersteuning voor eenmalige SAML-afmelding (SLO) van alle aangemelde apps
-    - Ondersteuning voor WS-Trust ActAs-patroon
-    - SAML-artefactomzetting 
-    - Handtekeningverificatie van ondertekende SAML-aanvragen (let erop dat ondertekende aanvragen worden geaccepteerd, maar dat de handtekening niet is geverifieerd)
- - Tokenmogelijkheden 
-     - SAML-tokenversleuteling 
-     - SAML-versie 1.1-tokens binnen SAML-protocolantwoorden 
-- Claims in tokenmogelijkheden
-    - Uitgifte van on-premises groepsnamen als claim
-    - Claims van archieven anders dan Azure AD
-    - Transformatieregels voor uitgifte van complexe claims (zie [dit document](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) en [dit document](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) voor informatie over ondersteunde claimtoewijzingen)
-    - Mapextensies uitgeven als claims
-    - Aangepaste specificatie van indeling van NameID
-    - Uitgifte van meerwaardige kenmerken
+#### <a name="apps-and-configurations-not-supported-in-azure-ad-today"></a>Apps en configuratie die momenteel niet worden ondersteund in Azure AD
+Apps waarvoor de volgende mogelijkheden zijn vereist, kunnen momenteel niet worden gemigreerd. Als u apps hebt waarvoor deze functies vereist zijn, geef dan a.u.b. feedback in de commentaarsectie.
+- Protocolmogelijkheden:
+    - Ondersteuning voor eenmalige SAML-afmelding (SLO) van alle apps waarbij de gebruiker is aangemeld.
+    - Ondersteuning voor het WS-Trust ActAs-patroon.
+    - SAML-artefacten omzetten.
+    - Handtekeningverificatie van ondertekende SAML-aanvragen. Houd er rekening mee dat ondertekende aanvragen worden geaccepteerd, maar de handtekening niet wordt geverifieerd.
+- Tokenmogelijkheden: 
+    - Versleuteling van SAML-tokens. 
+    - SAML-versie 1.1-tokens binnen SAML-protocolreacties. 
+- Claims in tokenmogelijkheden:
+    - Uitgeven van on-premises groepsnamen als claims.
+    - Claims van andere stores dan Azure AD.
+    - Complexe transformatieregel voor claimuitgifte. Zie voor informatie over het toewijzen van ondersteunde claims [Claims toewijzen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) en [Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
+    - Uitgifte van mapextensies als claims.
+    - Aangepaste specificatie van de **NameID**-indeling.
+    - Uitgifte van meerwaardige kenmerken.
 
 >[!NOTE]
->Azure AD is in ontwikkeling en er worden aanvullende mogelijkheden op dit gebied toegevoegd. Dit document wordt regelmatig bijgewerkt. 
+>Azure AD is voortdurend in ontwikkeling om mogelijkheden op dit gebied toe te voegen. Dit artikel wordt regelmatig bijgewerkt. 
 
-### <a name="configuring-azure-ad"></a>Azure AD configureren    
+### <a name="configure-azure-ad"></a>Azure AD configureren    
 #### <a name="configure-single-sign-on-sso-settings-for-the-saas-app"></a>Instellingen voor eenmalige aanmelding (SSO) configureren voor de SaaS-app
 
-In Azure AD wordt configuratie van eenmalige SAML-aanmelding (zoals door de app vereist) uitgevoerd binnen de eigenschappen voor eenmalige aanmelding van de app onder Gebruikerskenmerken, zoal hieronder weergegeven:
+In Azure AD configureert u eenmalige SAML-aanmelding (zoals vereist door uw app) binnen de eigenschappen voor **eenmalige aanmelding** van de app onder **Gebruikerskenmerken**.
 
-![](media/migrate-adfs-apps-to-azure/migrate3.png)
-- Klik op View and edit all other user attribute om de kenmerken te zien die als claims in het beveiligingstoken moeten worden verzonden
+![Eigenschappen voor eenmalige aanmelding met de sectie 'Gebruikerskenmerken'](media/migrate-adfs-apps-to-azure/migrate3.png)
 
-![](media/migrate-adfs-apps-to-azure/migrate4.png)
-- Klik op een bepaalde kenmerkrij om deze te bewerken of klik op Kenmerk toevoegen om een nieuw kenmerk toe te voegen. 
-![](media/migrate-adfs-apps-to-azure/migrate5.png)
+Selecteer **Alle gebruikerskenmerken weergeven en bewerken** om de kenmerken te zien die als claims in het beveiligingstoken moeten worden verzonden.
+
+![Lijst met kenmerken](media/migrate-adfs-apps-to-azure/migrate4.png)
+
+Selecteer een bepaalde kenmerkrij om deze te bewerken, of selecteer **Kenmerk toevoegen** om een nieuw kenmerk toe te voegen.
+
+![Deelvenster ‘Kenmerk bewerken’](media/migrate-adfs-apps-to-azure/migrate5.png)
 
 #### <a name="assign-users-to-the-app"></a>Gebruikers aan de app toewijzen
-Uw gebruikers moeten vanuit Azure AD toegang hebben zodat ze zich vanuit Azure AD bij een bepaalde SaaS-app kunnen aanmelden.
+Om ervoor te zorgen dat uw gebruikers in Azure AD zich kunnen aanmelden bij een SaaS-app, moet u ze toegang geven.
 
-Als u gebruikers via de Azure AD-portal wilt toewijzen, gaat u in de portal naar het scherm van de SaaS-app en klikt u op de zijbalk op Gebruikers en groepen. Als u een groep of een gebruiker wilt toevoegen, klikt u boven aan het scherm op Gebruiker toevoegen. 
+Als u gebruikers in de Azure AD-portal wilt toewijzen, gaat u naar het scherm van de SaaS-app en selecteert u **Gebruikers en groepen** in de zijbalk. Als u een gebruiker of groep wilt toevoegen, selecteert u bovenaan het deelvenster **Gebruiker toevoegen**. 
 
-![](media/migrate-adfs-apps-to-azure/migrate6.png) 
+![Knop 'Gebruiker toevoegen' in 'Gebruikers en groepen'](media/migrate-adfs-apps-to-azure/migrate6.png) 
 
-![](media/migrate-adfs-apps-to-azure/migrate7.png) Voor controle op de toegang dient de gebruiker bij aanmelden de betreffende SaaS-app te kunnen zien in zijn of haar [toegangspaneel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Deze kan worden gevonden op http://myapps.microsoft.com. Bijvoorbeeld: de gebruiker is toegang verleend tot zowel Salesforce als ServiceNow.
+![Deelvenster ‘Toewijzing toevoegen’](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-![](media/migrate-adfs-apps-to-azure/migrate8.png)
+Om hun toegang te verifiëren, moeten gebruikers de SaaS-app in hun [toegangsvenster](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) zien wanneer ze zich aanmelden. Zij kunnen het toegangsvenster vinden op http://myapps.microsoft.com. In dit voorbeeld is aan een gebruiker toegang verleend tot zowel Salesforce als ServiceNow.
 
-### <a name="configuring-the-saas-app"></a>Saas-app configureren
-Het cutover-proces van on-premises federatie naar Azure AD is afhankelijk van het feit of de SaaS-app waarmee u werkt meerdere id-providers ondersteunt.  Hier volgen enkele vragen betreffende ondersteuning voor meerdere id-providers:
+![Voorbeeld van toegangspaneel met de apps Salesforce en ServiceNow](media/migrate-adfs-apps-to-azure/migrate8.png)
+
+### <a name="configure-the-saas-app"></a>De Saas-app configureren
+Het cutover-proces van on-premises federatie naar Azure AD hangt ervan af of de SaaS-app waarmee u werkt meerdere id-providers ondersteunt. Hier volgen enkele veelgestelde vragen over ondersteuning voor meerdere IdP’s:
 
    **V: Wat betekent het dat een app meerdere id-providers ondersteunt?**
     
-   A: In SaaS-apps die ondersteuning bieden voor meerdere id-providers, kunt u alle gegevens invoeren over de nieuwe id-provider (in dit geval Azure AD) voordat u de nieuwe aanmeldingsmethode wilt wijzigen.  Zodra de configuratie gereed is, kunt u de authenticatieconfiguratie van de app naar Azure AD laten wijzen.
+   A: In SaaS-apps die ondersteuning bieden voor meerdere id-providers, kunt u alle gegevens invoeren over de nieuwe id-provider (in dit geval Azure AD) voordat u de nieuwe aanmeldingsmethode daadwerkelijk wijzigt. Nadat de configuratie gereed is, kunt u de authenticatieconfiguratie van de app naar Azure AD laten wijzen.
 
-   V: Waarom maakt het uit of de SaaS-app meerder id-providers ondersteunt?
+   **V: Waarom maakt het uit of de SaaS-app meerder IdP’s ondersteunt?**
 
-   A: Als er geen ondersteuning is voor meerdere id-providers, heeft de beheerder een korte periode nodig voor bijvoorbeeld service of onderhoud waarin Azure AD wordt geconfigureerd als de nieuwe id-provider van de app. Tijdens deze periode dienen de gebruikers op de hoogte te worden gesteld dat ze zich niet bij hun account kunnen aanmelden.
+   A: Als er geen ondersteuning is voor meerdere id-providers, moet de beheerder een korte service- of onderhoudsperiode reserveren waarin Azure AD wordt geconfigureerd als de nieuwe IdP van de app. Gebruikers moeten ervan op de hoogte worden gesteld dat ze zich gedurende deze onderbreking niet bij hun account kunnen aanmelden.
 
-   Als een app meerdere id-providers ondersteunt, kan de configuratie van de extra id-provider van te voren worden uitgevoerd, dus de beheerder kan gewoon naar een ander id-provider overschakelen bij cutover van Azure.
+   Als een app ondersteuning biedt voor meerdere IdP” s, kan de extra IdP vooraf worden geconfigureerd. De beheerder kan vervolgens de IdP verwisselen bij de cutover naar Azure.
 
-   Als de app meerdere id-providers ondersteunt en u meerdere id-providers tegelijkertijd verificatie bij aanmelden wilt laten afhandelen, kan de gebruiker kiezen welke id-provider moet worden geverifieerd op de aanmeldingspagina.
+   Als de app meerdere id-providers ondersteunt en u ervoor kiest meerdere IdP’s tegelijkertijd verificatie bij aanmelden te laten afhandelen, kan de gebruiker op de aanmeldingspagina een IdP kiezen voor verificatie.
 
-#### <a name="example-multiple-idp-support"></a>Voorbeeld: ondersteuning van meerdere id-providers
-In Salesforce bijvoorbeeld kan de configuratie van de id-provider worden gevonden onder Instellingen > Bedrijfsinstellingen > Mijn domein > Authenticatieconfiguratie.
+#### <a name="example-support-for-multiple-idps"></a>Voorbeeld: ondersteuning voor meerdere IdP’s
+In Salesforce kunt u de IdP-configuratie bijvoorbeeld vinden onder **Instellingen** > **Bedrijfsinstellingen** > **Mijn domein** > **Verificatieconfiguratie**.
 
-![](media/migrate-adfs-apps-to-azure/migrate9.png)
+![De sectie 'Verificatieconfiguratie' in de Salesforce-app](media/migrate-adfs-apps-to-azure/migrate9.png)
 
-Vanwege de configuratie die eerder is gemaakt onder Identiteit > Instellingen voor eenmalige aanmelding, moet u uw id-provider voor authenticatieconfiguratie kunnen wijzigen van bijvoorbeeld AD FS naar Azure AD. 
+Vanwege de configuratie die eerder is gemaakt onder **Identiteit** > **Instellingen voor eenmalige aanmelding**, moet u uw IdP voor vertificatieconfiguratie kunnen wijzigen. U kunt deze bijvoorbeeld wijzigen van AD FS in Azure AD. 
 
-![](media/migrate-adfs-apps-to-azure/migrate10.png)
+![Azure AD selecteren als verificatieservice](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Optioneel: inrichten van gebruikers configureren in Azure AD
-Als u Azure AD rechtstreeks gebruikers wilt laten inrichten voor een bepaalde SaaS-app, raadpleegt u dit document over het beheren van het inrichten van gebruikersaccounts voor bedrijfs-apps in Azure AD.
+Als u wilt dat Azure AD de inrichting van gebruikers voor een SaaS-app direct afhandelt, raadpleegt u [ Inrichting en ongedaan maken van inrichting voor gebruikers voor SaaS-toepassingen automatiseren met Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-app-provisioning).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Toepassingen beheren met Azure Active Directory](active-directory-enable-sso-scenario.md)
 - [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
-- [Azure AD Connect Federation](active-directory-aadconnectfed-whatis.md)
+- [Azure AD Connect-federatie](active-directory-aadconnectfed-whatis.md)

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f363119ae75a1adb5a01d584de70fba0f3852dfc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4e82b1364593ff70ed87efcaa24c135277002904
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS bewaken met Azure AD Connect Health
 De volgende documentatie is specifiek voor het bewaken van uw Azure AD FS-infrastructuur met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md) (Engelstalig) voor informatie over het bewaken van Azure AD Connect (synchronisatie) met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -78,10 +78,7 @@ Prestatiebewaking voor Azure AD Connect Health biedt bewakingsinformatie over de
 
 Door de filteroptie boven aan de blade te selecteren, kunt u filteren op server om de gegevens van een individuele server te bekijken. Als u de gegevens wilt bewerken, klikt u op de bewakingsgrafiek onder de bewakingsblade en selecteert u vervolgens Grafiek bewerken (of klikt u op de knop Grafiek bewerken). In de nieuwe blade die wordt geopend, kunt u nu aanvullende gegevens selecteren uit het vervolgkeuzemenu en een tijdsperiode opgeven om de prestatiegegevens te bekijken.
 
-## <a name="reports-for-ad-fs"></a>Rapporten voor AD FS
-Azure AD Connect Health biedt rapporten over de activiteit en prestaties van AD FS. Dankzij deze rapporten krijgen beheerders meer inzicht in de activiteiten op de AD FS-servers.
-
-### <a name="top-50-users-with-failed-usernamepassword-logins"></a>Top 50 van gebruikers met mislukte aanmeldingen vanwege een verkeerde gebruikersnaam of verkeerd wachtwoord
+## <a name="top-50-users-with-failed-usernamepassword-logins"></a>Top 50 van gebruikers met mislukte aanmeldingen vanwege een verkeerde gebruikersnaam of verkeerd wachtwoord
 Een veelvoorkomende reden voor een mislukt verificatieverzoek op een AD FS-server is een verzoek met ongeldige referenties, dat wil zeggen, een onjuiste gebruikersnaam of wachtwoord. Dit gebeurt meestal vanwege complexe wachtwoorden, vergeten wachtwoorden of typfouten.
 
 Maar er zijn andere redenen die kunnen leiden tot een onverwacht aantal aanvragen die worden verwerkt door uw AD FS-servers, zoals een toepassing die gebruikersreferenties in een cache plaatst en de referenties verlopen of wanneer een kwaadwillende gebruiker zich probeert aan te melden bij een account met een reeks bekende wachtwoorden. De volgende twee voorbeelden zijn geldige oorzaken die tot een piek in aanvragen kunnen leiden.
@@ -95,7 +92,7 @@ Met dit rapport hebt u een eenvoudig overzicht van de volgende informatie:
 * Totaal aantal mislukte verzoeken met een onjuiste gebruikersnaam en wachtwoord in de afgelopen 30 dagen
 * Gemiddeld aantal gebruikers per dag die zich proberen aan te melden met een onjuiste gebruikersnaam en wachtwoord.
 
-Door hier te klikken gaat u naar de blade met het hoofdrapport waar u meer informatie kunt vinden. Deze blade bevat een grafiek met trendinformatie waarmee u een basis kunt vastleggen voor aanvragen met een verkeerde gebruikersnaam of een verkeerd wachtwoord. Daarnaast biedt deze blade een lijst met vijftig gebruikers die de afgelopen week het meest last hadden van mislukte pogingen.
+Door hier te klikken gaat u naar de blade met het hoofdrapport waar u meer informatie kunt vinden. Deze blade bevat een grafiek met trendinformatie waarmee u een basis kunt vastleggen voor aanvragen met een verkeerde gebruikersnaam of een verkeerd wachtwoord. Daarnaast biedt deze blade een lijst met vijftig gebruikers die de afgelopen week het meest last hadden van mislukte pogingen. Deze vijftig gebruikers van de afgelopen week kunnen helpen bij het identificeren van pieken in onjuiste wachtwoorden.  
 
 Deze grafiek bevat de volgende informatie:
 
@@ -119,8 +116,90 @@ Dit rapport bevat de volgende informatie:
 >
 >
 
-### <a name="risky-ip-report"></a>Rapport over riskante IP-adressen 
-Binnenkort beschikbaar als Preview-product.
+## <a name="risky-ip-report"></a>Rapport over riskante IP-adressen 
+AD FS-klanten kunnen eindpunten voor wachtwoordverificatie op internet beschikbaar maken om verificatieservices te bieden aan eindgebruikers zodat ze toegang hebben tot SaaS-toepassingen zoals Office 365. In dat geval kunnen criminelen aanmeldpogingen uitvoeren op uw AD FS-systeem om het wachtwoord van een eindgebruiker te achterhalen en toegang te krijgen tot toepassingsresources. AD FS biedt de extranetfunctionaliteit voor accountvergrendeling om dergelijke aanvallen te voorkomen vanaf AD FS in Windows Server 2012 R2. Als u een lagere versie gebruikt, raden we u ten zeerste aan uw AD FS-systeem naar Windows Server 2016 te upgraden. <br />
+Daarnaast is het mogelijk dat vanaf één IP-adres meerdere aanmeldpogingen voor meerdere gebruikers worden uitgevoerd. In dit soort gevallen is het aantal pogingen per gebruiker mogelijk lager dan de drempel voor beveiliging met accountvergrendeling in AD FS. Azure AD Connect Health biedt nu het rapport Riskant IP-adres dat deze gebeurtenis detecteert en beheerders hierover waarschuwt. De belangrijkste voordelen van dit rapport zijn: 
+- Detectie van IP-adressen die een drempel voor mislukte aanmeldingen op basis van wachtwoord overschrijden
+- Ondersteuning voor mislukte aanmeldingen vanwege een onjuist wachtwoord of een vergrendelde status in extranet
+- E-mailmeldingen voor beheerders zodra dit gebeurt, met aanpasbare e-mailinstellingen
+- Aanpasbare drempelwaarde voor afstemming op het beveiligingsbeleid van een organisatie
+- Downloadbare rapporten voor offline analyse en integratie met andere systemen via automatisering
+
+> [!NOTE]
+> Om dit rapport te gebruiken, moet u controles voor AD FS hebben ingeschakeld. Ga voor meer informatie naar [Controles voor AD FS inschakelen](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
+>
+>
+
+### <a name="what-is-in-the-report"></a>Inhoud van het rapport
+Elk item in het rapport Riskant IP-adres toont verzamelde informatie over mislukte AD FS-aanmeldactiviteiten die de aangewezen drempelwaarde overschrijden. Het biedt de volgende informatie: ![Azure AD Connect Health-portal](./media/active-directory-aadconnect-health-adfs/report4a.png)
+
+| Rapportitem | Beschrijving |
+| ------- | ----------- |
+| Tijdstempel | Geeft het tijdstempel weer op basis van de lokale tijd in Azure Portal wanneer de detectieperiode start.<br /> Alle gebeurtenissen per dag worden gegenereerd om 24:00 uur UTC-tijd. <br />Bij gebeurtenissen per uur is het tijdstempel afgerond naar het begin van het uur. U vindt de begintijd van de eerste activiteit vanaf firstAuditTimestamp in het geëxporteerde bestand. |
+| Triggertype | Geeft het type tijdvenster voor detectie weer. De triggertypen voor aggregatie zijn per uur of per dag. Dit is handig voor het detecteren van een beveiligingsaanval met hoge frequentie en een trage beveiligingsaanval waarbij het aantal pogingen over de dag is verdeeld. |
+| IP-adres | Het specifieke riskante IP-adres voor activiteiten met betrekking tot onjuiste wachtwoorden of extranetvergrendeling. Dit kan een IPv4- of een IPv6-adres zijn. |
+| Aantal mislukte wachtwoordpogingen | Het aantal mislukte wachtwoordpogingen vanaf het IP-adres tijdens de detectieperiode. Mislukte wachtwoordpogingen kunnen meerdere keren plaatsvinden bij bepaalde gebruikers. Dit omvat geen mislukte pogingen vanwege verlopen wachtwoorden. |
+| Aantal mislukte extranetvergrendelingen | Het aantal mislukte extranetvergrendelingen vanaf het IP-adres tijdens de detectieperiode. Mislukte extranetvergrendelingen kunnen meerdere keren plaatsvinden bij bepaalde gebruikers. Dit is alleen zichtbaar als Vergrendeling van het extranet is geconfigureerd in AD FS (versies 2012R2 of hoger). <b>Opmerking</b>: we raden u aan deze functie in te schakelen als u extranetaanmeldingen met wachtwoorden toestaat. |
+| Pogingen unieke gebruikersnaam | Het aantal mislukte pogingen met unieke gebruikersnaam vanaf het IP-adres tijdens de detectieperiode. Dit biedt een mechanisme om een aanvalspatroon met een enkele gebruiker van een aanvalspatroon met meerdere gebruikers te onderscheiden.  |
+
+Het onderstaande rapportitem geeft bijvoorbeeld aan dat in het tijdvenster van 18:00 tot 19:00 uur op 28-02-2018 het IP-adres <i>104.2XX.2XX.9</i> geen mislukte wachtwoordpogingen en 284 mislukte extranetvergrendelingen had. 14 unieke gebruikers zijn volgens de criteria beïnvloed. De activiteitsgebeurtenis overschrijdt de aangewezen drempelwaarde per uur van het rapport. 
+
+![Portal voor Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4b.png)
+
+> [!NOTE]
+> - Alleen activiteiten die de aangewezen drempelwaarde overschrijden, worden in de rapportlijst weergegeven. 
+> - Dit rapport kan tot 30 dagen terug worden bekeken.
+> - Dit waarschuwingsrapport geeft geen Exchange-IP-adressen of privé-IP-adressen weer. Ze worden wel opgenomen in de exportlijst. 
+>
+
+
+![Portal voor Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4c.png)
+
+### <a name="download-risky-ip-report"></a>Rapport Riskant IP-adres downloaden
+Met behulp van de functie **Downloaden** kan de volledige lijst met riskante IP-adressen van de afgelopen 30 dagen worden geëxporteerd vanuit de Connect Health-portal. De export bevat alle mislukte AD FS-aanmeldactiviteiten in elke detectieperiode, zodat u de filters na het exporteren kunt aanpassen. De export geeft naast de gemarkeerde aggregaties in de portal ook meer informatie over mislukte aanmeldactiviteiten per IP-adres weer:
+
+|  Rapportitem  |  Beschrijving  | 
+| ------- | ----------- | 
+| firstAuditTimestamp | Geeft de eerste tijdstempel weer voor de start van de mislukte activiteiten tijdens de detectieperiode.  | 
+| lastAuditTimestamp | Geeft de laatste tijdstempel weer voor het einde van de mislukte activiteiten tijdens de detectieperiode.  | 
+| attemptCountThresholdIsExceeded | De markering voor wanneer de huidige activiteiten de drempelwaarde voor waarschuwingen overschrijden.  | 
+| isWhitelistedIpAddress | De markering voor wanneer het IP-adres is uitgesloten voor waarschuwingen en rapporten. Privé-IP-adressen (<i>10.x.x.x, 172.x.x.x en 192.168.x.x</i>) en Exchange-IP-adressen worden eruit gefilterd en als waar gemarkeerd. Als u privé-IP-adresbereiken ziet, is het zeer waarschijnlijk dat de externe load balancer het client-IP-adres niet verzendt wanneer deze de aanvraag naar de proxyserver van de webtoepassing doorstuurt.  | 
+
+### <a name="configure-notification-settings"></a>Meldingsinstellingen configureren
+Beheerders van het rapport kunnen met de **Meldingsinstellingen** op de hoogte worden gehouden. De e-mailmelding voor riskante IP-adressen is standaard uitgeschakeld. U kunt de melding inschakelen door de knop onder 'E-mailmeldingen ontvangen voor een rapport van IP-adressen waarvoor de drempelwaarden voor mislukte aanmeldingen zijn overschreden' in te schakelen. Net als in de algemene meldingsinstellingen in Connect Health kunt u hier de ontvangerslijst voor Riskant IP-adres-rapporten aanpassen. U kunt ook alle globale beheerders informeren bij het maken van de wijziging. 
+
+### <a name="configure-threshold-settings"></a>Drempelwaarde-instellingen configureren
+De drempelwaarde voor waarschuwingen kan via de drempelwaarde-instellingen worden bijgewerkt. De drempelwaarde is in het begin standaard ingesteld in het systeem. Er zijn vier categorieën in de drempelwaarde-instellingen voor Riskant IP-adres-rapporten:
+
+![Portal voor Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4d.png)
+
+| Drempelwaarde-item | Beschrijving |
+| --- | --- |
+| (Slechte U/P + vergrendeling van het extranet) / dag  | Ingestelde drempelwaarde per **dag** voor het rapporteren van de activiteit en het activeren van een melding wanneer het aantal onjuiste wachtwoordpogingen plus het aantal extranetvergrendelingen is overschreden. |
+| (Slechte U/P + vergrendeling van het extranet) / uur | Ingestelde drempelwaarde per **uur** voor het rapporteren van de activiteit en het activeren van een melding wanneer het aantal onjuiste wachtwoordpogingen plus het aantal extranetvergrendelingen is overschreden. |
+| Vergrendeling van het extranet / dag | Ingestelde drempelwaarde per **dag** voor het rapporteren van de activiteit en het activeren van een melding wanneer het aantal extranetvergrendelingen is overschreden. |
+| Vergrendeling van het extranet / uur| Ingestelde drempelwaarde per **uur** voor het rapporteren van de activiteit en het activeren van een melding wanneer het aantal extranetvergrendelingen is overschreden. |
+
+> [!NOTE]
+> - Een wijziging van de drempelwaarde van het rapport wordt na een uur toegepast. 
+> - Bestaande gemelde items worden niet beïnvloed door het wijzigen van de drempelwaarde. 
+> - We raden u aan om het aantal gebeurtenissen binnen uw omgeving te analyseren en de drempelwaarde aan de hand hiervan bij te stellen. 
+>
+>
+
+### <a name="faq"></a>Veelgestelde vragen
+1. Waarom zie ik privé-IP-adresbereiken in het rapport?  <br />
+Privé-IP-adressen (<i>10.x.x.x, 172.x.x.x en 192.168.x.x</i>) en de Exchange-IP-adressen worden eruit gefilterd en als waar gemarkeerd in de lijst met toegestane IP-adressen. Als u privé-IP-adresbereiken ziet, is het zeer waarschijnlijk dat de externe load balancer het client-IP-adres niet verzendt wanneer deze de aanvraag naar de proxyserver van de webtoepassing doorstuurt.
+
+2. Hoe kan ik een IP-adres blokkeren?  <br />
+Voeg geïdentificeerde schadelijke IP-adressen toe aan de firewall of blokkeer deze in Exchange.   <br />
+Met AD FS 2016 + 1803.C+ QFE kunt u het IP-adres rechtstreeks in AD FS blokkeren. 
+
+3. Waarom zie ik geen items in dit rapport? <br />
+   - Het aantal mislukte aanmeldactiviteiten is lager dan de ingestelde drempelwaarde. 
+   - Zorg ervoor dat er geen melding als 'Health-service is niet up-to-date' actief is in de AD FS-serverlijst.  Lees meer informatie over [het oplossen van deze waarschuwing](active-directory-aadconnect-health-data-freshness.md).
+   - Controles zijn niet ingeschakeld in AD FS-farms.
+
 
 ## <a name="related-links"></a>Verwante koppelingen
 * [Azure AD Connect Health (Engelstalig)](active-directory-aadconnect-health.md)

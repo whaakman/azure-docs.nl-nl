@@ -1,21 +1,21 @@
 ---
 title: 'Quickstart: uw eerste Azure Container Instances-container maken met behulp van Azure Portal'
-description: Azure Container Instances implementeren en ermee aan de slag gaan
+description: In deze snelstart gebruikt u de Azure-portal om een container in Azure Container Instances te implementeren
 services: container-instances
 author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 03/19/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 63f22544276da07ec98e779cc524879603655db6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 18238c94ba9acff15497a666a63b65b95779d4ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-your-first-container-in-azure-container-instances"></a>Uw eerste container maken in Azure Container Instances
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snelstart: Uw eerste container maken in Azure Container Instances
 
 Met Azure Container Instances kunt u eenvoudig containers maken en beheren in Azure. In deze quickstart maakt u een container in Azure en geeft u deze op internet weer via een openbaar IP-adres. Dit doet u met behulp van Azure Portal. Na slechts een paar muisklikken ziet u het volgende in de browser:
 
@@ -23,7 +23,7 @@ Met Azure Container Instances kunt u eenvoudig containers maken en beheren in Az
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u via http://portal.azure.com aan bij Azure Portal.
+Meld u aan bij de Azure-portal op http://portal.azure.com.
 
 ## <a name="create-a-container-instance"></a>Een containerinstantie maken
 

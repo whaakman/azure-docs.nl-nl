@@ -2,7 +2,7 @@
 title: Gegevens in een virtueel Azure-netwerk transformeren met behulp van Hive | Microsoft Docs
 description: Deze zelfstudie biedt stapsgewijze instructies voor het transformeren van gegevens met behulp van Hive-activiteit in Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: a7575549225d47e5266ca7e1778c3e61835de1cc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8711d7ed1d02f0960ef00c1cf5053e97aa00ad5c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Gegevens in een virtueel Azure-netwerk transformeren met behulp van Hive-activiteit in Azure Data Factory
 In deze zelfstudie gebruikt u Azure Portal om een Data Factory-pijplijn te maken waarmee gegevens worden getransformeerd met behulp van Hive-activiteit in een HDInsight-cluster in een virtueel Azure-netwerk (VNet). In deze zelfstudie voert u de volgende stappen uit:
@@ -114,9 +114,9 @@ Als de Hadoop-cluster zich in een virtueel netwerk bevindt, moet u een zelf-host
 2. In het venster **Integration Runtime Setup** selecteert u de optie **Perform data movement and dispatch activities to external computes** en klikt u op **Next**. 
 
    ![Selecteer optie Perform data movement and dispatch activities to external computes](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png)
-3. Selecteer **Public Network** en klik op **Next**.
+3. Selecteer **Privénetwerk** en klik op **Volgende**.
     
-   ![Selecteer privénetwerk](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
+   ![Privénetwerk selecteren](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
 4. Voer **MySelfHostedIR** in bij **Name** en klik op **Next**. 
 
    ![Naam van de integratieruntime opgeven](./media/tutorial-transform-data-using-hive-in-vnet-portal/integration-runtime-name.png) 

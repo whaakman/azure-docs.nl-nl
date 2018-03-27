@@ -2,7 +2,7 @@
 title: Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services | Microsoft Docs
 description: Informatie over hoe u kiest tussen Azure App Service, Virtual Machines, Service Fabric en Cloud Services voor het hosten van webtoepassingen.
 services: app-service\web, virtual-machines, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: erikre
 editor: jimbe
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 627782d3d6dd9f2eeff1b79e9cf721f9a4eb4ac2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f930cec984a8b92e00ec613ce3bba91a40518911
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services
 ## <a name="overview"></a>Overzicht
@@ -49,7 +49,7 @@ In de volgende tabel worden de mogelijkheden van App Service, Cloud Services, Vi
 | Laag voor web of webservices hosten van een architectuur met meerdere lagen |X |X |X |X | |
 | Middelste laag hosten van een architectuur met meerdere lagen |X |X |X |X |App Service-web-apps kunnen eenvoudig de middelste laag van een REST API hosten en de functie [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) kan taken voor achtergrondverwerking hosten. U kunt WebJobs uitvoeren op een speciale website om onafhankelijke schaalbaarheid voor die laag mogelijk te maken. |
 | Geïntegreerde ondersteuning voor MySQL-as-a-service |X |X | | | |
-| Ondersteuning voor ASP.NET, klassieke ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric ondersteunt het maken van een web-front-end met behulp van [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) en u kunt elk type toepassing (Node.js, Java enz.) implementeren als een [toepassing die door een gast kan worden uitgevoerd](../service-fabric/service-fabric-deploy-existing-app.md). |
+| Ondersteuning voor ASP.NET, klassieke ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric ondersteunt het maken van een web-front-end met behulp van [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) en u kunt elk type toepassing (Node.js, Java enz.) implementeren als een [toepassing die door een gast kan worden uitgevoerd](../service-fabric/service-fabric-guest-executables-introduction.md). |
 | Uitschalen naar meerdere exemplaren zonder opnieuw te hoeven implementeren |X |X |X |X |Virtual Machines kan uitschalen naar meerdere exemplaren, maar de services die daarop worden uitgevoerd, moeten zijn geschreven om hiermee om te kunnen gaan. U moet een load balancer configureren om aanvragen tussen de machines te routeren en een affiniteitsgroep maken die voorkomt dat alle exemplaren tegelijkertijd opnieuw worden opgestart wegens onderhoud of hardwarefouten. |
 | Ondersteuning voor SSL |X |X |X |X |Voor App Service-web-apps wordt SSL voor aangepaste domeinnamen alleen ondersteund voor de Basic en Standard-modus. Zie [Configuring an SSL certificate for an Azure Website](app-service-web-tutorial-custom-ssl.md) (Een SSL-certificaat voor een Azure-website configureren) voor meer informatie over het gebruik van SSL met web-apps. |
 | Integratie met Visual Studio |X |X |X |X | |
@@ -59,7 +59,7 @@ In de volgende tabel worden de mogelijkheden van App Service, Cloud Services, Vi
 | Ondersteuning voor [Azure Traffic Manager](/azure/traffic-manager/) |X |X |X |X | |
 | Geïntegreerde eindpuntbewaking |X |X |X | | |
 | Toegang tot servers via Extern bureaublad | |X |X |X | |
-| Aangepaste MSI's installeren | |X |X |X |Met Service Fabric kunt u ieder uitvoerbaar bestand hosten als een [toepassing die door een gast kan worden uitgevoerd](../service-fabric/service-fabric-deploy-existing-app.md) en u kunt iedere app installeren op de virtuele machines. |
+| Aangepaste MSI's installeren | |X |X |X |Met Service Fabric kunt u ieder uitvoerbaar bestand hosten als een [toepassing die door een gast kan worden uitgevoerd](../service-fabric/service-fabric-guest-executables-introduction.md) en u kunt iedere app installeren op de virtuele machines. |
 | Mogelijkheid om starttaken te definiëren en uit te voeren | |X |X |X | |
 | Kan luisteren naar ETW-gebeurtenissen | |X |X |X | |
 

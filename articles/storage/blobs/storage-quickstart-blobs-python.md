@@ -7,13 +7,13 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d4c489bc41a9c04b15e2ee28b944edc1f15ef81c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van Python
 
@@ -23,7 +23,7 @@ In deze zelfstudie leert u hoe u Python kunt gebruiken om blok-bobs te uploaden,
 
 Dit zijn de vereisten voor het voltooien van deze Quickstart: 
 * [Python](https://www.python.org/downloads/) installeren
-* Download en installeer [Azure Storage-SDK voor Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python). 
+* Download en installeer [Azure Storage-SDK voor Python](storage-python-how-to-use-blob-storage.md). 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -160,6 +160,18 @@ block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
+## <a name="resources-for-developing-python-applications-with-blobs"></a>Resources voor het ontwikkelen van Python-toepassingen met blobs
+
+Zie de volgende aanvullende resources voor Python-ontwikkeling met Blob-opslag:
+
+### <a name="binaries-and-source-code"></a>Binaire bestanden en broncode
+
+- Bekijk, download en installeer de [broncode voor de Python-clientbibliotheek](https://github.com/Azure/azure-storage-python) voor Azure Storage op GitHub.
+
+### <a name="client-library-reference-and-samples"></a>Naslaginformatie en voorbeelden voor de .NET-clientbibliotheek
+
+- Zie het [Python API-referentiemateriaal](https://docs.microsoft.com/python/api/overview/azure/storage) voor meer informatie over de Python-clientbibliotheek.
+- Verken met behulp van de Python-clientbibliotheek geschreven [Blob-opslagvoorbeelden](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob).
 
 ## <a name="next-steps"></a>Volgende stappen
  
@@ -168,5 +180,4 @@ In deze Quick Start hebt u geleerd hoe u bestanden overbrengt tussen een lokale 
 > [!div class="nextstepaction"]
 > [Instructies voor bewerkingen in Blob-opslag](./storage-python-how-to-use-blob-storage.md)
  
-
 Zie [Azure Blob-opslagresources beheren met Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie over Storage Explorer en blobs.

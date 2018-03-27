@@ -1,6 +1,6 @@
 ---
 title: Voorbeelden van de integratie van Azure Service Bus met Event Grid | Microsoft Docs
-description: Voorbeelden van de integratie van Service Bus-berichten met Event Grid
+description: In dit artikel vindt u voorbeelden van de integratie van Service Bus-berichten met Event Grid.
 services: service-bus-messaging
 documentationcenter: .net
 author: ChristianWolf42
@@ -14,186 +14,215 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 3819a274696762861fbe76a9684b8495f1724f6a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: fd30a8eb5149647a24ff04e099bf5c3e187459ef
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-service-bus-to-azure-event-grid-examples"></a>Voorbeelden van Azure Service Bus naar Azure Event Grid
+# <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Voorbeelden van de integratie van Azure Service Bus met Event Grid
 
-In dit document vindt u informatie over het instellen van Azure-functies en een logische app die op basis van een gebeurtenis van Event Grid berichten ontvangen. In het voorbeeld wordt uitgegaan van een Service Bus-onderwerp met twee abonnementen, en dat het Event Grid-abonnement is gemaakt op een manier dat er gebeurtenissen voor slechts één Service Bus-abonnement worden verzonden. Vervolgens verzendt u berichten naar het Service Bus-onderwerp en controleert u of de gebeurtenis is gegenereerd voor dit Service Bus-abonnement, en of de functie of de logische app de berichten ontvangt van dat Service Bus-abonnement, en ze voltooit.
+In dit artikel leert u hoe u een Azure-functie en een logische app instelt die beide berichten ontvangen op basis van het ontvangen van een gebeurtenis van Azure Event Grid. U voert het volgende uit:
+ 
+* Maak een eenvoudige [Azure-testfunctie](#test-function-setup) voor het opsporen van fouten en het weergeven van de eerste stroom gebeurtenissen uit Event Grid. Voer deze stap in elk geval uit, ongeacht of u de andere stappen uitvoert.
+* Maak een [Azure-functie waarmee u Service Bus-berichten kunt ontvangen en verwerken](#receive-messages-using-azure-function) op basis van Event Grid-gebeurtenissen.
+* Gebruik de [Logic Apps-functie van Azure App Service](#receive-messages-using-azure-logic-app).
 
-* Zorg eerst dat u aan alle [vereisten](#prerequisites) voldoet.
-* Maak een [eenvoudige testversie van Azure Functions](#test-function-setup) voor het opsporen van fouten en om te zien of er een eerste stroom van gebeurtenissen uit Event Grid op gang is gekomen.  **Deze stap moet worden gedaan ongeacht of u 3. of 4. uitvoert**
-* Maak een [Azure-functie waarmee u Service Bus-berichten kunt ontvangen en verwerken ](#receive-messages-using-azure-function) op basis van Event Grid-gebeurtenissen.
-* [Logic Apps](#receive-messages-using-azure-logic-app) gebruiken.
+Voor het voorbeeld dat u maakt, wordt ervanuit gegaan dat het Service Bus-onderwerp twee abonnementen kent. Er wordt ook vanuit gegaan dat het Event Grid-abonnement is gemaakt voor het verzenden van gebeurtenissen voor slechts één Service Bus-abonnement. 
+
+In het voorbeeld verzendt u berichten naar het Service Bus-onderwerp en verifieert u of de gebeurtenis is gegenereerd voor dit Service Bus-abonnement. De functie of logische app ontvangt de berichten van het Service Bus-abonnement en voltooit dit vervolgens.
 
 ## <a name="prerequisites"></a>Vereisten
+Voor u begint dient u de stappen in de volgende twee secties te hebben voltooid.
 
-### <a name="service-bus-namespace"></a>Service Bus-naamruimte
+### <a name="create-a-service-bus-namespace"></a>Een Service Bus-naamruimte maken
 
-Een Service Bus Premium-naamruimte maken. Een Service Bus-onderwerp met twee abonnementen maken.
+Maak een Service Bus Premium-abonnement en een Service Bus-onderwerp met twee abonnementen.
 
-### <a name="code-to-send-message-to-the-service-bus-topic"></a>Code voor het verzenden van een bericht naar het Service Bus-onderwerp
+### <a name="send-a-message-to-the-service-bus-topic"></a>Een bericht verzenden naar het Service Bus-onderwerp
 
-U kunt op alle mogelijke manieren een bericht naar uw Service Bus-onderwerp verzenden. U kunt ook het voorbeeld hieronder gebruiken. Voor de voorbeeldcode wordt ervan uitgegaan dat u Visual Studio 2017 gebruikt.
+U kunt een willekeurige methode gebruiken om een bericht naar uw Service Bus-onderwerp te verzenden. In de voorbeeldcode aan het einde van deze procedure wordt ervan uitgegaan dat u van Visual Studio 2017 gebruikmaakt.
 
-Kloon deze [GitHub-opslagplaats](https://github.com/Azure/azure-service-bus/).
+1. Kloon de [GitHub azure-service-bus repository](https://github.com/Azure/azure-service-bus/) (opslagplaats van GitHub-azure-service-bus).
 
-Navigeer naar de volgende map:
+2. Ga in Visual Studio naar de map *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* en open het bestand *SBEventGridIntegration.sln*.
 
-\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration en open het bestand SBEventGridIntegration.sln.
+3. Ga naar het project **MessageSender** en selecteer **Program.cs**.
 
-Vervolgens gaat u naar het project MessageSender en opent u Program.cs.
+   ![8][]
 
-![8][]
+4. Vul de naam van het onderwerp en de verbindingsreeks in en voer de volgende consoletoepassingscode uit:
 
-Vul de onderwerpnaam in, evenals de verbindingsreeks en voer de consoletoepassing uit:
+    ```CSharp
+    const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
+    const string TopicName = "YOUR TOPIC NAME";
+    ```
 
-```CSharp
-const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
-const string TopicName = "YOUR TOPIC NAME";
-```
+## <a name="set-up-a-test-function"></a>Testfunctie instellen
 
-## <a name="test-function-setup"></a>Instellingen voor de testfunctie
+Voordat u het hele scenario doorwerkt, dient u in elk geval een kleine testfunctie in te stellen. Deze kunt u gebruiken om te zien welke gebeurtenissen er worden gestroomd en om de fouten erin op te sporen.
 
-Voordat u het gehele end-to-end-scenario gaat doorwerken, wilt u waarschijnlijk eerst een summiere testfunctie tot uw beschikking hebben, die u kunt gebruiken voor het opsporen van fouten en om te zien welke gebeurtenissen er stromen.
+1. Maak in de Azure Portal een nieuwe Azure Functions-toepassing. Zie [Documentatie van Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) voor de basisbeginselen van Azure Functions.
 
-Maak in de portal een nieuwe Azure Functions-toepassing. Volg deze [koppeling](https://docs.microsoft.com/en-us/azure/azure-functions/) voor meer informatie over de basisprincipes van Azure Functions.
+2. Selecteer in de functie die u net hebt gemaakt het plusteken (+) om een HTTP-triggerfunctie toe te voegen:
 
-Klik in de functie die u net hebt gemaakt op het kleine plusteken om een HTTP-triggerfunctie toe te voegen:
+    ![2][]
+    
+    Het venster **Ga snel aan de slag met een vooraf gemaakte functie** wordt geopend.
 
-![2][]
+    ![3][]
 
-![3][]
+3. Selecteer de knop **Webhook + API**, selecteer **CSharp** en vervolgens **Deze functie maken**.
+ 
+4. Plak de volgende code in de functie:
 
-Kopieer vervolgens de volgende code in de functie:
+    ```CSharp
+    #r "Newtonsoft.Json"
+    using System.Net;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    
+    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    {
+        log.Info("C# HTTP trigger function processed a request.");
+        // parse query parameter
+        var content = req.Content;
+    
+        string jsonContent = await content.ReadAsStringAsync(); 
+        log.Info($"Received Event with payload: {jsonContent}");
+    
+    IEnumerable<string> headerValues;
+    if (req.Headers.TryGetValues("Aeg-Event-Type", out headerValues))
+    {
+    var validationHeaderValue = headerValues.FirstOrDefault();
+    if(validationHeaderValue == "SubscriptionValidation")
+    {
+    var events = JsonConvert.DeserializeObject<GridEvent[]>(jsonContent);
+         var code = events[0].Data["validationCode"];
+         return req.CreateResponse(HttpStatusCode.OK,
+         new { validationResponse = code });
+    }
+    }
+    
+        return jsonContent == null
+        ? req.CreateResponse(HttpStatusCode.BadRequest, "Pass a name on the query string or in the request body")
+        : req.CreateResponse(HttpStatusCode.OK, "Hello " + jsonContent);
+    }
+    
+    public class GridEvent
+    {
+        public string Id { get; set; }
+        public string EventType { get; set; }
+        public string Subject { get; set; }
+        public DateTime EventTime { get; set; }
+        public Dictionary<string, string> Data { get; set; }
+        public string Topic { get; set; }
+    }
+    ```
 
-```CSharp
-#r "Newtonsoft.Json"
-using System.Net;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+5. Selecteer **Opslaan en uitvoeren**.
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-{
-    log.Info("C# HTTP trigger function processed a request.");
-    // parse query parameter
-    var content = req.Content;
+## <a name="connect-the-function-and-namespace-via-event-grid"></a>Functie en naamruimte met elkaar verbinden via Event Grid
 
-    string jsonContent = await content.ReadAsStringAsync(); 
-    log.Info($"Received Event with payload: {jsonContent}");
+In deze sectie koppelt u de functie en de Service Bus-naamruimte. Gebruik voor dit voorbeeld Azure. Zie [Overzicht integratie Azure Service Bus en Event Grid](service-bus-to-event-grid-integration-concept.md) om te begrijpen hoe u PowerShell of Azure CLI gebruikt om deze procedure uit te voeren.
 
-IEnumerable<string> headerValues;
-if (req.Headers.TryGetValues("Aeg-Event-Type", out headerValues))
-{
-var validationHeaderValue = headerValues.FirstOrDefault();
-if(validationHeaderValue == "SubscriptionValidation")
-{
-var events = JsonConvert.DeserializeObject<GridEvent[]>(jsonContent);
-     var code = events[0].Data["validationCode"];
-     return req.CreateResponse(HttpStatusCode.OK,
-     new { validationResponse = code });
-}
-}
+Ga als volgt te werk als u een Azure Event Grid-abonnement wilt maken:
+1. Ga in Azure Portal naar uw naamruimte en selecteer **Event Grid** in het linkerdeelvenster.  
+    Het venster met de naamruimte wordt geopend, waarbij twee Event Grid-abonnementen in het rechterdeelvenster worden weergegeven.
 
-    return jsonContent == null
-    ? req.CreateResponse(HttpStatusCode.BadRequest, "Pass a name on the query string or in the request body")
-    : req.CreateResponse(HttpStatusCode.OK, "Hello " + jsonContent);
-}
+    ![20][]
 
-public class GridEvent
-{
-    public string Id { get; set; }
-    public string EventType { get; set; }
-    public string Subject { get; set; }
-    public DateTime EventTime { get; set; }
-    public Dictionary<string, string> Data { get; set; }
-    public string Topic { get; set; }
-}
-```
+2. Selecteer **Gebeurtenisabonnement**.  
+    Het venster **Gebeurtenisabonnement** wordt geopend. In de volgende afbeelding wordt een formulier weergegeven waarmee u zich kunt abonneren op een Azure-functie of webhook zonder filters toe te passen.
 
-Klik op Opslaan en uitvoeren.
+    ![21][]
 
-## <a name="connect-function-and-namespace-via-event-grid"></a>Functie en naamruimte met elkaar verbinden via Event Grid
+3. Vul het formulier in zoals weergegeven en voer in het vak **Achtervoegselfilter** het relevante filter in.
 
-De volgende stap is om de functie en de Service Bus-naamruimte aan elkaar te koppelen. Gebruik voor dit voorbeeld Azure. Raadpleeg de pagina over [concepten](service-bus-to-event-grid-integration-concept.md) als u wilt weten hoe u hiervoor ook PowerShell of Azure CLI kunt gebruiken.
+4. Selecteer **Maken**.
 
-Als u een nieuw Azure Event Grid-abonnement wilt maken navigeert u naar uw naamruimte in Azure Portal en selecteert u de blade Event Grid. Klik op + Event Grid-abonnement.
+5. Verzend een bericht naar uw Service Bus-onderwerp, zoals vermeld in de Sectie Vereisten, en controleer met behulp van de bewakingsfunctie van Azure Functions of de gebeurtenissen stromen.
 
-In de volgende schermafbeelding ziet u een naamruimte waarvoor al een aantal Event Grid-abonnementen bestaan.
-
-![20][]
-
-In de volgende schermafbeelding ziet u hoe u zich kunt abonneren op een Azure-functie of een webhook, zonder dat er een specifiek filter nodig is. Vergeet niet dat u het betreffende filter voor uw Service Bus-abonnement als 'achtervoegselfilter' toevoegt:
-
-![21][]
-
-Verzend een bericht naar uw Service Bus-onderwerp, zoals vermeld in de vereisten, en controleer met behulp van de monitorfunctie van Azure Functions of de gebeurtenissen stromen.
+De volgende stap bestaat uit het koppelen van de functie en de Service Bus-naamruimte. Gebruik voor dit voorbeeld Azure. Zie [Overzicht integratie Azure Service Bus en Event Grid](service-bus-to-event-grid-integration-concept.md) om te begrijpen hoe u PowerShell of Azure CLI gebruikt om deze stap uit te voeren.
 
 ![9][]
 
-### <a name="receive-messages-using-azure-function"></a>Berichten ontvangen met behulp van Azure Functions
+### <a name="receive-messages-by-using-azure-functions"></a>Berichten ontvangen met behulp van Azure Functions
 
-In de vorige sectie hebt u een eenvoudig test- en foutopsporingsscenario doorlopen, en gecontroleerd of de gebeurtenissen stromen. In dit gedeelte van de documentatie bekijkt u hoe u berichten kunt ontvangen en verwerken nadat u een gebeurtenis hebt ontvangen.
+In de vorige sectie hebt u een eenvoudig test- en foutopsporingsscenario gezien, en gecontroleerd of de gebeurtenissen stromen. 
 
-De reden waarom een Azure-functie op de volgende manier wordt toegevoegd, is dat de Service Bus-functies binnen Azure Functions zelf nog niet op een systeemeigen manier ondersteuning bieden voor de nieuwe Event Grid-integratie.
+In deze sectie leert u hoe u berichten ontvangt en verwerkt nadat u een gebeurtenis hebt ontvangen.
 
-SelecteerReceiveMessagesOnEvent.cs in de dezelfde Visual Studio-oplossing die u als onderdeel van de vereisten hebt geopend. Voer uw verbindingsreeks in de code in:
+U voegt een Azure-functie toe, zoals in het volgende voorbeeld wordt getoond, omdat de Service Bus-functies in Azure Functions de nieuwe Event Grid-integratie nog niet vanuit het systeem zelf ondersteunen.
 
-![10][]
+1. Selecteer **ReceiveMessagesOnEvent.cs** in dezelfde Visual Studio-oplossing die u als onderdeel van de vereisten hebt geopend. 
 
-```Csharp
-const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
-```
+    ![10][]
 
-Ga vervolgens naar Azure Portal en download het publicatieprofiel voor de Azure-functie die u voorheen in [2. Instellingen voor de testfunctie](#2-test-function-setup) hebt gemaakt.
+2. Voer uw verbindingsreeks in de volgende code in:
 
-![11][]
+    ```Csharp
+    const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
+    ```
 
-Klik vervolgens in Visual Studio met de rechtermuisknop op SBEventGridIntegration selecteer Publiceren. Gebruik het publicatieprofiel dat u eerder hebt gedownload, selecteer Profiel importeren en klik op Publiceren.
+3. Download in Azure Portal het publicatieprofiel voor de Azure-functie die u hebt gemaakt in de sectie Testfunctie instellen.
 
-![12][]
+    ![11][]
 
-Nadat u de nieuwe Azure-functie hebt gepubliceerd, maakt u een nieuw Azure Event Grid-abonnement dat verwijst naar de nieuwe Azure-functie. Zorg ervoor dat u het juiste 'eindigt op'-filter toepast, wat zou moeten overeenkomen met de naam van uw Service Bus-abonnement.
+4. Klik vervolgens in Visual Studio met de rechtermuisknop op **SBEventGridIntegration** selecteer **Publish**. 
 
-Verzendt vervolgens een bericht naar het Azure Service- onderwerp dat u eerder hebt gemaakt en bestudeer in de portal het logboek van Azure Functions om te zien of de gebeurtenissen stromen en of berichten worden ontvangen.
+5. In het deelvenster **Publish** voor het publicatieprofiel dat u eerder hebt gedownload, selecteert u **Import profile** en vervolgens **Publish**.
 
-![12-1][]
+    ![12][]
 
-### <a name="receive-messages-using-azure-logic-app"></a>Berichten ontvangen met behulp van een logische Azure-app
+6. Nadat u de nieuwe Azure-functie hebt gepubliceerd, maakt u een nieuw Azure Event Grid-abonnement dat verwijst naar de nieuwe Azure-functie.  
+    Zorg ervoor dat u in het vak **Eindigt op** het juiste filter toepast, wat zou moeten overeenkomen met de naam van uw Service Bus-abonnement.
 
-De volgende instructies laten zien hoe u verbinding kunt maken tussen een logische Azure-app en Azure Service Bus en Azure Event Grid:
+7. Verzend een bericht naar het Azure Service Bus-onderwerp dat u eerder hebt gemaakt en controleer vervolgens het Azure Functions-logboek in Azure Portal om er zeker van te zijn dat er gebeurtenissen stromen en berichten worden ontvangen.
 
-Maak eerst een nieuwe logische app in Azure Portal en selecteer Event Grid als beginactie.
+    ![12-1][]
 
-![13][]
+### <a name="receive-messages-by-using-logic-apps"></a>Berichten ontvangen met behulp van Logic Apps
 
-De eerste weergave in de ontwerpfunctie voor Logic Apps zou er moeten uitzien zoals in de volgende schermafbeelding, waarbij u 'Resourcenaam' vervangt door de naam van uw eigen naamruimte. Zorg er ook voor dat u de geavanceerde opties uitvouwt, en voeg het achtervoegselfilter toe voor uw abonnement:
+Verbind als volgt een logische app met Azure Service Bus en Azure Event Grid:
 
-![14][]
+1. Maak een nieuwe logische app in Azure Portal en selecteer **Event Grid** als eerste actie.
 
-Voeg vervolgens een ontvangstactie van Service Bus toe om iets van een onderwerpabonnement te kunnen ontvangen. De laatste actie moet er ongeveer uitzien zoals in de volgende schermafbeelding.
+    ![13][]
 
-![15][]
+    Het venster Ontwerper van logische apps wordt geopend.
 
-Voeg vervolgens een volledige gebeurtenis toe, die er als volgt zou moeten uitzien.
+    ![14][]
 
-![16][]
+2. Voeg als volgt uw gegevens toe:
 
-Sla de logische app op en verzend een bericht naar uw Service Bus-onderwerp, zoals vermeld in de vereisten. Kijk vervolgens hoe de logische app wordt uitgevoerd. Als u op 'Overzicht' klikt, en daarin vervolgens weer op 'Geschiedenis van uitvoeringen' klikt, kunt u ook meer gegevens over de uitvoering krijgen.
+    a. Voer in het vak **Resourcenaam** de naam in van uw eigen naamruimte. 
 
-![17][]
+    b. Voer onder **Geavanceerde opties**, in het vak **Achtervoegselfilter**, het filter in voor uw abonnement.
 
-![18][]
+3. Voeg vervolgens een ontvangstactie van Service Bus toe om berichten van een onderwerpabonnement te ontvangen.  
+    De laatste actie wordt in de volgende afbeelding weergegeven:
+
+    ![15][]
+
+4. Voeg een voltooide gebeurtenis toe, zoals in de volgende afbeelding weergegeven:
+
+    ![16][]
+
+5. Sla de logische app op en verzend een bericht naar uw Service Bus-onderwerp, zoals vermeld in de sectie Vereisten.  
+    Bekijk hoe de logische app wordt uitgevoerd. Als u meer gegevens voor het uitvoeren wilt bekijken, selecteert u **Overzicht** en bekijkt u de gegevens onder  **	Geschiedenis van uitvoeringen**.
+
+    ![17][]
+
+    ![18][]
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 * Meer informatie over [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
-* Meer informatie over [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
+* Meer informatie over de [Logic Apps-functie van Azure App Service](https://docs.microsoft.com/azure/logic-apps/).
 * Meer informatie over [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png
 [3]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid3.png

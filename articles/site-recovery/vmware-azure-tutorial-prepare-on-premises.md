@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>On-premises VMware-servers voorbereiden op herstel naar Azure na een noodgeval
 
@@ -59,34 +59,16 @@ De Mobility-service moet worden geïnstalleerd op de VM die u wilt repliceren. S
 3. Voor installatie op Linux-VM’s bereidt u een superuser voor op de bron-Linux-server.
 
 
-## <a name="check-vmware-server-requirements"></a>Vereisten voor VMware-servers controleren
+## <a name="check-vmware-requirements"></a>Vereisten voor VMware controleren
 
-Zorg ervoor dat VMware-servers aan de volgende vereisten voldoen.
+Controleer of de VMware-servers en VM's aan de vereisten voldoen.
 
-**Onderdeel** | **Vereiste**
---- | ---
-**vCenter-server** | vCenter 6.5, 6.0 of 5.5
-**vSphere-host** | vSphere 6.5, 6.0, 5.5
+1. [Verifieer](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers) de vereisten voor VMware-servers.
+2. Voor Linux [controleert](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) u het bestandssysteem en de opslagvereisten. 
+3. Controleer de ondersteuning voor het on-premises [netwerk](vmware-physical-azure-support-matrix.md#network) en de [opslag](vmware-physical-azure-support-matrix.md#storage). 
+4. Controleer wat er na failover wordt ondersteund voor [Azure-netwerken](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [-opslag](vmware-physical-azure-support-matrix.md#azure-storage) en [-rekenkracht](vmware-physical-azure-support-matrix.md#azure-compute).
+5. De on-premises VM's die u voor Azure repliceert, moeten overeenstemmen met [Azure VM-vereisten](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 
-## <a name="check-vmware-vm-requirements"></a>Vereisten voor VMware-VM’s controleren
-
-Zorg ervoor dat de VM voldoet aan de Azure-vereisten die worden samengevat in de volgende tabel.
-
-**VM-vereiste** | **Details**
---- | ---
-**Grootte van de besturingssysteemschijf** | Maximaal 2048 GB.
-**Aantal besturingssysteemschijven** | 1
-**Aantal gegevensschijven** | 64 of minder
-**Grootte van VHD-gegevensschijf** | Maximaal 4095 GB
-**Netwerkadapters** | Meerdere netwerkadapters worden ondersteund
-**Gedeelde VHD** | Niet ondersteund
-**FC-schijf** | Niet ondersteund
-**Harde-schijfindeling** | VHD of VHDX.<br/><br/> Hoewel VHDX op dit moment niet wordt ondersteund in Azure, zet Site Recovery VHDX automatisch om in VHD wanneer u een failover-overschakeling uitvoert naar Azure. Wanneer u een failover uitvoert naar on-premises, blijven VM’s gebruikmaken van de VHDX-indeling.
-**Bitlocker** | Wordt niet ondersteund. Uitschakelen voordat u replicatie voor een virtuele machine inschakelt.
-**VM-naam** | 1 tot 63 tekens.<br/><br/> Alleen letters, cijfers en afbreekstreepjes. De VM-naam moet beginnen en eindigen met een letter of cijfer.
-**VM-type** | Generatie 1 - Linux of Windows<br/><br/>Generatie 2 - alleen Windows
-
-Op de VM moet ook een ondersteund besturingssysteem worden uitgevoerd. Zie de [ondersteuningsmatrix voor VMware en fysieke servers](vmware-physical-azure-support-matrix.md#replicated-machines) voor een volledige lijst met ondersteunde versies.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Voorbereiden op het verbinden met virtuele Azure-machines na een failover
 

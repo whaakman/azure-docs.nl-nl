@@ -1,41 +1,41 @@
 ---
-title: Hoe query SQL in Azure Cosmos DB? | Microsoft Docs
-description: Informatie over query's uitvoeren met SQL in Azure Cosmos-DB
+title: Query's uitvoeren met SQL in Azure Cosmos DB? | Microsoft Docs
+description: Leren hoe u query's uitvoert met SQL in Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: ffef6ec2120a80d907449470efb7b4ab6dca8037
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 60910b602f9386738f9d8895fd151d15f3ebf058
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: Hoe kan ik query uitvoert met behulp van SQL?
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Zelfstudie: Query's uitvoeren in Azure Cosmos DB met behulp van de SQL-API
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-De Azure DB die Cosmos [SQL-API](documentdb-introduction.md) ondersteunt het uitvoeren van query's documenten met behulp van SQL. Dit artikel bevat een voorbeelddocument en twee voorbeeld SQL-query's en resultaten.
+De [SQL-API](documentdb-introduction.md) van Azure Cosmos DB ondersteunt het opvragen van documenten met behulp van SQL. Dit artikel bevat een voorbeelddocument en twee voorbeelden van SQL-query's en de resultaten daarvan.
 
-In dit artikel bevat informatie over de volgende taken: 
+Dit artikel behandelt de volgende taken: 
 
 > [!div class="checklist"]
-> * Opvragen van gegevens met behulp van SQL
+> * Gegevens opvragen met behulp van SQL
 
 ## <a name="sample-document"></a>Voorbeelddocument
 
-De SQL-query's in dit artikel gebruikt het volgende voorbeelddocument.
+In de SQL-query's in dit artikel wordt het volgende voorbeelddocument gebruikt.
 
 ```json
 {
@@ -67,18 +67,18 @@ De SQL-query's in dit artikel gebruikt het volgende voorbeelddocument.
 ```
 ## <a name="where-can-i-run-sql-queries"></a>Waar kan ik SQL-query's uitvoeren?
 
-U kunt query's met de gegevensverkenner in de Azure portal via uitvoeren de [REST-API en SDK's](sql-api-sdk-dotnet.md), en zelfs de [queryspeelplaats](https://www.documentdb.com/sql/demo), die query's wordt uitgevoerd op een bestaande set met voorbeeldgegevens.
+U kunt query's uitvoeren met de Data Explorer in de Azure-portal, via de [REST API en SDK's](sql-api-sdk-dotnet.md) en zelfs de [query-speelplaats](https://www.documentdb.com/sql/demo), waar query's worden uitgevoerd voor een bestaande reeks voorbeeldgegevens.
 
-Zie voor meer informatie over SQL-query's:
+Meer informatie over SQL-query's vindt u in:
 * [SQL-query en SQL-syntaxis](sql-api-sql-query.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze zelfstudie wordt ervan uitgegaan dat u hebt een Azure DB die Cosmos-account en een verzameling. Geen van deze? Voltooi de [5 minuten Quick Start](create-mongodb-nodejs.md) of de [developer-zelfstudie](tutorial-develop-mongodb.md) voor het maken van een account en een verzameling.
+In deze zelfstudie wordt ervan uitgegaan dat u een Azure Cosmos DB-account en een verzameling hebt. Hebt u geen van beide? Voltooi de [Quickstart van 5 minuten](create-mongodb-nodejs.md) of de [zelfstudie voor ontwikkelaars](tutorial-develop-mongodb.md) om een account en een verzameling te maken.
 
 ## <a name="example-query-1"></a>Voorbeeldquery 1
 
-Het voorbeeld familie document bovenstaande gegeven, volgende SQL-query retourneert de documenten waarbij het veld id overeenkomt met `WakefieldFamily`. Omdat het een `SELECT *` de uitvoer van de query-instructie is de volledige JSON-document:
+Op basis van het bovenstaand voorbeelddocument van een familie retourneert de volgende SQL-query de documenten waarin het id-veld gelijk is aan `WakefieldFamily`. Omdat het een `SELECT *`-instructie is, is de uitvoer van de query het volledige JSON-document:
 
 **Query**
 
@@ -86,7 +86,7 @@ Het voorbeeld familie document bovenstaande gegeven, volgende SQL-query retourne
     FROM Families f 
     WHERE f.id = "WakefieldFamily"
 
-**Resultaten**
+**Results**
 
 ```json
 {
@@ -119,7 +119,7 @@ Het voorbeeld familie document bovenstaande gegeven, volgende SQL-query retourne
 
 ## <a name="example-query-2"></a>Voorbeeldquery 2
 
-De volgende query retourneert de opgegeven namen van onderliggende items in de familie-id die overeenkomt met `WakefieldFamily` hun hoogwaardige geordend.
+De volgende query retourneert alle opgegeven namen van kinderen in de familie waarvan de id overeenkomt met `WakefieldFamily`, gesorteerd op leerjaar.
 
 **Query**
 
@@ -129,7 +129,7 @@ De volgende query retourneert de opgegeven namen van onderliggende items in de f
     WHERE f.id = 'WakefieldFamily'
     ORDER BY f.children.grade ASC
 
-**Resultaten**
+**Results**
 
     [
       { "givenName": "Jesse" }, 
@@ -142,9 +142,9 @@ De volgende query retourneert de opgegeven namen van onderliggende items in de f
 In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * Hebt geleerd hoe u een query uitvoert met behulp van SQL  
+> * U hebt geleerd hoe u een query uitvoert met behulp van SQL  
 
-U kunt nu doorgaan met de volgende zelfstudie voor informatie over het distribueren van uw gegevens globaal.
+U kunt nu doorgaan met de volgende zelfstudie, waarin u leert hoe u uw gegevens globaal distribueert.
 
 > [!div class="nextstepaction"]
 > [Uw gegevens globaal distribueren](tutorial-global-distribution-sql-api.md)

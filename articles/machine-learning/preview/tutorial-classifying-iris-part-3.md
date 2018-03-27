@@ -1,23 +1,23 @@
 ---
-title: 'Zelfstudie: een model implementeren voor Azure Machine Learning-services (preview) | Microsoft Docs'
-description: Deze volledige zelfstudie laat zien hoe u Azure Machine Learning-services (preview) end-to-end gebruikt. Dit is deel 3, waarin het implementatiemodel wordt besproken.
+title: 'Zelfstudie: een model implementeren voor Azure Machine Learning-services'
+description: Deze volledige zelfstudie laat zien hoe u Azure Machine Learning-services end-to-end gebruikt. Dit is deel 3, waarin het implementatiemodel wordt besproken.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, j-martens, aashishb
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
-ms.openlocfilehash: 13ddc0ef8c7eac86e6cd7abb684ce35ae18fba84
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.date: 3/13/2018
+ms.openlocfilehash: 87d1e605bfd7603e4e07f6b427033fe2c1d2b83e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Zelfstudie - Classificeren van Iris deel 3: een model implementeren
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Zelfstudie 3: Iris classificeren - Een model implementeren
 Azure Machine Learning (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Gegevenswetenschappers kunnen de service gebruiken om gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
 
 Deze zelfstudie is **deel 3 van een driedelige reeks**. In dit deel van de zelfstudie gebruikt u Machine Learning (preview) om:
@@ -30,17 +30,15 @@ Deze zelfstudie is **deel 3 van een driedelige reeks**. In dit deel van de zelfs
 > * De realtime webservice uit te voeren.
 > * De uitgevoerde blob-gegevens te controleren. 
 
-In deze zelfstudie wordt de tijdloze [Iris-gegevensset](https://en.wikipedia.org/wiki/iris_flower_data_set) gebruikt. De schermopnamen zijn specifiek voor Windows, maar de Mac OS-versie is bijna identiek.
-
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+In deze zelfstudie wordt de tijdloze [Iris-gegevensset](https://en.wikipedia.org/wiki/Iris_flower_data_set) gebruikt. 
 
 ## <a name="prerequisites"></a>Vereisten
-U moet de eerste twee delen van deze zelfstudie hebben voltooid.
 
-   * Volg de zelfstudie [Gegevens voorbereiden](tutorial-classifying-iris-part-1.md) om Machine Learning-resources te maken en de toepassing Azure Machine Learning Workbench te installeren.
-   * Volg de zelfstudie [Een model bouwen](tutorial-classifying-iris-part-2.md) om een model voor logistieke regressie te maken in Machine Learning.
-
-Er moet een Docker-engine zijn geïnstalleerd en lokaal worden uitgevoerd. U kunt ook implementeren naar een Azure Container Service-cluster in Azure.
+Voor deze zelfstudie hebt u het volgende nodig:
+- Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
+- Een experimenteel account en een Azure Machine Learning Workbench zijn geïnstalleerd, zoals beschreven in deze [snelstart](quickstart-installation.md)
+- Het classificatiemodel van [deel 2 van de zelfstudie](tutorial-classifying-iris-part-2.md)
+- Een Docker-engine moet zijn geïnstalleerd en lokaal worden uitgevoerd
 
 ## <a name="download-the-model-pickle-file"></a>Modelbestand van pickle downloaden
 In het vorige deel van de zelfstudie werd het script **iris_sklearn.py** lokaal uitgevoerd in Machine Learning Workbench. Deze actie had tot doel het logistieke regressiemodel te serialiseren met behulp van het populaire Python-objectserialisatiepakket [pickle](https://docs.python.org/3/library/pickle.html). 
@@ -91,7 +89,7 @@ Als u de webservice wilt implementeren samen met het modelbestand, hebt u ook ee
 
 4. Voer het script uit om het schemabestand op te halen. Selecteer de omgeving **local** en het script **score_iris.py** in de opdrachtbalk en selecteer vervolgens **Run**. 
 
-5. Met dit script wordt een JSON-bestand gemaakt in de sectie **Outputs**, met daarin het schema voor invoergegevens dat is vereist voor het model.
+   Met dit script wordt een JSON-bestand gemaakt in de sectie **Outputs**, met daarin het schema voor invoergegevens dat is vereist voor het model.
 
 6. Aan de rechterkant van het **projectdashboard** wordt nu het deelvenster **taken** weergegeven. Wacht tot de meest recente **score_iris.py**-taak groen wordt weergegeven met de status **Completed**. Klik vervolgens op de hyperlink **iris-score.py** voor de laatst uitgevoerde taak om de details van de uitvoering te zien. 
 
@@ -128,7 +126,10 @@ Gebruik de implementatie _lokale modus_ voor uitvoering in Docker-containers op 
 U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine moet lokaal worden uitgevoerd om de stappen te kunnen voltooien die nodig zijn om het model operationeel te maken. U kunt de `-h`-vlag aan het einde van elke opdracht gebruiken om het bijbehorende help-bericht weer te geven.
 
 >[!NOTE]
->Als u geen lokale Docker-engine hebt, kunt u alsnog in Azure een cluster maken voor implementatie. Vergeet echter niet om het cluster na de zelfstudie te verwijderen, anders worden er lopende kosten in rekening gebracht.
+>Als u de Docker-engine niet lokaal beschikbaar hebt, kunt u toch in Azure een cluster maken voor implementatie. U kunt het cluster bewaren voor hergebruik of na de zelfstudie verwijderen, zodat er geen lopende kosten in rekening worden gebracht.
+
+>[!NOTE]
+>Webservices die lokaal zijn geïmplementeerd, worden niet weergegeven in lijst met services van Azure Portal. Ze zullen in Docker worden uitgevoerd op de lokale computer.
 
 1. Open de CLI (opdrachtregelinterface).
    Selecteer in de toepassing Machine Learning Workbench in het menu **File** de optie **Open Command Prompt**.

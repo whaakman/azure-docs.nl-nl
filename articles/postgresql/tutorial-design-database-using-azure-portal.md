@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie - Uw eerste Azure Database for PostgreSQL ontwerpen met Azure Portal
+title: 'Zelfstudie: een Azure Database for PostgreSQL ontwerpen met Azure Portal'
 description: Deze zelfstudie laat zien hoe u uw eerste Azure Database for PostgreSQL ontwerpt met Azure Portal.
 services: postgresql
 author: rachel-msft
@@ -10,13 +10,13 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: df8f308b17879d7fd22d033fb535b59bd8a85086
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f4d886bbbf2b9111d736e291e420b822de9766a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Zelfstudie: uw eerste Azure Database for PostgreSQL ontwerpen met Azure Portal
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Zelfstudie: een Azure Database for PostgreSQL ontwerpen met Azure Portal
 
 Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. Met behulp van Azure Portal kunt u eenvoudig uw server beheren en een database ontwerpen.
 

@@ -15,18 +15,17 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: aab15e6981e4f5f3c69ea6a85995fd2db69ff8b8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d5bd75dfff87e73fa4104901c1c0ac0989b1e3bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-azure-service-fabric"></a>Overzicht van Azure Service Fabric
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u gemakkelijk schaalbare en betrouwbare microservices en containers verpakt, implementeert en beheert. Service Fabric biedt ook een oplossing voor de grote uitdaging van het ontwikkelen en beheren van systeemeigen cloudtoepassingen. Ontwikkelaars en beheerders kunnen complexe infrastructuurproblemen voorkomen en zich concentreren op het implementeren van bedrijfsspecifieke, veeleisende werkbelastingen die schaalbaar, betrouwbaar en beheerbaar zijn. Service Fabric is het platform van de nieuwe generatie voor het ontwikkelen en beheren van deze hoogwaardige zakelijke tier-1-toepassingen op cloudschaal die in containers worden uitgevoerd.
 
-In deze korte video worden Service Fabric en microservices geïntroduceerd: <center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
-<img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+In deze korte video worden Service Fabric en microservices geïntroduceerd:
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="applications-composed-of-microservices"></a>Toepassingen die uit microservices zijn samengesteld 
 Met Service Fabric kunt u schaalbare en betrouwbare toepassingen ontwikkelen en beheren die uit microservices bestaan. Deze worden met hoge dichtheid op een gedeelde groep computers uitgevoerd, een zogenaamde cluster. Het biedt een geavanceerde, lichtgewicht runtime voor het bouwen van gedistribueerde, schaalbare, staatloze en stateful microservices die worden uitgevoerd in de containers. Het biedt tevens mogelijkheden voor uitgebreide mogelijkheden voor toepassingsbeheer voor het inrichten, implementeren, bewaken, upgraden/patchen en verwijderen van geïmplementeerde toepassingen, waaronder services in containers.
@@ -42,7 +41,7 @@ Service Fabric biedt uitgebreide mogelijkheden voor runtime- en levenscyclusbehe
 Zie [Waarom een microservices-benadering voor het ontwikkelen van toepassingen?](service-fabric-overview-microservices.md) voor meer informatie
 
 ## <a name="container-deployment-and-orchestration"></a>Implementatie en indeling van containers
-Service Fabric is de [containerorchestrator](service-fabric-cluster-resource-manager-introduction.md) van Microsoft waarmee microservices in een computercluster worden geïmplementeerd. Microservices kunnen op tal van manieren worden ontwikkeld met behulp van de [Service Fabric-programmeermodellen](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), voor het implementeren van [code naar keuze](service-fabric-deploy-existing-app.md). U kunt zelfs beide services onderbrengen in processen en services in containers binnen dezelfde toepassing. Als u slechts [containers wilt implementeren en beheren](service-fabric-containers-overview.md), is Service Fabric de perfecte keuze als containerorchestrator.
+Service Fabric is de [containerorchestrator](service-fabric-cluster-resource-manager-introduction.md) van Microsoft waarmee microservices in een computercluster worden geïmplementeerd. Microservices kunnen op tal van manieren worden ontwikkeld met behulp van de [Service Fabric-programmeermodellen](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), voor het implementeren van [code naar keuze](service-fabric-guest-executables-introduction.md). U kunt zelfs beide services onderbrengen in processen en services in containers binnen dezelfde toepassing. Als u slechts [containers wilt implementeren en beheren](service-fabric-containers-overview.md), is Service Fabric de perfecte keuze als containerorchestrator.
 
 ## <a name="any-os-any-cloud"></a>Elk besturingssysteem, elke cloud
 Service Fabric kan overal worden uitgevoerd. U kunt in diverse omgevingen clusters maken voor Service Fabric, waaronder Azure of on-premises, Windows Server of Linux. U kunt zelfs clusters maken in andere openbare clouds. Bovendien is de ontwikkelomgeving in de SDK **identiek** aan de productieomgeving, zonder dat er emulatoren bij betrokken zijn. Met andere woorden, wat u uitvoert op uw lokale ontwikkelcluster, wordt gebruikt op de clusters in andere omgevingen.

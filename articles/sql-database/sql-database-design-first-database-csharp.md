@@ -1,40 +1,33 @@
 ---
-title: Ontwerp van uw eerste Azure SQL database - C# | Microsoft Docs
-description: Informatie over het ontwerpen van uw eerste Azure SQL database en verbinding maken met een C#-programma ADO.NET gebruiken.
+title: Uw eerste Azure SQL database - C# ontwerpen | Microsoft Docs
+description: Informatie over het ontwerpen van uw eerste Azure SQL database en het verbinding maken met een C#-programma dat ADO.NET gebruikt.
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg-msft
-editor: CarlRabeler
-tags: 
-ms.assetid: 
+ms.reviewer: CarlRabeler
 ms.service: sql-database
 ms.custom: develop databases, mvc, devcenter
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 01/12/2018
-ms.author: genemi
-ms.openlocfilehash: d99456b488302c9b3fa44510af84641876861afe
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: MT
+ms.date: 03/15/2018
+ms.openlocfilehash: 3b6f260983e3c826bf558f0fe6d1a0fa6ae6b3af
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Ontwerp van een Azure SQL database en verbinding maken met C & #x23; en ADO.NET
+# <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Een Azure SQL-database ontwerpen en verbinding maken met C&#x23; en ADO.NET
 
-Azure SQL-Database is een relationele database als een service (DBaaS) in de Microsoft-Cloud (Azure). In deze zelfstudie leert u hoe de Azure-portal en ADO.NET met Visual Studio te gebruiken: 
+Azure SQL Database is een relationele DBaaS (database-as-a-service) in de Microsoft Cloud (Azure). In deze zelfstudie leert u hoe u Azure Portal en ADO.NET met Visual Studio gebruikt voor de volgende taken: 
 
 > [!div class="checklist"]
-> * Maak een database in de Azure-portal
-> * Een firewallregel op serverniveau in de Azure portal instellen
+> * Een database maken in Azure Portal
+> * Een serverfirewallregel instellen in Azure Portal
 > * Verbinding maken met de database met ADO.NET en Visual Studio
 > * Tabellen maken met ADO.NET
-> * Invoegen, bijwerken en verwijderen van gegevens met ADO.NET 
+> * Gegevens invoegen, bijwerken en verwijderen met ADO.NET 
 > * Querygegevens ADO.NET
 
-Als u een Azure-abonnement geen [een gratis account maken](https://azure.microsoft.com/free/) voordat u begint.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -56,11 +49,11 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd basic databasetaken, zoals een database en tabellen maken, laden en een query over gegevens en de database naar een eerder tijdstip herstellen. U hebt geleerd hoe u:
+In deze zelfstudie hebt u kennisgemaakt met eenvoudige databasetaken, zoals het maken van een database en tabellen, het laden en opvragen van gegevens, en het herstellen van een database naar een eerder tijdstip. U hebt geleerd hoe u:
 > [!div class="checklist"]
 > * Een database maken
 > * Een firewallregel instellen
-> * Verbinding maken met de database met [Visual Studio en C#](sql-database-connect-query-dotnet-visual-studio.md)
+> * Verbinding maken met de database met behulp van [Visual Studio en C#](sql-database-connect-query-dotnet-visual-studio.md)
 > * Tabellen maken
 > * Invoegen, bijwerken en verwijderen van gegevens
 > * Querygegevens
@@ -68,5 +61,5 @@ In deze zelfstudie hebt u geleerd basic databasetaken, zoals een database en tab
 Ga naar de volgende zelfstudie voor meer informatie over het migreren van uw gegevens.
 
 > [!div class="nextstepaction"]
->[De SQL Server-database migreren naar Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+>[Uw SQL Server-database migreren naar Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
 

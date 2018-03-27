@@ -1,25 +1,18 @@
 ---
-title: Updates en patches voor uw Windows Azure-VM's beheren | Microsoft Docs
+title: Updates en patches voor uw Windows Azure-VM's beheren
 description: Dit artikel bevat een overzicht van het gebruik van Azure Automation - Updatebeheer om updates en patches voor uw Windows Azure-VM's te beheren.
 services: automation
-documentationcenter: 
 author: zjalexander
-manager: jwhit
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 614b5bd7a2663c3b61f511dcc6b6a49218ac439a
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: bded1621dc56a6e621408e567ce39a3107bec7c9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Windows-updates beheren met Azure Automation
 
@@ -46,7 +39,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u via http://portal.azure.com aan bij Azure Portal.
+Meld u aan bij de Azure-portal op http://portal.azure.com.
 
 ## <a name="enable-update-management"></a>Updatebeheer inschakelen
 

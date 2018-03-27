@@ -1,39 +1,39 @@
 ---
-title: 'Azure Cosmos DB: Hoe kan ik query uitvoert met behulp van de MongoDB-API? | Microsoft Docs'
-description: Meer informatie over query met de MongoDB-API voor Azure Cosmos-DB
+title: 'Azure Cosmos DB: Query’s uitvoeren met behulp van de MongoDB-API | Microsoft Docs'
+description: Leer query’s uitvoeren met de MongoDB-API voor Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 05/10/2017
+ms.workload: ''
+ms.date: 03/16/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 1818476a95ddf373701ad93860b02ea4c2ad761d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: Hoe kan ik query met de API voor MongoDB?
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Zelfstudie: Query's uitvoeren in Azure Cosmos DB met behulp van de MongoDB-API
 
-De Azure DB die Cosmos [API voor MongoDB](mongodb-introduction.md) ondersteunt [MongoDB shell-query's](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+De Azure Cosmos DB-[API voor MongoDB](mongodb-introduction.md) ondersteunt [MongoDB-shell-query’s](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
-In dit artikel bevat informatie over de volgende taken: 
+Dit artikel behandelt de volgende taken: 
 
 > [!div class="checklist"]
-> * Een query met MongoDB
+> * Gegevens opvragen met behulp van MongoDB
 
 ## <a name="sample-document"></a>Voorbeelddocument
 
-De query's in dit artikel gebruikt het volgende voorbeelddocument.
+In de query's in dit artikel wordt het volgende voorbeelddocument gebruikt.
 
 ```json
 {
@@ -65,13 +65,13 @@ De query's in dit artikel gebruikt het volgende voorbeelddocument.
 ```
 ## <a id="examplequery1"></a>Voorbeeldquery 1 
 
-Het voorbeeld familie document bovenstaande gegeven, de volgende query retourneert de documenten waarbij het veld id overeenkomt met `WakefieldFamily`.
+Op basis van het bovenstaand voorbeelddocument van een familie retourneert de volgende query de documenten waarin het id-veld gelijk is aan `WakefieldFamily`.
 
 **Query**
     
     db.families.find({ id: “WakefieldFamily”})
 
-**Resultaten**
+**Results**
 
     {
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
@@ -115,13 +115,13 @@ Het voorbeeld familie document bovenstaande gegeven, de volgende query retournee
 
 ## <a id="examplequery2"></a>Voorbeeldquery 2 
 
-De volgende query retourneert alle onderliggende objecten in de familie. 
+De volgende query retourneert alle kinderen in het gezin. 
 
 **Query**
     
-    db.familes.find( { id: “WakefieldFamily” }, { children: true } )
+    db.families.find( { id: “WakefieldFamily” }, { children: true } )
 
-**Resultaten**
+**Results**
 
     {
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
@@ -148,21 +148,21 @@ De volgende query retourneert alle onderliggende objecten in de familie.
 
 ## <a id="examplequery3"></a>Voorbeeldquery 3 
 
-De volgende query retourneert alle families die zijn geregistreerd. 
+De volgende query retourneert alle geregistreerde gezinnen. 
 
 **Query**
     
     db.families.find( { "isRegistered" : true })
-**Resultaten** geen document wordt geretourneerd. 
+**Resultaten** er wordt geen document geretourneerd. 
 
 ## <a id="examplequery4"></a>Voorbeeldquery 4
 
-De volgende query retourneert alle families die niet zijn geregistreerd. 
+De volgende query retourneert alle niet-geregistreerde gezinnen. 
 
 **Query**
     
     db.families.find( { "isRegistered" : false })
-**Resultaten**
+**Results**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -201,13 +201,13 @@ De volgende query retourneert alle families die niet zijn geregistreerd.
 
 ## <a id="examplequery5"></a>Voorbeeldquery 5
 
-De volgende query retourneert de families die niet zijn geregistreerd en status NY. 
+De volgende query retourneert alle niet-geregistreerde gezinnen in de staat New York (NY). 
 
 **Query**
     
      db.families.find( { "isRegistered" : false, "address.state" : "NY" })
 
-**Resultaten**
+**Results**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -247,13 +247,13 @@ De volgende query retourneert de families die niet zijn geregistreerd en status 
 
 ## <a id="examplequery6"></a>Voorbeeldquery 6
 
-De volgende query retourneert alle families waar kinderen cijfers 8 zijn.
+De volgende query retourneert alle gezinnen met kinderen in grade 8 (2e klas van de middelbare school).
 
 **Query**
   
      db.families.find( { children : { $elemMatch: { grade : 8 }} } )
 
-**Resultaten**
+**Results**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -292,24 +292,24 @@ De volgende query retourneert alle families waar kinderen cijfers 8 zijn.
 
 ## <a id="examplequery7"></a>Voorbeeldquery 7
 
-De volgende query retourneert alle families waarbij de grootte van onderliggende matrix 3 is.
+De volgende query retourneert alle gezinnen waar de grootte van de array children (kinderen) 3 is.
 
 **Query**
   
       db.Family.find( {children: { $size:3} } )
 
-**Resultaten**
+**Results**
 
-Er zijn geen resultaten geretourneerd als er geen meer dan 2 onderliggende elementen. Alleen gebruikt als parameter 2 wordt deze query mislukt en wordt het volledige document retourneren.
+Er worden geen resultaten geretourneerd, omdat er niet meer dan 2 kinderen zijn. Alleen wanneer de parameter 2 is slaagt deze query en wordt het volledige document geretourneerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * Hebt geleerd hoe u een query uitvoert met behulp van MongoDB 
+> * U hebt geleerd hoe u een query uitvoert met behulp van MongoDB 
 
-U kunt nu doorgaan met de volgende zelfstudie voor informatie over het distribueren van uw gegevens globaal.
+U kunt nu doorgaan met de volgende zelfstudie, waarin u leert hoe u uw gegevens globaal distribueert.
 
 > [!div class="nextstepaction"]
 > [Uw gegevens globaal distribueren](tutorial-global-distribution-sql-api.md)
