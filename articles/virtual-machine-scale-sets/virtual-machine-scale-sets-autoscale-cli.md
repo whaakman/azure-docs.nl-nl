@@ -2,10 +2,10 @@
 title: Automatisch schalen virtuele-machineschaalsets met de Azure CLI | Microsoft Docs
 description: Het maken van regels voor automatisch schalen voor virtuele-machineschaalset ingesteld met de Azure CLI 2.0
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 83e93d9c-cac0-41d3-8316-6016f5ed0ce4
 ms.service: virtual-machine-scale-sets
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8552f6b2723fef2c61d49a34d2d60c2a6c209a32
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Een virtuele-machineschaalset ingesteld met de Azure CLI 2.0 automatisch schalen
 Wanneer u een schaalset maakt, definieert u het aantal VM-exemplaren die u wilt uitvoeren. Als uw toepassing vraag verandert, kunt u automatisch vergroten of verkleinen van het aantal VM-exemplaren. De mogelijkheid om te schalen kunt u met de vraag van klanten houden of reageren op wijzigingen in de toepassingsprestaties gedurende de levenscyclus van uw app.
@@ -67,13 +67,13 @@ De volgende parameters worden gebruikt voor deze regel:
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
 | *metricName*      | De metriek prestaties bewaken en schalen van toepassing instellen acties op.                                                   | Percentage CPU  |
 | *timeGrain*       | Hoe vaak de metrische gegevens worden verzameld voor analyse.                                                                   | 1 minuut        |
-| *TimeAggregation van* | Hiermee definieert u hoe de verzamelde metrische gegevens moeten worden samengevoegd voor analyse.                                                | Gemiddeld         |
-| *waarde voor timeWindow*      | De hoeveelheid tijd gecontroleerd voordat de metrische gegevens en drempelwaarde waarden worden vergeleken.                                   | 10 minuten      |
+| *timeAggregation* | Hiermee definieert u hoe de verzamelde metrische gegevens moeten worden samengevoegd voor analyse.                                                | Gemiddeld         |
+| *timeWindow*      | De hoeveelheid tijd gecontroleerd voordat de metrische gegevens en drempelwaarde waarden worden vergeleken.                                   | 10 minuten      |
 | *operator*        | De operator is gebruikt voor het vergelijken van de metrische gegevens tegen de drempelwaarde.                                                     | Groter dan    |
-| *drempelwaarde*       | De waarde zorgt ervoor dat de regel voor automatisch schalen voor het activeren van een actie.                                                      | 70%             |
-| *richting*       | Als de schaalaanpassingsset omhoog of omlaag wanneer de regel van toepassing moet schalen definieert.                                             | Verhogen        |
+| *Drempelwaarde*       | De waarde zorgt ervoor dat de regel voor automatisch schalen voor het activeren van een actie.                                                      | 70%             |
+| *direction*       | Als de schaalaanpassingsset omhoog of omlaag wanneer de regel van toepassing moet schalen definieert.                                             | Verhogen        |
 | *type*            | Hiermee wordt aangegeven dat het aantal exemplaren van de virtuele machine moet worden gewijzigd door een percentage.                                 | Percentage wijzigen  |
-| *waarde*           | Hoeveel exemplaren van de virtuele machine moeten worden geschaald omhoog of omlaag wanneer de regel van toepassing is.                                            | 20              |
+| *value*           | Hoeveel exemplaren van de virtuele machine moeten worden geschaald omhoog of omlaag wanneer de regel van toepassing is.                                            | 20              |
 | *cooldown*        | De hoeveelheid tijd moet worden gewacht voordat de regel wordt opnieuw toegepast zodat de acties voor automatisch schalen die tijd hebt om te laten treden. | 5 minuten       |
 
 Het volgende voorbeeld definieert de regel moet worden uitgebreid met het aantal VM-exemplaren. De *metricResourceUri* gebruikt de variabelen die eerder zijn gedefinieerd voor de abonnements-ID, de naam van een resourcegroep en de schaal naam instellen:

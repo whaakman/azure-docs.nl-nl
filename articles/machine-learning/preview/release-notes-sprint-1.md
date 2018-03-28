@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
 ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="sprint-1---november-2017"></a>Sprint 1 - november 2017 
 
@@ -96,14 +96,14 @@ Hieronder ziet u een lijst met gedetailleerde updates voor elk onderdeel gebied 
 - Taken in de CLI gestarte verstoort afsluitende app niet meer.
 - Taken gestarte CLI nu blijft spit uit de standard out zelfs na een uur van de uitvoering.
 - Betere foutberichten worden weergegeven wanneer de prep gegevenspakket uitvoeren in Python/PySpark mislukt.
-- `az ml experiment clean`ruimt nu Docker-afbeeldingen in ook externe VM.
-- `az ml experiment clean`nu werkt goed voor lokale doel op Mac OS.
+- `az ml experiment clean` ruimt nu Docker-afbeeldingen in ook externe VM.
+- `az ml experiment clean` nu werkt goed voor lokale doel op Mac OS.
 - Foutberichten wanneer die gericht is op lokale of externe Docker wordt uitgevoerd, worden opgeschoond omhoog en gemakkelijker te lezen.
 - Betere foutbericht wordt weergegeven wanneer de naam van het hoofdknooppunt voor HDInsight-cluster niet correct opgemaakt is als gekoppeld als een doel kan worden uitgevoerd.
 - Betere foutbericht wordt weergegeven wanneer het geheim is niet gevonden in de referentie-service. 
 - MMLSpark-bibliotheek is voor ondersteuning van Apache Spark 2.2 bijgewerkt.
 - MMLSpark omvatten nu een onderwerp codering transformatie (Mesh codering) voor medische documenten.
-- `matplotlib`versie 2.1.0 is nu verzonden out van het vak met Workbench.
+- `matplotlib` versie 2.1.0 is nu verzonden out van het vak met Workbench.
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 - Zoekactie voor namen notebook nu werkt goed in de weergave laptops.
@@ -128,10 +128,10 @@ Hieronder ziet u een lijst met gedetailleerde updates voor elk onderdeel gebied 
 
 ### <a name="sample-projects"></a>Voorbeeldprojecten
 - [_Classificeren van Iris_ ](./tutorial-classifying-iris-part-1.md) voorbeeldproject:
-    - `iris_pyspark.py`is gewijzigd in `iris_spark.py`.
-    - `iris_score.py`is gewijzigd in `score_iris.py`.
-    - `iris.dprep`en `iris.dsource` bijgewerkt op basis van de meest recente gegevens prep engine-updates.
-    - `iris.ipynb`Laptop is gewijzigd om te werken in HDInsight-cluster.
+    - `iris_pyspark.py` is gewijzigd in `iris_spark.py`.
+    - `iris_score.py` is gewijzigd in `score_iris.py`.
+    - `iris.dprep` en `iris.dsource` bijgewerkt op basis van de meest recente gegevens prep engine-updates.
+    - `iris.ipynb` Laptop is gewijzigd om te werken in HDInsight-cluster.
     - Uitvoeringsgeschiedenis is ingeschakeld in `iris.ipynb` Notebook cel.
 - [_Geavanceerde Prep van gegevens met behulp van de sharegegevens fiets_ ](./tutorial-bikeshare-dataprep.md) voorbeeldproject 'Foutwaarde verwerken' stap vast.
 - [_MMLSpark op volwassenen telling gegevens_ ](https://github.com/Azure/MachineLearningSamples-mmlspark) voorbeeldproject `docker.runconfig` bijgewerkt van JSON naar YAML indeling.

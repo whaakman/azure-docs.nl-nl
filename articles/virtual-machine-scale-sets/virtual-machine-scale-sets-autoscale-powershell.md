@@ -2,10 +2,10 @@
 title: Automatisch schalen virtuele-machineschaalsets met Azure PowerShell | Microsoft Docs
 description: Het maken van regels voor automatisch schalen voor virtuele-machineschaalset ingesteld met Azure PowerShell
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8928e56f353858234db314714d411a9c2990eb4e
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Automatisch schalen van een virtuele-machineschaalset ingesteld met Azure PowerShell
 Wanneer u een schaalset maakt, definieert u het aantal VM-exemplaren die u wilt uitvoeren. Als uw toepassing vraag verandert, kunt u automatisch vergroten of verkleinen van het aantal VM-exemplaren. De mogelijkheid om te schalen kunt u met de vraag van klanten houden of reageren op wijzigingen in de toepassingsprestaties gedurende de levenscyclus van uw app.
@@ -52,11 +52,11 @@ De volgende parameters worden gebruikt voor deze regel:
 | *-MetricName*           | De metriek prestaties bewaken en schalen van toepassing instellen acties op.                                                   | Percentage CPU |
 | *-TimeGrain*            | Hoe vaak de metrische gegevens worden verzameld voor analyse.                                                                   | 1 minuut       |
 | *-MetricStatistic*      | Hiermee definieert u hoe de verzamelde metrische gegevens moeten worden samengevoegd voor analyse.                                                | Gemiddeld        |
-| *-Waarde voor TimeWindow*           | De hoeveelheid tijd gecontroleerd voordat de metrische gegevens en drempelwaarde waarden worden vergeleken.                                   | 10 minuten      |
+| *-TimeWindow*           | De hoeveelheid tijd gecontroleerd voordat de metrische gegevens en drempelwaarde waarden worden vergeleken.                                   | 10 minuten      |
 | *-Operator*             | De operator is gebruikt voor het vergelijken van de metrische gegevens tegen de drempelwaarde.                                                     | Groter dan   |
 | *-Drempelwaarde*            | De waarde zorgt ervoor dat de regel voor automatisch schalen voor het activeren van een actie.                                                      | 70%            |
 | *-ScaleActionDirection* | Als de schaalaanpassingsset omhoog of omlaag wanneer de regel van toepassing moet schalen definieert.                                             | Verhogen       |
-| *– ScaleActionScaleType* | Hiermee wordt aangegeven dat het aantal exemplaren van de virtuele machine moet worden gewijzigd door een percentage.                                 | Percentage wijzigen |
+| *–ScaleActionScaleType* | Hiermee wordt aangegeven dat het aantal exemplaren van de virtuele machine moet worden gewijzigd door een percentage.                                 | Percentage wijzigen |
 | *-ScaleActionValue*     | Het percentage van de VM-exemplaren moet worden gewijzigd wanneer de regel wordt geactiveerd.                                            | 20             |
 | *-ScaleActionCooldown*  | De hoeveelheid tijd moet worden gewacht voordat de regel wordt opnieuw toegepast zodat de acties voor automatisch schalen die tijd hebt om te laten treden. | 5 minuten      |
 
