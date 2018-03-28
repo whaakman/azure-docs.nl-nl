@@ -1,25 +1,25 @@
 ---
-title: "Azure-Stack Public Key Infrastructure-certificaatvereisten voor Azure-Stack geïntegreerd systemen | Microsoft Docs"
-description: "Beschrijft de implementatievereisten van Azure Stack PKI-certificaat voor Azure-Stack geïntegreerd systemen."
+title: Azure-Stack Public Key Infrastructure-certificaatvereisten voor Azure-Stack geïntegreerd systemen | Microsoft Docs
+description: Beschrijft de implementatievereisten van Azure Stack PKI-certificaat voor Azure-Stack geïntegreerd systemen.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mabriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f2f71372211dcc9db34beb3fa3fd788920f8bd45
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 455c74ca808f71258a12166c2e36bdd73d9a3e20
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure-Stack Public Key Infrastructure-certificaatvereisten
 Azure-Stack is een infrastructuur voor openbare-netwerk met behulp van extern toegankelijke openbare IP-adressen die zijn toegewezen aan een klein aantal Stack Azure-services en mogelijk tenant-VM's. PKI-certificaten met de juiste DNS-namen voor deze eindpunten van de infrastructuur voor openbare Azure-Stack zijn vereist tijdens de implementatie van Azure-Stack. In dit artikel bevat informatie over:
@@ -39,6 +39,7 @@ De volgende lijst beschrijft de vereisten voor certificaten die nodig zijn voor 
 - Indeling van het certificaat moet PFX, als de openbare en persoonlijke sleutels vereist voor installatie van de Azure-Stack zijn. 
 - Het pfx-certificaatbestand moeten een waarde 'Digitale handtekening' en 'KeyEncipherment' in het veld 'Sleutelgebruik' hebben.
 - Het pfx-certificaatbestand moeten de waarden ' Server (1.3.6.1.5.5.7.3.1) ' en 'Clientverificatie (1.3.6.1.5.5.7.3.2)' in het veld 'Enhanced Key Usage' hebben.
+- Het certificaat ' verleend aan: "veld moet niet hetzelfde zijn als de ' uitgegeven door: ' veld.
 - De wachtwoorden op alle certificate pfx-bestanden moeten hetzelfde zijn op het moment van implementatie
 - Zorg ervoor dat de namen van certificaathouders en alternatieve onderwerpnamen met alle certificaten overeenkomen met de specificaties die worden beschreven in dit artikel om te voorkomen dat mislukte implementatie.
 
@@ -50,7 +51,7 @@ De tabel in deze sectie beschrijft de Azure-Stack openbaar eindpunt PKI-certific
 
 Certificaten met de juiste DNS-namen voor elk eindpunt van de infrastructuur voor openbare Azure-Stack zijn vereist. DNS-naam van elk eindpunt wordt uitgedrukt in de indeling:  *&lt;voorvoegsel >.&lt; regio >. &lt;FQDN-naam >*. 
 
-Voor uw implementatie, het [regio] en [externalfqdn] waarden moeten overeenkomen met de regio en externe domeinnamen die u hebt gekozen voor uw Azure-Stack-systeem. Een voorbeeld: als de regionaam van de is *Redmond* en was de naam van het externe domein *contoso.com*, de DNS-namen moeten de indeling  *&lt;voorvoegsel >. redmond.contoso.com* . De  *&lt;voorvoegsel >* waarden zijn vooraf bepaalde door Microsoft te beschrijven van het eindpunt dat wordt beveiligd door het certificaat. Bovendien de  *&lt;voorvoegsel >* waarden van de externe infrastructuur eindpunten is afhankelijk van de Azure-Stack-service die gebruikmaakt van de specifieke eindpunt. 
+Voor uw implementatie, het [regio] en [externalfqdn] waarden moeten overeenkomen met de regio en externe domeinnamen die u hebt gekozen voor uw Azure-Stack-systeem. Een voorbeeld: als de regionaam van de is *Redmond* en was de naam van het externe domein *contoso.com*, de DNS-namen moeten de indeling *&lt;voorvoegsel >. redmond.contoso.com*. De  *&lt;voorvoegsel >* waarden zijn vooraf bepaalde door Microsoft te beschrijven van het eindpunt dat wordt beveiligd door het certificaat. Bovendien de  *&lt;voorvoegsel >* waarden van de externe infrastructuur eindpunten is afhankelijk van de Azure-Stack-service die gebruikmaakt van de specifieke eindpunt. 
 
 |Implementatiemap|Vereiste certificaatonderwerp en de alternatieve namen voor onderwerp (SAN)|Bereik (per regio)|Subdomein naamruimte|
 |-----|-----|-----|-----|
@@ -93,7 +94,7 @@ De volgende tabel beschrijft de eindpunten en certificaten zijn vereist voor de 
 
 <sup>1</sup> vereist een certificaat met meerdere jokertekens alternatieve onderwerpnamen. Meerdere jokertekens SAN's op één certificaat wordt mogelijk niet ondersteund door alle openbare certificeringsinstanties 
 
-<sup>2</sup> A &#42;. App service.  *&lt;regio >.&lt; FQDN-naam >* jokerteken certificaat kan niet worden gebruikt in plaats van deze drie certificaten (api.appservice. *&lt;regio >. &lt;FQDN-naam >*, ftp.appservice. *&lt;regio >. &lt;FQDN-naam >*, en sso.appservice. *&lt;regio >. &lt;FQDN-naam >*. Het gebruik van afzonderlijke certificaten vereist Appservice expliciet voor deze eindpunten. 
+<sup>2</sup> A &#42;.appservice. *&lt;regio >. &lt;FQDN-naam >* jokerteken certificaat kan niet worden gebruikt in plaats van deze drie certificaten (api.appservice. *&lt;regio >. &lt;FQDN-naam >*, ftp.appservice. *&lt;regio >. &lt;FQDN-naam >*, en sso.appservice. *&lt;regio >. &lt;FQDN-naam >*. Het gebruik van afzonderlijke certificaten vereist Appservice expliciet voor deze eindpunten. 
 
 ## <a name="learn-more"></a>Meer informatie
 Meer informatie over hoe [genereren van PKI-certificaten voor de implementatie van Azure-Stack](azure-stack-get-pki-certs.md). 

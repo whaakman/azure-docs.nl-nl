@@ -2,10 +2,10 @@
 title: Microsoft Azure-Stack probleemoplossing | Microsoft Docs
 description: Azure Stack het oplossen van problemen.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 799a7f7ed7e2373e4cf819a34d5deb362c9e6a3f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b63fdd630647cc970a2d935619b4d3f16b8c0375
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure-Stack probleemoplossing
 
@@ -44,7 +44,7 @@ Dit gedrag is waarschijnlijk alleen het resultaat van het standaardgedrag van ee
 Een Windows Server-installatiekopie en de galerie-item moet worden toegevoegd voordat u virtuele machines in Azure-Stack implementeert.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Start opnieuw op mijn Azure-Stack-host en een aantal virtuele machines niet automatisch wordt gestart.
-De host opnieuw is opgestart, merkt u wellicht de Stack Azure-services zijn niet onmiddellijk beschikbaar.  Dit is omdat de Stack is Azure [infrastructuur VMs](azure-stack-architecture.md#virtual-machine-roles) en RPs duren een beetje om consistentie te controleren, maar wordt uiteindelijk automatisch gestart.
+De host opnieuw is opgestart, merkt u wellicht de Stack Azure-services zijn niet onmiddellijk beschikbaar.  Dit is omdat de Stack is Azure [infrastructuur VMs](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) en RPs duren een beetje om consistentie te controleren, maar wordt uiteindelijk automatisch gestart.
 
 U merkt wellicht ook dat virtuele machines niet automatisch wordt gestart na opnieuw opstarten van de Azure-Stack development kit host tenant. Dit is een bekend probleem en moet een aantal handmatige stappen voor het ze online brengt:
 

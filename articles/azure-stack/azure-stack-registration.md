@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: e51a15b197e875c35997cfe2ac96d673c01a80f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1dc3d9a96b9b27927cc8cc66b5e80987fba4f8ea
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 Registreren van [Azure Stack](azure-stack-poc.md) met Azure kunt u voor het downloaden van marketplace-items van Azure en voor het instellen van rapportage terug naar Microsoft commerce-gegevens. Nadat u Azure-Stack geregistreerd, gebruik is gerapporteerd aan Azure commerce en kunt u deze bekijken in het abonnement dat u gebruikt voor registratie. 
@@ -58,7 +58,7 @@ Verbonden omgevingen hebben toegang tot het internet en Azure. Voor deze omgevin
 
 ### <a name="register-the-azure-stack-resource-provider"></a>De Stack van Azure resourceprovider registreren
 Als u wilt de Azure-Stack-resourceprovider registreren met Azure, Powershell ISE start als beheerder en gebruik de volgende PowerShell-opdrachten. Deze opdrachten wordt:
-- Vraagt u zich aanmelden als een eigenaar van het Azure-abonnement moet worden gebruikt en stel de `EnvironmentName` -parameter voor **AzureCloud**.
+- Vraagt u zich aanmelden als een eigenaar van het Azure-abonnement moet worden gebruikt en stel de **EnvironmentName** -parameter voor **AzureCloud**.
 - Registreer de provider van de Azure-resource **Microsoft.AzureStack**.
 
 1. De Azure-account waarmee u Azure-Stack registreert toevoegen. Uitvoeren als u wilt toevoegen op het account, de **Add-AzureRmAccount** cmdlet. U wordt gevraagd de referenties van uw globale beheerder van Azure-account invoeren en wellicht 2-factor-verificatie op basis van de configuratie van uw account te gebruiken.
@@ -95,7 +95,7 @@ PowerShell om uit te voeren:
 
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
@@ -104,7 +104,7 @@ Set-AzsRegistration `
 
 |Parameter|Beschrijving|
 |-----|-----|
-|CloudAdminCredential|PowerShell-object dat referentie-informatie (gebruikersnaam en wachtwoord) voor de eigenaar van het Azure-abonnement bevat.|
+|CloudAdminCredential|PowerShell-object dat referentie-informatie (gebruikersnaam en wachtwoord) gebruikt voor toegang tot de bevoegde eindpunt bevat.|
 |PrivilegedEndpoint|Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekgegevens verzameld en andere post implementatietaken. Raadpleeg voor meer informatie de [met behulp van het eindpunt van de bevoegde](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint#access-the-privileged-endpoint) artikel.|
 |BillingModel|Het facturering model die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn: capaciteit, PayAsYouUse en ontwikkeling.|
 
@@ -114,7 +114,7 @@ Volg de instructies voor het registreren met behulp van het facturering model pa
 PowerShell om uit te voeren:
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `

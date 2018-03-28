@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7725c5a9a7b6359257efadcc46366a7a360ec69c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2b306cc9dc9bbf435eb70315cc46e7faf4268b47
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Leren werken met PowerShell in Azure-Stack
 
@@ -174,6 +174,9 @@ Nu dat u PowerShell hebt geconfigureerd, kunt u de configuratie van de testen do
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> Als u een resourcegroep, moet u een resourcegroep in uw abonnement hebt. Zie voor meer informatie over abonnementen [Plan, aanbieding, quota en abonnement overzicht](azure-stack-plan-offer-quota-overview.md)
+
 Nadat de resourcegroep is gemaakt, de **Inrichtingsstatus** eigenschap is ingesteld op **geslaagd**.
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -181,10 +184,3 @@ Nadat de resourcegroep is gemaakt, de **Inrichtingsstatus** eigenschap is ingest
 * [CLI installeren en configureren](azure-stack-connect-cli.md)
 
 * [Sjablonen ontwikkelen](user/azure-stack-develop-templates.md)
-
-
-
-
-
-
-
